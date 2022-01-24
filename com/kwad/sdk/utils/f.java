@@ -25,7 +25,7 @@ public class f {
         a.put("OPPO", "com.oppo.market");
         a.put(RomUtils.MANUFACTURER_VIVO, "com.bbk.appstore");
         a.put(RomUtils.MANUFACTURER_XIAOMI, "com.xiaomi.market");
-        a.put(com.kuaishou.weapon.un.g.f55061i, "com.oppo.market");
+        a.put(com.kuaishou.weapon.un.g.f55106i, "com.oppo.market");
         a.put("Meizu", "com.meizu.mstore");
         a.put(ManufacturerUtils.SAMSUNG, "com.sec.android.app.samsungapps");
         a.put("SMARTISAN", "com.smartisanos.appstore");

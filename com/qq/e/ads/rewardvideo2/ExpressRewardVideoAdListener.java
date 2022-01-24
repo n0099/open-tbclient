@@ -3,7 +3,7 @@ package com.qq.e.ads.rewardvideo2;
 import com.qq.e.comm.util.AdError;
 import java.util.Map;
 @Deprecated
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public interface ExpressRewardVideoAdListener {
     void onAdLoaded();
 

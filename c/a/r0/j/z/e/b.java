@@ -19,10 +19,10 @@ public class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final boolean f11310b;
+    public static final boolean f11452b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static volatile b f11311c;
+    public static volatile b f11453c;
     public transient /* synthetic */ FieldHolder $fh;
     public HashMap<String, c.a.r0.j.z.a> a;
 
@@ -39,7 +39,7 @@ public class b {
                 return;
             }
         }
-        f11310b = k.a;
+        f11452b = k.a;
     }
 
     public b() {
@@ -70,14 +70,14 @@ public class b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (f11311c == null) {
+            if (f11453c == null) {
                 synchronized (b.class) {
-                    if (f11311c == null) {
-                        f11311c = new b();
+                    if (f11453c == null) {
+                        f11453c = new b();
                     }
                 }
             }
-            return f11311c;
+            return f11453c;
         }
         return (b) invokeV.objValue;
     }
@@ -112,7 +112,7 @@ public class b {
                 if (remove != null) {
                     a(cVar, "preload used, url = " + B);
                 }
-                if (f11310b) {
+                if (f11452b) {
                     String str = "obtainRequestTask requestType:" + i2 + ";url:" + B + ";task:" + remove;
                 }
                 return remove;
@@ -133,7 +133,7 @@ public class b {
     public void f(c cVar, a.c cVar2) {
         c.a.r0.j.d0.a.a aVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048579, this, cVar, cVar2) == null) || cVar == null || cVar2 == null || (aVar = cVar2.f11255c) == null || aVar.f10942g == null) {
+        if (!(interceptable == null || interceptable.invokeLL(1048579, this, cVar, cVar2) == null) || cVar == null || cVar2 == null || (aVar = cVar2.f11397c) == null || aVar.f11084g == null) {
             return;
         }
         e();

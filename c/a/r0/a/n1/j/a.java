@@ -18,16 +18,16 @@ public abstract class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final boolean f7872c;
+    public static final boolean f8014c;
     public transient /* synthetic */ FieldHolder $fh;
     public double a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Set<Integer> f7873b;
+    public Set<Integer> f8015b;
 
     /* renamed from: c.a.r0.a.n1.j.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static class C0478a {
+    public static class C0487a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -87,7 +87,7 @@ public abstract class a {
                 return;
             }
         }
-        f7872c = k.a;
+        f8014c = k.a;
     }
 
     public a() {
@@ -132,16 +132,16 @@ public abstract class a {
     public void c(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
-            Set<Integer> set = this.f7873b;
+            Set<Integer> set = this.f8015b;
             if (set == null) {
-                this.f7873b = new TreeSet();
+                this.f8015b = new TreeSet();
             } else {
                 set.clear();
             }
-            if (f7872c) {
+            if (f8014c) {
                 String str = "set color " + String.format("#%06X", Integer.valueOf(16777215 & i2));
             }
-            this.f7873b.add(Integer.valueOf(i2));
+            this.f8015b.add(Integer.valueOf(i2));
         }
     }
 }

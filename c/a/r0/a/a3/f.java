@@ -17,13 +17,13 @@ public class f {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public int f5237e;
+        public int f5379e;
 
         /* renamed from: f  reason: collision with root package name */
-        public long[] f5238f;
+        public long[] f5380f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ Runnable f5239g;
+        public final /* synthetic */ Runnable f5381g;
 
         public a(Runnable runnable) {
             Interceptable interceptable = $ic;
@@ -40,22 +40,22 @@ public class f {
                     return;
                 }
             }
-            this.f5239g = runnable;
-            this.f5237e = 5;
-            this.f5238f = new long[5];
+            this.f5381g = runnable;
+            this.f5379e = 5;
+            this.f5380f = new long[5];
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                long[] jArr = this.f5238f;
+                long[] jArr = this.f5380f;
                 System.arraycopy(jArr, 1, jArr, 0, jArr.length - 1);
-                long[] jArr2 = this.f5238f;
+                long[] jArr2 = this.f5380f;
                 jArr2[jArr2.length - 1] = SystemClock.uptimeMillis();
-                if (this.f5238f[0] >= SystemClock.uptimeMillis() - 1000) {
-                    this.f5238f = new long[this.f5237e];
-                    this.f5239g.run();
+                if (this.f5380f[0] >= SystemClock.uptimeMillis() - 1000) {
+                    this.f5380f = new long[this.f5379e];
+                    this.f5381g.run();
                 }
             }
         }

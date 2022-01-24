@@ -39,16 +39,16 @@ public class f extends z {
         public final /* synthetic */ String a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f6087b;
+        public final /* synthetic */ CallbackHandler f6229b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ c.a.r0.a.d2.e f6088c;
+        public final /* synthetic */ c.a.r0.a.d2.e f6230c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ String f6089d;
+        public final /* synthetic */ String f6231d;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ f f6090e;
+        public final /* synthetic */ f f6232e;
 
         public a(f fVar, String str, CallbackHandler callbackHandler, c.a.r0.a.d2.e eVar, String str2) {
             Interceptable interceptable = $ic;
@@ -65,19 +65,19 @@ public class f extends z {
                     return;
                 }
             }
-            this.f6090e = fVar;
+            this.f6232e = fVar;
             this.a = str;
-            this.f6087b = callbackHandler;
-            this.f6088c = eVar;
-            this.f6089d = str2;
+            this.f6229b = callbackHandler;
+            this.f6230c = eVar;
+            this.f6231d = str2;
         }
 
         @Override // com.baidu.searchbox.http.callback.ResponseCallback
         public void onFail(Exception exc) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, exc) == null) {
-                this.f6087b.handleSchemeDispatchCallback(this.a, UnitedSchemeUtility.wrapCallbackParams(501, "网络异常").toString());
-                c.a.r0.a.n2.t.a.b(SwanInterfaceType.NAVIGATE, 2101, this.f6089d, null, exc.getMessage());
+                this.f6229b.handleSchemeDispatchCallback(this.a, UnitedSchemeUtility.wrapCallbackParams(501, "网络异常").toString());
+                c.a.r0.a.n2.t.a.b(SwanInterfaceType.NAVIGATE, 2101, this.f6231d, null, exc.getMessage());
             }
         }
 
@@ -93,7 +93,7 @@ public class f extends z {
             InterceptResult invokeLI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, response, i2)) == null) {
-                this.f6090e.n(response, this.a, this.f6087b, this.f6088c);
+                this.f6232e.n(response, this.a, this.f6229b, this.f6230c);
                 return response;
             }
             return invokeLI.objValue;
@@ -134,7 +134,7 @@ public class f extends z {
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
                 return false;
             } else if (eVar.m0()) {
-                boolean z = z.f6201b;
+                boolean z = z.f6343b;
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "this operation does not supported when app is invisible.");
                 return false;
             } else {
@@ -182,7 +182,7 @@ public class f extends z {
                 schemeHead = BaseWebViewActivity.SHOUBAI_SCHEME;
             }
             buildUpon.scheme(schemeHead);
-            if (z.f6201b) {
+            if (z.f6343b) {
                 buildUpon.build().toString();
             }
             return buildUpon.build();
@@ -202,12 +202,12 @@ public class f extends z {
                     jSONObject2.put("srcAppPage", b2);
                     jSONObject2.put("params", jSONObject);
                     Request build = new Request.Builder().url(c.a.r0.a.c1.a.o().I()).post(RequestBody.create(MediaType.parse(AbstractBceClient.DEFAULT_CONTENT_TYPE), jSONObject2.toString())).build();
-                    if (z.f6201b) {
+                    if (z.f6343b) {
                         String str2 = "appKey :" + str + "\nrequest params" + jSONObject2.toString();
                     }
                     return build;
                 } catch (Exception e2) {
-                    if (z.f6201b) {
+                    if (z.f6343b) {
                         e2.printStackTrace();
                     }
                 }
@@ -222,9 +222,9 @@ public class f extends z {
         if (interceptable == null || interceptable.invokeLLLLL(1048579, this, requestBody, unitedSchemeEntity, str, callbackHandler, eVar) == null) {
             String I = c.a.r0.a.c1.a.o().I();
             c.a.r0.p.d.a aVar = new c.a.r0.p.d.a(I, requestBody, new a(this, str, callbackHandler, eVar, I));
-            aVar.f11453f = true;
-            aVar.f11454g = false;
-            aVar.f11455h = true;
+            aVar.f11595f = true;
+            aVar.f11596g = false;
+            aVar.f11597h = true;
             c.a.r0.p.e.a.g().e(aVar);
             c.a.r0.a.n2.t.a.a(SwanInterfaceType.NAVIGATE);
             UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
@@ -259,7 +259,7 @@ public class f extends z {
                     callbackHandler.handleSchemeDispatchCallback(str, UnitedSchemeUtility.wrapCallbackParams(SchemeRouter.invokeScheme(eVar.getApplicationContext(), k, UnitedSchemeConstants.SCHEME_INVOKE_TYPE_INSIDE) ? 0 : 1001).toString());
                 }
             } catch (Exception e2) {
-                if (z.f6201b) {
+                if (z.f6343b) {
                     e2.getMessage();
                 }
                 callbackHandler.handleSchemeDispatchCallback(str, UnitedSchemeUtility.wrapCallbackParams(201, e2.getMessage()).toString());

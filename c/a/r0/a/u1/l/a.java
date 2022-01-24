@@ -26,7 +26,7 @@ public class a {
     public static final boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final File f9400b;
+    public static final File f9542b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -43,7 +43,7 @@ public class a {
             }
         }
         a = k.a;
-        f9400b = AppRuntime.getAppContext().getExternalCacheDir();
+        f9542b = AppRuntime.getAppContext().getExternalCacheDir();
     }
 
     public static JSONObject a() {
@@ -75,7 +75,7 @@ public class a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return f9400b + File.separator + "swan_perf";
+            return f9542b + File.separator + "swan_perf";
         }
         return (String) invokeV.objValue;
     }
@@ -127,7 +127,7 @@ public class a {
                 } catch (JSONException e2) {
                     e2.printStackTrace();
                 }
-                File file = new File(f9400b, "swan_perf");
+                File file = new File(f9542b, "swan_perf");
                 if (file.exists() || file.mkdirs()) {
                     c.a.r0.w.d.N(jSONObject2.toString(), new File(file, String.format(Locale.getDefault(), "perf_%s.json", Long.valueOf(System.currentTimeMillis() / 1000))));
                 }
@@ -138,7 +138,7 @@ public class a {
     public static void e(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65541, null, str) == null) {
-            File file = new File(f9400b, "swan_stability");
+            File file = new File(f9542b, "swan_stability");
             if (!c.a.r0.w.d.m(file)) {
                 c.a.r0.a.e0.d.k("StartupPerf", "创建目录失败 path" + file);
                 return;

@@ -12,7 +12,7 @@ public class e {
     public static final boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static AtomicInteger f6583b;
+    public static AtomicInteger f6725b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -29,7 +29,7 @@ public class e {
             }
         }
         a = c.a.r0.a.k.a;
-        f6583b = new AtomicInteger(0);
+        f6725b = new AtomicInteger(0);
     }
 
     public static boolean a(String str) {
@@ -44,7 +44,7 @@ public class e {
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
             String str = "master";
             if (c.a.r0.a.h0.o.e.a.h()) {
-                int andIncrement = f6583b.getAndIncrement();
+                int andIncrement = f6725b.getAndIncrement();
                 if (andIncrement >= 1) {
                     str = "master" + andIncrement;
                 }
@@ -62,7 +62,7 @@ public class e {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            int andSet = f6583b.getAndSet(0);
+            int andSet = f6725b.getAndSet(0);
             if (a) {
                 String str = "last master id - " + andSet;
             }

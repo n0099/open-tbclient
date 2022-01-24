@@ -48,7 +48,7 @@ public class ChangeSystemPhotoActivity extends BaseActivity<ChangeSystemPhotoAct
     public c.a.d.f.l.c<c.a.d.n.d.a> mCallback;
     public TextView mDoneButton;
     public BdGridView mGridView;
-    public c.a.s0.s.j0.a mLoadingDialog;
+    public c.a.s0.s.k0.a mLoadingDialog;
     public NavigationBar mNavigationBar;
     public c.a.d.n.d.a mPhotoData;
     public h mResetTask;
@@ -62,7 +62,7 @@ public class ChangeSystemPhotoActivity extends BaseActivity<ChangeSystemPhotoAct
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ ChangeSystemPhotoActivity f41101e;
+        public final /* synthetic */ ChangeSystemPhotoActivity f41129e;
 
         public a(ChangeSystemPhotoActivity changeSystemPhotoActivity) {
             Interceptable interceptable = $ic;
@@ -79,19 +79,19 @@ public class ChangeSystemPhotoActivity extends BaseActivity<ChangeSystemPhotoAct
                     return;
                 }
             }
-            this.f41101e = changeSystemPhotoActivity;
+            this.f41129e = changeSystemPhotoActivity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                if (this.f41101e.currentChoosedID != -1) {
-                    this.f41101e.showDialog();
+                if (this.f41129e.currentChoosedID != -1) {
+                    this.f41129e.showDialog();
                     return;
                 }
-                this.f41101e.setResult(0);
-                this.f41101e.finish();
+                this.f41129e.setResult(0);
+                this.f41129e.finish();
             }
         }
     }
@@ -102,7 +102,7 @@ public class ChangeSystemPhotoActivity extends BaseActivity<ChangeSystemPhotoAct
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ ChangeSystemPhotoActivity f41102e;
+        public final /* synthetic */ ChangeSystemPhotoActivity f41130e;
 
         public b(ChangeSystemPhotoActivity changeSystemPhotoActivity) {
             Interceptable interceptable = $ic;
@@ -119,17 +119,17 @@ public class ChangeSystemPhotoActivity extends BaseActivity<ChangeSystemPhotoAct
                     return;
                 }
             }
-            this.f41102e = changeSystemPhotoActivity;
+            this.f41130e = changeSystemPhotoActivity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f41102e.currentChoosedID == -1) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f41130e.currentChoosedID == -1) {
                 return;
             }
-            ChangeSystemPhotoActivity changeSystemPhotoActivity = this.f41102e;
-            changeSystemPhotoActivity.resetUserPortraits((c.a.s0.z0.a.b) changeSystemPhotoActivity.recommendPhotos.get(this.f41102e.currentChoosedID));
+            ChangeSystemPhotoActivity changeSystemPhotoActivity = this.f41130e;
+            changeSystemPhotoActivity.resetUserPortraits((c.a.s0.z0.a.b) changeSystemPhotoActivity.recommendPhotos.get(this.f41130e.currentChoosedID));
         }
     }
 
@@ -139,7 +139,7 @@ public class ChangeSystemPhotoActivity extends BaseActivity<ChangeSystemPhotoAct
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ ChangeSystemPhotoActivity f41103e;
+        public final /* synthetic */ ChangeSystemPhotoActivity f41131e;
 
         public c(ChangeSystemPhotoActivity changeSystemPhotoActivity) {
             Interceptable interceptable = $ic;
@@ -156,19 +156,19 @@ public class ChangeSystemPhotoActivity extends BaseActivity<ChangeSystemPhotoAct
                     return;
                 }
             }
-            this.f41103e = changeSystemPhotoActivity;
+            this.f41131e = changeSystemPhotoActivity;
         }
 
         @Override // android.widget.AdapterView.OnItemClickListener
         public void onItemClick(AdapterView<?> adapterView, View view, int i2, long j2) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{adapterView, view, Integer.valueOf(i2), Long.valueOf(j2)}) == null) || this.f41103e.recommendPhotos == null || this.f41103e.recommendPhotos.size() <= 0 || this.f41103e.recommendPhotos.size() <= i2 || this.f41103e.recommendPhotos.get(i2) == null) {
+            if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{adapterView, view, Integer.valueOf(i2), Long.valueOf(j2)}) == null) || this.f41131e.recommendPhotos == null || this.f41131e.recommendPhotos.size() <= 0 || this.f41131e.recommendPhotos.size() <= i2 || this.f41131e.recommendPhotos.get(i2) == null) {
                 return;
             }
-            this.f41103e.currentChoosedID = i2;
-            this.f41103e.changeDoneButtonState(true);
-            this.f41103e.mAdapter.b(i2);
-            this.f41103e.mAdapter.notifyDataSetChanged();
+            this.f41131e.currentChoosedID = i2;
+            this.f41131e.changeDoneButtonState(true);
+            this.f41131e.mAdapter.b(i2);
+            this.f41131e.mAdapter.notifyDataSetChanged();
         }
     }
 
@@ -178,7 +178,7 @@ public class ChangeSystemPhotoActivity extends BaseActivity<ChangeSystemPhotoAct
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ ChangeSystemPhotoActivity f41104e;
+        public final /* synthetic */ ChangeSystemPhotoActivity f41132e;
 
         public d(ChangeSystemPhotoActivity changeSystemPhotoActivity) {
             Interceptable interceptable = $ic;
@@ -195,7 +195,7 @@ public class ChangeSystemPhotoActivity extends BaseActivity<ChangeSystemPhotoAct
                     return;
                 }
             }
-            this.f41104e = changeSystemPhotoActivity;
+            this.f41132e = changeSystemPhotoActivity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -222,11 +222,11 @@ public class ChangeSystemPhotoActivity extends BaseActivity<ChangeSystemPhotoAct
                     bVar.d(popularPortraitsInfo.url);
                     bVar.c(popularPortraitsInfo.num);
                     bVar.b(popularPortraitsInfo.myItem);
-                    this.f41104e.recommendPhotos.add(bVar);
+                    this.f41132e.recommendPhotos.add(bVar);
                 }
             }
-            this.f41104e.mAdapter.c(this.f41104e.recommendPhotos);
-            this.f41104e.mAdapter.notifyDataSetChanged();
+            this.f41132e.mAdapter.c(this.f41132e.recommendPhotos);
+            this.f41132e.mAdapter.notifyDataSetChanged();
         }
 
         @Override // com.baidu.sapi2.callback.SapiCallback
@@ -250,7 +250,7 @@ public class ChangeSystemPhotoActivity extends BaseActivity<ChangeSystemPhotoAct
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ ChangeSystemPhotoActivity f41105e;
+        public final /* synthetic */ ChangeSystemPhotoActivity f41133e;
 
         public e(ChangeSystemPhotoActivity changeSystemPhotoActivity) {
             Interceptable interceptable = $ic;
@@ -267,7 +267,7 @@ public class ChangeSystemPhotoActivity extends BaseActivity<ChangeSystemPhotoAct
                     return;
                 }
             }
-            this.f41105e = changeSystemPhotoActivity;
+            this.f41133e = changeSystemPhotoActivity;
         }
 
         @Override // c.a.s0.s.s.a.e
@@ -285,7 +285,7 @@ public class ChangeSystemPhotoActivity extends BaseActivity<ChangeSystemPhotoAct
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ ChangeSystemPhotoActivity f41106e;
+        public final /* synthetic */ ChangeSystemPhotoActivity f41134e;
 
         public f(ChangeSystemPhotoActivity changeSystemPhotoActivity) {
             Interceptable interceptable = $ic;
@@ -302,15 +302,15 @@ public class ChangeSystemPhotoActivity extends BaseActivity<ChangeSystemPhotoAct
                     return;
                 }
             }
-            this.f41106e = changeSystemPhotoActivity;
+            this.f41134e = changeSystemPhotoActivity;
         }
 
         @Override // c.a.s0.s.s.a.e
         public void onClick(c.a.s0.s.s.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
-                this.f41106e.setResult(0);
-                this.f41106e.finish();
+                this.f41134e.setResult(0);
+                this.f41134e.finish();
             }
         }
     }
@@ -350,7 +350,7 @@ public class ChangeSystemPhotoActivity extends BaseActivity<ChangeSystemPhotoAct
                 }
                 ChangeSystemPhotoActivity changeSystemPhotoActivity = this.a;
                 if (changeSystemPhotoActivity.mLoadingDialog == null) {
-                    changeSystemPhotoActivity.mLoadingDialog = new c.a.s0.s.j0.a(changeSystemPhotoActivity.getPageContext());
+                    changeSystemPhotoActivity.mLoadingDialog = new c.a.s0.s.k0.a(changeSystemPhotoActivity.getPageContext());
                     this.a.mLoadingDialog.e(null);
                 }
                 this.a.mLoadingDialog.h(true);
@@ -366,14 +366,14 @@ public class ChangeSystemPhotoActivity extends BaseActivity<ChangeSystemPhotoAct
                 Bitmap p = aVar.p();
                 if (p != null) {
                     if (!this.a.saveFile(TbConfig.PERSON_USER_PIC_TEMP_FILE, p)) {
-                        c.a.s0.s.j0.a aVar2 = this.a.mLoadingDialog;
+                        c.a.s0.s.k0.a aVar2 = this.a.mLoadingDialog;
                         if (aVar2 != null) {
                             aVar2.h(false);
                             return;
                         }
                         return;
                     }
-                    c.a.s0.s.j0.a aVar3 = this.a.mLoadingDialog;
+                    c.a.s0.s.k0.a aVar3 = this.a.mLoadingDialog;
                     if (aVar3 != null) {
                         aVar3.h(false);
                     }
@@ -383,7 +383,7 @@ public class ChangeSystemPhotoActivity extends BaseActivity<ChangeSystemPhotoAct
                     this.a.finish();
                     return;
                 }
-                c.a.s0.s.j0.a aVar4 = this.a.mLoadingDialog;
+                c.a.s0.s.k0.a aVar4 = this.a.mLoadingDialog;
                 if (aVar4 != null) {
                     aVar4.h(false);
                 }
@@ -398,7 +398,7 @@ public class ChangeSystemPhotoActivity extends BaseActivity<ChangeSystemPhotoAct
         public NetWork a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ ChangeSystemPhotoActivity f41107b;
+        public final /* synthetic */ ChangeSystemPhotoActivity f41135b;
 
         public h(ChangeSystemPhotoActivity changeSystemPhotoActivity) {
             Interceptable interceptable = $ic;
@@ -415,7 +415,7 @@ public class ChangeSystemPhotoActivity extends BaseActivity<ChangeSystemPhotoAct
                     return;
                 }
             }
-            this.f41107b = changeSystemPhotoActivity;
+            this.f41135b = changeSystemPhotoActivity;
             this.a = null;
         }
 
@@ -423,7 +423,7 @@ public class ChangeSystemPhotoActivity extends BaseActivity<ChangeSystemPhotoAct
         public void cancel() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f41107b.mResetTask = null;
+                this.f41135b.mResetTask = null;
                 NetWork netWork = this.a;
                 if (netWork != null) {
                     netWork.cancelNetConnect();
@@ -450,7 +450,7 @@ public class ChangeSystemPhotoActivity extends BaseActivity<ChangeSystemPhotoAct
                 NetWork netWork = new NetWork(TbConfig.SERVER_ADDRESS + TbConfig.PROFILE_HEAD_MODIFY);
                 this.a = netWork;
                 try {
-                    netWork.addPostData("pic", this.f41107b.mPhotoData.n());
+                    netWork.addPostData("pic", this.f41135b.mPhotoData.n());
                     str = this.a.postMultiNetData();
                 } catch (Exception e3) {
                     e2 = e3;
@@ -477,24 +477,24 @@ public class ChangeSystemPhotoActivity extends BaseActivity<ChangeSystemPhotoAct
             if (!(interceptable == null || interceptable.invokeL(1048580, this, str) == null) || this.a == null) {
                 return;
             }
-            c.a.s0.s.j0.a aVar = this.f41107b.mLoadingDialog;
+            c.a.s0.s.k0.a aVar = this.f41135b.mLoadingDialog;
             if (aVar != null) {
                 aVar.h(false);
             }
             if (this.a.getNetContext().getResponse().isRequestSuccess()) {
-                new c.a.s0.s.j0.c().c(this.f41107b.getResources().getString(R.string.reset_success));
+                new c.a.s0.s.k0.c().c(this.f41135b.getResources().getString(R.string.reset_success));
                 Intent intent = new Intent();
-                intent.putExtra(ChangeSystemPhotoActivityConfig.NEW_PHOTO_URL, this.f41107b.currentUrl);
+                intent.putExtra(ChangeSystemPhotoActivityConfig.NEW_PHOTO_URL, this.f41135b.currentUrl);
                 intent.putExtra("upload_image_type", 1);
-                this.f41107b.setResult(-1, intent);
-                this.f41107b.finish();
-                if ("flutter".equals(this.f41107b.getIntent().getStringExtra("from"))) {
-                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001380, this.f41107b.currentUrl));
+                this.f41135b.setResult(-1, intent);
+                this.f41135b.finish();
+                if ("flutter".equals(this.f41135b.getIntent().getStringExtra("from"))) {
+                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001380, this.f41135b.currentUrl));
                     return;
                 }
                 return;
             }
-            new c.a.s0.s.j0.c().b(this.a.getNetContext().getResponse().mErrorString);
+            new c.a.s0.s.k0.c().b(this.a.getNetContext().getResponse().mErrorString);
         }
 
         public /* synthetic */ h(ChangeSystemPhotoActivity changeSystemPhotoActivity, a aVar) {

@@ -16,28 +16,28 @@ public class ModelMaterial {
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public a f31110b;
+    public a f31138b;
 
     /* renamed from: c  reason: collision with root package name */
-    public a f31111c;
+    public a f31139c;
 
     /* renamed from: d  reason: collision with root package name */
-    public a f31112d;
+    public a f31140d;
 
     /* renamed from: e  reason: collision with root package name */
-    public a f31113e;
+    public a f31141e;
 
     /* renamed from: f  reason: collision with root package name */
-    public a f31114f;
+    public a f31142f;
 
     /* renamed from: g  reason: collision with root package name */
-    public float f31115g;
+    public float f31143g;
 
     /* renamed from: h  reason: collision with root package name */
-    public float f31116h;
+    public float f31144h;
 
     /* renamed from: i  reason: collision with root package name */
-    public c.b.b.q.a<i> f31117i;
+    public c.b.b.q.a<i> f31145i;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes9.dex */
@@ -112,6 +112,6 @@ public class ModelMaterial {
                 return;
             }
         }
-        this.f31116h = 1.0f;
+        this.f31144h = 1.0f;
     }
 }

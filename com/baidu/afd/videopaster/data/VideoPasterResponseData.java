@@ -216,13 +216,13 @@ public class VideoPasterResponseData extends JsonHttpResponsedMessage {
                                             aVar5.t = 24;
                                         }
                                         a aVar6 = this.pasterData;
-                                        aVar6.f3459g = optString3;
+                                        aVar6.f3596g = optString3;
                                         aVar6.e(this.type);
                                         a aVar7 = this.pasterData;
-                                        aVar7.f3458f = optString2;
-                                        aVar7.f3462j = optInt;
-                                        aVar7.f3461i = optString5;
-                                        aVar7.f3460h = optString4;
+                                        aVar7.f3595f = optString2;
+                                        aVar7.f3599j = optInt;
+                                        aVar7.f3598i = optString5;
+                                        aVar7.f3597h = optString4;
                                         aVar7.o = optString7;
                                         aVar7.n = optString6;
                                         aVar7.p = optString8;

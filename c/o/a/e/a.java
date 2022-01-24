@@ -11,10 +11,10 @@ public class a {
     public static boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static boolean f30250b;
+    public static boolean f30278b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static boolean f30251c;
+    public static boolean f30279c;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {

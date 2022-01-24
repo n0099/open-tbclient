@@ -1,6 +1,7 @@
 package c.g;
 
 import android.util.Base64;
+import com.baidu.searchbox.retrieve.file.util.AESUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -35,7 +36,7 @@ public class x {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, str, str2)) == null) {
             Charset forName = Charset.forName("UTF-8");
             SecretKeySpec secretKeySpec = new SecretKeySpec(Base64.decode(str2.getBytes(forName), 0), "AES");
-            Cipher cipher = Cipher.getInstance("AES/ECB/PKCS5Padding");
+            Cipher cipher = Cipher.getInstance(AESUtil.ECB_TRANSFORMATION);
             cipher.init(2, secretKeySpec);
             return new String(cipher.doFinal(Base64.decode(str.getBytes(forName), 0)), forName);
         }

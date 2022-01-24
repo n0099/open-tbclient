@@ -28,16 +28,16 @@ public class DomainErrorView extends CommonEmptyView {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f39075e;
+        public final /* synthetic */ String f39103e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f39076f;
+        public final /* synthetic */ String f39104f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ e f39077g;
+        public final /* synthetic */ e f39105g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ DomainErrorView f39078h;
+        public final /* synthetic */ DomainErrorView f39106h;
 
         public a(DomainErrorView domainErrorView, String str, String str2, e eVar) {
             Interceptable interceptable = $ic;
@@ -54,17 +54,17 @@ public class DomainErrorView extends CommonEmptyView {
                     return;
                 }
             }
-            this.f39078h = domainErrorView;
-            this.f39075e = str;
-            this.f39076f = str2;
-            this.f39077g = eVar;
+            this.f39106h = domainErrorView;
+            this.f39103e = str;
+            this.f39104f = str2;
+            this.f39105g = eVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                c.a.r0.a.c1.a.u().b(this.f39077g.x(), this.f39077g.N(), this.f39077g.Y(), o0.u(this.f39075e, this.f39076f));
+                c.a.r0.a.c1.a.u().b(this.f39105g.x(), this.f39105g.N(), this.f39105g.Y(), o0.u(this.f39103e, this.f39104f));
             }
         }
     }

@@ -14,13 +14,13 @@ public class k2 {
     public long a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f13446b;
+    public String f13632b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f13447c;
+    public int f13633c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f13448d;
+    public int f13634d;
 
     public k2() {
         Interceptable interceptable = $ic;
@@ -42,9 +42,9 @@ public class k2 {
             return;
         }
         this.a = jSONObject.optLong("birthday_time", 0L);
-        this.f13448d = jSONObject.optInt("birthday_show_status", 0);
-        this.f13446b = jSONObject.optString("constellation", "");
-        this.f13447c = jSONObject.optInt("age", 0);
+        this.f13634d = jSONObject.optInt("birthday_show_status", 0);
+        this.f13632b = jSONObject.optString("constellation", "");
+        this.f13633c = jSONObject.optInt("age", 0);
     }
 
     public void b(BirthdayInfo birthdayInfo) {
@@ -53,8 +53,8 @@ public class k2 {
             return;
         }
         this.a = birthdayInfo.birthday_time.longValue();
-        this.f13448d = birthdayInfo.birthday_show_status.intValue();
-        this.f13446b = birthdayInfo.constellation;
-        this.f13447c = birthdayInfo.age.intValue();
+        this.f13634d = birthdayInfo.birthday_show_status.intValue();
+        this.f13632b = birthdayInfo.constellation;
+        this.f13633c = birthdayInfo.age.intValue();
     }
 }

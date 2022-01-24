@@ -204,14 +204,14 @@ public class b extends f {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             this.k = c.a.r0.a.q2.b.e(TextUtils.equals(this.a, SwanFavorItemData.SCHEME_AUTHORITY_SWAN_GAME) ? 1 : 0);
             this.n = SwanAppNetworkUtils.f().type;
-            if (this.f7983h == null) {
-                this.f7983h = new JSONObject();
+            if (this.f8125h == null) {
+                this.f8125h = new JSONObject();
             }
             try {
-                this.f7983h.put("host", c.a.r0.a.c1.a.n().a());
-                this.f7983h.put("package", this.v);
+                this.f8125h.put("host", c.a.r0.a.c1.a.n().a());
+                this.f8125h.put("package", this.v);
             } catch (JSONException e2) {
-                if (e.f7976j) {
+                if (e.f8118j) {
                     e2.printStackTrace();
                 }
             }
@@ -225,17 +225,17 @@ public class b extends f {
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) || aVar == null) {
             return;
         }
-        if (e.f7976j) {
+        if (e.f8118j) {
             String str = "setCommonData: " + aVar.a();
         }
         this.a = aVar.a;
-        this.f7981f = aVar.f10738c;
-        this.f7978c = aVar.f10737b;
-        this.o = aVar.f10741f;
-        this.p = aVar.f10742g;
-        this.s = aVar.f10743h;
-        this.u = aVar.f10744i;
-        this.l = aVar.f10739d;
-        this.m = aVar.f10740e;
+        this.f8123f = aVar.f10880c;
+        this.f8120c = aVar.f10879b;
+        this.o = aVar.f10883f;
+        this.p = aVar.f10884g;
+        this.s = aVar.f10885h;
+        this.u = aVar.f10886i;
+        this.l = aVar.f10881d;
+        this.m = aVar.f10882e;
     }
 }

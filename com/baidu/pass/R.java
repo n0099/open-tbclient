@@ -44,8 +44,8 @@ public final class R {
     /* loaded from: classes10.dex */
     public static final class drawable {
         public static /* synthetic */ Interceptable $ic = null;
-        public static final int pass_base_ui_common_dialog_bg = 0x7f080f8b;
-        public static final int pass_base_ui_common_dialog_dark_bg = 0x7f080f8c;
+        public static final int pass_base_ui_common_dialog_bg = 0x7f080f93;
+        public static final int pass_base_ui_common_dialog_dark_bg = 0x7f080f94;
         public transient /* synthetic */ FieldHolder $fh;
 
         public drawable() {
@@ -66,14 +66,14 @@ public final class R {
     /* loaded from: classes10.dex */
     public static final class id {
         public static /* synthetic */ Interceptable $ic = null;
-        public static final int negative_btn = 0x7f091772;
-        public static final int pass_base_ui_dialog_content = 0x7f0918a4;
-        public static final int pass_base_ui_dialog_horizontal_split_line = 0x7f0918a5;
-        public static final int pass_base_ui_dialog_root_view = 0x7f0918a6;
-        public static final int pass_base_ui_dialog_title = 0x7f0918a7;
-        public static final int pass_base_ui_dialog_vertical_split_line = 0x7f0918a8;
-        public static final int pass_base_ui_first_btn_layout = 0x7f0918a9;
-        public static final int positive_btn = 0x7f091b3d;
+        public static final int negative_btn = 0x7f09178c;
+        public static final int pass_base_ui_dialog_content = 0x7f0918be;
+        public static final int pass_base_ui_dialog_horizontal_split_line = 0x7f0918bf;
+        public static final int pass_base_ui_dialog_root_view = 0x7f0918c0;
+        public static final int pass_base_ui_dialog_title = 0x7f0918c1;
+        public static final int pass_base_ui_dialog_vertical_split_line = 0x7f0918c2;
+        public static final int pass_base_ui_first_btn_layout = 0x7f0918c3;
+        public static final int positive_btn = 0x7f091b57;
         public transient /* synthetic */ FieldHolder $fh;
 
         public id() {

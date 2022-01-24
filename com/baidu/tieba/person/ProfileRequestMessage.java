@@ -2,9 +2,9 @@ package com.baidu.tieba.person;
 
 import androidx.core.view.InputDeviceCompat;
 import c.a.d.f.p.n;
-import c.a.s0.e1.b0;
+import c.a.s0.d1.b0;
 import c.a.s0.s.k;
-import c.a.t0.u2.b;
+import c.a.t0.v2.b;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;

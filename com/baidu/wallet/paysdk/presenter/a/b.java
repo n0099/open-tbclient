@@ -4,12 +4,12 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.wallet.paysdk.contract.a;
-/* loaded from: classes13.dex */
+/* loaded from: classes2.dex */
 public class b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static a.InterfaceC2012a a(int i2, a.b bVar) {
+    public static a.InterfaceC2018a a(int i2, a.b bVar) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeIL = interceptable.invokeIL(65536, null, i2, bVar)) == null) {
@@ -24,6 +24,6 @@ public class b {
             }
             return new d(bVar);
         }
-        return (a.InterfaceC2012a) invokeIL.objValue;
+        return (a.InterfaceC2018a) invokeIL.objValue;
     }
 }

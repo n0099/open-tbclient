@@ -123,9 +123,9 @@ public final class WorkPublishActivity extends BaseFragmentActivity implements c
     public final CustomMessageListener mSelectForumListener;
     public final CustomMessageListener mShowCanNotSelectTagToastListener;
     public String mTitleTemp;
-    public c.a.t0.r1.c mVideoListData;
-    public c.a.t0.r1.f mVideoSelectData;
-    public c.a.t0.w3.s0.b mWriteModel;
+    public c.a.t0.s1.c mVideoListData;
+    public c.a.t0.s1.f mVideoSelectData;
+    public c.a.t0.x3.s0.b mWriteModel;
     public final TextWatcher mWriteTitleTextWatcher;
     public WorkPublishMixVideoView mixVideoView;
     public int mixVideoViewHeight;
@@ -177,7 +177,7 @@ public final class WorkPublishActivity extends BaseFragmentActivity implements c
         }
 
         @Override // com.baidu.tieba.write.write.work.topic.SelectTopicModel.b
-        public void a(List<c.a.t0.r1.f> topicList) {
+        public void a(List<c.a.t0.s1.f> topicList) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, topicList) == null) {
                 Intrinsics.checkNotNullParameter(topicList, "topicList");
@@ -219,13 +219,13 @@ public final class WorkPublishActivity extends BaseFragmentActivity implements c
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [('#' char), (wrap: java.lang.Object : ?: CAST (java.lang.Object) (wrap: java.lang.String : 0x00a5: INVOKE  (r6v4 java.lang.String A[REMOVE]) = (r6v3 c.a.t0.r1.f) type: VIRTUAL call: c.a.t0.r1.f.e():java.lang.String)), ('#' char)] */
+        /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [('#' char), (wrap: java.lang.Object : ?: CAST (java.lang.Object) (wrap: java.lang.String : 0x00a5: INVOKE  (r6v4 java.lang.String A[REMOVE]) = (r6v3 c.a.t0.s1.f) type: VIRTUAL call: c.a.t0.s1.f.e():java.lang.String)), ('#' char)] */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> responsedMessage) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) {
                 Intrinsics.checkNotNullParameter(responsedMessage, "responsedMessage");
-                if (!(responsedMessage.getData() instanceof c.a.t0.r1.f) || this.a.getEdtTitle() == null) {
+                if (!(responsedMessage.getData() instanceof c.a.t0.s1.f) || this.a.getEdtTitle() == null) {
                     return;
                 }
                 int selectionStart = this.a.getEdtTitle().getSelectionStart();
@@ -238,7 +238,7 @@ public final class WorkPublishActivity extends BaseFragmentActivity implements c
                 }
                 Object data = responsedMessage.getData();
                 if (data != null) {
-                    c.a.t0.r1.f fVar = (c.a.t0.r1.f) data;
+                    c.a.t0.s1.f fVar = (c.a.t0.s1.f) data;
                     if (fVar.j()) {
                         this.a.getEdtTitle().addVideoHotpicSpanGroup(fVar.e(), fVar.g() ? 0 : -1, fVar.f());
                     } else {
@@ -669,10 +669,10 @@ public final class WorkPublishActivity extends BaseFragmentActivity implements c
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public String f49933e;
+        public String f49977e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ WorkPublishActivity f49934f;
+        public final /* synthetic */ WorkPublishActivity f49978f;
 
         public k(WorkPublishActivity workPublishActivity) {
             Interceptable interceptable = $ic;
@@ -689,8 +689,8 @@ public final class WorkPublishActivity extends BaseFragmentActivity implements c
                     return;
                 }
             }
-            this.f49934f = workPublishActivity;
-            this.f49933e = "";
+            this.f49978f = workPublishActivity;
+            this.f49977e = "";
         }
 
         @Override // android.text.TextWatcher
@@ -698,18 +698,18 @@ public final class WorkPublishActivity extends BaseFragmentActivity implements c
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, s) == null) {
                 Intrinsics.checkNotNullParameter(s, "s");
-                if (this.f49934f.getEdtTitle() == null || this.f49934f.getEdtTitle().getText() == null) {
+                if (this.f49978f.getEdtTitle() == null || this.f49978f.getEdtTitle().getText() == null) {
                     return;
                 }
-                if (this.f49934f.mTitleTemp != null && Intrinsics.areEqual(this.f49934f.mTitleTemp, s.toString())) {
-                    this.f49934f.getEdtTitle().setSelection(this.f49934f.getEdtTitle().getSelectionEnd());
+                if (this.f49978f.mTitleTemp != null && Intrinsics.areEqual(this.f49978f.mTitleTemp, s.toString())) {
+                    this.f49978f.getEdtTitle().setSelection(this.f49978f.getEdtTitle().getSelectionEnd());
                     return;
                 }
-                WorkPublishActivity workPublishActivity = this.f49934f;
+                WorkPublishActivity workPublishActivity = this.f49978f;
                 workPublishActivity.mTitleTemp = String.valueOf(workPublishActivity.getEdtTitle().getText());
-                this.f49934f.findAndTransPlainTextVideoHotpic(0);
-                if (this.f49934f.mHighLightController != null) {
-                    this.f49934f.mHighLightController.h(this.f49934f.getEdtTitle());
+                this.f49978f.findAndTransPlainTextVideoHotpic(0);
+                if (this.f49978f.mHighLightController != null) {
+                    this.f49978f.mHighLightController.h(this.f49978f.getEdtTitle());
                 }
             }
         }
@@ -723,7 +723,7 @@ public final class WorkPublishActivity extends BaseFragmentActivity implements c
                 if (obj == null) {
                     obj = "";
                 }
-                this.f49933e = obj;
+                this.f49977e = obj;
             }
         }
 
@@ -732,13 +732,13 @@ public final class WorkPublishActivity extends BaseFragmentActivity implements c
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLIII(Constants.METHOD_SEND_USER_MSG, this, s, i2, i3, i4) == null) {
                 Intrinsics.checkNotNullParameter(s, "s");
-                String str = this.f49933e;
+                String str = this.f49977e;
                 int length = str != null ? str.length() : 0;
                 String obj = s.toString();
                 if ((obj != null ? obj.length() : 0) > length) {
-                    this.f49934f.tryOpenSelectTopicLayout(s, i2, i4);
+                    this.f49978f.tryOpenSelectTopicLayout(s, i2, i4);
                 }
-                this.f49934f.updateTitleLimit(s);
+                this.f49978f.updateTitleLimit(s);
             }
         }
     }
@@ -821,17 +821,17 @@ public final class WorkPublishActivity extends BaseFragmentActivity implements c
     private final int checkTitleSpanLength(int i2) {
         InterceptResult invokeI;
         SpanGroupManager spanGroupManager;
-        List<c.a.s0.s.j0.s.e> E;
+        List<c.a.s0.s.k0.s.e> G;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(65550, this, i2)) == null) {
             SpanGroupEditText edtTitle = getEdtTitle();
             Integer num = null;
-            if (edtTitle != null && (spanGroupManager = edtTitle.getSpanGroupManager()) != null && (E = spanGroupManager.E()) != null) {
-                num = Integer.valueOf(E.size());
+            if (edtTitle != null && (spanGroupManager = edtTitle.getSpanGroupManager()) != null && (G = spanGroupManager.G()) != null) {
+                num = Integer.valueOf(G.size());
             }
             Intrinsics.checkNotNull(num);
             if (num.intValue() > 0) {
-                String s = getEdtTitle().getSpanGroupManager().E().get(0).s();
+                String s = getEdtTitle().getSpanGroupManager().G().get(0).s();
                 return i2 >= s.length() ? (i2 - s.length()) + 1 : i2;
             }
             return i2;
@@ -861,7 +861,7 @@ public final class WorkPublishActivity extends BaseFragmentActivity implements c
                 if (i2 < editableText.length() && matcher.find(i2)) {
                     int start = matcher.start();
                     int end = matcher.end();
-                    c.a.t0.r1.f isVideoHotpic = isVideoHotpic(matcher.group(1).toString());
+                    c.a.t0.s1.f isVideoHotpic = isVideoHotpic(matcher.group(1).toString());
                     if (isVideoHotpic != null && isVideoHotpic.j()) {
                         if (c.a.s0.u0.a.g(editableText, start)) {
                             Object[] spans = editableText.getSpans(start, end + 1, Object.class);
@@ -876,7 +876,7 @@ public final class WorkPublishActivity extends BaseFragmentActivity implements c
                                 }
                             }
                             getEdtTitle().getSpanGroupManager().delete(start, end, true);
-                        } else if (!getEdtTitle().getSpanGroupManager().K(start, end)) {
+                        } else if (!getEdtTitle().getSpanGroupManager().M(start, end)) {
                             getEdtTitle().getSpanGroupManager().h(isVideoHotpic.e(), start);
                             this.mVideoSelectData = isVideoHotpic;
                             SelectTopicToolBar selectTopicToolBar = this.topicToolBar;
@@ -899,7 +899,7 @@ public final class WorkPublishActivity extends BaseFragmentActivity implements c
                     }
                     findAndTransPlainTextVideoHotpic(end);
                 }
-                if (getEdtTitle().getSpanGroupManager().E().size() == 0) {
+                if (getEdtTitle().getSpanGroupManager().G().size() == 0) {
                     this.mVideoSelectData = null;
                     SelectTopicToolBar selectTopicToolBar2 = this.topicToolBar;
                     if (selectTopicToolBar2 == null) {
@@ -934,7 +934,7 @@ public final class WorkPublishActivity extends BaseFragmentActivity implements c
     private final void getTopicData() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65554, this) == null) {
-            final c.a.t0.r1.f fVar = new c.a.t0.r1.f(getIntent().getStringExtra("topic"), c.a.d.f.m.b.g(getIntent().getStringExtra("topicId"), 0L), c.a.d.f.m.b.e(getIntent().getStringExtra("is_video_topic"), 0) == 1);
+            final c.a.t0.s1.f fVar = new c.a.t0.s1.f(getIntent().getStringExtra("topic"), c.a.d.f.m.b.g(getIntent().getStringExtra("topicId"), 0L), c.a.d.f.m.b.e(getIntent().getStringExtra("is_video_topic"), 0) == 1);
             if (this.isDraftData) {
                 fVar.l(true);
                 c.a.d.f.m.e.a().postDelayed(new Runnable() { // from class: c.a.t0.p4.e0.p.d
@@ -945,7 +945,7 @@ public final class WorkPublishActivity extends BaseFragmentActivity implements c
                     public final void run() {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                            WorkPublishActivity.m68getTopicData$lambda1(c.a.t0.r1.f.this);
+                            WorkPublishActivity.m68getTopicData$lambda1(c.a.t0.s1.f.this);
                         }
                     }
                 }, 300L);
@@ -956,7 +956,7 @@ public final class WorkPublishActivity extends BaseFragmentActivity implements c
     }
 
     /* renamed from: getTopicData$lambda-1  reason: not valid java name */
-    public static final void m68getTopicData$lambda1(c.a.t0.r1.f toplist) {
+    public static final void m68getTopicData$lambda1(c.a.t0.s1.f toplist) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65555, null, toplist) == null) {
             Intrinsics.checkNotNullParameter(toplist, "$toplist");
@@ -1107,7 +1107,7 @@ public final class WorkPublishActivity extends BaseFragmentActivity implements c
             }
             if (this$0.getNavPost().getAlpha() == 1.0f) {
                 this$0.doPost();
-                c.a.t0.r1.f fVar = this$0.mVideoSelectData;
+                c.a.t0.s1.f fVar = this$0.mVideoSelectData;
                 if (fVar != null && fVar.j()) {
                     StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.KEY_WORK_VIDEO_HAS_TOPIC);
                     Long d2 = fVar.d();
@@ -1583,7 +1583,7 @@ public final class WorkPublishActivity extends BaseFragmentActivity implements c
                         WorkPublishActivity.m87showLocPermissionDialog$lambda20(WorkPublishActivity.this, aVar2);
                     }
                 }
-            }).setNegativeButton(c.a.t0.p4.j.cancel, r.f21219e).create(getPageContext());
+            }).setNegativeButton(c.a.t0.p4.j.cancel, r.f21455e).create(getPageContext());
             aVar.show();
         }
     }
@@ -1665,11 +1665,11 @@ public final class WorkPublishActivity extends BaseFragmentActivity implements c
             writeData.setTitle(value);
             writeData.setContent(getViewModel().getDesc().getValue());
             SelectForumData value3 = getViewModel().getBarInfo().getValue();
-            c.a.t0.w3.s0.b bVar = null;
+            c.a.t0.x3.s0.b bVar = null;
             writeData.setForumId(value3 == null ? null : value3.forumId);
             SelectForumData value4 = getViewModel().getBarInfo().getValue();
             writeData.setForumName(value4 == null ? null : value4.forumName);
-            writeData.setHasLocationData((getViewModel().getPosInfo().getValue() == null || c.a.t0.w3.o0.b.a().d()) ? false : true);
+            writeData.setHasLocationData((getViewModel().getPosInfo().getValue() == null || c.a.t0.x3.o0.b.a().d()) ? false : true);
             writeData.setWork(true);
             writeData.setWorkDraft(this.isDraftData);
             VideoCategoryClassData videoCategoryClassData = new VideoCategoryClassData();
@@ -1688,19 +1688,19 @@ public final class WorkPublishActivity extends BaseFragmentActivity implements c
                 writeData.setStatisticFrom(Integer.parseInt(a3));
             }
             boolean booleanExtra = getIntent().getBooleanExtra(WorkPublishActivityConfig.NEED_PUBLISH_END_JUMP_HOME, false);
-            c.a.t0.w3.s0.b bVar2 = this.mWriteModel;
+            c.a.t0.x3.s0.b bVar2 = this.mWriteModel;
             if (bVar2 == null) {
                 Intrinsics.throwUninitializedPropertyAccessException("mWriteModel");
                 bVar2 = null;
             }
             bVar2.H(writeData);
-            c.a.t0.w3.s0.b bVar3 = this.mWriteModel;
+            c.a.t0.x3.s0.b bVar3 = this.mWriteModel;
             if (bVar3 == null) {
                 Intrinsics.throwUninitializedPropertyAccessException("mWriteModel");
                 bVar3 = null;
             }
             bVar3.F(booleanExtra);
-            c.a.t0.w3.s0.b bVar4 = this.mWriteModel;
+            c.a.t0.x3.s0.b bVar4 = this.mWriteModel;
             if (bVar4 == null) {
                 Intrinsics.throwUninitializedPropertyAccessException("mWriteModel");
             } else {
@@ -1709,14 +1709,14 @@ public final class WorkPublishActivity extends BaseFragmentActivity implements c
             bVar.I();
             if (booleanExtra) {
                 MainTabActivityConfig createNormalCfg = new MainTabActivityConfig(getPageContext().getPageActivity()).createNormalCfg(2);
-                if (c.a.s0.b.d.i() && TbadkCoreApplication.isLogin() && c.a.s0.s.h0.b.k().l("key_home_concern_all_status", 0) == 1) {
+                if (c.a.s0.b.d.i() && TbadkCoreApplication.isLogin() && c.a.s0.s.i0.b.k().l("key_home_concern_all_status", 0) == 1) {
                     createNormalCfg.setSubTabName(getString(c.a.t0.p4.j.attention_person));
                 } else {
                     createNormalCfg.setSubTabName(getString(c.a.t0.p4.j.tab_name_concern));
                 }
                 createNormalCfg.start();
-            } else if (c.a.t0.w3.s0.b.k().i() == null) {
-                c.a.t0.w3.s0.b k2 = c.a.t0.w3.s0.b.k();
+            } else if (c.a.t0.x3.s0.b.k().i() == null) {
+                c.a.t0.x3.s0.b k2 = c.a.t0.x3.s0.b.k();
                 if (!k2.r() && !k2.s()) {
                     VideoWorkListActivityConfig videoWorkListActivityConfig = new VideoWorkListActivityConfig(this);
                     videoWorkListActivityConfig.addType("1");
@@ -1724,7 +1724,7 @@ public final class WorkPublishActivity extends BaseFragmentActivity implements c
                 } else {
                     o2 o2Var = new o2();
                     o2Var.a = true;
-                    o2Var.f13468b = k2.j();
+                    o2Var.f13654b = k2.j();
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921625, o2Var));
                 }
             } else {
@@ -2255,23 +2255,23 @@ public final class WorkPublishActivity extends BaseFragmentActivity implements c
         }
     }
 
-    public final c.a.t0.r1.f isVideoHotpic(String content) {
+    public final c.a.t0.s1.f isVideoHotpic(String content) {
         InterceptResult invokeL;
-        c.a.t0.r1.c cVar;
+        c.a.t0.s1.c cVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048598, this, content)) == null) {
             Intrinsics.checkNotNullParameter(content, "content");
             if (!TextUtils.isEmpty(content) && (cVar = this.mVideoListData) != null) {
                 if (!ListUtils.isEmpty(cVar == null ? null : cVar.c())) {
-                    c.a.t0.r1.c cVar2 = this.mVideoListData;
-                    List<c.a.t0.r1.f> c2 = cVar2 == null ? null : cVar2.c();
+                    c.a.t0.s1.c cVar2 = this.mVideoListData;
+                    List<c.a.t0.s1.f> c2 = cVar2 == null ? null : cVar2.c();
                     if (c2 != null) {
                         int i2 = 0;
                         int size = c2.size() - 1;
                         if (size >= 0) {
                             while (true) {
                                 int i3 = i2 + 1;
-                                c.a.t0.r1.f fVar = c2.get(i2);
+                                c.a.t0.s1.f fVar = c2.get(i2);
                                 if (fVar != null && Intrinsics.areEqual(content, fVar.e())) {
                                     return fVar;
                                 }
@@ -2288,7 +2288,7 @@ public final class WorkPublishActivity extends BaseFragmentActivity implements c
             }
             return null;
         }
-        return (c.a.t0.r1.f) invokeL.objValue;
+        return (c.a.t0.s1.f) invokeL.objValue;
     }
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity
@@ -2357,13 +2357,13 @@ public final class WorkPublishActivity extends BaseFragmentActivity implements c
             setViewModel((WorkPublishViewModel) viewModel);
             LocationModel locationModel = new LocationModel(getPageContext());
             this.mLocationModel = locationModel;
-            c.a.t0.w3.s0.b bVar = null;
+            c.a.t0.x3.s0.b bVar = null;
             if (locationModel == null) {
                 Intrinsics.throwUninitializedPropertyAccessException("mLocationModel");
                 locationModel = null;
             }
             locationModel.O(this.mOnLocationCallBack);
-            c.a.t0.w3.s0.b k2 = c.a.t0.w3.s0.b.k();
+            c.a.t0.x3.s0.b k2 = c.a.t0.x3.s0.b.k();
             Intrinsics.checkNotNullExpressionValue(k2, "getInstance()");
             this.mWriteModel = k2;
             if (k2 == null) {
@@ -2428,7 +2428,7 @@ public final class WorkPublishActivity extends BaseFragmentActivity implements c
     }
 
     @Override // com.baidu.tieba.hottopicselect.HotTopicSelectModel.c
-    public void onHotSelectDataNoSearchSuccess(c.a.t0.r1.c cVar, c.a.t0.r1.c cVar2, c.a.t0.r1.c cVar3) {
+    public void onHotSelectDataNoSearchSuccess(c.a.t0.s1.c cVar, c.a.t0.s1.c cVar2, c.a.t0.s1.c cVar3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048603, this, cVar, cVar2, cVar3) == null) {
             if (this.mVideoListData == null) {
@@ -2460,7 +2460,7 @@ public final class WorkPublishActivity extends BaseFragmentActivity implements c
     }
 
     @Override // com.baidu.tieba.hottopicselect.HotTopicSelectModel.c
-    public void onHotSelectDataSearchSuccess(c.a.t0.r1.c cVar) {
+    public void onHotSelectDataSearchSuccess(c.a.t0.s1.c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048605, this, cVar) == null) {
             SelectTopicLayout selectTopicLayout = this.topicLayout;
@@ -2789,7 +2789,7 @@ public final class WorkPublishActivity extends BaseFragmentActivity implements c
     public final void stopTask() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048633, this) == null) {
-            c.a.t0.w3.s0.b bVar = this.mWriteModel;
+            c.a.t0.x3.s0.b bVar = this.mWriteModel;
             HotTopicSelectModel hotTopicSelectModel = null;
             if (bVar == null) {
                 Intrinsics.throwUninitializedPropertyAccessException("mWriteModel");

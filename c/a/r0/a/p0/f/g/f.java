@@ -27,13 +27,13 @@ public class f extends z {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f8208e;
+        public final /* synthetic */ CallbackHandler f8350e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ UnitedSchemeEntity f8209f;
+        public final /* synthetic */ UnitedSchemeEntity f8351f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ JSONObject f8210g;
+        public final /* synthetic */ JSONObject f8352g;
 
         public a(CallbackHandler callbackHandler, UnitedSchemeEntity unitedSchemeEntity, JSONObject jSONObject) {
             Interceptable interceptable = $ic;
@@ -50,9 +50,9 @@ public class f extends z {
                     return;
                 }
             }
-            this.f8208e = callbackHandler;
-            this.f8209f = unitedSchemeEntity;
-            this.f8210g = jSONObject;
+            this.f8350e = callbackHandler;
+            this.f8351f = unitedSchemeEntity;
+            this.f8352g = jSONObject;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -62,44 +62,44 @@ public class f extends z {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, iVar) == null) {
                 if (!c.a.r0.a.h2.c.d.h(iVar)) {
-                    c.a.r0.a.h2.c.d.p(iVar, this.f8208e, this.f8209f);
+                    c.a.r0.a.h2.c.d.p(iVar, this.f8350e, this.f8351f);
                     return;
                 }
-                if (this.f8210g.has("emitLive")) {
-                    c.a.r0.a.x1.a.a.Q(c.a.r0.a.p0.f.a.b(this.f8210g.optInt("emitLive")));
+                if (this.f8352g.has("emitLive")) {
+                    c.a.r0.a.x1.a.a.Q(c.a.r0.a.p0.f.a.b(this.f8352g.optInt("emitLive")));
                 }
-                if (this.f8210g.has("emitHttps")) {
-                    c.a.r0.a.x1.a.a.N(c.a.r0.a.p0.f.a.b(this.f8210g.optInt("emitHttps")));
+                if (this.f8352g.has("emitHttps")) {
+                    c.a.r0.a.x1.a.a.N(c.a.r0.a.p0.f.a.b(this.f8352g.optInt("emitHttps")));
                 }
-                if (this.f8210g.has("emitDomain")) {
-                    c.a.r0.a.x1.a.a.T(!c.a.r0.a.p0.f.a.b(this.f8210g.optInt("emitDomain")));
-                    c.a.r0.a.x1.a.a.W(!c.a.r0.a.p0.f.a.b(this.f8210g.optInt("emitDomain")));
+                if (this.f8352g.has("emitDomain")) {
+                    c.a.r0.a.x1.a.a.T(!c.a.r0.a.p0.f.a.b(this.f8352g.optInt("emitDomain")));
+                    c.a.r0.a.x1.a.a.W(!c.a.r0.a.p0.f.a.b(this.f8352g.optInt("emitDomain")));
                 }
-                if (this.f8210g.has("emitWss")) {
-                    c.a.r0.a.x1.a.a.P(c.a.r0.a.p0.f.a.b(this.f8210g.optInt("emitWss")));
+                if (this.f8352g.has("emitWss")) {
+                    c.a.r0.a.x1.a.a.P(c.a.r0.a.p0.f.a.b(this.f8352g.optInt("emitWss")));
                 }
-                if (this.f8210g.has("emitLaunchMode")) {
-                    c.a.r0.a.x1.a.a.U(c.a.r0.a.p0.f.a.b(this.f8210g.optInt("emitLaunchMode")));
+                if (this.f8352g.has("emitLaunchMode")) {
+                    c.a.r0.a.x1.a.a.U(c.a.r0.a.p0.f.a.b(this.f8352g.optInt("emitLaunchMode")));
                 }
-                if (this.f8210g.has("debugEnvData")) {
-                    c.a.r0.a.x1.a.a.K(this.f8210g.optString("debugEnvData"));
+                if (this.f8352g.has("debugEnvData")) {
+                    c.a.r0.a.x1.a.a.K(this.f8352g.optString("debugEnvData"));
                 }
-                if (this.f8210g.has("emitReplaceJsNative")) {
-                    c.a.r0.a.x1.a.a.O(c.a.r0.a.p0.f.a.b(this.f8210g.optInt("emitReplaceJsNative")));
+                if (this.f8352g.has("emitReplaceJsNative")) {
+                    c.a.r0.a.x1.a.a.O(c.a.r0.a.p0.f.a.b(this.f8352g.optInt("emitReplaceJsNative")));
                 }
-                if (this.f8210g.has("emitReplaceV8Core")) {
-                    g.v.e(g.v.b(this.f8210g.optInt("emitReplaceV8Core")));
+                if (this.f8352g.has("emitReplaceV8Core")) {
+                    g.v.e(g.v.b(this.f8352g.optInt("emitReplaceV8Core")));
                 }
-                if (this.f8210g.has("emitHostEnv")) {
-                    c.a.r0.a.x1.a.a.S(this.f8210g.optInt("emitHostEnv"));
+                if (this.f8352g.has("emitHostEnv")) {
+                    c.a.r0.a.x1.a.a.S(this.f8352g.optInt("emitHostEnv"));
                 }
-                if (this.f8210g.has("openStabilityCollector")) {
-                    c.a.r0.a.p0.f.f.b(c.a.r0.a.p0.f.a.b(this.f8210g.optInt("openStabilityCollector")));
+                if (this.f8352g.has("openStabilityCollector")) {
+                    c.a.r0.a.p0.f.f.b(c.a.r0.a.p0.f.a.b(this.f8352g.optInt("openStabilityCollector")));
                 }
-                if (this.f8210g.has("openPerformanceTesting")) {
-                    c.a.r0.a.p0.f.e.b(c.a.r0.a.p0.f.a.b(this.f8210g.optInt("openPerformanceTesting")));
+                if (this.f8352g.has("openPerformanceTesting")) {
+                    c.a.r0.a.p0.f.e.b(c.a.r0.a.p0.f.a.b(this.f8352g.optInt("openPerformanceTesting")));
                 }
-                UnitedSchemeUtility.callCallback(this.f8208e, this.f8209f, UnitedSchemeUtility.wrapCallbackParams(0));
+                UnitedSchemeUtility.callCallback(this.f8350e, this.f8351f, UnitedSchemeUtility.wrapCallbackParams(0));
                 c.a.r0.a.x1.a.a.Z();
             }
         }
@@ -140,7 +140,7 @@ public class f extends z {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65538, null, unitedSchemeEntity, callbackHandler, jSONObject, jSONObject2)) == null) {
-            if (!z.f6201b) {
+            if (!z.f6343b) {
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(302);
                 return false;
             } else if (!TextUtils.equals(jSONObject.optString("category"), "swanGame")) {

@@ -74,39 +74,39 @@ public class ShareItem {
     public String a0;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f40762b;
+    public boolean f40790b;
     public int b0;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f40763c;
+    public boolean f40791c;
     public WeakReference<Bitmap> c0;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f40764d;
+    public boolean f40792d;
     public Bundle d0;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f40765e;
+    public boolean f40793e;
     public boolean e0;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f40766f;
+    public boolean f40794f;
     public boolean f0;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f40767g;
+    public boolean f40795g;
     public boolean g0;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f40768h;
+    public boolean f40796h;
     public boolean h0;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f40769i;
+    public boolean f40797i;
     public boolean i0;
 
     /* renamed from: j  reason: collision with root package name */
-    public boolean f40770j;
+    public boolean f40798j;
     public int j0;
     public boolean k;
     public String k0;
@@ -171,15 +171,15 @@ public class ShareItem {
             }
         }
         this.a = false;
-        this.f40762b = false;
-        this.f40763c = false;
-        this.f40764d = false;
-        this.f40765e = false;
-        this.f40766f = false;
-        this.f40767g = false;
-        this.f40768h = false;
-        this.f40769i = false;
-        this.f40770j = false;
+        this.f40790b = false;
+        this.f40791c = false;
+        this.f40792d = false;
+        this.f40793e = false;
+        this.f40794f = false;
+        this.f40795g = false;
+        this.f40796h = false;
+        this.f40797i = false;
+        this.f40798j = false;
         this.k = false;
         this.l = false;
         this.m = false;
@@ -454,18 +454,18 @@ public class ShareItem {
                     }
                     forwardInfo.showText = e2Var.z1.d();
                     OriginalThreadInfo originalThreadInfo = e2Var.z1;
-                    forwardInfo.showPicUrl = originalThreadInfo.f40129c;
+                    forwardInfo.showPicUrl = originalThreadInfo.f40157c;
                     forwardInfo.showType = originalThreadInfo.a;
                     forwardInfo.originalBaijiahaoData = originalThreadInfo.p;
-                    forwardInfo.originalTid = originalThreadInfo.f40132f;
+                    forwardInfo.originalTid = originalThreadInfo.f40160f;
                     if (i2 == 1) {
                         if (postData != null && postData.N() != null) {
                             str = postData.N().toString();
                         } else if (e2Var.o() != null) {
                             str = e2Var.p().toString();
                         }
-                    } else if (e2Var.Q2() != null) {
-                        str = e2Var.Q2().toString();
+                    } else if (e2Var.R2() != null) {
+                        str = e2Var.R2().toString();
                     }
                     if (!TextUtils.isEmpty(str)) {
                         forwardInfo.transmitOriginThreadComment = str;
@@ -486,10 +486,10 @@ public class ShareItem {
                     OriginalThreadInfo l = OriginalThreadInfo.l(e2Var);
                     if (l != null) {
                         forwardInfo.showText = l.d();
-                        forwardInfo.showPicUrl = l.f40129c;
+                        forwardInfo.showPicUrl = l.f40157c;
                         forwardInfo.showType = l.a;
                     }
-                    forwardInfo.originalTid = e2Var.v1();
+                    forwardInfo.originalTid = e2Var.w1();
                 }
                 if (i2 == 1) {
                     OriginalThreadInfo originalThreadInfo2 = e2Var.z1;
@@ -522,8 +522,8 @@ public class ShareItem {
                 }
                 if (e2Var.L() != null) {
                     if (e2Var.L().oriUgcType == 2) {
-                        if (e2Var.t1() != null) {
-                            forwardInfo.video_duration = String.valueOf(e2Var.t1().video_duration);
+                        if (e2Var.u1() != null) {
+                            forwardInfo.video_duration = String.valueOf(e2Var.u1().video_duration);
                         }
                     } else if ((e2Var.L().oriUgcType == 3 || e2Var.L().oriUgcType == 4) && e2Var.J() != null && !TextUtils.isEmpty(e2Var.J().getPortrait())) {
                         if (e2Var.J().getPortrait().startsWith("http")) {

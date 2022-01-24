@@ -15,22 +15,22 @@ public abstract class q {
     public Context a;
 
     /* renamed from: b  reason: collision with root package name */
-    public View f21290b;
+    public View f21526b;
 
     /* renamed from: c  reason: collision with root package name */
-    public View f21291c;
+    public View f21527c;
 
     /* renamed from: d  reason: collision with root package name */
-    public a f21292d;
+    public a f21528d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f21293e;
+    public int f21529e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Rect f21294f;
+    public Rect f21530f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Rect f21295g;
+    public Rect f21531g;
 
     /* loaded from: classes8.dex */
     public interface a {
@@ -52,19 +52,19 @@ public abstract class q {
                 return;
             }
         }
-        this.f21293e = 4;
-        this.f21294f = new Rect();
-        this.f21295g = new Rect();
+        this.f21529e = 4;
+        this.f21530f = new Rect();
+        this.f21531g = new Rect();
         this.a = context;
     }
 
     public void a(View view, View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, view, view2) == null) {
-            this.f21290b = view;
-            this.f21291c = view2;
+            this.f21526b = view;
+            this.f21527c = view2;
             if (view2 != null) {
-                view2.getGlobalVisibleRect(this.f21294f);
+                view2.getGlobalVisibleRect(this.f21530f);
             }
         }
     }
@@ -87,7 +87,7 @@ public abstract class q {
     public void e(a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, aVar) == null) {
-            this.f21292d = aVar;
+            this.f21528d = aVar;
         }
     }
 

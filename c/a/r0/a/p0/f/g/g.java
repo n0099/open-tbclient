@@ -30,31 +30,31 @@ public class g extends z {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: j  reason: collision with root package name */
-    public static final String f8211j;
+    public static final String f8353j;
     public static final String k;
     public static final String l;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f8212c;
+    public boolean f8354c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f8213d;
+    public boolean f8355d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f8214e;
+    public boolean f8356e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f8215f;
+    public String f8357f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f8216g;
+    public String f8358g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f8217h;
+    public String f8359h;
 
     /* renamed from: i  reason: collision with root package name */
-    public JSONObject f8218i;
+    public JSONObject f8360i;
 
     /* loaded from: classes.dex */
     public class a implements c.a.r0.a.z2.g1.c<c.a.r0.a.h2.c.i<b.e>> {
@@ -62,19 +62,19 @@ public class g extends z {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f8219e;
+        public final /* synthetic */ CallbackHandler f8361e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ JSONObject f8220f;
+        public final /* synthetic */ JSONObject f8362f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ Context f8221g;
+        public final /* synthetic */ Context f8363g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ c.a.r0.a.d2.e f8222h;
+        public final /* synthetic */ c.a.r0.a.d2.e f8364h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final /* synthetic */ g f8223i;
+        public final /* synthetic */ g f8365i;
 
         public a(g gVar, CallbackHandler callbackHandler, JSONObject jSONObject, Context context, c.a.r0.a.d2.e eVar) {
             Interceptable interceptable = $ic;
@@ -91,11 +91,11 @@ public class g extends z {
                     return;
                 }
             }
-            this.f8223i = gVar;
-            this.f8219e = callbackHandler;
-            this.f8220f = jSONObject;
-            this.f8221g = context;
-            this.f8222h = eVar;
+            this.f8365i = gVar;
+            this.f8361e = callbackHandler;
+            this.f8362f = jSONObject;
+            this.f8363g = context;
+            this.f8364h = eVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -105,24 +105,24 @@ public class g extends z {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, iVar) == null) {
                 if (!c.a.r0.a.h2.c.d.h(iVar)) {
-                    c.a.r0.a.h2.c.d.q(iVar, this.f8219e, this.f8223i.f8217h);
+                    c.a.r0.a.h2.c.d.q(iVar, this.f8361e, this.f8365i.f8359h);
                     return;
                 }
-                this.f8223i.f8218i = new JSONObject();
-                c.a.r0.a.o2.g.h.a().edit().putInt("aiapps_web_mode_cts_use_key", this.f8220f.optInt("loadCts")).apply();
-                if (this.f8220f.optInt("loadCts") == 1) {
-                    this.f8223i.u(this.f8221g);
-                    g gVar = this.f8223i;
-                    gVar.w(this.f8222h, gVar.f8215f, this.f8219e, "master");
-                    g gVar2 = this.f8223i;
-                    gVar2.w(this.f8222h, gVar2.f8216g, this.f8219e, "slave");
-                    this.f8223i.f8214e = true;
+                this.f8365i.f8360i = new JSONObject();
+                c.a.r0.a.o2.g.h.a().edit().putInt("aiapps_web_mode_cts_use_key", this.f8362f.optInt("loadCts")).apply();
+                if (this.f8362f.optInt("loadCts") == 1) {
+                    this.f8365i.u(this.f8363g);
+                    g gVar = this.f8365i;
+                    gVar.w(this.f8364h, gVar.f8357f, this.f8361e, "master");
+                    g gVar2 = this.f8365i;
+                    gVar2.w(this.f8364h, gVar2.f8358g, this.f8361e, "slave");
+                    this.f8365i.f8356e = true;
                     return;
                 }
-                this.f8223i.f8214e = false;
+                this.f8365i.f8356e = false;
                 c.a.r0.a.x1.a.a.R(false);
                 c.a.r0.a.x1.a.a.Z();
-                this.f8219e.handleSchemeDispatchCallback(this.f8223i.f8217h, UnitedSchemeUtility.wrapCallbackParams(0).toString());
+                this.f8361e.handleSchemeDispatchCallback(this.f8365i.f8359h, UnitedSchemeUtility.wrapCallbackParams(0).toString());
             }
         }
     }
@@ -134,13 +134,13 @@ public class g extends z {
         public final /* synthetic */ c.a.r0.a.d2.e a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ String f8224b;
+        public final /* synthetic */ String f8366b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f8225c;
+        public final /* synthetic */ CallbackHandler f8367c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ g f8226d;
+        public final /* synthetic */ g f8368d;
 
         public b(g gVar, c.a.r0.a.d2.e eVar, String str, CallbackHandler callbackHandler) {
             Interceptable interceptable = $ic;
@@ -157,10 +157,10 @@ public class g extends z {
                     return;
                 }
             }
-            this.f8226d = gVar;
+            this.f8368d = gVar;
             this.a = eVar;
-            this.f8224b = str;
-            this.f8225c = callbackHandler;
+            this.f8366b = str;
+            this.f8367c = callbackHandler;
         }
 
         @Override // com.baidu.searchbox.http.callback.ResponseCallback
@@ -168,7 +168,7 @@ public class g extends z {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, exc) == null) {
                 c.a.r0.a.e0.d.c("SwanAppAction", "request Cts Server Address onFailure: " + exc.getMessage());
-                this.f8225c.handleSchemeDispatchCallback(this.f8226d.f8217h, UnitedSchemeUtility.wrapCallbackParams(501, "网络异常").toString());
+                this.f8367c.handleSchemeDispatchCallback(this.f8368d.f8359h, UnitedSchemeUtility.wrapCallbackParams(501, "网络异常").toString());
             }
         }
 
@@ -185,10 +185,10 @@ public class g extends z {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, response, i2)) == null) {
                 if (response.code() == 200 && response.body() != null) {
-                    this.f8226d.s(this.a, response, this.f8224b, this.f8225c);
+                    this.f8368d.s(this.a, response, this.f8366b, this.f8367c);
                 } else {
                     c.a.r0.a.e0.d.c("setCtsConfig", "request Cts Server Address fail,code is " + response.code());
-                    this.f8225c.handleSchemeDispatchCallback(this.f8226d.f8217h, UnitedSchemeUtility.wrapCallbackParams(1001).toString());
+                    this.f8367c.handleSchemeDispatchCallback(this.f8368d.f8359h, UnitedSchemeUtility.wrapCallbackParams(1001).toString());
                 }
                 return response;
             }
@@ -203,10 +203,10 @@ public class g extends z {
         public final /* synthetic */ String a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f8227b;
+        public final /* synthetic */ CallbackHandler f8369b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ g f8228c;
+        public final /* synthetic */ g f8370c;
 
         public c(g gVar, String str, CallbackHandler callbackHandler) {
             Interceptable interceptable = $ic;
@@ -223,9 +223,9 @@ public class g extends z {
                     return;
                 }
             }
-            this.f8228c = gVar;
+            this.f8370c = gVar;
             this.a = str;
-            this.f8227b = callbackHandler;
+            this.f8369b = callbackHandler;
         }
 
         @Override // com.baidu.searchbox.http.callback.ResponseCallback
@@ -233,7 +233,7 @@ public class g extends z {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, exc) == null) {
                 c.a.r0.a.e0.d.c("setCtsConfig", "download cts file fail");
-                this.f8227b.handleSchemeDispatchCallback(this.f8228c.f8217h, UnitedSchemeUtility.wrapCallbackParams(1001).toString());
+                this.f8369b.handleSchemeDispatchCallback(this.f8370c.f8359h, UnitedSchemeUtility.wrapCallbackParams(1001).toString());
             }
         }
 
@@ -249,8 +249,8 @@ public class g extends z {
             InterceptResult invokeLI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, response, i2)) == null) {
-                g gVar = this.f8228c;
-                gVar.v(response, this.a, gVar.f8217h, this.f8227b);
+                g gVar = this.f8370c;
+                gVar.v(response, this.a, gVar.f8359h, this.f8369b);
                 return response;
             }
             return invokeLI.objValue;
@@ -270,9 +270,9 @@ public class g extends z {
                 return;
             }
         }
-        f8211j = String.format("?swanjs_version=%s", c.a.r0.a.q2.b.h(0));
-        k = "https://smartprogram.baidu.com/batapi/engine" + f8211j + "&type=1";
-        l = "https://smartprogram.baidu.com/batapi/engine" + f8211j + "&type=2";
+        f8353j = String.format("?swanjs_version=%s", c.a.r0.a.q2.b.h(0));
+        k = "https://smartprogram.baidu.com/batapi/engine" + f8353j + "&type=1";
+        l = "https://smartprogram.baidu.com/batapi/engine" + f8353j + "&type=2";
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -294,9 +294,9 @@ public class g extends z {
                 return;
             }
         }
-        this.f8212c = false;
-        this.f8213d = false;
-        this.f8214e = false;
+        this.f8354c = false;
+        this.f8355d = false;
+        this.f8356e = false;
     }
 
     @Override // c.a.r0.a.f2.f.z
@@ -314,7 +314,7 @@ public class g extends z {
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
                 return false;
             } else {
-                this.f8217h = a2.optString("cb");
+                this.f8359h = a2.optString("cb");
                 if (!a2.has("loadCts")) {
                     c.a.r0.a.e0.d.c("setCtsConfig", "loadCts is null");
                     unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
@@ -336,11 +336,11 @@ public class g extends z {
                 if (jSONObject.has("code") && jSONObject.optInt("code") == 0) {
                     t(jSONObject.optJSONArray("data").optString(0), str, eVar, callbackHandler);
                 } else {
-                    callbackHandler.handleSchemeDispatchCallback(this.f8217h, UnitedSchemeUtility.wrapCallbackParams(1001).toString());
+                    callbackHandler.handleSchemeDispatchCallback(this.f8359h, UnitedSchemeUtility.wrapCallbackParams(1001).toString());
                 }
             } catch (JSONException e2) {
                 e2.printStackTrace();
-                callbackHandler.handleSchemeDispatchCallback(this.f8217h, UnitedSchemeUtility.wrapCallbackParams(1001).toString());
+                callbackHandler.handleSchemeDispatchCallback(this.f8359h, UnitedSchemeUtility.wrapCallbackParams(1001).toString());
             }
         }
     }
@@ -349,9 +349,9 @@ public class g extends z {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_SEND_USER_MSG, this, str, str2, eVar, callbackHandler) == null) {
             c.a.r0.p.d.a aVar = new c.a.r0.p.d.a(c.a.r0.a.c1.a.o().m(str), new c(this, str2, callbackHandler));
-            aVar.f11453f = true;
-            aVar.f11454g = false;
-            aVar.f11455h = true;
+            aVar.f11595f = true;
+            aVar.f11596g = false;
+            aVar.f11597h = true;
             c.a.r0.p.e.a.g().d(aVar);
         }
     }
@@ -362,25 +362,25 @@ public class g extends z {
             if (c.a.r0.a.z2.h.a(context, "aiapps/debug_cts_url.json")) {
                 try {
                     JSONObject jSONObject = new JSONObject(c.a.r0.a.z2.h.b(context, "aiapps/debug_cts_url.json"));
-                    this.f8215f = jSONObject.optString("master");
-                    this.f8216g = jSONObject.optString("slave");
-                    if (TextUtils.isEmpty(this.f8215f)) {
-                        this.f8215f = k;
+                    this.f8357f = jSONObject.optString("master");
+                    this.f8358g = jSONObject.optString("slave");
+                    if (TextUtils.isEmpty(this.f8357f)) {
+                        this.f8357f = k;
                     }
-                    if (TextUtils.isEmpty(this.f8216g)) {
-                        this.f8216g = l;
+                    if (TextUtils.isEmpty(this.f8358g)) {
+                        this.f8358g = l;
                         return;
                     }
                     return;
                 } catch (JSONException e2) {
                     e2.printStackTrace();
-                    this.f8215f = k;
-                    this.f8216g = l;
+                    this.f8357f = k;
+                    this.f8358g = l;
                     return;
                 }
             }
-            this.f8215f = k;
-            this.f8216g = l;
+            this.f8357f = k;
+            this.f8358g = l;
         }
     }
 
@@ -405,18 +405,18 @@ public class g extends z {
                             c2 = 0;
                         }
                         if (c2 == 0) {
-                            this.f8218i.put("master", jSONArray);
-                            this.f8212c = true;
-                            x(this.f8218i, callbackHandler, str2);
+                            this.f8360i.put("master", jSONArray);
+                            this.f8354c = true;
+                            x(this.f8360i, callbackHandler, str2);
                             return;
                         } else if (c2 != 1) {
                             callbackHandler.handleSchemeDispatchCallback(str2, UnitedSchemeUtility.wrapCallbackParams(1001).toString());
                             c.a.r0.a.e0.d.c("setCtsConfig", "error type, get cts url failed");
                             return;
                         } else {
-                            this.f8218i.put("slave", jSONArray);
-                            this.f8213d = true;
-                            x(this.f8218i, callbackHandler, str2);
+                            this.f8360i.put("slave", jSONArray);
+                            this.f8355d = true;
+                            x(this.f8360i, callbackHandler, str2);
                             return;
                         }
                     }
@@ -438,21 +438,21 @@ public class g extends z {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLL(1048581, this, eVar, str, callbackHandler, str2) == null) {
             c.a.r0.p.d.a aVar = new c.a.r0.p.d.a(str, new b(this, eVar, str2, callbackHandler));
-            aVar.f11453f = true;
-            aVar.f11454g = false;
-            aVar.f11455h = true;
+            aVar.f11595f = true;
+            aVar.f11596g = false;
+            aVar.f11597h = true;
             c.a.r0.p.e.a.g().d(aVar);
         }
     }
 
     public final void x(JSONObject jSONObject, CallbackHandler callbackHandler, String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLL(1048582, this, jSONObject, callbackHandler, str) == null) && this.f8212c && this.f8213d && this.f8214e) {
+        if ((interceptable == null || interceptable.invokeLLL(1048582, this, jSONObject, callbackHandler, str) == null) && this.f8354c && this.f8355d && this.f8356e) {
             c.a.r0.a.x1.a.a.R(true);
             c.a.r0.a.o2.g.h.a().putString("ctsUrl", jSONObject.toString());
             callbackHandler.handleSchemeDispatchCallback(str, UnitedSchemeUtility.wrapCallbackParams(0).toString());
-            this.f8213d = false;
-            this.f8212c = false;
+            this.f8355d = false;
+            this.f8354c = false;
             c.a.r0.a.x1.a.a.Z();
         }
     }

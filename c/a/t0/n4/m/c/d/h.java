@@ -13,31 +13,31 @@ public class h {
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f19995b;
+    public String f20096b;
 
     /* renamed from: c  reason: collision with root package name */
-    public float f19996c;
+    public float f20097c;
 
     /* renamed from: d  reason: collision with root package name */
-    public long f19997d;
+    public long f20098d;
 
     /* renamed from: e  reason: collision with root package name */
-    public Bitmap f19998e;
+    public Bitmap f20099e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f19999f;
+    public int f20100f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f20000g;
+    public int f20101g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f20001h;
+    public int f20102h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f20002i;
+    public int f20103i;
 
     /* renamed from: j  reason: collision with root package name */
-    public f f20003j;
+    public f f20104j;
 
     /* loaded from: classes8.dex */
     public class a implements Runnable {
@@ -45,7 +45,7 @@ public class h {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ h f20004e;
+        public final /* synthetic */ h f20105e;
 
         public a(h hVar) {
             Interceptable interceptable = $ic;
@@ -62,7 +62,7 @@ public class h {
                     return;
                 }
             }
-            this.f20004e = hVar;
+            this.f20105e = hVar;
         }
 
         @Override // java.lang.Runnable
@@ -70,12 +70,12 @@ public class h {
             Bitmap bitmap;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                h hVar = this.f20004e;
-                if (hVar.f20003j == null || (bitmap = hVar.f19998e) == null || bitmap.isRecycled()) {
+                h hVar = this.f20105e;
+                if (hVar.f20104j == null || (bitmap = hVar.f20099e) == null || bitmap.isRecycled()) {
                     return;
                 }
-                h hVar2 = this.f20004e;
-                hVar2.f20003j.onFrameResult(hVar2.f19999f, hVar2.f19998e);
+                h hVar2 = this.f20105e;
+                hVar2.f20104j.onFrameResult(hVar2.f20100f, hVar2.f20099e);
             }
         }
     }

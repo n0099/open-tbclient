@@ -25,10 +25,10 @@ public class b extends c.a.r0.a.u.e.m.a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f9224f;
+    public int f9366f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f9225g;
+    public String f9367g;
 
     /* loaded from: classes.dex */
     public class a implements SubscribeHelper.k {
@@ -58,46 +58,46 @@ public class b extends c.a.r0.a.u.e.m.a {
         public void a(int i2, @NonNull String str, JSONObject jSONObject) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeILL(1048576, this, i2, str, jSONObject) == null) {
-                this.a.f9224f = i2;
-                this.a.f9225g = str;
+                this.a.f9366f = i2;
+                this.a.f9367g = str;
             }
         }
     }
 
     /* renamed from: c.a.r0.a.u.e.m.b$b  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public class C0586b implements c.a.r0.a.z2.g1.c<i<b.e>> {
+    public class C0595b implements c.a.r0.a.z2.g1.c<i<b.e>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ e f9226e;
+        public final /* synthetic */ e f9368e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f9227f;
+        public final /* synthetic */ String f9369f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ String f9228g;
+        public final /* synthetic */ String f9370g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ SubscribeHelper f9229h;
+        public final /* synthetic */ SubscribeHelper f9371h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final /* synthetic */ b f9230i;
+        public final /* synthetic */ b f9372i;
 
         /* renamed from: c.a.r0.a.u.e.m.b$b$a */
         /* loaded from: classes.dex */
         public class a implements SubscribeHelper.k {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ C0586b a;
+            public final /* synthetic */ C0595b a;
 
-            public a(C0586b c0586b) {
+            public a(C0595b c0595b) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     newInitContext.initArgs = r2;
-                    Object[] objArr = {c0586b};
+                    Object[] objArr = {c0595b};
                     interceptable.invokeUnInit(65536, newInitContext);
                     int i2 = newInitContext.flag;
                     if ((i2 & 1) != 0) {
@@ -107,7 +107,7 @@ public class b extends c.a.r0.a.u.e.m.a {
                         return;
                     }
                 }
-                this.a = c0586b;
+                this.a = c0595b;
             }
 
             @Override // com.baidu.swan.apps.api.module.subscription.SubscribeHelper.k
@@ -115,20 +115,20 @@ public class b extends c.a.r0.a.u.e.m.a {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeILL(1048576, this, i2, str, jSONObject) == null) {
                     if (jSONObject == null) {
-                        C0586b c0586b = this.a;
-                        c0586b.f9230i.d(c0586b.f9228g, new c.a.r0.a.u.h.b(i2, str));
+                        C0595b c0595b = this.a;
+                        c0595b.f9372i.d(c0595b.f9370g, new c.a.r0.a.u.h.b(i2, str));
                         return;
                     }
                     JSONObject jSONObject2 = new JSONObject();
-                    C0586b c0586b2 = this.a;
-                    c0586b2.f9230i.D(jSONObject, jSONObject2, c0586b2.f9229h);
-                    C0586b c0586b3 = this.a;
-                    c0586b3.f9230i.d(c0586b3.f9228g, new c.a.r0.a.u.h.b(i2, str, jSONObject2));
+                    C0595b c0595b2 = this.a;
+                    c0595b2.f9372i.D(jSONObject, jSONObject2, c0595b2.f9371h);
+                    C0595b c0595b3 = this.a;
+                    c0595b3.f9372i.d(c0595b3.f9370g, new c.a.r0.a.u.h.b(i2, str, jSONObject2));
                 }
             }
         }
 
-        public C0586b(b bVar, e eVar, String str, String str2, SubscribeHelper subscribeHelper) {
+        public C0595b(b bVar, e eVar, String str, String str2, SubscribeHelper subscribeHelper) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -143,11 +143,11 @@ public class b extends c.a.r0.a.u.e.m.a {
                     return;
                 }
             }
-            this.f9230i = bVar;
-            this.f9226e = eVar;
-            this.f9227f = str;
-            this.f9228g = str2;
-            this.f9229h = subscribeHelper;
+            this.f9372i = bVar;
+            this.f9368e = eVar;
+            this.f9369f = str;
+            this.f9370g = str2;
+            this.f9371h = subscribeHelper;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -157,9 +157,9 @@ public class b extends c.a.r0.a.u.e.m.a {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, iVar) == null) {
                 if (!d.h(iVar)) {
-                    this.f9230i.C(this.f9226e, this.f9227f, this.f9228g, this.f9229h);
+                    this.f9372i.C(this.f9368e, this.f9369f, this.f9370g, this.f9371h);
                 } else {
-                    this.f9229h.o(this.f9227f, new a(this));
+                    this.f9371h.o(this.f9369f, new a(this));
                 }
             }
         }
@@ -172,10 +172,10 @@ public class b extends c.a.r0.a.u.e.m.a {
         public final /* synthetic */ String a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ SubscribeHelper f9231b;
+        public final /* synthetic */ SubscribeHelper f9373b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ b f9232c;
+        public final /* synthetic */ b f9374c;
 
         public c(b bVar, String str, SubscribeHelper subscribeHelper) {
             Interceptable interceptable = $ic;
@@ -192,9 +192,9 @@ public class b extends c.a.r0.a.u.e.m.a {
                     return;
                 }
             }
-            this.f9232c = bVar;
+            this.f9374c = bVar;
             this.a = str;
-            this.f9231b = subscribeHelper;
+            this.f9373b = subscribeHelper;
         }
 
         @Override // com.baidu.swan.apps.api.module.subscription.SubscribeHelper.k
@@ -202,12 +202,12 @@ public class b extends c.a.r0.a.u.e.m.a {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeILL(1048576, this, i2, str, jSONObject) == null) {
                 if (jSONObject == null) {
-                    this.f9232c.d(this.a, new c.a.r0.a.u.h.b(i2, str));
+                    this.f9374c.d(this.a, new c.a.r0.a.u.h.b(i2, str));
                     return;
                 }
                 JSONObject jSONObject2 = new JSONObject();
-                this.f9232c.D(jSONObject, jSONObject2, this.f9231b);
-                this.f9232c.d(this.a, new c.a.r0.a.u.h.b(i2, str, jSONObject2));
+                this.f9374c.D(jSONObject, jSONObject2, this.f9373b);
+                this.f9374c.d(this.a, new c.a.r0.a.u.h.b(i2, str, jSONObject2));
             }
         }
     }
@@ -235,7 +235,7 @@ public class b extends c.a.r0.a.u.e.m.a {
     public final void B(e eVar, String str, String str2, SubscribeHelper subscribeHelper) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLL(1048576, this, eVar, str, str2, subscribeHelper) == null) {
-            eVar.d0().g(getContext(), "mapp_request_subscribe_message", new C0586b(this, eVar, str, str2, subscribeHelper));
+            eVar.d0().g(getContext(), "mapp_request_subscribe_message", new C0595b(this, eVar, str, str2, subscribeHelper));
         }
     }
 
@@ -301,7 +301,7 @@ public class b extends c.a.r0.a.u.e.m.a {
                 }
                 SubscribeHelper subscribeHelper = new SubscribeHelper();
                 if (!subscribeHelper.n(getContext(), a0, N, jSONObject, SubscribeHelper.invokeSubscribeFrom.REQUEST_SUBSCRIBE_FORM_ID_API, new a(this))) {
-                    return new c.a.r0.a.u.h.b(this.f9224f, this.f9225g);
+                    return new c.a.r0.a.u.h.b(this.f9366f, this.f9367g);
                 }
                 B(a0, N, optString, subscribeHelper);
                 return c.a.r0.a.u.h.b.f();

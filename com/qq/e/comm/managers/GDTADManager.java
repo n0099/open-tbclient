@@ -27,7 +27,7 @@ import java.util.concurrent.Executors;
 import org.json.JSONException;
 import org.json.JSONObject;
 @Deprecated
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class GDTADManager implements IGDTAdManager {
     public static /* synthetic */ Interceptable $ic;
     public static final ExecutorService INIT_EXECUTOR;
@@ -35,37 +35,37 @@ public class GDTADManager implements IGDTAdManager {
     public volatile Boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public volatile Context f59060b;
+    public volatile Context f59105b;
 
     /* renamed from: c  reason: collision with root package name */
-    public volatile SM f59061c;
+    public volatile SM f59106c;
 
     /* renamed from: d  reason: collision with root package name */
-    public volatile PM f59062d;
+    public volatile PM f59107d;
 
     /* renamed from: e  reason: collision with root package name */
-    public volatile DevTools f59063e;
+    public volatile DevTools f59108e;
 
     /* renamed from: f  reason: collision with root package name */
-    public volatile APPStatus f59064f;
+    public volatile APPStatus f59109f;
 
     /* renamed from: g  reason: collision with root package name */
-    public volatile DeviceStatus f59065g;
+    public volatile DeviceStatus f59110g;
 
     /* renamed from: h  reason: collision with root package name */
-    public volatile String f59066h;
+    public volatile String f59111h;
 
     /* renamed from: i  reason: collision with root package name */
-    public e f59067i;
+    public e f59112i;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class a extends Thread {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ long a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ GDTADManager f59068b;
+        public final /* synthetic */ GDTADManager f59113b;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(GDTADManager gDTADManager, String str, long j2) {
@@ -85,7 +85,7 @@ public class GDTADManager implements IGDTAdManager {
                     return;
                 }
             }
-            this.f59068b = gDTADManager;
+            this.f59113b = gDTADManager;
             this.a = j2;
         }
 
@@ -94,12 +94,12 @@ public class GDTADManager implements IGDTAdManager {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 super.run();
-                GDTADManager.a(this.f59068b, this.a);
+                GDTADManager.a(this.f59113b, this.a);
             }
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static final class b {
         public static /* synthetic */ Interceptable $ic;
         public static GDTADManager a;
@@ -162,12 +162,12 @@ public class GDTADManager implements IGDTAdManager {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65539, this, context, str) == null) {
             long nanoTime = System.nanoTime();
-            this.f59066h = SystemUtil.getProcessName(context);
-            this.f59060b = context.getApplicationContext();
-            this.f59061c = new SM(this.f59060b);
-            this.f59062d = new PM(this.f59060b, this.f59067i);
-            this.f59064f = new APPStatus(str, this.f59060b);
-            this.f59065g = new DeviceStatus(this.f59060b);
+            this.f59111h = SystemUtil.getProcessName(context);
+            this.f59105b = context.getApplicationContext();
+            this.f59106c = new SM(this.f59105b);
+            this.f59107d = new PM(this.f59105b, this.f59112i);
+            this.f59109f = new APPStatus(str, this.f59105b);
+            this.f59110g = new DeviceStatus(this.f59105b);
             if (Build.VERSION.SDK_INT > 7) {
                 new a(this, "GDT_ACTIVATE_LAUNCH", nanoTime).start();
             }
@@ -180,7 +180,7 @@ public class GDTADManager implements IGDTAdManager {
             if (gDTADManager == null) {
                 throw null;
             }
-            com.qq.e.comm.b.a.a().a(gDTADManager.f59060b, gDTADManager.f59061c, gDTADManager.f59062d, gDTADManager.f59065g, gDTADManager.f59064f, j2);
+            com.qq.e.comm.b.a.a().a(gDTADManager.f59105b, gDTADManager.f59106c, gDTADManager.f59107d, gDTADManager.f59110g, gDTADManager.f59109f, j2);
         }
     }
 
@@ -195,15 +195,15 @@ public class GDTADManager implements IGDTAdManager {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             if (isInitialized()) {
-                SM sm = this.f59061c;
+                SM sm = this.f59106c;
                 JSONObject jSONObject = new JSONObject();
                 if (sm != null) {
                     jSONObject.putOpt("suid", sm.getSuid());
                     jSONObject.putOpt("sid", sm.getSid());
                 }
-                jSONObject.put("app", com.qq.e.comm.net.a.a(this.f59064f));
-                jSONObject.put("c", com.qq.e.comm.net.a.a(this.f59065g));
-                jSONObject.put("sdk", com.qq.e.comm.net.a.a(this.f59062d));
+                jSONObject.put("app", com.qq.e.comm.net.a.a(this.f59109f));
+                jSONObject.put("c", com.qq.e.comm.net.a.a(this.f59110g));
+                jSONObject.put("sdk", com.qq.e.comm.net.a.a(this.f59107d));
                 return jSONObject;
             }
             return null;
@@ -220,13 +220,13 @@ public class GDTADManager implements IGDTAdManager {
     public Context getAppContext() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f59060b : (Context) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f59105b : (Context) invokeV.objValue;
     }
 
     public APPStatus getAppStatus() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f59064f : (APPStatus) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f59109f : (APPStatus) invokeV.objValue;
     }
 
     @Override // com.qq.e.comm.managers.IGDTAdManager
@@ -236,7 +236,7 @@ public class GDTADManager implements IGDTAdManager {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             if (isInitialized()) {
                 try {
-                    return this.f59062d.getPOFactory().getBuyerId();
+                    return this.f59107d.getPOFactory().getBuyerId();
                 } catch (Exception e2) {
                     GDTLogger.e("SDK 初始化异常", e2);
                     return "";
@@ -252,10 +252,10 @@ public class GDTADManager implements IGDTAdManager {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            if (this.f59063e == null) {
-                this.f59063e = new DevTools();
+            if (this.f59108e == null) {
+                this.f59108e = new DevTools();
             }
-            return this.f59063e;
+            return this.f59108e;
         }
         return (DevTools) invokeV.objValue;
     }
@@ -263,7 +263,7 @@ public class GDTADManager implements IGDTAdManager {
     public DeviceStatus getDeviceStatus() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f59065g : (DeviceStatus) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f59110g : (DeviceStatus) invokeV.objValue;
     }
 
     public String getDownLoadClazz() {
@@ -281,7 +281,7 @@ public class GDTADManager implements IGDTAdManager {
     public PM getPM() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f59062d : (PM) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f59107d : (PM) invokeV.objValue;
     }
 
     public String getPortraitADActivityClazz() {
@@ -293,7 +293,7 @@ public class GDTADManager implements IGDTAdManager {
     public String getProcessName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.f59066h : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.f59111h : (String) invokeV.objValue;
     }
 
     public String getRewardvideoLandscapeADActivityClazz() {
@@ -311,7 +311,7 @@ public class GDTADManager implements IGDTAdManager {
     public SM getSM() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.f59061c : (SM) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.f59106c : (SM) invokeV.objValue;
     }
 
     public synchronized boolean initWith(Context context, String str) {
@@ -354,7 +354,7 @@ public class GDTADManager implements IGDTAdManager {
     public void setPluginLoadListener(e eVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048593, this, eVar) == null) {
-            this.f59067i = eVar;
+            this.f59112i = eVar;
         }
     }
 
@@ -365,7 +365,7 @@ public class GDTADManager implements IGDTAdManager {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048594, this, gDTAppDialogClickListener)) == null) {
             if (isInitialized()) {
                 try {
-                    return this.f59062d.getPOFactory().showOpenOrInstallAppDialog(gDTAppDialogClickListener);
+                    return this.f59107d.getPOFactory().showOpenOrInstallAppDialog(gDTAppDialogClickListener);
                 } catch (Exception e2) {
                     GDTLogger.e("SDK 初始化异常", e2);
                     return 0;

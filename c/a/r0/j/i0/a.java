@@ -1,6 +1,7 @@
 package c.a.r0.j.i0;
 
 import c.a.r0.a.n2.s.e;
+import com.baidu.searchbox.retrieve.inter.constants.StatConstants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -37,17 +38,17 @@ public class a extends e {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (this.f7983h == null) {
-                this.f7983h = new JSONObject();
+            if (this.f8125h == null) {
+                this.f8125h = new JSONObject();
             }
             try {
-                this.f7983h.put("stage", this.k);
-                this.f7983h.put("errMsg", this.l);
-                this.f7983h.put("netStatus", this.m);
-                this.f7983h.put("touch", this.n);
-                this.f7983h.put("stuck_interval", this.o);
+                this.f8125h.put("stage", this.k);
+                this.f8125h.put(StatConstants.KEY_EXT_ERR_MSG, this.l);
+                this.f8125h.put("netStatus", this.m);
+                this.f8125h.put("touch", this.n);
+                this.f8125h.put("stuck_interval", this.o);
             } catch (JSONException e2) {
-                if (e.f7976j) {
+                if (e.f8118j) {
                     e2.printStackTrace();
                 }
             }

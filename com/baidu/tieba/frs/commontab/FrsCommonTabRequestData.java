@@ -1,7 +1,7 @@
 package com.baidu.tieba.frs.commontab;
 
 import c.a.d.f.p.n;
-import c.a.s0.e1.b0;
+import c.a.s0.d1.b0;
 import c.a.s0.l0.b.g;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.android.imsdk.internal.Constants;

@@ -28,38 +28,38 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final boolean f10168b;
+    public static final boolean f10310b;
     public transient /* synthetic */ FieldHolder $fh;
     public Bundle a;
 
     /* renamed from: c.a.r0.b.p.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public class C0667a implements c.a.r0.b.p.d.c {
+    public class C0676a implements c.a.r0.b.p.d.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ViewGroup a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ c.a.r0.a.m.a f10169b;
+        public final /* synthetic */ c.a.r0.a.m.a f10311b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ a f10170c;
+        public final /* synthetic */ a f10312c;
 
         /* renamed from: c.a.r0.b.p.b.a$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class RunnableC0668a implements Runnable {
+        public class RunnableC0677a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ C0667a f10171e;
+            public final /* synthetic */ C0676a f10313e;
 
-            public RunnableC0668a(C0667a c0667a) {
+            public RunnableC0677a(C0676a c0676a) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     newInitContext.initArgs = r2;
-                    Object[] objArr = {c0667a};
+                    Object[] objArr = {c0676a};
                     interceptable.invokeUnInit(65536, newInitContext);
                     int i2 = newInitContext.flag;
                     if ((i2 & 1) != 0) {
@@ -69,19 +69,19 @@ public class a {
                         return;
                     }
                 }
-                this.f10171e = c0667a;
+                this.f10313e = c0676a;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    c.a.r0.a.c2.b.d.a.d(this.f10171e.a);
+                    c.a.r0.a.c2.b.d.a.d(this.f10313e.a);
                 }
             }
         }
 
-        public C0667a(a aVar, ViewGroup viewGroup, c.a.r0.a.m.a aVar2) {
+        public C0676a(a aVar, ViewGroup viewGroup, c.a.r0.a.m.a aVar2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -96,9 +96,9 @@ public class a {
                     return;
                 }
             }
-            this.f10170c = aVar;
+            this.f10312c = aVar;
             this.a = viewGroup;
-            this.f10169b = aVar2;
+            this.f10311b = aVar2;
         }
 
         @Override // c.a.r0.b.p.d.c
@@ -107,21 +107,21 @@ public class a {
             if (interceptable == null || interceptable.invokeL(1048576, this, quickLoginInfo) == null) {
                 ViewGroup viewGroup = this.a;
                 if (viewGroup != null) {
-                    viewGroup.post(new RunnableC0668a(this));
+                    viewGroup.post(new RunnableC0677a(this));
                 }
-                if (this.f10170c.i(quickLoginInfo)) {
-                    this.f10170c.a.putParcelable("quick_login_info", quickLoginInfo);
+                if (this.f10312c.i(quickLoginInfo)) {
+                    this.f10312c.a.putParcelable("quick_login_info", quickLoginInfo);
                 }
                 String T = c.a.r0.a.d2.d.J().r().V().T();
                 String appId = c.a.r0.a.d2.d.J().getAppId();
-                this.f10170c.a.putString("app_name", c.a.r0.a.d2.d.J().r().Y());
-                this.f10170c.a.putString("appid", appId);
-                this.f10170c.a.putString("launch_from", T);
-                if (a.f10168b) {
-                    String str = "onQueryResult: mParams: " + this.f10170c.a.toString();
+                this.f10312c.a.putString("app_name", c.a.r0.a.d2.d.J().r().Y());
+                this.f10312c.a.putString("appid", appId);
+                this.f10312c.a.putString("launch_from", T);
+                if (a.f10310b) {
+                    String str = "onQueryResult: mParams: " + this.f10312c.a.toString();
                 }
                 d.a("show", "login", null, T, appId);
-                this.f10170c.f(this.f10169b);
+                this.f10312c.f(this.f10311b);
             }
         }
     }
@@ -176,7 +176,7 @@ public class a {
                 return;
             }
         }
-        f10168b = k.a;
+        f10310b = k.a;
     }
 
     public a() {
@@ -237,7 +237,7 @@ public class a {
                 viewGroup = (ViewGroup) x.findViewById(16908290);
                 c.a.r0.a.c2.b.d.a.h(x, viewGroup, x.getResources().getString(h.swanapp_login_loading));
             }
-            c.a.r0.b.p.d.f.b(new C0667a(this, viewGroup, aVar));
+            c.a.r0.b.p.d.f.b(new C0676a(this, viewGroup, aVar));
         }
     }
 

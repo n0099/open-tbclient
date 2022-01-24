@@ -23,10 +23,10 @@ public abstract class LoadingLayout extends FrameLayout {
     public View a;
 
     /* renamed from: b  reason: collision with root package name */
-    public State f50827b;
+    public State f50872b;
 
     /* renamed from: c  reason: collision with root package name */
-    public State f50828c;
+    public State f50873c;
 
     /* renamed from: com.baidu.wallet.base.widget.pulltorefresh.LoadingLayout$1  reason: invalid class name */
     /* loaded from: classes13.dex */
@@ -229,13 +229,13 @@ public abstract class LoadingLayout extends FrameLayout {
     public State getPreState() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f50828c : (State) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f50873c : (State) invokeV.objValue;
     }
 
     public State getState() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f50827b : (State) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f50872b : (State) invokeV.objValue;
     }
 
     public void init(Context context, AttributeSet attributeSet) {
@@ -345,11 +345,11 @@ public abstract class LoadingLayout extends FrameLayout {
     public void setState(State state) {
         State state2;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048594, this, state) == null) || (state2 = this.f50827b) == state) {
+        if (!(interceptable == null || interceptable.invokeL(1048594, this, state) == null) || (state2 = this.f50872b) == state) {
             return;
         }
-        this.f50828c = state2;
-        this.f50827b = state;
+        this.f50873c = state2;
+        this.f50872b = state;
         onStateChanged(state, state2);
     }
 
@@ -411,8 +411,8 @@ public abstract class LoadingLayout extends FrameLayout {
             }
         }
         State state = State.NONE;
-        this.f50827b = state;
-        this.f50828c = state;
+        this.f50872b = state;
+        this.f50873c = state;
         init(context, attributeSet);
     }
 }

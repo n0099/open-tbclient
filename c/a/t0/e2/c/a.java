@@ -1,16 +1,18 @@
 package c.a.t0.e2.c;
 
-import com.baidu.pyramid.runtime.service.ServiceNotFoundException;
-import com.baidu.searchbox.live.interfaces.service.AppInfoService;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
+import org.json.JSONArray;
 /* loaded from: classes7.dex */
-public class a extends c.a.k0.b.b.a<AppInfoService> {
+public class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public List<String> a;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -26,12 +28,19 @@ public class a extends c.a.k0.b.b.a<AppInfoService> {
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // c.a.k0.b.b.a
-    /* renamed from: a */
-    public AppInfoService createService() throws ServiceNotFoundException {
-        InterceptResult invokeV;
+    public void a(JSONArray jSONArray) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new b() : (AppInfoService) invokeV.objValue;
+        if (interceptable == null || interceptable.invokeL(1048576, this, jSONArray) == null) {
+            this.a = new ArrayList();
+            if (jSONArray == null || jSONArray.length() <= 0) {
+                return;
+            }
+            for (int i2 = 0; i2 < jSONArray.length(); i2++) {
+                String optString = jSONArray.optString(i2);
+                if (!StringUtils.isNull(optString)) {
+                    this.a.add(optString);
+                }
+            }
+        }
     }
 }

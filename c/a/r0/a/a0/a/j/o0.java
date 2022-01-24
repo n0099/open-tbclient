@@ -18,19 +18,19 @@ public class o0 extends a {
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f5117b;
+    public int f5259b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f5118c;
+    public int f5260c;
 
     /* renamed from: d  reason: collision with root package name */
-    public float f5119d;
+    public float f5261d;
 
     /* renamed from: e  reason: collision with root package name */
-    public float f5120e;
+    public float f5262e;
 
     /* renamed from: f  reason: collision with root package name */
-    public float f5121f;
+    public float f5263f;
 
     public o0() {
         Interceptable interceptable = $ic;
@@ -45,9 +45,9 @@ public class o0 extends a {
                 return;
             }
         }
-        this.f5119d = -1.0f;
-        this.f5120e = 0.0f;
-        this.f5121f = 1.0f;
+        this.f5261d = -1.0f;
+        this.f5262e = 0.0f;
+        this.f5263f = 1.0f;
     }
 
     @Override // c.a.r0.a.a0.a.j.a
@@ -56,36 +56,36 @@ public class o0 extends a {
         if (!(interceptable == null || interceptable.invokeLL(1048576, this, bVar, canvas) == null) || TextUtils.isEmpty(this.a)) {
             return;
         }
-        TextPaint textPaint = bVar.f5074i;
+        TextPaint textPaint = bVar.f5216i;
         int i2 = bVar.o;
         Paint.FontMetrics fontMetrics = textPaint.getFontMetrics();
         float f2 = fontMetrics.top;
-        int i3 = this.f5118c;
+        int i3 = this.f5260c;
         float f3 = i3 + f2;
         float f4 = fontMetrics.ascent + i3;
         float f5 = fontMetrics.bottom;
         float f6 = i2 != 1 ? i2 != 2 ? i2 != 3 ? i3 : i3 - (f4 - f3) : (i3 + ((f5 - f2) / 2.0f)) - f5 : i3 + (((i3 + f5) - f3) / 2.0f) + (f4 - f3);
-        if (this.f5120e == 0.0d) {
+        if (this.f5262e == 0.0d) {
             Rect rect = new Rect();
             String str = this.a;
             textPaint.getTextBounds(str, 0, str.length(), rect);
-            if (this.f5119d != -1.0f) {
-                float f7 = this.f5119d;
+            if (this.f5261d != -1.0f) {
+                float f7 = this.f5261d;
                 if (rect.width() > f7) {
-                    this.f5120e = f7 / rect.width();
+                    this.f5262e = f7 / rect.width();
                 }
             }
-            this.f5120e = 1.0f;
+            this.f5262e = 1.0f;
         }
         canvas.save();
         int alpha = textPaint.getAlpha();
         int color = textPaint.getColor();
         textPaint.setStyle(Paint.Style.STROKE);
-        textPaint.setStrokeWidth(this.f5121f);
+        textPaint.setStrokeWidth(this.f5263f);
         textPaint.setColor(bVar.q);
         bVar.c(textPaint);
-        canvas.scale(this.f5120e, 1.0f);
-        canvas.drawText(this.a, this.f5117b, f6, textPaint);
+        canvas.scale(this.f5262e, 1.0f);
+        canvas.drawText(this.a, this.f5259b, f6, textPaint);
         textPaint.setStyle(Paint.Style.FILL);
         textPaint.setAlpha(alpha);
         textPaint.setColor(color);
@@ -99,12 +99,12 @@ public class o0 extends a {
             try {
                 if (jSONArray.length() > 2) {
                     this.a = jSONArray.optString(0);
-                    this.f5117b = c.a.r0.a.z2.n0.g((float) jSONArray.optDouble(1));
-                    this.f5118c = c.a.r0.a.z2.n0.g((float) jSONArray.optDouble(2));
+                    this.f5259b = c.a.r0.a.z2.n0.g((float) jSONArray.optDouble(1));
+                    this.f5260c = c.a.r0.a.z2.n0.g((float) jSONArray.optDouble(2));
                     if (jSONArray.length() > 3) {
-                        this.f5119d = c.a.r0.a.z2.n0.g((float) jSONArray.optDouble(3));
+                        this.f5261d = c.a.r0.a.z2.n0.g((float) jSONArray.optDouble(3));
                     }
-                    this.f5121f = c.a.r0.a.z2.n0.g(1.0f);
+                    this.f5263f = c.a.r0.a.z2.n0.g(1.0f);
                 }
             } catch (Exception e2) {
                 if (c.a.r0.a.k.a) {

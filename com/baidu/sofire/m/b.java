@@ -19,19 +19,19 @@ public final class b {
     public a a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Context f38483b;
+    public Context f38511b;
 
     /* renamed from: c  reason: collision with root package name */
-    public com.baidu.sofire.k.c f38484c;
+    public com.baidu.sofire.k.c f38512c;
 
     /* renamed from: d  reason: collision with root package name */
-    public ServiceConnection f38485d;
+    public ServiceConnection f38513d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f38486e;
+    public String f38514e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f38487f;
+    public String f38515f;
 
     public b(Context context, com.baidu.sofire.k.c cVar) {
         Interceptable interceptable = $ic;
@@ -49,11 +49,11 @@ public final class b {
             }
         }
         this.a = null;
-        this.f38486e = null;
-        this.f38487f = null;
-        this.f38485d = new d(this);
-        this.f38483b = context;
-        this.f38484c = cVar;
+        this.f38514e = null;
+        this.f38515f = null;
+        this.f38513d = new d(this);
+        this.f38511b = context;
+        this.f38512c = cVar;
     }
 
     public final String a(String str) {
@@ -64,12 +64,12 @@ public final class b {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
             String str3 = null;
             try {
-                if (TextUtils.isEmpty(this.f38486e)) {
-                    this.f38486e = this.f38483b.getPackageName();
+                if (TextUtils.isEmpty(this.f38514e)) {
+                    this.f38514e = this.f38511b.getPackageName();
                 }
-                if (TextUtils.isEmpty(this.f38487f)) {
+                if (TextUtils.isEmpty(this.f38515f)) {
                     try {
-                        signatureArr = this.f38483b.getPackageManager().getPackageInfo(this.f38486e, 64).signatures;
+                        signatureArr = this.f38511b.getPackageManager().getPackageInfo(this.f38514e, 64).signatures;
                     } catch (PackageManager.NameNotFoundException unused) {
                         signatureArr = null;
                     }
@@ -85,9 +85,9 @@ public final class b {
                             e2.printStackTrace();
                         }
                     }
-                    this.f38487f = str3;
+                    this.f38515f = str3;
                 }
-                str2 = this.a.a(this.f38486e, this.f38487f, str);
+                str2 = this.a.a(this.f38514e, this.f38515f, str);
             } catch (Throwable th) {
                 th.printStackTrace();
                 str2 = str3;

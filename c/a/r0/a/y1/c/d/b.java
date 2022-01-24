@@ -44,7 +44,7 @@ public class b {
             while (it.hasNext()) {
                 c next = it.next();
                 if (next != null && next.S()) {
-                    b(next.f9731f, bundle, cls, null);
+                    b(next.f9873f, bundle, cls, null);
                 }
             }
         }
@@ -57,7 +57,7 @@ public class b {
                 String str = "sendMessageToClient: delegation: " + cls.getName();
             }
             Message obtain = Message.obtain((Handler) null, 125);
-            obtain.replyTo = e.k().f9741d;
+            obtain.replyTo = e.k().f9883d;
             Bundle bundle2 = new Bundle();
             bundle2.putString("ai_apps_delegation_name", cls.getName());
             if (cVar != null) {

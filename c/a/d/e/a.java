@@ -12,12 +12,12 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static a f2662c;
+    public static a f2764c;
     public transient /* synthetic */ FieldHolder $fh;
     public final IdleTaskRegister a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f2663b;
+    public boolean f2765b;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -33,17 +33,17 @@ public class a {
             }
         }
         this.a = new IdleTaskRegister();
-        this.f2663b = false;
+        this.f2765b = false;
     }
 
     public static a b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (f2662c == null) {
-                f2662c = new a();
+            if (f2764c == null) {
+                f2764c = new a();
             }
-            return f2662c;
+            return f2764c;
         }
         return (a) invokeV.objValue;
     }
@@ -51,7 +51,7 @@ public class a {
     public void a(String str, Runnable runnable) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, str, runnable) == null) {
-            if (!this.f2663b) {
+            if (!this.f2765b) {
                 this.a.registerIdleTask(str, runnable);
             } else {
                 runnable.run();
@@ -62,7 +62,7 @@ public class a {
     public void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f2663b = true;
+            this.f2765b = true;
             this.a.scheduleIdleTask(true);
         }
     }
@@ -70,7 +70,7 @@ public class a {
     public void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.f2663b = true;
+            this.f2765b = true;
             this.a.scheduleIdleTask(false);
         }
     }

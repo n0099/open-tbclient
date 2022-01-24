@@ -20,15 +20,15 @@ public class h {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final Set<String> f11604c;
+    public static final Set<String> f11746c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static volatile h f11605d;
+    public static volatile h f11747d;
     public transient /* synthetic */ FieldHolder $fh;
     public a a;
 
     /* renamed from: b  reason: collision with root package name */
-    public volatile Set<String> f11606b;
+    public volatile Set<String> f11748b;
 
     /* loaded from: classes6.dex */
     public static class a extends c.a.r0.w.j {
@@ -67,12 +67,12 @@ public class h {
                 return;
             }
         }
-        f11604c = new HashSet();
-        f11605d = null;
-        f11604c.add("sc9Tq1iKawTnj5GhG6i77vzeIt4Crt5u");
-        f11604c.add("g4X7FfGEDt7G1ksLibU22o0wB2p49W0D");
-        f11604c.add("VlKQRMSyT32ln2AG84dmTjW6qldpGsNk");
-        f11604c.add("pjwYb22xF6hUcKpZKsiqvnhUhsoUvLfT");
+        f11746c = new HashSet();
+        f11747d = null;
+        f11746c.add("sc9Tq1iKawTnj5GhG6i77vzeIt4Crt5u");
+        f11746c.add("g4X7FfGEDt7G1ksLibU22o0wB2p49W0D");
+        f11746c.add("VlKQRMSyT32ln2AG84dmTjW6qldpGsNk");
+        f11746c.add("pjwYb22xF6hUcKpZKsiqvnhUhsoUvLfT");
     }
 
     public h() {
@@ -88,7 +88,7 @@ public class h {
                 return;
             }
         }
-        this.f11606b = null;
+        this.f11748b = null;
         this.a = new a();
         d();
     }
@@ -97,14 +97,14 @@ public class h {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (f11605d == null) {
+            if (f11747d == null) {
                 synchronized (h.class) {
-                    if (f11605d == null) {
-                        f11605d = new h();
+                    if (f11747d == null) {
+                        f11747d = new h();
                     }
                 }
             }
-            return f11605d;
+            return f11747d;
         }
         return (h) invokeV.objValue;
     }
@@ -113,9 +113,9 @@ public class h {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            Set<String> set = f11604c;
-            if (this.f11606b != null) {
-                set = this.f11606b;
+            Set<String> set = f11746c;
+            if (this.f11748b != null) {
+                set = this.f11748b;
             }
             String[] strArr = new String[set.size()];
             int i2 = 0;
@@ -147,7 +147,7 @@ public class h {
                 for (int i2 = 0; i2 < jSONArray.length(); i2++) {
                     hashSet.add(jSONArray.optString(i2));
                 }
-                this.f11606b = hashSet;
+                this.f11748b = hashSet;
             } catch (JSONException e2) {
                 e2.printStackTrace();
             }
@@ -177,7 +177,7 @@ public class h {
         for (int i2 = 0; i2 < jSONArray.length(); i2++) {
             hashSet.add(jSONArray.optString(i2));
         }
-        this.f11606b = hashSet;
+        this.f11748b = hashSet;
         SharedPreferences.Editor edit = this.a.edit();
         edit.clear();
         edit.putString("version", str);

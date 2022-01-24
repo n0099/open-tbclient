@@ -20,10 +20,10 @@ public class g implements Runnable {
     public final /* synthetic */ String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ boolean f35160b;
+    public final /* synthetic */ boolean f35188b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final /* synthetic */ e f35161c;
+    public final /* synthetic */ e f35189c;
 
     public g(e eVar, String str, boolean z) {
         Interceptable interceptable = $ic;
@@ -40,9 +40,9 @@ public class g implements Runnable {
                 return;
             }
         }
-        this.f35161c = eVar;
+        this.f35189c = eVar;
         this.a = str;
-        this.f35160b = z;
+        this.f35188b = z;
     }
 
     /* JADX WARN: Removed duplicated region for block: B:111:0x01bf A[LOOP:0: B:5:0x001e->B:111:0x01bf, LOOP_END] */
@@ -63,17 +63,17 @@ public class g implements Runnable {
         boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f35161c.f35157h = k.e();
-            this.f35161c.b();
-            this.f35161c.a();
-            int i2 = this.f35161c.f35158i;
+            this.f35189c.f35185h = k.e();
+            this.f35189c.b();
+            this.f35189c.a();
+            int i2 = this.f35189c.f35186i;
             OutputStream outputStream3 = null;
             HttpURLConnection httpURLConnection = null;
             while (i2 > 0) {
                 try {
-                    URL url = new URL(this.f35161c.f35157h);
+                    URL url = new URL(this.f35189c.f35185h);
                     StringBuffer stringBuffer = new StringBuffer();
-                    for (Map.Entry<String, Object> entry : this.f35161c.k.entrySet()) {
+                    for (Map.Entry<String, Object> entry : this.f35189c.k.entrySet()) {
                         stringBuffer.append(entry.getKey());
                         stringBuffer.append("=");
                         stringBuffer.append(entry.getValue());
@@ -88,8 +88,8 @@ public class g implements Runnable {
                         httpURLConnection2.setDoInput(true);
                         httpURLConnection2.setDoOutput(true);
                         httpURLConnection2.setUseCaches(false);
-                        httpURLConnection2.setConnectTimeout(a.f35122b);
-                        httpURLConnection2.setReadTimeout(a.f35122b);
+                        httpURLConnection2.setConnectTimeout(a.f35150b);
+                        httpURLConnection2.setReadTimeout(a.f35150b);
                         httpURLConnection2.setRequestProperty("Content-Type", "application/x-www-form-urlencoded; charset=utf-8");
                         httpURLConnection2.setRequestProperty("Accept-Charset", "UTF-8");
                         httpURLConnection2.setRequestProperty("Accept-Encoding", "gzip");
@@ -128,11 +128,11 @@ public class g implements Runnable {
                                         }
                                         byteArrayOutputStream.write(bArr, 0, read);
                                     }
-                                    this.f35161c.f35159j = new String(byteArrayOutputStream.toByteArray(), "utf-8");
-                                    if (this.f35160b) {
-                                        this.f35161c.m = byteArrayOutputStream.toByteArray();
+                                    this.f35189c.f35187j = new String(byteArrayOutputStream.toByteArray(), "utf-8");
+                                    if (this.f35188b) {
+                                        this.f35189c.m = byteArrayOutputStream.toByteArray();
                                     }
-                                    this.f35161c.a(true);
+                                    this.f35189c.a(true);
                                     z = true;
                                 } catch (Error unused3) {
                                     outputStream2 = outputStream4;
@@ -315,8 +315,8 @@ public class g implements Runnable {
                 return;
             }
             e.p++;
-            e eVar = this.f35161c;
-            eVar.f35159j = null;
+            e eVar = this.f35189c;
+            eVar.f35187j = null;
             eVar.a(false);
         }
     }

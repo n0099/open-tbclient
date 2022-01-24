@@ -5,6 +5,7 @@ import android.content.Context;
 import android.net.Uri;
 import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.retrieve.upload.UploadConstant;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
@@ -81,7 +82,7 @@ public class o extends z {
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "swanApp is null");
                 return false;
             } else if (eVar.m0()) {
-                boolean z = z.f6201b;
+                boolean z = z.f6343b;
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "this operation does not supported when app is invisible.");
                 return false;
             } else {
@@ -105,7 +106,7 @@ public class o extends z {
                     unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "illegal realFilePath");
                     return false;
                 }
-                String optString2 = a2.optString("fileType");
+                String optString2 = a2.optString(UploadConstant.KEY_FILE_TYPE);
                 String t = c.a.r0.w.d.t(M);
                 if (!TextUtils.isEmpty(t)) {
                     optString2 = t;

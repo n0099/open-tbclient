@@ -20,20 +20,20 @@ public final class c extends com.baidu.bdtask.service.cache.storage.a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final c f32977h;
+    public static final c f33005h;
 
     /* renamed from: i  reason: collision with root package name */
-    public static final a f32978i;
+    public static final a f33006i;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final com.baidu.bdtask.service.cache.storage.storer.file.a f32979e;
+    public final com.baidu.bdtask.service.cache.storage.storer.file.a f33007e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final com.baidu.bdtask.service.cache.storage.encrypter.aes.a f32980f;
+    public final com.baidu.bdtask.service.cache.storage.encrypter.aes.a f33008f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final com.baidu.bdtask.service.cache.storage.serializer.raw.a f32981g;
+    public final com.baidu.bdtask.service.cache.storage.serializer.raw.a f33009g;
 
     /* loaded from: classes10.dex */
     public static final class a {
@@ -57,7 +57,7 @@ public final class c extends com.baidu.bdtask.service.cache.storage.a {
         public final c a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? c.f32977h : (c) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? c.f33005h : (c) invokeV.objValue;
         }
 
         public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
@@ -71,10 +71,10 @@ public final class c extends com.baidu.bdtask.service.cache.storage.a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c f32982e;
+        public final /* synthetic */ c f33010e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ Map f32983f;
+        public final /* synthetic */ Map f33011f;
 
         public b(c cVar, Map map) {
             Interceptable interceptable = $ic;
@@ -91,15 +91,15 @@ public final class c extends com.baidu.bdtask.service.cache.storage.a {
                     return;
                 }
             }
-            this.f32982e = cVar;
-            this.f32983f = map;
+            this.f33010e = cVar;
+            this.f33011f = map;
         }
 
         @Override // java.lang.Runnable
         public final void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f32982e.f32979e.a(this.f32982e.f32980f.b(this.f32982e.f32981g.b(this.f32983f)));
+                this.f33010e.f33007e.a(this.f33010e.f33008f.b(this.f33010e.f33009g.b(this.f33011f)));
             }
         }
     }
@@ -117,8 +117,8 @@ public final class c extends com.baidu.bdtask.service.cache.storage.a {
                 return;
             }
         }
-        f32978i = new a(null);
-        f32977h = new c();
+        f33006i = new a(null);
+        f33005h = new c();
     }
 
     public c() {
@@ -134,9 +134,9 @@ public final class c extends com.baidu.bdtask.service.cache.storage.a {
                 return;
             }
         }
-        this.f32979e = com.baidu.bdtask.service.cache.storage.storer.file.a.f32988b.a();
-        this.f32980f = com.baidu.bdtask.service.cache.storage.encrypter.aes.a.f32986e.a();
-        this.f32981g = com.baidu.bdtask.service.cache.storage.serializer.raw.a.a;
+        this.f33007e = com.baidu.bdtask.service.cache.storage.storer.file.a.f33016b.a();
+        this.f33008f = com.baidu.bdtask.service.cache.storage.encrypter.aes.a.f33014e.a();
+        this.f33009g = com.baidu.bdtask.service.cache.storage.serializer.raw.a.a;
     }
 
     @Override // com.baidu.bdtask.service.cache.storage.a
@@ -166,6 +166,6 @@ public final class c extends com.baidu.bdtask.service.cache.storage.a {
     public final Map<String, Object> o() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f32981g.a(this.f32980f.e(this.f32979e.c())) : (Map) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f33009g.a(this.f33008f.e(this.f33007e.c())) : (Map) invokeV.objValue;
     }
 }

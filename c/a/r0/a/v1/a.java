@@ -13,7 +13,7 @@ public final class a implements g.a {
     public final int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final f f9472b;
+    public final f f9614b;
 
     public a(int i2, @NonNull f fVar) {
         Interceptable interceptable = $ic;
@@ -31,7 +31,7 @@ public final class a implements g.a {
             }
         }
         this.a = i2;
-        this.f9472b = fVar;
+        this.f9614b = fVar;
     }
 
     @Override // c.a.r0.a.v1.g.a
@@ -39,16 +39,16 @@ public final class a implements g.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeILL(1048576, this, i2, strArr, iArr) == null) {
             if (i2 != this.a) {
-                this.f9472b.b(2, "request permission fail");
+                this.f9614b.b(2, "request permission fail");
                 return;
             }
             for (int i3 : iArr) {
                 if (i3 == -1) {
-                    this.f9472b.b(1, "user denied");
+                    this.f9614b.b(1, "user denied");
                     return;
                 }
             }
-            this.f9472b.a("permission granted successful");
+            this.f9614b.a("permission granted successful");
         }
     }
 }

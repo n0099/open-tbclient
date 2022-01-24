@@ -22,15 +22,15 @@ public class g {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: d  reason: collision with root package name */
-    public static volatile g f53080d;
+    public static volatile g f53125d;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ZeusParam f53081b;
+    public ZeusParam f53126b;
 
     /* renamed from: c  reason: collision with root package name */
-    public List<ZeusPluginStateListener> f53082c;
+    public List<ZeusPluginStateListener> f53127c;
 
     public g() {
         Interceptable interceptable = $ic;
@@ -45,21 +45,21 @@ public class g {
                 return;
             }
         }
-        this.f53082c = Collections.emptyList();
+        this.f53127c = Collections.emptyList();
     }
 
     public static g a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (f53080d == null) {
+            if (f53125d == null) {
                 synchronized (g.class) {
-                    if (f53080d == null) {
-                        f53080d = new g();
+                    if (f53125d == null) {
+                        f53125d = new g();
                     }
                 }
             }
-            return f53080d;
+            return f53125d;
         }
         return (g) invokeV.objValue;
     }
@@ -99,10 +99,10 @@ public class g {
                         zeusParam = new ZeusParam.Builder().build();
                         ZeusLogger.i(ZeusLogger.TAG_INIT, "ZeusManager init, use default ZeusParam");
                     }
-                    this.f53081b = zeusParam;
+                    this.f53126b = zeusParam;
                     ZeusLogger.setDebug(zeusParam.isDebug());
-                    ZeusLogger.i(ZeusLogger.TAG_INIT, "ZeusManager init, context = " + application + ", hParam = " + this.f53081b);
-                    if (!this.f53081b.isCloseDefaultReport()) {
+                    ZeusLogger.i(ZeusLogger.TAG_INIT, "ZeusManager init, context = " + application + ", hParam = " + this.f53126b);
+                    if (!this.f53126b.isCloseDefaultReport()) {
                         com.bytedance.pangle.helper.d.a(application, String.valueOf(zeusParam.getAppId()), zeusParam.getChannel(), String.valueOf(zeusParam.getDid().get()));
                     }
                     com.bytedance.pangle.b.b a = com.bytedance.pangle.b.b.a();
@@ -140,7 +140,7 @@ public class g {
                     synchronized (a.a) {
                         a.a.add(aVar);
                     }
-                    if (this.f53081b.isEnable()) {
+                    if (this.f53126b.isEnable()) {
                         b.a();
                         if (com.bytedance.pangle.util.g.e()) {
                             com.bytedance.pangle.helper.e.a.execute(new Runnable(this) { // from class: com.bytedance.pangle.g.2
@@ -189,7 +189,7 @@ public class g {
                         b();
                         ContentProviderManager.getInstance().initSystemContentProviderInfo();
                         if (com.bytedance.pangle.helper.c.b(application)) {
-                            if (this.f53081b.autoFetch()) {
+                            if (this.f53126b.autoFetch()) {
                                 com.bytedance.pangle.download.f.a();
                                 com.bytedance.pangle.download.f.b();
                             }

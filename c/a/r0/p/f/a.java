@@ -12,18 +12,18 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import okhttp3.Request;
 import okhttp3.RequestBody;
 /* loaded from: classes6.dex */
-public class a extends HttpCommonRequest<C0793a> {
+public class a extends HttpCommonRequest<C0802a> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c.a.r0.p.f.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public static class C0793a extends HttpCommonRequestBuilder<C0793a> {
+    public static class C0802a extends HttpCommonRequestBuilder<C0802a> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public C0793a(AbstractHttpManager abstractHttpManager) {
+        public C0802a(AbstractHttpManager abstractHttpManager) {
             super(abstractHttpManager);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -52,7 +52,7 @@ public class a extends HttpCommonRequest<C0793a> {
         }
 
         /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-        public C0793a(a aVar) {
+        public C0802a(a aVar) {
             this(aVar, null);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -73,7 +73,7 @@ public class a extends HttpCommonRequest<C0793a> {
         }
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public C0793a(a aVar, AbstractHttpManager abstractHttpManager) {
+        public C0802a(a aVar, AbstractHttpManager abstractHttpManager) {
             super(aVar, abstractHttpManager);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -95,13 +95,13 @@ public class a extends HttpCommonRequest<C0793a> {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public a(C0793a c0793a) {
-        super(c0793a);
+    public a(C0802a c0802a) {
+        super(c0802a);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {c0793a};
+            Object[] objArr = {c0802a};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -117,19 +117,19 @@ public class a extends HttpCommonRequest<C0793a> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.searchbox.http.request.HttpRequest
     /* renamed from: a */
-    public C0793a newBuilder() {
+    public C0802a newBuilder() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new C0793a(this) : (C0793a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new C0802a(this) : (C0802a) invokeV.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.searchbox.http.request.HttpRequest
     /* renamed from: b */
-    public C0793a newBuilder(AbstractHttpManager abstractHttpManager) {
+    public C0802a newBuilder(AbstractHttpManager abstractHttpManager) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, abstractHttpManager)) == null) ? new C0793a(this, abstractHttpManager) : (C0793a) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, abstractHttpManager)) == null) ? new C0802a(this, abstractHttpManager) : (C0802a) invokeL.objValue;
     }
 
     @Override // com.baidu.searchbox.http.request.HttpRequest

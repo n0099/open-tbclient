@@ -141,11 +141,11 @@ public class b {
                     PayUIKitConfig payUIKitConfig = uIKit.getPayUIKitConfig();
                     MiddleRevenueConfig middleRevenueConfig = payUIKitConfig != null ? payUIKitConfig.revenueConfig : null;
                     if (middleRevenueConfig != null) {
-                        bVar.f62940b = new j.a.a.e.n.c(productInfo, middleRevenueConfig.getCurrencyType());
+                        bVar.f62983b = new j.a.a.e.n.c(productInfo, middleRevenueConfig.getCurrencyType());
                     } else {
-                        bVar.f62940b = new j.a.a.e.n.c(productInfo);
+                        bVar.f62983b = new j.a.a.e.n.c(productInfo);
                     }
-                    RLog.info("PayWebViewCallHelper", "startPayChannelDialog: payAmount:%s", bVar.f62940b);
+                    RLog.info("PayWebViewCallHelper", "startPayChannelDialog: payAmount:%s", bVar.f62983b);
                     uIKit.startPayChannelDialog(activity, bVar, new a(iPayCallback));
                 } catch (Exception e2) {
                     RLog.error("PayWebViewCallHelper", "get productInfo error:", e2.getLocalizedMessage());

@@ -37,18 +37,18 @@ public class b extends e {
         c.a.r0.a.d2.e D;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (this.f7983h == null) {
-                this.f7983h = new JSONObject();
+            if (this.f8125h == null) {
+                this.f8125h = new JSONObject();
             }
             if (TextUtils.isEmpty(this.k) && (D = c.a.r0.a.g1.f.U().D()) != null) {
                 b.a X = D.X();
                 this.k = X != null ? X.T() : "";
             }
             try {
-                this.f7983h.put("source", this.k);
+                this.f8125h.put("source", this.k);
                 String b2 = c.a.r0.a.u1.l.d.b();
                 if (b2 != null) {
-                    this.f7983h.put("launchid", b2);
+                    this.f8125h.put("launchid", b2);
                 }
             } catch (JSONException e2) {
                 e2.printStackTrace();

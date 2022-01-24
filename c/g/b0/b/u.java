@@ -28,10 +28,10 @@ public class u implements FunNativeAd2Bridger<NativeUnifiedADData, com.fun.modul
     public final o.c a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ b0 f28275b;
+    public final /* synthetic */ b0 f28303b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final /* synthetic */ o f28276c;
+    public final /* synthetic */ o f28304c;
 
     public u(o oVar, NativeUnifiedADData nativeUnifiedADData, String str, b0 b0Var) {
         Interceptable interceptable = $ic;
@@ -48,8 +48,8 @@ public class u implements FunNativeAd2Bridger<NativeUnifiedADData, com.fun.modul
                 return;
             }
         }
-        this.f28276c = oVar;
-        this.f28275b = b0Var;
+        this.f28304c = oVar;
+        this.f28303b = b0Var;
         this.a = new o.c(oVar, nativeUnifiedADData, str);
     }
 
@@ -60,7 +60,7 @@ public class u implements FunNativeAd2Bridger<NativeUnifiedADData, com.fun.modul
     public com.fun.module.gdt.w createExpressView(NativeUnifiedADData nativeUnifiedADData) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, nativeUnifiedADData)) == null) ? this.f28276c.a(FunAdSdk.getAppContext(), nativeUnifiedADData) : (View) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, nativeUnifiedADData)) == null) ? this.f28304c.a(FunAdSdk.getAppContext(), nativeUnifiedADData) : (View) invokeL.objValue;
     }
 
     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [android.app.Activity, com.fun.ad.sdk.CustomInflater, java.lang.String, java.lang.Object, com.fun.ad.sdk.internal.api.BaseNativeAd2, com.fun.ad.sdk.FunAdInteractionListener] */
@@ -69,13 +69,13 @@ public class u implements FunNativeAd2Bridger<NativeUnifiedADData, com.fun.modul
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{activity, customInflater, str, nativeUnifiedADData, baseNativeAd2, funAdInteractionListener}) == null) {
             NativeUnifiedADData nativeUnifiedADData2 = nativeUnifiedADData;
-            ChannelNativeAds.GdtADStatusChangeListener gdtADStatusChangeListener = this.f28275b.f28251c.getGdtADStatusChangeListener();
+            ChannelNativeAds.GdtADStatusChangeListener gdtADStatusChangeListener = this.f28303b.f28279c.getGdtADStatusChangeListener();
             if (gdtADStatusChangeListener != null) {
-                this.a.f28268d = new s(this, gdtADStatusChangeListener, nativeUnifiedADData2);
+                this.a.f28296d = new s(this, gdtADStatusChangeListener, nativeUnifiedADData2);
             } else {
-                this.a.f28268d = null;
+                this.a.f28296d = null;
             }
-            this.f28276c.i(nativeUnifiedADData2, str, customInflater.getGdtNativeAdContainer(), this.f28275b.f28252d, customInflater.getClickViews(), this.a, funAdInteractionListener);
+            this.f28304c.i(nativeUnifiedADData2, str, customInflater.getGdtNativeAdContainer(), this.f28303b.f28280d, customInflater.getClickViews(), this.a, funAdInteractionListener);
         }
     }
 
@@ -87,13 +87,13 @@ public class u implements FunNativeAd2Bridger<NativeUnifiedADData, com.fun.modul
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{activity, expressInflater, str, nativeUnifiedADData, baseNativeAd2, funAdInteractionListener}) == null) {
             NativeUnifiedADData nativeUnifiedADData2 = nativeUnifiedADData;
             com.fun.module.gdt.w wVar = (com.fun.module.gdt.w) expressInflater.getExpressView();
-            o oVar = this.f28276c;
-            FunNativeAdListenerHelper<NativeUnifiedADData, NativeADEventListener> funNativeAdListenerHelper = oVar.f28264h;
+            o oVar = this.f28304c;
+            FunNativeAdListenerHelper<NativeUnifiedADData, NativeADEventListener> funNativeAdListenerHelper = oVar.f28292h;
             pid = oVar.mPid;
             funNativeAdListenerHelper.startShow(nativeUnifiedADData2, str, pid, this.a, funAdInteractionListener);
             o.c cVar = this.a;
-            cVar.f28268d = new t(this, wVar, nativeUnifiedADData2);
-            o oVar2 = this.f28276c;
+            cVar.f28296d = new t(this, wVar, nativeUnifiedADData2);
+            o oVar2 = this.f28304c;
             oVar2.getClass();
             if (wVar instanceof GDTNativeUnifiedVideoView) {
                 ((GDTNativeUnifiedVideoView) wVar).setVideoOnClickListener(new q(oVar2));

@@ -18,7 +18,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.dxmpay.wallet.core.FragmentResultReceiver;
 import com.dxmpay.wallet.core.utils.FragmentUtils;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class BaseFragment extends SDKBaseFragment implements FragmentResultReceiver.a, NoProguard {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG = false;

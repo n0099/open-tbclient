@@ -19,7 +19,7 @@ public class a extends c<CustomMessage<?>, CustomMessageTask, c.a.d.c.f.b, Custo
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: i  reason: collision with root package name */
-    public c.a.d.c.e.b f2636i;
+    public c.a.d.c.e.b f2738i;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public a(MessageManager messageManager) {
@@ -39,9 +39,9 @@ public class a extends c<CustomMessage<?>, CustomMessageTask, c.a.d.c.f.b, Custo
                 return;
             }
         }
-        this.f2636i = null;
-        this.f2636i = new c.a.d.c.e.b(messageManager);
-        this.f2642e = c.a.d.c.j.a.c();
+        this.f2738i = null;
+        this.f2738i = new c.a.d.c.e.b(messageManager);
+        this.f2744e = c.a.d.c.j.a.c();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -50,7 +50,7 @@ public class a extends c<CustomMessage<?>, CustomMessageTask, c.a.d.c.f.b, Custo
     public void f(CustomMessage<?> customMessage, CustomMessageTask customMessageTask) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, customMessage, customMessageTask) == null) {
-            this.f2636i.f(customMessage, customMessageTask);
+            this.f2738i.f(customMessage, customMessageTask);
         }
     }
 
@@ -58,21 +58,21 @@ public class a extends c<CustomMessage<?>, CustomMessageTask, c.a.d.c.f.b, Custo
     public LinkedList<CustomMessage<?>> e(int i2, BdUniqueId bdUniqueId) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeIL = interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, bdUniqueId)) == null) ? this.f2636i.e(i2, bdUniqueId) : (LinkedList) invokeIL.objValue;
+        return (interceptable == null || (invokeIL = interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, bdUniqueId)) == null) ? this.f2738i.e(i2, bdUniqueId) : (LinkedList) invokeIL.objValue;
     }
 
     @Override // c.a.d.c.b
     public void h(int i2, BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(1048579, this, i2, bdUniqueId) == null) {
-            this.f2636i.h(i2, bdUniqueId);
+            this.f2738i.h(i2, bdUniqueId);
         }
     }
 
     public LinkedList<CustomMessage<?>> w(BdUniqueId bdUniqueId) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, bdUniqueId)) == null) ? this.f2636i.i(bdUniqueId) : (LinkedList) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, bdUniqueId)) == null) ? this.f2738i.i(bdUniqueId) : (LinkedList) invokeL.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -87,13 +87,13 @@ public class a extends c<CustomMessage<?>, CustomMessageTask, c.a.d.c.f.b, Custo
     public void y(BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, bdUniqueId) == null) {
-            this.f2636i.j(bdUniqueId);
+            this.f2738i.j(bdUniqueId);
         }
     }
 
     public <T> CustomResponsedMessage<T> z(CustomMessage<?> customMessage, CustomMessageTask customMessageTask, Class<T> cls) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, customMessage, customMessageTask, cls)) == null) ? this.f2636i.k(customMessage, customMessageTask, cls) : (CustomResponsedMessage) invokeLLL.objValue;
+        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, customMessage, customMessageTask, cls)) == null) ? this.f2738i.k(customMessage, customMessageTask, cls) : (CustomResponsedMessage) invokeLLL.objValue;
     }
 }

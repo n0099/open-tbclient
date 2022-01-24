@@ -1,6 +1,6 @@
 package com.baidu.tieba.view.anniversary.model;
 
-import c.a.s0.e1.b0;
+import c.a.s0.d1.b0;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
@@ -13,13 +13,13 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import tbclient.CommonReq;
 import tbclient.VideoTemplate.DataReq;
 import tbclient.VideoTemplate.VideoTemplateReqIdl;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public class AnniversaryReqMsg extends NetMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: common  reason: collision with root package name */
-    public CommonReq f49254common;
+    public CommonReq f49273common;
     public int mSource;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -54,7 +54,7 @@ public class AnniversaryReqMsg extends NetMessage {
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
             try {
                 DataReq.Builder builder = new DataReq.Builder();
-                builder.f62921common = this.f49254common;
+                builder.f62964common = this.f49273common;
                 builder.source = Integer.valueOf(this.mSource);
                 if (z) {
                     b0.a(builder, true);
@@ -73,7 +73,7 @@ public class AnniversaryReqMsg extends NetMessage {
     public void setCommon(CommonReq commonReq) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, commonReq) == null) {
-            this.f49254common = commonReq;
+            this.f49273common = commonReq;
         }
     }
 

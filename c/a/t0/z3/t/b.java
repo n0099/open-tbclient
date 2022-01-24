@@ -28,24 +28,24 @@ public class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: g  reason: collision with root package name */
-    public static b f26156g;
+    public static b f26184g;
     public transient /* synthetic */ FieldHolder $fh;
     public ClientConfigModel a;
 
     /* renamed from: b  reason: collision with root package name */
-    public d f26157b;
+    public d f26185b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f26158c;
+    public boolean f26186c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final c.a.s0.q.a f26159d;
+    public final c.a.s0.q.a f26187d;
 
     /* renamed from: e  reason: collision with root package name */
-    public CustomMessageListener f26160e;
+    public CustomMessageListener f26188e;
 
     /* renamed from: f  reason: collision with root package name */
-    public CustomMessageListener f26161f;
+    public CustomMessageListener f26189f;
 
     /* loaded from: classes9.dex */
     public class a implements c.a.s0.q.a {
@@ -75,7 +75,7 @@ public class b {
         public void a(Object obj) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, obj) == null) {
-                this.a.f26158c = false;
+                this.a.f26186c = false;
                 if (obj == null || !(obj instanceof DataRes)) {
                     return;
                 }
@@ -98,20 +98,20 @@ public class b {
         public void onError(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-                this.a.f26158c = false;
+                this.a.f26186c = false;
             }
         }
     }
 
     /* renamed from: c.a.t0.z3.t.b$b  reason: collision with other inner class name */
     /* loaded from: classes9.dex */
-    public class C1578b extends CustomMessageListener {
+    public class C1579b extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ b a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public C1578b(b bVar, int i2) {
+        public C1579b(b bVar, int i2) {
             super(i2);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -214,7 +214,7 @@ public class b {
             if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null || !(customResponsedMessage instanceof BackgroundSwitchMessage) || (data = ((BackgroundSwitchMessage) customResponsedMessage).getData()) == null || data.booleanValue()) {
                 return;
             }
-            c.a.s0.s.h0.b.k().x("tieba_last_active_time", System.currentTimeMillis());
+            c.a.s0.s.i0.b.k().x("tieba_last_active_time", System.currentTimeMillis());
             if (this.a.f()) {
                 this.a.k(true);
                 this.a.g();
@@ -235,24 +235,24 @@ public class b {
                 return;
             }
         }
-        this.f26158c = false;
-        this.f26159d = new a(this);
-        this.f26160e = new C1578b(this, 2000994);
-        this.f26161f = new c(this, 2005016);
+        this.f26186c = false;
+        this.f26187d = new a(this);
+        this.f26188e = new C1579b(this, 2000994);
+        this.f26189f = new c(this, 2005016);
     }
 
     public static b i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            if (f26156g == null) {
+            if (f26184g == null) {
                 synchronized (b.class) {
-                    if (f26156g == null) {
-                        f26156g = new b();
+                    if (f26184g == null) {
+                        f26184g = new b();
                     }
                 }
             }
-            return f26156g;
+            return f26184g;
         }
         return (b) invokeV.objValue;
     }
@@ -261,12 +261,12 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, baseFragmentActivity) == null) {
             d dVar = new d(this);
-            this.f26157b = dVar;
+            this.f26185b = dVar;
             baseFragmentActivity.registerListener(dVar);
-            baseFragmentActivity.registerListener(this.f26160e);
-            baseFragmentActivity.registerListener(this.f26161f);
-            this.a = new ClientConfigModel(baseFragmentActivity, this.f26159d);
-            c.a.s0.s.h0.b.k().x("tieba_last_active_time", System.currentTimeMillis());
+            baseFragmentActivity.registerListener(this.f26188e);
+            baseFragmentActivity.registerListener(this.f26189f);
+            this.a = new ClientConfigModel(baseFragmentActivity, this.f26187d);
+            c.a.s0.s.i0.b.k().x("tieba_last_active_time", System.currentTimeMillis());
             if (f()) {
                 k(true);
                 g();
@@ -316,10 +316,10 @@ public class b {
     public final void j() {
         ClientConfigModel clientConfigModel;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (clientConfigModel = this.a) == null || this.f26158c) {
+        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (clientConfigModel = this.a) == null || this.f26186c) {
             return;
         }
-        this.f26158c = true;
+        this.f26186c = true;
         clientConfigModel.B("local_dialog");
     }
 

@@ -32,7 +32,7 @@ public class d extends c.a.d.n.e.a<c.a.t0.a0.f.c.f.b.a, LiveTabConcernNotificati
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ d f14449b;
+        public final /* synthetic */ d f14589b;
 
         public a(d dVar) {
             Interceptable interceptable = $ic;
@@ -49,7 +49,7 @@ public class d extends c.a.d.n.e.a<c.a.t0.a0.f.c.f.b.a, LiveTabConcernNotificati
                     return;
                 }
             }
-            this.f14449b = dVar;
+            this.f14589b = dVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -59,14 +59,14 @@ public class d extends c.a.d.n.e.a<c.a.t0.a0.f.c.f.b.a, LiveTabConcernNotificati
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view, aVar) == null) {
                 if (view.getId() == R.id.id_tab_live_sub_notification_close_btn) {
-                    if (this.f14449b.n) {
+                    if (this.f14589b.n) {
                         return;
                     }
-                    this.f14449b.n = true;
+                    this.f14589b.n = true;
                     AlaSharedPrefHelper.getInstance().putLong(AlaSharedPrefConfig.ALA_LIVE_TAB_NOTIFICATION_CLOSE_LAST_TIME, System.currentTimeMillis());
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921421));
                 } else if (view.getId() == R.id.id_tab_live_sub_notification_close_go_to_open) {
-                    c.a.t0.a0.f.c.f.c.a.b(this.f14449b.m);
+                    c.a.t0.a0.f.c.f.c.a.b(this.f14589b.m);
                 }
             }
         }
@@ -74,7 +74,7 @@ public class d extends c.a.d.n.e.a<c.a.t0.a0.f.c.f.b.a, LiveTabConcernNotificati
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public d(TbPageContext tbPageContext) {
-        super(tbPageContext.getPageActivity(), c.a.t0.a0.f.c.f.b.a.f14451e);
+        super(tbPageContext.getPageActivity(), c.a.t0.a0.f.c.f.b.a.f14591e);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();

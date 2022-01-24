@@ -26,22 +26,22 @@ public class InteractiveEndFrameView extends RelativeLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public RewardWebView f39666e;
+    public RewardWebView f39694e;
 
     /* renamed from: f  reason: collision with root package name */
-    public c f39667f;
+    public c f39695f;
 
     /* renamed from: g  reason: collision with root package name */
-    public AdElementInfo f39668g;
+    public AdElementInfo f39696g;
 
     /* renamed from: h  reason: collision with root package name */
-    public DownloadParams f39669h;
+    public DownloadParams f39697h;
 
     /* renamed from: i  reason: collision with root package name */
-    public c.a.r0.h.i.k.f.a f39670i;
+    public c.a.r0.h.i.k.f.a f39698i;
 
     /* renamed from: j  reason: collision with root package name */
-    public JSONObject f39671j;
+    public JSONObject f39699j;
     public String k;
     public String l;
     public DownloadState m;
@@ -177,28 +177,28 @@ public class InteractiveEndFrameView extends RelativeLayout {
         public void onDownloadStart(String str, String str2, String str3, String str4, long j2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{str, str2, str3, str4, Long.valueOf(j2)}) == null) {
-                c.a.r0.h.i.r.b.h(this.a.f39668g, this.a.f39667f);
+                c.a.r0.h.i.r.b.h(this.a.f39696g, this.a.f39695f);
                 this.a.k = str;
                 String t = this.a.t(str);
                 if (!TextUtils.isEmpty(t)) {
                     this.a.l = t;
                 }
                 InteractiveEndFrameView interactiveEndFrameView = this.a;
-                interactiveEndFrameView.f39669h = new DownloadParams(interactiveEndFrameView.k, this.a.l);
+                interactiveEndFrameView.f39697h = new DownloadParams(interactiveEndFrameView.k, this.a.l);
                 this.a.o = new c.a.r0.h.i.k.g.b();
                 InteractiveEndFrameView interactiveEndFrameView2 = this.a;
                 f fVar = interactiveEndFrameView2.o;
-                fVar.c(this.a.getContext(), this.a.f39669h, this.a.f39670i);
+                fVar.c(this.a.getContext(), this.a.f39697h, this.a.f39698i);
                 interactiveEndFrameView2.o = fVar;
-                this.a.o.e(this.a.f39669h);
+                this.a.o.e(this.a.f39697h);
                 this.a.o.f();
-                if (g.a(this.a.getContext(), this.a.f39669h.f39655b) && this.a.p != null) {
+                if (g.a(this.a.getContext(), this.a.f39697h.f39683b) && this.a.p != null) {
                     this.a.p.removeView(this.a.o.getRealView());
                     this.a.p.addView(this.a.o.getRealView(), this.a.q);
                     this.a.o.b(DownloadState.INSTALLED);
                     return;
                 }
-                c.a.r0.h.i.n.a.b().d(this.a.getContext(), this.a.f39669h.a(), DownloadParams.SwanAppDownloadType.TYPE_START_DOWNLOAD, this.a.f39670i);
+                c.a.r0.h.i.n.a.b().d(this.a.getContext(), this.a.f39697h.a(), DownloadParams.SwanAppDownloadType.TYPE_START_DOWNLOAD, this.a.f39698i);
             }
         }
     }
@@ -223,22 +223,22 @@ public class InteractiveEndFrameView extends RelativeLayout {
         }
         this.l = "";
         this.m = DownloadState.NOT_START;
-        this.f39667f = new c(context);
+        this.f39695f = new c(context);
     }
 
     public void addWebView(AdElementInfo adElementInfo, RelativeLayout relativeLayout) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, adElementInfo, relativeLayout) == null) {
-            this.f39668g = adElementInfo;
+            this.f39696g = adElementInfo;
             this.p = relativeLayout;
             String endFrameUrl = adElementInfo.getEndFrameUrl();
             RewardWebView rewardWebView = new RewardWebView(getContext());
-            this.f39666e = rewardWebView;
+            this.f39694e = rewardWebView;
             rewardWebView.setBackgroundColor(-1);
-            this.f39666e.loadUrl(endFrameUrl);
-            addView(this.f39666e, new RelativeLayout.LayoutParams(-1, -1));
-            this.f39671j = adElementInfo.getAdMonitors();
-            this.n = new c.a.r0.h.i.r.c(getContext(), this.f39671j);
+            this.f39694e.loadUrl(endFrameUrl);
+            addView(this.f39694e, new RelativeLayout.LayoutParams(-1, -1));
+            this.f39699j = adElementInfo.getAdMonitors();
+            this.n = new c.a.r0.h.i.r.c(getContext(), this.f39699j);
             initDownload();
             setDownloadListener();
         }
@@ -247,13 +247,13 @@ public class InteractiveEndFrameView extends RelativeLayout {
     public void destroy() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            RewardWebView rewardWebView = this.f39666e;
+            RewardWebView rewardWebView = this.f39694e;
             if (rewardWebView != null) {
                 rewardWebView.destroy();
             }
             if (DownloadState.DOWNLOADING == this.m) {
-                this.f39670i = null;
-                c.a.r0.h.i.n.a.b().d(getContext(), this.f39669h.a(), DownloadParams.SwanAppDownloadType.TYPE_PAUSE_DOWNLOAD, this.f39670i);
+                this.f39698i = null;
+                c.a.r0.h.i.n.a.b().d(getContext(), this.f39697h.a(), DownloadParams.SwanAppDownloadType.TYPE_PAUSE_DOWNLOAD, this.f39698i);
             }
         }
     }
@@ -262,7 +262,7 @@ public class InteractiveEndFrameView extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             u();
-            this.f39670i = new a(this);
+            this.f39698i = new a(this);
         }
     }
 
@@ -280,7 +280,7 @@ public class InteractiveEndFrameView extends RelativeLayout {
     public void setDownloadListener() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.f39666e.setDownloadListener(new b(this));
+            this.f39694e.setDownloadListener(new b(this));
         }
     }
 

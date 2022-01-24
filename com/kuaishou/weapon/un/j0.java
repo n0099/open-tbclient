@@ -18,10 +18,10 @@ public class j0 {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f55090b = "su";
+    public static final String f55135b = "su";
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String[] f55091c;
+    public static final String[] f55136c;
     public transient /* synthetic */ FieldHolder $fh;
     public Context a;
 
@@ -38,7 +38,7 @@ public class j0 {
                 return;
             }
         }
-        f55091c = new String[]{u1.a("jMfC18KMz8zAws+M"), u1.a("jMfC18KMz8zAws+MwcrNjA=="), u1.a("jMfC18KMz8zAws+M28HKzYw="), u1.a("jNDBys2M"), u1.a("jNDWjMHKzYw="), u1.a("jNDa0NfGzozBys2M"), u1.a("jNDa0NfGzozBys2MxcLKz9DCxcaM"), u1.a("jNDa0NfGzozbwcrNjA==")};
+        f55136c = new String[]{u1.a("jMfC18KMz8zAws+M"), u1.a("jMfC18KMz8zAws+MwcrNjA=="), u1.a("jMfC18KMz8zAws+M28HKzYw="), u1.a("jNDBys2M"), u1.a("jNDWjMHKzYw="), u1.a("jNDa0NfGzozBys2M"), u1.a("jNDa0NfGzozBys2MxcLKz9DCxcaM"), u1.a("jNDa0NfGzozbwcrNjA==")};
     }
 
     public j0(Context context) {
@@ -93,8 +93,8 @@ public class j0 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             try {
-                for (String str : a(f55091c)) {
-                    if (new File(str, f55090b).exists()) {
+                for (String str : a(f55136c)) {
+                    if (new File(str, f55135b).exists()) {
                         return 1;
                     }
                 }

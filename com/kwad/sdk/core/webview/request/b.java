@@ -42,7 +42,7 @@ public class b {
             /* renamed from: a */
             public com.kwad.sdk.core.webview.request.a b() {
                 w.a aVar3 = aVar;
-                return new com.kwad.sdk.core.webview.request.a(aVar3.a, aVar3.f56459b, aVar3.f56460c);
+                return new com.kwad.sdk.core.webview.request.a(aVar3.a, aVar3.f56504b, aVar3.f56505c);
             }
         }.a(new j<com.kwad.sdk.core.webview.request.a, WebCardGetDataResponse>() { // from class: com.kwad.sdk.core.webview.request.b.2
             /* JADX DEBUG: Method merged with bridge method */

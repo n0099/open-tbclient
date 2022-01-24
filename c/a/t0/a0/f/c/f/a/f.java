@@ -24,7 +24,7 @@ public class f extends c.a.d.n.e.a<c.a.t0.a0.f.c.f.b.c, LiveTabConcernRecommendL
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public f(TbPageContext tbPageContext) {
-        super(tbPageContext.getPageActivity(), c.a.t0.a0.f.c.f.b.c.f14458h);
+        super(tbPageContext.getPageActivity(), c.a.t0.a0.f.c.f.b.c.f14598h);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();

@@ -11,25 +11,25 @@ import java.util.Timer;
 import java.util.TimerTask;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class c {
     public static /* synthetic */ Interceptable $ic;
     public static Timer a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static int f15304b;
+    public static int f15470b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static ExecutorService f15305c;
+    public static ExecutorService f15471c;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class a extends TimerTask {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Runnable f15306e;
+        public final /* synthetic */ Runnable f15472e;
 
         public a(Runnable runnable) {
             Interceptable interceptable = $ic;
@@ -46,14 +46,14 @@ public class c {
                     return;
                 }
             }
-            this.f15306e = runnable;
+            this.f15472e = runnable;
         }
 
         @Override // java.util.TimerTask, java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f15306e.run();
+                this.f15472e.run();
             }
         }
     }
@@ -72,8 +72,8 @@ public class c {
             }
         }
         int availableProcessors = Runtime.getRuntime().availableProcessors();
-        f15304b = availableProcessors;
-        f15305c = Executors.newFixedThreadPool(availableProcessors);
+        f15470b = availableProcessors;
+        f15471c = Executors.newFixedThreadPool(availableProcessors);
     }
 
     public static void a() {
@@ -104,7 +104,7 @@ public class c {
     public static void c(Runnable runnable) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65539, null, runnable) == null) {
-            f15305c.execute(runnable);
+            f15471c.execute(runnable);
         }
     }
 }

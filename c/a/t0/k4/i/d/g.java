@@ -24,13 +24,13 @@ public class g {
     public EGLDisplay a;
 
     /* renamed from: b  reason: collision with root package name */
-    public EGLContext f18872b;
+    public EGLContext f19105b;
 
     /* renamed from: c  reason: collision with root package name */
-    public EGLSurface f18873c;
+    public EGLSurface f19106c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Surface f18874d;
+    public Surface f19107d;
 
     public g(Surface surface) {
         Interceptable interceptable = $ic;
@@ -48,7 +48,7 @@ public class g {
             }
         }
         if (surface != null) {
-            this.f18874d = surface;
+            this.f19107d = surface;
             b();
             return;
         }
@@ -86,12 +86,12 @@ public class g {
                 }
                 EGLConfig[] eGLConfigArr = new EGLConfig[1];
                 if (EGL14.eglChooseConfig(this.a, new int[]{MonitorType.MONITOR_TYPE_DOWNLOAD_WEBKIT, 8, MonitorType.MONITOR_TYPE_INIT_WEBKIT, 8, 12322, 8, 12352, 4, 12610, 1, 12344}, 0, eGLConfigArr, 0, 1, new int[1], 0)) {
-                    this.f18872b = EGL14.eglCreateContext(this.a, eGLConfigArr[0], EGL14.EGL_NO_CONTEXT, new int[]{EglBase10.EGL_CONTEXT_CLIENT_VERSION, 2, 12344}, 0);
+                    this.f19105b = EGL14.eglCreateContext(this.a, eGLConfigArr[0], EGL14.EGL_NO_CONTEXT, new int[]{EglBase10.EGL_CONTEXT_CLIENT_VERSION, 2, 12344}, 0);
                     a("eglCreateContext");
-                    if (this.f18872b != null) {
-                        this.f18873c = EGL14.eglCreateWindowSurface(this.a, eGLConfigArr[0], this.f18874d, new int[]{12344}, 0);
+                    if (this.f19105b != null) {
+                        this.f19106c = EGL14.eglCreateWindowSurface(this.a, eGLConfigArr[0], this.f19107d, new int[]{12344}, 0);
                         a("eglCreateWindowSurface");
-                        if (this.f18873c == null) {
+                        if (this.f19106c == null) {
                             throw new RuntimeException("surface was null");
                         }
                         return;
@@ -108,8 +108,8 @@ public class g {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             EGLDisplay eGLDisplay = this.a;
-            EGLSurface eGLSurface = this.f18873c;
-            if (!EGL14.eglMakeCurrent(eGLDisplay, eGLSurface, eGLSurface, this.f18872b)) {
+            EGLSurface eGLSurface = this.f19106c;
+            if (!EGL14.eglMakeCurrent(eGLDisplay, eGLSurface, eGLSurface, this.f19105b)) {
                 throw new RuntimeException("eglMakeCurrent failed");
             }
         }
@@ -118,31 +118,31 @@ public class g {
     public void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            if (EGL14.eglGetCurrentContext().equals(this.f18872b)) {
+            if (EGL14.eglGetCurrentContext().equals(this.f19105b)) {
                 EGLDisplay eGLDisplay = this.a;
                 EGLSurface eGLSurface = EGL14.EGL_NO_SURFACE;
                 EGL14.eglMakeCurrent(eGLDisplay, eGLSurface, eGLSurface, EGL14.EGL_NO_CONTEXT);
             }
-            EGL14.eglDestroySurface(this.a, this.f18873c);
-            EGL14.eglDestroyContext(this.a, this.f18872b);
-            this.f18874d.release();
+            EGL14.eglDestroySurface(this.a, this.f19106c);
+            EGL14.eglDestroyContext(this.a, this.f19105b);
+            this.f19107d.release();
             this.a = null;
-            this.f18872b = null;
-            this.f18873c = null;
-            this.f18874d = null;
+            this.f19105b = null;
+            this.f19106c = null;
+            this.f19107d = null;
         }
     }
 
     public void e(long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048580, this, j2) == null) {
-            EGLExt.eglPresentationTimeANDROID(this.a, this.f18873c, j2);
+            EGLExt.eglPresentationTimeANDROID(this.a, this.f19106c, j2);
         }
     }
 
     public boolean f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? EGL14.eglSwapBuffers(this.a, this.f18873c) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? EGL14.eglSwapBuffers(this.a, this.f19106c) : invokeV.booleanValue;
     }
 }

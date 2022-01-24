@@ -18,7 +18,7 @@ public class TrainInfo extends TransitBaseInfo {
     public double a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f35523b;
+    public String f35551b;
 
     static {
         InterceptResult invokeClinit;
@@ -69,7 +69,7 @@ public class TrainInfo extends TransitBaseInfo {
             }
         }
         this.a = parcel.readDouble();
-        this.f35523b = parcel.readString();
+        this.f35551b = parcel.readString();
     }
 
     public void a(double d2) {
@@ -82,7 +82,7 @@ public class TrainInfo extends TransitBaseInfo {
     public void a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            this.f35523b = str;
+            this.f35551b = str;
         }
     }
 
@@ -102,7 +102,7 @@ public class TrainInfo extends TransitBaseInfo {
         if (interceptable == null || interceptable.invokeLI(1048579, this, parcel, i2) == null) {
             super.writeToParcel(parcel, i2);
             parcel.writeDouble(this.a);
-            parcel.writeString(this.f35523b);
+            parcel.writeString(this.f35551b);
         }
     }
 }

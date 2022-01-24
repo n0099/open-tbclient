@@ -21,23 +21,23 @@ public class a {
     public static long a = 5000;
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile a f38280b = null;
+    public static volatile a f38308b = null;
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f38281c = "android.net.conn.CONNECTIVITY_CHANGE";
+    public static String f38309c = "android.net.conn.CONNECTIVITY_CHANGE";
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f38282d;
+    public boolean f38310d;
 
     /* renamed from: e  reason: collision with root package name */
-    public ConnectivityManager f38283e;
+    public ConnectivityManager f38311e;
 
     /* renamed from: f  reason: collision with root package name */
-    public C1855a f38284f;
+    public C1856a f38312f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f38285g;
+    public boolean f38313g;
     public Context mContext;
 
     /* renamed from: com.baidu.searchbox.dns.a$1  reason: invalid class name */
@@ -49,14 +49,14 @@ public class a {
 
     /* renamed from: com.baidu.searchbox.dns.a$a  reason: collision with other inner class name */
     /* loaded from: classes10.dex */
-    public class C1855a extends BroadcastReceiver {
+    public class C1856a extends BroadcastReceiver {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ a f38286h;
+        public final /* synthetic */ a f38314h;
 
-        public C1855a(a aVar) {
+        public C1856a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -71,20 +71,20 @@ public class a {
                     return;
                 }
             }
-            this.f38286h = aVar;
+            this.f38314h = aVar;
         }
 
         @Override // android.content.BroadcastReceiver
         public void onReceive(Context context, Intent intent) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048576, this, context, intent) == null) {
-                a aVar = this.f38286h;
-                aVar.f38282d = aVar.c();
+                a aVar = this.f38314h;
+                aVar.f38310d = aVar.c();
                 if (DnsUtil.DEBUG) {
-                    String str = " action: " + intent.getAction() + " isConnected: " + this.f38286h.f38282d + " isSticky: " + isInitialStickyBroadcast();
+                    String str = " action: " + intent.getAction() + " isConnected: " + this.f38314h.f38310d + " isSticky: " + isInitialStickyBroadcast();
                 }
                 DnsUtil.initNetworkStackType();
-                if (!this.f38286h.f38282d || isInitialStickyBroadcast()) {
+                if (!this.f38314h.f38310d || isInitialStickyBroadcast()) {
                     return;
                 }
                 boolean z = DnsUtil.DEBUG;
@@ -93,7 +93,7 @@ public class a {
             }
         }
 
-        public /* synthetic */ C1855a(a aVar, AnonymousClass1 anonymousClass1) {
+        public /* synthetic */ C1856a(a aVar, AnonymousClass1 anonymousClass1) {
             this(aVar);
         }
     }
@@ -129,7 +129,7 @@ public class a {
             }
         }
         this.mContext = context.getApplicationContext();
-        this.f38285g = false;
+        this.f38313g = false;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -137,7 +137,7 @@ public class a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65543, this)) == null) {
-            NetworkInfo activeNetworkInfo = this.f38283e.getActiveNetworkInfo();
+            NetworkInfo activeNetworkInfo = this.f38311e.getActiveNetworkInfo();
             return activeNetworkInfo != null && activeNetworkInfo.isConnected();
         }
         return invokeV.booleanValue;
@@ -147,9 +147,9 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             synchronized (this) {
-                if (this.f38285g) {
-                    this.mContext.unregisterReceiver(this.f38284f);
-                    this.f38285g = false;
+                if (this.f38313g) {
+                    this.mContext.unregisterReceiver(this.f38312f);
+                    this.f38313g = false;
                 }
             }
         }
@@ -158,21 +158,21 @@ public class a {
     public static a b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? f38280b : (a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? f38308b : (a) invokeV.objValue;
     }
 
     public static a a(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
-            if (f38280b == null) {
+            if (f38308b == null) {
                 synchronized (a.class) {
-                    if (f38280b == null) {
-                        f38280b = new a(context);
+                    if (f38308b == null) {
+                        f38308b = new a(context);
                     }
                 }
             }
-            return f38280b;
+            return f38308b;
         }
         return (a) invokeL.objValue;
     }
@@ -181,14 +181,14 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             synchronized (this) {
-                if (!this.f38285g) {
-                    this.f38283e = (ConnectivityManager) this.mContext.getSystemService("connectivity");
+                if (!this.f38313g) {
+                    this.f38311e = (ConnectivityManager) this.mContext.getSystemService("connectivity");
                     IntentFilter intentFilter = new IntentFilter();
-                    intentFilter.addAction(f38281c);
-                    C1855a c1855a = new C1855a(this, null);
-                    this.f38284f = c1855a;
-                    this.mContext.registerReceiver(c1855a, intentFilter);
-                    this.f38285g = true;
+                    intentFilter.addAction(f38309c);
+                    C1856a c1856a = new C1856a(this, null);
+                    this.f38312f = c1856a;
+                    this.mContext.registerReceiver(c1856a, intentFilter);
+                    this.f38313g = true;
                 }
             }
         }

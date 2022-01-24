@@ -18,7 +18,7 @@ public class f {
     public boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f14100b;
+    public int f14240b;
 
     public f() {
         Interceptable interceptable = $ic;
@@ -34,7 +34,7 @@ public class f {
             }
         }
         this.a = false;
-        this.f14100b = 0;
+        this.f14240b = 0;
     }
 
     public void a(String str) {
@@ -43,7 +43,7 @@ public class f {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
             this.a = false;
-            this.f14100b = 0;
+            this.f14240b = 0;
             if (!TextUtils.isEmpty(str) && (lastIndexOf = str.lastIndexOf(":")) >= 5) {
                 String str3 = null;
                 try {
@@ -99,7 +99,7 @@ public class f {
                 if (!this.a || i2 <= 0) {
                     return;
                 }
-                this.f14100b = i3 / i2;
+                this.f14240b = i3 / i2;
             }
         }
     }
@@ -107,7 +107,7 @@ public class f {
     public int b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f14100b : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f14240b : invokeV.intValue;
     }
 
     public final int c() {

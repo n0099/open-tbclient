@@ -15,7 +15,7 @@ public class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: i  reason: collision with root package name */
-    public static List<String> f38287i;
+    public static List<String> f38315i;
     public transient /* synthetic */ FieldHolder $fh;
 
     public static DnsParseResult a(String str, boolean z) {
@@ -27,7 +27,7 @@ public class b {
                 return null;
             }
             int i2 = 0;
-            com.baidu.searchbox.dns.c.a k = new a.C1856a(System.currentTimeMillis(), com.baidu.searchbox.dns.d.b.o().a(str, false, 2), com.baidu.searchbox.dns.a.a.e().c(str)).k();
+            com.baidu.searchbox.dns.c.a k = new a.C1857a(System.currentTimeMillis(), com.baidu.searchbox.dns.d.b.o().a(str, false, 2), com.baidu.searchbox.dns.a.a.e().c(str)).k();
             com.baidu.searchbox.dns.d.a i3 = k.i();
             com.baidu.searchbox.dns.d.a.a h2 = k.h();
             int j2 = k.j();
@@ -120,8 +120,8 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65543, null) == null) {
             synchronized (b.class) {
-                if (f38287i != null && f38287i.size() > 0) {
-                    for (String str : f38287i) {
+                if (f38315i != null && f38315i.size() > 0) {
+                    for (String str : f38315i) {
                         b(str);
                     }
                 }
@@ -147,11 +147,11 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str) == null) {
             synchronized (b.class) {
-                if (f38287i == null) {
-                    f38287i = new ArrayList(4);
+                if (f38315i == null) {
+                    f38315i = new ArrayList(4);
                 }
-                if (!f38287i.contains(str)) {
-                    f38287i.add(str);
+                if (!f38315i.contains(str)) {
+                    f38315i.add(str);
                 }
             }
         }

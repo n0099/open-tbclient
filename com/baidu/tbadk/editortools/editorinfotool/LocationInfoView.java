@@ -5,7 +5,7 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.widget.LinearLayout;
 import c.a.d.f.p.n;
-import c.a.s0.s.j0.n.b;
+import c.a.s0.s.k0.n.b;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -28,13 +28,13 @@ public class LocationInfoView extends LinearLayout implements View.OnClickListen
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public TBSpecificationBtn f40927e;
+    public TBSpecificationBtn f40955e;
 
     /* renamed from: f  reason: collision with root package name */
-    public a f40928f;
+    public a f40956f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f40929g;
+    public int f40957g;
 
     /* loaded from: classes11.dex */
     public interface a {
@@ -76,12 +76,12 @@ public class LocationInfoView extends LinearLayout implements View.OnClickListen
             bVar.n(n.f(getContext(), R.dimen.M_H_X002));
             bVar.g(UtilHelper.getDimenPixelSize(R.dimen.tbds31));
             TBSpecificationBtn tBSpecificationBtn = new TBSpecificationBtn(getContext());
-            this.f40927e = tBSpecificationBtn;
+            this.f40955e = tBSpecificationBtn;
             tBSpecificationBtn.setConfig(bVar);
-            this.f40927e.setTextSize(R.dimen.T_X09);
-            this.f40927e.setOnClickListener(this);
-            this.f40927e.setText(getContext().getString(R.string.location_where_are_you));
-            addView(this.f40927e, new LinearLayout.LayoutParams(-2, n.f(getContext(), R.dimen.tbds62)));
+            this.f40955e.setTextSize(R.dimen.T_X09);
+            this.f40955e.setOnClickListener(this);
+            this.f40955e.setText(getContext().getString(R.string.location_where_are_you));
+            addView(this.f40955e, new LinearLayout.LayoutParams(-2, n.f(getContext(), R.dimen.tbds62)));
             onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
         }
     }
@@ -89,23 +89,23 @@ public class LocationInfoView extends LinearLayout implements View.OnClickListen
     public TBSpecificationBtn getLocationBtn() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f40927e : (TBSpecificationBtn) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f40955e : (TBSpecificationBtn) invokeV.objValue;
     }
 
     public void onChangeSkinType(int i2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) || this.f40929g == i2) {
+        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) || this.f40957g == i2) {
             return;
         }
-        this.f40927e.changeSkinType();
-        this.f40929g = i2;
+        this.f40955e.changeSkinType();
+        this.f40957g = i2;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         a aVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, view) == null) || (aVar = this.f40928f) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048579, this, view) == null) || (aVar = this.f40956f) == null) {
             return;
         }
         aVar.a();
@@ -114,7 +114,7 @@ public class LocationInfoView extends LinearLayout implements View.OnClickListen
     public void setLocationClickListener(a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, aVar) == null) {
-            this.f40928f = aVar;
+            this.f40956f = aVar;
         }
     }
 
@@ -126,13 +126,13 @@ public class LocationInfoView extends LinearLayout implements View.OnClickListen
                     int indexOf = str.indexOf("·");
                     str = str.substring(0, indexOf) + str.substring(indexOf + 1, str.length());
                 }
-                this.f40927e.setText(StringHelper.cutChineseAndEnglishWithSuffix(str, 8, "..."));
+                this.f40955e.setText(StringHelper.cutChineseAndEnglishWithSuffix(str, 8, "..."));
             } else if (i2 == 1) {
-                this.f40927e.setText(getContext().getString(R.string.location_loading));
+                this.f40955e.setText(getContext().getString(R.string.location_loading));
             } else {
-                this.f40927e.setText(getContext().getString(R.string.location_where_are_you));
+                this.f40955e.setText(getContext().getString(R.string.location_where_are_you));
             }
-            this.f40927e.btnState = Integer.valueOf(i2);
+            this.f40955e.btnState = Integer.valueOf(i2);
         }
     }
 
@@ -155,7 +155,7 @@ public class LocationInfoView extends LinearLayout implements View.OnClickListen
                 return;
             }
         }
-        this.f40929g = 3;
+        this.f40957g = 3;
         a();
     }
 }

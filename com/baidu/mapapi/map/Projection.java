@@ -70,7 +70,7 @@ public final class Projection {
             }
             GeoPoint ll2mc = CoordUtil.ll2mc(latLng);
             ab abVar = mapStatus.a;
-            return new PointF((float) (ll2mc.getLongitudeE6() - abVar.f35819d), (float) (ll2mc.getLatitudeE6() - abVar.f35820e));
+            return new PointF((float) (ll2mc.getLongitudeE6() - abVar.f35847d), (float) (ll2mc.getLatitudeE6() - abVar.f35848e));
         }
         return (PointF) invokeLL.objValue;
     }
@@ -84,7 +84,7 @@ public final class Projection {
             }
             GeoPoint ll2mc = CoordUtil.ll2mc(latLng);
             ab.a aVar = mapStatus.a.k;
-            return new PointF((float) ((((ll2mc.getLongitudeE6() - aVar.a) * 2.0d) / Math.abs(aVar.f35826b - aVar.a)) - 1.0d), (float) ((((ll2mc.getLatitudeE6() - aVar.f35828d) * 2.0d) / Math.abs(aVar.f35827c - aVar.f35828d)) - 1.0d));
+            return new PointF((float) ((((ll2mc.getLongitudeE6() - aVar.a) * 2.0d) / Math.abs(aVar.f35854b - aVar.a)) - 1.0d), (float) ((((ll2mc.getLatitudeE6() - aVar.f35856d) * 2.0d) / Math.abs(aVar.f35855c - aVar.f35856d)) - 1.0d));
         }
         return (PointF) invokeLL.objValue;
     }

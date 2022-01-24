@@ -9,22 +9,22 @@ public class at {
     public static final SimpleDateFormat a = new SimpleDateFormat("MM/dd", Locale.US);
 
     /* renamed from: b  reason: collision with root package name */
-    public static final SimpleDateFormat f57900b = new SimpleDateFormat("yyyy/MM/dd", Locale.US);
+    public static final SimpleDateFormat f57945b = new SimpleDateFormat("yyyy/MM/dd", Locale.US);
 
     /* renamed from: c  reason: collision with root package name */
-    public static final SimpleDateFormat f57901c = new SimpleDateFormat("MM月dd日", Locale.US);
+    public static final SimpleDateFormat f57946c = new SimpleDateFormat("MM月dd日", Locale.US);
 
     /* renamed from: d  reason: collision with root package name */
-    public static final SimpleDateFormat f57902d = new SimpleDateFormat("yyyy年MM月dd日", Locale.US);
+    public static final SimpleDateFormat f57947d = new SimpleDateFormat("yyyy年MM月dd日", Locale.US);
 
     /* renamed from: e  reason: collision with root package name */
-    public static final SimpleDateFormat f57903e = new SimpleDateFormat("HH:mm", Locale.US);
+    public static final SimpleDateFormat f57948e = new SimpleDateFormat("HH:mm", Locale.US);
 
     /* renamed from: f  reason: collision with root package name */
-    public static final SimpleDateFormat f57904f = new SimpleDateFormat("MM-dd", Locale.US);
+    public static final SimpleDateFormat f57949f = new SimpleDateFormat("MM-dd", Locale.US);
 
     /* renamed from: g  reason: collision with root package name */
-    public static final SimpleDateFormat f57905g = new SimpleDateFormat("yyyy-MM-dd", Locale.US);
+    public static final SimpleDateFormat f57950g = new SimpleDateFormat("yyyy-MM-dd", Locale.US);
 
     @Deprecated
     public static boolean a(String str) {

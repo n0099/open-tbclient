@@ -1,6 +1,6 @@
 package com.baidu.tieba.im.message;
 
-import c.a.t0.s1.w.b;
+import c.a.t0.t1.w.b;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;

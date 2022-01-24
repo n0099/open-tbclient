@@ -35,31 +35,31 @@ public class l {
     public NetworkInfo a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f2996b;
+    public boolean f3098b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f2997c;
+    public boolean f3099c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f2998d;
+    public boolean f3100d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f2999e;
+    public int f3101e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f3000f;
+    public int f3102f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f3001g;
+    public int f3103g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f3002h;
+    public String f3104h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f3003i;
+    public int f3105i;
 
     /* renamed from: j  reason: collision with root package name */
-    public long f3004j;
+    public long f3106j;
     public boolean k;
     public Runnable l;
 
@@ -182,14 +182,14 @@ public class l {
             }
         }
         this.a = null;
-        this.f2996b = true;
-        this.f2997c = false;
-        this.f2998d = true;
-        this.f2999e = 0;
-        this.f3000f = 0;
-        this.f3001g = -1;
-        this.f3002h = null;
-        this.f3003i = -1;
+        this.f3098b = true;
+        this.f3099c = false;
+        this.f3100d = true;
+        this.f3101e = 0;
+        this.f3102f = 0;
+        this.f3103g = -1;
+        this.f3104h = null;
+        this.f3105i = -1;
         this.k = true;
         this.l = new a(this);
     }
@@ -472,7 +472,7 @@ public class l {
             if (this.a == null) {
                 j();
             }
-            return this.f2996b;
+            return this.f3098b;
         }
         return invokeV.booleanValue;
     }
@@ -480,7 +480,7 @@ public class l {
     public final void N(long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j2) == null) {
-            this.f3004j = j2;
+            this.f3106j = j2;
         }
     }
 
@@ -494,7 +494,7 @@ public class l {
     public final long g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f3004j : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f3106j : invokeV.longValue;
     }
 
     public final NetworkInfo h() {
@@ -518,7 +518,7 @@ public class l {
             if (this.a == null) {
                 j();
             }
-            return this.f3000f;
+            return this.f3102f;
         }
         return invokeV.intValue;
     }
@@ -530,33 +530,33 @@ public class l {
             this.a = h2;
             if (h2 != null) {
                 if (h2.getType() == 1) {
-                    this.f2996b = true;
-                    this.f2997c = false;
+                    this.f3098b = true;
+                    this.f3099c = false;
                 } else if (h2.getType() == 0) {
-                    this.f2996b = false;
-                    this.f2997c = true;
+                    this.f3098b = false;
+                    this.f3099c = true;
                 } else {
-                    this.f2996b = false;
-                    this.f2997c = false;
+                    this.f3098b = false;
+                    this.f3099c = false;
                 }
-                this.f2998d = true;
+                this.f3100d = true;
                 int subtype = h2.getSubtype();
-                this.f2999e = subtype;
-                if (this.f2997c) {
-                    this.f3000f = n(subtype);
+                this.f3101e = subtype;
+                if (this.f3099c) {
+                    this.f3102f = n(subtype);
                 } else {
-                    this.f3000f = 0;
+                    this.f3102f = 0;
                 }
             } else {
-                this.f2996b = false;
-                this.f2997c = false;
-                this.f2998d = false;
-                this.f2999e = 0;
-                this.f2999e = 0;
+                this.f3098b = false;
+                this.f3099c = false;
+                this.f3100d = false;
+                this.f3101e = 0;
+                this.f3101e = 0;
             }
-            this.f3001g = L();
-            this.f3002h = Proxy.getDefaultHost();
-            this.f3003i = Proxy.getDefaultPort();
+            this.f3103g = L();
+            this.f3104h = Proxy.getDefaultHost();
+            this.f3105i = Proxy.getDefaultPort();
         }
     }
 
@@ -564,14 +564,14 @@ public class l {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            if (this.f3001g == -1) {
+            if (this.f3103g == -1) {
                 try {
-                    this.f3001g = L();
+                    this.f3103g = L();
                 } catch (Exception unused) {
-                    this.f3001g = 0;
+                    this.f3103g = 0;
                 }
             }
-            return this.f3001g;
+            return this.f3103g;
         }
         return invokeV.intValue;
     }
@@ -580,10 +580,10 @@ public class l {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            if (this.f3002h == null) {
-                this.f3002h = Proxy.getDefaultHost();
+            if (this.f3104h == null) {
+                this.f3104h = Proxy.getDefaultHost();
             }
-            return this.f3002h;
+            return this.f3104h;
         }
         return (String) invokeV.objValue;
     }
@@ -592,10 +592,10 @@ public class l {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            if (-1 == this.f3003i) {
-                this.f3003i = Proxy.getDefaultPort();
+            if (-1 == this.f3105i) {
+                this.f3105i = Proxy.getDefaultPort();
             }
-            return this.f3003i;
+            return this.f3105i;
         }
         return invokeV.intValue;
     }
@@ -607,7 +607,7 @@ public class l {
             if (this.a == null) {
                 j();
             }
-            return this.f2997c;
+            return this.f3099c;
         }
         return invokeV.booleanValue;
     }
@@ -619,7 +619,7 @@ public class l {
             if (this.a == null) {
                 j();
             }
-            return this.f2998d;
+            return this.f3100d;
         }
         return invokeV.booleanValue;
     }

@@ -16,31 +16,31 @@ public class k {
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f11846b;
+    public int f11988b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f11847c;
+    public String f11989c;
 
     /* renamed from: d  reason: collision with root package name */
-    public JSONObject f11848d;
+    public JSONObject f11990d;
 
     /* renamed from: e  reason: collision with root package name */
-    public long f11849e;
+    public long f11991e;
 
     /* renamed from: f  reason: collision with root package name */
-    public long f11850f;
+    public long f11992f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f11851g;
+    public int f11993g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f11852h;
+    public String f11994h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f11853i;
+    public String f11995i;
 
     /* renamed from: j  reason: collision with root package name */
-    public String f11854j;
+    public String f11996j;
     public JSONArray k;
     public boolean l;
 
@@ -63,7 +63,7 @@ public class k {
     public void a() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && d.g().a(this.a)) {
-            this.f11853i = e.g().h();
+            this.f11995i = e.g().h();
         }
     }
 
@@ -96,8 +96,8 @@ public class k {
         }
         this.l = false;
         this.a = str;
-        this.f11846b = i2;
-        this.f11847c = str2;
-        this.f11851g = i3;
+        this.f11988b = i2;
+        this.f11989c = str2;
+        this.f11993g = i3;
     }
 }

@@ -23,7 +23,7 @@ public class a extends c.a.r0.a.t1.a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final boolean f8879f;
+    public static final boolean f9021f;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -39,7 +39,7 @@ public class a extends c.a.r0.a.t1.a {
                 return;
             }
         }
-        f8879f = k.a;
+        f9021f = k.a;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -76,12 +76,12 @@ public class a extends c.a.r0.a.t1.a {
             q("#chooseCoupon", false);
             e a0 = e.a0();
             if (a0 == null) {
-                boolean z = f8879f;
+                boolean z = f9021f;
                 return new c.a.r0.a.u.h.b(1001, "swan app is null");
             }
             SwanAppActivity x = a0.x();
             if (x == null) {
-                boolean z2 = f8879f;
+                boolean z2 = f9021f;
                 return new c.a.r0.a.u.h.b(1001, "swan activity is null");
             }
             Pair<c.a.r0.a.u.h.b, JSONObject> s = s(str);
@@ -118,7 +118,7 @@ public class a extends c.a.r0.a.t1.a {
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
             q("#getPaymentInfo", false);
             if (e.a0() == null) {
-                boolean z = f8879f;
+                boolean z = f9021f;
                 return new c.a.r0.a.u.h.b(1001, "swan app is null");
             }
             Pair<c.a.r0.a.u.h.b, JSONObject> s = s(str);
@@ -159,7 +159,7 @@ public class a extends c.a.r0.a.t1.a {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
             q("#setPaymentInfo", false);
             if (e.a0() == null) {
-                boolean z = f8879f;
+                boolean z = f9021f;
                 return new c.a.r0.a.u.h.b(1001, "swan app is null");
             }
             Pair<c.a.r0.a.u.h.b, JSONObject> s = s(str);

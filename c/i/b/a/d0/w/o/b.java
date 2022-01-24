@@ -16,28 +16,28 @@ public final class b extends c {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c  reason: collision with root package name */
-    public final int f29325c;
+    public final int f29353c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final long f29326d;
+    public final long f29354d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final long f29327e;
+    public final long f29355e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final boolean f29328f;
+    public final boolean f29356f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final int f29329g;
+    public final int f29357g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final int f29330h;
+    public final int f29358h;
 
     /* renamed from: i  reason: collision with root package name */
-    public final int f29331i;
+    public final int f29359i;
 
     /* renamed from: j  reason: collision with root package name */
-    public final long f29332j;
+    public final long f29360j;
     public final boolean k;
     public final boolean l;
     public final boolean m;
@@ -52,22 +52,22 @@ public final class b extends c {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final String f29333e;
+        public final String f29361e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final long f29334f;
+        public final long f29362f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final int f29335g;
+        public final int f29363g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final long f29336h;
+        public final long f29364h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final String f29337i;
+        public final String f29365i;
 
         /* renamed from: j  reason: collision with root package name */
-        public final String f29338j;
+        public final String f29366j;
         public final long k;
         public final long l;
 
@@ -99,10 +99,10 @@ public final class b extends c {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, l)) == null) {
-                if (this.f29336h > l.longValue()) {
+                if (this.f29364h > l.longValue()) {
                     return 1;
                 }
-                return this.f29336h < l.longValue() ? -1 : 0;
+                return this.f29364h < l.longValue() ? -1 : 0;
             }
             return invokeL.intValue;
         }
@@ -122,12 +122,12 @@ public final class b extends c {
                     return;
                 }
             }
-            this.f29333e = str;
-            this.f29334f = j2;
-            this.f29335g = i2;
-            this.f29336h = j3;
-            this.f29337i = str2;
-            this.f29338j = str3;
+            this.f29361e = str;
+            this.f29362f = j2;
+            this.f29363g = i2;
+            this.f29364h = j3;
+            this.f29365i = str2;
+            this.f29366j = str3;
             this.k = j4;
             this.l = j5;
         }
@@ -153,13 +153,13 @@ public final class b extends c {
                 return;
             }
         }
-        this.f29325c = i2;
-        this.f29327e = j3;
-        this.f29328f = z;
-        this.f29329g = i3;
-        this.f29330h = i4;
-        this.f29331i = i5;
-        this.f29332j = j4;
+        this.f29353c = i2;
+        this.f29355e = j3;
+        this.f29356f = z;
+        this.f29357g = i3;
+        this.f29358h = i4;
+        this.f29359i = i5;
+        this.f29360j = j4;
         this.k = z2;
         this.l = z3;
         this.m = z4;
@@ -168,7 +168,7 @@ public final class b extends c {
         this.p = Collections.unmodifiableList(list2);
         if (!list2.isEmpty()) {
             a aVar2 = list2.get(list2.size() - 1);
-            this.q = aVar2.f29336h + aVar2.f29334f;
+            this.q = aVar2.f29364h + aVar2.f29362f;
         } else {
             this.q = 0L;
         }
@@ -177,25 +177,25 @@ public final class b extends c {
         } else {
             j5 = j2 >= 0 ? j2 : this.q + j2;
         }
-        this.f29326d = j5;
+        this.f29354d = j5;
     }
 
     public b a(long j2, int i2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j2), Integer.valueOf(i2)})) == null) ? new b(this.f29325c, this.a, this.f29339b, this.f29326d, j2, true, i2, this.f29330h, this.f29331i, this.f29332j, this.k, this.l, this.m, this.n, this.o, this.p) : (b) invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j2), Integer.valueOf(i2)})) == null) ? new b(this.f29353c, this.a, this.f29367b, this.f29354d, j2, true, i2, this.f29358h, this.f29359i, this.f29360j, this.k, this.l, this.m, this.n, this.o, this.p) : (b) invokeCommon.objValue;
     }
 
     public b b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.l ? this : new b(this.f29325c, this.a, this.f29339b, this.f29326d, this.f29327e, this.f29328f, this.f29329g, this.f29330h, this.f29331i, this.f29332j, this.k, true, this.m, this.n, this.o, this.p) : (b) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.l ? this : new b(this.f29353c, this.a, this.f29367b, this.f29354d, this.f29355e, this.f29356f, this.f29357g, this.f29358h, this.f29359i, this.f29360j, this.k, true, this.m, this.n, this.o, this.p) : (b) invokeV.objValue;
     }
 
     public long c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f29327e + this.q : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f29355e + this.q : invokeV.longValue;
     }
 
     public boolean d(b bVar) {
@@ -204,7 +204,7 @@ public final class b extends c {
         int i3;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, bVar)) == null) {
-            if (bVar == null || (i2 = this.f29330h) > (i3 = bVar.f29330h)) {
+            if (bVar == null || (i2 = this.f29358h) > (i3 = bVar.f29358h)) {
                 return true;
             }
             if (i2 < i3) {

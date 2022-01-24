@@ -139,9 +139,9 @@ public class f extends b<c.a.t0.n0.d> {
         if (interceptable == null || interceptable.invokeL(1048580, this, e2Var) == null) {
             PbActivityConfig createFromThreadCfg = new PbActivityConfig(i().getPageActivity()).createFromThreadCfg(e2Var, null, m.g(), 18003, true, false, false);
             createFromThreadCfg.setForumId(String.valueOf(e2Var.U()));
-            createFromThreadCfg.setForumName(e2Var.a0());
+            createFromThreadCfg.setForumName(e2Var.b0());
             createFromThreadCfg.setStartFrom(0);
-            m.a(e2Var.v1());
+            m.a(e2Var.w1());
             i().sendMessage(new CustomMessage(2004001, createFromThreadCfg));
         }
     }
@@ -154,9 +154,9 @@ public class f extends b<c.a.t0.n0.d> {
             this.o = (LinearLayout) view.findViewById(R.id.frs_game_head_line_container);
             this.v = view.findViewById(R.id.divider_line_1);
             this.w = view.findViewById(R.id.divider_line_2);
-            int dimensionPixelSize = this.f17768g.getResources().getDimensionPixelSize(R.dimen.tbds44);
+            int dimensionPixelSize = this.f17590g.getResources().getDimensionPixelSize(R.dimen.tbds44);
             if (this.p == null) {
-                this.p = new d(this.f17767f, null, null);
+                this.p = new d(this.f17589f, null, null);
             }
             this.p.t(0, 0, 0, 0);
             this.p.u(8);
@@ -168,7 +168,7 @@ public class f extends b<c.a.t0.n0.d> {
             this.p.j().setVisibility(8);
             this.o.addView(this.p.j());
             if (this.q == null) {
-                this.q = new e(this.f17767f);
+                this.q = new e(this.f17589f);
             }
             this.q.t(8);
             this.q.u(0, dimensionPixelSize, 0, 0);
@@ -179,7 +179,7 @@ public class f extends b<c.a.t0.n0.d> {
             this.q.j().setVisibility(8);
             this.o.addView(this.q.j());
             if (this.r == null) {
-                this.r = new e(this.f17767f);
+                this.r = new e(this.f17589f);
             }
             this.r.t(8);
             this.r.u(0, dimensionPixelSize, 0, 0);
@@ -200,8 +200,8 @@ public class f extends b<c.a.t0.n0.d> {
         if (!(interceptable == null || interceptable.invokeL(1048582, this, dVar) == null) || dVar == null || dVar.g() == null) {
             return;
         }
-        if (!TextUtils.isEmpty(dVar.g().f16111b)) {
-            this.n.setText(dVar.g().f16111b);
+        if (!TextUtils.isEmpty(dVar.g().f16443b)) {
+            this.n.setText(dVar.g().f16443b);
         }
         List<e2> list = dVar.g().a;
         if (ListUtils.getCount(list) >= 1) {

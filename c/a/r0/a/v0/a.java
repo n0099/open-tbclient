@@ -18,20 +18,20 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile a f9464b;
+    public static volatile a f9606b;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
 
     /* renamed from: c.a.r0.a.v0.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public class DialogInterface$OnClickListenerC0603a implements DialogInterface.OnClickListener {
+    public class DialogInterface$OnClickListenerC0612a implements DialogInterface.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c.a.r0.a.h0.j.b f9465e;
+        public final /* synthetic */ c.a.r0.a.h0.j.b f9607e;
 
-        public DialogInterface$OnClickListenerC0603a(a aVar, c.a.r0.a.h0.j.b bVar) {
+        public DialogInterface$OnClickListenerC0612a(a aVar, c.a.r0.a.h0.j.b bVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -46,7 +46,7 @@ public class a {
                     return;
                 }
             }
-            this.f9465e = bVar;
+            this.f9607e = bVar;
         }
 
         @Override // android.content.DialogInterface.OnClickListener
@@ -54,7 +54,7 @@ public class a {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLI(1048576, this, dialogInterface, i2) == null) {
                 n.e(QueryResponse.Options.CANCEL);
-                this.f9465e.a(Boolean.FALSE);
+                this.f9607e.a(Boolean.FALSE);
             }
         }
     }
@@ -65,7 +65,7 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c.a.r0.a.h0.j.b f9466e;
+        public final /* synthetic */ c.a.r0.a.h0.j.b f9608e;
 
         public b(a aVar, c.a.r0.a.h0.j.b bVar) {
             Interceptable interceptable = $ic;
@@ -82,7 +82,7 @@ public class a {
                     return;
                 }
             }
-            this.f9466e = bVar;
+            this.f9608e = bVar;
         }
 
         @Override // android.content.DialogInterface.OnClickListener
@@ -90,7 +90,7 @@ public class a {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLI(1048576, this, dialogInterface, i2) == null) {
                 n.e("confirm");
-                this.f9466e.a(Boolean.TRUE);
+                this.f9608e.a(Boolean.TRUE);
             }
         }
     }
@@ -143,27 +143,27 @@ public class a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (f9464b == null) {
+            if (f9606b == null) {
                 synchronized (a.class) {
-                    if (f9464b == null) {
-                        f9464b = new a();
+                    if (f9606b == null) {
+                        f9606b = new a();
                     }
                 }
             }
-            return f9464b;
+            return f9606b;
         }
         return (a) invokeV.objValue;
     }
 
     public static void d() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65538, null) == null) || f9464b == null) {
+        if (!(interceptable == null || interceptable.invokeV(65538, null) == null) || f9606b == null) {
             return;
         }
-        if (f9464b.a != null) {
-            f9464b.a = null;
+        if (f9606b.a != null) {
+            f9606b.a = null;
         }
-        f9464b = null;
+        f9606b = null;
     }
 
     public String a() {
@@ -196,7 +196,7 @@ public class a {
         aVar.n(new c.a.r0.a.a3.h.a());
         aVar.m(true);
         aVar.Q(c.a.r0.a.c.aiapps_modal_confirm_color);
-        aVar.O(h.aiapps_cancel, new DialogInterface$OnClickListenerC0603a(this, bVar));
+        aVar.O(h.aiapps_cancel, new DialogInterface$OnClickListenerC0612a(this, bVar));
         aVar.B(h.aiapps_confirm, new b(this, bVar));
         aVar.N(new c(this));
         aVar.X();

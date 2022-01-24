@@ -22,10 +22,10 @@ public class i {
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f5087b;
+    public int f5229b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Shader f5088c;
+    public Shader f5230c;
 
     public i(JSONArray jSONArray) {
         Interceptable interceptable = $ic;
@@ -49,13 +49,13 @@ public class i {
     public int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f5087b : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f5229b : invokeV.intValue;
     }
 
     public Shader b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f5088c : (Shader) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f5230c : (Shader) invokeV.objValue;
     }
 
     public boolean c() {
@@ -83,7 +83,7 @@ public class i {
                 if (TextUtils.equals(optString, "normal")) {
                     JSONArray optJSONArray = jSONArray.optJSONArray(1);
                     if (optJSONArray.length() == 4) {
-                        this.f5087b = Color.argb(optJSONArray.optInt(3), optJSONArray.optInt(0), optJSONArray.optInt(1), optJSONArray.optInt(2));
+                        this.f5229b = Color.argb(optJSONArray.optInt(3), optJSONArray.optInt(0), optJSONArray.optInt(1), optJSONArray.optInt(2));
                         this.a = "normal";
                     }
                 } else if (TextUtils.equals(optString, "linearGradient") || TextUtils.equals(optString, "circularGradient")) {
@@ -111,11 +111,11 @@ public class i {
                     if (iArr != null && fArr != null && iArr.length >= 2 && iArr.length == fArr.length) {
                         JSONObject optJSONObject2 = jSONArray.optJSONObject(2);
                         if (TextUtils.equals(optString, "linearGradient")) {
-                            this.f5088c = new LinearGradient(c.a.r0.a.z2.n0.g(optJSONObject2.optInt("x0")), c.a.r0.a.z2.n0.g(optJSONObject2.optInt("y0")), c.a.r0.a.z2.n0.g(optJSONObject2.optInt(GestureAR.SDK_TO_LUA_GESTURE_RESULT_X1)), c.a.r0.a.z2.n0.g(optJSONObject2.optInt(GestureAR.SDK_TO_LUA_GESTURE_RESULT_Y1)), iArr, fArr, Shader.TileMode.CLAMP);
+                            this.f5230c = new LinearGradient(c.a.r0.a.z2.n0.g(optJSONObject2.optInt("x0")), c.a.r0.a.z2.n0.g(optJSONObject2.optInt("y0")), c.a.r0.a.z2.n0.g(optJSONObject2.optInt(GestureAR.SDK_TO_LUA_GESTURE_RESULT_X1)), c.a.r0.a.z2.n0.g(optJSONObject2.optInt(GestureAR.SDK_TO_LUA_GESTURE_RESULT_Y1)), iArr, fArr, Shader.TileMode.CLAMP);
                             this.a = "linearGradient";
                             return;
                         }
-                        this.f5088c = new RadialGradient(c.a.r0.a.z2.n0.g(optJSONObject2.optInt("x")), c.a.r0.a.z2.n0.g(optJSONObject2.optInt("y")), c.a.r0.a.z2.n0.g(optJSONObject2.optInt("r")), iArr, fArr, Shader.TileMode.CLAMP);
+                        this.f5230c = new RadialGradient(c.a.r0.a.z2.n0.g(optJSONObject2.optInt("x")), c.a.r0.a.z2.n0.g(optJSONObject2.optInt("y")), c.a.r0.a.z2.n0.g(optJSONObject2.optInt("r")), iArr, fArr, Shader.TileMode.CLAMP);
                         this.a = "circularGradient";
                     }
                 }

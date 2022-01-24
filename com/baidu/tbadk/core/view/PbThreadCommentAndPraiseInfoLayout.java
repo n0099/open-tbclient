@@ -66,13 +66,13 @@ public class PbThreadCommentAndPraiseInfoLayout extends ThreadCommentAndPraiseIn
 
     public void doPraiseClick(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048576, this, str, str2) == null) || this.mData == null || TextUtils.isEmpty(str) || !str.equals(this.mData.v1())) {
+        if (!(interceptable == null || interceptable.invokeLL(1048576, this, str, str2) == null) || this.mData == null || TextUtils.isEmpty(str) || !str.equals(this.mData.w1())) {
             return;
         }
         f fVar = new f();
-        fVar.f13371b = 4;
-        fVar.f13373d = 2;
-        fVar.f13379j = str2;
+        fVar.f13557b = 4;
+        fVar.f13559d = 2;
+        fVar.f13565j = str2;
         this.mAgreeView.setStatisticData(fVar);
         this.mAgreeView.onAgreeClick();
     }
@@ -111,7 +111,7 @@ public class PbThreadCommentAndPraiseInfoLayout extends ThreadCommentAndPraiseIn
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             e2 e2Var = this.mData;
-            return (e2Var == null || !e2Var.H2() || this.mData.t1() == null) ? false : true;
+            return (e2Var == null || !e2Var.I2() || this.mData.u1() == null) ? false : true;
         }
         return invokeV.booleanValue;
     }
@@ -129,7 +129,7 @@ public class PbThreadCommentAndPraiseInfoLayout extends ThreadCommentAndPraiseIn
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
             e2 e2Var = this.mData;
-            return (e2Var == null || e2Var.V0() == 0) ? false : true;
+            return (e2Var == null || e2Var.W0() == 0) ? false : true;
         }
         return invokeV.booleanValue;
     }
@@ -163,8 +163,8 @@ public class PbThreadCommentAndPraiseInfoLayout extends ThreadCommentAndPraiseIn
             SkinManager.setViewTextColor(this.z, R.drawable.selector_comment_and_prise_item_text_color);
             e2 e2Var = this.mData;
             if (e2Var != null) {
-                MaskView.maskNovelViewGroup(this.B, e2Var.s2());
-                MaskView.maskNovelViewGroup(this.A, this.mData.s2());
+                MaskView.maskNovelViewGroup(this.B, e2Var.t2());
+                MaskView.maskNovelViewGroup(this.A, this.mData.t2());
             }
         }
     }
@@ -214,16 +214,16 @@ public class PbThreadCommentAndPraiseInfoLayout extends ThreadCommentAndPraiseIn
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048587, this, e2Var) == null) {
             if (e2Var != null) {
-                this.mAgreeView.setDisagreeShow(e2Var.G2());
+                this.mAgreeView.setDisagreeShow(e2Var.H2());
             }
-            if (e2Var != null && e2Var.I2()) {
+            if (e2Var != null && e2Var.J2()) {
                 this.mAgreeView.setDisagreeShow(true);
             }
             if (e2Var != null) {
                 LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.mAgreeView.getLayoutParams();
-                if (e2Var.I2()) {
+                if (e2Var.J2()) {
                     layoutParams.weight = 0.2f;
-                } else if (e2Var.G2()) {
+                } else if (e2Var.H2()) {
                     layoutParams.weight = 0.25f;
                 } else {
                     layoutParams.weight = 0.5f;
@@ -375,10 +375,10 @@ public class PbThreadCommentAndPraiseInfoLayout extends ThreadCommentAndPraiseIn
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048595, this, e2Var) == null) {
             super.updateReplyNum(e2Var);
-            if (e2Var == null || this.mCommentGrabSofa == null || !e2Var.I2()) {
+            if (e2Var == null || this.mCommentGrabSofa == null || !e2Var.J2()) {
                 return;
             }
-            if (e2Var.V0() == 0) {
+            if (e2Var.W0() == 0) {
                 this.mCommentGrabSofa.setVisibility(0);
             } else {
                 this.mCommentGrabSofa.setVisibility(8);

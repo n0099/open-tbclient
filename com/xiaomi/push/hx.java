@@ -22,7 +22,7 @@ public class hx implements iq<hx, Object>, Serializable, Cloneable {
     public static final jg f603a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final iy f61262b;
+    public static final iy f61307b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with other field name */
@@ -49,7 +49,7 @@ public class hx implements iq<hx, Object>, Serializable, Cloneable {
         }
         f603a = new jg("XmPushActionCheckClientInfo");
         a = new iy("", (byte) 8, (short) 1);
-        f61262b = new iy("", (byte) 8, (short) 2);
+        f61307b = new iy("", (byte) 8, (short) 2);
     }
 
     public hx() {
@@ -198,7 +198,7 @@ public class hx implements iq<hx, Object>, Serializable, Cloneable {
             jbVar.a(a);
             jbVar.a(this.f604a);
             jbVar.b();
-            jbVar.a(f61262b);
+            jbVar.a(f61307b);
             jbVar.a(this.f606b);
             jbVar.b();
             jbVar.c();

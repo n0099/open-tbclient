@@ -54,7 +54,7 @@ public class AlaEnterEffectCategoryAdapter extends a<c.a.t0.a0.l.g.d.d.a, ViewHo
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public AlaEnterEffectCategoryAdapter(Context context) {
-        super(context, c.a.t0.a0.l.g.d.d.a.f15009f);
+        super(context, c.a.t0.a0.l.g.d.d.a.f15149f);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -89,7 +89,7 @@ public class AlaEnterEffectCategoryAdapter extends a<c.a.t0.a0.l.g.d.d.a, ViewHo
     public ViewHolder M(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, viewGroup)) == null) ? new ViewHolder(LayoutInflater.from(this.f3258e).inflate(R.layout.ala_enter_effect_category_layout, (ViewGroup) null)) : (ViewHolder) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, viewGroup)) == null) ? new ViewHolder(LayoutInflater.from(this.f3360e).inflate(R.layout.ala_enter_effect_category_layout, (ViewGroup) null)) : (ViewHolder) invokeL.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -100,7 +100,7 @@ public class AlaEnterEffectCategoryAdapter extends a<c.a.t0.a0.l.g.d.d.a, ViewHo
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i2), view, viewGroup, aVar, viewHolder})) == null) {
             if (aVar != null) {
-                viewHolder.mCategoryName.setText(aVar.f15010e);
+                viewHolder.mCategoryName.setText(aVar.f15150e);
             }
             if (i2 == 0) {
                 viewHolder.mDevide.setVisibility(8);

@@ -41,7 +41,7 @@ public class SelectBarView extends LinearLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f49966e;
+    public boolean f50010e;
     public View mBottomLine;
     public TextView mCenterContent;
     public TextView mCenterContentPos;
@@ -69,7 +69,7 @@ public class SelectBarView extends LinearLayout {
                 return;
             }
         }
-        this.f49966e = true;
+        this.f50010e = true;
         init();
     }
 
@@ -126,7 +126,7 @@ public class SelectBarView extends LinearLayout {
     public final boolean getMCanChangeBarName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f49966e : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f50010e : invokeV.booleanValue;
     }
 
     public final TextView getMCenterContent() {
@@ -323,7 +323,7 @@ public class SelectBarView extends LinearLayout {
     public final void setMCanChangeBarName(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048589, this, z) == null) {
-            this.f49966e = z;
+            this.f50010e = z;
         }
     }
 
@@ -402,7 +402,7 @@ public class SelectBarView extends LinearLayout {
                 return;
             }
         }
-        this.f49966e = true;
+        this.f50010e = true;
         init();
     }
 
@@ -425,7 +425,7 @@ public class SelectBarView extends LinearLayout {
                 return;
             }
         }
-        this.f49966e = true;
+        this.f50010e = true;
         init();
     }
 }

@@ -20,7 +20,7 @@ public final class BufferUtils {
     public static a<ByteBuffer> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static int f31131b;
+    public static int f31159b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -37,7 +37,7 @@ public final class BufferUtils {
             }
         }
         a = new a<>();
-        f31131b = 0;
+        f31159b = 0;
     }
 
     public BufferUtils() {
@@ -76,7 +76,7 @@ public final class BufferUtils {
                     throw new IllegalArgumentException("buffer not allocated with newUnsafeByteBuffer or already disposed");
                 }
             }
-            f31131b -= capacity;
+            f31159b -= capacity;
             freeMemory(byteBuffer);
         }
     }
@@ -129,7 +129,7 @@ public final class BufferUtils {
         if (interceptable == null || (invokeI = interceptable.invokeI(65552, null, i2)) == null) {
             ByteBuffer newDisposableByteBuffer = newDisposableByteBuffer(i2);
             newDisposableByteBuffer.order(ByteOrder.nativeOrder());
-            f31131b += i2;
+            f31159b += i2;
             synchronized (a) {
                 a.a(newDisposableByteBuffer);
             }

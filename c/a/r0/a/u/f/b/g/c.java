@@ -21,23 +21,23 @@ public class c extends BasePendingOperation {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: j  reason: collision with root package name */
-    public static final CopyOnWriteArrayList<String> f9314j;
+    public static final CopyOnWriteArrayList<String> f9456j;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public i f9315e;
+    public i f9457e;
 
     /* renamed from: f  reason: collision with root package name */
-    public e f9316f;
+    public e f9458f;
 
     /* renamed from: g  reason: collision with root package name */
-    public JSONObject f9317g;
+    public JSONObject f9459g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f9318h;
+    public String f9460h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f9319i;
+    public String f9461i;
 
     static {
         InterceptResult invokeClinit;
@@ -53,12 +53,12 @@ public class c extends BasePendingOperation {
             }
         }
         CopyOnWriteArrayList<String> copyOnWriteArrayList = new CopyOnWriteArrayList<>();
-        f9314j = copyOnWriteArrayList;
+        f9456j = copyOnWriteArrayList;
         copyOnWriteArrayList.add("https://hmma.baidu.com/mini.gif");
-        f9314j.add("https://dxp.baidu.com/mini");
-        f9314j.add("https://mbd.baidu.com/smtapp/recordhandler/getrecordinfo");
-        f9314j.add("https://eclick.baidu.com/se.jpg");
-        f9314j.add("https://miniapp-ad.cdn.bcebos.com/miniapp_ad/config/cg.json");
+        f9456j.add("https://dxp.baidu.com/mini");
+        f9456j.add("https://mbd.baidu.com/smtapp/recordhandler/getrecordinfo");
+        f9456j.add("https://eclick.baidu.com/se.jpg");
+        f9456j.add("https://miniapp-ad.cdn.bcebos.com/miniapp_ad/config/cg.json");
     }
 
     public c(@NonNull i iVar, @NonNull e eVar, @NonNull JSONObject jSONObject, @NonNull String str, @NonNull String str2) {
@@ -76,24 +76,24 @@ public class c extends BasePendingOperation {
                 return;
             }
         }
-        this.f9315e = iVar;
-        this.f9316f = eVar;
-        this.f9317g = jSONObject;
-        this.f9318h = str;
-        this.f9319i = str2;
+        this.f9457e = iVar;
+        this.f9458f = eVar;
+        this.f9459g = jSONObject;
+        this.f9460h = str;
+        this.f9461i = str2;
     }
 
     public static Collection<String> d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f9314j : (Collection) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f9456j : (Collection) invokeV.objValue;
     }
 
     @Override // com.baidu.swan.apps.api.pending.queue.operation.BasePendingOperation
     public boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? e(this.f9317g.optString("url")) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? e(this.f9459g.optString("url")) : invokeV.booleanValue;
     }
 
     @Override // com.baidu.swan.apps.api.pending.queue.operation.BasePendingOperation
@@ -107,7 +107,7 @@ public class c extends BasePendingOperation {
     public String c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? String.format("%s : %s", this.f9316f.getAppId(), this.f9317g.optString("url")) : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? String.format("%s : %s", this.f9458f.getAppId(), this.f9459g.optString("url")) : (String) invokeV.objValue;
     }
 
     public final boolean e(String str) {
@@ -117,9 +117,9 @@ public class c extends BasePendingOperation {
             if (TextUtils.isEmpty(str)) {
                 return false;
             }
-            int size = f9314j.size();
+            int size = f9456j.size();
             for (int i2 = 0; i2 < size; i2++) {
-                String str2 = f9314j.get(i2);
+                String str2 = f9456j.get(i2);
                 if (!TextUtils.isEmpty(str2) && str.startsWith(str2)) {
                     return true;
                 }
@@ -140,7 +140,7 @@ public class c extends BasePendingOperation {
     public void run() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.f9315e.I(this.f9316f, this.f9317g, this.f9318h, this.f9319i);
+            this.f9457e.I(this.f9458f, this.f9459g, this.f9460h, this.f9461i);
         }
     }
 }

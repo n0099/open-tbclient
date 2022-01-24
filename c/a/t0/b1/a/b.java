@@ -1,28 +1,93 @@
 package c.a.t0.b1.a;
 
-import androidx.core.view.InputDeviceCompat;
+import c.a.s0.s.q.b1;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.HttpMessageListener;
+import com.baidu.adp.framework.message.HttpMessage;
+import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tbadk.task.TbHttpMessageTask;
+import com.baidu.tieba.forbidden.fans.GetForbiddenFansResponse;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
-import tbclient.BawuRoleInfoPub;
 /* loaded from: classes6.dex */
-public class b implements i {
+public class b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ArrayList<BawuRoleInfoPub> a;
+    public b1 a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f15098b;
+    public ArrayList<c.a.t0.b1.a.a> f15370b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f15099c;
+    public InterfaceC0976b f15371c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f15100d;
+    public HttpMessageListener f15372d;
+
+    /* loaded from: classes6.dex */
+    public class a extends HttpMessageListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ b a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(b bVar, int i2) {
+            super(i2);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {bVar, Integer.valueOf(i2)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = bVar;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(HttpResponsedMessage httpResponsedMessage) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) && (httpResponsedMessage instanceof GetForbiddenFansResponse)) {
+                GetForbiddenFansResponse getForbiddenFansResponse = (GetForbiddenFansResponse) httpResponsedMessage;
+                this.a.a = getForbiddenFansResponse.getPageData();
+                if (this.a.f15370b == null) {
+                    this.a.f15370b = new ArrayList();
+                }
+                if (this.a.a != null) {
+                    if (this.a.a.a() == 1) {
+                        this.a.f15370b.clear();
+                    }
+                    if (getForbiddenFansResponse.getFansList() != null) {
+                        this.a.f15370b.addAll(getForbiddenFansResponse.getFansList());
+                    }
+                }
+                if (this.a.f15371c != null) {
+                    this.a.f15371c.a(getForbiddenFansResponse.getError(), getForbiddenFansResponse.getErrorString(), this.a.f15370b);
+                }
+            }
+        }
+    }
+
+    /* renamed from: c.a.t0.b1.a.b$b  reason: collision with other inner class name */
+    /* loaded from: classes6.dex */
+    public interface InterfaceC0976b {
+        void a(int i2, String str, ArrayList<c.a.t0.b1.a.a> arrayList);
+    }
 
     public b() {
         Interceptable interceptable = $ic;
@@ -37,70 +102,62 @@ public class b implements i {
                 return;
             }
         }
-        this.a = new ArrayList<>();
-        this.f15098b = false;
-        this.f15099c = false;
+        this.f15372d = new a(this, CmdConfigHttp.CMD_GET_MY_FORBIDDEN_FANS);
+        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_GET_MY_FORBIDDEN_FANS, TbConfig.SERVER_ADDRESS + TbConfig.GET_FORBIDDEN_FANS);
+        tbHttpMessageTask.setIsNeedLogin(true);
+        tbHttpMessageTask.setIsNeedTbs(true);
+        tbHttpMessageTask.setIsUseCurrentBDUSS(true);
+        tbHttpMessageTask.setResponsedClass(GetForbiddenFansResponse.class);
+        MessageManager.getInstance().registerTask(tbHttpMessageTask);
+        MessageManager.getInstance().registerListener(this.f15372d);
     }
 
-    @Override // c.a.t0.b1.a.i
-    public int a() {
+    public boolean f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return 1;
+            b1 b1Var = this.a;
+            return b1Var != null && b1Var.b() == 1;
         }
-        return invokeV.intValue;
+        return invokeV.booleanValue;
     }
 
-    public boolean b() {
-        InterceptResult invokeV;
+    public void g() {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f15099c : invokeV.booleanValue;
-    }
-
-    public ArrayList<BawuRoleInfoPub> c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a : (ArrayList) invokeV.objValue;
-    }
-
-    public String d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f15100d : (String) invokeV.objValue;
-    }
-
-    public boolean e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f15098b : invokeV.booleanValue;
-    }
-
-    public void f(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
-            this.f15099c = z;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_GET_MY_FORBIDDEN_FANS);
+            httpMessage.addParam("rn", 20);
+            httpMessage.addParam("pn", 1);
+            MessageManager.getInstance().sendMessage(httpMessage);
         }
     }
 
-    public void g(boolean z) {
+    public void h() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
-            this.f15098b = z;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            b1 b1Var = this.a;
+            if (b1Var == null || b1Var.b() == 1) {
+                b1 b1Var2 = this.a;
+                int a2 = b1Var2 != null ? 1 + b1Var2.a() : 1;
+                HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_GET_MY_FORBIDDEN_FANS);
+                httpMessage.addParam("rn", 20);
+                httpMessage.addParam("pn", a2);
+                MessageManager.getInstance().sendMessage(httpMessage);
+            }
         }
     }
 
-    public void h(ArrayList<BawuRoleInfoPub> arrayList) {
+    public void i() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, arrayList) == null) {
-            this.a = arrayList;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            MessageManager.getInstance().unRegisterListener(this.f15372d);
         }
     }
 
-    public void i(String str) {
+    public void j(InterfaceC0976b interfaceC0976b) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
-            this.f15100d = str;
+        if (interceptable == null || interceptable.invokeL(1048580, this, interfaceC0976b) == null) {
+            this.f15371c = interfaceC0976b;
         }
     }
 }

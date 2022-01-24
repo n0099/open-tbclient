@@ -58,7 +58,7 @@ public class ImageClipActivity extends Activity {
     public static final int UPLOAD_IMAGE_WIDTH = 160;
 
     /* renamed from: j  reason: collision with root package name */
-    public static final String f38010j;
+    public static final String f38038j;
     public static final String k = "com.android.providers.media.documents";
     public static final String l = "com.android.providers.downloads.documents";
     public static final String m = "com.android.externalstorage.documents";
@@ -67,28 +67,28 @@ public class ImageClipActivity extends Activity {
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f38011b;
+    public int f38039b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f38012c;
+    public int f38040c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f38013d;
+    public int f38041d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f38014e;
+    public int f38042e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f38015f;
+    public int f38043f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f38016g;
+    public String f38044g;
 
     /* renamed from: h  reason: collision with root package name */
-    public ClipBoxView f38017h;
+    public ClipBoxView f38045h;
 
     /* renamed from: i  reason: collision with root package name */
-    public ZoomImageView f38018i;
+    public ZoomImageView f38046i;
 
     static {
         InterceptResult invokeClinit;
@@ -103,7 +103,7 @@ public class ImageClipActivity extends Activity {
                 return;
             }
         }
-        f38010j = ImageClipActivity.class.getSimpleName();
+        f38038j = ImageClipActivity.class.getSimpleName();
         EXTRA_IMAGE = "extra_image";
     }
 
@@ -121,20 +121,20 @@ public class ImageClipActivity extends Activity {
             }
         }
         this.a = 0;
-        this.f38011b = 0;
-        this.f38012c = 0;
-        this.f38013d = 0;
+        this.f38039b = 0;
+        this.f38040c = 0;
+        this.f38041d = 0;
     }
 
     private void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65552, this) == null) {
-            if (this.f38012c == 0 && this.f38013d == 0) {
+            if (this.f38040c == 0 && this.f38041d == 0) {
                 return;
             }
-            overridePendingTransition(this.f38012c, this.f38013d);
-            this.f38012c = 0;
-            this.f38013d = 0;
+            overridePendingTransition(this.f38040c, this.f38041d);
+            this.f38040c = 0;
+            this.f38041d = 0;
         }
     }
 
@@ -217,9 +217,9 @@ public class ImageClipActivity extends Activity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIIII(1048582, this, i2, i3, i4, i5) == null) {
             this.a = i2;
-            this.f38011b = i3;
-            this.f38012c = i4;
-            this.f38013d = i5;
+            this.f38039b = i3;
+            this.f38040c = i4;
+            this.f38041d = i5;
         }
     }
 
@@ -266,7 +266,7 @@ public class ImageClipActivity extends Activity {
                             return null;
                         }
                         int i3 = 160;
-                        if (this.a.f38014e != 0) {
+                        if (this.a.f38042e != 0) {
                             i3 = bitmapArr[0].getWidth();
                             i2 = bitmapArr[0].getHeight();
                         } else {
@@ -276,7 +276,7 @@ public class ImageClipActivity extends Activity {
                         ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
                         int i4 = 100;
                         createScaledBitmap.compress(Bitmap.CompressFormat.JPEG, 100, byteArrayOutputStream);
-                        while (byteArrayOutputStream.toByteArray().length > this.a.f38015f && i4 > 0 && i4 - 5 > 0) {
+                        while (byteArrayOutputStream.toByteArray().length > this.a.f38043f && i4 > 0 && i4 - 5 > 0) {
                             byteArrayOutputStream.reset();
                             createScaledBitmap.compress(Bitmap.CompressFormat.JPEG, i4, byteArrayOutputStream);
                         }
@@ -310,22 +310,22 @@ public class ImageClipActivity extends Activity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65547, this) == null) {
             setContentView(f.layout_sapi_sdk_image_clip);
-            this.f38014e = getIntent().getIntExtra(EXTRA_PARAM_FROM_BUSINESS, 0);
+            this.f38042e = getIntent().getIntExtra(EXTRA_PARAM_FROM_BUSINESS, 0);
             int intExtra = getIntent().getIntExtra(EXTRA_PARAM_UPLOAD_IMAGE_MAX_SIZE, 512);
-            this.f38015f = intExtra;
+            this.f38043f = intExtra;
             if (intExtra <= 0) {
-                this.f38015f = 512;
+                this.f38043f = 512;
             }
-            this.f38015f *= 1024;
-            this.f38017h = (ClipBoxView) findViewById(e.sapi_clip_box);
-            this.f38018i = (ZoomImageView) findViewById(e.sapi_background_picture);
-            if (this.f38014e == 1) {
-                ClipBoxView clipBoxView = this.f38017h;
+            this.f38043f *= 1024;
+            this.f38045h = (ClipBoxView) findViewById(e.sapi_clip_box);
+            this.f38046i = (ZoomImageView) findViewById(e.sapi_background_picture);
+            if (this.f38042e == 1) {
+                ClipBoxView clipBoxView = this.f38045h;
                 clipBoxView.E = ClipBoxView.G;
                 clipBoxView.F = false;
             }
-            if (this.f38014e == 2) {
-                ClipBoxView clipBoxView2 = this.f38017h;
+            if (this.f38042e == 2) {
+                ClipBoxView clipBoxView2 = this.f38045h;
                 clipBoxView2.E = ClipBoxView.G;
                 clipBoxView2.F = false;
             }
@@ -406,12 +406,12 @@ public class ImageClipActivity extends Activity {
     private void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65551, this) == null) {
-            if (this.a == 0 && this.f38011b == 0) {
+            if (this.a == 0 && this.f38039b == 0) {
                 return;
             }
-            overridePendingTransition(this.a, this.f38011b);
+            overridePendingTransition(this.a, this.f38039b);
             this.a = 0;
-            this.f38011b = 0;
+            this.f38039b = 0;
         }
     }
 
@@ -435,7 +435,7 @@ public class ImageClipActivity extends Activity {
                         a = query.getString(query.getColumnIndex("_data"));
                     } else {
                         a = a(getBaseContext(), uri);
-                        this.f38016g = a;
+                        this.f38044g = a;
                     }
                     str2 = a;
                 }
@@ -555,11 +555,11 @@ public class ImageClipActivity extends Activity {
         if (interceptable == null || interceptable.invokeL(65549, this, str) == null) {
             Bitmap operateBitmap = operateBitmap(str);
             if (operateBitmap != null) {
-                this.f38018i.setImageBitmap(operateBitmap);
-                if (TextUtils.isEmpty(this.f38016g)) {
+                this.f38046i.setImageBitmap(operateBitmap);
+                if (TextUtils.isEmpty(this.f38044g)) {
                     return;
                 }
-                FileUtil.deleteFile(new File(this.f38016g));
+                FileUtil.deleteFile(new File(this.f38044g));
                 return;
             }
             Toast.makeText(this, "加载图片失败", 0).show();

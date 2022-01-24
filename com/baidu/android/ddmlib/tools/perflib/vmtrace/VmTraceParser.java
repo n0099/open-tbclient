@@ -2,7 +2,6 @@ package com.baidu.android.ddmlib.tools.perflib.vmtrace;
 
 import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
-import androidx.webkit.ProxyConfig;
 import com.baidu.android.ddmlib.ByteBufferUtil;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -505,7 +504,7 @@ public class VmTraceParser {
                             break loop0;
                         }
                         j2 += readLine.getBytes(Charset.forName("UTF-8")).length + 1;
-                        if (readLine.startsWith(ProxyConfig.MATCH_ALL_SCHEMES)) {
+                        if (readLine.startsWith("*")) {
                             if (readLine.equals(HEADER_SECTION_VERSION)) {
                                 break;
                             } else if (readLine.equals(HEADER_SECTION_THREADS)) {

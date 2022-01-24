@@ -7,14 +7,14 @@ public class e {
     public com.kwad.sdk.core.download.a.b a;
 
     /* renamed from: b  reason: collision with root package name */
-    public RecyclerView f55985b;
+    public RecyclerView f56030b;
 
     /* renamed from: c  reason: collision with root package name */
-    public AdTemplate f55986c;
+    public AdTemplate f56031c;
 
     public e(AdTemplate adTemplate, com.kwad.sdk.core.download.a.b bVar, RecyclerView recyclerView) {
-        this.f55986c = adTemplate;
+        this.f56031c = adTemplate;
         this.a = bVar;
-        this.f55985b = recyclerView;
+        this.f56030b = recyclerView;
     }
 }

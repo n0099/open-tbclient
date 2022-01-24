@@ -18,34 +18,34 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public class NewVoteCountDownView extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f49143e;
+    public Context f49162e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f49144f;
+    public TextView f49163f;
 
     /* renamed from: g  reason: collision with root package name */
-    public View f49145g;
+    public View f49164g;
 
     /* renamed from: h  reason: collision with root package name */
-    public View f49146h;
+    public View f49165h;
 
     /* renamed from: i  reason: collision with root package name */
-    public View f49147i;
+    public View f49166i;
 
     /* renamed from: j  reason: collision with root package name */
-    public TextView f49148j;
+    public TextView f49167j;
     public TextView k;
     public TextView l;
     public CountDownTimer m;
     public b n;
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes13.dex */
     public class a extends CountDownTimer {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -94,7 +94,7 @@ public class NewVoteCountDownView extends LinearLayout {
         }
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes13.dex */
     public interface b {
         void a();
     }
@@ -132,11 +132,11 @@ public class NewVoteCountDownView extends LinearLayout {
     public final void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f49144f = (TextView) findViewById(R.id.prefix_count_down_view);
-            this.f49145g = findViewById(R.id.day_num_container);
-            this.f49146h = findViewById(R.id.hour_num_container);
-            this.f49147i = findViewById(R.id.minute_num_container);
-            this.f49148j = (TextView) findViewById(R.id.day_num_count_down_view);
+            this.f49163f = (TextView) findViewById(R.id.prefix_count_down_view);
+            this.f49164g = findViewById(R.id.day_num_container);
+            this.f49165h = findViewById(R.id.hour_num_container);
+            this.f49166i = findViewById(R.id.minute_num_container);
+            this.f49167j = (TextView) findViewById(R.id.day_num_count_down_view);
             this.k = (TextView) findViewById(R.id.hour_num_count_down_view);
             this.l = (TextView) findViewById(R.id.minute_num_count_down_view);
         }
@@ -145,7 +145,7 @@ public class NewVoteCountDownView extends LinearLayout {
     public final void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.f49143e = getContext();
+            this.f49162e = getContext();
             setOrientation(0);
             setClipToPadding(false);
             setClipChildren(false);
@@ -180,12 +180,12 @@ public class NewVoteCountDownView extends LinearLayout {
     public void onSkinChange(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048581, this, i2) == null) {
-            SkinManager.setViewTextColor(this.f49144f, R.color.CAM_X0105, 1, i2);
-            SkinManager.setViewTextColor(this.f49148j, R.color.CAM_X0105, 1, i2);
-            SkinManager.setBackgroundResource(this.f49145g, R.drawable.bg_gradient_round, i2);
-            SkinManager.setBackgroundResource(this.f49146h, R.drawable.bg_gradient_round, i2);
-            SkinManager.setBackgroundResource(this.f49147i, R.drawable.bg_gradient_round, i2);
-            SkinManager.setViewTextColor(this.f49148j, R.color.CAM_X0101, 1, i2);
+            SkinManager.setViewTextColor(this.f49163f, R.color.CAM_X0105, 1, i2);
+            SkinManager.setViewTextColor(this.f49167j, R.color.CAM_X0105, 1, i2);
+            SkinManager.setBackgroundResource(this.f49164g, R.drawable.bg_gradient_round, i2);
+            SkinManager.setBackgroundResource(this.f49165h, R.drawable.bg_gradient_round, i2);
+            SkinManager.setBackgroundResource(this.f49166i, R.drawable.bg_gradient_round, i2);
+            SkinManager.setViewTextColor(this.f49167j, R.color.CAM_X0101, 1, i2);
             SkinManager.setViewTextColor(this.k, R.color.CAM_X0101, 1, i2);
             SkinManager.setViewTextColor(this.l, R.color.CAM_X0101, 1, i2);
         }
@@ -195,7 +195,7 @@ public class NewVoteCountDownView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3), Long.valueOf(j4)}) == null) {
             String string = TbadkCoreApplication.getInst().getString(R.string.add_zero_when_less_ten);
-            this.f49148j.setText(String.format(string, Long.valueOf(j2)));
+            this.f49167j.setText(String.format(string, Long.valueOf(j2)));
             this.k.setText(String.format(string, Long.valueOf(j3)));
             this.l.setText(String.format(string, Long.valueOf(j4)));
         }

@@ -7,9 +7,9 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.text.TextUtils;
 import c.a.d.f.p.m;
-import c.a.s0.e1.v0;
+import c.a.s0.d1.v0;
 import c.a.s0.s.s.a;
-import c.a.t0.j3.z;
+import c.a.t0.k3.z;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomMessage;
@@ -118,11 +118,11 @@ public class c {
 
     /* renamed from: c.a.s0.m.c$c  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public static class C0858c implements UrlManager.UrlDealListener {
+    public static class C0867c implements UrlManager.UrlDealListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        public C0858c() {
+        public C0867c() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -275,16 +275,16 @@ public class c {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ TbPageContext f12881e;
+        public final /* synthetic */ TbPageContext f13025e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f12882f;
+        public final /* synthetic */ String f13026f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ String f12883g;
+        public final /* synthetic */ String f13027g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ Bundle f12884h;
+        public final /* synthetic */ Bundle f13028h;
 
         public d(TbPageContext tbPageContext, String str, String str2, Bundle bundle) {
             Interceptable interceptable = $ic;
@@ -301,10 +301,10 @@ public class c {
                     return;
                 }
             }
-            this.f12881e = tbPageContext;
-            this.f12882f = str;
-            this.f12883g = str2;
-            this.f12884h = bundle;
+            this.f13025e = tbPageContext;
+            this.f13026f = str;
+            this.f13027g = str2;
+            this.f13028h = bundle;
         }
 
         @Override // c.a.s0.s.s.a.e
@@ -312,7 +312,7 @@ public class c {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
                 aVar.dismiss();
-                c.a.s0.m.a.o(this.f12881e.getPageActivity(), this.f12882f, this.f12883g, this.f12884h);
+                c.a.s0.m.a.o(this.f13025e.getPageActivity(), this.f13026f, this.f13027g, this.f13028h);
             }
         }
     }
@@ -626,7 +626,7 @@ public class c {
     public static void j() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65546, null) == null) {
-            UrlManager.getInstance().addListener(new C0858c());
+            UrlManager.getInstance().addListener(new C0867c());
         }
     }
 

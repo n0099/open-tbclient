@@ -38,10 +38,10 @@ public class e {
     public static final boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final int f7769b;
+    public static final int f7911b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final int f7770c;
+    public static final int f7912c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes.dex */
@@ -50,29 +50,29 @@ public class e {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Set f7771e;
+        public final /* synthetic */ Set f7913e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ boolean f7772f;
+        public final /* synthetic */ boolean f7914f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ c.a.r0.q.k.i.a f7773g;
+        public final /* synthetic */ c.a.r0.q.k.i.a f7915g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ long f7774h;
+        public final /* synthetic */ long f7916h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final /* synthetic */ b.C0471b f7775i;
+        public final /* synthetic */ b.C0480b f7917i;
 
         /* renamed from: j  reason: collision with root package name */
-        public final /* synthetic */ e f7776j;
+        public final /* synthetic */ e f7918j;
 
-        public a(e eVar, Set set, boolean z, c.a.r0.q.k.i.a aVar, long j2, b.C0471b c0471b) {
+        public a(e eVar, Set set, boolean z, c.a.r0.q.k.i.a aVar, long j2, b.C0480b c0480b) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {eVar, set, Boolean.valueOf(z), aVar, Long.valueOf(j2), c0471b};
+                Object[] objArr = {eVar, set, Boolean.valueOf(z), aVar, Long.valueOf(j2), c0480b};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i2 = newInitContext.flag;
                 if ((i2 & 1) != 0) {
@@ -82,12 +82,12 @@ public class e {
                     return;
                 }
             }
-            this.f7776j = eVar;
-            this.f7771e = set;
-            this.f7772f = z;
-            this.f7773g = aVar;
-            this.f7774h = j2;
-            this.f7775i = c0471b;
+            this.f7918j = eVar;
+            this.f7913e = set;
+            this.f7914f = z;
+            this.f7915g = aVar;
+            this.f7916h = j2;
+            this.f7917i = c0480b;
         }
 
         @Override // java.lang.Runnable
@@ -95,7 +95,7 @@ public class e {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 HashSet hashSet = new HashSet();
-                Set set = this.f7771e;
+                Set set = this.f7913e;
                 if (set != null) {
                     hashSet.addAll(set);
                 }
@@ -109,7 +109,7 @@ public class e {
                 if (c.a.r0.a.n0.f.c().d().n(v)) {
                     boolean unused = e.a;
                     c.a.r0.a.a1.d.d(hashSet, v);
-                    Map m = this.f7776j.m(86400000L, v);
+                    Map m = this.f7918j.m(86400000L, v);
                     if (m.isEmpty()) {
                         return;
                     }
@@ -119,16 +119,16 @@ public class e {
                     ArrayList arrayList3 = new ArrayList();
                     e.l(arrayList, arrayList2, arrayList3);
                     ArrayList arrayList4 = new ArrayList();
-                    int max = Math.max(10, this.f7772f ? e.f7769b : this.f7773g.f11597d);
+                    int max = Math.max(10, this.f7914f ? e.f7911b : this.f7915g.f11739d);
                     e.r(arrayList3, max, arrayList4);
-                    long j2 = this.f7773g.f11598e;
+                    long j2 = this.f7915g.f11740e;
                     e.q(arrayList3, j2 * 3600000, arrayList4, m);
-                    int max2 = Math.max(40, this.f7772f ? e.f7770c : this.f7773g.f11595b);
+                    int max2 = Math.max(40, this.f7914f ? e.f7912c : this.f7915g.f11737b);
                     e.r(arrayList2, max2, arrayList4);
-                    long j3 = this.f7773g.f11596c;
+                    long j3 = this.f7915g.f11738c;
                     e.q(arrayList2, 3600000 * j3, arrayList4, m);
-                    c.a.r0.a.e0.d.k("SwanAppDiskCleaner", "clean_internal_hour=" + this.f7774h + " pre_hold_count=" + max + " pre_force_clean_hour=" + j2 + " used_hold_count=" + max2 + " used_force_clean_hour=" + j3 + "\n appIdList(" + arrayList.size() + ")=" + arrayList + "\n historyList(" + arrayList2.size() + ")=" + arrayList2 + "\n preloadList(" + arrayList3.size() + ")=" + arrayList3 + "\n cleanList(" + arrayList4.size() + ")=" + arrayList4 + StringUtils.LF);
-                    c.a.r0.a.n0.f.c().d().g(arrayList4, false, false, this.f7775i);
+                    c.a.r0.a.e0.d.k("SwanAppDiskCleaner", "clean_internal_hour=" + this.f7916h + " pre_hold_count=" + max + " pre_force_clean_hour=" + j2 + " used_hold_count=" + max2 + " used_force_clean_hour=" + j3 + "\n appIdList(" + arrayList.size() + ")=" + arrayList + "\n historyList(" + arrayList2.size() + ")=" + arrayList2 + "\n preloadList(" + arrayList3.size() + ")=" + arrayList3 + "\n cleanList(" + arrayList4.size() + ")=" + arrayList4 + StringUtils.LF);
+                    c.a.r0.a.n0.f.c().d().g(arrayList4, false, false, this.f7917i);
                     c.a.r0.a.h0.m.u.a.c();
                     return;
                 }
@@ -185,9 +185,9 @@ public class e {
         }
         a = k.a;
         c.a.r0.a.c1.a.g0().getSwitch("swan_disk_level_pkg_hold_used", 0);
-        f7769b = 0;
+        f7911b = 0;
         c.a.r0.a.c1.a.g0().getSwitch("swan_disk_level_pkg_hold_predownload", 0);
-        f7770c = 0;
+        f7912c = 0;
     }
 
     public e() {
@@ -293,19 +293,19 @@ public class e {
     }
 
     @AnyThread
-    public synchronized void i(@Nullable Set<String> set, boolean z, b.C0471b c0471b) {
+    public synchronized void i(@Nullable Set<String> set, boolean z, b.C0480b c0480b) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{set, Boolean.valueOf(z), c0471b}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{set, Boolean.valueOf(z), c0480b}) == null) {
             synchronized (this) {
-                j(set, z, c0471b);
+                j(set, z, c0480b);
             }
         }
     }
 
     @AnyThread
-    public synchronized void j(@Nullable Set<String> set, boolean z, b.C0471b c0471b) {
+    public synchronized void j(@Nullable Set<String> set, boolean z, b.C0480b c0480b) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{set, Boolean.valueOf(z), c0471b}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{set, Boolean.valueOf(z), c0480b}) == null) {
             synchronized (this) {
                 if (!ProcessUtils.isMainProcess()) {
                     boolean z2 = a;
@@ -317,7 +317,7 @@ public class e {
                 long j2 = a2.a;
                 if (z3 || !o(3600000 * j2)) {
                     h.a().putLong("clean_disk_check_time", System.currentTimeMillis());
-                    ExecutorUtilsExt.postOnSerial(new a(this, set, z, a2, j2, c0471b), "cleanDiskSpaceOptimized");
+                    ExecutorUtilsExt.postOnSerial(new a(this, set, z, a2, j2, c0480b), "cleanDiskSpaceOptimized");
                 }
             }
         }

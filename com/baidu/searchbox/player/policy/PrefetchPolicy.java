@@ -3,7 +3,6 @@ package com.baidu.searchbox.player.policy;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.android.imsdk.retrieve.RetrieveFileData;
 import com.baidu.searchbox.player.helper.PlayPerRecord;
 import com.baidu.searchbox.player.utils.BdPlayerUtils;
 import com.baidu.searchbox.player.utils.BdVideoLog;
@@ -96,7 +95,7 @@ public class PrefetchPolicy {
             }
             PrefetchPolicy prefetchPolicy = new PrefetchPolicy();
             prefetchPolicy.lineDuration = map.get("lineDuration");
-            prefetchPolicy.expiredTime = map.get(RetrieveFileData.EXPIRED);
+            prefetchPolicy.expiredTime = map.get("expiredTime");
             prefetchPolicy.expiredCount = map.get("expiredCount");
             prefetchPolicy.calcCnt = map.get("calcCnt");
             prefetchPolicy.ctrPass = map.get("ctrPass");
@@ -121,7 +120,7 @@ public class PrefetchPolicy {
             }
             HashMap hashMap = new HashMap();
             hashMap.put("lineDuration", prefetchPolicy.lineDuration);
-            hashMap.put(RetrieveFileData.EXPIRED, prefetchPolicy.expiredTime);
+            hashMap.put("expiredTime", prefetchPolicy.expiredTime);
             hashMap.put("expiredCount", prefetchPolicy.expiredCount);
             hashMap.put("calcCnt", prefetchPolicy.calcCnt);
             hashMap.put("ctrPass", prefetchPolicy.ctrPass);

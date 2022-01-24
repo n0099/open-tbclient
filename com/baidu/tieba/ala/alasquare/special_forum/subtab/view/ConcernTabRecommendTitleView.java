@@ -108,7 +108,7 @@ public class ConcernTabRecommendTitleView extends b<g> {
         if (!(interceptable == null || interceptable.invokeL(1048580, this, gVar) == null) || (viewHolder = this.m) == null) {
             return;
         }
-        if (gVar.f14618e) {
+        if (gVar.f14758e) {
             viewHolder.devider.setVisibility(0);
         } else {
             viewHolder.devider.setVisibility(8);

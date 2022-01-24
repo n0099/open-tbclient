@@ -40,16 +40,16 @@ public final class Murmur3_32HashFunction extends b implements Serializable {
         public int a;
 
         /* renamed from: b  reason: collision with root package name */
-        public long f54906b;
+        public long f54951b;
 
         /* renamed from: c  reason: collision with root package name */
-        public int f54907c;
+        public int f54952c;
 
         /* renamed from: d  reason: collision with root package name */
-        public int f54908d;
+        public int f54953d;
 
         /* renamed from: e  reason: collision with root package name */
-        public boolean f54909e;
+        public boolean f54954e;
 
         public a(int i2) {
             Interceptable interceptable = $ic;
@@ -67,24 +67,24 @@ public final class Murmur3_32HashFunction extends b implements Serializable {
                 }
             }
             this.a = i2;
-            this.f54908d = 0;
-            this.f54909e = false;
+            this.f54953d = 0;
+            this.f54954e = false;
         }
 
         private void update(int i2, long j2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(65537, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j2)}) == null) {
-                long j3 = this.f54906b;
-                int i3 = this.f54907c;
+                long j3 = this.f54951b;
+                int i3 = this.f54952c;
                 long j4 = ((j2 & 4294967295L) << i3) | j3;
-                this.f54906b = j4;
+                this.f54951b = j4;
                 int i4 = i3 + (i2 * 8);
-                this.f54907c = i4;
-                this.f54908d += i2;
+                this.f54952c = i4;
+                this.f54953d += i2;
                 if (i4 >= 32) {
                     this.a = Murmur3_32HashFunction.mixH1(this.a, Murmur3_32HashFunction.mixK1((int) j4));
-                    this.f54906b >>>= 32;
-                    this.f54907c -= 32;
+                    this.f54951b >>>= 32;
+                    this.f54952c -= 32;
                 }
             }
         }
@@ -106,11 +106,11 @@ public final class Murmur3_32HashFunction extends b implements Serializable {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-                n.w(!this.f54909e);
-                this.f54909e = true;
-                int mixK1 = this.a ^ Murmur3_32HashFunction.mixK1((int) this.f54906b);
+                n.w(!this.f54954e);
+                this.f54954e = true;
+                int mixK1 = this.a ^ Murmur3_32HashFunction.mixK1((int) this.f54951b);
                 this.a = mixK1;
-                return Murmur3_32HashFunction.fmix(mixK1, this.f54908d);
+                return Murmur3_32HashFunction.fmix(mixK1, this.f54953d);
             }
             return (HashCode) invokeV.objValue;
         }

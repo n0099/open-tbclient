@@ -38,18 +38,18 @@ public class BdZeusUpdate {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: e  reason: collision with root package name */
-    public static BdZeusUpdate f33076e;
+    public static BdZeusUpdate f33104e;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f33077b;
+    public String f33105b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f33078c;
+    public String f33106c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f33079d;
+    public boolean f33107d;
 
     /* loaded from: classes10.dex */
     public class BdZesuUpdateTask extends BdNetTask implements INetListener {
@@ -151,13 +151,13 @@ public class BdZeusUpdate {
                             if (jSONObject.has("data")) {
                                 JSONObject jSONObject2 = jSONObject.getJSONObject("data");
                                 if (jSONObject2.has("version")) {
-                                    this.this$0.f33077b = jSONObject2.getString("version");
+                                    this.this$0.f33105b = jSONObject2.getString("version");
                                 }
                                 if (jSONObject2.has("link")) {
                                     this.this$0.a = jSONObject2.getString("link");
                                 }
                                 if (jSONObject2.has(PackageTable.MD5)) {
-                                    this.this$0.f33078c = jSONObject2.getString(PackageTable.MD5);
+                                    this.this$0.f33106c = jSONObject2.getString(PackageTable.MD5);
                                 }
                             }
                         }
@@ -214,10 +214,10 @@ public class BdZeusUpdate {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Context f33080e;
+        public final /* synthetic */ Context f33108e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ BdZeusUpdate f33081f;
+        public final /* synthetic */ BdZeusUpdate f33109f;
 
         public a(BdZeusUpdate bdZeusUpdate, Context context) {
             Interceptable interceptable = $ic;
@@ -234,8 +234,8 @@ public class BdZeusUpdate {
                     return;
                 }
             }
-            this.f33081f = bdZeusUpdate;
-            this.f33080e = context;
+            this.f33109f = bdZeusUpdate;
+            this.f33108e = context;
         }
 
         @Override // java.lang.Runnable
@@ -243,16 +243,16 @@ public class BdZeusUpdate {
             LoadErrorCode loadErrorCode;
             int i2;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f33080e == null) {
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f33108e == null) {
                 return;
             }
             Log.i(EngineManager.LOG_TAG, "start check zeus update async");
-            BdZeusUpdate bdZeusUpdate = this.f33081f;
-            Context context = this.f33080e;
+            BdZeusUpdate bdZeusUpdate = this.f33109f;
+            Context context = this.f33108e;
             if (!WebKitFactory.isUserPrivacyEnabled()) {
                 loadErrorCode = WebKitFactory.getLoadErrorCode();
                 i2 = 1000;
-            } else if (bdZeusUpdate.f33079d) {
+            } else if (bdZeusUpdate.f33107d) {
                 return;
             } else {
                 if (b.d(context)) {
@@ -260,7 +260,7 @@ public class BdZeusUpdate {
                     BdNet bdNet = new BdNet(context);
                     bdNet.setEventListener(bdZesuUpdateTask);
                     bdNet.start(bdZesuUpdateTask, false);
-                    bdZeusUpdate.f33079d = true;
+                    bdZeusUpdate.f33107d = true;
                     return;
                 }
                 loadErrorCode = WebKitFactory.getLoadErrorCode();
@@ -303,14 +303,14 @@ public class BdZeusUpdate {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (f33076e == null) {
+            if (f33104e == null) {
                 synchronized (BdZeusUpdate.class) {
-                    if (f33076e == null) {
-                        f33076e = new BdZeusUpdate();
+                    if (f33104e == null) {
+                        f33104e = new BdZeusUpdate();
                     }
                 }
             }
-            return f33076e;
+            return f33104e;
         }
         return (BdZeusUpdate) invokeV.objValue;
     }
@@ -537,8 +537,8 @@ public class BdZeusUpdate {
             String zeusVersionName = WebKitFactory.getZeusVersionName();
             boolean z = false;
             if (WebKitFactory.getCurEngine() == 1) {
-                if (e(zeusVersionName, this.f33077b)) {
-                    BdZeusDownloadHelper.b(BdSailor.getInstance().getAppContext()).e(this.a, this.f33078c);
+                if (e(zeusVersionName, this.f33105b)) {
+                    BdZeusDownloadHelper.b(BdSailor.getInstance().getAppContext()).e(this.a, this.f33106c);
                     return;
                 } else {
                     WebKitFactory.getLoadErrorCode().addDownloadInfo(1003);
@@ -563,7 +563,7 @@ public class BdZeusUpdate {
             BdSailorPlatform.getStatic().c("download-webkit-start", String.valueOf(System.currentTimeMillis()));
             BdSailorPlatform.getStatic().a();
             Log.i(EngineManager.LOG_TAG, "start download zeus");
-            BdZeusDownloadHelper.b(BdSailor.getInstance().getAppContext()).e(this.a, this.f33078c);
+            BdZeusDownloadHelper.b(BdSailor.getInstance().getAppContext()).e(this.a, this.f33106c);
         }
     }
 }

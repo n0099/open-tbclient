@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.nio.ByteBuffer;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class VideoFrame implements RefCounted {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -18,7 +18,7 @@ public class VideoFrame implements RefCounted {
     public final int rotation;
     public final long timestampNs;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public interface Buffer extends RefCounted {
         @CalledByNative("Buffer")
         Buffer cropAndScale(int i2, int i3, int i4, int i5, int i6, int i7);
@@ -41,7 +41,7 @@ public class VideoFrame implements RefCounted {
         I420Buffer toI420();
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public interface I420Buffer extends Buffer {
         @CalledByNative("I420Buffer")
         ByteBuffer getDataU();
@@ -62,11 +62,11 @@ public class VideoFrame implements RefCounted {
         int getStrideY();
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public interface TextureBuffer extends Buffer {
 
         /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-        /* loaded from: classes4.dex */
+        /* loaded from: classes5.dex */
         public static final class Type {
             public static final /* synthetic */ Type[] $VALUES;
             public static /* synthetic */ Interceptable $ic;

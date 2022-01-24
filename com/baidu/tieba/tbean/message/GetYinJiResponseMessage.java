@@ -16,7 +16,7 @@ import tbclient.GetIconList.GetIconListResIdl;
 import tbclient.GetIconList.IconInfo;
 import tbclient.GetIconList.Setting;
 import tbclient.GetIconList.UserInfo;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public class GetYinJiResponseMessage extends SocketResponsedMessage implements a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

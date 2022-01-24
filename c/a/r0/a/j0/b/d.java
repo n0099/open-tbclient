@@ -31,7 +31,7 @@ public class d {
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
             synchronized (d.class) {
                 if (a == null) {
-                    a = b.f7274c.buildUpon().appendPath("user_behavior").build();
+                    a = b.f7416c.buildUpon().appendPath("user_behavior").build();
                 }
                 uri = a;
             }

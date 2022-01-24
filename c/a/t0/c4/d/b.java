@@ -23,13 +23,13 @@ public class b extends BaseAdapter {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public AvatarPendantActivity f15488e;
+    public AvatarPendantActivity f15636e;
 
     /* renamed from: f  reason: collision with root package name */
-    public List<DressItemData> f15489f;
+    public List<DressItemData> f15637f;
 
     /* renamed from: g  reason: collision with root package name */
-    public c.a f15490g;
+    public c.a f15638g;
 
     /* loaded from: classes7.dex */
     public static /* synthetic */ class a {
@@ -39,12 +39,12 @@ public class b extends BaseAdapter {
 
     /* renamed from: c.a.t0.c4.d.b$b  reason: collision with other inner class name */
     /* loaded from: classes7.dex */
-    public class C0995b {
+    public class C0999b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public AvatarPendantPerItemView a;
 
-        public C0995b(b bVar) {
+        public C0999b(b bVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -60,7 +60,7 @@ public class b extends BaseAdapter {
             }
         }
 
-        public /* synthetic */ C0995b(b bVar, a aVar) {
+        public /* synthetic */ C0999b(b bVar, a aVar) {
             this(bVar);
         }
     }
@@ -80,7 +80,7 @@ public class b extends BaseAdapter {
                 return;
             }
         }
-        this.f15488e = avatarPendantActivity;
+        this.f15636e = avatarPendantActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -90,11 +90,11 @@ public class b extends BaseAdapter {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) {
-            List<DressItemData> list = this.f15489f;
-            if (list == null || list.size() <= 0 || this.f15489f.size() <= i2) {
+            List<DressItemData> list = this.f15637f;
+            if (list == null || list.size() <= 0 || this.f15637f.size() <= i2) {
                 return null;
             }
-            return this.f15489f.get(i2);
+            return this.f15637f.get(i2);
         }
         return (DressItemData) invokeI.objValue;
     }
@@ -104,8 +104,8 @@ public class b extends BaseAdapter {
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view) == null) {
             int skinType = TbadkApplication.getInst().getSkinType();
             if (view != null) {
-                this.f15488e.getLayoutMode().k(skinType == 1);
-                this.f15488e.getLayoutMode().j(view);
+                this.f15636e.getLayoutMode().k(skinType == 1);
+                this.f15636e.getLayoutMode().j(view);
             }
         }
     }
@@ -113,14 +113,14 @@ public class b extends BaseAdapter {
     public void c(c.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar) == null) {
-            this.f15490g = aVar;
+            this.f15638g = aVar;
         }
     }
 
     public void d(List<DressItemData> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, list) == null) {
-            this.f15489f = list;
+            this.f15637f = list;
         }
     }
 
@@ -129,7 +129,7 @@ public class b extends BaseAdapter {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            List<DressItemData> list = this.f15489f;
+            List<DressItemData> list = this.f15637f;
             if (list != null) {
                 return list.size();
             }
@@ -151,22 +151,22 @@ public class b extends BaseAdapter {
     @Override // android.widget.Adapter
     public View getView(int i2, View view, ViewGroup viewGroup) {
         InterceptResult invokeILL;
-        C0995b c0995b;
+        C0999b c0999b;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeILL = interceptable.invokeILL(1048583, this, i2, view, viewGroup)) == null) {
-            if (view != null && (view.getTag() instanceof C0995b)) {
-                c0995b = (C0995b) view.getTag();
+            if (view != null && (view.getTag() instanceof C0999b)) {
+                c0999b = (C0999b) view.getTag();
             } else {
-                view = LayoutInflater.from(this.f15488e.getActivity()).inflate(R.layout.avatar_pendant_gridview_item, viewGroup, false);
-                c0995b = new C0995b(this, null);
+                view = LayoutInflater.from(this.f15636e.getActivity()).inflate(R.layout.avatar_pendant_gridview_item, viewGroup, false);
+                c0999b = new C0999b(this, null);
                 AvatarPendantPerItemView avatarPendantPerItemView = (AvatarPendantPerItemView) view.findViewById(R.id.avatar_pendant_per_item);
-                c0995b.a = avatarPendantPerItemView;
-                avatarPendantPerItemView.setAvatarPendantItemClickListener(this.f15490g);
-                view.setTag(c0995b);
+                c0999b.a = avatarPendantPerItemView;
+                avatarPendantPerItemView.setAvatarPendantItemClickListener(this.f15638g);
+                view.setTag(c0999b);
             }
             DressItemData item = getItem(i2);
             if (item != null) {
-                c0995b.a.fillView(item);
+                c0999b.a.fillView(item);
             }
             b(view);
             return view;

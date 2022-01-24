@@ -1,6 +1,6 @@
 package c.a.s0.t.c;
 
-import c.a.t0.x1.o.h.b;
+import c.a.t0.y1.o.h.b;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
@@ -17,27 +17,27 @@ import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class g implements c.a.t0.x1.o.h.b {
+public class g implements c.a.t0.y1.o.h.b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f13827e;
+    public String f13972e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f13828f;
+    public String f13973f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f13829g;
+    public String f13974g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f13830h;
+    public String f13975h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f13831i;
+    public String f13976i;
 
     /* renamed from: j  reason: collision with root package name */
-    public String f13832j;
+    public String f13977j;
     public String k;
     public String l;
     public String m;
@@ -49,6 +49,7 @@ public class g implements c.a.t0.x1.o.h.b {
     public String s;
     public b.a t;
     public int u;
+    public String v;
 
     public g() {
         Interceptable interceptable = $ic;
@@ -68,13 +69,13 @@ public class g implements c.a.t0.x1.o.h.b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (StringUtils.isNull(this.f13827e) && StringUtils.isNull(this.n) && StringUtils.isNull(this.p)) {
+            if (StringUtils.isNull(this.f13972e) && StringUtils.isNull(this.n) && StringUtils.isNull(this.p)) {
                 return true;
             }
-            if (b()) {
-                return StringUtils.isNull(this.f13829g) || StringUtils.isNull(this.f13830h);
+            if (c()) {
+                return StringUtils.isNull(this.f13974g) || StringUtils.isNull(this.f13975h);
             }
-            return StringUtils.isNull(this.f13828f);
+            return StringUtils.isNull(this.f13973f);
         }
         return invokeV.booleanValue;
     }
@@ -82,13 +83,19 @@ public class g implements c.a.t0.x1.o.h.b {
     public boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "dynamic".equals(this.f13831i) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? !"0".equals(this.v) : invokeV.booleanValue;
     }
 
-    public final JSONArray c(JSONObject jSONObject, String str) {
+    public boolean c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? "dynamic".equals(this.f13976i) : invokeV.booleanValue;
+    }
+
+    public final JSONArray d(JSONObject jSONObject, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, jSONObject, str)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, jSONObject, str)) == null) {
             try {
                 return jSONObject.optJSONArray(str);
             } catch (Exception e2) {
@@ -99,16 +106,16 @@ public class g implements c.a.t0.x1.o.h.b {
         return (JSONArray) invokeLL.objValue;
     }
 
-    public void d(JSONObject jSONObject) {
+    public void e(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, jSONObject) == null) || jSONObject == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048580, this, jSONObject) == null) || jSONObject == null) {
             return;
         }
-        this.f13827e = jSONObject.optString("url");
-        this.f13828f = jSONObject.optString("icon_url");
-        this.f13829g = jSONObject.optString("fold_lottie");
-        this.f13830h = jSONObject.optString("unfold_lottie");
-        this.f13831i = jSONObject.optString("float_type");
+        this.f13972e = jSONObject.optString("url");
+        this.f13973f = jSONObject.optString("icon_url");
+        this.f13974g = jSONObject.optString("fold_lottie");
+        this.f13975h = jSONObject.optString("unfold_lottie");
+        this.f13976i = jSONObject.optString("float_type");
         jSONObject.optString("fold_name");
         jSONObject.optString("unfold_name");
         this.l = jSONObject.optString("view_statistics_url");
@@ -119,11 +126,12 @@ public class g implements c.a.t0.x1.o.h.b {
         this.r = jSONObject.optInt("source", 1);
         this.q = jSONObject.optString("ext_info");
         this.s = jSONObject.optString(LegoListActivityConfig.AD_ID);
+        this.v = jSONObject.optString("display_ad_icon");
         b.a aVar = new b.a();
         this.t = aVar;
         aVar.a = jSONObject.optString("parallel_charge_url");
-        this.t.f25163c = e(c(jSONObject, "show_urls"));
-        this.t.f25164d = e(c(jSONObject, "click_urls"));
+        this.t.f25444c = f(d(jSONObject, "show_urls"));
+        this.t.f25445d = f(d(jSONObject, "click_urls"));
         String c2 = c.a.d.f.p.t.c(TbadkApplication.getInst().getAndroidId());
         String lastCachedOid = PermissionUtil.getLastCachedOid(TbadkCoreApplication.getInst());
         StringBuilder sb = new StringBuilder();
@@ -141,10 +149,10 @@ public class g implements c.a.t0.x1.o.h.b {
         this.m += sb2;
     }
 
-    public final ArrayList<String> e(JSONArray jSONArray) {
+    public final ArrayList<String> f(JSONArray jSONArray) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, jSONArray)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, jSONArray)) == null) {
             if (jSONArray != null && jSONArray.length() != 0) {
                 int length = jSONArray.length();
                 ArrayList<String> arrayList = new ArrayList<>(length);
@@ -164,10 +172,10 @@ public class g implements c.a.t0.x1.o.h.b {
         return (ArrayList) invokeL.objValue;
     }
 
-    @Override // c.a.t0.x1.o.h.b
+    @Override // c.a.t0.y1.o.h.b
     public b.a getParallelCharge() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.t : (b.a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.t : (b.a) invokeV.objValue;
     }
 }

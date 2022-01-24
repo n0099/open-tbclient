@@ -24,16 +24,16 @@ public class ToastLoadingView extends FrameLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public ImageView f37877e;
+    public ImageView f37905e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f37878f;
+    public TextView f37906f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Animation f37879g;
+    public Animation f37907g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f37880h;
+    public boolean f37908h;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public ToastLoadingView(Context context) {
@@ -60,9 +60,9 @@ public class ToastLoadingView extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
             LayoutInflater.from(context).inflate(h.view_toast_loading, (ViewGroup) this, true);
-            this.f37877e = (ImageView) findViewById(g.toast_loading_view);
-            this.f37878f = (TextView) findViewById(g.toast_text_view);
-            this.f37879g = AnimationUtils.loadAnimation(context, c.loading_rotate);
+            this.f37905e = (ImageView) findViewById(g.toast_loading_view);
+            this.f37906f = (TextView) findViewById(g.toast_text_view);
+            this.f37907g = AnimationUtils.loadAnimation(context, c.loading_rotate);
             setClickable(true);
         }
     }
@@ -83,20 +83,20 @@ public class ToastLoadingView extends FrameLayout {
     public boolean getIsLoading() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f37880h : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f37908h : invokeV.booleanValue;
     }
 
     public void setLoading(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
             b();
-            this.f37880h = z;
+            this.f37908h = z;
             if (z) {
                 setVisibility(0);
-                this.f37877e.startAnimation(this.f37879g);
+                this.f37905e.startAnimation(this.f37907g);
                 return;
             }
-            this.f37877e.clearAnimation();
+            this.f37905e.clearAnimation();
             setVisibility(8);
         }
     }
@@ -104,7 +104,7 @@ public class ToastLoadingView extends FrameLayout {
     public void setText(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            this.f37878f.setText(str);
+            this.f37906f.setText(str);
         }
     }
 

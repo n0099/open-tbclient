@@ -25,13 +25,13 @@ public class x extends ReporterPidLoader<g> {
         public boolean a;
 
         /* renamed from: b  reason: collision with root package name */
-        public boolean f28322b;
+        public boolean f28350b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ g f28323c;
+        public final /* synthetic */ g f28351c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ x f28324d;
+        public final /* synthetic */ x f28352d;
 
         public a(x xVar, g gVar) {
             Interceptable interceptable = $ic;
@@ -48,16 +48,16 @@ public class x extends ReporterPidLoader<g> {
                     return;
                 }
             }
-            this.f28324d = xVar;
-            this.f28323c = gVar;
+            this.f28352d = xVar;
+            this.f28351c = gVar;
         }
 
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 LogPrinter.d();
-                this.f28324d.onAdClicked(this.f28322b);
-                this.f28322b = true;
+                this.f28352d.onAdClicked(this.f28350b);
+                this.f28350b = true;
             }
         }
 
@@ -65,7 +65,7 @@ public class x extends ReporterPidLoader<g> {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, i2) == null) {
                 LogPrinter.e("onFail errorCode: " + i2 + ", errorMessage: " + str, new Object[0]);
-                this.f28324d.onError(i2, str);
+                this.f28352d.onError(i2, str);
             }
         }
 
@@ -73,7 +73,7 @@ public class x extends ReporterPidLoader<g> {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
                 LogPrinter.d();
-                this.f28324d.onAdLoaded((x) this.f28323c);
+                this.f28352d.onAdLoaded((x) this.f28351c);
             }
         }
     }

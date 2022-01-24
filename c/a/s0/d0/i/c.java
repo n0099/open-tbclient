@@ -19,7 +19,7 @@ public class c {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static c f12335b;
+    public static c f12480b;
     public transient /* synthetic */ FieldHolder $fh;
     public final HashMap<String, Class<? extends b>> a;
 
@@ -36,7 +36,7 @@ public class c {
                 return;
             }
         }
-        f12335b = new c();
+        f12480b = new c();
     }
 
     public c() {
@@ -63,7 +63,7 @@ public class c {
     public static c d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f12335b : (c) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f12480b : (c) invokeV.objValue;
     }
 
     public b a(ImageOperation imageOperation) {

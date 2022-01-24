@@ -7,7 +7,7 @@ import c.a.t0.h.e.c;
 import c.a.t0.h.e.d;
 import c.a.t0.h.e.e;
 import c.a.t0.h.f.b;
-import c.a.t0.j3.u;
+import c.a.t0.k3.u;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
@@ -161,9 +161,9 @@ public class FrsFeedAdStatic {
                 c.a.t0.h.b.c cVar = new c.a.t0.h.b.c();
                 if (nVar instanceof e2) {
                     e2 e2Var = (e2) nVar;
-                    if (e2Var.s0() == 1) {
+                    if (e2Var.t0() == 1) {
                         cVar.f(1);
-                    } else if (e2Var.s0() == 0) {
+                    } else if (e2Var.t0() == 0) {
                         cVar.f(2);
                     } else {
                         cVar.f(4);

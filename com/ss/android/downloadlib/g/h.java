@@ -17,7 +17,7 @@ import java.util.HashMap;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class h {
     public static void b(final Context context, final com.ss.android.downloadlib.addownload.b.e eVar, final String str) {
         com.ss.android.downloadlib.d.a().a(new Runnable() { // from class: com.ss.android.downloadlib.g.h.1
@@ -194,8 +194,8 @@ public class h {
                     com.ss.android.downloadlib.a.b.a.a().a(context, true);
                     com.ss.android.downloadlib.a.b.b bVar = new com.ss.android.downloadlib.a.b.b();
                     bVar.a = 1;
-                    bVar.f59395b = 0;
-                    bVar.f59396c = String.format(com.ss.android.socialbase.appdownloader.f.c.a(i2.optString("v"), i2.optString("s")), str);
+                    bVar.f59440b = 0;
+                    bVar.f59441c = String.format(com.ss.android.socialbase.appdownloader.f.c.a(i2.optString("v"), i2.optString("s")), str);
                     com.ss.android.downloadlib.a.b.a.a().a(bVar, (com.ss.android.downloadlib.a.b.d) null);
                     com.ss.android.downloadlib.a.b.a.a().b();
                     h.b(eVar, jSONObject, -1, 2);
@@ -269,7 +269,7 @@ public class h {
             if (com.ss.android.socialbase.appdownloader.f.d.f() && l.d(context, "com.sec.android.app.samsungapps")) {
                 return d(context, str);
             }
-            if (eVar.f59464b.isAd() && eVar.f59466d.enableAM()) {
+            if (eVar.f59509b.isAd() && eVar.f59511d.enableAM()) {
                 JSONArray optJSONArray = com.ss.android.downloadlib.addownload.j.i().optJSONArray("am_plans");
                 if (com.ss.android.socialbase.appdownloader.f.d.b() && com.ss.android.socialbase.appdownloader.f.a.a(optJSONArray, "am_0")) {
                     b(context, eVar, str);

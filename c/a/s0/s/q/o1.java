@@ -12,10 +12,10 @@ public class o1 {
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f13466b;
+    public String f13652b;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f13467c;
+    public long f13653c;
 
     public o1() {
         Interceptable interceptable = $ic;
@@ -37,7 +37,7 @@ public class o1 {
             return;
         }
         this.a = recomPostTopic.recom_title;
-        this.f13466b = recomPostTopic.recom_topic;
-        this.f13467c = recomPostTopic.uniq_topicid.longValue();
+        this.f13652b = recomPostTopic.recom_topic;
+        this.f13653c = recomPostTopic.uniq_topicid.longValue();
     }
 }

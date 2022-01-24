@@ -215,7 +215,7 @@ public class BdSocketLinkService extends BdBaseService {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ BdSocketLinkService f31151e;
+        public final /* synthetic */ BdSocketLinkService f31179e;
 
         public c(BdSocketLinkService bdSocketLinkService) {
             Interceptable interceptable = $ic;
@@ -232,7 +232,7 @@ public class BdSocketLinkService extends BdBaseService {
                     return;
                 }
             }
-            this.f31151e = bdSocketLinkService;
+            this.f31179e = bdSocketLinkService;
         }
 
         @Override // android.content.ServiceConnection
@@ -257,7 +257,7 @@ public class BdSocketLinkService extends BdBaseService {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ BdSocketLinkService f31152e;
+        public final /* synthetic */ BdSocketLinkService f31180e;
 
         public d(BdSocketLinkService bdSocketLinkService) {
             Interceptable interceptable = $ic;
@@ -274,7 +274,7 @@ public class BdSocketLinkService extends BdBaseService {
                     return;
                 }
             }
-            this.f31152e = bdSocketLinkService;
+            this.f31180e = bdSocketLinkService;
         }
     }
 

@@ -47,28 +47,28 @@ public class n {
     public static boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static float f3005b;
+    public static float f3107b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static int f3006c;
+    public static int f3108c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static int f3007d;
+    public static int f3109d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static Toast f3008e;
+    public static Toast f3110e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static c f3009f;
+    public static c f3111f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static String f3010g;
+    public static String f3112g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static Handler f3011h;
+    public static Handler f3113h;
 
     /* renamed from: i  reason: collision with root package name */
-    public static Runnable f3012i;
+    public static Runnable f3114i;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes.dex */
@@ -93,10 +93,10 @@ public class n {
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || n.f3008e == null) {
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || n.f3110e == null) {
                 return;
             }
-            n.f3008e.cancel();
+            n.f3110e.cancel();
         }
     }
 
@@ -106,22 +106,22 @@ public class n {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ View f3013e;
+        public final /* synthetic */ View f3115e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ int f3014f;
+        public final /* synthetic */ int f3116f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ int f3015g;
+        public final /* synthetic */ int f3117g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ int f3016h;
+        public final /* synthetic */ int f3118h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final /* synthetic */ int f3017i;
+        public final /* synthetic */ int f3119i;
 
         /* renamed from: j  reason: collision with root package name */
-        public final /* synthetic */ View f3018j;
+        public final /* synthetic */ View f3120j;
 
         public b(View view, int i2, int i3, int i4, int i5, View view2) {
             Interceptable interceptable = $ic;
@@ -138,12 +138,12 @@ public class n {
                     return;
                 }
             }
-            this.f3013e = view;
-            this.f3014f = i2;
-            this.f3015g = i3;
-            this.f3016h = i4;
-            this.f3017i = i5;
-            this.f3018j = view2;
+            this.f3115e = view;
+            this.f3116f = i2;
+            this.f3117g = i3;
+            this.f3118h = i4;
+            this.f3119i = i5;
+            this.f3120j = view2;
         }
 
         @Override // java.lang.Runnable
@@ -151,12 +151,12 @@ public class n {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 Rect rect = new Rect();
-                this.f3013e.getHitRect(rect);
-                rect.right += this.f3014f;
-                rect.left -= this.f3015g;
-                rect.bottom += this.f3016h;
-                rect.top -= this.f3017i;
-                this.f3018j.setTouchDelegate(new TouchDelegate(rect, this.f3013e));
+                this.f3115e.getHitRect(rect);
+                rect.right += this.f3116f;
+                rect.left -= this.f3117g;
+                rect.bottom += this.f3118h;
+                rect.top -= this.f3119i;
+                this.f3120j.setTouchDelegate(new TouchDelegate(rect, this.f3115e));
             }
         }
     }
@@ -183,8 +183,8 @@ public class n {
                 return;
             }
         }
-        f3011h = new Handler(Looper.getMainLooper());
-        f3012i = new a();
+        f3113h = new Handler(Looper.getMainLooper());
+        f3114i = new a();
     }
 
     public static boolean A(byte[] bArr) {
@@ -257,7 +257,7 @@ public class n {
     public static void H(c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65544, null, cVar) == null) {
-            f3009f = cVar;
+            f3111f = cVar;
         }
     }
 
@@ -266,19 +266,19 @@ public class n {
         if (!(interceptable == null || interceptable.invokeLLLI(65545, null, context, str, spannableString, i2) == null) || TextUtils.isEmpty(spannableString) || TextUtils.isEmpty(spannableString)) {
             return;
         }
-        f3011h.removeCallbacks(f3012i);
-        if (f3008e != null && Build.VERSION.SDK_INT < 28) {
-            c cVar = f3009f;
+        f3113h.removeCallbacks(f3114i);
+        if (f3110e != null && Build.VERSION.SDK_INT < 28) {
+            c cVar = f3111f;
             if (cVar != null) {
                 cVar.createToastView();
             }
-            if (!spannableString.equals(f3010g)) {
-                c cVar2 = f3009f;
+            if (!spannableString.equals(f3112g)) {
+                c cVar2 = f3111f;
                 if (cVar2 != null && cVar2.getToastContentView() != null) {
-                    f3009f.setToastString(str);
-                    f3008e.setView(f3009f.getToastContentView());
+                    f3111f.setToastString(str);
+                    f3110e.setView(f3111f.getToastContentView());
                 } else {
-                    f3008e.setText(spannableString);
+                    f3110e.setText(spannableString);
                 }
             }
             int d2 = d(BdBaseApplication.getInst().getApp(), 100.0f);
@@ -286,53 +286,53 @@ public class n {
                 d2 = 0;
             }
             if (i2 == 3500) {
-                f3008e.setDuration(1);
+                f3110e.setDuration(1);
             } else {
-                f3008e.setDuration(0);
+                f3110e.setDuration(0);
             }
-            f3008e.setGravity(17, 0, d2);
+            f3110e.setGravity(17, 0, d2);
         } else {
-            Toast toast = f3008e;
+            Toast toast = f3110e;
             if (toast != null) {
                 toast.cancel();
             }
-            c cVar3 = f3009f;
+            c cVar3 = f3111f;
             if (cVar3 != null) {
                 cVar3.createToastView();
             }
-            c cVar4 = f3009f;
+            c cVar4 = f3111f;
             if (cVar4 != null && cVar4.getToastContentView() != null) {
                 Toast toast2 = new Toast(BdBaseApplication.getInst().getApp());
-                f3008e = toast2;
+                f3110e = toast2;
                 x.a(toast2);
                 if (i2 == 3500) {
-                    f3008e.setDuration(1);
+                    f3110e.setDuration(1);
                 } else {
-                    f3008e.setDuration(0);
+                    f3110e.setDuration(0);
                 }
-                f3009f.setToastString(str);
-                f3008e.setView(f3009f.getToastContentView());
+                f3111f.setToastString(str);
+                f3110e.setView(f3111f.getToastContentView());
             } else {
                 if (i2 == 3500) {
                     Toast makeText = Toast.makeText(BdBaseApplication.getInst().getApp(), spannableString, 1);
-                    f3008e = makeText;
+                    f3110e = makeText;
                     x.a(makeText);
                 } else {
                     Toast makeText2 = Toast.makeText(BdBaseApplication.getInst().getApp(), spannableString, 0);
-                    f3008e = makeText2;
+                    f3110e = makeText2;
                     x.a(makeText2);
                 }
-                f3008e.setText(spannableString);
+                f3110e.setText(spannableString);
             }
-            f3008e.setGravity(17, 0, d(BdBaseApplication.getInst().getApp(), 100.0f));
+            f3110e.setGravity(17, 0, d(BdBaseApplication.getInst().getApp(), 100.0f));
         }
-        c cVar5 = f3009f;
+        c cVar5 = f3111f;
         if (cVar5 != null && (cVar5.getToastContentView() instanceof TextView)) {
-            ((TextView) f3009f.getToastContentView()).setText(spannableString);
+            ((TextView) f3111f.getToastContentView()).setText(spannableString);
         }
-        f3010g = str;
-        f3011h.postDelayed(f3012i, i2);
-        f3008e.show();
+        f3112g = str;
+        f3113h.postDelayed(f3114i, i2);
+        f3110e.show();
     }
 
     public static void J(Context context, int i2) {
@@ -379,19 +379,19 @@ public class n {
         if (!(interceptable == null || interceptable.invokeLLI(65551, null, context, str, i2) == null) || TextUtils.isEmpty(str) || TextUtils.isEmpty(str)) {
             return;
         }
-        f3011h.removeCallbacks(f3012i);
-        if (f3008e != null && Build.VERSION.SDK_INT < 28) {
-            c cVar = f3009f;
+        f3113h.removeCallbacks(f3114i);
+        if (f3110e != null && Build.VERSION.SDK_INT < 28) {
+            c cVar = f3111f;
             if (cVar != null) {
                 cVar.createToastView();
             }
-            if (!str.equals(f3010g)) {
-                c cVar2 = f3009f;
+            if (!str.equals(f3112g)) {
+                c cVar2 = f3111f;
                 if (cVar2 != null && cVar2.getToastContentView() != null) {
-                    f3009f.setToastString(str);
-                    f3008e.setView(f3009f.getToastContentView());
+                    f3111f.setToastString(str);
+                    f3110e.setView(f3111f.getToastContentView());
                 } else {
-                    f3008e.setText(str);
+                    f3110e.setText(str);
                 }
             }
             int d2 = d(BdBaseApplication.getInst().getApp(), 100.0f);
@@ -399,49 +399,49 @@ public class n {
                 d2 = 0;
             }
             if (i2 == 3500) {
-                f3008e.setDuration(1);
+                f3110e.setDuration(1);
             } else {
-                f3008e.setDuration(0);
+                f3110e.setDuration(0);
             }
-            f3008e.setGravity(17, 0, d2);
+            f3110e.setGravity(17, 0, d2);
         } else {
-            Toast toast = f3008e;
+            Toast toast = f3110e;
             if (toast != null) {
                 toast.cancel();
             }
-            c cVar3 = f3009f;
+            c cVar3 = f3111f;
             if (cVar3 != null) {
                 cVar3.createToastView();
             }
-            c cVar4 = f3009f;
+            c cVar4 = f3111f;
             if (cVar4 != null && cVar4.getToastContentView() != null) {
                 Toast toast2 = new Toast(BdBaseApplication.getInst().getApp());
-                f3008e = toast2;
+                f3110e = toast2;
                 x.a(toast2);
                 if (i2 == 3500) {
-                    f3008e.setDuration(1);
+                    f3110e.setDuration(1);
                 } else {
-                    f3008e.setDuration(0);
+                    f3110e.setDuration(0);
                 }
-                f3009f.setToastString(str);
-                f3008e.setView(f3009f.getToastContentView());
+                f3111f.setToastString(str);
+                f3110e.setView(f3111f.getToastContentView());
             } else {
                 if (i2 == 3500) {
                     Toast makeText = Toast.makeText(BdBaseApplication.getInst().getApp(), str, 1);
-                    f3008e = makeText;
+                    f3110e = makeText;
                     x.a(makeText);
                 } else {
                     Toast makeText2 = Toast.makeText(BdBaseApplication.getInst().getApp(), str, 0);
-                    f3008e = makeText2;
+                    f3110e = makeText2;
                     x.a(makeText2);
                 }
-                f3008e.setText(str);
+                f3110e.setText(str);
             }
-            f3008e.setGravity(17, 0, d(BdBaseApplication.getInst().getApp(), 100.0f));
+            f3110e.setGravity(17, 0, d(BdBaseApplication.getInst().getApp(), 100.0f));
         }
-        f3010g = str;
-        f3011h.postDelayed(f3012i, i2);
-        f3008e.show();
+        f3112g = str;
+        f3113h.postDelayed(f3114i, i2);
+        f3110e.show();
     }
 
     public static void b(Context context, View view, int i2, int i3, int i4, int i5) {
@@ -483,7 +483,7 @@ public class n {
             if (!a) {
                 x(context);
             }
-            return (int) ((f2 * f3005b) + 0.5f);
+            return (int) ((f2 * f3107b) + 0.5f);
         }
         return invokeLF.intValue;
     }
@@ -530,7 +530,7 @@ public class n {
             if (!a) {
                 x(context);
             }
-            return f3005b;
+            return f3107b;
         }
         return invokeL.floatValue;
     }
@@ -542,7 +542,7 @@ public class n {
             if (!a) {
                 x(context);
             }
-            return f3007d;
+            return f3109d;
         }
         return invokeL.intValue;
     }
@@ -554,7 +554,7 @@ public class n {
             if (!a || z) {
                 x(context);
             }
-            return f3007d;
+            return f3109d;
         }
         return invokeLZ.intValue;
     }
@@ -566,7 +566,7 @@ public class n {
             if (!a) {
                 x(context);
             }
-            return f3006c;
+            return f3108c;
         }
         return invokeL.intValue;
     }
@@ -813,7 +813,7 @@ public class n {
     public static c u() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65572, null)) == null) ? f3009f : (c) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65572, null)) == null) ? f3111f : (c) invokeV.objValue;
     }
 
     public static String v() {
@@ -863,13 +863,13 @@ public class n {
             windowManager.getDefaultDisplay().getMetrics(displayMetrics);
             int orientation = windowManager.getDefaultDisplay().getOrientation();
             if (orientation != 1 && orientation != 3) {
-                f3006c = displayMetrics.widthPixels;
-                f3007d = displayMetrics.heightPixels;
+                f3108c = displayMetrics.widthPixels;
+                f3109d = displayMetrics.heightPixels;
             } else {
-                f3006c = displayMetrics.heightPixels;
-                f3007d = displayMetrics.widthPixels;
+                f3108c = displayMetrics.heightPixels;
+                f3109d = displayMetrics.widthPixels;
             }
-            f3005b = displayMetrics.density;
+            f3107b = displayMetrics.density;
             a = true;
         }
     }
@@ -883,7 +883,7 @@ public class n {
             }
             try {
                 String str = new String(bArr, 0, 16, "UTF-8");
-                if (str.indexOf(com.baidu.wallet.base.audio.b.f50469e) == 0) {
+                if (str.indexOf(com.baidu.wallet.base.audio.b.f50514e) == 0) {
                     return 8 == str.indexOf("WEBPVP8 ");
                 }
                 return false;

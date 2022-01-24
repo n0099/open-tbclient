@@ -36,25 +36,25 @@ public class CouponListView extends FrameLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public View f37842e;
+    public View f37870e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ListView f37843f;
+    public ListView f37871f;
 
     /* renamed from: g  reason: collision with root package name */
-    public PolyFrameLayout f37844g;
+    public PolyFrameLayout f37872g;
 
     /* renamed from: h  reason: collision with root package name */
-    public ViewGroup f37845h;
+    public ViewGroup f37873h;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f37846i;
+    public boolean f37874i;
 
     /* renamed from: j  reason: collision with root package name */
-    public h f37847j;
+    public h f37875j;
     public c.a.h0.t.c.b k;
-    public List<a.C0152a> l;
-    public a.C0152a m;
+    public List<a.C0161a> l;
+    public a.C0161a m;
     public ToastLoadingView n;
     public boolean o;
     public Runnable p;
@@ -65,7 +65,7 @@ public class CouponListView extends FrameLayout {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ CouponListView f37848e;
+        public final /* synthetic */ CouponListView f37876e;
 
         public a(CouponListView couponListView) {
             Interceptable interceptable = $ic;
@@ -82,7 +82,7 @@ public class CouponListView extends FrameLayout {
                     return;
                 }
             }
-            this.f37848e = couponListView;
+            this.f37876e = couponListView;
         }
 
         @Override // java.lang.Runnable
@@ -91,8 +91,8 @@ public class CouponListView extends FrameLayout {
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
                 layoutParams.gravity = 17;
-                CouponListView couponListView = this.f37848e;
-                couponListView.n = c.a.h0.t.e.a.c(couponListView.f37844g, layoutParams, "加载中", -1L);
+                CouponListView couponListView = this.f37876e;
+                couponListView.n = c.a.h0.t.e.a.c(couponListView.f37872g, layoutParams, "加载中", -1L);
             }
         }
     }
@@ -103,7 +103,7 @@ public class CouponListView extends FrameLayout {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ CouponListView f37849e;
+        public final /* synthetic */ CouponListView f37877e;
 
         public b(CouponListView couponListView) {
             Interceptable interceptable = $ic;
@@ -120,16 +120,16 @@ public class CouponListView extends FrameLayout {
                     return;
                 }
             }
-            this.f37849e = couponListView;
+            this.f37877e = couponListView;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f37849e.f37847j == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f37877e.f37875j == null) {
                 return;
             }
-            this.f37849e.f37847j.c(false, this.f37849e.m);
+            this.f37877e.f37875j.c(false, this.f37877e.m);
         }
     }
 
@@ -139,7 +139,7 @@ public class CouponListView extends FrameLayout {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ CouponListView f37850e;
+        public final /* synthetic */ CouponListView f37878e;
 
         public c(CouponListView couponListView) {
             Interceptable interceptable = $ic;
@@ -156,14 +156,14 @@ public class CouponListView extends FrameLayout {
                     return;
                 }
             }
-            this.f37850e = couponListView;
+            this.f37878e = couponListView;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f37850e.f37847j.c(false, this.f37850e.m);
+                this.f37878e.f37875j.c(false, this.f37878e.m);
             }
         }
     }
@@ -174,7 +174,7 @@ public class CouponListView extends FrameLayout {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ CouponListView f37851e;
+        public final /* synthetic */ CouponListView f37879e;
 
         public d(CouponListView couponListView) {
             Interceptable interceptable = $ic;
@@ -191,17 +191,17 @@ public class CouponListView extends FrameLayout {
                     return;
                 }
             }
-            this.f37851e = couponListView;
+            this.f37879e = couponListView;
         }
 
         @Override // android.widget.AdapterView.OnItemClickListener
         public void onItemClick(AdapterView<?> adapterView, View view, int i2, long j2) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{adapterView, view, Integer.valueOf(i2), Long.valueOf(j2)}) == null) || ((a.C0152a) this.f37851e.l.get(i2)).f3688h == 1) {
+            if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{adapterView, view, Integer.valueOf(i2), Long.valueOf(j2)}) == null) || ((a.C0161a) this.f37879e.l.get(i2)).f3829h == 1) {
                 return;
             }
-            CouponListView couponListView = this.f37851e;
-            couponListView.p((a.C0152a) couponListView.l.get(i2));
+            CouponListView couponListView = this.f37879e;
+            couponListView.p((a.C0161a) couponListView.l.get(i2));
         }
     }
 
@@ -209,10 +209,10 @@ public class CouponListView extends FrameLayout {
     public class e implements c.a.h0.s.e.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ a.C0152a a;
+        public final /* synthetic */ a.C0161a a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ CouponListView f37852b;
+        public final /* synthetic */ CouponListView f37880b;
 
         /* loaded from: classes10.dex */
         public class a implements View.OnClickListener {
@@ -220,7 +220,7 @@ public class CouponListView extends FrameLayout {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ PopupWindow f37853e;
+            public final /* synthetic */ PopupWindow f37881e;
 
             public a(e eVar, PopupWindow popupWindow) {
                 Interceptable interceptable = $ic;
@@ -237,14 +237,14 @@ public class CouponListView extends FrameLayout {
                         return;
                     }
                 }
-                this.f37853e = popupWindow;
+                this.f37881e = popupWindow;
             }
 
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                    this.f37853e.n();
+                    this.f37881e.n();
                 }
             }
         }
@@ -277,17 +277,17 @@ public class CouponListView extends FrameLayout {
             public void onDismiss() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    this.a.f37852b.f37847j.a();
+                    this.a.f37880b.f37875j.a();
                 }
             }
         }
 
-        public e(CouponListView couponListView, a.C0152a c0152a) {
+        public e(CouponListView couponListView, a.C0161a c0161a) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {couponListView, c0152a};
+                Object[] objArr = {couponListView, c0161a};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i2 = newInitContext.flag;
                 if ((i2 & 1) != 0) {
@@ -297,43 +297,43 @@ public class CouponListView extends FrameLayout {
                     return;
                 }
             }
-            this.f37852b = couponListView;
-            this.a = c0152a;
+            this.f37880b = couponListView;
+            this.a = c0161a;
         }
 
         @Override // c.a.h0.s.e.a
-        public void a(a.C0149a c0149a) {
+        public void a(a.C0158a c0158a) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, c0149a) == null) {
-                this.f37852b.f37844g.interceptTouchEvent(false);
-                CouponListView couponListView = this.f37852b;
+            if (interceptable == null || interceptable.invokeL(1048576, this, c0158a) == null) {
+                this.f37880b.f37872g.interceptTouchEvent(false);
+                CouponListView couponListView = this.f37880b;
                 couponListView.removeCallbacks(couponListView.p);
-                c.a.h0.t.e.a.b(this.f37852b.n);
-                this.f37852b.n = null;
-                if (c0149a == null) {
+                c.a.h0.t.e.a.b(this.f37880b.n);
+                this.f37880b.n = null;
+                if (c0158a == null) {
                     return;
                 }
-                int i2 = c0149a.a;
+                int i2 = c0158a.a;
                 if (i2 == 0) {
-                    for (a.C0152a c0152a : this.f37852b.l) {
-                        if (c0152a == this.a) {
-                            this.f37852b.m = c0152a;
-                            c0152a.f3688h = 1;
+                    for (a.C0161a c0161a : this.f37880b.l) {
+                        if (c0161a == this.a) {
+                            this.f37880b.m = c0161a;
+                            c0161a.f3829h = 1;
                         } else {
-                            c0152a.f3688h = 0;
+                            c0161a.f3829h = 0;
                         }
                     }
-                    this.f37852b.k.notifyDataSetChanged();
-                    this.f37852b.f37847j.c(true, this.a);
+                    this.f37880b.k.notifyDataSetChanged();
+                    this.f37880b.f37875j.c(true, this.a);
                 } else if (i2 == 1) {
-                    View inflate = View.inflate(this.f37852b.getContext(), c.a.h0.h.default_pop_window, null);
+                    View inflate = View.inflate(this.f37880b.getContext(), c.a.h0.h.default_pop_window, null);
                     PopupWindow popupWindow = new PopupWindow(inflate, -1, -1, true);
-                    ((TextView) inflate.findViewById(c.a.h0.g.pop_tips)).setText(c0149a.f3668b);
+                    ((TextView) inflate.findViewById(c.a.h0.g.pop_tips)).setText(c0158a.f3809b);
                     ((TextView) inflate.findViewById(c.a.h0.g.pop_button)).setOnClickListener(new a(this, popupWindow));
                     popupWindow.A(new b(this));
-                    popupWindow.D(this.f37852b, 0, 0, 0);
+                    popupWindow.D(this.f37880b, 0, 0, 0);
                 } else {
-                    Toast.makeText(this.f37852b.getContext(), this.f37852b.getResources().getString(i.coupon_calculate_error), 0).show();
+                    Toast.makeText(this.f37880b.getContext(), this.f37880b.getResources().getString(i.coupon_calculate_error), 0).show();
                 }
             }
         }
@@ -345,7 +345,7 @@ public class CouponListView extends FrameLayout {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ CouponListView f37854e;
+        public final /* synthetic */ CouponListView f37882e;
 
         public f(CouponListView couponListView) {
             Interceptable interceptable = $ic;
@@ -362,7 +362,7 @@ public class CouponListView extends FrameLayout {
                     return;
                 }
             }
-            this.f37854e = couponListView;
+            this.f37882e = couponListView;
         }
 
         @Override // android.animation.Animator.AnimatorListener
@@ -376,7 +376,7 @@ public class CouponListView extends FrameLayout {
         public void onAnimationEnd(Animator animator) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animator) == null) {
-                this.f37854e.o = false;
+                this.f37882e.o = false;
             }
         }
 
@@ -401,7 +401,7 @@ public class CouponListView extends FrameLayout {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ CouponListView f37855e;
+        public final /* synthetic */ CouponListView f37883e;
 
         public g(CouponListView couponListView) {
             Interceptable interceptable = $ic;
@@ -418,7 +418,7 @@ public class CouponListView extends FrameLayout {
                     return;
                 }
             }
-            this.f37855e = couponListView;
+            this.f37883e = couponListView;
         }
 
         @Override // android.animation.Animator.AnimatorListener
@@ -432,8 +432,8 @@ public class CouponListView extends FrameLayout {
         public void onAnimationEnd(Animator animator) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animator) == null) {
-                this.f37855e.o = false;
-                this.f37855e.n();
+                this.f37883e.o = false;
+                this.f37883e.n();
             }
         }
 
@@ -456,9 +456,9 @@ public class CouponListView extends FrameLayout {
     public interface h {
         void a();
 
-        void b(a.C0152a c0152a, c.a.h0.s.e.a aVar);
+        void b(a.C0161a c0161a, c.a.h0.s.e.a aVar);
 
-        void c(boolean z, a.C0152a c0152a);
+        void c(boolean z, a.C0161a c0161a);
 
         void onDetach();
     }
@@ -487,38 +487,38 @@ public class CouponListView extends FrameLayout {
     public void attach(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
-            this.f37844g.getLayoutParams().height = i2;
+            this.f37872g.getLayoutParams().height = i2;
             m();
         }
     }
 
     public void enter(View view) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view) == null) || view == null || this.o || !this.f37846i) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view) == null) || view == null || this.o || !this.f37874i) {
             return;
         }
         this.o = true;
         AnimatorSet animatorSet = new AnimatorSet();
         ObjectAnimator ofFloat = ObjectAnimator.ofFloat(view, AnimationProperty.TRANSLATE_X, 0.0f, view.getMeasuredWidth() * (-1));
-        ObjectAnimator ofFloat2 = ObjectAnimator.ofFloat(this.f37845h, AnimationProperty.TRANSLATE_X, view.getMeasuredWidth(), 0.0f);
+        ObjectAnimator ofFloat2 = ObjectAnimator.ofFloat(this.f37873h, AnimationProperty.TRANSLATE_X, view.getMeasuredWidth(), 0.0f);
         animatorSet.setDuration(160L);
         animatorSet.playTogether(ofFloat, ofFloat2);
         animatorSet.start();
         animatorSet.addListener(new f(this));
     }
 
-    public a.C0152a getSelectedItem() {
+    public a.C0161a getSelectedItem() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.m : (a.C0152a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.m : (a.C0161a) invokeV.objValue;
     }
 
     public final void m() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || this.f37846i) {
+        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || this.f37874i) {
             return;
         }
-        this.f37846i = true;
+        this.f37874i = true;
         if (getContext() instanceof Activity) {
             View findViewById = ((Activity) getContext()).findViewById(16908290);
             if (findViewById instanceof ViewGroup) {
@@ -532,12 +532,12 @@ public class CouponListView extends FrameLayout {
 
     public final void n() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && this.f37846i) {
-            this.f37846i = false;
+        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && this.f37874i) {
+            this.f37874i = false;
             if (getParent() instanceof ViewGroup) {
                 ((ViewGroup) getParent()).removeView(this);
             }
-            h hVar = this.f37847j;
+            h hVar = this.f37875j;
             if (hVar != null) {
                 hVar.onDetach();
             }
@@ -549,11 +549,11 @@ public class CouponListView extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, context) == null) {
             LayoutInflater.from(context).inflate(c.a.h0.h.coupon_list, (ViewGroup) this, true);
-            this.f37844g = (PolyFrameLayout) findViewById(c.a.h0.g.root_layout);
-            this.f37845h = (ViewGroup) findViewById(c.a.h0.g.coupon_layout);
-            this.f37843f = (ListView) findViewById(c.a.h0.g.coupon_list_layout);
+            this.f37872g = (PolyFrameLayout) findViewById(c.a.h0.g.root_layout);
+            this.f37873h = (ViewGroup) findViewById(c.a.h0.g.coupon_layout);
+            this.f37871f = (ListView) findViewById(c.a.h0.g.coupon_list_layout);
             View findViewById = findViewById(c.a.h0.g.back);
-            this.f37842e = findViewById;
+            this.f37870e = findViewById;
             findViewById.setOnClickListener(new b(this));
             setLayoutParams(new FrameLayout.LayoutParams(-1, -1));
         }
@@ -564,7 +564,7 @@ public class CouponListView extends FrameLayout {
         h hVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            if (!this.o && this.f37846i && (hVar = this.f37847j) != null) {
+            if (!this.o && this.f37874i && (hVar = this.f37875j) != null) {
                 hVar.c(false, this.m);
             }
             return true;
@@ -572,25 +572,25 @@ public class CouponListView extends FrameLayout {
         return invokeV.booleanValue;
     }
 
-    public final void p(a.C0152a c0152a) {
+    public final void p(a.C0161a c0161a) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048583, this, c0152a) == null) || this.f37847j == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048583, this, c0161a) == null) || this.f37875j == null) {
             return;
         }
-        this.f37844g.interceptTouchEvent(true);
+        this.f37872g.interceptTouchEvent(true);
         postDelayed(this.p, 500L);
-        this.f37847j.b(c0152a, new e(this, c0152a));
+        this.f37875j.b(c0161a, new e(this, c0161a));
     }
 
     public void quit(View view) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, view) == null) || view == null || this.o || !this.f37846i) {
+        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, view) == null) || view == null || this.o || !this.f37874i) {
             return;
         }
         this.o = true;
         AnimatorSet animatorSet = new AnimatorSet();
         ObjectAnimator ofFloat = ObjectAnimator.ofFloat(view, AnimationProperty.TRANSLATE_X, view.getMeasuredWidth() * (-1), 0.0f);
-        ObjectAnimator ofFloat2 = ObjectAnimator.ofFloat(this.f37845h, AnimationProperty.TRANSLATE_X, 0.0f, view.getMeasuredWidth());
+        ObjectAnimator ofFloat2 = ObjectAnimator.ofFloat(this.f37873h, AnimationProperty.TRANSLATE_X, 0.0f, view.getMeasuredWidth());
         animatorSet.setDuration(160L);
         animatorSet.playTogether(ofFloat, ofFloat2);
         animatorSet.start();
@@ -600,34 +600,34 @@ public class CouponListView extends FrameLayout {
     public void setListener(h hVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, hVar) == null) {
-            this.f37847j = hVar;
+            this.f37875j = hVar;
         }
     }
 
-    public void update(List<a.C0152a> list) {
+    public void update(List<a.C0161a> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, list) == null) {
             this.l = list;
             if (this.k == null) {
                 this.k = new c.a.h0.t.c.b(getContext());
             }
-            this.f37843f.setAdapter((ListAdapter) this.k);
+            this.f37871f.setAdapter((ListAdapter) this.k);
             this.k.c(this.l);
-            List<a.C0152a> list2 = this.l;
+            List<a.C0161a> list2 = this.l;
             if (list2 != null && list2.size() > 0) {
                 int i2 = 0;
                 while (true) {
                     if (i2 >= this.l.size()) {
                         break;
-                    } else if (this.l.get(i2).f3688h == 1) {
+                    } else if (this.l.get(i2).f3829h == 1) {
                         this.m = this.l.get(i2);
                         break;
                     } else {
                         i2++;
                     }
                 }
-                this.f37843f.setOnItemClickListener(new d(this));
-            } else if (this.f37847j == null || !this.f37846i) {
+                this.f37871f.setOnItemClickListener(new d(this));
+            } else if (this.f37875j == null || !this.f37874i) {
             } else {
                 postDelayed(new c(this), 100L);
             }
@@ -674,7 +674,7 @@ public class CouponListView extends FrameLayout {
                 return;
             }
         }
-        this.f37846i = false;
+        this.f37874i = false;
         this.o = false;
         this.p = new a(this);
         o(context);

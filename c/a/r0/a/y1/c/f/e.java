@@ -40,33 +40,33 @@ public final class e {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: i  reason: collision with root package name */
-    public static final boolean f9737i;
+    public static final boolean f9879i;
 
     /* renamed from: j  reason: collision with root package name */
-    public static final long f9738j;
+    public static final long f9880j;
     public transient /* synthetic */ FieldHolder $fh;
     public final LinkedHashMap<SwanAppProcessInfo, c.a.r0.a.y1.c.f.c> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final Deque<Long> f9739b;
+    public final Deque<Long> f9881b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final Handler f9740c;
+    public final Handler f9882c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final Messenger f9741d;
+    public final Messenger f9883d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final SwanProcessCallStub f9742e;
+    public final SwanProcessCallStub f9884e;
 
     /* renamed from: f  reason: collision with root package name */
-    public long f9743f;
+    public long f9885f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final Set<c.a.r0.a.y1.c.f.a> f9744g;
+    public final Set<c.a.r0.a.y1.c.f.a> f9886g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final c.a.r0.a.y1.c.f.a f9745h;
+    public final c.a.r0.a.y1.c.f.a f9887h;
 
     /* loaded from: classes.dex */
     public class a implements c.a.r0.a.y1.c.f.a {
@@ -76,17 +76,17 @@ public final class e {
 
         /* renamed from: c.a.r0.a.y1.c.f.e$a$a  reason: collision with other inner class name */
         /* loaded from: classes.dex */
-        public class C0638a implements c.a.r0.a.z2.g1.c<c.a.r0.a.y1.c.f.a> {
+        public class C0647a implements c.a.r0.a.z2.g1.c<c.a.r0.a.y1.c.f.a> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ String f9746e;
+            public final /* synthetic */ String f9888e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ c.a.r0.a.y1.c.f.c f9747f;
+            public final /* synthetic */ c.a.r0.a.y1.c.f.c f9889f;
 
-            public C0638a(a aVar, String str, c.a.r0.a.y1.c.f.c cVar) {
+            public C0647a(a aVar, String str, c.a.r0.a.y1.c.f.c cVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -101,8 +101,8 @@ public final class e {
                         return;
                     }
                 }
-                this.f9746e = str;
-                this.f9747f = cVar;
+                this.f9888e = str;
+                this.f9889f = cVar;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
@@ -111,7 +111,7 @@ public final class e {
             public void onCallback(c.a.r0.a.y1.c.f.a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
-                    aVar.a(this.f9746e, this.f9747f);
+                    aVar.a(this.f9888e, this.f9889f);
                 }
             }
         }
@@ -138,11 +138,11 @@ public final class e {
         public void a(String str, c.a.r0.a.y1.c.f.c cVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048576, this, str, cVar) == null) {
-                if (e.f9737i) {
-                    String str2 = "onEvent: to=" + this.a.f9744g.size() + " event=" + str + " client=" + cVar.f9731f;
+                if (e.f9879i) {
+                    String str2 = "onEvent: to=" + this.a.f9886g.size() + " event=" + str + " client=" + cVar.f9873f;
                 }
-                synchronized (this.a.f9744g) {
-                    c.a.r0.a.z2.g1.b.a(c.a.r0.a.d2.d.L(), new C0638a(this, str, cVar), this.a.f9744g);
+                synchronized (this.a.f9886g) {
+                    c.a.r0.a.z2.g1.b.a(c.a.r0.a.d2.d.L(), new C0647a(this, str, cVar), this.a.f9886g);
                 }
             }
         }
@@ -161,10 +161,10 @@ public final class e {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c.a.r0.a.y1.c.f.a f9748e;
+        public final /* synthetic */ c.a.r0.a.y1.c.f.a f9890e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ e f9749f;
+        public final /* synthetic */ e f9891f;
 
         public b(e eVar, c.a.r0.a.y1.c.f.a aVar) {
             Interceptable interceptable = $ic;
@@ -181,21 +181,21 @@ public final class e {
                     return;
                 }
             }
-            this.f9749f = eVar;
-            this.f9748e = aVar;
+            this.f9891f = eVar;
+            this.f9890e = aVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                synchronized (this.f9749f.f9744g) {
-                    if (this.f9749f.f9744g.contains(this.f9748e)) {
-                        if (e.f9737i) {
-                            String str = "timeout: callback = " + this.f9748e;
+                synchronized (this.f9891f.f9886g) {
+                    if (this.f9891f.f9886g.contains(this.f9890e)) {
+                        if (e.f9879i) {
+                            String str = "timeout: callback = " + this.f9890e;
                         }
-                        this.f9749f.h(this.f9748e);
-                        this.f9748e.timeout();
+                        this.f9891f.h(this.f9890e);
+                        this.f9890e.timeout();
                     }
                 }
             }
@@ -243,8 +243,8 @@ public final class e {
                 return;
             }
         }
-        f9737i = k.a;
-        f9738j = TimeUnit.MINUTES.toMillis(5L);
+        f9879i = k.a;
+        f9880j = TimeUnit.MINUTES.toMillis(5L);
     }
 
     public /* synthetic */ e(a aVar) {
@@ -256,7 +256,7 @@ public final class e {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            if (!f9737i || ProcessUtils.isMainProcess()) {
+            if (!f9879i || ProcessUtils.isMainProcess()) {
                 return d.a;
             }
             throw new IllegalStateException("SwanAppClientObjManager should run in main process only");
@@ -274,10 +274,10 @@ public final class e {
     public void c(c.a.r0.a.y1.c.f.a aVar, long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar, j2) == null) {
-            synchronized (this.f9744g) {
-                this.f9744g.add(aVar);
-                if (f9737i) {
-                    String str = "addCallback: after = " + this.f9744g.size();
+            synchronized (this.f9886g) {
+                this.f9886g.add(aVar);
+                if (f9879i) {
+                    String str = "addCallback: after = " + this.f9886g.size();
                 }
             }
             if (j2 > 0) {
@@ -290,30 +290,30 @@ public final class e {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            synchronized (this.f9739b) {
+            synchronized (this.f9881b) {
                 t("checkRescuable ===>");
-                if (this.f9743f > System.currentTimeMillis()) {
-                    t(String.format(Locale.getDefault(), "disallowRescue by mRescueRefractoryUntil(%d)", Long.valueOf(this.f9743f)));
+                if (this.f9885f > System.currentTimeMillis()) {
+                    t(String.format(Locale.getDefault(), "disallowRescue by mRescueRefractoryUntil(%d)", Long.valueOf(this.f9885f)));
                     return false;
-                } else if (this.f9739b.size() < 3) {
-                    t(String.format(Locale.getDefault(), "allowRescue by size(%d) < max(%d)", Integer.valueOf(this.f9739b.size()), 3));
+                } else if (this.f9881b.size() < 3) {
+                    t(String.format(Locale.getDefault(), "allowRescue by size(%d) < max(%d)", Integer.valueOf(this.f9881b.size()), 3));
                     return true;
                 } else {
-                    int size = this.f9739b.size() - 3;
+                    int size = this.f9881b.size() - 3;
                     t("after offer purgeCount=" + size);
                     if (size > 0) {
                         for (int i2 = 0; i2 < size; i2++) {
-                            t("purge: " + this.f9739b.poll());
+                            t("purge: " + this.f9881b.poll());
                         }
                     }
                     t("after purge");
-                    Long peek = this.f9739b.peek();
+                    Long peek = this.f9881b.peek();
                     if (peek == null) {
                         t("allowRescue by null oldestRecord is should not happen");
                         return true;
                     }
                     long currentTimeMillis = System.currentTimeMillis() - peek.longValue();
-                    boolean z = currentTimeMillis > f9738j;
+                    boolean z = currentTimeMillis > f9880j;
                     t("allowRescue:" + z + " oldestRecordDuration:" + currentTimeMillis);
                     return z;
                 }
@@ -332,9 +332,9 @@ public final class e {
                 c.a.r0.a.y1.c.f.c cVar2 = null;
                 for (int i2 = 0; i2 <= 5; i2++) {
                     c.a.r0.a.y1.c.f.c cVar3 = this.a.get(SwanAppProcessInfo.indexOf(i2));
-                    if (cVar3 != null && cVar3.f9731f.isSwanAppProcess() && !cVar3.D()) {
+                    if (cVar3 != null && cVar3.f9873f.isSwanAppProcess() && !cVar3.D()) {
                         if (cVar3.R()) {
-                            if (f9737i) {
+                            if (f9879i) {
                                 String str = "computNextAvailableProcess: firstPreloadedClient=" + cVar3;
                             }
                             return cVar3;
@@ -348,25 +348,25 @@ public final class e {
                     }
                 }
                 if (cVar != null) {
-                    if (f9737i) {
+                    if (f9879i) {
                         String str2 = "computNextAvailableProcess: firstConnectedEmptyClient=" + cVar;
                     }
                     return cVar;
                 } else if (cVar2 != null) {
-                    if (f9737i) {
+                    if (f9879i) {
                         String str3 = "computNextAvailableProcess: firstEmptyClient=" + cVar2;
                     }
                     return cVar2;
                 } else {
                     for (c.a.r0.a.y1.c.f.c cVar4 : this.a.values()) {
                         if (cVar4 != null) {
-                            if (f9737i) {
+                            if (f9879i) {
                                 String str4 = "computNextAvailableProcess: lruClient=" + cVar4;
                             }
                             return cVar4;
                         }
                     }
-                    boolean z = f9737i;
+                    boolean z = f9879i;
                     return o(SwanAppProcessInfo.P0);
                 }
             }
@@ -384,9 +384,9 @@ public final class e {
                 c.a.r0.a.y1.c.f.c cVar = null;
                 for (int i2 = 0; i2 <= 5; i2++) {
                     c.a.r0.a.y1.c.f.c cVar2 = this.a.get(SwanAppProcessInfo.indexOf(i2));
-                    if (cVar2 != null && cVar2.f9731f.isSwanAppProcess() && !cVar2.D()) {
+                    if (cVar2 != null && cVar2.f9873f.isSwanAppProcess() && !cVar2.D()) {
                         if (cVar2.R()) {
-                            if (f9737i) {
+                            if (f9879i) {
                                 String str = "computNextPreloadProcess: return null by found empty process=" + cVar2;
                             }
                             return null;
@@ -395,7 +395,7 @@ public final class e {
                         }
                     }
                 }
-                if (f9737i) {
+                if (f9879i) {
                     String str2 = "computNextPreloadProcess: firstPreloadableClient=" + cVar;
                 }
                 return cVar;
@@ -417,7 +417,7 @@ public final class e {
                 }
                 for (c.a.r0.a.y1.c.f.c cVar2 : j2) {
                     if (cVar2 != cVar && cVar2 != null && cVar2.D()) {
-                        if (f9737i) {
+                        if (f9879i) {
                             String str2 = "deduplicateClients: protectedClient=" + cVar;
                             String str3 = "deduplicateClients: exClient=" + cVar2;
                         }
@@ -426,7 +426,7 @@ public final class e {
                         if (cVar2.S()) {
                             c.a.r0.a.y1.c.a e2 = c.a.r0.a.y1.c.a.e();
                             c.a.r0.a.y1.c.c cVar3 = new c.a.r0.a.y1.c.c(110, new Bundle());
-                            cVar3.b(cVar2.f9731f);
+                            cVar3.b(cVar2.f9873f);
                             e2.h(cVar3);
                         }
                     }
@@ -438,10 +438,10 @@ public final class e {
     public void h(c.a.r0.a.y1.c.f.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, aVar) == null) {
-            synchronized (this.f9744g) {
-                this.f9744g.remove(aVar);
-                if (f9737i) {
-                    String str = "delCallback: after = " + this.f9744g.size();
+            synchronized (this.f9886g) {
+                this.f9886g.remove(aVar);
+                if (f9879i) {
+                    String str = "delCallback: after = " + this.f9886g.size();
                 }
             }
         }
@@ -503,7 +503,7 @@ public final class e {
     public c.a.r0.a.y1.c.f.a m() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f9745h : (c.a.r0.a.y1.c.f.a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f9887h : (c.a.r0.a.y1.c.f.a) invokeV.objValue;
     }
 
     public synchronized c.a.r0.a.y1.c.f.c n(int i2) {
@@ -569,7 +569,7 @@ public final class e {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048591, this, str)) == null) {
             synchronized (this) {
                 l = l(str);
-                v(l.f9731f);
+                v(l.f9873f);
             }
             return l;
         }
@@ -596,10 +596,10 @@ public final class e {
     public final void t(String str) {
         Iterator<Long> it;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048593, this, str) == null) && f9737i) {
+        if ((interceptable == null || interceptable.invokeL(1048593, this, str) == null) && f9879i) {
             String str2 = "SwanRescue:: status => " + str;
             SimpleDateFormat simpleDateFormat = new SimpleDateFormat("HH:mm:ss.SSS", Locale.getDefault());
-            while (this.f9739b.iterator().hasNext()) {
+            while (this.f9881b.iterator().hasNext()) {
                 String str3 = "SwanRescue::   >>>  record @ " + simpleDateFormat.format(new Date(it.next().longValue()));
             }
         }
@@ -625,7 +625,7 @@ public final class e {
 
     public void u(String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048595, this, str) == null) && f9737i) {
+        if ((interceptable == null || interceptable.invokeL(1048595, this, str) == null) && f9879i) {
             if (TextUtils.isEmpty(str)) {
                 str = "";
             }
@@ -641,7 +641,7 @@ public final class e {
                 if (remove != null) {
                     this.a.put(swanAppProcessInfo, remove);
                 }
-                if (f9737i) {
+                if (f9879i) {
                     u("lru -> " + swanAppProcessInfo);
                 }
             }
@@ -651,9 +651,9 @@ public final class e {
     public void w() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048597, this) == null) {
-            synchronized (this.f9739b) {
+            synchronized (this.f9881b) {
                 if (d()) {
-                    this.f9739b.offer(Long.valueOf(System.currentTimeMillis()));
+                    this.f9881b.offer(Long.valueOf(System.currentTimeMillis()));
                     Bundle bundle = new Bundle();
                     bundle.putString("bundle_key_preload_preload_scene", "1");
                     c.a.r0.a.y1.c.f.b.n(c.a.r0.a.c1.a.c(), bundle);
@@ -677,13 +677,13 @@ public final class e {
             }
         }
         this.a = new LinkedHashMap<>();
-        this.f9739b = new ArrayDeque();
-        this.f9740c = new SwanAppMessengerService.a();
-        this.f9741d = new Messenger(this.f9740c);
-        this.f9742e = new SwanProcessCallStub(this.f9740c);
-        this.f9743f = 0L;
-        this.f9744g = new HashSet();
-        this.f9745h = new a(this);
+        this.f9881b = new ArrayDeque();
+        this.f9882c = new SwanAppMessengerService.a();
+        this.f9883d = new Messenger(this.f9882c);
+        this.f9884e = new SwanProcessCallStub(this.f9882c);
+        this.f9885f = 0L;
+        this.f9886g = new HashSet();
+        this.f9887h = new a(this);
         for (SwanAppProcessInfo swanAppProcessInfo : SwanAppProcessInfo.indices()) {
             if (swanAppProcessInfo != null && swanAppProcessInfo.isSwanAppProcess()) {
                 this.a.put(swanAppProcessInfo, new c.a.r0.a.y1.c.f.c(swanAppProcessInfo));

@@ -34,31 +34,31 @@ public class c {
     public final LinkedList<ImMessageCenterPojo> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f13938b;
+    public int f14078b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f13939c;
+    public int f14079c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f13940d;
+    public int f14080d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f13941e;
+    public int f14081e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f13942f;
+    public int f14082f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f13943g;
+    public boolean f14083g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f13944h;
+    public int f14084h;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f13945i;
+    public boolean f14085i;
 
     /* renamed from: j  reason: collision with root package name */
-    public final CustomMessageListener f13946j;
+    public final CustomMessageListener f14086j;
 
     /* loaded from: classes6.dex */
     public class a extends CustomMessageListener {
@@ -126,15 +126,15 @@ public class c {
             }
         }
         this.a = new LinkedList<>();
-        this.f13938b = 0;
-        this.f13939c = 0;
-        this.f13940d = 0;
-        this.f13941e = 0;
-        this.f13942f = 0;
-        this.f13943g = false;
-        this.f13944h = 0;
-        this.f13945i = false;
-        this.f13946j = new a(this, 0);
+        this.f14078b = 0;
+        this.f14079c = 0;
+        this.f14080d = 0;
+        this.f14081e = 0;
+        this.f14082f = 0;
+        this.f14083g = false;
+        this.f14084h = 0;
+        this.f14085i = false;
+        this.f14086j = new a(this, 0);
     }
 
     public static c k() {
@@ -167,7 +167,7 @@ public class c {
                 if (imMessageCenterPojo.getCustomGroupType() != -4 && imMessageCenterPojo.getCustomGroupType() != -3 && imMessageCenterPojo.getCustomGroupType() != -7) {
                     if (imMessageCenterPojo.getCustomGroupType() == 1) {
                         if (d.d().p()) {
-                            GroupSettingItemData a2 = c.a.t0.s1.t.b.k().a(TbadkCoreApplication.getCurrentAccount(), imMessageCenterPojo.getGid());
+                            GroupSettingItemData a2 = c.a.t0.t1.t.b.k().a(TbadkCoreApplication.getCurrentAccount(), imMessageCenterPojo.getGid());
                             if (a2 != null) {
                                 if (a2.isAcceptNotify()) {
                                     unread_count = imMessageCenterPojo.getUnread_count();
@@ -179,7 +179,7 @@ public class c {
                         }
                     } else if (imMessageCenterPojo.getCustomGroupType() == 2) {
                         if (d.d().r()) {
-                            PersonalSettingItemData a3 = c.a.t0.s1.t.e.j().a(TbadkCoreApplication.getCurrentAccount(), imMessageCenterPojo.getGid());
+                            PersonalSettingItemData a3 = c.a.t0.t1.t.e.j().a(TbadkCoreApplication.getCurrentAccount(), imMessageCenterPojo.getGid());
                             if (a3 != null) {
                                 if (a3.isAcceptNotify()) {
                                     unread_count = imMessageCenterPojo.getUnread_count();
@@ -206,8 +206,8 @@ public class c {
             i2 = 0;
         }
         boolean z2 = i2 > 0 ? z : false;
-        this.f13944h = i2;
-        this.f13945i = z2;
+        this.f14084h = i2;
+        this.f14085i = z2;
     }
 
     public final void i(int i2, int i3, int i4, int i5) {
@@ -227,12 +227,12 @@ public class c {
             if (d.d().e() == 0) {
                 i6 = 0;
             }
-            this.f13943g = i6 > 0 ? z : false;
-            this.f13942f = i6;
-            this.f13938b = i2;
-            this.f13939c = i3;
-            this.f13940d = i4;
-            this.f13941e = i5;
+            this.f14083g = i6 > 0 ? z : false;
+            this.f14082f = i6;
+            this.f14078b = i2;
+            this.f14079c = i3;
+            this.f14080d = i4;
+            this.f14081e = i5;
         }
     }
 
@@ -264,13 +264,13 @@ public class c {
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             u();
             MessageManager.getInstance().registerStickyMode(2921002);
-            MessageManager.getInstance().registerListener(2001120, this.f13946j);
-            MessageManager.getInstance().registerListener(2016002, this.f13946j);
-            MessageManager.getInstance().registerListener(2016004, this.f13946j);
-            MessageManager.getInstance().registerListener(2016001, this.f13946j);
-            MessageManager.getInstance().registerListener(2016007, this.f13946j);
-            MessageManager.getInstance().registerListener(2016011, this.f13946j);
-            MessageManager.getInstance().registerListener(2016010, this.f13946j);
+            MessageManager.getInstance().registerListener(2001120, this.f14086j);
+            MessageManager.getInstance().registerListener(2016002, this.f14086j);
+            MessageManager.getInstance().registerListener(2016004, this.f14086j);
+            MessageManager.getInstance().registerListener(2016001, this.f14086j);
+            MessageManager.getInstance().registerListener(2016007, this.f14086j);
+            MessageManager.getInstance().registerListener(2016011, this.f14086j);
+            MessageManager.getInstance().registerListener(2016010, this.f14086j);
         }
     }
 
@@ -345,7 +345,7 @@ public class c {
     public final void r() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            i(this.f13938b, this.f13939c, this.f13940d, this.f13941e);
+            i(this.f14078b, this.f14079c, this.f14080d, this.f14081e);
             h(this.a);
             v();
         }
@@ -354,7 +354,7 @@ public class c {
     public final void s() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            i(this.f13938b, this.f13939c, this.f13940d, this.f13941e);
+            i(this.f14078b, this.f14079c, this.f14080d, this.f14081e);
             h(this.a);
             v();
         }
@@ -378,16 +378,16 @@ public class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
             this.a.clear();
-            this.f13938b = 0;
-            this.f13939c = 0;
-            this.f13940d = 0;
-            this.f13941e = 0;
-            this.f13942f = 0;
-            this.f13943g = false;
-            this.f13944h = 0;
-            this.f13945i = false;
-            this.f13944h = 0;
-            this.f13945i = false;
+            this.f14078b = 0;
+            this.f14079c = 0;
+            this.f14080d = 0;
+            this.f14081e = 0;
+            this.f14082f = 0;
+            this.f14083g = false;
+            this.f14084h = 0;
+            this.f14085i = false;
+            this.f14084h = 0;
+            this.f14085i = false;
         }
     }
 
@@ -395,14 +395,14 @@ public class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
             NewsRemindMessage newsRemindMessage = new NewsRemindMessage();
-            newsRemindMessage.setMsgAgreeCount(this.f13938b);
-            newsRemindMessage.setMsgAtCount(this.f13939c);
-            newsRemindMessage.setMsgReplyCount(this.f13940d);
-            newsRemindMessage.setMsgFansCount(this.f13941e);
-            newsRemindMessage.setMsgCount(this.f13942f);
-            newsRemindMessage.setHasMsgRemind(this.f13943g);
-            newsRemindMessage.setChatCount(this.f13944h);
-            newsRemindMessage.setHasChatRemind(this.f13945i);
+            newsRemindMessage.setMsgAgreeCount(this.f14078b);
+            newsRemindMessage.setMsgAtCount(this.f14079c);
+            newsRemindMessage.setMsgReplyCount(this.f14080d);
+            newsRemindMessage.setMsgFansCount(this.f14081e);
+            newsRemindMessage.setMsgCount(this.f14082f);
+            newsRemindMessage.setHasMsgRemind(this.f14083g);
+            newsRemindMessage.setChatCount(this.f14084h);
+            newsRemindMessage.setHasChatRemind(this.f14085i);
             MessageManager.getInstance().dispatchResponsedMessage(newsRemindMessage);
         }
     }

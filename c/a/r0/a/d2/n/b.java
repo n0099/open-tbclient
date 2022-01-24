@@ -19,7 +19,7 @@ public final class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final boolean f5566b;
+    public static final boolean f5708b;
     public transient /* synthetic */ FieldHolder $fh;
     public Map<String, g> a;
 
@@ -36,7 +36,7 @@ public final class b {
                 return;
             }
         }
-        f5566b = k.a;
+        f5708b = k.a;
     }
 
     public b() {
@@ -67,7 +67,7 @@ public final class b {
                     d2 = new File(str + File.separator + str2 + ".json");
                 }
             }
-            if (f5566b) {
+            if (f5708b) {
                 String str3 = "parseConfigFile baseUrl : " + str + " ,page: " + str2 + " file exist:" + d2.exists();
             }
             if (d2.exists()) {

@@ -37,21 +37,21 @@ public class a extends z {
 
     /* renamed from: c.a.t0.z.b.i.a$a  reason: collision with other inner class name */
     /* loaded from: classes9.dex */
-    public class C1569a extends ResponseCallback {
+    public class C1568a extends ResponseCallback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ String a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f25932b;
+        public final /* synthetic */ CallbackHandler f25913b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ e f25933c;
+        public final /* synthetic */ e f25914c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ a f25934d;
+        public final /* synthetic */ a f25915d;
 
-        public C1569a(a aVar, String str, CallbackHandler callbackHandler, e eVar) {
+        public C1568a(a aVar, String str, CallbackHandler callbackHandler, e eVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -66,17 +66,17 @@ public class a extends z {
                     return;
                 }
             }
-            this.f25934d = aVar;
+            this.f25915d = aVar;
             this.a = str;
-            this.f25932b = callbackHandler;
-            this.f25933c = eVar;
+            this.f25913b = callbackHandler;
+            this.f25914c = eVar;
         }
 
         @Override // com.baidu.searchbox.http.callback.ResponseCallback
         public void onFail(Exception exc) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, exc) == null) {
-                this.f25932b.handleSchemeDispatchCallback(this.a, UnitedSchemeUtility.wrapCallbackParams(501, "网络异常").toString());
+                this.f25913b.handleSchemeDispatchCallback(this.a, UnitedSchemeUtility.wrapCallbackParams(501, "网络异常").toString());
             }
         }
 
@@ -92,7 +92,7 @@ public class a extends z {
             InterceptResult invokeLI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, response, i2)) == null) {
-                this.f25934d.n(response, this.a, this.f25932b, this.f25933c);
+                this.f25915d.n(response, this.a, this.f25913b, this.f25914c);
                 return response;
             }
             return invokeLI.objValue;
@@ -174,7 +174,7 @@ public class a extends z {
                 schemeHead = BaseWebViewActivity.SHOUBAI_SCHEME;
             }
             buildUpon.scheme(schemeHead);
-            if (z.f6201b) {
+            if (z.f6343b) {
                 buildUpon.build().toString();
             }
             return buildUpon.build();
@@ -194,12 +194,12 @@ public class a extends z {
                     jSONObject2.put("srcAppPage", b2);
                     jSONObject2.put("params", jSONObject);
                     Request build = new Request.Builder().url(c.a.r0.a.c1.a.o().I()).post(RequestBody.create(MediaType.parse(AbstractBceClient.DEFAULT_CONTENT_TYPE), jSONObject2.toString())).build();
-                    if (z.f6201b) {
+                    if (z.f6343b) {
                         String str2 = "appId :" + str + org.apache.commons.lang3.StringUtils.LF + "request params" + jSONObject2.toString();
                     }
                     return build;
                 } catch (Exception e2) {
-                    if (z.f6201b) {
+                    if (z.f6343b) {
                         e2.printStackTrace();
                     }
                 }
@@ -212,10 +212,10 @@ public class a extends z {
     public final void m(RequestBody requestBody, UnitedSchemeEntity unitedSchemeEntity, String str, CallbackHandler callbackHandler, e eVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLLL(1048579, this, requestBody, unitedSchemeEntity, str, callbackHandler, eVar) == null) {
-            c.a.r0.p.d.a aVar = new c.a.r0.p.d.a(c.a.r0.a.c1.a.o().I(), requestBody, new C1569a(this, str, callbackHandler, eVar));
-            aVar.f11453f = true;
-            aVar.f11454g = false;
-            aVar.f11455h = true;
+            c.a.r0.p.d.a aVar = new c.a.r0.p.d.a(c.a.r0.a.c1.a.o().I(), requestBody, new C1568a(this, str, callbackHandler, eVar));
+            aVar.f11595f = true;
+            aVar.f11596g = false;
+            aVar.f11597h = true;
             c.a.r0.p.e.a.g().e(aVar);
             UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
         }
@@ -242,7 +242,7 @@ public class a extends z {
                     callbackHandler.handleSchemeDispatchCallback(str, UnitedSchemeUtility.wrapCallbackParams(SchemeRouter.invokeScheme(eVar.getApplicationContext(), k, UnitedSchemeConstants.SCHEME_INVOKE_TYPE_INSIDE) ? 0 : 1001).toString());
                 }
             } catch (Exception e2) {
-                if (z.f6201b) {
+                if (z.f6343b) {
                     e2.getMessage();
                 }
                 callbackHandler.handleSchemeDispatchCallback(str, UnitedSchemeUtility.wrapCallbackParams(201, e2.getMessage()).toString());

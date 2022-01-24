@@ -1,8 +1,8 @@
 package com.baidu.searchbox.task.sync.appcreate;
 
 import androidx.lifecycle.ProcessLifecycleOwner;
-import c.a.s0.e1.k0;
-import c.a.s0.e1.n0;
+import c.a.s0.d1.k0;
+import c.a.s0.d1.n0;
 import c.a.s0.s.j;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
@@ -65,7 +65,7 @@ public class InitLaunchSyncTask extends LaunchTask {
                     this.this$0 = this;
                 }
 
-                @Override // c.a.s0.e1.k0
+                @Override // c.a.s0.d1.k0
                 public Object doInBackground() {
                     InterceptResult invokeV;
                     Interceptable interceptable2 = $ic;
@@ -140,7 +140,6 @@ public class InitLaunchSyncTask extends LaunchTask {
             TbadkCoreApplication.getInst().setCoreActivityLifecycleCallbacks(jVar);
             TbadkCoreApplication.getInst().registerActivityLifecycleCallbacks(jVar);
             InputMethodManagerLeaksFixer.fixFocusedViewLeak(TbadkCoreApplication.getInst());
-            TbadkCoreApplication.getInst().initSwanData();
             cleanDirectoryNewStatIfNeed();
         }
     }

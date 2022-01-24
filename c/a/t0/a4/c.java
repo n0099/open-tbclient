@@ -6,8 +6,8 @@ import android.view.View;
 import android.view.animation.ScaleAnimation;
 import c.a.d.a.e;
 import c.a.d.f.m.g;
-import c.a.t0.w3.h0;
-import c.a.t0.w3.x;
+import c.a.t0.x3.h0;
+import c.a.t0.x3.x;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.R;
@@ -28,19 +28,19 @@ public class c implements View.OnClickListener {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public NewUserGuideActivity f15060e;
+    public NewUserGuideActivity f15329e;
 
     /* renamed from: f  reason: collision with root package name */
-    public InterestFrsData.Tag f15061f;
+    public InterestFrsData.Tag f15330f;
 
     /* renamed from: g  reason: collision with root package name */
-    public c.a.t0.a4.a f15062g;
+    public c.a.t0.a4.a f15331g;
 
     /* renamed from: h  reason: collision with root package name */
-    public LikeModel f15063h;
+    public LikeModel f15332h;
 
     /* renamed from: i  reason: collision with root package name */
-    public h0 f15064i;
+    public h0 f15333i;
 
     /* loaded from: classes6.dex */
     public class a extends e {
@@ -71,14 +71,14 @@ public class c implements View.OnClickListener {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, obj) == null) {
                 if (obj == null) {
-                    this.a.f15060e.showToast(R.string.neterror);
+                    this.a.f15329e.showToast(R.string.neterror);
                 } else if (obj instanceof x) {
                     int e2 = c.a.d.f.m.b.e(((x) obj).g(), 0);
-                    this.a.f15062g.ForumLike(e2);
+                    this.a.f15331g.ForumLike(e2);
                     this.a.c(e2, true);
-                    this.a.f15060e.setHasLike(true);
-                    this.a.f15060e.setIsChanged(true);
-                    TiebaStatic.eventStat(this.a.f15060e.getPageContext().getPageActivity(), "notlogin_12", "click", 1, new Object[0]);
+                    this.a.f15329e.setHasLike(true);
+                    this.a.f15329e.setIsChanged(true);
+                    TiebaStatic.eventStat(this.a.f15329e.getPageContext().getPageActivity(), "notlogin_12", "click", 1, new Object[0]);
                 }
             }
         }
@@ -108,20 +108,20 @@ public class c implements View.OnClickListener {
             this.a = cVar;
         }
 
-        @Override // c.a.t0.w3.h0.a
+        @Override // c.a.t0.x3.h0.a
         public void a(String str, long j2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLJ(1048576, this, str, j2) == null) {
-                this.a.f15060e.showToast(R.string.error);
+                this.a.f15329e.showToast(R.string.error);
             }
         }
 
-        @Override // c.a.t0.w3.h0.a
+        @Override // c.a.t0.x3.h0.a
         public void b(String str, long j2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, j2) == null) {
                 int e2 = c.a.d.f.m.b.e(String.valueOf(j2), 0);
-                this.a.f15062g.ForumUnLike(e2);
+                this.a.f15331g.ForumUnLike(e2);
                 this.a.c(e2, false);
             }
         }
@@ -129,14 +129,14 @@ public class c implements View.OnClickListener {
 
     /* renamed from: c.a.t0.a4.c$c  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public class DialogInterface$OnDismissListenerC0965c implements DialogInterface.OnDismissListener {
+    public class DialogInterface$OnDismissListenerC0971c implements DialogInterface.OnDismissListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ NewUserGuideMainFragment.b f15065e;
+        public final /* synthetic */ NewUserGuideMainFragment.b f15334e;
 
-        public DialogInterface$OnDismissListenerC0965c(c cVar, NewUserGuideMainFragment.b bVar) {
+        public DialogInterface$OnDismissListenerC0971c(c cVar, NewUserGuideMainFragment.b bVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -151,14 +151,14 @@ public class c implements View.OnClickListener {
                     return;
                 }
             }
-            this.f15065e = bVar;
+            this.f15334e = bVar;
         }
 
         @Override // android.content.DialogInterface.OnDismissListener
         public void onDismiss(DialogInterface dialogInterface) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, dialogInterface) == null) {
-                this.f15065e.a();
+                this.f15334e.a();
             }
         }
     }
@@ -178,33 +178,33 @@ public class c implements View.OnClickListener {
                 return;
             }
         }
-        this.f15060e = newUserGuideActivity;
-        this.f15061f = tag;
+        this.f15329e = newUserGuideActivity;
+        this.f15330f = tag;
         int btype = tag.getBtype();
         if (btype == 1) {
-            this.f15062g = new NewUserGuideRankShowBox(this.f15060e.getPageContext().getPageActivity(), R.style.NewUserDialog);
+            this.f15331g = new NewUserGuideRankShowBox(this.f15329e.getPageContext().getPageActivity(), R.style.NewUserDialog);
         } else if (btype == 2) {
-            this.f15062g = new NewUserGuideCommonShowBox(this.f15060e.getPageContext().getPageActivity(), R.style.NewUserDialog);
+            this.f15331g = new NewUserGuideCommonShowBox(this.f15329e.getPageContext().getPageActivity(), R.style.NewUserDialog);
         } else if (btype == 3) {
-            this.f15062g = new NewUserGuideImgShowBox(this.f15060e.getPageContext().getPageActivity(), R.style.NewUserDialog);
+            this.f15331g = new NewUserGuideImgShowBox(this.f15329e.getPageContext().getPageActivity(), R.style.NewUserDialog);
         }
         LikeModel likeModel = new LikeModel(newUserGuideActivity.getPageContext());
-        this.f15063h = likeModel;
+        this.f15332h = likeModel;
         likeModel.setLoadDataCallBack(new a(this));
         h0 h0Var = new h0();
-        this.f15064i = h0Var;
+        this.f15333i = h0Var;
         h0Var.b(new b(this));
-        this.f15062g.setOnClickListener(this);
-        this.f15062g.setData(this.f15061f);
-        ((Dialog) this.f15062g).setOnDismissListener(new DialogInterface$OnDismissListenerC0965c(this, bVar));
+        this.f15331g.setOnClickListener(this);
+        this.f15331g.setData(this.f15330f);
+        ((Dialog) this.f15331g).setOnDismissListener(new DialogInterface$OnDismissListenerC0971c(this, bVar));
     }
 
     public void c(int i2, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i2), Boolean.valueOf(z)}) == null) {
-            for (int i3 = 0; i3 < this.f15061f.getCard_list().size(); i3++) {
-                if (this.f15061f.getCard_list().get(i3).getFid() == i2) {
-                    this.f15061f.getCard_list().get(i3).setIs_like(z ? 1 : 0);
+            for (int i3 = 0; i3 < this.f15330f.getCard_list().size(); i3++) {
+                if (this.f15330f.getCard_list().get(i3).getFid() == i2) {
+                    this.f15330f.getCard_list().get(i3).setIs_like(z ? 1 : 0);
                     return;
                 }
             }
@@ -214,12 +214,12 @@ public class c implements View.OnClickListener {
     public void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            NewUserGuideActivity newUserGuideActivity = this.f15060e;
+            NewUserGuideActivity newUserGuideActivity = this.f15329e;
             if (newUserGuideActivity == null || g.e(newUserGuideActivity.getPageContext().getPageActivity())) {
                 ScaleAnimation scaleAnimation = new ScaleAnimation(0.0f, 1.0f, 0.0f, 1.0f, 2, 0.5f, 2, 0.5f);
                 scaleAnimation.setDuration(350L);
-                this.f15062g.getRootView().setAnimation(scaleAnimation);
-                this.f15062g.show();
+                this.f15331g.getRootView().setAnimation(scaleAnimation);
+                this.f15331g.show();
             }
         }
     }
@@ -229,13 +229,13 @@ public class c implements View.OnClickListener {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view) == null) {
             if (view.getId() == R.id.box_close_layout) {
-                this.f15062g.hide();
+                this.f15331g.hide();
             } else if ((view.getId() == R.id.ll_like || view.getId() == R.id.pic_layout) && view.getTag() != null && (view.getTag() instanceof InterestFrsData.Card)) {
                 InterestFrsData.Card card = (InterestFrsData.Card) view.getTag();
                 if (card.getIs_like() == 1) {
-                    this.f15064i.c(card.getFname(), card.getFid());
+                    this.f15333i.c(card.getFname(), card.getFid());
                 } else {
-                    this.f15063h.M(card.getFname(), String.valueOf(card.getFid()), "newuser");
+                    this.f15332h.M(card.getFname(), String.valueOf(card.getFid()), "newuser");
                 }
             }
         }

@@ -14,7 +14,7 @@ public class a {
     public EncryptAlgorithm a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f26866b;
+    public String f26894b;
 
     public a(EncryptAlgorithm encryptAlgorithm, String str) {
         Interceptable interceptable = $ic;
@@ -32,7 +32,7 @@ public class a {
             }
         }
         this.a = encryptAlgorithm;
-        this.f26866b = str;
+        this.f26894b = str;
     }
 
     public EncryptAlgorithm a() {
@@ -44,6 +44,6 @@ public class a {
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f26866b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f26894b : (String) invokeV.objValue;
     }
 }

@@ -19,13 +19,13 @@ public class h {
     public static final char a = File.separatorChar;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f56573b;
+    public static final String f56618b;
 
     static {
         StringBuilderWriter stringBuilderWriter = new StringBuilderWriter(4);
         PrintWriter printWriter = new PrintWriter(stringBuilderWriter);
         printWriter.println();
-        f56573b = stringBuilderWriter.toString();
+        f56618b = stringBuilderWriter.toString();
         printWriter.close();
     }
 

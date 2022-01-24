@@ -29,16 +29,16 @@ public class c extends BaseAdapter implements View.OnClickListener {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public List<d> f18983e;
+    public List<d> f19216e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f18984f;
+    public String f19217f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f18985g;
+    public int f19218g;
 
     /* renamed from: h  reason: collision with root package name */
-    public VideoEffectLayout.h f18986h;
+    public VideoEffectLayout.h f19219h;
 
     /* loaded from: classes7.dex */
     public class a {
@@ -47,13 +47,13 @@ public class c extends BaseAdapter implements View.OnClickListener {
         public TbImageView a;
 
         /* renamed from: b  reason: collision with root package name */
-        public ProgressBar f18987b;
+        public ProgressBar f19220b;
 
         /* renamed from: c  reason: collision with root package name */
-        public TextView f18988c;
+        public TextView f19221c;
 
         /* renamed from: d  reason: collision with root package name */
-        public int f18989d;
+        public int f19222d;
 
         public a(c cVar) {
             Interceptable interceptable = $ic;
@@ -85,7 +85,7 @@ public class c extends BaseAdapter implements View.OnClickListener {
                 return;
             }
         }
-        this.f18985g = -1;
+        this.f19218g = -1;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -95,9 +95,9 @@ public class c extends BaseAdapter implements View.OnClickListener {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) {
-            List<d> list = this.f18983e;
+            List<d> list = this.f19216e;
             if (list != null && i2 >= 0 && i2 < list.size()) {
-                return this.f18983e.get(i2);
+                return this.f19216e.get(i2);
             }
             return null;
         }
@@ -115,39 +115,39 @@ public class c extends BaseAdapter implements View.OnClickListener {
             aVar.a.setBorderWidth(n.f(viewGroup.getContext(), R.dimen.ds4));
             aVar.a.setConrers(15);
             aVar.a.setBorderColor(SkinManager.getColor(R.color.CAM_X0302));
-            aVar.f18988c = (TextView) view.findViewById(R.id.tv_name);
+            aVar.f19221c = (TextView) view.findViewById(R.id.tv_name);
         }
     }
 
     public void c() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && getItem(2) != null && getItem(2).getType() == 1) {
-            this.f18985g = 0;
-            this.f18984f = getItem(2).b();
+            this.f19218g = 0;
+            this.f19217f = getItem(2).b();
         }
     }
 
     public void d() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && getItem(0) != null && getItem(0).getType() == 2) {
-            this.f18985g = 0;
-            this.f18984f = getItem(0).b();
+            this.f19218g = 0;
+            this.f19217f = getItem(0).b();
         }
     }
 
     public void e() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && getItem(0) != null && getItem(0).getType() == 3) {
-            this.f18985g = 0;
-            this.f18984f = TbadkCoreApplication.getInst().getString(R.string.music_normal);
+            this.f19218g = 0;
+            this.f19217f = TbadkCoreApplication.getInst().getString(R.string.music_normal);
         }
     }
 
     public void f() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && getItem(0) != null && getItem(0).getType() == 3) {
-            this.f18985g = 1;
-            this.f18984f = TbadkCoreApplication.getInst().getString(R.string.music_cloud);
+            this.f19218g = 1;
+            this.f19217f = TbadkCoreApplication.getInst().getString(R.string.music_cloud);
             notifyDataSetChanged();
         }
     }
@@ -155,8 +155,8 @@ public class c extends BaseAdapter implements View.OnClickListener {
     public void g(List<d> list, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048582, this, list, str) == null) {
-            this.f18983e = list;
-            this.f18984f = str;
+            this.f19216e = list;
+            this.f19217f = str;
         }
     }
 
@@ -165,7 +165,7 @@ public class c extends BaseAdapter implements View.OnClickListener {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            List<d> list = this.f18983e;
+            List<d> list = this.f19216e;
             if (list != null) {
                 return list.size();
             }
@@ -216,30 +216,30 @@ public class c extends BaseAdapter implements View.OnClickListener {
                     view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.list_item_effect, (ViewGroup) null);
                     b(aVar, view, viewGroup);
                     ProgressBar progressBar = (ProgressBar) view.findViewById(R.id.iv_loading);
-                    aVar.f18987b = progressBar;
+                    aVar.f19220b = progressBar;
                     progressBar.setVisibility(4);
-                    SkinManager.setViewTextColor(aVar.f18988c, R.color.CAM_X0101);
+                    SkinManager.setViewTextColor(aVar.f19221c, R.color.CAM_X0101);
                 } else if (itemViewType == 1) {
                     view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.list_item_effect, (ViewGroup) null);
                     b(aVar, view, viewGroup);
-                    aVar.f18987b = (ProgressBar) view.findViewById(R.id.iv_loading);
+                    aVar.f19220b = (ProgressBar) view.findViewById(R.id.iv_loading);
                     aVar.a.setDefaultResource(R.drawable.bg_video_cloudmusic);
-                    SkinManager.setViewTextColor(aVar.f18988c, R.color.CAM_X0101);
+                    SkinManager.setViewTextColor(aVar.f19221c, R.color.CAM_X0101);
                 } else if (itemViewType == 2) {
                     view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.list_item_beauty, (ViewGroup) null);
                     b(aVar, view, viewGroup);
-                    SkinManager.setViewTextColor(aVar.f18988c, R.color.CAM_X0101);
+                    SkinManager.setViewTextColor(aVar.f19221c, R.color.CAM_X0101);
                 }
                 view.setTag(aVar);
             } else {
                 aVar = (a) view.getTag();
             }
-            List<d> list = this.f18983e;
-            if (list != null && i2 >= 0 && i2 <= list.size() - 1 && (dVar = this.f18983e.get(i2)) != null) {
+            List<d> list = this.f19216e;
+            if (list != null && i2 >= 0 && i2 <= list.size() - 1 && (dVar = this.f19216e.get(i2)) != null) {
                 int itemViewType2 = getItemViewType(i2);
                 if (itemViewType2 == 0) {
                     aVar.a.startLoad(String.valueOf(dVar.a()), 24, false);
-                    if (!TextUtils.isEmpty(dVar.b()) && dVar.b().equals(this.f18984f)) {
+                    if (!TextUtils.isEmpty(dVar.b()) && dVar.b().equals(this.f19217f)) {
                         aVar.a.setDrawBorder(true);
                     } else {
                         aVar.a.setDrawBorder(false);
@@ -251,18 +251,18 @@ public class c extends BaseAdapter implements View.OnClickListener {
                     } else {
                         aVar.a.startLoad(String.valueOf(dVar.a()), 24, false);
                     }
-                    if (this.f18985g != i2) {
-                        aVar.f18987b.setVisibility(4);
-                    } else if (aVar.f18987b.getVisibility() == 0) {
+                    if (this.f19218g != i2) {
+                        aVar.f19220b.setVisibility(4);
+                    } else if (aVar.f19220b.getVisibility() == 0) {
                         aVar.a.setDrawBorder(false);
                     }
-                    if (!TextUtils.isEmpty(dVar.b()) && dVar.b().equals(this.f18984f)) {
+                    if (!TextUtils.isEmpty(dVar.b()) && dVar.b().equals(this.f19217f)) {
                         aVar.a.setDrawBorder(true);
                     } else {
                         aVar.a.setDrawBorder(false);
                     }
                 } else if (itemViewType2 == 2) {
-                    if (!TextUtils.isEmpty(dVar.b()) && dVar.b().equals(this.f18984f)) {
+                    if (!TextUtils.isEmpty(dVar.b()) && dVar.b().equals(this.f19217f)) {
                         aVar.a.setBackgroundResource(R.drawable.bg_beauty_item_choosed);
                     } else {
                         aVar.a.setBackgroundResource(R.drawable.bg_beauty_item);
@@ -271,8 +271,8 @@ public class c extends BaseAdapter implements View.OnClickListener {
                 aVar.a.setTag(dVar);
                 aVar.a.setTag(R.id.record_video_effect_holder, aVar);
                 aVar.a.setOnClickListener(this);
-                aVar.f18988c.setText(dVar.b());
-                aVar.f18989d = i2;
+                aVar.f19221c.setText(dVar.b());
+                aVar.f19222d = i2;
             }
             return view;
         }
@@ -292,7 +292,7 @@ public class c extends BaseAdapter implements View.OnClickListener {
     public void h(VideoEffectLayout.h hVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048589, this, hVar) == null) {
-            this.f18986h = hVar;
+            this.f19219h = hVar;
         }
     }
 
@@ -305,26 +305,26 @@ public class c extends BaseAdapter implements View.OnClickListener {
             if (dVar.getType() == 3 && (dVar.c() instanceof MusicData)) {
                 StatisticItem statisticItem = new StatisticItem("c12423");
                 statisticItem.param("obj_id", ((MusicData) dVar.c()).id);
-                statisticItem.param("obj_locate", this.f18983e.indexOf(dVar) + 1);
+                statisticItem.param("obj_locate", this.f19216e.indexOf(dVar) + 1);
                 statisticItem.param("obj_source", 1);
                 TiebaStatic.log(statisticItem);
-                if (view.getResources().getString(R.string.music_cloud).equals(dVar.b()) && (hVar = this.f18986h) != null) {
+                if (view.getResources().getString(R.string.music_cloud).equals(dVar.b()) && (hVar = this.f19219h) != null) {
                     hVar.onEffectChoosed(dVar, view.getTag(R.id.record_video_effect_holder));
-                    this.f18985g = this.f18983e.indexOf(dVar);
-                    this.f18984f = dVar.b();
+                    this.f19218g = this.f19216e.indexOf(dVar);
+                    this.f19217f = dVar.b();
                 }
-                if (!TextUtils.isEmpty(dVar.b()) && dVar.b().equals(this.f18984f)) {
+                if (!TextUtils.isEmpty(dVar.b()) && dVar.b().equals(this.f19217f)) {
                     return;
                 }
                 if (!dVar.b().equals(view.getResources().getString(R.string.music_cloud))) {
-                    this.f18985g = this.f18983e.indexOf(dVar);
+                    this.f19218g = this.f19216e.indexOf(dVar);
                 }
             } else {
-                this.f18985g = this.f18983e.indexOf(dVar);
+                this.f19218g = this.f19216e.indexOf(dVar);
             }
-            this.f18984f = dVar.b();
+            this.f19217f = dVar.b();
             notifyDataSetChanged();
-            VideoEffectLayout.h hVar2 = this.f18986h;
+            VideoEffectLayout.h hVar2 = this.f19219h;
             if (hVar2 != null) {
                 hVar2.onEffectChoosed(dVar, view.getTag(R.id.record_video_effect_holder));
             }

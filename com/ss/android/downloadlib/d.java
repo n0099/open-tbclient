@@ -12,17 +12,17 @@ import java.util.concurrent.ScheduledThreadPoolExecutor;
 import java.util.concurrent.SynchronousQueue;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class d {
     public ExecutorService a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ExecutorService f59617b;
+    public ExecutorService f59662b;
 
     /* renamed from: c  reason: collision with root package name */
-    public ScheduledExecutorService f59618c;
+    public ScheduledExecutorService f59663c;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class a {
         public static d a = new d();
     }
@@ -36,27 +36,27 @@ public class d {
     }
 
     public ExecutorService c() {
-        if (this.f59617b == null) {
+        if (this.f59662b == null) {
             synchronized (d.class) {
-                if (this.f59617b == null) {
+                if (this.f59662b == null) {
                     TimeUnit timeUnit = TimeUnit.SECONDS;
                     SynchronousQueue synchronousQueue = new SynchronousQueue();
-                    this.f59617b = new ThreadPoolExecutor(0, Integer.MAX_VALUE, 30L, timeUnit, synchronousQueue, new com.ss.android.socialbase.downloader.h.a(g.class.getName() + "-IOThreadPool"));
+                    this.f59662b = new ThreadPoolExecutor(0, Integer.MAX_VALUE, 30L, timeUnit, synchronousQueue, new com.ss.android.socialbase.downloader.h.a(g.class.getName() + "-IOThreadPool"));
                 }
             }
         }
-        return this.f59617b;
+        return this.f59662b;
     }
 
     public ScheduledExecutorService d() {
-        if (this.f59618c == null) {
+        if (this.f59663c == null) {
             synchronized (d.class) {
-                if (this.f59618c == null) {
-                    this.f59618c = new ScheduledThreadPoolExecutor(0, new com.ss.android.socialbase.downloader.h.a(g.class.getName() + "-ScheduledThreadPool"));
+                if (this.f59663c == null) {
+                    this.f59663c = new ScheduledThreadPoolExecutor(0, new com.ss.android.socialbase.downloader.h.a(g.class.getName() + "-ScheduledThreadPool"));
                 }
             }
         }
-        return this.f59618c;
+        return this.f59663c;
     }
 
     public void e() {

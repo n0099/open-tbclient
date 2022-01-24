@@ -19,16 +19,16 @@ import com.ss.android.socialbase.downloader.depend.z;
 import com.ss.android.socialbase.downloader.downloader.Downloader;
 import com.ss.android.socialbase.downloader.i.f;
 import com.ss.android.socialbase.downloader.model.DownloadInfo;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class DownloadTaskDeleteActivity extends Activity {
     public k a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Intent f59818b;
+    public Intent f59863b;
 
     private void b() {
         Intent intent;
-        if (this.a != null || (intent = this.f59818b) == null) {
+        if (this.a != null || (intent = this.f59863b) == null) {
             return;
         }
         try {
@@ -113,7 +113,7 @@ public class DownloadTaskDeleteActivity extends Activity {
     @Override // android.app.Activity
     public void onResume() {
         super.onResume();
-        this.f59818b = getIntent();
+        this.f59863b = getIntent();
         b();
         k kVar = this.a;
         if (kVar != null && !kVar.b()) {

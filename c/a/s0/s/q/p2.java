@@ -17,10 +17,10 @@ public class p2 {
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f13473b;
+    public String f13659b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f13474c;
+    public String f13660c;
 
     public p2() {
         Interceptable interceptable = $ic;
@@ -39,13 +39,13 @@ public class p2 {
     public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f13473b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f13659b : (String) invokeV.objValue;
     }
 
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f13474c : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f13660c : (String) invokeV.objValue;
     }
 
     public String c() {
@@ -63,8 +63,8 @@ public class p2 {
             jSONObject.optLong("activity_id");
             jSONObject.optInt(AlaPersonCenterFansActivityConfig.ACTIVITY_TYPE);
             this.a = jSONObject.optString("activity_url");
-            this.f13473b = jSONObject.optString("activity_all_icon");
-            this.f13474c = jSONObject.optString("activity_half_icon");
+            this.f13659b = jSONObject.optString("activity_all_icon");
+            this.f13660c = jSONObject.optString("activity_half_icon");
         } catch (Exception e2) {
             BdLog.e(e2.toString());
         }
@@ -78,7 +78,7 @@ public class p2 {
         yuleActivity.activity_id.longValue();
         yuleActivity.activity_type.intValue();
         this.a = yuleActivity.activity_url;
-        this.f13473b = yuleActivity.activity_all_icon;
-        this.f13474c = yuleActivity.activity_half_icon;
+        this.f13659b = yuleActivity.activity_all_icon;
+        this.f13660c = yuleActivity.activity_half_icon;
     }
 }

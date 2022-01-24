@@ -36,12 +36,12 @@ import java.util.LinkedHashMap;
 public class BaseWebView extends WebView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public c.a.t0.w3.n0.c jsCallback;
+    public c.a.t0.x3.n0.c jsCallback;
     public CommonTbJsBridge mCommonJsBridge;
     public Context mContext;
     public d mDownloadListener;
     public boolean mIsLoaded;
-    public c.a.t0.w3.n0.a mJsBridge;
+    public c.a.t0.x3.n0.a mJsBridge;
     public d mOnLoadUrlListener;
     public e mOnPageFinishedListener;
     public f mOnPageStartedListener;
@@ -52,7 +52,7 @@ public class BaseWebView extends WebView {
     public WebViewClient mWebViewClient;
 
     /* loaded from: classes11.dex */
-    public class a implements c.a.t0.w3.n0.c {
+    public class a implements c.a.t0.x3.n0.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ BaseWebView a;
@@ -75,13 +75,13 @@ public class BaseWebView extends WebView {
             this.a = baseWebView;
         }
 
-        @Override // c.a.t0.w3.n0.c
+        @Override // c.a.t0.x3.n0.c
         public boolean onJsPrompt(String str, JsPromptResult jsPromptResult) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, jsPromptResult)) == null) {
                 BaseWebView baseWebView = this.a;
-                c.a.t0.w3.n0.a aVar = baseWebView.mJsBridge;
+                c.a.t0.x3.n0.a aVar = baseWebView.mJsBridge;
                 if (aVar != null) {
                     return aVar.b(baseWebView.getWebView(), str, jsPromptResult);
                 }
@@ -97,7 +97,7 @@ public class BaseWebView extends WebView {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ BaseWebView f40793e;
+        public final /* synthetic */ BaseWebView f40821e;
 
         public b(BaseWebView baseWebView) {
             Interceptable interceptable = $ic;
@@ -114,7 +114,7 @@ public class BaseWebView extends WebView {
                     return;
                 }
             }
-            this.f40793e = baseWebView;
+            this.f40821e = baseWebView;
         }
 
         @Override // com.baidu.tbadk.coreExtra.view.BaseWebView.d
@@ -126,7 +126,7 @@ public class BaseWebView extends WebView {
                     return true;
                 }
                 try {
-                    c.a.s0.m.a.j(this.f40793e.mContext, str);
+                    c.a.s0.m.a.j(this.f40821e.mContext, str);
                 } catch (Exception e2) {
                     BdLog.e(e2.toString());
                 }
@@ -420,7 +420,7 @@ public class BaseWebView extends WebView {
             c.a.s0.m.a.a(getSettings());
             this.mWebViewClient = new c(this);
             this.mWebChromeClient = new j(this, null);
-            this.mJsBridge = new c.a.t0.w3.n0.a();
+            this.mJsBridge = new c.a.t0.x3.n0.a();
             setWebViewClient(this.mWebViewClient);
             setWebChromeClient(this.mWebChromeClient);
             if (Build.VERSION.SDK_INT >= 11) {
@@ -499,7 +499,7 @@ public class BaseWebView extends WebView {
     }
 
     public void sendNotification(String str, HashMap hashMap) {
-        c.a.t0.w3.n0.a aVar;
+        c.a.t0.x3.n0.a aVar;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeLL(1048581, this, str, hashMap) == null) || (aVar = this.mJsBridge) == null) {
             return;
@@ -539,7 +539,7 @@ public class BaseWebView extends WebView {
         }
     }
 
-    public void setOnJsPromptCallback(c.a.t0.w3.n0.c cVar) {
+    public void setOnJsPromptCallback(c.a.t0.x3.n0.c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, cVar) == null) {
             this.jsCallback = cVar;

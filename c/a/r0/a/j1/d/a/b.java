@@ -33,13 +33,13 @@ public class b extends z {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f7337c;
+    public int f7479c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f7338d;
+    public String f7480d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f7339e;
+    public String f7481e;
 
     /* loaded from: classes.dex */
     public class a implements c.a.r0.a.z2.g1.c<i<b.e>> {
@@ -47,19 +47,19 @@ public class b extends z {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f7340e;
+        public final /* synthetic */ CallbackHandler f7482e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ UnitedSchemeEntity f7341f;
+        public final /* synthetic */ UnitedSchemeEntity f7483f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ Context f7342g;
+        public final /* synthetic */ Context f7484g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ c.a.r0.a.d2.e f7343h;
+        public final /* synthetic */ c.a.r0.a.d2.e f7485h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final /* synthetic */ b f7344i;
+        public final /* synthetic */ b f7486i;
 
         public a(b bVar, CallbackHandler callbackHandler, UnitedSchemeEntity unitedSchemeEntity, Context context, c.a.r0.a.d2.e eVar) {
             Interceptable interceptable = $ic;
@@ -76,11 +76,11 @@ public class b extends z {
                     return;
                 }
             }
-            this.f7344i = bVar;
-            this.f7340e = callbackHandler;
-            this.f7341f = unitedSchemeEntity;
-            this.f7342g = context;
-            this.f7343h = eVar;
+            this.f7486i = bVar;
+            this.f7482e = callbackHandler;
+            this.f7483f = unitedSchemeEntity;
+            this.f7484g = context;
+            this.f7485h = eVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -90,10 +90,10 @@ public class b extends z {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, iVar) == null) {
                 if (c.a.r0.a.h2.c.d.h(iVar)) {
-                    this.f7344i.v(this.f7342g, this.f7341f, this.f7340e, this.f7343h);
+                    this.f7486i.v(this.f7484g, this.f7483f, this.f7482e, this.f7485h);
                     return;
                 }
-                c.a.r0.a.h2.c.d.p(iVar, this.f7340e, this.f7341f);
+                c.a.r0.a.h2.c.d.p(iVar, this.f7482e, this.f7483f);
                 c.a.r0.a.e0.d.c("chooseImage", "camera authorize failure");
             }
         }
@@ -101,23 +101,23 @@ public class b extends z {
 
     /* renamed from: c.a.r0.a.j1.d.a.b$b  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public class C0438b implements c.a.r0.a.v1.f {
+    public class C0447b implements c.a.r0.a.v1.f {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ UnitedSchemeEntity f7345e;
+        public final /* synthetic */ UnitedSchemeEntity f7487e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f7346f;
+        public final /* synthetic */ CallbackHandler f7488f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ c.a.r0.a.d2.e f7347g;
+        public final /* synthetic */ c.a.r0.a.d2.e f7489g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ b f7348h;
+        public final /* synthetic */ b f7490h;
 
-        public C0438b(b bVar, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, c.a.r0.a.d2.e eVar) {
+        public C0447b(b bVar, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, c.a.r0.a.d2.e eVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -132,20 +132,20 @@ public class b extends z {
                     return;
                 }
             }
-            this.f7348h = bVar;
-            this.f7345e = unitedSchemeEntity;
-            this.f7346f = callbackHandler;
-            this.f7347g = eVar;
+            this.f7490h = bVar;
+            this.f7487e = unitedSchemeEntity;
+            this.f7488f = callbackHandler;
+            this.f7489g = eVar;
         }
 
         @Override // c.a.r0.a.v1.f
         public void a(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-                if (z.f6201b) {
+                if (z.f6343b) {
                     String str2 = str + "";
                 }
-                this.f7348h.t(this.f7345e, this.f7346f, this.f7347g);
+                this.f7490h.t(this.f7487e, this.f7488f, this.f7489g);
             }
         }
 
@@ -153,7 +153,7 @@ public class b extends z {
         public void b(int i2, String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, str) == null) {
-                UnitedSchemeUtility.safeCallback(this.f7346f, this.f7345e, UnitedSchemeUtility.wrapCallbackParams(10005, str).toString(), this.f7348h.f7339e);
+                UnitedSchemeUtility.safeCallback(this.f7488f, this.f7487e, UnitedSchemeUtility.wrapCallbackParams(10005, str).toString(), this.f7490h.f7481e);
             }
         }
     }
@@ -164,22 +164,22 @@ public class b extends z {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Context f7349e;
+        public final /* synthetic */ Context f7491e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ UnitedSchemeEntity f7350f;
+        public final /* synthetic */ UnitedSchemeEntity f7492f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f7351g;
+        public final /* synthetic */ CallbackHandler f7493g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ c.a.r0.a.d2.e f7352h;
+        public final /* synthetic */ c.a.r0.a.d2.e f7494h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final /* synthetic */ boolean f7353i;
+        public final /* synthetic */ boolean f7495i;
 
         /* renamed from: j  reason: collision with root package name */
-        public final /* synthetic */ b f7354j;
+        public final /* synthetic */ b f7496j;
 
         public c(b bVar, Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, c.a.r0.a.d2.e eVar, boolean z) {
             Interceptable interceptable = $ic;
@@ -196,22 +196,22 @@ public class b extends z {
                     return;
                 }
             }
-            this.f7354j = bVar;
-            this.f7349e = context;
-            this.f7350f = unitedSchemeEntity;
-            this.f7351g = callbackHandler;
-            this.f7352h = eVar;
-            this.f7353i = z;
+            this.f7496j = bVar;
+            this.f7491e = context;
+            this.f7492f = unitedSchemeEntity;
+            this.f7493g = callbackHandler;
+            this.f7494h = eVar;
+            this.f7495i = z;
         }
 
         @Override // c.a.r0.a.v1.f
         public void a(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-                if (z.f6201b) {
+                if (z.f6343b) {
                     String str2 = str + "";
                 }
-                this.f7354j.x(this.f7349e, this.f7350f, this.f7351g, this.f7352h, this.f7353i);
+                this.f7496j.x(this.f7491e, this.f7492f, this.f7493g, this.f7494h, this.f7495i);
             }
         }
 
@@ -219,7 +219,7 @@ public class b extends z {
         public void b(int i2, String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, str) == null) {
-                UnitedSchemeUtility.safeCallback(this.f7351g, this.f7350f, UnitedSchemeUtility.wrapCallbackParams(10005, str).toString(), this.f7354j.f7339e);
+                UnitedSchemeUtility.safeCallback(this.f7493g, this.f7492f, UnitedSchemeUtility.wrapCallbackParams(10005, str).toString(), this.f7496j.f7481e);
             }
         }
     }
@@ -231,13 +231,13 @@ public class b extends z {
         public final /* synthetic */ c.a.r0.a.d2.e a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f7355b;
+        public final /* synthetic */ CallbackHandler f7497b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ UnitedSchemeEntity f7356c;
+        public final /* synthetic */ UnitedSchemeEntity f7498c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ b f7357d;
+        public final /* synthetic */ b f7499d;
 
         public d(b bVar, c.a.r0.a.d2.e eVar, CallbackHandler callbackHandler, UnitedSchemeEntity unitedSchemeEntity) {
             Interceptable interceptable = $ic;
@@ -254,10 +254,10 @@ public class b extends z {
                     return;
                 }
             }
-            this.f7357d = bVar;
+            this.f7499d = bVar;
             this.a = eVar;
-            this.f7355b = callbackHandler;
-            this.f7356c = unitedSchemeEntity;
+            this.f7497b = callbackHandler;
+            this.f7498c = unitedSchemeEntity;
         }
 
         @Override // c.a.r0.a.j1.d.d.d
@@ -267,13 +267,13 @@ public class b extends z {
             if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), str, obj}) == null) {
                 if (z && (obj instanceof ArrayList)) {
                     ArrayList arrayList = (ArrayList) obj;
-                    if (z.f6201b) {
+                    if (z.f6343b) {
                         while (arrayList.iterator().hasNext()) {
                             String str2 = "tempPath = " + ((MediaModel) it.next()).getTempPath();
                         }
                     }
                     c.a.r0.a.e0.d.i("chooseImage", "choose success");
-                    UnitedSchemeUtility.safeCallback(this.f7355b, this.f7356c, UnitedSchemeUtility.wrapCallbackParamsWithEncode(c.a.r0.a.j1.d.c.d.m(arrayList, this.a, "Image"), 0).toString(), this.f7357d.f7339e);
+                    UnitedSchemeUtility.safeCallback(this.f7497b, this.f7498c, UnitedSchemeUtility.wrapCallbackParamsWithEncode(c.a.r0.a.j1.d.c.d.m(arrayList, this.a, "Image"), 0).toString(), this.f7499d.f7481e);
                 }
                 c.a.r0.a.j1.d.c.e.a();
             }
@@ -287,16 +287,16 @@ public class b extends z {
         public final /* synthetic */ c.a.r0.a.d2.e a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ c.a.r0.a.j1.d.d.d f7358b;
+        public final /* synthetic */ c.a.r0.a.j1.d.d.d f7500b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f7359c;
+        public final /* synthetic */ CallbackHandler f7501c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ UnitedSchemeEntity f7360d;
+        public final /* synthetic */ UnitedSchemeEntity f7502d;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ b f7361e;
+        public final /* synthetic */ b f7503e;
 
         public e(b bVar, c.a.r0.a.d2.e eVar, c.a.r0.a.j1.d.d.d dVar, CallbackHandler callbackHandler, UnitedSchemeEntity unitedSchemeEntity) {
             Interceptable interceptable = $ic;
@@ -313,11 +313,11 @@ public class b extends z {
                     return;
                 }
             }
-            this.f7361e = bVar;
+            this.f7503e = bVar;
             this.a = eVar;
-            this.f7358b = dVar;
-            this.f7359c = callbackHandler;
-            this.f7360d = unitedSchemeEntity;
+            this.f7500b = dVar;
+            this.f7501c = callbackHandler;
+            this.f7502d = unitedSchemeEntity;
         }
 
         @Override // c.a.r0.a.j1.d.d.b
@@ -330,10 +330,10 @@ public class b extends z {
                 c.a.r0.a.j1.d.c.e.i(imageModel);
                 Bundle bundle = new Bundle();
                 bundle.putString("swanTmpPath", c.a.r0.a.g1.f.U().G().k());
-                bundle.putBoolean("compressed", TextUtils.equals(this.f7361e.f7338d, "compressed"));
-                bundle.putString("swanAppId", this.a.f5537f);
+                bundle.putBoolean("compressed", TextUtils.equals(this.f7503e.f7480d, "compressed"));
+                bundle.putString("swanAppId", this.a.f5679f);
                 bundle.putParcelableArrayList("mediaModels", c.a.r0.a.j1.d.c.e.e());
-                c.a.r0.a.j1.d.c.d.h(this.a.x(), bundle, this.f7358b);
+                c.a.r0.a.j1.d.c.d.h(this.a.x(), bundle, this.f7500b);
             }
         }
 
@@ -341,7 +341,7 @@ public class b extends z {
         public void b(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-                UnitedSchemeUtility.safeCallback(this.f7359c, this.f7360d, UnitedSchemeUtility.wrapCallbackParams(1001, str).toString(), this.f7361e.f7339e);
+                UnitedSchemeUtility.safeCallback(this.f7501c, this.f7502d, UnitedSchemeUtility.wrapCallbackParams(1001, str).toString(), this.f7503e.f7481e);
             }
         }
     }
@@ -352,16 +352,16 @@ public class b extends z {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f7362e;
+        public final /* synthetic */ CallbackHandler f7504e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ UnitedSchemeEntity f7363f;
+        public final /* synthetic */ UnitedSchemeEntity f7505f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ c.a.r0.a.d2.e f7364g;
+        public final /* synthetic */ c.a.r0.a.d2.e f7506g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ b f7365h;
+        public final /* synthetic */ b f7507h;
 
         public f(b bVar, CallbackHandler callbackHandler, UnitedSchemeEntity unitedSchemeEntity, c.a.r0.a.d2.e eVar) {
             Interceptable interceptable = $ic;
@@ -378,10 +378,10 @@ public class b extends z {
                     return;
                 }
             }
-            this.f7365h = bVar;
-            this.f7362e = callbackHandler;
-            this.f7363f = unitedSchemeEntity;
-            this.f7364g = eVar;
+            this.f7507h = bVar;
+            this.f7504e = callbackHandler;
+            this.f7505f = unitedSchemeEntity;
+            this.f7506g = eVar;
         }
 
         @Override // c.a.r0.a.j1.d.d.c
@@ -389,7 +389,7 @@ public class b extends z {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
                 c.a.r0.a.e0.d.i("chooseImage", str);
-                UnitedSchemeUtility.safeCallback(this.f7362e, this.f7363f, UnitedSchemeUtility.wrapCallbackParams(1002, str).toString(), this.f7365h.f7339e);
+                UnitedSchemeUtility.safeCallback(this.f7504e, this.f7505f, UnitedSchemeUtility.wrapCallbackParams(1002, str).toString(), this.f7507h.f7481e);
             }
         }
 
@@ -399,10 +399,10 @@ public class b extends z {
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
                 if (list != null && list.size() > 0) {
                     c.a.r0.a.e0.d.i("chooseImage", "choose success");
-                    UnitedSchemeUtility.safeCallback(this.f7362e, this.f7363f, UnitedSchemeUtility.wrapCallbackParamsWithEncode(c.a.r0.a.j1.d.c.d.m(list, this.f7364g, "Image"), 0).toString(), this.f7365h.f7339e);
+                    UnitedSchemeUtility.safeCallback(this.f7504e, this.f7505f, UnitedSchemeUtility.wrapCallbackParamsWithEncode(c.a.r0.a.j1.d.c.d.m(list, this.f7506g, "Image"), 0).toString(), this.f7507h.f7481e);
                     return;
                 }
-                UnitedSchemeUtility.safeCallback(this.f7362e, this.f7363f, UnitedSchemeUtility.wrapCallbackParams(1002, "choose file list is error").toString(), this.f7365h.f7339e);
+                UnitedSchemeUtility.safeCallback(this.f7504e, this.f7505f, UnitedSchemeUtility.wrapCallbackParams(1002, "choose file list is error").toString(), this.f7507h.f7481e);
             }
         }
     }
@@ -435,13 +435,13 @@ public class b extends z {
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, eVar)) == null) {
             if (eVar != null && eVar.x() != null) {
                 if (eVar.m0()) {
-                    boolean z = z.f6201b;
+                    boolean z = z.f6343b;
                     unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "ui operation does not supported when app is invisible.");
                     return false;
                 }
                 JSONObject d2 = w.d(unitedSchemeEntity.getParam("params"));
                 String optString = d2.optString("cb");
-                this.f7339e = optString;
+                this.f7481e = optString;
                 if (TextUtils.isEmpty(optString)) {
                     c.a.r0.a.e0.d.c("chooseImage", "empty cb");
                     unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
@@ -449,18 +449,18 @@ public class b extends z {
                 }
                 try {
                     int parseInt = Integer.parseInt(d2.optString("count"));
-                    this.f7337c = parseInt;
+                    this.f7479c = parseInt;
                     if (parseInt < 1 || parseInt > 9) {
-                        this.f7337c = 9;
+                        this.f7479c = 9;
                     }
                 } catch (NumberFormatException unused) {
                     c.a.r0.a.e0.d.c("chooseImage", "count format error");
-                    this.f7337c = 9;
+                    this.f7479c = 9;
                 }
-                this.f7338d = r(d2.optJSONArray("sizeType"));
+                this.f7480d = r(d2.optJSONArray("sizeType"));
                 JSONArray optJSONArray = d2.optJSONArray("sourceType");
                 String s = s(optJSONArray);
-                c.a.r0.a.e0.d.i("chooseImage", "sizeType: " + this.f7338d + ",sourceType: " + s);
+                c.a.r0.a.e0.d.i("chooseImage", "sizeType: " + this.f7480d + ",sourceType: " + s);
                 if (TextUtils.equals(s, "album")) {
                     u(context, unitedSchemeEntity, callbackHandler, eVar, w(optJSONArray));
                 } else {
@@ -499,7 +499,7 @@ public class b extends z {
     public final void t(UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, c.a.r0.a.d2.e eVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048579, this, unitedSchemeEntity, callbackHandler, eVar) == null) {
-            c.a.r0.a.j1.d.c.b.f(eVar.x(), eVar.f5537f, new e(this, eVar, new d(this, eVar, callbackHandler, unitedSchemeEntity), callbackHandler, unitedSchemeEntity));
+            c.a.r0.a.j1.d.c.b.f(eVar.x(), eVar.f5679f, new e(this, eVar, new d(this, eVar, callbackHandler, unitedSchemeEntity), callbackHandler, unitedSchemeEntity));
         }
     }
 
@@ -513,7 +513,7 @@ public class b extends z {
     public final void v(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, c.a.r0.a.d2.e eVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLL(1048581, this, context, unitedSchemeEntity, callbackHandler, eVar) == null) {
-            c.a.r0.a.v1.e.e(PermissionRequest.RESOURCE_VIDEO_CAPTURE, new String[]{PermissionRequest.RESOURCE_VIDEO_CAPTURE}, 1, context, new C0438b(this, unitedSchemeEntity, callbackHandler, eVar));
+            c.a.r0.a.v1.e.e(PermissionRequest.RESOURCE_VIDEO_CAPTURE, new String[]{PermissionRequest.RESOURCE_VIDEO_CAPTURE}, 1, context, new C0447b(this, unitedSchemeEntity, callbackHandler, eVar));
         }
     }
 
@@ -541,10 +541,10 @@ public class b extends z {
             Bundle bundle = new Bundle();
             bundle.putString("launchType", "Image");
             bundle.putBoolean("isShowCamera", z);
-            bundle.putInt("count", this.f7337c);
+            bundle.putInt("count", this.f7479c);
             bundle.putString("mode", "single");
-            bundle.putBoolean("compressed", TextUtils.equals(this.f7338d, "compressed"));
-            bundle.putString("swanAppId", eVar.f5537f);
+            bundle.putBoolean("compressed", TextUtils.equals(this.f7480d, "compressed"));
+            bundle.putString("swanAppId", eVar.f5679f);
             bundle.putString("swanTmpPath", c.a.r0.a.g1.f.U().G().k());
             c.a.r0.a.j1.d.c.d.l(context, bundle, new f(this, callbackHandler, unitedSchemeEntity, eVar));
         }

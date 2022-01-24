@@ -20,33 +20,33 @@ public class e {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: j  reason: collision with root package name */
-    public static final boolean f7976j;
+    public static final boolean f8118j;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f7977b;
+    public String f8119b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f7978c;
+    public String f8120c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f7979d;
+    public String f8121d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f7980e;
+    public String f8122e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f7981f;
+    public String f8123f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f7982g;
+    public String f8124g;
 
     /* renamed from: h  reason: collision with root package name */
-    public JSONObject f7983h;
+    public JSONObject f8125h;
 
     /* renamed from: i  reason: collision with root package name */
-    public JSONObject f7984i;
+    public JSONObject f8126i;
 
     static {
         InterceptResult invokeClinit;
@@ -61,7 +61,7 @@ public class e {
                 return;
             }
         }
-        f7976j = k.a;
+        f8118j = k.a;
     }
 
     public e() {
@@ -83,13 +83,13 @@ public class e {
     public void a(@NonNull String str, Object obj) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, str, obj) == null) {
-            if (this.f7983h == null) {
-                this.f7983h = new JSONObject();
+            if (this.f8125h == null) {
+                this.f8125h = new JSONObject();
             }
             try {
-                this.f7983h.put(str, obj);
+                this.f8125h.put(str, obj);
             } catch (JSONException e2) {
-                if (f7976j) {
+                if (f8118j) {
                     e2.printStackTrace();
                 }
             }
@@ -101,29 +101,29 @@ public class e {
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) == null) || jSONObject == null) {
             return;
         }
-        if (this.f7983h == null) {
-            this.f7983h = new JSONObject();
+        if (this.f8125h == null) {
+            this.f8125h = new JSONObject();
         }
-        JSONObject optJSONObject = this.f7983h.optJSONObject("extlog");
-        this.f7984i = optJSONObject;
+        JSONObject optJSONObject = this.f8125h.optJSONObject("extlog");
+        this.f8126i = optJSONObject;
         if (optJSONObject == null) {
-            this.f7984i = new JSONObject();
+            this.f8126i = new JSONObject();
         }
         Iterator<String> keys = jSONObject.keys();
         while (keys.hasNext()) {
             String next = keys.next();
             try {
-                this.f7984i.put(next, jSONObject.opt(next));
+                this.f8126i.put(next, jSONObject.opt(next));
             } catch (JSONException e2) {
-                if (f7976j) {
+                if (f8118j) {
                     e2.printStackTrace();
                 }
             }
         }
         try {
-            this.f7983h.put("extlog", this.f7984i);
+            this.f8125h.put("extlog", this.f8126i);
         } catch (JSONException e3) {
-            if (f7976j) {
+            if (f8118j) {
                 e3.printStackTrace();
             }
         }
@@ -133,13 +133,13 @@ public class e {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (this.f7983h == null) {
+            if (this.f8125h == null) {
                 return null;
             }
             try {
-                return new JSONObject(this.f7983h.toString());
+                return new JSONObject(this.f8125h.toString());
             } catch (JSONException e2) {
-                if (f7976j) {
+                if (f8118j) {
                     e2.printStackTrace();
                 }
                 return null;
@@ -156,7 +156,7 @@ public class e {
         try {
             e(new JSONObject(str));
         } catch (JSONException e2) {
-            if (f7976j) {
+            if (f8118j) {
                 e2.printStackTrace();
             }
         }
@@ -167,16 +167,16 @@ public class e {
         if (!(interceptable == null || interceptable.invokeL(1048580, this, jSONObject) == null) || jSONObject == null) {
             return;
         }
-        if (this.f7983h == null) {
-            this.f7983h = new JSONObject();
+        if (this.f8125h == null) {
+            this.f8125h = new JSONObject();
         }
         Iterator<String> keys = jSONObject.keys();
         while (keys.hasNext()) {
             String next = keys.next();
             try {
-                this.f7983h.put(next, jSONObject.opt(next));
+                this.f8125h.put(next, jSONObject.opt(next));
             } catch (JSONException e2) {
-                if (f7976j) {
+                if (f8118j) {
                     e2.printStackTrace();
                 }
             }
@@ -192,35 +192,35 @@ public class e {
                 if (!TextUtils.isEmpty(this.a)) {
                     jSONObject.put("from", this.a);
                 }
-                if (!TextUtils.isEmpty(this.f7977b)) {
-                    jSONObject.put("type", this.f7977b);
+                if (!TextUtils.isEmpty(this.f8119b)) {
+                    jSONObject.put("type", this.f8119b);
                 }
-                if (!TextUtils.isEmpty(this.f7980e)) {
-                    jSONObject.put("value", this.f7980e);
+                if (!TextUtils.isEmpty(this.f8122e)) {
+                    jSONObject.put("value", this.f8122e);
                 }
-                if (TextUtils.isEmpty(this.f7978c)) {
-                    this.f7978c = "NA";
+                if (TextUtils.isEmpty(this.f8120c)) {
+                    this.f8120c = "NA";
                 }
-                jSONObject.put("source", this.f7978c);
-                if (!TextUtils.isEmpty(this.f7982g)) {
-                    String b2 = m.b(this.f7982g);
-                    this.f7982g = b2;
+                jSONObject.put("source", this.f8120c);
+                if (!TextUtils.isEmpty(this.f8124g)) {
+                    String b2 = m.b(this.f8124g);
+                    this.f8124g = b2;
                     jSONObject.put("page", b2);
                 }
-                if (this.f7983h == null) {
-                    this.f7983h = new JSONObject();
+                if (this.f8125h == null) {
+                    this.f8125h = new JSONObject();
                 }
-                if (!TextUtils.isEmpty(this.f7981f)) {
-                    this.f7983h.put("appid", this.f7981f);
+                if (!TextUtils.isEmpty(this.f8123f)) {
+                    this.f8125h.put("appid", this.f8123f);
                 }
-                if (!TextUtils.isEmpty(this.f7979d)) {
-                    this.f7983h.put("launchid", this.f7979d);
+                if (!TextUtils.isEmpty(this.f8121d)) {
+                    this.f8125h.put("launchid", this.f8121d);
                 }
-                m.a(this.f7983h);
-                jSONObject.put("ext", this.f7983h);
+                m.a(this.f8125h);
+                jSONObject.put("ext", this.f8125h);
                 return jSONObject;
             } catch (JSONException e2) {
-                if (f7976j) {
+                if (f8118j) {
                     e2.printStackTrace();
                     return null;
                 }

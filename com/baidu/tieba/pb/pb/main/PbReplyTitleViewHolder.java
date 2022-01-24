@@ -8,12 +8,12 @@ import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
 import c.a.d.f.p.l;
 import c.a.d.f.p.n;
-import c.a.t0.s2.g;
-import c.a.t0.s2.h;
-import c.a.t0.s2.i;
-import c.a.t0.s2.r.q;
-import c.a.t0.s2.u.f.t0;
-import c.a.t0.w3.j0.s;
+import c.a.t0.t2.g;
+import c.a.t0.t2.h;
+import c.a.t0.t2.i;
+import c.a.t0.t2.r.q;
+import c.a.t0.t2.u.f.u0;
+import c.a.t0.x3.j0.s;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
@@ -41,32 +41,32 @@ public class PbReplyTitleViewHolder extends TypeAdapter.ViewHolder {
     public View a;
 
     /* renamed from: b  reason: collision with root package name */
-    public View f46616b;
+    public View f46644b;
 
     /* renamed from: c  reason: collision with root package name */
-    public View f46617c;
+    public View f46645c;
 
     /* renamed from: d  reason: collision with root package name */
-    public TextView f46618d;
+    public TextView f46646d;
 
     /* renamed from: e  reason: collision with root package name */
-    public List<TextLineView> f46619e;
+    public List<TextLineView> f46647e;
 
     /* renamed from: f  reason: collision with root package name */
-    public View.OnClickListener f46620f;
+    public View.OnClickListener f46648f;
 
     /* renamed from: g  reason: collision with root package name */
-    public SortSwitchButton.f f46621g;
+    public SortSwitchButton.f f46649g;
 
     /* renamed from: h  reason: collision with root package name */
-    public q f46622h;
+    public q f46650h;
 
     /* renamed from: i  reason: collision with root package name */
-    public BdUniqueId f46623i;
+    public BdUniqueId f46651i;
     public boolean isSticky;
 
     /* renamed from: j  reason: collision with root package name */
-    public BdUniqueId f46624j;
+    public BdUniqueId f46652j;
     public TbPageContext k;
     public SortSwitchButton.f l;
     public View.OnClickListener m;
@@ -111,8 +111,8 @@ public class PbReplyTitleViewHolder extends TypeAdapter.ViewHolder {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) {
-                if (this.a.f46621g != null) {
-                    return this.a.f46621g.a(i2);
+                if (this.a.f46649g != null) {
+                    return this.a.f46649g.a(i2);
                 }
                 return true;
             }
@@ -155,7 +155,7 @@ public class PbReplyTitleViewHolder extends TypeAdapter.ViewHolder {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PbReplyTitleViewHolder f46625e;
+        public final /* synthetic */ PbReplyTitleViewHolder f46653e;
 
         public c(PbReplyTitleViewHolder pbReplyTitleViewHolder) {
             Interceptable interceptable = $ic;
@@ -172,16 +172,16 @@ public class PbReplyTitleViewHolder extends TypeAdapter.ViewHolder {
                     return;
                 }
             }
-            this.f46625e = pbReplyTitleViewHolder;
+            this.f46653e = pbReplyTitleViewHolder;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f46625e.f46620f == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f46653e.f46648f == null) {
                 return;
             }
-            this.f46625e.f46620f.onClick(this.f46625e.mGodReplyTitleGroupView);
+            this.f46653e.f46648f.onClick(this.f46653e.mGodReplyTitleGroupView);
         }
     }
 
@@ -191,7 +191,7 @@ public class PbReplyTitleViewHolder extends TypeAdapter.ViewHolder {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PbReplyTitleViewHolder f46626e;
+        public final /* synthetic */ PbReplyTitleViewHolder f46654e;
 
         public d(PbReplyTitleViewHolder pbReplyTitleViewHolder) {
             Interceptable interceptable = $ic;
@@ -208,19 +208,19 @@ public class PbReplyTitleViewHolder extends TypeAdapter.ViewHolder {
                     return;
                 }
             }
-            this.f46626e = pbReplyTitleViewHolder;
+            this.f46654e = pbReplyTitleViewHolder;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                if (this.f46626e.f46620f != null) {
-                    this.f46626e.f46620f.onClick(view);
+                if (this.f46654e.f46648f != null) {
+                    this.f46654e.f46648f.onClick(view);
                 }
                 if (l.z()) {
                     if (view == null || !(view.getTag() instanceof Boolean) || ((Boolean) view.getTag()).booleanValue()) {
-                        for (TextLineView textLineView : this.f46626e.f46619e) {
+                        for (TextLineView textLineView : this.f46654e.f46647e) {
                             if (textLineView != null) {
                                 if (textLineView != view) {
                                     textLineView.setSelected(false);
@@ -266,8 +266,8 @@ public class PbReplyTitleViewHolder extends TypeAdapter.ViewHolder {
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && this.a.f46622h != null && this.a.f46622h.f22438f == q.l && customResponsedMessage != null && getTag() == this.a.f46623i && (customResponsedMessage.getData() instanceof t0.p0)) {
-                ((t0.p0) customResponsedMessage.getData()).f23059c = this.a;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && this.a.f46650h != null && this.a.f46650h.f22717f == q.l && customResponsedMessage != null && getTag() == this.a.f46651i && (customResponsedMessage.getData() instanceof u0.p0)) {
+                ((u0.p0) customResponsedMessage.getData()).f23359c = this.a;
             }
         }
     }
@@ -303,7 +303,7 @@ public class PbReplyTitleViewHolder extends TypeAdapter.ViewHolder {
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048576, this, customResponsedMessage) != null) || this.a.f46622h == null || this.a.f46622h.f22438f != q.m || customResponsedMessage == null || getTag() != this.a.f46624j || !(customResponsedMessage.getData() instanceof t0.p0)) {
+            if ((interceptable != null && interceptable.invokeL(1048576, this, customResponsedMessage) != null) || this.a.f46650h == null || this.a.f46650h.f22717f != q.m || customResponsedMessage == null || getTag() != this.a.f46652j || !(customResponsedMessage.getData() instanceof u0.p0)) {
             }
         }
     }
@@ -345,9 +345,9 @@ public class PbReplyTitleViewHolder extends TypeAdapter.ViewHolder {
         TextLineView textLineView2 = (TextLineView) view.findViewById(i.reply_god_title);
         this.mGodReplyTitle = textLineView2;
         textLineView2.setSelected(false);
-        this.f46617c = view.findViewById(i.reply_all_title_frame);
-        this.f46616b = view.findViewById(i.reply_all_title);
-        this.f46618d = (TextView) view.findViewById(i.reply_title_dynamic);
+        this.f46645c = view.findViewById(i.reply_all_title_frame);
+        this.f46644b = view.findViewById(i.reply_all_title);
+        this.f46646d = (TextView) view.findViewById(i.reply_title_dynamic);
         TextLineView textLineView3 = (TextLineView) view.findViewById(i.floor_owner_reply);
         this.mFloorOwnerView = textLineView3;
         textLineView3.setOnClickListener(this.m);
@@ -359,9 +359,9 @@ public class PbReplyTitleViewHolder extends TypeAdapter.ViewHolder {
         this.mTitleView.setSelected(true);
         this.mFloorOwnerView.setSelected(false);
         ArrayList arrayList = new ArrayList();
-        this.f46619e = arrayList;
+        this.f46647e = arrayList;
         arrayList.add(this.mTitleView);
-        this.f46619e.add(this.mFloorOwnerView);
+        this.f46647e.add(this.mFloorOwnerView);
         this.mDivideLineTop = view.findViewById(i.divider_with_reply_title);
         this.mDivideLineBottom = view.findViewById(i.divider_bottom);
         this.mSortButton.changeState(2);
@@ -371,22 +371,22 @@ public class PbReplyTitleViewHolder extends TypeAdapter.ViewHolder {
     public void bindDataToView(q qVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, qVar) == null) {
-            this.f46622h = qVar;
+            this.f46650h = qVar;
             if (qVar == null) {
                 return;
             }
-            BdUniqueId bdUniqueId = qVar.f22438f;
+            BdUniqueId bdUniqueId = qVar.f22717f;
             if (bdUniqueId == q.m) {
                 this.mGodReplyTitleGroupView.getContext();
-                if (TextUtils.isEmpty(qVar.f22437e)) {
-                    this.f46617c.setVisibility(0);
+                if (TextUtils.isEmpty(qVar.f22716e)) {
+                    this.f46645c.setVisibility(0);
                     this.mGodReplyTitleGroupView.setVisibility(8);
                     this.mTitleView.setVisibility(0);
                     this.mTitleView.setSelected(false);
                     this.mTitleView.setClickable(false);
-                    this.mTitleView.setText(TbadkCoreApplication.getInst().getString(c.a.t0.s2.l.god_reply));
+                    this.mTitleView.setText(TbadkCoreApplication.getInst().getString(c.a.t0.t2.l.god_reply));
                 } else {
-                    this.f46617c.setVisibility(8);
+                    this.f46645c.setVisibility(8);
                     this.mTitleView.setVisibility(8);
                     this.mGodReplyTitleGroupView.setVisibility(0);
                     this.mGodReplyTitleGroupView.setOnClickListener(new c(this));
@@ -396,11 +396,11 @@ public class PbReplyTitleViewHolder extends TypeAdapter.ViewHolder {
                 this.mDivideLineBottom.setVisibility(8);
             } else if (bdUniqueId == q.l) {
                 this.mGodReplyTitleGroupView.setVisibility(8);
-                this.f46617c.setVisibility(0);
+                this.f46645c.setVisibility(0);
                 this.mTitleView.setClickable(true);
-                this.mTitleView.setText(TbadkCoreApplication.getInst().getString(c.a.t0.s2.l.all_reply));
+                this.mTitleView.setText(TbadkCoreApplication.getInst().getString(c.a.t0.t2.l.all_reply));
                 this.mFloorOwnerView.setVisibility(0);
-                changeHostModeUI(qVar.f22440h);
+                changeHostModeUI(qVar.f22719h);
                 if (qVar.k != null) {
                     this.mSortButton.setVisibility(0);
                     int i2 = 0;
@@ -408,7 +408,7 @@ public class PbReplyTitleViewHolder extends TypeAdapter.ViewHolder {
                         if (i2 >= qVar.k.size()) {
                             i2 = 0;
                             break;
-                        } else if (qVar.k.get(i2) != null && qVar.f22439g == qVar.k.get(i2).sort_type.intValue()) {
+                        } else if (qVar.k.get(i2) != null && qVar.f22718g == qVar.k.get(i2).sort_type.intValue()) {
                             break;
                         } else {
                             i2++;
@@ -420,17 +420,17 @@ public class PbReplyTitleViewHolder extends TypeAdapter.ViewHolder {
             }
             if (this.isSticky) {
                 this.mDivideLineBottom.getLayoutParams().height = n.f(TbadkCoreApplication.getInst(), g.L_X01);
-                SkinManager.setBackgroundColor(this.f46617c, c.a.t0.s2.f.CAM_X0207);
+                SkinManager.setBackgroundColor(this.f46645c, c.a.t0.t2.f.CAM_X0207);
             } else {
                 this.mDivideLineBottom.getLayoutParams().height = 0;
-                SkinManager.setBackgroundColor(this.f46617c, c.a.t0.s2.f.CAM_X0205);
+                SkinManager.setBackgroundColor(this.f46645c, c.a.t0.t2.f.CAM_X0205);
             }
-            if (qVar.f22441i) {
-                this.f46618d.setVisibility(0);
-                this.f46616b.setVisibility(8);
+            if (qVar.f22720i) {
+                this.f46646d.setVisibility(0);
+                this.f46644b.setVisibility(8);
             } else {
-                this.f46618d.setVisibility(8);
-                this.f46616b.setVisibility(0);
+                this.f46646d.setVisibility(8);
+                this.f46644b.setVisibility(0);
             }
             onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
         }
@@ -478,26 +478,26 @@ public class PbReplyTitleViewHolder extends TypeAdapter.ViewHolder {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048580, this, i2) == null) {
             if (this.mSkinType != i2) {
-                SkinManager.setBackgroundColor(this.f46617c, c.a.t0.s2.f.CAM_X0201);
-                SkinManager.setBackgroundColor(this.mGodReplyTitleGroupView, c.a.t0.s2.f.CAM_X0201);
+                SkinManager.setBackgroundColor(this.f46645c, c.a.t0.t2.f.CAM_X0201);
+                SkinManager.setBackgroundColor(this.mGodReplyTitleGroupView, c.a.t0.t2.f.CAM_X0201);
                 this.mTitleView.onChangeSkinType(i2);
                 this.mFloorOwnerView.onChangeSkinType(i2);
-                SkinManager.setViewTextColor(this.mGodReplyTitle, c.a.t0.s2.f.CAM_X0105);
-                q qVar = this.f46622h;
-                if (qVar != null && qVar.f22438f == q.m) {
-                    SkinManager.setViewTextColor(this.mTitleView, c.a.t0.s2.f.CAM_X0107, 1);
+                SkinManager.setViewTextColor(this.mGodReplyTitle, c.a.t0.t2.f.CAM_X0105);
+                q qVar = this.f46650h;
+                if (qVar != null && qVar.f22717f == q.m) {
+                    SkinManager.setViewTextColor(this.mTitleView, c.a.t0.t2.f.CAM_X0107, 1);
                 }
-                SkinManager.setViewTextColor(this.mGodTitleEntrance, c.a.t0.s2.f.CAM_X0107);
+                SkinManager.setViewTextColor(this.mGodTitleEntrance, c.a.t0.t2.f.CAM_X0107);
                 this.mGodTitleEntrance.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, SkinManager.getDrawable(h.icon_gob_reply_jump), (Drawable) null);
                 this.mSortButton.onChangeSkinType();
-                SkinManager.setBackgroundColor(this.mDivideLineTop, c.a.t0.s2.f.CAM_X0204);
+                SkinManager.setBackgroundColor(this.mDivideLineTop, c.a.t0.t2.f.CAM_X0204);
                 if (this.isSticky) {
-                    SkinManager.setBackgroundColor(this.mDivideLineBottom, c.a.t0.s2.f.CAM_X0203);
-                    SkinManager.setBackgroundColor(this.f46617c, c.a.t0.s2.f.CAM_X0207);
+                    SkinManager.setBackgroundColor(this.mDivideLineBottom, c.a.t0.t2.f.CAM_X0203);
+                    SkinManager.setBackgroundColor(this.f46645c, c.a.t0.t2.f.CAM_X0207);
                 } else {
-                    SkinManager.setBackgroundColor(this.f46617c, c.a.t0.s2.f.CAM_X0205);
+                    SkinManager.setBackgroundColor(this.f46645c, c.a.t0.t2.f.CAM_X0205);
                 }
-                SkinManager.setViewTextColor(this.f46618d, c.a.t0.s2.f.CAM_X0105, 1);
+                SkinManager.setViewTextColor(this.f46646d, c.a.t0.t2.f.CAM_X0105, 1);
             }
             this.mSkinType = i2;
         }
@@ -506,7 +506,7 @@ public class PbReplyTitleViewHolder extends TypeAdapter.ViewHolder {
     public void registerGodReplyTitleListener(BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, bdUniqueId) == null) {
-            this.f46624j = bdUniqueId;
+            this.f46652j = bdUniqueId;
             MessageManager.getInstance().unRegisterListener(bdUniqueId);
             this.o.setTag(bdUniqueId);
             MessageManager.getInstance().registerListener(this.o);
@@ -516,7 +516,7 @@ public class PbReplyTitleViewHolder extends TypeAdapter.ViewHolder {
     public void registerListener(BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, bdUniqueId) == null) {
-            this.f46623i = bdUniqueId;
+            this.f46651i = bdUniqueId;
             MessageManager.getInstance().unRegisterListener(bdUniqueId);
             this.n.setTag(bdUniqueId);
             MessageManager.getInstance().registerListener(this.n);
@@ -526,14 +526,14 @@ public class PbReplyTitleViewHolder extends TypeAdapter.ViewHolder {
     public void setOnSwitchChangeListener(SortSwitchButton.f fVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, fVar) == null) {
-            this.f46621g = fVar;
+            this.f46649g = fVar;
         }
     }
 
     public void setPbCommonOnclickListener(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, onClickListener) == null) {
-            this.f46620f = onClickListener;
+            this.f46648f = onClickListener;
         }
     }
 
@@ -560,17 +560,17 @@ public class PbReplyTitleViewHolder extends TypeAdapter.ViewHolder {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048587, this, z) == null) {
             if (z) {
-                this.f46618d.setText(c.a.t0.s2.l.hot_recommendation);
-                this.f46618d.setTypeface(Typeface.defaultFromStyle(1));
-                this.f46618d.setTextSize(0, n.f(this.k.getPageActivity(), g.T_X07));
-                this.f46618d.setVisibility(0);
-                this.f46616b.setVisibility(8);
+                this.f46646d.setText(c.a.t0.t2.l.hot_recommendation);
+                this.f46646d.setTypeface(Typeface.defaultFromStyle(1));
+                this.f46646d.setTextSize(0, n.f(this.k.getPageActivity(), g.T_X07));
+                this.f46646d.setVisibility(0);
+                this.f46644b.setVisibility(8);
                 return;
             }
-            this.f46618d.setVisibility(8);
-            this.f46616b.setVisibility(0);
-            this.f46618d.setTypeface(Typeface.defaultFromStyle(0));
-            this.f46618d.setTextSize(0, n.f(this.k.getPageActivity(), g.tbfontsize42));
+            this.f46646d.setVisibility(8);
+            this.f46644b.setVisibility(0);
+            this.f46646d.setTypeface(Typeface.defaultFromStyle(0));
+            this.f46646d.setTextSize(0, n.f(this.k.getPageActivity(), g.tbfontsize42));
         }
     }
 }

@@ -33,31 +33,31 @@ public class c extends c.a.d.a.d<AvatarPendantActivity> {
     public d a;
 
     /* renamed from: b  reason: collision with root package name */
-    public BdListView f15491b;
+    public BdListView f15639b;
 
     /* renamed from: c  reason: collision with root package name */
-    public NoNetworkView f15492c;
+    public NoNetworkView f15640c;
 
     /* renamed from: d  reason: collision with root package name */
-    public MemberRecommendView f15493d;
+    public MemberRecommendView f15641d;
 
     /* renamed from: e  reason: collision with root package name */
-    public NavigationBar f15494e;
+    public NavigationBar f15642e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f15495f;
+    public int f15643f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f15496g;
+    public TextView f15644g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f15497h;
+    public TextView f15645h;
 
     /* renamed from: i  reason: collision with root package name */
-    public AvatarPendantActivity f15498i;
+    public AvatarPendantActivity f15646i;
 
     /* renamed from: j  reason: collision with root package name */
-    public View f15499j;
+    public View f15647j;
     public TextView k;
 
     /* loaded from: classes7.dex */
@@ -83,62 +83,62 @@ public class c extends c.a.d.a.d<AvatarPendantActivity> {
                 return;
             }
         }
-        this.f15495f = 0;
-        this.f15498i = avatarPendantActivity;
+        this.f15643f = 0;
+        this.f15646i = avatarPendantActivity;
         avatarPendantActivity.setContentView(R.layout.avatar_pendant_activity_layout);
-        this.f15499j = avatarPendantActivity.findViewById(R.id.root_view);
-        this.f15495f = n.f(avatarPendantActivity.getPageContext().getPageActivity(), R.dimen.ds320);
-        this.f15491b = (BdListView) avatarPendantActivity.findViewById(R.id.avatar_pedant_listview);
-        this.f15492c = (NoNetworkView) avatarPendantActivity.findViewById(R.id.view_no_network);
+        this.f15647j = avatarPendantActivity.findViewById(R.id.root_view);
+        this.f15643f = n.f(avatarPendantActivity.getPageContext().getPageActivity(), R.dimen.ds320);
+        this.f15639b = (BdListView) avatarPendantActivity.findViewById(R.id.avatar_pedant_listview);
+        this.f15640c = (NoNetworkView) avatarPendantActivity.findViewById(R.id.view_no_network);
         NavigationBar navigationBar = (NavigationBar) avatarPendantActivity.findViewById(R.id.view_navigation_bar);
-        this.f15494e = navigationBar;
+        this.f15642e = navigationBar;
         navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.f15494e.setTitleText(R.string.avatar_pendant);
+        this.f15642e.setTitleText(R.string.avatar_pendant);
         MemberRecommendView memberRecommendView = (MemberRecommendView) avatarPendantActivity.findViewById(R.id.avatar_pendant_theme_recommend);
-        this.f15493d = memberRecommendView;
+        this.f15641d = memberRecommendView;
         memberRecommendView.setFromType(8);
-        this.f15493d.getButton().setOnClickListener(avatarPendantActivity);
+        this.f15641d.getButton().setOnClickListener(avatarPendantActivity);
         TextView textView = new TextView(avatarPendantActivity.getActivity());
-        this.f15496g = textView;
+        this.f15644g = textView;
         textView.setHeight(n.f(avatarPendantActivity.getActivity(), R.dimen.ds104));
         this.k = new TextView(avatarPendantActivity.getActivity());
         AbsListView.LayoutParams layoutParams = new AbsListView.LayoutParams(-1, UtilHelper.getLightStatusBarHeight() + n.f(avatarPendantActivity.getActivity(), R.dimen.ds98));
         TextView textView2 = new TextView(avatarPendantActivity.getActivity());
-        this.f15497h = textView2;
+        this.f15645h = textView2;
         textView2.setHeight(n.f(avatarPendantActivity.getActivity(), R.dimen.ds50));
         this.k.setLayoutParams(layoutParams);
-        this.f15491b.addHeaderView(this.k, 0);
-        this.f15491b.addFooterView(this.f15497h);
+        this.f15639b.addHeaderView(this.k, 0);
+        this.f15639b.addFooterView(this.f15645h);
         d dVar = new d(avatarPendantActivity);
         this.a = dVar;
-        this.f15491b.setAdapter((ListAdapter) dVar);
+        this.f15639b.setAdapter((ListAdapter) dVar);
     }
 
     public void c(NoNetworkView.b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, bVar) == null) {
-            this.f15492c.addNetworkChangeListener(bVar);
+            this.f15640c.addNetworkChangeListener(bVar);
         }
     }
 
     public void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f15498i.hideNetRefreshView(this.f15499j);
-            this.f15491b.setVisibility(0);
+            this.f15646i.hideNetRefreshView(this.f15647j);
+            this.f15639b.setVisibility(0);
         }
     }
 
     public MemberRecommendView e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f15493d : (MemberRecommendView) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f15641d : (MemberRecommendView) invokeV.objValue;
     }
 
     public View f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f15499j : (View) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f15647j : (View) invokeV.objValue;
     }
 
     public TextView g() {
@@ -150,13 +150,13 @@ public class c extends c.a.d.a.d<AvatarPendantActivity> {
     public void h() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.f15491b.setBackgroundColor(SkinManager.getColor(R.color.CAM_X0201));
+            this.f15639b.setBackgroundColor(SkinManager.getColor(R.color.CAM_X0201));
             this.a.notifyDataSetChanged();
-            this.f15494e.onChangeSkinType(this.f15498i.getPageContext(), TbadkApplication.getInst().getSkinType());
-            this.f15492c.onChangeSkinType(this.f15498i.getPageContext(), TbadkApplication.getInst().getSkinType());
-            this.f15493d.changeSkinType();
-            SkinManager.setBackgroundColor(this.f15496g, R.color.CAM_X0204);
-            SkinManager.setBackgroundColor(this.f15497h, R.color.CAM_X0201);
+            this.f15642e.onChangeSkinType(this.f15646i.getPageContext(), TbadkApplication.getInst().getSkinType());
+            this.f15640c.onChangeSkinType(this.f15646i.getPageContext(), TbadkApplication.getInst().getSkinType());
+            this.f15641d.changeSkinType();
+            SkinManager.setBackgroundColor(this.f15644g, R.color.CAM_X0204);
+            SkinManager.setBackgroundColor(this.f15645h, R.color.CAM_X0201);
         }
     }
 
@@ -164,12 +164,12 @@ public class c extends c.a.d.a.d<AvatarPendantActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, list) == null) {
             if (list != null && list.size() > 0) {
-                this.f15491b.setVisibility(0);
+                this.f15639b.setVisibility(0);
                 this.a.c(list);
                 this.a.notifyDataSetChanged();
                 return;
             }
-            this.f15491b.setVisibility(8);
+            this.f15639b.setVisibility(8);
         }
     }
 
@@ -178,11 +178,11 @@ public class c extends c.a.d.a.d<AvatarPendantActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, eVar)) == null) {
             if (eVar != null && !StringUtils.isNull(eVar.c())) {
-                this.f15493d.setVisibility(0);
-                this.f15493d.fillView(eVar);
+                this.f15641d.setVisibility(0);
+                this.f15641d.fillView(eVar);
                 return true;
             }
-            this.f15493d.setVisibility(8);
+            this.f15641d.setVisibility(8);
             return false;
         }
         return invokeL.booleanValue;
@@ -198,10 +198,10 @@ public class c extends c.a.d.a.d<AvatarPendantActivity> {
     public void l() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            this.f15491b.setVisibility(8);
-            String string = this.f15498i.getPageContext().getResources().getString(R.string.no_data_text);
-            this.f15498i.setNetRefreshViewTopMargin(this.f15495f);
-            this.f15498i.showNetRefreshView(this.f15499j, string, false);
+            this.f15639b.setVisibility(8);
+            String string = this.f15646i.getPageContext().getResources().getString(R.string.no_data_text);
+            this.f15646i.setNetRefreshViewTopMargin(this.f15643f);
+            this.f15646i.showNetRefreshView(this.f15647j, string, false);
         }
     }
 
@@ -211,10 +211,10 @@ public class c extends c.a.d.a.d<AvatarPendantActivity> {
             if ((eVar != null && !StringUtils.isNull(eVar.c())) || (list != null && list.size() > 0)) {
                 d();
                 if (j(eVar)) {
-                    this.f15491b.removeHeaderView(this.f15496g);
-                    this.f15491b.addHeaderView(this.f15496g);
+                    this.f15639b.removeHeaderView(this.f15644g);
+                    this.f15639b.addHeaderView(this.f15644g);
                 } else {
-                    this.f15491b.removeHeaderView(this.f15496g);
+                    this.f15639b.removeHeaderView(this.f15644g);
                 }
                 i(list);
                 return;

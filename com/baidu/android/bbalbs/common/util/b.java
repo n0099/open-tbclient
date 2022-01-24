@@ -23,21 +23,21 @@ public final class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final String f31520e;
+    public static final String f31548e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final String f31521f;
+    public static final String f31549f;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f31522b;
+    public String f31550b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f31523c;
+    public int f31551c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f31524d;
+    public int f31552d;
 
     static {
         InterceptResult invokeClinit;
@@ -52,8 +52,8 @@ public final class b {
                 return;
             }
         }
-        f31520e = a(new byte[]{81, 72, 116, 79, 75, 72, 69, 52, 76, 51, 103, 61}, new byte[]{82, 51, 104, 90, 83, 122, 65, 105, Constants.SHORT_PING_CMD_TYPE, 49, 107, 61});
-        f31521f = a(new byte[]{76, 67, 77, 53, 77, 70, 90, 73, 81, 107, 107, 61}, new byte[]{90, 105, 108, 121, 79, 68, 100, 81, 86, 121, 89, 61});
+        f31548e = a(new byte[]{81, 72, 116, 79, 75, 72, 69, 52, 76, 51, 103, 61}, new byte[]{82, 51, 104, 90, 83, 122, 65, 105, Constants.SHORT_PING_CMD_TYPE, 49, 107, 61});
+        f31549f = a(new byte[]{76, 67, 77, 53, 77, 70, 90, 73, 81, 107, 107, 61}, new byte[]{90, 105, 108, 121, 79, 68, 100, 81, 86, 121, 89, 61});
     }
 
     public b() {
@@ -69,7 +69,7 @@ public final class b {
                 return;
             }
         }
-        this.f31523c = 3;
+        this.f31551c = 3;
     }
 
     public static b a(Context context, String str) {
@@ -154,7 +154,7 @@ public final class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65543, this)) == null) {
             try {
-                return new JSONObject().put(i("ZGV2aWNlaWQ="), this.a).put(i("ZmxhZw=="), this.f31522b == null ? "0" : this.f31522b).put(i("dmVy"), this.f31523c).put(i("c2Rr"), this.f31524d).toString();
+                return new JSONObject().put(i("ZGV2aWNlaWQ="), this.a).put(i("ZmxhZw=="), this.f31550b == null ? "0" : this.f31550b).put(i("dmVy"), this.f31551c).put(i("c2Rr"), this.f31552d).toString();
             } catch (JSONException e2) {
                 d.a(e2);
                 return null;
@@ -270,7 +270,7 @@ public final class b {
                 return null;
             }
             try {
-                return com.baidu.android.bbalbs.common.a.b.a(com.baidu.android.bbalbs.common.a.a.a(f31520e, f31521f, str.getBytes()), "utf-8");
+                return com.baidu.android.bbalbs.common.a.b.a(com.baidu.android.bbalbs.common.a.a.a(f31548e, f31549f, str.getBytes()), "utf-8");
             } catch (UnsupportedEncodingException | Exception e2) {
                 d.a(e2);
                 return "";
@@ -287,7 +287,7 @@ public final class b {
                 return null;
             }
             try {
-                return new String(com.baidu.android.bbalbs.common.a.a.b(f31520e, f31521f, com.baidu.android.bbalbs.common.a.b.a(str.getBytes())));
+                return new String(com.baidu.android.bbalbs.common.a.a.b(f31548e, f31549f, com.baidu.android.bbalbs.common.a.b.a(str.getBytes())));
             } catch (Exception e2) {
                 d.a(e2);
                 return "";
@@ -304,7 +304,7 @@ public final class b {
                 return null;
             }
             try {
-                return com.baidu.android.bbalbs.common.a.b.a(com.baidu.android.bbalbs.common.a.a.a(f31521f, f31520e, str.getBytes()), "utf-8");
+                return com.baidu.android.bbalbs.common.a.b.a(com.baidu.android.bbalbs.common.a.a.a(f31549f, f31548e, str.getBytes()), "utf-8");
             } catch (UnsupportedEncodingException | Exception e2) {
                 d.a(e2);
                 return "";
@@ -321,7 +321,7 @@ public final class b {
                 return null;
             }
             try {
-                return new String(com.baidu.android.bbalbs.common.a.a.b(f31521f, f31520e, com.baidu.android.bbalbs.common.a.b.a(str.getBytes())));
+                return new String(com.baidu.android.bbalbs.common.a.a.b(f31549f, f31548e, com.baidu.android.bbalbs.common.a.b.a(str.getBytes())));
             } catch (Exception e2) {
                 d.a(e2);
                 return "";
@@ -340,10 +340,10 @@ public final class b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (TextUtils.isEmpty(this.f31522b)) {
-                this.f31522b = "0";
+            if (TextUtils.isEmpty(this.f31550b)) {
+                this.f31550b = "0";
             }
-            return this.a + "|" + this.f31522b;
+            return this.a + "|" + this.f31550b;
         }
         return (String) invokeV.objValue;
     }
@@ -351,7 +351,7 @@ public final class b {
     public void a(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
-            this.f31524d = i2;
+            this.f31552d = i2;
         }
     }
 
@@ -371,7 +371,7 @@ public final class b {
     public void b(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            this.f31522b = str;
+            this.f31550b = str;
         }
     }
 }

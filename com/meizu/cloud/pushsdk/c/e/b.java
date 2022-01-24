@@ -14,13 +14,13 @@ public class b {
     public static String a = "b";
 
     /* renamed from: b  reason: collision with root package name */
-    public HashMap<String, String> f58739b;
+    public HashMap<String, String> f58784b;
 
     /* renamed from: c  reason: collision with root package name */
-    public HashMap<String, Object> f58740c;
+    public HashMap<String, Object> f58785c;
 
     /* renamed from: d  reason: collision with root package name */
-    public HashMap<String, String> f58741d;
+    public HashMap<String, String> f58786d;
 
     /* loaded from: classes3.dex */
     public static class a {
@@ -37,9 +37,9 @@ public class b {
     }
 
     public b(a aVar) {
-        this.f58739b = new HashMap<>();
-        this.f58740c = new HashMap<>();
-        this.f58741d = new HashMap<>();
+        this.f58784b = new HashMap<>();
+        this.f58785c = new HashMap<>();
+        this.f58786d = new HashMap<>();
         d();
         e();
         f();
@@ -54,14 +54,14 @@ public class b {
         if ((str == null || obj == null || str.isEmpty()) && (!(obj instanceof String) || ((String) obj).isEmpty())) {
             return;
         }
-        this.f58740c.put(str, obj);
+        this.f58785c.put(str, obj);
     }
 
     private void a(String str, String str2) {
         if (str == null || str2 == null || str.isEmpty() || str2.isEmpty()) {
             return;
         }
-        this.f58741d.put(str, str2);
+        this.f58786d.put(str, str2);
     }
 
     private void d() {
@@ -81,7 +81,7 @@ public class b {
     }
 
     public Map<String, Object> a() {
-        return this.f58740c;
+        return this.f58785c;
     }
 
     public void a(Context context) {
@@ -90,7 +90,7 @@ public class b {
     }
 
     public Map<String, String> b() {
-        return this.f58741d;
+        return this.f58786d;
     }
 
     public void b(Context context) {
@@ -108,7 +108,7 @@ public class b {
     }
 
     public Map<String, String> c() {
-        return this.f58739b;
+        return this.f58784b;
     }
 
     public void c(Context context) {

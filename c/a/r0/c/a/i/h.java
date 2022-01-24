@@ -19,31 +19,31 @@ public final class h {
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public volatile int f10251b;
+    public volatile int f10393b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Integer f10252c;
+    public Integer f10394c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Integer f10253d;
+    public Integer f10395d;
 
     /* renamed from: e  reason: collision with root package name */
-    public Integer f10254e;
+    public Integer f10396e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Integer f10255f;
+    public Integer f10397f;
 
     /* renamed from: g  reason: collision with root package name */
-    public byte[] f10256g;
+    public byte[] f10398g;
 
     /* renamed from: h  reason: collision with root package name */
-    public byte[] f10257h;
+    public byte[] f10399h;
 
     /* renamed from: i  reason: collision with root package name */
-    public long f10258i;
+    public long f10400i;
 
     /* renamed from: j  reason: collision with root package name */
-    public byte[] f10259j;
+    public byte[] f10401j;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public h() {
@@ -79,48 +79,48 @@ public final class h {
                 return;
             }
         }
-        this.f10252c = num;
-        this.f10253d = num2;
-        this.f10254e = num3;
-        this.f10255f = num4;
-        this.f10256g = bArr;
-        this.f10257h = bArr2;
-        this.f10258i = j2;
-        this.f10259j = bArr3;
+        this.f10394c = num;
+        this.f10395d = num2;
+        this.f10396e = num3;
+        this.f10397f = num4;
+        this.f10398g = bArr;
+        this.f10399h = bArr2;
+        this.f10400i = j2;
+        this.f10401j = bArr3;
     }
 
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             if (k.a) {
-                String str = "Recovery: add recoveryCount: " + this.f10251b;
+                String str = "Recovery: add recoveryCount: " + this.f10393b;
             }
-            this.f10251b++;
+            this.f10393b++;
         }
     }
 
     public final boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f10251b < 3 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f10393b < 3 : invokeV.booleanValue;
     }
 
     public final byte[] c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f10256g : (byte[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f10398g : (byte[]) invokeV.objValue;
     }
 
     public final Integer d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f10252c : (Integer) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f10394c : (Integer) invokeV.objValue;
     }
 
     public final Integer e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f10254e : (Integer) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f10396e : (Integer) invokeV.objValue;
     }
 
     public boolean equals(Object obj) {
@@ -130,7 +130,7 @@ public final class h {
             if (this != obj) {
                 if (obj instanceof h) {
                     h hVar = (h) obj;
-                    return Intrinsics.areEqual(this.f10252c, hVar.f10252c) && Intrinsics.areEqual(this.f10253d, hVar.f10253d) && Intrinsics.areEqual(this.f10254e, hVar.f10254e) && Intrinsics.areEqual(this.f10255f, hVar.f10255f) && Intrinsics.areEqual(this.f10256g, hVar.f10256g) && Intrinsics.areEqual(this.f10257h, hVar.f10257h) && this.f10258i == hVar.f10258i && Intrinsics.areEqual(this.f10259j, hVar.f10259j);
+                    return Intrinsics.areEqual(this.f10394c, hVar.f10394c) && Intrinsics.areEqual(this.f10395d, hVar.f10395d) && Intrinsics.areEqual(this.f10396e, hVar.f10396e) && Intrinsics.areEqual(this.f10397f, hVar.f10397f) && Intrinsics.areEqual(this.f10398g, hVar.f10398g) && Intrinsics.areEqual(this.f10399h, hVar.f10399h) && this.f10400i == hVar.f10400i && Intrinsics.areEqual(this.f10401j, hVar.f10401j);
                 }
                 return false;
             }
@@ -142,13 +142,13 @@ public final class h {
     public final Integer f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f10253d : (Integer) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f10395d : (Integer) invokeV.objValue;
     }
 
     public final Integer g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f10255f : (Integer) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f10397f : (Integer) invokeV.objValue;
     }
 
     public final int h() {
@@ -161,21 +161,21 @@ public final class h {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            Integer num = this.f10252c;
+            Integer num = this.f10394c;
             int hashCode = (num != null ? num.hashCode() : 0) * 31;
-            Integer num2 = this.f10253d;
+            Integer num2 = this.f10395d;
             int hashCode2 = (hashCode + (num2 != null ? num2.hashCode() : 0)) * 31;
-            Integer num3 = this.f10254e;
+            Integer num3 = this.f10396e;
             int hashCode3 = (hashCode2 + (num3 != null ? num3.hashCode() : 0)) * 31;
-            Integer num4 = this.f10255f;
+            Integer num4 = this.f10397f;
             int hashCode4 = (hashCode3 + (num4 != null ? num4.hashCode() : 0)) * 31;
-            byte[] bArr = this.f10256g;
+            byte[] bArr = this.f10398g;
             int hashCode5 = (hashCode4 + (bArr != null ? Arrays.hashCode(bArr) : 0)) * 31;
-            byte[] bArr2 = this.f10257h;
+            byte[] bArr2 = this.f10399h;
             int hashCode6 = bArr2 != null ? Arrays.hashCode(bArr2) : 0;
-            long j2 = this.f10258i;
+            long j2 = this.f10400i;
             int i2 = (((hashCode5 + hashCode6) * 31) + ((int) (j2 ^ (j2 >>> 32)))) * 31;
-            byte[] bArr3 = this.f10259j;
+            byte[] bArr3 = this.f10401j;
             return i2 + (bArr3 != null ? Arrays.hashCode(bArr3) : 0);
         }
         return invokeV.intValue;
@@ -184,7 +184,7 @@ public final class h {
     public final byte[] i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f10257h : (byte[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f10399h : (byte[]) invokeV.objValue;
     }
 
     public final synchronized boolean j() {
@@ -195,11 +195,11 @@ public final class h {
             synchronized (this) {
                 long currentTimeMillis = System.currentTimeMillis() / 1000;
                 z = false;
-                if (this.f10256g != null && this.f10257h != null && this.f10258i > currentTimeMillis && this.a == 1) {
+                if (this.f10398g != null && this.f10399h != null && this.f10400i > currentTimeMillis && this.a == 1) {
                     z = true;
                 }
                 if (c.a.r0.c.a.a.a) {
-                    String str = "isSessionEnable " + this.f10256g + ' ' + this.f10257h + ' ' + this.f10258i + ' ' + this.a;
+                    String str = "isSessionEnable " + this.f10398g + ' ' + this.f10399h + ' ' + this.f10400i + ' ' + this.a;
                 }
             }
             return z;
@@ -211,58 +211,58 @@ public final class h {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
             if (k.a) {
-                String str = "Downgrade: reset downgrade count " + this.f10251b;
+                String str = "Downgrade: reset downgrade count " + this.f10393b;
             }
-            this.f10251b = 0;
+            this.f10393b = 0;
         }
     }
 
     public final void l(byte[] bArr) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048589, this, bArr) == null) {
-            this.f10256g = bArr;
+            this.f10398g = bArr;
         }
     }
 
     public final void m(Integer num) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048590, this, num) == null) {
-            this.f10252c = num;
+            this.f10394c = num;
         }
     }
 
     public final void n(Integer num) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048591, this, num) == null) {
-            this.f10254e = num;
+            this.f10396e = num;
         }
     }
 
     public final void o(Integer num) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048592, this, num) == null) {
-            this.f10253d = num;
+            this.f10395d = num;
         }
     }
 
     public final void p(Integer num) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048593, this, num) == null) {
-            this.f10255f = num;
+            this.f10397f = num;
         }
     }
 
     public final void q(byte[] bArr) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048594, this, bArr) == null) {
-            this.f10259j = bArr;
+            this.f10401j = bArr;
         }
     }
 
     public final void r(long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048595, this, j2) == null) {
-            this.f10258i = j2;
+            this.f10400i = j2;
         }
     }
 
@@ -276,7 +276,7 @@ public final class h {
     public final void t(byte[] bArr) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048597, this, bArr) == null) {
-            this.f10257h = bArr;
+            this.f10399h = bArr;
         }
     }
 
@@ -284,7 +284,7 @@ public final class h {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) {
-            return "SessionParams(dhGroupId=" + this.f10252c + ", dhSecretKey=" + this.f10253d + ", dhPublicKey=" + this.f10254e + ", dhServerPublicKey=" + this.f10255f + ", aesSecretKey=" + Arrays.toString(this.f10256g) + ", sessionTicket=" + Arrays.toString(this.f10257h) + ", expireTime=" + this.f10258i + ", entryType=" + Arrays.toString(this.f10259j) + SmallTailInfo.EMOTION_SUFFIX;
+            return "SessionParams(dhGroupId=" + this.f10394c + ", dhSecretKey=" + this.f10395d + ", dhPublicKey=" + this.f10396e + ", dhServerPublicKey=" + this.f10397f + ", aesSecretKey=" + Arrays.toString(this.f10398g) + ", sessionTicket=" + Arrays.toString(this.f10399h) + ", expireTime=" + this.f10400i + ", entryType=" + Arrays.toString(this.f10401j) + SmallTailInfo.EMOTION_SUFFIX;
         }
         return (String) invokeV.objValue;
     }

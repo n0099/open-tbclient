@@ -22,11 +22,11 @@ public class SwanAppScrollView extends ScrollView {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final boolean f39118f;
+    public static final boolean f39146f;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f39119e;
+    public int f39147e;
 
     static {
         InterceptResult invokeClinit;
@@ -41,7 +41,7 @@ public class SwanAppScrollView extends ScrollView {
                 return;
             }
         }
-        f39118f = k.a;
+        f39146f = k.a;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -62,7 +62,7 @@ public class SwanAppScrollView extends ScrollView {
                 return;
             }
         }
-        this.f39119e = -1;
+        this.f39147e = -1;
     }
 
     private int getLimitHeight() {
@@ -83,7 +83,7 @@ public class SwanAppScrollView extends ScrollView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)}) == null) {
             super.onLayout(z, i2, i3, i4, i5);
-            if (f39118f) {
+            if (f39146f) {
                 String str = "onLayout( " + z + StringUtil.ARRAY_ELEMENT_SEPARATOR + i2 + StringUtil.ARRAY_ELEMENT_SEPARATOR + i3 + StringUtil.ARRAY_ELEMENT_SEPARATOR + i4 + StringUtil.ARRAY_ELEMENT_SEPARATOR + i5 + SmallTailInfo.EMOTION_SUFFIX;
             }
         }
@@ -94,12 +94,12 @@ public class SwanAppScrollView extends ScrollView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, i3) == null) {
             super.onMeasure(i2, i3);
-            if (f39118f) {
+            if (f39146f) {
                 String str = "onMeasure( " + i2 + StringUtil.ARRAY_ELEMENT_SEPARATOR + i3 + SmallTailInfo.EMOTION_SUFFIX;
             }
             int size = View.MeasureSpec.getSize(i3);
             int size2 = View.MeasureSpec.getSize(i2);
-            int i4 = this.f39119e;
+            int i4 = this.f39147e;
             if (i4 > 0) {
                 size = Math.min(size, i4);
             }
@@ -122,7 +122,7 @@ public class SwanAppScrollView extends ScrollView {
     public void setMaxHeight(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
-            this.f39119e = i2;
+            this.f39147e = i2;
         }
     }
 
@@ -145,7 +145,7 @@ public class SwanAppScrollView extends ScrollView {
                 return;
             }
         }
-        this.f39119e = -1;
+        this.f39147e = -1;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -167,6 +167,6 @@ public class SwanAppScrollView extends ScrollView {
                 return;
             }
         }
-        this.f39119e = -1;
+        this.f39147e = -1;
     }
 }

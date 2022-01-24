@@ -34,7 +34,7 @@ public final class ea {
     public HashMap<ec, ed> f320a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f61030b;
+    public String f61075b;
 
     public ea(Context context) {
         Interceptable interceptable = $ic;
@@ -54,10 +54,10 @@ public final class ea {
         HashMap<ec, ed> hashMap = new HashMap<>();
         this.f320a = hashMap;
         this.f317a = context;
-        hashMap.put(ec.f61033b, new eg());
-        this.f320a.put(ec.f61034c, new eh());
+        hashMap.put(ec.f61078b, new eg());
+        this.f320a.put(ec.f61079c, new eh());
         this.f320a.put(ec.a, new dy());
-        this.f320a.put(ec.f61035d, new ef());
+        this.f320a.put(ec.f61080d, new ef());
     }
 
     public static ea a(Context context) {
@@ -168,13 +168,13 @@ public final class ea {
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f61030b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f61075b : (String) invokeV.objValue;
     }
 
     public void b(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, str) == null) {
-            this.f61030b = str;
+            this.f61075b = str;
         }
     }
 }

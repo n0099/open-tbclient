@@ -141,7 +141,7 @@ public class SimpleFeedAdInfoView extends SimpleAdInfoView {
     public void update(AdBaseModel adBaseModel) {
         p pVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, adBaseModel) == null) || adBaseModel == null || (pVar = adBaseModel.f37019g) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048579, this, adBaseModel) == null) || adBaseModel == null || (pVar = adBaseModel.f37047g) == null) {
             return;
         }
         setAdInfo(pVar);

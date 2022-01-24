@@ -30,31 +30,31 @@ public class a extends BaseAdapter {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final Context f62353e;
+    public final Context f62398e;
 
     /* renamed from: f  reason: collision with root package name */
-    public List<GiftBagItemInfo> f62354f;
+    public List<GiftBagItemInfo> f62399f;
 
     /* renamed from: g  reason: collision with root package name */
-    public PayUIKitConfig f62355g;
+    public PayUIKitConfig f62400g;
 
     /* renamed from: j.a.a.e.q.e.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public class C2309a {
+    public class C2315a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public TextView a;
 
         /* renamed from: b  reason: collision with root package name */
-        public TextView f62356b;
+        public TextView f62401b;
 
         /* renamed from: c  reason: collision with root package name */
-        public ImageView f62357c;
+        public ImageView f62402c;
 
         /* renamed from: d  reason: collision with root package name */
-        public TextView f62358d;
+        public TextView f62403d;
 
-        public C2309a(a aVar) {
+        public C2315a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -86,9 +86,9 @@ public class a extends BaseAdapter {
                 return;
             }
         }
-        this.f62353e = context;
-        this.f62354f = list;
-        this.f62355g = payUIKitConfig;
+        this.f62398e = context;
+        this.f62399f = list;
+        this.f62400g = payUIKitConfig;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -98,11 +98,11 @@ public class a extends BaseAdapter {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) {
-            List<GiftBagItemInfo> list = this.f62354f;
-            if (list == null || list.isEmpty() || i2 < 0 || i2 >= this.f62354f.size()) {
+            List<GiftBagItemInfo> list = this.f62399f;
+            if (list == null || list.isEmpty() || i2 < 0 || i2 >= this.f62399f.size()) {
                 return null;
             }
-            return this.f62354f.get(i2);
+            return this.f62399f.get(i2);
         }
         return (GiftBagItemInfo) invokeI.objValue;
     }
@@ -111,7 +111,7 @@ public class a extends BaseAdapter {
     public int getCount() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f62354f.size() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f62399f.size() : invokeV.intValue;
     }
 
     @Override // android.widget.Adapter
@@ -124,42 +124,42 @@ public class a extends BaseAdapter {
     @Override // android.widget.Adapter
     public View getView(int i2, View view, ViewGroup viewGroup) {
         InterceptResult invokeILL;
-        C2309a c2309a;
+        C2315a c2315a;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeILL = interceptable.invokeILL(1048580, this, i2, view, viewGroup)) == null) {
             if (view == null) {
-                view = LayoutInflater.from(new ContextThemeWrapper(this.f62353e, o.a.a(this.f62355g))).inflate(getCount() <= 2 ? g.pay_ui_item_pay_gift_bag_big : g.pay_ui_item_pay_gift_bag_small, (ViewGroup) null);
-                c2309a = new C2309a(this);
-                c2309a.a = (TextView) view.findViewById(f.tv_gift_name);
-                c2309a.f62357c = (ImageView) view.findViewById(f.img_gift);
-                c2309a.f62356b = (TextView) view.findViewById(f.tv_num);
-                c2309a.f62358d = (TextView) view.findViewById(f.tv_type);
-                view.setTag(c2309a);
+                view = LayoutInflater.from(new ContextThemeWrapper(this.f62398e, o.a.a(this.f62400g))).inflate(getCount() <= 2 ? g.pay_ui_item_pay_gift_bag_big : g.pay_ui_item_pay_gift_bag_small, (ViewGroup) null);
+                c2315a = new C2315a(this);
+                c2315a.a = (TextView) view.findViewById(f.tv_gift_name);
+                c2315a.f62402c = (ImageView) view.findViewById(f.img_gift);
+                c2315a.f62401b = (TextView) view.findViewById(f.tv_num);
+                c2315a.f62403d = (TextView) view.findViewById(f.tv_type);
+                view.setTag(c2315a);
             } else {
-                c2309a = (C2309a) view.getTag();
+                c2315a = (C2315a) view.getTag();
             }
             GiftBagItemInfo item = getItem(i2);
             if (TextUtils.isEmpty(item.name)) {
-                c2309a.a.setVisibility(4);
+                c2315a.a.setVisibility(4);
             } else {
-                c2309a.a.setVisibility(0);
-                c2309a.a.setText(item.name);
+                c2315a.a.setVisibility(0);
+                c2315a.a.setText(item.name);
             }
             if (!TextUtils.isEmpty(item.countDisplay) && !StringUtil.NULL_STRING.equals(item.countDisplay)) {
-                c2309a.f62356b.setVisibility(0);
-                c2309a.f62356b.setText(item.countDisplay);
+                c2315a.f62401b.setVisibility(0);
+                c2315a.f62401b.setText(item.countDisplay);
             } else {
-                c2309a.f62356b.setVisibility(4);
+                c2315a.f62401b.setVisibility(4);
             }
             if (!TextUtils.isEmpty(item.typeName) && !StringUtil.NULL_STRING.equals(item.typeName)) {
-                c2309a.f62358d.setVisibility(0);
-                c2309a.f62358d.setText(item.typeName);
+                c2315a.f62403d.setVisibility(0);
+                c2315a.f62403d.setText(item.typeName);
             } else {
-                c2309a.f62358d.setVisibility(4);
+                c2315a.f62403d.setVisibility(4);
             }
-            PayUIKitConfig payUIKitConfig = this.f62355g;
+            PayUIKitConfig payUIKitConfig = this.f62400g;
             if (payUIKitConfig != null && payUIKitConfig.imageLoaderSupplier != null) {
-                this.f62355g.imageLoaderSupplier.onLoad(this.f62353e, c2309a.f62357c, new ImageLoaderSupplier.ImageParam(item.imgUrl, -1, -1));
+                this.f62400g.imageLoaderSupplier.onLoad(this.f62398e, c2315a.f62402c, new ImageLoaderSupplier.ImageParam(item.imgUrl, -1, -1));
             } else {
                 RLog.error("PayGiftListAdapter", "getView error mPayUIKitConfig null", new Object[0]);
             }

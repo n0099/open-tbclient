@@ -24,19 +24,19 @@ public final class a {
     public final String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final boolean f28996b;
+    public final boolean f29024b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final boolean f28997c;
+    public final boolean f29025c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final boolean f28998d;
+    public final boolean f29026d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final String f28999e;
+    public final String f29027e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final MediaCodecInfo.CodecCapabilities f29000f;
+    public final MediaCodecInfo.CodecCapabilities f29028f;
 
     public a(String str, String str2, MediaCodecInfo.CodecCapabilities codecCapabilities, boolean z, boolean z2) {
         Interceptable interceptable = $ic;
@@ -55,15 +55,15 @@ public final class a {
         }
         c.i.b.a.i0.a.e(str);
         this.a = str;
-        this.f28999e = str2;
-        this.f29000f = codecCapabilities;
+        this.f29027e = str2;
+        this.f29028f = codecCapabilities;
         boolean z3 = true;
-        this.f28996b = (z || codecCapabilities == null || !e(codecCapabilities)) ? false : true;
-        this.f28997c = codecCapabilities != null && l(codecCapabilities);
+        this.f29024b = (z || codecCapabilities == null || !e(codecCapabilities)) ? false : true;
+        this.f29025c = codecCapabilities != null && l(codecCapabilities);
         if (!z2 && (codecCapabilities == null || !j(codecCapabilities))) {
             z3 = false;
         }
-        this.f28998d = z3;
+        this.f29026d = z3;
     }
 
     public static int a(String str, String str2, int i2) {
@@ -154,7 +154,7 @@ public final class a {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeII = interceptable.invokeII(1048576, this, i2, i3)) == null) {
-            MediaCodecInfo.CodecCapabilities codecCapabilities = this.f29000f;
+            MediaCodecInfo.CodecCapabilities codecCapabilities = this.f29028f;
             if (codecCapabilities == null) {
                 p("align.caps");
                 return null;
@@ -176,7 +176,7 @@ public final class a {
         MediaCodecInfo.CodecProfileLevel[] codecProfileLevelArr;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            MediaCodecInfo.CodecCapabilities codecCapabilities = this.f29000f;
+            MediaCodecInfo.CodecCapabilities codecCapabilities = this.f29028f;
             return (codecCapabilities == null || (codecProfileLevelArr = codecCapabilities.profileLevels) == null) ? new MediaCodecInfo.CodecProfileLevel[0] : codecProfileLevelArr;
         }
         return (MediaCodecInfo.CodecProfileLevel[]) invokeV.objValue;
@@ -187,7 +187,7 @@ public final class a {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) {
-            MediaCodecInfo.CodecCapabilities codecCapabilities = this.f29000f;
+            MediaCodecInfo.CodecCapabilities codecCapabilities = this.f29028f;
             if (codecCapabilities == null) {
                 p("channelCount.caps");
                 return false;
@@ -196,7 +196,7 @@ public final class a {
             if (audioCapabilities == null) {
                 p("channelCount.aCaps");
                 return false;
-            } else if (a(this.a, this.f28999e, audioCapabilities.getMaxInputChannelCount()) < i2) {
+            } else if (a(this.a, this.f29027e, audioCapabilities.getMaxInputChannelCount()) < i2) {
                 p("channelCount.support, " + i2);
                 return false;
             } else {
@@ -211,7 +211,7 @@ public final class a {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i2)) == null) {
-            MediaCodecInfo.CodecCapabilities codecCapabilities = this.f29000f;
+            MediaCodecInfo.CodecCapabilities codecCapabilities = this.f29028f;
             if (codecCapabilities == null) {
                 p("sampleRate.caps");
                 return false;
@@ -236,10 +236,10 @@ public final class a {
         MediaCodecInfo.CodecProfileLevel[] d2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
-            if (str == null || this.f28999e == null || (b2 = i.b(str)) == null) {
+            if (str == null || this.f29027e == null || (b2 = i.b(str)) == null) {
                 return true;
             }
-            if (!this.f28999e.equals(b2)) {
+            if (!this.f29027e.equals(b2)) {
                 p("codec.mime " + str + StringUtil.ARRAY_ELEMENT_SEPARATOR + b2);
                 return false;
             }
@@ -263,7 +263,7 @@ public final class a {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Double.valueOf(d2)})) == null) {
-            MediaCodecInfo.CodecCapabilities codecCapabilities = this.f29000f;
+            MediaCodecInfo.CodecCapabilities codecCapabilities = this.f29028f;
             if (codecCapabilities == null) {
                 p("sizeAndRate.caps");
                 return false;
@@ -289,14 +289,14 @@ public final class a {
     public final void o(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
-            String str2 = "AssumedSupport [" + str + "] [" + this.a + StringUtil.ARRAY_ELEMENT_SEPARATOR + this.f28999e + "] [" + v.f29742e + PreferencesUtil.RIGHT_MOUNT;
+            String str2 = "AssumedSupport [" + str + "] [" + this.a + StringUtil.ARRAY_ELEMENT_SEPARATOR + this.f29027e + "] [" + v.f29770e + PreferencesUtil.RIGHT_MOUNT;
         }
     }
 
     public final void p(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
-            String str2 = "NoSupport [" + str + "] [" + this.a + StringUtil.ARRAY_ELEMENT_SEPARATOR + this.f28999e + "] [" + v.f29742e + PreferencesUtil.RIGHT_MOUNT;
+            String str2 = "NoSupport [" + str + "] [" + this.a + StringUtil.ARRAY_ELEMENT_SEPARATOR + this.f29027e + "] [" + v.f29770e + PreferencesUtil.RIGHT_MOUNT;
         }
     }
 }

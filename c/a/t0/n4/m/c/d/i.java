@@ -20,12 +20,12 @@ public class i {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static volatile i f20005c;
+    public static volatile i f20106c;
     public transient /* synthetic */ FieldHolder $fh;
     public g a;
 
     /* renamed from: b  reason: collision with root package name */
-    public List<n> f20006b;
+    public List<n> f20107b;
 
     /* loaded from: classes8.dex */
     public class a implements m {
@@ -56,12 +56,12 @@ public class i {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, bVar) == null) {
                 e.a().c(bVar);
-                if (c.a.a1.t.h.e(this.a.f20006b)) {
+                if (c.a.a1.t.h.e(this.a.f20107b)) {
                     return;
                 }
                 i iVar = this.a;
-                iVar.h((n) c.a.a1.t.h.c(iVar.f20006b, 0));
-                c.a.a1.t.h.g(this.a.f20006b, 0);
+                iVar.h((n) c.a.a1.t.h.c(iVar.f20107b, 0));
+                c.a.a1.t.h.g(this.a.f20107b, 0);
             }
         }
     }
@@ -79,7 +79,7 @@ public class i {
                 return;
             }
         }
-        this.f20006b = new Vector();
+        this.f20107b = new Vector();
         this.a = new g.b().d();
     }
 
@@ -87,14 +87,14 @@ public class i {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (f20005c == null) {
+            if (f20106c == null) {
                 synchronized (i.class) {
-                    if (f20005c == null) {
-                        f20005c = new i();
+                    if (f20106c == null) {
+                        f20106c = new i();
                     }
                 }
             }
-            return f20005c;
+            return f20106c;
         }
         return (i) invokeV.objValue;
     }
@@ -132,10 +132,10 @@ public class i {
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             c();
             String str = FileHelper.getVideoTmpDir() + File.separator + "shaft_images";
-            if (!TextUtils.equals(this.a.f19990c.b(), str)) {
-                this.a.f19990c.d(str);
+            if (!TextUtils.equals(this.a.f20091c.b(), str)) {
+                this.a.f20091c.d(str);
             }
-            return this.a.f19990c;
+            return this.a.f20091c;
         }
         return (b) invokeV.objValue;
     }
@@ -145,7 +145,7 @@ public class i {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             c();
-            return this.a.f19989b;
+            return this.a.f20090b;
         }
         return (l) invokeV.objValue;
     }
@@ -161,7 +161,7 @@ public class i {
                 b2.h(nVar, new a(this));
                 return;
             }
-            this.f20006b.add(nVar);
+            this.f20107b.add(nVar);
         }
     }
 

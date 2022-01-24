@@ -17,7 +17,7 @@ import com.tachikoma.core.component.TKBase;
 public class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public InterfaceC0763a a;
+    public InterfaceC0772a a;
     @V8JavascriptField
     public String backgroundColor;
     @V8JavascriptField
@@ -51,7 +51,7 @@ public class a {
 
     /* renamed from: c.a.r0.j.p0.d.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public interface InterfaceC0763a {
+    public interface InterfaceC0772a {
         void r();
     }
 
@@ -109,10 +109,10 @@ public class a {
         }
     }
 
-    public void b(InterfaceC0763a interfaceC0763a) {
+    public void b(InterfaceC0772a interfaceC0772a) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, interfaceC0763a) == null) {
-            this.a = interfaceC0763a;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, interfaceC0772a) == null) {
+            this.a = interfaceC0772a;
         }
     }
 
@@ -123,9 +123,9 @@ public class a {
             if (k.a) {
                 String str2 = "onFieldChangedCallback fieldName=" + str;
             }
-            InterfaceC0763a interfaceC0763a = this.a;
-            if (interfaceC0763a != null) {
-                interfaceC0763a.r();
+            InterfaceC0772a interfaceC0772a = this.a;
+            if (interfaceC0772a != null) {
+                interfaceC0772a.r();
             }
         }
     }

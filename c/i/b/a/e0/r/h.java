@@ -17,7 +17,7 @@ public final class h {
     public static final Pattern a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final Pattern f29552b;
+    public static final Pattern f29580b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -34,7 +34,7 @@ public final class h {
             }
         }
         a = Pattern.compile("^NOTE(( |\t).*)?$");
-        f29552b = Pattern.compile("^\ufeff?WEBVTT(( |\t).*)?$");
+        f29580b = Pattern.compile("^\ufeff?WEBVTT(( |\t).*)?$");
     }
 
     public static Matcher a(l lVar) {
@@ -56,7 +56,7 @@ public final class h {
                     }
                 } while (!k.isEmpty());
             } else {
-                Matcher matcher = f.f29544b.matcher(k2);
+                Matcher matcher = f.f29572b.matcher(k2);
                 if (matcher.matches()) {
                     return matcher;
                 }
@@ -98,7 +98,7 @@ public final class h {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, lVar) == null) {
             String k = lVar.k();
-            if (k == null || !f29552b.matcher(k).matches()) {
+            if (k == null || !f29580b.matcher(k).matches()) {
                 throw new SubtitleDecoderException("Expected WEBVTT. Got " + k);
             }
         }

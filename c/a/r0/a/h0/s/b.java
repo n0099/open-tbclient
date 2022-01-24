@@ -27,30 +27,30 @@ public final class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final boolean f6865h;
+    public static final boolean f7007h;
 
     /* renamed from: i  reason: collision with root package name */
-    public static volatile b f6866i;
+    public static volatile b f7008i;
     public transient /* synthetic */ FieldHolder $fh;
     public Context a;
 
     /* renamed from: b  reason: collision with root package name */
-    public volatile boolean f6867b;
+    public volatile boolean f7009b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f6868c;
+    public boolean f7010c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f6869d;
+    public boolean f7011d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final Object f6870e;
+    public final Object f7012e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final Object f6871f;
+    public final Object f7013f;
 
     /* renamed from: g  reason: collision with root package name */
-    public ArrayList<e> f6872g;
+    public ArrayList<e> f7014g;
 
     /* loaded from: classes.dex */
     public class a implements Runnable {
@@ -58,13 +58,13 @@ public final class b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ boolean f6873e;
+        public final /* synthetic */ boolean f7015e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ boolean f6874f;
+        public final /* synthetic */ boolean f7016f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ b f6875g;
+        public final /* synthetic */ b f7017g;
 
         public a(b bVar, boolean z, boolean z2) {
             Interceptable interceptable = $ic;
@@ -81,9 +81,9 @@ public final class b {
                     return;
                 }
             }
-            this.f6875g = bVar;
-            this.f6873e = z;
-            this.f6874f = z2;
+            this.f7017g = bVar;
+            this.f7015e = z;
+            this.f7016f = z2;
         }
 
         @Override // java.lang.Runnable
@@ -91,12 +91,12 @@ public final class b {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 Process.setThreadPriority(10);
-                this.f6875g.g(this.f6873e, this.f6874f);
-                this.f6875g.f6867b = true;
-                synchronized (this.f6875g.f6871f) {
-                    this.f6875g.f6869d = true;
-                    this.f6875g.f6871f.notifyAll();
-                    this.f6875g.m();
+                this.f7017g.g(this.f7015e, this.f7016f);
+                this.f7017g.f7009b = true;
+                synchronized (this.f7017g.f7013f) {
+                    this.f7017g.f7011d = true;
+                    this.f7017g.f7013f.notifyAll();
+                    this.f7017g.m();
                 }
             }
         }
@@ -104,11 +104,11 @@ public final class b {
 
     /* renamed from: c.a.r0.a.h0.s.b$b  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public class RunnableC0406b implements Runnable {
+    public class RunnableC0415b implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        public RunnableC0406b(b bVar) {
+        public RunnableC0415b(b bVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -140,7 +140,7 @@ public final class b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ b f6876e;
+        public final /* synthetic */ b f7018e;
 
         public c(b bVar) {
             Interceptable interceptable = $ic;
@@ -157,15 +157,15 @@ public final class b {
                     return;
                 }
             }
-            this.f6876e = bVar;
+            this.f7018e = bVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                CookieSyncManager.createInstance(this.f6876e.a);
-                BdSailor.initCookieSyncManager(this.f6876e.a);
+                CookieSyncManager.createInstance(this.f7018e.a);
+                BdSailor.initCookieSyncManager(this.f7018e.a);
             }
         }
     }
@@ -226,7 +226,7 @@ public final class b {
                 return;
             }
         }
-        f6865h = k.a;
+        f7007h = k.a;
     }
 
     public b(Context context) {
@@ -244,12 +244,12 @@ public final class b {
                 return;
             }
         }
-        this.f6867b = false;
-        this.f6868c = false;
-        this.f6869d = false;
-        this.f6870e = new Object();
-        this.f6871f = new Object();
-        this.f6872g = new ArrayList<>();
+        this.f7009b = false;
+        this.f7010c = false;
+        this.f7011d = false;
+        this.f7012e = new Object();
+        this.f7013f = new Object();
+        this.f7014g = new ArrayList<>();
         this.a = context.getApplicationContext();
     }
 
@@ -259,10 +259,10 @@ public final class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, context)) == null) {
             synchronized (b.class) {
-                if (f6866i == null) {
-                    f6866i = new b(context);
+                if (f7008i == null) {
+                    f7008i = new b(context);
                 }
-                bVar = f6866i;
+                bVar = f7008i;
             }
             return bVar;
         }
@@ -272,12 +272,12 @@ public final class b {
     public void f(e eVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, eVar) == null) {
-            synchronized (this.f6871f) {
-                boolean z = f6865h;
-                if (!this.f6872g.contains(eVar)) {
-                    this.f6872g.add(eVar);
+            synchronized (this.f7013f) {
+                boolean z = f7007h;
+                if (!this.f7014g.contains(eVar)) {
+                    this.f7014g.add(eVar);
                 }
-                if (this.f6869d) {
+                if (this.f7011d) {
                     m();
                 }
             }
@@ -291,16 +291,16 @@ public final class b {
             WebKitFactory.setProcessType("1");
             com.baidu.webkit.sdk.WebView.setDataDirectorySuffix(ProcessUtils.getCurProcessName());
             BdSailor.getInstance().init(this.a, null, null);
-            if (f6865h) {
-                q0.a0(new RunnableC0406b(this));
+            if (f7007h) {
+                q0.a0(new RunnableC0415b(this));
             }
-            BdSailor.getInstance().setWebkitEnable(!(f6865h && c.a.r0.a.x1.a.a.G().booleanValue()));
+            BdSailor.getInstance().setWebkitEnable(!(f7007h && c.a.r0.a.x1.a.a.G().booleanValue()));
             BdSailor.getInstance().initWebkit("swan", false);
             BdSailor.getInstance().getSailorSettings().setJavaScriptEnabledOnFileScheme(true);
             if (BdZeusUtil.isWebkitLoaded()) {
-                boolean z3 = f6865h;
+                boolean z3 = f7007h;
             } else {
-                boolean z4 = f6865h;
+                boolean z4 = f7007h;
             }
             c cVar = new c(this);
             if (z2) {
@@ -320,21 +320,21 @@ public final class b {
 
     public final void j(boolean z, boolean z2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) || this.f6867b) {
+        if (!(interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) || this.f7009b) {
             return;
         }
         boolean z3 = z && q0.O();
-        synchronized (this.f6870e) {
-            if (!this.f6868c) {
+        synchronized (this.f7012e) {
+            if (!this.f7010c) {
                 Executors.newSingleThreadExecutor().execute(new a(this, z2, z3));
-                this.f6868c = true;
+                this.f7010c = true;
             }
         }
         if (z) {
-            synchronized (this.f6871f) {
-                while (!this.f6869d) {
+            synchronized (this.f7013f) {
+                while (!this.f7011d) {
                     try {
-                        this.f6871f.wait(1000L);
+                        this.f7013f.wait(1000L);
                     } catch (InterruptedException e2) {
                         e2.printStackTrace();
                     }
@@ -353,19 +353,19 @@ public final class b {
     public boolean l() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f6867b : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f7009b : invokeV.booleanValue;
     }
 
     public void m() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            synchronized (this.f6871f) {
-                boolean z = f6865h;
-                Iterator<e> it = this.f6872g.iterator();
+            synchronized (this.f7013f) {
+                boolean z = f7007h;
+                Iterator<e> it = this.f7014g.iterator();
                 while (it.hasNext()) {
                     it.next().a();
                 }
-                this.f6872g.clear();
+                this.f7014g.clear();
             }
         }
     }

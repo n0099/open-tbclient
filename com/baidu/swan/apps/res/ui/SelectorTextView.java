@@ -20,11 +20,11 @@ public class SelectorTextView extends TextView {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final boolean f39095f;
+    public static final boolean f39123f;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f39096e;
+    public boolean f39124e;
 
     static {
         InterceptResult invokeClinit;
@@ -39,7 +39,7 @@ public class SelectorTextView extends TextView {
                 return;
             }
         }
-        f39095f = k.a;
+        f39123f = k.a;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -60,7 +60,7 @@ public class SelectorTextView extends TextView {
                 return;
             }
         }
-        this.f39096e = false;
+        this.f39124e = false;
     }
 
     @Override // android.widget.TextView, android.view.View
@@ -71,14 +71,14 @@ public class SelectorTextView extends TextView {
             if (isEnabled()) {
                 int action = motionEvent.getAction();
                 if (action == 0) {
-                    boolean z = f39095f;
-                    if (this.f39096e) {
+                    boolean z = f39123f;
+                    if (this.f39124e) {
                         setAlpha(0.5f);
                     } else {
                         setAlpha(0.4f);
                     }
                 } else if (action == 1 || action == 3) {
-                    boolean z2 = f39095f;
+                    boolean z2 = f39123f;
                     setAlpha(1.0f);
                 }
             }
@@ -90,7 +90,7 @@ public class SelectorTextView extends TextView {
     public void setMode(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
-            this.f39096e = z;
+            this.f39124e = z;
         }
     }
 
@@ -113,7 +113,7 @@ public class SelectorTextView extends TextView {
                 return;
             }
         }
-        this.f39096e = false;
+        this.f39124e = false;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -135,6 +135,6 @@ public class SelectorTextView extends TextView {
                 return;
             }
         }
-        this.f39096e = false;
+        this.f39124e = false;
     }
 }

@@ -1,6 +1,6 @@
 package com.baidu.tieba.enterForum.model;
 
-import c.a.t0.u0.d.b;
+import c.a.t0.v0.d.b;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;

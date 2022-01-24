@@ -75,12 +75,12 @@ public class b implements g {
 
     /* renamed from: c.a.t0.z.b.f.b$b  reason: collision with other inner class name */
     /* loaded from: classes9.dex */
-    public class C1567b implements c.a.t0.z.b.f.d.a {
+    public class C1566b implements c.a.t0.z.b.f.d.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ c.a.f0.f.b a;
 
-        public C1567b(b bVar, c.a.f0.f.b bVar2) {
+        public C1566b(b bVar, c.a.f0.f.b bVar2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -211,7 +211,7 @@ public class b implements g {
             aVar.mParams.putInt("type", 2);
             aVar.mParams.putString("orderInfo", str);
             aVar.b(L.getActivity());
-            aVar.c(new C1567b(this, bVar));
+            aVar.c(new C1566b(this, bVar));
             aVar.onExec();
         }
     }

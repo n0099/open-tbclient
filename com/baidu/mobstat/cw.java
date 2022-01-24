@@ -13,7 +13,7 @@ public class cw extends cy implements da {
     public short a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f36611b;
+    public String f36639b;
 
     public cw() {
         Interceptable interceptable = $ic;
@@ -33,14 +33,14 @@ public class cw extends cy implements da {
     public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f36611b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f36639b : (String) invokeV.objValue;
     }
 
     @Override // com.baidu.mobstat.da
     public void a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            this.f36611b = str;
+            this.f36639b = str;
         }
     }
 

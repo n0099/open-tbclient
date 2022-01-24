@@ -33,22 +33,22 @@ public class e extends EventTargetImpl implements c.a.r0.j.a.f.b {
     public String adUnitId;
 
     /* renamed from: e  reason: collision with root package name */
-    public c.a.r0.h.i.q.b f10771e;
+    public c.a.r0.h.i.q.b f10913e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f10772f;
+    public String f10914f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f10773g;
+    public boolean f10915g;
 
     /* renamed from: h  reason: collision with root package name */
-    public c f10774h;
+    public c f10916h;
 
     /* renamed from: i  reason: collision with root package name */
-    public d f10775i;
+    public d f10917i;
 
     /* renamed from: j  reason: collision with root package name */
-    public Map<String, String> f10776j;
+    public Map<String, String> f10918j;
     public g k;
     public b l;
     public boolean m;
@@ -64,14 +64,14 @@ public class e extends EventTargetImpl implements c.a.r0.j.a.f.b {
 
         /* renamed from: c.a.r0.j.a.f.e$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class C0725a implements c.a.r0.a.a3.c {
+        public class C0734a implements c.a.r0.a.a3.c {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ a f10777e;
+            public final /* synthetic */ a f10919e;
 
-            public C0725a(a aVar) {
+            public C0734a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -86,7 +86,7 @@ public class e extends EventTargetImpl implements c.a.r0.j.a.f.b {
                         return;
                     }
                 }
-                this.f10777e = aVar;
+                this.f10919e = aVar;
             }
 
             @Override // c.a.r0.a.a3.c
@@ -100,9 +100,9 @@ public class e extends EventTargetImpl implements c.a.r0.j.a.f.b {
             public void m() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                    this.f10777e.a.m = true;
-                    if (this.f10777e.a.n) {
-                        this.f10777e.a.f10771e.N();
+                    this.f10919e.a.m = true;
+                    if (this.f10919e.a.n) {
+                        this.f10919e.a.f10913e.N();
                     }
                 }
             }
@@ -111,8 +111,8 @@ public class e extends EventTargetImpl implements c.a.r0.j.a.f.b {
             public void onViewBackground() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                    this.f10777e.a.m = false;
-                    this.f10777e.a.f10771e.i0();
+                    this.f10919e.a.m = false;
+                    this.f10919e.a.f10913e.i0();
                 }
             }
         }
@@ -141,15 +141,15 @@ public class e extends EventTargetImpl implements c.a.r0.j.a.f.b {
             if (interceptable == null || interceptable.invokeZL(1048576, this, z, str) == null) {
                 if (z) {
                     this.a.dispatchEvent(new JSEvent("load"));
-                    if (this.a.f10774h != null) {
-                        this.a.f10774h.c();
+                    if (this.a.f10916h != null) {
+                        this.a.f10916h.c();
                     }
                     c.a.r0.j.a.f.a.b().c(16, "");
                     c.a.r0.j.a.c.b(this.a.getType(), "success");
                     return;
                 }
-                if (this.a.f10774h != null) {
-                    this.a.f10774h.b(str);
+                if (this.a.f10916h != null) {
+                    this.a.f10916h.b(str);
                 }
                 c.a.r0.j.a.f.a.b().c(17, str);
                 c.a.r0.j.a.c.c(this.a.getType(), com.baidu.pass.biometrics.face.liveness.b.a.g0, str);
@@ -161,8 +161,8 @@ public class e extends EventTargetImpl implements c.a.r0.j.a.f.b {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z, str) == null) {
                 if (z) {
-                    if (this.a.f10775i != null) {
-                        this.a.f10775i.c();
+                    if (this.a.f10917i != null) {
+                        this.a.f10917i.c();
                     }
                     if (this.a.l == null) {
                         this.a.l = new b(this.a, null);
@@ -172,11 +172,11 @@ public class e extends EventTargetImpl implements c.a.r0.j.a.f.b {
                         AppRuntime.getAppContext().registerReceiver(this.a.l, intentFilter);
                     }
                     if (this.a.o == null) {
-                        this.a.o = new C0725a(this);
+                        this.a.o = new C0734a(this);
                         e.L(this.a.o);
                     }
-                } else if (this.a.f10775i != null) {
-                    this.a.f10775i.b(str);
+                } else if (this.a.f10917i != null) {
+                    this.a.f10917i.b(str);
                 }
             }
         }
@@ -208,7 +208,7 @@ public class e extends EventTargetImpl implements c.a.r0.j.a.f.b {
                 JSEvent jSEvent = new JSEvent("error");
                 jSEvent.data = f.b(str);
                 this.a.dispatchEvent(jSEvent);
-                c.a.r0.h.i.r.b.k(this.a.f10776j, str);
+                c.a.r0.h.i.r.b.k(this.a.f10918j, str);
                 this.a.destroy();
             }
         }
@@ -245,7 +245,7 @@ public class e extends EventTargetImpl implements c.a.r0.j.a.f.b {
                 if (TextUtils.equals(intent.getAction(), "android.intent.action.SCREEN_ON")) {
                     this.this$0.n = true;
                     if (this.this$0.m) {
-                        this.this$0.f10771e.N();
+                        this.this$0.f10913e.N();
                     }
                 } else if (TextUtils.equals(intent.getAction(), "android.intent.action.SCREEN_OFF")) {
                     this.this$0.n = false;
@@ -277,26 +277,26 @@ public class e extends EventTargetImpl implements c.a.r0.j.a.f.b {
             }
         }
         this.adUnitId = "";
-        this.f10776j = new TreeMap();
+        this.f10918j = new TreeMap();
         this.n = true;
         this.p = new a(this);
         c.a.r0.a.y.b.a F = c.a.r0.a.y.b.a.F(jsObject);
         if (F != null) {
             this.adUnitId = F.B("adUnitId");
-            this.f10772f = F.B("appSid");
+            this.f10914f = F.B("appSid");
         }
-        if (F != null && !TextUtils.isEmpty(this.adUnitId) && !TextUtils.isEmpty(this.f10772f)) {
+        if (F != null && !TextUtils.isEmpty(this.adUnitId) && !TextUtils.isEmpty(this.f10914f)) {
             boolean g2 = i.g();
-            this.f10773g = g2;
+            this.f10915g = g2;
             if (g2) {
-                this.f10772f = i.c();
+                this.f10914f = i.c();
                 this.adUnitId = i.d();
             }
-            this.f10776j = c.a.r0.h.i.r.b.a("video", "game", this.f10772f, this.adUnitId, this.f10773g);
+            this.f10918j = c.a.r0.h.i.r.b.a("video", "game", this.f10914f, this.adUnitId, this.f10915g);
             this.k = new c.a.r0.j.a.a();
-            c.a.r0.h.i.q.b bVar = new c.a.r0.h.i.q.b(c.a.r0.a.g1.f.U().getActivity(), this.f10772f, this.adUnitId, this.f10773g, this.p, this.k);
-            this.f10771e = bVar;
-            bVar.k0(this.f10776j);
+            c.a.r0.h.i.q.b bVar = new c.a.r0.h.i.q.b(c.a.r0.a.g1.f.U().getActivity(), this.f10914f, this.adUnitId, this.f10915g, this.p, this.k);
+            this.f10913e = bVar;
+            bVar.k0(this.f10918j);
             loadAd(null);
             return;
         }
@@ -339,7 +339,7 @@ public class e extends EventTargetImpl implements c.a.r0.j.a.f.b {
     public String getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f10773g ? "gdtvideo" : "video" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f10915g ? "gdtvideo" : "video" : (String) invokeV.objValue;
     }
 
     @JavascriptInterface
@@ -347,10 +347,10 @@ public class e extends EventTargetImpl implements c.a.r0.j.a.f.b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jsObject) == null) {
             synchronized (this) {
-                this.f10774h = c.d(c.a.r0.a.y.b.a.F(jsObject));
-                c.a.r0.j.a.f.a.b().a(this.f10774h);
-                if (this.f10771e != null) {
-                    this.f10771e.c0();
+                this.f10916h = c.d(c.a.r0.a.y.b.a.F(jsObject));
+                c.a.r0.j.a.f.a.b().a(this.f10916h);
+                if (this.f10913e != null) {
+                    this.f10913e.c0();
                 }
             }
         }
@@ -362,9 +362,9 @@ public class e extends EventTargetImpl implements c.a.r0.j.a.f.b {
         if (interceptable == null || interceptable.invokeL(1048579, this, jsObject) == null) {
             synchronized (this) {
                 c.a.r0.j.a.c.d(getType());
-                this.f10775i = d.d(c.a.r0.a.y.b.a.F(jsObject));
-                if (this.f10771e != null) {
-                    this.f10771e.l0();
+                this.f10917i = d.d(c.a.r0.a.y.b.a.F(jsObject));
+                if (this.f10913e != null) {
+                    this.f10913e.l0();
                 }
             }
         }

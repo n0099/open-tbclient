@@ -24,24 +24,24 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final boolean f8660d;
+    public static final boolean f8802d;
     public transient /* synthetic */ FieldHolder $fh;
     public long a;
 
     /* renamed from: b  reason: collision with root package name */
-    public c f8661b;
+    public c f8803b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final g.a f8662c;
+    public final g.a f8804c;
 
     /* renamed from: c.a.r0.a.r2.k.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public class C0539a implements g.a {
+    public class C0548a implements g.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ a a;
 
-        public C0539a(a aVar) {
+        public C0548a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -62,8 +62,8 @@ public class a {
         @Override // c.a.r0.a.v1.g.a
         public void onRequestPermissionsResult(int i2, @NonNull String[] strArr, @NonNull int[] iArr) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeILL(1048576, this, i2, strArr, iArr) == null) && i2 == 700 && iArr.length > 0 && iArr[0] == 0 && this.a.f8661b != null) {
-                this.a.f8661b.a(this.a.a);
+            if ((interceptable == null || interceptable.invokeILL(1048576, this, i2, strArr, iArr) == null) && i2 == 700 && iArr.length > 0 && iArr[0] == 0 && this.a.f8803b != null) {
+                this.a.f8803b.a(this.a.a);
             }
         }
     }
@@ -144,10 +144,10 @@ public class a {
                 return;
             }
         }
-        f8660d = k.a;
+        f8802d = k.a;
     }
 
-    public /* synthetic */ a(C0539a c0539a) {
+    public /* synthetic */ a(C0548a c0548a) {
         this();
     }
 
@@ -175,17 +175,17 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j2) == null) {
             this.a = j2;
-            if (this.f8661b == null) {
-                if (f8660d) {
+            if (this.f8803b == null) {
+                if (f8802d) {
                     throw new RuntimeException("not support vibration");
                 }
             } else if (c()) {
-                this.f8661b.a(this.a);
+                this.f8803b.a(this.a);
             } else {
                 String[] strArr = {"android.permission.VIBRATE"};
                 SwanAppActivity x = c.a.r0.a.d2.d.J().x();
                 if (x != null) {
-                    x.requestPermissionsExt(700, strArr, this.f8662c);
+                    x.requestPermissionsExt(700, strArr, this.f8804c);
                 }
             }
         }
@@ -219,10 +219,10 @@ public class a {
             }
         }
         this.a = 0L;
-        this.f8662c = new C0539a(this);
+        this.f8804c = new C0548a(this);
         Vibrator vibrator = (Vibrator) AppRuntime.getAppContext().getSystemService("vibrator");
         if (vibrator != null) {
-            this.f8661b = new c(vibrator);
+            this.f8803b = new c(vibrator);
         }
     }
 }

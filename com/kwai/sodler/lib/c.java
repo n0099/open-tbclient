@@ -21,13 +21,13 @@ public class c implements com.kwai.sodler.lib.kwai.c {
     public final File a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final File f58377b;
+    public final File f58422b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final Context f58378c;
+    public final Context f58423c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final com.kwai.sodler.lib.ext.c f58379d;
+    public final com.kwai.sodler.lib.ext.c f58424d;
 
     public c(Context context, com.kwai.sodler.lib.ext.c cVar) {
         Interceptable interceptable = $ic;
@@ -45,10 +45,10 @@ public class c implements com.kwai.sodler.lib.kwai.c {
             }
         }
         Context applicationContext = context.getApplicationContext();
-        this.f58378c = applicationContext;
-        this.f58379d = cVar;
+        this.f58423c = applicationContext;
+        this.f58424d = cVar;
         this.a = applicationContext.getDir(cVar.b(), 0);
-        this.f58377b = this.f58378c.getCacheDir();
+        this.f58422b = this.f58423c.getCacheDir();
     }
 
     @Nullable
@@ -151,7 +151,7 @@ public class c implements com.kwai.sodler.lib.kwai.c {
             a.a("Sodler.installer", "Install path = " + a);
             File file2 = new File(a);
             if (file2.exists()) {
-                if (!this.f58379d.g() && a(file2.getAbsolutePath(), true)) {
+                if (!this.f58424d.g() && a(file2.getAbsolutePath(), true)) {
                     str = "Plugin has been already installed.";
                     a.b("Sodler.installer", str);
                     return a;
@@ -191,7 +191,7 @@ public class c implements com.kwai.sodler.lib.kwai.c {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, str2)) == null) {
-            return b() + File.separator + str + File.separator + str2 + File.separator + this.f58379d.f();
+            return b() + File.separator + str + File.separator + str2 + File.separator + this.f58424d.f();
         }
         return (String) invokeLL.objValue;
     }
@@ -221,7 +221,7 @@ public class c implements com.kwai.sodler.lib.kwai.c {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048587, this, str, str2)) == null) {
-            if (this.f58379d.g()) {
+            if (this.f58424d.g()) {
                 return false;
             }
             return a(str, str2, true);
@@ -234,7 +234,7 @@ public class c implements com.kwai.sodler.lib.kwai.c {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, str)) == null) {
-            return File.createTempFile(str + System.currentTimeMillis(), this.f58379d.e(), this.f58377b);
+            return File.createTempFile(str + System.currentTimeMillis(), this.f58424d.e(), this.f58422b);
         }
         return (File) invokeL.objValue;
     }

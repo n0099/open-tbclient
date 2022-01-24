@@ -31,16 +31,16 @@ public class ShowFavoriteGuideApi extends d implements c.j {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f38634f;
+    public String f38662f;
 
     /* renamed from: g  reason: collision with root package name */
-    public long f38635g;
+    public long f38663g;
 
     /* renamed from: h  reason: collision with root package name */
-    public long f38636h;
+    public long f38664h;
 
     /* renamed from: i  reason: collision with root package name */
-    public long f38637i;
+    public long f38665i;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes11.dex */
@@ -137,36 +137,36 @@ public class ShowFavoriteGuideApi extends d implements c.j {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f38638e;
+        public final /* synthetic */ String f38666e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ JSONObject f38639f;
+        public final /* synthetic */ JSONObject f38667f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ e f38640g;
+        public final /* synthetic */ e f38668g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ Activity f38641h;
+        public final /* synthetic */ Activity f38669h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final /* synthetic */ ShowFavoriteGuideApi f38642i;
+        public final /* synthetic */ ShowFavoriteGuideApi f38670i;
 
         /* renamed from: com.baidu.swan.apps.api.module.favorite.ShowFavoriteGuideApi$a$a  reason: collision with other inner class name */
         /* loaded from: classes11.dex */
-        public class RunnableC1876a implements Runnable {
+        public class RunnableC1882a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ GuideType f38643e;
+            public final /* synthetic */ GuideType f38671e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ String f38644f;
+            public final /* synthetic */ String f38672f;
 
             /* renamed from: g  reason: collision with root package name */
-            public final /* synthetic */ a f38645g;
+            public final /* synthetic */ a f38673g;
 
-            public RunnableC1876a(a aVar, GuideType guideType, String str) {
+            public RunnableC1882a(a aVar, GuideType guideType, String str) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -181,9 +181,9 @@ public class ShowFavoriteGuideApi extends d implements c.j {
                         return;
                     }
                 }
-                this.f38645g = aVar;
-                this.f38643e = guideType;
-                this.f38644f = str;
+                this.f38673g = aVar;
+                this.f38671e = guideType;
+                this.f38672f = str;
             }
 
             @Override // java.lang.Runnable
@@ -191,11 +191,11 @@ public class ShowFavoriteGuideApi extends d implements c.j {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                     c l = c.l();
-                    a aVar = this.f38645g;
-                    ShowFavoriteGuideApi showFavoriteGuideApi = aVar.f38642i;
-                    Activity activity = aVar.f38641h;
-                    e eVar = aVar.f38640g;
-                    l.p(showFavoriteGuideApi, activity, eVar, this.f38643e, this.f38644f, eVar.V().Q(), this.f38645g.f38642i.f38635g);
+                    a aVar = this.f38673g;
+                    ShowFavoriteGuideApi showFavoriteGuideApi = aVar.f38670i;
+                    Activity activity = aVar.f38669h;
+                    e eVar = aVar.f38668g;
+                    l.p(showFavoriteGuideApi, activity, eVar, this.f38671e, this.f38672f, eVar.V().Q(), this.f38673g.f38670i.f38663g);
                 }
             }
         }
@@ -215,11 +215,11 @@ public class ShowFavoriteGuideApi extends d implements c.j {
                     return;
                 }
             }
-            this.f38642i = showFavoriteGuideApi;
-            this.f38638e = str;
-            this.f38639f = jSONObject;
-            this.f38640g = eVar;
-            this.f38641h = activity;
+            this.f38670i = showFavoriteGuideApi;
+            this.f38666e = str;
+            this.f38667f = jSONObject;
+            this.f38668g = eVar;
+            this.f38669h = activity;
         }
 
         @Override // java.lang.Runnable
@@ -229,10 +229,10 @@ public class ShowFavoriteGuideApi extends d implements c.j {
                 return;
             }
             c.a.r0.a.o2.g.b a = c.a.r0.a.o2.g.h.a();
-            GuideType parse = GuideType.parse(this.f38638e);
-            String string = this.f38642i.getContext().getString(parse.defaultText);
-            this.f38642i.f38634f = this.f38639f.optString("cb");
-            String str = this.f38640g.f5537f;
+            GuideType parse = GuideType.parse(this.f38666e);
+            String string = this.f38670i.getContext().getString(parse.defaultText);
+            this.f38670i.f38662f = this.f38667f.optString("cb");
+            String str = this.f38668g.f5679f;
             String str2 = "favorite_guide_count_" + str;
             if (c.a.r0.a.j0.b.a.n(str)) {
                 c.a.r0.a.e0.d.i("ShowFavoriteGuideApi", "favorite already");
@@ -253,13 +253,13 @@ public class ShowFavoriteGuideApi extends d implements c.j {
             }
             long currentTimeMillis = System.currentTimeMillis();
             int i3 = i2;
-            this.f38642i.f38635g = a.getLong("swan_favorite_guide_duration", 3L);
-            this.f38642i.f38636h = a.getLong("swan_favorite_guide_intervalDays", 3L);
-            this.f38642i.f38637i = a.getLong("swan_favorite_guide_maxTimes", 3L);
-            c.a.r0.a.e0.d.i("ShowFavoriteGuideApi", "duration=" + this.f38642i.f38635g + ", mIntervalDays=" + this.f38642i.f38636h + ", mMaxTimes=" + this.f38642i.f38637i + " ,storageValue=" + string2);
-            if (i3 < this.f38642i.f38637i && currentTimeMillis - j2 > this.f38642i.f38636h * 86400000) {
+            this.f38670i.f38663g = a.getLong("swan_favorite_guide_duration", 3L);
+            this.f38670i.f38664h = a.getLong("swan_favorite_guide_intervalDays", 3L);
+            this.f38670i.f38665i = a.getLong("swan_favorite_guide_maxTimes", 3L);
+            c.a.r0.a.e0.d.i("ShowFavoriteGuideApi", "duration=" + this.f38670i.f38663g + ", mIntervalDays=" + this.f38670i.f38664h + ", mMaxTimes=" + this.f38670i.f38665i + " ,storageValue=" + string2);
+            if (i3 < this.f38670i.f38665i && currentTimeMillis - j2 > this.f38670i.f38664h * 86400000) {
                 c.a.r0.a.o2.g.h.a().putString(str2, (i3 + 1) + "#" + currentTimeMillis);
-                q0.e0(new RunnableC1876a(this, parse, string));
+                q0.e0(new RunnableC1882a(this, parse, string));
                 return;
             }
             c.a.r0.a.e0.d.i("ShowFavoriteGuideApi", "Not satisfying display conditions");
@@ -330,9 +330,9 @@ public class ShowFavoriteGuideApi extends d implements c.j {
                 int i2 = b.a[guideType.ordinal()];
                 str3 = i2 != 1 ? i2 != 2 ? "flow_close" : "flow" : "TIPS";
             }
-            eVar.f7977b = str3;
-            eVar.f7978c = str;
-            eVar.f7980e = str2;
+            eVar.f8119b = str3;
+            eVar.f8120c = str;
+            eVar.f8122e = str2;
             eVar.a("appkey", f0);
             n.x("923", eVar);
         }
@@ -376,7 +376,7 @@ public class ShowFavoriteGuideApi extends d implements c.j {
     @AnyThread
     public void e(boolean z) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) || this.f38634f == null) {
+        if (!(interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) || this.f38662f == null) {
             return;
         }
         JSONObject jSONObject = new JSONObject();
@@ -385,7 +385,7 @@ public class ShowFavoriteGuideApi extends d implements c.j {
         } catch (JSONException e2) {
             e2.printStackTrace();
         }
-        d(this.f38634f, new c.a.r0.a.u.h.b(0, "success", jSONObject));
+        d(this.f38662f, new c.a.r0.a.u.h.b(0, "success", jSONObject));
     }
 
     @Override // c.a.r0.a.u.c.d

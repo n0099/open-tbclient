@@ -1,15 +1,15 @@
 package com.ss.android.socialbase.appdownloader.f.a;
 
 import java.io.PrintStream;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class h extends Exception {
     public Throwable a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f59791b;
+    public int f59836b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f59792c;
+    public int f59837c;
 
     /* JADX WARN: Illegal instructions before constructor call */
     /*
@@ -37,11 +37,11 @@ public class h extends Exception {
             str4 = "caused by: " + th;
         }
         sb.append(str4);
-        this.f59791b = -1;
-        this.f59792c = -1;
+        this.f59836b = -1;
+        this.f59837c = -1;
         if (gVar != null) {
-            this.f59791b = gVar.c();
-            this.f59792c = gVar.f();
+            this.f59836b = gVar.c();
+            this.f59837c = gVar.f();
         }
         this.a = th;
     }

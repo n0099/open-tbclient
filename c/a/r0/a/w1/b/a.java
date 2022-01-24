@@ -19,29 +19,29 @@ public class a extends k {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: g  reason: collision with root package name */
-    public b<Boolean> f9503g;
+    public b<Boolean> f9645g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f9504h;
+    public String f9646h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f9505i;
+    public String f9647i;
 
     /* renamed from: j  reason: collision with root package name */
-    public long f9506j;
+    public long f9648j;
     public final e<i> k;
 
     /* renamed from: c.a.r0.a.w1.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public class C0607a extends l<a> {
+    public class C0616a extends l<a> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ a f9507f;
+        public final /* synthetic */ a f9649f;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public C0607a(a aVar, a aVar2) {
+        public C0616a(a aVar, a aVar2) {
             super(aVar2);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -58,14 +58,14 @@ public class a extends k {
                     return;
                 }
             }
-            this.f9507f = aVar;
+            this.f9649f = aVar;
         }
 
         @Override // c.a.r0.a.h0.m.l
         public void r(@NonNull i iVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, iVar) == null) {
-                this.f9507f.f9503g.a(Boolean.TRUE);
+                this.f9649f.f9645g.a(Boolean.TRUE);
             }
         }
 
@@ -73,7 +73,7 @@ public class a extends k {
         public void u(i iVar, c.a.r0.a.u2.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, iVar, aVar) == null) {
-                this.f9507f.f9503g.a(Boolean.FALSE);
+                this.f9649f.f9645g.a(Boolean.FALSE);
             }
         }
     }
@@ -93,11 +93,11 @@ public class a extends k {
                 return;
             }
         }
-        this.k = new C0607a(this, this);
-        this.f9503g = bVar;
-        this.f9504h = str;
-        this.f9505i = str2;
-        this.f9506j = j2;
+        this.k = new C0616a(this, this);
+        this.f9645g = bVar;
+        this.f9646h = str;
+        this.f9647i = str2;
+        this.f9648j = j2;
     }
 
     @Override // c.a.r0.q.f.i
@@ -107,15 +107,15 @@ public class a extends k {
         if (interceptable == null || interceptable.invokeL(1048576, this, bVar) == null) {
             super.D(bVar);
             if (bVar != null) {
-                if (bVar.a == 1010 && (p = c.a.r0.a.w1.c.a.p(this.f9504h, this.f9505i, this.f9506j)) != null) {
-                    p.f11491d = p.b();
+                if (bVar.a == 1010 && (p = c.a.r0.a.w1.c.a.p(this.f9646h, this.f9647i, this.f9648j)) != null) {
+                    p.f11633d = p.b();
                     c.a.r0.q.g.a.i().x(p);
                 }
                 c.a.r0.a.w1.e.a.b("fetch plugin error: " + bVar.toString());
             } else {
                 c.a.r0.a.w1.e.a.b("fetch plugin error");
             }
-            this.f9503g.a(Boolean.FALSE);
+            this.f9645g.a(Boolean.FALSE);
         }
     }
 
@@ -134,7 +134,7 @@ public class a extends k {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             super.G();
             c.a.r0.a.w1.e.a.b("no package");
-            this.f9503g.a(Boolean.FALSE);
+            this.f9645g.a(Boolean.FALSE);
         }
     }
 

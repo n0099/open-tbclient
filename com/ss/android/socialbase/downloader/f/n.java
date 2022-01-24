@@ -3,12 +3,12 @@ package com.ss.android.socialbase.downloader.f;
 import androidx.annotation.NonNull;
 import com.baidu.adp.plugin.PluginCenter;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class n {
     public final JSONObject a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f60051b;
+    public int f60096b;
 
     public n(JSONObject jSONObject) {
         this.a = jSONObject;
@@ -19,7 +19,7 @@ public class n {
     }
 
     public void a(int i2) {
-        this.f60051b = b(i2);
+        this.f60096b = b(i2);
     }
 
     public boolean b() {
@@ -113,7 +113,7 @@ public class n {
     }
 
     public int a() {
-        return this.f60051b;
+        return this.f60096b;
     }
 
     @NonNull

@@ -20,7 +20,7 @@ public class a extends c.a.d.n.e.a<b, CardViewHolder<c>> {
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public a(TbPageContext<?> tbPageContext) {
-        super(tbPageContext.getPageActivity(), b.f17815g);
+        super(tbPageContext.getPageActivity(), b.f17637g);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();

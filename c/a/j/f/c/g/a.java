@@ -16,25 +16,25 @@ public final class a extends d {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final C0168a f3872g;
+    public static final C0177a f4013g;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: d  reason: collision with root package name */
-    public final String f3873d;
+    public final String f4014d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f3874e;
+    public int f4015e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final int f3875f;
+    public final int f4016f;
 
     /* renamed from: c.a.j.f.c.g.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static final class C0168a {
+    public static final class C0177a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        public C0168a() {
+        public C0177a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -54,7 +54,7 @@ public final class a extends d {
             return (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, taskInfo, i2)) == null) ? new a(taskInfo, null, 50, i2, null, null, 50, null) : (a) invokeLI.objValue;
         }
 
-        public /* synthetic */ C0168a(DefaultConstructorMarker defaultConstructorMarker) {
+        public /* synthetic */ C0177a(DefaultConstructorMarker defaultConstructorMarker) {
             this();
         }
     }
@@ -72,7 +72,7 @@ public final class a extends d {
                 return;
             }
         }
-        f3872g = new C0168a(null);
+        f4013g = new C0177a(null);
     }
 
     public /* synthetic */ a(TaskInfo taskInfo, String str, int i2, int i3, Integer num, String str2, int i4, DefaultConstructorMarker defaultConstructorMarker) {
@@ -90,19 +90,19 @@ public final class a extends d {
     public String f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f3873d : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f4014d : (String) invokeV.objValue;
     }
 
     public int g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f3874e : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f4015e : invokeV.intValue;
     }
 
     public final int h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f3875f : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f4016f : invokeV.intValue;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -124,8 +124,8 @@ public final class a extends d {
                 return;
             }
         }
-        this.f3873d = str;
-        this.f3874e = i2;
-        this.f3875f = i3;
+        this.f4014d = str;
+        this.f4015e = i2;
+        this.f4016f = i3;
     }
 }

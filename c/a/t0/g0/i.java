@@ -38,7 +38,7 @@ public class i extends c.a.t0.g0.c<c.a.t0.g0.f0.i> {
     public View A;
     public View.OnClickListener B;
     public LikeModel C;
-    public List<c.a.t0.p1.b.c> D;
+    public List<c.a.t0.q1.b.c> D;
     public String E;
     public String F;
     public String G;
@@ -47,7 +47,7 @@ public class i extends c.a.t0.g0.c<c.a.t0.g0.f0.i> {
     public CustomMessageListener J;
     public CustomMessageListener K;
     public HListView x;
-    public c.a.t0.p1.b.b y;
+    public c.a.t0.q1.b.b y;
     public CardExtendForumItemHolder z;
 
     /* loaded from: classes7.dex */
@@ -78,7 +78,7 @@ public class i extends c.a.t0.g0.c<c.a.t0.g0.f0.i> {
         public void c(Object obj) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, obj) == null) {
-                if ((obj instanceof c.a.t0.w3.x) && this.a.C.getErrorCode() == 0) {
+                if ((obj instanceof c.a.t0.x3.x) && this.a.C.getErrorCode() == 0) {
                     return;
                 }
                 if (AntiHelper.m(this.a.C.getErrorCode(), this.a.C.getErrorString())) {
@@ -170,7 +170,7 @@ public class i extends c.a.t0.g0.c<c.a.t0.g0.f0.i> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ i f17820e;
+        public final /* synthetic */ i f17642e;
 
         public d(i iVar) {
             Interceptable interceptable = $ic;
@@ -187,7 +187,7 @@ public class i extends c.a.t0.g0.c<c.a.t0.g0.f0.i> {
                     return;
                 }
             }
-            this.f17820e = iVar;
+            this.f17642e = iVar;
         }
 
         @Override // android.view.View.OnClickListener
@@ -197,12 +197,12 @@ public class i extends c.a.t0.g0.c<c.a.t0.g0.f0.i> {
                 return;
             }
             if (view.getId() == R.id.forum_add_love) {
-                if (ViewHelper.checkUpIsLogin(this.f17820e.j().getContext())) {
+                if (ViewHelper.checkUpIsLogin(this.f17642e.j().getContext())) {
                     String str = (String) view.getTag(R.id.tag_forum_name);
                     String valueOf = String.valueOf(view.getTag(R.id.tag_forum_id));
                     if (c.a.d.f.p.m.isForumName(str)) {
-                        this.f17820e.C.L(str, valueOf);
-                        TiebaStatic.log(new StatisticItem(this.f17820e.E).param("fid", valueOf).param(TiebaStatic.Params.OBJ_PARAM3, m.e()));
+                        this.f17642e.C.L(str, valueOf);
+                        TiebaStatic.log(new StatisticItem(this.f17642e.E).param("fid", valueOf).param(TiebaStatic.Params.OBJ_PARAM3, m.e()));
                     }
                 }
             } else if (view.getTag(R.id.tag_forum_name) != null) {
@@ -210,14 +210,14 @@ public class i extends c.a.t0.g0.c<c.a.t0.g0.f0.i> {
                 String valueOf2 = String.valueOf(view.getTag(R.id.tag_forum_id));
                 if (c.a.d.f.p.m.isForumName(str2)) {
                     if (view.getId() == R.id.m_forum_name_textview) {
-                        TiebaStatic.log(new StatisticItem(this.f17820e.G).param("fid", valueOf2).param(TiebaStatic.Params.OBJ_PARAM3, m.e()));
+                        TiebaStatic.log(new StatisticItem(this.f17642e.G).param("fid", valueOf2).param(TiebaStatic.Params.OBJ_PARAM3, m.e()));
                     } else {
-                        TiebaStatic.log(new StatisticItem(this.f17820e.F).param("fid", valueOf2).param(TiebaStatic.Params.OBJ_PARAM3, m.e()));
+                        TiebaStatic.log(new StatisticItem(this.f17642e.F).param("fid", valueOf2).param(TiebaStatic.Params.OBJ_PARAM3, m.e()));
                     }
-                    if (!StringUtils.isNull(this.f17820e.H) && !StringUtils.isNull(this.f17820e.I)) {
-                        MessageManager.getInstance().sendMessage(new CustomMessage(2003000, new FrsActivityConfig(this.f17820e.j().getContext()).createCfgForpersonalized(str2, this.f17820e.H, this.f17820e.I)));
+                    if (!StringUtils.isNull(this.f17642e.H) && !StringUtils.isNull(this.f17642e.I)) {
+                        MessageManager.getInstance().sendMessage(new CustomMessage(2003000, new FrsActivityConfig(this.f17642e.j().getContext()).createCfgForpersonalized(str2, this.f17642e.H, this.f17642e.I)));
                     } else {
-                        MessageManager.getInstance().sendMessage(new CustomMessage(2003000, new FrsActivityConfig(this.f17820e.j().getContext()).createNormalCfg(str2, FrsActivityConfig.FRS_FROM_RECOMMEND)));
+                        MessageManager.getInstance().sendMessage(new CustomMessage(2003000, new FrsActivityConfig(this.f17642e.j().getContext()).createNormalCfg(str2, FrsActivityConfig.FRS_FROM_RECOMMEND)));
                     }
                 }
             }
@@ -248,8 +248,8 @@ public class i extends c.a.t0.g0.c<c.a.t0.g0.f0.i> {
         this.x = hListView;
         hListView.setHeaderDividersEnabled(false);
         this.x.setFooterDividersEnabled(false);
-        if (TbadkCoreApplication.getInst().getPersonalizeViewData().f13434b != null && TbadkCoreApplication.getInst().getPersonalizeViewData().f13434b.getParent() == null) {
-            this.A = TbadkCoreApplication.getInst().getPersonalizeViewData().f13434b;
+        if (TbadkCoreApplication.getInst().getPersonalizeViewData().f13620b != null && TbadkCoreApplication.getInst().getPersonalizeViewData().f13620b.getParent() == null) {
+            this.A = TbadkCoreApplication.getInst().getPersonalizeViewData().f13620b;
         } else {
             this.A = LayoutInflater.from(getContext()).inflate(R.layout.extend_forum_item, (ViewGroup) null);
         }
@@ -263,7 +263,7 @@ public class i extends c.a.t0.g0.c<c.a.t0.g0.f0.i> {
             for (int i4 = 0; i4 < 10; i4++) {
                 arrayList.add(String.valueOf(i4));
             }
-            c.a.t0.p1.b.b bVar = new c.a.t0.p1.b.b(getContext(), R.layout.extend_forum_item, this.z);
+            c.a.t0.q1.b.b bVar = new c.a.t0.q1.b.b(getContext(), R.layout.extend_forum_item, this.z);
             this.y = bVar;
             bVar.d(this.B);
             this.x.setAdapter((ListAdapter) this.y);
@@ -280,10 +280,10 @@ public class i extends c.a.t0.g0.c<c.a.t0.g0.f0.i> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
             if (ListUtils.getCount(this.D) > 0) {
-                for (c.a.t0.p1.b.c cVar : this.D) {
+                for (c.a.t0.q1.b.c cVar : this.D) {
                     if (cVar != null && (cVar instanceof c.a.t0.g0.f0.g)) {
                         c.a.t0.g0.f0.g gVar = (c.a.t0.g0.f0.g) cVar;
-                        if (String.valueOf(gVar.f17790d).equals(str)) {
+                        if (String.valueOf(gVar.f17612d).equals(str)) {
                             return gVar;
                         }
                     }
@@ -302,7 +302,7 @@ public class i extends c.a.t0.g0.c<c.a.t0.g0.f0.i> {
         }
     }
 
-    public final boolean E(List<c.a.t0.p1.b.c> list, List<c.a.t0.p1.b.c> list2) {
+    public final boolean E(List<c.a.t0.q1.b.c> list, List<c.a.t0.q1.b.c> list2) {
         InterceptResult invokeLL;
         int i2;
         Interceptable interceptable = $ic;
@@ -312,18 +312,18 @@ public class i extends c.a.t0.g0.c<c.a.t0.g0.f0.i> {
             }
             boolean z = true;
             while (i2 < ListUtils.getCount(list)) {
-                c.a.t0.p1.b.c cVar = (c.a.t0.p1.b.c) ListUtils.getItem(list, i2);
-                c.a.t0.p1.b.c cVar2 = (c.a.t0.p1.b.c) ListUtils.getItem(list2, i2);
+                c.a.t0.q1.b.c cVar = (c.a.t0.q1.b.c) ListUtils.getItem(list, i2);
+                c.a.t0.q1.b.c cVar2 = (c.a.t0.q1.b.c) ListUtils.getItem(list2, i2);
                 if (cVar != null && (cVar instanceof c.a.t0.g0.f0.g) && cVar2 != null && (cVar2 instanceof c.a.t0.g0.f0.g)) {
                     c.a.t0.g0.f0.g gVar = (c.a.t0.g0.f0.g) cVar;
                     c.a.t0.g0.f0.g gVar2 = (c.a.t0.g0.f0.g) cVar2;
-                    if (gVar.f17790d != gVar2.f17790d) {
+                    if (gVar.f17612d != gVar2.f17612d) {
                         z = false;
                     }
-                    if (!gVar.f17788b.equals(gVar2.f17788b)) {
+                    if (!gVar.f17610b.equals(gVar2.f17610b)) {
                         z = false;
                     }
-                    i2 = gVar.f17789c.equals(gVar2.f17789c) ? i2 + 1 : 0;
+                    i2 = gVar.f17611c.equals(gVar2.f17611c) ? i2 + 1 : 0;
                 }
                 z = false;
             }
@@ -358,14 +358,14 @@ public class i extends c.a.t0.g0.c<c.a.t0.g0.f0.i> {
                     return;
                 }
                 j().setVisibility(0);
-                c.a.t0.p1.b.b bVar = this.y;
+                c.a.t0.q1.b.b bVar = this.y;
                 if (bVar != null) {
                     if (z) {
                         ArrayList arrayList2 = new ArrayList();
                         for (int i2 = 0; i2 < this.D.size(); i2++) {
                             arrayList2.add(String.valueOf(i2));
                         }
-                        c.a.t0.p1.b.b bVar2 = new c.a.t0.p1.b.b(getContext(), R.layout.extend_forum_item, this.z);
+                        c.a.t0.q1.b.b bVar2 = new c.a.t0.q1.b.b(getContext(), R.layout.extend_forum_item, this.z);
                         this.y = bVar2;
                         bVar2.c(this.D);
                         this.y.d(this.B);
@@ -409,9 +409,9 @@ public class i extends c.a.t0.g0.c<c.a.t0.g0.f0.i> {
         if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{Long.valueOf(j2), Boolean.valueOf(z)}) == null) {
             c.a.t0.g0.f0.g C = C(String.valueOf(j2));
             if (C != null) {
-                C.f17791e = z;
+                C.f17613e = z;
             }
-            c.a.t0.p1.b.b bVar = this.y;
+            c.a.t0.q1.b.b bVar = this.y;
             if (bVar != null) {
                 bVar.c(this.D);
                 this.y.notifyDataSetChanged();
@@ -421,7 +421,7 @@ public class i extends c.a.t0.g0.c<c.a.t0.g0.f0.i> {
 
     @Override // c.a.t0.g0.c, c.a.t0.g0.b
     public void l(TbPageContext<?> tbPageContext, int i2) {
-        c.a.t0.p1.b.b bVar;
+        c.a.t0.q1.b.b bVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(InputDeviceCompat.SOURCE_TOUCHPAD, this, tbPageContext, i2) == null) {
             super.l(tbPageContext, i2);

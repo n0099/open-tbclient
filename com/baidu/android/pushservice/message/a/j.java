@@ -37,35 +37,35 @@ public class j {
             int[] iArr = new int[k.a().length];
             a = iArr;
             try {
-                iArr[k.f32283b.ordinal()] = 1;
+                iArr[k.f32311b.ordinal()] = 1;
             } catch (NoSuchFieldError unused) {
             }
             try {
-                a[k.f32284c.ordinal()] = 2;
+                a[k.f32312c.ordinal()] = 2;
             } catch (NoSuchFieldError unused2) {
             }
             try {
-                a[k.f32288g.ordinal()] = 3;
+                a[k.f32316g.ordinal()] = 3;
             } catch (NoSuchFieldError unused3) {
             }
             try {
-                a[k.f32285d.ordinal()] = 4;
+                a[k.f32313d.ordinal()] = 4;
             } catch (NoSuchFieldError unused4) {
             }
             try {
-                a[k.f32286e.ordinal()] = 5;
+                a[k.f32314e.ordinal()] = 5;
             } catch (NoSuchFieldError unused5) {
             }
             try {
-                a[k.f32287f.ordinal()] = 6;
+                a[k.f32315f.ordinal()] = 6;
             } catch (NoSuchFieldError unused6) {
             }
             try {
-                a[k.f32289h.ordinal()] = 7;
+                a[k.f32317h.ordinal()] = 7;
             } catch (NoSuchFieldError unused7) {
             }
             try {
-                a[k.f32290i.ordinal()] = 8;
+                a[k.f32318i.ordinal()] = 8;
             } catch (NoSuchFieldError unused8) {
             }
         }

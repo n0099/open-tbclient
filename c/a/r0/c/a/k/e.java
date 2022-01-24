@@ -23,17 +23,17 @@ public class e {
 
         /* renamed from: c.a.r0.c.a.k.e$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class RunnableC0677a implements Runnable {
+        public class RunnableC0686a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ byte[] f10280e;
+            public final /* synthetic */ byte[] f10422e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ a f10281f;
+            public final /* synthetic */ a f10423f;
 
-            public RunnableC0677a(a aVar, byte[] bArr) {
+            public RunnableC0686a(a aVar, byte[] bArr) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -48,18 +48,18 @@ public class e {
                         return;
                     }
                 }
-                this.f10281f = aVar;
-                this.f10280e = bArr;
+                this.f10423f = aVar;
+                this.f10422e = bArr;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 b bVar;
                 Interceptable interceptable = $ic;
-                if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (bVar = this.f10281f.a) == null) {
+                if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (bVar = this.f10423f.a) == null) {
                     return;
                 }
-                bVar.a(true, this.f10280e);
+                bVar.a(true, this.f10422e);
             }
         }
 
@@ -69,7 +69,7 @@ public class e {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ a f10282e;
+            public final /* synthetic */ a f10424e;
 
             public b(a aVar) {
                 Interceptable interceptable = $ic;
@@ -86,14 +86,14 @@ public class e {
                         return;
                     }
                 }
-                this.f10282e = aVar;
+                this.f10424e = aVar;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 b bVar;
                 Interceptable interceptable = $ic;
-                if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (bVar = this.f10282e.a) == null) {
+                if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (bVar = this.f10424e.a) == null) {
                     return;
                 }
                 bVar.a(false, null);
@@ -124,7 +124,7 @@ public class e {
         public void onSuccess(byte[] bArr, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLI(1048576, this, bArr, i2) == null) {
-                q.l(new RunnableC0677a(this, bArr), "HandshakeRequest");
+                q.l(new RunnableC0686a(this, bArr), "HandshakeRequest");
             }
         }
 
@@ -170,7 +170,7 @@ public class e {
             HashMap hashMap = new HashMap();
             hashMap.put("Content-Type", "application/octet-stream");
             hashMap.put("Bdtls", "Bdtls");
-            c.a.r0.p.e.a.g().postByteRequest().url(c.a.r0.c.a.b.f10227b).cookieManager(c.a.r0.a.c1.a.q().a()).headers(hashMap).content(bArr).build().executeAsync(new a(this, bVar));
+            c.a.r0.p.e.a.g().postByteRequest().url(c.a.r0.c.a.b.f10369b).cookieManager(c.a.r0.a.c1.a.q().a()).headers(hashMap).content(bArr).build().executeAsync(new a(this, bVar));
         }
     }
 }

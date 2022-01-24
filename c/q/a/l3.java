@@ -23,16 +23,16 @@ public class l3 extends WebViewClient {
     public boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ Context f30370b;
+    public final /* synthetic */ Context f30398b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final /* synthetic */ Info f30371c;
+    public final /* synthetic */ Info f30399c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final /* synthetic */ String f30372d;
+    public final /* synthetic */ String f30400d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final /* synthetic */ o3 f30373e;
+    public final /* synthetic */ o3 f30401e;
 
     public l3(o3 o3Var, Context context, Info info, String str) {
         Interceptable interceptable = $ic;
@@ -49,10 +49,10 @@ public class l3 extends WebViewClient {
                 return;
             }
         }
-        this.f30373e = o3Var;
-        this.f30370b = context;
-        this.f30371c = info;
-        this.f30372d = str;
+        this.f30401e = o3Var;
+        this.f30398b = context;
+        this.f30399c = info;
+        this.f30400d = str;
     }
 
     public final boolean a(String str) {
@@ -62,8 +62,8 @@ public class l3 extends WebViewClient {
             Uri parse = Uri.parse(str);
             if (o3.b(parse) || o3.c(parse)) {
                 this.a = true;
-                if (!a2.b(this.f30370b, parse, null)) {
-                    d3.a(this.f30370b, parse);
+                if (!a2.b(this.f30398b, parse, null)) {
+                    d3.a(this.f30398b, parse);
                 }
                 return true;
             }
@@ -77,13 +77,13 @@ public class l3 extends WebViewClient {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webView, str) == null) {
             super.onPageFinished(webView, str);
-            this.f30373e.f30404c.removeMessages(11);
+            this.f30401e.f30432c.removeMessages(11);
             if (this.a) {
                 return;
             }
-            y2 a = c3.a(this.f30370b);
+            y2 a = c3.a(this.f30398b);
             try {
-                a.f30529b = c3.d("ps", new g3(this.f30371c));
+                a.f30557b = c3.d("ps", new g3(this.f30399c));
                 a.k("co", 2004);
                 a.l("msg", str);
             } catch (JSONException unused) {
@@ -91,8 +91,8 @@ public class l3 extends WebViewClient {
             a.m();
             Message obtain = Message.obtain();
             obtain.what = 12;
-            obtain.obj = this.f30372d;
-            this.f30373e.f30404c.sendMessage(obtain);
+            obtain.obj = this.f30400d;
+            this.f30401e.f30432c.sendMessage(obtain);
         }
     }
 

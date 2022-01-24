@@ -29,7 +29,7 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import org.json.JSONObject;
 /* loaded from: classes12.dex */
-public class XiubaTbJsBridge implements c.a.t0.w3.n0.b {
+public class XiubaTbJsBridge implements c.a.t0.x3.n0.b {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String INTERFACE_NAME = "XiubaJSBridge";
     public static final String METHOD_CHECK_APK_INSTALL = "checkAPKInstall";
@@ -89,7 +89,7 @@ public class XiubaTbJsBridge implements c.a.t0.w3.n0.b {
         public boolean a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ XiubaTbJsBridge f41701b;
+        public final /* synthetic */ XiubaTbJsBridge f41721b;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public b(XiubaTbJsBridge xiubaTbJsBridge, int i2) {
@@ -109,7 +109,7 @@ public class XiubaTbJsBridge implements c.a.t0.w3.n0.b {
                     return;
                 }
             }
-            this.f41701b = xiubaTbJsBridge;
+            this.f41721b = xiubaTbJsBridge;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -126,13 +126,13 @@ public class XiubaTbJsBridge implements c.a.t0.w3.n0.b {
                         if (downloadData.getStatus() == 5) {
                             if (!this.a) {
                                 this.a = true;
-                                this.f41701b.callDownloadListener(1);
+                                this.f41721b.callDownloadListener(1);
                             }
                         } else if (downloadData.getStatus() == 0 || downloadData.getStatus() == 3) {
-                            this.f41701b.callDownloadListener(2);
+                            this.f41721b.callDownloadListener(2);
                             this.a = false;
                         } else if (downloadData.getStatus() == 2 || downloadData.getStatus() == 4) {
-                            this.f41701b.callDownloadListener(0);
+                            this.f41721b.callDownloadListener(0);
                             this.a = false;
                         }
                     }
@@ -357,7 +357,7 @@ public class XiubaTbJsBridge implements c.a.t0.w3.n0.b {
         return invokeL.booleanValue;
     }
 
-    @Override // c.a.t0.w3.n0.b
+    @Override // c.a.t0.x3.n0.b
     public boolean dealJsInterface(String str, String str2, String str3, JsPromptResult jsPromptResult) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;

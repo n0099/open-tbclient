@@ -12,14 +12,14 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.api.WalletLoginHelper;
 import java.util.Map;
-/* loaded from: classes13.dex */
+/* loaded from: classes2.dex */
 public final class PayPreferenceManager {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String PWDPAY_DISPLAY_SCORE_TIP = "pwdpay_display_score_tip";
     public static final String a = "_pay.preferences";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f52155b = "wallet_interface.preferences";
+    public static final String f52200b = "wallet_interface.preferences";
     public transient /* synthetic */ FieldHolder $fh;
 
     public PayPreferenceManager() {
@@ -92,7 +92,7 @@ public final class PayPreferenceManager {
     public static String getWalletInterfaceData(Context context, String str, String str2) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(65541, null, context, str, str2)) == null) ? (String) SharedPreferencesUtils.getParam(context, f52155b, str, str2) : (String) invokeLLL.objValue;
+        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(65541, null, context, str, str2)) == null) ? (String) SharedPreferencesUtils.getParam(context, f52200b, str, str2) : (String) invokeLLL.objValue;
     }
 
     public static void setBoolean(Context context, String str, boolean z) {
@@ -127,7 +127,7 @@ public final class PayPreferenceManager {
     public static void setWalletInterfaceData(Context context, String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(65545, null, context, str, str2) == null) {
-            SharedPreferencesUtils.setParam(context, f52155b, str, str2);
+            SharedPreferencesUtils.setParam(context, f52200b, str, str2);
         }
     }
 }

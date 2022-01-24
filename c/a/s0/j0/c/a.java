@@ -13,16 +13,16 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
 public interface a {
-    public static final C0853a a = C0853a.a;
+    public static final C0862a a = C0862a.a;
 
     /* renamed from: c.a.s0.j0.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public static final class C0853a {
+    public static final class C0862a {
         public static /* synthetic */ Interceptable $ic;
-        public static final /* synthetic */ C0853a a;
+        public static final /* synthetic */ C0862a a;
 
         /* renamed from: b  reason: collision with root package name */
-        public static final ServiceReference f12809b;
+        public static final ServiceReference f12953b;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -38,11 +38,11 @@ public interface a {
                     return;
                 }
             }
-            a = new C0853a();
-            f12809b = new ServiceReference("Frs", "FrsService");
+            a = new C0862a();
+            f12953b = new ServiceReference("Frs", "FrsService");
         }
 
-        public C0853a() {
+        public C0862a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -59,7 +59,7 @@ public interface a {
         public final ServiceReference a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? f12809b : (ServiceReference) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? f12953b : (ServiceReference) invokeV.objValue;
         }
     }
 

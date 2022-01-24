@@ -38,7 +38,7 @@ public class s extends c.a.r0.a.h2.c.j.f {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ s f10084g;
+        public final /* synthetic */ s f10226g;
 
         public b(s sVar) {
             Interceptable interceptable = $ic;
@@ -55,7 +55,7 @@ public class s extends c.a.r0.a.h2.c.j.f {
                     return;
                 }
             }
-            this.f10084g = sVar;
+            this.f10226g = sVar;
         }
 
         @Override // c.a.r0.a.h2.c.e
@@ -63,15 +63,15 @@ public class s extends c.a.r0.a.h2.c.j.f {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                boolean e2 = c.a.r0.a.c1.a.h0().e(this.f10084g.m);
+                boolean e2 = c.a.r0.a.c1.a.h0().e(this.f10226g.m);
                 if (s.t) {
                     String str = "LoginPreparation isLogin : " + e2 + " call stack:" + Log.getStackTraceString(new Exception());
                 }
                 if (!e2) {
-                    this.f10084g.M().M().f(this.f10084g.m, this.f10084g.p, this);
+                    this.f10226g.M().M().f(this.f10226g.m, this.f10226g.p, this);
                     return false;
                 }
-                s sVar = this.f10084g;
+                s sVar = this.f10226g;
                 sVar.h(new c(sVar, null));
                 return true;
             }
@@ -91,7 +91,7 @@ public class s extends c.a.r0.a.h2.c.j.f {
                     e(new OAuthException(10004));
                 } else {
                     c.a.r0.a.h2.c.d.k("Login Preparation ok, is already login", Boolean.FALSE);
-                    s sVar = this.f10084g;
+                    s sVar = this.f10226g;
                     sVar.h(new c(sVar, null));
                     d();
                 }
@@ -109,7 +109,7 @@ public class s extends c.a.r0.a.h2.c.j.f {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ s f10085g;
+        public final /* synthetic */ s f10227g;
 
         /* loaded from: classes6.dex */
         public class a implements c.a.r0.a.z2.g1.c<Bundle> {
@@ -117,7 +117,7 @@ public class s extends c.a.r0.a.h2.c.j.f {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ c f10086e;
+            public final /* synthetic */ c f10228e;
 
             public a(c cVar) {
                 Interceptable interceptable = $ic;
@@ -134,7 +134,7 @@ public class s extends c.a.r0.a.h2.c.j.f {
                         return;
                     }
                 }
-                this.f10086e = cVar;
+                this.f10228e = cVar;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
@@ -145,17 +145,17 @@ public class s extends c.a.r0.a.h2.c.j.f {
                 if (interceptable == null || interceptable.invokeL(1048576, this, bundle) == null) {
                     if (bundle == null) {
                         c.a.r0.a.h2.c.d.k("null stoken", Boolean.TRUE);
-                        this.f10086e.e(new OAuthException(10001));
+                        this.f10228e.e(new OAuthException(10001));
                         return;
                     }
                     String string = bundle.getString(BdZeusUtil.URL_KEY_MACHINE, "");
                     if (!TextUtils.isEmpty(string)) {
-                        this.f10086e.f10085g.s = string;
-                        this.f10086e.d();
+                        this.f10228e.f10227g.s = string;
+                        this.f10228e.d();
                         return;
                     }
                     c.a.r0.a.h2.c.d.k("empty stoken", Boolean.TRUE);
-                    this.f10086e.e(new OAuthException(10001));
+                    this.f10228e.e(new OAuthException(10001));
                 }
             }
         }
@@ -169,14 +169,14 @@ public class s extends c.a.r0.a.h2.c.j.f {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                c.a.r0.b.l.a.t(this.f10085g.m, new a(this), BdZeusUtil.URL_KEY_MACHINE);
+                c.a.r0.b.l.a.t(this.f10227g.m, new a(this), BdZeusUtil.URL_KEY_MACHINE);
                 return false;
             }
             return invokeV.booleanValue;
         }
 
         public c(s sVar) {
-            d.C0561d c0561d;
+            d.C0570d c0570d;
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -191,11 +191,11 @@ public class s extends c.a.r0.a.h2.c.j.f {
                     return;
                 }
             }
-            this.f10085g = sVar;
-            if (sVar.o == null || (c0561d = sVar.n) == null || !c0561d.a) {
+            this.f10227g = sVar;
+            if (sVar.o == null || (c0570d = sVar.n) == null || !c0570d.a) {
                 return;
             }
-            long j2 = c0561d.f8930b;
+            long j2 = c0570d.f9072b;
             if (s.t) {
                 String str = "send timeout " + j2 + "ms msg";
             }
@@ -220,19 +220,19 @@ public class s extends c.a.r0.a.h2.c.j.f {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public s(Activity activity, d.C0561d c0561d, Bundle bundle) {
-        super(activity, c0561d, bundle);
+    public s(Activity activity, d.C0570d c0570d, Bundle bundle) {
+        super(activity, c0570d, bundle);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {activity, c0561d, bundle};
+            Object[] objArr = {activity, c0570d, bundle};
             interceptable.invokeUnInit(65537, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
                 int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                super((Activity) objArr2[0], (d.C0561d) objArr2[1], (Bundle) objArr2[2]);
+                super((Activity) objArr2[0], (d.C0570d) objArr2[1], (Bundle) objArr2[2]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;

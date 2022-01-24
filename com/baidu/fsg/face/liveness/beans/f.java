@@ -13,31 +13,31 @@ public class f {
     public static String a = "https://passport.baidu.com";
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f34227b = "https://passport.qatest.baidu.com";
+    public static String f34255b = "https://passport.qatest.baidu.com";
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f34228c = "http://passport.rdtest.baidu.com";
+    public static String f34256c = "http://passport.rdtest.baidu.com";
 
     /* renamed from: d  reason: collision with root package name */
-    public static String f34229d = "http://wappass.baidu.com";
+    public static String f34257d = "http://wappass.baidu.com";
 
     /* renamed from: e  reason: collision with root package name */
-    public static String f34230e = "http://wappass.qatest.baidu.com";
+    public static String f34258e = "http://wappass.qatest.baidu.com";
 
     /* renamed from: f  reason: collision with root package name */
-    public static String f34231f = "http://wappass.rdtest.baidu.com";
+    public static String f34259f = "http://wappass.rdtest.baidu.com";
 
     /* renamed from: g  reason: collision with root package name */
-    public static String f34232g = "https://gss0.bdstatic.com";
+    public static String f34260g = "https://gss0.bdstatic.com";
 
     /* renamed from: h  reason: collision with root package name */
-    public static String f34233h = "https://passport.baidu.com";
+    public static String f34261h = "https://passport.baidu.com";
 
     /* renamed from: i  reason: collision with root package name */
-    public static String f34234i = "https://passport.qatest.baidu.com";
+    public static String f34262i = "https://passport.qatest.baidu.com";
 
     /* renamed from: j  reason: collision with root package name */
-    public static String f34235j = "https://voiceprint.baidu.com/echo.fcgi";
+    public static String f34263j = "https://voiceprint.baidu.com/echo.fcgi";
     public static String k = "https://voiceprint.baidu.com/echo.fcgi";
     public static String l = "/6bMWfDe8BsgCpNKfpU_Y_D3/static/appsapi/appdistribute/android.txt";
     public static String m = "/risk/living/authfacematch";

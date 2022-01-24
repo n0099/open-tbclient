@@ -8,12 +8,12 @@ import android.widget.RelativeLayout;
 import c.a.d.a.j;
 import c.a.d.f.p.m;
 import c.a.s0.s.u.c;
-import c.a.t0.d1.c1;
-import c.a.t0.d1.d1;
-import c.a.t0.d1.f1;
-import c.a.t0.d1.g1;
-import c.a.t0.d1.i1;
-import c.a.t0.d1.n2.g.h;
+import c.a.t0.e1.c1;
+import c.a.t0.e1.d1;
+import c.a.t0.e1.f1;
+import c.a.t0.e1.g1;
+import c.a.t0.e1.i1;
+import c.a.t0.e1.n2.g.h;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.elementsMaven.view.EMTextView;
@@ -28,20 +28,20 @@ public class CardItemDetailListItemLayout extends RelativeLayout {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: i  reason: collision with root package name */
-    public static String f43532i;
+    public static String f43554i;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public EMTextView f43533e;
+    public EMTextView f43555e;
 
     /* renamed from: f  reason: collision with root package name */
-    public LimitiedCoTextView f43534f;
+    public LimitiedCoTextView f43556f;
 
     /* renamed from: g  reason: collision with root package name */
-    public View f43535g;
+    public View f43557g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f43536h;
+    public String f43558h;
 
     /* loaded from: classes12.dex */
     public static class LimitiedCoTextView extends EMTextView {
@@ -73,7 +73,7 @@ public class CardItemDetailListItemLayout extends RelativeLayout {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeII(1048576, this, i2, i3) == null) {
                 super.onMeasure(i2, i3);
-                if (getText() == null || !getText().toString().endsWith(CardItemDetailListItemLayout.f43532i)) {
+                if (getText() == null || !getText().toString().endsWith(CardItemDetailListItemLayout.f43554i)) {
                     return;
                 }
                 Layout layout = getLayout();
@@ -138,7 +138,7 @@ public class CardItemDetailListItemLayout extends RelativeLayout {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ CardItemDetailListItemLayout f43537e;
+        public final /* synthetic */ CardItemDetailListItemLayout f43559e;
 
         public a(CardItemDetailListItemLayout cardItemDetailListItemLayout) {
             Interceptable interceptable = $ic;
@@ -155,14 +155,14 @@ public class CardItemDetailListItemLayout extends RelativeLayout {
                     return;
                 }
             }
-            this.f43537e = cardItemDetailListItemLayout;
+            this.f43559e = cardItemDetailListItemLayout;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, view) == null) && !m.isEmpty(this.f43537e.f43536h) && (j.a(this.f43537e.getContext()) instanceof TbPageContext)) {
-                UrlManager.getInstance().dealOneLink((TbPageContext) j.a(this.f43537e.getContext()), new String[]{this.f43537e.f43536h});
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view) == null) && !m.isEmpty(this.f43559e.f43558h) && (j.a(this.f43559e.getContext()) instanceof TbPageContext)) {
+                UrlManager.getInstance().dealOneLink((TbPageContext) j.a(this.f43559e.getContext()), new String[]{this.f43559e.f43558h});
             }
         }
     }
@@ -191,47 +191,47 @@ public class CardItemDetailListItemLayout extends RelativeLayout {
     public final void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            if (f43532i == null) {
-                f43532i = getContext().getString(i1.limited_company);
+            if (f43554i == null) {
+                f43554i = getContext().getString(i1.limited_company);
             }
             RelativeLayout.inflate(getContext(), g1.item_detail_list_item_layout, this);
-            this.f43533e = (EMTextView) findViewById(f1.name);
-            this.f43534f = (LimitiedCoTextView) findViewById(f1.value);
-            this.f43535g = findViewById(f1.divider);
-            this.f43534f.setOnClickListener(new a(this));
+            this.f43555e = (EMTextView) findViewById(f1.name);
+            this.f43556f = (LimitiedCoTextView) findViewById(f1.value);
+            this.f43557g = findViewById(f1.divider);
+            this.f43556f.setOnClickListener(new a(this));
         }
     }
 
     public void onChangeSkinType() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            c.d(this.f43533e).v(c1.CAM_X0108);
-            if (m.isEmpty(this.f43536h)) {
-                c d2 = c.d(this.f43534f);
+            c.d(this.f43555e).v(c1.CAM_X0108);
+            if (m.isEmpty(this.f43558h)) {
+                c d2 = c.d(this.f43556f);
                 d2.w(d1.M_T_X002);
                 d2.v(c1.CAM_X0105);
             } else {
-                c d3 = c.d(this.f43534f);
+                c d3 = c.d(this.f43556f);
                 d3.w(d1.M_T_X002);
                 d3.v(c1.CAM_X0304);
             }
-            SkinManager.setBackgroundColor(this.f43535g, c1.CAM_X0203);
+            SkinManager.setBackgroundColor(this.f43557g, c1.CAM_X0203);
         }
     }
 
     public void setData(h hVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, hVar) == null) {
-            this.f43533e.setText(hVar.a);
-            this.f43534f.setText(hVar.f16345b);
-            this.f43536h = hVar.f16346c;
+            this.f43555e.setText(hVar.a);
+            this.f43556f.setText(hVar.f16677b);
+            this.f43558h = hVar.f16678c;
         }
     }
 
     public void setDividerVisible(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
-            this.f43535g.setVisibility(z ? 0 : 8);
+            this.f43557g.setVisibility(z ? 0 : 8);
         }
     }
 

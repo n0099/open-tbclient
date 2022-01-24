@@ -14,16 +14,16 @@ public class h {
     public a a;
 
     /* renamed from: b  reason: collision with root package name */
-    public List<SpecialLiveTabInfo> f14620b;
+    public List<SpecialLiveTabInfo> f14760b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f14621c;
+    public boolean f14761c;
 
     /* renamed from: d  reason: collision with root package name */
-    public AlaUserInfoData f14622d;
+    public AlaUserInfoData f14762d;
 
     /* renamed from: e  reason: collision with root package name */
-    public i f14623e;
+    public i f14763e;
 
     public h() {
         Interceptable interceptable = $ic;

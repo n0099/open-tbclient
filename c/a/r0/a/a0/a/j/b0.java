@@ -35,7 +35,7 @@ public class b0 extends a {
         if (!(interceptable == null || interceptable.invokeLL(1048576, this, bVar, canvas) == null) || (dashPathEffect = this.a) == null) {
             return;
         }
-        bVar.f5072g.setPathEffect(dashPathEffect);
+        bVar.f5214g.setPathEffect(dashPathEffect);
     }
 
     @Override // c.a.r0.a.a0.a.j.a

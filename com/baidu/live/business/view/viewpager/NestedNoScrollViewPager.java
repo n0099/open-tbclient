@@ -17,7 +17,7 @@ public class NestedNoScrollViewPager extends ViewPager {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f34842e;
+    public boolean f34870e;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public NestedNoScrollViewPager(@NonNull Context context) {
@@ -45,7 +45,7 @@ public class NestedNoScrollViewPager extends ViewPager {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) {
-            if (this.f34842e) {
+            if (this.f34870e) {
                 return super.canScrollHorizontally(i2);
             }
             return false;
@@ -58,7 +58,7 @@ public class NestedNoScrollViewPager extends ViewPager {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, motionEvent)) == null) {
-            if (this.f34842e) {
+            if (this.f34870e) {
                 return super.onInterceptTouchEvent(motionEvent);
             }
             return false;
@@ -71,7 +71,7 @@ public class NestedNoScrollViewPager extends ViewPager {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, motionEvent)) == null) {
-            if (this.f34842e) {
+            if (this.f34870e) {
                 return super.onTouchEvent(motionEvent);
             }
             return false;
@@ -93,7 +93,7 @@ public class NestedNoScrollViewPager extends ViewPager {
     public void setCanScrollHorizontally(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
-            this.f34842e = z;
+            this.f34870e = z;
         }
     }
 

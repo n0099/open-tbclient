@@ -4,7 +4,7 @@ import java.io.IOException;
 import org.apache.http.HttpException;
 import org.apache.http.HttpMessage;
 @Deprecated
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public interface HttpMessageParser {
     HttpMessage parse() throws IOException, HttpException;
 }

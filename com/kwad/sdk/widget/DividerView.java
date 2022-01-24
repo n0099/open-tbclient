@@ -13,16 +13,16 @@ public class DividerView extends View {
     public static int a = 0;
 
     /* renamed from: b  reason: collision with root package name */
-    public static int f57968b = 1;
+    public static int f58013b = 1;
 
     /* renamed from: c  reason: collision with root package name */
-    public Paint f57969c;
+    public Paint f58014c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f57970d;
+    public int f58015d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f57971e;
+    public int f58016e;
 
     public DividerView(Context context) {
         this(context, null);
@@ -35,16 +35,16 @@ public class DividerView extends View {
             int dimensionPixelSize = obtainStyledAttributes.getDimensionPixelSize(R.styleable.ksad_DividerView_ksad_dashGap, 5);
             int dimensionPixelSize2 = obtainStyledAttributes.getDimensionPixelSize(R.styleable.ksad_DividerView_ksad_dashLength, 5);
             int dimensionPixelSize3 = obtainStyledAttributes.getDimensionPixelSize(R.styleable.ksad_DividerView_ksad_dashThickness, 3);
-            this.f57971e = obtainStyledAttributes.getColor(R.styleable.ksad_DividerView_ksad_color, -16777216);
-            this.f57970d = obtainStyledAttributes.getInt(R.styleable.ksad_DividerView_ksad_orientation, a);
+            this.f58016e = obtainStyledAttributes.getColor(R.styleable.ksad_DividerView_ksad_color, -16777216);
+            this.f58015d = obtainStyledAttributes.getInt(R.styleable.ksad_DividerView_ksad_orientation, a);
             obtainStyledAttributes.recycle();
             Paint paint = new Paint();
-            this.f57969c = paint;
+            this.f58014c = paint;
             paint.setAntiAlias(true);
-            this.f57969c.setColor(this.f57971e);
-            this.f57969c.setStyle(Paint.Style.STROKE);
-            this.f57969c.setStrokeWidth(dimensionPixelSize3);
-            this.f57969c.setPathEffect(new DashPathEffect(new float[]{dimensionPixelSize2, dimensionPixelSize}, 0.0f));
+            this.f58014c.setColor(this.f58016e);
+            this.f58014c.setStyle(Paint.Style.STROKE);
+            this.f58014c.setStrokeWidth(dimensionPixelSize3);
+            this.f58014c.setPathEffect(new DashPathEffect(new float[]{dimensionPixelSize2, dimensionPixelSize}, 0.0f));
         } catch (Throwable th) {
             obtainStyledAttributes.recycle();
             throw th;
@@ -59,18 +59,18 @@ public class DividerView extends View {
         Paint paint;
         Canvas canvas2;
         float f3;
-        if (this.f57970d == a) {
+        if (this.f58015d == a) {
             height = getHeight() * 0.5f;
             f3 = 0.0f;
             width = getWidth();
-            paint = this.f57969c;
+            paint = this.f58014c;
             canvas2 = canvas;
             f2 = height;
         } else {
             width = getWidth() * 0.5f;
             f2 = 0.0f;
             height = getHeight();
-            paint = this.f57969c;
+            paint = this.f58014c;
             canvas2 = canvas;
             f3 = width;
         }
@@ -78,8 +78,8 @@ public class DividerView extends View {
     }
 
     public void setDividerColor(int i2) {
-        this.f57971e = i2;
-        this.f57969c.setColor(i2);
+        this.f58016e = i2;
+        this.f58014c.setColor(i2);
         postInvalidate();
     }
 }

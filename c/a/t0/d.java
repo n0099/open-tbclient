@@ -1,7 +1,7 @@
 package c.a.t0;
 
 import android.content.Intent;
-import c.a.t0.j3.y;
+import c.a.t0.k3.y;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
@@ -11,6 +11,7 @@ import com.baidu.searchbox.launch.utils.SpeedStatsUtils;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.MainTabActivityConfig;
 import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
 import com.baidu.tbadk.core.util.TiebaStatic;
@@ -20,32 +21,33 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.PrintStream;
 /* loaded from: classes7.dex */
 public class d {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: h  reason: collision with root package name */
-    public static volatile d f15646h;
+    public static volatile d f15794h;
     public transient /* synthetic */ FieldHolder $fh;
     public long a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f15647b;
+    public boolean f15795b;
 
     /* renamed from: c  reason: collision with root package name */
-    public c.a.s0.l.c f15648c;
+    public c.a.s0.l.c f15796c;
 
     /* renamed from: d  reason: collision with root package name */
-    public CustomMessageListener f15649d;
+    public CustomMessageListener f15797d;
 
     /* renamed from: e  reason: collision with root package name */
-    public CustomMessageListener f15650e;
+    public CustomMessageListener f15798e;
 
     /* renamed from: f  reason: collision with root package name */
-    public CustomMessageListener f15651f;
+    public CustomMessageListener f15799f;
 
     /* renamed from: g  reason: collision with root package name */
-    public CustomMessageListener f15652g;
+    public CustomMessageListener f15800g;
 
     /* loaded from: classes7.dex */
     public class a extends CustomMessageListener {
@@ -115,7 +117,9 @@ public class d {
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2016521) {
-                this.a.e();
+                if (customResponsedMessage.getData() == null || !(customResponsedMessage.getData() instanceof LogoActivity)) {
+                    this.a.e();
+                }
             }
         }
     }
@@ -155,15 +159,15 @@ public class d {
                 return;
             }
             Object data = customResponsedMessage.getData();
-            if (data.getClass().getSimpleName().equals(LoginActivity.E) || (data instanceof LogoActivity)) {
+            if (data.getClass().getSimpleName().equals(LoginActivity.E) || (data instanceof LogoActivity) || MainTabActivityConfig.IS_MAIN_TAB_SPLASH_SHOW) {
                 return;
             }
             boolean f2 = this.a.f();
             long currentTimeMillis = System.currentTimeMillis() / 1000;
             if (currentTimeMillis - this.a.a > 5) {
-                new StatisticItem(TbadkCoreStatisticKey.HOT_SPLASH_APP_START).param("obj_param1", f2 ? 1 : 0).param(TiebaStatic.Params.OBJ_PARAM2, currentTimeMillis - this.a.a).param(TiebaStatic.Params.OBJ_PARAM3, c.a.s0.s.y.a.f13676b ? 1 : 0).eventStat();
-                if (c.a.s0.s.y.a.f13676b) {
-                    c.a.s0.s.y.a.f13676b = false;
+                new StatisticItem(TbadkCoreStatisticKey.HOT_SPLASH_APP_START).param("obj_param1", f2 ? 1 : 0).param(TiebaStatic.Params.OBJ_PARAM2, currentTimeMillis - this.a.a).param(TiebaStatic.Params.OBJ_PARAM3, c.a.s0.s.z.a.f13863b ? 1 : 0).eventStat();
+                if (c.a.s0.s.z.a.f13863b) {
+                    c.a.s0.s.z.a.f13863b = false;
                 }
             }
             if (f2) {
@@ -189,13 +193,13 @@ public class d {
 
     /* renamed from: c.a.t0.d$d  reason: collision with other inner class name */
     /* loaded from: classes7.dex */
-    public class C1001d extends CustomMessageListener {
+    public class C1005d extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ d a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public C1001d(d dVar, int i2) {
+        public C1005d(d dVar, int i2) {
             super(i2);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -225,7 +229,7 @@ public class d {
                     long currentTimeMillis = System.currentTimeMillis() / 1000;
                     if (((Boolean) data).booleanValue()) {
                         d dVar = this.a;
-                        dVar.f15647b = currentTimeMillis - dVar.a <= 1;
+                        dVar.f15795b = currentTimeMillis - dVar.a <= 1;
                     }
                 }
             }
@@ -245,15 +249,15 @@ public class d {
                 return;
             }
         }
-        this.f15649d = new a(this, 2016522);
-        this.f15650e = new b(this, 2016521);
-        this.f15651f = new c(this, 2016520);
-        this.f15652g = new C1001d(this, 2016523);
-        this.f15647b = false;
-        MessageManager.getInstance().registerListener(this.f15650e);
-        MessageManager.getInstance().registerListener(this.f15651f);
-        MessageManager.getInstance().registerListener(this.f15649d);
-        MessageManager.getInstance().registerListener(this.f15652g);
+        this.f15797d = new a(this, 2016522);
+        this.f15798e = new b(this, 2016521);
+        this.f15799f = new c(this, 2016520);
+        this.f15800g = new C1005d(this, 2016523);
+        this.f15795b = false;
+        MessageManager.getInstance().registerListener(this.f15798e);
+        MessageManager.getInstance().registerListener(this.f15799f);
+        MessageManager.getInstance().registerListener(this.f15797d);
+        MessageManager.getInstance().registerListener(this.f15800g);
         if (y.q().n() != null) {
             y.q().n().c();
         }
@@ -263,14 +267,14 @@ public class d {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            if (f15646h == null) {
+            if (f15794h == null) {
                 synchronized (d.class) {
-                    if (f15646h == null) {
-                        f15646h = new d();
+                    if (f15794h == null) {
+                        f15794h = new d();
                     }
                 }
             }
-            return f15646h;
+            return f15794h;
         }
         return (d) invokeV.objValue;
     }
@@ -289,14 +293,17 @@ public class d {
             int h2 = h();
             int i2 = i();
             long currentTimeMillis = System.currentTimeMillis() / 1000;
-            if (this.f15647b) {
-                this.f15647b = false;
+            if (this.f15795b) {
+                this.f15795b = false;
                 return false;
             }
             long j2 = this.a;
             if (currentTimeMillis - j2 > 2 && currentTimeMillis - j2 > h2) {
-                c.a.t0.j3.s n = y.q().n();
-                return (n != null ? n.a() : i2) < i2;
+                c.a.t0.k3.s n = y.q().n();
+                int a2 = n != null ? n.a() : i2;
+                PrintStream printStream = System.out;
+                printStream.println("TestTest => hotSplashMaxTime: " + i2 + " currentTime: " + a2 + " interval: " + h2);
+                return a2 < i2;
             }
             return false;
         }
@@ -308,10 +315,10 @@ public class d {
         CustomResponsedMessage runTask;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (this.f15648c == null && (runTask = MessageManager.getInstance().runTask(2921564, c.a.s0.l.c.class)) != null) {
-                this.f15648c = (c.a.s0.l.c) runTask.getData();
+            if (this.f15796c == null && (runTask = MessageManager.getInstance().runTask(2921564, c.a.s0.l.c.class)) != null) {
+                this.f15796c = (c.a.s0.l.c) runTask.getData();
             }
-            c.a.s0.l.c cVar = this.f15648c;
+            c.a.s0.l.c cVar = this.f15796c;
             if (cVar != null) {
                 return (int) (cVar.a() * 60.0f);
             }
@@ -333,10 +340,10 @@ public class d {
         CustomResponsedMessage runTask;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if (this.f15648c == null && (runTask = MessageManager.getInstance().runTask(2921564, c.a.s0.l.c.class)) != null) {
-                this.f15648c = (c.a.s0.l.c) runTask.getData();
+            if (this.f15796c == null && (runTask = MessageManager.getInstance().runTask(2921564, c.a.s0.l.c.class)) != null) {
+                this.f15796c = (c.a.s0.l.c) runTask.getData();
             }
-            c.a.s0.l.c cVar = this.f15648c;
+            c.a.s0.l.c cVar = this.f15796c;
             if (cVar != null) {
                 return cVar.b();
             }

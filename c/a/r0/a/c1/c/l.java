@@ -65,7 +65,7 @@ public class l implements c.a.r0.p.a {
                 return null;
             }
             SwanAppConfigData P = a0.P();
-            if (P == null || (aVar = P.f39346h) == null) {
+            if (P == null || (aVar = P.f39374h) == null) {
                 boolean z2 = c.a.r0.a.k.a;
                 return null;
             }

@@ -291,7 +291,7 @@ public class b implements k {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65549, this, context)) == null) {
             int i2 = Build.VERSION.SDK_INT;
-            String cw = i2 > 28 ? cw() : (i2 <= 27 || context.checkSelfPermission(s.f55242c) != 0) ? Build.SERIAL : Build.getSerial();
+            String cw = i2 > 28 ? cw() : (i2 <= 27 || context.checkSelfPermission(s.f55287c) != 0) ? Build.SERIAL : Build.getSerial();
             return "unknown".equals(cw) ? "" : cw;
         }
         return (String) invokeL.objValue;

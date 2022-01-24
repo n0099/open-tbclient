@@ -1,7 +1,7 @@
 package com.ss.android.socialbase.downloader.depend;
 
 import com.ss.android.socialbase.downloader.model.DownloadTask;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public interface ab {
     void a(DownloadTask downloadTask, int i2);
 

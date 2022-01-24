@@ -26,19 +26,19 @@ public class FunAdNativePicView extends FrameLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public View f43964e;
+    public View f43992e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TbImageView f43965f;
+    public TbImageView f43993f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TbImageView f43966g;
+    public TbImageView f43994g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TbImageView f43967h;
+    public TbImageView f43995h;
 
     /* renamed from: i  reason: collision with root package name */
-    public TbImageView f43968i;
+    public TbImageView f43996i;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public FunAdNativePicView(Context context) {
@@ -66,31 +66,31 @@ public class FunAdNativePicView extends FrameLayout {
         if (interceptable == null || interceptable.invokeL(65538, this, list) == null) {
             if (ListUtils.getCount(list) != 0) {
                 if (list.size() == 1) {
-                    this.f43964e.setVisibility(8);
-                    this.f43968i.setVisibility(0);
+                    this.f43992e.setVisibility(8);
+                    this.f43996i.setVisibility(0);
                     c((String) ListUtils.getItem(list, 0));
                     return;
                 }
-                this.f43968i.setVisibility(8);
-                this.f43964e.setVisibility(0);
+                this.f43996i.setVisibility(8);
+                this.f43992e.setVisibility(0);
                 if (ListUtils.getCount(list) == 2) {
-                    d((String) ListUtils.getItem(list, 0), this.f43965f);
-                    d((String) ListUtils.getItem(list, 1), this.f43966g);
-                    this.f43967h.reset();
+                    d((String) ListUtils.getItem(list, 0), this.f43993f);
+                    d((String) ListUtils.getItem(list, 1), this.f43994g);
+                    this.f43995h.reset();
                     return;
                 } else if (ListUtils.getCount(list) >= 3) {
-                    this.f43966g.setVisibility(0);
-                    d((String) ListUtils.getItem(list, 0), this.f43965f);
-                    d((String) ListUtils.getItem(list, 1), this.f43966g);
-                    d((String) ListUtils.getItem(list, 2), this.f43967h);
+                    this.f43994g.setVisibility(0);
+                    d((String) ListUtils.getItem(list, 0), this.f43993f);
+                    d((String) ListUtils.getItem(list, 1), this.f43994g);
+                    d((String) ListUtils.getItem(list, 2), this.f43995h);
                     return;
                 } else {
-                    this.f43964e.setVisibility(8);
+                    this.f43992e.setVisibility(8);
                     return;
                 }
             }
-            this.f43968i.setVisibility(8);
-            this.f43964e.setVisibility(8);
+            this.f43996i.setVisibility(8);
+            this.f43992e.setVisibility(8);
         }
     }
 
@@ -113,45 +113,45 @@ public class FunAdNativePicView extends FrameLayout {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             LayoutInflater.from(getContext()).inflate(R.layout.fun_ad_native_pic, (ViewGroup) this, true);
             setLayoutParams(new ViewGroup.LayoutParams(-1, -1));
-            this.f43964e = findViewById(R.id.fun_ad_img_more_container);
+            this.f43992e = findViewById(R.id.fun_ad_img_more_container);
             TbImageView tbImageView = (TbImageView) findViewById(R.id.fun_ad_img_more_one);
-            this.f43965f = tbImageView;
+            this.f43993f = tbImageView;
             tbImageView.setDrawCorner(true);
-            this.f43965f.setPlaceHolder(2);
-            this.f43965f.setRadiusById(R.string.J_X12);
-            this.f43965f.setConrers(15);
-            a(this.f43965f);
+            this.f43993f.setPlaceHolder(2);
+            this.f43993f.setRadiusById(R.string.J_X12);
+            this.f43993f.setConrers(15);
+            a(this.f43993f);
             TbImageView tbImageView2 = (TbImageView) findViewById(R.id.fun_ad_img_more_two);
-            this.f43966g = tbImageView2;
+            this.f43994g = tbImageView2;
             tbImageView2.setDrawCorner(false);
-            this.f43966g.setPlaceHolder(2);
-            this.f43966g.setRadiusById(R.string.J_X02);
-            this.f43966g.setConrers(15);
-            a(this.f43966g);
+            this.f43994g.setPlaceHolder(2);
+            this.f43994g.setRadiusById(R.string.J_X02);
+            this.f43994g.setConrers(15);
+            a(this.f43994g);
             TbImageView tbImageView3 = (TbImageView) findViewById(R.id.fun_ad_img_more_three);
-            this.f43967h = tbImageView3;
+            this.f43995h = tbImageView3;
             tbImageView3.setDrawCorner(true);
-            this.f43967h.setPlaceHolder(2);
-            this.f43967h.setRadiusById(R.string.J_X11);
-            this.f43967h.setConrers(15);
-            a(this.f43967h);
+            this.f43995h.setPlaceHolder(2);
+            this.f43995h.setRadiusById(R.string.J_X11);
+            this.f43995h.setConrers(15);
+            a(this.f43995h);
             TbImageView tbImageView4 = (TbImageView) findViewById(R.id.fun_ad_img_big_one);
-            this.f43968i = tbImageView4;
+            this.f43996i = tbImageView4;
             tbImageView4.setDrawCorner(true);
-            this.f43968i.setPlaceHolder(3);
-            this.f43968i.setRadiusById(R.string.J_X05);
-            this.f43968i.setConrers(15);
-            a(this.f43968i);
+            this.f43996i.setPlaceHolder(3);
+            this.f43996i.setRadiusById(R.string.J_X05);
+            this.f43996i.setConrers(15);
+            a(this.f43996i);
         }
     }
 
     public final void c(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            if (!StringHelper.equals(str, this.f43968i.getUrl())) {
-                this.f43968i.reset();
+            if (!StringHelper.equals(str, this.f43996i.getUrl())) {
+                this.f43996i.reset();
             }
-            this.f43968i.startLoad(str, 10, false);
+            this.f43996i.startLoad(str, 10, false);
         }
     }
 
@@ -168,11 +168,11 @@ public class FunAdNativePicView extends FrameLayout {
     public void onChangedSkinType() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            SkinManager.setBackgroundColor(this.f43964e, R.color.CAM_X0205);
-            this.f43968i.setBorderColor(SkinManager.getColor(R.color.CAM_X0401));
-            this.f43965f.setBorderColor(SkinManager.getColor(R.color.CAM_X0401));
-            this.f43965f.setBorderColor(SkinManager.getColor(R.color.CAM_X0401));
-            this.f43965f.setBorderColor(SkinManager.getColor(R.color.CAM_X0401));
+            SkinManager.setBackgroundColor(this.f43992e, R.color.CAM_X0205);
+            this.f43996i.setBorderColor(SkinManager.getColor(R.color.CAM_X0401));
+            this.f43993f.setBorderColor(SkinManager.getColor(R.color.CAM_X0401));
+            this.f43993f.setBorderColor(SkinManager.getColor(R.color.CAM_X0401));
+            this.f43993f.setBorderColor(SkinManager.getColor(R.color.CAM_X0401));
         }
     }
 
@@ -187,10 +187,10 @@ public class FunAdNativePicView extends FrameLayout {
     public void reset() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            this.f43965f.reset();
-            this.f43966g.reset();
-            this.f43967h.reset();
-            this.f43968i.reset();
+            this.f43993f.reset();
+            this.f43994g.reset();
+            this.f43995h.reset();
+            this.f43996i.reset();
         }
     }
 

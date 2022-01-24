@@ -22,14 +22,14 @@ public class e implements Application.ActivityLifecycleCallbacks {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: g  reason: collision with root package name */
-    public static int f3760g;
+    public static int f3901g;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f3761e;
+    public int f3902e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f3762f;
+    public boolean f3903f;
 
     static {
         InterceptResult invokeClinit;
@@ -59,34 +59,34 @@ public class e implements Application.ActivityLifecycleCallbacks {
                 return;
             }
         }
-        this.f3762f = true;
+        this.f3903f = true;
     }
 
     public static int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f3760g : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f3901g : invokeV.intValue;
     }
 
     public void b(Activity activity) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, activity) == null) {
-            if (this.f3762f) {
-                f3760g = 0;
-                this.f3762f = false;
+            if (this.f3903f) {
+                f3901g = 0;
+                this.f3903f = false;
             }
             JSONObject d2 = c.a.i0.a.b.d.a().d();
             if (d2 == null || !d2.optBoolean("should_update_by_sdk", true)) {
                 return;
             }
-            c.a.b.f().j(f3760g);
+            c.a.b.f().j(f3901g);
         }
     }
 
     public void c(Activity activity) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity) == null) {
-            f3760g = 1;
+            f3901g = 1;
         }
     }
 
@@ -129,8 +129,8 @@ public class e implements Application.ActivityLifecycleCallbacks {
     public void onActivityStarted(@NonNull Activity activity) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, activity) == null) {
-            int i2 = this.f3761e + 1;
-            this.f3761e = i2;
+            int i2 = this.f3902e + 1;
+            this.f3902e = i2;
             if (i2 == 1) {
                 b(activity);
             }
@@ -141,8 +141,8 @@ public class e implements Application.ActivityLifecycleCallbacks {
     public void onActivityStopped(@NonNull Activity activity) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, activity) == null) {
-            int i2 = this.f3761e - 1;
-            this.f3761e = i2;
+            int i2 = this.f3902e - 1;
+            this.f3902e = i2;
             if (i2 == 0) {
                 c(activity);
             }

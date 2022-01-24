@@ -12,7 +12,7 @@ public abstract class b {
     public Runnable a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final String f58288b;
+    public final String f58333b;
 
     public b(String str) {
         Interceptable interceptable = $ic;
@@ -30,12 +30,12 @@ public abstract class b {
             }
         }
         this.a = null;
-        this.f58288b = str;
+        this.f58333b = str;
     }
 
     public final String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f58288b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f58333b : (String) invokeV.objValue;
     }
 }

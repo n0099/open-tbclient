@@ -1,7 +1,6 @@
 package c.a.s0.t.c;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.launch.ExternalTransferSpeedStats;
 import com.baidu.tbadk.core.atomData.ShareDialogConfig;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -20,21 +19,21 @@ public class i0 {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final Map<ShareDialogConfig.From, Integer> f13840f;
+    public static final Map<ShareDialogConfig.From, Integer> f13985f;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f13841b;
+    public int f13986b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f13842c;
+    public String f13987c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f13843d;
+    public int f13988d;
 
     /* renamed from: e  reason: collision with root package name */
-    public List<Integer> f13844e;
+    public List<Integer> f13989e;
 
     static {
         InterceptResult invokeClinit;
@@ -50,16 +49,16 @@ public class i0 {
             }
         }
         HashMap hashMap = new HashMap();
-        f13840f = hashMap;
+        f13985f = hashMap;
         hashMap.put(ShareDialogConfig.From.Recommend, 1);
-        f13840f.put(ShareDialogConfig.From.Concern, 2);
-        f13840f.put(ShareDialogConfig.From.PB, 3);
-        f13840f.put(ShareDialogConfig.From.FRS, 4);
-        f13840f.put(ShareDialogConfig.From.PersonPolymeric, 5);
-        f13840f.put(ShareDialogConfig.From.VideoMiddlePageHorizontal, 6);
-        f13840f.put(ShareDialogConfig.From.VideoMiddlePageVertical, 7);
-        f13840f.put(ShareDialogConfig.From.HomeVideoTab, 8);
-        f13840f.put(ShareDialogConfig.From.HomeGameTab, 9);
+        f13985f.put(ShareDialogConfig.From.Concern, 2);
+        f13985f.put(ShareDialogConfig.From.PB, 3);
+        f13985f.put(ShareDialogConfig.From.FRS, 4);
+        f13985f.put(ShareDialogConfig.From.PersonPolymeric, 5);
+        f13985f.put(ShareDialogConfig.From.VideoMiddlePageHorizontal, 6);
+        f13985f.put(ShareDialogConfig.From.VideoMiddlePageVertical, 7);
+        f13985f.put(ShareDialogConfig.From.HomeVideoTab, 8);
+        f13985f.put(ShareDialogConfig.From.HomeGameTab, 9);
     }
 
     public i0() {
@@ -79,26 +78,26 @@ public class i0 {
     public int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f13843d : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f13988d : invokeV.intValue;
     }
 
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f13842c : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f13987c : (String) invokeV.objValue;
     }
 
     public boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? System.currentTimeMillis() / 1000 >= ((long) this.a) && System.currentTimeMillis() / 1000 <= ((long) this.f13841b) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? System.currentTimeMillis() / 1000 >= ((long) this.a) && System.currentTimeMillis() / 1000 <= ((long) this.f13986b) : invokeV.booleanValue;
     }
 
     public boolean d(ShareDialogConfig.From from) {
         InterceptResult invokeL;
         Integer num;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, from)) == null) ? (this.f13844e == null || (num = f13840f.get(from)) == null || !this.f13844e.contains(num)) ? false : true : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, from)) == null) ? (this.f13989e == null || (num = f13985f.get(from)) == null || !this.f13989e.contains(num)) ? false : true : invokeL.booleanValue;
     }
 
     public void e(JSONObject jSONObject) {
@@ -106,10 +105,10 @@ public class i0 {
         if (!(interceptable == null || interceptable.invokeL(1048580, this, jSONObject) == null) || jSONObject == null) {
             return;
         }
-        this.a = jSONObject.optInt(ExternalTransferSpeedStats.UBC_APPLICATION_CREATE_KEY);
-        this.f13841b = jSONObject.optInt("end_time");
-        this.f13842c = jSONObject.optString("text");
-        this.f13843d = jSONObject.optInt("icon_exp");
+        this.a = jSONObject.optInt("begin_time");
+        this.f13986b = jSONObject.optInt("end_time");
+        this.f13987c = jSONObject.optString("text");
+        this.f13988d = jSONObject.optInt("icon_exp");
         f(jSONObject.optString("page_list"));
     }
 
@@ -122,10 +121,10 @@ public class i0 {
         for (String str2 : split) {
             int e2 = c.a.d.f.m.b.e(str2, -1);
             if (e2 != -1) {
-                if (this.f13844e == null) {
-                    this.f13844e = new ArrayList();
+                if (this.f13989e == null) {
+                    this.f13989e = new ArrayList();
                 }
-                this.f13844e.add(Integer.valueOf(e2));
+                this.f13989e.add(Integer.valueOf(e2));
             }
         }
     }

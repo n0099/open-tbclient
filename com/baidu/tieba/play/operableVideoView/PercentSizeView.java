@@ -15,10 +15,10 @@ public class PercentSizeView extends View {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public float f47357e;
+    public float f47385e;
 
     /* renamed from: f  reason: collision with root package name */
-    public float f47358f;
+    public float f47386f;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public PercentSizeView(Context context) {
@@ -38,8 +38,8 @@ public class PercentSizeView extends View {
                 return;
             }
         }
-        this.f47357e = 1.0f;
-        this.f47358f = 1.0f;
+        this.f47385e = 1.0f;
+        this.f47386f = 1.0f;
     }
 
     @Override // android.view.View
@@ -52,12 +52,12 @@ public class PercentSizeView extends View {
             if (View.MeasureSpec.getMode(i2) == 1073741824) {
                 measuredWidth = View.MeasureSpec.getSize(i2);
             } else {
-                measuredWidth = (int) (getMeasuredWidth() * this.f47358f);
+                measuredWidth = (int) (getMeasuredWidth() * this.f47386f);
             }
             if (View.MeasureSpec.getMode(i3) == 1073741824) {
                 measuredHeight = View.MeasureSpec.getSize(i3);
             } else {
-                measuredHeight = (int) (getMeasuredHeight() * this.f47357e);
+                measuredHeight = (int) (getMeasuredHeight() * this.f47385e);
             }
             setMeasuredDimension(measuredWidth, measuredHeight);
         }
@@ -68,7 +68,7 @@ public class PercentSizeView extends View {
         if (!(interceptable == null || interceptable.invokeF(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, f2) == null) || f2 <= 0.0f) {
             return;
         }
-        this.f47357e = f2;
+        this.f47385e = f2;
     }
 
     public void setWidthPercent(float f2) {
@@ -76,7 +76,7 @@ public class PercentSizeView extends View {
         if (!(interceptable == null || interceptable.invokeF(Constants.METHOD_SEND_USER_MSG, this, f2) == null) || f2 <= 0.0f) {
             return;
         }
-        this.f47358f = f2;
+        this.f47386f = f2;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -98,8 +98,8 @@ public class PercentSizeView extends View {
                 return;
             }
         }
-        this.f47357e = 1.0f;
-        this.f47358f = 1.0f;
+        this.f47385e = 1.0f;
+        this.f47386f = 1.0f;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -121,7 +121,7 @@ public class PercentSizeView extends View {
                 return;
             }
         }
-        this.f47357e = 1.0f;
-        this.f47358f = 1.0f;
+        this.f47385e = 1.0f;
+        this.f47386f = 1.0f;
     }
 }

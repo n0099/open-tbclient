@@ -1,8 +1,8 @@
 package com.baidu.tieba.forumMember.member;
 
 import androidx.core.view.InputDeviceCompat;
-import c.a.t0.b1.c.c;
-import c.a.t0.w3.x;
+import c.a.t0.c1.c.c;
+import c.a.t0.x3.x;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -136,11 +136,11 @@ public class ForumMemberSocketResponseMessage extends SocketResponsedMessage {
                     if (dataRes.forum_member_info != null) {
                         x xVar = new x();
                         this.mUserInfo = xVar;
-                        xVar.v(getMemberInfoResIdl.data.forum_member_info.is_like.intValue());
-                        this.mUserInfo.r(getMemberInfoResIdl.data.forum_member_info.cur_score.intValue());
-                        this.mUserInfo.u(getMemberInfoResIdl.data.forum_member_info.levelup_score.intValue());
-                        this.mUserInfo.w(getMemberInfoResIdl.data.forum_member_info.user_level.intValue());
-                        this.mUserInfo.t(getMemberInfoResIdl.data.forum_member_info.level_name);
+                        xVar.w(getMemberInfoResIdl.data.forum_member_info.is_like.intValue());
+                        this.mUserInfo.s(getMemberInfoResIdl.data.forum_member_info.cur_score.intValue());
+                        this.mUserInfo.v(getMemberInfoResIdl.data.forum_member_info.levelup_score.intValue());
+                        this.mUserInfo.x(getMemberInfoResIdl.data.forum_member_info.user_level.intValue());
+                        this.mUserInfo.u(getMemberInfoResIdl.data.forum_member_info.level_name);
                     }
                     DataRes dataRes2 = getMemberInfoResIdl.data;
                     this.mMemberGroupInfoList = dataRes2.member_group_info;

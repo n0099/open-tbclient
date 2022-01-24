@@ -11,31 +11,31 @@ public class a {
     public boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f21385b;
+    public String f21621b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f21386c;
+    public String f21622c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f21387d;
+    public int f21623d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f21388e;
+    public String f21624e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f21389f;
+    public String f21625f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f21390g;
+    public String f21626g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f21391h;
+    public String f21627h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f21392i;
+    public String f21628i;
 
     /* renamed from: j  reason: collision with root package name */
-    public String f21393j;
+    public String f21629j;
     public long k;
     public int l;
     public String m;

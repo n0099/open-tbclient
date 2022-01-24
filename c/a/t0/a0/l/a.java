@@ -5,7 +5,7 @@ import android.view.LayoutInflater;
 import android.view.ViewGroup;
 import c.a.s0.i0.b;
 import c.a.s0.i0.c;
-import c.a.t0.d1.j0;
+import c.a.t0.e1.j0;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.mainTab.FragmentTabIndicator;
 import com.baidu.tbadk.mainTab.TbFragmentTabIndicator;
@@ -70,9 +70,9 @@ public class a extends b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             c cVar = new c();
-            cVar.f12789e = 5;
-            cVar.f12786b = R.string.ala_live;
-            cVar.f12793i = c.k;
+            cVar.f12933e = 5;
+            cVar.f12930b = R.string.ala_live;
+            cVar.f12937i = c.k;
             return cVar;
         }
         return (c) invokeV.objValue;

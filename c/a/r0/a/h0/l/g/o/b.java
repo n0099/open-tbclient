@@ -59,10 +59,10 @@ public class b extends c.a.r0.a.h0.l.g.a {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, pMSAppInfo, cVar)) == null) {
-            if (this.f6574e == null || this.f6574e.f6588b == null) {
+            if (this.f6716e == null || this.f6716e.f6730b == null) {
                 return false;
             }
-            return (pMSAppInfo.versionCode == this.f6574e.f6588b.versionCode && TextUtils.equals(pMSAppInfo.appId, this.f6574e.a) && !m(cVar, this.f6574e.f6589c)) ? false : true;
+            return (pMSAppInfo.versionCode == this.f6716e.f6730b.versionCode && TextUtils.equals(pMSAppInfo.appId, this.f6716e.a) && !m(cVar, this.f6716e.f6731c)) ? false : true;
         }
         return invokeLL.booleanValue;
     }

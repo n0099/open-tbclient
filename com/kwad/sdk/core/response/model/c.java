@@ -4,23 +4,23 @@ public class c {
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f56202b;
+    public int f56247b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f56203c;
+    public int f56248c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f56204d;
+    public boolean f56249d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f56205e;
+    public boolean f56250e;
 
     public c(String str, int i2, int i3, boolean z, boolean z2) {
         this.a = str;
-        this.f56202b = i2;
-        this.f56203c = i3;
-        this.f56204d = z;
-        this.f56205e = z2;
+        this.f56247b = i2;
+        this.f56248c = i3;
+        this.f56249d = z;
+        this.f56250e = z2;
     }
 
     public String a() {
@@ -28,10 +28,10 @@ public class c {
     }
 
     public int b() {
-        return this.f56203c;
+        return this.f56248c;
     }
 
     public int c() {
-        return this.f56202b;
+        return this.f56247b;
     }
 }

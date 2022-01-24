@@ -36,10 +36,10 @@ public class e {
         public final /* synthetic */ TbPageContext a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ h f18614b;
+        public final /* synthetic */ h f18595b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ boolean f18615c;
+        public final /* synthetic */ boolean f18596c;
 
         public a(TbPageContext tbPageContext, h hVar, boolean z) {
             Interceptable interceptable = $ic;
@@ -57,8 +57,8 @@ public class e {
                 }
             }
             this.a = tbPageContext;
-            this.f18614b = hVar;
-            this.f18615c = z;
+            this.f18595b = hVar;
+            this.f18596c = z;
         }
 
         @Override // c.a.t0.k.j.h
@@ -66,7 +66,7 @@ public class e {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, jSONArray) == null) {
                 if (l.A()) {
-                    e.e(jSONArray, this.f18614b.a(), this.f18614b.b(), this.f18615c);
+                    e.e(jSONArray, this.f18595b.a(), this.f18595b.b(), this.f18596c);
                 } else {
                     n.M(this.a.getContext(), R.string.neterror);
                 }
@@ -75,16 +75,16 @@ public class e {
     }
 
     /* loaded from: classes7.dex */
-    public static class b implements g.InterfaceC1159g {
+    public static class b implements g.InterfaceC1157g {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ TbPageContext a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ h f18616b;
+        public final /* synthetic */ h f18597b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ boolean f18617c;
+        public final /* synthetic */ boolean f18598c;
 
         public b(TbPageContext tbPageContext, h hVar, boolean z) {
             Interceptable interceptable = $ic;
@@ -102,16 +102,16 @@ public class e {
                 }
             }
             this.a = tbPageContext;
-            this.f18616b = hVar;
-            this.f18617c = z;
+            this.f18597b = hVar;
+            this.f18598c = z;
         }
 
-        @Override // c.a.t0.k.g.InterfaceC1159g
+        @Override // c.a.t0.k.g.InterfaceC1157g
         public void a(JSONArray jSONArray) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, jSONArray) == null) {
                 if (l.A()) {
-                    e.e(jSONArray, this.f18616b.a(), this.f18616b.b(), this.f18617c);
+                    e.e(jSONArray, this.f18597b.a(), this.f18597b.b(), this.f18598c);
                 } else {
                     n.M(this.a.getContext(), R.string.neterror);
                 }
@@ -129,7 +129,7 @@ public class e {
         if (hVar != null) {
             gVar.w(z);
         }
-        AntiData c2 = c.a.t0.d1.b.f().c();
+        AntiData c2 = c.a.t0.e1.b.f().c();
         SparseArray<String> sparseArray = new SparseArray<>();
         if (c2 != null && c2.getDelThreadInfoList() != null) {
             List<DeleteThreadInfo> delThreadInfoList = c2.getDelThreadInfoList();
@@ -141,13 +141,13 @@ public class e {
         }
         JSONArray jSONArray = new JSONArray();
         JSONArray jSONArray2 = new JSONArray();
-        List<e2> g2 = c.a.t0.d1.b.f().g();
+        List<e2> g2 = c.a.t0.e1.b.f().g();
         for (int i3 = 0; i3 < g2.size(); i3++) {
             if (g2.get(i3) != null) {
-                jSONArray.put(g2.get(i3).v1());
+                jSONArray.put(g2.get(i3).w1());
                 if (z) {
                     jSONArray2.put("1");
-                } else if (!g2.get(i3).v2() && !g2.get(i3).M2()) {
+                } else if (!g2.get(i3).w2() && !g2.get(i3).N2()) {
                     jSONArray2.put("0");
                 } else {
                     jSONArray2.put("1");
@@ -161,7 +161,7 @@ public class e {
         }
         x0Var.p(jSONArray);
         x0Var.m(jSONArray2);
-        x0Var.l(c.a.t0.d1.b.f().d());
+        x0Var.l(c.a.t0.e1.b.f().d());
         gVar.x(x0Var);
         gVar.y(new String[]{TbadkCoreApplication.getInst().getString(R.string.delete_thread_reason_1), TbadkCoreApplication.getInst().getString(R.string.delete_thread_reason_2), TbadkCoreApplication.getInst().getString(R.string.delete_thread_reason_3), TbadkCoreApplication.getInst().getString(R.string.delete_thread_reason_4), TbadkCoreApplication.getInst().getString(R.string.delete_thread_reason_5)});
         gVar.A("1");
@@ -178,7 +178,7 @@ public class e {
         if (hVar != null) {
             jVar.C(z);
         }
-        AntiData c2 = c.a.t0.d1.b.f().c();
+        AntiData c2 = c.a.t0.e1.b.f().c();
         SparseArray<String> sparseArray = new SparseArray<>();
         if (c2 != null && c2.getDelThreadInfoList() != null) {
             List<DeleteThreadInfo> delThreadInfoList = c2.getDelThreadInfoList();
@@ -190,13 +190,13 @@ public class e {
         }
         JSONArray jSONArray = new JSONArray();
         JSONArray jSONArray2 = new JSONArray();
-        List<e2> g2 = c.a.t0.d1.b.f().g();
+        List<e2> g2 = c.a.t0.e1.b.f().g();
         for (int i3 = 0; i3 < g2.size(); i3++) {
             if (g2.get(i3) != null) {
-                jSONArray.put(g2.get(i3).v1());
+                jSONArray.put(g2.get(i3).w1());
                 if (z) {
                     jSONArray2.put("1");
-                } else if (!g2.get(i3).v2() && !g2.get(i3).M2()) {
+                } else if (!g2.get(i3).w2() && !g2.get(i3).N2()) {
                     jSONArray2.put("0");
                 } else {
                     jSONArray2.put("1");
@@ -210,7 +210,7 @@ public class e {
         }
         x0Var.p(jSONArray);
         x0Var.m(jSONArray2);
-        x0Var.l(c.a.t0.d1.b.f().d());
+        x0Var.l(c.a.t0.e1.b.f().d());
         jVar.D(x0Var);
         jVar.E(new String[]{TbadkCoreApplication.getInst().getString(R.string.delete_thread_new_reason_1), TbadkCoreApplication.getInst().getString(R.string.delete_thread_new_reason_2), TbadkCoreApplication.getInst().getString(R.string.delete_thread_new_reason_3), TbadkCoreApplication.getInst().getString(R.string.delete_thread_new_reason_4), TbadkCoreApplication.getInst().getString(R.string.delete_thread_new_reason_5)});
         jVar.G("1");
@@ -234,13 +234,13 @@ public class e {
             return;
         }
         String userId = e2Var.J().getUserId();
-        String g0 = e2Var.g0();
-        String a0 = e2Var.a0();
+        String h0 = e2Var.h0();
+        String b0 = e2Var.b0();
         String valueOf = String.valueOf(e2Var.U());
         boolean isCurrentAccount = UtilHelper.isCurrentAccount(userId);
         if (jSONArray != null) {
             forumManageModel.R(StringHelper.JsonArrayToString(jSONArray));
         }
-        forumManageModel.S(valueOf, a0, g0, null, 0, 1, isCurrentAccount, e2Var.L(), z);
+        forumManageModel.S(valueOf, b0, h0, null, 0, 1, isCurrentAccount, e2Var.L(), z);
     }
 }

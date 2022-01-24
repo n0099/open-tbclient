@@ -30,43 +30,43 @@ public class a {
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Bitmap f3240b;
+    public Bitmap f3342b;
 
     /* renamed from: c  reason: collision with root package name */
-    public volatile boolean f3241c;
+    public volatile boolean f3343c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f3242d;
+    public boolean f3344d;
 
     /* renamed from: e  reason: collision with root package name */
-    public byte[] f3243e;
+    public byte[] f3345e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f3244f;
+    public boolean f3346f;
 
     /* renamed from: g  reason: collision with root package name */
-    public AtomicBoolean f3245g;
+    public AtomicBoolean f3347g;
 
     /* renamed from: h  reason: collision with root package name */
-    public c.a.d.d.b f3246h;
+    public c.a.d.d.b f3348h;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f3247i;
+    public boolean f3349i;
 
     /* renamed from: j  reason: collision with root package name */
-    public Rect f3248j;
+    public Rect f3350j;
     public boolean k;
     public NinePatch l;
 
     /* renamed from: c.a.d.n.d.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public class C0125a extends BitmapDrawable {
+    public class C0132a extends BitmapDrawable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ a a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public C0125a(a aVar, Bitmap bitmap) {
+        public C0132a(a aVar, Bitmap bitmap) {
             super(bitmap);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -90,10 +90,10 @@ public class a {
         public void draw(Canvas canvas) {
             Bitmap bitmap;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, canvas) == null) || this.a.f3240b == null || (bitmap = getBitmap()) == null || bitmap.isRecycled()) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, canvas) == null) || this.a.f3342b == null || (bitmap = getBitmap()) == null || bitmap.isRecycled()) {
                 return;
             }
-            canvas.drawBitmap(this.a.f3240b, (Rect) null, getBounds(), getPaint());
+            canvas.drawBitmap(this.a.f3342b, (Rect) null, getBounds(), getPaint());
         }
     }
 
@@ -128,15 +128,15 @@ public class a {
                 return;
             }
         }
-        this.f3240b = null;
-        this.f3241c = false;
-        this.f3242d = true;
-        this.f3243e = null;
-        this.f3244f = true;
-        this.f3245g = new AtomicBoolean(false);
-        this.f3247i = false;
+        this.f3342b = null;
+        this.f3343c = false;
+        this.f3344d = true;
+        this.f3345e = null;
+        this.f3346f = true;
+        this.f3347g = new AtomicBoolean(false);
+        this.f3349i = false;
         this.k = false;
-        this.f3240b = bitmap;
+        this.f3342b = bitmap;
     }
 
     public void A(int i2) {
@@ -149,11 +149,11 @@ public class a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            Bitmap bitmap = this.f3240b;
+            Bitmap bitmap = this.f3342b;
             if (bitmap == null) {
                 return 0;
             }
-            return bitmap.getHeight() * this.f3240b.getRowBytes();
+            return bitmap.getHeight() * this.f3342b.getRowBytes();
         }
         return invokeV.intValue;
     }
@@ -161,7 +161,7 @@ public class a {
     public void b(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
-            this.f3245g.set(z);
+            this.f3347g.set(z);
         }
     }
 
@@ -169,23 +169,23 @@ public class a {
         Bitmap bitmap;
         byte[] ninePatchChunk;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (bitmap = this.f3240b) == null || (ninePatchChunk = bitmap.getNinePatchChunk()) == null || ninePatchChunk.length <= 0 || !NinePatch.isNinePatchChunk(ninePatchChunk)) {
+        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (bitmap = this.f3342b) == null || (ninePatchChunk = bitmap.getNinePatchChunk()) == null || ninePatchChunk.length <= 0 || !NinePatch.isNinePatchChunk(ninePatchChunk)) {
             return;
         }
         this.k = true;
-        this.l = new NinePatch(this.f3240b, ninePatchChunk, "image");
+        this.l = new NinePatch(this.f3342b, ninePatchChunk, "image");
     }
 
     public BitmapShader d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            Bitmap bitmap = this.f3240b;
+            Bitmap bitmap = this.f3342b;
             if (bitmap == null || bitmap.isRecycled()) {
                 return null;
             }
-            this.f3242d = false;
-            Bitmap bitmap2 = this.f3240b;
+            this.f3344d = false;
+            Bitmap bitmap2 = this.f3342b;
             Shader.TileMode tileMode = Shader.TileMode.CLAMP;
             return new BitmapShader(bitmap2, tileMode, tileMode);
         }
@@ -194,42 +194,42 @@ public class a {
 
     public void e(Canvas canvas, float f2, float f3, Paint paint) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{canvas, Float.valueOf(f2), Float.valueOf(f3), paint}) == null) || this.f3240b == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{canvas, Float.valueOf(f2), Float.valueOf(f3), paint}) == null) || this.f3342b == null) {
             return;
         }
-        this.f3245g.set(true);
-        canvas.drawBitmap(this.f3240b, f2, f3, paint);
-        this.f3245g.set(false);
+        this.f3347g.set(true);
+        canvas.drawBitmap(this.f3342b, f2, f3, paint);
+        this.f3347g.set(false);
     }
 
     public void f(Canvas canvas, Matrix matrix, Paint paint) {
         Bitmap bitmap;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(1048582, this, canvas, matrix, paint) == null) || (bitmap = this.f3240b) == null || bitmap.isRecycled()) {
+        if (!(interceptable == null || interceptable.invokeLLL(1048582, this, canvas, matrix, paint) == null) || (bitmap = this.f3342b) == null || bitmap.isRecycled()) {
             return;
         }
-        this.f3245g.set(true);
-        canvas.drawBitmap(this.f3240b, matrix, paint);
-        this.f3245g.set(false);
+        this.f3347g.set(true);
+        canvas.drawBitmap(this.f3342b, matrix, paint);
+        this.f3347g.set(false);
     }
 
     public void g(Canvas canvas, Rect rect, RectF rectF, Paint paint) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLLL(1048583, this, canvas, rect, rectF, paint) == null) || this.f3240b == null) {
+        if (!(interceptable == null || interceptable.invokeLLLL(1048583, this, canvas, rect, rectF, paint) == null) || this.f3342b == null) {
             return;
         }
-        this.f3245g.set(true);
-        canvas.drawBitmap(this.f3240b, rect, rectF, paint);
-        this.f3245g.set(false);
+        this.f3347g.set(true);
+        canvas.drawBitmap(this.f3342b, rect, rectF, paint);
+        this.f3347g.set(false);
     }
 
     public void h(ImageView imageView) {
         Bitmap bitmap;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, imageView) == null) || imageView == null || (bitmap = this.f3240b) == null) {
+        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, imageView) == null) || imageView == null || (bitmap = this.f3342b) == null) {
             return;
         }
-        this.f3242d = false;
+        this.f3344d = false;
         imageView.setImageBitmap(bitmap);
     }
 
@@ -245,11 +245,11 @@ public class a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            if (this.f3240b == null) {
+            if (this.f3342b == null) {
                 return null;
             }
-            this.f3242d = false;
-            return new C0125a(this, this.f3240b);
+            this.f3344d = false;
+            return new C0132a(this, this.f3342b);
         }
         return (BitmapDrawable) invokeV.objValue;
     }
@@ -257,20 +257,20 @@ public class a {
     public byte[] k() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.f3243e : (byte[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.f3345e : (byte[]) invokeV.objValue;
     }
 
     public c.a.d.d.b l() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.f3246h : (c.a.d.d.b) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.f3348h : (c.a.d.d.b) invokeV.objValue;
     }
 
     public int m() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
-            Bitmap bitmap = this.f3240b;
+            Bitmap bitmap = this.f3342b;
             if (bitmap == null) {
                 return 0;
             }
@@ -284,12 +284,12 @@ public class a {
         byte[] byteArray;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
-            if (this.f3240b == null) {
+            if (this.f3342b == null) {
                 return null;
             }
             synchronized (m) {
                 ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-                this.f3240b.compress(Bitmap.CompressFormat.PNG, 100, byteArrayOutputStream);
+                this.f3342b.compress(Bitmap.CompressFormat.PNG, 100, byteArrayOutputStream);
                 byteArray = byteArrayOutputStream.toByteArray();
             }
             return byteArray;
@@ -300,15 +300,15 @@ public class a {
     public Rect o() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? this.f3248j : (Rect) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? this.f3350j : (Rect) invokeV.objValue;
     }
 
     public Bitmap p() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
-            this.f3242d = false;
-            return this.f3240b;
+            this.f3344d = false;
+            return this.f3342b;
         }
         return (Bitmap) invokeV.objValue;
     }
@@ -323,7 +323,7 @@ public class a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
-            Bitmap bitmap = this.f3240b;
+            Bitmap bitmap = this.f3342b;
             if (bitmap == null) {
                 return 0;
             }
@@ -335,19 +335,19 @@ public class a {
     public boolean s() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) ? this.f3247i : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) ? this.f3349i : invokeV.booleanValue;
     }
 
     public boolean t() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) ? this.f3241c : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) ? this.f3343c : invokeV.booleanValue;
     }
 
     public boolean u() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) ? this.f3244f : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) ? this.f3346f : invokeV.booleanValue;
     }
 
     public boolean v() {
@@ -360,7 +360,7 @@ public class a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) {
-            Bitmap bitmap = this.f3240b;
+            Bitmap bitmap = this.f3342b;
             return (bitmap == null || bitmap.isRecycled()) ? false : true;
         }
         return invokeV.booleanValue;
@@ -370,15 +370,15 @@ public class a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) {
-            if (this.f3242d && !this.f3245g.get()) {
-                Bitmap bitmap = this.f3240b;
+            if (this.f3344d && !this.f3347g.get()) {
+                Bitmap bitmap = this.f3342b;
                 if (bitmap != null) {
-                    this.f3240b = null;
+                    this.f3342b = null;
                     bitmap.recycle();
                 }
-                c.a.d.d.b bVar = this.f3246h;
+                c.a.d.d.b bVar = this.f3348h;
                 if (bVar != null) {
-                    this.f3246h = null;
+                    this.f3348h = null;
                     bVar.close();
                     return true;
                 }
@@ -392,7 +392,7 @@ public class a {
     public void y(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048601, this, z) == null) {
-            this.f3244f = z;
+            this.f3346f = z;
         }
     }
 
@@ -417,16 +417,16 @@ public class a {
                 return;
             }
         }
-        this.f3240b = null;
-        this.f3241c = false;
-        this.f3242d = true;
-        this.f3243e = null;
-        this.f3244f = true;
-        this.f3245g = new AtomicBoolean(false);
-        this.f3247i = false;
+        this.f3342b = null;
+        this.f3343c = false;
+        this.f3344d = true;
+        this.f3345e = null;
+        this.f3346f = true;
+        this.f3347g = new AtomicBoolean(false);
+        this.f3349i = false;
         this.k = false;
-        this.f3240b = bitmap;
-        this.f3241c = z;
+        this.f3342b = bitmap;
+        this.f3343c = z;
         c();
     }
 
@@ -445,16 +445,16 @@ public class a {
                 return;
             }
         }
-        this.f3240b = null;
-        this.f3241c = false;
-        this.f3242d = true;
-        this.f3243e = null;
-        this.f3244f = true;
-        this.f3245g = new AtomicBoolean(false);
-        this.f3247i = false;
+        this.f3342b = null;
+        this.f3343c = false;
+        this.f3344d = true;
+        this.f3345e = null;
+        this.f3346f = true;
+        this.f3347g = new AtomicBoolean(false);
+        this.f3349i = false;
         this.k = false;
-        this.f3240b = bitmap;
-        this.f3241c = z;
+        this.f3342b = bitmap;
+        this.f3343c = z;
         this.a = str;
         c();
     }
@@ -474,18 +474,18 @@ public class a {
                 return;
             }
         }
-        this.f3240b = null;
-        this.f3241c = false;
-        this.f3242d = true;
-        this.f3243e = null;
-        this.f3244f = true;
-        this.f3245g = new AtomicBoolean(false);
-        this.f3247i = false;
+        this.f3342b = null;
+        this.f3343c = false;
+        this.f3344d = true;
+        this.f3345e = null;
+        this.f3346f = true;
+        this.f3347g = new AtomicBoolean(false);
+        this.f3349i = false;
         this.k = false;
-        this.f3240b = bitmap;
-        this.f3241c = z;
+        this.f3342b = bitmap;
+        this.f3343c = z;
         this.a = str;
-        this.f3248j = rect;
+        this.f3350j = rect;
         c();
     }
 
@@ -504,18 +504,18 @@ public class a {
                 return;
             }
         }
-        this.f3240b = null;
-        this.f3241c = false;
-        this.f3242d = true;
-        this.f3243e = null;
-        this.f3244f = true;
-        this.f3245g = new AtomicBoolean(false);
-        this.f3247i = false;
+        this.f3342b = null;
+        this.f3343c = false;
+        this.f3344d = true;
+        this.f3345e = null;
+        this.f3346f = true;
+        this.f3347g = new AtomicBoolean(false);
+        this.f3349i = false;
         this.k = false;
-        this.f3240b = bitmap;
-        this.f3241c = z;
+        this.f3342b = bitmap;
+        this.f3343c = z;
         this.a = str;
-        this.f3243e = bArr;
+        this.f3345e = bArr;
         c();
     }
 
@@ -534,17 +534,17 @@ public class a {
                 return;
             }
         }
-        this.f3240b = null;
-        this.f3241c = false;
-        this.f3242d = true;
-        this.f3243e = null;
-        this.f3244f = true;
-        this.f3245g = new AtomicBoolean(false);
-        this.f3247i = false;
+        this.f3342b = null;
+        this.f3343c = false;
+        this.f3344d = true;
+        this.f3345e = null;
+        this.f3346f = true;
+        this.f3347g = new AtomicBoolean(false);
+        this.f3349i = false;
         this.k = false;
-        this.f3246h = bVar;
-        this.f3240b = bitmap;
-        this.f3241c = z;
+        this.f3348h = bVar;
+        this.f3342b = bitmap;
+        this.f3343c = z;
     }
 
     public a(c.a.d.d.b bVar) {
@@ -562,15 +562,15 @@ public class a {
                 return;
             }
         }
-        this.f3240b = null;
-        this.f3241c = false;
-        this.f3242d = true;
-        this.f3243e = null;
-        this.f3244f = true;
-        this.f3245g = new AtomicBoolean(false);
-        this.f3247i = false;
+        this.f3342b = null;
+        this.f3343c = false;
+        this.f3344d = true;
+        this.f3345e = null;
+        this.f3346f = true;
+        this.f3347g = new AtomicBoolean(false);
+        this.f3349i = false;
         this.k = false;
-        this.f3246h = bVar;
-        this.f3247i = true;
+        this.f3348h = bVar;
+        this.f3349i = true;
     }
 }

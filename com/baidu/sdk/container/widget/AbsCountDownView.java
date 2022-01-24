@@ -21,7 +21,7 @@ public abstract class AbsCountDownView extends TextView {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public c.a.m0.a.m.b f38247e;
+    public c.a.m0.a.m.b f38275e;
     public b mCountdownProgressListener;
     public long taskPeriod;
 
@@ -31,7 +31,7 @@ public abstract class AbsCountDownView extends TextView {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ AbsCountDownView f38248g;
+        public final /* synthetic */ AbsCountDownView f38276g;
 
         public a(AbsCountDownView absCountDownView) {
             Interceptable interceptable = $ic;
@@ -48,7 +48,7 @@ public abstract class AbsCountDownView extends TextView {
                     return;
                 }
             }
-            this.f38248g = absCountDownView;
+            this.f38276g = absCountDownView;
         }
 
         @Override // c.a.m0.a.m.b
@@ -56,7 +56,7 @@ public abstract class AbsCountDownView extends TextView {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                this.f38248g.updateProTask();
+                this.f38276g.updateProTask();
                 return null;
             }
             return invokeV.objValue;
@@ -94,8 +94,8 @@ public abstract class AbsCountDownView extends TextView {
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f38247e = new a(this);
-            c.a().d(this.f38247e, 0L, getTaskPeriod(), TimeUnit.MILLISECONDS);
+            this.f38275e = new a(this);
+            c.a().d(this.f38275e, 0L, getTaskPeriod(), TimeUnit.MILLISECONDS);
         }
     }
 
@@ -139,11 +139,11 @@ public abstract class AbsCountDownView extends TextView {
     public void stop() {
         c.a.m0.a.m.b bVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || (bVar = this.f38247e) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || (bVar = this.f38275e) == null) {
             return;
         }
         bVar.cancel();
-        this.f38247e = null;
+        this.f38275e = null;
     }
 
     public abstract void updateProTask();

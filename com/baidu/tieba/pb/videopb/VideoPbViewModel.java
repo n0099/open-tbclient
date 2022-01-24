@@ -7,8 +7,8 @@ import androidx.core.view.InputDeviceCompat;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 import c.a.s0.s.q.e2;
-import c.a.t0.s2.r.f;
-import c.a.t0.s2.y.d;
+import c.a.t0.t2.r.f;
+import c.a.t0.t2.y.e;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tieba.pb.pb.main.PbModel;
@@ -25,13 +25,13 @@ public class VideoPbViewModel extends ViewModel {
     public static final int FIRST_DATA_TYPE_NETWORK = 3;
     public static final int FIRST_DATA_TYPE_NONE = 0;
     public transient /* synthetic */ FieldHolder $fh;
-    public d a;
+    public e a;
 
     /* renamed from: b  reason: collision with root package name */
-    public PbModel f46881b;
+    public PbModel f46909b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f46882c;
+    public int f46910c;
 
     public VideoPbViewModel() {
         Interceptable interceptable = $ic;
@@ -46,14 +46,14 @@ public class VideoPbViewModel extends ViewModel {
                 return;
             }
         }
-        this.a = new d();
-        this.f46882c = 0;
+        this.a = new e();
+        this.f46910c = 0;
     }
 
     public void bindPbModel(PbModel pbModel) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, pbModel) == null) {
-            this.f46881b = pbModel;
+            this.f46909b = pbModel;
         }
     }
 
@@ -158,14 +158,14 @@ public class VideoPbViewModel extends ViewModel {
         if (!(interceptable == null || interceptable.invokeZ(1048591, this, z) == null) || this.a.f().getValue() == null) {
             return;
         }
-        f b0 = this.f46881b.b0(this.a.f().getValue());
+        f b0 = this.f46909b.b0(this.a.f().getValue());
         if (b0 != null) {
             this.a.j().addLast(this.a.b());
             this.a.o(b0);
             this.a.v(!ListUtils.isEmpty(b0.f()) ? b0.f().get(0) : null);
             this.a.x(this.a.j().getLast() != null ? this.a.j().getLast().O() : null);
-            this.f46881b.p2(z ? 21 : 22);
-            this.f46881b.G1(b0);
+            this.f46909b.p2(z ? 21 : 22);
+            this.f46909b.G1(b0);
             this.a.s(true);
         }
     }
@@ -179,39 +179,39 @@ public class VideoPbViewModel extends ViewModel {
         this.a.o(pollLast);
         this.a.v(!ListUtils.isEmpty(pollLast.f()) ? pollLast.f().get(0) : null);
         this.a.x(this.a.j().peekLast() != null ? this.a.j().peekLast().O() : null);
-        this.f46881b.G1(pollLast);
+        this.f46909b.G1(pollLast);
         this.a.s(true);
     }
 
     public void loadTargetVideo(e2 e2Var) {
         f b0;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048593, this, e2Var) == null) || e2Var == null || (b0 = this.f46881b.b0(e2Var)) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048593, this, e2Var) == null) || e2Var == null || (b0 = this.f46909b.b0(e2Var)) == null) {
             return;
         }
         this.a.j().addLast(this.a.b());
         this.a.o(b0);
         this.a.v(!ListUtils.isEmpty(b0.f()) ? b0.f().get(0) : null);
         this.a.x(this.a.j().getLast() != null ? this.a.j().getLast().O() : null);
-        this.f46881b.p2(20);
-        this.f46881b.G1(b0);
+        this.f46909b.p2(20);
+        this.f46909b.G1(b0);
         this.a.s(true);
     }
 
     public void saveFirstLoadData(f fVar, int i2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(1048594, this, fVar, i2) == null) || i2 < this.f46882c) {
+        if (!(interceptable == null || interceptable.invokeLI(1048594, this, fVar, i2) == null) || i2 < this.f46910c) {
             return;
         }
-        this.f46882c = i2;
+        this.f46910c = i2;
         this.a.p(fVar);
         if (fVar != null) {
-            d dVar = this.a;
+            e eVar = this.a;
             boolean z = true;
             if (fVar.s() != 1 && !fVar.g0()) {
                 z = false;
             }
-            dVar.q(z);
+            eVar.q(z);
         }
     }
 

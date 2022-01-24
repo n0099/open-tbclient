@@ -25,12 +25,12 @@ public class e {
             }
         }
         float[] fArr2 = new float[fArr.length];
-        float f2 = iVar.f27174b;
-        float f3 = iVar.f27175c;
-        float f4 = iVar.f27176d - f2;
-        float f5 = iVar.f27177e - f3;
-        int i4 = iVar.f27178f;
-        int i5 = iVar.f27179g;
+        float f2 = iVar.f27202b;
+        float f3 = iVar.f27203c;
+        float f4 = iVar.f27204d - f2;
+        float f5 = iVar.f27205e - f3;
+        int i4 = iVar.f27206f;
+        int i5 = iVar.f27207g;
         int length = fArr.length;
         for (int i6 = 0; i6 < length; i6 += 2) {
             fArr2[i6] = ((fArr[i6] / i4) * f4) + f2;

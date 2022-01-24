@@ -16,16 +16,16 @@ public class ScaleVideoView extends VideoView {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public MediaPlayer f41222e;
+    public MediaPlayer f41250e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f41223f;
+    public int f41251f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f41224g;
+    public int f41252g;
 
     /* renamed from: h  reason: collision with root package name */
-    public MediaPlayer.OnVideoSizeChangedListener f41225h;
+    public MediaPlayer.OnVideoSizeChangedListener f41253h;
 
     /* loaded from: classes11.dex */
     public class a implements MediaPlayer.OnVideoSizeChangedListener {
@@ -33,7 +33,7 @@ public class ScaleVideoView extends VideoView {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ ScaleVideoView f41226e;
+        public final /* synthetic */ ScaleVideoView f41254e;
 
         public a(ScaleVideoView scaleVideoView) {
             Interceptable interceptable = $ic;
@@ -50,20 +50,20 @@ public class ScaleVideoView extends VideoView {
                     return;
                 }
             }
-            this.f41226e = scaleVideoView;
+            this.f41254e = scaleVideoView;
         }
 
         @Override // android.media.MediaPlayer.OnVideoSizeChangedListener
         public void onVideoSizeChanged(MediaPlayer mediaPlayer, int i2, int i3) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLII(1048576, this, mediaPlayer, i2, i3) == null) {
-                this.f41226e.f41223f = mediaPlayer.getVideoWidth();
-                this.f41226e.f41224g = mediaPlayer.getVideoHeight();
-                if (this.f41226e.f41223f == 0 || this.f41226e.f41224g == 0) {
+                this.f41254e.f41251f = mediaPlayer.getVideoWidth();
+                this.f41254e.f41252g = mediaPlayer.getVideoHeight();
+                if (this.f41254e.f41251f == 0 || this.f41254e.f41252g == 0) {
                     return;
                 }
-                this.f41226e.getHolder().setFixedSize(this.f41226e.f41223f, this.f41226e.f41224g);
-                this.f41226e.requestLayout();
+                this.f41254e.getHolder().setFixedSize(this.f41254e.f41251f, this.f41254e.f41252g);
+                this.f41254e.requestLayout();
             }
         }
     }
@@ -86,15 +86,15 @@ public class ScaleVideoView extends VideoView {
                 return;
             }
         }
-        this.f41225h = new a(this);
+        this.f41253h = new a(this);
         e();
     }
 
     public final void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f41223f = 0;
-            this.f41224g = 0;
+            this.f41251f = 0;
+            this.f41252g = 0;
         }
     }
 
@@ -102,17 +102,17 @@ public class ScaleVideoView extends VideoView {
     public void onMeasure(int i2, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, i3) == null) {
-            int defaultSize = VideoView.getDefaultSize(this.f41223f, i2);
-            int defaultSize2 = VideoView.getDefaultSize(this.f41224g, i3);
-            if (this.f41223f > 0 && this.f41224g > 0) {
+            int defaultSize = VideoView.getDefaultSize(this.f41251f, i2);
+            int defaultSize2 = VideoView.getDefaultSize(this.f41252g, i3);
+            if (this.f41251f > 0 && this.f41252g > 0) {
                 int mode = View.MeasureSpec.getMode(i2);
                 int size = View.MeasureSpec.getSize(i2);
                 int mode2 = View.MeasureSpec.getMode(i3);
                 int size2 = View.MeasureSpec.getSize(i3);
                 if (mode == 1073741824 && mode2 == 1073741824) {
-                    int i4 = this.f41223f;
+                    int i4 = this.f41251f;
                     int i5 = i4 * size2;
-                    int i6 = this.f41224g;
+                    int i6 = this.f41252g;
                     if (i5 < size * i6) {
                         defaultSize2 = (i6 * size) / i4;
                         defaultSize = size;
@@ -122,13 +122,13 @@ public class ScaleVideoView extends VideoView {
                     }
                 } else {
                     if (mode == 1073741824) {
-                        defaultSize2 = (this.f41224g * size) / this.f41223f;
+                        defaultSize2 = (this.f41252g * size) / this.f41251f;
                     } else if (mode2 == 1073741824) {
-                        defaultSize = (this.f41223f * size2) / this.f41224g;
+                        defaultSize = (this.f41251f * size2) / this.f41252g;
                         defaultSize2 = size2;
                     } else {
-                        int i7 = this.f41223f;
-                        int i8 = this.f41224g;
+                        int i7 = this.f41251f;
+                        int i8 = this.f41252g;
                         if (mode2 != Integer.MIN_VALUE || i8 <= size2) {
                             defaultSize2 = i8;
                         } else {
@@ -138,7 +138,7 @@ public class ScaleVideoView extends VideoView {
                         if (mode != Integer.MIN_VALUE || i7 <= size) {
                             defaultSize = i7;
                         } else {
-                            defaultSize2 = (this.f41224g * size) / this.f41223f;
+                            defaultSize2 = (this.f41252g * size) / this.f41251f;
                         }
                     }
                     defaultSize = size;
@@ -153,10 +153,10 @@ public class ScaleVideoView extends VideoView {
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, mediaPlayer) == null) || mediaPlayer == null) {
             return;
         }
-        this.f41222e = mediaPlayer;
-        this.f41223f = mediaPlayer.getVideoWidth();
-        this.f41224g = mediaPlayer.getVideoHeight();
-        this.f41222e.setOnVideoSizeChangedListener(this.f41225h);
+        this.f41250e = mediaPlayer;
+        this.f41251f = mediaPlayer.getVideoWidth();
+        this.f41252g = mediaPlayer.getVideoHeight();
+        this.f41250e.setOnVideoSizeChangedListener(this.f41253h);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -178,7 +178,7 @@ public class ScaleVideoView extends VideoView {
                 return;
             }
         }
-        this.f41225h = new a(this);
+        this.f41253h = new a(this);
         e();
     }
 
@@ -201,7 +201,7 @@ public class ScaleVideoView extends VideoView {
                 return;
             }
         }
-        this.f41225h = new a(this);
+        this.f41253h = new a(this);
         e();
     }
 }

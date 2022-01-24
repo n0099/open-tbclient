@@ -19,10 +19,10 @@ public class d0 {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final boolean f26412b;
+    public static final boolean f26440b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static volatile d0 f26413c;
+    public static volatile d0 f26441c;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean a;
 
@@ -39,7 +39,7 @@ public class d0 {
                 return;
             }
         }
-        f26412b = b0.m();
+        f26440b = b0.m();
     }
 
     public d0() {
@@ -62,14 +62,14 @@ public class d0 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (f26413c == null) {
+            if (f26441c == null) {
                 synchronized (d0.class) {
-                    if (f26413c == null) {
-                        f26413c = new d0();
+                    if (f26441c == null) {
+                        f26441c = new d0();
                     }
                 }
             }
-            return f26413c;
+            return f26441c;
         }
         return (d0) invokeV.objValue;
     }
@@ -94,7 +94,7 @@ public class d0 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2, jSONObject) == null) {
             UBCManager uBCManager = (UBCManager) ServiceManager.getService(UBCManager.SERVICE_REFERENCE);
-            if (f26412b) {
+            if (f26440b) {
                 String str3 = "Quality event: type=" + str + ", value=" + str2 + ",ext=" + (jSONObject != null ? jSONObject.toString() : "");
             }
             try {

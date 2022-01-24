@@ -35,16 +35,16 @@ public class d extends BaseAdapter {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public TbPageContext f21109e;
+    public TbPageContext f21344e;
 
     /* renamed from: f  reason: collision with root package name */
-    public LinkedList<c.a.s0.s.j0.s.a> f21110f;
+    public LinkedList<c.a.s0.s.k0.s.a> f21345f;
 
     /* renamed from: g  reason: collision with root package name */
-    public LinkedList<w> f21111g;
+    public LinkedList<w> f21346g;
 
     /* renamed from: h  reason: collision with root package name */
-    public b f21112h;
+    public b f21347h;
 
     /* loaded from: classes8.dex */
     public class a implements View.OnClickListener {
@@ -52,10 +52,10 @@ public class d extends BaseAdapter {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ int f21113e;
+        public final /* synthetic */ int f21348e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ d f21114f;
+        public final /* synthetic */ d f21349f;
 
         public a(d dVar, int i2) {
             Interceptable interceptable = $ic;
@@ -72,22 +72,22 @@ public class d extends BaseAdapter {
                     return;
                 }
             }
-            this.f21114f = dVar;
-            this.f21113e = i2;
+            this.f21349f = dVar;
+            this.f21348e = i2;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            c.a.s0.s.j0.s.a g2;
+            c.a.s0.s.k0.s.a g2;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || (g2 = this.f21114f.g(this.f21113e)) == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || (g2 = this.f21349f.g(this.f21348e)) == null) {
                 return;
             }
-            if (this.f21114f.f21112h != null) {
-                this.f21114f.f21112h.b(g2.e());
+            if (this.f21349f.f21347h != null) {
+                this.f21349f.f21347h.b(g2.e());
             }
-            if (this.f21114f.f21112h != null) {
-                this.f21114f.f21112h.a(this.f21114f.f21111g);
+            if (this.f21349f.f21347h != null) {
+                this.f21349f.f21347h.a(this.f21349f.f21346g);
             }
         }
     }
@@ -106,28 +106,28 @@ public class d extends BaseAdapter {
         public View a;
 
         /* renamed from: b  reason: collision with root package name */
-        public View f21115b;
+        public View f21350b;
 
         /* renamed from: c  reason: collision with root package name */
-        public View f21116c;
+        public View f21351c;
 
         /* renamed from: d  reason: collision with root package name */
-        public TbImageView f21117d;
+        public TbImageView f21352d;
 
         /* renamed from: e  reason: collision with root package name */
-        public TextView f21118e;
+        public TextView f21353e;
 
         /* renamed from: f  reason: collision with root package name */
-        public ImageView f21119f;
+        public ImageView f21354f;
 
         /* renamed from: g  reason: collision with root package name */
-        public TextView f21120g;
+        public TextView f21355g;
 
         /* renamed from: h  reason: collision with root package name */
-        public TextView f21121h;
+        public TextView f21356h;
 
         /* renamed from: i  reason: collision with root package name */
-        public View f21122i;
+        public View f21357i;
 
         public c(d dVar) {
             Interceptable interceptable = $ic;
@@ -165,37 +165,37 @@ public class d extends BaseAdapter {
                 return;
             }
         }
-        this.f21111g = new LinkedList<>();
-        this.f21109e = tbPageContext;
+        this.f21346g = new LinkedList<>();
+        this.f21344e = tbPageContext;
     }
 
     public final void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f21111g.clear();
-            if (ListUtils.isEmpty(this.f21110f)) {
+            this.f21346g.clear();
+            if (ListUtils.isEmpty(this.f21345f)) {
                 return;
             }
-            Iterator<c.a.s0.s.j0.s.a> it = this.f21110f.iterator();
+            Iterator<c.a.s0.s.k0.s.a> it = this.f21345f.iterator();
             while (it.hasNext()) {
-                c.a.s0.s.j0.s.a next = it.next();
+                c.a.s0.s.k0.s.a next = it.next();
                 if (next.h() && (next instanceof TbLinkSpanGroup)) {
                     TbLinkSpanGroup tbLinkSpanGroup = (TbLinkSpanGroup) next;
                     if (tbLinkSpanGroup.t() != null) {
                         w t = tbLinkSpanGroup.t();
                         t.t = tbLinkSpanGroup.f();
-                        this.f21111g.add(t);
+                        this.f21346g.add(t);
                     }
                 }
             }
-            Collections.sort(this.f21111g);
+            Collections.sort(this.f21346g);
         }
     }
 
     public LinkedList<w> d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f21111g : (LinkedList) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f21346g : (LinkedList) invokeV.objValue;
     }
 
     /* JADX WARN: Removed duplicated region for block: B:10:0x001a  */
@@ -206,13 +206,13 @@ public class d extends BaseAdapter {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (ListUtils.isEmpty(this.f21111g)) {
+            if (ListUtils.isEmpty(this.f21346g)) {
                 return true;
             }
-            Iterator<w> it = this.f21111g.iterator();
+            Iterator<w> it = this.f21346g.iterator();
             while (it.hasNext()) {
                 w next = it.next();
-                if (next.f13516f == 2 || !next.m) {
+                if (next.f13703f == 2 || !next.m) {
                     return false;
                 }
                 while (it.hasNext()) {
@@ -223,22 +223,22 @@ public class d extends BaseAdapter {
         return invokeV.booleanValue;
     }
 
-    public LinkedList<c.a.s0.s.j0.s.a> f() {
+    public LinkedList<c.a.s0.s.k0.s.a> f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f21110f : (LinkedList) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f21345f : (LinkedList) invokeV.objValue;
     }
 
-    public c.a.s0.s.j0.s.a g(int i2) {
+    public c.a.s0.s.k0.s.a g(int i2) {
         InterceptResult invokeI;
-        LinkedList<c.a.s0.s.j0.s.a> linkedList;
+        LinkedList<c.a.s0.s.k0.s.a> linkedList;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i2)) == null) {
             long itemId = getItemId(i2);
-            if (itemId != 0 && (linkedList = this.f21110f) != null) {
-                Iterator<c.a.s0.s.j0.s.a> it = linkedList.iterator();
+            if (itemId != 0 && (linkedList = this.f21345f) != null) {
+                Iterator<c.a.s0.s.k0.s.a> it = linkedList.iterator();
                 while (it.hasNext()) {
-                    c.a.s0.s.j0.s.a next = it.next();
+                    c.a.s0.s.k0.s.a next = it.next();
                     if (next.e() == itemId) {
                         return next;
                     }
@@ -246,7 +246,7 @@ public class d extends BaseAdapter {
             }
             return null;
         }
-        return (c.a.s0.s.j0.s.a) invokeI.objValue;
+        return (c.a.s0.s.k0.s.a) invokeI.objValue;
     }
 
     @Override // android.widget.Adapter
@@ -254,7 +254,7 @@ public class d extends BaseAdapter {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            LinkedList<w> linkedList = this.f21111g;
+            LinkedList<w> linkedList = this.f21346g;
             if (linkedList == null) {
                 return 0;
             }
@@ -268,11 +268,11 @@ public class d extends BaseAdapter {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i2)) == null) {
-            LinkedList<w> linkedList = this.f21111g;
+            LinkedList<w> linkedList = this.f21346g;
             if (linkedList == null || linkedList.size() <= i2) {
                 return null;
             }
-            return this.f21111g.get(i2);
+            return this.f21346g.get(i2);
         }
         return invokeI.objValue;
     }
@@ -282,8 +282,8 @@ public class d extends BaseAdapter {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i2)) == null) {
-            LinkedList<w> linkedList = this.f21111g;
-            return (linkedList == null || linkedList.size() <= i2 || this.f21111g.get(i2) == null) ? 0 : this.f21111g.get(i2).f13515e;
+            LinkedList<w> linkedList = this.f21346g;
+            return (linkedList == null || linkedList.size() <= i2 || this.f21346g.get(i2) == null) ? 0 : this.f21346g.get(i2).f13702e;
         }
         return invokeI.longValue;
     }
@@ -300,44 +300,44 @@ public class d extends BaseAdapter {
                 return null;
             }
             if (view == null) {
-                view2 = LayoutInflater.from(this.f21109e.getPageActivity()).inflate(c.a.t0.p4.h.item_commodity_link, (ViewGroup) null);
+                view2 = LayoutInflater.from(this.f21344e.getPageActivity()).inflate(c.a.t0.p4.h.item_commodity_link, (ViewGroup) null);
                 cVar = new c(this, null);
                 cVar.a = view2.findViewById(c.a.t0.p4.g.commodity_root_view);
-                cVar.f21115b = view2.findViewById(c.a.t0.p4.g.commodity_main_view);
+                cVar.f21350b = view2.findViewById(c.a.t0.p4.g.commodity_main_view);
                 TbImageView tbImageView = (TbImageView) view2.findViewById(c.a.t0.p4.g.commodity_link_icon);
-                cVar.f21117d = tbImageView;
+                cVar.f21352d = tbImageView;
                 tbImageView.setConrers(15);
-                cVar.f21117d.setRadius(n.f(TbadkCoreApplication.getInst(), c.a.t0.p4.e.tbds10));
-                cVar.f21117d.setPlaceHolderAutoChangeSkinType(1);
-                cVar.f21117d.setGifIconSupport(false);
-                cVar.f21117d.setLongIconSupport(false);
-                cVar.f21117d.setDrawBorder(true);
-                cVar.f21117d.setBorderWidth(n.f(TbadkCoreApplication.getInst(), c.a.t0.p4.e.tbds1));
-                cVar.f21117d.setBorderColor(SkinManager.getColor(c.a.t0.p4.d.CAM_X0401));
-                cVar.f21118e = (TextView) view2.findViewById(c.a.t0.p4.g.commodity_link_content);
-                cVar.f21119f = (ImageView) view2.findViewById(c.a.t0.p4.g.commodity_link_close_button);
-                cVar.f21116c = view2.findViewById(c.a.t0.p4.g.extra_info_container);
-                cVar.f21120g = (TextView) view2.findViewById(c.a.t0.p4.g.commodity_price);
-                cVar.f21121h = (TextView) view2.findViewById(c.a.t0.p4.g.commodity_extra_infos);
-                cVar.f21122i = view2.findViewById(c.a.t0.p4.g.commodity_tail_text_mask);
+                cVar.f21352d.setRadius(n.f(TbadkCoreApplication.getInst(), c.a.t0.p4.e.tbds10));
+                cVar.f21352d.setPlaceHolderAutoChangeSkinType(1);
+                cVar.f21352d.setGifIconSupport(false);
+                cVar.f21352d.setLongIconSupport(false);
+                cVar.f21352d.setDrawBorder(true);
+                cVar.f21352d.setBorderWidth(n.f(TbadkCoreApplication.getInst(), c.a.t0.p4.e.tbds1));
+                cVar.f21352d.setBorderColor(SkinManager.getColor(c.a.t0.p4.d.CAM_X0401));
+                cVar.f21353e = (TextView) view2.findViewById(c.a.t0.p4.g.commodity_link_content);
+                cVar.f21354f = (ImageView) view2.findViewById(c.a.t0.p4.g.commodity_link_close_button);
+                cVar.f21351c = view2.findViewById(c.a.t0.p4.g.extra_info_container);
+                cVar.f21355g = (TextView) view2.findViewById(c.a.t0.p4.g.commodity_price);
+                cVar.f21356h = (TextView) view2.findViewById(c.a.t0.p4.g.commodity_extra_infos);
+                cVar.f21357i = view2.findViewById(c.a.t0.p4.g.commodity_tail_text_mask);
                 view2.setTag(cVar);
             } else {
                 cVar = (c) view.getTag();
                 view2 = view;
             }
-            cVar.f21117d.startLoad(wVar.f13519i, 10, false);
-            if (TextUtils.isEmpty(wVar.f13520j)) {
-                cVar.f21116c.setVisibility(8);
-                cVar.f21118e.setMaxLines(2);
+            cVar.f21352d.startLoad(wVar.f13706i, 10, false);
+            if (TextUtils.isEmpty(wVar.f13707j)) {
+                cVar.f21351c.setVisibility(8);
+                cVar.f21353e.setMaxLines(2);
             } else {
-                cVar.f21116c.setVisibility(0);
-                cVar.f21118e.setMaxLines(1);
+                cVar.f21351c.setVisibility(0);
+                cVar.f21353e.setMaxLines(1);
             }
-            if (TextUtils.isEmpty(wVar.f13520j)) {
-                cVar.f21120g.setVisibility(8);
+            if (TextUtils.isEmpty(wVar.f13707j)) {
+                cVar.f21355g.setVisibility(8);
             } else {
-                cVar.f21120g.setText(String.format(TbadkCoreApplication.getInst().getString(c.a.t0.p4.j.commodity_price_prefix), wVar.f13520j));
-                cVar.f21120g.setVisibility(0);
+                cVar.f21355g.setText(String.format(TbadkCoreApplication.getInst().getString(c.a.t0.p4.j.commodity_price_prefix), wVar.f13707j));
+                cVar.f21355g.setVisibility(0);
             }
             SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
             if (!TextUtils.isEmpty(wVar.p)) {
@@ -349,38 +349,38 @@ public class d extends BaseAdapter {
                 int f5 = n.f(TbadkCoreApplication.getInst(), c.a.t0.p4.e.M_W_X002);
                 int f6 = n.f(TbadkCoreApplication.getInst(), c.a.t0.p4.e.tbds2);
                 int f7 = n.f(TbadkCoreApplication.getInst(), c.a.t0.p4.e.M_W_X003);
-                c.a.s0.s.j0.b bVar = new c.a.s0.s.j0.b(f2, -1, i3, f4, i3, f5, n.f(TbadkCoreApplication.getInst(), c.a.t0.p4.e.tbds38));
+                c.a.s0.s.k0.b bVar = new c.a.s0.s.k0.b(f2, -1, i3, f4, i3, f5, n.f(TbadkCoreApplication.getInst(), c.a.t0.p4.e.tbds38));
                 bVar.b(f3);
                 bVar.h(f6);
                 bVar.i(f7);
                 spannableStringBuilder.setSpan(bVar, 0, wVar.p.length(), 17);
             }
-            if (!wVar.r && wVar.f13516f != 2 && !wVar.m) {
+            if (!wVar.r && wVar.f13703f != 2 && !wVar.m) {
                 String str = wVar.k;
                 if (str != null) {
                     spannableStringBuilder.append((CharSequence) str);
                 }
-                cVar.f21118e.setMaxLines(1);
+                cVar.f21353e.setMaxLines(1);
             } else {
-                String str2 = wVar.f13517g;
+                String str2 = wVar.f13704g;
                 if (str2 != null) {
                     spannableStringBuilder.append((CharSequence) str2);
                 }
             }
-            cVar.f21118e.setText(spannableStringBuilder);
-            cVar.f21119f.setOnClickListener(new a(this, i2));
+            cVar.f21353e.setText(spannableStringBuilder);
+            cVar.f21354f.setOnClickListener(new a(this, i2));
             n.f(TbadkCoreApplication.getInst(), c.a.t0.p4.e.tbds10);
             View view3 = cVar.a;
             int i4 = c.a.t0.p4.d.CAM_X0205;
             SkinManager.setBackgroundShapeDrawable(view3, 0, i4, i4);
-            c.a.s0.s.u.c d2 = c.a.s0.s.u.c.d(cVar.f21115b);
+            c.a.s0.s.u.c d2 = c.a.s0.s.u.c.d(cVar.f21350b);
             d2.n(c.a.t0.p4.j.J_X05);
             d2.f(c.a.t0.p4.d.CAM_X0206);
-            cVar.f21119f.setImageDrawable(WebPManager.getMaskDrawable(c.a.t0.p4.f.icon_mask_post_image_delete16, WebPManager.ResourceStateType.NORMAL));
-            SkinManager.setViewTextColor(cVar.f21118e, c.a.t0.p4.d.CAM_X0105);
-            SkinManager.setViewTextColor(cVar.f21120g, c.a.t0.p4.d.CAM_X0305);
-            SkinManager.setViewTextColor(cVar.f21121h, c.a.t0.p4.d.CAM_X0109);
-            SkinManager.setBackgroundColorToTransparent(cVar.f21122i, c.a.t0.p4.d.CAM_X0206, GradientDrawable.Orientation.RIGHT_LEFT);
+            cVar.f21354f.setImageDrawable(WebPManager.getMaskDrawable(c.a.t0.p4.f.icon_mask_post_image_delete16, WebPManager.ResourceStateType.NORMAL));
+            SkinManager.setViewTextColor(cVar.f21353e, c.a.t0.p4.d.CAM_X0105);
+            SkinManager.setViewTextColor(cVar.f21355g, c.a.t0.p4.d.CAM_X0305);
+            SkinManager.setViewTextColor(cVar.f21356h, c.a.t0.p4.d.CAM_X0109);
+            SkinManager.setBackgroundColorToTransparent(cVar.f21357i, c.a.t0.p4.d.CAM_X0206, GradientDrawable.Orientation.RIGHT_LEFT);
             return view2;
         }
         return (View) invokeILL.objValue;
@@ -394,17 +394,17 @@ public class d extends BaseAdapter {
         }
     }
 
-    public void i(LinkedList<c.a.s0.s.j0.s.a> linkedList) {
+    public void i(LinkedList<c.a.s0.s.k0.s.a> linkedList) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, linkedList) == null) {
-            this.f21110f = linkedList;
+            this.f21345f = linkedList;
         }
     }
 
     public void j(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048587, this, bVar) == null) {
-            this.f21112h = bVar;
+            this.f21347h = bVar;
         }
     }
 }

@@ -22,7 +22,7 @@ import java.io.File;
 import java.io.IOException;
 import java.util.Collection;
 import javax.annotation.Nullable;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class DynamicDefaultDiskStorage implements DiskStorage {
     public static /* synthetic */ Interceptable $ic;
     public static final Class<?> TAG;
@@ -35,7 +35,7 @@ public class DynamicDefaultDiskStorage implements DiskStorage {
     public final int mVersion;
 
     @VisibleForTesting
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class State {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

@@ -14,7 +14,7 @@ public class b implements c {
     public final CloudMusicModel a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final d f19939b;
+    public final d f20040b;
 
     /* loaded from: classes8.dex */
     public class a implements c.a.t0.n4.l.j.a<CloudMusicData> {
@@ -46,18 +46,18 @@ public class b implements c {
         public void a(CloudMusicData cloudMusicData) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cloudMusicData) == null) {
-                this.a.f19939b.displayLoading(false);
+                this.a.f20040b.displayLoading(false);
                 if (cloudMusicData != null) {
-                    this.a.f19939b.displayNoDataView(false);
+                    this.a.f20040b.displayNoDataView(false);
                     if (cloudMusicData.tag_list.isEmpty()) {
-                        this.a.f19939b.displayNoDataView(true);
+                        this.a.f20040b.displayNoDataView(true);
                         return;
                     } else {
-                        this.a.f19939b.showCloudMusicWithTagData(cloudMusicData);
+                        this.a.f20040b.showCloudMusicWithTagData(cloudMusicData);
                         return;
                     }
                 }
-                this.a.f19939b.displayNoDataView(true);
+                this.a.f20040b.displayNoDataView(true);
             }
         }
     }
@@ -78,7 +78,7 @@ public class b implements c {
             }
         }
         this.a = cloudMusicModel;
-        this.f19939b = dVar;
+        this.f20040b = dVar;
         dVar.setPresenter(this);
     }
 
@@ -86,7 +86,7 @@ public class b implements c {
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f19939b.displayLoading(true);
+            this.f20040b.displayLoading(true);
             this.a.x(new a(this));
         }
     }

@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Enumeration;
 import java.util.Hashtable;
 import java.util.Stack;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class ThreadStackImpl11 implements ThreadStack {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int COLLECT_AT = 20000;

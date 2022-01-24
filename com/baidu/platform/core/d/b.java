@@ -10,7 +10,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.ugc.editvideo.filter.FilterValue;
 /* loaded from: classes10.dex */
 public class b extends com.baidu.platform.base.e {
     public static /* synthetic */ Interceptable $ic;
@@ -44,9 +43,9 @@ public class b extends com.baidu.platform.base.e {
                     location = CoordTrans.gcjToBaidu(location);
                 }
                 com.baidu.platform.util.a aVar = this.a;
-                aVar.a(FilterValue.DEFAULT_FILTER_VALUE, location.latitude + "," + location.longitude);
+                aVar.a("origin", location.latitude + "," + location.longitude);
             } else {
-                this.a.a(FilterValue.DEFAULT_FILTER_VALUE, bikingRoutePlanOption.mFrom.getName());
+                this.a.a("origin", bikingRoutePlanOption.mFrom.getName());
             }
             LatLng location2 = bikingRoutePlanOption.mTo.getLocation();
             if (location2 != null) {

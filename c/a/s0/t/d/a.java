@@ -13,7 +13,7 @@ public interface a {
 
     void c();
 
-    Dialog d(TbPageContext tbPageContext, c.a.s0.g1.q.a.d.f fVar);
+    Dialog d(TbPageContext tbPageContext, c.a.s0.f1.q.a.d.f fVar);
 
     NavigationBarCoverTip e(Activity activity, ViewGroup viewGroup);
 

@@ -13,31 +13,31 @@ public class j0 {
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f13425b;
+    public String f13611b;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f13426c;
+    public long f13612c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f13427d;
+    public String f13613d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f13428e;
+    public String f13614e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f13429f;
+    public int f13615f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f13430g;
+    public String f13616g;
 
     /* renamed from: h  reason: collision with root package name */
-    public long f13431h;
+    public long f13617h;
 
     /* renamed from: i  reason: collision with root package name */
-    public long f13432i;
+    public long f13618i;
 
     /* renamed from: j  reason: collision with root package name */
-    public long f13433j;
+    public long f13619j;
     public int k;
     public int l;
     public long m;
@@ -65,12 +65,12 @@ public class j0 {
     public long a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f13433j : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f13619j : invokeV.longValue;
     }
 
     public long b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f13426c : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f13612c : invokeV.longValue;
     }
 }

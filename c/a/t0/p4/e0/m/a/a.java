@@ -27,29 +27,29 @@ public class a {
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public BdUniqueId f21181b;
+    public BdUniqueId f21417b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final String f21182c;
+    public final String f21418c;
 
     /* renamed from: d  reason: collision with root package name */
-    public b f21183d;
+    public b f21419d;
 
     /* renamed from: e  reason: collision with root package name */
-    public List<String> f21184e;
+    public List<String> f21420e;
 
     /* renamed from: f  reason: collision with root package name */
-    public HttpMessageListener f21185f;
+    public HttpMessageListener f21421f;
 
     /* renamed from: c.a.t0.p4.e0.m.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes8.dex */
-    public class C1323a extends HttpMessageListener {
+    public class C1334a extends HttpMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ a a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public C1323a(a aVar, int i2) {
+        public C1334a(a aVar, int i2) {
             super(i2);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -73,32 +73,32 @@ public class a {
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) || httpResponsedMessage == null || this.a.f21183d == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) || httpResponsedMessage == null || this.a.f21419d == null) {
                 return;
             }
-            if (httpResponsedMessage.getOrginalMessage() == null || httpResponsedMessage.getOrginalMessage().getTag() == this.a.f21181b) {
+            if (httpResponsedMessage.getOrginalMessage() == null || httpResponsedMessage.getOrginalMessage().getTag() == this.a.f21417b) {
                 RelevanceItemSearchData responseData = httpResponsedMessage instanceof RelevanceItemSearchResponse ? ((RelevanceItemSearchResponse) httpResponsedMessage).getResponseData() : null;
                 if (responseData != null && responseData.getData() != null) {
-                    if (!ListUtils.equalList(this.a.f21184e, responseData.getData().getTab_option())) {
-                        this.a.f21184e = responseData.getData().getTab_option();
-                        MessageManager.getInstance().dispatchResponsedMessage(new EvaluateRelevanceItemUpdatedMessage(this.a.f21184e));
+                    if (!ListUtils.equalList(this.a.f21420e, responseData.getData().getTab_option())) {
+                        this.a.f21420e = responseData.getData().getTab_option();
+                        MessageManager.getInstance().dispatchResponsedMessage(new EvaluateRelevanceItemUpdatedMessage(this.a.f21420e));
                     }
                     if (httpResponsedMessage.getError() != 0) {
-                        this.a.f21183d.onError(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString());
+                        this.a.f21419d.onError(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString());
                         this.a.l();
                         return;
                     } else if (ListUtils.isEmpty(responseData.getData().getItem_list())) {
                         if (this.a.a == 1) {
-                            this.a.f21183d.a();
+                            this.a.f21419d.a();
                             return;
                         } else {
-                            this.a.f21183d.d();
+                            this.a.f21419d.d();
                             return;
                         }
                     } else if (responseData != null) {
-                        this.a.f21183d.c(responseData);
+                        this.a.f21419d.c(responseData);
                         if (this.a.a == 1 && responseData.getData().getItem_list().size() < 20) {
-                            this.a.f21183d.d();
+                            this.a.f21419d.d();
                         }
                         a.f(this.a);
                         return;
@@ -107,7 +107,7 @@ public class a {
                     }
                 }
                 MessageManager.getInstance().dispatchResponsedMessage(new EvaluateRelevanceItemUpdatedMessage(null));
-                this.a.f21183d.onError(-1, TbadkCoreApplication.getInst().getString(j.neterror));
+                this.a.f21419d.onError(-1, TbadkCoreApplication.getInst().getString(j.neterror));
                 this.a.l();
             }
         }
@@ -140,13 +140,13 @@ public class a {
             }
         }
         this.a = 1;
-        C1323a c1323a = new C1323a(this, CmdConfigHttp.CMD_RELEVANCE_ITEM_SEARCH);
-        this.f21185f = c1323a;
-        this.f21181b = bdUniqueId;
-        this.f21182c = str;
-        c1323a.setTag(bdUniqueId);
+        C1334a c1334a = new C1334a(this, CmdConfigHttp.CMD_RELEVANCE_ITEM_SEARCH);
+        this.f21421f = c1334a;
+        this.f21417b = bdUniqueId;
+        this.f21418c = str;
+        c1334a.setTag(bdUniqueId);
         k();
-        MessageManager.getInstance().registerListener(this.f21185f);
+        MessageManager.getInstance().registerListener(this.f21421f);
     }
 
     public static /* synthetic */ int f(a aVar) {
@@ -167,10 +167,10 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_RELEVANCE_ITEM_SEARCH);
-            httpMessage.addParam("tab_name", this.f21182c);
+            httpMessage.addParam("tab_name", this.f21418c);
             httpMessage.addParam("pn", this.a);
             httpMessage.addParam("rn", 20);
-            httpMessage.setTag(this.f21181b);
+            httpMessage.setTag(this.f21417b);
             MessageManager.getInstance().sendMessage(httpMessage);
         }
     }
@@ -179,11 +179,11 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
             HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_RELEVANCE_ITEM_SEARCH);
-            httpMessage.addParam("tab_name", this.f21182c);
+            httpMessage.addParam("tab_name", this.f21418c);
             httpMessage.addParam("keyword", str);
             httpMessage.addParam("pn", this.a);
             httpMessage.addParam("rn", 20);
-            httpMessage.setTag(this.f21181b);
+            httpMessage.setTag(this.f21417b);
             MessageManager.getInstance().sendMessage(httpMessage);
         }
     }
@@ -191,8 +191,8 @@ public class a {
     public void j() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            MessageManager.getInstance().removeMessage(this.f21181b);
-            MessageManager.getInstance().unRegisterListener(this.f21181b);
+            MessageManager.getInstance().removeMessage(this.f21417b);
+            MessageManager.getInstance().unRegisterListener(this.f21417b);
         }
     }
 
@@ -217,7 +217,7 @@ public class a {
     public void m(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, bVar) == null) {
-            this.f21183d = bVar;
+            this.f21419d = bVar;
         }
     }
 }

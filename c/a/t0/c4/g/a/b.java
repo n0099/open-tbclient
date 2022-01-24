@@ -22,19 +22,19 @@ public class b extends BaseAdapter {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f15599e;
+    public int f15747e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f15600f;
+    public int f15748f;
 
     /* renamed from: g  reason: collision with root package name */
-    public List<Object> f15601g;
+    public List<Object> f15749g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TbPageContext<?> f15602h;
+    public TbPageContext<?> f15750h;
 
     /* renamed from: i  reason: collision with root package name */
-    public PersonalCardItemView.b f15603i;
+    public PersonalCardItemView.b f15751i;
 
     /* loaded from: classes7.dex */
     public static class a {
@@ -43,13 +43,13 @@ public class b extends BaseAdapter {
         public PersonalCardItemView a;
 
         /* renamed from: b  reason: collision with root package name */
-        public PersonalCardItemView f15604b;
+        public PersonalCardItemView f15752b;
 
         /* renamed from: c  reason: collision with root package name */
-        public PersonalCardItemView f15605c;
+        public PersonalCardItemView f15753c;
 
         /* renamed from: d  reason: collision with root package name */
-        public View f15606d;
+        public View f15754d;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -68,12 +68,12 @@ public class b extends BaseAdapter {
 
     /* renamed from: c.a.t0.c4.g.a.b$b  reason: collision with other inner class name */
     /* loaded from: classes7.dex */
-    public static class C0999b {
+    public static class C1003b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public TextView a;
 
-        public C0999b() {
+        public C1003b() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -103,24 +103,24 @@ public class b extends BaseAdapter {
                 return;
             }
         }
-        this.f15599e = 0;
-        this.f15600f = 0;
-        this.f15602h = tbPageContext;
-        this.f15599e = n.f(tbPageContext.getPageActivity(), R.dimen.ds28);
-        this.f15600f = n.f(tbPageContext.getPageActivity(), R.dimen.ds20);
+        this.f15747e = 0;
+        this.f15748f = 0;
+        this.f15750h = tbPageContext;
+        this.f15747e = n.f(tbPageContext.getPageActivity(), R.dimen.ds28);
+        this.f15748f = n.f(tbPageContext.getPageActivity(), R.dimen.ds20);
     }
 
     public void a(PersonalCardItemView.b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, bVar) == null) {
-            this.f15603i = bVar;
+            this.f15751i = bVar;
         }
     }
 
     public void b(List<Object> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
-            this.f15601g = list;
+            this.f15749g = list;
         }
     }
 
@@ -129,7 +129,7 @@ public class b extends BaseAdapter {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            List<Object> list = this.f15601g;
+            List<Object> list = this.f15749g;
             if (list != null) {
                 return list.size();
             }
@@ -143,11 +143,11 @@ public class b extends BaseAdapter {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i2)) == null) {
-            List<Object> list = this.f15601g;
-            if (list == null || list.size() <= 0 || i2 < 0 || i2 >= this.f15601g.size()) {
+            List<Object> list = this.f15749g;
+            if (list == null || list.size() <= 0 || i2 < 0 || i2 >= this.f15749g.size()) {
                 return null;
             }
-            return this.f15601g.get(i2);
+            return this.f15749g.get(i2);
         }
         return invokeI.objValue;
     }
@@ -176,38 +176,38 @@ public class b extends BaseAdapter {
     public View getView(int i2, View view, ViewGroup viewGroup) {
         InterceptResult invokeILL;
         a aVar;
-        C0999b c0999b;
+        C1003b c1003b;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeILL = interceptable.invokeILL(1048582, this, i2, view, viewGroup)) == null) {
             int itemViewType = getItemViewType(i2);
             Object item = getItem(i2);
             if (itemViewType == 0) {
-                if (view != null && (view.getTag() instanceof C0999b)) {
-                    c0999b = (C0999b) view.getTag();
+                if (view != null && (view.getTag() instanceof C1003b)) {
+                    c1003b = (C1003b) view.getTag();
                 } else {
-                    c0999b = new C0999b();
-                    view = LayoutInflater.from(this.f15602h.getPageActivity()).inflate(R.layout.background_group_header, viewGroup, false);
+                    c1003b = new C1003b();
+                    view = LayoutInflater.from(this.f15750h.getPageActivity()).inflate(R.layout.background_group_header, viewGroup, false);
                     TextView textView = (TextView) view.findViewById(R.id.group_name);
-                    c0999b.a = textView;
-                    textView.setPadding(0, this.f15599e, 0, this.f15600f);
-                    view.setTag(c0999b);
+                    c1003b.a = textView;
+                    textView.setPadding(0, this.f15747e, 0, this.f15748f);
+                    view.setTag(c1003b);
                 }
                 if (item != null) {
-                    c0999b.a.setText(item.toString());
+                    c1003b.a.setText(item.toString());
                 }
             } else if (itemViewType == 1) {
                 if (view != null && (view.getTag() instanceof a)) {
                     aVar = (a) view.getTag();
                 } else {
                     a aVar2 = new a();
-                    View inflate = LayoutInflater.from(this.f15602h.getPageActivity()).inflate(R.layout.category_card_list_item, viewGroup, false);
+                    View inflate = LayoutInflater.from(this.f15750h.getPageActivity()).inflate(R.layout.category_card_list_item, viewGroup, false);
                     aVar2.a = (PersonalCardItemView) inflate.findViewById(R.id.card1);
-                    aVar2.f15604b = (PersonalCardItemView) inflate.findViewById(R.id.card2);
-                    aVar2.f15605c = (PersonalCardItemView) inflate.findViewById(R.id.card3);
-                    aVar2.f15606d = inflate.findViewById(R.id.divider_line);
-                    aVar2.a.setCardViewController(this.f15603i);
-                    aVar2.f15604b.setCardViewController(this.f15603i);
-                    aVar2.f15605c.setCardViewController(this.f15603i);
+                    aVar2.f15752b = (PersonalCardItemView) inflate.findViewById(R.id.card2);
+                    aVar2.f15753c = (PersonalCardItemView) inflate.findViewById(R.id.card3);
+                    aVar2.f15754d = inflate.findViewById(R.id.divider_line);
+                    aVar2.a.setCardViewController(this.f15751i);
+                    aVar2.f15752b.setCardViewController(this.f15751i);
+                    aVar2.f15753c.setCardViewController(this.f15751i);
                     inflate.setTag(aVar2);
                     aVar = aVar2;
                     view = inflate;
@@ -218,32 +218,32 @@ public class b extends BaseAdapter {
                     if (size == 1) {
                         aVar.a.fillData((c.a.t0.c4.a) list.get(0));
                         aVar.a.setVisibility(0);
-                        aVar.f15604b.setVisibility(8);
-                        aVar.f15605c.setVisibility(8);
+                        aVar.f15752b.setVisibility(8);
+                        aVar.f15753c.setVisibility(8);
                     } else if (size == 2) {
                         aVar.a.fillData((c.a.t0.c4.a) list.get(0));
-                        aVar.f15604b.fillData((c.a.t0.c4.a) list.get(1));
+                        aVar.f15752b.fillData((c.a.t0.c4.a) list.get(1));
                         aVar.a.setVisibility(0);
-                        aVar.f15604b.setVisibility(0);
-                        aVar.f15605c.setVisibility(8);
+                        aVar.f15752b.setVisibility(0);
+                        aVar.f15753c.setVisibility(8);
                     } else if (size != 3) {
                         view.setVisibility(8);
                     } else {
                         aVar.a.fillData((c.a.t0.c4.a) list.get(0));
-                        aVar.f15604b.fillData((c.a.t0.c4.a) list.get(1));
-                        aVar.f15605c.fillData((c.a.t0.c4.a) list.get(2));
+                        aVar.f15752b.fillData((c.a.t0.c4.a) list.get(1));
+                        aVar.f15753c.fillData((c.a.t0.c4.a) list.get(2));
                         aVar.a.setVisibility(0);
-                        aVar.f15604b.setVisibility(0);
-                        aVar.f15605c.setVisibility(0);
+                        aVar.f15752b.setVisibility(0);
+                        aVar.f15753c.setVisibility(0);
                     }
                     if (getItem(i2 + 1) instanceof List) {
-                        aVar.f15606d.setVisibility(8);
+                        aVar.f15754d.setVisibility(8);
                     } else {
-                        aVar.f15606d.setVisibility(0);
+                        aVar.f15754d.setVisibility(0);
                     }
                 }
             }
-            this.f15602h.getLayoutMode().j(view);
+            this.f15750h.getLayoutMode().j(view);
             return view;
         }
         return (View) invokeILL.objValue;

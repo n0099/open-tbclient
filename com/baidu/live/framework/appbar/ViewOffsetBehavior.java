@@ -18,10 +18,10 @@ public class ViewOffsetBehavior<V extends View> extends CoordinatorLayout.Behavi
     public b a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f34868b;
+    public int f34896b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f34869c;
+    public int f34897c;
 
     public ViewOffsetBehavior() {
         Interceptable interceptable = $ic;
@@ -36,8 +36,8 @@ public class ViewOffsetBehavior<V extends View> extends CoordinatorLayout.Behavi
                 return;
             }
         }
-        this.f34868b = 0;
-        this.f34869c = 0;
+        this.f34896b = 0;
+        this.f34897c = 0;
     }
 
     public int E() {
@@ -68,7 +68,7 @@ public class ViewOffsetBehavior<V extends View> extends CoordinatorLayout.Behavi
             if (bVar != null) {
                 return bVar.d(i2);
             }
-            this.f34868b = i2;
+            this.f34896b = i2;
             return false;
         }
         return invokeI.booleanValue;
@@ -84,15 +84,15 @@ public class ViewOffsetBehavior<V extends View> extends CoordinatorLayout.Behavi
                 this.a = new b(v);
             }
             this.a.b();
-            int i3 = this.f34868b;
+            int i3 = this.f34896b;
             if (i3 != 0) {
                 this.a.d(i3);
-                this.f34868b = 0;
+                this.f34896b = 0;
             }
-            int i4 = this.f34869c;
+            int i4 = this.f34897c;
             if (i4 != 0) {
                 this.a.c(i4);
-                this.f34869c = 0;
+                this.f34897c = 0;
                 return true;
             }
             return true;
@@ -119,7 +119,7 @@ public class ViewOffsetBehavior<V extends View> extends CoordinatorLayout.Behavi
                 return;
             }
         }
-        this.f34868b = 0;
-        this.f34869c = 0;
+        this.f34896b = 0;
+        this.f34897c = 0;
     }
 }

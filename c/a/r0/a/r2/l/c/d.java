@@ -32,11 +32,11 @@ public class d extends c.a.r0.a.r2.l.c.a {
     @SuppressLint({"StaticFieldLeak"})
 
     /* renamed from: i  reason: collision with root package name */
-    public static volatile d f8708i;
+    public static volatile d f8850i;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: h  reason: collision with root package name */
-    public final c.a.r0.a.r2.l.c.b f8709h;
+    public final c.a.r0.a.r2.l.c.b f8851h;
 
     /* loaded from: classes.dex */
     public static /* synthetic */ class a {
@@ -51,25 +51,25 @@ public class d extends c.a.r0.a.r2.l.c.a {
         public c.a.r0.a.z2.g1.c<c.a.r0.a.r2.l.d.c<c.a.r0.a.r2.l.d.b>> a;
 
         /* renamed from: b  reason: collision with root package name */
-        public WifiConfiguration f8710b;
+        public WifiConfiguration f8852b;
 
         /* renamed from: c  reason: collision with root package name */
-        public boolean f8711c;
+        public boolean f8853c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final Handler f8712d;
+        public final Handler f8854d;
 
         /* renamed from: e  reason: collision with root package name */
-        public final Lock f8713e;
+        public final Lock f8855e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final Runnable f8714f;
+        public final Runnable f8856f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final c.a.r0.a.r2.l.b.a f8715g;
+        public final c.a.r0.a.r2.l.b.a f8857g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ d f8716h;
+        public final /* synthetic */ d f8858h;
 
         /* loaded from: classes.dex */
         public class a implements Runnable {
@@ -77,7 +77,7 @@ public class d extends c.a.r0.a.r2.l.c.a {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ b f8717e;
+            public final /* synthetic */ b f8859e;
 
             public a(b bVar) {
                 Interceptable interceptable = $ic;
@@ -94,21 +94,21 @@ public class d extends c.a.r0.a.r2.l.c.a {
                         return;
                     }
                 }
-                this.f8717e = bVar;
+                this.f8859e = bVar;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    this.f8717e.f8713e.lock();
+                    this.f8859e.f8855e.lock();
                     try {
-                        if (this.f8717e.a != null) {
-                            this.f8717e.f8716h.g(12003, "connection timeout", null, this.f8717e.a);
+                        if (this.f8859e.a != null) {
+                            this.f8859e.f8858h.g(12003, "connection timeout", null, this.f8859e.a);
                         }
-                        this.f8717e.l();
+                        this.f8859e.l();
                     } finally {
-                        this.f8717e.f8713e.unlock();
+                        this.f8859e.f8855e.unlock();
                     }
                 }
             }
@@ -116,12 +116,12 @@ public class d extends c.a.r0.a.r2.l.c.a {
 
         /* renamed from: c.a.r0.a.r2.l.c.d$b$b  reason: collision with other inner class name */
         /* loaded from: classes.dex */
-        public class C0547b implements c.a.r0.a.r2.l.b.a {
+        public class C0556b implements c.a.r0.a.r2.l.b.a {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ b a;
 
-            public C0547b(b bVar) {
+            public C0556b(b bVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -144,16 +144,16 @@ public class d extends c.a.r0.a.r2.l.c.a {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(1048576, this, wifiInfo) == null) {
                     if (wifiInfo == null) {
-                        wifiInfo = this.a.f8716h.f8689b.getConnectionInfo();
+                        wifiInfo = this.a.f8858h.f8831b.getConnectionInfo();
                     }
-                    this.a.f8713e.lock();
+                    this.a.f8855e.lock();
                     try {
-                        if (this.a.f8710b != null && this.a.a != null && TextUtils.equals(wifiInfo.getSSID(), this.a.f8710b.SSID)) {
-                            this.a.f8716h.g(0, "success", new c.a.r0.a.r2.l.d.b(wifiInfo, c.a.r0.a.r2.l.e.b.a(c.a.r0.a.r2.l.e.a.b(this.a.f8716h.a, this.a.f8716h.f8689b, wifiInfo))), this.a.a);
+                        if (this.a.f8852b != null && this.a.a != null && TextUtils.equals(wifiInfo.getSSID(), this.a.f8852b.SSID)) {
+                            this.a.f8858h.g(0, "success", new c.a.r0.a.r2.l.d.b(wifiInfo, c.a.r0.a.r2.l.e.b.a(c.a.r0.a.r2.l.e.a.b(this.a.f8858h.a, this.a.f8858h.f8831b, wifiInfo))), this.a.a);
                             this.a.l();
                         }
                     } finally {
-                        this.a.f8713e.unlock();
+                        this.a.f8855e.unlock();
                     }
                 }
             }
@@ -162,19 +162,19 @@ public class d extends c.a.r0.a.r2.l.c.a {
             public void onError(int i2) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
-                    this.a.f8713e.lock();
+                    this.a.f8855e.lock();
                     if (i2 == 1) {
                         try {
                             if (this.a.a != null) {
-                                if (this.a.f8711c) {
-                                    this.a.f8716h.g(TaskResponseData.ERROR_NO_TASK_OFFLINE_03, "password error", null, this.a.a);
+                                if (this.a.f8853c) {
+                                    this.a.f8858h.g(TaskResponseData.ERROR_NO_TASK_OFFLINE_03, "password error", null, this.a.a);
                                 } else {
-                                    this.a.f8716h.g(12013, "wifi config unavailable", null, this.a.a);
+                                    this.a.f8858h.g(12013, "wifi config unavailable", null, this.a.a);
                                 }
                                 this.a.l();
                             }
                         } finally {
-                            this.a.f8713e.unlock();
+                            this.a.f8855e.unlock();
                         }
                     }
                 }
@@ -187,13 +187,13 @@ public class d extends c.a.r0.a.r2.l.c.a {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ c.a.r0.a.z2.g1.c f8718e;
+            public final /* synthetic */ c.a.r0.a.z2.g1.c f8860e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ c.a.r0.a.r2.l.d.a f8719f;
+            public final /* synthetic */ c.a.r0.a.r2.l.d.a f8861f;
 
             /* renamed from: g  reason: collision with root package name */
-            public final /* synthetic */ b f8720g;
+            public final /* synthetic */ b f8862g;
 
             public c(b bVar, c.a.r0.a.z2.g1.c cVar, c.a.r0.a.r2.l.d.a aVar) {
                 Interceptable interceptable = $ic;
@@ -210,9 +210,9 @@ public class d extends c.a.r0.a.r2.l.c.a {
                         return;
                     }
                 }
-                this.f8720g = bVar;
-                this.f8718e = cVar;
-                this.f8719f = aVar;
+                this.f8862g = bVar;
+                this.f8860e = cVar;
+                this.f8861f = aVar;
             }
 
             @Override // java.lang.Runnable
@@ -221,85 +221,85 @@ public class d extends c.a.r0.a.r2.l.c.a {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                     if (Build.VERSION.SDK_INT >= 29) {
-                        this.f8720g.f8716h.g(w0.I5, "not support", null, this.f8718e);
-                    } else if (!this.f8720g.f8716h.l()) {
-                        this.f8720g.f8716h.g(w0.X3, "not init", null, this.f8718e);
-                    } else if (!this.f8720g.f8716h.f8689b.isWifiEnabled()) {
-                        this.f8720g.f8716h.g(12005, "wifi is not on", null, this.f8718e);
-                    } else if (!q0.K(this.f8720g.f8716h.a)) {
-                        this.f8720g.f8716h.g(12006, "LBS is not on", null, this.f8718e);
-                    } else if (ContextCompat.checkSelfPermission(this.f8720g.f8716h.a, s.f55246g) == 0) {
-                        this.f8720g.f8713e.lock();
+                        this.f8862g.f8858h.g(w0.I5, "not support", null, this.f8860e);
+                    } else if (!this.f8862g.f8858h.l()) {
+                        this.f8862g.f8858h.g(w0.X3, "not init", null, this.f8860e);
+                    } else if (!this.f8862g.f8858h.f8831b.isWifiEnabled()) {
+                        this.f8862g.f8858h.g(12005, "wifi is not on", null, this.f8860e);
+                    } else if (!q0.K(this.f8862g.f8858h.a)) {
+                        this.f8862g.f8858h.g(12006, "LBS is not on", null, this.f8860e);
+                    } else if (ContextCompat.checkSelfPermission(this.f8862g.f8858h.a, s.f55291g) == 0) {
+                        this.f8862g.f8855e.lock();
                         try {
-                            if (this.f8720g.a == null) {
-                                this.f8720g.a = this.f8718e;
-                                this.f8720g.f8713e.unlock();
-                                this.f8720g.f8710b = c.a.r0.a.r2.l.e.a.a(this.f8719f);
-                                if (this.f8720g.f8710b != null) {
-                                    if (!TextUtils.isEmpty(this.f8720g.f8710b.preSharedKey) && c.a.r0.a.r2.l.e.a.e(this.f8720g.f8710b.preSharedKey).length() < 8) {
-                                        b bVar = this.f8720g;
-                                        bVar.f8716h.g(TaskResponseData.ERROR_NO_TASK_OFFLINE_03, "password error", null, bVar.a);
-                                        this.f8720g.l();
+                            if (this.f8862g.a == null) {
+                                this.f8862g.a = this.f8860e;
+                                this.f8862g.f8855e.unlock();
+                                this.f8862g.f8852b = c.a.r0.a.r2.l.e.a.a(this.f8861f);
+                                if (this.f8862g.f8852b != null) {
+                                    if (!TextUtils.isEmpty(this.f8862g.f8852b.preSharedKey) && c.a.r0.a.r2.l.e.a.e(this.f8862g.f8852b.preSharedKey).length() < 8) {
+                                        b bVar = this.f8862g;
+                                        bVar.f8858h.g(TaskResponseData.ERROR_NO_TASK_OFFLINE_03, "password error", null, bVar.a);
+                                        this.f8862g.l();
                                         return;
                                     }
-                                    WifiInfo connectionInfo = this.f8720g.f8716h.f8689b.getConnectionInfo();
+                                    WifiInfo connectionInfo = this.f8862g.f8858h.f8831b.getConnectionInfo();
                                     if (connectionInfo != null && connectionInfo.getSupplicantState() != SupplicantState.COMPLETED) {
                                         connectionInfo = null;
                                     }
                                     boolean z = false;
-                                    if (connectionInfo != null && !TextUtils.equals(connectionInfo.getSSID(), "<unknown ssid>") && TextUtils.equals(this.f8720g.f8710b.SSID, connectionInfo.getSSID()) && (TextUtils.isEmpty(this.f8720g.f8710b.BSSID) || (!TextUtils.isEmpty(this.f8720g.f8710b.BSSID) && TextUtils.equals(this.f8720g.f8710b.BSSID, connectionInfo.getBSSID())))) {
-                                        d dVar = this.f8720g.f8716h;
-                                        dVar.g(0, "success", new c.a.r0.a.r2.l.d.b(connectionInfo, c.a.r0.a.r2.l.e.b.a(c.a.r0.a.r2.l.e.a.b(dVar.a, dVar.f8689b, connectionInfo))), this.f8718e);
-                                        this.f8720g.l();
+                                    if (connectionInfo != null && !TextUtils.equals(connectionInfo.getSSID(), "<unknown ssid>") && TextUtils.equals(this.f8862g.f8852b.SSID, connectionInfo.getSSID()) && (TextUtils.isEmpty(this.f8862g.f8852b.BSSID) || (!TextUtils.isEmpty(this.f8862g.f8852b.BSSID) && TextUtils.equals(this.f8862g.f8852b.BSSID, connectionInfo.getBSSID())))) {
+                                        d dVar = this.f8862g.f8858h;
+                                        dVar.g(0, "success", new c.a.r0.a.r2.l.d.b(connectionInfo, c.a.r0.a.r2.l.e.b.a(c.a.r0.a.r2.l.e.a.b(dVar.a, dVar.f8831b, connectionInfo))), this.f8860e);
+                                        this.f8862g.l();
                                         return;
                                     }
-                                    d dVar2 = this.f8720g.f8716h;
-                                    WifiConfiguration c2 = c.a.r0.a.r2.l.e.a.c(dVar2.a, dVar2.f8689b, this.f8719f);
+                                    d dVar2 = this.f8862g.f8858h;
+                                    WifiConfiguration c2 = c.a.r0.a.r2.l.e.a.c(dVar2.a, dVar2.f8831b, this.f8861f);
                                     if (c2 != null) {
-                                        this.f8720g.f8710b.networkId = c2.networkId;
+                                        this.f8862g.f8852b.networkId = c2.networkId;
                                     }
-                                    if (this.f8720g.f8710b.networkId > -1) {
-                                        b bVar2 = this.f8720g;
-                                        addNetwork = bVar2.f8716h.f8689b.updateNetwork(bVar2.f8710b);
-                                        if (addNetwork < 0 && c2 != null && !TextUtils.isEmpty(this.f8720g.f8710b.BSSID) && !TextUtils.equals(this.f8720g.f8710b.BSSID, c2.BSSID)) {
-                                            this.f8720g.f8716h.g(12013, "wifi config unavailable", null, this.f8718e);
-                                            this.f8720g.l();
+                                    if (this.f8862g.f8852b.networkId > -1) {
+                                        b bVar2 = this.f8862g;
+                                        addNetwork = bVar2.f8858h.f8831b.updateNetwork(bVar2.f8852b);
+                                        if (addNetwork < 0 && c2 != null && !TextUtils.isEmpty(this.f8862g.f8852b.BSSID) && !TextUtils.equals(this.f8862g.f8852b.BSSID, c2.BSSID)) {
+                                            this.f8862g.f8858h.g(12013, "wifi config unavailable", null, this.f8860e);
+                                            this.f8862g.l();
                                             return;
-                                        } else if (connectionInfo != null && addNetwork == connectionInfo.getNetworkId() && !TextUtils.isEmpty(this.f8720g.f8710b.BSSID) && !TextUtils.equals(this.f8720g.f8710b.BSSID, connectionInfo.getBSSID())) {
-                                            this.f8720g.f8716h.g(12013, "wifi config unavailable", null, this.f8718e);
-                                            this.f8720g.l();
+                                        } else if (connectionInfo != null && addNetwork == connectionInfo.getNetworkId() && !TextUtils.isEmpty(this.f8862g.f8852b.BSSID) && !TextUtils.equals(this.f8862g.f8852b.BSSID, connectionInfo.getBSSID())) {
+                                            this.f8862g.f8858h.g(12013, "wifi config unavailable", null, this.f8860e);
+                                            this.f8862g.l();
                                             return;
                                         }
                                     } else {
-                                        b bVar3 = this.f8720g;
-                                        addNetwork = bVar3.f8716h.f8689b.addNetwork(bVar3.f8710b);
+                                        b bVar3 = this.f8862g;
+                                        addNetwork = bVar3.f8858h.f8831b.addNetwork(bVar3.f8852b);
                                     }
-                                    this.f8720g.f8711c = addNetwork >= 0;
-                                    if (addNetwork < 0 && this.f8720g.f8710b.networkId > -1) {
-                                        addNetwork = this.f8720g.f8710b.networkId;
+                                    this.f8862g.f8853c = addNetwork >= 0;
+                                    if (addNetwork < 0 && this.f8862g.f8852b.networkId > -1) {
+                                        addNetwork = this.f8862g.f8852b.networkId;
                                     }
                                     if (addNetwork >= 0) {
-                                        this.f8720g.f8712d.postDelayed(this.f8720g.f8714f, 16000L);
-                                        z = this.f8720g.f8716h.f8689b.enableNetwork(addNetwork, true);
-                                        this.f8720g.f8716h.f8689b.saveConfiguration();
+                                        this.f8862g.f8854d.postDelayed(this.f8862g.f8856f, 16000L);
+                                        z = this.f8862g.f8858h.f8831b.enableNetwork(addNetwork, true);
+                                        this.f8862g.f8858h.f8831b.saveConfiguration();
                                     }
                                     if (z) {
                                         return;
                                     }
-                                    this.f8720g.f8716h.g(12013, "wifi config unavailable", null, this.f8718e);
-                                    this.f8720g.l();
+                                    this.f8862g.f8858h.g(12013, "wifi config unavailable", null, this.f8860e);
+                                    this.f8862g.l();
                                     return;
                                 }
-                                this.f8720g.f8716h.g(12008, "invalid ssid", null, this.f8718e);
-                                this.f8720g.l();
+                                this.f8862g.f8858h.g(12008, "invalid ssid", null, this.f8860e);
+                                this.f8862g.l();
                                 return;
                             }
-                            this.f8720g.f8716h.g(12004, "is connecting", null, this.f8718e);
+                            this.f8862g.f8858h.g(12004, "is connecting", null, this.f8860e);
                         } finally {
-                            this.f8720g.f8713e.unlock();
+                            this.f8862g.f8855e.unlock();
                         }
                     } else {
-                        this.f8720g.f8716h.g(12012, "no location permission", null, this.f8718e);
+                        this.f8862g.f8858h.g(12012, "no location permission", null, this.f8860e);
                     }
                 }
             }
@@ -320,13 +320,13 @@ public class d extends c.a.r0.a.r2.l.c.a {
                     return;
                 }
             }
-            this.f8716h = dVar;
-            this.f8712d = new Handler(Looper.getMainLooper());
-            this.f8713e = new ReentrantLock();
-            this.f8714f = new a(this);
-            C0547b c0547b = new C0547b(this);
-            this.f8715g = c0547b;
-            dVar.f8690c.setConnectListener(c0547b);
+            this.f8858h = dVar;
+            this.f8854d = new Handler(Looper.getMainLooper());
+            this.f8855e = new ReentrantLock();
+            this.f8856f = new a(this);
+            C0556b c0556b = new C0556b(this);
+            this.f8857g = c0556b;
+            dVar.f8832c.setConnectListener(c0556b);
         }
 
         @Override // c.a.r0.a.r2.l.c.b
@@ -341,13 +341,13 @@ public class d extends c.a.r0.a.r2.l.c.a {
         public final void l() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                this.f8713e.lock();
+                this.f8855e.lock();
                 try {
-                    this.f8712d.removeCallbacks(this.f8714f);
-                    this.f8710b = null;
+                    this.f8854d.removeCallbacks(this.f8856f);
+                    this.f8852b = null;
                     this.a = null;
                 } finally {
-                    this.f8713e.unlock();
+                    this.f8855e.unlock();
                 }
             }
         }
@@ -410,9 +410,9 @@ public class d extends c.a.r0.a.r2.l.c.a {
             }
         }
         if (Build.VERSION.SDK_INT < 29) {
-            this.f8709h = new b(this);
+            this.f8851h = new b(this);
         } else {
-            this.f8709h = new c(this, null);
+            this.f8851h = new c(this, null);
         }
     }
 
@@ -420,25 +420,25 @@ public class d extends c.a.r0.a.r2.l.c.a {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
-            if (f8708i == null) {
+            if (f8850i == null) {
                 synchronized (d.class) {
-                    if (f8708i == null) {
-                        f8708i = new d(context);
+                    if (f8850i == null) {
+                        f8850i = new d(context);
                     }
                 }
             }
-            return f8708i;
+            return f8850i;
         }
         return (d) invokeL.objValue;
     }
 
     public static void u() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65538, null) == null) || f8708i == null) {
+        if (!(interceptable == null || interceptable.invokeV(65538, null) == null) || f8850i == null) {
             return;
         }
-        f8708i.h();
-        f8708i = null;
+        f8850i.h();
+        f8850i = null;
     }
 
     @Override // c.a.r0.a.r2.l.c.b
@@ -447,12 +447,12 @@ public class d extends c.a.r0.a.r2.l.c.a {
         if (!(interceptable == null || interceptable.invokeLL(1048576, this, aVar, cVar) == null) || cVar == null) {
             return;
         }
-        if (aVar != null && aVar.f8724e) {
+        if (aVar != null && aVar.f8866e) {
             t();
             g(0, "success", null, cVar);
             return;
         }
-        this.f8709h.a(aVar, cVar);
+        this.f8851h.a(aVar, cVar);
     }
 
     public final void t() {

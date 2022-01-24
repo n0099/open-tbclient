@@ -17,7 +17,7 @@ public class e extends c.a.r0.q.j.d<c.a.r0.q.j.l.e> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: h  reason: collision with root package name */
-    public final String f11546h;
+    public final String f11688h;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public e(String str, i iVar, h hVar) {
@@ -38,7 +38,7 @@ public class e extends c.a.r0.q.j.d<c.a.r0.q.j.l.e> {
                 return;
             }
         }
-        this.f11546h = str;
+        this.f11688h = str;
     }
 
     @Override // c.a.r0.q.j.d
@@ -76,15 +76,15 @@ public class e extends c.a.r0.q.j.d<c.a.r0.q.j.l.e> {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, eVar)) == null) {
-            this.f11505e.F();
+            this.f11647e.F();
             g gVar = new g();
             p(eVar.a, gVar);
             if (gVar.n() == 0) {
-                this.f11505e.G();
+                this.f11647e.G();
                 return null;
             }
-            this.f11505e.H(gVar);
-            c.a.r0.q.j.i.a.d(eVar, this.f11505e);
+            this.f11647e.H(gVar);
+            c.a.r0.q.j.i.a.d(eVar, this.f11647e);
             return null;
         }
         return (c.a.r0.q.i.b) invokeL.objValue;
@@ -96,6 +96,6 @@ public class e extends c.a.r0.q.j.d<c.a.r0.q.j.l.e> {
     public c.a.r0.q.j.l.e u(JSONObject jSONObject) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, jSONObject)) == null) ? c.a.r0.q.p.f.i(this.f11546h, jSONObject) : (c.a.r0.q.j.l.e) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, jSONObject)) == null) ? c.a.r0.q.p.f.i(this.f11688h, jSONObject) : (c.a.r0.q.j.l.e) invokeL.objValue;
     }
 }

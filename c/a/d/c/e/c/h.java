@@ -25,31 +25,31 @@ public class h {
     public static int a = -100000000;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final int f2605b;
+    public static final int f2707b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final int f2606c;
+    public static final int f2708c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final int f2607d;
+    public static final int f2709d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final int f2608e;
+    public static final int f2710e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final int f2609f;
+    public static final int f2711f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final int f2610g;
+    public static final int f2712g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final int f2611h;
+    public static final int f2713h;
 
     /* renamed from: i  reason: collision with root package name */
-    public static final int f2612i;
+    public static final int f2714i;
 
     /* renamed from: j  reason: collision with root package name */
-    public static final int f2613j;
+    public static final int f2715j;
     public static final int k;
     public static final int l;
     public static final int m;
@@ -81,15 +81,15 @@ public class h {
                 return;
             }
         }
-        f2605b = (-100000000) + DeepLinkCode.ERROR_LINK_NOT_MATCH;
-        f2606c = (-100000000) + com.baidu.fsg.face.base.c.a.ERROR_CODE_CAMERA_EXCEPTION;
-        f2607d = (-100000000) - 213;
-        f2608e = (-100000000) - 214;
-        f2609f = (-100000000) - 221;
-        f2610g = (-100000000) - 230;
-        f2611h = (-100000000) - 232;
-        f2612i = (-100000000) - 233;
-        f2613j = (-100000000) - 234;
+        f2707b = (-100000000) + DeepLinkCode.ERROR_LINK_NOT_MATCH;
+        f2708c = (-100000000) + com.baidu.fsg.face.base.c.a.ERROR_CODE_CAMERA_EXCEPTION;
+        f2709d = (-100000000) - 213;
+        f2710e = (-100000000) - 214;
+        f2711f = (-100000000) - 221;
+        f2712g = (-100000000) - 230;
+        f2713h = (-100000000) - 232;
+        f2714i = (-100000000) - 233;
+        f2715j = (-100000000) - 234;
         k = (-100000000) - 235;
         l = (-100000000) - 236;
         m = (-100000000) - 301;

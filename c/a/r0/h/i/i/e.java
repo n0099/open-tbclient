@@ -11,31 +11,31 @@ public class e {
     public static float a = 3.0f;
 
     /* renamed from: b  reason: collision with root package name */
-    public static float f10436b = 1.5f;
+    public static float f10578b = 1.5f;
 
     /* renamed from: c  reason: collision with root package name */
-    public static float f10437c = 0.12f;
+    public static float f10579c = 0.12f;
 
     /* renamed from: d  reason: collision with root package name */
-    public static float f10438d = 0.06f;
+    public static float f10580d = 0.06f;
 
     /* renamed from: e  reason: collision with root package name */
-    public static float f10439e = 0.13f;
+    public static float f10581e = 0.13f;
 
     /* renamed from: f  reason: collision with root package name */
-    public static float f10440f = 0.12f;
+    public static float f10582f = 0.12f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static float f10441g = 0.19f;
+    public static float f10583g = 0.19f;
 
     /* renamed from: h  reason: collision with root package name */
-    public static float f10442h = 0.05f;
+    public static float f10584h = 0.05f;
 
     /* renamed from: i  reason: collision with root package name */
-    public static float f10443i = 0.48f;
+    public static float f10585i = 0.48f;
 
     /* renamed from: j  reason: collision with root package name */
-    public static float f10444j = 0.33f;
+    public static float f10586j = 0.33f;
     public static float k = 0.19f;
     public static float l = 0.45f;
     public static float m = 0.15f;

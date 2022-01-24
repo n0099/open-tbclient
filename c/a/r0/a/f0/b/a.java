@@ -27,7 +27,7 @@ public class a extends z {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f5797c;
+    public String f5939c;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public a(e eVar) {
@@ -70,7 +70,7 @@ public class a extends z {
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, eVar)) == null) {
             if (context != null && callbackHandler != null && eVar != null) {
                 if (eVar.m0()) {
-                    boolean z = z.f6201b;
+                    boolean z = z.f6343b;
                     unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "this operation does not supported when app is invisible.");
                     return false;
                 }
@@ -79,7 +79,7 @@ public class a extends z {
                     unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
                     return false;
                 }
-                if (z.f6201b) {
+                if (z.f6343b) {
                     String str = "handle params:" + optParamsAsJo;
                 }
                 String optString = optParamsAsJo.optString("action");
@@ -92,7 +92,7 @@ public class a extends z {
                     unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
                     return false;
                 }
-                this.f5797c = optParamsAsJo.optString("cb");
+                this.f5939c = optParamsAsJo.optString("cb");
                 char c2 = 65535;
                 int hashCode = optString.hashCode();
                 if (hashCode != -1183792455) {
@@ -163,18 +163,18 @@ public class a extends z {
         if (interceptable == null || interceptable.invokeLLL(1048579, this, context, intent, callbackHandler) == null) {
             try {
                 context.startActivity(intent);
-                if (TextUtils.isEmpty(this.f5797c)) {
+                if (TextUtils.isEmpty(this.f5939c)) {
                     return;
                 }
-                callbackHandler.handleSchemeDispatchCallback(this.f5797c, UnitedSchemeUtility.wrapCallbackParams(0, NewBindCardEntry.BING_CARD_SUCCESS_MSG).toString());
+                callbackHandler.handleSchemeDispatchCallback(this.f5939c, UnitedSchemeUtility.wrapCallbackParams(0, NewBindCardEntry.BING_CARD_SUCCESS_MSG).toString());
             } catch (Exception e2) {
-                if (z.f6201b) {
+                if (z.f6343b) {
                     String str = "startContactActivity:" + e2.toString();
                 }
-                if (TextUtils.isEmpty(this.f5797c)) {
+                if (TextUtils.isEmpty(this.f5939c)) {
                     return;
                 }
-                callbackHandler.handleSchemeDispatchCallback(this.f5797c, UnitedSchemeUtility.wrapCallbackParams(201, "fail startactivity exception").toString());
+                callbackHandler.handleSchemeDispatchCallback(this.f5939c, UnitedSchemeUtility.wrapCallbackParams(201, "fail startactivity exception").toString());
             }
         }
     }

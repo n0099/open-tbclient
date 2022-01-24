@@ -16,10 +16,10 @@ public class a {
     public HashMap<String, b> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ArrayList<Integer> f23610b;
+    public ArrayList<Integer> f22191b;
 
     /* renamed from: c  reason: collision with root package name */
-    public c f23611c;
+    public c f22192c;
 
     public a(c cVar, ArrayList<Integer> arrayList) {
         Interceptable interceptable = $ic;
@@ -36,8 +36,8 @@ public class a {
                 return;
             }
         }
-        this.f23610b = arrayList;
-        this.f23611c = cVar;
+        this.f22191b = arrayList;
+        this.f22192c = cVar;
         this.a = new HashMap<>();
     }
 
@@ -46,7 +46,7 @@ public class a {
         ArrayList<Integer> arrayList;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, str, i2)) == null) {
-            if (this.a == null || m.isEmpty(str) || (arrayList = this.f23610b) == null || !arrayList.contains(Integer.valueOf(i2))) {
+            if (this.a == null || m.isEmpty(str) || (arrayList = this.f22191b) == null || !arrayList.contains(Integer.valueOf(i2))) {
                 return 0;
             }
             if (!this.a.containsKey(str)) {
@@ -63,17 +63,17 @@ public class a {
 
     public void b(String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) || this.a == null || m.isEmpty(str) || this.f23611c == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) || this.a == null || m.isEmpty(str) || this.f22192c == null) {
             return;
         }
         if (this.a.containsKey(str)) {
             b bVar = this.a.get(str);
-            this.f23611c.b(this.f23610b, bVar);
+            this.f22192c.b(this.f22191b, bVar);
             this.a.put(str, bVar);
             return;
         }
         b bVar2 = new b();
-        this.f23611c.b(this.f23610b, bVar2);
+        this.f22192c.b(this.f22191b, bVar2);
         this.a.put(str, bVar2);
     }
 }

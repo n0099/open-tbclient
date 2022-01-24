@@ -30,17 +30,17 @@ import org.java_websocket.exceptions.InvalidDataException;
 import org.java_websocket.exceptions.InvalidHandshakeException;
 import org.java_websocket.exceptions.LimitExedeedException;
 import org.java_websocket.framing.Framedata;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public abstract class Draft {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public WebSocket.Role a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Framedata.Opcode f62442b;
+    public Framedata.Opcode f62487b;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static final class CloseHandshakeType {
         public static final /* synthetic */ CloseHandshakeType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -102,7 +102,7 @@ public abstract class Draft {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static final class HandshakeState {
         public static final /* synthetic */ HandshakeState[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -190,7 +190,7 @@ public abstract class Draft {
             }
         }
         this.a = null;
-        this.f62442b = null;
+        this.f62487b = null;
     }
 
     public static ByteBuffer p(ByteBuffer byteBuffer) {
@@ -320,10 +320,10 @@ public abstract class Draft {
             if (opcode != Framedata.Opcode.BINARY && opcode != Framedata.Opcode.TEXT) {
                 throw new IllegalArgumentException("Only Opcode.BINARY or  Opcode.TEXT are allowed");
             }
-            if (this.f62442b != null) {
+            if (this.f62487b != null) {
                 iVar = new h.b.h.c();
             } else {
-                this.f62442b = opcode;
+                this.f62487b = opcode;
                 if (opcode == Framedata.Opcode.BINARY) {
                     iVar = new h.b.h.a();
                 } else {
@@ -335,9 +335,9 @@ public abstract class Draft {
             try {
                 iVar.h();
                 if (z) {
-                    this.f62442b = null;
+                    this.f62487b = null;
                 } else {
-                    this.f62442b = opcode;
+                    this.f62487b = opcode;
                 }
                 return Collections.singletonList(iVar);
             } catch (InvalidDataException e2) {

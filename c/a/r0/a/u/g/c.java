@@ -16,10 +16,10 @@ public class c implements a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final boolean f9321b;
+    public static final boolean f9463b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static volatile c f9322c;
+    public static volatile c f9464c;
     public transient /* synthetic */ FieldHolder $fh;
     public List<a> a;
 
@@ -36,7 +36,7 @@ public class c implements a {
                 return;
             }
         }
-        f9321b = k.a;
+        f9463b = k.a;
     }
 
     public c() {
@@ -61,14 +61,14 @@ public class c implements a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (f9322c == null) {
+            if (f9464c == null) {
                 synchronized (c.class) {
-                    if (f9322c == null) {
-                        f9322c = new c();
+                    if (f9464c == null) {
+                        f9464c = new c();
                     }
                 }
             }
-            return f9322c;
+            return f9464c;
         }
         return (c) invokeV.objValue;
     }
@@ -77,7 +77,7 @@ public class c implements a {
     public void a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            if (f9321b) {
+            if (f9463b) {
                 String str2 = "markStart: " + str;
             }
             for (int i2 = 0; i2 < this.a.size(); i2++) {
@@ -90,7 +90,7 @@ public class c implements a {
     public void b(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            if (f9321b) {
+            if (f9463b) {
                 String str2 = "markEnd: " + str;
             }
             for (int i2 = 0; i2 < this.a.size(); i2++) {
@@ -103,11 +103,11 @@ public class c implements a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             synchronized (this) {
-                boolean z = f9321b;
-                if (f9322c == null) {
+                boolean z = f9463b;
+                if (f9464c == null) {
                     return;
                 }
-                f9322c = null;
+                f9464c = null;
             }
         }
     }

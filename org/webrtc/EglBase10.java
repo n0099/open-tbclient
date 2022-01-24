@@ -19,7 +19,7 @@ import javax.microedition.khronos.egl.EGLContext;
 import javax.microedition.khronos.egl.EGLDisplay;
 import javax.microedition.khronos.egl.EGLSurface;
 import org.webrtc.EglBase;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class EglBase10 implements EglBase {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int EGL_CONTEXT_CLIENT_VERSION = 12440;
@@ -31,7 +31,7 @@ public class EglBase10 implements EglBase {
     public EGLDisplay eglDisplay;
     public EGLSurface eglSurface;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static class Context implements EglBase.Context {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

@@ -14,10 +14,10 @@ public final class y implements InvocationHandler {
     public g a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Class<?> f30691b;
+    public Class<?> f30719b;
 
     /* renamed from: c  reason: collision with root package name */
-    public z f30692c;
+    public z f30720c;
 
     public y(g gVar, Class<?> cls, z zVar) {
         Interceptable interceptable = $ic;
@@ -35,14 +35,14 @@ public final class y implements InvocationHandler {
             }
         }
         this.a = gVar;
-        this.f30691b = cls;
-        this.f30692c = zVar;
+        this.f30719b = cls;
+        this.f30720c = zVar;
     }
 
     @Override // java.lang.reflect.InvocationHandler
     public final Object invoke(Object obj, Method method, Object[] objArr) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, obj, method, objArr)) == null) ? this.f30692c.a(method, objArr) : invokeLLL.objValue;
+        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, obj, method, objArr)) == null) ? this.f30720c.a(method, objArr) : invokeLLL.objValue;
     }
 }

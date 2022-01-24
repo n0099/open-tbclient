@@ -19,7 +19,7 @@ public class a extends b {
     public void a() {
         super.a();
         c cVar = (c) p();
-        if (cVar.f56618f) {
+        if (cVar.f56663f) {
             a((View) this.a);
         }
         this.a.setVisibility(0);

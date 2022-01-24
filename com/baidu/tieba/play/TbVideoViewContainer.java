@@ -8,7 +8,7 @@ import android.widget.FrameLayout;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import c.a.s0.b.d;
-import c.a.t0.z2.g;
+import c.a.t0.a3.g;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.play.cyberPlayer.TbCyberVideoView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -22,7 +22,7 @@ public class TbVideoViewContainer extends FrameLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public g f47319e;
+    public g f47347e;
 
     /* loaded from: classes12.dex */
     public interface a {
@@ -53,19 +53,19 @@ public class TbVideoViewContainer extends FrameLayout {
     public final void a(@NonNull Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            if (d.o0()) {
-                this.f47319e = new TbVideoView(context);
+            if (d.t0()) {
+                this.f47347e = new TbVideoView(context);
             } else {
-                this.f47319e = new TbCyberVideoView(context);
+                this.f47347e = new TbCyberVideoView(context);
             }
-            addView((View) this.f47319e, new FrameLayout.LayoutParams(-1, -1));
+            addView((View) this.f47347e, new FrameLayout.LayoutParams(-1, -1));
         }
     }
 
     public void clearCallbackAndRemoveFromWindow() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            g gVar = this.f47319e;
+            g gVar = this.f47347e;
             if (gVar != null) {
                 gVar.clearCallbackAndRemoveFromWindow();
             }
@@ -78,7 +78,7 @@ public class TbVideoViewContainer extends FrameLayout {
     public g getControl() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f47319e : (g) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f47347e : (g) invokeV.objValue;
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */

@@ -10,20 +10,20 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.dxmpay.apollon.restnet.http.HttpStatus;
 import java.util.List;
 import kotlin.text.Typography;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class RestResponseEntity<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final HttpStatus a;
 
     /* renamed from: b  reason: collision with root package name */
-    public a f53588b;
+    public a f53633b;
 
     /* renamed from: c  reason: collision with root package name */
-    public T f53589c;
+    public T f53634c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f53590d;
+    public String f53635d;
 
     public RestResponseEntity(a aVar, HttpStatus httpStatus) {
         Interceptable interceptable = $ic;
@@ -40,21 +40,21 @@ public class RestResponseEntity<T> {
                 return;
             }
         }
-        this.f53588b = aVar;
+        this.f53633b = aVar;
         this.a = httpStatus;
     }
 
     public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f53590d : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f53635d : (String) invokeV.objValue;
     }
 
     public String b(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            a aVar = this.f53588b;
+            a aVar = this.f53633b;
             return aVar != null ? aVar.g(str) : "";
         }
         return (String) invokeL.objValue;
@@ -63,21 +63,21 @@ public class RestResponseEntity<T> {
     public void c(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            this.f53590d = str;
+            this.f53635d = str;
         }
     }
 
     public T getBody() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f53589c : (T) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f53634c : (T) invokeV.objValue;
     }
 
     public List<String> getHeaderValue(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
-            a aVar = this.f53588b;
+            a aVar = this.f53633b;
             if (aVar != null) {
                 return aVar.get(str);
             }
@@ -96,7 +96,7 @@ public class RestResponseEntity<T> {
             sb.append(this.a.getReasonPhrase());
             sb.append(',');
             T body = getBody();
-            a aVar = this.f53588b;
+            a aVar = this.f53633b;
             if (body != null) {
                 sb.append(body);
                 if (aVar != null) {
@@ -127,8 +127,8 @@ public class RestResponseEntity<T> {
                 return;
             }
         }
-        this.f53588b = aVar;
-        this.f53589c = t;
+        this.f53633b = aVar;
+        this.f53634c = t;
         this.a = httpStatus;
     }
 }

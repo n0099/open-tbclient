@@ -27,41 +27,41 @@ public class a {
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f6797b;
+    public String f6939b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f6798c;
+    public String f6940c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f6799d;
+    public String f6941d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f6800e;
+    public boolean f6942e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f6801f;
+    public String f6943f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f6802g;
+    public String f6944g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f6803h;
+    public String f6945h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f6804i;
+    public String f6946i;
 
     /* renamed from: j  reason: collision with root package name */
-    public String f6805j;
+    public String f6947j;
     public String k;
 
     /* renamed from: c.a.r0.a.h0.o.i.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static class C0400a extends PrefetchEvent.c {
+    public static class C0409a extends PrefetchEvent.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public C0400a(@Nullable Map<String, String> map, String str) {
+        public C0409a(@Nullable Map<String, String> map, String str) {
             super(map, str);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -118,21 +118,21 @@ public class a {
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65538, null, bVar, prefetchEvent, eVar)) == null) {
             long currentTimeMillis = l ? System.currentTimeMillis() : 0L;
             a aVar = new a();
-            aVar.f6803h = bVar.c();
+            aVar.f6945h = bVar.c();
             aVar.a = prefetchEvent.appPath;
-            aVar.f6797b = prefetchEvent.pageUrl;
-            aVar.f6801f = prefetchEvent.rootPath;
+            aVar.f6939b = prefetchEvent.pageUrl;
+            aVar.f6943f = prefetchEvent.rootPath;
             SwanAppConfigData P = eVar.P();
-            aVar.f6798c = prefetchEvent.pageType;
+            aVar.f6940c = prefetchEvent.pageType;
             String c2 = c.a.r0.a.d2.n.b.c(prefetchEvent.appPath, o0.f(j.b(prefetchEvent.pageUrl)));
-            aVar.f6802g = c2;
-            g b2 = g.b(c2, P.f39343e);
+            aVar.f6944g = c2;
+            g b2 = g.b(c2, P.f39371e);
             aVar.k = b2.r;
-            aVar.f6799d = b2.f5579g;
-            aVar.f6800e = prefetchEvent.isT7Available;
-            aVar.f6804i = prefetchEvent.sConsole;
+            aVar.f6941d = b2.f5721g;
+            aVar.f6942e = prefetchEvent.isT7Available;
+            aVar.f6946i = prefetchEvent.sConsole;
             if (!TextUtils.isEmpty(prefetchEvent.userActionApis)) {
-                aVar.f6805j = prefetchEvent.userActionApis;
+                aVar.f6947j = prefetchEvent.userActionApis;
             }
             if (l) {
                 long currentTimeMillis2 = System.currentTimeMillis();
@@ -143,30 +143,30 @@ public class a {
         return (a) invokeLLL.objValue;
     }
 
-    public C0400a b() {
+    public C0409a b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             long currentTimeMillis = l ? System.currentTimeMillis() : 0L;
             TreeMap treeMap = new TreeMap();
-            treeMap.put(PrefetchEvent.EVENT_DATA_WEBVIEW_ID, this.f6803h);
+            treeMap.put(PrefetchEvent.EVENT_DATA_WEBVIEW_ID, this.f6945h);
             treeMap.put(PrefetchEvent.EVENT_KEY_APP_PATH, this.a);
-            treeMap.put("pagePath", this.f6797b);
-            treeMap.put("pageType", this.f6798c);
-            treeMap.put("onReachBottomDistance", this.f6799d);
-            treeMap.put(PrefetchEvent.EVENT_DATA_T7_AVAILABLE, String.valueOf(this.f6800e));
-            treeMap.put(PrefetchEvent.EVENT_DATA_DEBUG_SCONSOLE, this.f6804i);
-            treeMap.put("root", this.f6801f);
-            treeMap.put(PrefetchEvent.EVENT_USER_ACTION_APIS, this.f6805j);
+            treeMap.put("pagePath", this.f6939b);
+            treeMap.put("pageType", this.f6940c);
+            treeMap.put("onReachBottomDistance", this.f6941d);
+            treeMap.put(PrefetchEvent.EVENT_DATA_T7_AVAILABLE, String.valueOf(this.f6942e));
+            treeMap.put(PrefetchEvent.EVENT_DATA_DEBUG_SCONSOLE, this.f6946i);
+            treeMap.put("root", this.f6943f);
+            treeMap.put(PrefetchEvent.EVENT_USER_ACTION_APIS, this.f6947j);
             c.a.r0.a.w1.h.b.a(treeMap, "slave preload ready event");
-            j.a(this.f6797b, treeMap);
-            treeMap.put("pageConfig", this.f6802g);
+            j.a(this.f6939b, treeMap);
+            treeMap.put("pageConfig", this.f6944g);
             if (l) {
                 long currentTimeMillis2 = System.currentTimeMillis();
                 String str = "build slave preload msg cost - " + (currentTimeMillis2 - currentTimeMillis) + "ms";
             }
-            return new C0400a(treeMap, "preload");
+            return new C0409a(treeMap, "preload");
         }
-        return (C0400a) invokeV.objValue;
+        return (C0409a) invokeV.objValue;
     }
 }

@@ -5,7 +5,7 @@ import c.a.d.c.e.c.h;
 import c.a.d.c.e.c.j.d;
 import c.a.d.c.e.c.k.c;
 import c.a.s0.a1.b;
-import c.a.s0.e1.p;
+import c.a.s0.d1.p;
 import c.a.s0.s0.l;
 import c.a.s0.t.j.a;
 import c.a.s0.t.j.e;
@@ -119,7 +119,7 @@ public class InitWebsocketBaseTask extends LaunchTask {
                                 this.this$0 = this;
                             }
 
-                            @Override // c.a.s0.e1.p.b
+                            @Override // c.a.s0.d1.p.b
                             public void onResult(boolean z) {
                                 Interceptable interceptable3 = $ic;
                                 if (!(interceptable3 == null || interceptable3.invokeZ(1048576, this, z) == null) || z) {

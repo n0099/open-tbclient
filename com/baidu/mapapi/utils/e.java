@@ -39,12 +39,12 @@ public class e extends b.a {
         String unused;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, iBinder) == null) {
-            unused = b.f35704c;
-            iComOpenClient = b.f35706e;
+            unused = b.f35732c;
+            iComOpenClient = b.f35734e;
             if (iComOpenClient != null) {
-                IComOpenClient unused2 = b.f35706e = null;
+                IComOpenClient unused2 = b.f35734e = null;
             }
-            IComOpenClient unused3 = b.f35706e = IComOpenClient.a.a(iBinder);
+            IComOpenClient unused3 = b.f35734e = IComOpenClient.a.a(iBinder);
             z = b.t;
             if (!z) {
                 b.a(b.a);

@@ -127,7 +127,7 @@ public final class Downloader {
                 public final /* synthetic */ ICallbackWith rw;
 
                 /* renamed from: rx  reason: collision with root package name */
-                public final /* synthetic */ Downloader f32836rx;
+                public final /* synthetic */ Downloader f32864rx;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -144,7 +144,7 @@ public final class Downloader {
                             return;
                         }
                     }
-                    this.f32836rx = this;
+                    this.f32864rx = this;
                     this.ru = str;
                     this.rv = iProgressCallback;
                     this.rw = iCallbackWith2;
@@ -163,10 +163,10 @@ public final class Downloader {
                 public void a(IHttpResponse iHttpResponse) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, iHttpResponse) == null) {
-                        this.f32836rx.rt = iHttpResponse.getContentLength();
+                        this.f32864rx.rt = iHttpResponse.getContentLength();
                         try {
-                            this.f32836rx.download(this.ru, this.rv);
-                            this.bT.run(Integer.valueOf(this.f32836rx.rt));
+                            this.f32864rx.download(this.ru, this.rv);
+                            this.bT.run(Integer.valueOf(this.f32864rx.rt));
                         } catch (Exception e2) {
                             e2.printStackTrace();
                             this.rw.run(e2);

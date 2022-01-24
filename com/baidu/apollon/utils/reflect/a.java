@@ -19,13 +19,13 @@ public class a {
     public static final int a = 7;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final Class<?>[] f32738b;
+    public static final Class<?>[] f32766b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final Map<Class<?>, Class<?>> f32739c;
+    public static final Map<Class<?>, Class<?>> f32767c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final Map<Class<?>, Class<?>> f32740d;
+    public static final Map<Class<?>, Class<?>> f32768d;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -41,24 +41,24 @@ public class a {
                 return;
             }
         }
-        f32738b = new Class[]{Byte.TYPE, Short.TYPE, Character.TYPE, Integer.TYPE, Long.TYPE, Float.TYPE, Double.TYPE};
-        f32739c = new HashMap();
-        f32740d = new HashMap();
-        f32739c.put(Boolean.TYPE, Boolean.class);
-        f32739c.put(Byte.TYPE, Byte.class);
-        f32739c.put(Character.TYPE, Character.class);
-        f32739c.put(Short.TYPE, Short.class);
-        f32739c.put(Integer.TYPE, Integer.class);
-        f32739c.put(Long.TYPE, Long.class);
-        f32739c.put(Double.TYPE, Double.class);
-        f32739c.put(Float.TYPE, Float.class);
-        Map<Class<?>, Class<?>> map = f32739c;
+        f32766b = new Class[]{Byte.TYPE, Short.TYPE, Character.TYPE, Integer.TYPE, Long.TYPE, Float.TYPE, Double.TYPE};
+        f32767c = new HashMap();
+        f32768d = new HashMap();
+        f32767c.put(Boolean.TYPE, Boolean.class);
+        f32767c.put(Byte.TYPE, Byte.class);
+        f32767c.put(Character.TYPE, Character.class);
+        f32767c.put(Short.TYPE, Short.class);
+        f32767c.put(Integer.TYPE, Integer.class);
+        f32767c.put(Long.TYPE, Long.class);
+        f32767c.put(Double.TYPE, Double.class);
+        f32767c.put(Float.TYPE, Float.class);
+        Map<Class<?>, Class<?>> map = f32767c;
         Class<?> cls = Void.TYPE;
         map.put(cls, cls);
-        for (Class<?> cls2 : f32739c.keySet()) {
-            Class<?> cls3 = f32739c.get(cls2);
+        for (Class<?> cls2 : f32767c.keySet()) {
+            Class<?> cls3 = f32767c.get(cls2);
             if (!cls2.equals(cls3)) {
-                f32740d.put(cls3, cls2);
+                f32768d.put(cls3, cls2);
             }
         }
     }
@@ -92,7 +92,7 @@ public class a {
     public static Class<?> b(Class<?> cls) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65548, null, cls)) == null) ? f32740d.get(cls) : (Class) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65548, null, cls)) == null) ? f32768d.get(cls) : (Class) invokeL.objValue;
     }
 
     public static float c(Class<?> cls, Class<?> cls2) {
@@ -108,7 +108,7 @@ public class a {
             }
             int i2 = 0;
             while (cls != cls2) {
-                Class<?>[] clsArr = f32738b;
+                Class<?>[] clsArr = f32766b;
                 if (i2 >= clsArr.length) {
                     break;
                 }
@@ -181,10 +181,10 @@ public class a {
         if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65546, null, clsArr, clsArr2, z)) == null) {
             if (Utils.a(clsArr, clsArr2)) {
                 if (clsArr == null) {
-                    clsArr = Utils.f32735b;
+                    clsArr = Utils.f32763b;
                 }
                 if (clsArr2 == null) {
-                    clsArr2 = Utils.f32735b;
+                    clsArr2 = Utils.f32763b;
                 }
                 for (int i2 = 0; i2 < clsArr.length; i2++) {
                     if (!a(clsArr[i2], clsArr2[i2], z)) {
@@ -252,7 +252,7 @@ public class a {
     public static Class<?> a(Class<?> cls) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, cls)) == null) ? (cls == null || !cls.isPrimitive()) ? cls : f32739c.get(cls) : (Class) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, cls)) == null) ? (cls == null || !cls.isPrimitive()) ? cls : f32767c.get(cls) : (Class) invokeL.objValue;
     }
 
     public static int a(Class<?>[] clsArr, Class<?>[] clsArr2, Class<?>[] clsArr3) {

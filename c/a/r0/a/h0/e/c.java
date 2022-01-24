@@ -26,7 +26,7 @@ public class c {
         public final /* synthetic */ Context a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ b f6295b;
+        public final /* synthetic */ b f6437b;
 
         public a(Context context, b bVar) {
             Interceptable interceptable = $ic;
@@ -44,7 +44,7 @@ public class c {
                 }
             }
             this.a = context;
-            this.f6295b = bVar;
+            this.f6437b = bVar;
         }
 
         @Override // c.a.r0.a.p.d.n.b
@@ -53,11 +53,11 @@ public class c {
             if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
                 if (!z) {
                     c.a.r0.a.e0.d.c("DeveloperAuthenticateHelper", "Authentication Fail : Not developer");
-                    this.f6295b.a(false, this.a.getString(h.aiapps_authenticate_fail));
+                    this.f6437b.a(false, this.a.getString(h.aiapps_authenticate_fail));
                     return;
                 }
                 c.a.r0.a.e0.d.c("DeveloperAuthenticateHelper", "Authentication Success");
-                this.f6295b.a(true, "");
+                this.f6437b.a(true, "");
             }
         }
 
@@ -76,7 +76,7 @@ public class c {
                     str = StringUtils.LF + message;
                 }
                 sb.append(str);
-                this.f6295b.a(false, sb.toString());
+                this.f6437b.a(false, sb.toString());
             }
         }
     }

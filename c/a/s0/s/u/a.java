@@ -30,7 +30,7 @@ public class a {
     public static final HashMap<String, HashMap<String, Integer>> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final SparseArray<String> f13647b;
+    public static final SparseArray<String> f13834b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -47,7 +47,7 @@ public class a {
             }
         }
         a = new HashMap<>();
-        f13647b = new SparseArray<>();
+        f13834b = new SparseArray<>();
     }
 
     public static Drawable A(View view, Drawable drawable, String[] strArr) {
@@ -104,13 +104,13 @@ public class a {
             c2.A();
             GradientDrawable m = c2.m(i3);
             m.setColor(h(i2));
-            m.setStroke((int) c2.u(), c.a.t0.w3.c.a(c2.t(), c2.s()));
+            m.setStroke((int) c2.u(), c.a.t0.x3.c.a(c2.t(), c2.s()));
             GradientDrawable m2 = c2.m(i3);
-            m2.setColor(c.a.t0.w3.c.a(h(i2), SkinManager.RESOURCE_ALPHA_PRESS));
-            m2.setStroke((int) c2.u(), c.a.t0.w3.c.a(c2.t(), SkinManager.RESOURCE_ALPHA_PRESS * c2.s()));
+            m2.setColor(c.a.t0.x3.c.a(h(i2), SkinManager.RESOURCE_ALPHA_PRESS));
+            m2.setStroke((int) c2.u(), c.a.t0.x3.c.a(c2.t(), SkinManager.RESOURCE_ALPHA_PRESS * c2.s()));
             GradientDrawable m3 = c2.m(i3);
-            m3.setColor(c.a.t0.w3.c.a(h(i2), SkinManager.RESOURCE_ALPHA_DISABLE));
-            m3.setStroke((int) c2.u(), c.a.t0.w3.c.a(c2.t(), SkinManager.RESOURCE_ALPHA_DISABLE * c2.s()));
+            m3.setColor(c.a.t0.x3.c.a(h(i2), SkinManager.RESOURCE_ALPHA_DISABLE));
+            m3.setStroke((int) c2.u(), c.a.t0.x3.c.a(c2.t(), SkinManager.RESOURCE_ALPHA_DISABLE * c2.s()));
             StateListDrawable stateListDrawable = new StateListDrawable();
             stateListDrawable.addState(new int[]{16842910, 16842919}, m2);
             stateListDrawable.addState(new int[]{16842910, 16842908}, m2);
@@ -129,10 +129,10 @@ public class a {
             c2.A();
             GradientDrawable m = c2.m(i4);
             m.setColor(h(i2));
-            m.setStroke((int) c2.u(), c.a.t0.w3.c.a(c2.t(), c2.s()));
+            m.setStroke((int) c2.u(), c.a.t0.x3.c.a(c2.t(), c2.s()));
             GradientDrawable m2 = c2.m(i4);
             m2.setColor(h(i3));
-            m2.setStroke((int) c2.u(), c.a.t0.w3.c.a(c2.t(), SkinManager.RESOURCE_ALPHA_PRESS * c2.s()));
+            m2.setStroke((int) c2.u(), c.a.t0.x3.c.a(c2.t(), SkinManager.RESOURCE_ALPHA_PRESS * c2.s()));
             StateListDrawable stateListDrawable = new StateListDrawable();
             stateListDrawable.addState(new int[]{16842910, 16842919}, m2);
             stateListDrawable.addState(new int[]{16842910, 16842908}, m2);
@@ -326,10 +326,10 @@ public class a {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(65560, null, i2)) == null) {
-            String str = f13647b.get(i2);
+            String str = f13834b.get(i2);
             if (str == null) {
                 str = i2 == 0 ? "" : TbadkCoreApplication.getInst().getResources().getResourceEntryName(i2);
-                f13647b.put(i2, str);
+                f13834b.put(i2, str);
             }
             return str;
         }

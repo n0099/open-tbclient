@@ -37,33 +37,33 @@ public class x extends z {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f6174e;
+        public final /* synthetic */ CallbackHandler f6316e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f6175f;
+        public final /* synthetic */ String f6317f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ Context f6176g;
+        public final /* synthetic */ Context f6318g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ File f6177h;
+        public final /* synthetic */ File f6319h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final /* synthetic */ UnitedSchemeEntity f6178i;
+        public final /* synthetic */ UnitedSchemeEntity f6320i;
 
         /* renamed from: j  reason: collision with root package name */
-        public final /* synthetic */ x f6179j;
+        public final /* synthetic */ x f6321j;
 
         /* renamed from: c.a.r0.a.f2.f.x$a$a  reason: collision with other inner class name */
         /* loaded from: classes.dex */
-        public class RunnableC0338a implements Runnable {
+        public class RunnableC0347a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ a f6180e;
+            public final /* synthetic */ a f6322e;
 
-            public RunnableC0338a(a aVar) {
+            public RunnableC0347a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -78,15 +78,15 @@ public class x extends z {
                         return;
                     }
                 }
-                this.f6180e = aVar;
+                this.f6322e = aVar;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    a aVar = this.f6180e;
-                    aVar.f6179j.p(aVar.f6176g, aVar.f6177h, aVar.f6178i, aVar.f6174e, aVar.f6175f);
+                    a aVar = this.f6322e;
+                    aVar.f6321j.p(aVar.f6318g, aVar.f6319h, aVar.f6320i, aVar.f6316e, aVar.f6317f);
                 }
             }
         }
@@ -106,12 +106,12 @@ public class x extends z {
                     return;
                 }
             }
-            this.f6179j = xVar;
-            this.f6174e = callbackHandler;
-            this.f6175f = str;
-            this.f6176g = context;
-            this.f6177h = file;
-            this.f6178i = unitedSchemeEntity;
+            this.f6321j = xVar;
+            this.f6316e = callbackHandler;
+            this.f6317f = str;
+            this.f6318g = context;
+            this.f6319h = file;
+            this.f6320i = unitedSchemeEntity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -122,10 +122,10 @@ public class x extends z {
             if (interceptable == null || interceptable.invokeL(1048576, this, iVar) == null) {
                 if (!c.a.r0.a.h2.c.d.h(iVar)) {
                     c.a.r0.a.e0.d.i("SaveImage", "Permission denied");
-                    c.a.r0.a.h2.c.d.q(iVar, this.f6174e, this.f6175f);
+                    c.a.r0.a.h2.c.d.q(iVar, this.f6316e, this.f6317f);
                     return;
                 }
-                c.a.r0.a.z2.q.k(new RunnableC0338a(this), "SaveImageAction");
+                c.a.r0.a.z2.q.k(new RunnableC0347a(this), "SaveImageAction");
             }
         }
     }
@@ -136,22 +136,22 @@ public class x extends z {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Context f6181e;
+        public final /* synthetic */ Context f6323e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ File f6182f;
+        public final /* synthetic */ File f6324f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f6183g;
+        public final /* synthetic */ CallbackHandler f6325g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ String f6184h;
+        public final /* synthetic */ String f6326h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final /* synthetic */ UnitedSchemeEntity f6185i;
+        public final /* synthetic */ UnitedSchemeEntity f6327i;
 
         /* renamed from: j  reason: collision with root package name */
-        public final /* synthetic */ x f6186j;
+        public final /* synthetic */ x f6328j;
 
         public b(x xVar, Context context, File file, CallbackHandler callbackHandler, String str, UnitedSchemeEntity unitedSchemeEntity) {
             Interceptable interceptable = $ic;
@@ -168,12 +168,12 @@ public class x extends z {
                     return;
                 }
             }
-            this.f6186j = xVar;
-            this.f6181e = context;
-            this.f6182f = file;
-            this.f6183g = callbackHandler;
-            this.f6184h = str;
-            this.f6185i = unitedSchemeEntity;
+            this.f6328j = xVar;
+            this.f6323e = context;
+            this.f6324f = file;
+            this.f6325g = callbackHandler;
+            this.f6326h = str;
+            this.f6327i = unitedSchemeEntity;
         }
 
         @Override // c.a.r0.a.v1.f
@@ -181,15 +181,15 @@ public class x extends z {
             String str2;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-                boolean q = c.a.r0.a.z2.d.a() ? this.f6186j.q(this.f6181e, this.f6182f) : this.f6186j.r(this.f6181e, this.f6182f);
+                boolean q = c.a.r0.a.z2.d.a() ? this.f6328j.q(this.f6323e, this.f6324f) : this.f6328j.r(this.f6323e, this.f6324f);
                 int i2 = q ? 0 : 1001;
                 if (q) {
                     str2 = "save success";
                 } else {
-                    str2 = "can not save to album : " + this.f6182f;
+                    str2 = "can not save to album : " + this.f6324f;
                 }
                 c.a.r0.a.e0.d.i("SaveImage", str2);
-                this.f6183g.handleSchemeDispatchCallback(this.f6184h, UnitedSchemeUtility.wrapCallbackParams(i2, str2).toString());
+                this.f6325g.handleSchemeDispatchCallback(this.f6326h, UnitedSchemeUtility.wrapCallbackParams(i2, str2).toString());
             }
         }
 
@@ -198,7 +198,7 @@ public class x extends z {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, str) == null) {
                 c.a.r0.a.e0.d.i("SaveImage", str + "");
-                UnitedSchemeUtility.safeCallback(this.f6183g, this.f6185i, UnitedSchemeUtility.wrapCallbackParams(10005, str).toString(), this.f6184h);
+                UnitedSchemeUtility.safeCallback(this.f6325g, this.f6327i, UnitedSchemeUtility.wrapCallbackParams(10005, str).toString(), this.f6326h);
             }
         }
     }
@@ -243,7 +243,7 @@ public class x extends z {
                             str = cursor.getString(columnIndexOrThrow);
                         } catch (SQLException e2) {
                             e = e2;
-                            if (z.f6201b) {
+                            if (z.f6343b) {
                                 e.printStackTrace();
                             }
                             c.a.r0.w.d.d(cursor);
@@ -304,7 +304,7 @@ public class x extends z {
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "can not find such file : " + n);
                 return false;
             } catch (Exception e2) {
-                if (z.f6201b) {
+                if (z.f6343b) {
                     e2.printStackTrace();
                 }
                 c.a.r0.a.e0.d.c("SaveImage", "Illegal file_path");
@@ -365,7 +365,7 @@ public class x extends z {
             try {
                 str = MediaStore.Images.Media.insertImage(context.getContentResolver(), file.getPath(), file.getName(), "by aiapp");
             } catch (FileNotFoundException e2) {
-                if (z.f6201b) {
+                if (z.f6343b) {
                     e2.printStackTrace();
                 }
                 str = null;
@@ -376,7 +376,7 @@ public class x extends z {
                     c.a.r0.a.z2.u.r(context, o);
                 }
             }
-            if (z.f6201b) {
+            if (z.f6343b) {
                 String str2 = "saveToAlbum : file = " + file;
                 String str3 = "saveToAlbum : image = " + str;
             }

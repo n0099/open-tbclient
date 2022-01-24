@@ -17,42 +17,42 @@ public class a {
     public c.a.r0.a.l0.c a;
 
     /* renamed from: b  reason: collision with root package name */
-    public c.a.r0.j.p0.f.a f11256b;
+    public c.a.r0.j.p0.f.a f11398b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Context f11257c;
+    public Context f11399c;
 
     /* renamed from: d  reason: collision with root package name */
-    public c.a.r0.a.y.b.a f11258d;
+    public c.a.r0.a.y.b.a f11400d;
 
     /* renamed from: e  reason: collision with root package name */
-    public c.a.r0.a.y.b.a f11259e;
+    public c.a.r0.a.y.b.a f11401e;
 
     /* renamed from: f  reason: collision with root package name */
-    public c.a.r0.a.y.b.a f11260f;
+    public c.a.r0.a.y.b.a f11402f;
 
     /* renamed from: g  reason: collision with root package name */
-    public c.a.r0.j.v.c f11261g;
+    public c.a.r0.j.v.c f11403g;
 
     /* renamed from: h  reason: collision with root package name */
-    public c.a.r0.j.v.e.b f11262h;
+    public c.a.r0.j.v.e.b f11404h;
 
     /* renamed from: i  reason: collision with root package name */
-    public c.a.r0.j.v.e.a f11263i;
+    public c.a.r0.j.v.e.a f11405i;
 
     /* renamed from: j  reason: collision with root package name */
-    public c.a.r0.j.v.e.a f11264j;
+    public c.a.r0.j.v.e.a f11406j;
     public c.a.r0.j.v.b k;
     public f l;
 
     /* renamed from: c.a.r0.j.v.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public class C0775a implements f {
+    public class C0784a implements f {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ a a;
 
-        public C0775a(a aVar) {
+        public C0784a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -85,7 +85,7 @@ public class a {
                 c.a.r0.j.v.e.b bVar = new c.a.r0.j.v.e.b();
                 bVar.errMsg = "showKeyboard:ok";
                 bVar.height = i2;
-                c.a.r0.j.n0.c.call(this.a.f11258d, true, bVar);
+                c.a.r0.j.n0.c.call(this.a.f11400d, true, bVar);
             }
         }
 
@@ -123,7 +123,7 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f11265e;
+        public final /* synthetic */ a f11407e;
 
         public b(a aVar) {
             Interceptable interceptable = $ic;
@@ -140,19 +140,19 @@ public class a {
                     return;
                 }
             }
-            this.f11265e = aVar;
+            this.f11407e = aVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (!c.a.r0.j.p0.f.b.p().n(this.f11265e.f11256b)) {
-                    this.f11265e.f11262h.errMsg = "showKeyboard:fail";
-                    c.a.r0.j.n0.c.call(this.f11265e.f11258d, false, this.f11265e.f11262h);
+                if (!c.a.r0.j.p0.f.b.p().n(this.f11407e.f11398b)) {
+                    this.f11407e.f11404h.errMsg = "showKeyboard:fail";
+                    c.a.r0.j.n0.c.call(this.f11407e.f11400d, false, this.f11407e.f11404h);
                     return;
                 }
-                this.f11265e.f11256b.j(this.f11265e.f11261g);
+                this.f11407e.f11398b.j(this.f11407e.f11403g);
             }
         }
     }
@@ -163,7 +163,7 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f11266e;
+        public final /* synthetic */ a f11408e;
 
         public c(a aVar) {
             Interceptable interceptable = $ic;
@@ -180,20 +180,20 @@ public class a {
                     return;
                 }
             }
-            this.f11266e = aVar;
+            this.f11408e = aVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (c.a.r0.j.p0.f.b.p().s(this.f11266e.f11256b)) {
-                    this.f11266e.f11263i.errMsg = "hideKeyboard:ok";
-                    c.a.r0.j.n0.c.call(this.f11266e.f11259e, true, this.f11266e.f11263i);
+                if (c.a.r0.j.p0.f.b.p().s(this.f11408e.f11398b)) {
+                    this.f11408e.f11405i.errMsg = "hideKeyboard:ok";
+                    c.a.r0.j.n0.c.call(this.f11408e.f11401e, true, this.f11408e.f11405i);
                     return;
                 }
-                this.f11266e.f11263i.errMsg = "hideKeyboard:fail";
-                c.a.r0.j.n0.c.call(this.f11266e.f11259e, false, this.f11266e.f11263i);
+                this.f11408e.f11405i.errMsg = "hideKeyboard:fail";
+                c.a.r0.j.n0.c.call(this.f11408e.f11401e, false, this.f11408e.f11405i);
             }
         }
     }
@@ -204,7 +204,7 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f11267e;
+        public final /* synthetic */ a f11409e;
 
         public d(a aVar) {
             Interceptable interceptable = $ic;
@@ -221,14 +221,14 @@ public class a {
                     return;
                 }
             }
-            this.f11267e = aVar;
+            this.f11409e = aVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                c.a.r0.j.p0.f.b.p().s(this.f11267e.f11256b);
+                c.a.r0.j.p0.f.b.p().s(this.f11409e.f11398b);
             }
         }
     }
@@ -239,10 +239,10 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f11268e;
+        public final /* synthetic */ String f11410e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ a f11269f;
+        public final /* synthetic */ a f11411f;
 
         public e(a aVar, String str) {
             Interceptable interceptable = $ic;
@@ -259,21 +259,21 @@ public class a {
                     return;
                 }
             }
-            this.f11269f = aVar;
-            this.f11268e = str;
+            this.f11411f = aVar;
+            this.f11410e = str;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (this.f11269f.f11256b.m(this.f11268e)) {
-                    this.f11269f.f11264j.errMsg = "updateKeyboard:ok";
-                    c.a.r0.j.n0.c.call(this.f11269f.f11260f, true, this.f11269f.f11264j);
+                if (this.f11411f.f11398b.m(this.f11410e)) {
+                    this.f11411f.f11406j.errMsg = "updateKeyboard:ok";
+                    c.a.r0.j.n0.c.call(this.f11411f.f11402f, true, this.f11411f.f11406j);
                     return;
                 }
-                this.f11269f.f11264j.errMsg = "updateKeyboard:fail";
-                c.a.r0.j.n0.c.call(this.f11269f.f11260f, false, this.f11269f.f11264j);
+                this.f11411f.f11406j.errMsg = "updateKeyboard:fail";
+                c.a.r0.j.n0.c.call(this.f11411f.f11402f, false, this.f11411f.f11406j);
             }
         }
     }
@@ -307,12 +307,12 @@ public class a {
             }
         }
         this.k = null;
-        this.l = new C0775a(this);
+        this.l = new C0784a(this);
         this.a = cVar;
         Context appContext = AppRuntime.getAppContext();
-        this.f11257c = appContext;
+        this.f11399c = appContext;
         c.a.r0.j.p0.f.a aVar = new c.a.r0.j.p0.f.a(appContext);
-        this.f11256b = aVar;
+        this.f11398b = aVar;
         aVar.i(this.l);
         this.k = bVar;
     }
@@ -328,19 +328,19 @@ public class a {
         c.a.r0.j.p0.f.a aVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jsObject) == null) {
-            this.f11263i = new c.a.r0.j.v.e.a();
+            this.f11405i = new c.a.r0.j.v.e.a();
             c.a.r0.a.y.b.a F = c.a.r0.a.y.b.a.F(jsObject);
-            this.f11259e = F;
+            this.f11401e = F;
             if (F == null) {
-                this.f11259e = new c.a.r0.a.y.b.a();
+                this.f11401e = new c.a.r0.a.y.b.a();
             }
-            if (this.a != null && (aVar = this.f11256b) != null && aVar.g()) {
+            if (this.a != null && (aVar = this.f11398b) != null && aVar.g()) {
                 q0.e0(new c(this));
                 return;
             }
-            c.a.r0.j.v.e.a aVar2 = this.f11263i;
+            c.a.r0.j.v.e.a aVar2 = this.f11405i;
             aVar2.errMsg = "hideKeyboard:fail";
-            c.a.r0.j.n0.c.call(this.f11259e, false, aVar2);
+            c.a.r0.j.n0.c.call(this.f11401e, false, aVar2);
         }
     }
 
@@ -348,52 +348,52 @@ public class a {
         c.a.r0.j.p0.f.a aVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jsObject) == null) {
-            this.f11262h = new c.a.r0.j.v.e.b();
+            this.f11404h = new c.a.r0.j.v.e.b();
             c.a.r0.a.y.b.a F = c.a.r0.a.y.b.a.F(jsObject);
-            this.f11258d = F;
+            this.f11400d = F;
             if (F == null) {
-                this.f11258d = new c.a.r0.a.y.b.a();
+                this.f11400d = new c.a.r0.a.y.b.a();
             }
-            if (this.a != null && (aVar = this.f11256b) != null && !aVar.g()) {
+            if (this.a != null && (aVar = this.f11398b) != null && !aVar.g()) {
                 c.a.r0.j.v.c cVar = new c.a.r0.j.v.c();
-                this.f11261g = cVar;
+                this.f11403g = cVar;
                 try {
-                    if (cVar.a(this.f11258d)) {
+                    if (cVar.a(this.f11400d)) {
                         q0.f0(new b(this), 500L);
                     } else {
-                        this.f11262h.errMsg = "showKeyboard:fail";
-                        c.a.r0.j.n0.c.call(this.f11258d, false, this.f11262h);
+                        this.f11404h.errMsg = "showKeyboard:fail";
+                        c.a.r0.j.n0.c.call(this.f11400d, false, this.f11404h);
                     }
                     return;
                 } catch (JSTypeMismatchException unused) {
-                    c.a.r0.j.v.e.b bVar = this.f11262h;
+                    c.a.r0.j.v.e.b bVar = this.f11404h;
                     bVar.errMsg = "showKeyboard:fail";
-                    c.a.r0.j.n0.c.call(this.f11258d, false, bVar);
+                    c.a.r0.j.n0.c.call(this.f11400d, false, bVar);
                     return;
                 }
             }
-            c.a.r0.j.v.e.b bVar2 = this.f11262h;
+            c.a.r0.j.v.e.b bVar2 = this.f11404h;
             bVar2.errMsg = "showKeyboard:fail";
-            c.a.r0.j.n0.c.call(this.f11258d, false, bVar2);
+            c.a.r0.j.n0.c.call(this.f11400d, false, bVar2);
         }
     }
 
     public void m(JsObject jsObject) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, jsObject) == null) {
-            this.f11264j = new c.a.r0.j.v.e.a();
+            this.f11406j = new c.a.r0.j.v.e.a();
             c.a.r0.a.y.b.a F = c.a.r0.a.y.b.a.F(jsObject);
-            this.f11260f = F;
+            this.f11402f = F;
             if (F == null) {
-                this.f11260f = new c.a.r0.a.y.b.a();
+                this.f11402f = new c.a.r0.a.y.b.a();
             }
-            if (this.a != null && this.f11256b != null) {
-                q0.e0(new e(this, this.f11260f.B("value")));
+            if (this.a != null && this.f11398b != null) {
+                q0.e0(new e(this, this.f11402f.B("value")));
                 return;
             }
-            c.a.r0.j.v.e.a aVar = this.f11264j;
+            c.a.r0.j.v.e.a aVar = this.f11406j;
             aVar.errMsg = "updateKeyboard:fail";
-            c.a.r0.j.n0.c.call(this.f11260f, false, aVar);
+            c.a.r0.j.n0.c.call(this.f11402f, false, aVar);
         }
     }
 }

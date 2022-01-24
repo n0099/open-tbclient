@@ -47,7 +47,7 @@ public final class CacheManager$cacheThread$2 extends Lambda implements Function
             HandlerThread handlerThread = new HandlerThread("AkDanmaku-Cache");
             CacheManager cacheManager = this.this$0;
             handlerThread.start();
-            cacheManager.f42397c = true;
+            cacheManager.f42418c = true;
             return handlerThread;
         }
         return (HandlerThread) invokeV.objValue;

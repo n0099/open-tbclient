@@ -56,7 +56,7 @@ public class AlaAllGameLiveEntryActivity extends BaseFragmentActivity {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ AlaAllGameLiveEntryActivity f42085e;
+        public final /* synthetic */ AlaAllGameLiveEntryActivity f42106e;
 
         public a(AlaAllGameLiveEntryActivity alaAllGameLiveEntryActivity) {
             Interceptable interceptable = $ic;
@@ -73,14 +73,14 @@ public class AlaAllGameLiveEntryActivity extends BaseFragmentActivity {
                     return;
                 }
             }
-            this.f42085e = alaAllGameLiveEntryActivity;
+            this.f42106e = alaAllGameLiveEntryActivity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                MessageManager.getInstance().sendMessage(new CustomMessage(2015003, new IntentConfig(this.f42085e.getPageContext().getPageActivity())));
+                MessageManager.getInstance().sendMessage(new CustomMessage(2015003, new IntentConfig(this.f42106e.getPageContext().getPageActivity())));
             }
         }
     }
@@ -91,7 +91,7 @@ public class AlaAllGameLiveEntryActivity extends BaseFragmentActivity {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ AlaAllGameLiveEntryActivity f42086e;
+        public final /* synthetic */ AlaAllGameLiveEntryActivity f42107e;
 
         public b(AlaAllGameLiveEntryActivity alaAllGameLiveEntryActivity) {
             Interceptable interceptable = $ic;
@@ -108,23 +108,23 @@ public class AlaAllGameLiveEntryActivity extends BaseFragmentActivity {
                     return;
                 }
             }
-            this.f42086e = alaAllGameLiveEntryActivity;
+            this.f42107e = alaAllGameLiveEntryActivity;
         }
 
         @Override // android.widget.AdapterView.OnItemClickListener
         public void onItemClick(AdapterView<?> adapterView, View view, int i2, long j2) {
             AlaSquareTabInfo alaSquareTabInfo;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{adapterView, view, Integer.valueOf(i2), Long.valueOf(j2)}) == null) || (alaSquareTabInfo = (AlaSquareTabInfo) ListUtils.getItem(this.f42086e.mGameEntryAdapter.a(), i2)) == null || this.f42086e.mSquareTabController == null) {
+            if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{adapterView, view, Integer.valueOf(i2), Long.valueOf(j2)}) == null) || (alaSquareTabInfo = (AlaSquareTabInfo) ListUtils.getItem(this.f42107e.mGameEntryAdapter.a(), i2)) == null || this.f42107e.mSquareTabController == null) {
                 return;
             }
-            int tabIndex = this.f42086e.mSquareTabController.getTabIndex(alaSquareTabInfo.id);
+            int tabIndex = this.f42107e.mSquareTabController.getTabIndex(alaSquareTabInfo.id);
             if (tabIndex >= 0) {
-                this.f42086e.mSquareTabController.goToTab(tabIndex);
-                this.f42086e.finish();
+                this.f42107e.mSquareTabController.goToTab(tabIndex);
+                this.f42107e.finish();
                 return;
             }
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AlaNewSquareSubListActivityConfig(this.f42086e, alaSquareTabInfo)));
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AlaNewSquareSubListActivityConfig(this.f42107e, alaSquareTabInfo)));
         }
     }
 

@@ -2,7 +2,7 @@ package com.baidu.tieba.homepage.concern.message;
 
 import c.a.d.a.f;
 import c.a.d.f.p.m;
-import c.a.s0.e1.g;
+import c.a.s0.d1.g;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.base.BdBaseModel;
 import com.baidu.adp.framework.MessageManager;
@@ -25,19 +25,19 @@ public class ConcernNetModel extends BdBaseModel<BaseFragmentActivity> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public d f44123e;
+    public d f44151e;
 
     /* renamed from: f  reason: collision with root package name */
-    public c f44124f;
+    public c f44152f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f44125g;
+    public boolean f44153g;
 
     /* renamed from: h  reason: collision with root package name */
-    public c.a.d.c.g.a f44126h;
+    public c.a.d.c.g.a f44154h;
 
     /* renamed from: i  reason: collision with root package name */
-    public c.a.d.c.g.a f44127i;
+    public c.a.d.c.g.a f44155i;
 
     /* loaded from: classes12.dex */
     public class a extends c.a.d.c.g.a {
@@ -70,11 +70,11 @@ public class ConcernNetModel extends BdBaseModel<BaseFragmentActivity> {
         @Override // c.a.d.c.g.a
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) || responsedMessage == null || this.a.f44123e == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) || responsedMessage == null || this.a.f44151e == null) {
                 return;
             }
             boolean z = false;
-            this.a.f44125g = false;
+            this.a.f44153g = false;
             if (responsedMessage.getOrginalMessage() != null) {
                 Object extra = responsedMessage.getOrginalMessage().getExtra();
                 if (extra instanceof ConcernPageRequestMessage) {
@@ -82,7 +82,7 @@ public class ConcernNetModel extends BdBaseModel<BaseFragmentActivity> {
                 }
             }
             if (responsedMessage.getError() != 0) {
-                this.a.f44123e.onLoadError(responsedMessage.getError(), responsedMessage.getErrorString());
+                this.a.f44151e.onLoadError(responsedMessage.getError(), responsedMessage.getErrorString());
                 return;
             }
             DataRes dataRes = null;
@@ -91,7 +91,7 @@ public class ConcernNetModel extends BdBaseModel<BaseFragmentActivity> {
             } else if (responsedMessage instanceof ConcernPageHttpResMessage) {
                 dataRes = ((ConcernPageHttpResMessage) responsedMessage).getResultData();
             }
-            this.a.f44123e.a(dataRes, z);
+            this.a.f44151e.a(dataRes, z);
         }
     }
 
@@ -128,7 +128,7 @@ public class ConcernNetModel extends BdBaseModel<BaseFragmentActivity> {
             CheckRedNotifySocketResMessage checkRedNotifySocketResMessage;
             boolean isShowRedNotify;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) || responsedMessage == null || this.a.f44124f == null || responsedMessage.getError() != 0) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) || responsedMessage == null || this.a.f44152f == null || responsedMessage.getError() != 0) {
                 return;
             }
             if (responsedMessage instanceof CheckRedNotifyHttpResMessage) {
@@ -143,7 +143,7 @@ public class ConcernNetModel extends BdBaseModel<BaseFragmentActivity> {
                 }
                 isShowRedNotify = false;
             }
-            this.a.f44124f.a(false);
+            this.a.f44152f.a(false);
             if (isShowRedNotify && (responsedMessage.getmOrginalMessage().getExtra() instanceof CheckRedNotifyReqMessage) && ((CheckRedNotifyReqMessage) responsedMessage.getmOrginalMessage().getExtra()).reqUnreadTipAfterFinish) {
                 this.a.sendMessage(new ConcernUnreadTipReqMessage());
             }
@@ -180,22 +180,22 @@ public class ConcernNetModel extends BdBaseModel<BaseFragmentActivity> {
                 return;
             }
         }
-        this.f44125g = false;
-        this.f44126h = new a(this, CmdConfigHttp.CMD_CONCERN_PAGE, 309474);
-        this.f44127i = new b(this, CmdConfigHttp.CMD_CONCERN_CHECK_RED_NOTIFY, 309476);
+        this.f44153g = false;
+        this.f44154h = new a(this, CmdConfigHttp.CMD_CONCERN_PAGE, 309474);
+        this.f44155i = new b(this, CmdConfigHttp.CMD_CONCERN_CHECK_RED_NOTIFY, 309476);
         setUniqueId(bdUniqueId);
         B();
         C();
-        registerListener(this.f44126h);
-        registerListener(this.f44127i);
+        registerListener(this.f44154h);
+        registerListener(this.f44155i);
     }
 
     public void A(String str, g gVar) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048576, this, str, gVar) == null) || this.f44125g) {
+        if (!(interceptable == null || interceptable.invokeLL(1048576, this, str, gVar) == null) || this.f44153g) {
             return;
         }
-        this.f44125g = true;
+        this.f44153g = true;
         ConcernPageRequestMessage concernPageRequestMessage = new ConcernPageRequestMessage();
         concernPageRequestMessage.setPageTag(str);
         concernPageRequestMessage.setTag(getUniqueId());
@@ -206,11 +206,11 @@ public class ConcernNetModel extends BdBaseModel<BaseFragmentActivity> {
     public final void B() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_CONCERN_PAGE, c.a.t0.w3.f0.a.a(TbConfig.URL_CONCERN_PAGE, 309474));
+            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_CONCERN_PAGE, c.a.t0.x3.f0.a.a(TbConfig.URL_CONCERN_PAGE, 309474));
             tbHttpMessageTask.setIsNeedAddCommenParam(true);
             tbHttpMessageTask.setResponsedClass(ConcernPageHttpResMessage.class);
             MessageManager.getInstance().registerTask(tbHttpMessageTask);
-            TbHttpMessageTask tbHttpMessageTask2 = new TbHttpMessageTask(CmdConfigHttp.CMD_CONCERN_CHECK_RED_NOTIFY, c.a.t0.w3.f0.a.a(TbConfig.URL_CONCERN_CHECK_RED_NOTIFY, 309476));
+            TbHttpMessageTask tbHttpMessageTask2 = new TbHttpMessageTask(CmdConfigHttp.CMD_CONCERN_CHECK_RED_NOTIFY, c.a.t0.x3.f0.a.a(TbConfig.URL_CONCERN_CHECK_RED_NOTIFY, 309476));
             tbHttpMessageTask2.setIsNeedAddCommenParam(true);
             tbHttpMessageTask2.setResponsedClass(CheckRedNotifyHttpResMessage.class);
             MessageManager.getInstance().registerTask(tbHttpMessageTask2);
@@ -234,14 +234,14 @@ public class ConcernNetModel extends BdBaseModel<BaseFragmentActivity> {
     public void D(c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, cVar) == null) {
-            this.f44124f = cVar;
+            this.f44152f = cVar;
         }
     }
 
     public void E(d dVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, dVar) == null) {
-            this.f44123e = dVar;
+            this.f44151e = dVar;
         }
     }
 
@@ -250,7 +250,7 @@ public class ConcernNetModel extends BdBaseModel<BaseFragmentActivity> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            this.f44125g = false;
+            this.f44153g = false;
             cancelMessage();
             return false;
         }
@@ -262,10 +262,10 @@ public class ConcernNetModel extends BdBaseModel<BaseFragmentActivity> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            if (this.f44125g) {
+            if (this.f44153g) {
                 return true;
             }
-            this.f44125g = true;
+            this.f44153g = true;
             sendMessage(new ConcernPageRequestMessage());
             return true;
         }

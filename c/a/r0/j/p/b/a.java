@@ -103,10 +103,10 @@ public class a extends o {
                 return aVar;
             }
             c.a.r0.a.p0.g.a aVar2 = new c.a.r0.a.p0.g.a();
-            aVar2.f8245b = cVar.f11496i;
-            aVar2.a = cVar.f11497j;
-            aVar2.f8246c = cVar.a;
-            aVar2.f8247d = cVar.m;
+            aVar2.f8387b = cVar.f11638i;
+            aVar2.a = cVar.f11639j;
+            aVar2.f8388c = cVar.a;
+            aVar2.f8389d = cVar.m;
             if (b.b(1, aVar2) == null) {
                 boolean z = o;
                 return null;

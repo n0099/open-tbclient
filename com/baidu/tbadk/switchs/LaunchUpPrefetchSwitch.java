@@ -1,6 +1,6 @@
 package com.baidu.tbadk.switchs;
 
-import c.a.s0.s.h0.b;
+import c.a.s0.s.i0.b;
 import com.baidu.tieba.debugtool.annotation.Modify;
 import com.baidu.tieba.debugtool.annotation.ModifyClass;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;

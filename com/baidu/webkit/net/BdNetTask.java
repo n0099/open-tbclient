@@ -110,16 +110,16 @@ public class BdNetTask implements INoProGuard {
         public static final b a;
 
         /* renamed from: b  reason: collision with root package name */
-        public static final b f52860b;
+        public static final b f52905b;
 
         /* renamed from: c  reason: collision with root package name */
-        public static final b f52861c;
+        public static final b f52906c;
 
         /* renamed from: d  reason: collision with root package name */
-        public static final b f52862d;
+        public static final b f52907d;
 
         /* renamed from: e  reason: collision with root package name */
-        public static final /* synthetic */ b[] f52863e;
+        public static final /* synthetic */ b[] f52908e;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -136,11 +136,11 @@ public class BdNetTask implements INoProGuard {
                 }
             }
             a = new b("PRIORITY_HIGHER", 0);
-            f52860b = new b("PRIORITY_NORMAL", 1);
-            f52861c = new b("PRIORITY_LOWER", 2);
+            f52905b = new b("PRIORITY_NORMAL", 1);
+            f52906c = new b("PRIORITY_LOWER", 2);
             b bVar = new b("PRIORITY_IDLE", 3);
-            f52862d = bVar;
-            f52863e = new b[]{a, f52860b, f52861c, bVar};
+            f52907d = bVar;
+            f52908e = new b[]{a, f52905b, f52906c, bVar};
         }
 
         public b(String str, int i2) {
@@ -171,7 +171,7 @@ public class BdNetTask implements INoProGuard {
         public static b[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (b[]) f52863e.clone() : (b[]) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (b[]) f52908e.clone() : (b[]) invokeV.objValue;
         }
     }
 
@@ -214,7 +214,7 @@ public class BdNetTask implements INoProGuard {
         this.mConnectionTimeOut = 0;
         this.mFollowRedirects = true;
         this.isUseCorenet = true;
-        this.mTaskPriority = b.f52860b;
+        this.mTaskPriority = b.f52905b;
     }
 
     private void clearForRecycle() {

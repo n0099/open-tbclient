@@ -15,13 +15,13 @@ public final class c extends c.a.t0.m0.f.c.a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f19242b;
+    public boolean f19505b;
 
     /* renamed from: c  reason: collision with root package name */
-    public PointF f19243c;
+    public PointF f19506c;
 
     /* renamed from: d  reason: collision with root package name */
-    public RectF f19244d;
+    public RectF f19507d;
 
     public c() {
         Interceptable interceptable = $ic;
@@ -36,26 +36,26 @@ public final class c extends c.a.t0.m0.f.c.a {
                 return;
             }
         }
-        this.f19243c = new PointF();
-        this.f19244d = new RectF();
+        this.f19506c = new PointF();
+        this.f19507d = new RectF();
     }
 
     public final PointF c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f19243c : (PointF) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f19506c : (PointF) invokeV.objValue;
     }
 
     public final boolean d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f19242b : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f19505b : invokeV.booleanValue;
     }
 
     public final void e(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
-            this.f19242b = z;
+            this.f19505b = z;
         }
     }
 
@@ -64,9 +64,9 @@ public final class c extends c.a.t0.m0.f.c.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             super.reset();
-            this.f19242b = false;
-            this.f19243c = new PointF();
-            this.f19244d = new RectF();
+            this.f19505b = false;
+            this.f19506c = new PointF();
+            this.f19507d = new RectF();
         }
     }
 
@@ -76,12 +76,12 @@ public final class c extends c.a.t0.m0.f.c.a {
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2), position, rect, Integer.valueOf(i3)})) == null) {
             Intrinsics.checkNotNullParameter(position, "position");
             Intrinsics.checkNotNullParameter(rect, "rect");
-            this.f19242b = z;
-            if (!Intrinsics.areEqual(this.f19243c, position)) {
-                this.f19243c.set(position);
+            this.f19505b = z;
+            if (!Intrinsics.areEqual(this.f19506c, position)) {
+                this.f19506c.set(position);
             }
-            if (!Intrinsics.areEqual(this.f19244d, rect)) {
-                this.f19244d.set(rect);
+            if (!Intrinsics.areEqual(this.f19507d, rect)) {
+                this.f19507d.set(rect);
             }
             return this;
         }

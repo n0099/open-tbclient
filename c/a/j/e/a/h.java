@@ -14,10 +14,10 @@ public final class h {
     public final int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final boolean f3827b;
+    public final boolean f3968b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final boolean f3828c;
+    public final boolean f3969c;
 
     public h(int i2, boolean z, boolean z2) {
         Interceptable interceptable = $ic;
@@ -35,8 +35,8 @@ public final class h {
             }
         }
         this.a = i2;
-        this.f3827b = z;
-        this.f3828c = z2;
+        this.f3968b = z;
+        this.f3969c = z2;
     }
 
     public boolean equals(Object obj) {
@@ -50,7 +50,7 @@ public final class h {
                     return false;
                 }
                 if (i2 == 8) {
-                    return this.f3827b == hVar.f3827b && this.f3828c == hVar.f3828c;
+                    return this.f3968b == hVar.f3968b && this.f3969c == hVar.f3969c;
                 }
                 return true;
             }
@@ -66,13 +66,13 @@ public final class h {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             int i2 = this.a * 31;
-            boolean z = this.f3827b;
+            boolean z = this.f3968b;
             int i3 = z;
             if (z != 0) {
                 i3 = 1;
             }
             int i4 = (i2 + i3) * 31;
-            boolean z2 = this.f3828c;
+            boolean z2 = this.f3969c;
             return i4 + (z2 ? 1 : z2 ? 1 : 0);
         }
         return invokeV.intValue;
@@ -82,7 +82,7 @@ public final class h {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return "TaskBuoyViewModelHolder(status=" + this.a + ", hasComplete=" + this.f3827b + ", isRepeated=" + this.f3828c + SmallTailInfo.EMOTION_SUFFIX;
+            return "TaskBuoyViewModelHolder(status=" + this.a + ", hasComplete=" + this.f3968b + ", isRepeated=" + this.f3969c + SmallTailInfo.EMOTION_SUFFIX;
         }
         return (String) invokeV.objValue;
     }

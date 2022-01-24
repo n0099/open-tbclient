@@ -16,7 +16,7 @@ public class KeyboardEventLayout extends RelativeLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public a f46967e;
+    public a f46995e;
     public int maxHeight;
 
     /* loaded from: classes12.dex */
@@ -43,7 +43,7 @@ public class KeyboardEventLayout extends RelativeLayout {
             }
         }
         this.maxHeight = 0;
-        this.f46967e = null;
+        this.f46995e = null;
     }
 
     @Override // android.view.View
@@ -54,7 +54,7 @@ public class KeyboardEventLayout extends RelativeLayout {
             super.onSizeChanged(i2, i3, i4, i5);
             int max = Math.max(Math.max(i5, i3), this.maxHeight);
             this.maxHeight = max;
-            if (i5 == 0 || (aVar = this.f46967e) == null) {
+            if (i5 == 0 || (aVar = this.f46995e) == null) {
                 return;
             }
             if (i5 > i3) {
@@ -69,7 +69,7 @@ public class KeyboardEventLayout extends RelativeLayout {
     public void setOnKeyStateChangedListener(a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
-            this.f46967e = aVar;
+            this.f46995e = aVar;
         }
     }
 
@@ -92,7 +92,7 @@ public class KeyboardEventLayout extends RelativeLayout {
             }
         }
         this.maxHeight = 0;
-        this.f46967e = null;
+        this.f46995e = null;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -115,6 +115,6 @@ public class KeyboardEventLayout extends RelativeLayout {
             }
         }
         this.maxHeight = 0;
-        this.f46967e = null;
+        this.f46995e = null;
     }
 }

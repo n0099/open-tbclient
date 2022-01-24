@@ -15,7 +15,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import javax.annotation.Nullable;
 import org.webrtc.EglBase;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class MediaCodecVideoDecoderFactory implements VideoDecoderFactory {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "MediaCodecVideoDecoderFactory";

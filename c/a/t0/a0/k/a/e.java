@@ -4,7 +4,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import c.a.d.n.e.s;
 import c.a.s0.s.q.e2;
-import c.a.t0.d1.k;
+import c.a.t0.e1.k;
 import c.a.t0.g0.b0;
 import c.a.t0.g0.d0;
 import com.baidu.adp.BdUniqueId;
@@ -35,7 +35,7 @@ public class e extends k<e2, FrsPageAlaVideoHolder> implements b0, c.a.t0.t.f {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ e f14856b;
+        public final /* synthetic */ e f14996b;
 
         public a(e eVar) {
             Interceptable interceptable = $ic;
@@ -52,7 +52,7 @@ public class e extends k<e2, FrsPageAlaVideoHolder> implements b0, c.a.t0.t.f {
                     return;
                 }
             }
-            this.f14856b = eVar;
+            this.f14996b = eVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -69,11 +69,11 @@ public class e extends k<e2, FrsPageAlaVideoHolder> implements b0, c.a.t0.t.f {
                 } else {
                     customMessage = new CustomMessage(2921016);
                 }
-                if (customMessage == null || this.f14856b.o == null) {
+                if (customMessage == null || this.f14996b.o == null) {
                     return;
                 }
                 customMessage.setData(e2Var);
-                this.f14856b.o.sendMessage(customMessage);
+                this.f14996b.o.sendMessage(customMessage);
             }
         }
     }
@@ -116,7 +116,7 @@ public class e extends k<e2, FrsPageAlaVideoHolder> implements b0, c.a.t0.t.f {
         }
     }
 
-    @Override // c.a.t0.d1.k
+    @Override // c.a.t0.e1.k
     public void o(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048580, this, tbPageContext, bdUniqueId) == null) {
@@ -135,9 +135,9 @@ public class e extends k<e2, FrsPageAlaVideoHolder> implements b0, c.a.t0.t.f {
             if (tbPageContext == null) {
                 return null;
             }
-            c.a.t0.a0.k.e.e eVar = new c.a.t0.a0.k.e.e(tbPageContext, this.f3262i);
+            c.a.t0.a0.k.e.e eVar = new c.a.t0.a0.k.e.e(tbPageContext, this.f3364i);
             this.x = eVar;
-            eVar.T(this.f3262i);
+            eVar.T(this.f3364i);
             this.x.a(this.y);
             this.x.m(this.A);
             return new FrsPageAlaVideoHolder(this.x);
@@ -146,7 +146,7 @@ public class e extends k<e2, FrsPageAlaVideoHolder> implements b0, c.a.t0.t.f {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // c.a.t0.d1.k, c.a.d.n.e.a
+    @Override // c.a.t0.e1.k, c.a.d.n.e.a
     /* renamed from: p0 */
     public View S(int i2, View view, ViewGroup viewGroup, e2 e2Var, FrsPageAlaVideoHolder frsPageAlaVideoHolder) {
         InterceptResult invokeCommon;
@@ -166,7 +166,7 @@ public class e extends k<e2, FrsPageAlaVideoHolder> implements b0, c.a.t0.t.f {
                 frsPageAlaVideoHolder.mView.a(this.y);
                 frsPageAlaVideoHolder.mView.U(b0());
                 frsPageAlaVideoHolder.mView.k(e2Var);
-                e2Var.S4();
+                e2Var.T4();
             }
             this.q = (s) viewGroup;
             return frsPageAlaVideoHolder.getView();

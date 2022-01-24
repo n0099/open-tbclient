@@ -5,7 +5,7 @@ import com.ss.android.downloadlib.g.l;
 import com.ss.android.socialbase.downloader.downloader.Downloader;
 import com.ss.android.socialbase.downloader.model.DownloadInfo;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class e implements com.ss.android.socialbase.downloader.d.c {
     @Override // com.ss.android.socialbase.downloader.d.c
     public void a(int i2, String str, JSONObject jSONObject) {

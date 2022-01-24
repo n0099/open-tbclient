@@ -8,6 +8,7 @@ import c.a.r0.a.d2.e;
 import c.a.r0.a.u.c.d;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.http.callback.ResponseCallback;
+import com.baidu.searchbox.retrieve.inter.upload.IActiveUploadListener;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -62,7 +63,7 @@ public class c extends c.a.r0.a.u.e.m.a {
         public final /* synthetic */ String a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ c f9233b;
+        public final /* synthetic */ c f9375b;
 
         public b(c cVar, String str) {
             Interceptable interceptable = $ic;
@@ -79,7 +80,7 @@ public class c extends c.a.r0.a.u.e.m.a {
                     return;
                 }
             }
-            this.f9233b = cVar;
+            this.f9375b = cVar;
             this.a = str;
         }
 
@@ -87,7 +88,7 @@ public class c extends c.a.r0.a.u.e.m.a {
         public void onFail(Exception exc) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, exc) == null) {
-                this.f9233b.B(this.a, exc == null ? "" : exc.getMessage());
+                this.f9375b.B(this.a, exc == null ? "" : exc.getMessage());
             }
         }
 
@@ -103,7 +104,7 @@ public class c extends c.a.r0.a.u.e.m.a {
             InterceptResult invokeLI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, response, i2)) == null) {
-                this.f9233b.d(this.a, this.f9233b.D(response));
+                this.f9375b.d(this.a, this.f9375b.D(response));
                 return response;
             }
             return invokeLI.objValue;
@@ -134,10 +135,10 @@ public class c extends c.a.r0.a.u.e.m.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, request, str) == null) {
             c.a.r0.p.d.a aVar = new c.a.r0.p.d.a(request.url().toString(), request.body(), new b(this, str));
-            aVar.f11456i = request.tag();
-            aVar.f11453f = true;
-            aVar.f11454g = true;
-            aVar.f11455h = true;
+            aVar.f11598i = request.tag();
+            aVar.f11595f = true;
+            aVar.f11596g = true;
+            aVar.f11597h = true;
             c.a.r0.p.e.a.g().e(aVar);
         }
     }
@@ -193,7 +194,7 @@ public class c extends c.a.r0.a.u.e.m.a {
             Pair<Request, Integer> z = z(eVar, jSONObject);
             Request request = (Request) z.first;
             if (request == null) {
-                return new c.a.r0.a.u.h.b(((Integer) z.second).intValue(), "params error");
+                return new c.a.r0.a.u.h.b(((Integer) z.second).intValue(), IActiveUploadListener.PARAM_ERR_MSG);
             }
             A(request, str);
             return new c.a.r0.a.u.h.b(0, "success");

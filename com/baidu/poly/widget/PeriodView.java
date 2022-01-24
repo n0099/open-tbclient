@@ -33,22 +33,22 @@ public class PeriodView extends FrameLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f37789e;
+    public boolean f37817e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f37790f;
+    public boolean f37818f;
 
     /* renamed from: g  reason: collision with root package name */
-    public PolyFrameLayout f37791g;
+    public PolyFrameLayout f37819g;
 
     /* renamed from: h  reason: collision with root package name */
-    public View f37792h;
+    public View f37820h;
 
     /* renamed from: i  reason: collision with root package name */
-    public g f37793i;
+    public g f37821i;
 
     /* renamed from: j  reason: collision with root package name */
-    public View f37794j;
+    public View f37822j;
     public ListView k;
     public View l;
     public TextView m;
@@ -64,7 +64,7 @@ public class PeriodView extends FrameLayout {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PeriodView f37795e;
+        public final /* synthetic */ PeriodView f37823e;
 
         public a(PeriodView periodView) {
             Interceptable interceptable = $ic;
@@ -81,7 +81,7 @@ public class PeriodView extends FrameLayout {
                     return;
                 }
             }
-            this.f37795e = periodView;
+            this.f37823e = periodView;
         }
 
         @Override // android.view.View.OnTouchListener
@@ -91,12 +91,12 @@ public class PeriodView extends FrameLayout {
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, view, motionEvent)) == null) {
                 int action = motionEvent.getAction();
                 if (action == 0) {
-                    this.f37795e.l.setAlpha(0.2f);
+                    this.f37823e.l.setAlpha(0.2f);
                     return false;
                 } else if (action != 1) {
                     return false;
                 } else {
-                    this.f37795e.l.setAlpha(1.0f);
+                    this.f37823e.l.setAlpha(1.0f);
                     return false;
                 }
             }
@@ -110,7 +110,7 @@ public class PeriodView extends FrameLayout {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PeriodView f37796e;
+        public final /* synthetic */ PeriodView f37824e;
 
         public b(PeriodView periodView) {
             Interceptable interceptable = $ic;
@@ -127,7 +127,7 @@ public class PeriodView extends FrameLayout {
                     return;
                 }
             }
-            this.f37796e = periodView;
+            this.f37824e = periodView;
         }
 
         @Override // android.view.View.OnClickListener
@@ -135,19 +135,19 @@ public class PeriodView extends FrameLayout {
             PayChannelExtInfoEntity payChannelExtInfoEntity;
             ArrayList<InstallmentEntity> installmentEntities;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f37796e.f37793i == null || this.f37796e.o == null || this.f37796e.o.getPayChannelExtInfoEntity() == null || (payChannelExtInfoEntity = this.f37796e.o.getPayChannelExtInfoEntity()) == null || (installmentEntities = payChannelExtInfoEntity.getInstallmentEntities()) == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f37824e.f37821i == null || this.f37824e.o == null || this.f37824e.o.getPayChannelExtInfoEntity() == null || (payChannelExtInfoEntity = this.f37824e.o.getPayChannelExtInfoEntity()) == null || (installmentEntities = payChannelExtInfoEntity.getInstallmentEntities()) == null) {
                 return;
             }
             for (int i2 = 0; i2 < installmentEntities.size(); i2++) {
                 InstallmentEntity installmentEntity = installmentEntities.get(i2);
-                if (this.f37796e.q == installmentEntity) {
+                if (this.f37824e.q == installmentEntity) {
                     installmentEntity.setIsSelected("1");
                 } else {
                     installmentEntity.setIsSelected("0");
                 }
             }
-            this.f37796e.f37793i.a();
-            this.f37796e.f37793i.b("confirm");
+            this.f37824e.f37821i.a();
+            this.f37824e.f37821i.b("confirm");
         }
     }
 
@@ -157,7 +157,7 @@ public class PeriodView extends FrameLayout {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PeriodView f37797e;
+        public final /* synthetic */ PeriodView f37825e;
 
         public c(PeriodView periodView) {
             Interceptable interceptable = $ic;
@@ -174,16 +174,16 @@ public class PeriodView extends FrameLayout {
                     return;
                 }
             }
-            this.f37797e = periodView;
+            this.f37825e = periodView;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f37797e.f37793i == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f37825e.f37821i == null) {
                 return;
             }
-            this.f37797e.f37793i.b(com.alipay.sdk.widget.d.u);
+            this.f37825e.f37821i.b(com.alipay.sdk.widget.d.u);
         }
     }
 
@@ -193,10 +193,10 @@ public class PeriodView extends FrameLayout {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ ArrayList f37798e;
+        public final /* synthetic */ ArrayList f37826e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ PeriodView f37799f;
+        public final /* synthetic */ PeriodView f37827f;
 
         public d(PeriodView periodView, ArrayList arrayList) {
             Interceptable interceptable = $ic;
@@ -213,28 +213,28 @@ public class PeriodView extends FrameLayout {
                     return;
                 }
             }
-            this.f37799f = periodView;
-            this.f37798e = arrayList;
+            this.f37827f = periodView;
+            this.f37826e = arrayList;
         }
 
         @Override // android.widget.AdapterView.OnItemClickListener
         public void onItemClick(AdapterView<?> adapterView, View view, int i2, long j2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{adapterView, view, Integer.valueOf(i2), Long.valueOf(j2)}) == null) {
-                c.a.h0.p.a.f3597c++;
-                this.f37799f.q = (InstallmentEntity) this.f37798e.get(i2);
-                this.f37799f.m.setText(this.f37799f.o.getPayChannelExtInfoEntity().getInstallmentTotal());
-                this.f37799f.n.setText(this.f37799f.q.getCommission());
-                this.f37799f.l.setEnabled(true);
-                for (int i3 = 0; i3 < this.f37798e.size(); i3++) {
-                    InstallmentEntity installmentEntity = (InstallmentEntity) this.f37798e.get(i3);
-                    if (this.f37799f.q == installmentEntity) {
+                c.a.h0.p.a.f3738c++;
+                this.f37827f.q = (InstallmentEntity) this.f37826e.get(i2);
+                this.f37827f.m.setText(this.f37827f.o.getPayChannelExtInfoEntity().getInstallmentTotal());
+                this.f37827f.n.setText(this.f37827f.q.getCommission());
+                this.f37827f.l.setEnabled(true);
+                for (int i3 = 0; i3 < this.f37826e.size(); i3++) {
+                    InstallmentEntity installmentEntity = (InstallmentEntity) this.f37826e.get(i3);
+                    if (this.f37827f.q == installmentEntity) {
                         installmentEntity.setChecked(true);
                     } else {
                         installmentEntity.setChecked(false);
                     }
                 }
-                this.f37799f.p.notifyDataSetChanged();
+                this.f37827f.p.notifyDataSetChanged();
             }
         }
     }
@@ -245,7 +245,7 @@ public class PeriodView extends FrameLayout {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PeriodView f37800e;
+        public final /* synthetic */ PeriodView f37828e;
 
         public e(PeriodView periodView) {
             Interceptable interceptable = $ic;
@@ -262,7 +262,7 @@ public class PeriodView extends FrameLayout {
                     return;
                 }
             }
-            this.f37800e = periodView;
+            this.f37828e = periodView;
         }
 
         @Override // android.animation.Animator.AnimatorListener
@@ -276,7 +276,7 @@ public class PeriodView extends FrameLayout {
         public void onAnimationEnd(Animator animator) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animator) == null) {
-                this.f37800e.f37790f = false;
+                this.f37828e.f37818f = false;
             }
         }
 
@@ -301,7 +301,7 @@ public class PeriodView extends FrameLayout {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PeriodView f37801e;
+        public final /* synthetic */ PeriodView f37829e;
 
         public f(PeriodView periodView) {
             Interceptable interceptable = $ic;
@@ -318,7 +318,7 @@ public class PeriodView extends FrameLayout {
                     return;
                 }
             }
-            this.f37801e = periodView;
+            this.f37829e = periodView;
         }
 
         @Override // android.animation.Animator.AnimatorListener
@@ -332,8 +332,8 @@ public class PeriodView extends FrameLayout {
         public void onAnimationEnd(Animator animator) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animator) == null) {
-                this.f37801e.f37790f = false;
-                this.f37801e.l();
+                this.f37829e.f37818f = false;
+                this.f37829e.l();
             }
         }
 
@@ -379,8 +379,8 @@ public class PeriodView extends FrameLayout {
                 return;
             }
         }
-        this.f37789e = false;
-        this.f37790f = false;
+        this.f37817e = false;
+        this.f37818f = false;
         this.o = payChannelEntity;
         this.r = str;
         m(context);
@@ -390,20 +390,20 @@ public class PeriodView extends FrameLayout {
     public void attach(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
-            this.f37791g.getLayoutParams().height = i2;
+            this.f37819g.getLayoutParams().height = i2;
             k();
         }
     }
 
     public void enter(View view) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view) == null) || view == null || this.f37790f || !this.f37789e) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view) == null) || view == null || this.f37818f || !this.f37817e) {
             return;
         }
-        this.f37790f = true;
+        this.f37818f = true;
         AnimatorSet animatorSet = new AnimatorSet();
         ObjectAnimator ofFloat = ObjectAnimator.ofFloat(view, AnimationProperty.TRANSLATE_X, 0.0f, view.getMeasuredWidth() * (-1));
-        ObjectAnimator ofFloat2 = ObjectAnimator.ofFloat(this.f37792h, AnimationProperty.TRANSLATE_X, view.getMeasuredWidth(), 0.0f);
+        ObjectAnimator ofFloat2 = ObjectAnimator.ofFloat(this.f37820h, AnimationProperty.TRANSLATE_X, view.getMeasuredWidth(), 0.0f);
         animatorSet.setDuration(160L);
         animatorSet.playTogether(ofFloat, ofFloat2);
         animatorSet.start();
@@ -435,10 +435,10 @@ public class PeriodView extends FrameLayout {
 
     public final void k() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || this.f37789e) {
+        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || this.f37817e) {
             return;
         }
-        this.f37789e = true;
+        this.f37817e = true;
         if (getContext() instanceof Activity) {
             View findViewById = ((Activity) getContext()).findViewById(16908290);
             if (findViewById instanceof ViewGroup) {
@@ -452,12 +452,12 @@ public class PeriodView extends FrameLayout {
 
     public final void l() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && this.f37789e) {
-            this.f37789e = false;
+        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && this.f37817e) {
+            this.f37817e = false;
             if (getParent() instanceof ViewGroup) {
                 ((ViewGroup) getParent()).removeView(this);
             }
-            g gVar = this.f37793i;
+            g gVar = this.f37821i;
             if (gVar != null) {
                 gVar.onDetach();
             }
@@ -469,14 +469,14 @@ public class PeriodView extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, context) == null) {
             LayoutInflater.from(context).inflate(c.a.h0.h.period_list, (ViewGroup) this, true);
-            this.f37791g = (PolyFrameLayout) findViewById(c.a.h0.g.root_layout);
-            this.f37792h = findViewById(c.a.h0.g.period_layout);
+            this.f37819g = (PolyFrameLayout) findViewById(c.a.h0.g.root_layout);
+            this.f37820h = findViewById(c.a.h0.g.period_layout);
             View findViewById = findViewById(c.a.h0.g.chosePeriod);
             this.l = findViewById;
             findViewById.setOnTouchListener(new a(this));
             this.l.setOnClickListener(new b(this));
             View findViewById2 = findViewById(c.a.h0.g.back);
-            this.f37794j = findViewById2;
+            this.f37822j = findViewById2;
             findViewById2.setOnClickListener(new c(this));
             this.k = (ListView) findViewById(c.a.h0.g.period_list);
             this.m = (TextView) findViewById(c.a.h0.g.installmentTotal);
@@ -496,7 +496,7 @@ public class PeriodView extends FrameLayout {
         g gVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            if (!this.f37790f && this.f37789e && (gVar = this.f37793i) != null) {
+            if (!this.f37818f && this.f37817e && (gVar = this.f37821i) != null) {
                 gVar.b(com.alipay.sdk.widget.d.u);
             }
             return true;
@@ -506,13 +506,13 @@ public class PeriodView extends FrameLayout {
 
     public void quit(View view) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048583, this, view) == null) || view == null || this.f37790f || !this.f37789e) {
+        if (!(interceptable == null || interceptable.invokeL(1048583, this, view) == null) || view == null || this.f37818f || !this.f37817e) {
             return;
         }
-        this.f37790f = true;
+        this.f37818f = true;
         AnimatorSet animatorSet = new AnimatorSet();
         ObjectAnimator ofFloat = ObjectAnimator.ofFloat(view, AnimationProperty.TRANSLATE_X, view.getMeasuredWidth() * (-1), 0.0f);
-        ObjectAnimator ofFloat2 = ObjectAnimator.ofFloat(this.f37792h, AnimationProperty.TRANSLATE_X, 0.0f, view.getMeasuredWidth());
+        ObjectAnimator ofFloat2 = ObjectAnimator.ofFloat(this.f37820h, AnimationProperty.TRANSLATE_X, 0.0f, view.getMeasuredWidth());
         animatorSet.setDuration(160L);
         animatorSet.playTogether(ofFloat, ofFloat2);
         animatorSet.start();
@@ -522,7 +522,7 @@ public class PeriodView extends FrameLayout {
     public void setListener(g gVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, gVar) == null) {
-            this.f37793i = gVar;
+            this.f37821i = gVar;
         }
     }
 
@@ -545,8 +545,8 @@ public class PeriodView extends FrameLayout {
                 return;
             }
         }
-        this.f37789e = false;
-        this.f37790f = false;
+        this.f37817e = false;
+        this.f37818f = false;
         m(context);
     }
 
@@ -569,8 +569,8 @@ public class PeriodView extends FrameLayout {
                 return;
             }
         }
-        this.f37789e = false;
-        this.f37790f = false;
+        this.f37817e = false;
+        this.f37818f = false;
         m(context);
     }
 }

@@ -3,9 +3,9 @@ package com.baidu.tieba.hottopic.controller;
 import android.content.Context;
 import android.os.Bundle;
 import androidx.core.view.InputDeviceCompat;
-import c.a.s0.e1.v0;
+import c.a.s0.d1.v0;
 import c.a.s0.s.q.e2;
-import c.a.t0.d1.g;
+import c.a.t0.e1.g;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
@@ -120,7 +120,7 @@ public class HotTopicStatic {
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2003008 && (customResponsedMessage.getData() instanceof AbsDelegateAdapterList)) {
-                ((AbsDelegateAdapterList) customResponsedMessage.getData()).add(new c.a.t0.q1.m.c(null, e2.Q3));
+                ((AbsDelegateAdapterList) customResponsedMessage.getData()).add(new c.a.t0.r1.m.c(null, e2.R3));
             }
         }
     }
@@ -229,8 +229,8 @@ public class HotTopicStatic {
                     frsHottopicFragment.setArguments(bundle);
                     c.a.s0.i0.c cVar = new c.a.s0.i0.c();
                     cVar.a = frsHottopicFragment;
-                    cVar.f12789e = 401;
-                    cVar.f12793i = c.a.s0.i0.c.k;
+                    cVar.f12933e = 401;
+                    cVar.f12937i = c.a.s0.i0.c.k;
                     return cVar;
                 }
                 return (c.a.s0.i0.c) invokeV.objValue;
@@ -345,8 +345,8 @@ public class HotTopicStatic {
     public static void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) == null) {
-            c.a.t0.w3.f0.a.h(309085, BlessSocketResponseMessage.class, false, false);
-            c.a.t0.w3.f0.a.c(309085, CmdConfigHttp.CMD_TOPIC_BLESS, TbConfig.URL_TOPIC_USER_PK, BlessHttpResponseMessage.class, false, false, true, false);
+            c.a.t0.x3.f0.a.h(309085, BlessSocketResponseMessage.class, false, false);
+            c.a.t0.x3.f0.a.c(309085, CmdConfigHttp.CMD_TOPIC_BLESS, TbConfig.URL_TOPIC_USER_PK, BlessHttpResponseMessage.class, false, false, true, false);
         }
     }
 
@@ -362,16 +362,16 @@ public class HotTopicStatic {
     public static void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65542, null) == null) {
-            c.a.t0.w3.f0.a.h(309289, ResponseSocketHotRanklistMessage.class, false, false);
-            c.a.t0.w3.f0.a.c(309289, CmdConfigHttp.CMD_HOT_TOPIC_RANKLIST, TbConfig.URL_GET_HOT_RANKLIST_DATA, ResponseHttpHotRanklistMessage.class, false, false, true, false);
+            c.a.t0.x3.f0.a.h(309289, ResponseSocketHotRanklistMessage.class, false, false);
+            c.a.t0.x3.f0.a.c(309289, CmdConfigHttp.CMD_HOT_TOPIC_RANKLIST, TbConfig.URL_GET_HOT_RANKLIST_DATA, ResponseHttpHotRanklistMessage.class, false, false, true, false);
         }
     }
 
     public static void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65543, null) == null) {
-            c.a.t0.w3.f0.a.h(303050, ResponseSocketHotTopicMessage.class, false, false);
-            c.a.t0.w3.f0.a.c(303050, CmdConfigHttp.CMD_HOT_TOPIC, TbConfig.URL_GET_HOT_TOPIC_DATA, ResponseHttpHotTopicMessage.class, false, false, true, false);
+            c.a.t0.x3.f0.a.h(303050, ResponseSocketHotTopicMessage.class, false, false);
+            c.a.t0.x3.f0.a.c(303050, CmdConfigHttp.CMD_HOT_TOPIC, TbConfig.URL_GET_HOT_TOPIC_DATA, ResponseHttpHotTopicMessage.class, false, false, true, false);
         }
     }
 
@@ -386,8 +386,8 @@ public class HotTopicStatic {
     public static void h() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65545, null) == null) {
-            c.a.t0.w3.f0.a.h(309005, ResponseSocketGetTopicRelateThreadMessage.class, false, false);
-            c.a.t0.w3.f0.a.c(309005, CmdConfigHttp.CMD_TOPIC_RELATE_THREAD, TbConfig.URL_GET_TOPIC_RELATE_THREAD, ResponseHttpGetTopicRelateThreadMessage.class, false, false, true, false);
+            c.a.t0.x3.f0.a.h(309005, ResponseSocketGetTopicRelateThreadMessage.class, false, false);
+            c.a.t0.x3.f0.a.c(309005, CmdConfigHttp.CMD_TOPIC_RELATE_THREAD, TbConfig.URL_GET_TOPIC_RELATE_THREAD, ResponseHttpGetTopicRelateThreadMessage.class, false, false, true, false);
         }
     }
 }

@@ -23,7 +23,7 @@ public class i extends c.a.s0.x.b0.a {
     public LinkedList<h> q;
 
     /* loaded from: classes6.dex */
-    public class a implements a.InterfaceC0906a {
+    public class a implements a.InterfaceC0916a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ i a;
@@ -46,7 +46,7 @@ public class i extends c.a.s0.x.b0.a {
             this.a = iVar;
         }
 
-        @Override // c.a.s0.x.b0.a.InterfaceC0906a
+        @Override // c.a.s0.x.b0.a.InterfaceC0916a
         public View getView(int i2, View view, ViewGroup viewGroup) {
             InterceptResult invokeILL;
             Interceptable interceptable = $ic;

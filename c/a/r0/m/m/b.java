@@ -25,10 +25,10 @@ public class b implements BaiduMap.OnMapLoadedCallback, BaiduMap.OnMapClickListe
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f11369e;
+    public int f11511e;
 
     /* renamed from: f  reason: collision with root package name */
-    public c f11370f;
+    public c f11512f;
 
     static {
         InterceptResult invokeClinit;
@@ -61,15 +61,15 @@ public class b implements BaiduMap.OnMapLoadedCallback, BaiduMap.OnMapClickListe
                 return;
             }
         }
-        this.f11369e = 0;
-        this.f11370f = cVar;
+        this.f11511e = 0;
+        this.f11512f = cVar;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-            a.b(view, this.f11370f);
+            a.b(view, this.f11512f);
             d.i("map", "Control View click");
         }
     }
@@ -78,7 +78,7 @@ public class b implements BaiduMap.OnMapLoadedCallback, BaiduMap.OnMapClickListe
     public void onMapClick(LatLng latLng) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, latLng) == null) {
-            a.d(this.f11370f, latLng);
+            a.d(this.f11512f, latLng);
             d.i("map", "onMapClick LatLng " + latLng);
         }
     }
@@ -96,7 +96,7 @@ public class b implements BaiduMap.OnMapLoadedCallback, BaiduMap.OnMapClickListe
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, mapPoi)) == null) {
-            a.c(this.f11370f, mapPoi);
+            a.c(this.f11512f, mapPoi);
             d.i("map", "onMapPoiClick MapPoi " + mapPoi.getPosition());
             return true;
         }
@@ -107,7 +107,7 @@ public class b implements BaiduMap.OnMapLoadedCallback, BaiduMap.OnMapClickListe
     public void onMapRenderFinished() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            a.e(this.f11370f);
+            a.e(this.f11512f);
             d.i("map", "onMapRenderFinished");
         }
     }
@@ -124,7 +124,7 @@ public class b implements BaiduMap.OnMapLoadedCallback, BaiduMap.OnMapClickListe
     public void onMapStatusChangeFinish(MapStatus mapStatus) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, mapStatus) == null) {
-            a.g(this.f11370f, mapStatus, this.f11369e);
+            a.g(this.f11512f, mapStatus, this.f11511e);
             d.i("map", "onMapStatusChangeFinish");
         }
     }
@@ -140,7 +140,7 @@ public class b implements BaiduMap.OnMapLoadedCallback, BaiduMap.OnMapClickListe
     public void onMapStatusChangeStart(MapStatus mapStatus, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(InputDeviceCompat.SOURCE_TOUCHPAD, this, mapStatus, i2) == null) {
-            this.f11369e = i2;
+            this.f11511e = i2;
         }
     }
 
@@ -149,10 +149,10 @@ public class b implements BaiduMap.OnMapLoadedCallback, BaiduMap.OnMapClickListe
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, marker)) == null) {
-            c.a.r0.m.o.b H = this.f11370f.H(marker);
+            c.a.r0.m.o.b H = this.f11512f.H(marker);
             if (H != null) {
-                a.f(marker, this.f11370f);
-                H.b(this.f11370f);
+                a.f(marker, this.f11512f);
+                H.b(this.f11512f);
                 d.i("map", "onMarkerClick marker id " + marker.getId());
                 return true;
             }

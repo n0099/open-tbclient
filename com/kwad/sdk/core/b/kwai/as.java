@@ -13,14 +13,14 @@ public class as implements com.kwad.sdk.core.d<l.a> {
             return;
         }
         aVar.a = jSONObject.optBoolean("clickActionButton");
-        aVar.f56413b = jSONObject.optString("adTemplate");
+        aVar.f56458b = jSONObject.optString("adTemplate");
         if (jSONObject.opt("adTemplate") == JSONObject.NULL) {
-            aVar.f56413b = "";
+            aVar.f56458b = "";
         }
-        aVar.f56414c = jSONObject.optInt(CreateGroupActivityActivityConfig.GROUP_ACTIVITY_AREA);
-        b.C2117b c2117b = new b.C2117b();
-        aVar.f56415d = c2117b;
-        c2117b.parseJson(jSONObject.optJSONObject("logParam"));
+        aVar.f56459c = jSONObject.optInt(CreateGroupActivityActivityConfig.GROUP_ACTIVITY_AREA);
+        b.C2123b c2123b = new b.C2123b();
+        aVar.f56460d = c2123b;
+        c2123b.parseJson(jSONObject.optJSONObject("logParam"));
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -30,9 +30,9 @@ public class as implements com.kwad.sdk.core.d<l.a> {
             jSONObject = new JSONObject();
         }
         com.kwad.sdk.utils.t.a(jSONObject, "clickActionButton", aVar.a);
-        com.kwad.sdk.utils.t.a(jSONObject, "adTemplate", aVar.f56413b);
-        com.kwad.sdk.utils.t.a(jSONObject, CreateGroupActivityActivityConfig.GROUP_ACTIVITY_AREA, aVar.f56414c);
-        com.kwad.sdk.utils.t.a(jSONObject, "logParam", aVar.f56415d);
+        com.kwad.sdk.utils.t.a(jSONObject, "adTemplate", aVar.f56458b);
+        com.kwad.sdk.utils.t.a(jSONObject, CreateGroupActivityActivityConfig.GROUP_ACTIVITY_AREA, aVar.f56459c);
+        com.kwad.sdk.utils.t.a(jSONObject, "logParam", aVar.f56460d);
         return jSONObject;
     }
 }

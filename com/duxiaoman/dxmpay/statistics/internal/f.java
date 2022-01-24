@@ -23,7 +23,7 @@ import org.aspectj.runtime.reflect.SignatureImpl;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class f {
     public static /* synthetic */ Interceptable $ic;
     public static final List<String> a;
@@ -153,7 +153,7 @@ public class f {
                                 }
                                 c2 = 65535;
                             } else if (hashCode == 3234) {
-                                if (next2.equals(com.baidu.fsg.base.statistics.h.f33793d)) {
+                                if (next2.equals(com.baidu.fsg.base.statistics.h.f33821d)) {
                                     c2 = 0;
                                 }
                                 c2 = 65535;
@@ -163,20 +163,20 @@ public class f {
                                 }
                                 c2 = 65535;
                             } else if (hashCode != 3455) {
-                                if (hashCode == 3527 && next2.equals(com.baidu.fsg.base.statistics.h.f33795f)) {
+                                if (hashCode == 3527 && next2.equals(com.baidu.fsg.base.statistics.h.f33823f)) {
                                     c2 = 1;
                                 }
                                 c2 = 65535;
                             } else {
-                                if (next2.equals(com.baidu.fsg.base.statistics.h.f33794e)) {
+                                if (next2.equals(com.baidu.fsg.base.statistics.h.f33822e)) {
                                     c2 = 2;
                                 }
                                 c2 = 65535;
                             }
                             if (c2 == 0) {
-                                jSONObject6.put("event_tag", jSONObject5.optString(com.baidu.fsg.base.statistics.h.f33793d));
+                                jSONObject6.put("event_tag", jSONObject5.optString(com.baidu.fsg.base.statistics.h.f33821d));
                             } else if (c2 == 1) {
-                                jSONObject6.put("event_number", jSONObject5.optInt(com.baidu.fsg.base.statistics.h.f33795f));
+                                jSONObject6.put("event_number", jSONObject5.optInt(com.baidu.fsg.base.statistics.h.f33823f));
                             } else if (c2 != 2) {
                                 if (c2 == 3) {
                                     jSONObject6.put("abtype", jSONObject5.optString("at"));
@@ -197,7 +197,7 @@ public class f {
                                 }
                                 str10 = str12;
                                 jSONArray = jSONArray3;
-                            } else if (jSONObject5.optString(com.baidu.fsg.base.statistics.h.f33794e).equals(CDNIPDirectConnect.CDNNetworkChangeReceiver.WIFI_STRING)) {
+                            } else if (jSONObject5.optString(com.baidu.fsg.base.statistics.h.f33822e).equals(CDNIPDirectConnect.CDNNetworkChangeReceiver.WIFI_STRING)) {
                                 jSONObject6.put("$wifi", true);
                             } else {
                                 jSONObject6.put("$wifi", false);

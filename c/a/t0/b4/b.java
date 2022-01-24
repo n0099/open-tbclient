@@ -9,19 +9,19 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static b f15232c;
+    public static b f15398c;
     public transient /* synthetic */ FieldHolder $fh;
     public a a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f15233b;
+    public boolean f15399b;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public interface a {
         void a(Application application);
     }
@@ -39,7 +39,7 @@ public class b {
                 return;
             }
         }
-        this.f15233b = false;
+        this.f15399b = false;
         this.a = c();
     }
 
@@ -47,14 +47,14 @@ public class b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (f15232c == null) {
+            if (f15398c == null) {
                 synchronized (b.class) {
-                    if (f15232c == null) {
-                        f15232c = new b();
+                    if (f15398c == null) {
+                        f15398c = new b();
                     }
                 }
             }
-            return f15232c;
+            return f15398c;
         }
         return (b) invokeV.objValue;
     }
@@ -62,7 +62,7 @@ public class b {
     public final boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? c.a.s0.s.h0.b.k().l("pref_key_jpush_sdk_enable", 0) == 1 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? c.a.s0.s.i0.b.k().l("pref_key_jpush_sdk_enable", 0) == 1 : invokeV.booleanValue;
     }
 
     public final a c() {
@@ -81,10 +81,10 @@ public class b {
     public void d(Application application) {
         a aVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, application) == null) || this.f15233b || (aVar = this.a) == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, application) == null) || this.f15399b || (aVar = this.a) == null) {
             return;
         }
         aVar.a(application);
-        this.f15233b = true;
+        this.f15399b = true;
     }
 }

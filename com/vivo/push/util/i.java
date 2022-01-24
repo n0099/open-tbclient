@@ -16,7 +16,7 @@ public final class i implements BaseNotifyLayoutAdapter {
     public Resources a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f60754b;
+    public String f60799b;
 
     public i() {
         Interceptable interceptable = $ic;
@@ -36,7 +36,7 @@ public final class i implements BaseNotifyLayoutAdapter {
     public final int getNotificationLayout() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a.getIdentifier("push_notify", "layout", this.f60754b) : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a.getIdentifier("push_notify", "layout", this.f60799b) : invokeV.intValue;
     }
 
     @Override // com.vivo.push.util.BaseNotifyLayoutAdapter
@@ -47,17 +47,17 @@ public final class i implements BaseNotifyLayoutAdapter {
         String str2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (j.f60760g) {
+            if (j.f60805g) {
                 resources = this.a;
-                str = this.f60754b;
+                str = this.f60799b;
                 str2 = "notify_icon_rom30";
-            } else if (j.f60759f) {
+            } else if (j.f60804f) {
                 resources = this.a;
-                str = this.f60754b;
+                str = this.f60799b;
                 str2 = "notify_icon_rom20";
             } else {
                 resources = this.a;
-                str = this.f60754b;
+                str = this.f60799b;
                 str2 = "notify_icon";
             }
             return resources.getIdentifier(str2, "id", str);
@@ -80,11 +80,11 @@ public final class i implements BaseNotifyLayoutAdapter {
             if (i2 > 0) {
                 return this.a.getColor(i2);
             }
-            if (j.f60760g) {
+            if (j.f60805g) {
                 return -1;
             }
-            if (j.f60759f) {
-                if (j.f60760g) {
+            if (j.f60804f) {
+                if (j.f60805g) {
                     return Color.parseColor("#ff999999");
                 }
                 return -1;
@@ -98,7 +98,7 @@ public final class i implements BaseNotifyLayoutAdapter {
     public final void init(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, context) == null) {
-            this.f60754b = context.getPackageName();
+            this.f60799b = context.getPackageName();
             this.a = context.getResources();
         }
     }

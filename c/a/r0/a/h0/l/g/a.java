@@ -26,40 +26,40 @@ public abstract class a {
     public c.a.r0.a.h0.l.a a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final List<j> f6571b;
+    public final List<j> f6713b;
 
     /* renamed from: c  reason: collision with root package name */
-    public volatile PMSAppInfo f6572c;
+    public volatile PMSAppInfo f6714c;
 
     /* renamed from: d  reason: collision with root package name */
-    public volatile PrefetchEvent.c f6573d;
+    public volatile PrefetchEvent.c f6715d;
 
     /* renamed from: e  reason: collision with root package name */
-    public volatile i f6574e;
+    public volatile i f6716e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final boolean f6575f;
+    public final boolean f6717f;
 
     /* renamed from: g  reason: collision with root package name */
-    public volatile boolean f6576g;
+    public volatile boolean f6718g;
 
     /* renamed from: h  reason: collision with root package name */
-    public long f6577h;
+    public long f6719h;
 
     /* renamed from: i  reason: collision with root package name */
-    public long f6578i;
+    public long f6720i;
 
     /* renamed from: j  reason: collision with root package name */
-    public final boolean f6579j;
+    public final boolean f6721j;
 
     /* renamed from: c.a.r0.a.h0.l.g.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public class C0377a extends c.a.r0.a.h0.b {
+    public class C0386a extends c.a.r0.a.h0.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ a a;
 
-        public C0377a(a aVar) {
+        public C0386a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -85,8 +85,8 @@ public abstract class a {
                 if (a.k) {
                     String str2 = "prepareMaster finish. url: " + str;
                 }
-                this.a.f6576g = true;
-                this.a.f6578i = System.currentTimeMillis();
+                this.a.f6718g = true;
+                this.a.f6720i = System.currentTimeMillis();
                 this.a.o();
                 if (a.k) {
                     String str3 = "createBlankOne cost - " + this.a.f() + "ms";
@@ -102,13 +102,13 @@ public abstract class a {
         public final /* synthetic */ String a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ PMSAppInfo f6580b;
+        public final /* synthetic */ PMSAppInfo f6722b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ PrefetchEvent.c f6581c;
+        public final /* synthetic */ PrefetchEvent.c f6723c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ a f6582d;
+        public final /* synthetic */ a f6724d;
 
         public b(a aVar, String str, PMSAppInfo pMSAppInfo, PrefetchEvent.c cVar) {
             Interceptable interceptable = $ic;
@@ -125,10 +125,10 @@ public abstract class a {
                     return;
                 }
             }
-            this.f6582d = aVar;
+            this.f6724d = aVar;
             this.a = str;
-            this.f6580b = pMSAppInfo;
-            this.f6581c = cVar;
+            this.f6722b = pMSAppInfo;
+            this.f6723c = cVar;
         }
 
         @Override // c.a.r0.a.h0.l.g.j
@@ -136,12 +136,12 @@ public abstract class a {
             boolean z;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                c.a.r0.a.h0.l.a i2 = this.f6582d.i();
+                c.a.r0.a.h0.l.a i2 = this.f6724d.i();
                 if (i2 == null || i2.g() == null || i2.g().isDestroyed()) {
                     z = false;
                 } else {
-                    this.f6582d.q(this.a, this.f6580b);
-                    c.a.r0.a.o0.a.a(i2.g(), this.f6581c);
+                    this.f6724d.q(this.a, this.f6722b);
+                    c.a.r0.a.o0.a.a(i2.g(), this.f6723c);
                     c.a.r0.a.e0.d.i(PrefetchEvent.MODULE, "prefetch master finish");
                     z = true;
                 }
@@ -183,9 +183,9 @@ public abstract class a {
                 return;
             }
         }
-        this.f6571b = new ArrayList();
-        this.f6579j = z2;
-        this.f6575f = z;
+        this.f6713b = new ArrayList();
+        this.f6721j = z2;
+        this.f6717f = z;
         if (!z) {
             h.b().c(this);
         }
@@ -199,13 +199,13 @@ public abstract class a {
                 if (jVar == null) {
                     return;
                 }
-                if (this.f6576g) {
+                if (this.f6718g) {
                     boolean z = k;
                     jVar.onReady();
                     return;
                 }
-                if (!this.f6571b.contains(jVar)) {
-                    this.f6571b.add(jVar);
+                if (!this.f6713b.contains(jVar)) {
+                    this.f6713b.add(jVar);
                 }
             }
         }
@@ -214,7 +214,7 @@ public abstract class a {
     public void d(PMSAppInfo pMSAppInfo) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, pMSAppInfo) == null) {
-            this.f6572c = pMSAppInfo;
+            this.f6714c = pMSAppInfo;
             h.b().c(this);
         }
     }
@@ -223,11 +223,11 @@ public abstract class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             if (k) {
-                String str = "start create a blank preload master manager, is default - " + this.f6575f + ",is v8 - " + this.f6579j;
+                String str = "start create a blank preload master manager, is default - " + this.f6717f + ",is v8 - " + this.f6721j;
             }
-            this.f6577h = System.currentTimeMillis();
+            this.f6719h = System.currentTimeMillis();
             long currentTimeMillis = k ? System.currentTimeMillis() : 0L;
-            this.a = c.a.r0.a.h0.u.g.U().D0(this.f6579j, new C0377a(this));
+            this.a = c.a.r0.a.h0.u.g.U().D0(this.f6721j, new C0386a(this));
             if (k) {
                 long currentTimeMillis2 = System.currentTimeMillis();
                 String str2 = "create a new master cost - " + (currentTimeMillis2 - currentTimeMillis) + "ms";
@@ -238,21 +238,21 @@ public abstract class a {
     public long f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f6578i - this.f6577h : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f6720i - this.f6719h : invokeV.longValue;
     }
 
     public PMSAppInfo g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f6572c : (PMSAppInfo) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f6714c : (PMSAppInfo) invokeV.objValue;
     }
 
     public String h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            if (this.f6572c != null) {
-                return this.f6572c.appId;
+            if (this.f6714c != null) {
+                return this.f6714c.appId;
             }
             return null;
         }
@@ -268,7 +268,7 @@ public abstract class a {
     public boolean j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f6574e != null : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f6716e != null : invokeV.booleanValue;
     }
 
     public boolean k(PrefetchEvent.c cVar, PMSAppInfo pMSAppInfo) {
@@ -283,7 +283,7 @@ public abstract class a {
     public boolean l() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f6575f : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f6717f : invokeV.booleanValue;
     }
 
     public boolean m(PrefetchEvent.c cVar, PrefetchEvent.c cVar2) {
@@ -312,7 +312,7 @@ public abstract class a {
     public boolean n() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.f6576g : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.f6718g : invokeV.booleanValue;
     }
 
     public final synchronized void o() {
@@ -320,14 +320,14 @@ public abstract class a {
         if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
             synchronized (this) {
                 if (k) {
-                    String str = "notifyAllReady, callback size " + this.f6571b.size();
+                    String str = "notifyAllReady, callback size " + this.f6713b.size();
                 }
-                for (j jVar : this.f6571b) {
+                for (j jVar : this.f6713b) {
                     if (jVar != null) {
                         jVar.onReady();
                     }
                 }
-                this.f6571b.clear();
+                this.f6713b.clear();
             }
         }
     }
@@ -336,8 +336,8 @@ public abstract class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048589, this, pMSAppInfo) == null) {
             d(pMSAppInfo);
-            this.f6574e = null;
-            this.f6573d = null;
+            this.f6716e = null;
+            this.f6715d = null;
         }
     }
 
@@ -357,7 +357,7 @@ public abstract class a {
             } else if (pMSAppInfo != null && !TextUtils.isEmpty(pMSAppInfo.appId)) {
                 if (this.a == null) {
                     c.a.r0.a.e0.d.k("BasePreloadMasterManager", "mMasterManager not create yet, can not prefetch");
-                } else if (l() && this.f6572c == null) {
+                } else if (l() && this.f6714c == null) {
                     c.a.r0.a.e0.d.k("BasePreloadMasterManager", "default blank master can not use to prefetch");
                 } else if (k(cVar, pMSAppInfo)) {
                     c.a.r0.a.e0.d.k("BasePreloadMasterManager", "intercept before preload/prefetch");
@@ -376,7 +376,7 @@ public abstract class a {
     public void s(PrefetchEvent.c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048592, this, cVar) == null) {
-            this.f6573d = cVar;
+            this.f6715d = cVar;
             if (k) {
                 String str = "fire prefetch event name - " + cVar.a;
             }
@@ -386,10 +386,10 @@ public abstract class a {
     public final void t(PrefetchEvent.c cVar, PMSAppInfo pMSAppInfo) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(1048593, this, cVar, pMSAppInfo) == null) && cVar.u()) {
-            this.f6574e = new i();
-            this.f6574e.a = pMSAppInfo.appId;
-            this.f6574e.f6588b = pMSAppInfo;
-            this.f6574e.f6589c = cVar;
+            this.f6716e = new i();
+            this.f6716e.a = pMSAppInfo.appId;
+            this.f6716e.f6730b = pMSAppInfo;
+            this.f6716e.f6731c = cVar;
         }
     }
 

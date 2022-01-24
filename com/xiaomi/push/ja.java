@@ -14,7 +14,7 @@ public final class ja {
     public final int f819a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final byte f61391b;
+    public final byte f61436b;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public ja() {
@@ -51,7 +51,7 @@ public final class ja {
             }
         }
         this.a = b2;
-        this.f61391b = b3;
+        this.f61436b = b3;
         this.f819a = i2;
     }
 }

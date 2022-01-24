@@ -64,7 +64,7 @@ public class c implements o1 {
                     b.b().b(true, cVar);
                     return;
                 }
-            } else if (eVar.f6879b) {
+            } else if (eVar.f7021b) {
                 b.b().b(false, cVar);
                 return;
             } else {
@@ -79,7 +79,7 @@ public class c implements o1 {
     public boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? d() || c.a.r0.a.n0.k.c.f7795d.w() || (c.a.r0.a.n0.k.c.f7795d.k(ZeusWebViewPreloadClass.ZEUS_FILE_DIR) && g.U().s0()) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? d() || c.a.r0.a.n0.k.c.f7937d.w() || (c.a.r0.a.n0.k.c.f7937d.k(ZeusWebViewPreloadClass.ZEUS_FILE_DIR) && g.U().s0()) : invokeV.booleanValue;
     }
 
     @Override // c.a.r0.a.p.d.o1

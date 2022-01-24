@@ -18,7 +18,7 @@ public class d {
     public static long a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile int f6463b;
+    public static volatile int f6605b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes.dex */
@@ -27,10 +27,10 @@ public class d {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ int f6464e;
+        public final /* synthetic */ int f6606e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ int f6465f;
+        public final /* synthetic */ int f6607f;
 
         public a(int i2, int i3) {
             Interceptable interceptable = $ic;
@@ -47,15 +47,15 @@ public class d {
                     return;
                 }
             }
-            this.f6464e = i2;
-            this.f6465f = i3;
+            this.f6606e = i2;
+            this.f6607f = i3;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                d.c(this.f6464e, this.f6465f);
+                d.c(this.f6606e, this.f6607f);
             }
         }
     }
@@ -78,7 +78,7 @@ public class d {
     public static boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f6463b < 2 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f6605b < 2 : invokeV.booleanValue;
     }
 
     public static void c(@StringRes int i2, int i3) {
@@ -108,7 +108,7 @@ public class d {
     public static void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65541, null) == null) {
-            f6463b = 0;
+            f6605b = 0;
             a = 0L;
         }
     }
@@ -124,15 +124,15 @@ public class d {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(65543, null, i2, i3) == null) {
             synchronized (d.class) {
-                int i4 = f6463b;
+                int i4 = f6605b;
                 if (i4 != 0) {
                     if (i4 == 1 && (a + 5000) - System.currentTimeMillis() < 0) {
-                        f6463b = 2;
+                        f6605b = 2;
                         d(i2, i3);
                         f.g("toast提示个数已达2个");
                     }
                 } else {
-                    f6463b = 1;
+                    f6605b = 1;
                     a = System.currentTimeMillis();
                     d(i2, i3);
                 }

@@ -46,7 +46,7 @@ public class d implements CustomMessageTask.CustomRunnable<Object> {
                     d2 = f.f().d(aVar.e());
                 }
                 if (!d2) {
-                    c.a.s0.s.h0.b k = c.a.s0.s.h0.b.k();
+                    c.a.s0.s.i0.b k = c.a.s0.s.i0.b.k();
                     k.u("get_addresslist_switch" + TbadkCoreApplication.getCurrentAccount(), true);
                 }
             }

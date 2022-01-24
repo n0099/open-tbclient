@@ -17,32 +17,32 @@ import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.ReentrantLock;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public final class l<E> extends AbstractQueue<E> implements Serializable, BlockingQueue<E> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public transient a<E> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final int f59171b;
+    public final int f59216b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final AtomicInteger f59172c;
+    public final AtomicInteger f59217c;
 
     /* renamed from: d  reason: collision with root package name */
-    public transient a<E> f59173d;
+    public transient a<E> f59218d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final ReentrantLock f59174e;
+    public final ReentrantLock f59219e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final Condition f59175f;
+    public final Condition f59220f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final ReentrantLock f59176g;
+    public final ReentrantLock f59221g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final Condition f59177h;
+    public final Condition f59222h;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public l() {
@@ -77,17 +77,17 @@ public final class l<E> extends AbstractQueue<E> implements Serializable, Blocki
                 return;
             }
         }
-        this.f59172c = new AtomicInteger();
+        this.f59217c = new AtomicInteger();
         ReentrantLock reentrantLock = new ReentrantLock();
-        this.f59174e = reentrantLock;
-        this.f59175f = reentrantLock.newCondition();
+        this.f59219e = reentrantLock;
+        this.f59220f = reentrantLock.newCondition();
         ReentrantLock reentrantLock2 = new ReentrantLock();
-        this.f59176g = reentrantLock2;
-        this.f59177h = reentrantLock2.newCondition();
-        this.f59171b = Integer.MAX_VALUE;
+        this.f59221g = reentrantLock2;
+        this.f59222h = reentrantLock2.newCondition();
+        this.f59216b = Integer.MAX_VALUE;
         a<E> aVar = new a<>(null);
         this.a = aVar;
-        this.f59173d = aVar;
+        this.f59218d = aVar;
     }
 
     /* JADX DEBUG: Multi-variable search result rejected for r8v0, resolved type: com.sdk.base.framework.a.c.a<E> */
@@ -122,8 +122,8 @@ public final class l<E> extends AbstractQueue<E> implements Serializable, Blocki
                     }
                 }
                 if (!z) {
-                    this.f59173d.a = aVar;
-                    this.f59173d = aVar;
+                    this.f59218d.a = aVar;
+                    this.f59218d = aVar;
                 }
                 return null;
             }
@@ -134,10 +134,10 @@ public final class l<E> extends AbstractQueue<E> implements Serializable, Blocki
     private void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65539, this) == null) {
-            ReentrantLock reentrantLock = this.f59174e;
+            ReentrantLock reentrantLock = this.f59219e;
             reentrantLock.lock();
             try {
-                this.f59175f.signal();
+                this.f59220f.signal();
             } finally {
                 reentrantLock.unlock();
             }
@@ -147,10 +147,10 @@ public final class l<E> extends AbstractQueue<E> implements Serializable, Blocki
     private void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
-            ReentrantLock reentrantLock = this.f59176g;
+            ReentrantLock reentrantLock = this.f59221g;
             reentrantLock.lock();
             try {
-                this.f59177h.signal();
+                this.f59222h.signal();
             } finally {
                 reentrantLock.unlock();
             }
@@ -160,8 +160,8 @@ public final class l<E> extends AbstractQueue<E> implements Serializable, Blocki
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f59176g.lock();
-            this.f59174e.lock();
+            this.f59221g.lock();
+            this.f59219e.lock();
         }
     }
 
@@ -171,11 +171,11 @@ public final class l<E> extends AbstractQueue<E> implements Serializable, Blocki
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar, aVar2) == null) {
             aVar.a(null);
             aVar2.a = (a<E>) aVar.a;
-            if (this.f59173d == aVar) {
-                this.f59173d = aVar2;
+            if (this.f59218d == aVar) {
+                this.f59218d = aVar2;
             }
-            if (this.f59172c.getAndDecrement() == this.f59171b) {
-                this.f59177h.signal();
+            if (this.f59217c.getAndDecrement() == this.f59216b) {
+                this.f59222h.signal();
             }
         }
     }
@@ -183,8 +183,8 @@ public final class l<E> extends AbstractQueue<E> implements Serializable, Blocki
     public final void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.f59174e.unlock();
-            this.f59176g.unlock();
+            this.f59219e.unlock();
+            this.f59221g.unlock();
         }
     }
 
@@ -206,9 +206,9 @@ public final class l<E> extends AbstractQueue<E> implements Serializable, Blocki
                     aVar2.a(null);
                     aVar = (a<E>) aVar2;
                 }
-                this.a = this.f59173d;
-                if (this.f59172c.getAndSet(0) == this.f59171b) {
-                    this.f59177h.signal();
+                this.a = this.f59218d;
+                if (this.f59217c.getAndSet(0) == this.f59216b) {
+                    this.f59222h.signal();
                 }
             } finally {
                 b();
@@ -260,10 +260,10 @@ public final class l<E> extends AbstractQueue<E> implements Serializable, Blocki
                     if (i2 <= 0) {
                         return 0;
                     }
-                    ReentrantLock reentrantLock = this.f59174e;
+                    ReentrantLock reentrantLock = this.f59219e;
                     reentrantLock.lock();
                     try {
-                        int min = Math.min(i2, this.f59172c.get());
+                        int min = Math.min(i2, this.f59217c.get());
                         a<E> aVar = this.a;
                         int i3 = 0;
                         while (i3 < min) {
@@ -276,7 +276,7 @@ public final class l<E> extends AbstractQueue<E> implements Serializable, Blocki
                         }
                         if (i3 > 0) {
                             this.a = aVar;
-                            if (this.f59172c.getAndAdd(-i3) == this.f59171b) {
+                            if (this.f59217c.getAndAdd(-i3) == this.f59216b) {
                                 z = true;
                             }
                         }
@@ -308,20 +308,20 @@ public final class l<E> extends AbstractQueue<E> implements Serializable, Blocki
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, e2)) == null) {
             if (e2 != null) {
-                AtomicInteger atomicInteger = this.f59172c;
-                if (atomicInteger.get() == this.f59171b) {
+                AtomicInteger atomicInteger = this.f59217c;
+                if (atomicInteger.get() == this.f59216b) {
                     return false;
                 }
                 int i2 = -1;
                 a<E> aVar = new a<>(e2);
-                ReentrantLock reentrantLock = this.f59176g;
+                ReentrantLock reentrantLock = this.f59221g;
                 reentrantLock.lock();
                 try {
-                    if (atomicInteger.get() < this.f59171b) {
+                    if (atomicInteger.get() < this.f59216b) {
                         a(aVar);
                         i2 = atomicInteger.getAndIncrement();
-                        if (i2 + 1 < this.f59171b) {
-                            this.f59177h.signal();
+                        if (i2 + 1 < this.f59216b) {
+                            this.f59222h.signal();
                         }
                     }
                     if (i2 == 0) {
@@ -344,24 +344,24 @@ public final class l<E> extends AbstractQueue<E> implements Serializable, Blocki
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048585, this, new Object[]{e2, Long.valueOf(j2), timeUnit})) == null) {
             if (e2 != null) {
                 long nanos = timeUnit.toNanos(j2);
-                ReentrantLock reentrantLock = this.f59176g;
-                AtomicInteger atomicInteger = this.f59172c;
+                ReentrantLock reentrantLock = this.f59221g;
+                AtomicInteger atomicInteger = this.f59217c;
                 reentrantLock.lockInterruptibly();
-                while (atomicInteger.get() == this.f59171b) {
+                while (atomicInteger.get() == this.f59216b) {
                     try {
                         if (nanos <= 0) {
                             reentrantLock.unlock();
                             return false;
                         }
-                        nanos = this.f59177h.awaitNanos(nanos);
+                        nanos = this.f59222h.awaitNanos(nanos);
                     } finally {
                         reentrantLock.unlock();
                     }
                 }
                 a(new a<>(e2));
                 int andIncrement = atomicInteger.getAndIncrement();
-                if (andIncrement + 1 < this.f59171b) {
-                    this.f59177h.signal();
+                if (andIncrement + 1 < this.f59216b) {
+                    this.f59222h.signal();
                 }
                 if (andIncrement == 0) {
                     c();
@@ -379,10 +379,10 @@ public final class l<E> extends AbstractQueue<E> implements Serializable, Blocki
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            if (this.f59172c.get() == 0) {
+            if (this.f59217c.get() == 0) {
                 return null;
             }
-            ReentrantLock reentrantLock = this.f59174e;
+            ReentrantLock reentrantLock = this.f59219e;
             reentrantLock.lock();
             try {
                 a<E> aVar = this.a.a;
@@ -402,24 +402,24 @@ public final class l<E> extends AbstractQueue<E> implements Serializable, Blocki
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            AtomicInteger atomicInteger = this.f59172c;
+            AtomicInteger atomicInteger = this.f59217c;
             E e2 = null;
             if (atomicInteger.get() == 0) {
                 return null;
             }
             int i2 = -1;
-            ReentrantLock reentrantLock = this.f59174e;
+            ReentrantLock reentrantLock = this.f59219e;
             reentrantLock.lock();
             try {
                 if (atomicInteger.get() > 0) {
                     e2 = a(null);
                     i2 = atomicInteger.getAndDecrement();
                     if (i2 > 1) {
-                        this.f59175f.signal();
+                        this.f59220f.signal();
                     }
                 }
                 reentrantLock.unlock();
-                if (i2 == this.f59171b) {
+                if (i2 == this.f59216b) {
                     d();
                 }
                 return e2;
@@ -437,15 +437,15 @@ public final class l<E> extends AbstractQueue<E> implements Serializable, Blocki
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeJL = interceptable.invokeJL(1048588, this, j2, timeUnit)) == null) {
             long nanos = timeUnit.toNanos(j2);
-            AtomicInteger atomicInteger = this.f59172c;
-            ReentrantLock reentrantLock = this.f59174e;
+            AtomicInteger atomicInteger = this.f59217c;
+            ReentrantLock reentrantLock = this.f59219e;
             reentrantLock.lockInterruptibly();
             while (atomicInteger.get() == 0) {
                 try {
                     if (nanos <= 0) {
                         return null;
                     }
-                    nanos = this.f59175f.awaitNanos(nanos);
+                    nanos = this.f59220f.awaitNanos(nanos);
                 } finally {
                     reentrantLock.unlock();
                 }
@@ -453,10 +453,10 @@ public final class l<E> extends AbstractQueue<E> implements Serializable, Blocki
             E a = a(null);
             int andDecrement = atomicInteger.getAndDecrement();
             if (andDecrement > 1) {
-                this.f59175f.signal();
+                this.f59220f.signal();
             }
             reentrantLock.unlock();
-            if (andDecrement == this.f59171b) {
+            if (andDecrement == this.f59216b) {
                 d();
             }
             return a;
@@ -472,20 +472,20 @@ public final class l<E> extends AbstractQueue<E> implements Serializable, Blocki
                 throw null;
             }
             a<E> aVar = new a<>(e2);
-            ReentrantLock reentrantLock = this.f59176g;
-            AtomicInteger atomicInteger = this.f59172c;
+            ReentrantLock reentrantLock = this.f59221g;
+            AtomicInteger atomicInteger = this.f59217c;
             reentrantLock.lockInterruptibly();
-            while (atomicInteger.get() == this.f59171b) {
+            while (atomicInteger.get() == this.f59216b) {
                 try {
-                    this.f59177h.await();
+                    this.f59222h.await();
                 } finally {
                     reentrantLock.unlock();
                 }
             }
             a(aVar);
             int andIncrement = atomicInteger.getAndIncrement();
-            if (andIncrement + 1 < this.f59171b) {
-                this.f59177h.signal();
+            if (andIncrement + 1 < this.f59216b) {
+                this.f59222h.signal();
             }
             if (andIncrement == 0) {
                 c();
@@ -497,7 +497,7 @@ public final class l<E> extends AbstractQueue<E> implements Serializable, Blocki
     public final int remainingCapacity() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.f59171b - this.f59172c.get() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.f59216b - this.f59217c.get() : invokeV.intValue;
     }
 
     @Override // java.util.AbstractCollection, java.util.Collection, java.util.concurrent.BlockingQueue
@@ -533,7 +533,7 @@ public final class l<E> extends AbstractQueue<E> implements Serializable, Blocki
     public final int size() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? this.f59172c.get() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? this.f59217c.get() : invokeV.intValue;
     }
 
     @Override // java.util.concurrent.BlockingQueue
@@ -541,12 +541,12 @@ public final class l<E> extends AbstractQueue<E> implements Serializable, Blocki
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
-            AtomicInteger atomicInteger = this.f59172c;
-            ReentrantLock reentrantLock = this.f59174e;
+            AtomicInteger atomicInteger = this.f59217c;
+            ReentrantLock reentrantLock = this.f59219e;
             reentrantLock.lockInterruptibly();
             while (atomicInteger.get() == 0) {
                 try {
-                    this.f59175f.await();
+                    this.f59220f.await();
                 } catch (Throwable th) {
                     reentrantLock.unlock();
                     throw th;
@@ -555,10 +555,10 @@ public final class l<E> extends AbstractQueue<E> implements Serializable, Blocki
             E a = a(null);
             int andDecrement = atomicInteger.getAndDecrement();
             if (andDecrement > 1) {
-                this.f59175f.signal();
+                this.f59220f.signal();
             }
             reentrantLock.unlock();
-            if (andDecrement == this.f59171b) {
+            if (andDecrement == this.f59216b) {
                 d();
             }
             return a;
@@ -575,7 +575,7 @@ public final class l<E> extends AbstractQueue<E> implements Serializable, Blocki
         }
         a();
         try {
-            Object[] objArr = new Object[this.f59172c.get()];
+            Object[] objArr = new Object[this.f59217c.get()];
             int i2 = 0;
             a aVar = this.a;
             while (true) {
@@ -601,7 +601,7 @@ public final class l<E> extends AbstractQueue<E> implements Serializable, Blocki
         if (interceptable == null || (invokeL = interceptable.invokeL(1048595, this, tArr)) == null) {
             a();
             try {
-                int i2 = this.f59172c.get();
+                int i2 = this.f59217c.get();
                 if (tArr.length < i2) {
                     tArr = (T[]) ((Object[]) Array.newInstance(tArr.getClass().getComponentType(), i2));
                 }

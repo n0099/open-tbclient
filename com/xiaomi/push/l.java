@@ -21,7 +21,7 @@ public class l {
     public static Map<String, o> f824a = null;
 
     /* renamed from: b  reason: collision with root package name */
-    public static int f61398b = -1;
+    public static int f61443b = -1;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -94,7 +94,7 @@ public class l {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
             o b2 = b(str);
-            return b2 == null ? o.f61399b : b2;
+            return b2 == null ? o.f61444b : b2;
         }
         return (o) invokeL.objValue;
     }
@@ -136,48 +136,48 @@ public class l {
             HashMap hashMap = new HashMap();
             f824a = hashMap;
             hashMap.put("CN", o.a);
-            f824a.put("FI", o.f61400c);
-            f824a.put("SE", o.f61400c);
-            f824a.put("NO", o.f61400c);
-            f824a.put("FO", o.f61400c);
-            f824a.put("EE", o.f61400c);
-            f824a.put("LV", o.f61400c);
-            f824a.put("LT", o.f61400c);
-            f824a.put("BY", o.f61400c);
-            f824a.put("MD", o.f61400c);
-            f824a.put("UA", o.f61400c);
-            f824a.put("PL", o.f61400c);
-            f824a.put("CZ", o.f61400c);
-            f824a.put("SK", o.f61400c);
-            f824a.put("HU", o.f61400c);
-            f824a.put("DE", o.f61400c);
-            f824a.put("AT", o.f61400c);
-            f824a.put("CH", o.f61400c);
-            f824a.put("LI", o.f61400c);
-            f824a.put("GB", o.f61400c);
-            f824a.put("IE", o.f61400c);
-            f824a.put("NL", o.f61400c);
-            f824a.put("BE", o.f61400c);
-            f824a.put("LU", o.f61400c);
-            f824a.put("FR", o.f61400c);
-            f824a.put("RO", o.f61400c);
-            f824a.put("BG", o.f61400c);
-            f824a.put("RS", o.f61400c);
-            f824a.put("MK", o.f61400c);
-            f824a.put("AL", o.f61400c);
-            f824a.put("GR", o.f61400c);
-            f824a.put("SI", o.f61400c);
-            f824a.put("HR", o.f61400c);
-            f824a.put("IT", o.f61400c);
-            f824a.put("SM", o.f61400c);
-            f824a.put("MT", o.f61400c);
-            f824a.put("ES", o.f61400c);
-            f824a.put("PT", o.f61400c);
-            f824a.put("AD", o.f61400c);
-            f824a.put("CY", o.f61400c);
-            f824a.put("DK", o.f61400c);
-            f824a.put("RU", o.f61401d);
-            f824a.put("IN", o.f61402e);
+            f824a.put("FI", o.f61445c);
+            f824a.put("SE", o.f61445c);
+            f824a.put("NO", o.f61445c);
+            f824a.put("FO", o.f61445c);
+            f824a.put("EE", o.f61445c);
+            f824a.put("LV", o.f61445c);
+            f824a.put("LT", o.f61445c);
+            f824a.put("BY", o.f61445c);
+            f824a.put("MD", o.f61445c);
+            f824a.put("UA", o.f61445c);
+            f824a.put("PL", o.f61445c);
+            f824a.put("CZ", o.f61445c);
+            f824a.put("SK", o.f61445c);
+            f824a.put("HU", o.f61445c);
+            f824a.put("DE", o.f61445c);
+            f824a.put("AT", o.f61445c);
+            f824a.put("CH", o.f61445c);
+            f824a.put("LI", o.f61445c);
+            f824a.put("GB", o.f61445c);
+            f824a.put("IE", o.f61445c);
+            f824a.put("NL", o.f61445c);
+            f824a.put("BE", o.f61445c);
+            f824a.put("LU", o.f61445c);
+            f824a.put("FR", o.f61445c);
+            f824a.put("RO", o.f61445c);
+            f824a.put("BG", o.f61445c);
+            f824a.put("RS", o.f61445c);
+            f824a.put("MK", o.f61445c);
+            f824a.put("AL", o.f61445c);
+            f824a.put("GR", o.f61445c);
+            f824a.put("SI", o.f61445c);
+            f824a.put("HR", o.f61445c);
+            f824a.put("IT", o.f61445c);
+            f824a.put("SM", o.f61445c);
+            f824a.put("MT", o.f61445c);
+            f824a.put("ES", o.f61445c);
+            f824a.put("PT", o.f61445c);
+            f824a.put("AD", o.f61445c);
+            f824a.put("CY", o.f61445c);
+            f824a.put("DK", o.f61445c);
+            f824a.put("RU", o.f61446d);
+            f824a.put("IN", o.f61447e);
         }
     }
 
@@ -268,14 +268,14 @@ public class l {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65549, null)) == null) {
-            if (f61398b < 0) {
+            if (f61443b < 0) {
                 Object a2 = bh.a("miui.external.SdkHelper", "isMiuiSystem", new Object[0]);
-                f61398b = 0;
+                f61443b = 0;
                 if (a2 != null && (a2 instanceof Boolean) && !((Boolean) Boolean.class.cast(a2)).booleanValue()) {
-                    f61398b = 1;
+                    f61443b = 1;
                 }
             }
-            return f61398b > 0;
+            return f61443b > 0;
         }
         return invokeV.booleanValue;
     }

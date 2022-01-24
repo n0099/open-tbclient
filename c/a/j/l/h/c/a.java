@@ -24,9 +24,9 @@ public final class a extends b<c.a.j.e.b.a> {
 
     /* renamed from: c.a.j.l.h.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static final class C0182a<T> implements c<TaskDialogViewData> {
+    public static final class C0191a<T> implements c<TaskDialogViewData> {
         public static /* synthetic */ Interceptable $ic;
-        public static final C0182a a;
+        public static final C0191a a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -42,10 +42,10 @@ public final class a extends b<c.a.j.e.b.a> {
                     return;
                 }
             }
-            a = new C0182a();
+            a = new C0191a();
         }
 
-        public C0182a() {
+        public C0191a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -101,7 +101,7 @@ public final class a extends b<c.a.j.e.b.a> {
     public void a(c.a.j.e.b.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
-            aVar.a().l(C0182a.a);
+            aVar.a().l(C0191a.a);
         }
     }
 }

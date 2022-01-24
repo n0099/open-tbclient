@@ -31,8 +31,8 @@ public class j0 extends l0 {
         if (n0Var == null) {
             throw new IllegalArgumentException("params is null");
         }
-        this.f28430c = "POST";
-        this.f28431d = n0Var.c();
-        this.f28432e = n0Var.a();
+        this.f28458c = "POST";
+        this.f28459d = n0Var.c();
+        this.f28460e = n0Var.a();
     }
 }

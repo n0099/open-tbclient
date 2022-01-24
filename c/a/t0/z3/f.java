@@ -61,31 +61,31 @@ public class f {
     public MainTabActivity a;
 
     /* renamed from: b  reason: collision with root package name */
-    public FragmentTabHost f26124b;
+    public FragmentTabHost f26151b;
 
     /* renamed from: c  reason: collision with root package name */
-    public TextView f26125c;
+    public TextView f26152c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f26126d;
+    public boolean f26153d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f26127e;
+    public boolean f26154e;
 
     /* renamed from: f  reason: collision with root package name */
-    public PopupWindow f26128f;
+    public PopupWindow f26155f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f26129g;
+    public boolean f26156g;
 
     /* renamed from: h  reason: collision with root package name */
-    public Handler f26130h;
+    public Handler f26157h;
 
     /* renamed from: i  reason: collision with root package name */
-    public c.a.t0.k0.j f26131i;
+    public c.a.t0.k0.j f26158i;
 
     /* renamed from: j  reason: collision with root package name */
-    public c.a.t0.k4.e f26132j;
+    public c.a.t0.k4.e f26159j;
     public MaintabBottomIndicator k;
     public MaintabBottomIndicator l;
     public int m;
@@ -111,14 +111,14 @@ public class f {
 
         /* renamed from: c.a.t0.z3.f$a$a  reason: collision with other inner class name */
         /* loaded from: classes9.dex */
-        public class RunnableC1576a implements Runnable {
+        public class RunnableC1577a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ CustomResponsedMessage f26133e;
+            public final /* synthetic */ CustomResponsedMessage f26160e;
 
-            public RunnableC1576a(a aVar, CustomResponsedMessage customResponsedMessage) {
+            public RunnableC1577a(a aVar, CustomResponsedMessage customResponsedMessage) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -133,14 +133,14 @@ public class f {
                         return;
                     }
                 }
-                this.f26133e = customResponsedMessage;
+                this.f26160e = customResponsedMessage;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    MessageManager.getInstance().dispatchResponsedMessage(this.f26133e);
+                    MessageManager.getInstance().dispatchResponsedMessage(this.f26160e);
                 }
             }
         }
@@ -169,8 +169,8 @@ public class f {
                 return;
             }
             c.a.s0.i0.c cVar = new c.a.s0.i0.c();
-            cVar.f12791g = redIcon.image;
-            cVar.f12789e = 22;
+            cVar.f12935g = redIcon.image;
+            cVar.f12933e = 22;
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921492, cVar));
         }
 
@@ -178,19 +178,19 @@ public class f {
             String m;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
-                if (this.a.f26124b.getTabSpec(i2).a == 2) {
+                if (this.a.f26151b.getTabSpec(i2).a == 2) {
                     m = TbPageExtraHelper.l(this.a.a.getPageContext().getContext());
                 } else {
                     m = TbPageExtraHelper.m();
                 }
-                c.a.d.f.m.e.a().postDelayed(new RunnableC1576a(this, new CustomResponsedMessage(2921520, m)), 100L);
+                c.a.d.f.m.e.a().postDelayed(new RunnableC1577a(this, new CustomResponsedMessage(2921520, m)), 100L);
             }
         }
 
         public final void c(int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
-                int i3 = this.a.f26124b.getTabSpec(i2).a;
+                int i3 = this.a.f26151b.getTabSpec(i2).a;
                 if (i3 == 8) {
                     TbPageExtraHelper.v("a011");
                 } else if (i3 == 2) {
@@ -212,14 +212,14 @@ public class f {
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i2), Boolean.valueOf(z)})) == null) {
-                FragmentTabHost.b tabSpec = this.a.f26124b.getTabSpec(i2);
+                FragmentTabHost.b tabSpec = this.a.f26151b.getTabSpec(i2);
                 if (tabSpec.a == 2 || !FullBrowseHelper.checkAndShowFullBrowseModeDialog(this.a.a.getPageContext(), null)) {
                     int i3 = tabSpec.a;
                     if (i3 == 9) {
                         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921452, new c.a.s0.u.m(0)));
                         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921308, Integer.valueOf(i2)));
                         return false;
-                    } else if (i3 == 8 && !c.a.s0.b.d.J() && !ViewHelper.checkUpIsLogin(this.a.a.getActivity())) {
+                    } else if (i3 == 8 && !c.a.s0.b.d.O() && !ViewHelper.checkUpIsLogin(this.a.a.getActivity())) {
                         if (this.a.k != null) {
                             this.a.k.hideLottieView();
                         }
@@ -259,7 +259,7 @@ public class f {
         public void onTabSelectionChanged(int i2, boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i2), Boolean.valueOf(z)}) == null) {
-                FragmentTabHost.b tabSpec = this.a.f26124b.getTabSpec(i2);
+                FragmentTabHost.b tabSpec = this.a.f26151b.getTabSpec(i2);
                 int i3 = tabSpec.a;
                 int i4 = 3;
                 if (i3 == 8) {
@@ -303,14 +303,14 @@ public class f {
                     this.a.x().isSelectHome = this.a.n;
                 }
                 if (!this.a.n) {
-                    c.a.t0.e1.a.i().r();
+                    c.a.t0.f1.a.i().r();
                 }
                 c(this.a.m);
                 b(this.a.m);
                 this.a.m = i2;
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001384, Integer.valueOf(i2)));
                 if (tabSpec.a == 22) {
-                    TbFragmentTabIndicator tbFragmentTabIndicator = tabSpec.f40267b;
+                    TbFragmentTabIndicator tbFragmentTabIndicator = tabSpec.f40295b;
                     if (tbFragmentTabIndicator instanceof MaintabBottomIndicator) {
                         MaintabBottomIndicator maintabBottomIndicator = (MaintabBottomIndicator) tbFragmentTabIndicator;
                         if (maintabBottomIndicator.getTip("video_msg") != null && (maintabBottomIndicator.getTip("video_msg").a instanceof MessageRedDotView)) {
@@ -330,11 +330,11 @@ public class f {
                     }
                     c.a.s0.j0.g.c.b().c();
                     c.a.s0.j0.g.c.b().l(true);
-                    if (this.a.f26124b.getTabSpec(this.a.f26124b.getCurrentTabIndex()) == null || this.a.f26124b.getTabSpec(this.a.f26124b.getCurrentTabIndex()).a != 22) {
-                        if (this.a.f26124b.getFragmentTabWidget() != null) {
-                            this.a.f26124b.getFragmentTabWidget().makeWidgetDarkSkin(true, c.a.t0.z3.l.CAM_X0215);
+                    if (this.a.f26151b.getTabSpec(this.a.f26151b.getCurrentTabIndex()) == null || this.a.f26151b.getTabSpec(this.a.f26151b.getCurrentTabIndex()).a != 22) {
+                        if (this.a.f26151b.getFragmentTabWidget() != null) {
+                            this.a.f26151b.getFragmentTabWidget().makeWidgetDarkSkin(true, c.a.t0.z3.l.CAM_X0215);
                         }
-                        this.a.f26124b.makeIndicatorDarkSkin(true);
+                        this.a.f26151b.makeIndicatorDarkSkin(true);
                         if (!c.a.d.f.p.l.z()) {
                             c.a.d.f.p.n.K(this.a.a, this.a.a.getResources().getString(c.a.t0.z3.q.neterror));
                         }
@@ -348,7 +348,7 @@ public class f {
                     }
                 } else {
                     if (TbSingleton.getInstance().isFromFeedVideoClick()) {
-                        this.a.f26124b.refreshVideoFragment(false, null);
+                        this.a.f26151b.refreshVideoFragment(false, null);
                         TbSingleton.getInstance().setFromFeedVideoClick(false);
                         RedIcon videoChannelRecommendRedIcon = TbSingleton.getInstance().getVideoChannelRecommendRedIcon();
                         TbSingleton.getInstance().setVideoChannelRecommendRedIcon(videoChannelRecommendRedIcon);
@@ -356,10 +356,10 @@ public class f {
                     }
                     c.a.s0.j0.g.c.b().o();
                     c.a.s0.j0.g.c.b().l(false);
-                    if (this.a.f26124b.getFragmentTabWidget() != null) {
-                        this.a.f26124b.getFragmentTabWidget().makeWidgetDarkSkin(false, c.a.t0.z3.l.CAM_X0207);
+                    if (this.a.f26151b.getFragmentTabWidget() != null) {
+                        this.a.f26151b.getFragmentTabWidget().makeWidgetDarkSkin(false, c.a.t0.z3.l.CAM_X0207);
                     }
-                    this.a.f26124b.makeIndicatorDarkSkin(false);
+                    this.a.f26151b.makeIndicatorDarkSkin(false);
                 }
                 if (tabSpec.a == 1 && TbSingleton.getInstance().needRefreshForumSquare) {
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921589));
@@ -381,7 +381,7 @@ public class f {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ f f26134e;
+        public final /* synthetic */ f f26161e;
 
         public b(f fVar) {
             Interceptable interceptable = $ic;
@@ -398,7 +398,7 @@ public class f {
                     return;
                 }
             }
-            this.f26134e = fVar;
+            this.f26161e = fVar;
         }
 
         @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
@@ -419,29 +419,29 @@ public class f {
         public void onPageSelected(int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
-                if (this.f26134e.f26124b.getCurrentTabType() != 2) {
-                    if (this.f26134e.f26124b.getCurrentTabType() == 15) {
+                if (this.f26161e.f26151b.getCurrentTabType() != 2) {
+                    if (this.f26161e.f26151b.getCurrentTabType() == 15) {
                         TiebaStatic.log("c12124");
                     }
                 } else {
                     TiebaStatic.log("kantie_entry");
                 }
-                if (this.f26134e.f26124b.getCurrentTabType() != this.f26134e.f26124b.getTabSpec(i2).a) {
-                    this.f26134e.f26124b.setCurrentTab(i2);
+                if (this.f26161e.f26151b.getCurrentTabType() != this.f26161e.f26151b.getTabSpec(i2).a) {
+                    this.f26161e.f26151b.setCurrentTab(i2);
                 }
-                if (this.f26134e.f26124b.getCurrentTabType() == 1 && !c.a.s0.s.h0.b.k().h("has_guide_popup_window_been_shown", false)) {
+                if (this.f26161e.f26151b.getCurrentTabType() == 1 && !c.a.s0.s.i0.b.k().h("has_guide_popup_window_been_shown", false)) {
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921474));
                 }
-                if (c.a.s0.s.h0.b.k().h("enter_forum_edit_mode", false)) {
-                    if (this.f26134e.f26124b.getCurrentTabType() != 3) {
-                        if (this.f26134e.f26124b.getCurrentTabType() == 2) {
+                if (c.a.s0.s.i0.b.k().h("enter_forum_edit_mode", false)) {
+                    if (this.f26161e.f26151b.getCurrentTabType() != 3) {
+                        if (this.f26161e.f26151b.getCurrentTabType() == 2) {
                             TiebaStatic.log(TbadkCoreStatisticKey.ENTER_FORUM_EDIT_RECOMMENDFRS_CLICK);
                         }
                     } else {
                         TiebaStatic.log(TbadkCoreStatisticKey.ENTER_FORUM_EDIT_MENTION_CLICK);
                     }
                 }
-                if (this.f26134e.f26124b.getCurrentTabType() == 3) {
+                if (this.f26161e.f26151b.getCurrentTabType() == 3) {
                     TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_MESSAGE_AGGREGATION_PV).param("nobatch", "1"));
                 }
             }
@@ -454,10 +454,10 @@ public class f {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f26135e;
+        public final /* synthetic */ String f26162e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ f f26136f;
+        public final /* synthetic */ f f26163f;
 
         public c(f fVar, String str) {
             Interceptable interceptable = $ic;
@@ -474,15 +474,15 @@ public class f {
                     return;
                 }
             }
-            this.f26136f = fVar;
-            this.f26135e = str;
+            this.f26163f = fVar;
+            this.f26162e = str;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f26136f.M(this.f26135e);
+                this.f26163f.M(this.f26162e);
             }
         }
     }
@@ -493,13 +493,13 @@ public class f {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c.a.s0.s.s.a f26137e;
+        public final /* synthetic */ c.a.s0.s.s.a f26164e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ int f26138f;
+        public final /* synthetic */ int f26165f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ f f26139g;
+        public final /* synthetic */ f f26166g;
 
         public d(f fVar, c.a.s0.s.s.a aVar, int i2) {
             Interceptable interceptable = $ic;
@@ -516,21 +516,21 @@ public class f {
                     return;
                 }
             }
-            this.f26139g = fVar;
-            this.f26137e = aVar;
-            this.f26138f = i2;
+            this.f26166g = fVar;
+            this.f26164e = aVar;
+            this.f26165f = i2;
         }
 
         @Override // c.a.s0.s.s.a.e
         public void onClick(c.a.s0.s.s.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
-                this.f26137e.dismiss();
-                int i2 = this.f26138f;
+                this.f26164e.dismiss();
+                int i2 = this.f26165f;
                 if (i2 == 0) {
-                    TiebaStatic.eventStat(this.f26139g.a.getPageContext().getPageActivity(), "user_overdue_know", "click", 1, new Object[0]);
+                    TiebaStatic.eventStat(this.f26166g.a.getPageContext().getPageActivity(), "user_overdue_know", "click", 1, new Object[0]);
                 } else if (i2 == 1) {
-                    TiebaStatic.eventStat(this.f26139g.a.getPageContext().getPageActivity(), "user_expire_know", "click", 1, new Object[0]);
+                    TiebaStatic.eventStat(this.f26166g.a.getPageContext().getPageActivity(), "user_expire_know", "click", 1, new Object[0]);
                 }
             }
         }
@@ -542,13 +542,13 @@ public class f {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c.a.s0.s.s.a f26140e;
+        public final /* synthetic */ c.a.s0.s.s.a f26167e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ int f26141f;
+        public final /* synthetic */ int f26168f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ f f26142g;
+        public final /* synthetic */ f f26169g;
 
         public e(f fVar, c.a.s0.s.s.a aVar, int i2) {
             Interceptable interceptable = $ic;
@@ -565,9 +565,9 @@ public class f {
                     return;
                 }
             }
-            this.f26142g = fVar;
-            this.f26140e = aVar;
-            this.f26141f = i2;
+            this.f26169g = fVar;
+            this.f26167e = aVar;
+            this.f26168f = i2;
         }
 
         @Override // c.a.s0.s.s.a.e
@@ -575,18 +575,18 @@ public class f {
             String str;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
-                this.f26140e.dismiss();
-                int i2 = this.f26141f;
+                this.f26167e.dismiss();
+                int i2 = this.f26168f;
                 if (i2 == 0) {
-                    TiebaStatic.eventStat(this.f26142g.a.getPageContext().getPageActivity(), "user_overdue_pay", "click", 1, new Object[0]);
+                    TiebaStatic.eventStat(this.f26169g.a.getPageContext().getPageActivity(), "user_overdue_pay", "click", 1, new Object[0]);
                     str = "4006001000";
                 } else if (i2 == 1) {
-                    TiebaStatic.eventStat(this.f26142g.a.getPageContext().getPageActivity(), "user_expire_pay", "click", 1, new Object[0]);
+                    TiebaStatic.eventStat(this.f26169g.a.getPageContext().getPageActivity(), "user_expire_pay", "click", 1, new Object[0]);
                     str = "4005001000";
                 } else {
                     str = null;
                 }
-                MemberPayActivityConfig memberPayActivityConfig = new MemberPayActivityConfig(this.f26142g.a.getPageContext().getPageActivity(), 2);
+                MemberPayActivityConfig memberPayActivityConfig = new MemberPayActivityConfig(this.f26169g.a.getPageContext().getPageActivity(), 2);
                 if (!StringUtils.isNULL(str)) {
                     memberPayActivityConfig.setSceneId(str);
                 }
@@ -597,14 +597,14 @@ public class f {
 
     /* renamed from: c.a.t0.z3.f$f  reason: collision with other inner class name */
     /* loaded from: classes9.dex */
-    public class RunnableC1577f implements Runnable {
+    public class RunnableC1578f implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ f f26143e;
+        public final /* synthetic */ f f26170e;
 
-        public RunnableC1577f(f fVar) {
+        public RunnableC1578f(f fVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -619,39 +619,39 @@ public class f {
                     return;
                 }
             }
-            this.f26143e = fVar;
+            this.f26170e = fVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             TbFragmentTabIndicator tbFragmentTabIndicator;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f26143e.f26124b == null || this.f26143e.f26128f == null) {
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f26170e.f26151b == null || this.f26170e.f26155f == null) {
                 return;
             }
-            FragmentTabWidget fragmentTabWidget = this.f26143e.f26124b.getFragmentTabWidget();
-            c.a.d.f.p.n.k(this.f26143e.a.getActivity());
-            int f2 = c.a.d.f.p.n.f(this.f26143e.a.getActivity(), c.a.t0.z3.m.ds178);
-            View contentView = this.f26143e.f26128f.getContentView();
+            FragmentTabWidget fragmentTabWidget = this.f26170e.f26151b.getFragmentTabWidget();
+            c.a.d.f.p.n.k(this.f26170e.a.getActivity());
+            int f2 = c.a.d.f.p.n.f(this.f26170e.a.getActivity(), c.a.t0.z3.m.ds178);
+            View contentView = this.f26170e.f26155f.getContentView();
             if (contentView == null) {
                 return;
             }
             contentView.measure(0, 0);
             int measuredWidth = contentView.getMeasuredWidth();
-            FragmentTabHost.b tabSpecByType = this.f26143e.f26124b.getTabSpecByType(3);
-            if (tabSpecByType == null || (tbFragmentTabIndicator = tabSpecByType.f40267b) == null) {
+            FragmentTabHost.b tabSpecByType = this.f26170e.f26151b.getTabSpecByType(3);
+            if (tabSpecByType == null || (tbFragmentTabIndicator = tabSpecByType.f40295b) == null) {
                 return;
             }
             int[] iArr = new int[2];
             tbFragmentTabIndicator.getLocationInWindow(iArr);
             int measuredWidth2 = (iArr[0] + (tbFragmentTabIndicator.getMeasuredWidth() / 2)) - (measuredWidth / 2);
             if (measuredWidth2 <= 0) {
-                measuredWidth2 = c.a.d.f.p.n.f(this.f26143e.a.getActivity(), c.a.t0.z3.m.tbds570);
+                measuredWidth2 = c.a.d.f.p.n.f(this.f26170e.a.getActivity(), c.a.t0.z3.m.tbds570);
             }
-            c.a.d.f.m.g.l(this.f26143e.f26128f, fragmentTabWidget, measuredWidth2, -f2);
-            c.a.s0.s.h0.b.k().u("show_maintab_last_message_tips", true);
-            this.f26143e.f26129g = true;
-            this.f26143e.f26130h.postDelayed(this.f26143e.B, 5000L);
+            c.a.d.f.m.g.l(this.f26170e.f26155f, fragmentTabWidget, measuredWidth2, -f2);
+            c.a.s0.s.i0.b.k().u("show_maintab_last_message_tips", true);
+            this.f26170e.f26156g = true;
+            this.f26170e.f26157h.postDelayed(this.f26170e.B, 5000L);
         }
     }
 
@@ -661,7 +661,7 @@ public class f {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ f f26144e;
+        public final /* synthetic */ f f26171e;
 
         public g(f fVar) {
             Interceptable interceptable = $ic;
@@ -678,14 +678,14 @@ public class f {
                     return;
                 }
             }
-            this.f26144e = fVar;
+            this.f26171e = fVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f26144e.w();
+                this.f26171e.w();
             }
         }
     }
@@ -752,7 +752,7 @@ public class f {
                 statisticItem.param("obj_locate", "2");
                 TiebaStatic.log(statisticItem);
                 aVar.dismiss();
-                c.a.t0.k1.a.d();
+                c.a.t0.l1.a.d();
             }
         }
     }
@@ -789,13 +789,13 @@ public class f {
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             c.a.s0.i0.c cVar;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null || this.a.f26124b == null || !(customResponsedMessage.getData() instanceof c.a.s0.i0.c) || (cVar = (c.a.s0.i0.c) customResponsedMessage.getData()) == null || this.a.f26124b.getTabSpecByType(cVar.f12789e) == null || this.a.f26124b.getCurrentTabType() == cVar.f12789e) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null || this.a.f26151b == null || !(customResponsedMessage.getData() instanceof c.a.s0.i0.c) || (cVar = (c.a.s0.i0.c) customResponsedMessage.getData()) == null || this.a.f26151b.getTabSpecByType(cVar.f12933e) == null || this.a.f26151b.getCurrentTabType() == cVar.f12933e) {
                 return;
             }
-            TbFragmentTabIndicator tbFragmentTabIndicator = this.a.f26124b.getTabSpecByType(cVar.f12789e).f40267b;
+            TbFragmentTabIndicator tbFragmentTabIndicator = this.a.f26151b.getTabSpecByType(cVar.f12933e).f40295b;
             if (tbFragmentTabIndicator instanceof MaintabBottomIndicator) {
-                ((MaintabBottomIndicator) tbFragmentTabIndicator).setImageIconUrl(cVar.f12791g, cVar.f12787c);
-                if (TextUtils.isEmpty(cVar.f12791g)) {
+                ((MaintabBottomIndicator) tbFragmentTabIndicator).setImageIconUrl(cVar.f12935g, cVar.f12931c);
+                if (TextUtils.isEmpty(cVar.f12935g)) {
                     return;
                 }
                 this.a.q = true;
@@ -917,28 +917,28 @@ public class f {
             c.a.s0.i0.e.a c5;
             c.a.s0.i0.e.a c6;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && this.a.f26124b != null && (customResponsedMessage.getData() instanceof Boolean) && ((Boolean) customResponsedMessage.getData()).booleanValue()) {
-                FragmentTabHost.b tabSpecByType = this.a.f26124b.getTabSpecByType(2);
-                if (tabSpecByType != null && (tabSpecByType.f40267b instanceof MaintabBottomIndicator) && (c6 = c.a.s0.i0.e.c.d().c("homePage")) != null) {
-                    ((MaintabBottomIndicator) tabSpecByType.f40267b).setDynamicIconData(c6);
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && this.a.f26151b != null && (customResponsedMessage.getData() instanceof Boolean) && ((Boolean) customResponsedMessage.getData()).booleanValue()) {
+                FragmentTabHost.b tabSpecByType = this.a.f26151b.getTabSpecByType(2);
+                if (tabSpecByType != null && (tabSpecByType.f40295b instanceof MaintabBottomIndicator) && (c6 = c.a.s0.i0.e.c.d().c("homePage")) != null) {
+                    ((MaintabBottomIndicator) tabSpecByType.f40295b).setDynamicIconData(c6);
                 }
-                FragmentTabHost.b tabSpecByType2 = this.a.f26124b.getTabSpecByType(1);
-                if (tabSpecByType2 != null && (tabSpecByType2.f40267b instanceof MaintabBottomIndicator) && (c5 = c.a.s0.i0.e.c.d().c("enterForum")) != null) {
-                    ((MaintabBottomIndicator) tabSpecByType2.f40267b).setDynamicIconData(c5);
+                FragmentTabHost.b tabSpecByType2 = this.a.f26151b.getTabSpecByType(1);
+                if (tabSpecByType2 != null && (tabSpecByType2.f40295b instanceof MaintabBottomIndicator) && (c5 = c.a.s0.i0.e.c.d().c("enterForum")) != null) {
+                    ((MaintabBottomIndicator) tabSpecByType2.f40295b).setDynamicIconData(c5);
                 }
-                FragmentTabHost.b tabSpecByType3 = this.a.f26124b.getTabSpecByType(22);
-                if (tabSpecByType3 != null && (tabSpecByType3.f40267b instanceof MaintabBottomIndicator) && (c4 = c.a.s0.i0.e.c.d().c("channel")) != null) {
-                    ((MaintabBottomIndicator) tabSpecByType3.f40267b).setDynamicIconData(c4);
+                FragmentTabHost.b tabSpecByType3 = this.a.f26151b.getTabSpecByType(22);
+                if (tabSpecByType3 != null && (tabSpecByType3.f40295b instanceof MaintabBottomIndicator) && (c4 = c.a.s0.i0.e.c.d().c("channel")) != null) {
+                    ((MaintabBottomIndicator) tabSpecByType3.f40295b).setDynamicIconData(c4);
                 }
-                FragmentTabHost.b tabSpecByType4 = this.a.f26124b.getTabSpecByType(3);
-                if (tabSpecByType4 != null && (tabSpecByType4.f40267b instanceof MaintabBottomIndicator) && (c3 = c.a.s0.i0.e.c.d().c("message")) != null) {
-                    ((MaintabBottomIndicator) tabSpecByType4.f40267b).setDynamicIconData(c3);
+                FragmentTabHost.b tabSpecByType4 = this.a.f26151b.getTabSpecByType(3);
+                if (tabSpecByType4 != null && (tabSpecByType4.f40295b instanceof MaintabBottomIndicator) && (c3 = c.a.s0.i0.e.c.d().c("message")) != null) {
+                    ((MaintabBottomIndicator) tabSpecByType4.f40295b).setDynamicIconData(c3);
                 }
-                FragmentTabHost.b tabSpecByType5 = this.a.f26124b.getTabSpecByType(8);
-                if (tabSpecByType5 == null || !(tabSpecByType5.f40267b instanceof MaintabBottomIndicator) || (c2 = c.a.s0.i0.e.c.d().c("person")) == null) {
+                FragmentTabHost.b tabSpecByType5 = this.a.f26151b.getTabSpecByType(8);
+                if (tabSpecByType5 == null || !(tabSpecByType5.f40295b instanceof MaintabBottomIndicator) || (c2 = c.a.s0.i0.e.c.d().c("person")) == null) {
                     return;
                 }
-                ((MaintabBottomIndicator) tabSpecByType5.f40267b).setDynamicIconData(c2);
+                ((MaintabBottomIndicator) tabSpecByType5.f40295b).setDynamicIconData(c2);
             }
         }
     }
@@ -1067,7 +1067,7 @@ public class f {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ f f26145e;
+        public final /* synthetic */ f f26172e;
 
         public p(f fVar) {
             Interceptable interceptable = $ic;
@@ -1084,14 +1084,14 @@ public class f {
                     return;
                 }
             }
-            this.f26145e = fVar;
+            this.f26172e = fVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f26145e.f26124b.setVisibility(4);
+                this.f26172e.f26151b.setVisibility(4);
             }
         }
     }
@@ -1102,7 +1102,7 @@ public class f {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ f f26146e;
+        public final /* synthetic */ f f26173e;
 
         public q(f fVar) {
             Interceptable interceptable = $ic;
@@ -1119,14 +1119,14 @@ public class f {
                     return;
                 }
             }
-            this.f26146e = fVar;
+            this.f26173e = fVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f26146e.f26124b.setVisibility(0);
+                this.f26173e.f26151b.setVisibility(0);
             }
         }
     }
@@ -1146,9 +1146,9 @@ public class f {
                 return;
             }
         }
-        this.f26126d = false;
-        this.f26129g = false;
-        this.f26130h = new Handler();
+        this.f26153d = false;
+        this.f26156g = false;
+        this.f26157h = new Handler();
         this.m = 0;
         this.n = true;
         this.o = 1;
@@ -1161,7 +1161,7 @@ public class f {
         this.w = new m(this, 2921551);
         this.x = new n(this, 2921382);
         this.y = new o(this, 2921410);
-        this.A = new RunnableC1577f(this);
+        this.A = new RunnableC1578f(this);
         this.B = new g(this);
         this.a = mainTabActivity;
     }
@@ -1182,7 +1182,7 @@ public class f {
     public void B(ArrayList<c.a.s0.i0.b> arrayList) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, arrayList) == null) {
-            this.f26124b.reset();
+            this.f26151b.reset();
             Iterator<c.a.s0.i0.b> it = arrayList.iterator();
             while (it.hasNext()) {
                 c.a.s0.i0.b next = it.next();
@@ -1191,13 +1191,13 @@ public class f {
                 }
             }
             if (TbadkCoreApplication.getInst().getSkinType() == 2 && TbadkCoreApplication.getInst().isThemeIconCover()) {
-                this.f26124b.initViewPager(2);
+                this.f26151b.initViewPager(2);
             } else if (MainTabActivityConfig.IS_INDICATOR_BOTTOM) {
-                this.f26124b.initViewPager(1);
+                this.f26151b.initViewPager(1);
             } else {
-                this.f26124b.initViewPager(0);
+                this.f26151b.initViewPager(0);
             }
-            this.f26124b.setViewPagerScrollable(false);
+            this.f26151b.setViewPagerScrollable(false);
         }
     }
 
@@ -1215,33 +1215,33 @@ public class f {
     public boolean D() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f26127e : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f26154e : invokeV.booleanValue;
     }
 
     public void E(int i2) {
         FragmentTabHost fragmentTabHost;
         int i3;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048580, this, i2) == null) || (fragmentTabHost = this.f26124b) == null) {
+        if (!(interceptable == null || interceptable.invokeI(1048580, this, i2) == null) || (fragmentTabHost = this.f26151b) == null) {
             return;
         }
         if (MainTabActivityConfig.IS_INDICATOR_BOTTOM) {
             fragmentTabHost.setShouldDrawTopLine(true);
         }
-        this.f26124b.onChangeSkinType(i2);
-        FragmentTabHost fragmentTabHost2 = this.f26124b;
+        this.f26151b.onChangeSkinType(i2);
+        FragmentTabHost fragmentTabHost2 = this.f26151b;
         FragmentTabHost.b tabSpec = fragmentTabHost2.getTabSpec(fragmentTabHost2.getCurrentTabIndex());
         if (tabSpec != null && ((i3 = tabSpec.a) == 22 || i3 == 23)) {
-            if (this.f26124b.getFragmentTabWidget() != null) {
-                this.f26124b.getFragmentTabWidget().makeWidgetDarkSkin(true, c.a.t0.z3.l.CAM_X0215);
+            if (this.f26151b.getFragmentTabWidget() != null) {
+                this.f26151b.getFragmentTabWidget().makeWidgetDarkSkin(true, c.a.t0.z3.l.CAM_X0215);
             }
-            this.f26124b.makeIndicatorDarkSkin(true);
+            this.f26151b.makeIndicatorDarkSkin(true);
             return;
         }
-        if (this.f26124b.getFragmentTabWidget() != null) {
-            this.f26124b.getFragmentTabWidget().makeWidgetDarkSkin(false, c.a.t0.z3.l.CAM_X0207);
+        if (this.f26151b.getFragmentTabWidget() != null) {
+            this.f26151b.getFragmentTabWidget().makeWidgetDarkSkin(false, c.a.t0.z3.l.CAM_X0207);
         }
-        this.f26124b.makeIndicatorDarkSkin(false);
+        this.f26151b.makeIndicatorDarkSkin(false);
     }
 
     public void F() {
@@ -1252,11 +1252,11 @@ public class f {
                 z().reset();
             }
             w();
-            c.a.t0.k0.j jVar = this.f26131i;
+            c.a.t0.k0.j jVar = this.f26158i;
             if (jVar != null) {
                 jVar.h();
             }
-            c.a.t0.k4.e eVar = this.f26132j;
+            c.a.t0.k4.e eVar = this.f26159j;
             if (eVar != null) {
                 eVar.e();
             }
@@ -1266,7 +1266,7 @@ public class f {
     public void G(boolean z) {
         FragmentTabHost fragmentTabHost;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048582, this, z) == null) || (fragmentTabHost = this.f26124b) == null) {
+        if (!(interceptable == null || interceptable.invokeZ(1048582, this, z) == null) || (fragmentTabHost = this.f26151b) == null) {
             return;
         }
         if (z) {
@@ -1288,26 +1288,26 @@ public class f {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) {
             FragmentTabHost fragmentTabHost = (FragmentTabHost) this.a.findViewById(c.a.t0.z3.o.tab_host);
-            this.f26124b = fragmentTabHost;
+            this.f26151b = fragmentTabHost;
             fragmentTabHost.setVisibility(8);
             c.a.t0.z3.c.b(new p(this), 1);
             c.a.t0.z3.c.b(new q(this), 6);
-            this.f26124b.setup(this.a.getSupportFragmentManager());
-            this.f26124b.setAbsoluteWeight(true);
-            this.f26124b.setOnTabSelectionListener(this.s);
-            this.f26124b.onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
+            this.f26151b.setup(this.a.getSupportFragmentManager());
+            this.f26151b.setAbsoluteWeight(true);
+            this.f26151b.setOnTabSelectionListener(this.s);
+            this.f26151b.onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
             if (MainTabActivityConfig.IS_INDICATOR_BOTTOM) {
-                this.f26124b.setShouldDrawIndicatorLine(false);
-                this.f26124b.setShouldDrawTopLine(true);
+                this.f26151b.setShouldDrawIndicatorLine(false);
+                this.f26151b.setShouldDrawTopLine(true);
             }
-            this.f26124b.setOnPageChangeListener(new b(this));
-            this.f26126d = c.a.s0.s.h0.b.k().h("has_show_message_tab_tips", false);
-            this.f26125c = (TextView) this.a.findViewById(c.a.t0.z3.o.activity_prize_my_tip);
-            this.f26124b.setUIType(0);
-            this.f26124b.setTabContainerShadowShow(false);
-            this.f26124b.setBackGroundStyle(0);
-            this.f26124b.setTabWidgetViewHeight(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
-            s sVar = new s(this.a, this.f26124b.getTabWrapper());
+            this.f26151b.setOnPageChangeListener(new b(this));
+            this.f26153d = c.a.s0.s.i0.b.k().h("has_show_message_tab_tips", false);
+            this.f26152c = (TextView) this.a.findViewById(c.a.t0.z3.o.activity_prize_my_tip);
+            this.f26151b.setUIType(0);
+            this.f26151b.setTabContainerShadowShow(false);
+            this.f26151b.setBackGroundStyle(0);
+            this.f26151b.setTabWidgetViewHeight(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
+            s sVar = new s(this.a, this.f26151b.getTabWrapper());
             this.r = sVar;
             sVar.g(false);
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001307, this.a.getPageContext()));
@@ -1348,7 +1348,7 @@ public class f {
     public void L() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
-            c.a.s0.s.h0.b.k().u("has_show_message_tab_tips", this.f26126d);
+            c.a.s0.s.i0.b.k().u("has_show_message_tab_tips", this.f26153d);
         }
     }
 
@@ -1357,12 +1357,12 @@ public class f {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048588, this, str) == null) {
             if (StringUtils.isNull(str)) {
-                this.f26125c.setVisibility(8);
+                this.f26152c.setVisibility(8);
                 return;
             }
-            FragmentTabHost.b tabSpecByType = this.f26124b.getTabSpecByType(8);
+            FragmentTabHost.b tabSpecByType = this.f26151b.getTabSpecByType(8);
             if (tabSpecByType != null) {
-                if (this.f26129g && ((popupWindow = this.f26128f) == null || !popupWindow.isShowing())) {
+                if (this.f26156g && ((popupWindow = this.f26155f) == null || !popupWindow.isShowing())) {
                     N(str, tabSpecByType);
                     return;
                 }
@@ -1373,7 +1373,7 @@ public class f {
                 TbadkCoreApplication.getInst().handler.postDelayed(this.z, 5000L);
                 return;
             }
-            this.f26125c.setVisibility(8);
+            this.f26152c.setVisibility(8);
         }
     }
 
@@ -1381,13 +1381,13 @@ public class f {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048589, this, str, bVar) == null) {
             int[] iArr = new int[2];
-            bVar.f40267b.getLocationInWindow(iArr);
-            int width = iArr[0] + (bVar.f40267b.getWidth() / 2);
-            FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.f26125c.getLayoutParams();
+            bVar.f40295b.getLocationInWindow(iArr);
+            int width = iArr[0] + (bVar.f40295b.getWidth() / 2);
+            FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.f26152c.getLayoutParams();
             layoutParams.rightMargin = (c.a.d.f.p.n.q(this.a).widthPixels - width) - c.a.d.f.p.n.f(this.a.getPageContext().getPageActivity(), c.a.t0.z3.m.ds26);
-            this.f26125c.setLayoutParams(layoutParams);
-            this.f26125c.setVisibility(0);
-            this.f26125c.setText(str);
+            this.f26152c.setLayoutParams(layoutParams);
+            this.f26152c.setVisibility(0);
+            this.f26152c.setText(str);
         }
     }
 
@@ -1431,7 +1431,7 @@ public class f {
         aVar.setPositiveButton(string, new e(this, aVar, i2));
         aVar.setCanceledOnTouchOutside(false);
         aVar.create(this.a.getPageContext()).show();
-        c.a.s0.s.h0.b.k().u("show_member_deid_line", false);
+        c.a.s0.s.i0.b.k().u("show_member_deid_line", false);
     }
 
     public void Q(PostWriteCallBackData postWriteCallBackData) {
@@ -1439,31 +1439,31 @@ public class f {
         if (!(interceptable == null || interceptable.invokeL(1048592, this, postWriteCallBackData) == null) || postWriteCallBackData == null || this.a.getActivityRootView() == null || postWriteCallBackData.mFrom != 1) {
             return;
         }
-        if (this.f26132j == null) {
+        if (this.f26159j == null) {
             MainTabActivity mainTabActivity = this.a;
-            this.f26132j = new c.a.t0.k4.e(mainTabActivity, mainTabActivity.getActivityRootView());
+            this.f26159j = new c.a.t0.k4.e(mainTabActivity, mainTabActivity.getActivityRootView());
         }
-        this.f26132j.g(postWriteCallBackData);
+        this.f26159j.g(postWriteCallBackData);
     }
 
     public void R(PostWriteCallBackData postWriteCallBackData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048593, this, postWriteCallBackData) == null) {
-            if (this.f26131i == null) {
-                this.f26131i = new c.a.t0.k0.j(this.a.getPageContext(), (NavigationBarCoverTip) this.a.findViewById(c.a.t0.z3.o.navigation_cover_tip));
+            if (this.f26158i == null) {
+                this.f26158i = new c.a.t0.k0.j(this.a.getPageContext(), (NavigationBarCoverTip) this.a.findViewById(c.a.t0.z3.o.navigation_cover_tip));
             }
-            this.f26131i.l(postWriteCallBackData);
+            this.f26158i.l(postWriteCallBackData);
         }
     }
 
     public void t(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048594, this, z) == null) {
-            this.f26127e = z;
+            this.f26154e = z;
             if (z) {
                 return;
             }
-            c.a.s0.s.h0.b.k().u("enter_forum_edit_mode", false);
+            c.a.s0.s.i0.b.k().u("enter_forum_edit_mode", false);
         }
     }
 
@@ -1474,7 +1474,7 @@ public class f {
             if (postWriteCallBackData == null || postWriteCallBackData.getVideoEasterEggData() == null || c.a.d.f.p.m.isEmpty(postWriteCallBackData.getVideoEasterEggData().getVideoUrl())) {
                 return false;
             }
-            if (c.a.s0.s.h0.b.k().h(c.a.s0.s.h0.b.o(postWriteCallBackData.getVideoEasterEggData().getActivityID()), true)) {
+            if (c.a.s0.s.i0.b.k().h(c.a.s0.s.i0.b.o(postWriteCallBackData.getVideoEasterEggData().getActivityID()), true)) {
                 MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new VideoEasterEggActivityConfig(this.a).createNormalConfig("from_maintab", postWriteCallBackData.getVideoEasterEggData())));
                 return true;
             }
@@ -1489,25 +1489,25 @@ public class f {
             MaintabBottomIndicator maintabBottomIndicator = (MaintabBottomIndicator) tbFragmentTabIndicator;
             FragmentTabHost.b bVar2 = new FragmentTabHost.b();
             boolean z = false;
-            bVar2.f40268c = cVar.a;
-            bVar2.a = cVar.f12789e;
-            maintabBottomIndicator.setShowIconType(cVar.f12793i);
-            int i2 = cVar.f12793i;
-            if (i2 == c.a.s0.i0.c.f12785j) {
+            bVar2.f40296c = cVar.a;
+            bVar2.a = cVar.f12933e;
+            maintabBottomIndicator.setShowIconType(cVar.f12937i);
+            int i2 = cVar.f12937i;
+            if (i2 == c.a.s0.i0.c.f12929j) {
                 maintabBottomIndicator.setWriteIconView();
                 z = true;
             } else if (i2 == c.a.s0.i0.c.m) {
-                maintabBottomIndicator.setText(cVar.f12786b);
-                maintabBottomIndicator.setAnimationResId(cVar.f12790f);
+                maintabBottomIndicator.setText(cVar.f12930b);
+                maintabBottomIndicator.setAnimationResId(cVar.f12934f);
                 this.k = maintabBottomIndicator;
             } else {
-                maintabBottomIndicator.setText(cVar.f12786b);
-                maintabBottomIndicator.setAnimationResId(cVar.f12790f);
+                maintabBottomIndicator.setText(cVar.f12930b);
+                maintabBottomIndicator.setAnimationResId(cVar.f12934f);
             }
-            if (!c.a.d.f.p.m.isEmpty(cVar.f12791g)) {
-                maintabBottomIndicator.setImageIconUrl(cVar.f12791g, cVar.f12787c);
+            if (!c.a.d.f.p.m.isEmpty(cVar.f12935g)) {
+                maintabBottomIndicator.setImageIconUrl(cVar.f12935g, cVar.f12931c);
             }
-            c.a.s0.i0.e.a aVar = cVar.f12792h;
+            c.a.s0.i0.e.a aVar = cVar.f12936h;
             if (aVar != null) {
                 maintabBottomIndicator.setDynamicIconData(aVar);
             }
@@ -1517,18 +1517,18 @@ public class f {
             }
             tbFragmentTabIndicator.onChangeSkin(TbadkCoreApplication.getInst().getSkinType());
             tbFragmentTabIndicator.setTipPosType(1);
-            bVar2.f40267b = maintabBottomIndicator;
-            bVar2.f40269d = bVar;
-            this.f26124b.addTabSpec(bVar2, -1, z);
+            bVar2.f40295b = maintabBottomIndicator;
+            bVar2.f40297d = bVar;
+            this.f26151b.addTabSpec(bVar2, -1, z);
         }
     }
 
     public void w() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048597, this) == null) {
-            this.f26130h.removeCallbacks(this.A);
-            this.f26130h.removeCallbacks(this.B);
-            c.a.d.f.m.g.c(this.f26128f);
+            this.f26157h.removeCallbacks(this.A);
+            this.f26157h.removeCallbacks(this.B);
+            c.a.d.f.m.g.c(this.f26155f);
         }
     }
 
@@ -1547,6 +1547,6 @@ public class f {
     public FragmentTabHost z() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) ? this.f26124b : (FragmentTabHost) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) ? this.f26151b : (FragmentTabHost) invokeV.objValue;
     }
 }

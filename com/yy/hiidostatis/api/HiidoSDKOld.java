@@ -483,7 +483,7 @@ public class HiidoSDKOld implements HiidoApi {
     public boolean imeiPrepared() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65579, this)) == null) ? !HiidoSDK.instance().getOptions().isUseOaid() || Build.VERSION.SDK_INT > 28 || this.appRunIsCalled || ArdUtil.checkPermissions(this.mContext, s.f55242c) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65579, this)) == null) ? !HiidoSDK.instance().getOptions().isUseOaid() || Build.VERSION.SDK_INT > 28 || this.appRunIsCalled || ArdUtil.checkPermissions(this.mContext, s.f55287c) : invokeV.booleanValue;
     }
 
     /* JADX INFO: Access modifiers changed from: private */

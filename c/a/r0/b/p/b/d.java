@@ -36,12 +36,12 @@ public class d {
         if (interceptable == null || interceptable.invokeLLLLL(65537, null, str, str2, str3, str4, str5) == null) {
             f fVar = new f();
             fVar.a = "swan";
-            fVar.f7977b = str;
-            fVar.f7982g = str2;
+            fVar.f8119b = str;
+            fVar.f8124g = str2;
             if (TextUtils.equals(str, "click")) {
-                fVar.f7980e = str3;
+                fVar.f8122e = str3;
             }
-            fVar.f7981f = str5;
+            fVar.f8123f = str5;
             fVar.a("source", str4);
             if (a) {
                 String str6 = "staticLoginResult: event = " + fVar.f();

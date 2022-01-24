@@ -23,7 +23,7 @@ public class e0 implements FunNativeAd2Bridger<TTNativeExpressAd, View> {
     public boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ b0 f28177b;
+    public final /* synthetic */ b0 f28205b;
 
     public e0(b0 b0Var) {
         Interceptable interceptable = $ic;
@@ -40,7 +40,7 @@ public class e0 implements FunNativeAd2Bridger<TTNativeExpressAd, View> {
                 return;
             }
         }
-        this.f28177b = b0Var;
+        this.f28205b = b0Var;
     }
 
     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
@@ -65,16 +65,16 @@ public class e0 implements FunNativeAd2Bridger<TTNativeExpressAd, View> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{activity, expressInflater, str, tTNativeExpressAd, baseNativeAd2, funAdInteractionListener}) == null) {
             TTNativeExpressAd tTNativeExpressAd2 = tTNativeExpressAd;
-            ExpressAdListenerWrapper<TTNativeExpressAd.ExpressAdInteractionListener> expressAdListenerWrapper = this.f28177b.f28163i.get(tTNativeExpressAd2);
+            ExpressAdListenerWrapper<TTNativeExpressAd.ExpressAdInteractionListener> expressAdListenerWrapper = this.f28205b.f28191i.get(tTNativeExpressAd2);
             if (expressAdListenerWrapper != null) {
                 expressAdListenerWrapper.funListener = funAdInteractionListener;
             } else {
                 LogPrinter.e("Can not get correspond listener by csjNativeExpressAd.", new Object[0]);
             }
-            this.f28177b.onShowStart(this.a);
+            this.f28205b.onShowStart(this.a);
             expressInflater.inflate();
             View expressView = expressInflater.getExpressView();
-            b0 b0Var = this.f28177b;
+            b0 b0Var = this.f28205b;
             b0Var.getClass();
             tTNativeExpressAd2.setDislikeCallback(activity, new d0(b0Var, expressView, funAdInteractionListener, str));
             this.a = true;

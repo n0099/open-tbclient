@@ -18,16 +18,16 @@ public class ActivityLifeTask {
     public static boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static ActivityLifeObserver.IActivityLifeCallback f36634b;
+    public static ActivityLifeObserver.IActivityLifeCallback f36662b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static ActivityLifeObserver.IActivityLifeCallback f36635c;
+    public static ActivityLifeObserver.IActivityLifeCallback f36663c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static ActivityLifeObserver.IActivityLifeCallback f36636d;
+    public static ActivityLifeObserver.IActivityLifeCallback f36664d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static ActivityLifeObserver.IActivityLifeCallback f36637e;
+    public static ActivityLifeObserver.IActivityLifeCallback f36665e;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -63,10 +63,10 @@ public class ActivityLifeTask {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65538, null, context) == null) {
             synchronized (ActivityLifeTask.class) {
-                f36634b = new AutoTrack.MyActivityLifeCallback(1);
-                f36636d = new b.a();
-                f36635c = new d.a();
-                f36637e = new AutoTrack.MyActivityLifeCallback(2);
+                f36662b = new AutoTrack.MyActivityLifeCallback(1);
+                f36664d = new b.a();
+                f36663c = new d.a();
+                f36665e = new AutoTrack.MyActivityLifeCallback(2);
             }
         }
     }
@@ -80,8 +80,8 @@ public class ActivityLifeTask {
                 }
                 a(context);
                 ActivityLifeObserver.instance().clearObservers();
-                ActivityLifeObserver.instance().addObserver(f36634b);
-                ActivityLifeObserver.instance().addObserver(f36637e);
+                ActivityLifeObserver.instance().addObserver(f36662b);
+                ActivityLifeObserver.instance().addObserver(f36665e);
                 ActivityLifeObserver.instance().registerActivityLifeCallback(context);
                 a = true;
             }

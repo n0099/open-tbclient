@@ -1,6 +1,6 @@
 package com.baidu.tieba.frs.accelerator;
 
-import c.a.t0.d1.z2.b;
+import c.a.t0.e1.z2.c;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.data.ItemData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -91,7 +91,7 @@ public class AcceleratorData implements Serializable {
             }
             this.availableTornadoNodeInfoList = new ArrayList();
             for (int i2 = 0; i2 < this.tornadoNodeInfoList.size(); i2++) {
-                if (b.a(this.tornadoNodeInfoList.get(i2).getPackageName()) != null) {
+                if (c.a(this.tornadoNodeInfoList.get(i2).getPackageName()) != null) {
                     this.availableTornadoNodeInfoList.add(this.tornadoNodeInfoList.get(i2));
                     this.availableNodesNum += this.tornadoNodeInfoList.get(i2).getNodeInfoList().size();
                 }

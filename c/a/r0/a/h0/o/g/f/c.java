@@ -25,16 +25,16 @@ public class c extends c.a.r0.a.h0.o.g.f.a implements c.a.r0.a.h0.o.g.d.a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public c.a.r0.a.h0.o.g.c.b.a f6774b;
+    public c.a.r0.a.h0.o.g.c.b.a f6916b;
 
     /* renamed from: c  reason: collision with root package name */
-    public c.a.r0.a.h0.o.g.b.a f6775c;
+    public c.a.r0.a.h0.o.g.b.a f6917c;
 
     /* renamed from: d  reason: collision with root package name */
-    public File f6776d;
+    public File f6918d;
 
     /* renamed from: e  reason: collision with root package name */
-    public b f6777e;
+    public b f6919e;
 
     /* loaded from: classes.dex */
     public class a implements Runnable {
@@ -42,16 +42,16 @@ public class c extends c.a.r0.a.h0.o.g.f.a implements c.a.r0.a.h0.o.g.d.a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f6778e;
+        public final /* synthetic */ String f6920e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ int f6779f;
+        public final /* synthetic */ int f6921f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ String f6780g;
+        public final /* synthetic */ String f6922g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ c f6781h;
+        public final /* synthetic */ c f6923h;
 
         public a(c cVar, String str, int i2, String str2) {
             Interceptable interceptable = $ic;
@@ -68,17 +68,17 @@ public class c extends c.a.r0.a.h0.o.g.f.a implements c.a.r0.a.h0.o.g.d.a {
                     return;
                 }
             }
-            this.f6781h = cVar;
-            this.f6778e = str;
-            this.f6779f = i2;
-            this.f6780g = str2;
+            this.f6923h = cVar;
+            this.f6920e = str;
+            this.f6921f = i2;
+            this.f6922g = str2;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f6781h.f6777e.onError(this.f6778e, this.f6779f, this.f6780g);
+                this.f6923h.f6919e.onError(this.f6920e, this.f6921f, this.f6922g);
             }
         }
     }
@@ -90,13 +90,13 @@ public class c extends c.a.r0.a.h0.o.g.f.a implements c.a.r0.a.h0.o.g.d.a {
 
     /* renamed from: c.a.r0.a.h0.o.g.f.c$c  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public class C0398c implements e.a {
+    public class C0407c implements e.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public c.a.r0.a.h0.o.g.b.a a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f6782b;
+        public String f6924b;
 
         /* renamed from: c.a.r0.a.h0.o.g.f.c$c$a */
         /* loaded from: classes.dex */
@@ -105,12 +105,12 @@ public class c extends c.a.r0.a.h0.o.g.f.a implements c.a.r0.a.h0.o.g.d.a {
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ File a;
 
-            public a(C0398c c0398c, File file) {
+            public a(C0407c c0407c, File file) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     newInitContext.initArgs = r2;
-                    Object[] objArr = {c0398c, file};
+                    Object[] objArr = {c0407c, file};
                     interceptable.invokeUnInit(65536, newInitContext);
                     int i2 = newInitContext.flag;
                     if ((i2 & 1) != 0) {
@@ -132,7 +132,7 @@ public class c extends c.a.r0.a.h0.o.g.f.a implements c.a.r0.a.h0.o.g.d.a {
             }
         }
 
-        public C0398c(c cVar, c.a.r0.a.h0.o.g.b.a aVar, String str) {
+        public C0407c(c cVar, c.a.r0.a.h0.o.g.b.a aVar, String str) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -148,7 +148,7 @@ public class c extends c.a.r0.a.h0.o.g.f.a implements c.a.r0.a.h0.o.g.d.a {
                 }
             }
             this.a = aVar;
-            this.f6782b = str;
+            this.f6924b = str;
         }
 
         @Override // c.a.r0.a.h0.o.g.f.e.a
@@ -156,7 +156,7 @@ public class c extends c.a.r0.a.h0.o.g.f.a implements c.a.r0.a.h0.o.g.d.a {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, file) == null) {
                 try {
-                    this.a.a(this.f6782b, file, new a(this, file));
+                    this.a.a(this.f6924b, file, new a(this, file));
                 } catch (Exception e2) {
                     if (c.a.r0.a.h0.o.g.d.a.a) {
                         Log.getStackTraceString(e2);
@@ -193,9 +193,9 @@ public class c extends c.a.r0.a.h0.o.g.f.a implements c.a.r0.a.h0.o.g.d.a {
                 return;
             }
         }
-        this.f6774b = c.a.r0.a.h0.o.g.c.a.a().f();
-        this.f6776d = new File(c.a.r0.a.h0.o.g.c.a.a().b(), "image_temp");
-        this.f6775c = aVar;
+        this.f6916b = c.a.r0.a.h0.o.g.c.a.a().f();
+        this.f6918d = new File(c.a.r0.a.h0.o.g.c.a.a().b(), "image_temp");
+        this.f6917c = aVar;
         if (aVar == null) {
             h(context);
         }
@@ -213,9 +213,9 @@ public class c extends c.a.r0.a.h0.o.g.f.a implements c.a.r0.a.h0.o.g.d.a {
             }
             String f2 = f(d2);
             InputStream inputStream = null;
-            c.a.r0.a.h0.o.g.b.a aVar2 = this.f6775c;
+            c.a.r0.a.h0.o.g.b.a aVar2 = this.f6917c;
             if (aVar2 != null && !aVar2.isClosed()) {
-                inputStream = this.f6775c.get(f2);
+                inputStream = this.f6917c.get(f2);
             }
             if (inputStream != null) {
                 if (c.a.r0.a.h0.o.g.d.a.a) {
@@ -224,12 +224,12 @@ public class c extends c.a.r0.a.h0.o.g.f.a implements c.a.r0.a.h0.o.g.d.a {
                 return new WebResourceResponse(aVar.getMimeType(), "UTF-8", inputStream);
             }
             c.a.r0.a.h0.o.g.f.b a2 = f.a(f2, g(aVar));
-            if (a2 != null && (i2 = a2.a) >= 400 && this.f6777e != null) {
-                d(f2, i2, a2.f6769b);
+            if (a2 != null && (i2 = a2.a) >= 400 && this.f6919e != null) {
+                d(f2, i2, a2.f6911b);
             }
             WebResourceResponse c2 = c(a2);
             if (c2 != null && c2.getData() != null) {
-                c2.setData(new g(c2.getData(), new e(new File(this.f6776d, c.a.r0.a.h0.o.g.c.a.a().d().a(f2)), new C0398c(this, this.f6775c, f2))));
+                c2.setData(new g(c2.getData(), new e(new File(this.f6918d, c.a.r0.a.h0.o.g.c.a.a().d().a(f2)), new C0407c(this, this.f6917c, f2))));
             }
             if (c.a.r0.a.h0.o.g.d.a.a) {
                 StringBuilder sb = new StringBuilder();
@@ -251,15 +251,15 @@ public class c extends c.a.r0.a.h0.o.g.f.a implements c.a.r0.a.h0.o.g.d.a {
             if (bVar == null) {
                 return null;
             }
-            String str = bVar.f6772e;
+            String str = bVar.f6914e;
             if (str != null && str.toLowerCase().contains("html")) {
-                bVar.f6772e = SapiWebView.DATA_MIME_TYPE;
-                bVar.f6771d = "UTF-8";
+                bVar.f6914e = SapiWebView.DATA_MIME_TYPE;
+                bVar.f6913d = "UTF-8";
             }
             if (c.a.r0.a.z2.d.f()) {
-                return new WebResourceResponse(bVar.f6772e, bVar.f6771d, bVar.a, bVar.f6769b, bVar.f6770c, bVar.f6773f);
+                return new WebResourceResponse(bVar.f6914e, bVar.f6913d, bVar.a, bVar.f6911b, bVar.f6912c, bVar.f6915f);
             }
-            return new WebResourceResponse(bVar.f6772e, "UTF-8", bVar.f6773f);
+            return new WebResourceResponse(bVar.f6914e, "UTF-8", bVar.f6915f);
         }
         return (WebResourceResponse) invokeL.objValue;
     }
@@ -327,7 +327,7 @@ public class c extends c.a.r0.a.h0.o.g.f.a implements c.a.r0.a.h0.o.g.d.a {
                 String str = "init default disk cache provider, path = " + b2;
             }
             c.a.r0.w.d.l(b2);
-            this.f6775c = c.a.r0.a.c1.a.U().b(context, b2, c.a.r0.a.h0.o.g.c.a.a().g());
+            this.f6917c = c.a.r0.a.c1.a.U().b(context, b2, c.a.r0.a.h0.o.g.c.a.a().g());
         }
     }
 
@@ -338,7 +338,7 @@ public class c extends c.a.r0.a.h0.o.g.f.a implements c.a.r0.a.h0.o.g.d.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, aVar)) == null) {
             if (aVar.c()) {
-                return this.f6774b.a(aVar) && (requestHeaders = aVar.getRequestHeaders()) != null && requestHeaders.containsKey("Accept") && (str = requestHeaders.get("Accept")) != null && str.startsWith("image");
+                return this.f6916b.a(aVar) && (requestHeaders = aVar.getRequestHeaders()) != null && requestHeaders.containsKey("Accept") && (str = requestHeaders.get("Accept")) != null && str.startsWith("image");
             }
             return true;
         }

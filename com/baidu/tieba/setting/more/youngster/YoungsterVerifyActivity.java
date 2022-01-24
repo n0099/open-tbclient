@@ -83,7 +83,7 @@ public class YoungsterVerifyActivity extends TbWebViewActivity {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ YoungsterVerifyActivity f47848c;
+        public final /* synthetic */ YoungsterVerifyActivity f47876c;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public b(YoungsterVerifyActivity youngsterVerifyActivity) {
@@ -103,7 +103,7 @@ public class YoungsterVerifyActivity extends TbWebViewActivity {
                     return;
                 }
             }
-            this.f47848c = youngsterVerifyActivity;
+            this.f47876c = youngsterVerifyActivity;
         }
 
         @Override // com.baidu.tbadk.browser.TbWebViewActivity.u, android.webkit.WebViewClient
@@ -129,7 +129,7 @@ public class YoungsterVerifyActivity extends TbWebViewActivity {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, webView, str)) == null) {
                 if (!StringUtils.isNull(str) && str.contains(TbConfig.URL_YOUNGSTER_VERIFY_AUTHID)) {
-                    this.f47848c.youngsterVerifyModel.B(UrlUtil.getUrlField(str, YoungsterVerifyActivityConfig.PARAMA_AUTH_ID));
+                    this.f47876c.youngsterVerifyModel.B(UrlUtil.getUrlField(str, YoungsterVerifyActivityConfig.PARAMA_AUTH_ID));
                     return true;
                 }
                 return super.shouldOverrideUrlLoading(webView, str);

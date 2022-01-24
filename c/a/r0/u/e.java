@@ -31,10 +31,10 @@ public class e {
     public static volatile IRemoteUBCService a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final Map<String, Integer> f11821b;
+    public static final Map<String, Integer> f11963b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final Set<String> f11822c;
+    public static final Set<String> f11964c;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -50,13 +50,13 @@ public class e {
                 return;
             }
         }
-        f11821b = new HashMap();
+        f11963b = new HashMap();
         HashSet hashSet = new HashSet();
-        f11822c = hashSet;
+        f11964c = hashSet;
         hashSet.add("606");
-        f11822c.add("671");
-        f11821b.put("606", -1);
-        f11821b.put("671", -1);
+        f11964c.add("671");
+        f11963b.put("606", -1);
+        f11963b.put("671", -1);
     }
 
     public e() {
@@ -78,7 +78,7 @@ public class e {
         int intValue;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, str2)) == null) {
-            Integer num = f11821b.get(str);
+            Integer num = f11963b.get(str);
             if (num == null) {
                 num = -1;
             }
@@ -101,7 +101,7 @@ public class e {
         l g2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, str, str2)) == null) {
-            if (f11822c.contains(str) && (g2 = g()) != null && g2.q()) {
+            if (f11964c.contains(str) && (g2 = g()) != null && g2.q()) {
                 synchronized (e.class) {
                     String str3 = "ubc_counter" + str;
                     int a2 = a(str, str3);
@@ -110,7 +110,7 @@ public class e {
                         jSONObject.put("counter", a2);
                         str2 = jSONObject.toString();
                         t.f().putInt(str3, a2);
-                        f11821b.put(str, Integer.valueOf(a2));
+                        f11963b.put(str, Integer.valueOf(a2));
                     } catch (JSONException unused) {
                     }
                 }
@@ -126,14 +126,14 @@ public class e {
         l g2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, jSONObject)) == null) {
-            if (f11822c.contains(str) && (g2 = g()) != null && g2.q()) {
+            if (f11964c.contains(str) && (g2 = g()) != null && g2.q()) {
                 synchronized (e.class) {
                     String str2 = "ubc_counter" + str;
                     int a2 = a(str, str2);
                     try {
                         jSONObject.put("counter", a2);
                         t.f().putInt(str2, a2);
-                        f11821b.put(str, Integer.valueOf(a2));
+                        f11963b.put(str, Integer.valueOf(a2));
                     } catch (JSONException unused) {
                     }
                 }

@@ -29,40 +29,40 @@ public class c extends c.a.r0.a.u.e.f.a {
 
         /* renamed from: c.a.r0.a.u.e.f.c$a$a  reason: collision with other inner class name */
         /* loaded from: classes.dex */
-        public class RunnableC0568a implements Runnable {
+        public class RunnableC0577a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ c.a.r0.a.d2.e f8981e;
+            public final /* synthetic */ c.a.r0.a.d2.e f9123e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ JSONObject f8982f;
+            public final /* synthetic */ JSONObject f9124f;
 
             /* renamed from: g  reason: collision with root package name */
-            public final /* synthetic */ String f8983g;
+            public final /* synthetic */ String f9125g;
 
             /* renamed from: h  reason: collision with root package name */
-            public final /* synthetic */ String f8984h;
+            public final /* synthetic */ String f9126h;
 
             /* renamed from: i  reason: collision with root package name */
-            public final /* synthetic */ a f8985i;
+            public final /* synthetic */ a f9127i;
 
             /* renamed from: c.a.r0.a.u.e.f.c$a$a$a  reason: collision with other inner class name */
             /* loaded from: classes.dex */
-            public class DialogInterface$OnClickListenerC0569a implements DialogInterface.OnClickListener {
+            public class DialogInterface$OnClickListenerC0578a implements DialogInterface.OnClickListener {
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: e  reason: collision with root package name */
-                public final /* synthetic */ RunnableC0568a f8986e;
+                public final /* synthetic */ RunnableC0577a f9128e;
 
-                public DialogInterface$OnClickListenerC0569a(RunnableC0568a runnableC0568a) {
+                public DialogInterface$OnClickListenerC0578a(RunnableC0577a runnableC0577a) {
                     Interceptable interceptable = $ic;
                     if (interceptable != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         newInitContext.initArgs = r2;
-                        Object[] objArr = {runnableC0568a};
+                        Object[] objArr = {runnableC0577a};
                         interceptable.invokeUnInit(65536, newInitContext);
                         int i2 = newInitContext.flag;
                         if ((i2 & 1) != 0) {
@@ -72,7 +72,7 @@ public class c extends c.a.r0.a.u.e.f.a {
                             return;
                         }
                     }
-                    this.f8986e = runnableC0568a;
+                    this.f9128e = runnableC0577a;
                 }
 
                 @Override // android.content.DialogInterface.OnClickListener
@@ -82,11 +82,11 @@ public class c extends c.a.r0.a.u.e.f.a {
                         JSONObject jSONObject = new JSONObject();
                         try {
                             jSONObject.put("type", QueryResponse.Options.CANCEL);
-                            RunnableC0568a runnableC0568a = this.f8986e;
-                            runnableC0568a.f8985i.a.d(runnableC0568a.f8983g, new c.a.r0.a.u.h.b(0, jSONObject));
+                            RunnableC0577a runnableC0577a = this.f9128e;
+                            runnableC0577a.f9127i.a.d(runnableC0577a.f9125g, new c.a.r0.a.u.h.b(0, jSONObject));
                         } catch (JSONException unused) {
-                            RunnableC0568a runnableC0568a2 = this.f8986e;
-                            runnableC0568a2.f8985i.a.d(runnableC0568a2.f8983g, new c.a.r0.a.u.h.b(201));
+                            RunnableC0577a runnableC0577a2 = this.f9128e;
+                            runnableC0577a2.f9127i.a.d(runnableC0577a2.f9125g, new c.a.r0.a.u.h.b(201));
                         }
                     }
                 }
@@ -99,14 +99,14 @@ public class c extends c.a.r0.a.u.e.f.a {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: e  reason: collision with root package name */
-                public final /* synthetic */ RunnableC0568a f8987e;
+                public final /* synthetic */ RunnableC0577a f9129e;
 
-                public b(RunnableC0568a runnableC0568a) {
+                public b(RunnableC0577a runnableC0577a) {
                     Interceptable interceptable = $ic;
                     if (interceptable != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         newInitContext.initArgs = r2;
-                        Object[] objArr = {runnableC0568a};
+                        Object[] objArr = {runnableC0577a};
                         interceptable.invokeUnInit(65536, newInitContext);
                         int i2 = newInitContext.flag;
                         if ((i2 & 1) != 0) {
@@ -116,7 +116,7 @@ public class c extends c.a.r0.a.u.e.f.a {
                             return;
                         }
                     }
-                    this.f8987e = runnableC0568a;
+                    this.f9129e = runnableC0577a;
                 }
 
                 @Override // android.content.DialogInterface.OnClickListener
@@ -126,17 +126,17 @@ public class c extends c.a.r0.a.u.e.f.a {
                         JSONObject jSONObject = new JSONObject();
                         try {
                             jSONObject.put("type", "confirm");
-                            RunnableC0568a runnableC0568a = this.f8987e;
-                            runnableC0568a.f8985i.a.d(runnableC0568a.f8983g, new c.a.r0.a.u.h.b(0, jSONObject));
+                            RunnableC0577a runnableC0577a = this.f9129e;
+                            runnableC0577a.f9127i.a.d(runnableC0577a.f9125g, new c.a.r0.a.u.h.b(0, jSONObject));
                         } catch (JSONException unused) {
-                            RunnableC0568a runnableC0568a2 = this.f8987e;
-                            runnableC0568a2.f8985i.a.d(runnableC0568a2.f8983g, new c.a.r0.a.u.h.b(201));
+                            RunnableC0577a runnableC0577a2 = this.f9129e;
+                            runnableC0577a2.f9127i.a.d(runnableC0577a2.f9125g, new c.a.r0.a.u.h.b(201));
                         }
                     }
                 }
             }
 
-            public RunnableC0568a(a aVar, c.a.r0.a.d2.e eVar, JSONObject jSONObject, String str, String str2) {
+            public RunnableC0577a(a aVar, c.a.r0.a.d2.e eVar, JSONObject jSONObject, String str, String str2) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -151,34 +151,34 @@ public class c extends c.a.r0.a.u.e.f.a {
                         return;
                     }
                 }
-                this.f8985i = aVar;
-                this.f8981e = eVar;
-                this.f8982f = jSONObject;
-                this.f8983g = str;
-                this.f8984h = str2;
+                this.f9127i = aVar;
+                this.f9123e = eVar;
+                this.f9124f = jSONObject;
+                this.f9125g = str;
+                this.f9126h = str2;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable = $ic;
-                if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f8981e.x() == null || this.f8981e.x().isFinishing() || this.f8981e.x().isDestroyed()) {
+                if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f9123e.x() == null || this.f9123e.x().isFinishing() || this.f9123e.x().isDestroyed()) {
                     return;
                 }
-                SwanAppAlertDialog.a aVar = new SwanAppAlertDialog.a(this.f8985i.a.getContext());
-                aVar.V(this.f8982f.optString("title"));
-                aVar.x(this.f8982f.optString("content"));
+                SwanAppAlertDialog.a aVar = new SwanAppAlertDialog.a(this.f9127i.a.getContext());
+                aVar.V(this.f9124f.optString("title"));
+                aVar.x(this.f9124f.optString("content"));
                 aVar.n(new c.a.r0.a.a3.h.a());
                 aVar.m(false);
-                if (this.f8982f.optBoolean("showCancel", true)) {
-                    aVar.E(this.f8982f.optString("cancelColor"), c.a.r0.a.c.aiapps_modal_cancel_color);
-                    String optString = this.f8982f.optString("cancelText");
+                if (this.f9124f.optBoolean("showCancel", true)) {
+                    aVar.E(this.f9124f.optString("cancelColor"), c.a.r0.a.c.aiapps_modal_cancel_color);
+                    String optString = this.f9124f.optString("cancelText");
                     if (TextUtils.isEmpty(optString)) {
-                        optString = this.f8985i.a.getContext().getString(c.a.r0.a.h.aiapps_cancel);
+                        optString = this.f9127i.a.getContext().getString(c.a.r0.a.h.aiapps_cancel);
                     }
-                    aVar.C(optString, new DialogInterface$OnClickListenerC0569a(this));
+                    aVar.C(optString, new DialogInterface$OnClickListenerC0578a(this));
                 }
-                aVar.R(this.f8982f.optString("confirmColor"), c.a.r0.a.c.aiapps_modal_confirm_color);
-                aVar.P(this.f8984h, new b(this));
+                aVar.R(this.f9124f.optString("confirmColor"), c.a.r0.a.c.aiapps_modal_confirm_color);
+                aVar.P(this.f9126h, new b(this));
                 aVar.X();
             }
         }
@@ -210,7 +210,7 @@ public class c extends c.a.r0.a.u.e.f.a {
                 if (TextUtils.isEmpty(optString)) {
                     optString = this.a.getContext().getString(c.a.r0.a.h.aiapps_confirm);
                 }
-                q0.e0(new RunnableC0568a(this, eVar, jSONObject, str, optString));
+                q0.e0(new RunnableC0577a(this, eVar, jSONObject, str, optString));
                 return c.a.r0.a.u.h.b.f();
             }
             return (c.a.r0.a.u.h.b) invokeLLL.objValue;

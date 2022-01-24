@@ -36,31 +36,31 @@ public final class e {
     public final TbPageContext<?> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final View f21228b;
+    public final View f21464b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final int f21229c;
+    public final int f21465c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final int f21230d;
+    public final int f21466d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final c f21231e;
+    public final c f21467e;
 
     /* renamed from: f  reason: collision with root package name */
-    public LinearLayout f21232f;
+    public LinearLayout f21468f;
 
     /* renamed from: g  reason: collision with root package name */
-    public RelativeLayout f21233g;
+    public RelativeLayout f21469g;
 
     /* renamed from: h  reason: collision with root package name */
-    public LinearLayout f21234h;
+    public LinearLayout f21470h;
 
     /* renamed from: i  reason: collision with root package name */
-    public RelativeLayout f21235i;
+    public RelativeLayout f21471i;
 
     /* renamed from: j  reason: collision with root package name */
-    public ImageView f21236j;
+    public ImageView f21472j;
     public ImageView k;
     public EMTextView l;
     public EMTextView m;
@@ -78,7 +78,7 @@ public final class e {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public boolean f21237e;
+        public boolean f21473e;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -93,21 +93,21 @@ public final class e {
                     return;
                 }
             }
-            this.f21237e = true;
+            this.f21473e = true;
         }
 
         @Override // com.baidu.tbadk.core.view.TbCheckBox.c
         public boolean isChecked() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f21237e : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f21473e : invokeV.booleanValue;
         }
 
         @Override // com.baidu.tbadk.core.view.TbCheckBox.c
         public void setChecked(boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
-                this.f21237e = z;
+                this.f21473e = z;
             }
         }
     }
@@ -131,10 +131,10 @@ public final class e {
         Intrinsics.checkNotNullParameter(mRootView, "mRootView");
         Intrinsics.checkNotNullParameter(mPresenter, "mPresenter");
         this.a = mPageContext;
-        this.f21228b = mRootView;
-        this.f21229c = i2;
-        this.f21230d = i3;
-        this.f21231e = mPresenter;
+        this.f21464b = mRootView;
+        this.f21465c = i2;
+        this.f21466d = i3;
+        this.f21467e = mPresenter;
         this.t = new ArrayList<>();
         n();
     }
@@ -143,7 +143,7 @@ public final class e {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65537, null, this$0, view) == null) {
             Intrinsics.checkNotNullParameter(this$0, "this$0");
-            this$0.f21231e.finishPage();
+            this$0.f21467e.finishPage();
         }
     }
 
@@ -151,8 +151,8 @@ public final class e {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65538, null, this$0, view) == null) {
             Intrinsics.checkNotNullParameter(this$0, "this$0");
-            this$0.f21231e.openUpgrade(this$0.h().isChecked());
-            if (this$0.f21229c == 2) {
+            this$0.f21467e.openUpgrade(this$0.h().isChecked());
+            if (this$0.f21465c == 2) {
                 TiebaStatic.log(new StatisticItem("c14366"));
             } else {
                 TiebaStatic.log(new StatisticItem("c14365"));
@@ -172,7 +172,7 @@ public final class e {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, imageView) == null) {
             Intrinsics.checkNotNullParameter(imageView, "<set-?>");
-            this.f21236j = imageView;
+            this.f21472j = imageView;
         }
     }
 
@@ -262,7 +262,7 @@ public final class e {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            LinearLayout linearLayout = this.f21234h;
+            LinearLayout linearLayout = this.f21470h;
             if (linearLayout != null) {
                 return linearLayout;
             }
@@ -276,7 +276,7 @@ public final class e {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            RelativeLayout relativeLayout = this.f21235i;
+            RelativeLayout relativeLayout = this.f21471i;
             if (relativeLayout != null) {
                 return relativeLayout;
             }
@@ -290,7 +290,7 @@ public final class e {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            LinearLayout linearLayout = this.f21232f;
+            LinearLayout linearLayout = this.f21468f;
             if (linearLayout != null) {
                 return linearLayout;
             }
@@ -360,7 +360,7 @@ public final class e {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
-            ImageView imageView = this.f21236j;
+            ImageView imageView = this.f21472j;
             if (imageView != null) {
                 return imageView;
             }
@@ -401,46 +401,46 @@ public final class e {
     public final void n() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048595, this) == null) {
-            View findViewById = this.f21228b.findViewById(g.upgrade_main);
+            View findViewById = this.f21464b.findViewById(g.upgrade_main);
             Intrinsics.checkNotNullExpressionValue(findViewById, "mRootView.findViewById(R.id.upgrade_main)");
             u((RelativeLayout) findViewById);
-            View findViewById2 = this.f21228b.findViewById(g.upgrade_top);
+            View findViewById2 = this.f21464b.findViewById(g.upgrade_top);
             Intrinsics.checkNotNullExpressionValue(findViewById2, "mRootView.findViewById(R.id.upgrade_top)");
             v((LinearLayout) findViewById2);
-            View findViewById3 = this.f21228b.findViewById(g.upgrade_icon);
+            View findViewById3 = this.f21464b.findViewById(g.upgrade_icon);
             Intrinsics.checkNotNullExpressionValue(findViewById3, "mRootView.findViewById(R.id.upgrade_icon)");
             B((ImageView) findViewById3);
-            View findViewById4 = this.f21228b.findViewById(g.upgrade_icon_title);
+            View findViewById4 = this.f21464b.findViewById(g.upgrade_icon_title);
             Intrinsics.checkNotNullExpressionValue(findViewById4, "mRootView.findViewById(R.id.upgrade_icon_title)");
             E((ImageView) findViewById4);
-            View findViewById5 = this.f21228b.findViewById(g.upgrade_tip);
+            View findViewById5 = this.f21464b.findViewById(g.upgrade_tip);
             Intrinsics.checkNotNullExpressionValue(findViewById5, "mRootView.findViewById(R.id.upgrade_tip)");
             D((EMTextView) findViewById5);
-            View findViewById6 = this.f21228b.findViewById(g.upgrade_has_open);
+            View findViewById6 = this.f21464b.findViewById(g.upgrade_has_open);
             Intrinsics.checkNotNullExpressionValue(findViewById6, "mRootView.findViewById(R.id.upgrade_has_open)");
             A((EMTextView) findViewById6);
-            View findViewById7 = this.f21228b.findViewById(g.select_office_ckb);
+            View findViewById7 = this.f21464b.findViewById(g.select_office_ckb);
             Intrinsics.checkNotNullExpressionValue(findViewById7, "mRootView.findViewById(R.id.select_office_ckb)");
             y((TbCheckBox) findViewById7);
-            View findViewById8 = this.f21228b.findViewById(g.select_office_number);
+            View findViewById8 = this.f21464b.findViewById(g.select_office_number);
             Intrinsics.checkNotNullExpressionValue(findViewById8, "mRootView.findViewById(R.id.select_office_number)");
             x((EMTextView) findViewById8);
-            View findViewById9 = this.f21228b.findViewById(g.upgrade_bottom_tip);
+            View findViewById9 = this.f21464b.findViewById(g.upgrade_bottom_tip);
             Intrinsics.checkNotNullExpressionValue(findViewById9, "mRootView.findViewById(R.id.upgrade_bottom_tip)");
             z((EMTextView) findViewById9);
-            View findViewById10 = this.f21228b.findViewById(g.btn_upgrade_open);
+            View findViewById10 = this.f21464b.findViewById(g.btn_upgrade_open);
             Intrinsics.checkNotNullExpressionValue(findViewById10, "mRootView.findViewById(R.id.btn_upgrade_open)");
             C((EMTextView) findViewById10);
-            View findViewById11 = this.f21228b.findViewById(g.upgrade_content);
+            View findViewById11 = this.f21464b.findViewById(g.upgrade_content);
             Intrinsics.checkNotNullExpressionValue(findViewById11, "mRootView.findViewById(R.id.upgrade_content)");
             s((RelativeLayout) findViewById11);
-            View findViewById12 = this.f21228b.findViewById(g.upgrade_item);
+            View findViewById12 = this.f21464b.findViewById(g.upgrade_item);
             Intrinsics.checkNotNullExpressionValue(findViewById12, "mRootView.findViewById(R.id.upgrade_item)");
             t((LinearLayout) findViewById12);
-            View findViewById13 = this.f21228b.findViewById(g.line_view);
+            View findViewById13 = this.f21464b.findViewById(g.line_view);
             Intrinsics.checkNotNullExpressionValue(findViewById13, "mRootView.findViewById(R.id.line_view)");
             r((ImageView) findViewById13);
-            View findViewById14 = this.f21228b.findViewById(g.title_bar);
+            View findViewById14 = this.f21464b.findViewById(g.title_bar);
             Intrinsics.checkNotNullExpressionValue(findViewById14, "mRootView.findViewById(R.id.title_bar)");
             w((NavigationBar) findViewById14);
             g().addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new View.OnClickListener() { // from class: c.a.t0.p4.e0.p.w.a
@@ -484,12 +484,12 @@ public final class e {
                     }
                 }
             });
-            if (this.f21229c != 2) {
+            if (this.f21465c != 2) {
                 j().setVisibility(8);
             } else {
                 l().setText(this.a.getString(j.guide_upgrde_go_on_open));
             }
-            if (this.f21230d == c.a.s0.s.m.d.f13242e) {
+            if (this.f21466d == c.a.s0.s.m.d.f13428e) {
                 i().setVisibility(0);
             } else {
                 i().setVisibility(8);
@@ -535,7 +535,7 @@ public final class e {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048598, this, relativeLayout) == null) {
             Intrinsics.checkNotNullParameter(relativeLayout, "<set-?>");
-            this.f21233g = relativeLayout;
+            this.f21469g = relativeLayout;
         }
     }
 
@@ -543,7 +543,7 @@ public final class e {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048599, this, linearLayout) == null) {
             Intrinsics.checkNotNullParameter(linearLayout, "<set-?>");
-            this.f21234h = linearLayout;
+            this.f21470h = linearLayout;
         }
     }
 
@@ -551,7 +551,7 @@ public final class e {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048600, this, relativeLayout) == null) {
             Intrinsics.checkNotNullParameter(relativeLayout, "<set-?>");
-            this.f21235i = relativeLayout;
+            this.f21471i = relativeLayout;
         }
     }
 
@@ -559,7 +559,7 @@ public final class e {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048601, this, linearLayout) == null) {
             Intrinsics.checkNotNullParameter(linearLayout, "<set-?>");
-            this.f21232f = linearLayout;
+            this.f21468f = linearLayout;
         }
     }
 

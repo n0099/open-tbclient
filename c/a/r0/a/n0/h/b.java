@@ -21,13 +21,13 @@ public class b {
     public static final boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final Map<String, Integer> f7766b;
+    public static final Map<String, Integer> f7908b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final Object f7767c;
+    public static final Object f7909c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static boolean f7768d;
+    public static boolean f7910d;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -44,17 +44,17 @@ public class b {
             }
         }
         a = k.a;
-        f7766b = new HashMap();
-        f7767c = new Object();
-        f7768d = c.a();
+        f7908b = new HashMap();
+        f7909c = new Object();
+        f7910d = c.a();
     }
 
     public static void a() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65537, null) == null) && f7768d) {
+        if ((interceptable == null || interceptable.invokeV(65537, null) == null) && f7910d) {
             boolean z = a;
-            synchronized (f7767c) {
-                f7766b.clear();
+            synchronized (f7909c) {
+                f7908b.clear();
             }
         }
     }
@@ -65,11 +65,11 @@ public class b {
         String[] strArr;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (!f7768d) {
+            if (!f7910d) {
                 return Collections.emptySet();
             }
-            synchronized (f7767c) {
-                strArr = (String[]) f7766b.keySet().toArray(new String[0]);
+            synchronized (f7909c) {
+                strArr = (String[]) f7908b.keySet().toArray(new String[0]);
             }
             return c.a.r0.a.z2.a1.a.a(strArr);
         }
@@ -81,9 +81,9 @@ public class b {
         boolean containsKey;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
-            if (f7768d && !TextUtils.isEmpty(str)) {
-                synchronized (f7767c) {
-                    containsKey = f7766b.containsKey(str);
+            if (f7910d && !TextUtils.isEmpty(str)) {
+                synchronized (f7909c) {
+                    containsKey = f7908b.containsKey(str);
                 }
                 if (a) {
                     String str2 = "appId - " + str + " needExclude - " + containsKey;
@@ -97,19 +97,19 @@ public class b {
 
     public static void d(String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str) == null) && f7768d) {
+        if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str) == null) && f7910d) {
             if (a) {
                 String str2 = "record one appId for exclude - " + str;
             }
             if (TextUtils.isEmpty(str)) {
                 return;
             }
-            synchronized (f7767c) {
-                Integer num = f7766b.get(str);
+            synchronized (f7909c) {
+                Integer num = f7908b.get(str);
                 if (num == null) {
-                    f7766b.put(str, 1);
+                    f7908b.put(str, 1);
                 } else {
-                    f7766b.put(str, Integer.valueOf(num.intValue() + 1));
+                    f7908b.put(str, Integer.valueOf(num.intValue() + 1));
                 }
             }
         }
@@ -117,10 +117,10 @@ public class b {
 
     public static void e(g gVar) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65541, null, gVar) == null) && f7768d && gVar != null) {
+        if ((interceptable == null || interceptable.invokeL(65541, null, gVar) == null) && f7910d && gVar != null) {
             for (c.a.r0.q.i.f fVar : gVar.j()) {
                 if (fVar instanceof c.a.r0.q.i.g) {
-                    d(fVar.f11494g);
+                    d(fVar.f11636g);
                 } else if (fVar instanceof h) {
                     d(((h) fVar).o);
                 }
@@ -130,21 +130,21 @@ public class b {
 
     public static void f(String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65542, null, str) == null) && f7768d) {
+        if ((interceptable == null || interceptable.invokeL(65542, null, str) == null) && f7910d) {
             if (a) {
                 String str2 = "remove one appId for exclude - " + str;
             }
             if (TextUtils.isEmpty(str)) {
                 return;
             }
-            synchronized (f7767c) {
-                Integer num = f7766b.get(str);
+            synchronized (f7909c) {
+                Integer num = f7908b.get(str);
                 if (num != null) {
                     int intValue = num.intValue() - 1;
                     if (intValue <= 0) {
-                        f7766b.remove(str);
+                        f7908b.remove(str);
                     } else {
-                        f7766b.put(str, Integer.valueOf(intValue));
+                        f7908b.put(str, Integer.valueOf(intValue));
                     }
                 }
             }

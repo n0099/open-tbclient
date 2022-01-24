@@ -12,17 +12,17 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class a extends BdAsyncTask<Void, String, String> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public c.a.t0.c0.b.c f15283b;
+    public c.a.t0.c0.b.c f15449b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f15284c;
+    public String f15450c;
 
     public a(String str, int i2, c.a.t0.c0.b.c cVar) {
         Interceptable interceptable = $ic;
@@ -40,8 +40,8 @@ public class a extends BdAsyncTask<Void, String, String> {
             }
         }
         this.a = i2;
-        this.f15283b = cVar;
-        this.f15284c = str;
+        this.f15449b = cVar;
+        this.f15450c = str;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -51,7 +51,7 @@ public class a extends BdAsyncTask<Void, String, String> {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, voidArr)) == null) {
-            String str = this.f15284c;
+            String str = this.f15450c;
             if (str == null) {
                 return null;
             }
@@ -137,7 +137,7 @@ public class a extends BdAsyncTask<Void, String, String> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
             super.onPostExecute((a) str);
-            c.a.t0.c0.b.c cVar = this.f15283b;
+            c.a.t0.c0.b.c cVar = this.f15449b;
             if (cVar == null || str == null) {
                 return;
             }

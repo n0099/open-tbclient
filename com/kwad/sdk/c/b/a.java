@@ -2,7 +2,6 @@ package com.kwad.sdk.c.b;
 
 import android.content.Context;
 import android.text.TextUtils;
-import com.baidu.android.imsdk.retrieve.Constants;
 import com.kwad.sdk.utils.q;
 import java.io.File;
 import java.io.FileInputStream;
@@ -53,7 +52,7 @@ public class a {
                     fileOutputStream.flush();
                 }
                 q.b(fileOutputStream);
-            } else if (!name.contains(Constants.PATH_PARENT)) {
+            } else if (!name.contains("../")) {
                 String substring = name.substring(0, name.length() - 1);
                 new File(str2 + File.separator + substring).mkdirs();
             }

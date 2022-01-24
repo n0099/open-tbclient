@@ -42,31 +42,31 @@ public class b {
     public AccountData a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f13223b;
+    public boolean f13381b;
 
     /* renamed from: c  reason: collision with root package name */
-    public c f13224c;
+    public c f13382c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f13225d;
+    public int f13383d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f13226e;
+    public int f13384e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f13227f;
+    public int f13385f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f13228g;
+    public boolean f13386g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f13229h;
+    public int f13387h;
 
     /* renamed from: i  reason: collision with root package name */
-    public ChangeSkinReceiver f13230i;
+    public ChangeSkinReceiver f13388i;
 
     /* renamed from: j  reason: collision with root package name */
-    public boolean f13231j;
+    public boolean f13389j;
 
     /* loaded from: classes6.dex */
     public class a implements Runnable {
@@ -74,13 +74,13 @@ public class b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ AccountData f13232e;
+        public final /* synthetic */ AccountData f13390e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ Context f13233f;
+        public final /* synthetic */ Context f13391f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ b f13234g;
+        public final /* synthetic */ b f13392g;
 
         public a(b bVar, AccountData accountData, Context context) {
             Interceptable interceptable = $ic;
@@ -97,27 +97,27 @@ public class b {
                     return;
                 }
             }
-            this.f13234g = bVar;
-            this.f13232e = accountData;
-            this.f13233f = context;
+            this.f13392g = bVar;
+            this.f13390e = accountData;
+            this.f13391f = context;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f13234g.N(this.f13232e, this.f13233f);
+                this.f13392g.N(this.f13390e, this.f13391f);
             }
         }
     }
 
     /* renamed from: c.a.s0.s.l.b$b  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public static class RunnableC0878b implements Runnable {
+    public static class RunnableC0885b implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        public RunnableC0878b() {
+        public RunnableC0885b() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -135,7 +135,7 @@ public class b {
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                c.a.t0.w3.p0.a.a("", 7);
+                c.a.t0.x3.p0.a.a("", 7);
             }
         }
     }
@@ -202,19 +202,19 @@ public class b {
             }
         }
         this.a = null;
-        this.f13223b = false;
-        this.f13225d = 0;
-        this.f13226e = 0;
-        this.f13227f = 0;
-        this.f13228g = true;
-        this.f13231j = false;
+        this.f13381b = false;
+        this.f13383d = 0;
+        this.f13384e = 0;
+        this.f13385f = 0;
+        this.f13386g = true;
+        this.f13389j = false;
     }
 
     public static void I() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65537, null) == null) {
-            h.a().b(new RunnableC0878b());
-            c.a.s0.s.h0.b.k().x("app_inverval", System.currentTimeMillis());
+            h.a().b(new RunnableC0885b());
+            c.a.s0.s.i0.b.k().x("app_inverval", System.currentTimeMillis());
         }
     }
 
@@ -273,23 +273,23 @@ public class b {
 
     public void A() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f13231j) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f13389j) {
             return;
         }
-        this.f13231j = true;
+        this.f13389j = true;
         long currentTimeMillis = System.currentTimeMillis();
         if (E(true)) {
             try {
                 if (TbadkCoreApplication.getInst().getDatabasePath(TbConfig.PHONE_DATEBASE_NAME).exists()) {
                     AccountData e2 = c.a.s0.s.l.c.e();
                     if (e2 != null) {
-                        c.a.s0.s.b0.a.a("account", -1L, 0, "application_init_account", 0, "", new Object[0]);
+                        c.a.s0.s.c0.a.a("account", -1L, 0, "application_init_account", 0, "", new Object[0]);
                         L(e2, TbadkCoreApplication.getInst());
                     } else {
-                        c.a.s0.s.b0.a.a("account", -1L, 0, "application_init_no_account", 0, "", new Object[0]);
+                        c.a.s0.s.c0.a.a("account", -1L, 0, "application_init_no_account", 0, "", new Object[0]);
                     }
                 } else {
-                    c.a.s0.s.b0.a.a("account", -1L, 0, "application_bd_no_account", 0, "", new Object[0]);
+                    c.a.s0.s.c0.a.a("account", -1L, 0, "application_bd_no_account", 0, "", new Object[0]);
                 }
             } catch (Exception e3) {
                 BdLog.e(e3.getMessage());
@@ -300,21 +300,21 @@ public class b {
 
     public void B() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && !E(false) && F() && this.f13224c == null) {
-            this.f13224c = new c(this, null);
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && !E(false) && F() && this.f13382c == null) {
+            this.f13382c = new c(this, null);
             IntentFilter intentFilter = new IntentFilter();
             intentFilter.addAction("com.baidu.tieba.action.accountChange");
-            TbadkCoreApplication.getInst().registerReceiver(this.f13224c, intentFilter);
+            TbadkCoreApplication.getInst().registerReceiver(this.f13382c, intentFilter);
         }
     }
 
     public void C() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && F()) {
-            this.f13230i = new ChangeSkinReceiver();
+            this.f13388i = new ChangeSkinReceiver();
             IntentFilter intentFilter = new IntentFilter();
             intentFilter.addAction(TbConfig.getBroadcastActionChangeSkin());
-            TbadkCoreApplication.getInst().registerReceiver(this.f13230i, intentFilter);
+            TbadkCoreApplication.getInst().registerReceiver(this.f13388i, intentFilter);
         }
     }
 
@@ -343,24 +343,24 @@ public class b {
     public boolean G() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f13228g : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f13386g : invokeV.booleanValue;
     }
 
     public void H(AccountData accountData, Application application) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048583, this, accountData, application) == null) {
             BdLog.e("账号切换");
-            c.a.s0.s.h0.b k2 = c.a.s0.s.h0.b.k();
+            c.a.s0.s.i0.b k2 = c.a.s0.s.i0.b.k();
             String q = k2.q("current_used_theme_" + h(), null);
             if (StringUtils.isNull(q)) {
-                this.f13226e = 0;
+                this.f13384e = 0;
             } else {
                 String[] split = q.split("/");
                 if (split != null && split.length >= 2) {
-                    this.f13226e = c.a.d.f.m.b.e(split[0], 0);
+                    this.f13384e = c.a.d.f.m.b.e(split[0], 0);
                     c.a.d.f.m.b.e(split[1], 0);
                 } else {
-                    this.f13226e = 0;
+                    this.f13384e = 0;
                 }
             }
             f();
@@ -377,13 +377,13 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, accountData, str, str2) == null) {
             if (accountData == null && this.a != null) {
-                this.f13223b = true;
+                this.f13381b = true;
             } else if (this.a == null && accountData != null) {
-                this.f13223b = true;
+                this.f13381b = true;
             } else {
                 AccountData accountData2 = this.a;
                 if (accountData2 != null && accountData != null && !TextUtils.equals(accountData2.getAccount(), accountData.getAccount())) {
-                    this.f13223b = true;
+                    this.f13381b = true;
                 }
             }
             if (this.a == null && accountData != null) {
@@ -415,21 +415,21 @@ public class b {
             } else if (!StringUtils.isNull(accountData.getID())) {
                 str = "set_application_account:logined";
             }
-            c.a.s0.s.b0.a.a("account", -1L, 0, str, 0, "", new Object[0]);
-            if (!this.f13223b) {
+            c.a.s0.s.c0.a.a("account", -1L, 0, str, 0, "", new Object[0]);
+            if (!this.f13381b) {
                 if (accountData == null && this.a != null) {
-                    this.f13223b = true;
+                    this.f13381b = true;
                 } else if (this.a == null && accountData != null) {
-                    this.f13223b = true;
+                    this.f13381b = true;
                 } else {
                     AccountData accountData2 = this.a;
                     if (accountData2 != null && accountData != null && !TextUtils.equals(accountData2.getAccount(), accountData.getAccount())) {
-                        this.f13223b = true;
+                        this.f13381b = true;
                     }
                 }
             }
             this.a = accountData;
-            if (this.f13223b && AddGetUserInfoReqSwitch.getIsOn()) {
+            if (this.f13381b && AddGetUserInfoReqSwitch.getIsOn()) {
                 c.a.s0.a0.b.d().h();
             }
             c.a.d.e.a.b().a("setCurrentAccountInUI", new a(this, accountData, context));
@@ -458,7 +458,7 @@ public class b {
     public final void N(AccountData accountData, Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048587, this, accountData, context) == null) {
-            c.a.t0.w3.p0.a.n();
+            c.a.t0.x3.p0.a.n();
             if (context != null) {
                 if (TbadkCoreApplication.getInst().isPushServiceOpen()) {
                     UtilHelper.startPushService(context);
@@ -467,7 +467,7 @@ public class b {
                 }
             }
             J(accountData);
-            if (this.f13223b) {
+            if (this.f13381b) {
                 H(accountData, TbadkCoreApplication.getInst());
                 BdSocketLinkService.setHasAbsoluteClose(false);
                 BdSocketLinkService.setAvailable(true);
@@ -494,7 +494,7 @@ public class b {
     public void P(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048589, this, i2) == null) {
-            this.f13229h = w();
+            this.f13387h = w();
             I();
             Q(i2);
             TbadkSettings.getInst().saveInt("skin_", i2);
@@ -506,7 +506,7 @@ public class b {
     public void Q(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048590, this, i2) == null) {
-            this.f13225d = i2;
+            this.f13383d = i2;
         }
     }
 
@@ -525,14 +525,14 @@ public class b {
     public void S(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048592, this, z) == null) {
-            this.f13228g = z;
+            this.f13386g = z;
         }
     }
 
     public void T(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048593, this, i2) == null) {
-            this.f13227f = i2;
+            this.f13385f = i2;
         }
     }
 
@@ -765,13 +765,13 @@ public class b {
     public int v() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048611, this)) == null) ? this.f13229h : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048611, this)) == null) ? this.f13387h : invokeV.intValue;
     }
 
     public int w() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048612, this)) == null) ? this.f13225d : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048612, this)) == null) ? this.f13383d : invokeV.intValue;
     }
 
     public String x() {
@@ -790,12 +790,12 @@ public class b {
     public int y() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048614, this)) == null) ? this.f13227f : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048614, this)) == null) ? this.f13385f : invokeV.intValue;
     }
 
     public int z() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048615, this)) == null) ? this.f13226e : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048615, this)) == null) ? this.f13384e : invokeV.intValue;
     }
 }

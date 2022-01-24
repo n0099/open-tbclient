@@ -6,7 +6,7 @@ import android.text.TextUtils;
 import c.a.d.f.p.n;
 import c.a.s0.t.c.n0;
 import c.a.t0.p4.j;
-import c.a.t0.w3.s0.h;
+import c.a.t0.x3.s0.h;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.android.imsdk.internal.Constants;
@@ -33,22 +33,22 @@ public class a {
     public final b a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final NewWriteModel f21311b;
+    public final NewWriteModel f21547b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f21312c;
+    public boolean f21548c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final NewWriteModel.g f21313d;
+    public final NewWriteModel.g f21549d;
 
     /* renamed from: c.a.t0.p4.t.a$a  reason: collision with other inner class name */
     /* loaded from: classes8.dex */
-    public class C1328a implements NewWriteModel.g {
+    public class C1339a implements NewWriteModel.g {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ a a;
 
-        public C1328a(a aVar) {
+        public C1339a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -69,16 +69,16 @@ public class a {
         @Override // com.baidu.tieba.tbadkCore.writeModel.NewWriteModel.g
         public void callback(boolean z, PostWriteCallBackData postWriteCallBackData, n0 n0Var, WriteData writeData, AntiData antiData) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), postWriteCallBackData, n0Var, writeData, antiData}) == null) || this.a.a == null || this.a.f21311b == null || this.a.f21311b.Z() == null) {
+            if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), postWriteCallBackData, n0Var, writeData, antiData}) == null) || this.a.a == null || this.a.f21547b == null || this.a.f21547b.Z() == null) {
                 return;
             }
             this.a.a.o(false);
             if (writeData == null) {
-                writeData = this.a.f21311b.Z();
+                writeData = this.a.f21547b.Z();
             }
             WriteData writeData2 = writeData;
             if (z) {
-                this.a.f21312c = true;
+                this.a.f21548c = true;
                 if (writeData2.getType() != 0 || writeData2.isUserFeedback()) {
                     if (postWriteCallBackData == null) {
                         h.b(this.a.a.getContext().getActivity(), this.a.a.getContext().getResources().getString(j.send_success), null, null);
@@ -99,7 +99,7 @@ public class a {
                 writeData2.setVcodeUrl(n0Var.c());
                 writeData2.setVcodeExtra(n0Var.a());
                 this.a.a.getContext().setVisible(false);
-                if (c.a.s0.f1.a.b(n0Var.d())) {
+                if (c.a.s0.e1.a.b(n0Var.d())) {
                     MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new NewVcodeActivityConfig(this.a.a.getContext().getActivity(), 12006, writeData2, false, n0Var.d())));
                 } else {
                     MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new VcodeActivityConfig(this.a.a.getContext().getActivity(), writeData2, 12006)));
@@ -140,11 +140,11 @@ public class a {
                 return;
             }
         }
-        C1328a c1328a = new C1328a(this);
-        this.f21313d = c1328a;
+        C1339a c1339a = new C1339a(this);
+        this.f21549d = c1339a;
         this.a = bVar;
-        this.f21311b = newWriteModel;
-        newWriteModel.l0(c1328a);
+        this.f21547b = newWriteModel;
+        newWriteModel.l0(c1339a);
     }
 
     public void d() {
@@ -200,7 +200,7 @@ public class a {
 
     public final void g() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || this.a == null || this.f21311b == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || this.a == null || this.f21547b == null) {
             return;
         }
         if (!n.C()) {
@@ -209,7 +209,7 @@ public class a {
             return;
         }
         this.a.o(true);
-        this.f21311b.p0();
+        this.f21547b.p0();
     }
 
     public void h(String str) {

@@ -53,11 +53,11 @@ public class ad extends ai.a {
             com.xiaomi.push.service.aq a = com.xiaomi.push.service.aq.a(this.a);
             hx hxVar = new hx();
             hxVar.a(com.xiaomi.push.service.ar.a(a, hl.a));
-            hxVar.b(com.xiaomi.push.service.ar.a(a, hl.f61196b));
+            hxVar.b(com.xiaomi.push.service.ar.a(a, hl.f61241b));
             ie ieVar = new ie("-1", false);
             ieVar.c(hp.p.f514a);
             ieVar.a(ip.a(hxVar));
-            an.a(this.a).a((an) ieVar, hf.f61166i, (hs) null);
+            an.a(this.a).a((an) ieVar, hf.f61211i, (hs) null);
         }
     }
 }

@@ -14,7 +14,7 @@ public class a implements Runnable {
     public final e a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final b f32419b;
+    public final b f32447b;
 
     public a(b bVar) {
         Interceptable interceptable = $ic;
@@ -31,7 +31,7 @@ public class a implements Runnable {
                 return;
             }
         }
-        this.f32419b = bVar;
+        this.f32447b = bVar;
         this.a = new e();
     }
 
@@ -51,7 +51,7 @@ public class a implements Runnable {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             d a = this.a.a();
             if (a != null) {
-                this.f32419b.a(a);
+                this.f32447b.a(a);
                 return;
             }
             throw new IllegalStateException("No pending post available");

@@ -3,7 +3,7 @@ package c.a.r0.a.u1.k.i;
 public interface a {
 
     /* renamed from: b  reason: collision with root package name */
-    public static final Object f9383b = new Object();
+    public static final Object f9525b = new Object();
 
     void b(int i2);
 

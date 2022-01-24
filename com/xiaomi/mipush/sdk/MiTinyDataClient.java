@@ -40,7 +40,7 @@ public class MiTinyDataClient {
         public Context f53a;
 
         /* renamed from: a  reason: collision with other field name */
-        public C2259a f54a;
+        public C2265a f54a;
 
         /* renamed from: a  reason: collision with other field name */
         public Boolean f55a;
@@ -53,7 +53,7 @@ public class MiTinyDataClient {
 
         /* renamed from: com.xiaomi.mipush.sdk.MiTinyDataClient$a$a  reason: collision with other inner class name */
         /* loaded from: classes4.dex */
-        public class C2259a {
+        public class C2265a {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
@@ -70,7 +70,7 @@ public class MiTinyDataClient {
             /* renamed from: a  reason: collision with other field name */
             public ScheduledThreadPoolExecutor f61a;
 
-            public C2259a(a aVar) {
+            public C2265a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -106,7 +106,7 @@ public class MiTinyDataClient {
                     hj remove = this.f59a.remove(0);
                     for (ie ieVar : bm.a(Arrays.asList(remove), this.a.f53a.getPackageName(), b.m175a(this.a.f53a).m176a(), TbConfig.VOICE_CHUNK_UPLOAD_SIZE)) {
                         com.xiaomi.channel.commonutils.logger.b.c("MiTinyDataClient Send item by PushServiceClient.sendMessage(XmActionNotification)." + remove.d());
-                        an.a(this.a.f53a).a((an) ieVar, hf.f61166i, true, (hs) null);
+                        an.a(this.a.f53a).a((an) ieVar, hf.f61211i, true, (hs) null);
                     }
                 }
             }
@@ -132,7 +132,7 @@ public class MiTinyDataClient {
                     return;
                 }
             }
-            this.f54a = new C2259a(this);
+            this.f54a = new C2265a(this);
             this.f57a = new ArrayList<>();
         }
 

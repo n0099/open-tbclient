@@ -17,19 +17,19 @@ public class n implements TTNativeAd.AdInteractionListener {
     public boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f28196b;
+    public boolean f28224b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final /* synthetic */ FunAdInteractionListener f28197c;
+    public final /* synthetic */ FunAdInteractionListener f28225c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final /* synthetic */ String f28198d;
+    public final /* synthetic */ String f28226d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final /* synthetic */ TTNativeAd f28199e;
+    public final /* synthetic */ TTNativeAd f28227e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final /* synthetic */ k f28200f;
+    public final /* synthetic */ k f28228f;
 
     public n(k kVar, FunAdInteractionListener funAdInteractionListener, String str, TTNativeAd tTNativeAd) {
         Interceptable interceptable = $ic;
@@ -46,10 +46,10 @@ public class n implements TTNativeAd.AdInteractionListener {
                 return;
             }
         }
-        this.f28200f = kVar;
-        this.f28197c = funAdInteractionListener;
-        this.f28198d = str;
-        this.f28199e = tTNativeAd;
+        this.f28228f = kVar;
+        this.f28225c = funAdInteractionListener;
+        this.f28226d = str;
+        this.f28227e = tTNativeAd;
     }
 
     @Override // com.bytedance.sdk.openadsdk.TTNativeAd.AdInteractionListener
@@ -59,14 +59,14 @@ public class n implements TTNativeAd.AdInteractionListener {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, view, tTNativeAd) == null) {
             LogPrinter.d();
-            this.f28200f.onAdClicked(this.f28196b);
-            this.f28196b = true;
-            FunAdInteractionListener funAdInteractionListener = this.f28197c;
+            this.f28228f.onAdClicked(this.f28224b);
+            this.f28224b = true;
+            FunAdInteractionListener funAdInteractionListener = this.f28225c;
             if (funAdInteractionListener != null) {
-                String str = this.f28198d;
-                pid = this.f28200f.mPid;
+                String str = this.f28226d;
+                pid = this.f28228f.mPid;
                 String str2 = pid.ssp.type;
-                pid2 = this.f28200f.mPid;
+                pid2 = this.f28228f.mPid;
                 funAdInteractionListener.onAdClicked(str, str2, pid2.pid);
             }
         }
@@ -79,14 +79,14 @@ public class n implements TTNativeAd.AdInteractionListener {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view, tTNativeAd) == null) {
             LogPrinter.d();
-            this.f28200f.onAdClicked(this.f28196b);
-            this.f28196b = true;
-            FunAdInteractionListener funAdInteractionListener = this.f28197c;
+            this.f28228f.onAdClicked(this.f28224b);
+            this.f28224b = true;
+            FunAdInteractionListener funAdInteractionListener = this.f28225c;
             if (funAdInteractionListener != null) {
-                String str = this.f28198d;
-                pid = this.f28200f.mPid;
+                String str = this.f28226d;
+                pid = this.f28228f.mPid;
                 String str2 = pid.ssp.type;
-                pid2 = this.f28200f.mPid;
+                pid2 = this.f28228f.mPid;
                 funAdInteractionListener.onAdClicked(str, str2, pid2.pid);
             }
         }
@@ -99,14 +99,14 @@ public class n implements TTNativeAd.AdInteractionListener {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, tTNativeAd) == null) {
             LogPrinter.d();
-            this.f28200f.onAdShow(this.f28199e, this.a);
+            this.f28228f.onAdShow(this.f28227e, this.a);
             this.a = true;
-            FunAdInteractionListener funAdInteractionListener = this.f28197c;
+            FunAdInteractionListener funAdInteractionListener = this.f28225c;
             if (funAdInteractionListener != null) {
-                String str = this.f28198d;
-                pid = this.f28200f.mPid;
+                String str = this.f28226d;
+                pid = this.f28228f.mPid;
                 String str2 = pid.ssp.type;
-                pid2 = this.f28200f.mPid;
+                pid2 = this.f28228f.mPid;
                 funAdInteractionListener.onAdShow(str, str2, pid2.pid);
             }
         }

@@ -23,7 +23,7 @@ import org.apache.commons.lang3.text.ExtendedMessageFormat;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.runtime.internal.Conversions;
 import org.aspectj.runtime.reflect.Factory;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class TrackRunBox extends AbstractFullBox {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TYPE = "trun";
@@ -52,7 +52,7 @@ public class TrackRunBox extends AbstractFullBox {
     public List<Entry> entries;
     public SampleFlags firstSampleFlags;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class Entry {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

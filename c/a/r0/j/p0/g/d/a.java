@@ -37,14 +37,14 @@ public class a extends c.a.r0.j.p0.g.b.a {
 
     /* renamed from: c.a.r0.j.p0.g.d.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public class View$OnClickListenerC0769a implements View.OnClickListener {
+    public class View$OnClickListenerC0778a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f11195e;
+        public final /* synthetic */ a f11337e;
 
-        public View$OnClickListenerC0769a(a aVar) {
+        public View$OnClickListenerC0778a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -59,17 +59,17 @@ public class a extends c.a.r0.j.p0.g.b.a {
                     return;
                 }
             }
-            this.f11195e = aVar;
+            this.f11337e = aVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                if (this.f11195e.f11186g != null) {
-                    this.f11195e.f11186g.c();
+                if (this.f11337e.f11328g != null) {
+                    this.f11337e.f11328g.c();
                 }
-                this.f11195e.B();
+                this.f11337e.B();
             }
         }
     }
@@ -102,8 +102,8 @@ public class a extends c.a.r0.j.p0.g.b.a {
         public void a(int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
-                if (this.a.f11186g != null) {
-                    this.a.f11186g.u(i2);
+                if (this.a.f11328g != null) {
+                    this.a.f11328g.u(i2);
                 }
                 this.a.y();
             }
@@ -116,7 +116,7 @@ public class a extends c.a.r0.j.p0.g.b.a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f11196e;
+        public final /* synthetic */ a f11338e;
 
         public c(a aVar) {
             Interceptable interceptable = $ic;
@@ -133,17 +133,17 @@ public class a extends c.a.r0.j.p0.g.b.a {
                     return;
                 }
             }
-            this.f11196e = aVar;
+            this.f11338e = aVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                if (this.f11196e.f11185f != null && this.f11196e.f11186g != null) {
-                    this.f11196e.f11186g.o();
+                if (this.f11338e.f11327f != null && this.f11338e.f11328g != null) {
+                    this.f11338e.f11328g.o();
                 }
-                this.f11196e.y();
+                this.f11338e.y();
             }
         }
     }
@@ -154,7 +154,7 @@ public class a extends c.a.r0.j.p0.g.b.a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f11197e;
+        public final /* synthetic */ a f11339e;
 
         public d(a aVar) {
             Interceptable interceptable = $ic;
@@ -171,14 +171,14 @@ public class a extends c.a.r0.j.p0.g.b.a {
                     return;
                 }
             }
-            this.f11197e = aVar;
+            this.f11339e = aVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f11197e.y();
+                this.f11339e.y();
             }
         }
     }
@@ -189,7 +189,7 @@ public class a extends c.a.r0.j.p0.g.b.a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f11198e;
+        public final /* synthetic */ a f11340e;
 
         public e(a aVar) {
             Interceptable interceptable = $ic;
@@ -206,19 +206,19 @@ public class a extends c.a.r0.j.p0.g.b.a {
                     return;
                 }
             }
-            this.f11198e = aVar;
+            this.f11340e = aVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.f11198e.r.getLayoutParams();
-                layoutParams.width = this.f11198e.p.getWidth();
-                int height = this.f11198e.p.getHeight();
+                LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.f11340e.r.getLayoutParams();
+                layoutParams.width = this.f11340e.p.getWidth();
+                int height = this.f11340e.p.getHeight();
                 layoutParams.height = height;
                 layoutParams.topMargin = -height;
-                this.f11198e.r.setVisibility(0);
+                this.f11340e.r.setVisibility(0);
             }
         }
     }
@@ -247,7 +247,7 @@ public class a extends c.a.r0.j.p0.g.b.a {
     public final void A(View view) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-            view.setOnClickListener(new View$OnClickListenerC0769a(this));
+            view.setOnClickListener(new View$OnClickListenerC0778a(this));
             this.t.setItemClickListener(new b(this));
             this.o.findViewById(c.a.r0.h.e.swangame_recommend_dialog_game_center).setOnClickListener(new c(this));
             this.q.setOnClickListener(new d(this));
@@ -282,7 +282,7 @@ public class a extends c.a.r0.j.p0.g.b.a {
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             SwanAppActivity activity = f.U().getActivity();
             float min = Math.min(activity != null && activity.isLandScape() ? 2.5f : 5.0f, this.s.getAdapter().getItemCount());
-            Resources resources = this.f11184e.getResources();
+            Resources resources = this.f11326e.getResources();
             float dimension = resources.getDimension(c.a.r0.h.c.swangame_recommend_dialog_list_divider_height);
             float dimension2 = resources.getDimension(c.a.r0.h.c.swangame_recommend_dialog_list_default_padding);
             float dimension3 = resources.getDimension(c.a.r0.h.c.swangame_recommend_dialog_width);
@@ -310,7 +310,7 @@ public class a extends c.a.r0.j.p0.g.b.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
             View i2 = super.i();
-            View inflate = LayoutInflater.from(this.f11184e).inflate(c.a.r0.h.f.swangame_recommend_dialog, (ViewGroup) null);
+            View inflate = LayoutInflater.from(this.f11326e).inflate(c.a.r0.h.f.swangame_recommend_dialog, (ViewGroup) null);
             this.o = inflate;
             this.p = inflate.findViewById(c.a.r0.h.e.swangame_recommend_dialog_content);
             this.r = this.o.findViewById(c.a.r0.h.e.swangame_recommend_dialog_night_mask);
@@ -319,9 +319,9 @@ public class a extends c.a.r0.j.p0.g.b.a {
             RecyclerView recyclerView = (RecyclerView) this.o.findViewById(c.a.r0.h.e.swangame_recommend_dialog_list);
             this.s = recyclerView;
             recyclerView.setItemAnimator(null);
-            this.s.setLayoutManager(new LinearLayoutManager(this.f11184e));
-            this.s.addItemDecoration(new ListRecommendDivider(this.f11184e));
-            ListRecommendAdapter listRecommendAdapter = new ListRecommendAdapter(this.f11184e);
+            this.s.setLayoutManager(new LinearLayoutManager(this.f11326e));
+            this.s.addItemDecoration(new ListRecommendDivider(this.f11326e));
+            ListRecommendAdapter listRecommendAdapter = new ListRecommendAdapter(this.f11326e);
             this.t = listRecommendAdapter;
             this.s.setAdapter(listRecommendAdapter);
             A(i2);
@@ -342,7 +342,7 @@ public class a extends c.a.r0.j.p0.g.b.a {
     public final void z() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            SwanAppAlertDialog.a aVar = new SwanAppAlertDialog.a(this.f11184e);
+            SwanAppAlertDialog.a aVar = new SwanAppAlertDialog.a(this.f11326e);
             aVar.m(true);
             aVar.f(true);
             aVar.k(false);

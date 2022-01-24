@@ -38,11 +38,11 @@ public class d implements KsLoadManager {
         public final /* synthetic */ KsLoadManager.FeedAdListener a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ KsScene f56118b;
+        public final /* synthetic */ KsScene f56163b;
 
         public AnonymousClass5(KsLoadManager.FeedAdListener feedAdListener, KsScene ksScene) {
             this.a = feedAdListener;
-            this.f56118b = ksScene;
+            this.f56163b = ksScene;
         }
 
         @Override // com.kwad.sdk.core.request.d.a
@@ -58,18 +58,18 @@ public class d implements KsLoadManager {
 
         @Override // com.kwad.sdk.core.request.d.a
         public void a(@NonNull AdResultData adResultData) {
-            d.this.c(adResultData, this.f56118b.getPosId());
+            d.this.c(adResultData, this.f56163b.getPosId());
             final ArrayList arrayList = new ArrayList();
             String str = null;
             for (AdTemplate adTemplate : adResultData.adTemplateList) {
                 if (adTemplate != null) {
                     AdInfo j2 = com.kwad.sdk.core.response.a.d.j(adTemplate);
                     if (FeedType.checkTypeValid(adTemplate)) {
-                        KsScene ksScene = this.f56118b;
+                        KsScene ksScene = this.f56163b;
                         if (ksScene instanceof SceneImpl) {
                             adTemplate.mAdScene = (SceneImpl) ksScene;
                         }
-                        arrayList.add(new com.kwad.sdk.feed.b(adTemplate, this.f56118b.getWidth(), true));
+                        arrayList.add(new com.kwad.sdk.feed.b(adTemplate, this.f56163b.getWidth(), true));
                     } else {
                         str = String.format("(模板不匹配materialType:%s_feedType:%s)", Integer.valueOf(com.kwad.sdk.core.response.a.a.R(j2)), FeedType.fromInt(adTemplate.type));
                     }
@@ -86,8 +86,8 @@ public class d implements KsLoadManager {
                         }
                         final b.a aVar = new b.a(size);
                         for (KsFeedAd ksFeedAd : arrayList) {
-                            ((com.kwad.sdk.feed.b) ksFeedAd).a(new b.InterfaceC2126b() { // from class: com.kwad.sdk.core.request.d.5.2.1
-                                @Override // com.kwad.sdk.feed.b.InterfaceC2126b
+                            ((com.kwad.sdk.feed.b) ksFeedAd).a(new b.InterfaceC2132b() { // from class: com.kwad.sdk.core.request.d.5.2.1
+                                @Override // com.kwad.sdk.feed.b.InterfaceC2132b
                                 public void a() {
                                     if (aVar.a()) {
                                         AnonymousClass2 anonymousClass2 = AnonymousClass2.this;
@@ -100,8 +100,8 @@ public class d implements KsLoadManager {
                 });
                 return;
             }
-            int i2 = f.f55895e.n;
-            a(i2, f.f55895e.o + str);
+            int i2 = f.f55940e.n;
+            a(i2, f.f55940e.o + str);
         }
     }
 
@@ -210,7 +210,7 @@ public class d implements KsLoadManager {
                     return;
                 }
                 a aVar3 = aVar;
-                f fVar2 = f.f55895e;
+                f fVar2 = f.f55940e;
                 aVar3.a(fVar2.n, fVar2.o);
             }
         });
@@ -334,8 +334,8 @@ public class d implements KsLoadManager {
                     });
                     return;
                 }
-                int i2 = f.f55895e.n;
-                a(i2, f.f55895e.o + "(无视频资源)");
+                int i2 = f.f55940e.n;
+                a(i2, f.f55940e.o + "(无视频资源)");
             }
         }, a2);
     }
@@ -384,8 +384,8 @@ public class d implements KsLoadManager {
                     });
                     return;
                 }
-                int i2 = f.f55895e.n;
-                a(i2, f.f55895e.o + str);
+                int i2 = f.f55940e.n;
+                a(i2, f.f55940e.o + str);
             }
         }, true);
     }
@@ -464,12 +464,12 @@ public class d implements KsLoadManager {
                         });
                         return;
                     }
-                    f fVar = f.f55896f;
+                    f fVar = f.f55941f;
                     a(fVar.n, fVar.o);
                     return;
                 }
-                int i2 = f.f55895e.n;
-                a(i2, f.f55895e.o + "(无视频资源)");
+                int i2 = f.f55940e.n;
+                a(i2, f.f55940e.o + "(无视频资源)");
             }
         }, a2);
     }
@@ -537,7 +537,7 @@ public class d implements KsLoadManager {
                     });
                     return;
                 }
-                f fVar = f.f55895e;
+                f fVar = f.f55940e;
                 a(fVar.n, fVar.o);
             }
         }, a2);
@@ -589,7 +589,7 @@ public class d implements KsLoadManager {
                 public void run() {
                     com.kwad.sdk.core.d.a.e("AdRequestManager", "method parseJson params jsonResult is empty");
                     KsLoadManager.NativeAdListener nativeAdListener2 = nativeAdListener;
-                    f fVar = f.f55895e;
+                    f fVar = f.f55940e;
                     nativeAdListener2.onError(fVar.n, fVar.o);
                 }
             });
@@ -615,7 +615,7 @@ public class d implements KsLoadManager {
                     @Override // java.lang.Runnable
                     public void run() {
                         KsLoadManager.NativeAdListener nativeAdListener2 = nativeAdListener;
-                        f fVar = f.f55895e;
+                        f fVar = f.f55940e;
                         nativeAdListener2.onError(fVar.n, fVar.o);
                     }
                 };
@@ -636,7 +636,7 @@ public class d implements KsLoadManager {
             a(runnable);
         } catch (JSONException e2) {
             com.kwad.sdk.core.d.a.a(e2);
-            f fVar = f.f55894d;
+            f fVar = f.f55939d;
             nativeAdListener.onError(fVar.n, fVar.o);
         }
     }
@@ -708,11 +708,11 @@ public class d implements KsLoadManager {
                 }
                 if (!z) {
                     if (!z2) {
-                        int i2 = f.f55895e.n;
-                        a(i2, f.f55895e.o + "(无视频资源)");
+                        int i2 = f.f55940e.n;
+                        a(i2, f.f55940e.o + "(无视频资源)");
                         return;
                     } else if (!z3) {
-                        f fVar = f.f55896f;
+                        f fVar = f.f55941f;
                         a(fVar.n, fVar.o);
                         return;
                     }
@@ -749,7 +749,7 @@ public class d implements KsLoadManager {
                 bVar.a = true;
                 com.kwad.sdk.core.d.a.a("AdRequestManager", "loadSplashAd mTimeOutRunnable timeOut");
                 KsLoadManager.SplashScreenAdListener splashScreenAdListener2 = splashScreenAdListener;
-                f fVar = f.f55897g;
+                f fVar = f.f55942g;
                 splashScreenAdListener2.onError(fVar.n, fVar.o);
                 com.kwad.sdk.core.report.d.a(4);
             }
@@ -765,7 +765,7 @@ public class d implements KsLoadManager {
                         public void run() {
                             com.kwad.sdk.core.d.a.a("AdRequestManager", "loadSplashAd onError:" + String.format("code:%s__msg:%s", Integer.valueOf(i2), str));
                             splashScreenAdListener.onError(i2, str);
-                            if (i2 == f.f55898h.n) {
+                            if (i2 == f.f55943h.n) {
                                 com.kwad.sdk.core.report.d.a(0);
                             } else {
                                 com.kwad.sdk.core.report.d.a(3);
@@ -826,7 +826,7 @@ public class d implements KsLoadManager {
                             com.kwad.sdk.core.report.d.a(2);
                             return;
                         }
-                        f fVar = f.f55898h;
+                        f fVar = f.f55943h;
                         a(fVar.n, fVar.o);
                         return;
                     } else if (bVar.a) {
@@ -834,7 +834,7 @@ public class d implements KsLoadManager {
                         return;
                     } else {
                         d.a.removeCallbacks(runnable);
-                        a(f.f55896f.n, "请求成功，但缓存未命中");
+                        a(f.f55941f.n, "请求成功，但缓存未命中");
                         com.kwad.sdk.core.d.a.a("AdRequestManager", "loadSplashAd no cache returned");
                     }
                 } else if (bVar.a) {
@@ -842,7 +842,7 @@ public class d implements KsLoadManager {
                     return;
                 } else {
                     d.a.removeCallbacks(runnable);
-                    f fVar2 = f.f55895e;
+                    f fVar2 = f.f55940e;
                     a(fVar2.n, fVar2.o);
                 }
                 com.kwad.sdk.core.report.d.a(3);

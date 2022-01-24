@@ -6,46 +6,46 @@ import android.text.TextUtils;
 import com.baidu.searchbox.aperf.bosuploader.ContentUtil;
 import org.apache.commons.lang3.text.FormattableUtils;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class i extends a {
 
     /* renamed from: d  reason: collision with root package name */
-    public String f59707d;
+    public String f59752d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f59708e;
+    public String f59753e;
 
     public i(Context context, com.ss.android.socialbase.downloader.g.a aVar, String str, String str2, String str3) {
         super(context, aVar, str);
-        this.f59707d = str2;
-        this.f59708e = str3;
+        this.f59752d = str2;
+        this.f59753e = str3;
     }
 
     @Override // com.ss.android.socialbase.appdownloader.a.e
     public Intent b() {
         String str;
-        String c2 = this.f59704b.c("s");
-        String a = com.ss.android.socialbase.appdownloader.f.c.a(this.f59704b.c(ContentUtil.RESULT_KEY_AK), c2);
-        String a2 = com.ss.android.socialbase.appdownloader.f.c.a(this.f59704b.c("am"), c2);
-        String a3 = com.ss.android.socialbase.appdownloader.f.c.a(this.f59704b.c(com.alipay.sdk.sys.a.r), c2);
+        String c2 = this.f59749b.c("s");
+        String a = com.ss.android.socialbase.appdownloader.f.c.a(this.f59749b.c(ContentUtil.RESULT_KEY_AK), c2);
+        String a2 = com.ss.android.socialbase.appdownloader.f.c.a(this.f59749b.c("am"), c2);
+        String a3 = com.ss.android.socialbase.appdownloader.f.c.a(this.f59749b.c(com.alipay.sdk.sys.a.r), c2);
         String str2 = null;
         if (!TextUtils.isEmpty(a3) && a3.split(",").length == 2) {
             String[] split = a3.split(",");
-            String a4 = com.ss.android.socialbase.appdownloader.f.c.a(this.f59704b.c("al"), c2);
-            String a5 = com.ss.android.socialbase.appdownloader.f.c.a(this.f59704b.c("ao"), c2);
+            String a4 = com.ss.android.socialbase.appdownloader.f.c.a(this.f59749b.c("al"), c2);
+            String a5 = com.ss.android.socialbase.appdownloader.f.c.a(this.f59749b.c("ao"), c2);
             if (!TextUtils.isEmpty(a5) && a5.split(",").length == 2) {
                 String[] split2 = a5.split(",");
-                JSONObject d2 = this.f59704b.d("download_dir");
+                JSONObject d2 = this.f59749b.d("download_dir");
                 if (d2 != null) {
                     String optString = d2.optString("dir_name");
                     if (!TextUtils.isEmpty(optString) && optString.contains(FormattableUtils.SIMPLEST_FORMAT)) {
                         try {
-                            str = String.format(optString, this.f59708e);
+                            str = String.format(optString, this.f59753e);
                         } catch (Throwable unused) {
-                            str = this.f59708e;
+                            str = this.f59753e;
                         }
                     } else {
-                        str = this.f59708e;
+                        str = this.f59753e;
                     }
                     str2 = str;
                     if (str2.length() > 255) {
@@ -54,7 +54,7 @@ public class i extends a {
                 }
                 Intent intent = new Intent(a);
                 intent.putExtra(split2[0], split2[1]);
-                intent.putExtra(a2, this.f59707d);
+                intent.putExtra(a2, this.f59752d);
                 intent.putExtra(a4, str2);
                 intent.putExtra(split[0], Integer.parseInt(split[1]));
                 intent.addFlags(268468224);

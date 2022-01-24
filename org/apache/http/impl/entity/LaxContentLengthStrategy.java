@@ -9,7 +9,7 @@ import org.apache.http.HttpException;
 import org.apache.http.HttpMessage;
 import org.apache.http.entity.ContentLengthStrategy;
 @Deprecated
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class LaxContentLengthStrategy implements ContentLengthStrategy {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

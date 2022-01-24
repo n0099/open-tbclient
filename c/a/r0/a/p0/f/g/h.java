@@ -24,16 +24,16 @@ public class h extends z {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f8229e;
+        public final /* synthetic */ CallbackHandler f8371e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ UnitedSchemeEntity f8230f;
+        public final /* synthetic */ UnitedSchemeEntity f8372f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ JSONObject f8231g;
+        public final /* synthetic */ JSONObject f8373g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ Context f8232h;
+        public final /* synthetic */ Context f8374h;
 
         public a(h hVar, CallbackHandler callbackHandler, UnitedSchemeEntity unitedSchemeEntity, JSONObject jSONObject, Context context) {
             Interceptable interceptable = $ic;
@@ -50,10 +50,10 @@ public class h extends z {
                     return;
                 }
             }
-            this.f8229e = callbackHandler;
-            this.f8230f = unitedSchemeEntity;
-            this.f8231g = jSONObject;
-            this.f8232h = context;
+            this.f8371e = callbackHandler;
+            this.f8372f = unitedSchemeEntity;
+            this.f8373g = jSONObject;
+            this.f8374h = context;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -63,18 +63,18 @@ public class h extends z {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, iVar) == null) {
                 if (!c.a.r0.a.h2.c.d.h(iVar)) {
-                    c.a.r0.a.h2.c.d.p(iVar, this.f8229e, this.f8230f);
+                    c.a.r0.a.h2.c.d.p(iVar, this.f8371e, this.f8372f);
                     return;
                 }
-                if (c.a.r0.a.p0.f.a.b(this.f8231g.optInt("emitReplaceDependency"))) {
+                if (c.a.r0.a.p0.f.a.b(this.f8373g.optInt("emitReplaceDependency"))) {
                     if (c.a.r0.a.p0.f.b.l().isEmpty()) {
-                        Context context = this.f8232h;
+                        Context context = this.f8374h;
                         if (context == null) {
                             context = c.a.r0.a.c1.a.c();
                         }
                         String string = context.getResources().getString(c.a.r0.a.h.aiapps_debug_no_dependency);
                         c.a.r0.a.c2.b.f.e.g(context, string).G();
-                        this.f8230f.result = UnitedSchemeUtility.wrapCallbackParams(1001, string);
+                        this.f8372f.result = UnitedSchemeUtility.wrapCallbackParams(1001, string);
                         return;
                     }
                     c.a.r0.a.p0.f.b.n(true);
@@ -82,7 +82,7 @@ public class h extends z {
                     c.a.r0.a.p0.f.b.n(false);
                     c.a.r0.a.p0.f.b.c();
                 }
-                UnitedSchemeUtility.callCallback(this.f8229e, this.f8230f, UnitedSchemeUtility.wrapCallbackParams(0));
+                UnitedSchemeUtility.callCallback(this.f8371e, this.f8372f, UnitedSchemeUtility.wrapCallbackParams(0));
                 c.a.r0.a.x1.a.a.Z();
             }
         }

@@ -26,22 +26,22 @@ public class n implements a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public AndroidLiveWallpaperService f27042e;
+    public AndroidLiveWallpaperService f27070e;
 
     /* renamed from: f  reason: collision with root package name */
-    public l f27043f;
+    public l f27071f;
 
     /* renamed from: g  reason: collision with root package name */
-    public m f27044g;
+    public m f27072g;
 
     /* renamed from: h  reason: collision with root package name */
-    public d f27045h;
+    public d f27073h;
 
     /* renamed from: i  reason: collision with root package name */
-    public h f27046i;
+    public h f27074i;
 
     /* renamed from: j  reason: collision with root package name */
-    public q f27047j;
+    public q f27075j;
     public c.b.b.c k;
     public boolean l;
     public final c.b.b.q.a<Runnable> m;
@@ -88,7 +88,7 @@ public class n implements a {
         this.o = new g0<>(c.b.b.h.class);
         this.p = 2;
         this.r = null;
-        this.f27042e = androidLiveWallpaperService;
+        this.f27070e = androidLiveWallpaperService;
     }
 
     public d a(Context context, b bVar) {
@@ -110,7 +110,7 @@ public class n implements a {
     public m c(Application application, Context context, Object obj, b bVar) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_SEND_USER_MSG, this, application, context, obj, bVar)) == null) ? new z(this, e(), this.f27043f.f27034e, bVar) : (m) invokeLLLL.objValue;
+        return (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_SEND_USER_MSG, this, application, context, obj, bVar)) == null) ? new z(this, e(), this.f27071f.f27062e, bVar) : (m) invokeLLLL.objValue;
     }
 
     public c.b.b.d d() {
@@ -131,7 +131,7 @@ public class n implements a {
     public AndroidLiveWallpaperService e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f27042e : (AndroidLiveWallpaperService) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f27070e : (AndroidLiveWallpaperService) invokeV.objValue;
     }
 
     @Override // com.badlogic.gdx.Application
@@ -158,17 +158,17 @@ public class n implements a {
                 if (cVar2 == null) {
                     cVar2 = new c.b.b.l.a.b0.a();
                 }
-                this.f27043f = new l(this, bVar, cVar2);
-                this.f27044g = c(this, e(), this.f27043f.f27034e, bVar);
-                this.f27045h = a(e(), bVar);
-                this.f27046i = b();
-                this.f27047j = new q(this, bVar);
+                this.f27071f = new l(this, bVar, cVar2);
+                this.f27072g = c(this, e(), this.f27071f.f27062e, bVar);
+                this.f27073h = a(e(), bVar);
+                this.f27074i = b();
+                this.f27075j = new q(this, bVar);
                 this.k = cVar;
                 new e(e());
                 c.b.b.f.a = this;
-                c.b.b.f.f26937c = this.f27045h;
-                c.b.b.f.f26938d = this.f27046i;
-                c.b.b.f.f26936b = this.f27043f;
+                c.b.b.f.f26965c = this.f27073h;
+                c.b.b.f.f26966d = this.f27074i;
+                c.b.b.f.f26964b = this.f27071f;
                 return;
             }
             throw new GdxRuntimeException("LibGDX requires Android API Level 14 or later.");
@@ -196,7 +196,7 @@ public class n implements a {
     public Context getContext() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.f27042e : (Context) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.f27070e : (Context) invokeV.objValue;
     }
 
     @Override // c.b.b.l.a.a
@@ -210,7 +210,7 @@ public class n implements a {
     public Graphics getGraphics() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.f27043f : (Graphics) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.f27071f : (Graphics) invokeV.objValue;
     }
 
     @Override // c.b.b.l.a.a
@@ -227,7 +227,7 @@ public class n implements a {
     public m getInput() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? this.f27044g : (m) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? this.f27072g : (m) invokeV.objValue;
     }
 
     @Override // c.b.b.l.a.a
@@ -255,17 +255,17 @@ public class n implements a {
     public WindowManager getWindowManager() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) ? this.f27042e.getWindowManager() : (WindowManager) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) ? this.f27070e.getWindowManager() : (WindowManager) invokeV.objValue;
     }
 
     public void h() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048597, this) == null) {
-            l lVar = this.f27043f;
+            l lVar = this.f27071f;
             if (lVar != null) {
                 lVar.z();
             }
-            d dVar = this.f27045h;
+            d dVar = this.f27073h;
             if (dVar != null) {
                 dVar.dispose();
             }
@@ -276,9 +276,9 @@ public class n implements a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048598, this) == null) {
             boolean z = AndroidLiveWallpaperService.DEBUG;
-            this.f27045h.pause();
-            this.f27044g.onPause();
-            l lVar = this.f27043f;
+            this.f27073h.pause();
+            this.f27072g.onPause();
+            l lVar = this.f27071f;
             if (lVar != null) {
                 lVar.p();
             }
@@ -290,18 +290,18 @@ public class n implements a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048599, this) == null) {
             c.b.b.f.a = this;
-            m mVar = this.f27044g;
-            c.b.b.f.f26937c = this.f27045h;
-            c.b.b.f.f26938d = this.f27046i;
-            c.b.b.f.f26936b = this.f27043f;
+            m mVar = this.f27072g;
+            c.b.b.f.f26965c = this.f27073h;
+            c.b.b.f.f26966d = this.f27074i;
+            c.b.b.f.f26964b = this.f27071f;
             mVar.onResume();
-            l lVar = this.f27043f;
+            l lVar = this.f27071f;
             if (lVar != null) {
                 lVar.q();
             }
             if (!this.l) {
-                this.f27045h.resume();
-                this.f27043f.t();
+                this.f27073h.resume();
+                this.f27071f.t();
                 return;
             }
             this.l = false;
@@ -337,7 +337,7 @@ public class n implements a {
     public void startActivity(Intent intent) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048604, this, intent) == null) {
-            this.f27042e.startActivity(intent);
+            this.f27070e.startActivity(intent);
         }
     }
 

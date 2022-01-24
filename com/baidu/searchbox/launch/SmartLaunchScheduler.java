@@ -4,7 +4,6 @@ import android.os.Handler;
 import android.os.Looper;
 import android.os.MessageQueue;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.bdeventbus.BdEventBus;
 import com.baidu.searchbox.config.AppConfig;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -23,7 +22,7 @@ public class SmartLaunchScheduler {
     public static final String ADJUST_SCHEDULE_TAG = "adjustSchedule";
     public static final boolean DEBUG;
     public static final int DEFAULT_RECOVERY_SCHEDULE_DELAY_TIME = 30000;
-    public static String TAG = "SmartLaunchManager";
+    public static final String TAG = "SmartLaunchManager";
     public static SmartLaunchScheduler instance;
     public static String mInterruptedAndAdjustedStrategyBusiness;
     public static String mInterruptingBusiness;
@@ -86,7 +85,7 @@ public class SmartLaunchScheduler {
     public static SmartLaunchScheduler getInstance() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65550, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65549, null)) == null) {
             if (instance == null) {
                 instance = new SmartLaunchScheduler();
                 strategy = new ScheduleStrategy();
@@ -100,7 +99,7 @@ public class SmartLaunchScheduler {
     public Handler getMainHandler() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65551, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65550, this)) == null) {
             Handler handler = this.mMainHandler;
             if (handler != null) {
                 return handler;
@@ -114,22 +113,21 @@ public class SmartLaunchScheduler {
 
     private void init() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65552, this) == null) {
+        if (interceptable == null || interceptable.invokeV(65551, this) == null) {
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void release() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65553, this) == null) {
-            BdEventBus.Companion.getDefault().unregister(ADJUST_SCHEDULE_TAG);
+        if (interceptable == null || interceptable.invokeV(65552, this) == null) {
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void schedule(SmartLaunchTask smartLaunchTask, int i2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(65554, this, smartLaunchTask, i2) == null) || smartLaunchTask == null || smartLaunchTask.isExecuted()) {
+        if (!(interceptable == null || interceptable.invokeLI(65553, this, smartLaunchTask, i2) == null) || smartLaunchTask == null || smartLaunchTask.isExecuted()) {
             return;
         }
         if (i2 == 1) {
@@ -291,9 +289,7 @@ public class SmartLaunchScheduler {
                         InterceptResult invokeV;
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) {
-                            if (SmartLaunchScheduler.DEBUG) {
-                                String unused = SmartLaunchScheduler.TAG;
-                            }
+                            boolean unused = SmartLaunchScheduler.DEBUG;
                             SmartLaunchTask smartLaunchTask = (SmartLaunchTask) this.this$0.mIdleQueue.poll();
                             if (SmartLaunchStats.getIdleTaskStartTime() == -1) {
                                 SmartLaunchStats.setIdleTaskStartTime(System.currentTimeMillis());
@@ -320,9 +316,7 @@ public class SmartLaunchScheduler {
                             boolean unused2 = SmartLaunchScheduler.mIsScheduleEnd = true;
                             boolean unused3 = SmartLaunchScheduler.sIsIdleScheduling = false;
                             this.this$0.mRegisterTaskList.clear();
-                            if (SmartLaunchScheduler.DEBUG) {
-                                String unused4 = SmartLaunchScheduler.TAG;
-                            }
+                            boolean unused4 = SmartLaunchScheduler.DEBUG;
                             this.this$0.release();
                             return false;
                         }

@@ -26,7 +26,7 @@ public class h extends a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: j  reason: collision with root package name */
-    public static final int f12496j;
+    public static final int f12903j;
     public static final int k;
     public static final int l;
     public static final int m;
@@ -35,28 +35,28 @@ public class h extends a {
     public ImageView a;
 
     /* renamed from: b  reason: collision with root package name */
-    public TextView f12497b;
+    public TextView f12904b;
 
     /* renamed from: c  reason: collision with root package name */
-    public TextView f12498c;
+    public TextView f12905c;
 
     /* renamed from: d  reason: collision with root package name */
-    public TBSpecificationBtn f12499d;
+    public TBSpecificationBtn f12906d;
 
     /* renamed from: e  reason: collision with root package name */
-    public LinearLayout f12500e;
+    public LinearLayout f12907e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f12501f;
+    public int f12908f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f12502g;
+    public int f12909g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f12503h;
+    public int f12910h;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f12504i;
+    public boolean f12911i;
 
     static {
         InterceptResult invokeClinit;
@@ -71,7 +71,7 @@ public class h extends a {
                 return;
             }
         }
-        f12496j = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds312);
+        f12903j = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds312);
         k = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds84);
         l = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds62);
         m = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds32);
@@ -97,18 +97,18 @@ public class h extends a {
             }
         }
         this.a = (ImageView) this.attachedView.findViewById(R.id.net_refresh_image);
-        this.f12497b = (TextView) this.attachedView.findViewById(R.id.net_refresh_desc);
-        this.f12498c = (TextView) this.attachedView.findViewById(R.id.net_refresh_title);
-        this.f12500e = (LinearLayout) this.attachedView.findViewById(R.id.net_refresh_info_layout);
-        this.f12499d = (TBSpecificationBtn) this.attachedView.findViewById(R.id.net_refresh_button);
-        c.a.s0.s.j0.n.a aVar = new c.a.s0.s.j0.n.a();
-        this.f12499d.setText(context.getResources().getString(R.string.refresh_view_button_text));
-        this.f12499d.setTextSize(R.dimen.T_X05);
-        this.f12499d.setConfig(aVar);
-        this.f12501f = R.drawable.new_pic_emotion_08;
-        this.f12502g = R.color.CAM_X0107;
-        this.f12503h = R.color.CAM_X0109;
-        this.f12499d.setOnClickListener(onClickListener);
+        this.f12904b = (TextView) this.attachedView.findViewById(R.id.net_refresh_desc);
+        this.f12905c = (TextView) this.attachedView.findViewById(R.id.net_refresh_title);
+        this.f12907e = (LinearLayout) this.attachedView.findViewById(R.id.net_refresh_info_layout);
+        this.f12906d = (TBSpecificationBtn) this.attachedView.findViewById(R.id.net_refresh_button);
+        c.a.s0.s.k0.n.a aVar = new c.a.s0.s.k0.n.a();
+        this.f12906d.setText(context.getResources().getString(R.string.refresh_view_button_text));
+        this.f12906d.setTextSize(R.dimen.T_X05);
+        this.f12906d.setConfig(aVar);
+        this.f12908f = R.drawable.new_pic_emotion_08;
+        this.f12909g = R.color.CAM_X0107;
+        this.f12910h = R.color.CAM_X0109;
+        this.f12906d.setOnClickListener(onClickListener);
         this.attachedView.setOnClickListener(null);
         l(0);
     }
@@ -116,53 +116,53 @@ public class h extends a {
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            if (this.f12499d.getVisibility() == 0) {
-                ViewGroup.LayoutParams layoutParams = this.f12500e.getLayoutParams();
+            if (this.f12906d.getVisibility() == 0) {
+                ViewGroup.LayoutParams layoutParams = this.f12907e.getLayoutParams();
                 if (layoutParams instanceof ViewGroup.MarginLayoutParams) {
                     ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) layoutParams;
                     marginLayoutParams.topMargin = k;
-                    this.f12500e.setLayoutParams(marginLayoutParams);
+                    this.f12907e.setLayoutParams(marginLayoutParams);
                 }
-                if (!this.f12504i) {
-                    this.f12497b.setVisibility(8);
+                if (!this.f12911i) {
+                    this.f12904b.setVisibility(8);
                 }
-                this.f12502g = R.color.CAM_X0107;
-            } else if (this.f12497b.getVisibility() == 8) {
-                ViewGroup.LayoutParams layoutParams2 = this.f12500e.getLayoutParams();
+                this.f12909g = R.color.CAM_X0107;
+            } else if (this.f12904b.getVisibility() == 8) {
+                ViewGroup.LayoutParams layoutParams2 = this.f12907e.getLayoutParams();
                 if (layoutParams2 instanceof ViewGroup.MarginLayoutParams) {
                     ViewGroup.MarginLayoutParams marginLayoutParams2 = (ViewGroup.MarginLayoutParams) layoutParams2;
                     marginLayoutParams2.topMargin = k;
-                    this.f12500e.setLayoutParams(marginLayoutParams2);
+                    this.f12907e.setLayoutParams(marginLayoutParams2);
                 }
-                this.f12502g = R.color.CAM_X0107;
-            } else if (this.f12498c.getVisibility() == 0) {
-                ViewGroup.LayoutParams layoutParams3 = this.f12500e.getLayoutParams();
+                this.f12909g = R.color.CAM_X0107;
+            } else if (this.f12905c.getVisibility() == 0) {
+                ViewGroup.LayoutParams layoutParams3 = this.f12907e.getLayoutParams();
                 if (layoutParams3 instanceof ViewGroup.MarginLayoutParams) {
                     ViewGroup.MarginLayoutParams marginLayoutParams3 = (ViewGroup.MarginLayoutParams) layoutParams3;
                     marginLayoutParams3.topMargin = m;
-                    this.f12500e.setLayoutParams(marginLayoutParams3);
+                    this.f12907e.setLayoutParams(marginLayoutParams3);
                 }
-                ViewGroup.LayoutParams layoutParams4 = this.f12498c.getLayoutParams();
+                ViewGroup.LayoutParams layoutParams4 = this.f12905c.getLayoutParams();
                 if (layoutParams4 instanceof ViewGroup.MarginLayoutParams) {
                     ViewGroup.MarginLayoutParams marginLayoutParams4 = (ViewGroup.MarginLayoutParams) layoutParams4;
                     marginLayoutParams4.topMargin = n;
-                    this.f12498c.setLayoutParams(marginLayoutParams4);
+                    this.f12905c.setLayoutParams(marginLayoutParams4);
                 }
-                this.f12502g = R.color.CAM_X0107;
-                this.f12503h = R.color.CAM_X0109;
+                this.f12909g = R.color.CAM_X0107;
+                this.f12910h = R.color.CAM_X0109;
             } else {
                 ViewGroup.LayoutParams layoutParams5 = this.a.getLayoutParams();
-                int i2 = f12496j;
+                int i2 = f12903j;
                 layoutParams5.width = i2;
                 layoutParams5.height = i2;
                 this.a.setLayoutParams(layoutParams5);
-                ViewGroup.LayoutParams layoutParams6 = this.f12500e.getLayoutParams();
+                ViewGroup.LayoutParams layoutParams6 = this.f12907e.getLayoutParams();
                 if (layoutParams6 instanceof ViewGroup.MarginLayoutParams) {
                     ViewGroup.MarginLayoutParams marginLayoutParams5 = (ViewGroup.MarginLayoutParams) layoutParams6;
                     marginLayoutParams5.topMargin = l;
-                    this.f12500e.setLayoutParams(marginLayoutParams5);
+                    this.f12907e.setLayoutParams(marginLayoutParams5);
                 }
-                this.f12503h = R.color.CAM_X0109;
+                this.f12910h = R.color.CAM_X0109;
             }
             onChangeSkinType();
         }
@@ -177,21 +177,21 @@ public class h extends a {
     public View c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f12499d : (View) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f12906d : (View) invokeV.objValue;
     }
 
     public TextView d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f12498c : (TextView) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f12905c : (TextView) invokeV.objValue;
     }
 
     public void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.f12499d.setVisibility(8);
-            this.f12498c.setVisibility(8);
-            SkinManager.setViewTextColor(this.f12497b, R.color.CAM_X0109, 1);
+            this.f12906d.setVisibility(8);
+            this.f12905c.setVisibility(8);
+            SkinManager.setViewTextColor(this.f12904b, R.color.CAM_X0109, 1);
             a();
         }
     }
@@ -208,13 +208,13 @@ public class h extends a {
         if (!(interceptable == null || interceptable.invokeL(1048582, this, str) == null) || str == null) {
             return;
         }
-        this.f12499d.setText(str);
+        this.f12906d.setText(str);
     }
 
     public void h(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048583, this, i2) == null) {
-            this.f12501f = i2;
+            this.f12908f = i2;
             SkinManager.setImageResource(this.a, i2);
         }
     }
@@ -222,14 +222,14 @@ public class h extends a {
     public void i(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2) == null) {
-            this.f12501f = i2;
+            this.f12908f = i2;
         }
     }
 
     public void j(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
-            this.f12504i = z;
+            this.f12911i = z;
         }
     }
 
@@ -266,10 +266,10 @@ public class h extends a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048588, this, str) == null) {
             if (str == null) {
-                this.f12497b.setVisibility(8);
+                this.f12904b.setVisibility(8);
             } else {
-                this.f12497b.setVisibility(0);
-                this.f12497b.setText(str);
+                this.f12904b.setVisibility(0);
+                this.f12904b.setText(str);
             }
             a();
         }
@@ -280,7 +280,7 @@ public class h extends a {
         if (!(interceptable == null || interceptable.invokeL(1048589, this, str) == null) || str == null) {
             return;
         }
-        this.f12498c.setText(str);
+        this.f12905c.setText(str);
     }
 
     public void o(String str) {
@@ -288,8 +288,8 @@ public class h extends a {
         if (!(interceptable == null || interceptable.invokeL(1048590, this, str) == null) || str == null) {
             return;
         }
-        this.f12498c.setText(str);
-        this.f12498c.setVisibility(0);
+        this.f12905c.setText(str);
+        this.f12905c.setVisibility(0);
         a();
     }
 
@@ -297,10 +297,10 @@ public class h extends a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
             int skinType = TbadkCoreApplication.getInst().getSkinType();
-            SkinManager.setImageResource(this.a, this.f12501f);
-            SkinManager.setViewTextColor(this.f12497b, this.f12503h, 1, skinType);
-            SkinManager.setViewTextColor(this.f12498c, this.f12502g, 1, skinType);
-            TBSpecificationBtn tBSpecificationBtn = this.f12499d;
+            SkinManager.setImageResource(this.a, this.f12908f);
+            SkinManager.setViewTextColor(this.f12904b, this.f12910h, 1, skinType);
+            SkinManager.setViewTextColor(this.f12905c, this.f12909g, 1, skinType);
+            TBSpecificationBtn tBSpecificationBtn = this.f12906d;
             if (tBSpecificationBtn != null) {
                 tBSpecificationBtn.changeSkinType();
             }
@@ -328,9 +328,9 @@ public class h extends a {
     public void p() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048594, this) == null) {
-            this.f12499d.setVisibility(0);
-            this.f12498c.setVisibility(0);
-            SkinManager.setViewTextColor(this.f12497b, R.color.CAM_X0109, 1);
+            this.f12906d.setVisibility(0);
+            this.f12905c.setVisibility(0);
+            SkinManager.setViewTextColor(this.f12904b, R.color.CAM_X0109, 1);
             a();
         }
     }

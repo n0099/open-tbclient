@@ -18,37 +18,37 @@ import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes7.dex */
 public final class a {
     public static /* synthetic */ Interceptable $ic = null;
-    public static final C1200a x;
+    public static final C1208a x;
     public static int y = 52428800;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f19174b;
+    public long f19437b;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f19175c;
+    public long f19438c;
 
     /* renamed from: d  reason: collision with root package name */
-    public long f19176d;
+    public long f19439d;
 
     /* renamed from: e  reason: collision with root package name */
-    public float f19177e;
+    public float f19440e;
 
     /* renamed from: f  reason: collision with root package name */
-    public float f19178f;
+    public float f19441f;
 
     /* renamed from: g  reason: collision with root package name */
-    public float f19179g;
+    public float f19442g;
 
     /* renamed from: h  reason: collision with root package name */
-    public float f19180h;
+    public float f19443h;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f19181i;
+    public boolean f19444i;
 
     /* renamed from: j  reason: collision with root package name */
-    public int f19182j;
+    public int f19445j;
     public boolean k;
     public boolean l;
     public int m;
@@ -65,11 +65,11 @@ public final class a {
 
     /* renamed from: c.a.t0.m0.a$a  reason: collision with other inner class name */
     /* loaded from: classes7.dex */
-    public static final class C1200a {
+    public static final class C1208a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        public C1200a() {
+        public C1208a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -83,7 +83,7 @@ public final class a {
             }
         }
 
-        public /* synthetic */ C1200a(DefaultConstructorMarker defaultConstructorMarker) {
+        public /* synthetic */ C1208a(DefaultConstructorMarker defaultConstructorMarker) {
             this();
         }
 
@@ -114,7 +114,7 @@ public final class a {
                 return;
             }
         }
-        x = new C1200a(null);
+        x = new C1208a(null);
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -154,15 +154,15 @@ public final class a {
         Intrinsics.checkNotNullParameter(dataFilter, "dataFilter");
         Intrinsics.checkNotNullParameter(layoutFilter, "layoutFilter");
         this.a = i2;
-        this.f19174b = j2;
-        this.f19175c = j3;
-        this.f19176d = j4;
-        this.f19177e = f2;
-        this.f19178f = f3;
-        this.f19179g = f4;
-        this.f19180h = f5;
-        this.f19181i = z;
-        this.f19182j = i3;
+        this.f19437b = j2;
+        this.f19438c = j3;
+        this.f19439d = j4;
+        this.f19440e = f2;
+        this.f19441f = f3;
+        this.f19442g = f4;
+        this.f19443h = f5;
+        this.f19444i = z;
+        this.f19445j = i3;
         this.k = z2;
         this.l = z3;
         this.m = i4;
@@ -181,14 +181,14 @@ public final class a {
     public final void A(long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048576, this, j2) == null) {
-            this.f19176d = j2;
+            this.f19439d = j2;
         }
     }
 
     public final void B(float f2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeF(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, f2) == null) {
-            this.f19177e = f2;
+            this.f19440e = f2;
         }
     }
 
@@ -299,7 +299,7 @@ public final class a {
             }
             if (obj instanceof a) {
                 a aVar = (a) obj;
-                return this.a == aVar.a && this.f19174b == aVar.f19174b && this.f19175c == aVar.f19175c && this.f19176d == aVar.f19176d && Intrinsics.areEqual((Object) Float.valueOf(this.f19177e), (Object) Float.valueOf(aVar.f19177e)) && Intrinsics.areEqual((Object) Float.valueOf(this.f19178f), (Object) Float.valueOf(aVar.f19178f)) && Intrinsics.areEqual((Object) Float.valueOf(this.f19179g), (Object) Float.valueOf(aVar.f19179g)) && Intrinsics.areEqual((Object) Float.valueOf(this.f19180h), (Object) Float.valueOf(aVar.f19180h)) && this.f19181i == aVar.f19181i && this.f19182j == aVar.f19182j && this.k == aVar.k && this.l == aVar.l && this.m == aVar.m && this.n == aVar.n && this.o == aVar.o && this.p == aVar.p && this.q == aVar.q && this.r == aVar.r && this.s == aVar.s && this.t == aVar.t && Intrinsics.areEqual(this.u, aVar.u) && Intrinsics.areEqual(this.v, aVar.v);
+                return this.a == aVar.a && this.f19437b == aVar.f19437b && this.f19438c == aVar.f19438c && this.f19439d == aVar.f19439d && Intrinsics.areEqual((Object) Float.valueOf(this.f19440e), (Object) Float.valueOf(aVar.f19440e)) && Intrinsics.areEqual((Object) Float.valueOf(this.f19441f), (Object) Float.valueOf(aVar.f19441f)) && Intrinsics.areEqual((Object) Float.valueOf(this.f19442g), (Object) Float.valueOf(aVar.f19442g)) && Intrinsics.areEqual((Object) Float.valueOf(this.f19443h), (Object) Float.valueOf(aVar.f19443h)) && this.f19444i == aVar.f19444i && this.f19445j == aVar.f19445j && this.k == aVar.k && this.l == aVar.l && this.m == aVar.m && this.n == aVar.n && this.o == aVar.o && this.p == aVar.p && this.q == aVar.q && this.r == aVar.r && this.s == aVar.s && this.t == aVar.t && Intrinsics.areEqual(this.u, aVar.u) && Intrinsics.areEqual(this.v, aVar.v);
             }
             return false;
         }
@@ -309,13 +309,13 @@ public final class a {
     public final float f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.f19180h : invokeV.floatValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.f19443h : invokeV.floatValue;
     }
 
     public final boolean g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? this.f19181i : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? this.f19444i : invokeV.booleanValue;
     }
 
     public final int h() {
@@ -331,13 +331,13 @@ public final class a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
-            int a = ((((((((((((((this.a * 31) + defpackage.a.a(this.f19174b)) * 31) + defpackage.a.a(this.f19175c)) * 31) + defpackage.a.a(this.f19176d)) * 31) + Float.floatToIntBits(this.f19177e)) * 31) + Float.floatToIntBits(this.f19178f)) * 31) + Float.floatToIntBits(this.f19179g)) * 31) + Float.floatToIntBits(this.f19180h)) * 31;
-            boolean z = this.f19181i;
+            int a = ((((((((((((((this.a * 31) + defpackage.a.a(this.f19437b)) * 31) + defpackage.a.a(this.f19438c)) * 31) + defpackage.a.a(this.f19439d)) * 31) + Float.floatToIntBits(this.f19440e)) * 31) + Float.floatToIntBits(this.f19441f)) * 31) + Float.floatToIntBits(this.f19442g)) * 31) + Float.floatToIntBits(this.f19443h)) * 31;
+            boolean z = this.f19444i;
             int i2 = z;
             if (z != 0) {
                 i2 = 1;
             }
-            int i3 = (((a + i2) * 31) + this.f19182j) * 31;
+            int i3 = (((a + i2) * 31) + this.f19445j) * 31;
             boolean z2 = this.k;
             int i4 = z2;
             if (z2 != 0) {
@@ -360,13 +360,13 @@ public final class a {
     public final int j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) ? this.f19182j : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) ? this.f19445j : invokeV.intValue;
     }
 
     public final long k() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) ? this.f19175c : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) ? this.f19438c : invokeV.longValue;
     }
 
     public final int l() {
@@ -402,7 +402,7 @@ public final class a {
     public final long q() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) ? this.f19174b : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) ? this.f19437b : invokeV.longValue;
     }
 
     public final int r() {
@@ -420,14 +420,14 @@ public final class a {
     public final long t() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048605, this)) == null) ? this.f19176d : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048605, this)) == null) ? this.f19439d : invokeV.longValue;
     }
 
     public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048606, this)) == null) {
-            return "DanmakuConfig(retainerPolicy=" + this.a + ", preCacheTimeMs=" + this.f19174b + ", durationMs=" + this.f19175c + ", rollingDurationMs=" + this.f19176d + ", textSizeScale=" + this.f19177e + ", timeFactor=" + this.f19178f + ", screenPart=" + this.f19179g + ", alpha=" + this.f19180h + ", bold=" + this.f19181i + ", density=" + this.f19182j + ", visibility=" + this.k + ", allowOverlap=" + this.l + ", visibilityGeneration=" + this.m + ", layoutGeneration=" + this.n + ", cacheGeneration=" + this.o + ", measureGeneration=" + this.p + ", filterGeneration=" + this.q + ", retainerGeneration=" + this.r + ", renderGeneration=" + this.s + ", firstShownGeneration=" + this.t + ", dataFilter=" + this.u + ", layoutFilter=" + this.v + ')';
+            return "DanmakuConfig(retainerPolicy=" + this.a + ", preCacheTimeMs=" + this.f19437b + ", durationMs=" + this.f19438c + ", rollingDurationMs=" + this.f19439d + ", textSizeScale=" + this.f19440e + ", timeFactor=" + this.f19441f + ", screenPart=" + this.f19442g + ", alpha=" + this.f19443h + ", bold=" + this.f19444i + ", density=" + this.f19445j + ", visibility=" + this.k + ", allowOverlap=" + this.l + ", visibilityGeneration=" + this.m + ", layoutGeneration=" + this.n + ", cacheGeneration=" + this.o + ", measureGeneration=" + this.p + ", filterGeneration=" + this.q + ", retainerGeneration=" + this.r + ", renderGeneration=" + this.s + ", firstShownGeneration=" + this.t + ", dataFilter=" + this.u + ", layoutFilter=" + this.v + ')';
         }
         return (String) invokeV.objValue;
     }
@@ -435,13 +435,13 @@ public final class a {
     public final float u() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048607, this)) == null) ? this.f19179g : invokeV.floatValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048607, this)) == null) ? this.f19442g : invokeV.floatValue;
     }
 
     public final float v() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048608, this)) == null) ? this.f19177e : invokeV.floatValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048608, this)) == null) ? this.f19440e : invokeV.floatValue;
     }
 
     public final boolean w() {

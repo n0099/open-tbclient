@@ -24,13 +24,13 @@ public final class a implements c.i.b.a.h0.e {
     public final c.i.b.a.h0.e a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final byte[] f29275b;
+    public final byte[] f29303b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final byte[] f29276c;
+    public final byte[] f29304c;
 
     /* renamed from: d  reason: collision with root package name */
-    public CipherInputStream f29277d;
+    public CipherInputStream f29305d;
 
     public a(c.i.b.a.h0.e eVar, byte[] bArr, byte[] bArr2) {
         Interceptable interceptable = $ic;
@@ -48,8 +48,8 @@ public final class a implements c.i.b.a.h0.e {
             }
         }
         this.a = eVar;
-        this.f29275b = bArr;
-        this.f29276c = bArr2;
+        this.f29303b = bArr;
+        this.f29304c = bArr2;
     }
 
     @Override // c.i.b.a.h0.e
@@ -58,10 +58,10 @@ public final class a implements c.i.b.a.h0.e {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, gVar)) == null) {
             try {
-                Cipher cipher = Cipher.getInstance(i1.f55076c);
+                Cipher cipher = Cipher.getInstance(i1.f55121c);
                 try {
-                    cipher.init(2, new SecretKeySpec(this.f29275b, "AES"), new IvParameterSpec(this.f29276c));
-                    this.f29277d = new CipherInputStream(new c.i.b.a.h0.f(this.a, gVar), cipher);
+                    cipher.init(2, new SecretKeySpec(this.f29303b, "AES"), new IvParameterSpec(this.f29304c));
+                    this.f29305d = new CipherInputStream(new c.i.b.a.h0.f(this.a, gVar), cipher);
                     return -1L;
                 } catch (InvalidAlgorithmParameterException | InvalidKeyException e2) {
                     throw new RuntimeException(e2);
@@ -77,7 +77,7 @@ public final class a implements c.i.b.a.h0.e {
     public void close() throws IOException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f29277d = null;
+            this.f29305d = null;
             this.a.close();
         }
     }
@@ -94,8 +94,8 @@ public final class a implements c.i.b.a.h0.e {
         InterceptResult invokeLII;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLII = interceptable.invokeLII(1048579, this, bArr, i2, i3)) == null) {
-            c.i.b.a.i0.a.f(this.f29277d != null);
-            int read = this.f29277d.read(bArr, i2, i3);
+            c.i.b.a.i0.a.f(this.f29305d != null);
+            int read = this.f29305d.read(bArr, i2, i3);
             if (read < 0) {
                 return -1;
             }

@@ -32,25 +32,25 @@ public class h {
     public Context a;
 
     /* renamed from: b  reason: collision with root package name */
-    public VlogEditManager f18557b;
+    public VlogEditManager f18538b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f18558c;
+    public int f18539c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f18559d;
+    public int f18540d;
 
     /* renamed from: e  reason: collision with root package name */
-    public TextWordsEntity.TextStyleEntity f18560e;
+    public TextWordsEntity.TextStyleEntity f18541e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextWordsEntity.TextFontEntity f18561f;
+    public TextWordsEntity.TextFontEntity f18542f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f18562g;
+    public int f18543g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f18563h;
+    public String f18544h;
 
     public h(Context context, VlogEditManager vlogEditManager) {
         Interceptable interceptable = $ic;
@@ -67,10 +67,10 @@ public class h {
                 return;
             }
         }
-        this.f18562g = -1;
-        this.f18563h = "";
+        this.f18543g = -1;
+        this.f18544h = "";
         this.a = context;
-        this.f18557b = vlogEditManager;
+        this.f18538b = vlogEditManager;
     }
 
     public void a(int i2, String str, MultiMediaData multiMediaData, TextWordsEntity.TextStyleEntity textStyleEntity, TextWordsEntity.TextFontEntity textFontEntity) {
@@ -83,7 +83,7 @@ public class h {
         if (108 == i2 && TextUtils.isEmpty(str)) {
             multiMediaData.setExt("text", t.l(R.string.ugc_capture_text_words_hint));
         }
-        if (this.f18562g != -1 && !TextUtils.isEmpty(str)) {
+        if (this.f18543g != -1 && !TextUtils.isEmpty(str)) {
             multiMediaData.setExt("text", str);
         }
         if (textStyleEntity != null) {
@@ -94,7 +94,7 @@ public class h {
                 if (!TextUtils.isEmpty(ext)) {
                     textStyleEntity2 = TextWordsEntity.TextStyleEntity.parse(new JSONObject(ext));
                 } else {
-                    textStyleEntity2 = this.f18560e;
+                    textStyleEntity2 = this.f18541e;
                 }
                 textStyleEntity = textStyleEntity2;
             } catch (JSONException e2) {
@@ -109,7 +109,7 @@ public class h {
                 if (!TextUtils.isEmpty(ext2)) {
                     textFontEntity2 = TextWordsEntity.TextFontEntity.parse(new JSONObject(ext2));
                 } else {
-                    textFontEntity2 = this.f18561f;
+                    textFontEntity2 = this.f18542f;
                 }
                 textFontEntity = textFontEntity2;
             } catch (JSONException e3) {
@@ -130,27 +130,27 @@ public class h {
         multiMediaData.width = h2.getWidth();
         int height = h2.getHeight();
         multiMediaData.height = height;
-        if (this.f18562g == -1) {
+        if (this.f18543g == -1) {
             multiMediaData.scaleType = "adaptive";
             multiMediaData.type = 0;
-            multiMediaData.start = this.f18557b.getCurrentPlayTime();
-            multiMediaData.end = this.f18557b.getCurrentPlayTime() + 3000;
-            multiMediaData.x = (this.f18558c - multiMediaData.width) / 2.0f;
-            multiMediaData.y = (this.f18559d - multiMediaData.height) / 2.0f;
-            if (TextUtils.equals(this.f18563h, "cover_sticker")) {
-                this.f18557b.addCoverStickerData(multiMediaData);
+            multiMediaData.start = this.f18538b.getCurrentPlayTime();
+            multiMediaData.end = this.f18538b.getCurrentPlayTime() + 3000;
+            multiMediaData.x = (this.f18539c - multiMediaData.width) / 2.0f;
+            multiMediaData.y = (this.f18540d - multiMediaData.height) / 2.0f;
+            if (TextUtils.equals(this.f18544h, "cover_sticker")) {
+                this.f18538b.addCoverStickerData(multiMediaData);
             } else {
-                this.f18557b.addStickerData(multiMediaData, this.f18563h);
+                this.f18538b.addStickerData(multiMediaData, this.f18544h);
             }
         } else {
             float f2 = multiMediaData.x + (i3 / 2.0f);
             float f3 = multiMediaData.y + (i4 / 2.0f);
             multiMediaData.x = f2 - (multiMediaData.width / 2.0f);
             multiMediaData.y = f3 - (height / 2.0f);
-            if (TextUtils.equals(this.f18563h, "cover_sticker")) {
-                this.f18557b.replaceCoverStickerData(multiMediaData);
+            if (TextUtils.equals(this.f18544h, "cover_sticker")) {
+                this.f18538b.replaceCoverStickerData(multiMediaData);
             } else {
-                this.f18557b.replaceStickerData(this.f18562g, multiMediaData, this.f18563h);
+                this.f18538b.replaceStickerData(this.f18543g, multiMediaData, this.f18544h);
             }
         }
         h2.recycle();
@@ -167,8 +167,8 @@ public class h {
     public void c(@NonNull List<MultiMediaData> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) {
-            this.f18557b.setUpEditLayer("cover_sticker");
-            this.f18557b.addCoverStickerDataList(list);
+            this.f18538b.setUpEditLayer("cover_sticker");
+            this.f18538b.addCoverStickerDataList(list);
             for (MultiMediaData multiMediaData : list) {
                 e(0);
                 a(116, null, multiMediaData, null, null);
@@ -195,36 +195,36 @@ public class h {
     public void e(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048580, this, i2) == null) {
-            this.f18562g = i2;
+            this.f18543g = i2;
         }
     }
 
     public void f(TextWordsEntity.TextFontEntity textFontEntity) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, textFontEntity) == null) {
-            this.f18561f = textFontEntity;
+            this.f18542f = textFontEntity;
         }
     }
 
     public void g(TextWordsEntity.TextStyleEntity textStyleEntity) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, textStyleEntity) == null) {
-            this.f18560e = textStyleEntity;
+            this.f18541e = textStyleEntity;
         }
     }
 
     public void h(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
-            this.f18563h = str;
+            this.f18544h = str;
         }
     }
 
     public void i(int i2, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2, i3) == null) {
-            this.f18558c = i2;
-            this.f18559d = i3;
+            this.f18539c = i2;
+            this.f18540d = i3;
         }
     }
 }

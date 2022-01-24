@@ -29,19 +29,19 @@ public class f {
         public long a;
 
         /* renamed from: b  reason: collision with root package name */
-        public ArrayList<C0159a> f3779b;
+        public ArrayList<C0168a> f3920b;
 
         /* renamed from: c.a.i0.b.f.f$a$a  reason: collision with other inner class name */
         /* loaded from: classes.dex */
-        public static class C0159a {
+        public static class C0168a {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public long a;
 
             /* renamed from: b  reason: collision with root package name */
-            public long f3780b;
+            public long f3921b;
 
-            public C0159a(long j2, long j3) {
+            public C0168a(long j2, long j3) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -57,13 +57,13 @@ public class f {
                     }
                 }
                 this.a = j2;
-                this.f3780b = j3;
+                this.f3921b = j3;
             }
 
             public boolean a(long j2) {
                 InterceptResult invokeJ;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeJ = interceptable.invokeJ(1048576, this, j2)) == null) ? j2 >= this.a && j2 <= this.f3780b : invokeJ.booleanValue;
+                return (interceptable == null || (invokeJ = interceptable.invokeJ(1048576, this, j2)) == null) ? j2 >= this.a && j2 <= this.f3921b : invokeJ.booleanValue;
             }
         }
 
@@ -82,7 +82,7 @@ public class f {
                     return;
                 }
             }
-            this.f3779b = new ArrayList<>();
+            this.f3920b = new ArrayList<>();
             this.a = jSONObject.optLong("expires", 0L);
             JSONArray optJSONArray = jSONObject.optJSONArray("schedule");
             if (optJSONArray == null || optJSONArray.length() <= 0) {
@@ -91,7 +91,7 @@ public class f {
             for (int i4 = 0; i4 < optJSONArray.length(); i4++) {
                 JSONObject optJSONObject = optJSONArray.optJSONObject(i4);
                 if (optJSONObject != null) {
-                    this.f3779b.add(new C0159a(optJSONObject.optLong("start", 0L), optJSONObject.optLong("end", 0L)));
+                    this.f3920b.add(new C0168a(optJSONObject.optLong("start", 0L), optJSONObject.optLong("end", 0L)));
                 }
             }
         }
@@ -123,12 +123,12 @@ public class f {
             InterceptResult invokeJ;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j2)) == null) {
-                if (c.a.c0.x.a.k(this.f3779b) == 0) {
+                if (c.a.c0.x.a.k(this.f3920b) == 0) {
                     return false;
                 }
-                Iterator<C0159a> it = this.f3779b.iterator();
+                Iterator<C0168a> it = this.f3920b.iterator();
                 while (it.hasNext()) {
-                    C0159a next = it.next();
+                    C0168a next = it.next();
                     if (next != null && next.a(j2)) {
                         return true;
                     }

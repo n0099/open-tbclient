@@ -16,31 +16,31 @@ public class b {
     public final int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f5446b;
+    public boolean f5588b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f5447c;
+    public boolean f5589c;
 
     /* renamed from: d  reason: collision with root package name */
-    public CharSequence f5448d;
+    public CharSequence f5590d;
 
     /* renamed from: e  reason: collision with root package name */
-    public Drawable f5449e;
+    public Drawable f5591e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f5450f;
+    public boolean f5592f;
 
     /* renamed from: g  reason: collision with root package name */
-    public long f5451g;
+    public long f5593g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f5452h;
+    public int f5594h;
 
     /* renamed from: i  reason: collision with root package name */
-    public a f5453i;
+    public a f5595i;
 
     /* renamed from: j  reason: collision with root package name */
-    public Context f5454j;
+    public Context f5596j;
 
     /* loaded from: classes.dex */
     public interface a {
@@ -62,35 +62,35 @@ public class b {
                 return;
             }
         }
-        this.f5446b = true;
-        this.f5447c = false;
-        this.f5450f = true;
-        this.f5451g = 0L;
-        this.f5452h = 0;
-        this.f5454j = context;
+        this.f5588b = true;
+        this.f5589c = false;
+        this.f5592f = true;
+        this.f5593g = 0L;
+        this.f5594h = 0;
+        this.f5596j = context;
         this.a = i2;
-        this.f5448d = charSequence;
-        this.f5449e = drawable;
+        this.f5590d = charSequence;
+        this.f5591e = drawable;
     }
 
     public long a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f5451g : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f5593g : invokeV.longValue;
     }
 
     public Drawable b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            Drawable drawable = this.f5449e;
+            Drawable drawable = this.f5591e;
             if (drawable != null) {
                 return drawable;
             }
-            if (this.f5452h != 0) {
-                Drawable drawable2 = this.f5454j.getResources().getDrawable(this.f5452h);
-                this.f5452h = 0;
-                this.f5449e = drawable2;
+            if (this.f5594h != 0) {
+                Drawable drawable2 = this.f5596j.getResources().getDrawable(this.f5594h);
+                this.f5594h = 0;
+                this.f5591e = drawable2;
                 return drawable2;
             }
             return null;
@@ -107,25 +107,25 @@ public class b {
     public a d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f5453i : (a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f5595i : (a) invokeV.objValue;
     }
 
     public CharSequence e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f5448d : (CharSequence) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f5590d : (CharSequence) invokeV.objValue;
     }
 
     public boolean f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f5450f : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f5592f : invokeV.booleanValue;
     }
 
     public boolean g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f5446b : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f5588b : invokeV.booleanValue;
     }
 
     public void h(c.a.r0.a.c2.b.e.a aVar) {
@@ -137,7 +137,7 @@ public class b {
     public void i(a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, aVar) == null) {
-            this.f5453i = aVar;
+            this.f5595i = aVar;
         }
     }
 }

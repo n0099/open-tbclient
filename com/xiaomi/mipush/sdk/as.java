@@ -31,23 +31,23 @@ public /* synthetic */ class as {
         } catch (NoSuchFieldError unused) {
         }
         try {
-            a[at.f60886b.ordinal()] = 2;
+            a[at.f60931b.ordinal()] = 2;
         } catch (NoSuchFieldError unused2) {
         }
         try {
-            a[at.f60887c.ordinal()] = 3;
+            a[at.f60932c.ordinal()] = 3;
         } catch (NoSuchFieldError unused3) {
         }
         try {
-            a[at.f60888d.ordinal()] = 4;
+            a[at.f60933d.ordinal()] = 4;
         } catch (NoSuchFieldError unused4) {
         }
         try {
-            a[at.f60889e.ordinal()] = 5;
+            a[at.f60934e.ordinal()] = 5;
         } catch (NoSuchFieldError unused5) {
         }
         try {
-            a[at.f60890f.ordinal()] = 6;
+            a[at.f60935f.ordinal()] = 6;
         } catch (NoSuchFieldError unused6) {
         }
     }

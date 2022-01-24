@@ -15,10 +15,10 @@ public class c {
     public PoiInfo a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f11391b;
+    public boolean f11533b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f11392c;
+    public boolean f11534c;
 
     public c(PoiInfo poiInfo, boolean z, boolean z2) {
         Interceptable interceptable = $ic;
@@ -39,8 +39,8 @@ public class c {
             this.a = new PoiInfo();
         }
         this.a = poiInfo;
-        this.f11391b = z;
-        this.f11392c = z2;
+        this.f11533b = z;
+        this.f11534c = z2;
     }
 
     public static List<c> a(List<PoiInfo> list) {

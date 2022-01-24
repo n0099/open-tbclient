@@ -25,13 +25,13 @@ public class d {
     public TbPageContext<?> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f15525b;
+    public int f15673b;
 
     /* renamed from: c  reason: collision with root package name */
-    public BdUniqueId f15526c;
+    public BdUniqueId f15674c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f15527d;
+    public int f15675d;
 
     public d(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
@@ -48,16 +48,16 @@ public class d {
                 return;
             }
         }
-        this.f15526c = null;
-        this.f15527d = -1;
+        this.f15674c = null;
+        this.f15675d = -1;
         this.a = tbPageContext;
-        this.f15526c = bdUniqueId;
+        this.f15674c = bdUniqueId;
     }
 
     public int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f15525b : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f15673b : invokeV.intValue;
     }
 
     public void b(DressItemData dressItemData) {
@@ -66,14 +66,14 @@ public class d {
             return;
         }
         PersonalBackgroundPreviewActivityConfig personalBackgroundPreviewActivityConfig = new PersonalBackgroundPreviewActivityConfig(this.a.getPageActivity(), dressItemData.getPropsId(), dressItemData.getInUse() ? 1 : 0);
-        personalBackgroundPreviewActivityConfig.setFrom(this.f15527d);
+        personalBackgroundPreviewActivityConfig.setFrom(this.f15675d);
         MessageManager.getInstance().sendMessage(new CustomMessage(2002001, personalBackgroundPreviewActivityConfig));
     }
 
     public void c(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
-            this.f15527d = i2;
+            this.f15675d = i2;
         }
     }
 
@@ -85,9 +85,9 @@ public class d {
                 return;
             }
             if (i2 == c.a.t0.c4.c.a) {
-                int i4 = this.f15527d;
+                int i4 = this.f15675d;
                 c.a.t0.c4.b.d(this.a, z ? 4 : 2, str, i3, i4 == 1 ? MemberPayStatistic.REFER_PAGE_PERSONALITY_BACKGROUND_TRY : i4 == 0 ? MemberPayStatistic.REFER_PAGE_ALL_BACKGROUND_TRY : "", MemberPayStatistic.CLICK_ZONE_BOTTOM_OPENDE_RENEWALFEE_BUTTON);
-            } else if (i2 == c.a.t0.c4.c.f15485b) {
+            } else if (i2 == c.a.t0.c4.c.f15633b) {
                 c.a.t0.c4.b.c(this.a, z ? 4 : 2, str, i3);
             }
         }
@@ -102,11 +102,11 @@ public class d {
             ViewHelper.skipToLoginActivity(this.a.getPageActivity());
             return;
         }
-        this.f15525b = dressItemData.getPropsId();
+        this.f15673b = dressItemData.getPropsId();
         BackgroundSetRequestMessage backgroundSetRequestMessage = new BackgroundSetRequestMessage();
         backgroundSetRequestMessage.setFromDetail(z);
-        backgroundSetRequestMessage.setRequestUniqueId(this.f15526c);
-        backgroundSetRequestMessage.setPropId(this.f15525b);
+        backgroundSetRequestMessage.setRequestUniqueId(this.f15674c);
+        backgroundSetRequestMessage.setPropId(this.f15673b);
         MessageManager.getInstance().sendMessage(backgroundSetRequestMessage);
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921004));
     }

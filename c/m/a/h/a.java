@@ -13,7 +13,7 @@ public final class a {
     public final float a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final float f30172b;
+    public final float f30200b;
 
     public a(float f2, float f3, float f4) {
         Interceptable interceptable = $ic;
@@ -31,7 +31,7 @@ public final class a {
             }
         }
         this.a = f2;
-        this.f30172b = f3;
+        this.f30200b = f3;
     }
 
     public final float a() {
@@ -43,6 +43,6 @@ public final class a {
     public final float b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f30172b : invokeV.floatValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f30200b : invokeV.floatValue;
     }
 }

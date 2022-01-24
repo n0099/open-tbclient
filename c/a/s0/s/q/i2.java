@@ -17,7 +17,7 @@ public class i2 {
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f13424b;
+    public String f13610b;
 
     public i2() {
         Interceptable interceptable = $ic;
@@ -33,7 +33,7 @@ public class i2 {
             }
         }
         this.a = 0;
-        this.f13424b = "";
+        this.f13610b = "";
     }
 
     public int a() {
@@ -45,7 +45,7 @@ public class i2 {
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f13424b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f13610b : (String) invokeV.objValue;
     }
 
     public void c(JSONObject jSONObject) {
@@ -56,7 +56,7 @@ public class i2 {
         try {
             this.a = jSONObject.optInt("is_lpost", 0);
             jSONObject.optInt(TiebaStatic.Params.TOPIC_TYPE, 0);
-            this.f13424b = jSONObject.optString("link", "");
+            this.f13610b = jSONObject.optString("link", "");
         } catch (Exception e2) {
             BdLog.e(e2.getMessage());
         }
@@ -69,6 +69,6 @@ public class i2 {
         }
         this.a = topic.is_lpost.intValue();
         topic.topic_type.intValue();
-        this.f13424b = topic.link;
+        this.f13610b = topic.link;
     }
 }

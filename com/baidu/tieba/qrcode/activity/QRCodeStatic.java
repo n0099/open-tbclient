@@ -5,7 +5,7 @@ import android.graphics.Bitmap;
 import android.net.Uri;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import c.a.t0.w3.j0.r;
+import c.a.t0.x3.j0.r;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
@@ -51,7 +51,7 @@ public class QRCodeStatic {
         public CustomResponsedMessage<Bitmap> run(CustomMessage<String> customMessage) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) ? new CustomResponsedMessage<>(2921388, c.a.t0.g3.b.b.b.b(customMessage.getData(), TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds247))) : (CustomResponsedMessage) invokeL.objValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) ? new CustomResponsedMessage<>(2921388, c.a.t0.h3.b.b.b.b(customMessage.getData(), TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds247))) : (CustomResponsedMessage) invokeL.objValue;
         }
     }
 
@@ -86,14 +86,14 @@ public class QRCodeStatic {
                 r data = customMessage.getData();
                 int i2 = data.a;
                 if (i2 == 0) {
-                    str = c.a.t0.g3.b.b.a.b(data.f24868c);
+                    str = c.a.t0.h3.b.b.a.b(data.f25127c);
                 } else if (i2 == 1) {
-                    str = c.a.t0.g3.b.b.a.c(data.f24869d);
+                    str = c.a.t0.h3.b.b.a.c(data.f25128d);
                 }
                 if (TextUtils.isEmpty(str)) {
-                    data.f24870e = "qr_none";
+                    data.f25129e = "qr_none";
                 } else {
-                    data.f24870e = str;
+                    data.f25129e = str;
                 }
                 return new CustomResponsedMessage<>(2921403, data);
             }

@@ -21,13 +21,13 @@ public class e extends BaseAdapter {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public List<List<DressItemData>> f15528e;
+    public List<List<DressItemData>> f15676e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TbPageContext<?> f15529f;
+    public TbPageContext<?> f15677f;
 
     /* renamed from: g  reason: collision with root package name */
-    public d f15530g;
+    public d f15678g;
 
     /* loaded from: classes7.dex */
     public class a {
@@ -36,13 +36,13 @@ public class e extends BaseAdapter {
         public View a;
 
         /* renamed from: b  reason: collision with root package name */
-        public BackgroundItemView f15531b;
+        public BackgroundItemView f15679b;
 
         /* renamed from: c  reason: collision with root package name */
-        public BackgroundItemView f15532c;
+        public BackgroundItemView f15680c;
 
         /* renamed from: d  reason: collision with root package name */
-        public BackgroundItemView f15533d;
+        public BackgroundItemView f15681d;
 
         public a(e eVar) {
             Interceptable interceptable = $ic;
@@ -76,8 +76,8 @@ public class e extends BaseAdapter {
                 return;
             }
         }
-        this.f15529f = tbPageContext;
-        this.f15530g = dVar;
+        this.f15677f = tbPageContext;
+        this.f15678g = dVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -87,11 +87,11 @@ public class e extends BaseAdapter {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) {
-            List<List<DressItemData>> list = this.f15528e;
-            if (list == null || list.size() <= 0 || i2 < 0 || i2 >= this.f15528e.size()) {
+            List<List<DressItemData>> list = this.f15676e;
+            if (list == null || list.size() <= 0 || i2 < 0 || i2 >= this.f15676e.size()) {
                 return null;
             }
-            return this.f15528e.get(i2);
+            return this.f15676e.get(i2);
         }
         return (List) invokeI.objValue;
     }
@@ -99,7 +99,7 @@ public class e extends BaseAdapter {
     public void b(List<List<DressItemData>> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
-            this.f15528e = list;
+            this.f15676e = list;
         }
     }
 
@@ -108,7 +108,7 @@ public class e extends BaseAdapter {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            List<List<DressItemData>> list = this.f15528e;
+            List<List<DressItemData>> list = this.f15676e;
             if (list != null) {
                 return list.size();
             }
@@ -137,12 +137,12 @@ public class e extends BaseAdapter {
             if (view != null) {
                 aVar = (a) view.getTag();
             } else {
-                view = LayoutInflater.from(this.f15529f.getPageActivity()).inflate(R.layout.background_row, viewGroup, false);
+                view = LayoutInflater.from(this.f15677f.getPageActivity()).inflate(R.layout.background_row, viewGroup, false);
                 aVar = new a(this);
                 aVar.a = view.findViewById(R.id.top_white_line);
-                aVar.f15531b = (BackgroundItemView) view.findViewById(R.id.bg_view1);
-                aVar.f15532c = (BackgroundItemView) view.findViewById(R.id.bg_view2);
-                aVar.f15533d = (BackgroundItemView) view.findViewById(R.id.bg_view3);
+                aVar.f15679b = (BackgroundItemView) view.findViewById(R.id.bg_view1);
+                aVar.f15680c = (BackgroundItemView) view.findViewById(R.id.bg_view2);
+                aVar.f15681d = (BackgroundItemView) view.findViewById(R.id.bg_view3);
                 view.setTag(aVar);
             }
             if (item != null) {
@@ -151,23 +151,23 @@ public class e extends BaseAdapter {
                 } else {
                     aVar.a.setVisibility(8);
                 }
-                aVar.f15531b.fillView(item.get(0));
-                aVar.f15531b.setController(this.f15530g);
+                aVar.f15679b.fillView(item.get(0));
+                aVar.f15679b.setController(this.f15678g);
                 if (item.size() > 2) {
-                    aVar.f15532c.fillView(item.get(1));
-                    aVar.f15533d.fillView(item.get(2));
-                    aVar.f15532c.setController(this.f15530g);
-                    aVar.f15533d.setController(this.f15530g);
+                    aVar.f15680c.fillView(item.get(1));
+                    aVar.f15681d.fillView(item.get(2));
+                    aVar.f15680c.setController(this.f15678g);
+                    aVar.f15681d.setController(this.f15678g);
                 } else if (item.size() > 1) {
-                    aVar.f15532c.fillView(item.get(1));
-                    aVar.f15532c.setController(this.f15530g);
-                    aVar.f15533d.hide();
+                    aVar.f15680c.fillView(item.get(1));
+                    aVar.f15680c.setController(this.f15678g);
+                    aVar.f15681d.hide();
                 } else {
-                    aVar.f15532c.hide();
-                    aVar.f15533d.hide();
+                    aVar.f15680c.hide();
+                    aVar.f15681d.hide();
                 }
             }
-            this.f15529f.getLayoutMode().j(view);
+            this.f15677f.getLayoutMode().j(view);
             return view;
         }
         return (View) invokeILL.objValue;

@@ -17,22 +17,22 @@ public class a extends BaseCardInfo {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public SdkLiveInfoData f14327e;
+    public SdkLiveInfoData f14467e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f14328f;
+    public boolean f14468f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f14329g;
+    public String f14469g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f14330h;
+    public String f14470h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f14331i;
+    public int f14471i;
 
     /* renamed from: j  reason: collision with root package name */
-    public boolean f14332j;
+    public boolean f14472j;
     public boolean k;
     public boolean l;
 
@@ -65,8 +65,8 @@ public class a extends BaseCardInfo {
                 return;
             }
         }
-        this.f14328f = false;
-        this.f14332j = false;
+        this.f14468f = false;
+        this.f14472j = false;
         this.k = false;
         this.l = false;
     }

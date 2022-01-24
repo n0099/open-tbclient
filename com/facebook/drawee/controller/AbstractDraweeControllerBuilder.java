@@ -28,7 +28,7 @@ import java.util.ArrayList;
 import java.util.Set;
 import java.util.concurrent.atomic.AtomicLong;
 import javax.annotation.Nullable;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public abstract class AbstractDraweeControllerBuilder<BUILDER extends AbstractDraweeControllerBuilder<BUILDER, REQUEST, IMAGE, INFO>, REQUEST, IMAGE, INFO> implements SimpleDraweeControllerBuilder {
     public static /* synthetic */ Interceptable $ic;
     public static final NullPointerException NO_REQUEST_EXCEPTION;
@@ -60,7 +60,7 @@ public abstract class AbstractDraweeControllerBuilder<BUILDER extends AbstractDr
     public boolean mTryCacheOnlyFirst;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class CacheLevel {
         public static final /* synthetic */ CacheLevel[] $VALUES;
         public static /* synthetic */ Interceptable $ic;

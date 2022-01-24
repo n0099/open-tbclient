@@ -17,7 +17,7 @@ public class c implements c.a.r0.a.z2.g1.c<HybridUbcFlow> {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final boolean f8326e;
+    public static final boolean f8468e;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes.dex */
@@ -27,10 +27,10 @@ public class c implements c.a.r0.a.z2.g1.c<HybridUbcFlow> {
         public final /* synthetic */ UbcFlowEvent a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ UbcFlowEvent f8327b;
+        public final /* synthetic */ UbcFlowEvent f8469b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ c f8328c;
+        public final /* synthetic */ c f8470c;
 
         public a(c cVar, UbcFlowEvent ubcFlowEvent, UbcFlowEvent ubcFlowEvent2) {
             Interceptable interceptable = $ic;
@@ -47,9 +47,9 @@ public class c implements c.a.r0.a.z2.g1.c<HybridUbcFlow> {
                     return;
                 }
             }
-            this.f8328c = cVar;
+            this.f8470c = cVar;
             this.a = ubcFlowEvent;
-            this.f8327b = ubcFlowEvent2;
+            this.f8469b = ubcFlowEvent2;
         }
 
         @Override // c.a.r0.a.p1.r.d.a
@@ -60,7 +60,7 @@ public class c implements c.a.r0.a.z2.g1.c<HybridUbcFlow> {
                 if (dVar == null) {
                     return false;
                 }
-                return this.f8328c.b(dVar, this.a, this.f8327b);
+                return this.f8470c.b(dVar, this.a, this.f8469b);
             }
             return invokeL.booleanValue;
         }
@@ -79,7 +79,7 @@ public class c implements c.a.r0.a.z2.g1.c<HybridUbcFlow> {
                 return;
             }
         }
-        f8326e = k.a;
+        f8468e = k.a;
     }
 
     public c() {
@@ -96,7 +96,7 @@ public class c implements c.a.r0.a.z2.g1.c<HybridUbcFlow> {
             }
         }
         b.f().g();
-        if (f8326e) {
+        if (f8468e) {
             String str = "MaUpdateReporter init - " + System.currentTimeMillis();
         }
     }
@@ -117,7 +117,7 @@ public class c implements c.a.r0.a.z2.g1.c<HybridUbcFlow> {
     public void onCallback(HybridUbcFlow hybridUbcFlow) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, hybridUbcFlow) == null) {
-            if (f8326e) {
+            if (f8468e) {
                 String str = "report: flow=" + hybridUbcFlow;
             }
             if (hybridUbcFlow == null) {
@@ -128,14 +128,14 @@ public class c implements c.a.r0.a.z2.g1.c<HybridUbcFlow> {
             if (g2 != null && g3 != null) {
                 b.f().h(new a(this, g2, g3));
                 b.f().a(hybridUbcFlow);
-                if (f8326e) {
+                if (f8468e) {
                     String str2 = "na_start ts - " + g2.g();
                     r0 = "fmp_end ts - " + g3.g();
                     return;
                 }
                 return;
             }
-            boolean z = f8326e;
+            boolean z = f8468e;
             b.f().c();
         }
     }

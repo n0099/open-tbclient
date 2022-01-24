@@ -13,7 +13,7 @@ public class e {
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f8600b;
+    public int f8742b;
     @V8JavascriptField
     public String errMsg;
     @V8JavascriptField
@@ -34,14 +34,14 @@ public class e {
         }
         this.a = 0;
         this.a = 0 + 1;
-        this.f8600b = 0;
+        this.f8742b = 0;
     }
 
     public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return "ReadDirCallBack" + this.f8600b;
+            return "ReadDirCallBack" + this.f8742b;
         }
         return (String) invokeV.objValue;
     }

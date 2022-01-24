@@ -1,6 +1,7 @@
 package com.baidu.mobstat.dxmpay;
 
 import android.annotation.SuppressLint;
+import com.baidu.searchbox.retrieve.file.util.AESUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -28,7 +29,7 @@ public final class m {
                     String[] strArr = r.a;
                     if (strArr.length > i3) {
                         SecretKeySpec secretKeySpec = new SecretKeySpec(strArr[i3].getBytes(), "AES");
-                        Cipher cipher = Cipher.getInstance("AES/ECB/PKCS5Padding");
+                        Cipher cipher = Cipher.getInstance(AESUtil.ECB_TRANSFORMATION);
                         cipher.init(1, secretKeySpec);
                         return cipher.doFinal(bArr);
                     }
@@ -47,7 +48,7 @@ public final class m {
                     String[] strArr = r.a;
                     if (strArr.length > i3) {
                         SecretKeySpec secretKeySpec = new SecretKeySpec(strArr[i3].getBytes(), "AES");
-                        Cipher cipher = Cipher.getInstance("AES/ECB/PKCS5Padding");
+                        Cipher cipher = Cipher.getInstance(AESUtil.ECB_TRANSFORMATION);
                         cipher.init(2, secretKeySpec);
                         return cipher.doFinal(bArr);
                     }

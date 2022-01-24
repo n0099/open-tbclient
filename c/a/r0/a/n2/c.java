@@ -20,7 +20,7 @@ public class c {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ JSONObject f7875e;
+        public final /* synthetic */ JSONObject f8017e;
 
         public a(c cVar, JSONObject jSONObject) {
             Interceptable interceptable = $ic;
@@ -37,15 +37,15 @@ public class c {
                     return;
                 }
             }
-            this.f7875e = jSONObject;
+            this.f8017e = jSONObject;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                c.a.r0.a.n2.b.k("777", this.f7875e);
-                c.a.r0.a.e0.d.k("SwanAppBusinessUbc", this.f7875e.toString());
+                c.a.r0.a.n2.b.k("777", this.f8017e);
+                c.a.r0.a.e0.d.k("SwanAppBusinessUbc", this.f8017e.toString());
             }
         }
     }
@@ -57,25 +57,25 @@ public class c {
         public c a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f7876b;
+        public String f8018b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f7877c;
+        public String f8019c;
 
         /* renamed from: d  reason: collision with root package name */
-        public String f7878d;
+        public String f8020d;
 
         /* renamed from: e  reason: collision with root package name */
-        public String f7879e;
+        public String f8021e;
 
         /* renamed from: f  reason: collision with root package name */
-        public String f7880f;
+        public String f8022f;
 
         /* renamed from: g  reason: collision with root package name */
-        public String f7881g;
+        public String f8023g;
 
         /* renamed from: h  reason: collision with root package name */
-        public String f7882h;
+        public String f8024h;
 
         public b(int i2) {
             Interceptable interceptable = $ic;
@@ -93,15 +93,15 @@ public class c {
                 }
             }
             this.a = new c(null);
-            this.f7877c = String.valueOf(i2);
-            this.f7876b = "swan";
+            this.f8019c = String.valueOf(i2);
+            this.f8018b = "swan";
         }
 
         public b h(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-                this.f7881g = str;
+                this.f8023g = str;
                 return this;
             }
             return (b) invokeL.objValue;
@@ -111,7 +111,7 @@ public class c {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-                this.f7882h = str;
+                this.f8024h = str;
                 return this;
             }
             return (b) invokeL.objValue;
@@ -121,7 +121,7 @@ public class c {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-                this.f7880f = str;
+                this.f8022f = str;
                 return this;
             }
             return (b) invokeL.objValue;
@@ -131,7 +131,7 @@ public class c {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-                this.f7878d = str;
+                this.f8020d = str;
                 return this;
             }
             return (b) invokeL.objValue;
@@ -141,7 +141,7 @@ public class c {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
-                this.f7879e = str;
+                this.f8021e = str;
                 return this;
             }
             return (b) invokeL.objValue;
@@ -166,30 +166,30 @@ public class c {
         }
         JSONObject jSONObject = new JSONObject();
         try {
-            if (!TextUtils.isEmpty(bVar.f7876b)) {
-                jSONObject.put("from", bVar.f7876b);
+            if (!TextUtils.isEmpty(bVar.f8018b)) {
+                jSONObject.put("from", bVar.f8018b);
             }
-            if (!TextUtils.isEmpty(bVar.f7877c)) {
-                jSONObject.put("type", bVar.f7877c);
+            if (!TextUtils.isEmpty(bVar.f8019c)) {
+                jSONObject.put("type", bVar.f8019c);
             }
-            if (!TextUtils.isEmpty(bVar.f7879e)) {
-                jSONObject.put("value", bVar.f7879e);
+            if (!TextUtils.isEmpty(bVar.f8021e)) {
+                jSONObject.put("value", bVar.f8021e);
             }
-            if (!TextUtils.isEmpty(bVar.f7878d)) {
-                jSONObject.put("source", bVar.f7878d);
+            if (!TextUtils.isEmpty(bVar.f8020d)) {
+                jSONObject.put("source", bVar.f8020d);
             }
-            if (!TextUtils.isEmpty(bVar.f7880f)) {
-                jSONObject.put("page", bVar.f7880f);
+            if (!TextUtils.isEmpty(bVar.f8022f)) {
+                jSONObject.put("page", bVar.f8022f);
             }
-            boolean isEmpty = TextUtils.isEmpty(bVar.f7881g);
-            boolean isEmpty2 = TextUtils.isEmpty(bVar.f7882h);
+            boolean isEmpty = TextUtils.isEmpty(bVar.f8023g);
+            boolean isEmpty2 = TextUtils.isEmpty(bVar.f8024h);
             if (!isEmpty || !isEmpty2) {
                 JSONObject jSONObject2 = new JSONObject();
                 if (!isEmpty) {
-                    jSONObject2.put("appid", bVar.f7881g);
+                    jSONObject2.put("appid", bVar.f8023g);
                 }
                 if (!isEmpty2) {
-                    jSONObject2.put("info", bVar.f7882h);
+                    jSONObject2.put("info", bVar.f8024h);
                 }
                 jSONObject.put("ext", jSONObject2);
             }

@@ -2,7 +2,7 @@ package com.baidu.tieba.memberCenter.index;
 
 import c.a.d.f.d.l;
 import c.a.s0.s.r.a;
-import c.a.t0.f2.c.k.m;
+import c.a.t0.g2.c.k.m;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;

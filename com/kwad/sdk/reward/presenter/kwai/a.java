@@ -14,112 +14,112 @@ import java.util.List;
 public class a extends g {
 
     /* renamed from: b  reason: collision with root package name */
-    public AdTemplate f57504b;
+    public AdTemplate f57549b;
 
     /* renamed from: c  reason: collision with root package name */
-    public AdInfo f57505c;
+    public AdInfo f57550c;
 
     /* renamed from: d  reason: collision with root package name */
-    public List<Integer> f57506d;
+    public List<Integer> f57551d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final com.kwad.sdk.contentalliance.detail.kwai.kwai.a f57507e = new com.kwad.sdk.contentalliance.detail.kwai.kwai.a();
+    public final com.kwad.sdk.contentalliance.detail.kwai.kwai.a f57552e = new com.kwad.sdk.contentalliance.detail.kwai.kwai.a();
 
     /* renamed from: f  reason: collision with root package name */
-    public long f57508f = 0;
+    public long f57553f = 0;
 
     /* renamed from: g  reason: collision with root package name */
-    public Handler f57509g = new Handler(Looper.getMainLooper());
+    public Handler f57554g = new Handler(Looper.getMainLooper());
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f57510h = true;
+    public boolean f57555h = true;
 
     /* renamed from: i  reason: collision with root package name */
-    public volatile boolean f57511i = false;
+    public volatile boolean f57556i = false;
 
     /* renamed from: j  reason: collision with root package name */
-    public Runnable f57512j = new Runnable() { // from class: com.kwad.sdk.reward.presenter.kwai.a.1
+    public Runnable f57557j = new Runnable() { // from class: com.kwad.sdk.reward.presenter.kwai.a.1
         @Override // java.lang.Runnable
         public void run() {
-            if (a.this.f57507e.c()) {
-                long elapsedRealtime = SystemClock.elapsedRealtime() - a.this.f57507e.e();
-                int a = a.this.f57507e.d().a();
-                ((g) a.this).a.a(elapsedRealtime, a.this.f57507e.d().b(), a);
-            } else if (a.this.f57510h) {
+            if (a.this.f57552e.c()) {
+                long elapsedRealtime = SystemClock.elapsedRealtime() - a.this.f57552e.e();
+                int a = a.this.f57552e.d().a();
+                ((g) a.this).a.a(elapsedRealtime, a.this.f57552e.d().b(), a);
+            } else if (a.this.f57555h) {
                 ((g) a.this).a.a(5000L, 5000L, 1);
             }
-            d.c(a.this.f57504b);
+            d.c(a.this.f57549b);
         }
     };
     public com.kwad.sdk.contentalliance.detail.video.d k = new e() { // from class: com.kwad.sdk.reward.presenter.kwai.a.2
         @Override // com.kwad.sdk.contentalliance.detail.video.e, com.kwad.sdk.contentalliance.detail.video.d
         public void a(long j2, long j3) {
             a.this.a(j3);
-            a.this.f57508f = j3;
+            a.this.f57553f = j3;
         }
 
         @Override // com.kwad.sdk.contentalliance.detail.video.e, com.kwad.sdk.contentalliance.detail.video.d
         public void c() {
             super.c();
-            a.this.f57511i = false;
-            com.kwad.sdk.core.report.a.a(a.this.f57504b, ((g) a.this).a.f57205e);
-            com.kwad.sdk.core.report.a.g(a.this.f57504b, ((g) a.this).a.f57205e);
+            a.this.f57556i = false;
+            com.kwad.sdk.core.report.a.a(a.this.f57549b, ((g) a.this).a.f57250e);
+            com.kwad.sdk.core.report.a.g(a.this.f57549b, ((g) a.this).a.f57250e);
         }
 
         @Override // com.kwad.sdk.contentalliance.detail.video.e, com.kwad.sdk.contentalliance.detail.video.d
         public void d() {
             super.d();
-            a.this.f57507e.b();
-            a.this.f57510h = false;
-            if (a.this.f57511i) {
+            a.this.f57552e.b();
+            a.this.f57555h = false;
+            if (a.this.f57556i) {
                 return;
             }
-            a.this.f57511i = true;
-            d.a(a.this.f57504b, System.currentTimeMillis(), 1);
+            a.this.f57556i = true;
+            d.a(a.this.f57549b, System.currentTimeMillis(), 1);
         }
 
         @Override // com.kwad.sdk.contentalliance.detail.video.e, com.kwad.sdk.contentalliance.detail.video.d
         public void e() {
             super.e();
-            a.this.f57507e.b();
+            a.this.f57552e.b();
         }
 
         @Override // com.kwad.sdk.contentalliance.detail.video.e, com.kwad.sdk.contentalliance.detail.video.d
         public void f() {
             if (!((g) a.this).a.r || !((g) a.this).a.u) {
-                com.kwad.sdk.core.report.a.h(a.this.f57504b, ((g) a.this).a.f57205e);
+                com.kwad.sdk.core.report.a.h(a.this.f57549b, ((g) a.this).a.f57250e);
             }
-            a.this.f57507e.b();
+            a.this.f57552e.b();
         }
 
         @Override // com.kwad.sdk.contentalliance.detail.video.e, com.kwad.sdk.contentalliance.detail.video.d
         public void g() {
             super.g();
-            a.this.f57507e.a();
-            a.this.f57509g.removeCallbacks(a.this.f57512j);
-            a.this.f57509g.postDelayed(a.this.f57512j, 5000L);
+            a.this.f57552e.a();
+            a.this.f57554g.removeCallbacks(a.this.f57557j);
+            a.this.f57554g.postDelayed(a.this.f57557j, 5000L);
         }
 
         @Override // com.kwad.sdk.contentalliance.detail.video.e, com.kwad.sdk.contentalliance.detail.video.d
         public void h() {
             super.h();
-            a.this.f57507e.a();
-            a.this.f57509g.removeCallbacks(a.this.f57512j);
-            a.this.f57509g.postDelayed(a.this.f57512j, 5000L);
+            a.this.f57552e.a();
+            a.this.f57554g.removeCallbacks(a.this.f57557j);
+            a.this.f57554g.postDelayed(a.this.f57557j, 5000L);
         }
     };
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(long j2) {
         int ceil = (int) Math.ceil(((float) j2) / 1000.0f);
-        List<Integer> list = this.f57506d;
+        List<Integer> list = this.f57551d;
         if (list == null || list.isEmpty()) {
             return;
         }
-        for (Integer num : this.f57506d) {
+        for (Integer num : this.f57551d) {
             if (ceil >= num.intValue()) {
-                com.kwad.sdk.core.report.a.b(this.f57504b, ceil, ((g) this).a.f57205e);
-                this.f57506d.remove(num);
+                com.kwad.sdk.core.report.a.b(this.f57549b, ceil, ((g) this).a.f57250e);
+                this.f57551d.remove(num);
                 return;
             }
         }
@@ -128,21 +128,21 @@ public class a extends g {
     @Override // com.kwad.sdk.reward.g, com.kwad.sdk.mvp.Presenter
     public void a() {
         super.a();
-        AdTemplate adTemplate = ((g) this).a.f57207g;
-        this.f57504b = adTemplate;
+        AdTemplate adTemplate = ((g) this).a.f57252g;
+        this.f57549b = adTemplate;
         AdInfo j2 = com.kwad.sdk.core.response.a.d.j(adTemplate);
-        this.f57505c = j2;
-        this.f57506d = com.kwad.sdk.core.response.a.a.S(j2);
+        this.f57550c = j2;
+        this.f57551d = com.kwad.sdk.core.response.a.a.S(j2);
         ((g) this).a.k.a(this.k);
-        this.f57509g.postDelayed(this.f57512j, 5000L);
+        this.f57554g.postDelayed(this.f57557j, 5000L);
     }
 
     @Override // com.kwad.sdk.mvp.Presenter
     public void c() {
         super.c();
-        this.f57509g.removeCallbacksAndMessages(null);
+        this.f57554g.removeCallbacksAndMessages(null);
         ((g) this).a.k.b(this.k);
-        a.C2095a d2 = this.f57507e.d();
-        d.a(((g) this).a.f57207g, this.f57508f, d2.b(), d2.a());
+        a.C2101a d2 = this.f57552e.d();
+        d.a(((g) this).a.f57252g, this.f57553f, d2.b(), d2.a());
     }
 }

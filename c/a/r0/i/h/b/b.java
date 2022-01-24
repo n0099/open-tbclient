@@ -18,7 +18,7 @@ public class b extends c.a.r0.i.e.a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final boolean f10755c;
+    public static final boolean f10897c;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -34,7 +34,7 @@ public class b extends c.a.r0.i.e.a {
                 return;
             }
         }
-        f10755c = k.a;
+        f10897c = k.a;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -70,7 +70,7 @@ public class b extends c.a.r0.i.e.a {
                 bVar.onFail(202, "params may be error");
                 return null;
             }
-            if (f10755c) {
+            if (f10897c) {
                 String str = "params is " + jSONObject.toString();
             }
             String optString = jSONObject.optString("swanGameId");
@@ -87,7 +87,7 @@ public class b extends c.a.r0.i.e.a {
                     jSONObject3.put("swanGameDuration", j2);
                     jSONObject2.put("data", jSONObject3);
                 } catch (JSONException e2) {
-                    if (f10755c) {
+                    if (f10897c) {
                         e2.printStackTrace();
                     }
                 }

@@ -23,7 +23,7 @@ public class b {
     public BdUniqueId a;
 
     /* renamed from: b  reason: collision with root package name */
-    public c.a.d.c.g.a f12068b;
+    public c.a.d.c.g.a f12210b;
 
     /* loaded from: classes6.dex */
     public class a extends c.a.d.c.g.a {
@@ -68,8 +68,8 @@ public class b {
             if (aVar == null || !aVar.a) {
                 return;
             }
-            c.a.s0.s.h0.b.k().x(c.a.s0.s.h0.b.o("pref_key_last_request_mission"), System.currentTimeMillis());
-            c.a.s0.s.g0.a.e().i();
+            c.a.s0.s.i0.b.k().x(c.a.s0.s.i0.b.o("pref_key_last_request_mission"), System.currentTimeMillis());
+            c.a.s0.s.h0.a.e().i();
         }
     }
 
@@ -88,17 +88,17 @@ public class b {
                 return;
             }
         }
-        this.f12068b = new a(this, CmdConfigHttp.CMD_BACK_USER, 309689);
+        this.f12210b = new a(this, CmdConfigHttp.CMD_BACK_USER, 309689);
         this.a = bdUniqueId;
         c();
-        this.f12068b.setTag(this.a);
-        MessageManager.getInstance().registerListener(this.f12068b);
+        this.f12210b.setTag(this.a);
+        MessageManager.getInstance().registerListener(this.f12210b);
     }
 
     public final boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? !UtilHelper.isSameDay(c.a.s0.s.h0.b.k().m(c.a.s0.s.h0.b.o("pref_key_last_request_mission"), 0L), System.currentTimeMillis()) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? !UtilHelper.isSameDay(c.a.s0.s.i0.b.k().m(c.a.s0.s.i0.b.o("pref_key_last_request_mission"), 0L), System.currentTimeMillis()) : invokeV.booleanValue;
     }
 
     public BdUniqueId b() {
@@ -110,8 +110,8 @@ public class b {
     public final void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            c.a.t0.w3.f0.a.h(309689, BackUserSocketResMsg.class, false, false);
-            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_BACK_USER, c.a.t0.w3.f0.a.a(TbConfig.URL_BACK_USER, 309689));
+            c.a.t0.x3.f0.a.h(309689, BackUserSocketResMsg.class, false, false);
+            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_BACK_USER, c.a.t0.x3.f0.a.a(TbConfig.URL_BACK_USER, 309689));
             tbHttpMessageTask.setResponsedClass(BackUserHTTPResMsg.class);
             tbHttpMessageTask.setIsNeedAddCommenParam(true);
             MessageManager.getInstance().registerTask(tbHttpMessageTask);

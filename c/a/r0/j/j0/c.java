@@ -23,17 +23,17 @@ public class c extends EventTargetImpl {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final boolean f11039h;
+    public static final boolean f11181h;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public c.a.r0.a.l0.c f11040e;
+    public c.a.r0.a.l0.c f11182e;
 
     /* renamed from: f  reason: collision with root package name */
-    public c.a.r0.j.d.c.a f11041f;
+    public c.a.r0.j.d.c.a f11183f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f11042g;
+    public String f11184g;
 
     /* loaded from: classes6.dex */
     public class a implements b.a {
@@ -69,7 +69,7 @@ public class c extends EventTargetImpl {
                 aVar.totalBytesExpectedToWrite = j3;
                 JSEvent jSEvent = new JSEvent("progressupdate");
                 jSEvent.data = aVar;
-                if (c.f11039h) {
+                if (c.f11181h) {
                     String str = "progress :" + i2 + "totalBytesWritten :" + j2 + "totalBytesExpectedToWrite :" + j3;
                 }
                 this.a.dispatchEvent(jSEvent);
@@ -81,7 +81,7 @@ public class c extends EventTargetImpl {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
                 this.a.C(false);
-                e.j(this.a.f11042g, i2, "");
+                e.j(this.a.f11184g, i2, "");
             }
         }
 
@@ -90,7 +90,7 @@ public class c extends EventTargetImpl {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
                 c cVar = this.a;
-                this.a.C(cVar.D(cVar.f11042g));
+                this.a.C(cVar.D(cVar.f11184g));
             }
         }
     }
@@ -101,10 +101,10 @@ public class c extends EventTargetImpl {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ boolean f11043e;
+        public final /* synthetic */ boolean f11185e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ c f11044f;
+        public final /* synthetic */ c f11186f;
 
         public b(c cVar, boolean z) {
             Interceptable interceptable = $ic;
@@ -121,22 +121,22 @@ public class c extends EventTargetImpl {
                     return;
                 }
             }
-            this.f11044f = cVar;
-            this.f11043e = z;
+            this.f11186f = cVar;
+            this.f11185e = z;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (this.f11043e) {
-                    if (this.f11044f.f11041f != null) {
-                        this.f11044f.f11041f.c();
-                        boolean unused = c.f11039h;
+                if (this.f11185e) {
+                    if (this.f11186f.f11183f != null) {
+                        this.f11186f.f11183f.c();
+                        boolean unused = c.f11181h;
                     }
-                } else if (this.f11044f.f11041f != null) {
-                    this.f11044f.f11041f.a();
-                    boolean unused2 = c.f11039h;
+                } else if (this.f11186f.f11183f != null) {
+                    this.f11186f.f11183f.a();
+                    boolean unused2 = c.f11181h;
                 }
             }
         }
@@ -155,7 +155,7 @@ public class c extends EventTargetImpl {
                 return;
             }
         }
-        f11039h = k.a;
+        f11181h = k.a;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -176,13 +176,13 @@ public class c extends EventTargetImpl {
                 return;
             }
         }
-        this.f11040e = cVar;
+        this.f11182e = cVar;
     }
 
     public final void C(boolean z) {
         c.a.r0.a.l0.c cVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048576, this, z) == null) || (cVar = this.f11040e) == null) {
+        if (!(interceptable == null || interceptable.invokeZ(1048576, this, z) == null) || (cVar = this.f11182e) == null) {
             return;
         }
         cVar.runOnJSThread(new b(this, z));
@@ -192,7 +192,7 @@ public class c extends EventTargetImpl {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            if (this.f11040e == null) {
+            if (this.f11182e == null) {
                 return false;
             }
             String str2 = f.U().z() + c.a.r0.j.j0.a.b().c(str, 2);
@@ -200,7 +200,7 @@ public class c extends EventTargetImpl {
             if (TextUtils.isEmpty(str2) || TextUtils.isEmpty(c2)) {
                 return false;
             }
-            this.f11040e.c0(str2, c2);
+            this.f11182e.c0(str2, c2);
             return true;
         }
         return invokeL.booleanValue;
@@ -211,12 +211,12 @@ public class c extends EventTargetImpl {
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jsObject) == null) {
             G();
             F(jsObject);
-            if (TextUtils.isEmpty(this.f11042g)) {
-                boolean z = f11039h;
-                e.j(this.f11042g, 2111, "");
+            if (TextUtils.isEmpty(this.f11184g)) {
+                boolean z = f11181h;
+                e.j(this.f11184g, 2111, "");
                 return;
             }
-            c.a.r0.j.j0.b.a(this.f11042g, new a(this));
+            c.a.r0.j.j0.b.a(this.f11184g, new a(this));
         }
     }
 
@@ -226,14 +226,14 @@ public class c extends EventTargetImpl {
         if (!(interceptable == null || interceptable.invokeL(1048579, this, jsObject) == null) || jsObject == null || (F = c.a.r0.a.y.b.a.F(jsObject)) == null) {
             return;
         }
-        this.f11041f = c.a.r0.j.d.c.a.e(F);
+        this.f11183f = c.a.r0.j.d.c.a.e(F);
         try {
-            this.f11042g = F.g("name");
+            this.f11184g = F.g("name");
         } catch (JSTypeMismatchException e2) {
-            if (f11039h) {
+            if (f11181h) {
                 e2.printStackTrace();
             }
-            c.a.r0.j.n0.c.d(this.f11040e, e2);
+            c.a.r0.j.n0.c.d(this.f11182e, e2);
             G();
         }
     }
@@ -241,8 +241,8 @@ public class c extends EventTargetImpl {
     public final void G() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.f11041f = null;
-            this.f11042g = null;
+            this.f11183f = null;
+            this.f11184g = null;
         }
     }
 }

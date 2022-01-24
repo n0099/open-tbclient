@@ -19,25 +19,25 @@ public class g2 {
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f13397b;
+    public String f13583b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f13398c;
+    public String f13584c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f13399d;
+    public int f13585d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f13400e;
+    public String f13586e;
 
     /* renamed from: f  reason: collision with root package name */
-    public long f13401f;
+    public long f13587f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f13402g;
+    public String f13588g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f13403h;
+    public String f13589h;
 
     public g2() {
         Interceptable interceptable = $ic;
@@ -56,25 +56,25 @@ public class g2 {
     public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f13402g : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f13588g : (String) invokeV.objValue;
     }
 
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f13398c : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f13584c : (String) invokeV.objValue;
     }
 
     public int c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f13399d : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f13585d : invokeV.intValue;
     }
 
     public long d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f13401f : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f13587f : invokeV.longValue;
     }
 
     public String e() {
@@ -86,19 +86,19 @@ public class g2 {
     public String f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f13403h : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f13589h : (String) invokeV.objValue;
     }
 
     public String g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f13397b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f13583b : (String) invokeV.objValue;
     }
 
     public String h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f13400e : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f13586e : (String) invokeV.objValue;
     }
 
     public void i(JSONObject jSONObject) {
@@ -109,13 +109,13 @@ public class g2 {
         try {
             this.a = jSONObject.optString(BigdayActivityConfig.IMG_URL);
             jSONObject.optString("game_link");
-            this.f13397b = jSONObject.optString("summary");
-            this.f13398c = jSONObject.optString("code_link");
-            this.f13399d = jSONObject.optInt("get_type", 1);
-            this.f13400e = jSONObject.optString("surplusgift");
-            this.f13401f = jSONObject.optLong("giftworth", 0L);
-            this.f13402g = jSONObject.optString("type_text");
-            this.f13403h = jSONObject.optString(SubtitleLog.TAG);
+            this.f13583b = jSONObject.optString("summary");
+            this.f13584c = jSONObject.optString("code_link");
+            this.f13585d = jSONObject.optInt("get_type", 1);
+            this.f13586e = jSONObject.optString("surplusgift");
+            this.f13587f = jSONObject.optLong("giftworth", 0L);
+            this.f13588g = jSONObject.optString("type_text");
+            this.f13589h = jSONObject.optString(SubtitleLog.TAG);
         } catch (Exception e2) {
             BdLog.e(e2.getMessage());
         }
@@ -128,16 +128,16 @@ public class g2 {
         }
         this.a = topCode.img_url;
         String str = topCode.game_link;
-        this.f13397b = topCode.summary;
-        this.f13398c = topCode.code_link;
-        this.f13399d = topCode.get_type.intValue();
-        this.f13400e = topCode.surplusgift;
+        this.f13583b = topCode.summary;
+        this.f13584c = topCode.code_link;
+        this.f13585d = topCode.get_type.intValue();
+        this.f13586e = topCode.surplusgift;
         if (topCode.giftworth.longValue() < 0) {
-            this.f13401f = 0L;
+            this.f13587f = 0L;
         } else {
-            this.f13401f = topCode.giftworth.longValue();
+            this.f13587f = topCode.giftworth.longValue();
         }
-        this.f13402g = topCode.type_text;
-        this.f13403h = topCode.subtitle;
+        this.f13588g = topCode.type_text;
+        this.f13589h = topCode.subtitle;
     }
 }

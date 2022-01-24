@@ -29,10 +29,10 @@ public class TitanDownloadService extends Service {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ f f31249e;
+        public final /* synthetic */ f f31277e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ TitanDownloadService f31250f;
+        public final /* synthetic */ TitanDownloadService f31278f;
 
         public a(TitanDownloadService titanDownloadService, f fVar) {
             Interceptable interceptable = $ic;
@@ -49,15 +49,15 @@ public class TitanDownloadService extends Service {
                     return;
                 }
             }
-            this.f31250f = titanDownloadService;
-            this.f31249e = fVar;
+            this.f31278f = titanDownloadService;
+            this.f31277e = fVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                i.f(this.f31250f.mContext, "com.baidu.titan.patch", this.f31249e);
+                i.f(this.f31278f.mContext, "com.baidu.titan.patch", this.f31277e);
             }
         }
     }
@@ -69,7 +69,7 @@ public class TitanDownloadService extends Service {
         public int a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ TitanDownloadService f31251b;
+        public final /* synthetic */ TitanDownloadService f31279b;
 
         public b(TitanDownloadService titanDownloadService, int i2) {
             Interceptable interceptable = $ic;
@@ -86,7 +86,7 @@ public class TitanDownloadService extends Service {
                     return;
                 }
             }
-            this.f31251b = titanDownloadService;
+            this.f31279b = titanDownloadService;
             this.a = i2;
         }
 
@@ -94,7 +94,7 @@ public class TitanDownloadService extends Service {
         public void a(String str, int i2, String str2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLIL(1048576, this, str, i2, str2) == null) {
-                this.f31251b.stopSelf(this.a);
+                this.f31279b.stopSelf(this.a);
             }
         }
     }

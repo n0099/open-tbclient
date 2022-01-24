@@ -38,8 +38,8 @@ public class InitAppSettingTask extends LaunchTask {
         }
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:22:0x005a  */
-    /* JADX WARN: Removed duplicated region for block: B:23:0x0063  */
+    /* JADX WARN: Removed duplicated region for block: B:22:0x0059  */
+    /* JADX WARN: Removed duplicated region for block: B:23:0x0062  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */

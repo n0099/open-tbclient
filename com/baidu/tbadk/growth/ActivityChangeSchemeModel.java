@@ -29,7 +29,7 @@ public class ActivityChangeSchemeModel extends BdBaseModel {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final HttpMessageListener f41016e;
+    public final HttpMessageListener f41044e;
 
     /* loaded from: classes11.dex */
     public class a extends HttpMessageListener {
@@ -83,7 +83,7 @@ public class ActivityChangeSchemeModel extends BdBaseModel {
                 } else if (!"MainTabActivity".equalsIgnoreCase(simpleName)) {
                     this.a.y();
                 } else {
-                    int a = c.a.s0.s.d0.b.a();
+                    int a = c.a.s0.s.e0.b.a();
                     if (a != 2) {
                         this.a.z(a);
                         return;
@@ -108,12 +108,12 @@ public class ActivityChangeSchemeModel extends BdBaseModel {
                 return;
             }
         }
-        this.f41016e = new a(this, CmdConfigHttp.CMD_SPLASH_CHANGE_SCHEME);
+        this.f41044e = new a(this, CmdConfigHttp.CMD_SPLASH_CHANGE_SCHEME);
         setUniqueId(BdUniqueId.gen());
         A();
-        this.f41016e.setTag(getUniqueId());
-        this.f41016e.setSelfListener(true);
-        registerListener(this.f41016e);
+        this.f41044e.setTag(getUniqueId());
+        this.f41044e.setSelfListener(true);
+        registerListener(this.f41044e);
     }
 
     public static void A() {

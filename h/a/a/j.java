@@ -41,31 +41,31 @@ public final class j {
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f61679b;
+    public int f61724b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final a f61680c;
+    public final a f61725c;
 
     /* renamed from: d  reason: collision with root package name */
-    public byte[] f61681d;
+    public byte[] f61726d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final int[] f61682e;
+    public final int[] f61727e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final int[] f61683f;
+    public final int[] f61728f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f61684g;
+    public int f61729g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f61685h;
+    public boolean f61730h;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f61686i;
+    public boolean f61731i;
 
     /* renamed from: j  reason: collision with root package name */
-    public boolean f61687j;
+    public boolean f61732j;
     public final g k;
     public final g l;
     public final g m;
@@ -97,9 +97,9 @@ public final class j {
             }
         }
         this.a = 0;
-        this.f61680c = new a();
-        this.f61682e = new int[3240];
-        this.f61683f = new int[3240];
+        this.f61725c = new a();
+        this.f61727e = new int[3240];
+        this.f61728f = new int[3240];
         this.k = new g();
         this.l = new g();
         this.m = new g();
@@ -129,7 +129,7 @@ public final class j {
                 return;
             }
             jVar.a = 11;
-            a.b(jVar.f61680c);
+            a.b(jVar.f61725c);
         }
     }
 
@@ -157,8 +157,8 @@ public final class j {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65539, null, jVar, inputStream) == null) {
             if (jVar.a == 0) {
-                a.e(jVar.f61680c, inputStream);
-                int b2 = b(jVar.f61680c);
+                a.e(jVar.f61725c, inputStream);
+                int b2 = b(jVar.f61725c);
                 if (b2 != 9) {
                     int i2 = 1 << b2;
                     jVar.P = i2;

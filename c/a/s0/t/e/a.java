@@ -29,17 +29,17 @@ public class a {
     public TbPageContext a;
 
     /* renamed from: b  reason: collision with root package name */
-    public b f13965b;
+    public b f14105b;
 
     /* renamed from: c  reason: collision with root package name */
-    public c.a.d.a.e f13966c;
+    public c.a.d.a.e f14106c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f13967d;
+    public boolean f14107d;
 
     /* renamed from: c.a.s0.t.e.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public static /* synthetic */ class C0891a {
+    public static /* synthetic */ class C0901a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
@@ -51,31 +51,31 @@ public class a {
         public NetWork a;
 
         /* renamed from: b  reason: collision with root package name */
-        public boolean f13968b;
+        public boolean f14108b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f13969c;
+        public String f14109c;
 
         /* renamed from: d  reason: collision with root package name */
-        public String f13970d;
+        public String f14110d;
 
         /* renamed from: e  reason: collision with root package name */
-        public boolean f13971e;
+        public boolean f14111e;
 
         /* renamed from: f  reason: collision with root package name */
-        public String f13972f;
+        public String f14112f;
 
         /* renamed from: g  reason: collision with root package name */
-        public BdUniqueId f13973g;
+        public BdUniqueId f14113g;
 
         /* renamed from: h  reason: collision with root package name */
-        public String f13974h;
+        public String f14114h;
 
         /* renamed from: i  reason: collision with root package name */
-        public String f13975i;
+        public String f14115i;
 
         /* renamed from: j  reason: collision with root package name */
-        public boolean f13976j;
+        public boolean f14116j;
         public String k;
         public String l;
         public final /* synthetic */ a m;
@@ -97,26 +97,26 @@ public class a {
             }
             this.m = aVar;
             this.a = null;
-            this.f13971e = false;
-            this.f13972f = "0";
-            this.f13974h = "0";
-            this.f13975i = null;
-            this.f13976j = false;
+            this.f14111e = false;
+            this.f14112f = "0";
+            this.f14114h = "0";
+            this.f14115i = null;
+            this.f14116j = false;
         }
 
         public void b(boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-                this.f13968b = z;
+                this.f14108b = z;
             }
         }
 
         public void c(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-                this.f13975i = str;
+                this.f14115i = str;
                 if (str != null) {
-                    this.f13976j = true;
+                    this.f14116j = true;
                 }
             }
         }
@@ -131,12 +131,12 @@ public class a {
                     netWork.cancelNetConnect();
                     this.a = null;
                 }
-                if (this.m.f13965b != null) {
-                    this.m.f13965b.cancel();
-                    this.m.f13965b = null;
+                if (this.m.f14105b != null) {
+                    this.m.f14105b.cancel();
+                    this.m.f14105b = null;
                 }
-                if (this.m.f13966c != null) {
-                    this.m.f13966c.c(Boolean.FALSE);
+                if (this.m.f14106c != null) {
+                    this.m.f14106c.c(Boolean.FALSE);
                 }
             }
         }
@@ -144,35 +144,35 @@ public class a {
         public void d(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-                this.f13972f = str;
+                this.f14112f = str;
             }
         }
 
         public void e(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
-                this.f13974h = str;
+                this.f14114h = str;
             }
         }
 
         public void f(boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
-                this.f13971e = z;
+                this.f14111e = z;
             }
         }
 
         public void g(BdUniqueId bdUniqueId) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, bdUniqueId) == null) {
-                this.f13973g = bdUniqueId;
+                this.f14113g = bdUniqueId;
             }
         }
 
         public void h(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048585, this, str) == null) {
-                this.f13969c = str;
+                this.f14109c = str;
             }
         }
 
@@ -186,7 +186,7 @@ public class a {
         public void j(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048587, this, str) == null) {
-                this.f13970d = str;
+                this.f14110d = str;
             }
         }
 
@@ -197,23 +197,23 @@ public class a {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, numArr)) == null) {
                 try {
-                    if (this.f13969c != null) {
+                    if (this.f14109c != null) {
                         NetWork netWork = new NetWork();
                         this.a = netWork;
-                        if (this.f13968b) {
+                        if (this.f14108b) {
                             netWork.setUrl(TbConfig.SERVER_ADDRESS + TbConfig.FOLLOW_ADDRESS);
                             this.a.setNeedSig(true);
                         } else {
                             netWork.setUrl(TbConfig.SERVER_ADDRESS + TbConfig.UNFOLLOW_ADDRESS);
                         }
-                        this.a.addPostData("portrait", this.f13969c);
-                        if (!StringUtils.isNull(this.f13972f)) {
-                            this.a.addPostData("from_type", this.f13972f);
+                        this.a.addPostData("portrait", this.f14109c);
+                        if (!StringUtils.isNull(this.f14112f)) {
+                            this.a.addPostData("from_type", this.f14112f);
                         }
-                        if (!StringUtils.isNull(this.f13975i)) {
-                            this.a.addPostData("forum_id", this.f13975i);
+                        if (!StringUtils.isNull(this.f14115i)) {
+                            this.a.addPostData("forum_id", this.f14115i);
                         }
-                        this.a.addPostData("in_live", this.f13974h);
+                        this.a.addPostData("in_live", this.f14114h);
                         this.a.addPostData("authsid", this.k);
                         this.a.addPostData("related_tid", this.l);
                         this.a.getNetContext().getRequest().mIsNeedTbs = true;
@@ -236,16 +236,16 @@ public class a {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048589, this, str) == null) {
                 super.onPostExecute((b) str);
-                this.m.f13965b = null;
+                this.m.f14105b = null;
                 if (this.a != null) {
                     UpdateAttentionMessage.a aVar = new UpdateAttentionMessage.a();
                     aVar.a = this.a.getNetContext().getResponse().isRequestSuccess();
-                    aVar.f40742b = this.a.getErrorString();
-                    aVar.f40744d = this.f13968b;
-                    aVar.f40743c = this.f13970d;
-                    aVar.f40746f = this.f13971e;
-                    aVar.f40750j = this.m.f13967d;
-                    aVar.b(str, this.f13976j);
+                    aVar.f40770b = this.a.getErrorString();
+                    aVar.f40772d = this.f14108b;
+                    aVar.f40771c = this.f14110d;
+                    aVar.f40774f = this.f14111e;
+                    aVar.f40778j = this.m.f14107d;
+                    aVar.b(str, this.f14116j);
                     if (this.a.getNetContext().getResponse().isRequestSuccess()) {
                         aVar.l = null;
                     }
@@ -254,9 +254,9 @@ public class a {
                         return;
                     }
                     UpdateAttentionMessage updateAttentionMessage = new UpdateAttentionMessage(aVar);
-                    updateAttentionMessage.setOrginalMessage(new CustomMessage(2001000, this.f13973g));
+                    updateAttentionMessage.setOrginalMessage(new CustomMessage(2001000, this.f14113g));
                     MessageManager.getInstance().dispatchResponsedMessageToUI(updateAttentionMessage);
-                    if (this.f13968b && serverErrorCode == 0) {
+                    if (this.f14108b && serverErrorCode == 0) {
                         a aVar2 = this.m;
                         boolean[] h2 = aVar2.h(aVar2.a);
                         if (h2 != null) {
@@ -269,7 +269,7 @@ public class a {
             }
         }
 
-        public /* synthetic */ b(a aVar, C0891a c0891a) {
+        public /* synthetic */ b(a aVar, C0901a c0901a) {
             this(aVar);
         }
     }
@@ -295,7 +295,7 @@ public class a {
     public void g() {
         b bVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (bVar = this.f13965b) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (bVar = this.f14105b) == null) {
             return;
         }
         bVar.cancel();
@@ -320,13 +320,13 @@ public class a {
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, tbPageContext)) == null) {
             boolean[] zArr = null;
             String localClassName = (tbPageContext == null || tbPageContext.getPageActivity() == null) ? null : tbPageContext.getPageActivity().getLocalClassName();
-            if (("pb.pb.main.PbActivity".equals(localClassName) || "personPolymeric.PersonPolymericActivity".equals(localClassName) || "enterForum.hotuserrank.HotUserRankActivity".equals(localClassName)) && c.a.s0.s.h0.b.k().h("first_call_attention", true)) {
-                c.a.s0.s.h0.b.k().u("first_call_attention", false);
+            if (("pb.pb.main.PbActivity".equals(localClassName) || "personPolymeric.PersonPolymericActivity".equals(localClassName) || "enterForum.hotuserrank.HotUserRankActivity".equals(localClassName)) && c.a.s0.s.i0.b.k().h("first_call_attention", true)) {
+                c.a.s0.s.i0.b.k().u("first_call_attention", false);
                 zArr = new boolean[]{!NotificationManagerCompat.from(this.a.getPageActivity()).areNotificationsEnabled(), !c.a.s0.t.d.d.d().u()};
-                if (!zArr[0] && !zArr[1] && tbPageContext != null && !this.f13967d) {
+                if (!zArr[0] && !zArr[1] && tbPageContext != null && !this.f14107d) {
                     tbPageContext.showToast(R.string.attention_success);
                 }
-            } else if (tbPageContext != null && !this.f13967d) {
+            } else if (tbPageContext != null && !this.f14107d) {
                 tbPageContext.showToast(R.string.attention_success);
             }
             return zArr;
@@ -337,14 +337,14 @@ public class a {
     public void i(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
-            this.f13967d = z;
+            this.f14107d = z;
         }
     }
 
     public void j(c.a.d.a.e eVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, eVar) == null) {
-            this.f13966c = eVar;
+            this.f14106c = eVar;
         }
     }
 
@@ -364,20 +364,20 @@ public class a {
 
     public void m(boolean z, String str, String str2, boolean z2, String str3, BdUniqueId bdUniqueId, String str4, String str5, String str6) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{Boolean.valueOf(z), str, str2, Boolean.valueOf(z2), str3, bdUniqueId, str4, str5, str6}) == null) && this.f13965b == null) {
+        if ((interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{Boolean.valueOf(z), str, str2, Boolean.valueOf(z2), str3, bdUniqueId, str4, str5, str6}) == null) && this.f14105b == null) {
             b bVar = new b(this, null);
-            this.f13965b = bVar;
+            this.f14105b = bVar;
             bVar.setPriority(2);
-            this.f13965b.b(z);
-            this.f13965b.h(str);
-            this.f13965b.j(str2);
-            this.f13965b.f(z2);
-            this.f13965b.d(str3);
-            this.f13965b.g(bdUniqueId);
-            this.f13965b.c(str4);
-            this.f13965b.e(str5);
-            this.f13965b.i(str6);
-            this.f13965b.execute(new Integer[0]);
+            this.f14105b.b(z);
+            this.f14105b.h(str);
+            this.f14105b.j(str2);
+            this.f14105b.f(z2);
+            this.f14105b.d(str3);
+            this.f14105b.g(bdUniqueId);
+            this.f14105b.c(str4);
+            this.f14105b.e(str5);
+            this.f14105b.i(str6);
+            this.f14105b.execute(new Integer[0]);
         }
     }
 }

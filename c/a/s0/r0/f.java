@@ -14,22 +14,22 @@ public class f {
     public BdUniqueId a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f12966b;
+    public int f13110b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f12967c;
+    public String f13111c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Activity f12968d;
+    public Activity f13112d;
 
     /* renamed from: e  reason: collision with root package name */
-    public Map<String, String> f12969e;
+    public Map<String, String> f13113e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Map<String, String> f12970f;
+    public Map<String, String> f13114f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f12971g;
+    public boolean f13115g;
 
     public f() {
         Interceptable interceptable = $ic;

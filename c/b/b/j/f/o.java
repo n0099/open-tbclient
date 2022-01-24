@@ -16,7 +16,7 @@ public class o extends n<c.b.b.n.k.h, a> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public h.c f26999b;
+    public h.c f27027b;
 
     /* loaded from: classes9.dex */
     public static class a extends c.b.b.j.c<c.b.b.n.k.h> {
@@ -24,7 +24,7 @@ public class o extends n<c.b.b.n.k.h, a> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: b  reason: collision with root package name */
-        public boolean f27000b;
+        public boolean f27028b;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -39,7 +39,7 @@ public class o extends n<c.b.b.n.k.h, a> {
                     return;
                 }
             }
-            this.f27000b = false;
+            this.f27028b = false;
         }
     }
 
@@ -72,19 +72,19 @@ public class o extends n<c.b.b.n.k.h, a> {
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, str, aVar, aVar2)) == null) {
             c.b.b.m.a i2 = aVar.i();
             if (aVar2 != null) {
-                this.f26999b = new h.c(aVar, i2, aVar2.f27000b);
+                this.f27027b = new h.c(aVar, i2, aVar2.f27028b);
             } else {
-                this.f26999b = new h.c(aVar, i2, false);
+                this.f27027b = new h.c(aVar, i2, false);
             }
             c.b.b.q.a<c.b.b.j.a> aVar3 = new c.b.b.q.a<>();
-            a.b<h.c.p> it = this.f26999b.a().iterator();
+            a.b<h.c.p> it = this.f27027b.a().iterator();
             while (it.hasNext()) {
                 h.c.p next = it.next();
                 p.b bVar = new p.b();
-                bVar.f27004b = next.f27160f;
-                bVar.f27005c = next.f27159e;
-                bVar.f27008f = next.f27161g;
-                bVar.f27009g = next.f27162h;
+                bVar.f27032b = next.f27188f;
+                bVar.f27033c = next.f27187e;
+                bVar.f27036f = next.f27189g;
+                bVar.f27037g = next.f27190h;
                 aVar3.a(new c.b.b.j.a(next.a, Texture.class, bVar));
             }
             return aVar3;
@@ -99,13 +99,13 @@ public class o extends n<c.b.b.n.k.h, a> {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048579, this, eVar, str, aVar, aVar2)) == null) {
-            a.b<h.c.p> it = this.f26999b.a().iterator();
+            a.b<h.c.p> it = this.f27027b.a().iterator();
             while (it.hasNext()) {
                 h.c.p next = it.next();
-                next.f27156b = (Texture) eVar.j(next.a.j().replaceAll("\\\\", "/"), Texture.class);
+                next.f27184b = (Texture) eVar.j(next.a.j().replaceAll("\\\\", "/"), Texture.class);
             }
-            c.b.b.n.k.h hVar = new c.b.b.n.k.h(this.f26999b);
-            this.f26999b = null;
+            c.b.b.n.k.h hVar = new c.b.b.n.k.h(this.f27027b);
+            this.f27027b = null;
             return hVar;
         }
         return (c.b.b.n.k.h) invokeLLLL.objValue;

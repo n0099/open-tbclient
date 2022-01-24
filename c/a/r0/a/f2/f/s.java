@@ -43,7 +43,7 @@ public class s extends z {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, eVar)) == null) {
-            if (!c.a.r0.a.g1.f.U().N() && !z.f6201b) {
+            if (!c.a.r0.a.g1.f.U().N() && !z.f6343b) {
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "not debug app model");
                 return false;
             } else if (eVar == null) {
@@ -63,7 +63,7 @@ public class s extends z {
                             String optString = optJSONObject.optString("slaveId");
                             String optString2 = optJSONObject.optString("actionName");
                             long optLong = optJSONObject.optLong("timestamp", -1L);
-                            if (z.f6201b) {
+                            if (z.f6343b) {
                                 String str = "slaveId: " + optString + ", actionName: " + optString2 + ", timestamp: " + optLong;
                             }
                             c.a.r0.a.u1.p.d.b().d(optString, optString2, optLong);

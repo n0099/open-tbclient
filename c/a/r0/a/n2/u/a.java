@@ -32,14 +32,14 @@ public final class a {
 
     /* renamed from: c.a.r0.a.n2.u.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static class RunnableC0482a implements Runnable {
+    public static class RunnableC0491a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ e f7990e;
+        public final /* synthetic */ e f8132e;
 
-        public RunnableC0482a(e eVar) {
+        public RunnableC0491a(e eVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -54,14 +54,14 @@ public final class a {
                     return;
                 }
             }
-            this.f7990e = eVar;
+            this.f8132e = eVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                b.k("4165", this.f7990e.f());
+                b.k("4165", this.f8132e.f());
             }
         }
     }
@@ -143,9 +143,9 @@ public final class a {
             String a2 = a(response);
             String d2 = NetworkUtils.d();
             eVar.a = n.n(V.G());
-            eVar.f7978c = a0.V().T();
-            eVar.f7979d = a0.V().V();
-            eVar.f7981f = appId;
+            eVar.f8120c = a0.V().T();
+            eVar.f8121d = a0.V().V();
+            eVar.f8123f = appId;
             eVar.a("name", Y);
             eVar.a(c.n, str);
             eVar.a("errorCode", String.valueOf(i2));
@@ -164,7 +164,7 @@ public final class a {
                 eVar.a("SDKVersion", c.a.r0.q.c.b().b());
                 eVar.a("hostName", c.a.r0.q.c.b().c());
             }
-            q.j(new RunnableC0482a(eVar), "monitor");
+            q.j(new RunnableC0491a(eVar), "monitor");
         }
     }
 }

@@ -29,37 +29,37 @@ public class a extends BaseAdapter {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final Context f21093e;
+    public final Context f21328e;
 
     /* renamed from: f  reason: collision with root package name */
-    public AtListActivity f21094f;
+    public AtListActivity f21329f;
 
     /* renamed from: g  reason: collision with root package name */
-    public ArrayList<MetaData> f21095g;
+    public ArrayList<MetaData> f21330g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TbCheckBox.b f21096h;
+    public TbCheckBox.b f21331h;
 
     /* renamed from: i  reason: collision with root package name */
-    public c f21097i;
+    public c f21332i;
 
     /* renamed from: j  reason: collision with root package name */
-    public ViewGroup f21098j;
+    public ViewGroup f21333j;
     public boolean k;
 
     /* renamed from: c.a.t0.p4.e0.a$a  reason: collision with other inner class name */
     /* loaded from: classes8.dex */
-    public class View$OnClickListenerC1322a implements View.OnClickListener {
+    public class View$OnClickListenerC1333a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ MetaData f21099e;
+        public final /* synthetic */ MetaData f21334e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ a f21100f;
+        public final /* synthetic */ a f21335f;
 
-        public View$OnClickListenerC1322a(a aVar, MetaData metaData) {
+        public View$OnClickListenerC1333a(a aVar, MetaData metaData) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -74,15 +74,15 @@ public class a extends BaseAdapter {
                     return;
                 }
             }
-            this.f21100f = aVar;
-            this.f21099e = metaData;
+            this.f21335f = aVar;
+            this.f21334e = metaData;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f21100f.f21094f.sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(this.f21100f.f21094f.getPageContext().getPageActivity(), this.f21099e.getUserId(), this.f21099e.getUserName())));
+                this.f21335f.f21329f.sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(this.f21335f.f21329f.getPageContext().getPageActivity(), this.f21334e.getUserId(), this.f21334e.getUserName())));
             }
         }
     }
@@ -94,19 +94,19 @@ public class a extends BaseAdapter {
         public View a;
 
         /* renamed from: b  reason: collision with root package name */
-        public LinearLayout f21101b;
+        public LinearLayout f21336b;
 
         /* renamed from: c  reason: collision with root package name */
-        public HeadImageView f21102c;
+        public HeadImageView f21337c;
 
         /* renamed from: d  reason: collision with root package name */
-        public TextView f21103d;
+        public TextView f21338d;
 
         /* renamed from: e  reason: collision with root package name */
-        public TbCheckBox f21104e;
+        public TbCheckBox f21339e;
 
         /* renamed from: f  reason: collision with root package name */
-        public TextView f21105f;
+        public TextView f21340f;
 
         public b(a aVar) {
             Interceptable interceptable = $ic;
@@ -124,7 +124,7 @@ public class a extends BaseAdapter {
             }
         }
 
-        public /* synthetic */ b(a aVar, View$OnClickListenerC1322a view$OnClickListenerC1322a) {
+        public /* synthetic */ b(a aVar, View$OnClickListenerC1333a view$OnClickListenerC1333a) {
             this(aVar);
         }
     }
@@ -149,11 +149,11 @@ public class a extends BaseAdapter {
                 return;
             }
         }
-        this.f21097i = null;
-        this.f21098j = null;
+        this.f21332i = null;
+        this.f21333j = null;
         this.k = true;
-        this.f21094f = atListActivity;
-        this.f21093e = atListActivity.getPageContext().getContext();
+        this.f21329f = atListActivity;
+        this.f21328e = atListActivity.getPageContext().getContext();
         this.k = z;
     }
 
@@ -168,36 +168,36 @@ public class a extends BaseAdapter {
             } else {
                 bVar = (b) obj;
             }
-            bVar.f21101b.setOnClickListener(new View$OnClickListenerC1322a(this, metaData));
-            c cVar = this.f21097i;
+            bVar.f21336b.setOnClickListener(new View$OnClickListenerC1333a(this, metaData));
+            c cVar = this.f21332i;
             if (cVar != null) {
                 cVar.handlerItem(bVar.a, metaData);
             }
             String avater = metaData.getAvater();
-            bVar.f21103d.setText(metaData.getName_show());
+            bVar.f21338d.setText(metaData.getName_show());
             if (metaData.getIsNearlyAt() == 1) {
-                bVar.f21105f.setVisibility(0);
-                bVar.f21105f.setText("最近@过");
+                bVar.f21340f.setVisibility(0);
+                bVar.f21340f.setText("最近@过");
             } else if (metaData.getIsFollower() == 1) {
-                bVar.f21105f.setVisibility(0);
-                bVar.f21105f.setText("互相关注");
+                bVar.f21340f.setVisibility(0);
+                bVar.f21340f.setText("互相关注");
             } else if (metaData.getIsMyFollower() == 1) {
-                bVar.f21105f.setVisibility(0);
-                bVar.f21105f.setText("我的关注");
+                bVar.f21340f.setVisibility(0);
+                bVar.f21340f.setText("我的关注");
             } else {
-                bVar.f21105f.setVisibility(8);
+                bVar.f21340f.setVisibility(8);
             }
-            bVar.f21104e.setTagData(metaData);
-            bVar.f21102c.setTag(avater);
+            bVar.f21339e.setTagData(metaData);
+            bVar.f21337c.setTag(avater);
             if (this.k) {
-                bVar.f21104e.setVisibility(0);
+                bVar.f21339e.setVisibility(0);
             } else {
-                bVar.f21104e.setVisibility(8);
+                bVar.f21339e.setVisibility(8);
             }
-            bVar.f21102c.startLoad(avater, 12, false);
-            UtilHelper.showHeadImageViewBigV(bVar.f21102c, metaData);
-            this.f21094f.getPageContext().getLayoutMode().k(skinType == 1);
-            this.f21094f.getPageContext().getLayoutMode().j(bVar.a);
+            bVar.f21337c.startLoad(avater, 12, false);
+            UtilHelper.showHeadImageViewBigV(bVar.f21337c, metaData);
+            this.f21329f.getPageContext().getLayoutMode().k(skinType == 1);
+            this.f21329f.getPageContext().getLayoutMode().j(bVar.a);
             return bVar;
         }
         return (b) invokeLL.objValue;
@@ -208,16 +208,16 @@ public class a extends BaseAdapter {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, metaData)) == null) {
             b bVar = new b(this, null);
-            View inflate = LayoutInflater.from(this.f21093e).inflate(c.a.t0.p4.h.invite_friend_list_item, (ViewGroup) null);
+            View inflate = LayoutInflater.from(this.f21328e).inflate(c.a.t0.p4.h.invite_friend_list_item, (ViewGroup) null);
             bVar.a = inflate;
             HeadImageView headImageView = (HeadImageView) inflate.findViewById(c.a.t0.p4.g.photo);
-            bVar.f21102c = headImageView;
+            bVar.f21337c = headImageView;
             headImageView.setIsRound(true);
-            UtilHelper.showHeadImageViewBigV(bVar.f21102c, metaData);
-            bVar.f21101b = (LinearLayout) bVar.a.findViewById(c.a.t0.p4.g.photo_box);
-            bVar.f21103d = (TextView) bVar.a.findViewById(c.a.t0.p4.g.txt_user_name);
+            UtilHelper.showHeadImageViewBigV(bVar.f21337c, metaData);
+            bVar.f21336b = (LinearLayout) bVar.a.findViewById(c.a.t0.p4.g.photo_box);
+            bVar.f21338d = (TextView) bVar.a.findViewById(c.a.t0.p4.g.txt_user_name);
             TextView textView = (TextView) bVar.a.findViewById(c.a.t0.p4.g.label_user);
-            bVar.f21105f = textView;
+            bVar.f21340f = textView;
             c.a.s0.s.u.c d2 = c.a.s0.s.u.c.d(textView);
             d2.v(c.a.t0.p4.d.CAM_X0108);
             d2.z(c.a.t0.p4.e.T_X10);
@@ -225,12 +225,12 @@ public class a extends BaseAdapter {
             d2.l(c.a.t0.p4.e.L_X01);
             d2.k(c.a.t0.p4.d.CAM_X0111);
             TbCheckBox tbCheckBox = (TbCheckBox) bVar.a.findViewById(c.a.t0.p4.g.ckb_select);
-            bVar.f21104e = tbCheckBox;
+            bVar.f21339e = tbCheckBox;
             tbCheckBox.setBackgroundDrawableIdIsWebP(true);
-            bVar.f21104e.setBackgroundDrawableId(c.a.t0.p4.f.icon_pure_strok324_select, c.a.t0.p4.f.icon_pure_strok324);
-            TbCheckBox.b bVar2 = this.f21096h;
+            bVar.f21339e.setBackgroundDrawableId(c.a.t0.p4.f.icon_pure_strok324_select, c.a.t0.p4.f.icon_pure_strok324);
+            TbCheckBox.b bVar2 = this.f21331h;
             if (bVar2 != null) {
-                bVar.f21104e.setStatedChangedListener(bVar2);
+                bVar.f21339e.setStatedChangedListener(bVar2);
             }
             bVar.a.setTag(bVar);
             return bVar;
@@ -245,9 +245,9 @@ public class a extends BaseAdapter {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) {
-            ArrayList<MetaData> arrayList = this.f21095g;
+            ArrayList<MetaData> arrayList = this.f21330g;
             if (arrayList != null && i2 < arrayList.size()) {
-                return this.f21095g.get(i2);
+                return this.f21330g.get(i2);
             }
             return null;
         }
@@ -257,21 +257,21 @@ public class a extends BaseAdapter {
     public void e(TbCheckBox.b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, bVar) == null) {
-            this.f21096h = bVar;
+            this.f21331h = bVar;
         }
     }
 
     public void f(ArrayList<MetaData> arrayList) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, arrayList) == null) {
-            this.f21095g = arrayList;
+            this.f21330g = arrayList;
         }
     }
 
     public void g(c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, cVar) == null) {
-            this.f21097i = cVar;
+            this.f21332i = cVar;
         }
     }
 
@@ -280,7 +280,7 @@ public class a extends BaseAdapter {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            ArrayList<MetaData> arrayList = this.f21095g;
+            ArrayList<MetaData> arrayList = this.f21330g;
             if (arrayList == null) {
                 return 0;
             }
@@ -305,8 +305,8 @@ public class a extends BaseAdapter {
         b bVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeILL = interceptable.invokeILL(1048585, this, i2, view, viewGroup)) == null) {
-            if (this.f21098j == null) {
-                this.f21098j = viewGroup;
+            if (this.f21333j == null) {
+                this.f21333j = viewGroup;
             }
             MetaData item = getItem(i2);
             if (item != null) {

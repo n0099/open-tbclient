@@ -14,7 +14,7 @@ public class q0 extends a {
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f5129b;
+    public int f5271b;
 
     public q0() {
         Interceptable interceptable = $ic;
@@ -37,7 +37,7 @@ public class q0 extends a {
             if (bVar.a() == 0) {
                 bVar.b(canvas.save());
             }
-            canvas.translate(this.a, this.f5129b);
+            canvas.translate(this.a, this.f5271b);
         }
     }
 
@@ -48,6 +48,6 @@ public class q0 extends a {
             return;
         }
         this.a = c.a.r0.a.z2.n0.g((float) jSONArray.optDouble(0));
-        this.f5129b = c.a.r0.a.z2.n0.g((float) jSONArray.optDouble(1));
+        this.f5271b = c.a.r0.a.z2.n0.g((float) jSONArray.optDouble(1));
     }
 }

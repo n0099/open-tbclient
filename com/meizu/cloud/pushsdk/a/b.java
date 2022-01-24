@@ -9,31 +9,31 @@ public class b {
     public static String a = "ui";
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f58448b = "ie";
+    public static String f58493b = "ie";
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f58449c = "is1";
+    public static String f58494c = "is1";
 
     /* renamed from: d  reason: collision with root package name */
-    public static String f58450d = "is2";
+    public static String f58495d = "is2";
 
     /* renamed from: e  reason: collision with root package name */
-    public static String f58451e = "phn";
+    public static String f58496e = "phn";
 
     /* renamed from: f  reason: collision with root package name */
-    public static String f58452f = "di";
+    public static String f58497f = "di";
 
     /* renamed from: g  reason: collision with root package name */
-    public static String f58453g = "br";
+    public static String f58498g = "br";
 
     /* renamed from: h  reason: collision with root package name */
-    public static String f58454h = "dc";
+    public static String f58499h = "dc";
 
     /* renamed from: i  reason: collision with root package name */
-    public static String f58455i = "ma";
+    public static String f58500i = "ma";
 
     /* renamed from: j  reason: collision with root package name */
-    public static String f58456j = "ot";
+    public static String f58501j = "ot";
     public static String k = "ov";
     public static String l = "ss";
     public static String m = "ll";

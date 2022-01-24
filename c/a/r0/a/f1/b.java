@@ -20,14 +20,14 @@ public class b extends c.a.r0.a.y1.a.a.a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: h  reason: collision with root package name */
-    public static Map<String, c<Bundle>> f5814h;
+    public static Map<String, c<Bundle>> f5956h;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f5815f;
+    public int f5957f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f5816g;
+    public String f5958g;
 
     /* loaded from: classes.dex */
     public class a implements c<Bundle> {
@@ -35,10 +35,10 @@ public class b extends c.a.r0.a.y1.a.a.a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f5817e;
+        public final /* synthetic */ String f5959e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ b f5818f;
+        public final /* synthetic */ b f5960f;
 
         public a(b bVar, String str) {
             Interceptable interceptable = $ic;
@@ -55,8 +55,8 @@ public class b extends c.a.r0.a.y1.a.a.a {
                     return;
                 }
             }
-            this.f5818f = bVar;
-            this.f5817e = str;
+            this.f5960f = bVar;
+            this.f5959e = str;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -65,31 +65,31 @@ public class b extends c.a.r0.a.y1.a.a.a {
         public void onCallback(Bundle bundle) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, bundle) == null) {
-                this.f5818f.f5816g = bundle.getString("key_launch_app_id");
-                this.f5818f.f5815f = bundle.getInt("key_launch_status");
-                if (TextUtils.equals(this.f5817e, this.f5818f.f5816g)) {
-                    b bVar = this.f5818f;
-                    bVar.f9685d.putInt(NewBindCardEntry.BING_CARD_SUCCESS_MSG, bVar.f5815f);
-                    this.f5818f.c();
+                this.f5960f.f5958g = bundle.getString("key_launch_app_id");
+                this.f5960f.f5957f = bundle.getInt("key_launch_status");
+                if (TextUtils.equals(this.f5959e, this.f5960f.f5958g)) {
+                    b bVar = this.f5960f;
+                    bVar.f9827d.putInt(NewBindCardEntry.BING_CARD_SUCCESS_MSG, bVar.f5957f);
+                    this.f5960f.c();
                 }
-                b.f5814h.remove(this.f5817e);
+                b.f5956h.remove(this.f5959e);
             }
         }
     }
 
     /* renamed from: c.a.r0.a.f1.b$b  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static class C0313b implements c<Bundle> {
+    public static class C0322b implements c<Bundle> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f5819e;
+        public final /* synthetic */ String f5961e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ a.e f5820f;
+        public final /* synthetic */ a.e f5962f;
 
-        public C0313b(String str, a.e eVar) {
+        public C0322b(String str, a.e eVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -104,8 +104,8 @@ public class b extends c.a.r0.a.y1.a.a.a {
                     return;
                 }
             }
-            this.f5819e = str;
-            this.f5820f = eVar;
+            this.f5961e = str;
+            this.f5962f = eVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -116,14 +116,14 @@ public class b extends c.a.r0.a.y1.a.a.a {
             if (interceptable == null || interceptable.invokeL(1048576, this, bundle) == null) {
                 String string = bundle.getString("key_launch_app_id");
                 int i2 = bundle.getInt("key_launch_status");
-                if (TextUtils.equals(this.f5819e, string)) {
+                if (TextUtils.equals(this.f5961e, string)) {
                     if (i2 == 0) {
-                        this.f5820f.b();
+                        this.f5962f.b();
                     } else {
-                        this.f5820f.a();
+                        this.f5962f.a();
                     }
                 }
-                b.f5814h.remove(this.f5819e);
+                b.f5956h.remove(this.f5961e);
             }
         }
     }
@@ -142,7 +142,7 @@ public class b extends c.a.r0.a.y1.a.a.a {
             }
         }
         boolean z = k.a;
-        f5814h = new c.a.r0.r.a.c.a();
+        f5956h = new c.a.r0.r.a.c.a();
     }
 
     public b() {
@@ -158,8 +158,8 @@ public class b extends c.a.r0.a.y1.a.a.a {
                 return;
             }
         }
-        this.f5815f = -1;
-        this.f5816g = "";
+        this.f5957f = -1;
+        this.f5958g = "";
     }
 
     public static void j(String str, a.e eVar) {
@@ -167,13 +167,13 @@ public class b extends c.a.r0.a.y1.a.a.a {
         if (!(interceptable == null || interceptable.invokeLL(65543, null, str, eVar) == null) || TextUtils.isEmpty(str) || eVar == null) {
             return;
         }
-        f5814h.put(str, new C0313b(str, eVar));
+        f5956h.put(str, new C0322b(str, eVar));
     }
 
     public static void k(String str) {
         c<Bundle> cVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65544, null, str) == null) || (cVar = f5814h.get(str)) == null) {
+        if (!(interceptable == null || interceptable.invokeL(65544, null, str) == null) || (cVar = f5956h.get(str)) == null) {
             return;
         }
         Bundle bundle = new Bundle();
@@ -185,7 +185,7 @@ public class b extends c.a.r0.a.y1.a.a.a {
     public static void l(String str) {
         c<Bundle> cVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65545, null, str) == null) || (cVar = f5814h.get(str)) == null) {
+        if (!(interceptable == null || interceptable.invokeL(65545, null, str) == null) || (cVar = f5956h.get(str)) == null) {
             return;
         }
         Bundle bundle = new Bundle();
@@ -199,7 +199,7 @@ public class b extends c.a.r0.a.y1.a.a.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, bundle) == null) {
             String string = bundle.getString("desAppId");
-            f5814h.put(string, new a(this, string));
+            f5956h.put(string, new a(this, string));
         }
     }
 }

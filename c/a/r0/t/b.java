@@ -5,7 +5,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes6.dex */
 public final class b {
     public static /* synthetic */ Interceptable $ic = null;
-    public static final int switch_thread = 2131304753;
-    public static final int trace_info = 2131305584;
+    public static final int switch_thread = 2131304785;
+    public static final int trace_info = 2131305615;
     public transient /* synthetic */ FieldHolder $fh;
 }

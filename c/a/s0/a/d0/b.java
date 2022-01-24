@@ -27,7 +27,7 @@ public class b {
     public a a;
 
     /* renamed from: b  reason: collision with root package name */
-    public h f12092b;
+    public h f12234b;
 
     public b() {
         Interceptable interceptable = $ic;
@@ -46,11 +46,11 @@ public class b {
     public void a() {
         h hVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (hVar = this.f12092b) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (hVar = this.f12234b) == null) {
             return;
         }
         hVar.f();
-        this.f12092b = null;
+        this.f12234b = null;
     }
 
     public final void b(String str) {
@@ -91,11 +91,11 @@ public class b {
         if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (aVar = this.a) == null) {
             return;
         }
-        int i2 = aVar.f12084c;
+        int i2 = aVar.f12226c;
         if (i2 == a.y) {
             h h2 = h.h(TbadkCoreApplication.getInst().getCurrentActivity(), this.a);
             h2.j();
-            this.f12092b = h2;
+            this.f12234b = h2;
         } else if (i2 == a.z) {
             Activity currentActivity = TbadkCoreApplication.getInst().getCurrentActivity();
             c.a.s0.s.o.b bVar = new c.a.s0.s.o.b(currentActivity);
@@ -106,7 +106,7 @@ public class b {
             c.a.s0.s.o.a b3 = c.a.s0.s.o.a.b();
             b3.i("business_count_hint" + currentAccount + this.a.a, b2.c("business_count_hint" + currentAccount + this.a.a) - 1);
         } else if (i2 == a.A) {
-            int i3 = aVar.f12085d;
+            int i3 = aVar.f12227d;
             if (i3 == a.D) {
                 if (UtilHelper.dealOneScheme(TbadkCoreApplication.getInst().getCurrentActivity(), this.a.l) || m.isEmpty(this.a.k)) {
                     return;
@@ -116,21 +116,21 @@ public class b {
             } else {
                 b(this.a.k + TbWebViewActivityConfig.JUMP_PARAMS_PAGE_TYPE);
             }
-        } else if (i2 != a.B || TextUtils.isEmpty(aVar.f12086e)) {
+        } else if (i2 != a.B || TextUtils.isEmpty(aVar.f12228e)) {
         } else {
             CompleteTaskToastData completeTaskToastData = new CompleteTaskToastData();
             a aVar2 = this.a;
             completeTaskToastData.activityId = aVar2.a;
-            completeTaskToastData.missionId = aVar2.f12083b;
-            completeTaskToastData.duration = aVar2.f12090i;
-            completeTaskToastData.message = aVar2.f12086e;
+            completeTaskToastData.missionId = aVar2.f12225b;
+            completeTaskToastData.duration = aVar2.f12232i;
+            completeTaskToastData.message = aVar2.f12228e;
             completeTaskToastData.url = aVar2.k;
             completeTaskToastData.pageId = c.a.s0.a.d.y().x();
             CompeteTaskEvent competeTaskEvent = new CompeteTaskEvent();
             competeTaskEvent.taskToastData = completeTaskToastData;
             c.a.s0.k0.h.i(competeTaskEvent);
             a aVar3 = this.a;
-            c.c(aVar3.a, aVar3.f12083b);
+            c.c(aVar3.a, aVar3.f12225b);
         }
     }
 }

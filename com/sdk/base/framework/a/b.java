@@ -9,14 +9,14 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.IOException;
 import java.net.HttpURLConnection;
 import java.net.URL;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public final class b extends ConnectivityManager.NetworkCallback {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public /* synthetic */ URL a;
 
     /* renamed from: b  reason: collision with root package name */
-    public /* synthetic */ a f59149b;
+    public /* synthetic */ a f59194b;
 
     public b(a aVar, URL url) {
         Interceptable interceptable = $ic;
@@ -33,7 +33,7 @@ public final class b extends ConnectivityManager.NetworkCallback {
                 return;
             }
         }
-        this.f59149b = aVar;
+        this.f59194b = aVar;
         this.a = url;
     }
 
@@ -43,7 +43,7 @@ public final class b extends ConnectivityManager.NetworkCallback {
         if (interceptable == null || interceptable.invokeL(1048576, this, network) == null) {
             super.onAvailable(network);
             try {
-                this.f59149b.f59144c = (HttpURLConnection) network.openConnection(this.a);
+                this.f59194b.f59189c = (HttpURLConnection) network.openConnection(this.a);
             } catch (IOException unused) {
             }
         }

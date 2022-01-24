@@ -12,11 +12,11 @@ public class i implements com.kwad.sdk.core.webview.kwai.a {
     public final Handler a = new Handler(Looper.getMainLooper());
 
     /* renamed from: b  reason: collision with root package name */
-    public b f56393b;
+    public b f56438b;
     @Nullable
 
     /* renamed from: c  reason: collision with root package name */
-    public com.kwad.sdk.core.webview.kwai.c f56394c;
+    public com.kwad.sdk.core.webview.kwai.c f56439c;
 
     /* loaded from: classes3.dex */
     public static class a extends com.kwad.sdk.core.response.kwai.a {
@@ -30,12 +30,12 @@ public class i implements com.kwad.sdk.core.webview.kwai.a {
     }
 
     public i(b bVar) {
-        this.f56393b = bVar;
+        this.f56438b = bVar;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(int i2) {
-        b bVar = this.f56393b;
+        b bVar = this.f56438b;
         if (bVar != null) {
             bVar.a(i2);
         }
@@ -50,7 +50,7 @@ public class i implements com.kwad.sdk.core.webview.kwai.a {
     @Override // com.kwad.sdk.core.webview.kwai.a
     public void a(String str, @NonNull com.kwad.sdk.core.webview.kwai.c cVar) {
         try {
-            this.f56394c = cVar;
+            this.f56439c = cVar;
             final a aVar = new a();
             if (!TextUtils.isEmpty(str)) {
                 aVar.parseJson(new JSONObject(str));
@@ -59,21 +59,21 @@ public class i implements com.kwad.sdk.core.webview.kwai.a {
                 @Override // java.lang.Runnable
                 public void run() {
                     i.this.a(aVar.a);
-                    if (i.this.f56394c != null) {
-                        i.this.f56394c.a(null);
+                    if (i.this.f56439c != null) {
+                        i.this.f56439c.a(null);
                     }
                 }
             });
         } catch (Exception e2) {
-            this.f56394c.a(-1, e2.getMessage());
+            this.f56439c.a(-1, e2.getMessage());
             com.kwad.sdk.core.d.a.b(e2);
         }
     }
 
     @Override // com.kwad.sdk.core.webview.kwai.a
     public void b() {
-        this.f56393b = null;
-        this.f56394c = null;
+        this.f56438b = null;
+        this.f56439c = null;
         this.a.removeCallbacksAndMessages(null);
     }
 }

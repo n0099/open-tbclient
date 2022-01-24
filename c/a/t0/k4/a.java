@@ -12,19 +12,19 @@ public class a {
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public float f18783b;
+    public float f19016b;
 
     /* renamed from: c  reason: collision with root package name */
-    public float f18784c;
+    public float f19017c;
 
     /* renamed from: d  reason: collision with root package name */
-    public float f18785d;
+    public float f19018d;
 
     /* renamed from: e  reason: collision with root package name */
-    public float f18786e;
+    public float f19019e;
 
     /* renamed from: f  reason: collision with root package name */
-    public float f18787f;
+    public float f19020f;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -46,11 +46,11 @@ public class a {
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{Integer.valueOf(i2), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), Float.valueOf(f5), Float.valueOf(f6)})) == null) {
             a aVar = new a();
             aVar.a = i2;
-            aVar.f18783b = f2;
-            aVar.f18784c = f3;
-            aVar.f18785d = f4;
-            aVar.f18786e = f5;
-            aVar.f18787f = f6;
+            aVar.f19016b = f2;
+            aVar.f19017c = f3;
+            aVar.f19018d = f4;
+            aVar.f19019e = f5;
+            aVar.f19020f = f6;
             return aVar;
         }
         return (a) invokeCommon.objValue;

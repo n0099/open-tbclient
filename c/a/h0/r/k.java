@@ -46,11 +46,11 @@ public class k {
                 return new Bundle();
             }
             c.a.h0.p.f.a = bundle.getString("bduss");
-            c.a.h0.p.f.f3609b = bundle.getString("tpOrderId");
-            c.a.h0.p.f.f3614g = bundle.getString("nativeAppId");
-            c.a.h0.p.f.f3615h = bundle.getString("sceneSource");
-            c.a.h0.p.f.f3610c = bundle.getString("appKey");
-            c.a.h0.p.f.f3611d = bundle.getString("dealId");
+            c.a.h0.p.f.f3750b = bundle.getString("tpOrderId");
+            c.a.h0.p.f.f3755g = bundle.getString("nativeAppId");
+            c.a.h0.p.f.f3756h = bundle.getString("sceneSource");
+            c.a.h0.p.f.f3751c = bundle.getString("appKey");
+            c.a.h0.p.f.f3752d = bundle.getString("dealId");
             bundle.putString("deviceType", "ANDROID");
             bundle.putString("channel", "cashiersdk");
             bundle.putString(CommandMessage.SDK_VERSION, "2.8.7.9");

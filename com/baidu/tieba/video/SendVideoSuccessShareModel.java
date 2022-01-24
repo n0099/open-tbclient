@@ -19,15 +19,15 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public class SendVideoSuccessShareModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public HttpMessageListener f48506e;
+    public HttpMessageListener f48516e;
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes13.dex */
     public static class SendVideoSuccessShareOriginalThreadInfoResponse extends JsonHttpResponsedMessage {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -68,9 +68,9 @@ public class SendVideoSuccessShareModel extends BdBaseModel {
                 String optString2 = jSONObject.optString(AlaLiveRoomActivityConfig.SDK_LIVE_COVER_KEY);
                 String optString3 = jSONObject.optString("video_id");
                 OriginalThreadInfo originalThreadInfo = this.threadInfo;
-                originalThreadInfo.f40129c = optString2;
+                originalThreadInfo.f40157c = optString2;
                 originalThreadInfo.a = 3;
-                originalThreadInfo.f40128b = optString;
+                originalThreadInfo.f40156b = optString;
                 originalThreadInfo.l = optString3;
             }
         }
@@ -82,7 +82,7 @@ public class SendVideoSuccessShareModel extends BdBaseModel {
         }
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes13.dex */
     public class a extends HttpMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -136,12 +136,12 @@ public class SendVideoSuccessShareModel extends BdBaseModel {
                 return;
             }
         }
-        this.f48506e = new a(this, CmdConfigHttp.CMD_GET_VIDEO_INFO_BY_LOGVID);
+        this.f48516e = new a(this, CmdConfigHttp.CMD_GET_VIDEO_INFO_BY_LOGVID);
         setUniqueId(BdUniqueId.gen());
         registerTask();
-        this.f48506e.setTag(getUniqueId());
-        this.f48506e.setSelfListener(true);
-        registerListener(this.f48506e);
+        this.f48516e.setTag(getUniqueId());
+        this.f48516e.setSelfListener(true);
+        registerListener(this.f48516e);
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -149,7 +149,7 @@ public class SendVideoSuccessShareModel extends BdBaseModel {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            MessageManager.getInstance().unRegisterListener(this.f48506e);
+            MessageManager.getInstance().unRegisterListener(this.f48516e);
             return false;
         }
         return invokeV.booleanValue;

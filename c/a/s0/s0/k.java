@@ -20,21 +20,21 @@ public class k {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: e  reason: collision with root package name */
-    public static String f13761e = "tb_perfor_samllflow_time";
+    public static String f13906e = "tb_perfor_samllflow_time";
 
     /* renamed from: f  reason: collision with root package name */
-    public static volatile k f13762f;
+    public static volatile k f13907f;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f13763b;
+    public long f13908b;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f13764c;
+    public long f13909c;
 
     /* renamed from: d  reason: collision with root package name */
-    public long f13765d;
+    public long f13910d;
 
     static {
         InterceptResult invokeClinit;
@@ -65,26 +65,26 @@ public class k {
             }
         }
         this.a = false;
-        this.f13764c = 86400L;
-        this.f13765d = 0L;
-        this.f13763b = c.a.s0.s.h0.b.k().m(f13761e, 0L);
-        BdBaseApplication.getInst().setStartSmallFlowTime(this.f13763b);
-        this.f13765d = this.f13764c;
-        BdBaseApplication.getInst().setSmallFlowInterval(this.f13765d);
+        this.f13909c = 86400L;
+        this.f13910d = 0L;
+        this.f13908b = c.a.s0.s.i0.b.k().m(f13906e, 0L);
+        BdBaseApplication.getInst().setStartSmallFlowTime(this.f13908b);
+        this.f13910d = this.f13909c;
+        BdBaseApplication.getInst().setSmallFlowInterval(this.f13910d);
     }
 
     public static k d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (f13762f == null) {
+            if (f13907f == null) {
                 synchronized (k.class) {
-                    if (f13762f == null) {
-                        f13762f = new k();
+                    if (f13907f == null) {
+                        f13907f = new k();
                     }
                 }
             }
-            return f13762f;
+            return f13907f;
         }
         return (k) invokeV.objValue;
     }
@@ -412,7 +412,7 @@ public class k {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            if (!this.a || (System.currentTimeMillis() - this.f13763b) / 1000 <= this.f13765d) {
+            if (!this.a || (System.currentTimeMillis() - this.f13908b) / 1000 <= this.f13910d) {
                 return this.a;
             }
             return false;
@@ -425,16 +425,16 @@ public class k {
         if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
             long currentTimeMillis = System.currentTimeMillis();
             if (z) {
-                long j2 = this.f13763b;
-                if (0 == j2 || currentTimeMillis - j2 >= this.f13765d) {
-                    this.f13763b = currentTimeMillis;
-                    BdBaseApplication.getInst().setStartSmallFlowTime(this.f13763b);
-                    c.a.s0.s.h0.b.k().x(f13761e, this.f13763b);
+                long j2 = this.f13908b;
+                if (0 == j2 || currentTimeMillis - j2 >= this.f13910d) {
+                    this.f13908b = currentTimeMillis;
+                    BdBaseApplication.getInst().setStartSmallFlowTime(this.f13908b);
+                    c.a.s0.s.i0.b.k().x(f13906e, this.f13908b);
                 }
             } else {
-                this.f13763b = 0L;
+                this.f13908b = 0L;
                 BdBaseApplication.getInst().setStartSmallFlowTime(0L);
-                c.a.s0.s.h0.b.k().x(f13761e, this.f13763b);
+                c.a.s0.s.i0.b.k().x(f13906e, this.f13908b);
             }
             this.a = z;
             BdBaseApplication.getInst().setIsSmallFlow(z);
@@ -449,7 +449,7 @@ public class k {
         if (!(interceptable == null || interceptable.invokeJ(1048583, this, j2) == null) || j2 <= 0) {
             return;
         }
-        this.f13765d = j2;
+        this.f13910d = j2;
         BdBaseApplication.getInst().setSmallFlowInterval(j2);
     }
 }

@@ -14,15 +14,15 @@ public final class f {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final long[] f28621d;
+    public static final long[] f28649d;
     public transient /* synthetic */ FieldHolder $fh;
     public final byte[] a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f28622b;
+    public int f28650b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f28623c;
+    public int f28651c;
 
     static {
         InterceptResult invokeClinit;
@@ -37,7 +37,7 @@ public final class f {
                 return;
             }
         }
-        f28621d = new long[]{128, 64, 32, 16, 8, 4, 2, 1};
+        f28649d = new long[]{128, 64, 32, 16, 8, 4, 2, 1};
     }
 
     public f() {
@@ -62,7 +62,7 @@ public final class f {
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{bArr, Integer.valueOf(i2), Boolean.valueOf(z)})) == null) {
             long j2 = bArr[0] & 255;
             if (z) {
-                j2 &= ~f28621d[i2 - 1];
+                j2 &= ~f28649d[i2 - 1];
             }
             for (int i3 = 1; i3 < i2; i3++) {
                 j2 = (j2 << 8) | (bArr[i3] & 255);
@@ -80,7 +80,7 @@ public final class f {
         }
         int i3 = 0;
         while (true) {
-            long[] jArr = f28621d;
+            long[] jArr = f28649d;
             if (i3 >= jArr.length) {
                 return -1;
             }
@@ -94,35 +94,35 @@ public final class f {
     public int b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f28623c : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f28651c : invokeV.intValue;
     }
 
     public long d(c.i.b.a.a0.f fVar, boolean z, boolean z2, int i2) throws IOException, InterruptedException {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{fVar, Boolean.valueOf(z), Boolean.valueOf(z2), Integer.valueOf(i2)})) == null) {
-            if (this.f28622b == 0) {
+            if (this.f28650b == 0) {
                 if (!fVar.a(this.a, 0, 1, z)) {
                     return -1L;
                 }
                 int c2 = c(this.a[0] & 255);
-                this.f28623c = c2;
+                this.f28651c = c2;
                 if (c2 != -1) {
-                    this.f28622b = 1;
+                    this.f28650b = 1;
                 } else {
                     throw new IllegalStateException("No valid varint length mask found");
                 }
             }
-            int i3 = this.f28623c;
+            int i3 = this.f28651c;
             if (i3 > i2) {
-                this.f28622b = 0;
+                this.f28650b = 0;
                 return -2L;
             }
             if (i3 != 1) {
                 fVar.readFully(this.a, 1, i3 - 1);
             }
-            this.f28622b = 0;
-            return a(this.a, this.f28623c, z2);
+            this.f28650b = 0;
+            return a(this.a, this.f28651c, z2);
         }
         return invokeCommon.longValue;
     }
@@ -130,8 +130,8 @@ public final class f {
     public void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.f28622b = 0;
-            this.f28623c = 0;
+            this.f28650b = 0;
+            this.f28651c = 0;
         }
     }
 }

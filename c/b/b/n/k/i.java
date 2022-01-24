@@ -15,22 +15,22 @@ public class i {
     public Texture a;
 
     /* renamed from: b  reason: collision with root package name */
-    public float f27174b;
+    public float f27202b;
 
     /* renamed from: c  reason: collision with root package name */
-    public float f27175c;
+    public float f27203c;
 
     /* renamed from: d  reason: collision with root package name */
-    public float f27176d;
+    public float f27204d;
 
     /* renamed from: e  reason: collision with root package name */
-    public float f27177e;
+    public float f27205e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f27178f;
+    public int f27206f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f27179g;
+    public int f27207g;
 
     public i() {
         Interceptable interceptable = $ic;
@@ -50,14 +50,14 @@ public class i {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
             if (z) {
-                float f2 = this.f27174b;
-                this.f27174b = this.f27176d;
-                this.f27176d = f2;
+                float f2 = this.f27202b;
+                this.f27202b = this.f27204d;
+                this.f27204d = f2;
             }
             if (z2) {
-                float f3 = this.f27175c;
-                this.f27175c = this.f27177e;
-                this.f27177e = f3;
+                float f3 = this.f27203c;
+                this.f27203c = this.f27205e;
+                this.f27205e = f3;
             }
         }
     }
@@ -65,25 +65,25 @@ public class i {
     public int b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f27179g : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f27207g : invokeV.intValue;
     }
 
     public int c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f27178f : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f27206f : invokeV.intValue;
     }
 
     public int d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? Math.round(this.f27174b * this.a.x()) : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? Math.round(this.f27202b * this.a.x()) : invokeV.intValue;
     }
 
     public int e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? Math.round(this.f27175c * this.a.u()) : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? Math.round(this.f27203c * this.a.u()) : invokeV.intValue;
     }
 
     public Texture f() {
@@ -98,11 +98,11 @@ public class i {
             int x = this.a.x();
             int u = this.a.u();
             float f6 = x;
-            this.f27178f = Math.round(Math.abs(f4 - f2) * f6);
+            this.f27206f = Math.round(Math.abs(f4 - f2) * f6);
             float f7 = u;
             int round = Math.round(Math.abs(f5 - f3) * f7);
-            this.f27179g = round;
-            if (this.f27178f == 1 && round == 1) {
+            this.f27207g = round;
+            if (this.f27206f == 1 && round == 1) {
                 float f8 = 0.25f / f6;
                 f2 += f8;
                 f4 -= f8;
@@ -110,10 +110,10 @@ public class i {
                 f3 += f9;
                 f5 -= f9;
             }
-            this.f27174b = f2;
-            this.f27175c = f3;
-            this.f27176d = f4;
-            this.f27177e = f5;
+            this.f27202b = f2;
+            this.f27203c = f3;
+            this.f27204d = f4;
+            this.f27205e = f5;
         }
     }
 
@@ -123,8 +123,8 @@ public class i {
             float x = 1.0f / this.a.x();
             float u = 1.0f / this.a.u();
             g(i2 * x, i3 * u, (i2 + i4) * x, (i3 + i5) * u);
-            this.f27178f = Math.abs(i4);
-            this.f27179g = Math.abs(i5);
+            this.f27206f = Math.abs(i4);
+            this.f27207g = Math.abs(i5);
         }
     }
 
@@ -132,7 +132,7 @@ public class i {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, iVar) == null) {
             this.a = iVar.a;
-            g(iVar.f27174b, iVar.f27175c, iVar.f27176d, iVar.f27177e);
+            g(iVar.f27202b, iVar.f27203c, iVar.f27204d, iVar.f27205e);
         }
     }
 

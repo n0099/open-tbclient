@@ -26,10 +26,10 @@ public class c extends c.a.d.n.e.a<c.a.t0.a0.l.d.f, CardViewHolder<c.a.t0.a0.l.h
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c.a.t0.a0.l.d.f f14891e;
+        public final /* synthetic */ c.a.t0.a0.l.d.f f15031e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ c f14892f;
+        public final /* synthetic */ c f15032f;
 
         public a(c cVar, c.a.t0.a0.l.d.f fVar) {
             Interceptable interceptable = $ic;
@@ -46,22 +46,22 @@ public class c extends c.a.d.n.e.a<c.a.t0.a0.l.d.f, CardViewHolder<c.a.t0.a0.l.h
                     return;
                 }
             }
-            this.f14892f = cVar;
-            this.f14891e = fVar;
+            this.f15032f = cVar;
+            this.f15031e = fVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f14892f.a0(this.f14891e);
+                this.f15032f.a0(this.f15031e);
             }
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public c(TbPageContext tbPageContext) {
-        super(tbPageContext.getPageActivity(), c.a.t0.a0.l.d.f.f14933f);
+        super(tbPageContext.getPageActivity(), c.a.t0.a0.l.d.f.f15073f);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -92,7 +92,7 @@ public class c extends c.a.d.n.e.a<c.a.t0.a0.l.d.f, CardViewHolder<c.a.t0.a0.l.h
         } else {
             TiebaStatic.log("c11857");
         }
-        String q = c.a.s0.s.h0.b.k().q("ala_personal_exp_detail_url", "https://sv.baidu.com/cashliveui/userLevel.html#/level");
+        String q = c.a.s0.s.i0.b.k().q("ala_personal_exp_detail_url", "https://sv.baidu.com/cashliveui/userLevel.html#/level");
         if (q == null) {
             return;
         }

@@ -22,19 +22,19 @@ public class AlaBannerRecyclerAdapter<T> extends RecyclerView.Adapter<AlaBannerV
     public List<T> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Context f42032b;
+    public Context f42053b;
 
     /* renamed from: c  reason: collision with root package name */
-    public c.a.t0.a0.f.i.h.a f42033c;
+    public c.a.t0.a0.f.i.h.a f42054c;
 
     /* renamed from: d  reason: collision with root package name */
-    public b f42034d;
+    public b f42055d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f42035e;
+    public boolean f42056e;
 
     /* renamed from: f  reason: collision with root package name */
-    public View.OnClickListener f42036f;
+    public View.OnClickListener f42057f;
 
     /* loaded from: classes12.dex */
     public class a implements View.OnClickListener {
@@ -42,7 +42,7 @@ public class AlaBannerRecyclerAdapter<T> extends RecyclerView.Adapter<AlaBannerV
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ AlaBannerRecyclerAdapter f42037e;
+        public final /* synthetic */ AlaBannerRecyclerAdapter f42058e;
 
         public a(AlaBannerRecyclerAdapter alaBannerRecyclerAdapter) {
             Interceptable interceptable = $ic;
@@ -59,16 +59,16 @@ public class AlaBannerRecyclerAdapter<T> extends RecyclerView.Adapter<AlaBannerV
                     return;
                 }
             }
-            this.f42037e = alaBannerRecyclerAdapter;
+            this.f42058e = alaBannerRecyclerAdapter;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f42037e.f42034d == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f42058e.f42055d == null) {
                 return;
             }
-            this.f42037e.f42034d.a(view.getTag());
+            this.f42058e.f42055d.a(view.getTag());
         }
     }
 
@@ -87,10 +87,10 @@ public class AlaBannerRecyclerAdapter<T> extends RecyclerView.Adapter<AlaBannerV
                 return;
             }
         }
-        this.f42036f = new a(this);
-        this.f42032b = context;
-        this.f42033c = aVar;
-        this.f42035e = z;
+        this.f42057f = new a(this);
+        this.f42053b = context;
+        this.f42054c = aVar;
+        this.f42056e = z;
     }
 
     public final int b(int i2) {
@@ -107,7 +107,7 @@ public class AlaBannerRecyclerAdapter<T> extends RecyclerView.Adapter<AlaBannerV
             if (ListUtils.isEmpty(this.a) || ListUtils.getCount(this.a) == 1) {
                 return ListUtils.getCount(this.a);
             }
-            return this.f42035e ? ListUtils.getCount(this.a) * 3 : ListUtils.getCount(this.a);
+            return this.f42056e ? ListUtils.getCount(this.a) * 3 : ListUtils.getCount(this.a);
         }
         return invokeV.intValue;
     }
@@ -128,7 +128,7 @@ public class AlaBannerRecyclerAdapter<T> extends RecyclerView.Adapter<AlaBannerV
     public void setOnBannerClickListener(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, bVar) == null) {
-            this.f42034d = bVar;
+            this.f42055d = bVar;
         }
     }
 
@@ -152,7 +152,7 @@ public class AlaBannerRecyclerAdapter<T> extends RecyclerView.Adapter<AlaBannerV
             alaBannerViewHolder.bindData(i2, item);
             alaBannerViewHolder.itemView.setTag(item);
             alaBannerViewHolder.onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
-            alaBannerViewHolder.itemView.setOnClickListener(this.f42036f);
+            alaBannerViewHolder.itemView.setOnClickListener(this.f42057f);
         }
     }
 
@@ -162,7 +162,7 @@ public class AlaBannerRecyclerAdapter<T> extends RecyclerView.Adapter<AlaBannerV
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(1048582, this, viewGroup, i2)) == null) {
-            c.a.t0.a0.f.i.h.a aVar = this.f42033c;
+            c.a.t0.a0.f.i.h.a aVar = this.f42054c;
             if (aVar != null) {
                 return aVar.a(viewGroup, i2);
             }

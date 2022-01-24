@@ -47,12 +47,12 @@ public class b extends z {
             if (eVar == null) {
                 d.c("StopDeviceMotionAction", "none swanApp");
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "illegal swanApp");
-                boolean z = z.f6201b;
+                boolean z = z.f6343b;
                 return false;
             } else if (context == null) {
                 d.c("StopDeviceMotionAction", "none context");
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "illegal context");
-                boolean z2 = z.f6201b;
+                boolean z2 = z.f6343b;
                 return false;
             } else {
                 c.a.r0.a.r2.h.a.h().m();

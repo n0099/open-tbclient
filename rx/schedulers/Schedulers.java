@@ -18,20 +18,20 @@ import i.r.c;
 import i.r.f;
 import java.util.concurrent.Executor;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public final class Schedulers {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final AtomicReference<Schedulers> f62567d;
+    public static final AtomicReference<Schedulers> f62612d;
     public transient /* synthetic */ FieldHolder $fh;
     public final g a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final g f62568b;
+    public final g f62613b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final g f62569c;
+    public final g f62614c;
 
     static {
         InterceptResult invokeClinit;
@@ -46,7 +46,7 @@ public final class Schedulers {
                 return;
             }
         }
-        f62567d = new AtomicReference<>();
+        f62612d = new AtomicReference<>();
     }
 
     public Schedulers() {
@@ -71,15 +71,15 @@ public final class Schedulers {
         }
         g i4 = f2.i();
         if (i4 != null) {
-            this.f62568b = i4;
+            this.f62613b = i4;
         } else {
-            this.f62568b = i.r.g.c();
+            this.f62613b = i.r.g.c();
         }
         g j2 = f2.j();
         if (j2 != null) {
-            this.f62569c = j2;
+            this.f62614c = j2;
         } else {
-            this.f62569c = i.r.g.e();
+            this.f62614c = i.r.g.e();
         }
     }
 
@@ -90,12 +90,12 @@ public final class Schedulers {
             return (Schedulers) invokeV.objValue;
         }
         while (true) {
-            Schedulers schedulers = f62567d.get();
+            Schedulers schedulers = f62612d.get();
             if (schedulers != null) {
                 return schedulers;
             }
             Schedulers schedulers2 = new Schedulers();
-            if (f62567d.compareAndSet(null, schedulers2)) {
+            if (f62612d.compareAndSet(null, schedulers2)) {
                 return schedulers2;
             }
             schedulers2.b();
@@ -123,19 +123,19 @@ public final class Schedulers {
     public static g io() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) ? c.k(a().f62568b) : (g) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) ? c.k(a().f62613b) : (g) invokeV.objValue;
     }
 
     public static g newThread() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) ? c.l(a().f62569c) : (g) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) ? c.l(a().f62614c) : (g) invokeV.objValue;
     }
 
     public static void reset() {
         Schedulers andSet;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65544, null) == null) || (andSet = f62567d.getAndSet(null)) == null) {
+        if (!(interceptable == null || interceptable.invokeV(65544, null) == null) || (andSet = f62612d.getAndSet(null)) == null) {
             return;
         }
         andSet.b();
@@ -147,7 +147,7 @@ public final class Schedulers {
             Schedulers a = a();
             a.b();
             synchronized (a) {
-                d.f61986h.shutdown();
+                d.f62031h.shutdown();
             }
         }
     }
@@ -158,7 +158,7 @@ public final class Schedulers {
             Schedulers a = a();
             a.c();
             synchronized (a) {
-                d.f61986h.start();
+                d.f62031h.start();
             }
         }
     }
@@ -182,11 +182,11 @@ public final class Schedulers {
                 if (this.a instanceof h) {
                     ((h) this.a).shutdown();
                 }
-                if (this.f62568b instanceof h) {
-                    ((h) this.f62568b).shutdown();
+                if (this.f62613b instanceof h) {
+                    ((h) this.f62613b).shutdown();
                 }
-                if (this.f62569c instanceof h) {
-                    ((h) this.f62569c).shutdown();
+                if (this.f62614c instanceof h) {
+                    ((h) this.f62614c).shutdown();
                 }
             }
         }
@@ -199,11 +199,11 @@ public final class Schedulers {
                 if (this.a instanceof h) {
                     ((h) this.a).start();
                 }
-                if (this.f62568b instanceof h) {
-                    ((h) this.f62568b).start();
+                if (this.f62613b instanceof h) {
+                    ((h) this.f62613b).start();
                 }
-                if (this.f62569c instanceof h) {
-                    ((h) this.f62569c).start();
+                if (this.f62614c instanceof h) {
+                    ((h) this.f62614c).start();
                 }
             }
         }

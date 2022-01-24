@@ -63,20 +63,20 @@ public final class c {
                     return true;
                 } else {
                     com.bytedance.pangle.log.c a = com.bytedance.pangle.log.c.a(ZeusLogger.TAG_LOAD, "PluginLoader", "loadPlugin:".concat(String.valueOf(str)));
-                    a(com.bytedance.pangle.b.b.f52957g, b.a.w, plugin2.mPkgName, plugin2.getVersion(), -1L, null);
+                    a(com.bytedance.pangle.b.b.f53002g, b.a.w, plugin2.mPkgName, plugin2.getVersion(), -1L, null);
                     StringBuilder sb = new StringBuilder();
                     boolean a2 = a(str, plugin2, sb);
                     a.b("loadPluginInternal:".concat(String.valueOf(a2)));
                     if (a2) {
                         plugin2.setLifeCycle(3);
-                        a(com.bytedance.pangle.b.b.f52958h, b.a.x, plugin2.mPkgName, plugin2.getVersion(), a.a(), sb.toString());
+                        a(com.bytedance.pangle.b.b.f53003h, b.a.x, plugin2.mPkgName, plugin2.getVersion(), a.a(), sb.toString());
                     } else {
                         sb.append("plugin:");
                         sb.append(plugin2.mPkgName);
                         sb.append(" versionCode:");
                         sb.append(plugin2.getVersion());
                         sb.append("load failed;");
-                        a(com.bytedance.pangle.b.b.f52958h, b.a.y, plugin2.mPkgName, plugin2.getVersion(), -1L, sb.toString());
+                        a(com.bytedance.pangle.b.b.f53003h, b.a.y, plugin2.mPkgName, plugin2.getVersion(), -1L, sb.toString());
                     }
                     ZeusLogger.i(ZeusLogger.TAG_LOAD, "PluginLoader loadFinished, ".concat(String.valueOf(plugin2)));
                     if (plugin2.isLoaded()) {

@@ -12,28 +12,28 @@ public final class f {
     public static Boolean a = null;
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f8732b = "8893";
+    public static String f8874b = "8893";
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f8733c = "80";
+    public static String f8875c = "80";
 
     /* renamed from: d  reason: collision with root package name */
-    public static String f8734d = "81";
+    public static String f8876d = "81";
 
     /* renamed from: e  reason: collision with root package name */
-    public static String f8735e = "82";
+    public static String f8877e = "82";
 
     /* renamed from: f  reason: collision with root package name */
-    public static String f8736f = "show";
+    public static String f8878f = "show";
 
     /* renamed from: g  reason: collision with root package name */
-    public static String f8737g = "fail";
+    public static String f8879g = "fail";
 
     /* renamed from: h  reason: collision with root package name */
-    public static String f8738h = "success";
+    public static String f8880h = "success";
 
     /* renamed from: i  reason: collision with root package name */
-    public static String f8739i = "login";
+    public static String f8881i = "login";
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -54,49 +54,49 @@ public final class f {
     public static final String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? f8735e : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? f8877e : (String) invokeV.objValue;
     }
 
     public static final String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f8733c : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f8875c : (String) invokeV.objValue;
     }
 
     public static final String c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? f8734d : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? f8876d : (String) invokeV.objValue;
     }
 
     public static final String d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? f8737g : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? f8879g : (String) invokeV.objValue;
     }
 
     public static final String e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? f8736f : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? f8878f : (String) invokeV.objValue;
     }
 
     public static final String f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) ? f8738h : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) ? f8880h : (String) invokeV.objValue;
     }
 
     public static final String g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) ? f8732b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) ? f8874b : (String) invokeV.objValue;
     }
 
     public static final String h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) ? f8739i : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) ? f8881i : (String) invokeV.objValue;
     }
 
     public static final Boolean i() {

@@ -10,25 +10,25 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public class BestStringsFitTextView extends TextView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public String[] f48053e;
+    public String[] f48069e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f48054f;
+    public String f48070f;
 
     /* renamed from: g  reason: collision with root package name */
-    public float f48055g;
+    public float f48071g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f48056h;
+    public String f48072h;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f48057i;
+    public boolean f48073i;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public BestStringsFitTextView(Context context) {
@@ -48,37 +48,37 @@ public class BestStringsFitTextView extends TextView {
                 return;
             }
         }
-        this.f48054f = " ";
-        this.f48055g = 0.0f;
-        this.f48056h = "";
-        this.f48057i = false;
+        this.f48070f = " ";
+        this.f48071g = 0.0f;
+        this.f48072h = "";
+        this.f48073i = false;
     }
 
     public void buildStringForArray() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f48055g = (getWidth() - getPaddingLeft()) - getPaddingRight();
+            this.f48071g = (getWidth() - getPaddingLeft()) - getPaddingRight();
             StringBuilder sb = new StringBuilder();
-            for (int i2 = 0; i2 < this.f48053e.length; i2++) {
+            for (int i2 = 0; i2 < this.f48069e.length; i2++) {
                 if (i2 > 0) {
-                    sb.append(this.f48054f);
+                    sb.append(this.f48070f);
                 }
-                sb.append(this.f48053e[i2]);
+                sb.append(this.f48069e[i2]);
                 String sb2 = sb.toString();
-                if (this.f48055g < getPaint().measureText(sb2)) {
+                if (this.f48071g < getPaint().measureText(sb2)) {
                     break;
                 }
-                this.f48057i = true;
-                this.f48056h = sb2;
+                this.f48073i = true;
+                this.f48072h = sb2;
             }
-            setText(this.f48056h);
+            setText(this.f48072h);
         }
     }
 
     public String getSeperator() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f48054f : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f48070f : (String) invokeV.objValue;
     }
 
     @Override // android.widget.TextView, android.view.View
@@ -86,7 +86,7 @@ public class BestStringsFitTextView extends TextView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, canvas) == null) {
             super.onDraw(canvas);
-            if (this.f48053e == null || this.f48057i) {
+            if (this.f48069e == null || this.f48073i) {
                 return;
             }
             buildStringForArray();
@@ -96,14 +96,14 @@ public class BestStringsFitTextView extends TextView {
     public void setSeperator(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            this.f48054f = str;
+            this.f48070f = str;
         }
     }
 
     public void setTextArray(String[] strArr) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, strArr) == null) {
-            this.f48053e = strArr;
+            this.f48069e = strArr;
             buildStringForArray();
         }
     }
@@ -127,10 +127,10 @@ public class BestStringsFitTextView extends TextView {
                 return;
             }
         }
-        this.f48054f = " ";
-        this.f48055g = 0.0f;
-        this.f48056h = "";
-        this.f48057i = false;
+        this.f48070f = " ";
+        this.f48071g = 0.0f;
+        this.f48072h = "";
+        this.f48073i = false;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -152,9 +152,9 @@ public class BestStringsFitTextView extends TextView {
                 return;
             }
         }
-        this.f48054f = " ";
-        this.f48055g = 0.0f;
-        this.f48056h = "";
-        this.f48057i = false;
+        this.f48070f = " ";
+        this.f48071g = 0.0f;
+        this.f48072h = "";
+        this.f48073i = false;
     }
 }

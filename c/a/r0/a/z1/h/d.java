@@ -24,15 +24,15 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
-/* loaded from: classes.dex */
+/* loaded from: classes6.dex */
 public class d {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final boolean f9894b;
+    public static final boolean f10036b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static d f9895c;
+    public static d f10037c;
     public transient /* synthetic */ FieldHolder $fh;
     public WeakReference<Activity> a;
 
@@ -49,7 +49,7 @@ public class d {
                 return;
             }
         }
-        f9894b = k.a;
+        f10036b = k.a;
     }
 
     public d() {
@@ -70,14 +70,14 @@ public class d {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (f9895c == null) {
+            if (f10037c == null) {
                 synchronized (d.class) {
-                    if (f9895c == null) {
-                        f9895c = new d();
+                    if (f10037c == null) {
+                        f10037c = new d();
                     }
                 }
             }
-            return f9895c;
+            return f10037c;
         }
         return (d) invokeV.objValue;
     }
@@ -103,14 +103,14 @@ public class d {
                 illegalArgumentException = new IllegalArgumentException("focus view must be EditText");
             }
             if (illegalArgumentException != null) {
-                if (f9894b) {
+                if (f10036b) {
                     throw illegalArgumentException;
                 }
                 return false;
             } else if (TextUtils.isEmpty(str)) {
                 return false;
             } else {
-                if (f9894b) {
+                if (f10036b) {
                     String str4 = "start loading emoji " + str;
                 }
                 this.a = new WeakReference<>(activity);

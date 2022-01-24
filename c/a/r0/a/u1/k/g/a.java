@@ -22,27 +22,27 @@ public class a implements c.a.r0.a.f1.f.a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f9373c;
+    public long f9515c;
 
     /* renamed from: d  reason: collision with root package name */
-    public ConcurrentHashMap<String, JSONObject> f9374d;
+    public ConcurrentHashMap<String, JSONObject> f9516d;
 
     /* renamed from: e  reason: collision with root package name */
-    public ConcurrentHashMap<String, Integer> f9375e;
+    public ConcurrentHashMap<String, Integer> f9517e;
 
     /* renamed from: f  reason: collision with root package name */
-    public c.a.r0.a.u1.r.c.a f9376f;
+    public c.a.r0.a.u1.r.c.a f9518f;
 
     /* renamed from: c.a.r0.a.u1.k.g.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public class C0595a implements c.a.r0.a.u1.r.c.a {
+    public class C0604a implements c.a.r0.a.u1.r.c.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ a f9377c;
+        public final /* synthetic */ a f9519c;
 
-        public C0595a(a aVar) {
+        public C0604a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -57,7 +57,7 @@ public class a implements c.a.r0.a.f1.f.a {
                     return;
                 }
             }
-            this.f9377c = aVar;
+            this.f9519c = aVar;
         }
 
         @Override // c.a.r0.a.u1.r.c.a
@@ -71,7 +71,7 @@ public class a implements c.a.r0.a.f1.f.a {
         public void b() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                this.f9377c.g();
+                this.f9519c.g();
             }
         }
 
@@ -86,7 +86,7 @@ public class a implements c.a.r0.a.f1.f.a {
         public void d(boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
-                this.f9377c.g();
+                this.f9519c.g();
             }
         }
 
@@ -94,7 +94,7 @@ public class a implements c.a.r0.a.f1.f.a {
         public void e(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-                this.f9377c.f9373c = System.currentTimeMillis();
+                this.f9519c.f9515c = System.currentTimeMillis();
             }
         }
 
@@ -129,7 +129,7 @@ public class a implements c.a.r0.a.f1.f.a {
         }
     }
 
-    public /* synthetic */ a(C0595a c0595a) {
+    public /* synthetic */ a(C0604a c0604a) {
         this();
     }
 
@@ -144,13 +144,13 @@ public class a implements c.a.r0.a.f1.f.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
             if (!TextUtils.isEmpty(str) && e()) {
-                JSONObject jSONObject = this.f9374d.get(str);
+                JSONObject jSONObject = this.f9516d.get(str);
                 if (c.a.r0.a.f1.f.a.a && jSONObject != null) {
-                    Integer num = this.f9375e.get(str);
+                    Integer num = this.f9517e.get(str);
                     if (num == null) {
                         num = 0;
                     }
-                    this.f9375e.put(str, Integer.valueOf(num.intValue() + 1));
+                    this.f9517e.put(str, Integer.valueOf(num.intValue() + 1));
                 }
                 return jSONObject;
             }
@@ -162,24 +162,24 @@ public class a implements c.a.r0.a.f1.f.a {
     public boolean e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f9373c != -1 && System.currentTimeMillis() - this.f9373c <= TooltipCompatHandler.LONG_CLICK_HIDE_TIMEOUT_MS : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f9515c != -1 && System.currentTimeMillis() - this.f9515c <= TooltipCompatHandler.LONG_CLICK_HIDE_TIMEOUT_MS : invokeV.booleanValue;
     }
 
     public void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            c.a.r0.a.u1.r.a.g().i(this.f9376f, 2500);
+            c.a.r0.a.u1.r.a.g().i(this.f9518f, 2500);
         }
     }
 
     public final void g() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.f9373c = -1L;
+            this.f9515c = -1L;
             if (c.a.r0.a.f1.f.a.a) {
                 StringBuilder sb = new StringBuilder();
                 sb.append("adopt cache api = [ ");
-                for (Map.Entry<String, Integer> entry : this.f9375e.entrySet()) {
+                for (Map.Entry<String, Integer> entry : this.f9517e.entrySet()) {
                     sb.append((Object) entry.getKey());
                     sb.append("=");
                     sb.append(entry.getValue());
@@ -188,15 +188,15 @@ public class a implements c.a.r0.a.f1.f.a {
                 sb.append(PreferencesUtil.RIGHT_MOUNT);
                 sb.toString();
             }
-            this.f9375e.clear();
-            this.f9374d.clear();
+            this.f9517e.clear();
+            this.f9516d.clear();
         }
     }
 
     public void h(String str, JSONObject jSONObject) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(1048580, this, str, jSONObject) == null) && !TextUtils.isEmpty(str) && e()) {
-            this.f9374d.put(str, jSONObject);
+            this.f9516d.put(str, jSONObject);
         }
     }
 
@@ -213,9 +213,9 @@ public class a implements c.a.r0.a.f1.f.a {
                 return;
             }
         }
-        this.f9373c = -1L;
-        this.f9374d = new ConcurrentHashMap<>(10);
-        this.f9375e = new ConcurrentHashMap<>(10);
-        this.f9376f = new C0595a(this);
+        this.f9515c = -1L;
+        this.f9516d = new ConcurrentHashMap<>(10);
+        this.f9517e = new ConcurrentHashMap<>(10);
+        this.f9518f = new C0604a(this);
     }
 }

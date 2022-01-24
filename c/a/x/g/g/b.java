@@ -12,7 +12,7 @@ public class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile int f26674b;
+    public static volatile int f26702b;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
 
@@ -53,12 +53,12 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
             synchronized (b.class) {
-                if (f26674b < 1000000) {
-                    f26674b = 1000000;
+                if (f26702b < 1000000) {
+                    f26702b = 1000000;
                 }
                 bVar = new b();
-                bVar.a = f26674b;
-                f26674b++;
+                bVar.a = f26702b;
+                f26702b++;
             }
             return bVar;
         }

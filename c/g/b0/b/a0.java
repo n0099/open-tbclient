@@ -21,31 +21,31 @@ public class a0 {
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f28241b;
+    public int f28269b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f28242c;
+    public int f28270c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f28243d;
+    public int f28271d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f28244e;
+    public int f28272e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f28245f;
+    public int f28273f;
 
     /* renamed from: g  reason: collision with root package name */
-    public SplashAD f28246g;
+    public SplashAD f28274g;
 
     /* renamed from: h  reason: collision with root package name */
-    public View f28247h;
+    public View f28275h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f28248i;
+    public int f28276i;
 
     /* renamed from: j  reason: collision with root package name */
-    public int f28249j;
+    public int f28277j;
     public int[] k;
     public int l;
     public int m;
@@ -71,11 +71,11 @@ public class a0 {
         Context appContext = GDTADManager.getInstance().getAppContext();
         int round = Math.round(Math.min(PxUtils.getDeviceHeightInPixel(appContext), PxUtils.getDeviceWidthInPixel(appContext)) * 0.3f);
         this.a = round;
-        this.f28241b = Math.round((round * 16) / 9);
-        this.f28242c = PxUtils.dpToPx(appContext, 6);
-        this.f28243d = PxUtils.dpToPx(appContext, 100);
-        this.f28244e = 1;
-        this.f28245f = 300;
+        this.f28269b = Math.round((round * 16) / 9);
+        this.f28270c = PxUtils.dpToPx(appContext, 6);
+        this.f28271d = PxUtils.dpToPx(appContext, 100);
+        this.f28272e = 1;
+        this.f28273f = 300;
     }
 
     public final void a(View view, ViewGroup viewGroup, float f2, float f3, int[] iArr, ViewGroup viewGroup2, a aVar) {
@@ -94,11 +94,11 @@ public class a0 {
             LogPrinter.d("zoomOut distX:" + f4 + " distY:" + f5, new Object[0]);
             LogPrinter.d("zoomOut containerScreenX:" + iArr2[0] + " containerScreenY:" + iArr2[1], new Object[0]);
             viewGroup2.addView(view, -1, -1);
-            viewGroup.addView(viewGroup2, new FrameLayout.LayoutParams(this.a, this.f28241b));
+            viewGroup.addView(viewGroup2, new FrameLayout.LayoutParams(this.a, this.f28269b));
             viewGroup2.setTranslationX(f4);
             viewGroup2.setTranslationY(f5);
             if (aVar != null) {
-                ((w.b.a) aVar).a.f28286b.zoomOutAnimationFinish();
+                ((w.b.a) aVar).a.f28314b.zoomOutAnimationFinish();
             }
         }
     }

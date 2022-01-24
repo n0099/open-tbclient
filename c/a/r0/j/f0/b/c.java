@@ -13,16 +13,16 @@ public class c {
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f11003b;
+    public String f11145b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f11004c;
+    public String f11146c;
 
     /* renamed from: d  reason: collision with root package name */
-    public JSONObject f11005d;
+    public JSONObject f11147d;
 
     /* renamed from: e  reason: collision with root package name */
-    public d f11006e;
+    public d f11148e;
 
     public c() {
         Interceptable interceptable = $ic;
@@ -42,7 +42,7 @@ public class c {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return "{ videoPath=" + this.a + " , query=" + this.f11003b + " , title=" + this.f11004c + ", extra=" + this.f11005d + ", videoEditorParams=" + this.f11006e + " }";
+            return "{ videoPath=" + this.a + " , query=" + this.f11145b + " , title=" + this.f11146c + ", extra=" + this.f11147d + ", videoEditorParams=" + this.f11148e + " }";
         }
         return (String) invokeV.objValue;
     }

@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.paysdk.beans.BeanConstants;
 import com.dxmpay.apollon.armor.SecurePay;
 import com.dxmpay.apollon.beans.IBeanResponse;
-/* loaded from: classes13.dex */
+/* loaded from: classes2.dex */
 public class FindPWDFromOldCardSendSmsResponse implements IBeanResponse {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

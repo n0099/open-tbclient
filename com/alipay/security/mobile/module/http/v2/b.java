@@ -17,7 +17,7 @@ public class b implements a {
     public static a a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static com.alipay.security.mobile.module.http.a f31030b;
+    public static com.alipay.security.mobile.module.http.a f31058b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -57,7 +57,7 @@ public class b implements a {
                 return null;
             }
             if (a == null) {
-                f31030b = d.a(context, str);
+                f31058b = d.a(context, str);
                 a = new b();
             }
             return a;
@@ -69,13 +69,13 @@ public class b implements a {
     public c a(com.alipay.security.mobile.module.http.model.d dVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, dVar)) == null) ? com.alipay.security.mobile.module.http.model.b.a(f31030b.a(com.alipay.security.mobile.module.http.model.b.a(dVar))) : (c) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, dVar)) == null) ? com.alipay.security.mobile.module.http.model.b.a(f31058b.a(com.alipay.security.mobile.module.http.model.b.a(dVar))) : (c) invokeL.objValue;
     }
 
     @Override // com.alipay.security.mobile.module.http.v2.a
     public boolean logCollect(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) ? f31030b.logCollect(str) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) ? f31058b.logCollect(str) : invokeL.booleanValue;
     }
 }

@@ -10,7 +10,7 @@ import c.a.d.f.n.a;
 import c.a.d.f.p.l;
 import c.a.d.f.p.m;
 import c.a.d.f.p.n;
-import c.a.s0.e1.t;
+import c.a.s0.d1.t;
 import com.baidu.adp.lib.stats.BdStatisticsManager;
 import com.baidu.down.retry.HttpRetryStrategyDataParse;
 import com.baidu.tbadk.TbDomainConfig;
@@ -240,7 +240,7 @@ public class ImageLogger {
                 } else {
                     str4 = ImageLoggerHelper.getInstance().getTiebaIp();
                     if (!TextUtils.isEmpty(str4)) {
-                        ICDNProblemUploader.getInstance().insertErrorData(dVar.f2800i, str);
+                        ICDNProblemUploader.getInstance().insertErrorData(dVar.f2902i, str);
                     }
                 }
             }
@@ -257,13 +257,13 @@ public class ImageLogger {
                 }
             }
             if (z && z3) {
-                if (H && j2 < ICDNIPDirectConnect.getInstance().getCDNImageTimeData().f12944d) {
+                if (H && j2 < ICDNIPDirectConnect.getInstance().getCDNImageTimeData().f13088d) {
                     return;
                 }
-                if (!H && l.t() && j2 < ICDNIPDirectConnect.getInstance().getCDNImageTimeData().f12946f) {
+                if (!H && l.t() && j2 < ICDNIPDirectConnect.getInstance().getCDNImageTimeData().f13090f) {
                     return;
                 }
-                if (!H && j2 < ICDNIPDirectConnect.getInstance().getCDNImageTimeData().f12945e) {
+                if (!H && j2 < ICDNIPDirectConnect.getInstance().getCDNImageTimeData().f13089e) {
                     return;
                 }
             }
@@ -278,9 +278,9 @@ public class ImageLogger {
             logItem.b("requrl", str2);
             logItem.b("netlib", dVar.v == 0 ? "Apache" : "HttpManager");
             logItem.b(TiebaStatic.LogFields.COST_TIME, String.valueOf(j2));
-            logItem.b("connTime", String.valueOf(dVar.f2794c));
-            logItem.b("rspTime", String.valueOf(dVar.f2795d));
-            logItem.b(HttpRetryStrategyDataParse.DOWNFLOW_RETRY_REQUEST_PARAM, String.valueOf(dVar.f2796e));
+            logItem.b("connTime", String.valueOf(dVar.f2896c));
+            logItem.b("rspTime", String.valueOf(dVar.f2897d));
+            logItem.b(HttpRetryStrategyDataParse.DOWNFLOW_RETRY_REQUEST_PARAM, String.valueOf(dVar.f2898e));
             logItem.b("clientIp", CommonHelper.getIp());
             logItem.b("tiebaIp", str4);
             String domainIp = ImageLoggerHelper.getInstance().getDomainIp(str);
@@ -288,19 +288,19 @@ public class ImageLogger {
                 logItem.b("domainIp", domainIp);
             }
             logItem.b("wifiDnsIp", dnsIp);
-            long j3 = dVar.f2794c;
+            long j3 = dVar.f2896c;
             if (j3 > 1500 || j3 < 0) {
                 logItem.b("connBaidu", String.valueOf(connBaidu()));
             }
             logItem.b("memory", memoryUsage());
             logItem.b("task", taskStatus());
-            logItem.b("status", String.valueOf(dVar.f2801j));
+            logItem.b("status", String.valueOf(dVar.f2903j));
             logItem.b("up", String.valueOf(dVar.a));
-            logItem.b("down", String.valueOf(dVar.f2793b));
+            logItem.b("down", String.valueOf(dVar.f2895b));
             logItem.b("isCDN", b2 ? "1" : "0");
             logItem.b("isWebp", bool.booleanValue() ? "1" : "0");
             logItem.b("isMobileProxy", z2 ? "1" : "0");
-            logItem.b("exception", dVar.f2799h);
+            logItem.b("exception", dVar.f2901h);
             logItem.b("reason", str3);
             if (i2 != 0) {
                 logItem.c("procType", Integer.valueOf(i2));
@@ -319,7 +319,7 @@ public class ImageLogger {
                 logItem.b("httpDnsIp", dVar.l);
             }
             logItem.c("ipIndex", Integer.valueOf(dVar.q));
-            logItem.c("dnsSwitch1", Boolean.valueOf(c.f2788f));
+            logItem.c("dnsSwitch1", Boolean.valueOf(c.f2890f));
             logItem.c("dnsSwitch2", Boolean.valueOf(UseHttpdnsSdkSwitch.isOn()));
             logItem.b("httpDnsIpList", dVar.p);
             logItem.c("dnsResolveType", dVar.m);

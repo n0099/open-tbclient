@@ -22,28 +22,28 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public class NewUserGuideRankShowBox extends Dialog implements c.a.t0.a4.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f48356e;
+    public Context f48366e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f48357f;
+    public TextView f48367f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f48358g;
+    public TextView f48368g;
 
     /* renamed from: h  reason: collision with root package name */
-    public View f48359h;
+    public View f48369h;
 
     /* renamed from: i  reason: collision with root package name */
-    public LinearLayout f48360i;
+    public LinearLayout f48370i;
 
     /* renamed from: j  reason: collision with root package name */
-    public View.OnClickListener f48361j;
+    public View.OnClickListener f48371j;
     public LinearLayout k;
     public View l;
 
@@ -65,7 +65,7 @@ public class NewUserGuideRankShowBox extends Dialog implements c.a.t0.a4.a {
                 return;
             }
         }
-        this.f48356e = context;
+        this.f48366e = context;
         b();
     }
 
@@ -73,7 +73,7 @@ public class NewUserGuideRankShowBox extends Dialog implements c.a.t0.a4.a {
     public void ForumLike(int i2) {
         View findViewWithTag;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(1048576, this, i2) == null) && (findViewWithTag = this.f48360i.findViewWithTag(Integer.valueOf(i2))) != null && (findViewWithTag instanceof LinearLayout)) {
+        if ((interceptable == null || interceptable.invokeI(1048576, this, i2) == null) && (findViewWithTag = this.f48370i.findViewWithTag(Integer.valueOf(i2))) != null && (findViewWithTag instanceof LinearLayout)) {
             new a(this, findViewWithTag).d(true);
         }
     }
@@ -82,7 +82,7 @@ public class NewUserGuideRankShowBox extends Dialog implements c.a.t0.a4.a {
     public void ForumUnLike(int i2) {
         View findViewWithTag;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) && (findViewWithTag = this.f48360i.findViewWithTag(Integer.valueOf(i2))) != null && (findViewWithTag instanceof LinearLayout)) {
+        if ((interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) && (findViewWithTag = this.f48370i.findViewWithTag(Integer.valueOf(i2))) != null && (findViewWithTag instanceof LinearLayout)) {
             new a(this, findViewWithTag).d(false);
         }
     }
@@ -90,16 +90,16 @@ public class NewUserGuideRankShowBox extends Dialog implements c.a.t0.a4.a {
     public final void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            View inflate = View.inflate(this.f48356e, R.layout.new_user_box, null);
+            View inflate = View.inflate(this.f48366e, R.layout.new_user_box, null);
             this.l = inflate;
             setContentView(inflate);
             setCanceledOnTouchOutside(true);
             this.k = (LinearLayout) this.l.findViewById(R.id.box_close_layout);
-            this.f48357f = (TextView) this.l.findViewById(R.id.prompt_title);
-            this.f48358g = (TextView) this.l.findViewById(R.id.prompt_sub_title);
-            this.f48359h = this.l.findViewById(R.id.view_layout);
-            this.f48360i = (LinearLayout) this.l.findViewById(R.id.layout_content);
-            this.f48359h.setBackgroundDrawable(this.f48356e.getResources().getDrawable(R.drawable.bg_startpage2_card_blue_up));
+            this.f48367f = (TextView) this.l.findViewById(R.id.prompt_title);
+            this.f48368g = (TextView) this.l.findViewById(R.id.prompt_sub_title);
+            this.f48369h = this.l.findViewById(R.id.view_layout);
+            this.f48370i = (LinearLayout) this.l.findViewById(R.id.layout_content);
+            this.f48369h.setBackgroundDrawable(this.f48366e.getResources().getDrawable(R.drawable.bg_startpage2_card_blue_up));
         }
     }
 
@@ -114,7 +114,7 @@ public class NewUserGuideRankShowBox extends Dialog implements c.a.t0.a4.a {
     public void hide() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            Context context = this.f48356e;
+            Context context = this.f48366e;
             if (context instanceof Activity) {
                 g.a(this, (Activity) context);
             } else {
@@ -127,19 +127,19 @@ public class NewUserGuideRankShowBox extends Dialog implements c.a.t0.a4.a {
     public void setData(InterestFrsData.Tag tag) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, tag) == null) {
-            this.f48357f.setText(tag.getBname());
-            this.f48358g.setText(tag.getBdesc());
+            this.f48367f.setText(tag.getBname());
+            this.f48368g.setText(tag.getBdesc());
             ArrayList<InterestFrsData.Card> card_list = tag.getCard_list();
             int i2 = 0;
             while (i2 < card_list.size()) {
-                View a2 = new a(this, card_list.get(i2), this.f48361j).a();
-                this.f48360i.addView(a2);
+                View a2 = new a(this, card_list.get(i2), this.f48371j).a();
+                this.f48370i.addView(a2);
                 LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) a2.getLayoutParams();
-                int dimensionPixelSize = this.f48356e.getResources().getDimensionPixelSize(R.dimen.ds40);
-                layoutParams.setMargins(0, i2 == 0 ? this.f48356e.getResources().getDimensionPixelSize(R.dimen.ds52) : dimensionPixelSize, 0, dimensionPixelSize);
+                int dimensionPixelSize = this.f48366e.getResources().getDimensionPixelSize(R.dimen.ds40);
+                layoutParams.setMargins(0, i2 == 0 ? this.f48366e.getResources().getDimensionPixelSize(R.dimen.ds52) : dimensionPixelSize, 0, dimensionPixelSize);
                 a2.setLayoutParams(layoutParams);
                 if (i2 != card_list.size() - 1) {
-                    this.f48360i.addView(LayoutInflater.from(this.f48356e).inflate(R.layout.new_user_line_item, (ViewGroup) null));
+                    this.f48370i.addView(LayoutInflater.from(this.f48366e).inflate(R.layout.new_user_line_item, (ViewGroup) null));
                 }
                 i2++;
             }
@@ -156,7 +156,7 @@ public class NewUserGuideRankShowBox extends Dialog implements c.a.t0.a4.a {
     public void setOnClickListener(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, onClickListener) == null) {
-            this.f48361j = onClickListener;
+            this.f48371j = onClickListener;
             this.k.setOnClickListener(onClickListener);
         }
     }
@@ -164,14 +164,14 @@ public class NewUserGuideRankShowBox extends Dialog implements c.a.t0.a4.a {
     public void setSubTitle(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
-            this.f48358g.setText(str);
+            this.f48368g.setText(str);
         }
     }
 
     public void setTitle(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
-            this.f48357f.setText(str);
+            this.f48367f.setText(str);
         }
     }
 
@@ -179,33 +179,33 @@ public class NewUserGuideRankShowBox extends Dialog implements c.a.t0.a4.a {
     public void show() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            Context context = this.f48356e;
+            Context context = this.f48366e;
             if (!(context instanceof Activity) || g.e((Activity) context)) {
                 super.show();
             }
         }
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes13.dex */
     public class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public View a;
 
         /* renamed from: b  reason: collision with root package name */
-        public TextView f48362b;
+        public TextView f48372b;
 
         /* renamed from: c  reason: collision with root package name */
-        public TextView f48363c;
+        public TextView f48373c;
 
         /* renamed from: d  reason: collision with root package name */
-        public ImageView f48364d;
+        public ImageView f48374d;
 
         /* renamed from: e  reason: collision with root package name */
-        public LinearLayout f48365e;
+        public LinearLayout f48375e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ NewUserGuideRankShowBox f48366f;
+        public final /* synthetic */ NewUserGuideRankShowBox f48376f;
 
         public a(NewUserGuideRankShowBox newUserGuideRankShowBox, InterestFrsData.Card card, View.OnClickListener onClickListener) {
             Interceptable interceptable = $ic;
@@ -222,8 +222,8 @@ public class NewUserGuideRankShowBox extends Dialog implements c.a.t0.a4.a {
                     return;
                 }
             }
-            this.f48366f = newUserGuideRankShowBox;
-            View inflate = LayoutInflater.from(newUserGuideRankShowBox.f48356e).inflate(R.layout.new_user_text_item, (ViewGroup) null);
+            this.f48376f = newUserGuideRankShowBox;
+            View inflate = LayoutInflater.from(newUserGuideRankShowBox.f48366e).inflate(R.layout.new_user_text_item, (ViewGroup) null);
             this.a = inflate;
             inflate.setTag(Integer.valueOf(card.getFid()));
             b(card, onClickListener);
@@ -240,16 +240,16 @@ public class NewUserGuideRankShowBox extends Dialog implements c.a.t0.a4.a {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, card, onClickListener) == null) {
                 c();
-                this.f48365e.setOnClickListener(onClickListener);
-                this.f48365e.setTag(card);
-                this.f48362b.setText(card.getFname());
+                this.f48375e.setOnClickListener(onClickListener);
+                this.f48375e.setTag(card);
+                this.f48372b.setText(card.getFname());
                 if (card.getOrder() == 1) {
-                    drawable = this.f48366f.f48356e.getResources().getDrawable(R.drawable.icon_startpage2_add_ba_rise);
+                    drawable = this.f48376f.f48366e.getResources().getDrawable(R.drawable.icon_startpage2_add_ba_rise);
                 } else {
-                    drawable = card.getOrder() == 2 ? this.f48366f.f48356e.getResources().getDrawable(R.drawable.icon_startpage2_add_ba_decline) : null;
+                    drawable = card.getOrder() == 2 ? this.f48376f.f48366e.getResources().getDrawable(R.drawable.icon_startpage2_add_ba_decline) : null;
                 }
-                this.f48362b.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, drawable, (Drawable) null);
-                this.f48363c.setText(card.getCdesc());
+                this.f48372b.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, drawable, (Drawable) null);
+                this.f48373c.setText(card.getCdesc());
                 d(card.getIs_like() != 0);
             }
         }
@@ -257,10 +257,10 @@ public class NewUserGuideRankShowBox extends Dialog implements c.a.t0.a4.a {
         public void c() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                this.f48362b = (TextView) this.a.findViewById(R.id.tv_fname);
-                this.f48363c = (TextView) this.a.findViewById(R.id.tv_cdesc);
-                this.f48364d = (ImageView) this.a.findViewById(R.id.iv_like);
-                this.f48365e = (LinearLayout) this.a.findViewById(R.id.ll_like);
+                this.f48372b = (TextView) this.a.findViewById(R.id.tv_fname);
+                this.f48373c = (TextView) this.a.findViewById(R.id.tv_cdesc);
+                this.f48374d = (ImageView) this.a.findViewById(R.id.iv_like);
+                this.f48375e = (LinearLayout) this.a.findViewById(R.id.ll_like);
             }
         }
 
@@ -268,9 +268,9 @@ public class NewUserGuideRankShowBox extends Dialog implements c.a.t0.a4.a {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
                 if (!z) {
-                    this.f48364d.setBackgroundDrawable(this.f48366f.f48356e.getResources().getDrawable(R.drawable.icon_startpage2_add_ba_n));
+                    this.f48374d.setBackgroundDrawable(this.f48376f.f48366e.getResources().getDrawable(R.drawable.icon_startpage2_add_ba_n));
                 } else {
-                    this.f48364d.setBackgroundDrawable(this.f48366f.f48356e.getResources().getDrawable(R.drawable.icon_startpage2_add_ba_s));
+                    this.f48374d.setBackgroundDrawable(this.f48376f.f48366e.getResources().getDrawable(R.drawable.icon_startpage2_add_ba_s));
                 }
             }
         }
@@ -290,7 +290,7 @@ public class NewUserGuideRankShowBox extends Dialog implements c.a.t0.a4.a {
                     return;
                 }
             }
-            this.f48366f = newUserGuideRankShowBox;
+            this.f48376f = newUserGuideRankShowBox;
             this.a = view;
             c();
         }
@@ -315,7 +315,7 @@ public class NewUserGuideRankShowBox extends Dialog implements c.a.t0.a4.a {
                 return;
             }
         }
-        this.f48356e = context;
+        this.f48366e = context;
         b();
     }
 }

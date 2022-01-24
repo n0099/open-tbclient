@@ -1,5 +1,6 @@
 package c.a.r0.j.g0.i;
 
+import com.baidu.searchbox.retrieve.inter.constants.StatConstants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -13,10 +14,10 @@ public class c extends d {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f11025b;
+    public String f11167b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f11026c;
+    public int f11168c;
 
     public c() {
         Interceptable interceptable = $ic;
@@ -39,9 +40,9 @@ public class c extends d {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             JSONObject jSONObject = new JSONObject();
             try {
-                jSONObject.put("packageName", this.f11025b);
-                jSONObject.put("errCode", this.f11026c);
-                jSONObject.put("errMsg", this.a);
+                jSONObject.put("packageName", this.f11167b);
+                jSONObject.put("errCode", this.f11168c);
+                jSONObject.put(StatConstants.KEY_EXT_ERR_MSG, this.a);
             } catch (JSONException unused) {
             }
             return jSONObject;

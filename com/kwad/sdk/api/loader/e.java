@@ -28,16 +28,16 @@ public class e {
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f55391b;
+    public String f55436b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f55392c;
+    public int f55437c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Map<String, String> f55393d = new HashMap();
+    public Map<String, String> f55438d = new HashMap();
 
     /* renamed from: e  reason: collision with root package name */
-    public IKsAdSDK f55394e;
+    public IKsAdSDK f55439e;
 
     /* loaded from: classes3.dex */
     public interface a {
@@ -47,9 +47,9 @@ public class e {
     }
 
     public e(String str, IKsAdSDK iKsAdSDK) {
-        this.f55391b = str;
+        this.f55436b = str;
         this.a = str;
-        this.f55394e = iKsAdSDK;
+        this.f55439e = iKsAdSDK;
     }
 
     private String a() {
@@ -81,16 +81,16 @@ public class e {
         } catch (JSONException e2) {
             e2.printStackTrace();
         }
-        if (this.f55394e != null) {
+        if (this.f55439e != null) {
             JSONObject jSONObject2 = new JSONObject();
             try {
                 jSONObject2.put("version", "3.3.17.4");
                 jSONObject2.put(BaseActivity.EXTRA_PARAM_THIRD_VERIFY_APP_ID, appInfo.optString(BaseActivity.EXTRA_PARAM_THIRD_VERIFY_APP_ID));
-                jSONObject2.put("message", this.f55394e.getRM(jSONObject.toString()));
+                jSONObject2.put("message", this.f55439e.getRM(jSONObject.toString()));
             } catch (JSONException e3) {
                 e3.printStackTrace();
             }
-            this.f55394e.sR(this.f55391b.replace("https://open.e.kuaishou.com", ""), this.f55393d, jSONObject2.toString());
+            this.f55439e.sR(this.f55436b.replace("https://open.e.kuaishou.com", ""), this.f55438d, jSONObject2.toString());
             return jSONObject2.toString();
         }
         return jSONObject.toString();
@@ -174,7 +174,7 @@ public class e {
     }
 
     private void a(String str, String str2) {
-        this.f55393d.put(str, str2);
+        this.f55438d.put(str, str2);
     }
 
     @Nullable
@@ -188,9 +188,9 @@ public class e {
         httpURLConnection.setInstanceFollowRedirects(true);
         a("Content-Type", "application/json; charset=UTF-8");
         a("User-Agent", RequestParamsUtils.getUserAgent());
-        IKsAdSDK iKsAdSDK = this.f55394e;
+        IKsAdSDK iKsAdSDK = this.f55439e;
         if (iKsAdSDK != null) {
-            iKsAdSDK.addHp(this.f55393d);
+            iKsAdSDK.addHp(this.f55438d);
         }
         return httpURLConnection;
     }
@@ -203,8 +203,8 @@ public class e {
                 httpURLConnection = b();
                 if (httpURLConnection != null) {
                     String a2 = a();
-                    if (this.f55393d != null) {
-                        for (Map.Entry<String, String> entry : this.f55393d.entrySet()) {
+                    if (this.f55438d != null) {
+                        for (Map.Entry<String, String> entry : this.f55438d.entrySet()) {
                             httpURLConnection.setRequestProperty(entry.getKey(), entry.getValue());
                         }
                     }
@@ -215,16 +215,16 @@ public class e {
                         String a3 = a(httpURLConnection.getInputStream());
                         a.b bVar = new a.b();
                         JSONObject jSONObject = new JSONObject(a3);
-                        if (this.f55394e != null) {
-                            jSONObject.put("data", new JSONObject(this.f55394e.getRD(jSONObject.optString("data"))));
+                        if (this.f55439e != null) {
+                            jSONObject.put("data", new JSONObject(this.f55439e.getRD(jSONObject.optString("data"))));
                         }
                         bVar.a(jSONObject);
                         aVar.a(bVar);
                     } else if (responseCode / 100 != 3) {
                         throw new RuntimeException("response code = " + responseCode);
-                    } else if (this.f55392c < 21) {
+                    } else if (this.f55437c < 21) {
                         this.a = httpURLConnection.getHeaderField("Location");
-                        this.f55392c++;
+                        this.f55437c++;
                         b(aVar);
                     }
                 }

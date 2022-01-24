@@ -34,19 +34,19 @@ public class g {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ int f9932e;
+        public final /* synthetic */ int f10074e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ boolean f9933f;
+        public final /* synthetic */ boolean f10075f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ Activity f9934g;
+        public final /* synthetic */ Activity f10076g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ c.a.r0.a.j1.d.d.c f9935h;
+        public final /* synthetic */ c.a.r0.a.j1.d.d.c f10077h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final /* synthetic */ Context f9936i;
+        public final /* synthetic */ Context f10078i;
 
         public a(int i2, boolean z, Activity activity, c.a.r0.a.j1.d.d.c cVar, Context context) {
             Interceptable interceptable = $ic;
@@ -63,11 +63,11 @@ public class g {
                     return;
                 }
             }
-            this.f9932e = i2;
-            this.f9933f = z;
-            this.f9934g = activity;
-            this.f9935h = cVar;
-            this.f9936i = context;
+            this.f10074e = i2;
+            this.f10075f = z;
+            this.f10076g = activity;
+            this.f10077h = cVar;
+            this.f10078i = context;
         }
 
         @Override // c.a.r0.a.v1.f
@@ -76,11 +76,11 @@ public class g {
             if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
                 Bundle bundle = new Bundle();
                 bundle.putString("swanAppId", c.a.r0.a.d2.e.f0());
-                bundle.putInt("count", this.f9932e);
-                bundle.putBoolean("compressed", this.f9933f);
+                bundle.putInt("count", this.f10074e);
+                bundle.putBoolean("compressed", this.f10075f);
                 bundle.putString("launchType", "Image");
                 bundle.putString("swanTmpPath", c.a.r0.a.g1.f.U().G().k());
-                c.a.r0.a.j1.d.c.d.l(this.f9934g, bundle, this.f9935h);
+                c.a.r0.a.j1.d.c.d.l(this.f10076g, bundle, this.f10077h);
             }
         }
 
@@ -91,7 +91,7 @@ public class g {
                 if (g.a) {
                     String str2 = str + "";
                 }
-                Toast.makeText(this.f9936i, str, 1).show();
+                Toast.makeText(this.f10078i, str, 1).show();
             }
         }
     }

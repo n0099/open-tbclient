@@ -27,14 +27,14 @@ public class b extends BaseAdapter {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: g  reason: collision with root package name */
-    public static int f21021g = 3;
+    public static int f21255g = 3;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f21022e;
+    public Context f21256e;
 
     /* renamed from: f  reason: collision with root package name */
-    public List<TransmitForumData> f21023f;
+    public List<TransmitForumData> f21257f;
 
     /* loaded from: classes8.dex */
     public static class a {
@@ -43,13 +43,13 @@ public class b extends BaseAdapter {
         public TextView a;
 
         /* renamed from: b  reason: collision with root package name */
-        public BarImageView f21024b;
+        public BarImageView f21258b;
 
         /* renamed from: c  reason: collision with root package name */
-        public View f21025c;
+        public View f21259c;
 
         /* renamed from: d  reason: collision with root package name */
-        public int f21026d;
+        public int f21260d;
 
         public a(View view) {
             Interceptable interceptable = $ic;
@@ -66,25 +66,25 @@ public class b extends BaseAdapter {
                     return;
                 }
             }
-            this.f21026d = 3;
+            this.f21260d = 3;
             if (view == null) {
                 return;
             }
             this.a = (TextView) view.findViewById(g.transmit_forum_name);
             BarImageView barImageView = (BarImageView) view.findViewById(g.forum_avatar);
-            this.f21024b = barImageView;
+            this.f21258b = barImageView;
             barImageView.setShowOval(true);
-            this.f21025c = view.findViewById(g.divider_line);
+            this.f21259c = view.findViewById(g.divider_line);
         }
 
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (b.f21021g != this.f21026d) {
+                if (b.f21255g != this.f21260d) {
                     SkinManager.setViewTextColor(this.a, d.CAM_X0105);
-                    SkinManager.setBackgroundColor(this.f21025c, d.CAM_X0204);
+                    SkinManager.setBackgroundColor(this.f21259c, d.CAM_X0204);
                 }
-                this.f21026d = b.f21021g;
+                this.f21260d = b.f21255g;
             }
         }
 
@@ -94,7 +94,7 @@ public class b extends BaseAdapter {
                 return;
             }
             this.a.setText(transmitForumData.forumName);
-            this.f21024b.startLoad(transmitForumData.avatar, 10, false);
+            this.f21258b.startLoad(transmitForumData.avatar, 10, false);
         }
     }
 
@@ -128,15 +128,15 @@ public class b extends BaseAdapter {
                 return;
             }
         }
-        this.f21023f = new ArrayList();
-        this.f21022e = context;
+        this.f21257f = new ArrayList();
+        this.f21256e = context;
     }
 
     public void b(List<TransmitForumData> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, list) == null) {
-            this.f21023f.clear();
-            this.f21023f.addAll(list);
+            this.f21257f.clear();
+            this.f21257f.addAll(list);
             notifyDataSetChanged();
         }
     }
@@ -144,10 +144,10 @@ public class b extends BaseAdapter {
     public void c(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
-            if (f21021g != i2) {
+            if (f21255g != i2) {
                 notifyDataSetChanged();
             }
-            f21021g = i2;
+            f21255g = i2;
         }
     }
 
@@ -155,7 +155,7 @@ public class b extends BaseAdapter {
     public int getCount() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f21023f.size() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f21257f.size() : invokeV.intValue;
     }
 
     @Override // android.widget.Adapter
@@ -185,7 +185,7 @@ public class b extends BaseAdapter {
         if (interceptable == null || (invokeILL = interceptable.invokeILL(1048581, this, i2, view, viewGroup)) == null) {
             a aVar = null;
             if (view == null) {
-                view = LayoutInflater.from(this.f21022e).inflate(h.layout_select_forum_item, (ViewGroup) null);
+                view = LayoutInflater.from(this.f21256e).inflate(h.layout_select_forum_item, (ViewGroup) null);
                 aVar = new a(view);
                 view.setTag(g.key_select_forum_holder, aVar);
             } else {
@@ -196,7 +196,7 @@ public class b extends BaseAdapter {
             }
             if (aVar != null) {
                 aVar.a();
-                aVar.b(this.f21023f.get(i2));
+                aVar.b(this.f21257f.get(i2));
             }
             return view;
         }

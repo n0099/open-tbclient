@@ -9,10 +9,10 @@ public class n {
     public static String a = f();
 
     /* renamed from: b  reason: collision with root package name */
-    public static long f56055b = 0;
+    public static long f56100b = 0;
 
     /* renamed from: c  reason: collision with root package name */
-    public static Context f56056c;
+    public static Context f56101c;
 
     public static String a() {
         com.kwad.sdk.core.d.a.a("ReportIdManager", ">> updateSessionId");
@@ -22,7 +22,7 @@ public class n {
     }
 
     public static void a(Context context) {
-        f56056c = context;
+        f56101c = context;
     }
 
     @WorkerThread
@@ -60,8 +60,8 @@ public class n {
 
     @WorkerThread
     public static long c() {
-        long b2 = b(f56056c);
-        a(f56056c, 1 + b2);
+        long b2 = b(f56101c);
+        a(f56101c, 1 + b2);
         return b2;
     }
 
@@ -78,14 +78,14 @@ public class n {
     public static synchronized long d() {
         long c2;
         synchronized (n.class) {
-            c2 = c(f56056c);
-            b(f56056c, 1 + c2);
+            c2 = c(f56101c);
+            b(f56101c, 1 + c2);
         }
         return c2;
     }
 
     public static long e() {
-        return f56055b;
+        return f56100b;
     }
 
     public static String f() {

@@ -20,7 +20,7 @@ public class c implements c.a.r0.j.u.c.b {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f10597b = "hasDownloadApk";
+    public static String f10739b = "hasDownloadApk";
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
 
@@ -89,7 +89,7 @@ public class c implements c.a.r0.j.u.c.b {
             c.a.r0.h.j.n.a aVar = new c.a.r0.h.j.n.a(download);
             c.a.r0.h.j.r.b.n().f("statusInstalled", new c.a.r0.h.j.r.a(), download.getKeyByUser(), aVar.j(), aVar.l());
             if (TextUtils.equals(aVar.m(), this.a)) {
-                c.a.r0.a.o2.g.h.a().putBoolean(f10597b, true);
+                c.a.r0.a.o2.g.h.a().putBoolean(f10739b, true);
                 c.a.r0.h.j.r.b.n().p(13, aVar.m(), aVar.h(), aVar.l());
             }
         }

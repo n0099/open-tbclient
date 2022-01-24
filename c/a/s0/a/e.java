@@ -51,33 +51,33 @@ public class e {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final Pattern f12102h;
+    public static final Pattern f12244h;
 
     /* renamed from: i  reason: collision with root package name */
-    public static final Pattern f12103i;
+    public static final Pattern f12245i;
 
     /* renamed from: j  reason: collision with root package name */
-    public static final Pattern f12104j;
+    public static final Pattern f12246j;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f12105b;
+    public long f12247b;
 
     /* renamed from: c  reason: collision with root package name */
-    public u f12106c;
+    public u f12248c;
 
     /* renamed from: d  reason: collision with root package name */
-    public c.a.s0.a.f f12107d;
+    public c.a.s0.a.f f12249d;
 
     /* renamed from: e  reason: collision with root package name */
-    public AtomicBoolean f12108e;
+    public AtomicBoolean f12250e;
 
     /* renamed from: f  reason: collision with root package name */
-    public AtomicBoolean f12109f;
+    public AtomicBoolean f12251f;
 
     /* renamed from: g  reason: collision with root package name */
-    public f.b f12110g;
+    public f.b f12252g;
 
     /* loaded from: classes6.dex */
     public class a extends BdAsyncTask<String, Integer, l> {
@@ -115,7 +115,7 @@ public class e {
                     return null;
                 }
                 String str = strArr[0];
-                if (!c.a.d.f.p.m.isEmpty(str) && (matcher = e.f12103i.matcher(str)) != null && matcher.find() && matcher.groupCount() >= 2) {
+                if (!c.a.d.f.p.m.isEmpty(str) && (matcher = e.f12245i.matcher(str)) != null && matcher.find() && matcher.groupCount() >= 2) {
                     String group = matcher.group(1);
                     String group2 = matcher.group(2);
                     if (TextUtils.isEmpty(group2)) {
@@ -143,10 +143,10 @@ public class e {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, lVar) == null) {
                 super.onPostExecute(lVar);
-                if (lVar == null || this.a.f12109f.get()) {
+                if (lVar == null || this.a.f12251f.get()) {
                     return;
                 }
-                this.a.f12109f.compareAndSet(false, true);
+                this.a.f12251f.compareAndSet(false, true);
                 TiebaUidCheckReqMsg tiebaUidCheckReqMsg = new TiebaUidCheckReqMsg();
                 tiebaUidCheckReqMsg.setTiebaUid(lVar);
                 MessageManager.getInstance().sendMessage(tiebaUidCheckReqMsg);
@@ -195,7 +195,7 @@ public class e {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ e f12111e;
+        public final /* synthetic */ e f12253e;
 
         public c(e eVar) {
             Interceptable interceptable = $ic;
@@ -212,14 +212,14 @@ public class e {
                     return;
                 }
             }
-            this.f12111e = eVar;
+            this.f12253e = eVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                e.y().m(this.f12111e.w());
+                e.y().m(this.f12253e.w());
             }
         }
     }
@@ -230,7 +230,7 @@ public class e {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ e f12112e;
+        public final /* synthetic */ e f12254e;
 
         public d(e eVar) {
             Interceptable interceptable = $ic;
@@ -247,27 +247,27 @@ public class e {
                     return;
                 }
             }
-            this.f12112e = eVar;
+            this.f12254e = eVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                e.y().m(this.f12112e.w());
+                e.y().m(this.f12254e.w());
             }
         }
     }
 
     /* renamed from: c.a.s0.a.e$e  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public class C0821e extends c.a.d.c.g.a {
+    public class C0830e extends c.a.d.c.g.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ e a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public C0821e(e eVar, int i2, int i3) {
+        public C0830e(e eVar, int i2, int i3) {
             super(i2, i3);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -293,7 +293,7 @@ public class e {
             c.a.s0.a.h decryptData;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) {
-                this.a.f12108e.compareAndSet(true, false);
+                this.a.f12250e.compareAndSet(true, false);
                 if (responsedMessage instanceof DecryptCodeHttpRespMsg) {
                     decryptData = ((DecryptCodeHttpRespMsg) responsedMessage).getDecryptData();
                 } else if (!(responsedMessage instanceof DecryptCodeSocketRespMsg)) {
@@ -308,7 +308,7 @@ public class e {
                 UtilHelper.clearClipBoard();
                 int g2 = decryptData.g();
                 if (g2 == 1 || g2 == 0) {
-                    if (MessageManager.getInstance().findTask(2921361) == null || decryptData.f12134g.equals(TbadkCoreApplication.getInst().getCurAiAppid())) {
+                    if (MessageManager.getInstance().findTask(2921361) == null || decryptData.f12276g.equals(TbadkCoreApplication.getInst().getCurAiAppid())) {
                         return;
                     }
                     TbadkCoreApplication.getInst().setCurAiAppid(null);
@@ -369,7 +369,7 @@ public class e {
             TiebaUidCheckReqMsg tiebaUidCheckReqMsg;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) {
-                this.a.f12109f.compareAndSet(true, false);
+                this.a.f12251f.compareAndSet(true, false);
                 if (responsedMessage instanceof TiebaUidCheckSocketResMsg) {
                     userData = ((TiebaUidCheckSocketResMsg) responsedMessage).getUserData();
                 } else if (!(responsedMessage instanceof TiebaUidCheckHttpResMsg)) {
@@ -480,10 +480,10 @@ public class e {
             if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
                 super.onPostExecute((h) str);
                 if (str == null) {
-                    if (this.a.f12106c == null || !this.a.C()) {
+                    if (this.a.f12248c == null || !this.a.C()) {
                         return;
                     }
-                    this.a.f12106c.b();
+                    this.a.f12248c.b();
                     return;
                 }
                 this.a.n(str);
@@ -524,7 +524,7 @@ public class e {
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, strArr)) == null) {
                 if (strArr != null && strArr.length >= 1) {
                     String str = strArr[0];
-                    if (!c.a.d.f.p.m.isEmpty(str) && (matcher = e.f12104j.matcher(str)) != null && matcher.find()) {
+                    if (!c.a.d.f.p.m.isEmpty(str) && (matcher = e.f12246j.matcher(str)) != null && matcher.find()) {
                         return str;
                     }
                 }
@@ -579,7 +579,7 @@ public class e {
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, strArr)) == null) {
                 if (strArr != null && strArr.length >= 1) {
                     String str = strArr[0];
-                    if (!c.a.d.f.p.m.isEmpty(str) && (matcher = e.f12102h.matcher(str)) != null && matcher.find()) {
+                    if (!c.a.d.f.p.m.isEmpty(str) && (matcher = e.f12244h.matcher(str)) != null && matcher.find()) {
                         return str;
                     }
                 }
@@ -594,10 +594,10 @@ public class e {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
                 super.onPostExecute((j) str);
-                if (str == null || this.a.f12108e.get()) {
+                if (str == null || this.a.f12250e.get()) {
                     return;
                 }
-                this.a.f12108e.compareAndSet(false, true);
+                this.a.f12250e.compareAndSet(false, true);
                 DecryptCodeReqMsg decryptCodeReqMsg = new DecryptCodeReqMsg();
                 decryptCodeReqMsg.setCode(str);
                 MessageManager.getInstance().sendMessage(decryptCodeReqMsg);
@@ -635,7 +635,7 @@ public class e {
         public String a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f12113b;
+        public String f12255b;
 
         public l() {
             Interceptable interceptable = $ic;
@@ -660,7 +660,7 @@ public class e {
         public String b() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f12113b : (String) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f12255b : (String) invokeV.objValue;
         }
 
         public void c(String str) {
@@ -673,7 +673,7 @@ public class e {
         public void d(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-                this.f12113b = str;
+                this.f12255b = str;
             }
         }
     }
@@ -691,9 +691,9 @@ public class e {
                 return;
             }
         }
-        f12102h = Pattern.compile("\\$[0-9A-Za-z@_]{5,200}[#$]", 2);
-        f12103i = Pattern.compile("^@(.*)@给你分享了贴吧号#(\\d+)#\\s?整段复制后打开贴吧即可找到Ta$", 2);
-        f12104j = Pattern.compile("\\$(com.baidu.tieba://unidispatch/)[0-9a-zA-Z]{1,10}\\?[0-9a-zA-Z_=&%\\-.]{1,300}[$]", 2);
+        f12244h = Pattern.compile("\\$[0-9A-Za-z@_]{5,200}[#$]", 2);
+        f12245i = Pattern.compile("^@(.*)@给你分享了贴吧号#(\\d+)#\\s?整段复制后打开贴吧即可找到Ta$", 2);
+        f12246j = Pattern.compile("\\$(com.baidu.tieba://unidispatch/)[0-9a-zA-Z]{1,10}\\?[0-9a-zA-Z_=&%\\-.]{1,300}[$]", 2);
     }
 
     public e() {
@@ -709,9 +709,9 @@ public class e {
                 return;
             }
         }
-        this.f12108e = new AtomicBoolean(false);
-        this.f12109f = new AtomicBoolean(false);
-        this.f12110g = new b(this);
+        this.f12250e = new AtomicBoolean(false);
+        this.f12251f = new AtomicBoolean(false);
+        this.f12252g = new b(this);
     }
 
     public static final e y() {
@@ -728,7 +728,7 @@ public class e {
             if (c.a.d.f.p.m.isEmpty(clipBoardContent)) {
                 return false;
             }
-            return D(z(), clipBoardContent) || clipBoardContent.contains("^sZqulxTVsT$") || E(f12102h, clipBoardContent) || E(f12104j, clipBoardContent) || E(f12103i, clipBoardContent);
+            return D(z(), clipBoardContent) || clipBoardContent.contains("^sZqulxTVsT$") || E(f12244h, clipBoardContent) || E(f12246j, clipBoardContent) || E(f12245i, clipBoardContent);
         }
         return invokeV.booleanValue;
     }
@@ -742,9 +742,9 @@ public class e {
         H();
         G();
         c.a.s0.a.f fVar = new c.a.s0.a.f();
-        this.f12107d = fVar;
-        fVar.g(this.f12110g);
-        this.f12106c = new u();
+        this.f12249d = fVar;
+        fVar.g(this.f12252g);
+        this.f12248c = new u();
         String w = w();
         if (!c.a.d.f.p.m.isEmpty(w)) {
             y().m(w);
@@ -788,8 +788,8 @@ public class e {
     public final void F() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            c.a.t0.w3.f0.a.h(309626, DecryptCodeSocketRespMsg.class, false, false);
-            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_HTTP_DECRYPT_CODE, c.a.t0.w3.f0.a.a(TbConfig.DECRYPT_CODE_URL, 309626));
+            c.a.t0.x3.f0.a.h(309626, DecryptCodeSocketRespMsg.class, false, false);
+            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_HTTP_DECRYPT_CODE, c.a.t0.x3.f0.a.a(TbConfig.DECRYPT_CODE_URL, 309626));
             tbHttpMessageTask.setResponsedClass(DecryptCodeHttpRespMsg.class);
             tbHttpMessageTask.setIsNeedAddCommenParam(true);
             MessageManager.getInstance().registerTask(tbHttpMessageTask);
@@ -799,7 +799,7 @@ public class e {
     public final void G() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            MessageManager.getInstance().registerListener(new C0821e(this, CmdConfigHttp.CMD_HTTP_DECRYPT_CODE, 309626));
+            MessageManager.getInstance().registerListener(new C0830e(this, CmdConfigHttp.CMD_HTTP_DECRYPT_CODE, 309626));
             MessageManager.getInstance().registerListener(new f(this, CmdConfigHttp.CMD_HTTP_TIEBA_UID_CHECK, 309702));
             MessageManager.getInstance().registerListener(new g(this, 2001011));
         }
@@ -808,8 +808,8 @@ public class e {
     public final void H() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            c.a.t0.w3.f0.a.h(309702, TiebaUidCheckSocketResMsg.class, false, false);
-            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_HTTP_TIEBA_UID_CHECK, c.a.t0.w3.f0.a.a(TbConfig.URL_GET_USER_BY_TIEBA_UID, 309702));
+            c.a.t0.x3.f0.a.h(309702, TiebaUidCheckSocketResMsg.class, false, false);
+            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_HTTP_TIEBA_UID_CHECK, c.a.t0.x3.f0.a.a(TbConfig.URL_GET_USER_BY_TIEBA_UID, 309702));
             tbHttpMessageTask.setResponsedClass(TiebaUidCheckHttpResMsg.class);
             tbHttpMessageTask.setIsNeedAddCommenParam(true);
             MessageManager.getInstance().registerTask(tbHttpMessageTask);
@@ -838,7 +838,7 @@ public class e {
     public final void n(String str) {
         c.a.s0.a.f fVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048586, this, str) == null) || (fVar = this.f12107d) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048586, this, str) == null) || (fVar = this.f12249d) == null) {
             return;
         }
         fVar.c(str);
@@ -918,10 +918,10 @@ public class e {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
-            if (System.currentTimeMillis() - this.f12105b < 2000) {
+            if (System.currentTimeMillis() - this.f12247b < 2000) {
                 return null;
             }
-            this.f12105b = System.currentTimeMillis();
+            this.f12247b = System.currentTimeMillis();
             return UtilHelper.getClipBoardContent();
         }
         return (String) invokeV.objValue;
@@ -945,6 +945,6 @@ public class e {
     public final String z() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) ? new String(Base64.decode(c.a.s0.s.h0.b.k().q("key_baidu_password_re", "LipcXlsjJGEtekEtWjAtOV9dezUsfVxeezAsMX1bXF4kXXsxfS4q"), 0)) : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) ? new String(Base64.decode(c.a.s0.s.i0.b.k().q("key_baidu_password_re", "LipcXlsjJGEtekEtWjAtOV9dezUsfVxeezAsMX1bXF4kXXsxfS4q"), 0)) : (String) invokeV.objValue;
     }
 }

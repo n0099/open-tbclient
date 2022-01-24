@@ -1,79 +1,45 @@
 package c.a.t0.m1;
 
-import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.LinearLayout;
 import android.widget.TextView;
-import c.a.d.f.p.n;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
+import c.a.s0.f1.q.a.d.f;
+import c.a.t0.z2.d;
+import c.a.t0.z2.e;
+import c.a.t0.z2.g;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.CreateBarActivityConfig;
-import com.baidu.tbadk.core.atomData.CreateForumActivityConfig;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.view.NavigationBar;
-import com.baidu.tbadk.core.view.NoDataView;
-import com.baidu.tbadk.core.view.NoDataViewFactory;
-import com.baidu.tbadk.core.view.NoNetworkView;
-import com.baidu.tbadk.widget.TbImageView;
-import com.baidu.tieba.R;
-import com.baidu.tieba.home.CreateBarGuideActivity;
+import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.UserBfbInfo;
+import java.util.Date;
 /* loaded from: classes7.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public CreateBarGuideActivity a;
+    public BaseActivity<?> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public View f19297b;
+    public c.a.s0.f1.q.a.f.b f19560b;
 
     /* renamed from: c  reason: collision with root package name */
-    public View f19298c;
+    public c f19561c;
 
     /* renamed from: d  reason: collision with root package name */
-    public NoNetworkView f19299d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public NoDataView f19300e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public NavigationBar f19301f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public TextView f19302g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public TextView f19303h;
-
-    /* renamed from: i  reason: collision with root package name */
-    public TextView f19304i;
-
-    /* renamed from: j  reason: collision with root package name */
-    public LinearLayout f19305j;
-    public TbImageView k;
-    public UserBfbInfo l;
-    public String m;
+    public final f f19562d;
 
     /* renamed from: c.a.t0.m1.a$a  reason: collision with other inner class name */
     /* loaded from: classes7.dex */
-    public class View$OnClickListenerC1207a implements View.OnClickListener {
+    public class C1215a implements f {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ a a;
 
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f19306e;
-
-        public View$OnClickListenerC1207a(a aVar) {
+        public C1215a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -88,47 +54,117 @@ public class a {
                     return;
                 }
             }
-            this.f19306e = aVar;
+            this.a = aVar;
         }
 
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view) {
+        @Override // c.a.s0.f1.q.a.d.f
+        public void a(Date date, View view) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                if (this.f19306e.l != null) {
-                    if (this.f19306e.l.res_no.intValue() == 9528) {
-                        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new CreateForumActivityConfig(this.f19306e.a.getActivity(), this.f19306e.m, true)));
-                    } else {
-                        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new CreateBarActivityConfig(this.f19306e.a.getActivity(), this.f19306e.m, true)));
-                    }
-                } else {
-                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new CreateBarActivityConfig(this.f19306e.a.getActivity(), this.f19306e.m, true)));
-                }
-                TiebaStatic.log("c11223");
-                this.f19306e.a.finish();
+            if (!(interceptable == null || interceptable.invokeLL(1048576, this, date, view) == null) || date == null || this.a.a == null) {
+                return;
+            }
+            if (date.getTime() > System.currentTimeMillis()) {
+                this.a.a.showToast(g.person_center_birthday_time_limit);
+                return;
+            }
+            long time = date.getTime() / 1000;
+            if (this.a.f19561c != null) {
+                this.a.f19561c.a(date, time);
             }
         }
     }
 
     /* loaded from: classes7.dex */
-    public class b extends CustomMessageListener {
+    public class b implements c.a.s0.f1.q.a.d.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ a a;
 
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public b(a aVar, int i2) {
-            super(i2);
+        /* renamed from: c.a.t0.m1.a$b$a  reason: collision with other inner class name */
+        /* loaded from: classes7.dex */
+        public class View$OnClickListenerC1216a implements View.OnClickListener {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+
+            /* renamed from: e  reason: collision with root package name */
+            public final /* synthetic */ b f19563e;
+
+            public View$OnClickListenerC1216a(b bVar) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {bVar};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i2 = newInitContext.flag;
+                    if ((i2 & 1) != 0) {
+                        int i3 = i2 & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.f19563e = bVar;
+            }
+
+            @Override // android.view.View.OnClickListener
+            public void onClick(View view) {
+                Interceptable interceptable = $ic;
+                if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f19563e.a.f19560b == null) {
+                    return;
+                }
+                this.f19563e.a.f19560b.f();
+            }
+        }
+
+        /* renamed from: c.a.t0.m1.a$b$b  reason: collision with other inner class name */
+        /* loaded from: classes7.dex */
+        public class View$OnClickListenerC1217b implements View.OnClickListener {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+
+            /* renamed from: e  reason: collision with root package name */
+            public final /* synthetic */ b f19564e;
+
+            public View$OnClickListenerC1217b(b bVar) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {bVar};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i2 = newInitContext.flag;
+                    if ((i2 & 1) != 0) {
+                        int i3 = i2 & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.f19564e = bVar;
+            }
+
+            @Override // android.view.View.OnClickListener
+            public void onClick(View view) {
+                Interceptable interceptable = $ic;
+                if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f19564e.a.f19560b == null) {
+                    return;
+                }
+                this.f19564e.a.f19560b.A();
+                this.f19564e.a.f19560b.f();
+            }
+        }
+
+        public b(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {aVar, Integer.valueOf(i2)};
+                Object[] objArr = {aVar};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -137,27 +173,32 @@ public class a {
             this.a = aVar;
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        @Override // c.a.s0.f1.q.a.d.a
+        public void a(View view) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || this.a.l == null) {
-                return;
-            }
-            if (this.a.l.res_no.intValue() == 9528) {
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new CreateForumActivityConfig(this.a.a.getActivity(), this.a.m, true)));
-            } else {
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new CreateBarActivityConfig(this.a.a.getActivity(), this.a.m, true)));
+            if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
+                SkinManager.setBackgroundResource(view, c.a.t0.z2.c.person_birthday_select_top_bg);
+                TextView textView = (TextView) view.findViewById(d.person_constellation_cancle);
+                textView.setOnClickListener(new View$OnClickListenerC1216a(this));
+                SkinManager.setViewTextColor(textView, c.a.t0.z2.a.CAM_X0105, 1, TbadkCoreApplication.getInst().getSkinType());
+                TextView textView2 = (TextView) view.findViewById(d.person_constellation_birthday_complete);
+                SkinManager.setViewTextColor(textView2, c.a.t0.z2.a.CAM_X0302, 1, TbadkCoreApplication.getInst().getSkinType());
+                textView2.setOnClickListener(new View$OnClickListenerC1217b(this));
             }
         }
     }
 
-    public a(CreateBarGuideActivity createBarGuideActivity) {
+    /* loaded from: classes7.dex */
+    public interface c {
+        void a(Date date, long j2);
+    }
+
+    public a(BaseActivity<?> baseActivity) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {createBarGuideActivity};
+            Object[] objArr = {baseActivity};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -167,91 +208,39 @@ public class a {
                 return;
             }
         }
-        this.a = createBarGuideActivity;
-        View inflate = LayoutInflater.from(createBarGuideActivity.getPageContext().getPageActivity()).inflate(R.layout.create_bar_guide_activity, (ViewGroup) null);
-        this.f19297b = inflate;
-        this.a.setContentView(inflate);
-        this.f19298c = this.f19297b.findViewById(R.id.body_view);
-        NavigationBar navigationBar = (NavigationBar) this.f19297b.findViewById(R.id.view_navigation_bar);
-        this.f19301f = navigationBar;
-        navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.f19301f.setTitleText(R.string.create_bar);
-        this.f19299d = (NoNetworkView) this.f19297b.findViewById(R.id.view_no_network);
-        this.f19303h = (TextView) this.f19297b.findViewById(R.id.text_forum_name);
-        this.f19302g = (TextView) this.f19297b.findViewById(R.id.text_forum_create);
-        this.k = (TbImageView) this.f19297b.findViewById(R.id.status_icon);
-        this.f19302g.setOnClickListener(new View$OnClickListenerC1207a(this));
-        this.f19304i = (TextView) this.f19297b.findViewById(R.id.text_create_need);
-        this.f19305j = (LinearLayout) this.f19297b.findViewById(R.id.need_desc_layout);
-        MessageManager.getInstance().registerListener(new b(this, 2016458));
+        this.f19562d = new C1215a(this);
+        this.a = baseActivity;
     }
 
-    public View d() {
+    public final c.a.s0.f1.q.a.d.a d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f19297b : (View) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new b(this) : (c.a.s0.f1.q.a.d.a) invokeV.objValue;
     }
 
-    public void e() {
+    public void e(c cVar) {
+        BaseActivity<?> baseActivity;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f19298c.setVisibility(8);
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cVar) == null) || (baseActivity = this.a) == null || baseActivity.isFinishing()) {
+            return;
         }
-    }
-
-    public void f() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            c.a.s0.x0.a.a(this.a.getPageContext(), this.f19297b);
-            NavigationBar navigationBar = this.f19301f;
-            if (navigationBar != null) {
-                navigationBar.onChangeSkinType(this.a.getPageContext(), TbadkCoreApplication.getInst().getSkinType());
-            }
-            NoNetworkView noNetworkView = this.f19299d;
-            if (noNetworkView != null) {
-                noNetworkView.onChangeSkinType(this.a.getPageContext(), TbadkCoreApplication.getInst().getSkinType());
-            }
-            NoDataView noDataView = this.f19300e;
-            if (noDataView != null) {
-                noDataView.onChangeSkinType(this.a.getPageContext(), TbadkCoreApplication.getInst().getSkinType());
-            }
+        this.f19561c = cVar;
+        if (this.f19560b == null) {
+            c.a.s0.f1.q.a.b.a aVar = new c.a.s0.f1.q.a.b.a(this.a, this.f19562d);
+            aVar.k(e.person_birthday_select_layout, d());
+            aVar.p(new boolean[]{true, true, true, false, false, false});
+            aVar.j(this.a.getString(g.pickerview_year), this.a.getString(g.pickerview_month), this.a.getString(g.pickerview_day), this.a.getString(g.pickerview_hours), this.a.getString(g.pickerview_minutes), this.a.getString(g.pickerview_seconds));
+            aVar.l(2.0f);
+            aVar.b(false);
+            aVar.i(SkinManager.getColor(c.a.t0.z2.a.CAM_X0206));
+            aVar.m(SkinManager.getColor(c.a.t0.z2.a.CAM_X0105));
+            aVar.n(SkinManager.getColor(c.a.t0.z2.a.CAM_X0109));
+            aVar.d(SkinManager.getColor(c.a.t0.z2.a.black_alpha30));
+            aVar.e(SkinManager.getColor(c.a.t0.z2.a.CAM_X0201));
+            aVar.c(false);
+            aVar.h((ViewGroup) this.a.findViewById(16908290));
+            this.f19560b = aVar.a();
         }
-    }
-
-    public void g() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.f19298c.setVisibility(0);
-        }
-    }
-
-    public void h(String str, UserBfbInfo userBfbInfo) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048580, this, str, userBfbInfo) == null) {
-            this.m = str;
-            this.l = userBfbInfo;
-            if (this.f19300e == null) {
-                int f2 = n.f(this.a.getActivity(), R.dimen.ds100);
-                NoDataView a = NoDataViewFactory.a(this.a.getPageContext().getPageActivity(), (LinearLayout) this.f19297b.findViewById(R.id.emotion_layout), NoDataViewFactory.d.b(NoDataViewFactory.ImgType.CREATE, f2), null, null);
-                this.f19300e = a;
-                a.setVisibility(0);
-                f();
-            }
-            TextView textView = this.f19303h;
-            textView.setText(this.m + "吧");
-            UserBfbInfo userBfbInfo2 = this.l;
-            if (userBfbInfo2 != null && userBfbInfo2.res_no.intValue() == 9528) {
-                if (this.l.activity_status.intValue() == 0) {
-                    this.k.setImageResource(R.drawable.icon_create_attention_n);
-                } else {
-                    this.k.setImageResource(R.drawable.icon_create_complete_n);
-                }
-            } else {
-                this.f19304i.setVisibility(4);
-                this.f19305j.setVisibility(4);
-            }
-            this.f19304i.setVisibility(8);
-            this.f19305j.setVisibility(8);
-        }
+        this.f19560b.u();
     }
 }

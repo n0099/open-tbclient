@@ -1,6 +1,5 @@
 package com.kwad.sdk.core.b.kwai;
 
-import com.baidu.ugc.editvideo.filter.FilterValue;
 import com.kwad.sdk.core.response.model.NewsInfo;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
@@ -17,8 +16,8 @@ public class by implements com.kwad.sdk.core.d<NewsInfo.ImageInfo> {
         if (jSONObject.opt("url") == JSONObject.NULL) {
             imageInfo.url = "";
         }
-        imageInfo.origin = jSONObject.optString(FilterValue.DEFAULT_FILTER_VALUE);
-        if (jSONObject.opt(FilterValue.DEFAULT_FILTER_VALUE) == JSONObject.NULL) {
+        imageInfo.origin = jSONObject.optString("origin");
+        if (jSONObject.opt("origin") == JSONObject.NULL) {
             imageInfo.origin = "";
         }
     }
@@ -32,7 +31,7 @@ public class by implements com.kwad.sdk.core.d<NewsInfo.ImageInfo> {
         com.kwad.sdk.utils.t.a(jSONObject, "width", imageInfo.width);
         com.kwad.sdk.utils.t.a(jSONObject, "height", imageInfo.height);
         com.kwad.sdk.utils.t.a(jSONObject, "url", imageInfo.url);
-        com.kwad.sdk.utils.t.a(jSONObject, FilterValue.DEFAULT_FILTER_VALUE, imageInfo.origin);
+        com.kwad.sdk.utils.t.a(jSONObject, "origin", imageInfo.origin);
         return jSONObject;
     }
 }

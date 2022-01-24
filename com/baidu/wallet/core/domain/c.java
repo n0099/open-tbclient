@@ -431,7 +431,7 @@ public class c implements a {
             } else {
                 this.A = "https://www.baifubao.com";
             }
-            String optString2 = jSONObject.optString(a.f50933b);
+            String optString2 = jSONObject.optString(a.f50978b);
             if (!TextUtils.isEmpty(optString2) && P.matcher(optString2).matches()) {
                 this.C = optString2;
             } else {
@@ -451,7 +451,7 @@ public class c implements a {
                 this.D = "https://www.baifubao.com";
                 com.baidu.apollon.heartbeat.a.c().b(this.D);
             }
-            String optString5 = jSONObject.optString(a.f50936e);
+            String optString5 = jSONObject.optString(a.f50981e);
             if (!TextUtils.isEmpty(optString5) && P.matcher(optString5).matches()) {
                 this.F = optString5;
                 this.H = optString5;
@@ -463,7 +463,7 @@ public class c implements a {
                 this.J = "https://co.baifubao.com";
                 this.I = "https://qianbao.baidu.com";
             }
-            String optString6 = jSONObject.optString(a.f50937f);
+            String optString6 = jSONObject.optString(a.f50982f);
             if (!TextUtils.isEmpty(optString6) && P.matcher(optString6).matches()) {
                 this.L = optString6;
             } else {
@@ -481,13 +481,13 @@ public class c implements a {
             } else {
                 this.B = "https://www.baifubao.com";
             }
-            String optString9 = jSONObject.optString(a.f50940i);
+            String optString9 = jSONObject.optString(a.f50985i);
             if (!TextUtils.isEmpty(optString9) && P.matcher(optString9).matches()) {
                 this.ad = optString9;
             } else {
                 this.ad = "https://www.baifubao.com";
             }
-            String optString10 = jSONObject.optString(a.f50941j);
+            String optString10 = jSONObject.optString(a.f50986j);
             if (TextUtils.isEmpty(optString10) && P.matcher(optString10).matches()) {
                 this.ae = optString10;
             } else {

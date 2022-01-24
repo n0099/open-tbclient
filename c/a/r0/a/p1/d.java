@@ -18,7 +18,7 @@ public final class d extends RequestBody {
     public MediaType a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final FormBody f8264b;
+    public final FormBody f8406b;
 
     public d(FormBody formBody) {
         Interceptable interceptable = $ic;
@@ -35,7 +35,7 @@ public final class d extends RequestBody {
                 return;
             }
         }
-        this.f8264b = formBody;
+        this.f8406b = formBody;
     }
 
     public static d a(FormBody formBody, MediaType mediaType) {
@@ -60,7 +60,7 @@ public final class d extends RequestBody {
     public long contentLength() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f8264b.contentLength() : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f8406b.contentLength() : invokeV.longValue;
     }
 
     @Override // okhttp3.RequestBody
@@ -69,7 +69,7 @@ public final class d extends RequestBody {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             MediaType mediaType = this.a;
-            return mediaType == null ? this.f8264b.contentType() : mediaType;
+            return mediaType == null ? this.f8406b.contentType() : mediaType;
         }
         return (MediaType) invokeV.objValue;
     }
@@ -78,7 +78,7 @@ public final class d extends RequestBody {
     public void writeTo(BufferedSink bufferedSink) throws IOException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, bufferedSink) == null) {
-            this.f8264b.writeTo(bufferedSink);
+            this.f8406b.writeTo(bufferedSink);
         }
     }
 }

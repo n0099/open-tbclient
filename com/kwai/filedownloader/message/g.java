@@ -17,7 +17,7 @@ public class g {
     public final List<a> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final e.b f58316b;
+    public final e.b f58361b;
 
     /* loaded from: classes3.dex */
     public class a {
@@ -26,10 +26,10 @@ public class g {
         public final /* synthetic */ g a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final List<Integer> f58317b;
+        public final List<Integer> f58362b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final Executor f58318c;
+        public final Executor f58363c;
 
         public a(g gVar, int i2) {
             Interceptable interceptable = $ic;
@@ -47,27 +47,27 @@ public class g {
                 }
             }
             this.a = gVar;
-            this.f58317b = new ArrayList();
-            this.f58318c = com.kwai.filedownloader.e.b.a(1, "Flow-" + i2);
+            this.f58362b = new ArrayList();
+            this.f58363c = com.kwai.filedownloader.e.b.a(1, "Flow-" + i2);
         }
 
         public void a(int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
-                this.f58317b.add(Integer.valueOf(i2));
+                this.f58362b.add(Integer.valueOf(i2));
             }
         }
 
         public void a(MessageSnapshot messageSnapshot) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, messageSnapshot) == null) {
-                this.f58318c.execute(new Runnable(this, messageSnapshot) { // from class: com.kwai.filedownloader.message.g.a.1
+                this.f58363c.execute(new Runnable(this, messageSnapshot) { // from class: com.kwai.filedownloader.message.g.a.1
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ MessageSnapshot a;
 
                     /* renamed from: b  reason: collision with root package name */
-                    public final /* synthetic */ a f58319b;
+                    public final /* synthetic */ a f58364b;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -84,7 +84,7 @@ public class g {
                                 return;
                             }
                         }
-                        this.f58319b = this;
+                        this.f58364b = this;
                         this.a = messageSnapshot;
                     }
 
@@ -92,9 +92,9 @@ public class g {
                     public void run() {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                            this.f58319b.a.f58316b.a(this.a);
+                            this.f58364b.a.f58361b.a(this.a);
                             try {
-                                this.f58319b.f58317b.remove(Integer.valueOf(this.a.m()));
+                                this.f58364b.f58362b.remove(Integer.valueOf(this.a.m()));
                             } catch (Exception unused) {
                             }
                         }
@@ -119,7 +119,7 @@ public class g {
                 return;
             }
         }
-        this.f58316b = bVar;
+        this.f58361b = bVar;
         this.a = new ArrayList();
         for (int i5 = 0; i5 < i2; i5++) {
             this.a.add(new a(this, i5));
@@ -139,7 +139,7 @@ public class g {
                             break;
                         }
                         a next = it.next();
-                        if (next.f58317b.contains(Integer.valueOf(m))) {
+                        if (next.f58362b.contains(Integer.valueOf(m))) {
                             aVar = next;
                             break;
                         }
@@ -152,11 +152,11 @@ public class g {
                                 break;
                             }
                             a next2 = it2.next();
-                            if (next2.f58317b.size() <= 0) {
+                            if (next2.f58362b.size() <= 0) {
                                 aVar = next2;
                                 break;
-                            } else if (i2 == 0 || next2.f58317b.size() < i2) {
-                                i2 = next2.f58317b.size();
+                            } else if (i2 == 0 || next2.f58362b.size() < i2) {
+                                i2 = next2.f58362b.size();
                                 aVar = next2;
                             }
                         }

@@ -30,10 +30,10 @@ public class b extends c.a.r0.i.e.a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final boolean f10687c;
+    public static final boolean f10829c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static ExecutorService f10688d;
+    public static ExecutorService f10830d;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes6.dex */
@@ -43,10 +43,10 @@ public class b extends c.a.r0.i.e.a {
         public final /* synthetic */ String a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ String f10689b;
+        public final /* synthetic */ String f10831b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ c.a.r0.a.u0.b f10690c;
+        public final /* synthetic */ c.a.r0.a.u0.b f10832c;
 
         public a(b bVar, String str, String str2, c.a.r0.a.u0.b bVar2) {
             Interceptable interceptable = $ic;
@@ -64,38 +64,38 @@ public class b extends c.a.r0.i.e.a {
                 }
             }
             this.a = str;
-            this.f10689b = str2;
-            this.f10690c = bVar2;
+            this.f10831b = str2;
+            this.f10832c = bVar2;
         }
 
         @Override // com.baidu.searchbox.process.ipc.delegate.DelegateListener
         public void onDelegateCallBack(@NonNull DelegateResult delegateResult) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, delegateResult) == null) {
-                if (b.f10687c) {
+                if (b.f10829c) {
                     String str = "InstallAppDelegation onDelegateCallBack isOk:" + delegateResult.isOk() + ",packageName：" + this.a + ",result:" + delegateResult.mResult;
                 }
                 String string = delegateResult.mResult.getString("packageName");
                 if (!TextUtils.isEmpty(this.a) && !TextUtils.equals(this.a, string)) {
                     if (c.a.r0.i.b.e.a.h(AppRuntime.getAppContext(), this.a)) {
-                        if (!TextUtils.isEmpty(this.f10689b)) {
-                            c.a.r0.i.b.i.c.a(this.a, this.f10689b, "success", "", null);
+                        if (!TextUtils.isEmpty(this.f10831b)) {
+                            c.a.r0.i.b.i.c.a(this.a, this.f10831b, "success", "", null);
                         }
-                        this.f10690c.a(new JSONObject());
+                        this.f10832c.a(new JSONObject());
                         return;
                     }
-                    if (!TextUtils.isEmpty(this.f10689b)) {
-                        c.a.r0.i.b.i.c.a(this.a, this.f10689b, com.baidu.pass.biometrics.face.liveness.b.a.g0, "", null);
+                    if (!TextUtils.isEmpty(this.f10831b)) {
+                        c.a.r0.i.b.i.c.a(this.a, this.f10831b, com.baidu.pass.biometrics.face.liveness.b.a.g0, "", null);
                     }
-                    this.f10690c.onFail(31003, "apk install cancel");
+                    this.f10832c.onFail(31003, "apk install cancel");
                 } else if (!delegateResult.isOk()) {
-                    if (!TextUtils.isEmpty(this.f10689b)) {
-                        c.a.r0.i.b.i.c.a(this.a, this.f10689b, com.baidu.pass.biometrics.face.liveness.b.a.g0, "", null);
+                    if (!TextUtils.isEmpty(this.f10831b)) {
+                        c.a.r0.i.b.i.c.a(this.a, this.f10831b, com.baidu.pass.biometrics.face.liveness.b.a.g0, "", null);
                     }
-                    this.f10690c.onFail(31003, "apk install cancel");
+                    this.f10832c.onFail(31003, "apk install cancel");
                 } else {
                     c.a.r0.i.b.a.n().t(this.a);
-                    b.g(delegateResult.mResult, this.f10690c);
+                    b.g(delegateResult.mResult, this.f10832c);
                 }
             }
         }
@@ -103,20 +103,20 @@ public class b extends c.a.r0.i.e.a {
 
     /* renamed from: c.a.r0.i.b.c.b$b  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public static class C0715b extends c.a.r0.a.y1.a.b.c.c {
+    public static class C0724b extends c.a.r0.a.y1.a.b.c.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f10691c;
+        public String f10833c;
 
         /* renamed from: d  reason: collision with root package name */
-        public String f10692d;
+        public String f10834d;
 
         /* renamed from: e  reason: collision with root package name */
-        public c.a.r0.a.u0.b f10693e;
+        public c.a.r0.a.u0.b f10835e;
 
-        public C0715b(String str, String str2, c.a.r0.a.u0.b bVar) {
+        public C0724b(String str, String str2, c.a.r0.a.u0.b bVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -131,9 +131,9 @@ public class b extends c.a.r0.i.e.a {
                     return;
                 }
             }
-            this.f10692d = str;
-            this.f10691c = str2;
-            this.f10693e = bVar;
+            this.f10834d = str;
+            this.f10833c = str2;
+            this.f10835e = bVar;
         }
 
         @Override // c.a.r0.a.y1.a.b.c.a
@@ -159,12 +159,12 @@ public class b extends c.a.r0.i.e.a {
         public final void e() {
             c.a.r0.a.u0.b bVar;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (bVar = this.f10693e) == null) {
+            if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (bVar = this.f10835e) == null) {
                 return;
             }
             bVar.onFail(31018, "download process is killed");
-            b.e(this.f10692d, this.f10691c, 31018);
-            this.f10693e = null;
+            b.e(this.f10834d, this.f10833c, 31018);
+            this.f10835e = null;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -173,7 +173,7 @@ public class b extends c.a.r0.i.e.a {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048579, this, bVar) == null) {
                 Bundle a = bVar.a();
-                c.a.r0.a.u0.b bVar2 = this.f10693e;
+                c.a.r0.a.u0.b bVar2 = this.f10835e;
                 if (bVar2 == null) {
                     return;
                 }
@@ -192,14 +192,14 @@ public class b extends c.a.r0.i.e.a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public WeakReference<C0715b> f10694e;
+        public WeakReference<C0724b> f10836e;
 
-        public c(C0715b c0715b) {
+        public c(C0724b c0724b) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {c0715b};
+                Object[] objArr = {c0724b};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i2 = newInitContext.flag;
                 if ((i2 & 1) != 0) {
@@ -209,16 +209,16 @@ public class b extends c.a.r0.i.e.a {
                     return;
                 }
             }
-            this.f10694e = new WeakReference<>(c0715b);
+            this.f10836e = new WeakReference<>(c0724b);
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                boolean unused = b.f10687c;
-                if (this.f10694e.get() != null) {
-                    this.f10694e.get().e();
+                boolean unused = b.f10829c;
+                if (this.f10836e.get() != null) {
+                    this.f10836e.get().e();
                 }
             }
         }
@@ -237,8 +237,8 @@ public class b extends c.a.r0.i.e.a {
                 return;
             }
         }
-        f10687c = k.a;
-        f10688d = Executors.newSingleThreadExecutor();
+        f10829c = k.a;
+        f10830d = Executors.newSingleThreadExecutor();
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -276,7 +276,7 @@ public class b extends c.a.r0.i.e.a {
             }
             String string2 = bundle.getString("resultData", "");
             int i2 = bundle.getInt("resultStatus", 1001);
-            if (f10687c) {
+            if (f10829c) {
                 String str = "handleResult:function = " + string + ",result = " + string2;
             }
             char c2 = 65535;
@@ -304,7 +304,7 @@ public class b extends c.a.r0.i.e.a {
         String str2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, jSONObject, bVar)) == null) {
-            if (f10687c) {
+            if (f10829c) {
                 String str3 = "handle: " + jSONObject;
             }
             String optString = jSONObject.optString(AppDownloadNetworkStateReceiver.KEY_OPERATION);
@@ -329,9 +329,9 @@ public class b extends c.a.r0.i.e.a {
             }
             c.a.r0.a.y1.c.e.a z = c.a.r0.a.d2.d.J().z();
             if (z != null) {
-                C0715b c0715b = new C0715b(str, optString, bVar);
-                z.W(bundle, c.a.r0.i.b.d.e.class, c0715b);
-                z.U(new c(c0715b));
+                C0724b c0724b = new C0724b(str, optString, bVar);
+                z.W(bundle, c.a.r0.i.b.d.e.class, c0724b);
+                z.U(new c(c0724b));
             }
             return null;
         }
@@ -347,7 +347,7 @@ public class b extends c.a.r0.i.e.a {
             } else if (c.a.r0.i.b.e.a.h(AppRuntime.getAppContext(), str)) {
                 bVar.a(new JSONObject());
             } else {
-                boolean z = f10687c;
+                boolean z = f10829c;
                 DelegateUtils.callOnMainWithActivity(x, InstallPluginDelegateActivity.class, c.a.r0.i.b.e.b.class, bundle, new a(this, str, str2, bVar));
             }
         }

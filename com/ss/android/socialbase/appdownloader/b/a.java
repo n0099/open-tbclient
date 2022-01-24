@@ -3,7 +3,7 @@ package com.ss.android.socialbase.appdownloader.b;
 import android.os.Build;
 import android.text.TextUtils;
 import com.baidu.tbadk.core.data.SmallTailInfo;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class a {
     public static final String a;
 

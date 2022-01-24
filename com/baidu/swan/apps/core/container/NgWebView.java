@@ -60,7 +60,7 @@ public class NgWebView extends BdSailorWebView implements c, SlideInterceptor, S
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ NgWebView f38760e;
+        public final /* synthetic */ NgWebView f38788e;
 
         public a(NgWebView ngWebView) {
             Interceptable interceptable = $ic;
@@ -77,16 +77,16 @@ public class NgWebView extends BdSailorWebView implements c, SlideInterceptor, S
                     return;
                 }
             }
-            this.f38760e = ngWebView;
+            this.f38788e = ngWebView;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                NgWebView ngWebView = this.f38760e;
+                NgWebView ngWebView = this.f38788e;
                 ngWebView.calcPopWindowPos(ngWebView.mSelectPopWindow);
-                this.f38760e.showPopWindow();
+                this.f38788e.showPopWindow();
             }
         }
     }
@@ -452,7 +452,7 @@ public class NgWebView extends BdSailorWebView implements c, SlideInterceptor, S
             if (dVar == null || dVar.I() == null) {
                 return false;
             }
-            return this.mWebViewManager.I().f38759b;
+            return this.mWebViewManager.I().f38787b;
         }
         return invokeV.booleanValue;
     }

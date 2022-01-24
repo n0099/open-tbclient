@@ -73,7 +73,7 @@ public class db {
         public long a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ db f60970b;
+        public final /* synthetic */ db f61015b;
 
         public b(db dbVar) {
             Interceptable interceptable = $ic;
@@ -90,7 +90,7 @@ public class db {
                     return;
                 }
             }
-            this.f60970b = dbVar;
+            this.f61015b = dbVar;
             this.a = System.currentTimeMillis();
         }
 
@@ -138,7 +138,7 @@ public class db {
         public boolean f227a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f60971b;
+        public String f61016b;
 
         /* renamed from: b  reason: collision with other field name */
         public boolean f228b;
@@ -163,7 +163,7 @@ public class db {
             }
             this.f224a = dbVar;
             this.f226a = str;
-            this.f60971b = str2;
+            this.f61016b = str2;
             this.f225a = file;
             this.f228b = z;
         }
@@ -219,7 +219,7 @@ public class db {
                     if (c()) {
                         HashMap hashMap = new HashMap();
                         hashMap.put("uid", com.xiaomi.push.service.bi.m676a());
-                        hashMap.put("token", this.f60971b);
+                        hashMap.put("token", this.f61016b);
                         hashMap.put("net", bg.m236a(this.f224a.f222a));
                         bg.a(this.f226a, hashMap, this.f225a, "file");
                     }

@@ -27,19 +27,19 @@ public class ArrowView extends View {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Paint f37258e;
+    public Paint f37286e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Path f37259f;
+    public Path f37287f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f37260g;
+    public int f37288g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f37261h;
+    public int f37289h;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f37262i;
+    public boolean f37290i;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public ArrowView(Context context) {
@@ -181,13 +181,13 @@ public class ArrowView extends View {
     public final void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.f37261h = b.a().getResources().getColor(j.NAD_UC29);
-            this.f37259f = new Path();
+            this.f37289h = b.a().getResources().getColor(j.NAD_UC29);
+            this.f37287f = new Path();
             Paint paint = new Paint();
-            this.f37258e = paint;
+            this.f37286e = paint;
             paint.setAntiAlias(true);
-            this.f37258e.setStyle(Paint.Style.FILL_AND_STROKE);
-            this.f37258e.setColor(this.f37261h);
+            this.f37286e.setStyle(Paint.Style.FILL_AND_STROKE);
+            this.f37286e.setColor(this.f37289h);
         }
     }
 
@@ -200,7 +200,7 @@ public class ArrowView extends View {
     public void enableNewTemplate(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
-            this.f37262i = z;
+            this.f37290i = z;
         }
     }
 
@@ -209,20 +209,20 @@ public class ArrowView extends View {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, canvas) == null) {
             super.onDraw(canvas);
-            if (this.f37262i) {
-                this.f37259f = b(this.f37259f, this.f37260g);
+            if (this.f37290i) {
+                this.f37287f = b(this.f37287f, this.f37288g);
             } else {
-                this.f37259f = a(this.f37259f, this.f37260g);
+                this.f37287f = a(this.f37287f, this.f37288g);
             }
-            canvas.drawPath(this.f37259f, this.f37258e);
+            canvas.drawPath(this.f37287f, this.f37286e);
         }
     }
 
     public void setArrowViewColor(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048582, this, i2) == null) {
-            this.f37261h = i2;
-            this.f37258e.setColor(i2);
+            this.f37289h = i2;
+            this.f37286e.setColor(i2);
             invalidate();
         }
     }
@@ -230,7 +230,7 @@ public class ArrowView extends View {
     public void setDirection(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048583, this, i2) == null) {
-            this.f37260g = i2;
+            this.f37288g = i2;
             invalidate();
         }
     }
@@ -275,9 +275,9 @@ public class ArrowView extends View {
                 return;
             }
         }
-        this.f37260g = 4;
-        this.f37261h = Color.argb(204, 0, 0, 0);
-        this.f37262i = true;
+        this.f37288g = 4;
+        this.f37289h = Color.argb(204, 0, 0, 0);
+        this.f37290i = true;
         c();
     }
 
@@ -301,9 +301,9 @@ public class ArrowView extends View {
                 return;
             }
         }
-        this.f37260g = 4;
-        this.f37261h = Color.argb(204, 0, 0, 0);
-        this.f37262i = true;
+        this.f37288g = 4;
+        this.f37289h = Color.argb(204, 0, 0, 0);
+        this.f37290i = true;
         c();
     }
 }

@@ -13,9 +13,9 @@ import androidx.core.view.InputDeviceCompat;
 import c.a.d.f.p.e;
 import c.a.d.f.p.n;
 import c.a.s0.s.q.e2;
-import c.a.t0.j3.h0.a;
-import c.a.t0.j3.l0.c;
-import c.a.t0.j3.l0.g;
+import c.a.t0.k3.h0.a;
+import c.a.t0.k3.l0.c;
+import c.a.t0.k3.l0.g;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
@@ -169,7 +169,7 @@ public class AdThreadCommentAndPraiseInfoLayout extends ThreadCardBottomOpSegmen
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ AdThreadCommentAndPraiseInfoLayout f47649e;
+            public final /* synthetic */ AdThreadCommentAndPraiseInfoLayout f47677e;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -186,17 +186,17 @@ public class AdThreadCommentAndPraiseInfoLayout extends ThreadCardBottomOpSegmen
                         return;
                     }
                 }
-                this.f47649e = this;
+                this.f47677e = this;
             }
 
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 AgreeData data;
                 Interceptable interceptable2 = $ic;
-                if (!(interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) || (data = this.f47649e.mAgreeView.getData()) == null) {
+                if (!(interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) || (data = this.f47677e.mAgreeView.getData()) == null) {
                     return;
                 }
-                this.f47649e.mAgreeView.getImgAgree().cancelAnimation();
+                this.f47677e.mAgreeView.getImgAgree().cancelAnimation();
                 int i2 = 0;
                 if (data.hasAgree) {
                     if (data.agreeType == 2) {
@@ -204,7 +204,7 @@ public class AdThreadCommentAndPraiseInfoLayout extends ThreadCardBottomOpSegmen
                         data.hasAgree = false;
                         data.diffAgreeNum--;
                         data.agreeNum--;
-                        this.f47649e.mAgreeView.updateUI();
+                        this.f47677e.mAgreeView.updateUI();
                         i2 = 1;
                     } else {
                         data.agreeType = 2;
@@ -212,16 +212,16 @@ public class AdThreadCommentAndPraiseInfoLayout extends ThreadCardBottomOpSegmen
                         data.diffAgreeNum += 2;
                         data.agreeNum++;
                         data.disAgreeNum--;
-                        this.f47649e.mAgreeView.updateUiWithAnimation(true);
+                        this.f47677e.mAgreeView.updateUiWithAnimation(true);
                     }
                 } else {
                     data.agreeType = 2;
                     data.hasAgree = true;
                     data.diffAgreeNum++;
                     data.agreeNum++;
-                    this.f47649e.mAgreeView.updateUiWithAnimation(true);
+                    this.f47677e.mAgreeView.updateUiWithAnimation(true);
                 }
-                this.f47649e.M(i2);
+                this.f47677e.M(i2);
             }
         };
         View.OnClickListener onClickListener2 = new View.OnClickListener(this) { // from class: com.baidu.tieba.recapp.view.AdThreadCommentAndPraiseInfoLayout.2
@@ -229,7 +229,7 @@ public class AdThreadCommentAndPraiseInfoLayout extends ThreadCardBottomOpSegmen
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ AdThreadCommentAndPraiseInfoLayout f47650e;
+            public final /* synthetic */ AdThreadCommentAndPraiseInfoLayout f47678e;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -246,17 +246,17 @@ public class AdThreadCommentAndPraiseInfoLayout extends ThreadCardBottomOpSegmen
                         return;
                     }
                 }
-                this.f47650e = this;
+                this.f47678e = this;
             }
 
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 AgreeData data;
                 Interceptable interceptable2 = $ic;
-                if (!(interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) || (data = this.f47650e.mAgreeView.getData()) == null) {
+                if (!(interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) || (data = this.f47678e.mAgreeView.getData()) == null) {
                     return;
                 }
-                this.f47650e.mAgreeView.getImgDisagree().cancelAnimation();
+                this.f47678e.mAgreeView.getImgDisagree().cancelAnimation();
                 int i2 = 1;
                 if (data.hasAgree) {
                     if (data.agreeType == 5) {
@@ -264,24 +264,24 @@ public class AdThreadCommentAndPraiseInfoLayout extends ThreadCardBottomOpSegmen
                         data.hasAgree = false;
                         data.diffAgreeNum++;
                         data.disAgreeNum--;
-                        this.f47650e.mAgreeView.updateUI();
-                        this.f47650e.M(i2);
+                        this.f47678e.mAgreeView.updateUI();
+                        this.f47678e.M(i2);
                     }
                     data.agreeType = 5;
                     data.hasAgree = true;
                     data.diffAgreeNum -= 2;
                     data.agreeNum--;
                     data.disAgreeNum++;
-                    this.f47650e.mAgreeView.updateUiWithAnimation(false);
+                    this.f47678e.mAgreeView.updateUiWithAnimation(false);
                 } else {
                     data.agreeType = 5;
                     data.hasAgree = true;
                     data.diffAgreeNum--;
                     data.disAgreeNum++;
-                    this.f47650e.mAgreeView.updateUiWithAnimation(false);
+                    this.f47678e.mAgreeView.updateUiWithAnimation(false);
                 }
                 i2 = 0;
-                this.f47650e.M(i2);
+                this.f47678e.M(i2);
             }
         };
         this.mAgreeView.getImgAgree().setOnClickListener(onClickListener);
@@ -295,7 +295,7 @@ public class AdThreadCommentAndPraiseInfoLayout extends ThreadCardBottomOpSegmen
         if (interceptable == null || interceptable.invokeLLI(1048581, this, advertAppInfo, str, i2) == null) {
             c b2 = g.b(advertAppInfo, 8, i2);
             b2.c(str);
-            c.a.t0.j3.l0.e.b().d(b2);
+            c.a.t0.k3.l0.e.b().d(b2);
         }
     }
 
@@ -304,17 +304,17 @@ public class AdThreadCommentAndPraiseInfoLayout extends ThreadCardBottomOpSegmen
         if (!(interceptable == null || interceptable.invokeLLL(1048582, this, advertAppInfo, str, str2) == null) || advertAppInfo == null) {
             return;
         }
-        String str3 = advertAppInfo.m4;
+        String str3 = advertAppInfo.n4;
         new BdAsyncTask<String, Void, Void>(this, str, str2) { // from class: com.baidu.tieba.recapp.view.AdThreadCommentAndPraiseInfoLayout.4
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ String a;
 
             /* renamed from: b  reason: collision with root package name */
-            public final /* synthetic */ String f47653b;
+            public final /* synthetic */ String f47681b;
 
             /* renamed from: c  reason: collision with root package name */
-            public final /* synthetic */ AdThreadCommentAndPraiseInfoLayout f47654c;
+            public final /* synthetic */ AdThreadCommentAndPraiseInfoLayout f47682c;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -331,9 +331,9 @@ public class AdThreadCommentAndPraiseInfoLayout extends ThreadCardBottomOpSegmen
                         return;
                     }
                 }
-                this.f47654c = this;
+                this.f47682c = this;
                 this.a = str;
-                this.f47653b = str2;
+                this.f47681b = str2;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
@@ -349,7 +349,7 @@ public class AdThreadCommentAndPraiseInfoLayout extends ThreadCardBottomOpSegmen
                     netWork.addPostData("cpid", strArr[1]);
                     netWork.addPostData("idea_id", strArr[2]);
                     netWork.addPostData("type", this.a);
-                    netWork.addPostData("cmd", this.f47653b);
+                    netWork.addPostData("cmd", this.f47681b);
                     netWork.postNetData();
                     return null;
                 }
@@ -411,7 +411,7 @@ public class AdThreadCommentAndPraiseInfoLayout extends ThreadCardBottomOpSegmen
             shareItem.D = this.A.getTitle();
             shareItem.t = this.A.getShareLink();
             shareItem.F = 3;
-            shareItem.f40766f = true;
+            shareItem.f40794f = true;
             String imageUrl = this.A.getImageUrl();
             Uri parse = imageUrl == null ? null : Uri.parse(imageUrl);
             if (parse != null) {
@@ -424,10 +424,10 @@ public class AdThreadCommentAndPraiseInfoLayout extends ThreadCardBottomOpSegmen
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: e  reason: collision with root package name */
-                public final /* synthetic */ ShareItem f47651e;
+                public final /* synthetic */ ShareItem f47679e;
 
                 /* renamed from: f  reason: collision with root package name */
-                public final /* synthetic */ AdThreadCommentAndPraiseInfoLayout f47652f;
+                public final /* synthetic */ AdThreadCommentAndPraiseInfoLayout f47680f;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -444,18 +444,18 @@ public class AdThreadCommentAndPraiseInfoLayout extends ThreadCardBottomOpSegmen
                             return;
                         }
                     }
-                    this.f47652f = this;
-                    this.f47651e = shareItem;
+                    this.f47680f = this;
+                    this.f47679e = shareItem;
                 }
 
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view2) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, view2) == null) {
-                        ShareItem shareItem2 = this.f47651e;
+                        ShareItem shareItem2 = this.f47679e;
                         shareItem2.t = c.a.s0.t.g.g.v(shareItem2.t, shareItem2.K, UtilHelper.isVideoThread(shareItem2.M));
-                        c.a.d.f.p.c.a(this.f47651e.t);
-                        n.N(this.f47652f.mContext, view2.getResources().getString(R.string.copy_pb_url_success));
+                        c.a.d.f.p.c.a(this.f47679e.t);
+                        n.N(this.f47680f.mContext, view2.getResources().getString(R.string.copy_pb_url_success));
                     }
                 }
             });
@@ -526,7 +526,7 @@ public class AdThreadCommentAndPraiseInfoLayout extends ThreadCardBottomOpSegmen
         if (interceptable == null || interceptable.invokeL(1048595, this, e2Var) == null) {
             super.updateBarName(e2Var);
             if (this.w == 1) {
-                this.mBarName.setText(StringHelper.cutChineseAndEnglishWithSuffix(e2Var.a0(), 12, ""));
+                this.mBarName.setText(StringHelper.cutChineseAndEnglishWithSuffix(e2Var.b0(), 12, ""));
             }
         }
     }
@@ -575,7 +575,7 @@ public class AdThreadCommentAndPraiseInfoLayout extends ThreadCardBottomOpSegmen
                 AgreeData B = e2Var.B();
                 if (B != null && B.agreeNum == 0 && B.diffAgreeNum == 0) {
                     B.agreeNum = e2Var.C();
-                    B.hasAgree = e2Var.e0() == 1;
+                    B.hasAgree = e2Var.f0() == 1;
                     B.agreeType = e2Var.D();
                     B.diffAgreeNum = e2Var.C() - e2Var.Q();
                 }

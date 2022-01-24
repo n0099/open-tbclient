@@ -38,11 +38,11 @@ public class b {
             if (aVar == null) {
                 return -1;
             }
-            if (TextUtils.isEmpty(aVar.f8722c) && TextUtils.isEmpty(aVar.f8723d)) {
+            if (TextUtils.isEmpty(aVar.f8864c) && TextUtils.isEmpty(aVar.f8865d)) {
                 return 0;
             }
-            if (TextUtils.isEmpty(aVar.f8722c) || TextUtils.isEmpty(aVar.f8723d)) {
-                return !TextUtils.isEmpty(aVar.f8723d) ? 2 : -1;
+            if (TextUtils.isEmpty(aVar.f8864c) || TextUtils.isEmpty(aVar.f8865d)) {
+                return !TextUtils.isEmpty(aVar.f8865d) ? 2 : -1;
             }
             return 3;
         }

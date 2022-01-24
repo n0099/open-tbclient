@@ -25,31 +25,31 @@ public class h {
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f12129b;
+    public String f12271b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f12130c;
+    public String f12272c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f12131d;
+    public String f12273d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f12132e;
+    public String f12274e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f12133f;
+    public String f12275f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f12134g;
+    public String f12276g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f12135h;
+    public String f12277h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f12136i;
+    public int f12278i;
 
     /* renamed from: j  reason: collision with root package name */
-    public String f12137j;
+    public String f12279j;
     public Integer k;
 
     static {
@@ -85,37 +85,37 @@ public class h {
             }
         }
         this.a = "";
-        this.f12129b = "";
-        this.f12130c = "";
-        this.f12131d = "";
-        this.f12132e = "";
-        this.f12133f = "";
-        this.f12134g = "";
-        this.f12135h = "";
+        this.f12271b = "";
+        this.f12272c = "";
+        this.f12273d = "";
+        this.f12274e = "";
+        this.f12275f = "";
+        this.f12276g = "";
+        this.f12277h = "";
     }
 
     public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f12133f : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f12275f : (String) invokeV.objValue;
     }
 
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f12132e : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f12274e : (String) invokeV.objValue;
     }
 
     public String c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f12129b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f12271b : (String) invokeV.objValue;
     }
 
     public String d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f12130c : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f12272c : (String) invokeV.objValue;
     }
 
     public String e() {
@@ -127,56 +127,56 @@ public class h {
     public String f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f12131d : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f12273d : (String) invokeV.objValue;
     }
 
     public int g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f12136i : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f12278i : invokeV.intValue;
     }
 
     public void h(DataRes dataRes) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, dataRes) == null) {
             int intValue = dataRes.type.intValue();
-            this.f12136i = intValue;
+            this.f12278i = intValue;
             if (intValue != 0 && intValue != 1) {
                 if (intValue == 2) {
                     this.a = dataRes.title;
-                    this.f12131d = dataRes.url;
+                    this.f12273d = dataRes.url;
                     return;
                 } else if (intValue != 4 && intValue == 3) {
-                    this.f12131d = dataRes.url;
+                    this.f12273d = dataRes.url;
                     this.a = dataRes.title;
-                    this.f12129b = dataRes.img;
-                    this.f12130c = dataRes.tips;
-                    this.f12132e = dataRes.btn_sure;
-                    this.f12133f = dataRes.btn_cancel;
+                    this.f12271b = dataRes.img;
+                    this.f12272c = dataRes.tips;
+                    this.f12274e = dataRes.btn_sure;
+                    this.f12275f = dataRes.btn_cancel;
                     return;
                 } else {
                     return;
                 }
             }
             this.a = StringUtils.isNull(dataRes.title) ? l : dataRes.title;
-            this.f12129b = dataRes.img;
-            this.f12130c = StringUtils.isNull(dataRes.tips) ? m : dataRes.tips;
+            this.f12271b = dataRes.img;
+            this.f12272c = StringUtils.isNull(dataRes.tips) ? m : dataRes.tips;
             if (!StringUtils.isNull(dataRes.url)) {
                 try {
                     JSONObject jSONObject = new JSONObject(dataRes.url);
-                    this.f12134g = jSONObject.optString("appid");
-                    this.f12135h = jSONObject.optString("appname");
+                    this.f12276g = jSONObject.optString("appid");
+                    this.f12277h = jSONObject.optString("appname");
                     String optString = jSONObject.optString("url");
                     Integer valueOf = Integer.valueOf(jSONObject.optInt("is_game"));
                     this.k = valueOf;
-                    this.f12131d = c.a.t0.z.a.a(this.f12134g, optString, "9104", valueOf);
-                    this.f12137j = jSONObject.optString("swan_app_id");
+                    this.f12273d = c.a.t0.z.a.a(this.f12276g, optString, "9104", valueOf);
+                    this.f12279j = jSONObject.optString("swan_app_id");
                 } catch (JSONException e2) {
                     e2.printStackTrace();
                 }
             }
-            this.f12132e = StringUtils.isNull(dataRes.btn_sure) ? o : dataRes.btn_sure;
-            this.f12133f = StringUtils.isNull(dataRes.btn_cancel) ? n : dataRes.btn_cancel;
+            this.f12274e = StringUtils.isNull(dataRes.btn_sure) ? o : dataRes.btn_sure;
+            this.f12275f = StringUtils.isNull(dataRes.btn_cancel) ? n : dataRes.btn_cancel;
         }
     }
 }

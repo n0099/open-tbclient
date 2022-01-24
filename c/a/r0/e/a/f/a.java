@@ -15,13 +15,13 @@ public class a implements c.a.r0.e.a.b {
     public b a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f10317b;
+    public boolean f10459b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f10318c;
+    public boolean f10460c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f10319d;
+    public boolean f10461d;
 
     public a(@NonNull Context context) {
         Interceptable interceptable = $ic;
@@ -44,8 +44,8 @@ public class a implements c.a.r0.e.a.b {
     @Override // c.a.r0.e.a.b
     public void a() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.a != null && this.f10317b && d()) {
-            this.f10317b = false;
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.a != null && this.f10459b && d()) {
+            this.f10459b = false;
             if (this.a.c()) {
                 this.a.e(12, 0);
                 this.a.e(13, 0);
@@ -59,10 +59,10 @@ public class a implements c.a.r0.e.a.b {
     @Override // c.a.r0.e.a.b
     public void b(int i2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) || this.a == null || this.f10317b || !d()) {
+        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) || this.a == null || this.f10459b || !d()) {
             return;
         }
-        this.f10317b = true;
+        this.f10459b = true;
         if (this.a.c()) {
             this.a.e(12, i2);
             this.a.e(13, i2);
@@ -83,11 +83,11 @@ public class a implements c.a.r0.e.a.b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if (!this.f10319d) {
-                this.f10319d = true;
-                this.f10318c = this.a.g();
+            if (!this.f10461d) {
+                this.f10461d = true;
+                this.f10460c = this.a.g();
             }
-            return this.f10318c;
+            return this.f10460c;
         }
         return invokeV.booleanValue;
     }

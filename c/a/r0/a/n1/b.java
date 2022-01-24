@@ -38,11 +38,11 @@ public class b extends HandlerThread implements c.a.r0.a.n1.a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final boolean f7829f;
+    public static final boolean f7971f;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public a f7830e;
+    public a f7972e;
 
     /* loaded from: classes.dex */
     public class a extends Handler {
@@ -51,39 +51,39 @@ public class b extends HandlerThread implements c.a.r0.a.n1.a {
         public d a;
 
         /* renamed from: b  reason: collision with root package name */
-        public Deque<d> f7831b;
+        public Deque<d> f7973b;
 
         /* renamed from: c  reason: collision with root package name */
-        public boolean f7832c;
+        public boolean f7974c;
 
         /* renamed from: d  reason: collision with root package name */
-        public c.a.r0.a.n1.j.a f7833d;
+        public c.a.r0.a.n1.j.a f7975d;
 
         /* renamed from: e  reason: collision with root package name */
-        public int f7834e;
+        public int f7976e;
 
         /* renamed from: f  reason: collision with root package name */
-        public HashMap<String, Integer> f7835f;
+        public HashMap<String, Integer> f7977f;
 
         /* renamed from: g  reason: collision with root package name */
-        public c.a.r0.a.n1.j.b f7836g;
+        public c.a.r0.a.n1.j.b f7978g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ b f7837h;
+        public final /* synthetic */ b f7979h;
 
         /* renamed from: c.a.r0.a.n1.b$a$a  reason: collision with other inner class name */
         /* loaded from: classes.dex */
-        public class RunnableC0472a implements Runnable {
+        public class RunnableC0481a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ d f7838e;
+            public final /* synthetic */ d f7980e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ a f7839f;
+            public final /* synthetic */ a f7981f;
 
-            public RunnableC0472a(a aVar, d dVar) {
+            public RunnableC0481a(a aVar, d dVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -98,19 +98,19 @@ public class b extends HandlerThread implements c.a.r0.a.n1.a {
                         return;
                     }
                 }
-                this.f7839f = aVar;
-                this.f7838e = dVar;
+                this.f7981f = aVar;
+                this.f7980e = dVar;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    this.f7839f.v(this.f7838e.a);
+                    this.f7981f.v(this.f7980e.a);
                     Bitmap p = n0.p();
                     if (p != null) {
-                        d dVar = this.f7838e;
-                        Message.obtain(this.f7839f, 8, new c.a.r0.a.n1.i.d(dVar.a, p, dVar.f7853i)).sendToTarget();
+                        d dVar = this.f7980e;
+                        Message.obtain(this.f7981f, 8, new c.a.r0.a.n1.i.d(dVar.a, p, dVar.f7995i)).sendToTarget();
                     }
                 }
             }
@@ -118,43 +118,43 @@ public class b extends HandlerThread implements c.a.r0.a.n1.a {
 
         /* renamed from: c.a.r0.a.n1.b$a$b  reason: collision with other inner class name */
         /* loaded from: classes.dex */
-        public class RunnableC0473b implements Runnable {
+        public class RunnableC0482b implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ a f7840e;
+            public final /* synthetic */ a f7982e;
 
             /* renamed from: c.a.r0.a.n1.b$a$b$a  reason: collision with other inner class name */
             /* loaded from: classes.dex */
-            public class RunnableC0474a implements Runnable {
+            public class RunnableC0483a implements Runnable {
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: e  reason: collision with root package name */
-                public final /* synthetic */ Bitmap f7841e;
+                public final /* synthetic */ Bitmap f7983e;
 
                 /* renamed from: f  reason: collision with root package name */
-                public final /* synthetic */ SwanAppActivity f7842f;
+                public final /* synthetic */ SwanAppActivity f7984f;
 
                 /* renamed from: g  reason: collision with root package name */
-                public final /* synthetic */ RunnableC0473b f7843g;
+                public final /* synthetic */ RunnableC0482b f7985g;
 
                 /* renamed from: c.a.r0.a.n1.b$a$b$a$a  reason: collision with other inner class name */
                 /* loaded from: classes.dex */
-                public class RunnableC0475a implements Runnable {
+                public class RunnableC0484a implements Runnable {
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: e  reason: collision with root package name */
-                    public final /* synthetic */ SwanAppActivity f7844e;
+                    public final /* synthetic */ SwanAppActivity f7986e;
 
-                    public RunnableC0475a(RunnableC0474a runnableC0474a, SwanAppActivity swanAppActivity) {
+                    public RunnableC0484a(RunnableC0483a runnableC0483a, SwanAppActivity swanAppActivity) {
                         Interceptable interceptable = $ic;
                         if (interceptable != null) {
                             InitContext newInitContext = TitanRuntime.newInitContext();
                             newInitContext.initArgs = r2;
-                            Object[] objArr = {runnableC0474a, swanAppActivity};
+                            Object[] objArr = {runnableC0483a, swanAppActivity};
                             interceptable.invokeUnInit(65536, newInitContext);
                             int i2 = newInitContext.flag;
                             if ((i2 & 1) != 0) {
@@ -164,25 +164,25 @@ public class b extends HandlerThread implements c.a.r0.a.n1.a {
                                 return;
                             }
                         }
-                        this.f7844e = swanAppActivity;
+                        this.f7986e = swanAppActivity;
                     }
 
                     @Override // java.lang.Runnable
                     public void run() {
                         Interceptable interceptable = $ic;
                         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                            boolean unused = b.f7829f;
-                            this.f7844e.finish();
+                            boolean unused = b.f7971f;
+                            this.f7986e.finish();
                         }
                     }
                 }
 
-                public RunnableC0474a(RunnableC0473b runnableC0473b, Bitmap bitmap, SwanAppActivity swanAppActivity) {
+                public RunnableC0483a(RunnableC0482b runnableC0482b, Bitmap bitmap, SwanAppActivity swanAppActivity) {
                     Interceptable interceptable = $ic;
                     if (interceptable != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         newInitContext.initArgs = r2;
-                        Object[] objArr = {runnableC0473b, bitmap, swanAppActivity};
+                        Object[] objArr = {runnableC0482b, bitmap, swanAppActivity};
                         interceptable.invokeUnInit(65536, newInitContext);
                         int i2 = newInitContext.flag;
                         if ((i2 & 1) != 0) {
@@ -192,15 +192,15 @@ public class b extends HandlerThread implements c.a.r0.a.n1.a {
                             return;
                         }
                     }
-                    this.f7843g = runnableC0473b;
-                    this.f7841e = bitmap;
-                    this.f7842f = swanAppActivity;
+                    this.f7985g = runnableC0482b;
+                    this.f7983e = bitmap;
+                    this.f7984f = swanAppActivity;
                 }
 
                 public final void a(SwanAppActivity swanAppActivity) {
                     Interceptable interceptable = $ic;
                     if (interceptable == null || interceptable.invokeL(1048576, this, swanAppActivity) == null) {
-                        q0.a0(new RunnableC0475a(this, swanAppActivity));
+                        q0.a0(new RunnableC0484a(this, swanAppActivity));
                     }
                 }
 
@@ -208,26 +208,26 @@ public class b extends HandlerThread implements c.a.r0.a.n1.a {
                 public void run() {
                     Interceptable interceptable = $ic;
                     if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                        if (this.f7843g.f7840e.f7833d.a(this.f7841e, this.f7843g.f7840e.a.f7852h)) {
-                            f.c(this.f7843g.f7840e.a, 33, false, this.f7843g.f7840e.f7831b.size());
+                        if (this.f7985g.f7982e.f7975d.a(this.f7983e, this.f7985g.f7982e.a.f7994h)) {
+                            f.c(this.f7985g.f7982e.a, 33, false, this.f7985g.f7982e.f7973b.size());
                             c.a.r0.a.h0.i.e.a("exit_whiteScreen_L1");
-                            a(this.f7842f);
+                            a(this.f7984f);
                             return;
                         }
-                        double d2 = this.f7843g.f7840e.f7836g.d(this.f7841e, this.f7843g.f7840e.a.f7852h);
-                        if (d2 >= 0.7d && this.f7843g.f7840e.f7834e == 0) {
+                        double d2 = this.f7985g.f7982e.f7978g.d(this.f7983e, this.f7985g.f7982e.a.f7994h);
+                        if (d2 >= 0.7d && this.f7985g.f7982e.f7976e == 0) {
                             c.a.r0.a.h0.i.e.a("exit_whiteScreen_L2");
-                            a(this.f7842f);
+                            a(this.f7984f);
                         } else if (d2 < 0.5d || !c.g()) {
                         } else {
                             c.a.r0.a.h0.i.e.a("exit_whiteScreen_L3");
-                            a(this.f7842f);
+                            a(this.f7984f);
                         }
                     }
                 }
             }
 
-            public RunnableC0473b(a aVar) {
+            public RunnableC0482b(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -242,17 +242,17 @@ public class b extends HandlerThread implements c.a.r0.a.n1.a {
                         return;
                     }
                 }
-                this.f7840e = aVar;
+                this.f7982e = aVar;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 SwanAppActivity activity;
                 Interceptable interceptable = $ic;
-                if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (activity = c.a.r0.a.g1.f.U().getActivity()) == null || activity.isFinishing() || activity.isDestroyed() || this.f7840e.a == null) {
+                if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (activity = c.a.r0.a.g1.f.U().getActivity()) == null || activity.isFinishing() || activity.isDestroyed() || this.f7982e.a == null) {
                     return;
                 }
-                q.f().execute(new RunnableC0474a(this, n0.p(), activity), "SwanPageMonitorRecheck");
+                q.f().execute(new RunnableC0483a(this, n0.p(), activity), "SwanPageMonitorRecheck");
             }
         }
 
@@ -274,18 +274,18 @@ public class b extends HandlerThread implements c.a.r0.a.n1.a {
                     return;
                 }
             }
-            this.f7837h = bVar;
-            this.f7831b = new ArrayDeque();
-            this.f7832c = true;
-            this.f7834e = 0;
-            this.f7833d = a.C0478a.a("simple_parser");
-            this.f7836g = (c.a.r0.a.n1.j.b) a.C0478a.a("hsv_parser");
+            this.f7979h = bVar;
+            this.f7973b = new ArrayDeque();
+            this.f7974c = true;
+            this.f7976e = 0;
+            this.f7975d = a.C0487a.a("simple_parser");
+            this.f7978g = (c.a.r0.a.n1.j.b) a.C0487a.a("hsv_parser");
         }
 
         public final void g(d dVar) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, dVar) == null) && dVar != null && i(dVar.a)) {
-                q0.e0(new RunnableC0472a(this, dVar));
+                q0.e0(new RunnableC0481a(this, dVar));
             }
         }
 
@@ -294,7 +294,7 @@ public class b extends HandlerThread implements c.a.r0.a.n1.a {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
                 d dVar = this.a;
-                return dVar != null && dVar.f7853i;
+                return dVar != null && dVar.f7995i;
             }
             return invokeV.booleanValue;
         }
@@ -303,14 +303,14 @@ public class b extends HandlerThread implements c.a.r0.a.n1.a {
         public void handleMessage(Message message) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, message) == null) {
-                if (b.f7829f) {
+                if (b.f7971f) {
                     String str = "get message " + message.what;
                 }
                 switch (message.what) {
                     case 1:
                         removeMessages(9);
                         removeMessages(10);
-                        if (i.f7907d) {
+                        if (i.f8049d) {
                             q((c.a.r0.a.n1.i.c) message.obj);
                             return;
                         } else {
@@ -336,10 +336,10 @@ public class b extends HandlerThread implements c.a.r0.a.n1.a {
                         c.a.r0.a.n1.i.a aVar = (c.a.r0.a.n1.i.a) message.obj;
                         if (aVar != null) {
                             if (aVar.e()) {
-                                this.f7834e++;
+                                this.f7976e++;
                                 return;
                             } else {
-                                this.f7834e--;
+                                this.f7976e--;
                                 return;
                             }
                         }
@@ -388,17 +388,17 @@ public class b extends HandlerThread implements c.a.r0.a.n1.a {
         public final void j() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-                this.f7832c = true;
+                this.f7974c = true;
                 d dVar = this.a;
                 if (dVar == null || dVar.c()) {
                     return;
                 }
-                if (this.f7837h.f7830e != null) {
-                    this.f7837h.f7830e.removeMessages(2);
+                if (this.f7979h.f7972e != null) {
+                    this.f7979h.f7972e.removeMessages(2);
                 }
                 this.a.d();
-                if (b.f7829f) {
-                    String str = "**************** onBackground, isNewLaunch=" + this.a.f7853i;
+                if (b.f7971f) {
+                    String str = "**************** onBackground, isNewLaunch=" + this.a.f7995i;
                 }
             }
         }
@@ -406,10 +406,10 @@ public class b extends HandlerThread implements c.a.r0.a.n1.a {
         public final void k(c.a.r0.a.n1.i.c cVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048581, this, cVar) == null) {
-                this.f7837h.f7830e.removeMessages(2);
+                this.f7979h.f7972e.removeMessages(2);
                 d dVar = this.a;
                 String str = dVar != null ? dVar.a : StringUtil.NULL_STRING;
-                if (b.f7829f) {
+                if (b.f7971f) {
                     String str2 = "**************** cancel route monitor finished webViewId=" + str + " isNewLaunch=" + cVar.a();
                 }
             }
@@ -419,7 +419,7 @@ public class b extends HandlerThread implements c.a.r0.a.n1.a {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
                 d dVar = this.a;
-                if (dVar != null && dVar.c() && this.a.f7847c && h()) {
+                if (dVar != null && dVar.c() && this.a.f7989c && h()) {
                     e.a("SwanAppPageMonitor", "退出时检测白屏");
                     t();
                 }
@@ -433,18 +433,18 @@ public class b extends HandlerThread implements c.a.r0.a.n1.a {
         public final void m() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-                this.f7832c = false;
+                this.f7974c = false;
                 d dVar = this.a;
-                if (dVar == null || !dVar.f7853i || dVar.c()) {
+                if (dVar == null || !dVar.f7995i || dVar.c()) {
                     return;
                 }
                 this.a.e();
                 long b2 = this.a.b();
                 if (b2 >= 0) {
-                    this.f7837h.f7830e.sendMessageDelayed(Message.obtain(this.f7837h.f7830e, 2, this.a), b2);
+                    this.f7979h.f7972e.sendMessageDelayed(Message.obtain(this.f7979h.f7972e, 2, this.a), b2);
                 }
-                if (b.f7829f) {
-                    String str = "**************** onForeground, isNewLaunch=" + this.a.f7853i;
+                if (b.f7971f) {
+                    String str = "**************** onForeground, isNewLaunch=" + this.a.f7995i;
                 }
             }
         }
@@ -458,7 +458,7 @@ public class b extends HandlerThread implements c.a.r0.a.n1.a {
             }
             c.a.r0.a.a3.e loadingView = activity.getLoadingView();
             boolean z = (loadingView == null || (view = loadingView.a) == null || view.getVisibility() != 0) ? false : true;
-            if (b.f7829f) {
+            if (b.f7971f) {
                 String str = "Loading check result: " + z;
             }
             if (z) {
@@ -473,7 +473,7 @@ public class b extends HandlerThread implements c.a.r0.a.n1.a {
                 dVar.r(V);
                 dVar.q(n.n(c.a.r0.a.d2.d.J().l()));
                 dVar.m(c.a.r0.a.d2.d.J().getAppId());
-                dVar.s(String.valueOf(this.f7831b.size()));
+                dVar.s(String.valueOf(this.f7973b.size()));
                 dVar.n(false);
                 n.R(dVar);
             }
@@ -486,10 +486,10 @@ public class b extends HandlerThread implements c.a.r0.a.n1.a {
             }
             c.a.r0.a.h0.g.g V = c.a.r0.a.g1.f.U().V();
             if (V == null || V.k() <= 0) {
-                if (b.f7829f) {
+                if (b.f7971f) {
                     String str = "start loading check: remainTime=" + cVar.c();
                 }
-                this.f7837h.f7830e.sendMessageDelayed(Message.obtain(this.f7837h.f7830e, 10, cVar), cVar.c());
+                this.f7979h.f7972e.sendMessageDelayed(Message.obtain(this.f7979h.f7972e, 10, cVar), cVar.c());
             }
         }
 
@@ -501,24 +501,24 @@ public class b extends HandlerThread implements c.a.r0.a.n1.a {
             }
             String n3 = f2.n3();
             c.a.r0.a.p.e.b i3 = f2.i3();
-            if (b.f7829f && i3 == null) {
+            if (b.f7971f && i3 == null) {
                 String str = "webview manager is null for id " + n3;
             }
             if (i3 == null || i(n3)) {
                 return;
             }
-            d dVar = new d(n3, f2.g3().f7672e, cVar.c(), cVar.a());
-            this.f7831b.addLast(dVar);
+            d dVar = new d(n3, f2.g3().f7814e, cVar.c(), cVar.a());
+            this.f7973b.addLast(dVar);
             this.a = dVar;
             i3.u(h.e());
-            HashMap<String, Integer> hashMap = this.f7835f;
+            HashMap<String, Integer> hashMap = this.f7977f;
             if (hashMap != null && hashMap.containsKey(n3)) {
-                this.a.f7851g = this.f7835f.remove(n3).intValue();
+                this.a.f7993g = this.f7977f.remove(n3).intValue();
             }
-            if (this.f7832c || dVar.b() < 0) {
+            if (this.f7974c || dVar.b() < 0) {
                 return;
             }
-            this.f7837h.f7830e.sendMessageDelayed(Message.obtain(this.f7837h.f7830e, 2, dVar), this.a.b());
+            this.f7979h.f7972e.sendMessageDelayed(Message.obtain(this.f7979h.f7972e, 2, dVar), this.a.b());
         }
 
         public final void q(c.a.r0.a.n1.i.c cVar) {
@@ -529,22 +529,22 @@ public class b extends HandlerThread implements c.a.r0.a.n1.a {
                 return;
             }
             String n3 = f2.n3();
-            d dVar = new d(n3, f2.g3().f7672e, cVar.c(), cVar.a());
+            d dVar = new d(n3, f2.g3().f7814e, cVar.c(), cVar.a());
             if (!i(n3)) {
-                this.f7831b.addLast(dVar);
+                this.f7973b.addLast(dVar);
                 i3.u(h.e());
             }
             this.a = dVar;
-            HashMap<String, Integer> hashMap = this.f7835f;
+            HashMap<String, Integer> hashMap = this.f7977f;
             if (hashMap != null && hashMap.containsKey(n3)) {
-                this.a.f7851g = this.f7835f.get(n3).intValue();
+                this.a.f7993g = this.f7977f.get(n3).intValue();
             }
-            if (this.f7832c || dVar.b() < 0) {
+            if (this.f7974c || dVar.b() < 0) {
                 return;
             }
-            this.f7837h.f7830e.sendMessageDelayed(Message.obtain(this.f7837h.f7830e, 2, dVar), this.a.b());
-            if (b.f7829f) {
-                String str = "**************** start countdown webViewId=" + n3 + " time=" + this.a.b() + " isNewLaunch=" + this.a.f7853i;
+            this.f7979h.f7972e.sendMessageDelayed(Message.obtain(this.f7979h.f7972e, 2, dVar), this.a.b());
+            if (b.f7971f) {
+                String str = "**************** start countdown webViewId=" + n3 + " time=" + this.a.b() + " isNewLaunch=" + this.a.f7995i;
             }
         }
 
@@ -556,7 +556,7 @@ public class b extends HandlerThread implements c.a.r0.a.n1.a {
             }
             String d2 = eVar.d();
             d dVar = null;
-            Iterator<d> it = this.f7831b.iterator();
+            Iterator<d> it = this.f7973b.iterator();
             while (true) {
                 if (!it.hasNext()) {
                     break;
@@ -569,22 +569,22 @@ public class b extends HandlerThread implements c.a.r0.a.n1.a {
             }
             if (eVar.e()) {
                 if (dVar != null) {
-                    dVar.f7851g++;
+                    dVar.f7993g++;
                     return;
                 }
-                if (this.f7835f == null) {
-                    this.f7835f = new HashMap<>();
+                if (this.f7977f == null) {
+                    this.f7977f = new HashMap<>();
                 }
-                Integer num2 = this.f7835f.get(d2);
-                this.f7835f.put(d2, Integer.valueOf(num2 != null ? 1 + num2.intValue() : 1));
+                Integer num2 = this.f7977f.get(d2);
+                this.f7977f.put(d2, Integer.valueOf(num2 != null ? 1 + num2.intValue() : 1));
             } else if (dVar != null) {
-                dVar.f7851g--;
+                dVar.f7993g--;
             } else {
-                HashMap<String, Integer> hashMap = this.f7835f;
+                HashMap<String, Integer> hashMap = this.f7977f;
                 if (hashMap == null || (num = hashMap.get(d2)) == null || num.intValue() <= 0) {
                     return;
                 }
-                this.f7835f.put(d2, Integer.valueOf(num.intValue() - 1));
+                this.f7977f.put(d2, Integer.valueOf(num.intValue() - 1));
             }
         }
 
@@ -599,44 +599,44 @@ public class b extends HandlerThread implements c.a.r0.a.n1.a {
                     return;
                 }
                 Rect b2 = c.b(e2, f2, B);
-                this.f7833d.c(c.d(f2));
+                this.f7975d.c(c.d(f2));
                 this.a.g();
                 boolean a = dVar.a();
-                if (!c.h() && this.f7834e <= 0) {
-                    this.a.f7847c = this.f7833d.a(e2, b2);
-                    if (this.a.f7847c) {
+                if (!c.h() && this.f7976e <= 0) {
+                    this.a.f7989c = this.f7975d.a(e2, b2);
+                    if (this.a.f7989c) {
                         e.a("SwanAppPageMonitor", "检测到当前页面为纯白屏");
                         if (a) {
                             this.a.f(e2);
-                            this.a.f7852h = b2;
+                            this.a.f7994h = b2;
                         }
                         c.i(a, dVar.d());
                         int i2 = 19;
-                        if (i.f7907d && !a) {
+                        if (i.f8049d && !a) {
                             i2 = 55;
                         }
-                        f.c(this.a, i2, a, this.f7831b.size());
+                        f.c(this.a, i2, a, this.f7973b.size());
                     }
                 } else {
-                    e.a("SwanAppPageMonitor", "有dialog或NAView，dialogNum=" + this.f7834e);
-                    this.a.f7847c = false;
+                    e.a("SwanAppPageMonitor", "有dialog或NAView，dialogNum=" + this.f7976e);
+                    this.a.f7989c = false;
                 }
                 this.a.a();
-                if (b.f7829f) {
-                    String str = "**************** detected finished, webViewId=" + dVar.d() + " isWhite=" + this.a.f7847c + " isNewLaunch=" + a;
+                if (b.f7971f) {
+                    String str = "**************** detected finished, webViewId=" + dVar.d() + " isWhite=" + this.a.f7989c + " isNewLaunch=" + a;
                 }
-                if (this.a.f7847c) {
+                if (this.a.f7989c) {
                     return;
                 }
-                double d2 = this.f7836g.d(e2, b2);
+                double d2 = this.f7978g.d(e2, b2);
                 int i3 = (d2 > 0.5d ? 1 : (d2 == 0.5d ? 0 : -1));
                 if (i3 >= 0) {
                     e.a("SwanAppPageMonitor", "检测到区域白屏 isFirstPage=" + a);
                     int i4 = 28;
-                    if (i.f7907d && !a) {
+                    if (i.f8049d && !a) {
                         i4 = 56;
                     }
-                    f.d(this.a, i4, w(), e2, a, this.f7831b.size());
+                    f.d(this.a, i4, w(), e2, a, this.f7973b.size());
                 }
                 if (a) {
                     c.a.r0.a.h0.i.h.f fVar = new c.a.r0.a.h0.i.h.f();
@@ -644,13 +644,13 @@ public class b extends HandlerThread implements c.a.r0.a.n1.a {
                         if (i3 >= 0) {
                             fVar.e(SceneType.SCENE_WHITE_SCREEN_L3);
                             fVar.d(dVar.d());
-                            this.a.f7847c = true;
+                            this.a.f7989c = true;
                             e.a("SwanAppPageMonitor", "首页非纯白屏，LoadingView在展示，有50%以上区域白屏");
                         }
-                    } else if (this.f7834e == 0 && d2 >= 0.7d) {
+                    } else if (this.f7976e == 0 && d2 >= 0.7d) {
                         fVar.e(SceneType.SCENE_WHITE_SCREEN_L2);
                         fVar.d(dVar.d());
-                        this.a.f7847c = true;
+                        this.a.f7989c = true;
                         e.a("SwanAppPageMonitor", "首页非纯白屏，没有LoadingView在展示，且dialog数量为0，有70%以上区域白屏");
                     } else {
                         c.a.r0.a.h0.i.g.c.g.b().a();
@@ -662,16 +662,16 @@ public class b extends HandlerThread implements c.a.r0.a.n1.a {
         public final void t() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
-                boolean unused = b.f7829f;
-                q0.a0(new RunnableC0473b(this));
+                boolean unused = b.f7971f;
+                q0.a0(new RunnableC0482b(this));
             }
         }
 
         public final void u() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
-                this.f7831b.clear();
-                HashMap<String, Integer> hashMap = this.f7835f;
+                this.f7973b.clear();
+                HashMap<String, Integer> hashMap = this.f7977f;
                 if (hashMap != null) {
                     hashMap.clear();
                 }
@@ -693,7 +693,7 @@ public class b extends HandlerThread implements c.a.r0.a.n1.a {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
                 String string = c.a.r0.a.o2.g.h.a().getString("screenshot_upload_switch", "1");
-                if (b.f7829f) {
+                if (b.f7971f) {
                     String str = "Screenshot upload cloud switch: status = " + string;
                 }
                 return TextUtils.equals(string, "1") && new Random().nextInt(10) % 3 == 0;
@@ -715,7 +715,7 @@ public class b extends HandlerThread implements c.a.r0.a.n1.a {
                 return;
             }
         }
-        f7829f = c.a.r0.a.d2.e.z;
+        f7971f = c.a.r0.a.d2.e.z;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -742,7 +742,7 @@ public class b extends HandlerThread implements c.a.r0.a.n1.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, cVar) == null) {
             if (!isAlive()) {
-                boolean z = f7829f;
+                boolean z = f7971f;
                 try {
                     d();
                 } catch (Error | Exception e2) {
@@ -751,7 +751,7 @@ public class b extends HandlerThread implements c.a.r0.a.n1.a {
                 }
             }
             if (cVar != null) {
-                Message.obtain(this.f7830e, cVar.b(), cVar).sendToTarget();
+                Message.obtain(this.f7972e, cVar.b(), cVar).sendToTarget();
             }
         }
     }
@@ -760,7 +760,7 @@ public class b extends HandlerThread implements c.a.r0.a.n1.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             start();
-            this.f7830e = new a(this, getLooper());
+            this.f7972e = new a(this, getLooper());
         }
     }
 }

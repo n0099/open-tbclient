@@ -34,7 +34,7 @@ public class k implements s {
     public void onClicked() {
         s sVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (sVar = this.a.f30396b) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (sVar = this.a.f30424b) == null) {
             return;
         }
         sVar.onClicked();
@@ -44,7 +44,7 @@ public class k implements s {
     public void onDisplayed() {
         s sVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (sVar = this.a.f30396b) == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (sVar = this.a.f30424b) == null) {
             return;
         }
         sVar.onDisplayed();
@@ -54,7 +54,7 @@ public class k implements s {
     public void onFail(PBError pBError) {
         s sVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, pBError) == null) || (sVar = this.a.f30396b) == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, pBError) == null) || (sVar = this.a.f30424b) == null) {
             return;
         }
         sVar.onFail(pBError);
@@ -64,7 +64,7 @@ public class k implements s {
     public void onLoaded() {
         s sVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (sVar = this.a.f30396b) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (sVar = this.a.f30424b) == null) {
             return;
         }
         sVar.onLoaded();

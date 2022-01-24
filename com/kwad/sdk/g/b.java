@@ -8,18 +8,18 @@ public class b {
     public static boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static boolean f56956b;
+    public static boolean f57001b;
 
     /* loaded from: classes3.dex */
     public interface a {
     }
 
     public static void a(Context context, final a aVar) {
-        if (context == null || f56956b) {
+        if (context == null || f57001b) {
             return;
         }
         if (!a()) {
-            f56956b = true;
+            f57001b = true;
         } else if (a) {
         } else {
             a = true;
@@ -30,7 +30,7 @@ public class b {
             } catch (Throwable th) {
                 String str2 = "[OADIDSDKHelper26]:oaid sdk not find " + th.getMessage();
                 a = false;
-                f56956b = true;
+                f57001b = true;
             }
         }
     }

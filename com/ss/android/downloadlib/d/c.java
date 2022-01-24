@@ -7,11 +7,11 @@ import android.text.TextUtils;
 import com.baidu.tbadk.core.atomData.LegoListActivityConfig;
 import com.ss.android.downloadlib.addownload.j;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class c {
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile c f59619b;
+    public static volatile c f59664b;
     public SQLiteDatabase a;
 
     public c() {
@@ -23,14 +23,14 @@ public class c {
     }
 
     public static c a() {
-        if (f59619b == null) {
+        if (f59664b == null) {
             synchronized (c.class) {
-                if (f59619b == null) {
-                    f59619b = new c();
+                if (f59664b == null) {
+                    f59664b = new c();
                 }
             }
         }
-        return f59619b;
+        return f59664b;
     }
 
     public boolean b() {

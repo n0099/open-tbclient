@@ -6,9 +6,9 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import androidx.annotation.Nullable;
 import c.a.s0.s.u.c;
-import c.a.t0.d1.c1;
-import c.a.t0.d1.d1;
-import c.a.t0.d1.i1;
+import c.a.t0.e1.c1;
+import c.a.t0.e1.d1;
+import c.a.t0.e1.i1;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.elementsMaven.view.EMTextView;
 import com.baidu.tbadk.core.util.UtilHelper;
@@ -22,7 +22,7 @@ public class ForumRuleDafultItemView extends LinearLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f43335e;
+    public Context f43357e;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public ForumRuleDafultItemView(Context context) {
@@ -48,13 +48,13 @@ public class ForumRuleDafultItemView extends LinearLayout {
     public final void a(String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, str, str2) == null) {
-            EMTextView eMTextView = new EMTextView(this.f43335e);
+            EMTextView eMTextView = new EMTextView(this.f43357e);
             eMTextView.setText(str);
             addView(eMTextView);
             ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) eMTextView.getLayoutParams();
             marginLayoutParams.topMargin = UtilHelper.getDimenPixelSize(d1.M_H_X008);
             eMTextView.setLayoutParams(marginLayoutParams);
-            EMTextView eMTextView2 = new EMTextView(this.f43335e);
+            EMTextView eMTextView2 = new EMTextView(this.f43357e);
             eMTextView2.setText(str2);
             addView(eMTextView2);
             ViewGroup.MarginLayoutParams marginLayoutParams2 = (ViewGroup.MarginLayoutParams) eMTextView2.getLayoutParams();
@@ -66,10 +66,10 @@ public class ForumRuleDafultItemView extends LinearLayout {
     public final void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            a(this.f43335e.getResources().getString(i1.forum_rule_defalt_one_title), this.f43335e.getResources().getString(i1.forum_rule_defalt_one_content));
-            a(this.f43335e.getResources().getString(i1.forum_rule_defalt_two_title), this.f43335e.getResources().getString(i1.forum_rule_defalt_two_content));
-            a(this.f43335e.getResources().getString(i1.forum_rule_defalt_three_title), this.f43335e.getResources().getString(i1.forum_rule_defalt_three_content));
-            a(this.f43335e.getResources().getString(i1.forum_rule_defalt_four_title), this.f43335e.getResources().getString(i1.forum_rule_defalt_four_content));
+            a(this.f43357e.getResources().getString(i1.forum_rule_defalt_one_title), this.f43357e.getResources().getString(i1.forum_rule_defalt_one_content));
+            a(this.f43357e.getResources().getString(i1.forum_rule_defalt_two_title), this.f43357e.getResources().getString(i1.forum_rule_defalt_two_content));
+            a(this.f43357e.getResources().getString(i1.forum_rule_defalt_three_title), this.f43357e.getResources().getString(i1.forum_rule_defalt_three_content));
+            a(this.f43357e.getResources().getString(i1.forum_rule_defalt_four_title), this.f43357e.getResources().getString(i1.forum_rule_defalt_four_content));
         }
     }
 
@@ -132,7 +132,7 @@ public class ForumRuleDafultItemView extends LinearLayout {
                 return;
             }
         }
-        this.f43335e = context;
+        this.f43357e = context;
         setOrientation(1);
         b();
     }

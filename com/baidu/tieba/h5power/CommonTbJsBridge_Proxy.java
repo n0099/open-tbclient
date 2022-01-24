@@ -1,10 +1,10 @@
 package com.baidu.tieba.h5power;
 
 import c.a.d.f.p.m;
-import c.a.t0.w3.n0.d.a;
-import c.a.t0.w3.n0.d.b;
-import c.a.t0.w3.n0.d.c;
-import c.a.t0.w3.n0.d.e;
+import c.a.t0.x3.n0.d.a;
+import c.a.t0.x3.n0.d.b;
+import c.a.t0.x3.n0.d.c;
+import c.a.t0.x3.n0.d.e;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.pms.db.PackageTable;
 import com.baidu.tbadk.browser.CommonTbJsBridge;
@@ -65,7 +65,7 @@ public class CommonTbJsBridge_Proxy extends a {
         this.mNotificationNameList.add(CommonTbJsBridge.GO_BACK_FROM_NATIVE);
     }
 
-    @Override // c.a.t0.w3.n0.d.a
+    @Override // c.a.t0.x3.n0.d.a
     public c dispatch(e eVar, c cVar) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
@@ -521,7 +521,7 @@ public class CommonTbJsBridge_Proxy extends a {
         return (c) invokeLL.objValue;
     }
 
-    @Override // c.a.t0.w3.n0.d.a
+    @Override // c.a.t0.x3.n0.d.a
     public List<c> processNotification(String str, HashMap hashMap) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;

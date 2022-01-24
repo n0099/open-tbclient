@@ -27,10 +27,10 @@ public abstract class e extends z {
         public final /* synthetic */ d a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f6167b;
+        public final /* synthetic */ CallbackHandler f6309b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ e f6168c;
+        public final /* synthetic */ e f6310c;
 
         public a(e eVar, d dVar, CallbackHandler callbackHandler) {
             Interceptable interceptable = $ic;
@@ -47,9 +47,9 @@ public abstract class e extends z {
                     return;
                 }
             }
-            this.f6168c = eVar;
+            this.f6310c = eVar;
             this.a = dVar;
-            this.f6167b = callbackHandler;
+            this.f6309b = callbackHandler;
         }
 
         @Override // c.a.r0.a.h0.j.d
@@ -71,8 +71,8 @@ public abstract class e extends z {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-                if (this.f6168c.l(str, this.a.r)) {
-                    this.f6168c.k(str, this.f6167b, this.a.f5311i);
+                if (this.f6310c.l(str, this.a.r)) {
+                    this.f6310c.k(str, this.f6309b, this.a.f5453i);
                     return true;
                 }
                 return false;
@@ -131,7 +131,7 @@ public abstract class e extends z {
             try {
                 jSONObject.put("url", str);
             } catch (JSONException e2) {
-                if (z.f6201b) {
+                if (z.f6343b) {
                     e2.printStackTrace();
                 }
             }

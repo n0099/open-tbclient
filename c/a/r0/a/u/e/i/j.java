@@ -22,7 +22,7 @@ public class j {
     public static final boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final Set<String> f9132b;
+    public static final Set<String> f9274b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -39,7 +39,7 @@ public class j {
             }
         }
         a = c.a.r0.a.k.a;
-        f9132b = Sets.newHashSet("localhost", "127.0.0.1");
+        f9274b = Sets.newHashSet("localhost", "127.0.0.1");
     }
 
     public static String a(String str) {
@@ -60,7 +60,7 @@ public class j {
                 i2 = false;
             }
             if (httpUrl != null) {
-                return (!i2 || HttpUrl.defaultPort(httpUrl.scheme()) == httpUrl.port()) && !f9132b.contains(httpUrl.host().toLowerCase());
+                return (!i2 || HttpUrl.defaultPort(httpUrl.scheme()) == httpUrl.port()) && !f9274b.contains(httpUrl.host().toLowerCase());
             }
             return false;
         }

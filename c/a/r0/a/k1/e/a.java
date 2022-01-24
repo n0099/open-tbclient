@@ -15,19 +15,19 @@ public class a {
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f7579b;
+    public String f7721b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f7580c;
+    public String f7722c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f7581d;
+    public String f7723d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f7582e;
+    public String f7724e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f7583f;
+    public String f7725f;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -58,13 +58,13 @@ public class a {
             }
             a aVar = new a();
             aVar.a = optJSONObject2.optString(ContentUtil.RESULT_KEY_AK);
-            aVar.f7579b = optJSONObject2.optString(ContentUtil.RESULT_KEY_SK);
-            aVar.f7580c = optJSONObject2.optString("token");
-            aVar.f7581d = optJSONObject2.optString(ContentUtil.RESULT_KEY_BUCKET);
+            aVar.f7721b = optJSONObject2.optString("sk");
+            aVar.f7722c = optJSONObject2.optString("token");
+            aVar.f7723d = optJSONObject2.optString(ContentUtil.RESULT_KEY_BUCKET);
             JSONObject optJSONObject3 = optJSONObject2.optJSONObject("oname_list");
             if (optJSONObject3 != null && (optJSONObject = optJSONObject3.optJSONObject(str)) != null) {
-                aVar.f7583f = optJSONObject.optString("bosobject");
-                aVar.f7582e = optJSONObject.optString("bosurl");
+                aVar.f7725f = optJSONObject.optString("bosobject");
+                aVar.f7724e = optJSONObject.optString("bosurl");
             }
             return aVar;
         }

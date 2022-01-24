@@ -60,7 +60,7 @@ public class AlaRecentHistoryResponseMessage extends JsonHttpResponsedMessage {
                 }
                 arrayList = arrayList2;
             }
-            this.mHistoryData.f14587b = arrayList;
+            this.mHistoryData.f14727b = arrayList;
         }
     }
 

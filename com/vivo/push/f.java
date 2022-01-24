@@ -14,7 +14,7 @@ public final class f implements Runnable {
     public final /* synthetic */ String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ e f60704b;
+    public final /* synthetic */ e f60749b;
 
     public f(e eVar, String str) {
         Interceptable interceptable = $ic;
@@ -31,7 +31,7 @@ public final class f implements Runnable {
                 return;
             }
         }
-        this.f60704b = eVar;
+        this.f60749b = eVar;
         this.a = str;
     }
 
@@ -42,14 +42,14 @@ public final class f implements Runnable {
         Context context3;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            context = this.f60704b.f60697h;
+            context = this.f60749b.f60742h;
             if (context == null || TextUtils.isEmpty(this.a)) {
                 return;
             }
-            context2 = this.f60704b.f60697h;
-            context3 = this.f60704b.f60697h;
+            context2 = this.f60749b.f60742h;
+            context3 = this.f60749b.f60742h;
             if (aa.a(context2, context3.getPackageName(), this.a)) {
-                this.f60704b.i();
+                this.f60749b.i();
             }
         }
     }

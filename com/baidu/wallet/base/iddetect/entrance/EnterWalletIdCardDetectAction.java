@@ -3,6 +3,7 @@ package com.baidu.wallet.base.iddetect.entrance;
 import android.content.Context;
 import android.os.Bundle;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.retrieve.inter.constants.StatConstants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -66,7 +67,7 @@ public class EnterWalletIdCardDetectAction implements RouterAction {
                     }
                     HashMap hashMap = new HashMap();
                     hashMap.put("errCode", Integer.valueOf(i3));
-                    hashMap.put("errMsg", str);
+                    hashMap.put(StatConstants.KEY_EXT_ERR_MSG, str);
                     this.val$callback.onResult(1, hashMap);
                 }
 

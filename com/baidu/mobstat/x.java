@@ -28,7 +28,7 @@ public class x {
     public static volatile DexClassLoader a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile boolean f36911b;
+    public static volatile boolean f36939b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes10.dex */
@@ -38,7 +38,7 @@ public class x {
         public Context a;
 
         /* renamed from: b  reason: collision with root package name */
-        public com.baidu.mobstat.a f36912b;
+        public com.baidu.mobstat.a f36940b;
 
         public a(Context context, com.baidu.mobstat.a aVar) {
             Interceptable interceptable = $ic;
@@ -56,13 +56,13 @@ public class x {
                 }
             }
             this.a = context;
-            this.f36912b = aVar;
+            this.f36940b = aVar;
         }
 
         private void a(Context context) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(65538, this, context) == null) {
-                this.f36912b.a(context, System.currentTimeMillis());
+                this.f36940b.a(context, System.currentTimeMillis());
             }
         }
 
@@ -108,7 +108,7 @@ public class x {
                     } catch (Exception unused) {
                     }
                 }
-                return aa.f36363c + "?" + sb.toString();
+                return aa.f36391c + "?" + sb.toString();
             }
             return (String) invokeL.objValue;
         }
@@ -127,7 +127,7 @@ public class x {
                 } catch (Exception e2) {
                     bb.c().a(e2);
                 }
-                boolean unused = x.f36911b = false;
+                boolean unused = x.f36939b = false;
             }
         }
 
@@ -153,7 +153,7 @@ public class x {
                 synchronized (this) {
                     bb.c().a("start get config and download jar");
                     Context context = this.a;
-                    com.baidu.mobstat.a aVar = this.f36912b;
+                    com.baidu.mobstat.a aVar = this.f36940b;
                     String b2 = b(context);
                     bb.c().c("update req url is:" + b2);
                     HttpURLConnection d2 = bo.d(context, b2);
@@ -404,7 +404,7 @@ public class x {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65541, null, context, aVar) == null) {
             synchronized (x.class) {
-                if (f36911b) {
+                if (f36939b) {
                     return;
                 }
                 if (!bw.q(context)) {
@@ -414,7 +414,7 @@ public class x {
                 } else {
                     bb.c().a("can start update config");
                     new a(context, aVar).start();
-                    f36911b = true;
+                    f36939b = true;
                 }
             }
         }

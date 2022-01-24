@@ -17,7 +17,7 @@ public class a implements Interceptor {
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f62207b;
+    public int f62252b;
 
     public a(int i2) {
         Interceptable interceptable = $ic;
@@ -34,7 +34,7 @@ public class a implements Interceptor {
                 return;
             }
         }
-        this.f62207b = 0;
+        this.f62252b = 0;
         this.a = i2;
     }
 
@@ -46,11 +46,11 @@ public class a implements Interceptor {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, chain)) == null) {
             Request request = chain.request();
             Response proceed = chain.proceed(request);
-            while (!proceed.isSuccessful() && (i2 = this.f62207b) < this.a) {
-                this.f62207b = i2 + 1;
+            while (!proceed.isSuccessful() && (i2 = this.f62252b) < this.a) {
+                this.f62252b = i2 + 1;
                 proceed.close();
                 proceed = chain.proceed(request);
-                RLog.info("RetryInterceptor", "RetryInterceptor maxRetry=%s, retryCount=%s", Integer.valueOf(this.a), Integer.valueOf(this.f62207b));
+                RLog.info("RetryInterceptor", "RetryInterceptor maxRetry=%s, retryCount=%s", Integer.valueOf(this.a), Integer.valueOf(this.f62252b));
             }
             return proceed;
         }

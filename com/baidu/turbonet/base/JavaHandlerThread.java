@@ -24,13 +24,13 @@ public class JavaHandlerThread {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ long f50069e;
+        public final /* synthetic */ long f50113e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ long f50070f;
+        public final /* synthetic */ long f50114f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ JavaHandlerThread f50071g;
+        public final /* synthetic */ JavaHandlerThread f50115g;
 
         public a(JavaHandlerThread javaHandlerThread, long j2, long j3) {
             Interceptable interceptable = $ic;
@@ -47,16 +47,16 @@ public class JavaHandlerThread {
                     return;
                 }
             }
-            this.f50071g = javaHandlerThread;
-            this.f50069e = j2;
-            this.f50070f = j3;
+            this.f50115g = javaHandlerThread;
+            this.f50113e = j2;
+            this.f50114f = j3;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f50071g.nativeInitializeThread(this.f50069e, this.f50070f);
+                this.f50115g.nativeInitializeThread(this.f50113e, this.f50114f);
             }
         }
     }
@@ -67,16 +67,16 @@ public class JavaHandlerThread {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ long f50072e;
+        public final /* synthetic */ long f50116e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ long f50073f;
+        public final /* synthetic */ long f50117f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ boolean f50074g;
+        public final /* synthetic */ boolean f50118g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ JavaHandlerThread f50075h;
+        public final /* synthetic */ JavaHandlerThread f50119h;
 
         public b(JavaHandlerThread javaHandlerThread, long j2, long j3, boolean z) {
             Interceptable interceptable = $ic;
@@ -93,21 +93,21 @@ public class JavaHandlerThread {
                     return;
                 }
             }
-            this.f50075h = javaHandlerThread;
-            this.f50072e = j2;
-            this.f50073f = j3;
-            this.f50074g = z;
+            this.f50119h = javaHandlerThread;
+            this.f50116e = j2;
+            this.f50117f = j3;
+            this.f50118g = z;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f50075h.nativeStopThread(this.f50072e, this.f50073f);
-                if (this.f50074g) {
+                this.f50119h.nativeStopThread(this.f50116e, this.f50117f);
+                if (this.f50118g) {
                     return;
                 }
-                this.f50075h.a.quit();
+                this.f50119h.a.quit();
             }
         }
     }

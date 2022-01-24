@@ -15,31 +15,31 @@ public class b {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f52952b = "request_finish";
+    public static String f52997b = "request_finish";
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f52953c = "download_start";
+    public static String f52998c = "download_start";
 
     /* renamed from: d  reason: collision with root package name */
-    public static String f52954d = "download_finish";
+    public static String f52999d = "download_finish";
 
     /* renamed from: e  reason: collision with root package name */
-    public static String f52955e = "install_start";
+    public static String f53000e = "install_start";
 
     /* renamed from: f  reason: collision with root package name */
-    public static String f52956f = "install_finish";
+    public static String f53001f = "install_finish";
 
     /* renamed from: g  reason: collision with root package name */
-    public static String f52957g = "load_start";
+    public static String f53002g = "load_start";
 
     /* renamed from: h  reason: collision with root package name */
-    public static String f52958h = "load_finish";
+    public static String f53003h = "load_finish";
 
     /* renamed from: i  reason: collision with root package name */
-    public static String f52959i = "zeus_error";
+    public static String f53004i = "zeus_error";
 
     /* renamed from: j  reason: collision with root package name */
-    public static volatile b f52960j;
+    public static volatile b f53005j;
     public transient /* synthetic */ FieldHolder $fh;
     public final List<com.bytedance.pangle.b.a> a;
 
@@ -49,31 +49,31 @@ public class b {
         public static int a = 11000;
 
         /* renamed from: b  reason: collision with root package name */
-        public static int f52961b = 12000;
+        public static int f53006b = 12000;
 
         /* renamed from: c  reason: collision with root package name */
-        public static int f52962c = 12001;
+        public static int f53007c = 12001;
 
         /* renamed from: d  reason: collision with root package name */
-        public static int f52963d = 20000;
+        public static int f53008d = 20000;
 
         /* renamed from: e  reason: collision with root package name */
-        public static int f52964e = 21000;
+        public static int f53009e = 21000;
 
         /* renamed from: f  reason: collision with root package name */
-        public static int f52965f = 21001;
+        public static int f53010f = 21001;
 
         /* renamed from: g  reason: collision with root package name */
-        public static int f52966g = 21002;
+        public static int f53011g = 21002;
 
         /* renamed from: h  reason: collision with root package name */
-        public static int f52967h = 22000;
+        public static int f53012h = 22000;
 
         /* renamed from: i  reason: collision with root package name */
-        public static int f52968i = 22001;
+        public static int f53013i = 22001;
 
         /* renamed from: j  reason: collision with root package name */
-        public static int f52969j = 22002;
+        public static int f53014j = 22002;
         public static int k = 22999;
         public static int l = 30000;
         public static int m = 31000;
@@ -142,12 +142,12 @@ public class b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (f52960j == null) {
+            if (f53005j == null) {
                 synchronized (b.class) {
-                    f52960j = new b();
+                    f53005j = new b();
                 }
             }
-            return f52960j;
+            return f53005j;
         }
         return (b) invokeV.objValue;
     }

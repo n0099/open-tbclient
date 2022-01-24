@@ -22,7 +22,7 @@ public class b implements a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final boolean f9320b;
+    public static final boolean f9462b;
     public transient /* synthetic */ FieldHolder $fh;
     public Map<String, c.a.r0.a.u1.k.a> a;
 
@@ -39,7 +39,7 @@ public class b implements a {
                 return;
             }
         }
-        f9320b = k.a;
+        f9462b = k.a;
     }
 
     public b() {
@@ -64,7 +64,7 @@ public class b implements a {
         if (!(interceptable == null || interceptable.invokeL(1048576, this, str) == null) || this.a.containsKey(str)) {
             return;
         }
-        if (f9320b) {
+        if (f9462b) {
             String str2 = "markStart: " + str;
         }
         c.a.r0.a.u1.k.a aVar = new c.a.r0.a.u1.k.a();
@@ -80,17 +80,17 @@ public class b implements a {
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
             c.a.r0.a.u1.k.a aVar = this.a.get(str);
             if (aVar == null) {
-                if (f9320b) {
+                if (f9462b) {
                     throw new RuntimeException(str + " markEnd before markStart");
                 }
             } else if (aVar.d() > 0) {
             } else {
                 aVar.h(System.currentTimeMillis());
-                if (f9320b) {
+                if (f9462b) {
                     String str2 = str + " first called cost " + aVar.c();
                 }
                 if (TextUtils.equals(str, "request")) {
-                    if (f9320b) {
+                    if (f9462b) {
                         String str3 = "record first request api called " + aVar.toString();
                     }
                     HybridUbcFlow p = h.p(NodeJS.STARTUP_SCRIPT_NAME);

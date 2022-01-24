@@ -24,25 +24,25 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final boolean f5240f;
+    public static final boolean f5382f;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f5241b;
+    public long f5383b;
 
     /* renamed from: c  reason: collision with root package name */
-    public List<b> f5242c;
+    public List<b> f5384c;
 
     /* renamed from: d  reason: collision with root package name */
-    public List<b> f5243d;
+    public List<b> f5385d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int[] f5244e;
+    public int[] f5386e;
 
     /* renamed from: c.a.r0.a.a3.g.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static /* synthetic */ class C0268a {
+    public static /* synthetic */ class C0277a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
@@ -54,22 +54,22 @@ public class a {
         public int a;
 
         /* renamed from: b  reason: collision with root package name */
-        public float f5245b;
+        public float f5387b;
 
         /* renamed from: c  reason: collision with root package name */
-        public float f5246c;
+        public float f5388c;
 
         /* renamed from: d  reason: collision with root package name */
-        public float f5247d;
+        public float f5389d;
 
         /* renamed from: e  reason: collision with root package name */
-        public float f5248e;
+        public float f5390e;
 
         /* renamed from: f  reason: collision with root package name */
-        public float f5249f;
+        public float f5391f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ a f5250g;
+        public final /* synthetic */ a f5392g;
 
         public b(a aVar) {
             Interceptable interceptable = $ic;
@@ -86,7 +86,7 @@ public class a {
                     return;
                 }
             }
-            this.f5250g = aVar;
+            this.f5392g = aVar;
         }
 
         public JSONObject i() {
@@ -95,14 +95,14 @@ public class a {
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
                 JSONObject jSONObject = new JSONObject();
                 try {
-                    jSONObject.put("x", n0.Q(this.f5245b));
-                    jSONObject.put("y", n0.Q(this.f5246c));
-                    jSONObject.put("clientX", n0.Q(this.f5247d - this.f5250g.f5244e[0]));
-                    jSONObject.put("clientY", n0.Q(this.f5248e - this.f5250g.f5244e[1]));
+                    jSONObject.put("x", n0.Q(this.f5387b));
+                    jSONObject.put("y", n0.Q(this.f5388c));
+                    jSONObject.put("clientX", n0.Q(this.f5389d - this.f5392g.f5386e[0]));
+                    jSONObject.put("clientY", n0.Q(this.f5390e - this.f5392g.f5386e[1]));
                     jSONObject.put("identifier", this.a);
-                    jSONObject.put(TTDownloadField.TT_FORCE, this.f5249f);
+                    jSONObject.put(TTDownloadField.TT_FORCE, this.f5391f);
                 } catch (JSONException e2) {
-                    if (a.f5240f) {
+                    if (a.f5382f) {
                         e2.printStackTrace();
                     }
                 }
@@ -111,7 +111,7 @@ public class a {
             return (JSONObject) invokeV.objValue;
         }
 
-        public /* synthetic */ b(a aVar, C0268a c0268a) {
+        public /* synthetic */ b(a aVar, C0277a c0277a) {
             this(aVar);
         }
     }
@@ -129,7 +129,7 @@ public class a {
                 return;
             }
         }
-        f5240f = k.a;
+        f5382f = k.a;
     }
 
     public a(MotionEvent motionEvent) {
@@ -148,10 +148,10 @@ public class a {
             }
         }
         this.a = "error";
-        this.f5241b = 0L;
-        this.f5242c = new ArrayList();
-        this.f5243d = new ArrayList();
-        this.f5244e = new int[2];
+        this.f5383b = 0L;
+        this.f5384c = new ArrayList();
+        this.f5385d = new ArrayList();
+        this.f5386e = new int[2];
         h(motionEvent, "");
     }
 
@@ -162,26 +162,26 @@ public class a {
             JSONObject jSONObject = new JSONObject();
             try {
                 JSONArray jSONArray = new JSONArray();
-                if (!this.f5242c.isEmpty()) {
-                    for (b bVar : this.f5242c) {
+                if (!this.f5384c.isEmpty()) {
+                    for (b bVar : this.f5384c) {
                         if (bVar != null) {
                             jSONArray.put(bVar.i());
                         }
                     }
                 }
                 JSONArray jSONArray2 = new JSONArray();
-                if (!this.f5243d.isEmpty()) {
-                    for (b bVar2 : this.f5243d) {
+                if (!this.f5385d.isEmpty()) {
+                    for (b bVar2 : this.f5385d) {
                         if (bVar2 != null) {
                             jSONArray2.put(bVar2.i());
                         }
                     }
                 }
-                jSONObject.put(PmsConstant.Statistic.Key.REV_TIMESTAMP, this.f5241b);
+                jSONObject.put(PmsConstant.Statistic.Key.REV_TIMESTAMP, this.f5383b);
                 jSONObject.put("touches", jSONArray);
                 jSONObject.put("changedTouches", jSONArray2);
             } catch (JSONException e2) {
-                if (f5240f) {
+                if (f5382f) {
                     e2.printStackTrace();
                 }
             }
@@ -197,11 +197,11 @@ public class a {
             int pointerId = motionEvent.getPointerId(i2);
             b bVar = new b(this, null);
             bVar.a = pointerId;
-            bVar.f5245b = motionEvent.getX(i2);
-            bVar.f5246c = motionEvent.getY(i2);
-            bVar.f5247d = (motionEvent.getRawX() + bVar.f5245b) - motionEvent.getX();
-            bVar.f5248e = (motionEvent.getRawY() + bVar.f5246c) - motionEvent.getY();
-            bVar.f5249f = motionEvent.getPressure(i2);
+            bVar.f5387b = motionEvent.getX(i2);
+            bVar.f5388c = motionEvent.getY(i2);
+            bVar.f5389d = (motionEvent.getRawX() + bVar.f5387b) - motionEvent.getX();
+            bVar.f5390e = (motionEvent.getRawY() + bVar.f5388c) - motionEvent.getY();
+            bVar.f5391f = motionEvent.getPressure(i2);
             return bVar;
         }
         return (b) invokeLI.objValue;
@@ -218,15 +218,15 @@ public class a {
         if (interceptable == null || interceptable.invokeL(1048579, this, motionEvent) == null) {
             try {
                 if (!(motionEvent.getActionMasked() == 2)) {
-                    this.f5243d.add(d(motionEvent, motionEvent.getActionIndex()));
+                    this.f5385d.add(d(motionEvent, motionEvent.getActionIndex()));
                     return;
                 }
                 int pointerCount = motionEvent.getPointerCount();
                 for (int i2 = 0; i2 < pointerCount; i2++) {
-                    this.f5243d.add(d(motionEvent, i2));
+                    this.f5385d.add(d(motionEvent, i2));
                 }
             } catch (Exception e2) {
-                if (f5240f) {
+                if (f5382f) {
                     e2.printStackTrace();
                 }
             }
@@ -242,11 +242,11 @@ public class a {
             int pointerCount = motionEvent.getPointerCount();
             for (int i2 = 0; i2 < pointerCount; i2++) {
                 if (motionEvent.getActionMasked() != 6 || motionEvent.getActionIndex() != i2) {
-                    this.f5242c.add(d(motionEvent, i2));
+                    this.f5384c.add(d(motionEvent, i2));
                 }
             }
         } catch (Exception e2) {
-            if (f5240f) {
+            if (f5382f) {
                 e2.printStackTrace();
             }
         }
@@ -277,7 +277,7 @@ public class a {
                 this.a = "touchpointerup";
                 f(motionEvent);
             }
-            this.f5241b = motionEvent.getEventTime();
+            this.f5383b = motionEvent.getEventTime();
             if (!TextUtils.isEmpty(str)) {
                 this.a = str;
             }
@@ -294,8 +294,8 @@ public class a {
     public void i(int[] iArr) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, iArr) == null) {
-            this.f5244e = iArr;
-            if (f5240f) {
+            this.f5386e = iArr;
+            if (f5382f) {
                 String str = "setWebViewPosition y = " + iArr[1] + ";x = " + iArr[0];
             }
         }
@@ -317,10 +317,10 @@ public class a {
             }
         }
         this.a = "error";
-        this.f5241b = 0L;
-        this.f5242c = new ArrayList();
-        this.f5243d = new ArrayList();
-        this.f5244e = new int[2];
+        this.f5383b = 0L;
+        this.f5384c = new ArrayList();
+        this.f5385d = new ArrayList();
+        this.f5386e = new int[2];
         h(motionEvent, str);
     }
 }

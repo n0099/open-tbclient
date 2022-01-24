@@ -46,7 +46,7 @@ public class a extends z {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, eVar)) == null) {
-            if (z.f6201b) {
+            if (z.f6343b) {
                 String str = "handle entity: " + unitedSchemeEntity.toString();
             }
             if (!(context instanceof SwanAppActivity)) {
@@ -61,7 +61,7 @@ public class a extends z {
                 return false;
             }
             c.a.r0.a.h0.g.d m = swanAppFragmentManager.m();
-            if (!(m instanceof a.InterfaceC0285a)) {
+            if (!(m instanceof a.InterfaceC0294a)) {
                 c.a.r0.a.e0.d.c("hideLoading", "fragment not support");
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "fragment not support");
                 return false;

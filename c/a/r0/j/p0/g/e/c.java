@@ -13,10 +13,10 @@ public class c {
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f11200b;
+    public String f11342b;
 
     /* renamed from: c  reason: collision with root package name */
-    public JSONObject f11201c;
+    public JSONObject f11343c;
 
     public c() {
         Interceptable interceptable = $ic;

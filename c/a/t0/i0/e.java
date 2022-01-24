@@ -22,10 +22,10 @@ public class e {
     public Uri a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f18147b;
+    public String f18313b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Bundle f18148c;
+    public Bundle f18314c;
 
     static {
         InterceptResult invokeClinit;
@@ -64,10 +64,10 @@ public class e {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (this.f18148c == null) {
-                this.f18148c = new Bundle();
+            if (this.f18314c == null) {
+                this.f18314c = new Bundle();
             }
-            return this.f18148c;
+            return this.f18314c;
         }
         return (Bundle) invokeV.objValue;
     }
@@ -82,7 +82,7 @@ public class e {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2)) == null) {
-            Bundle bundle = this.f18148c;
+            Bundle bundle = this.f18314c;
             return bundle == null ? str2 : bundle.getString(str, str2);
         }
         return (String) invokeLL.objValue;
@@ -102,27 +102,27 @@ public class e {
                 this.a.getScheme();
                 this.a.getHost();
                 String path = this.a.getPath();
-                this.f18147b = path;
-                if (!TextUtils.isEmpty(path) && this.f18147b.endsWith("/")) {
-                    this.f18147b = this.f18147b.substring(0, this.f18147b.length() - 1);
+                this.f18313b = path;
+                if (!TextUtils.isEmpty(path) && this.f18313b.endsWith("/")) {
+                    this.f18313b = this.f18313b.substring(0, this.f18313b.length() - 1);
                 }
                 Set<String> queryParameterNames = this.a.getQueryParameterNames();
                 if (queryParameterNames == null || queryParameterNames.isEmpty()) {
                     return true;
                 }
-                if (this.f18148c == null) {
-                    this.f18148c = new Bundle();
+                if (this.f18314c == null) {
+                    this.f18314c = new Bundle();
                 }
                 for (String str : queryParameterNames) {
                     String queryParameter = this.a.getQueryParameter(str);
-                    this.f18148c.putString(str, queryParameter);
+                    this.f18314c.putString(str, queryParameter);
                     if (TextUtils.equals(str, "params") && !TextUtils.isEmpty(queryParameter)) {
                         try {
                             JSONObject jSONObject = new JSONObject(queryParameter);
                             Iterator<String> keys = jSONObject.keys();
                             while (keys.hasNext()) {
                                 String next = keys.next();
-                                this.f18148c.putString(next, jSONObject.optString(next, ""));
+                                this.f18314c.putString(next, jSONObject.optString(next, ""));
                             }
                         } catch (Exception e2) {
                             if (BdLog.isDebugMode()) {

@@ -18,21 +18,21 @@ public class b extends LinkMovementMethod {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: f  reason: collision with root package name */
-    public static b f19812f;
+    public static b f19913f;
     public transient /* synthetic */ FieldHolder $fh;
-    public c.a.s0.g1.n.f a;
+    public c.a.s0.f1.n.f a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f19813b;
+    public int f19914b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f19814c;
+    public int f19915c;
 
     /* renamed from: d  reason: collision with root package name */
-    public long f19815d;
+    public long f19916d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f19816e;
+    public int f19917e;
 
     public b() {
         Interceptable interceptable = $ic;
@@ -47,17 +47,17 @@ public class b extends LinkMovementMethod {
                 return;
             }
         }
-        this.f19816e = -1;
+        this.f19917e = -1;
     }
 
     public static b a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (f19812f == null) {
-                f19812f = new b();
+            if (f19913f == null) {
+                f19913f = new b();
             }
-            return f19812f;
+            return f19913f;
         }
         return (b) invokeV.objValue;
     }
@@ -71,7 +71,7 @@ public class b extends LinkMovementMethod {
         return invokeCommon.booleanValue;
     }
 
-    public final c.a.s0.g1.n.f b(TextView textView, Spannable spannable, MotionEvent motionEvent) {
+    public final c.a.s0.f1.n.f b(TextView textView, Spannable spannable, MotionEvent motionEvent) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, textView, spannable, motionEvent)) == null) {
@@ -83,7 +83,7 @@ public class b extends LinkMovementMethod {
                 try {
                     Layout layout = textView.getLayout();
                     int offsetForHorizontal = layout.getOffsetForHorizontal(layout.getLineForVertical(scrollY), scrollX);
-                    c.a.s0.g1.n.f[] fVarArr = (c.a.s0.g1.n.f[]) spannable.getSpans(offsetForHorizontal, offsetForHorizontal, c.a.s0.g1.n.f.class);
+                    c.a.s0.f1.n.f[] fVarArr = (c.a.s0.f1.n.f[]) spannable.getSpans(offsetForHorizontal, offsetForHorizontal, c.a.s0.f1.n.f.class);
                     if (fVarArr == null || fVarArr.length <= 0 || fVarArr[0] == null) {
                         return null;
                     }
@@ -95,13 +95,13 @@ public class b extends LinkMovementMethod {
             }
             return this.a;
         }
-        return (c.a.s0.g1.n.f) invokeLLL.objValue;
+        return (c.a.s0.f1.n.f) invokeLLL.objValue;
     }
 
     public void d(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
-            this.f19816e = i2;
+            this.f19917e = i2;
         }
     }
 
@@ -110,7 +110,7 @@ public class b extends LinkMovementMethod {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, textView, spannable, motionEvent)) == null) {
-            c.a.s0.g1.n.f b2 = b(textView, spannable, motionEvent);
+            c.a.s0.f1.n.f b2 = b(textView, spannable, motionEvent);
             if (b2 == null && motionEvent.getAction() == 0) {
                 try {
                     return super.onTouchEvent(textView, spannable, motionEvent);
@@ -122,34 +122,34 @@ public class b extends LinkMovementMethod {
             if (b2 != null) {
                 this.a = b2;
             }
-            int i2 = this.f19816e;
+            int i2 = this.f19917e;
             if (i2 > -1) {
                 this.a.g(i2);
             }
             if (motionEvent.getAction() == 0) {
-                this.f19813b = (int) motionEvent.getX();
-                this.f19814c = (int) motionEvent.getY();
-                this.f19815d = System.currentTimeMillis();
-                c.a.s0.g1.n.f fVar = this.a;
+                this.f19914b = (int) motionEvent.getX();
+                this.f19915c = (int) motionEvent.getY();
+                this.f19916d = System.currentTimeMillis();
+                c.a.s0.f1.n.f fVar = this.a;
                 if (fVar != null) {
                     fVar.h(1);
                     Selection.setSelection(spannable, spannable.getSpanStart(this.a), spannable.getSpanEnd(this.a));
                 }
                 textView.invalidate();
             } else if (motionEvent.getAction() == 2) {
-                if (this.a != null && (Math.abs(this.f19813b - motionEvent.getX()) > 20.0f || Math.abs(this.f19814c - motionEvent.getY()) > 20.0f)) {
+                if (this.a != null && (Math.abs(this.f19914b - motionEvent.getX()) > 20.0f || Math.abs(this.f19915c - motionEvent.getY()) > 20.0f)) {
                     this.a.h(2);
                     textView.invalidate();
                     Selection.removeSelection(spannable);
                 }
             } else if (motionEvent.getAction() == 1 || motionEvent.getAction() == 3) {
-                c.a.s0.g1.n.f fVar2 = this.a;
+                c.a.s0.f1.n.f fVar2 = this.a;
                 if (fVar2 != null) {
                     fVar2.h(2);
                     textView.invalidate();
                     Selection.removeSelection(spannable);
                 }
-                if (c(this.f19813b, this.f19814c, motionEvent.getX(), motionEvent.getY(), this.f19815d, System.currentTimeMillis(), 500L)) {
+                if (c(this.f19914b, this.f19915c, motionEvent.getX(), motionEvent.getY(), this.f19916d, System.currentTimeMillis(), 500L)) {
                     return true;
                 }
             }

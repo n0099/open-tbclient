@@ -15,7 +15,7 @@ public abstract class a<D, S extends c.a.s0.l0.d.b> extends e<D, S> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: j  reason: collision with root package name */
-    public int f12864j;
+    public int f13008j;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public a(TbPageContext<?> tbPageContext, View view, ViewEventCenter viewEventCenter) {
@@ -41,6 +41,6 @@ public abstract class a<D, S extends c.a.s0.l0.d.b> extends e<D, S> {
     public int k() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f12864j : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f13008j : invokeV.intValue;
     }
 }

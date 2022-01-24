@@ -20,16 +20,16 @@ public class b<E> implements Iterable<E> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final List<E> f26286e;
+    public final List<E> f26314e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f26287f;
+    public int f26315f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f26288g;
+    public int f26316g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f26289h;
+    public boolean f26317h;
 
     /* loaded from: classes9.dex */
     public static /* synthetic */ class a {
@@ -39,44 +39,44 @@ public class b<E> implements Iterable<E> {
 
     /* renamed from: c.a.u0.a.b$b  reason: collision with other inner class name */
     /* loaded from: classes9.dex */
-    public class C1585b implements Object<E> {
+    public class C1586b implements Object<E> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public int f26290e;
+        public int f26318e;
 
         /* renamed from: f  reason: collision with root package name */
-        public int f26291f;
+        public int f26319f;
 
         /* renamed from: g  reason: collision with root package name */
-        public boolean f26292g;
+        public boolean f26320g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ b f26293h;
+        public final /* synthetic */ b f26321h;
 
-        public /* synthetic */ C1585b(b bVar, a aVar) {
+        public /* synthetic */ C1586b(b bVar, a aVar) {
             this(bVar);
         }
 
         public final void a() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f26292g) {
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f26320g) {
                 return;
             }
-            this.f26292g = true;
-            this.f26293h.h();
+            this.f26320g = true;
+            this.f26321h.h();
         }
 
         public boolean hasNext() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                int i2 = this.f26291f;
-                while (i2 < this.f26290e && this.f26293h.i(i2) == null) {
+                int i2 = this.f26319f;
+                while (i2 < this.f26318e && this.f26321h.i(i2) == null) {
                     i2++;
                 }
-                if (i2 < this.f26290e) {
+                if (i2 < this.f26318e) {
                     return true;
                 }
                 a();
@@ -90,16 +90,16 @@ public class b<E> implements Iterable<E> {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
                 while (true) {
-                    int i2 = this.f26291f;
-                    if (i2 >= this.f26290e || this.f26293h.i(i2) != null) {
+                    int i2 = this.f26319f;
+                    if (i2 >= this.f26318e || this.f26321h.i(i2) != null) {
                         break;
                     }
-                    this.f26291f++;
+                    this.f26319f++;
                 }
-                int i3 = this.f26291f;
-                if (i3 < this.f26290e) {
-                    b bVar = this.f26293h;
-                    this.f26291f = i3 + 1;
+                int i3 = this.f26319f;
+                if (i3 < this.f26318e) {
+                    b bVar = this.f26321h;
+                    this.f26319f = i3 + 1;
                     return (E) bVar.i(i3);
                 }
                 a();
@@ -115,7 +115,7 @@ public class b<E> implements Iterable<E> {
             }
         }
 
-        public C1585b(b bVar) {
+        public C1586b(b bVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -130,11 +130,11 @@ public class b<E> implements Iterable<E> {
                     return;
                 }
             }
-            this.f26293h = bVar;
-            this.f26291f = 0;
-            this.f26292g = false;
+            this.f26321h = bVar;
+            this.f26319f = 0;
+            this.f26320g = false;
             bVar.j();
-            this.f26290e = bVar.f();
+            this.f26318e = bVar.f();
         }
     }
 
@@ -165,21 +165,21 @@ public class b<E> implements Iterable<E> {
                 return;
             }
         }
-        this.f26286e = new ArrayList();
-        this.f26287f = 0;
-        this.f26288g = 0;
-        this.f26289h = false;
+        this.f26314e = new ArrayList();
+        this.f26315f = 0;
+        this.f26316g = 0;
+        this.f26317h = false;
     }
 
     public boolean e(E e2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, e2)) == null) {
-            if (e2 == null || this.f26286e.contains(e2)) {
+            if (e2 == null || this.f26314e.contains(e2)) {
                 return false;
             }
-            this.f26286e.add(e2);
-            this.f26288g++;
+            this.f26314e.add(e2);
+            this.f26316g++;
             return true;
         }
         return invokeL.booleanValue;
@@ -188,15 +188,15 @@ public class b<E> implements Iterable<E> {
     public final int f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f26286e.size() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f26314e.size() : invokeV.intValue;
     }
 
     public final void g() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            for (int size = this.f26286e.size() - 1; size >= 0; size--) {
-                if (this.f26286e.get(size) == null) {
-                    this.f26286e.remove(size);
+            for (int size = this.f26314e.size() - 1; size >= 0; size--) {
+                if (this.f26314e.get(size) == null) {
+                    this.f26314e.remove(size);
                 }
             }
         }
@@ -205,10 +205,10 @@ public class b<E> implements Iterable<E> {
     public final void h() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            int i2 = this.f26287f - 1;
-            this.f26287f = i2;
-            if (i2 <= 0 && this.f26289h) {
-                this.f26289h = false;
+            int i2 = this.f26315f - 1;
+            this.f26315f = i2;
+            if (i2 <= 0 && this.f26317h) {
+                this.f26317h = false;
                 g();
             }
         }
@@ -217,20 +217,20 @@ public class b<E> implements Iterable<E> {
     public final E i(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i2)) == null) ? this.f26286e.get(i2) : (E) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i2)) == null) ? this.f26314e.get(i2) : (E) invokeI.objValue;
     }
 
     @Override // java.lang.Iterable
     public Iterator<E> iterator() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? new C1585b(this, null) : (Iterator) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? new C1586b(this, null) : (Iterator) invokeV.objValue;
     }
 
     public final void j() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            this.f26287f++;
+            this.f26315f++;
         }
     }
 
@@ -239,16 +239,16 @@ public class b<E> implements Iterable<E> {
         int indexOf;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, e2)) == null) {
-            if (e2 == null || (indexOf = this.f26286e.indexOf(e2)) == -1) {
+            if (e2 == null || (indexOf = this.f26314e.indexOf(e2)) == -1) {
                 return false;
             }
-            if (this.f26287f == 0) {
-                this.f26286e.remove(indexOf);
+            if (this.f26315f == 0) {
+                this.f26314e.remove(indexOf);
             } else {
-                this.f26289h = true;
-                this.f26286e.set(indexOf, null);
+                this.f26317h = true;
+                this.f26314e.set(indexOf, null);
             }
-            this.f26288g--;
+            this.f26316g--;
             return true;
         }
         return invokeL.booleanValue;

@@ -3,7 +3,6 @@ package com.baidu.minivideo.plugin.capture.bean;
 import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.aperf.bosuploader.ContentUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -74,7 +73,7 @@ public class VideoDraftBean implements Jsonable, Comparable<VideoDraftBean>, Ser
                 VideoDraftBean videoDraftBean = (VideoDraftBean) obj;
                 if (this.mDraftName.equals(videoDraftBean.getDraftName()) && ((this.mVideoTempData != null && videoDraftBean.getVideoTempData() != null && this.mVideoTempData.equals(videoDraftBean.getVideoTempData())) || this.mResumeRoute == 1)) {
                     if (this.mMusicData != null && videoDraftBean.getMusicData() != null) {
-                        int indexOf = this.mMusicData.indexOf(ContentUtil.RESULT_KEY_SK);
+                        int indexOf = this.mMusicData.indexOf("sk");
                         return this.mMusicData.substring(indexOf).equals(videoDraftBean.getMusicData().substring(indexOf));
                     } else if (this.mMusicData == null && videoDraftBean.getMusicData() == null) {
                         return true;
@@ -97,7 +96,7 @@ public class VideoDraftBean implements Jsonable, Comparable<VideoDraftBean>, Ser
                 VideoDraftBean videoDraftBean = (VideoDraftBean) obj;
                 if (this.mDraftName.equals(videoDraftBean.getDraftName())) {
                     if (this.mMusicData != null && videoDraftBean.getMusicData() != null) {
-                        int indexOf = this.mMusicData.indexOf(ContentUtil.RESULT_KEY_SK);
+                        int indexOf = this.mMusicData.indexOf("sk");
                         if (indexOf == -1 || indexOf >= videoDraftBean.getMusicData().length()) {
                             return false;
                         }

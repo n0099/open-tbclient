@@ -29,7 +29,7 @@ public class a {
 
     /* renamed from: com.baidu.apollon.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes10.dex */
-    public static class C1749a {
+    public static class C1750a {
         public static /* synthetic */ Interceptable $ic;
         public static final a a;
         public transient /* synthetic */ FieldHolder $fh;
@@ -50,7 +50,7 @@ public class a {
             a = new a(null);
         }
 
-        public C1749a() {
+        public C1750a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -72,7 +72,7 @@ public class a {
     public static a a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? C1749a.a : (a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? C1750a.a : (a) invokeV.objValue;
     }
 
     public void b() {

@@ -25,45 +25,45 @@ public class a {
     public HttpURLConnection a;
 
     /* renamed from: b  reason: collision with root package name */
-    public c.a.m0.a.l.b f4430b;
+    public c.a.m0.a.l.b f4571b;
 
     /* renamed from: c  reason: collision with root package name */
-    public b f4431c;
+    public b f4572c;
 
     /* renamed from: d  reason: collision with root package name */
-    public c f4432d;
+    public c f4573d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f4433e;
+    public String f4574e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f4434f;
+    public String f4575f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f4435g;
+    public String f4576g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f4436h;
+    public String f4577h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f4437i;
+    public int f4578i;
 
     /* renamed from: j  reason: collision with root package name */
-    public int f4438j;
+    public int f4579j;
     public boolean k;
     public Uri.Builder l;
     public int m;
 
     /* renamed from: c.a.m0.a.i.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public class C0210a extends c.a.m0.a.m.b {
+    public class C0219a extends c.a.m0.a.m.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ a f4439g;
+        public final /* synthetic */ a f4580g;
 
-        public C0210a(a aVar) {
+        public C0219a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -78,7 +78,7 @@ public class a {
                     return;
                 }
             }
-            this.f4439g = aVar;
+            this.f4580g = aVar;
         }
 
         @Override // c.a.m0.a.m.b
@@ -86,8 +86,8 @@ public class a {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                this.f4439g.i();
-                this.f4439g.e();
+                this.f4580g.i();
+                this.f4580g.e();
                 return null;
             }
             return invokeV.objValue;
@@ -132,7 +132,7 @@ public class a {
     public void c(c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, cVar) == null) {
-            this.f4432d = cVar;
+            this.f4573d = cVar;
         }
     }
 
@@ -141,9 +141,9 @@ public class a {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             try {
                 if (this.m == 1) {
-                    c.a.m0.a.m.c.a().c(new C0210a(this));
+                    c.a.m0.a.m.c.a().c(new C0219a(this));
                 } else {
-                    c.a.m0.a.m.c.a().c(new C0210a(this));
+                    c.a.m0.a.m.c.a().c(new C0219a(this));
                 }
             } catch (Exception unused) {
             }
@@ -158,7 +158,7 @@ public class a {
             try {
                 try {
                     this.a.connect();
-                    c.a.m0.a.l.b bVar = this.f4430b;
+                    c.a.m0.a.l.b bVar = this.f4571b;
                     bVar.b("URLConnection", this.a.getRequestMethod() + " connect code :" + this.a.getResponseCode());
                     int responseCode = this.a.getResponseCode();
                     if (responseCode == 302 || responseCode == 301) {
@@ -168,19 +168,19 @@ public class a {
                         responseCode = g2.getResponseCode();
                     }
                     if (responseCode / 100 != 2) {
-                        if (this.f4431c != null) {
-                            this.f4431c.a(this.a.getResponseMessage(), responseCode);
+                        if (this.f4572c != null) {
+                            this.f4572c.a(this.a.getResponseMessage(), responseCode);
                         }
-                        if (this.f4432d != null) {
-                            this.f4432d.a(this.a.getResponseMessage(), responseCode);
+                        if (this.f4573d != null) {
+                            this.f4573d.a(this.a.getResponseMessage(), responseCode);
                         }
                     } else {
-                        String a = c.a.m0.a.m.a.a(this.f4433e);
-                        if (this.f4431c != null) {
-                            this.f4431c.onSuccess(f(), a);
+                        String a = c.a.m0.a.m.a.a(this.f4574e);
+                        if (this.f4572c != null) {
+                            this.f4572c.onSuccess(f(), a);
                         }
-                        if (this.f4432d != null) {
-                            this.f4432d.b(this.a.getInputStream(), a);
+                        if (this.f4573d != null) {
+                            this.f4573d.b(this.a.getInputStream(), a);
                         }
                     }
                     httpURLConnection = this.a;
@@ -188,12 +188,12 @@ public class a {
                         return;
                     }
                 } catch (Exception e2) {
-                    if (this.f4431c != null) {
-                        b bVar2 = this.f4431c;
+                    if (this.f4572c != null) {
+                        b bVar2 = this.f4572c;
                         bVar2.a("Net Connect RuntimeError: " + e2.toString(), 0);
                     }
-                    if (this.f4432d != null) {
-                        c cVar = this.f4432d;
+                    if (this.f4573d != null) {
+                        c cVar = this.f4573d;
                         cVar.a("Net Connect RuntimeError: " + e2.toString(), 0);
                     }
                     httpURLConnection = this.a;
@@ -306,26 +306,26 @@ public class a {
 
     public final void i() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || TextUtils.isEmpty(this.f4433e)) {
+        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || TextUtils.isEmpty(this.f4574e)) {
             return;
         }
         try {
-            HttpURLConnection b2 = c.a.m0.a.m.a.b(new URL(this.f4433e));
+            HttpURLConnection b2 = c.a.m0.a.m.a.b(new URL(this.f4574e));
             this.a = b2;
-            b2.setConnectTimeout(this.f4437i);
-            this.a.setReadTimeout(this.f4438j);
+            b2.setConnectTimeout(this.f4578i);
+            this.a.setReadTimeout(this.f4579j);
             if (Integer.parseInt(Build.VERSION.SDK) < 8) {
                 System.setProperty("http.keepAlive", "false");
             }
-            this.a.setRequestMethod(this.f4434f);
+            this.a.setRequestMethod(this.f4575f);
             this.a.setUseCaches(this.k);
-            if (!TextUtils.isEmpty(this.f4435g)) {
-                this.a.setRequestProperty("User-Agent", this.f4435g);
+            if (!TextUtils.isEmpty(this.f4576g)) {
+                this.a.setRequestProperty("User-Agent", this.f4576g);
             }
-            this.a.setRequestProperty("Content-type", this.f4436h);
+            this.a.setRequestProperty("Content-type", this.f4577h);
             this.a.setRequestProperty(HTTP.CONN_DIRECTIVE, "keep-alive");
             this.a.setRequestProperty("Cache-Control", "no-cache");
-            if (this.f4434f.equals("POST")) {
+            if (this.f4575f.equals("POST")) {
                 this.a.setDoInput(true);
                 this.a.setDoOutput(true);
                 if (this.l != null) {
@@ -333,20 +333,20 @@ public class a {
                 }
             }
         } catch (ArrayIndexOutOfBoundsException e2) {
-            b bVar = this.f4431c;
+            b bVar = this.f4572c;
             if (bVar != null) {
                 bVar.a("Net Create RuntimeError: " + e2.toString(), 0);
             }
-            c cVar = this.f4432d;
+            c cVar = this.f4573d;
             if (cVar != null) {
                 cVar.a("Net Create RuntimeError: " + e2.toString(), 0);
             }
         } catch (Throwable th) {
-            b bVar2 = this.f4431c;
+            b bVar2 = this.f4572c;
             if (bVar2 != null) {
                 bVar2.a("Net Create RuntimeError: " + th.toString(), 0);
             }
-            c cVar2 = this.f4432d;
+            c cVar2 = this.f4573d;
             if (cVar2 != null) {
                 cVar2.a("Net Create RuntimeError: " + th.toString(), 0);
             }
@@ -368,16 +368,16 @@ public class a {
                 return;
             }
         }
-        this.f4430b = c.a.m0.a.l.b.i();
-        this.f4431c = null;
-        this.f4432d = null;
-        this.f4436h = "text/plain";
-        this.f4437i = 10000;
-        this.f4438j = 10000;
+        this.f4571b = c.a.m0.a.l.b.i();
+        this.f4572c = null;
+        this.f4573d = null;
+        this.f4577h = "text/plain";
+        this.f4578i = 10000;
+        this.f4579j = 10000;
         this.k = false;
         this.l = null;
         this.m = i2;
-        this.f4433e = str;
-        this.f4434f = str2;
+        this.f4574e = str;
+        this.f4575f = str2;
     }
 }

@@ -13,7 +13,7 @@ public class c {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile c f3182b;
+    public static volatile c f3284b;
     public transient /* synthetic */ FieldHolder $fh;
     public b a;
 
@@ -35,14 +35,14 @@ public class c {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (f3182b == null) {
+            if (f3284b == null) {
                 synchronized (c.class) {
-                    if (f3182b == null) {
-                        f3182b = new c();
+                    if (f3284b == null) {
+                        f3284b = new c();
                     }
                 }
             }
-            return f3182b;
+            return f3284b;
         }
         return (c) invokeV.objValue;
     }

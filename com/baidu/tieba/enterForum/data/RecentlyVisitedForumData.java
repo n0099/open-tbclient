@@ -17,7 +17,7 @@ public class RecentlyVisitedForumData extends OrmObject {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public LinkedList<VisitedForumData> f42539e;
+    public LinkedList<VisitedForumData> f42560e;
 
     public RecentlyVisitedForumData() {
         Interceptable interceptable = $ic;
@@ -32,7 +32,7 @@ public class RecentlyVisitedForumData extends OrmObject {
                 return;
             }
         }
-        this.f42539e = new LinkedList<>();
+        this.f42560e = new LinkedList<>();
     }
 
     public void A(RecentlyVisitedForumData recentlyVisitedForumData) {
@@ -43,8 +43,8 @@ public class RecentlyVisitedForumData extends OrmObject {
         Iterator<VisitedForumData> it = recentlyVisitedForumData.y().iterator();
         while (it.hasNext()) {
             VisitedForumData next = it.next();
-            if (!z(this.f42539e, next)) {
-                this.f42539e.addLast(next);
+            if (!z(this.f42560e, next)) {
+                this.f42560e.addLast(next);
             }
         }
         C(20);
@@ -55,17 +55,17 @@ public class RecentlyVisitedForumData extends OrmObject {
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, linkedList) == null) || linkedList == null || linkedList.size() == 0) {
             return;
         }
-        this.f42539e.clear();
-        this.f42539e.addAll(linkedList);
+        this.f42560e.clear();
+        this.f42560e.addAll(linkedList);
     }
 
     public void C(int i2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) || this.f42539e == null) {
+        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) || this.f42560e == null) {
             return;
         }
-        while (this.f42539e.size() > i2) {
-            this.f42539e.removeLast();
+        while (this.f42560e.size() > i2) {
+            this.f42560e.removeLast();
         }
     }
 
@@ -75,7 +75,7 @@ public class RecentlyVisitedForumData extends OrmObject {
             return;
         }
         VisitedForumData visitedForumData2 = null;
-        Iterator<VisitedForumData> it = this.f42539e.iterator();
+        Iterator<VisitedForumData> it = this.f42560e.iterator();
         while (true) {
             if (!it.hasNext()) {
                 break;
@@ -87,9 +87,9 @@ public class RecentlyVisitedForumData extends OrmObject {
             }
         }
         if (visitedForumData2 != null) {
-            this.f42539e.remove(visitedForumData2);
+            this.f42560e.remove(visitedForumData2);
         }
-        this.f42539e.addFirst(visitedForumData);
+        this.f42560e.addFirst(visitedForumData);
     }
 
     public int x(VisitedForumData visitedForumData) {
@@ -100,13 +100,13 @@ public class RecentlyVisitedForumData extends OrmObject {
             if (visitedForumData == null) {
                 return -1;
             }
-            int size = this.f42539e.size();
+            int size = this.f42560e.size();
             int i3 = 0;
             while (true) {
                 if (i3 >= size) {
                     break;
                 }
-                VisitedForumData visitedForumData2 = this.f42539e.get(i3);
+                VisitedForumData visitedForumData2 = this.f42560e.get(i3);
                 if (!m.isEmpty(visitedForumData.getForumId()) && visitedForumData.getForumId().equals(visitedForumData2.getForumId())) {
                     i2 = i3;
                     break;
@@ -114,7 +114,7 @@ public class RecentlyVisitedForumData extends OrmObject {
                 i3++;
             }
             if (i2 >= 0) {
-                this.f42539e.remove(i2);
+                this.f42560e.remove(i2);
             }
             return i2;
         }
@@ -124,7 +124,7 @@ public class RecentlyVisitedForumData extends OrmObject {
     public LinkedList<VisitedForumData> y() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f42539e : (LinkedList) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f42560e : (LinkedList) invokeV.objValue;
     }
 
     public final boolean z(LinkedList<VisitedForumData> linkedList, VisitedForumData visitedForumData) {

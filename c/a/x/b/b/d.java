@@ -11,7 +11,7 @@ public class d extends a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public e f26572b;
+    public e f26600b;
 
     public d() {
         Interceptable interceptable = $ic;

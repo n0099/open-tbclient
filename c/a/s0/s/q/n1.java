@@ -14,13 +14,13 @@ public class n1 {
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f13463b;
+    public String f13649b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f13464c;
+    public String f13650c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f13465d;
+    public String f13651d;
 
     public n1() {
         Interceptable interceptable = $ic;
@@ -42,9 +42,9 @@ public class n1 {
             return;
         }
         this.a = intent.getStringExtra(TiebaStatic.Params.RECOM_WEIGHT);
-        this.f13463b = intent.getStringExtra("recom_source");
-        this.f13464c = intent.getStringExtra("recom_abtag");
-        this.f13465d = intent.getStringExtra(TiebaStatic.Params.RECOM_EXTRA);
+        this.f13649b = intent.getStringExtra("recom_source");
+        this.f13650c = intent.getStringExtra("recom_abtag");
+        this.f13651d = intent.getStringExtra(TiebaStatic.Params.RECOM_EXTRA);
     }
 
     public void b(e2 e2Var) {
@@ -53,9 +53,9 @@ public class n1 {
             return;
         }
         this.a = e2Var.a1;
-        this.f13463b = e2Var.Z0;
-        this.f13464c = e2Var.b1;
-        this.f13465d = e2Var.c1;
+        this.f13649b = e2Var.Z0;
+        this.f13650c = e2Var.b1;
+        this.f13651d = e2Var.c1;
     }
 
     public void c(Intent intent) {
@@ -64,19 +64,19 @@ public class n1 {
             return;
         }
         intent.putExtra(TiebaStatic.Params.RECOM_WEIGHT, this.a);
-        intent.putExtra("recom_source", this.f13463b);
-        intent.putExtra("recom_abtag", this.f13464c);
-        intent.putExtra(TiebaStatic.Params.RECOM_EXTRA, this.f13465d);
+        intent.putExtra("recom_source", this.f13649b);
+        intent.putExtra("recom_abtag", this.f13650c);
+        intent.putExtra(TiebaStatic.Params.RECOM_EXTRA, this.f13651d);
     }
 
-    public void d(c.a.t0.z2.t tVar) {
+    public void d(c.a.t0.a3.t tVar) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(1048579, this, tVar) == null) || tVar == null) {
             return;
         }
-        tVar.f26078g = this.a;
-        tVar.f26077f = this.f13463b;
-        tVar.l = this.f13464c;
-        tVar.o = this.f13465d;
+        tVar.f15292g = this.a;
+        tVar.f15291f = this.f13649b;
+        tVar.l = this.f13650c;
+        tVar.o = this.f13651d;
     }
 }

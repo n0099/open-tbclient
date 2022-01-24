@@ -9,6 +9,7 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.imsdk.retrieve.RetrieveTaskManager;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.searchbox.http.callback.ResponseCallback;
+import com.baidu.searchbox.retrieve.inter.constants.StatConstants;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -48,12 +49,12 @@ public class a {
 
     /* renamed from: c.a.r0.a.r.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static class C0525a extends ResponseCallback {
+    public static class C0534a extends ResponseCallback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ c.a.r0.a.z2.g1.c a;
 
-        public C0525a(c.a.r0.a.z2.g1.c cVar) {
+        public C0534a(c.a.r0.a.z2.g1.c cVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -254,7 +255,7 @@ public class a {
                     cVar.onCallback(null);
                     return;
                 } else {
-                    p(c2.url().toString(), c2.body(), new C0525a(cVar));
+                    p(c2.url().toString(), c2.body(), new C0534a(cVar));
                     return;
                 }
             }
@@ -423,7 +424,7 @@ public class a {
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65550, null, str, str2, str3)) == null) {
             JSONObject jSONObject = new JSONObject();
             try {
-                jSONObject.put("errMsg", str3);
+                jSONObject.put(StatConstants.KEY_EXT_ERR_MSG, str3);
                 jSONObject.put(EnterDxmPayServiceAction.SERVICE_STATUS_CODE, 200);
                 if (!TextUtils.isEmpty(str)) {
                     jSONObject.put("fileID", str);
@@ -451,9 +452,9 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(65552, null, str, requestBody, responseCallback) == null) {
             c.a.r0.p.d.a aVar = new c.a.r0.p.d.a(str, requestBody, responseCallback);
-            aVar.f11453f = true;
-            aVar.f11454g = true;
-            aVar.f11455h = true;
+            aVar.f11595f = true;
+            aVar.f11596g = true;
+            aVar.f11597h = true;
             c.a.r0.p.e.a.g().e(aVar);
         }
     }

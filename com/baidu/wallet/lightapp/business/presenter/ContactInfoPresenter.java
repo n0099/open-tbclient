@@ -26,13 +26,13 @@ public class ContactInfoPresenter {
     public Activity a;
 
     /* renamed from: b  reason: collision with root package name */
-    public b f51605b;
+    public b f51650b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f51606c;
+    public int f51651c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f51607d;
+    public String f51652d;
 
     public ContactInfoPresenter(Activity activity, b bVar) {
         Interceptable interceptable = $ic;
@@ -49,10 +49,10 @@ public class ContactInfoPresenter {
                 return;
             }
         }
-        this.f51607d = "";
+        this.f51652d = "";
         this.a = activity;
-        this.f51605b = bVar;
-        this.f51606c = a();
+        this.f51650b = bVar;
+        this.f51651c = a();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -60,7 +60,7 @@ public class ContactInfoPresenter {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65539, this) == null) {
             this.a = null;
-            this.f51605b = null;
+            this.f51650b = null;
         }
     }
 
@@ -74,10 +74,10 @@ public class ContactInfoPresenter {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048579, this, event) == null) && event != null && "read_contact".equals(event.mEventKey)) {
             String str = (String) event.mEventObj;
-            b bVar = this.f51605b;
+            b bVar = this.f51650b;
             if (bVar != null) {
-                String[] strArr = {StringUtils.trimAll(this.f51607d), StringUtils.trimAll(str)};
-                bVar.onContactsSelected("", 0, strArr, "", this.f51606c + "");
+                String[] strArr = {StringUtils.trimAll(this.f51652d), StringUtils.trimAll(str)};
+                bVar.onContactsSelected("", 0, strArr, "", this.f51651c + "");
                 c();
             }
         }
@@ -112,22 +112,22 @@ public class ContactInfoPresenter {
                     cursor = contentResolver.query(uri, new String[]{"data1", "display_name", "data2"}, null, null, null);
                     if (cursor != null && cursor.moveToFirst()) {
                         String string = cursor.getString(cursor.getColumnIndex("data1"));
-                        this.f51607d = cursor.getString(cursor.getColumnIndex("display_name"));
+                        this.f51652d = cursor.getString(cursor.getColumnIndex("display_name"));
                         int i2 = cursor.getInt(cursor.getColumnIndex("data2"));
                         ContactInfo.Phone phone = new ContactInfo.Phone();
                         phone.number = string;
                         phone.type = i2;
                         arrayList.add(phone);
                     }
-                    a(this.f51607d, arrayList);
+                    a(this.f51652d, arrayList);
                     if (cursor == null) {
                         return;
                     }
                 } catch (Exception unused) {
-                    if (this.f51605b != null) {
-                        b bVar = this.f51605b;
+                    if (this.f51650b != null) {
+                        b bVar = this.f51650b;
                         String b2 = b();
-                        bVar.onContactsSelected("", 1, null, b2, this.f51606c + "");
+                        bVar.onContactsSelected("", 1, null, b2, this.f51651c + "");
                     }
                     c();
                     if (cursor == null) {
@@ -150,10 +150,10 @@ public class ContactInfoPresenter {
             PhoneNumberSelectDialog phoneNumberSelectDialog = new PhoneNumberSelectDialog(this.a);
             if (list != null && list.size() != 0) {
                 if (list.size() == 1) {
-                    b bVar = this.f51605b;
+                    b bVar = this.f51650b;
                     if (bVar != null) {
                         String[] strArr = {StringUtils.trimAll(str), StringUtils.trimAll(list.get(0).number)};
-                        bVar.onContactsSelected("", 0, strArr, "", this.f51606c + "");
+                        bVar.onContactsSelected("", 0, strArr, "", this.f51651c + "");
                     }
                     c();
                     return;
@@ -166,7 +166,7 @@ public class ContactInfoPresenter {
                     public final /* synthetic */ PhoneNumberSelectDialog a;
 
                     /* renamed from: b  reason: collision with root package name */
-                    public final /* synthetic */ ContactInfoPresenter f51608b;
+                    public final /* synthetic */ ContactInfoPresenter f51653b;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -183,7 +183,7 @@ public class ContactInfoPresenter {
                                 return;
                             }
                         }
-                        this.f51608b = this;
+                        this.f51653b = this;
                         this.a = phoneNumberSelectDialog;
                     }
 
@@ -192,7 +192,7 @@ public class ContactInfoPresenter {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
                             this.a.dismiss();
-                            this.f51608b.c();
+                            this.f51653b.c();
                         }
                     }
                 });
@@ -200,10 +200,10 @@ public class ContactInfoPresenter {
                 phoneNumberSelectDialog.show();
                 return;
             }
-            b bVar2 = this.f51605b;
+            b bVar2 = this.f51650b;
             if (bVar2 != null) {
                 String b2 = b();
-                bVar2.onContactsSelected("", 1, null, b2, this.f51606c + "");
+                bVar2.onContactsSelected("", 1, null, b2, this.f51651c + "");
             }
             c();
         }

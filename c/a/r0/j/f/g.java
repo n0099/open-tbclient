@@ -23,7 +23,7 @@ public class g implements c.a.r0.a.p.b.a.f {
     public static final boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f10989b;
+    public static final String f11131b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes6.dex */
@@ -89,7 +89,7 @@ public class g implements c.a.r0.a.p.b.a.f {
         public void a(boolean z) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeZ(1048576, this, z) == null) && g.a) {
-                String unused = g.f10989b;
+                String unused = g.f11131b;
                 String str = "download sConsole result: " + z;
             }
         }
@@ -109,7 +109,7 @@ public class g implements c.a.r0.a.p.b.a.f {
             }
         }
         a = k.a;
-        f10989b = g.class.getSimpleName();
+        f11131b = g.class.getSimpleName();
     }
 
     public g() {

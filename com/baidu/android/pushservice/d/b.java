@@ -14,7 +14,7 @@ public class b {
     public InputStream a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f31881b;
+    public int f31909b;
 
     public b() {
         Interceptable interceptable = $ic;
@@ -39,7 +39,7 @@ public class b {
     public void a(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
-            this.f31881b = i2;
+            this.f31909b = i2;
         }
     }
 
@@ -53,6 +53,6 @@ public class b {
     public int b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f31881b : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f31909b : invokeV.intValue;
     }
 }

@@ -19,7 +19,6 @@ import android.telephony.TelephonyManager;
 import android.util.DisplayMetrics;
 import androidx.core.app.NotificationCompat;
 import androidx.core.view.InputDeviceCompat;
-import androidx.webkit.ProxyConfig;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.util.devices.RomUtils;
 import com.baidu.minivideo.effect.core.vlogedit.MediaTrackConfig;
@@ -106,7 +105,7 @@ public final class b {
         if (interceptable != null && (invokeL = interceptable.invokeL(65538, null, context)) != null) {
             return (String) invokeL.objValue;
         }
-        if (a(context, s.f55242c)) {
+        if (a(context, s.f55287c)) {
             return "";
         }
         if (context != null) {
@@ -152,7 +151,7 @@ public final class b {
         if (interceptable != null && (invokeL = interceptable.invokeL(65541, null, context)) != null) {
             return (String) invokeL.objValue;
         }
-        if (a(context, s.f55242c)) {
+        if (a(context, s.f55287c)) {
             return "";
         }
         if (context != null) {
@@ -521,7 +520,7 @@ public final class b {
         if (interceptable == null || (invokeL = interceptable.invokeL(65553, null, context)) == null) {
             try {
                 DisplayMetrics displayMetrics = context.getResources().getDisplayMetrics();
-                return Integer.toString(displayMetrics.widthPixels) + ProxyConfig.MATCH_ALL_SCHEMES + Integer.toString(displayMetrics.heightPixels);
+                return Integer.toString(displayMetrics.widthPixels) + "*" + Integer.toString(displayMetrics.heightPixels);
             } catch (Throwable unused) {
                 return "";
             }
@@ -616,7 +615,7 @@ public final class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65559, null, context)) == null) {
             String str = "";
-            if (a(context, s.f55243d)) {
+            if (a(context, s.f55288d)) {
                 return "";
             }
             try {
@@ -650,7 +649,7 @@ public final class b {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65561, null, context)) == null) {
-            if (a(context, s.f55242c)) {
+            if (a(context, s.f55287c)) {
                 return "";
             }
             try {
@@ -764,7 +763,7 @@ public final class b {
         if (interceptable != null && (invokeL = interceptable.invokeL(65567, null, context)) != null) {
             return (String) invokeL.objValue;
         }
-        if (a(context, s.f55243d)) {
+        if (a(context, s.f55288d)) {
             return "";
         }
         try {
@@ -1096,7 +1095,7 @@ public final class b {
         if (interceptable == null || (invokeV = interceptable.invokeV(65579, null)) == null) {
             BufferedReader bufferedReader2 = null;
             try {
-                fileReader = new FileReader(z.f55318b);
+                fileReader = new FileReader(z.f55363b);
                 try {
                     bufferedReader = new BufferedReader(fileReader, 8192);
                     try {

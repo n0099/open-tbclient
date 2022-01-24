@@ -18,15 +18,15 @@ public class PassportViewManager implements NoProguard {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static SapiConfiguration f37943c;
+    public static SapiConfiguration f37971c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static PassportViewManager f37944d;
+    public static PassportViewManager f37972d;
     public transient /* synthetic */ FieldHolder $fh;
     public TitleBtnCallback a;
 
     /* renamed from: b  reason: collision with root package name */
-    public TitleViewModule f37945b;
+    public TitleViewModule f37973b;
 
     /* loaded from: classes10.dex */
     public static class TitleViewModule implements NoProguard {
@@ -74,7 +74,7 @@ public class PassportViewManager implements NoProguard {
                     return;
                 }
             }
-            DEFAULT_TEXT_COLOR = PassportViewManager.f37943c.context.getResources().getColor(b.sapi_sdk_edit_text_color);
+            DEFAULT_TEXT_COLOR = PassportViewManager.f37971c.context.getResources().getColor(b.sapi_sdk_edit_text_color);
         }
 
         public TitleViewModule() {
@@ -97,7 +97,7 @@ public class PassportViewManager implements NoProguard {
             this.leftBtnTextColor = DEFAULT_TEXT_COLOR;
             this.leftBtnText = null;
             this.leftBtnTextVisible = 4;
-            this.leftBtnTextSize = PassportViewManager.f37943c.context.getResources().getDimension(c.sapi_sdk_title_left_btn_text_size);
+            this.leftBtnTextSize = PassportViewManager.f37971c.context.getResources().getDimension(c.sapi_sdk_title_left_btn_text_size);
             this.leftBtnDrawableLeft = null;
             this.leftBtnDrawableTop = null;
             this.leftBtnDrawableRight = null;
@@ -105,7 +105,7 @@ public class PassportViewManager implements NoProguard {
             this.titleTextColor = DEFAULT_TEXT_COLOR;
             this.titleText = null;
             this.titleVisible = 0;
-            this.titleTextSize = PassportViewManager.f37943c.context.getResources().getDimension(c.sapi_sdk_title_text_size);
+            this.titleTextSize = PassportViewManager.f37971c.context.getResources().getDimension(c.sapi_sdk_title_text_size);
             this.titleTextBold = false;
             this.useWebviewTitle = true;
             this.titleDrawableLeft = null;
@@ -115,7 +115,7 @@ public class PassportViewManager implements NoProguard {
             this.rightBtnTextColor = DEFAULT_TEXT_COLOR;
             this.rightBtnText = null;
             this.rightBtnVisible = 4;
-            this.rightBtnTextSize = PassportViewManager.f37943c.context.getResources().getDimension(c.sapi_sdk_title_right_btn_text_size);
+            this.rightBtnTextSize = PassportViewManager.f37971c.context.getResources().getDimension(c.sapi_sdk_title_right_btn_text_size);
             this.dividerLineVisible = 0;
         }
     }
@@ -133,8 +133,8 @@ public class PassportViewManager implements NoProguard {
                 return;
             }
         }
-        this.f37945b = null;
-        f37943c = SapiAccountManager.getInstance().getSapiConfiguration();
+        this.f37973b = null;
+        f37971c = SapiAccountManager.getInstance().getSapiConfiguration();
     }
 
     public static synchronized PassportViewManager getInstance() {
@@ -143,10 +143,10 @@ public class PassportViewManager implements NoProguard {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
             synchronized (PassportViewManager.class) {
-                if (f37944d == null) {
-                    f37944d = new PassportViewManager();
+                if (f37972d == null) {
+                    f37972d = new PassportViewManager();
                 }
-                passportViewManager = f37944d;
+                passportViewManager = f37972d;
             }
             return passportViewManager;
         }
@@ -156,7 +156,7 @@ public class PassportViewManager implements NoProguard {
     public void configTitle(TitleViewModule titleViewModule) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, titleViewModule) == null) {
-            this.f37945b = titleViewModule;
+            this.f37973b = titleViewModule;
             if (titleViewModule.bgColor == Integer.MAX_VALUE) {
                 titleViewModule.bgColor = -1;
             }
@@ -175,14 +175,14 @@ public class PassportViewManager implements NoProguard {
     public TitleViewModule getTitleViewModule() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f37945b : (TitleViewModule) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f37973b : (TitleViewModule) invokeV.objValue;
     }
 
     public void release() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             this.a = null;
-            this.f37945b = null;
+            this.f37973b = null;
             SapiWebView.statLoadLogin = null;
         }
     }

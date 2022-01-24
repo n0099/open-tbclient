@@ -7,8 +7,8 @@ import android.database.sqlite.SQLiteException;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import c.a.d.f.p.o;
-import c.a.t0.s1.h.g;
-import c.a.t0.s1.h.h;
+import c.a.t0.t1.h.g;
+import c.a.t0.t1.h.h;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -54,7 +54,7 @@ public class b {
         return (b) invokeV.objValue;
     }
 
-    public final int a(c.a.t0.s1.g.a aVar) {
+    public final int a(c.a.t0.t1.g.a aVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable != null && (invokeL = interceptable.invokeL(1048576, this, aVar)) != null) {
@@ -137,13 +137,13 @@ public class b {
         return invokeL.longValue;
     }
 
-    public synchronized c.a.t0.s1.g.a e(long j2) {
+    public synchronized c.a.t0.t1.g.a e(long j2) {
         InterceptResult invokeJ;
-        c.a.t0.s1.g.a aVar;
+        c.a.t0.t1.g.a aVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeJ = interceptable.invokeJ(1048580, this, j2)) == null) {
             synchronized (this) {
-                aVar = new c.a.t0.s1.g.a();
+                aVar = new c.a.t0.t1.g.a();
                 Cursor cursor = null;
                 try {
                     try {
@@ -165,10 +165,10 @@ public class b {
             }
             return aVar;
         }
-        return (c.a.t0.s1.g.a) invokeJ.objValue;
+        return (c.a.t0.t1.g.a) invokeJ.objValue;
     }
 
-    public List<c.a.t0.s1.g.a> g() {
+    public List<c.a.t0.t1.g.a> g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
@@ -180,7 +180,7 @@ public class b {
                         cursor = h.d().e("select * from tb_new_friends WHERE isread=? ORDER BY _id DESC", new String[]{String.valueOf(0)});
                         if (cursor != null) {
                             while (cursor.moveToNext()) {
-                                c.a.t0.s1.g.a aVar = new c.a.t0.s1.g.a();
+                                c.a.t0.t1.g.a aVar = new c.a.t0.t1.g.a();
                                 aVar.h(cursor.getLong(cursor.getColumnIndex("uid")));
                                 aVar.g(cursor.getString(cursor.getColumnIndex("ucontent")));
                                 aVar.i(cursor.getInt(cursor.getColumnIndex("isread")));
@@ -259,7 +259,7 @@ public class b {
         return invokeL.intValue;
     }
 
-    public List<c.a.t0.s1.g.a> j() {
+    public List<c.a.t0.t1.g.a> j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
@@ -272,7 +272,7 @@ public class b {
                         cursor = h.d().e("select * from tb_new_friends ORDER BY _id DESC", null);
                         if (cursor != null) {
                             while (cursor.moveToNext()) {
-                                c.a.t0.s1.g.a aVar = new c.a.t0.s1.g.a();
+                                c.a.t0.t1.g.a aVar = new c.a.t0.t1.g.a();
                                 aVar.h(cursor.getLong(cursor.getColumnIndex("uid")));
                                 if (aVar.b() < 0) {
                                     a(aVar);
@@ -299,7 +299,7 @@ public class b {
         return (List) invokeV.objValue;
     }
 
-    public final void k(SQLiteDatabase sQLiteDatabase, c.a.t0.s1.g.a aVar) throws Exception {
+    public final void k(SQLiteDatabase sQLiteDatabase, c.a.t0.t1.g.a aVar) throws Exception {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeLL(1048585, this, sQLiteDatabase, aVar) == null) || aVar == null || aVar.b() == 0 || TextUtils.isEmpty(aVar.d())) {
             return;
@@ -325,7 +325,7 @@ public class b {
         }
     }
 
-    public void l(c.a.t0.s1.g.a aVar) {
+    public void l(c.a.t0.t1.g.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, aVar) == null) {
             try {
@@ -336,11 +336,11 @@ public class b {
         }
     }
 
-    public void m(List<c.a.t0.s1.g.a> list) {
+    public void m(List<c.a.t0.t1.g.a> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048587, this, list) == null) {
             try {
-                for (c.a.t0.s1.g.a aVar : list) {
+                for (c.a.t0.t1.g.a aVar : list) {
                     k(g.c(), aVar);
                 }
             } catch (Exception e2) {
@@ -397,7 +397,7 @@ public class b {
     }
 
     /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:14:0x0059 -> B:22:0x005e). Please submit an issue!!! */
-    public int q(c.a.t0.s1.g.a aVar) {
+    public int q(c.a.t0.t1.g.a aVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048591, this, aVar)) == null) {

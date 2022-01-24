@@ -14,10 +14,10 @@ public class b6 {
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f30293b;
+    public String f30321b;
 
     /* renamed from: c  reason: collision with root package name */
-    public JSONObject f30294c;
+    public JSONObject f30322c;
 
     public b6() {
         Interceptable interceptable = $ic;
@@ -40,16 +40,16 @@ public class b6 {
         if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
             JSONObject jSONObject = new JSONObject(str);
             this.a = jSONObject.optInt(Constants.KEYS.RET);
-            this.f30293b = jSONObject.optString("msg");
+            this.f30321b = jSONObject.optString("msg");
             String optString = jSONObject.optString("data");
             try {
                 optString = r0.x(optString);
             } catch (Exception unused) {
             }
             if (TextUtils.isEmpty(optString)) {
-                this.f30294c = new JSONObject();
+                this.f30322c = new JSONObject();
             } else {
-                this.f30294c = new JSONObject(optString);
+                this.f30322c = new JSONObject(optString);
             }
         }
     }

@@ -1,6 +1,6 @@
 package com.baidu.tieba.pb.pb.main;
 
-import c.a.t0.s2.j;
+import c.a.t0.t2.j;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;

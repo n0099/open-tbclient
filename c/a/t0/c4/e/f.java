@@ -8,7 +8,7 @@ import android.widget.ListAdapter;
 import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
 import c.a.d.f.p.n;
-import c.a.s0.s.j0.f;
+import c.a.s0.s.k0.f;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.android.imsdk.internal.Constants;
@@ -34,31 +34,31 @@ public class f {
     public BackgroundListActivity a;
 
     /* renamed from: b  reason: collision with root package name */
-    public View f15534b;
+    public View f15682b;
 
     /* renamed from: c  reason: collision with root package name */
-    public View f15535c;
+    public View f15683c;
 
     /* renamed from: d  reason: collision with root package name */
-    public NavigationBar f15536d;
+    public NavigationBar f15684d;
 
     /* renamed from: e  reason: collision with root package name */
-    public MemberRecommendView f15537e;
+    public MemberRecommendView f15685e;
 
     /* renamed from: f  reason: collision with root package name */
-    public BdListView f15538f;
+    public BdListView f15686f;
 
     /* renamed from: g  reason: collision with root package name */
-    public c.a.s0.s.j0.g f15539g;
+    public c.a.s0.s.k0.g f15687g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f15540h;
+    public TextView f15688h;
 
     /* renamed from: i  reason: collision with root package name */
-    public e f15541i;
+    public e f15689i;
 
     /* renamed from: j  reason: collision with root package name */
-    public int f15542j;
+    public int f15690j;
 
     public f(BackgroundListActivity backgroundListActivity, d dVar) {
         Interceptable interceptable = $ic;
@@ -75,31 +75,31 @@ public class f {
                 return;
             }
         }
-        this.f15539g = null;
-        this.f15542j = 0;
+        this.f15687g = null;
+        this.f15690j = 0;
         this.a = backgroundListActivity;
-        this.f15542j = n.f(backgroundListActivity.getPageContext().getPageActivity(), R.dimen.ds120);
+        this.f15690j = n.f(backgroundListActivity.getPageContext().getPageActivity(), R.dimen.ds120);
         View inflate = LayoutInflater.from(this.a.getPageContext().getPageActivity()).inflate(R.layout.background_list, (ViewGroup) null);
-        this.f15534b = inflate;
+        this.f15682b = inflate;
         this.a.setContentView(inflate);
-        this.f15535c = this.f15534b.findViewById(R.id.body_view);
-        NavigationBar navigationBar = (NavigationBar) this.f15534b.findViewById(R.id.view_navigation_bar);
-        this.f15536d = navigationBar;
+        this.f15683c = this.f15682b.findViewById(R.id.body_view);
+        NavigationBar navigationBar = (NavigationBar) this.f15682b.findViewById(R.id.view_navigation_bar);
+        this.f15684d = navigationBar;
         navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.f15536d.setTitleText(R.string.personal_background_all);
-        MemberRecommendView memberRecommendView = (MemberRecommendView) this.f15534b.findViewById(R.id.view_member_recommend);
-        this.f15537e = memberRecommendView;
+        this.f15684d.setTitleText(R.string.personal_background_all);
+        MemberRecommendView memberRecommendView = (MemberRecommendView) this.f15682b.findViewById(R.id.view_member_recommend);
+        this.f15685e = memberRecommendView;
         memberRecommendView.setFromType(5);
-        this.f15538f = (BdListView) this.f15534b.findViewById(R.id.listview_bg_list);
-        c.a.s0.s.j0.g gVar = new c.a.s0.s.j0.g(this.a.getPageContext());
-        this.f15539g = gVar;
-        this.f15538f.setPullRefresh(gVar);
+        this.f15686f = (BdListView) this.f15682b.findViewById(R.id.listview_bg_list);
+        c.a.s0.s.k0.g gVar = new c.a.s0.s.k0.g(this.a.getPageContext());
+        this.f15687g = gVar;
+        this.f15686f.setPullRefresh(gVar);
         TextView textView = new TextView(this.a.getActivity());
-        this.f15540h = textView;
+        this.f15688h = textView;
         textView.setHeight(n.f(this.a.getActivity(), R.dimen.ds104));
         e eVar = new e(this.a.getPageContext(), dVar);
-        this.f15541i = eVar;
-        this.f15538f.setAdapter((ListAdapter) eVar);
+        this.f15689i = eVar;
+        this.f15686f.setAdapter((ListAdapter) eVar);
     }
 
     public final List<List<DressItemData>> a(List<DressItemData> list) {
@@ -126,37 +126,37 @@ public class f {
     public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            SkinManager.setBackgroundColor(this.f15534b, R.color.CAM_X0204);
-            this.a.hideNetRefreshView(this.f15534b);
-            this.f15535c.setVisibility(0);
+            SkinManager.setBackgroundColor(this.f15682b, R.color.CAM_X0204);
+            this.a.hideNetRefreshView(this.f15682b);
+            this.f15683c.setVisibility(0);
         }
     }
 
     public View c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f15534b : (View) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f15682b : (View) invokeV.objValue;
     }
 
     public void d() {
         e eVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            c.a.s0.x0.a.a(this.a.getPageContext(), this.f15534b);
-            NavigationBar navigationBar = this.f15536d;
+            c.a.s0.x0.a.a(this.a.getPageContext(), this.f15682b);
+            NavigationBar navigationBar = this.f15684d;
             if (navigationBar != null) {
                 navigationBar.onChangeSkinType(this.a.getPageContext(), TbadkApplication.getInst().getSkinType());
             }
-            BdListView bdListView = this.f15538f;
-            if (bdListView != null && bdListView.getVisibility() == 0 && (eVar = this.f15541i) != null) {
+            BdListView bdListView = this.f15686f;
+            if (bdListView != null && bdListView.getVisibility() == 0 && (eVar = this.f15689i) != null) {
                 eVar.notifyDataSetChanged();
             }
-            c.a.s0.s.j0.g gVar = this.f15539g;
+            c.a.s0.s.k0.g gVar = this.f15687g;
             if (gVar != null) {
                 gVar.C(TbadkApplication.getInst().getSkinType());
             }
-            this.f15537e.changeSkinType();
-            SkinManager.setBackgroundColor(this.f15540h, R.color.CAM_X0204);
+            this.f15685e.changeSkinType();
+            SkinManager.setBackgroundColor(this.f15688h, R.color.CAM_X0204);
         }
     }
 
@@ -164,12 +164,12 @@ public class f {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, list) == null) {
             if (list != null && list.size() > 0) {
-                this.f15538f.setVisibility(0);
-                this.f15541i.b(list);
-                this.f15541i.notifyDataSetChanged();
+                this.f15686f.setVisibility(0);
+                this.f15689i.b(list);
+                this.f15689i.notifyDataSetChanged();
                 return;
             }
-            this.f15538f.setVisibility(8);
+            this.f15686f.setVisibility(8);
         }
     }
 
@@ -178,11 +178,11 @@ public class f {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, eVar)) == null) {
             if (eVar != null && !StringUtils.isNull(eVar.c())) {
-                this.f15537e.setVisibility(0);
-                this.f15537e.fillView(eVar);
+                this.f15685e.setVisibility(0);
+                this.f15685e.fillView(eVar);
                 return true;
             }
-            this.f15537e.setVisibility(8);
+            this.f15685e.setVisibility(8);
             return false;
         }
         return invokeL.booleanValue;
@@ -191,19 +191,19 @@ public class f {
     public void g(BdListView.p pVar, f.g gVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048582, this, pVar, gVar) == null) {
-            this.f15538f.setOnSrollToBottomListener(pVar);
-            this.f15539g.a(gVar);
+            this.f15686f.setOnSrollToBottomListener(pVar);
+            this.f15687g.a(gVar);
         }
     }
 
     public void h() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            this.f15535c.setVisibility(8);
-            SkinManager.setBackgroundColor(this.f15534b, R.color.CAM_X0201);
+            this.f15683c.setVisibility(8);
+            SkinManager.setBackgroundColor(this.f15682b, R.color.CAM_X0201);
             String string = this.a.getPageContext().getResources().getString(R.string.no_data_text);
-            this.a.setNetRefreshViewTopMargin(this.f15542j);
-            this.a.showNetRefreshView(this.f15534b, string, false);
+            this.a.setNetRefreshViewTopMargin(this.f15690j);
+            this.a.showNetRefreshView(this.f15682b, string, false);
         }
     }
 
@@ -213,10 +213,10 @@ public class f {
             if (list != null && list.size() > 0) {
                 b();
                 if (f(eVar)) {
-                    this.f15538f.removeHeaderView(this.f15540h);
-                    this.f15538f.addHeaderView(this.f15540h);
+                    this.f15686f.removeHeaderView(this.f15688h);
+                    this.f15686f.addHeaderView(this.f15688h);
                 } else {
-                    this.f15538f.removeHeaderView(this.f15540h);
+                    this.f15686f.removeHeaderView(this.f15688h);
                 }
                 e(a(list));
                 return;
@@ -228,7 +228,7 @@ public class f {
     public void j() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            this.f15538f.completePullRefreshPostDelayed(0L);
+            this.f15686f.completePullRefreshPostDelayed(0L);
         }
     }
 }

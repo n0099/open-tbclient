@@ -13,7 +13,7 @@ public abstract class c {
     public long a;
 
     /* renamed from: b  reason: collision with root package name */
-    public a f4499b;
+    public a f4641b;
 
     public c() {
         Interceptable interceptable = $ic;
@@ -36,7 +36,7 @@ public abstract class c {
     public void b(a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
-            this.f4499b = aVar;
+            this.f4641b = aVar;
         }
     }
 

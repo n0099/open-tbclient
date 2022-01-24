@@ -15,7 +15,7 @@ import com.dxmpay.apollon.taskmanager.TaskManager;
 import com.dxmpay.apollon.utils.JsonUtils;
 import com.dxmpay.apollon.utils.NetworkUtils;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public abstract class ApollonBean<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -24,19 +24,19 @@ public abstract class ApollonBean<T> {
     public RestTemplate mRestTemplate;
     public IBeanResponseCallback mRspCallback;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Class f53531e;
+        public final /* synthetic */ Class f53576e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ Class f53532f;
+        public final /* synthetic */ Class f53577f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ ApollonBean f53533g;
+        public final /* synthetic */ ApollonBean f53578g;
 
         public a(ApollonBean apollonBean, Class cls, Class cls2) {
             Interceptable interceptable = $ic;
@@ -53,9 +53,9 @@ public abstract class ApollonBean<T> {
                     return;
                 }
             }
-            this.f53533g = apollonBean;
-            this.f53531e = cls;
-            this.f53532f = cls2;
+            this.f53578g = apollonBean;
+            this.f53576e = cls;
+            this.f53577f = cls2;
         }
 
         @Override // java.lang.Runnable
@@ -64,13 +64,13 @@ public abstract class ApollonBean<T> {
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 try {
                     try {
-                        this.f53533g.prepareRestTemplate();
-                        this.f53533g.executeAndHandleResponse(this.f53531e, this.f53532f);
+                        this.f53578g.prepareRestTemplate();
+                        this.f53578g.executeAndHandleResponse(this.f53576e, this.f53577f);
                     } catch (Exception e2) {
-                        this.f53533g.handleCommonErrors(e2);
+                        this.f53578g.handleCommonErrors(e2);
                     }
                 } finally {
-                    this.f53533g.mRspCallback = null;
+                    this.f53578g.mRspCallback = null;
                 }
             }
         }

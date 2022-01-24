@@ -84,7 +84,7 @@ public class ImageLoaderProc implements e<a> {
                     }
                     if (A) {
                         BdLog.e("BIGIMAGE gif parse fail ");
-                        c.a.s0.s.b0.a.a(GIF_PLAY_LOG_TYPE, -1L, -1, "readGifFromDisk", -1, "gif parse fail", "url", str2, "callpath", str3);
+                        c.a.s0.s.c0.a.a(GIF_PLAY_LOG_TYPE, -1L, -1, "readGifFromDisk", -1, "gif parse fail", "url", str2, "callpath", str3);
                     }
                     return new a(BitmapHelper.checkBitmapSize(BitmapHelper.Bytes2Bitmap(aVar.getData()), i2, i3), false, str2);
                 }
@@ -211,13 +211,13 @@ public class ImageLoaderProc implements e<a> {
                     boolean needCache = webClient.needCache();
                     if (webClient.IsRequestSuccess() && webClient.errorCode == -11) {
                         BdLog.e("BIGIMAGE imageLoaderProc too big");
-                        c.a.s0.s.b0.a.a(GIF_PLAY_LOG_TYPE, -1L, -1, "ImageLoaderProc.getFromRemote", webClient.errorCode, "image size too large", "url", str);
+                        c.a.s0.s.c0.a.a(GIF_PLAY_LOG_TYPE, -1L, -1, "ImageLoaderProc.getFromRemote", webClient.errorCode, "image size too large", "url", str);
                     }
                     if (downloadImageBytes == null && webClient.IsRequestSuccess()) {
                         Bitmap Bytes2Bitmap = BitmapHelper.Bytes2Bitmap(downloadImageBytes);
                         if (z && Bytes2Bitmap == null) {
                             TbadkCoreApplication.getInst().incWebpFailureCount();
-                            c.a.s0.s.b0.a.a(GIF_PLAY_LOG_TYPE, -1L, -1, "ImageLoaderProc.getFromRemote", webClient.errorCode, "webp decode fail ", "url", str);
+                            c.a.s0.s.c0.a.a(GIF_PLAY_LOG_TYPE, -1L, -1, "ImageLoaderProc.getFromRemote", webClient.errorCode, "webp decode fail ", "url", str);
                             downloadImageBytes = webClient.downloadImageBytes(str, false);
                             needCache = webClient.needCache();
                             if (downloadImageBytes != null && webClient.IsRequestSuccess()) {
@@ -229,14 +229,14 @@ public class ImageLoaderProc implements e<a> {
                                 String nameMd5FromUrl = TbMd5.getNameMd5FromUrl(str2);
                                 c.k().i(TbConfig.getPbImageSize() + downloadImageBytes.length);
                                 boolean A = n.A(downloadImageBytes);
-                                NSGif f2 = (NSGif.f31159f && A) ? NSGif.f(downloadImageBytes, 0, downloadImageBytes.length) : null;
+                                NSGif f2 = (NSGif.f31187f && A) ? NSGif.f(downloadImageBytes, 0, downloadImageBytes.length) : null;
                                 if (f2 != null) {
                                     aVar = new a((c.a.d.d.b) f2, Bytes2Bitmap, true);
                                     aVar.y(needCache);
                                 } else {
                                     if (A) {
                                         BdLog.e("BIGIMAGE gif parse fail ");
-                                        c.a.s0.s.b0.a.a(GIF_PLAY_LOG_TYPE, -1L, -1, "getFromRemote", -1, "gif parse fail", "url", str);
+                                        c.a.s0.s.c0.a.a(GIF_PLAY_LOG_TYPE, -1L, -1, "getFromRemote", -1, "gif parse fail", "url", str);
                                     }
                                     a aVar2 = new a(BitmapHelper.checkBitmapSize(Bytes2Bitmap, i2, i3), false, str);
                                     aVar2.y(needCache);
@@ -282,7 +282,7 @@ public class ImageLoaderProc implements e<a> {
             boolean needCache2 = webClient.needCache();
             if (webClient.IsRequestSuccess()) {
                 BdLog.e("BIGIMAGE imageLoaderProc too big");
-                c.a.s0.s.b0.a.a(GIF_PLAY_LOG_TYPE, -1L, -1, "ImageLoaderProc.getFromRemote", webClient.errorCode, "image size too large", "url", str);
+                c.a.s0.s.c0.a.a(GIF_PLAY_LOG_TYPE, -1L, -1, "ImageLoaderProc.getFromRemote", webClient.errorCode, "image size too large", "url", str);
             }
             if (downloadImageBytes == null) {
             }

@@ -64,19 +64,19 @@ public class l {
     public static String a = "";
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f60607b = "";
+    public static String f60652b = "";
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f60608c = "";
+    public static String f60653c = "";
 
     /* renamed from: d  reason: collision with root package name */
-    public static String f60609d = "";
+    public static String f60654d = "";
 
     /* renamed from: e  reason: collision with root package name */
-    public static int f60610e = -1;
+    public static int f60655e = -1;
 
     /* renamed from: f  reason: collision with root package name */
-    public static String f60611f = "0123456789ABCDEF";
+    public static String f60656f = "0123456789ABCDEF";
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes4.dex */
@@ -86,10 +86,10 @@ public class l {
         public String a;
 
         /* renamed from: b  reason: collision with root package name */
-        public long f60613b;
+        public long f60658b;
 
         /* renamed from: c  reason: collision with root package name */
-        public long f60614c;
+        public long f60659c;
 
         public a(String str, int i2) {
             Interceptable interceptable = $ic;
@@ -107,9 +107,9 @@ public class l {
                 }
             }
             this.a = str;
-            this.f60613b = i2;
+            this.f60658b = i2;
             if (str != null) {
-                this.f60614c = str.length();
+                this.f60659c = str.length();
             }
         }
     }
@@ -406,7 +406,7 @@ public class l {
                 return "";
             }
             String d2 = d(context, str);
-            f60608c = d2;
+            f60653c = d2;
             return d2;
         }
         return (String) invokeLL.objValue;
@@ -466,7 +466,7 @@ public class l {
                 return "";
             }
             b(context, str);
-            return f60607b;
+            return f60652b;
         }
         return (String) invokeLL.objValue;
     }
@@ -537,10 +537,10 @@ public class l {
         try {
             PackageInfo packageInfo = context.getPackageManager().getPackageInfo(str, 0);
             String str2 = packageInfo.versionName;
-            f60607b = str2;
+            f60652b = str2;
             a = str2.substring(0, str2.lastIndexOf(46));
-            f60609d = f60607b.substring(f60607b.lastIndexOf(46) + 1, f60607b.length());
-            f60610e = packageInfo.versionCode;
+            f60654d = f60652b.substring(f60652b.lastIndexOf(46) + 1, f60652b.length());
+            f60655e = packageInfo.versionCode;
         } catch (PackageManager.NameNotFoundException e2) {
             SLog.e("openSDK_LOG.Util", "getPackageInfo has exception: " + e2.getMessage());
         } catch (Exception e3) {
@@ -895,7 +895,7 @@ public class l {
                 public final /* synthetic */ Context a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ Bundle f60612b;
+                public final /* synthetic */ Bundle f60657b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -913,7 +913,7 @@ public class l {
                         }
                     }
                     this.a = context;
-                    this.f60612b = bundle;
+                    this.f60657b = bundle;
                 }
 
                 @Override // java.lang.Thread, java.lang.Runnable
@@ -921,7 +921,7 @@ public class l {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                         try {
-                            HttpUtils.openUrl2(this.a, "https://cgi.qplus.com/report/report", "GET", this.f60612b);
+                            HttpUtils.openUrl2(this.a, "https://cgi.qplus.com/report/report", "GET", this.f60657b);
                         } catch (Exception e2) {
                             SLog.e("openSDK_LOG.Util", "reportBernoulli has exception: " + e2.getMessage());
                         }
@@ -1154,7 +1154,7 @@ public class l {
                     }
                     return bArr2;
                 } catch (Throwable th) {
-                    SLog.e(Util.f31541b, "xor Exception! ", th);
+                    SLog.e(Util.f31569b, "xor Exception! ", th);
                 }
             }
             return bArr;

@@ -20,12 +20,12 @@ public interface d extends IInterface {
 
         /* renamed from: com.baidu.sso.n.d$a$a  reason: collision with other inner class name */
         /* loaded from: classes11.dex */
-        public static class C1872a implements d {
+        public static class C1878a implements d {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public IBinder a;
 
-            public C1872a(IBinder iBinder) {
+            public C1878a(IBinder iBinder) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -78,7 +78,7 @@ public interface d extends IInterface {
                     return null;
                 }
                 IInterface queryLocalInterface = iBinder.queryLocalInterface("com.uodis.opendevice.aidl.OpenDeviceIdentifierService");
-                return (queryLocalInterface == null || !(queryLocalInterface instanceof d)) ? new C1872a(iBinder) : (d) queryLocalInterface;
+                return (queryLocalInterface == null || !(queryLocalInterface instanceof d)) ? new C1878a(iBinder) : (d) queryLocalInterface;
             }
             return (d) invokeL.objValue;
         }

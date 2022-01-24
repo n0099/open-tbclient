@@ -23,12 +23,12 @@ public class n<T extends k> extends c.a.r0.q.f.b<c.a.r0.q.i.h> {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final boolean f6691f;
+    public static final boolean f6833f;
     public transient /* synthetic */ FieldHolder $fh;
     @NonNull
 
     /* renamed from: e  reason: collision with root package name */
-    public final T f6692e;
+    public final T f6834e;
 
     static {
         InterceptResult invokeClinit;
@@ -43,7 +43,7 @@ public class n<T extends k> extends c.a.r0.q.f.b<c.a.r0.q.i.h> {
                 return;
             }
         }
-        f6691f = c.a.r0.a.k.a;
+        f6833f = c.a.r0.a.k.a;
     }
 
     public n(@NonNull T t) {
@@ -61,7 +61,7 @@ public class n<T extends k> extends c.a.r0.q.f.b<c.a.r0.q.i.h> {
                 return;
             }
         }
-        this.f6692e = t;
+        this.f6834e = t;
     }
 
     @Override // c.a.r0.q.f.b
@@ -88,7 +88,7 @@ public class n<T extends k> extends c.a.r0.q.f.b<c.a.r0.q.i.h> {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, bundle, set)) == null) {
             Bundle bundle2 = new Bundle();
             if (set.contains("event_performance_ubc")) {
-                this.f6692e.n(bundle.getString("performance_ubc_event_id"), bundle.getString("performance_ubc_extra_key_for_event"));
+                this.f6834e.n(bundle.getString("performance_ubc_event_id"), bundle.getString("performance_ubc_extra_key_for_event"));
                 set.remove("event_performance_ubc");
             }
             return bundle2;
@@ -106,12 +106,12 @@ public class n<T extends k> extends c.a.r0.q.f.b<c.a.r0.q.i.h> {
             if (TextUtils.isEmpty(hVar.o)) {
                 hVar.o = l();
             }
-            int i2 = hVar.f11495h;
+            int i2 = hVar.f11637h;
             if (i2 == 0) {
-                return c.a.r0.a.h0.m.u.b.b(hVar.o, String.valueOf(hVar.f11496i));
+                return c.a.r0.a.h0.m.u.b.b(hVar.o, String.valueOf(hVar.f11638i));
             }
             if (i2 == 1) {
-                return c.a.r0.a.h0.m.u.b.d(hVar.o, String.valueOf(hVar.f11496i));
+                return c.a.r0.a.h0.m.u.b.d(hVar.o, String.valueOf(hVar.f11638i));
             }
             return null;
         }
@@ -132,7 +132,7 @@ public class n<T extends k> extends c.a.r0.q.f.b<c.a.r0.q.i.h> {
             super.e(hVar, bVar);
             c.a.r0.a.e0.d.k("SwanPMSSubDownload", "PMSPkgSub#onDownloadError del:" + hVar.a);
             c.a.r0.w.d.M(hVar.a);
-            if (f6691f) {
+            if (f6833f) {
                 String str = "PMSPkgSub onDownloadError " + hVar + ", error=" + bVar;
             }
         }
@@ -146,7 +146,7 @@ public class n<T extends k> extends c.a.r0.q.f.b<c.a.r0.q.i.h> {
         if (interceptable == null || interceptable.invokeL(1048585, this, hVar) == null) {
             super.i(hVar);
             p(hVar, t(hVar));
-            if (f6691f) {
+            if (f6833f) {
                 String str = "PMSPkgSub onDownloadFinish " + hVar;
             }
         }
@@ -159,7 +159,7 @@ public class n<T extends k> extends c.a.r0.q.f.b<c.a.r0.q.i.h> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, hVar) == null) {
             super.c(hVar);
-            if (f6691f) {
+            if (f6833f) {
                 String str = "PMSPkgSub onDownloadStart " + hVar;
             }
         }

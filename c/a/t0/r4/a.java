@@ -14,19 +14,19 @@ import org.json.JSONObject;
 public class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<C1357a> a;
+    public List<C1365a> a;
 
     /* renamed from: c.a.t0.r4.a$a  reason: collision with other inner class name */
     /* loaded from: classes8.dex */
-    public static class C1357a {
+    public static class C1365a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public int a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f21918b;
+        public String f22093b;
 
-        public C1357a() {
+        public C1365a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -57,7 +57,7 @@ public class a {
         this.a = new ArrayList();
     }
 
-    public List<C1357a> a() {
+    public List<C1365a> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (List) invokeV.objValue;
@@ -75,12 +75,12 @@ public class a {
                 }
                 int length = jSONArray.length();
                 for (int i2 = 0; i2 < length; i2++) {
-                    C1357a c1357a = new C1357a();
+                    C1365a c1365a = new C1365a();
                     JSONObject optJSONObject = jSONArray.optJSONObject(i2);
-                    c1357a.a = optJSONObject.optInt("tab_id");
-                    c1357a.f21918b = optJSONObject.optString("tab_name");
+                    c1365a.a = optJSONObject.optInt("tab_id");
+                    c1365a.f22093b = optJSONObject.optString("tab_name");
                     optJSONObject.optInt("obj_type");
-                    this.a.add(c1357a);
+                    this.a.add(c1365a);
                 }
             }
         } catch (Exception e2) {

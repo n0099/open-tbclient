@@ -18,13 +18,13 @@ public final class b {
     public SwanKV.b a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f4759b;
+    public boolean f4901b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f4760c;
+    public boolean f4902c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final Context f4761d;
+    public final Context f4903d;
 
     public b(Context context) {
         Interceptable interceptable = $ic;
@@ -41,19 +41,19 @@ public final class b {
                 return;
             }
         }
-        this.f4761d = context;
+        this.f4903d = context;
     }
 
     public final boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f4759b : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f4901b : invokeV.booleanValue;
     }
 
     public final boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f4760c : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f4902c : invokeV.booleanValue;
     }
 
     public final SwanKV.b c() {
@@ -65,7 +65,7 @@ public final class b {
     public final void d(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
-            this.f4759b = z;
+            this.f4901b = z;
         }
     }
 
@@ -81,7 +81,7 @@ public final class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, obj)) == null) {
             if (this != obj) {
-                return (obj instanceof b) && Intrinsics.areEqual(this.f4761d, ((b) obj).f4761d);
+                return (obj instanceof b) && Intrinsics.areEqual(this.f4903d, ((b) obj).f4903d);
             }
             return true;
         }
@@ -91,14 +91,14 @@ public final class b {
     public final Context getContext() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f4761d : (Context) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f4903d : (Context) invokeV.objValue;
     }
 
     public int hashCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            Context context = this.f4761d;
+            Context context = this.f4903d;
             if (context != null) {
                 return context.hashCode();
             }
@@ -111,7 +111,7 @@ public final class b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return "SwanKVConfig(context=" + this.f4761d + SmallTailInfo.EMOTION_SUFFIX;
+            return "SwanKVConfig(context=" + this.f4903d + SmallTailInfo.EMOTION_SUFFIX;
         }
         return (String) invokeV.objValue;
     }

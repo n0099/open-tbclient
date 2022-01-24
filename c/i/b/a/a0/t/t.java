@@ -16,7 +16,7 @@ public final class t {
     public final List<Format> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final c.i.b.a.a0.m[] f28955b;
+    public final c.i.b.a.a0.m[] f28983b;
 
     public t(List<Format> list) {
         Interceptable interceptable = $ic;
@@ -34,20 +34,20 @@ public final class t {
             }
         }
         this.a = list;
-        this.f28955b = new c.i.b.a.a0.m[list.size()];
+        this.f28983b = new c.i.b.a.a0.m[list.size()];
     }
 
     public void a(long j2, c.i.b.a.i0.l lVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJL(1048576, this, j2, lVar) == null) {
-            c.i.b.a.e0.l.g.a(j2, lVar, this.f28955b);
+            c.i.b.a.e0.l.g.a(j2, lVar, this.f28983b);
         }
     }
 
     public void b(c.i.b.a.a0.g gVar, w.d dVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, gVar, dVar) == null) {
-            for (int i2 = 0; i2 < this.f28955b.length; i2++) {
+            for (int i2 = 0; i2 < this.f28983b.length; i2++) {
                 dVar.a();
                 c.i.b.a.a0.m a = gVar.a(dVar.c(), 3);
                 Format format = this.a.get(i2);
@@ -59,7 +59,7 @@ public final class t {
                     str2 = dVar.b();
                 }
                 a.b(Format.createTextSampleFormat(str2, str, (String) null, -1, format.selectionFlags, format.language, format.accessibilityChannel, (DrmInitData) null));
-                this.f28955b[i2] = a;
+                this.f28983b[i2] = a;
             }
         }
     }

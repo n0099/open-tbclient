@@ -13,15 +13,15 @@ public class a {
     public long a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f10960b;
+    public long f11102b;
 
     /* renamed from: c.a.r0.j.e0.h.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public static class C0743a implements Comparator<a> {
+    public static class C0752a implements Comparator<a> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        public C0743a() {
+        public C0752a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -66,7 +66,7 @@ public class a {
             if (aVar == null) {
                 return null;
             }
-            return new long[]{aVar.a, aVar.f10960b};
+            return new long[]{aVar.a, aVar.f11102b};
         }
         return (long[]) invokeL.objValue;
     }
@@ -76,14 +76,14 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, aVar)) == null) {
             long j2 = this.a;
-            if (j2 <= aVar.f10960b) {
-                long j3 = this.f10960b;
+            if (j2 <= aVar.f11102b) {
+                long j3 = this.f11102b;
                 long j4 = aVar.a;
                 if (j3 < j4) {
                     return false;
                 }
                 this.a = Math.min(j2, j4);
-                this.f10960b = Math.max(this.f10960b, aVar.f10960b);
+                this.f11102b = Math.max(this.f11102b, aVar.f11102b);
                 return true;
             }
             return false;

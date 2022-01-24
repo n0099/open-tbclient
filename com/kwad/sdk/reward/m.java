@@ -14,17 +14,17 @@ public class m {
         public boolean a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f57349b;
+        public String f57394b;
 
         public a(String str) {
             JSONObject jSONObject;
-            this.f57349b = "-";
+            this.f57394b = "-";
             try {
                 jSONObject = new JSONObject(str);
             } catch (Throwable th) {
                 th.printStackTrace();
                 this.a = false;
-                this.f57349b = "数据解析失败";
+                this.f57394b = "数据解析失败";
                 jSONObject = null;
             }
             a(jSONObject);
@@ -33,7 +33,7 @@ public class m {
         public void a(@Nullable JSONObject jSONObject) {
             if (jSONObject != null) {
                 this.a = jSONObject.optBoolean("isValid");
-                this.f57349b = jSONObject.toString();
+                this.f57394b = jSONObject.toString();
             }
         }
 
@@ -65,14 +65,14 @@ public class m {
                     if (doGet == null) {
                         str = "Network Error: url invalid";
                     } else if (doGet.a == 200) {
-                        a aVar = new a(doGet.f55891b);
+                        a aVar = new a(doGet.f55936b);
                         if (aVar.a()) {
                             a();
                             return;
                         }
-                        str = aVar.f57349b;
+                        str = aVar.f57394b;
                     } else {
-                        str = "Network Error: " + doGet.f55891b;
+                        str = "Network Error: " + doGet.f55936b;
                     }
                     a(str);
                 } catch (Throwable th) {

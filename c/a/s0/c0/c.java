@@ -19,24 +19,24 @@ public class c {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: g  reason: collision with root package name */
-    public static c f12264g;
+    public static c f12409g;
     public transient /* synthetic */ FieldHolder $fh;
     public c.a.d.f.k.a<String, c.a.d.n.d.a> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public c.a.d.f.k.a<String, c.a.d.n.d.a> f12265b;
+    public c.a.d.f.k.a<String, c.a.d.n.d.a> f12410b;
 
     /* renamed from: c  reason: collision with root package name */
-    public c.a.d.f.k.a<String, Bitmap> f12266c;
+    public c.a.d.f.k.a<String, Bitmap> f12411c;
 
     /* renamed from: d  reason: collision with root package name */
-    public c.a.d.f.k.a<String, c.a.d.n.d.a> f12267d;
+    public c.a.d.f.k.a<String, c.a.d.n.d.a> f12412d;
 
     /* renamed from: e  reason: collision with root package name */
-    public c.a.d.f.k.b<c.a.s0.g1.i.a.a> f12268e;
+    public c.a.d.f.k.b<c.a.s0.f1.i.a.a> f12413e;
 
     /* renamed from: f  reason: collision with root package name */
-    public c.a.s0.g1.i.c.b f12269f;
+    public c.a.s0.f1.i.c.b f12414f;
 
     /* loaded from: classes6.dex */
     public class a extends c.a.d.f.k.a<String, c.a.d.n.d.a> {
@@ -131,12 +131,12 @@ public class c {
 
     /* renamed from: c.a.s0.c0.c$c  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public class C0827c extends c.a.d.f.k.a<String, Bitmap> {
+    public class C0836c extends c.a.d.f.k.a<String, Bitmap> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public C0827c(c cVar, int i2) {
+        public C0836c(c cVar, int i2) {
             super(i2);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -180,7 +180,7 @@ public class c {
                 return;
             }
         }
-        f12264g = new c();
+        f12409g = new c();
     }
 
     public c() {
@@ -197,19 +197,19 @@ public class c {
             }
         }
         this.a = null;
-        this.f12265b = null;
-        this.f12266c = null;
-        this.f12267d = null;
+        this.f12410b = null;
+        this.f12411c = null;
+        this.f12412d = null;
         this.a = new a(this, 0);
-        this.f12265b = new b(this, 0);
-        this.f12266c = new C0827c(this, 0);
-        this.f12267d = new c.a.d.f.k.a<>(Integer.MAX_VALUE);
+        this.f12410b = new b(this, 0);
+        this.f12411c = new C0836c(this, 0);
+        this.f12412d = new c.a.d.f.k.a<>(Integer.MAX_VALUE);
     }
 
     public static c k() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f12264g : (c) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f12409g : (c) invokeV.objValue;
     }
 
     public void a(String str, Bitmap bitmap) {
@@ -217,7 +217,7 @@ public class c {
         if (!(interceptable == null || interceptable.invokeLL(1048576, this, str, bitmap) == null) || StringUtils.isNull(str) || bitmap == null) {
             return;
         }
-        this.f12266c.h(str, bitmap);
+        this.f12411c.h(str, bitmap);
     }
 
     public void b(String str, c.a.d.n.d.a aVar) {
@@ -245,17 +245,17 @@ public class c {
 
     public void e(String str, c.a.d.n.d.a aVar, boolean z) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLZ(1048580, this, str, aVar, z) == null) || aVar == null || this.f12265b == null) {
+        if (!(interceptable == null || interceptable.invokeLLZ(1048580, this, str, aVar, z) == null) || aVar == null || this.f12410b == null) {
             return;
         }
         BdLog.isDebugMode();
-        this.f12265b.h(str, aVar);
+        this.f12410b.h(str, aVar);
     }
 
     public void f(String str, c.a.d.n.d.a aVar) {
         c.a.d.f.k.a<String, c.a.d.n.d.a> aVar2;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048581, this, str, aVar) == null) || aVar == null || (aVar2 = this.f12267d) == null) {
+        if (!(interceptable == null || interceptable.invokeLL(1048581, this, str, aVar) == null) || aVar == null || (aVar2 = this.f12412d) == null) {
             return;
         }
         aVar2.h(str, aVar);
@@ -271,14 +271,14 @@ public class c {
     public void h(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
-            this.f12265b.i(str);
+            this.f12410b.i(str);
         }
     }
 
     public boolean i(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2)) == null) ? this.f12265b.e(i2) : invokeI.booleanValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2)) == null) ? this.f12410b.e(i2) : invokeI.booleanValue;
     }
 
     public Bitmap j(String str) {
@@ -288,7 +288,7 @@ public class c {
             if (StringUtils.isNull(str)) {
                 return null;
             }
-            return this.f12266c.f(str);
+            return this.f12411c.f(str);
         }
         return (Bitmap) invokeL.objValue;
     }
@@ -302,13 +302,13 @@ public class c {
     public c.a.d.n.d.a m(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, str)) == null) ? this.f12265b.f(str) : (c.a.d.n.d.a) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, str)) == null) ? this.f12410b.f(str) : (c.a.d.n.d.a) invokeL.objValue;
     }
 
     public int n() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.f12265b.g() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.f12410b.g() : invokeV.intValue;
     }
 
     public c.a.d.n.d.a o(String str) {
@@ -318,30 +318,30 @@ public class c {
             if (StringUtils.isNull(str)) {
                 return null;
             }
-            return this.f12267d.f(str);
+            return this.f12412d.f(str);
         }
         return (c.a.d.n.d.a) invokeL.objValue;
     }
 
-    public c.a.d.f.k.b<c.a.s0.g1.i.a.a> p(int i2) {
+    public c.a.d.f.k.b<c.a.s0.f1.i.a.a> p(int i2) {
         InterceptResult invokeI;
-        c.a.s0.g1.i.c.b bVar;
+        c.a.s0.f1.i.c.b bVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048590, this, i2)) == null) {
-            if (this.f12268e != null && (bVar = this.f12269f) != null) {
+            if (this.f12413e != null && (bVar = this.f12414f) != null) {
                 if (bVar.g() == i2) {
-                    return this.f12268e;
+                    return this.f12413e;
                 }
-                this.f12269f.j(i2);
-                this.f12268e.c();
+                this.f12414f.j(i2);
+                this.f12413e.c();
             }
-            if (this.f12269f == null) {
-                this.f12269f = new c.a.s0.g1.i.c.b(i2);
+            if (this.f12414f == null) {
+                this.f12414f = new c.a.s0.f1.i.c.b(i2);
             }
-            if (this.f12268e == null) {
-                this.f12268e = new c.a.d.f.k.b<>(this.f12269f, 6, 0);
+            if (this.f12413e == null) {
+                this.f12413e = new c.a.d.f.k.b<>(this.f12414f, 6, 0);
             }
-            return this.f12268e;
+            return this.f12413e;
         }
         return (c.a.d.f.k.b) invokeI.objValue;
     }
@@ -356,21 +356,21 @@ public class c {
     }
 
     public void r() {
-        c.a.d.f.k.b<c.a.s0.g1.i.a.a> bVar;
+        c.a.d.f.k.b<c.a.s0.f1.i.a.a> bVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048592, this) == null) || (bVar = this.f12268e) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048592, this) == null) || (bVar = this.f12413e) == null) {
             return;
         }
         bVar.g(0);
-        this.f12268e.f(0);
-        this.f12268e.c();
-        this.f12268e = null;
+        this.f12413e.f(0);
+        this.f12413e.c();
+        this.f12413e = null;
     }
 
     public void s(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048593, this, i2) == null) {
-            this.f12266c.k(i2);
+            this.f12411c.k(i2);
         }
     }
 
@@ -385,7 +385,7 @@ public class c {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
-            return "pic:" + this.f12265b.toString() + "  photo:" + this.a.toString();
+            return "pic:" + this.f12410b.toString() + "  photo:" + this.a.toString();
         }
         return (String) invokeV.objValue;
     }
@@ -393,7 +393,7 @@ public class c {
     public void u(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048596, this, i2) == null) {
-            this.f12265b.k(i2);
+            this.f12410b.k(i2);
         }
     }
 
@@ -401,7 +401,7 @@ public class c {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) {
-            return this.f12265b.l() + "/" + this.f12265b.g() + "/" + this.f12265b.d() + "_" + this.a.l() + "/" + this.a.g() + "/" + this.a.d();
+            return this.f12410b.l() + "/" + this.f12410b.g() + "/" + this.f12410b.d() + "_" + this.a.l() + "/" + this.a.g() + "/" + this.a.d();
         }
         return (String) invokeV.objValue;
     }

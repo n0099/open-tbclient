@@ -85,14 +85,14 @@ public class c {
         AdOperator adOperator;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, adBaseModel, i2)) == null) {
-            if (adBaseModel == null || (adOperator = adBaseModel.f37018f) == null) {
+            if (adBaseModel == null || (adOperator = adBaseModel.f37046f) == null) {
                 return false;
             }
             int i3 = a.a[adOperator.a.ordinal()];
             if (i3 != 1) {
                 return i3 == 2 && i2 == 2;
             }
-            p pVar = adBaseModel.f37019g;
+            p pVar = adBaseModel.f37047g;
             return (pVar == null || !pVar.k) ? i2 == 1 : i2 == 3;
         }
         return invokeLI.booleanValue;
@@ -112,13 +112,13 @@ public class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, adBaseModel)) == null) {
             b operateBar = this.a.getOperateBar();
-            if (b.d(adBaseModel) && (adOperator = adBaseModel.f37018f) != null) {
+            if (b.d(adBaseModel) && (adOperator = adBaseModel.f37046f) != null) {
                 if (operateBar == null || !a(adBaseModel, operateBar.a)) {
                     RelativeLayout relativeLayout = (RelativeLayout) this.a.findViewById(c.a.c0.d.e.nad_feed_ad_operate_view);
                     relativeLayout.removeAllViews();
                     AdOperator.TYPE type = adOperator.a;
                     if (type == AdOperator.TYPE.DOWNLOAD) {
-                        c.a.c0.s.c cVar = adBaseModel.f37021i;
+                        c.a.c0.s.c cVar = adBaseModel.f37049i;
                         if (cVar == null || !cVar.f2223d) {
                             return null;
                         }
@@ -127,7 +127,7 @@ public class c {
                         if (oVar != null && oVar.b(AdOperator.TYPE.DOWNLOAD) != 0) {
                             i2 = adBaseModel.l.b(AdOperator.TYPE.DOWNLOAD);
                         }
-                        p pVar = adBaseModel.f37019g;
+                        p pVar = adBaseModel.f37047g;
                         if (pVar != null && pVar.k) {
                             View inflate = LayoutInflater.from(this.f2179b).inflate(i2, (ViewGroup) relativeLayout, true);
                             b(inflate.findViewById(c.a.c0.d.e.nad_feed_ad_operate_progress_button), 6.0f);

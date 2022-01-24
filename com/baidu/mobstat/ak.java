@@ -25,13 +25,13 @@ public class ak {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public a f36384b;
+    public a f36412b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Activity f36385c;
+    public Activity f36413c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Handler f36386d;
+    public Handler f36414d;
 
     /* loaded from: classes10.dex */
     public interface a {
@@ -68,7 +68,7 @@ public class ak {
                 return;
             }
         }
-        this.f36386d = new Handler(this, Looper.getMainLooper()) { // from class: com.baidu.mobstat.ak.1
+        this.f36414d = new Handler(this, Looper.getMainLooper()) { // from class: com.baidu.mobstat.ak.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ ak a;
@@ -97,12 +97,12 @@ public class ak {
             @Override // android.os.Handler
             public void handleMessage(Message message) {
                 Interceptable interceptable2 = $ic;
-                if ((interceptable2 == null || interceptable2.invokeL(1048576, this, message) == null) && message.what == 100 && this.a.f36384b != null) {
-                    this.a.f36384b.a();
+                if ((interceptable2 == null || interceptable2.invokeL(1048576, this, message) == null) && message.what == 100 && this.a.f36412b != null) {
+                    this.a.f36412b.a();
                 }
             }
         };
-        this.f36384b = aVar;
+        this.f36412b = aVar;
     }
 
     private void c(Activity activity) {
@@ -159,16 +159,16 @@ public class ak {
                     int actionMasked = motionEvent.getActionMasked();
                     if (actionMasked != 5) {
                         if (actionMasked == 6 && motionEvent.getEventTime() - motionEvent.getDownTime() < TooltipCompatHandler.LONG_CLICK_HIDE_TIMEOUT_MS) {
-                            this.a.f36386d.removeMessages(100);
+                            this.a.f36414d.removeMessages(100);
                             return;
                         }
                         return;
                     }
                     int pointerCount = motionEvent.getPointerCount();
                     if (pointerCount == 3 && motionEvent.getEventTime() - motionEvent.getDownTime() <= 50) {
-                        this.a.f36386d.sendEmptyMessageDelayed(100, TooltipCompatHandler.LONG_CLICK_HIDE_TIMEOUT_MS);
+                        this.a.f36414d.sendEmptyMessageDelayed(100, TooltipCompatHandler.LONG_CLICK_HIDE_TIMEOUT_MS);
                     } else if (pointerCount > 3) {
-                        this.a.f36386d.removeMessages(100);
+                        this.a.f36414d.removeMessages(100);
                     }
                 }
             }
@@ -188,8 +188,8 @@ public class ak {
     public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            c(this.f36385c);
-            this.f36385c = null;
+            c(this.f36413c);
+            this.f36413c = null;
         }
     }
 
@@ -211,7 +211,7 @@ public class ak {
         if (!(interceptable == null || interceptable.invokeL(1048576, this, activity) == null) || activity == null) {
             return;
         }
-        this.f36385c = activity;
+        this.f36413c = activity;
         b(activity);
     }
 

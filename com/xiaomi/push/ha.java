@@ -25,7 +25,7 @@ public class ha implements XMPushService.l {
     public Context f472a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f61158b;
+    public boolean f61203b;
 
     static {
         InterceptResult invokeClinit;
@@ -69,7 +69,7 @@ public class ha implements XMPushService.l {
     private void a(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65539, this, context) == null) {
-            this.f61158b = com.xiaomi.push.service.aq.a(context).a(hk.ak.a(), true);
+            this.f61203b = com.xiaomi.push.service.aq.a(context).a(hk.ak.a(), true);
             int a2 = com.xiaomi.push.service.aq.a(context).a(hk.al.a(), 7200);
             this.f471a = a2;
             this.f471a = Math.max(60, a2);
@@ -107,7 +107,7 @@ public class ha implements XMPushService.l {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             a(this.f472a);
-            if (this.f61158b && a()) {
+            if (this.f61203b && a()) {
                 com.xiaomi.channel.commonutils.logger.b.m134a("TinyData TinyDataCacheProcessor.pingFollowUpAction ts:" + System.currentTimeMillis());
                 he a2 = hd.a(this.f472a).a();
                 if (a(a2)) {

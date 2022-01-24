@@ -18,7 +18,7 @@ public class c {
     public static final boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final Map<String, c.a.r0.a.p.e.a> f5584b;
+    public static final Map<String, c.a.r0.a.p.e.a> f5726b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -35,7 +35,7 @@ public class c {
             }
         }
         a = k.a;
-        f5584b = new HashMap(2);
+        f5726b = new HashMap(2);
     }
 
     public static c.a.r0.a.p.e.a a() {
@@ -65,11 +65,11 @@ public class c {
                 if (a0 != null && !TextUtils.isEmpty(a0.getAppId())) {
                     str = a0.getAppId();
                     String a2 = c.a.r0.a.v.a.a(str);
-                    aVar = f5584b.get(a2);
+                    aVar = f5726b.get(a2);
                     if (aVar == null) {
                         e();
                         aVar = a();
-                        f5584b.put(a2, aVar);
+                        f5726b.put(a2, aVar);
                         if (a) {
                             String str2 = "can not find sconsole for appId - " + str;
                         }
@@ -80,7 +80,7 @@ public class c {
                 }
                 str = "_no_id_";
                 String a22 = c.a.r0.a.v.a.a(str);
-                aVar = f5584b.get(a22);
+                aVar = f5726b.get(a22);
                 if (aVar == null) {
                 }
                 if (a) {
@@ -96,8 +96,8 @@ public class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
             c.a.r0.a.d2.e a0 = c.a.r0.a.d2.e.a0();
-            if (a0 != null && !TextUtils.isEmpty(a0.f5537f)) {
-                return b.b(c.a.r0.a.v.a.a(a0.f5537f));
+            if (a0 != null && !TextUtils.isEmpty(a0.f5679f)) {
+                return b.b(c.a.r0.a.v.a.a(a0.f5679f));
             }
             boolean z = a;
             return false;
@@ -116,14 +116,14 @@ public class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65541, null) == null) {
             synchronized (c.class) {
-                if (f5584b.size() > 0) {
-                    for (String str : f5584b.keySet()) {
-                        c.a.r0.a.p.e.a aVar = f5584b.get(str);
+                if (f5726b.size() > 0) {
+                    for (String str : f5726b.keySet()) {
+                        c.a.r0.a.p.e.a aVar = f5726b.get(str);
                         if (aVar != null) {
                             aVar.F();
                         }
                     }
-                    f5584b.clear();
+                    f5726b.clear();
                 }
             }
         }

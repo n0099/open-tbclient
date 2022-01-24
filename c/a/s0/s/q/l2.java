@@ -14,7 +14,7 @@ public class l2 {
     public long a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f13455b;
+    public String f13641b;
 
     public l2() {
         Interceptable interceptable = $ic;
@@ -37,7 +37,7 @@ public class l2 {
         }
         try {
             this.a = jSONObject.optLong("channel_id", 0L);
-            this.f13455b = jSONObject.optString("channel_name");
+            this.f13641b = jSONObject.optString("channel_name");
             jSONObject.optString("channel_avatar");
         } catch (Exception unused) {
         }
@@ -49,7 +49,7 @@ public class l2 {
             return;
         }
         this.a = videoChannelInfo.channel_id.longValue();
-        this.f13455b = videoChannelInfo.channel_name;
+        this.f13641b = videoChannelInfo.channel_name;
         String str = videoChannelInfo.channel_avatar;
     }
 }

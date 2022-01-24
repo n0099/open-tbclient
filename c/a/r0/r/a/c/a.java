@@ -18,14 +18,14 @@ public class a<K, V> extends f<K, V> implements Map<K, V> {
 
     /* renamed from: c.a.r0.r.a.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public class C0803a extends e<K, V> {
+    public class C0812a extends e<K, V> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ a f11732d;
+        public final /* synthetic */ a f11874d;
 
-        public C0803a(a aVar) {
+        public C0812a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -40,14 +40,14 @@ public class a<K, V> extends f<K, V> implements Map<K, V> {
                     return;
                 }
             }
-            this.f11732d = aVar;
+            this.f11874d = aVar;
         }
 
         @Override // c.a.r0.r.a.c.e
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f11732d.clear();
+                this.f11874d.clear();
             }
         }
 
@@ -55,42 +55,42 @@ public class a<K, V> extends f<K, V> implements Map<K, V> {
         public Object b(int i2, int i3) {
             InterceptResult invokeII;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeII = interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, i3)) == null) ? this.f11732d.f11754f[(i2 << 1) + i3] : invokeII.objValue;
+            return (interceptable == null || (invokeII = interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, i3)) == null) ? this.f11874d.f11896f[(i2 << 1) + i3] : invokeII.objValue;
         }
 
         @Override // c.a.r0.r.a.c.e
         public Map<K, V> c() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f11732d : (Map) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f11874d : (Map) invokeV.objValue;
         }
 
         @Override // c.a.r0.r.a.c.e
         public int d() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f11732d.f11755g : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f11874d.f11897g : invokeV.intValue;
         }
 
         @Override // c.a.r0.r.a.c.e
         public int e(Object obj) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, obj)) == null) ? this.f11732d.e(obj) : invokeL.intValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, obj)) == null) ? this.f11874d.e(obj) : invokeL.intValue;
         }
 
         @Override // c.a.r0.r.a.c.e
         public int f(Object obj) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, obj)) == null) ? this.f11732d.g(obj) : invokeL.intValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, obj)) == null) ? this.f11874d.g(obj) : invokeL.intValue;
         }
 
         @Override // c.a.r0.r.a.c.e
         public void g(K k, V v) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048582, this, k, v) == null) {
-                this.f11732d.put(k, v);
+                this.f11874d.put(k, v);
             }
         }
 
@@ -98,7 +98,7 @@ public class a<K, V> extends f<K, V> implements Map<K, V> {
         public void h(int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(1048583, this, i2) == null) {
-                this.f11732d.i(i2);
+                this.f11874d.i(i2);
             }
         }
 
@@ -106,7 +106,7 @@ public class a<K, V> extends f<K, V> implements Map<K, V> {
         public V i(int i2, V v) {
             InterceptResult invokeIL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeIL = interceptable.invokeIL(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2, v)) == null) ? this.f11732d.j(i2, v) : (V) invokeIL.objValue;
+            return (interceptable == null || (invokeIL = interceptable.invokeIL(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2, v)) == null) ? this.f11874d.j(i2, v) : (V) invokeIL.objValue;
         }
     }
 
@@ -143,7 +143,7 @@ public class a<K, V> extends f<K, V> implements Map<K, V> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             if (this.l == null) {
-                this.l = new C0803a(this);
+                this.l = new C0812a(this);
             }
             return this.l;
         }
@@ -160,7 +160,7 @@ public class a<K, V> extends f<K, V> implements Map<K, V> {
     public void putAll(Map<? extends K, ? extends V> map) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, map) == null) {
-            b(this.f11755g + map.size());
+            b(this.f11897g + map.size());
             for (Map.Entry<? extends K, ? extends V> entry : map.entrySet()) {
                 put(entry.getKey(), entry.getValue());
             }

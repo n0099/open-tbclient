@@ -53,39 +53,39 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f3398d;
+    public static final String f3500d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final String f3399e;
+    public static final String f3501e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final String f3400f;
+    public static final String f3502f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final int f3401g;
+    public static final int f3503g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static a f3402h;
+    public static a f3504h;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Map<String, BundleInfo> f3403b;
+    public Map<String, BundleInfo> f3505b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Set<String> f3404c;
+    public Set<String> f3506c;
 
     /* renamed from: c.a.d0.g.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public class C0128a implements IPackageGetCallback {
+    public class C0135a implements IPackageGetCallback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ d a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ CountDownLatch f3405b;
+        public final /* synthetic */ CountDownLatch f3507b;
 
-        public C0128a(a aVar, d dVar, CountDownLatch countDownLatch) {
+        public C0135a(a aVar, d dVar, CountDownLatch countDownLatch) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -101,7 +101,7 @@ public class a {
                 }
             }
             this.a = dVar;
-            this.f3405b = countDownLatch;
+            this.f3507b = countDownLatch;
         }
 
         @Override // com.baidu.nps.interfa.IPackageGetCallback
@@ -110,8 +110,8 @@ public class a {
             if (interceptable == null || interceptable.invokeIL(1048576, this, i2, str) == null) {
                 d dVar = this.a;
                 dVar.a = i2;
-                dVar.f3419b = new ArrayList();
-                this.f3405b.countDown();
+                dVar.f3521b = new ArrayList();
+                this.f3507b.countDown();
             }
         }
 
@@ -124,8 +124,8 @@ public class a {
                 if (list == null) {
                     list = new ArrayList<>();
                 }
-                dVar.f3419b = list;
-                this.f3405b.countDown();
+                dVar.f3521b = list;
+                this.f3507b.countDown();
             }
         }
     }
@@ -137,30 +137,30 @@ public class a {
         public final /* synthetic */ Context a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ d f3406b;
+        public final /* synthetic */ d f3508b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ CountDownLatch f3407c;
+        public final /* synthetic */ CountDownLatch f3509c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ BundleInfo f3408d;
+        public final /* synthetic */ BundleInfo f3510d;
 
         /* renamed from: c.a.d0.g.b.a$b$a  reason: collision with other inner class name */
         /* loaded from: classes.dex */
-        public class RunnableC0129a implements Runnable {
+        public class RunnableC0136a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ String f3409e;
+            public final /* synthetic */ String f3511e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ String f3410f;
+            public final /* synthetic */ String f3512f;
 
             /* renamed from: g  reason: collision with root package name */
-            public final /* synthetic */ b f3411g;
+            public final /* synthetic */ b f3513g;
 
-            public RunnableC0129a(b bVar, String str, String str2) {
+            public RunnableC0136a(b bVar, String str, String str2) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -175,48 +175,48 @@ public class a {
                         return;
                     }
                 }
-                this.f3411g = bVar;
-                this.f3409e = str;
-                this.f3410f = str2;
+                this.f3513g = bVar;
+                this.f3511e = str;
+                this.f3512f = str2;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    Context context = this.f3411g.a;
-                    File g2 = c.a.d0.i.c.g(context, this.f3409e + Constant.FILE.SUFFIX.BUNDLE_SUFFIX);
+                    Context context = this.f3513g.a;
+                    File g2 = c.a.d0.i.c.g(context, this.f3511e + Constant.FILE.SUFFIX.BUNDLE_SUFFIX);
                     if (g2.exists()) {
                         g2.delete();
                     }
                     boolean z = false;
                     try {
-                        z = new File(this.f3410f).renameTo(g2);
+                        z = new File(this.f3512f).renameTo(g2);
                     } catch (Exception unused) {
                     }
                     if (z) {
-                        this.f3411g.f3406b.a = 2;
+                        this.f3513g.f3508b.a = 2;
                     } else {
-                        this.f3411g.f3406b.a = 11;
+                        this.f3513g.f3508b.a = 11;
                     }
-                    this.f3411g.f3407c.countDown();
+                    this.f3513g.f3509c.countDown();
                 }
             }
         }
 
         /* renamed from: c.a.d0.g.b.a$b$b  reason: collision with other inner class name */
         /* loaded from: classes.dex */
-        public class RunnableC0130b implements Runnable {
+        public class RunnableC0137b implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ int f3412e;
+            public final /* synthetic */ int f3514e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ b f3413f;
+            public final /* synthetic */ b f3515f;
 
-            public RunnableC0130b(b bVar, int i2) {
+            public RunnableC0137b(b bVar, int i2) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -231,17 +231,17 @@ public class a {
                         return;
                     }
                 }
-                this.f3413f = bVar;
-                this.f3412e = i2;
+                this.f3515f = bVar;
+                this.f3514e = i2;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    b bVar = this.f3413f;
-                    bVar.f3406b.a = this.f3412e;
-                    bVar.f3407c.countDown();
+                    b bVar = this.f3515f;
+                    bVar.f3508b.a = this.f3514e;
+                    bVar.f3509c.countDown();
                 }
             }
         }
@@ -252,13 +252,13 @@ public class a {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ long f3414e;
+            public final /* synthetic */ long f3516e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ long f3415f;
+            public final /* synthetic */ long f3517f;
 
             /* renamed from: g  reason: collision with root package name */
-            public final /* synthetic */ b f3416g;
+            public final /* synthetic */ b f3518g;
 
             public c(b bVar, long j2, long j3) {
                 Interceptable interceptable = $ic;
@@ -275,16 +275,16 @@ public class a {
                         return;
                     }
                 }
-                this.f3416g = bVar;
-                this.f3414e = j2;
-                this.f3415f = j3;
+                this.f3518g = bVar;
+                this.f3516e = j2;
+                this.f3517f = j3;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    this.f3416g.a.getContentResolver().notifyChange(j.c(this.f3416g.f3408d.getPackageName(), this.f3414e, this.f3415f), null);
+                    this.f3518g.a.getContentResolver().notifyChange(j.c(this.f3518g.f3510d.getPackageName(), this.f3516e, this.f3517f), null);
                 }
             }
         }
@@ -305,16 +305,16 @@ public class a {
                 }
             }
             this.a = context;
-            this.f3406b = dVar;
-            this.f3407c = countDownLatch;
-            this.f3408d = bundleInfo;
+            this.f3508b = dVar;
+            this.f3509c = countDownLatch;
+            this.f3510d = bundleInfo;
         }
 
         @Override // com.baidu.nps.interfa.IPackageDownloadCallback
         public void onPackageDownloadFail(String str, int i2, String str2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLIL(1048576, this, str, i2, str2) == null) {
-                g.a().b().run(new RunnableC0130b(this, i2));
+                g.a().b().run(new RunnableC0137b(this, i2));
             }
         }
 
@@ -322,7 +322,7 @@ public class a {
         public void onPackageDownloadSuccess(String str, String str2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2) == null) {
-                g.a().b().run(new RunnableC0129a(this, str, str2));
+                g.a().b().run(new RunnableC0136a(this, str, str2));
             }
         }
 
@@ -341,10 +341,10 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ BundleInfo f3417e;
+        public final /* synthetic */ BundleInfo f3519e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f3418f;
+        public final /* synthetic */ String f3520f;
 
         public c(a aVar, BundleInfo bundleInfo, String str) {
             Interceptable interceptable = $ic;
@@ -361,8 +361,8 @@ public class a {
                     return;
                 }
             }
-            this.f3417e = bundleInfo;
-            this.f3418f = str;
+            this.f3519e = bundleInfo;
+            this.f3520f = str;
         }
 
         @Override // java.lang.Runnable
@@ -380,12 +380,12 @@ public class a {
                         file2.createNewFile();
                     }
                     JSONObject jSONObject = new JSONObject();
-                    jSONObject.put("v_c", this.f3417e.getVersionCode());
-                    jSONObject.put("name", this.f3417e.getPackageName());
-                    jSONObject.put("upgrade", this.f3417e.getUpdateV());
-                    jSONObject.put("f_u", this.f3417e.needForceUpdate());
-                    jSONObject.put("f_b", this.f3417e.isForbidden());
-                    jSONObject.put(TKBase.VISIBILITY_VISIBLE, this.f3417e.isVisible());
+                    jSONObject.put("v_c", this.f3519e.getVersionCode());
+                    jSONObject.put("name", this.f3519e.getPackageName());
+                    jSONObject.put("upgrade", this.f3519e.getUpdateV());
+                    jSONObject.put("f_u", this.f3519e.needForceUpdate());
+                    jSONObject.put("f_b", this.f3519e.isForbidden());
+                    jSONObject.put(TKBase.VISIBILITY_VISIBLE, this.f3519e.isVisible());
                     try {
                         fileOutputStream = new FileOutputStream(file2, true);
                     } catch (Throwable th2) {
@@ -394,7 +394,7 @@ public class a {
                     }
                     try {
                         fileOutputStream.write(jSONObject.toString().getBytes());
-                        fileOutputStream.write(this.f3418f.getBytes());
+                        fileOutputStream.write(this.f3520f.getBytes());
                         fileOutputStream.write(String.valueOf(System.currentTimeMillis()).getBytes());
                         fileOutputStream.flush();
                         fileOutputStream.close();
@@ -421,7 +421,7 @@ public class a {
         public int a;
 
         /* renamed from: b  reason: collision with root package name */
-        public List<IBundleInfo> f3419b;
+        public List<IBundleInfo> f3521b;
 
         public d() {
             Interceptable interceptable = $ic;
@@ -451,11 +451,11 @@ public class a {
                 return;
             }
         }
-        f3398d = "nps" + File.separator + "preset";
-        f3399e = f3398d + File.separator + "info";
-        f3400f = f3398d + File.separator + "bundle";
-        f3401g = 4;
-        f3402h = new a();
+        f3500d = "nps" + File.separator + "preset";
+        f3501e = f3500d + File.separator + "info";
+        f3502f = f3500d + File.separator + "bundle";
+        f3503g = 4;
+        f3504h = new a();
     }
 
     public a() {
@@ -472,14 +472,14 @@ public class a {
             }
         }
         this.a = false;
-        this.f3403b = new HashMap();
-        this.f3404c = new HashSet();
+        this.f3505b = new HashMap();
+        this.f3506c = new HashSet();
     }
 
     public static a d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f3402h : (a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f3504h : (a) invokeV.objValue;
     }
 
     public final void a(File file, boolean z) {
@@ -525,7 +525,7 @@ public class a {
             d dVar = new d();
             dVar.a = 0;
             CountDownLatch countDownLatch = new CountDownLatch(1);
-            c.a.d0.c.a.c.a().b().getBundleInfo(list, new C0128a(this, dVar, countDownLatch));
+            c.a.d0.c.a.c.a().b().getBundleInfo(list, new C0135a(this, dVar, countDownLatch));
             try {
                 countDownLatch.await();
             } catch (InterruptedException unused) {
@@ -558,11 +558,11 @@ public class a {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             synchronized (this) {
                 if (this.a) {
-                    return this.f3403b;
+                    return this.f3505b;
                 }
                 try {
                     try {
-                        InputStream open = ContextHolder.getApplicationContext().getAssets().open(f3399e + File.separator + "preset.json");
+                        InputStream open = ContextHolder.getApplicationContext().getAssets().open(f3501e + File.separator + "preset.json");
                         StringBuilder sb = new StringBuilder();
                         BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(open, Xml.Encoding.UTF_8.toString()), 8192);
                         while (true) {
@@ -572,7 +572,7 @@ public class a {
                             }
                             sb.append(readLine);
                         }
-                        this.f3403b = l(new JSONArray(sb.toString()));
+                        this.f3505b = l(new JSONArray(sb.toString()));
                         this.a = true;
                     } catch (JSONException e2) {
                         if (c.a.d0.i.b.a()) {
@@ -584,7 +584,7 @@ public class a {
                         String str2 = "e=" + e3.getMessage();
                     }
                 }
-                return this.f3403b;
+                return this.f3505b;
             }
         }
         return (Map) invokeV.objValue;
@@ -678,7 +678,7 @@ public class a {
                     String name = nextElement.getName();
                     if (name.startsWith(PluginInstallerService.APK_LIB_DIR_PREFIX) && name.endsWith(".so")) {
                         int lastIndexOf = name.lastIndexOf("/");
-                        String substring = name.substring(f3401g, lastIndexOf);
+                        String substring = name.substring(f3503g, lastIndexOf);
                         if (str3.equals(substring)) {
                             z = true;
                         } else if (str4.equals(substring) && !z) {
@@ -760,7 +760,7 @@ public class a {
             if (g2.exists()) {
                 g2.delete();
             }
-            if (c.a.d0.i.c.a(applicationContext, f3400f + File.separator + bundleInfo.getPackageName() + Constant.FILE.SUFFIX.BUNDLE_SUFFIX, g2.getAbsolutePath())) {
+            if (c.a.d0.i.c.a(applicationContext, f3502f + File.separator + bundleInfo.getPackageName() + Constant.FILE.SUFFIX.BUNDLE_SUFFIX, g2.getAbsolutePath())) {
                 return g(bundleInfo, g2);
             }
             return 11;
@@ -776,7 +776,7 @@ public class a {
                 if (TextUtils.isEmpty(str)) {
                     return false;
                 }
-                return this.f3404c.contains(str);
+                return this.f3506c.contains(str);
             }
         }
         return invokeL.booleanValue;
@@ -814,7 +814,7 @@ public class a {
                 if (TextUtils.isEmpty(str)) {
                     return;
                 }
-                this.f3404c.add(str);
+                this.f3506c.add(str);
             }
         }
     }

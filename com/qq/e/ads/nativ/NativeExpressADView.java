@@ -11,13 +11,13 @@ import com.qq.e.comm.compliance.DownloadConfirmListener;
 import com.qq.e.comm.pi.AdData;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public abstract class NativeExpressADView extends FrameLayout implements DownloadConfirmListener, ApkDownloadComplianceInterface {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Map<String, String> ext;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public interface ViewBindStatusListener {
         void onAttachedToWindow();
 

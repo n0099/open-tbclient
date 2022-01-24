@@ -6,27 +6,27 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes9.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
-    public static InterfaceC1640a a;
+    public static InterfaceC1641a a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c.f.a.g.a$a  reason: collision with other inner class name */
     /* loaded from: classes9.dex */
-    public interface InterfaceC1640a {
+    public interface InterfaceC1641a {
         void a(String str, String str2);
 
         boolean a(String str);
     }
 
-    public static InterfaceC1640a a() {
+    public static InterfaceC1641a a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) ? a : (InterfaceC1640a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) ? a : (InterfaceC1641a) invokeV.objValue;
     }
 
-    public static void b(InterfaceC1640a interfaceC1640a) {
+    public static void b(InterfaceC1641a interfaceC1641a) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, null, interfaceC1640a) == null) {
-            a = interfaceC1640a;
+        if (interceptable == null || interceptable.invokeL(65537, null, interfaceC1641a) == null) {
+            a = interfaceC1641a;
         }
     }
 }

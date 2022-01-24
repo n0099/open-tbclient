@@ -27,19 +27,19 @@ public final class k extends AsyncTask<String, Void, List<Bitmap>> {
     public Context a;
 
     /* renamed from: b  reason: collision with root package name */
-    public InsideNotificationItem f60764b;
+    public InsideNotificationItem f60809b;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f60765c;
+    public long f60810c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f60766d;
+    public boolean f60811d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f60767e;
+    public int f60812e;
 
     /* renamed from: f  reason: collision with root package name */
-    public r.a f60768f;
+    public r.a f60813f;
 
     public k(Context context, InsideNotificationItem insideNotificationItem, long j2, boolean z, r.a aVar) {
         Interceptable interceptable = $ic;
@@ -56,12 +56,12 @@ public final class k extends AsyncTask<String, Void, List<Bitmap>> {
                 return;
             }
         }
-        this.f60767e = 0;
+        this.f60812e = 0;
         this.a = context;
-        this.f60764b = insideNotificationItem;
-        this.f60765c = j2;
-        this.f60766d = z;
-        this.f60768f = aVar;
+        this.f60809b = insideNotificationItem;
+        this.f60810c = j2;
+        this.f60811d = z;
+        this.f60813f = aVar;
     }
 
     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
@@ -98,9 +98,9 @@ public final class k extends AsyncTask<String, Void, List<Bitmap>> {
         Bitmap bitmap;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, this, strArr)) == null) {
-            this.f60767e = ClientConfigManagerImpl.getInstance(this.a).getNotifyStyle();
+            this.f60812e = ClientConfigManagerImpl.getInstance(this.a).getNotifyStyle();
             InputStream inputStream2 = null;
-            if (!this.f60766d) {
+            if (!this.f60811d) {
                 p.d("ImageDownTask", "bitmap is not display by forbid net");
                 return null;
             }

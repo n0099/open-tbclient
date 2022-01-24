@@ -38,10 +38,10 @@ public abstract class gc {
     public static final DateFormat f432a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f61114b;
+    public static String f61159b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f61115c;
+    public static String f61160c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with other field name */
@@ -54,22 +54,22 @@ public abstract class gc {
     public final Map<String, Object> f435a;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f61116d;
+    public String f61161d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f61117e;
+    public String f61162e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f61118f;
+    public String f61163f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f61119g;
+    public String f61164g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f61120h;
+    public String f61165h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f61121i;
+    public String f61166i;
 
     static {
         InterceptResult invokeClinit;
@@ -85,11 +85,11 @@ public abstract class gc {
             }
         }
         f431a = Locale.getDefault().getLanguage().toLowerCase();
-        f61114b = null;
+        f61159b = null;
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'");
         f432a = simpleDateFormat;
         simpleDateFormat.setTimeZone(TimeZone.getTimeZone("UTC"));
-        f61115c = gn.a(5) + "-";
+        f61160c = gn.a(5) + "-";
         a = 0L;
     }
 
@@ -106,12 +106,12 @@ public abstract class gc {
                 return;
             }
         }
-        this.f61116d = f61114b;
-        this.f61117e = null;
-        this.f61118f = null;
-        this.f61119g = null;
-        this.f61120h = null;
-        this.f61121i = null;
+        this.f61161d = f61159b;
+        this.f61162e = null;
+        this.f61163f = null;
+        this.f61164g = null;
+        this.f61165h = null;
+        this.f61166i = null;
         this.f434a = new CopyOnWriteArrayList();
         this.f435a = new HashMap();
         this.f433a = null;
@@ -132,19 +132,19 @@ public abstract class gc {
                 return;
             }
         }
-        this.f61116d = f61114b;
-        this.f61117e = null;
-        this.f61118f = null;
-        this.f61119g = null;
-        this.f61120h = null;
-        this.f61121i = null;
+        this.f61161d = f61159b;
+        this.f61162e = null;
+        this.f61163f = null;
+        this.f61164g = null;
+        this.f61165h = null;
+        this.f61166i = null;
         this.f434a = new CopyOnWriteArrayList();
         this.f435a = new HashMap();
         this.f433a = null;
-        this.f61118f = bundle.getString("ext_to");
-        this.f61119g = bundle.getString("ext_from");
-        this.f61120h = bundle.getString("ext_chid");
-        this.f61117e = bundle.getString("ext_pkt_id");
+        this.f61163f = bundle.getString("ext_to");
+        this.f61164g = bundle.getString("ext_from");
+        this.f61165h = bundle.getString("ext_chid");
+        this.f61162e = bundle.getString("ext_pkt_id");
         Parcelable[] parcelableArray = bundle.getParcelableArray("ext_exts");
         if (parcelableArray != null) {
             this.f434a = new ArrayList(parcelableArray.length);
@@ -168,7 +168,7 @@ public abstract class gc {
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
             synchronized (gc.class) {
                 StringBuilder sb2 = new StringBuilder();
-                sb2.append(f61115c);
+                sb2.append(f61160c);
                 long j2 = a;
                 a = 1 + j2;
                 sb2.append(Long.toString(j2));
@@ -190,20 +190,20 @@ public abstract class gc {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             Bundle bundle = new Bundle();
-            if (!TextUtils.isEmpty(this.f61116d)) {
-                bundle.putString("ext_ns", this.f61116d);
+            if (!TextUtils.isEmpty(this.f61161d)) {
+                bundle.putString("ext_ns", this.f61161d);
             }
-            if (!TextUtils.isEmpty(this.f61119g)) {
-                bundle.putString("ext_from", this.f61119g);
+            if (!TextUtils.isEmpty(this.f61164g)) {
+                bundle.putString("ext_from", this.f61164g);
             }
-            if (!TextUtils.isEmpty(this.f61118f)) {
-                bundle.putString("ext_to", this.f61118f);
+            if (!TextUtils.isEmpty(this.f61163f)) {
+                bundle.putString("ext_to", this.f61163f);
             }
-            if (!TextUtils.isEmpty(this.f61117e)) {
-                bundle.putString("ext_pkt_id", this.f61117e);
+            if (!TextUtils.isEmpty(this.f61162e)) {
+                bundle.putString("ext_pkt_id", this.f61162e);
             }
-            if (!TextUtils.isEmpty(this.f61120h)) {
-                bundle.putString("ext_chid", this.f61120h);
+            if (!TextUtils.isEmpty(this.f61165h)) {
+                bundle.putString("ext_chid", this.f61165h);
             }
             gg ggVar = this.f433a;
             if (ggVar != null) {
@@ -324,19 +324,19 @@ public abstract class gc {
             gc gcVar = (gc) obj;
             gg ggVar = this.f433a;
             if (ggVar == null ? gcVar.f433a == null : ggVar.equals(gcVar.f433a)) {
-                String str = this.f61119g;
-                if (str == null ? gcVar.f61119g == null : str.equals(gcVar.f61119g)) {
+                String str = this.f61164g;
+                if (str == null ? gcVar.f61164g == null : str.equals(gcVar.f61164g)) {
                     if (this.f434a.equals(gcVar.f434a)) {
-                        String str2 = this.f61117e;
-                        if (str2 == null ? gcVar.f61117e == null : str2.equals(gcVar.f61117e)) {
-                            String str3 = this.f61120h;
-                            if (str3 == null ? gcVar.f61120h == null : str3.equals(gcVar.f61120h)) {
+                        String str2 = this.f61162e;
+                        if (str2 == null ? gcVar.f61162e == null : str2.equals(gcVar.f61162e)) {
+                            String str3 = this.f61165h;
+                            if (str3 == null ? gcVar.f61165h == null : str3.equals(gcVar.f61165h)) {
                                 Map<String, Object> map = this.f435a;
                                 if (map == null ? gcVar.f435a == null : map.equals(gcVar.f435a)) {
-                                    String str4 = this.f61118f;
-                                    if (str4 == null ? gcVar.f61118f == null : str4.equals(gcVar.f61118f)) {
-                                        String str5 = this.f61116d;
-                                        String str6 = gcVar.f61116d;
+                                    String str4 = this.f61163f;
+                                    if (str4 == null ? gcVar.f61163f == null : str4.equals(gcVar.f61163f)) {
+                                        String str5 = this.f61161d;
+                                        String str6 = gcVar.f61161d;
                                         if (str5 != null) {
                                             if (str5.equals(str6)) {
                                                 return true;
@@ -367,15 +367,15 @@ public abstract class gc {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            String str = this.f61116d;
+            String str = this.f61161d;
             int hashCode = (str != null ? str.hashCode() : 0) * 31;
-            String str2 = this.f61117e;
+            String str2 = this.f61162e;
             int hashCode2 = (hashCode + (str2 != null ? str2.hashCode() : 0)) * 31;
-            String str3 = this.f61118f;
+            String str3 = this.f61163f;
             int hashCode3 = (hashCode2 + (str3 != null ? str3.hashCode() : 0)) * 31;
-            String str4 = this.f61119g;
+            String str4 = this.f61164g;
             int hashCode4 = (hashCode3 + (str4 != null ? str4.hashCode() : 0)) * 31;
-            String str5 = this.f61120h;
+            String str5 = this.f61165h;
             int hashCode5 = (((((hashCode4 + (str5 != null ? str5.hashCode() : 0)) * 31) + this.f434a.hashCode()) * 31) + this.f435a.hashCode()) * 31;
             gg ggVar = this.f433a;
             return hashCode5 + (ggVar != null ? ggVar.hashCode() : 0);
@@ -387,13 +387,13 @@ public abstract class gc {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-            if ("ID_NOT_AVAILABLE".equals(this.f61117e)) {
+            if ("ID_NOT_AVAILABLE".equals(this.f61162e)) {
                 return null;
             }
-            if (this.f61117e == null) {
-                this.f61117e = i();
+            if (this.f61162e == null) {
+                this.f61162e = i();
             }
-            return this.f61117e;
+            return this.f61162e;
         }
         return (String) invokeV.objValue;
     }
@@ -401,52 +401,52 @@ public abstract class gc {
     public String k() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.f61120h : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.f61165h : (String) invokeV.objValue;
     }
 
     public void k(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048590, this, str) == null) {
-            this.f61117e = str;
+            this.f61162e = str;
         }
     }
 
     public String l() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? this.f61118f : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? this.f61163f : (String) invokeV.objValue;
     }
 
     public void l(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048592, this, str) == null) {
-            this.f61120h = str;
+            this.f61165h = str;
         }
     }
 
     public String m() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? this.f61119g : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? this.f61164g : (String) invokeV.objValue;
     }
 
     public void m(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048594, this, str) == null) {
-            this.f61118f = str;
+            this.f61163f = str;
         }
     }
 
     public String n() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) ? this.f61121i : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) ? this.f61166i : (String) invokeV.objValue;
     }
 
     public void n(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048596, this, str) == null) {
-            this.f61119g = str;
+            this.f61164g = str;
         }
     }
 
@@ -590,13 +590,13 @@ public abstract class gc {
     public void o(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048598, this, str) == null) {
-            this.f61121i = str;
+            this.f61166i = str;
         }
     }
 
     public String p() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) ? this.f61116d : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) ? this.f61161d : (String) invokeV.objValue;
     }
 }

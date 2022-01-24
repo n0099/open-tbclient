@@ -22,31 +22,31 @@ public class a extends c.a.d.a.d<BaseFragmentActivity> {
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f21327b;
+    public String f21563b;
 
     /* renamed from: c  reason: collision with root package name */
-    public e f21328c;
+    public e f21564c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Fragment[] f21329d;
+    public Fragment[] f21565d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String[] f21330e;
+    public String[] f21566e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ImageListFragment f21331f;
+    public ImageListFragment f21567f;
 
     /* renamed from: g  reason: collision with root package name */
-    public AlbumImageBrowseFragment f21332g;
+    public AlbumImageBrowseFragment f21568g;
 
     /* renamed from: c.a.t0.p4.u.a$a  reason: collision with other inner class name */
     /* loaded from: classes8.dex */
-    public class C1330a implements TbCameraView.g {
+    public class C1341a implements TbCameraView.g {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ TbCameraView a;
 
-        public C1330a(a aVar, TbCameraView tbCameraView) {
+        public C1341a(a aVar, TbCameraView tbCameraView) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -92,15 +92,15 @@ public class a extends c.a.d.a.d<BaseFragmentActivity> {
             }
         }
         this.a = "tag_image";
-        this.f21327b = "tag_b_image";
-        this.f21328c = eVar;
+        this.f21563b = "tag_b_image";
+        this.f21564c = eVar;
     }
 
     public View c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            AlbumImageBrowseFragment albumImageBrowseFragment = this.f21332g;
+            AlbumImageBrowseFragment albumImageBrowseFragment = this.f21568g;
             if (albumImageBrowseFragment == null) {
                 return null;
             }
@@ -113,7 +113,7 @@ public class a extends c.a.d.a.d<BaseFragmentActivity> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            ImageListFragment imageListFragment = this.f21331f;
+            ImageListFragment imageListFragment = this.f21567f;
             if (imageListFragment == null) {
                 return null;
             }
@@ -126,7 +126,7 @@ public class a extends c.a.d.a.d<BaseFragmentActivity> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            AlbumImageBrowseFragment albumImageBrowseFragment = this.f21332g;
+            AlbumImageBrowseFragment albumImageBrowseFragment = this.f21568g;
             if (albumImageBrowseFragment == null) {
                 return null;
             }
@@ -139,7 +139,7 @@ public class a extends c.a.d.a.d<BaseFragmentActivity> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            ImageListFragment imageListFragment = this.f21331f;
+            ImageListFragment imageListFragment = this.f21567f;
             if (imageListFragment == null) {
                 return null;
             }
@@ -152,7 +152,7 @@ public class a extends c.a.d.a.d<BaseFragmentActivity> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            ImageListFragment imageListFragment = this.f21331f;
+            ImageListFragment imageListFragment = this.f21567f;
             if (imageListFragment == null) {
                 return null;
             }
@@ -168,7 +168,7 @@ public class a extends c.a.d.a.d<BaseFragmentActivity> {
             if (i2 < 0 || i2 > 1) {
                 return null;
             }
-            return this.f21329d[i2];
+            return this.f21565d[i2];
         }
         return (Fragment) invokeI.objValue;
     }
@@ -180,7 +180,7 @@ public class a extends c.a.d.a.d<BaseFragmentActivity> {
             if (i2 < 0 || i2 > 1) {
                 return null;
             }
-            return this.f21330e[i2];
+            return this.f21566e[i2];
         }
         return (String) invokeI.objValue;
     }
@@ -188,14 +188,14 @@ public class a extends c.a.d.a.d<BaseFragmentActivity> {
     public ImageListFragment j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f21331f : (ImageListFragment) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f21567f : (ImageListFragment) invokeV.objValue;
     }
 
     public View k() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            ImageListFragment imageListFragment = this.f21331f;
+            ImageListFragment imageListFragment = this.f21567f;
             if (imageListFragment == null) {
                 return null;
             }
@@ -208,7 +208,7 @@ public class a extends c.a.d.a.d<BaseFragmentActivity> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            AlbumImageBrowseFragment albumImageBrowseFragment = this.f21332g;
+            AlbumImageBrowseFragment albumImageBrowseFragment = this.f21568g;
             if (albumImageBrowseFragment == null) {
                 return null;
             }
@@ -220,18 +220,18 @@ public class a extends c.a.d.a.d<BaseFragmentActivity> {
     public void m() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            this.f21329d = new Fragment[2];
-            this.f21330e = new String[2];
+            this.f21565d = new Fragment[2];
+            this.f21566e = new String[2];
             ImageListFragment imageListFragment = new ImageListFragment();
-            this.f21331f = imageListFragment;
-            imageListFragment.setAlbumView(this.f21328c);
-            this.f21329d[0] = this.f21331f;
-            this.f21330e[0] = this.a;
+            this.f21567f = imageListFragment;
+            imageListFragment.setAlbumView(this.f21564c);
+            this.f21565d[0] = this.f21567f;
+            this.f21566e[0] = this.a;
             AlbumImageBrowseFragment albumImageBrowseFragment = new AlbumImageBrowseFragment();
-            this.f21332g = albumImageBrowseFragment;
-            albumImageBrowseFragment.setAlbumView(this.f21328c);
-            this.f21329d[1] = this.f21332g;
-            this.f21330e[1] = this.f21327b;
+            this.f21568g = albumImageBrowseFragment;
+            albumImageBrowseFragment.setAlbumView(this.f21564c);
+            this.f21565d[1] = this.f21568g;
+            this.f21566e[1] = this.f21563b;
         }
     }
 
@@ -246,15 +246,15 @@ public class a extends c.a.d.a.d<BaseFragmentActivity> {
         if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
             TbCameraView g2 = g();
             if (g2 != null) {
-                g2.setOnOpenCameraFailedListener(new C1330a(this, g2));
+                g2.setOnOpenCameraFailedListener(new C1341a(this, g2));
                 g2.openCamera(false);
                 g2.setVisibility(0);
             }
-            ImageListFragment imageListFragment = this.f21331f;
+            ImageListFragment imageListFragment = this.f21567f;
             if (imageListFragment == null || imageListFragment.getGridView() == null) {
                 return;
             }
-            this.f21331f.getGridView().smoothScroll();
+            this.f21567f.getGridView().smoothScroll();
         }
     }
 
@@ -265,7 +265,7 @@ public class a extends c.a.d.a.d<BaseFragmentActivity> {
         }
         int i3 = 0;
         while (true) {
-            Fragment[] fragmentArr = this.f21329d;
+            Fragment[] fragmentArr = this.f21565d;
             if (i3 >= fragmentArr.length) {
                 return;
             }
@@ -279,7 +279,7 @@ public class a extends c.a.d.a.d<BaseFragmentActivity> {
     public void p() {
         ImageListFragment imageListFragment;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048590, this) == null) || (imageListFragment = this.f21331f) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048590, this) == null) || (imageListFragment = this.f21567f) == null) {
             return;
         }
         imageListFragment.loadAlbumMediaList();
@@ -288,11 +288,11 @@ public class a extends c.a.d.a.d<BaseFragmentActivity> {
     public void q(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048591, this, z) == null) {
-            AlbumImageBrowseFragment albumImageBrowseFragment = this.f21332g;
+            AlbumImageBrowseFragment albumImageBrowseFragment = this.f21568g;
             if (albumImageBrowseFragment != null) {
                 albumImageBrowseFragment.selectOriginalImg(z);
             }
-            ImageListFragment imageListFragment = this.f21331f;
+            ImageListFragment imageListFragment = this.f21567f;
             if (imageListFragment != null) {
                 imageListFragment.selectOriginalImg(z);
             }
@@ -302,14 +302,14 @@ public class a extends c.a.d.a.d<BaseFragmentActivity> {
     public void r(NavigationBar navigationBar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048592, this, navigationBar) == null) {
-            this.f21331f.setNavBar(navigationBar);
+            this.f21567f.setNavBar(navigationBar);
         }
     }
 
     public void s(j jVar) {
         ImageListFragment imageListFragment;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048593, this, jVar) == null) || (imageListFragment = this.f21331f) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048593, this, jVar) == null) || (imageListFragment = this.f21567f) == null) {
             return;
         }
         imageListFragment.setVideoCompressController(jVar);

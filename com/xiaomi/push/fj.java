@@ -37,7 +37,7 @@ public class fj implements fx {
     public SimpleDateFormat f393a;
 
     /* renamed from: b  reason: collision with root package name */
-    public a f61077b;
+    public a f61122b;
 
     /* loaded from: classes4.dex */
     public class a implements fq, fy {
@@ -129,7 +129,7 @@ public class fj implements fx {
                         faVar4.a(faVar.e());
                         faVar4.a(faVar.m368a());
                         faVar4.b(faVar.f());
-                        faVar4.a(faVar.m371a(com.xiaomi.push.service.av.a().a(String.valueOf((int) VideoItemModel.TYPE_LOADING), faVar.g()).f61424h), (String) null);
+                        faVar4.a(faVar.m371a(com.xiaomi.push.service.av.a().a(String.valueOf((int) VideoItemModel.TYPE_LOADING), faVar.g()).f61469h), (String) null);
                         faVar2 = faVar4;
                     }
                 }
@@ -216,7 +216,7 @@ public class fj implements fx {
         this.f393a = new SimpleDateFormat("hh:mm:ss aaa");
         this.f390a = null;
         this.f389a = null;
-        this.f61077b = null;
+        this.f61122b = null;
         this.f391a = null;
         this.f392a = "[Slim] ";
         this.f390a = flVar;
@@ -227,12 +227,12 @@ public class fj implements fx {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65541, this) == null) {
             this.f389a = new a(this, true);
-            this.f61077b = new a(this, false);
+            this.f61122b = new a(this, false);
             fl flVar = this.f390a;
             a aVar = this.f389a;
             flVar.a(aVar, aVar);
             fl flVar2 = this.f390a;
-            a aVar2 = this.f61077b;
+            a aVar2 = this.f61122b;
             flVar2.b(aVar2, aVar2);
             this.f391a = new fk(this);
         }

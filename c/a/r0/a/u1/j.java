@@ -32,21 +32,21 @@ public class j {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final boolean f9349e;
+    public static final boolean f9491e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static j f9350f;
+    public static j f9492f;
     public transient /* synthetic */ FieldHolder $fh;
     public Map<String, JSONArray> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String[] f9351b;
+    public String[] f9493b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f9352c;
+    public String f9494c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Map<String, String> f9353d;
+    public Map<String, String> f9495d;
 
     /* loaded from: classes.dex */
     public static abstract class a {
@@ -86,16 +86,16 @@ public class j {
         public AtomicInteger a;
 
         /* renamed from: b  reason: collision with root package name */
-        public boolean f9354b;
+        public boolean f9496b;
 
         /* renamed from: c  reason: collision with root package name */
-        public int f9355c;
+        public int f9497c;
 
         /* renamed from: d  reason: collision with root package name */
-        public a f9356d;
+        public a f9498d;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ j f9357e;
+        public final /* synthetic */ j f9499e;
 
         public b(j jVar, int i2, a aVar) {
             Interceptable interceptable = $ic;
@@ -112,17 +112,17 @@ public class j {
                     return;
                 }
             }
-            this.f9357e = jVar;
+            this.f9499e = jVar;
             this.a = new AtomicInteger(0);
-            this.f9355c = i2;
-            this.f9356d = aVar;
+            this.f9497c = i2;
+            this.f9498d = aVar;
         }
 
         @Override // com.baidu.searchbox.http.callback.ResponseCallback
         public void onFail(Exception exc) {
             a aVar;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, exc) == null) || this.f9354b || this.a.incrementAndGet() < this.f9355c || (aVar = this.f9356d) == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, exc) == null) || this.f9496b || this.a.incrementAndGet() < this.f9497c || (aVar = this.f9498d) == null) {
                 return;
             }
             aVar.b(c.a.r0.a.h.aiapps_debug_report_fail);
@@ -132,9 +132,9 @@ public class j {
         public void onSuccess(Object obj, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj, i2) == null) {
-                this.f9354b = true;
-                this.f9357e.a = new ArrayMap();
-                a aVar = this.f9356d;
+                this.f9496b = true;
+                this.f9499e.a = new ArrayMap();
+                a aVar = this.f9498d;
                 if (aVar != null) {
                     aVar.b(c.a.r0.a.h.aiapps_debug_report_success);
                 }
@@ -150,7 +150,7 @@ public class j {
                     try {
                         return response.body().string();
                     } catch (IOException unused) {
-                        boolean unused2 = j.f9349e;
+                        boolean unused2 = j.f9491e;
                     }
                 }
                 return null;
@@ -172,7 +172,7 @@ public class j {
                 return;
             }
         }
-        f9349e = k.a;
+        f9491e = k.a;
     }
 
     public j() {
@@ -189,22 +189,22 @@ public class j {
             }
         }
         this.a = new ArrayMap();
-        this.f9352c = "";
-        this.f9353d = new HashMap();
+        this.f9494c = "";
+        this.f9495d = new HashMap();
     }
 
     public static j e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            if (f9350f == null) {
+            if (f9492f == null) {
                 synchronized (j.class) {
-                    if (f9350f == null) {
-                        f9350f = new j();
+                    if (f9492f == null) {
+                        f9492f = new j();
                     }
                 }
             }
-            return f9350f;
+            return f9492f;
         }
         return (j) invokeV.objValue;
     }
@@ -227,17 +227,17 @@ public class j {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) {
-            if (!f() || i2 >= this.f9351b.length) {
+            if (!f() || i2 >= this.f9493b.length) {
                 return "";
             }
             StringBuilder sb = new StringBuilder();
             sb.append("http://");
-            sb.append(this.f9351b[i2]);
+            sb.append(this.f9493b[i2]);
             sb.append(":");
-            sb.append(this.f9352c);
+            sb.append(this.f9494c);
             sb.append("/uploadTraceData");
             sb.append("?");
-            for (Map.Entry<String, String> entry : this.f9353d.entrySet()) {
+            for (Map.Entry<String, String> entry : this.f9495d.entrySet()) {
                 sb.append(entry.getKey());
                 sb.append("=");
                 sb.append(entry.getValue());
@@ -251,8 +251,8 @@ public class j {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            String[] strArr = this.f9351b;
-            return (strArr == null || strArr.length <= 0 || TextUtils.isEmpty(this.f9352c)) ? false : true;
+            String[] strArr = this.f9493b;
+            return (strArr == null || strArr.length <= 0 || TextUtils.isEmpty(this.f9494c)) ? false : true;
         }
         return invokeV.booleanValue;
     }
@@ -275,12 +275,12 @@ public class j {
                         jSONArray.put(jSONObject);
                     }
                 } catch (JSONException unused) {
-                    boolean z = f9349e;
+                    boolean z = f9491e;
                 }
                 c.a.r0.p.c.f postRequest = c.a.r0.p.e.a.g().postRequest();
                 postRequest.requestBody(RequestBody.create(MediaType.parse(AbstractBceClient.DEFAULT_CONTENT_TYPE), jSONArray.toString()));
                 postRequest.connectionTimeout(3000);
-                int min = Math.min(this.f9351b.length, 4);
+                int min = Math.min(this.f9493b.length, 4);
                 b bVar = new b(this, min, aVar);
                 for (int i2 = 0; i2 < min; i2++) {
                     postRequest.url(d(i2));
@@ -306,16 +306,16 @@ public class j {
         String string2 = bundle.getString("tool_port");
         String string3 = bundle.getString("projectId");
         if (!TextUtils.isEmpty(string) && !TextUtils.isEmpty(string2) && !TextUtils.isEmpty(string3)) {
-            if (f9349e) {
+            if (f9491e) {
                 String str = "IP : " + string;
                 String str2 = "Port : " + string2;
                 String str3 = "Project ID : " + string3;
             }
-            this.f9351b = string.split("_");
-            this.f9352c = string2;
-            this.f9353d.put("projectId", string3);
+            this.f9493b = string.split("_");
+            this.f9494c = string2;
+            this.f9495d.put("projectId", string3);
             return;
         }
-        boolean z = f9349e;
+        boolean z = f9491e;
     }
 }

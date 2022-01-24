@@ -9,7 +9,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import c.a.d.f.p.n;
 import c.a.s0.b.d;
-import c.a.s0.e1.q0;
+import c.a.s0.d1.q0;
 import c.a.t0.g0.f0.c;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -37,22 +37,22 @@ public class MultiLinkCardView extends RelativeLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public TextView f40380e;
+    public TextView f40408e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f40381f;
+    public TextView f40409f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f40382g;
+    public TextView f40410g;
 
     /* renamed from: h  reason: collision with root package name */
-    public RelativeLayout f40383h;
+    public RelativeLayout f40411h;
 
     /* renamed from: i  reason: collision with root package name */
-    public RelativeLayout f40384i;
+    public RelativeLayout f40412i;
 
     /* renamed from: j  reason: collision with root package name */
-    public RelativeLayout f40385j;
+    public RelativeLayout f40413j;
     public TbImageView k;
     public TbImageView l;
     public TbImageView m;
@@ -111,12 +111,12 @@ public class MultiLinkCardView extends RelativeLayout {
             if (ListUtils.isEmpty(a)) {
                 return;
             }
-            if (d.u0()) {
+            if (d.A0()) {
                 TBSelector.makeDrawableSelector().gradientLinear(R.color.CAM_X0601, R.color.CAM_X0606).radius(n.f(getContext(), R.dimen.tbds10)).into(this.n);
             }
-            this.f40383h.setVisibility(8);
-            this.f40384i.setVisibility(8);
-            this.f40385j.setVisibility(8);
+            this.f40411h.setVisibility(8);
+            this.f40412i.setVisibility(8);
+            this.f40413j.setVisibility(8);
             this.n.setVisibility(8);
             int size = a.size() > 3 ? 3 : a.size();
             for (int i2 = 0; i2 < size; i2++) {
@@ -200,12 +200,12 @@ public class MultiLinkCardView extends RelativeLayout {
             }
         }
         LayoutInflater.from(context).inflate(R.layout.multi_link_card_layout, this);
-        this.f40383h = (RelativeLayout) findViewById(R.id.rl_multi_link_first);
-        this.f40384i = (RelativeLayout) findViewById(R.id.rl_multi_link_second);
-        this.f40385j = (RelativeLayout) findViewById(R.id.rl_multi_link_third);
-        this.f40380e = (TextView) findViewById(R.id.goods_from_tag_first);
-        this.f40381f = (TextView) findViewById(R.id.goods_from_tag_second);
-        this.f40382g = (TextView) findViewById(R.id.goods_from_tag_third);
+        this.f40411h = (RelativeLayout) findViewById(R.id.rl_multi_link_first);
+        this.f40412i = (RelativeLayout) findViewById(R.id.rl_multi_link_second);
+        this.f40413j = (RelativeLayout) findViewById(R.id.rl_multi_link_third);
+        this.f40408e = (TextView) findViewById(R.id.goods_from_tag_first);
+        this.f40409f = (TextView) findViewById(R.id.goods_from_tag_second);
+        this.f40410g = (TextView) findViewById(R.id.goods_from_tag_third);
         TbImageView tbImageView = (TbImageView) findViewById(R.id.iv_multi_link_first_icon);
         this.k = tbImageView;
         tbImageView.setDrawCorner(true);
@@ -239,15 +239,15 @@ public class MultiLinkCardView extends RelativeLayout {
         this.r = new ArrayList();
         ArrayList arrayList = new ArrayList();
         this.q = arrayList;
-        arrayList.add(this.f40383h);
-        this.q.add(this.f40384i);
-        this.q.add(this.f40385j);
+        arrayList.add(this.f40411h);
+        this.q.add(this.f40412i);
+        this.q.add(this.f40413j);
         this.r.add(this.k);
         this.r.add(this.l);
         this.r.add(this.m);
-        this.s.add(this.f40380e);
-        this.s.add(this.f40381f);
-        this.s.add(this.f40382g);
+        this.s.add(this.f40408e);
+        this.s.add(this.f40409f);
+        this.s.add(this.f40410g);
         onChangeSkinType();
     }
 }

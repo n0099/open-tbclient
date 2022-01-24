@@ -24,10 +24,10 @@ public class h extends c.a.r0.a.u.e.n.a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f9244e;
+        public final /* synthetic */ String f9386e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ h f9245f;
+        public final /* synthetic */ h f9387f;
 
         public a(h hVar, String str) {
             Interceptable interceptable = $ic;
@@ -44,15 +44,15 @@ public class h extends c.a.r0.a.u.e.n.a {
                     return;
                 }
             }
-            this.f9245f = hVar;
-            this.f9244e = str;
+            this.f9387f = hVar;
+            this.f9386e = str;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f9245f.d(this.f9244e, new c.a.r0.a.u.h.b(0, b.a().b()));
+                this.f9387f.d(this.f9386e, new c.a.r0.a.u.h.b(0, b.a().b()));
             }
         }
     }
@@ -64,16 +64,16 @@ public class h extends c.a.r0.a.u.e.n.a {
         public float a;
 
         /* renamed from: b  reason: collision with root package name */
-        public float f9246b;
+        public float f9388b;
 
         /* renamed from: c  reason: collision with root package name */
-        public float f9247c;
+        public float f9389c;
 
         /* renamed from: d  reason: collision with root package name */
-        public float f9248d;
+        public float f9390d;
 
         /* renamed from: e  reason: collision with root package name */
-        public float f9249e;
+        public float f9391e;
 
         public b() {
             Interceptable interceptable = $ic;
@@ -97,10 +97,10 @@ public class h extends c.a.r0.a.u.e.n.a {
                 b bVar = new b();
                 bVar.a = c.a.r0.a.e0.g.e.d();
                 e.c i2 = c.a.r0.a.e0.g.e.i();
-                bVar.f9246b = i2.f5722c;
-                bVar.f9247c = i2.a;
-                bVar.f9248d = i2.f5721b;
-                bVar.f9249e = c.a.r0.a.e0.g.d.b();
+                bVar.f9388b = i2.f5864c;
+                bVar.f9389c = i2.a;
+                bVar.f9390d = i2.f5863b;
+                bVar.f9391e = c.a.r0.a.e0.g.d.b();
                 return bVar;
             }
             return (b) invokeV.objValue;
@@ -113,10 +113,10 @@ public class h extends c.a.r0.a.u.e.n.a {
                 JSONObject jSONObject = new JSONObject();
                 try {
                     jSONObject.put("deviceTotalMem", this.a);
-                    jSONObject.put("deviceUsedMem", this.f9246b);
-                    jSONObject.put("hostUsedMem", this.f9247c);
-                    jSONObject.put("appUsedMem", this.f9248d);
-                    jSONObject.put("appUsedCpu", this.f9249e);
+                    jSONObject.put("deviceUsedMem", this.f9388b);
+                    jSONObject.put("hostUsedMem", this.f9389c);
+                    jSONObject.put("appUsedMem", this.f9390d);
+                    jSONObject.put("appUsedCpu", this.f9391e);
                 } catch (JSONException e2) {
                     c.a.r0.a.e0.d.l("GetDeviceProfileApi", "#toJSONObject 失败", e2);
                 }

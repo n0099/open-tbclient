@@ -17,16 +17,16 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile a f12039b;
+    public static volatile a f12181b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final int f12040c;
+    public static final int f12182c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final int f12041d;
+    public static final int f12183d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final int f12042e;
+    public static final int f12184e;
     public transient /* synthetic */ FieldHolder $fh;
     public ThreadPoolExecutor a;
 
@@ -44,9 +44,9 @@ public class a {
             }
         }
         int availableProcessors = Runtime.getRuntime().availableProcessors();
-        f12040c = availableProcessors;
-        f12041d = Math.max(4, Math.min(availableProcessors - 1, 4));
-        f12042e = (f12040c * 3) + 1;
+        f12182c = availableProcessors;
+        f12183d = Math.max(4, Math.min(availableProcessors - 1, 4));
+        f12184e = (f12182c * 3) + 1;
     }
 
     public a() {
@@ -64,7 +64,7 @@ public class a {
         }
         this.a = null;
         ThreadPoolExecutor.DiscardOldestPolicy discardOldestPolicy = new ThreadPoolExecutor.DiscardOldestPolicy();
-        ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor(f12041d, f12042e, 30L, TimeUnit.SECONDS, new LinkedBlockingQueue(), Executors.defaultThreadFactory(), discardOldestPolicy);
+        ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor(f12183d, f12184e, 30L, TimeUnit.SECONDS, new LinkedBlockingQueue(), Executors.defaultThreadFactory(), discardOldestPolicy);
         this.a = threadPoolExecutor;
         threadPoolExecutor.allowCoreThreadTimeOut(false);
         Executors.newSingleThreadExecutor();
@@ -74,14 +74,14 @@ public class a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (f12039b == null) {
+            if (f12181b == null) {
                 synchronized (a.class) {
-                    if (f12039b == null) {
-                        f12039b = new a();
+                    if (f12181b == null) {
+                        f12181b = new a();
                     }
                 }
             }
-            return f12039b;
+            return f12181b;
         }
         return (a) invokeV.objValue;
     }

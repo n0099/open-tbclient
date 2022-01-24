@@ -11,7 +11,7 @@ public abstract class a<R extends g> {
     public static final ExecutorService a = com.kwad.sdk.core.i.b.h();
 
     /* renamed from: b  reason: collision with root package name */
-    public Future<?> f55877b;
+    public Future<?> f55922b;
 
     public abstract void a(R r, c cVar);
 
@@ -20,7 +20,7 @@ public abstract class a<R extends g> {
 
     public void d() {
         try {
-            this.f55877b = a.submit(new Runnable() { // from class: com.kwad.sdk.core.network.a.1
+            this.f55922b = a.submit(new Runnable() { // from class: com.kwad.sdk.core.network.a.1
                 @Override // java.lang.Runnable
                 public void run() {
                     try {
@@ -37,7 +37,7 @@ public abstract class a<R extends g> {
 
     @CallSuper
     public void e() {
-        Future<?> future = this.f55877b;
+        Future<?> future = this.f55922b;
         if (future != null) {
             future.cancel(true);
         }

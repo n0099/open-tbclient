@@ -28,31 +28,31 @@ public abstract class a {
     public b a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Paint f3102b;
+    public Paint f3204b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Paint f3103c;
+    public Paint f3205c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Paint f3104d;
+    public Paint f3206d;
 
     /* renamed from: e  reason: collision with root package name */
-    public Matrix f3105e;
+    public Matrix f3207e;
 
     /* renamed from: f  reason: collision with root package name */
-    public RectF f3106f;
+    public RectF f3208f;
 
     /* renamed from: g  reason: collision with root package name */
-    public RectF f3107g;
+    public RectF f3209g;
 
     /* renamed from: h  reason: collision with root package name */
-    public RectF f3108h;
+    public RectF f3210h;
 
     /* renamed from: i  reason: collision with root package name */
-    public RectF f3109i;
+    public RectF f3211i;
 
     /* renamed from: j  reason: collision with root package name */
-    public RectF f3110j;
+    public RectF f3212j;
     public DrawerArgs k;
     public float[] l;
     public PointF m;
@@ -60,7 +60,7 @@ public abstract class a {
 
     /* renamed from: c.a.d.g.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static /* synthetic */ class C0117a {
+    public static /* synthetic */ class C0124a {
         public static /* synthetic */ Interceptable $ic;
         public static final /* synthetic */ int[] a;
         public transient /* synthetic */ FieldHolder $fh;
@@ -130,24 +130,24 @@ public abstract class a {
                 return;
             }
         }
-        this.f3102b = new Paint(6);
-        this.f3103c = new Paint();
-        this.f3104d = new Paint();
-        this.f3105e = new Matrix();
-        this.f3106f = new RectF();
-        this.f3107g = new RectF();
-        this.f3108h = new RectF();
-        this.f3109i = new RectF();
-        this.f3110j = new RectF();
+        this.f3204b = new Paint(6);
+        this.f3205c = new Paint();
+        this.f3206d = new Paint();
+        this.f3207e = new Matrix();
+        this.f3208f = new RectF();
+        this.f3209g = new RectF();
+        this.f3210h = new RectF();
+        this.f3211i = new RectF();
+        this.f3212j = new RectF();
         this.k = new DrawerArgs();
         this.l = new float[9];
         this.m = new PointF();
         this.n = new RectF();
-        this.f3103c.setStyle(Paint.Style.STROKE);
-        this.f3103c.setAntiAlias(true);
-        this.f3102b.setAntiAlias(true);
-        this.f3104d.setAntiAlias(true);
-        this.f3104d.setStyle(Paint.Style.FILL);
+        this.f3205c.setStyle(Paint.Style.STROKE);
+        this.f3205c.setAntiAlias(true);
+        this.f3204b.setAntiAlias(true);
+        this.f3206d.setAntiAlias(true);
+        this.f3206d.setStyle(Paint.Style.FILL);
     }
 
     public static Matrix.ScaleToFit m(ImageView.ScaleType scaleType) {
@@ -198,18 +198,18 @@ public abstract class a {
         int width = (imageView.getWidth() - imageView.getPaddingLeft()) - imageView.getPaddingRight();
         int height = (imageView.getHeight() - imageView.getPaddingTop()) - imageView.getPaddingBottom();
         if (scaleType == ImageView.ScaleType.MATRIX) {
-            this.f3106f.set(0.0f, 0.0f, b2, a);
+            this.f3208f.set(0.0f, 0.0f, b2, a);
             a(dVar, imageView);
             return;
         }
         boolean z = (b2 <= 0 || width == b2) && (a <= 0 || height == a);
-        this.f3105e.reset();
+        this.f3207e.reset();
         if (ImageView.ScaleType.FIT_XY != scaleType && !z) {
             float f5 = b2;
             float f6 = a;
-            this.f3106f.set(0.0f, 0.0f, f5, f6);
+            this.f3208f.set(0.0f, 0.0f, f5, f6);
             if (ImageView.ScaleType.CENTER == scaleType) {
-                this.f3105e.setTranslate((width - b2) * 0.5f, (height - a) * 0.5f);
+                this.f3207e.setTranslate((width - b2) * 0.5f, (height - a) * 0.5f);
             } else if (ImageView.ScaleType.CENTER_CROP == scaleType) {
                 if (b2 * height > a * width) {
                     f2 = height / f6;
@@ -220,25 +220,25 @@ public abstract class a {
                     f3 = (height - (f6 * f2)) * 0.5f;
                     f4 = 0.0f;
                 }
-                this.f3105e.setScale(f2, f2);
-                this.f3105e.postTranslate(f4, f3);
+                this.f3207e.setScale(f2, f2);
+                this.f3207e.postTranslate(f4, f3);
             } else if (ImageView.ScaleType.CENTER_INSIDE == scaleType) {
                 float min = (b2 > width || a > height) ? Math.min(width / f5, height / f6) : 1.0f;
-                this.f3105e.setScale(min, min);
-                this.f3105e.postTranslate((width - (f5 * min)) * 0.5f, (height - (f6 * min)) * 0.5f);
+                this.f3207e.setScale(min, min);
+                this.f3207e.postTranslate((width - (f5 * min)) * 0.5f, (height - (f6 * min)) * 0.5f);
             } else {
-                this.f3108h.set(0.0f, 0.0f, f5, f6);
-                this.f3109i.set(0.0f, 0.0f, width, height);
-                this.f3105e.setRectToRect(this.f3108h, this.f3109i, m(scaleType));
+                this.f3210h.set(0.0f, 0.0f, f5, f6);
+                this.f3211i.set(0.0f, 0.0f, width, height);
+                this.f3207e.setRectToRect(this.f3210h, this.f3211i, m(scaleType));
             }
         } else {
-            this.f3106f.set(0.0f, 0.0f, width, height);
+            this.f3208f.set(0.0f, 0.0f, width, height);
         }
         int length = this.k.a.length;
         for (int i2 = 0; i2 < length; i2++) {
             float[] fArr = this.k.a;
             if (fArr[i2] > 0.0f && fArr[i2] < 1.0f) {
-                fArr[i2] = fArr[i2] * this.f3106f.height();
+                fArr[i2] = fArr[i2] * this.f3208f.height();
             }
         }
         a(dVar, imageView);
@@ -292,13 +292,13 @@ public abstract class a {
             if (matrix2 != null) {
                 canvas.concat(matrix2);
             }
-            c.a.d.n.d.a aVar = dVar.f3113b;
+            c.a.d.n.d.a aVar = dVar.f3215b;
             if (aVar != null && aVar.v()) {
-                if ((dVar.f3113b.p().getWidth() + paddingLeft + paddingRight > imageView.getWidth() || dVar.f3113b.p().getHeight() + paddingTop + paddingBottom > imageView.getHeight()) && (matrix = this.f3105e) != null) {
+                if ((dVar.f3215b.p().getWidth() + paddingLeft + paddingRight > imageView.getWidth() || dVar.f3215b.p().getHeight() + paddingTop + paddingBottom > imageView.getHeight()) && (matrix = this.f3207e) != null) {
                     canvas.concat(matrix);
                 }
-                this.f3110j.set(0.0f, 0.0f, imageView.getWidth(), imageView.getHeight());
-                dVar.f3113b.i(canvas, this.f3110j);
+                this.f3212j.set(0.0f, 0.0f, imageView.getWidth(), imageView.getHeight());
+                dVar.f3215b.i(canvas, this.f3212j);
             } else {
                 h(canvas, dVar, imageView);
             }
@@ -320,13 +320,13 @@ public abstract class a {
     public RectF j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f3106f : (RectF) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f3208f : (RectF) invokeV.objValue;
     }
 
     public Matrix k() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f3105e : (Matrix) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f3207e : (Matrix) invokeV.objValue;
     }
 
     public Path l(RectF rectF, float[] fArr) {
@@ -343,7 +343,7 @@ public abstract class a {
     public void n(Matrix matrix) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048588, this, matrix) == null) {
-            this.f3105e = matrix;
+            this.f3207e = matrix;
         }
     }
 
@@ -364,14 +364,14 @@ public abstract class a {
     public void q() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
-            this.f3102b.setAlpha((int) (this.k.k * 255.0f));
-            if (C0117a.a[this.k.f31205f.ordinal()] != 1) {
-                this.f3102b.setColorFilter(null);
+            this.f3204b.setAlpha((int) (this.k.k * 255.0f));
+            if (C0124a.a[this.k.f31233f.ordinal()] != 1) {
+                this.f3204b.setColorFilter(null);
             } else {
-                this.f3102b.setColorFilter(p);
+                this.f3204b.setColorFilter(p);
             }
-            this.f3103c.setColor(this.k.f31204e);
-            this.f3103c.setStrokeWidth(this.k.f31203d);
+            this.f3205c.setColor(this.k.f31232e);
+            this.f3205c.setStrokeWidth(this.k.f31231d);
         }
     }
 }

@@ -29,10 +29,10 @@ public class c implements com.kwai.filedownloader.kwai.b {
         public Proxy a;
 
         /* renamed from: b  reason: collision with root package name */
-        public Integer f58299b;
+        public Integer f58344b;
 
         /* renamed from: c  reason: collision with root package name */
-        public Integer f58300c;
+        public Integer f58345c;
     }
 
     /* loaded from: classes3.dex */
@@ -124,11 +124,11 @@ public class c implements com.kwai.filedownloader.kwai.b {
         this.a = (aVar == null || aVar.a == null) ? url.openConnection() : url.openConnection(aVar.a);
         ((com.kwad.sdk.design.kwai.a) ServiceProvider.a(com.kwad.sdk.design.kwai.a.class)).a(this.a);
         if (aVar != null) {
-            if (aVar.f58299b != null) {
-                this.a.setReadTimeout(aVar.f58299b.intValue());
+            if (aVar.f58344b != null) {
+                this.a.setReadTimeout(aVar.f58344b.intValue());
             }
-            if (aVar.f58300c != null) {
-                this.a.setConnectTimeout(aVar.f58300c.intValue());
+            if (aVar.f58345c != null) {
+                this.a.setConnectTimeout(aVar.f58345c.intValue());
             }
         }
     }

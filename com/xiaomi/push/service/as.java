@@ -13,7 +13,7 @@ public /* synthetic */ class as {
     public static final /* synthetic */ int[] a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final /* synthetic */ int[] f61417b;
+    public static final /* synthetic */ int[] f61462b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -30,21 +30,21 @@ public /* synthetic */ class as {
             }
         }
         int[] iArr = new int[hm.values().length];
-        f61417b = iArr;
+        f61462b = iArr;
         try {
             iArr[hm.a.ordinal()] = 1;
         } catch (NoSuchFieldError unused) {
         }
         try {
-            f61417b[hm.f61197b.ordinal()] = 2;
+            f61462b[hm.f61242b.ordinal()] = 2;
         } catch (NoSuchFieldError unused2) {
         }
         try {
-            f61417b[hm.f61198c.ordinal()] = 3;
+            f61462b[hm.f61243c.ordinal()] = 3;
         } catch (NoSuchFieldError unused3) {
         }
         try {
-            f61417b[hm.f61199d.ordinal()] = 4;
+            f61462b[hm.f61244d.ordinal()] = 4;
         } catch (NoSuchFieldError unused4) {
         }
         int[] iArr2 = new int[hl.values().length];
@@ -54,7 +54,7 @@ public /* synthetic */ class as {
         } catch (NoSuchFieldError unused5) {
         }
         try {
-            a[hl.f61196b.ordinal()] = 2;
+            a[hl.f61241b.ordinal()] = 2;
         } catch (NoSuchFieldError unused6) {
         }
     }

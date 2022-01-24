@@ -8,10 +8,10 @@ public class f implements com.kwad.sdk.core.b {
     public final int a = 1;
 
     /* renamed from: b  reason: collision with root package name */
-    public final com.kwad.sdk.core.b f56468b;
+    public final com.kwad.sdk.core.b f56513b;
 
     public f(com.kwad.sdk.core.b bVar) {
-        this.f56468b = bVar;
+        this.f56513b = bVar;
     }
 
     @Override // com.kwad.sdk.core.b
@@ -22,7 +22,7 @@ public class f implements com.kwad.sdk.core.b {
     public JSONObject toJson() {
         JSONObject jSONObject = new JSONObject();
         t.a(jSONObject, "result", this.a);
-        t.a(jSONObject, "data", this.f56468b);
+        t.a(jSONObject, "data", this.f56513b);
         return jSONObject;
     }
 }

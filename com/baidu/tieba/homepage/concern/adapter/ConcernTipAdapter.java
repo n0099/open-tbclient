@@ -7,7 +7,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import c.a.d.f.p.n;
 import c.a.d.n.e.a;
-import c.a.t0.o1.c.f.b;
+import c.a.t0.p1.c.f.b;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.imsdk.internal.Constants;
@@ -70,7 +70,7 @@ public class ConcernTipAdapter extends a<b, ConcernTipViewHolder> {
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ConcernTipAdapter(Context context) {
-        super(context, b.f20212j);
+        super(context, b.f20533j);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -117,12 +117,12 @@ public class ConcernTipAdapter extends a<b, ConcernTipViewHolder> {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i2), view, viewGroup, bVar, concernTipViewHolder})) == null) {
-            concernTipViewHolder.tip.setText(bVar.f20214f);
+            concernTipViewHolder.tip.setText(bVar.f20535f);
             LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) concernTipViewHolder.tip.getLayoutParams();
-            if (bVar.f20215g) {
+            if (bVar.f20536g) {
                 layoutParams.height = n;
                 concernTipViewHolder.topDivider.setVisibility(0);
-            } else if (bVar.f20216h) {
+            } else if (bVar.f20537h) {
                 layoutParams.height = m;
             }
             concernTipViewHolder.tip.setLayoutParams(layoutParams);

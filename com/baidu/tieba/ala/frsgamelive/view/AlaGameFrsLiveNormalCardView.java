@@ -111,7 +111,7 @@ public class AlaGameFrsLiveNormalCardView extends b<c> {
         e2 e2Var;
         c.a.t0.a0.g.d.b bVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048581, this, cVar) == null) || cVar == null || (e2Var = cVar.f14756e) == null || (bVar = this.n) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048581, this, cVar) == null) || cVar == null || (e2Var = cVar.f14896e) == null || (bVar = this.n) == null) {
             return;
         }
         bVar.d(e2Var);

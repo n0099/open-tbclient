@@ -1,6 +1,6 @@
 package com.baidu.tieba.memberCenter.memberTask;
 
-import c.a.t0.f2.c.k.r;
+import c.a.t0.g2.c.k.r;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;

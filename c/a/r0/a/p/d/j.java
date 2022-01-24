@@ -11,7 +11,7 @@ public interface j {
     c.a.r0.a.h2.c.j.a a(Activity activity, boolean z, String str, String str2);
 
     @NonNull
-    c.a.r0.a.h2.c.j.f b(Activity activity, d.C0561d c0561d, Bundle bundle);
+    c.a.r0.a.h2.c.j.f b(Activity activity, d.C0570d c0570d, Bundle bundle);
 
     @NonNull
     c.a.r0.a.h2.c.j.g c(Activity activity, String str, String str2, boolean z, boolean z2);

@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class a extends a.C0793a {
+public class a extends a.C0802a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -33,7 +33,7 @@ public class a extends a.C0793a {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // c.a.r0.p.f.a.C0793a, com.baidu.searchbox.http.request.HttpRequestBuilder
+    @Override // c.a.r0.p.f.a.C0802a, com.baidu.searchbox.http.request.HttpRequestBuilder
     /* renamed from: a */
     public c.a.r0.p.f.a build() {
         InterceptResult invokeV;

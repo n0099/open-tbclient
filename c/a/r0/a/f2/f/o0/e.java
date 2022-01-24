@@ -10,6 +10,7 @@ import c.a.r0.a.n2.n;
 import c.a.r0.a.z2.q0;
 import c.a.r0.a.z2.w;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.retrieve.log.bean.FetchLog;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
@@ -32,11 +33,11 @@ public class e extends z {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final int f6072d;
+    public static final int f6214d;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c  reason: collision with root package name */
-    public Context f6073c;
+    public Context f6215c;
 
     /* loaded from: classes.dex */
     public class a implements g.e {
@@ -45,31 +46,31 @@ public class e extends z {
         public final /* synthetic */ String a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ c.a.r0.a.d2.e f6074b;
+        public final /* synthetic */ c.a.r0.a.d2.e f6216b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ c.a.r0.a.g1.f f6075c;
+        public final /* synthetic */ c.a.r0.a.g1.f f6217c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ c.a.r0.a.m1.b f6076d;
+        public final /* synthetic */ c.a.r0.a.m1.b f6218d;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c.a.r0.a.h0.g.g f6077e;
+        public final /* synthetic */ c.a.r0.a.h0.g.g f6219e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ UnitedSchemeEntity f6078f;
+        public final /* synthetic */ UnitedSchemeEntity f6220f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f6079g;
+        public final /* synthetic */ CallbackHandler f6221g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ String f6080h;
+        public final /* synthetic */ String f6222h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final /* synthetic */ Context f6081i;
+        public final /* synthetic */ Context f6223i;
 
         /* renamed from: j  reason: collision with root package name */
-        public final /* synthetic */ e f6082j;
+        public final /* synthetic */ e f6224j;
 
         public a(e eVar, String str, c.a.r0.a.d2.e eVar2, c.a.r0.a.g1.f fVar, c.a.r0.a.m1.b bVar, c.a.r0.a.h0.g.g gVar, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, String str2, Context context) {
             Interceptable interceptable = $ic;
@@ -86,16 +87,16 @@ public class e extends z {
                     return;
                 }
             }
-            this.f6082j = eVar;
+            this.f6224j = eVar;
             this.a = str;
-            this.f6074b = eVar2;
-            this.f6075c = fVar;
-            this.f6076d = bVar;
-            this.f6077e = gVar;
-            this.f6078f = unitedSchemeEntity;
-            this.f6079g = callbackHandler;
-            this.f6080h = str2;
-            this.f6081i = context;
+            this.f6216b = eVar2;
+            this.f6217c = fVar;
+            this.f6218d = bVar;
+            this.f6219e = gVar;
+            this.f6220f = unitedSchemeEntity;
+            this.f6221g = callbackHandler;
+            this.f6222h = str2;
+            this.f6223i = context;
         }
 
         @Override // c.a.r0.a.f2.f.o0.g.e
@@ -104,11 +105,11 @@ public class e extends z {
             if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
                 c.a.r0.a.u1.i.d(this.a);
                 c.a.r0.a.e0.d.i("navigateTo", "check pages success");
-                n.F(true, this.f6074b.X().T());
-                this.f6075c.o();
-                a.e f2 = c.a.r0.a.h0.t.a.f(this.f6075c.getActivity(), c.a.r0.a.h0.t.f.a.c(this.f6076d.f7672e));
-                c.a.r0.a.f2.f.o0.a.l(this.f6078f, this.f6079g, this.f6074b, f2.a.c(), this.f6076d.f7672e, c.a.r0.a.f2.f.o0.a.g(this.f6077e), this.f6080h);
-                this.f6082j.p(f2, this.f6076d, this.f6077e, this.a);
+                n.F(true, this.f6216b.X().T());
+                this.f6217c.o();
+                a.e f2 = c.a.r0.a.h0.t.a.f(this.f6217c.getActivity(), c.a.r0.a.h0.t.f.a.c(this.f6218d.f7814e));
+                c.a.r0.a.f2.f.o0.a.l(this.f6220f, this.f6221g, this.f6216b, f2.a.c(), this.f6218d.f7814e, c.a.r0.a.f2.f.o0.a.g(this.f6219e), this.f6222h);
+                this.f6224j.p(f2, this.f6218d, this.f6219e, this.a);
             }
         }
 
@@ -117,14 +118,14 @@ public class e extends z {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, aVar) == null) {
                 c.a.r0.a.e0.d.c("navigateTo", "check pages failed");
-                n.F(false, this.f6074b.X().T());
-                this.f6075c.o();
-                if (z.f6201b) {
-                    Context context = this.f6081i;
-                    c.a.r0.a.c2.b.f.e.g(context, this.f6081i.getString(c.a.r0.a.h.aiapps_open_pages_failed) + i2).G();
+                n.F(false, this.f6216b.X().T());
+                this.f6217c.o();
+                if (z.f6343b) {
+                    Context context = this.f6223i;
+                    c.a.r0.a.c2.b.f.e.g(context, this.f6223i.getString(c.a.r0.a.h.aiapps_open_pages_failed) + i2).G();
                 }
-                c.a.r0.a.f2.f.o0.a.j(this.f6078f, this.f6079g, this.f6080h);
-                c.a.r0.a.n2.i.j(this.f6076d, aVar);
+                c.a.r0.a.f2.f.o0.a.j(this.f6220f, this.f6221g, this.f6222h);
+                c.a.r0.a.n2.i.j(this.f6218d, aVar);
             }
         }
     }
@@ -136,16 +137,16 @@ public class e extends z {
         public final /* synthetic */ a.e a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ String f6083b;
+        public final /* synthetic */ String f6225b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ c.a.r0.a.m1.b f6084c;
+        public final /* synthetic */ c.a.r0.a.m1.b f6226c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ c.a.r0.a.h0.g.g f6085d;
+        public final /* synthetic */ c.a.r0.a.h0.g.g f6227d;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ e f6086e;
+        public final /* synthetic */ e f6228e;
 
         public b(e eVar, a.e eVar2, String str, c.a.r0.a.m1.b bVar, c.a.r0.a.h0.g.g gVar) {
             Interceptable interceptable = $ic;
@@ -162,21 +163,21 @@ public class e extends z {
                     return;
                 }
             }
-            this.f6086e = eVar;
+            this.f6228e = eVar;
             this.a = eVar2;
-            this.f6083b = str;
-            this.f6084c = bVar;
-            this.f6085d = gVar;
+            this.f6225b = str;
+            this.f6226c = bVar;
+            this.f6227d = gVar;
         }
 
         @Override // c.a.r0.a.h0.t.a.f
         public void onReady() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                boolean unused = z.f6201b;
-                c.a.r0.a.u1.i.e(this.a, this.f6083b);
-                this.f6086e.o(this.a.a, this.f6084c, this.f6085d, this.f6083b);
-                boolean unused2 = z.f6201b;
+                boolean unused = z.f6343b;
+                c.a.r0.a.u1.i.e(this.a, this.f6225b);
+                this.f6228e.o(this.a.a, this.f6226c, this.f6227d, this.f6225b);
+                boolean unused2 = z.f6343b;
             }
         }
     }
@@ -194,9 +195,9 @@ public class e extends z {
                 return;
             }
         }
-        f6072d = c.a.r0.a.c1.a.g0().r();
-        if (z.f6201b) {
-            String str = "NavigateToAction max count: " + f6072d;
+        f6214d = c.a.r0.a.c1.a.g0().r();
+        if (z.f6343b) {
+            String str = "NavigateToAction max count: " + f6214d;
         }
     }
 
@@ -226,10 +227,10 @@ public class e extends z {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, eVar)) == null) {
-            if (z.f6201b) {
+            if (z.f6343b) {
                 r0 = "handle entity: " + unitedSchemeEntity.toString();
             }
-            this.f6073c = context;
+            this.f6215c = context;
             String uuid = UUID.randomUUID().toString();
             c.a.r0.a.u1.i.b(uuid);
             String o = c.a.r0.a.f2.f.o0.a.o(unitedSchemeEntity, "params");
@@ -246,27 +247,27 @@ public class e extends z {
                 return false;
             }
             c.a.r0.a.m1.b e2 = c.a.r0.a.m1.b.e(o, U.z());
-            e2.f7676i = "0";
-            e2.f7677j = uuid;
+            e2.f7818i = "0";
+            e2.f7819j = uuid;
             c.a.r0.a.n2.i.g(e2);
             if (!q0.b(U.s(), e2, false)) {
-                c.a.r0.a.e0.d.c("navigateTo", "page params error : path=" + e2.f7672e + " ; routePath=" + e2.f7675h);
+                c.a.r0.a.e0.d.c("navigateTo", "page params error : path=" + e2.f7814e + " ; routePath=" + e2.f7817h);
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
                 c.a.r0.a.n2.i.i(e2);
                 return false;
             }
             String n = c.a.r0.a.f2.f.o0.a.n(unitedSchemeEntity, "params", "initData");
-            if (!TextUtils.isEmpty(n) && !TextUtils.isEmpty(e2.f7675h) && c.a.r0.a.d2.e.L() != null) {
-                c.a.r0.a.d2.e.L().K0(n, e2.f7675h);
+            if (!TextUtils.isEmpty(n) && !TextUtils.isEmpty(e2.f7817h) && c.a.r0.a.d2.e.L() != null) {
+                c.a.r0.a.d2.e.L().K0(n, e2.f7817h);
             }
-            String n2 = c.a.r0.a.f2.f.o0.a.n(unitedSchemeEntity, "params", "startTime");
+            String n2 = c.a.r0.a.f2.f.o0.a.n(unitedSchemeEntity, "params", FetchLog.START_TIME);
             if (!TextUtils.isEmpty(n2)) {
                 HybridUbcFlow q = c.a.r0.a.u1.h.q(FlutterActivityLaunchConfigs.EXTRA_INITIAL_ROUTE, uuid);
                 UbcFlowEvent ubcFlowEvent = new UbcFlowEvent("fe_route_start");
                 ubcFlowEvent.h(Long.valueOf(n2).longValue());
                 q.F(ubcFlowEvent);
             }
-            boolean z = z.f6201b;
+            boolean z = z.f6343b;
             String optString = w.d(unitedSchemeEntity.getParam("params")).optString("cb");
             if (TextUtils.isEmpty(optString)) {
                 c.a.r0.a.e0.d.c("navigateTo", "cb is null");
@@ -296,12 +297,12 @@ public class e extends z {
         }
         c.a.r0.a.f2.f.o0.a.e(bVar, bVar2, str);
         c.a.r0.a.u1.i.c(0, str);
-        if (gVar.k() < f6072d) {
+        if (gVar.k() < f6214d) {
             c.a.r0.a.h0.g.f.M3(q0.n());
             g.b i2 = gVar.i("navigateTo");
-            i2.n(c.a.r0.a.h0.g.g.f6399g, c.a.r0.a.h0.g.g.f6401i);
+            i2.n(c.a.r0.a.h0.g.g.f6541g, c.a.r0.a.h0.g.g.f6543i);
             i2.k("normal", bVar2).b();
-            c.a.r0.a.z2.g.c(gVar, this.f6073c);
+            c.a.r0.a.z2.g.c(gVar, this.f6215c);
             c.a.r0.a.u1.h.q(FlutterActivityLaunchConfigs.EXTRA_INITIAL_ROUTE, str).F(new UbcFlowEvent("na_push_page_end"));
             c.a.r0.a.u1.i.a(str, bVar2);
             return;
@@ -312,15 +313,15 @@ public class e extends z {
     public final void p(a.e eVar, c.a.r0.a.m1.b bVar, c.a.r0.a.h0.g.g gVar, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_SEND_USER_MSG, this, eVar, bVar, gVar, str) == null) {
-            boolean z = eVar != null && eVar.f6884b;
+            boolean z = eVar != null && eVar.f7026b;
             HybridUbcFlow q = c.a.r0.a.u1.h.q(FlutterActivityLaunchConfigs.EXTRA_INITIAL_ROUTE, str);
             q.F(new UbcFlowEvent("na_pre_load_slave_check"));
             q.D("preload", z ? "1" : "0");
-            if (z.f6201b) {
+            if (z.f6343b) {
                 String str2 = "tryToExecutePageRoute start. isReady : " + z;
             }
             c.a.r0.a.h0.t.a.q(eVar, new b(this, eVar, str, bVar, gVar));
-            boolean z2 = z.f6201b;
+            boolean z2 = z.f6343b;
         }
     }
 }

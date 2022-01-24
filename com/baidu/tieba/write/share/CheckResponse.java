@@ -48,11 +48,11 @@ public class CheckResponse extends JsonHttpResponsedMessage {
             c cVar = new c();
             this.mCheckResponseData = cVar;
             cVar.a = jSONObject.optString("tbopen_app_key");
-            this.mCheckResponseData.f21407c = jSONObject.optString("tbopen_app_name");
-            this.mCheckResponseData.f21408d = jSONObject.optString("tbopen_app_icon");
+            this.mCheckResponseData.f21643c = jSONObject.optString("tbopen_app_name");
+            this.mCheckResponseData.f21644d = jSONObject.optString("tbopen_app_icon");
             JSONObject optJSONObject = jSONObject.optJSONObject(UpdateCloudControlProcessor.CLOUD_UPDATE_ACTION_NAME);
             if (optJSONObject != null) {
-                this.mCheckResponseData.f21414j = optJSONObject.optString("default_pic");
+                this.mCheckResponseData.f21650j = optJSONObject.optString("default_pic");
             }
         }
     }

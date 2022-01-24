@@ -24,16 +24,16 @@ public abstract class l<T extends k> extends c.a.r0.q.f.b<c.a.r0.q.i.i> {
     @NonNull
 
     /* renamed from: e  reason: collision with root package name */
-    public final T f6689e;
+    public final T f6831e;
 
     /* loaded from: classes.dex */
-    public class a implements c.InterfaceC0383c {
+    public class a implements c.InterfaceC0392c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ c.a.r0.q.i.i a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ l f6690b;
+        public final /* synthetic */ l f6832b;
 
         public a(l lVar, c.a.r0.q.i.i iVar) {
             Interceptable interceptable = $ic;
@@ -50,23 +50,23 @@ public abstract class l<T extends k> extends c.a.r0.q.f.b<c.a.r0.q.i.i> {
                     return;
                 }
             }
-            this.f6690b = lVar;
+            this.f6832b = lVar;
             this.a = iVar;
         }
 
-        @Override // c.a.r0.a.h0.m.c.InterfaceC0383c
+        @Override // c.a.r0.a.h0.m.c.InterfaceC0392c
         public void a(PMSDownloadType pMSDownloadType) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, pMSDownloadType) == null) {
-                this.f6690b.r(this.a);
+                this.f6832b.r(this.a);
             }
         }
 
-        @Override // c.a.r0.a.h0.m.c.InterfaceC0383c
+        @Override // c.a.r0.a.h0.m.c.InterfaceC0392c
         public void b(PMSDownloadType pMSDownloadType, c.a.r0.a.u2.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, pMSDownloadType, aVar) == null) {
-                this.f6690b.u(this.a, aVar);
+                this.f6832b.u(this.a, aVar);
             }
         }
     }
@@ -86,7 +86,7 @@ public abstract class l<T extends k> extends c.a.r0.q.f.b<c.a.r0.q.i.i> {
                 return;
             }
         }
-        this.f6689e = t;
+        this.f6831e = t;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -103,7 +103,7 @@ public abstract class l<T extends k> extends c.a.r0.q.f.b<c.a.r0.q.i.i> {
     public Bundle m(@NonNull Bundle bundle, Set<String> set) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, bundle, set)) == null) ? this.f6689e.m(bundle, set) : (Bundle) invokeLL.objValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, bundle, set)) == null) ? this.f6831e.m(bundle, set) : (Bundle) invokeLL.objValue;
     }
 
     public PMSDownloadType o() {
@@ -141,7 +141,7 @@ public abstract class l<T extends k> extends c.a.r0.q.f.b<c.a.r0.q.i.i> {
             c.a.r0.a.u2.a aVar = new c.a.r0.a.u2.a();
             aVar.k(17L);
             aVar.i((long) bVar.a);
-            aVar.d(bVar.f11484b);
+            aVar.d(bVar.f11626b);
             aVar.f(bVar.toString());
             p(iVar, aVar);
         }
@@ -170,7 +170,7 @@ public abstract class l<T extends k> extends c.a.r0.q.f.b<c.a.r0.q.i.i> {
                 aVar2.d(ErrorConstant.ErrorMsg.DOWNLOAD_ERROR_MD5);
                 p(iVar, aVar2);
             } else {
-                File t = c.a.r0.a.a1.d.t(iVar.f11494g, String.valueOf(iVar.f11496i));
+                File t = c.a.r0.a.a1.d.t(iVar.f11636g, String.valueOf(iVar.f11638i));
                 c.a.r0.w.d.l(t);
                 if (t != null && t.exists()) {
                     boolean U = c.a.r0.w.d.U(iVar.a, t.getAbsolutePath());
@@ -184,14 +184,14 @@ public abstract class l<T extends k> extends c.a.r0.q.f.b<c.a.r0.q.i.i> {
                         p(iVar, aVar3);
                         return;
                     }
-                    iVar.f11490c = iVar.b();
-                    iVar.f11491d = iVar.b();
+                    iVar.f11632c = iVar.b();
+                    iVar.f11633d = iVar.b();
                     c.a.r0.q.g.a.i().m(iVar);
                     q(iVar);
                     return;
                 }
                 c.a.r0.w.d.M(iVar.a);
-                c.a.r0.a.w1.e.a.b("download finish, create file failure, name = " + iVar.f11494g + " ; version = " + iVar.f11496i);
+                c.a.r0.a.w1.e.a.b("download finish, create file failure, name = " + iVar.f11636g + " ; version = " + iVar.f11638i);
                 c.a.r0.a.u2.a aVar4 = new c.a.r0.a.u2.a();
                 aVar4.k(17L);
                 aVar4.i(2203L);
@@ -211,7 +211,7 @@ public abstract class l<T extends k> extends c.a.r0.q.f.b<c.a.r0.q.i.i> {
         if (interceptable == null || interceptable.invokeL(1048590, this, iVar) == null) {
             super.c(iVar);
             if (iVar != null) {
-                c.a.r0.a.w1.e.a.b("plugin download start: bundleId = " + iVar.f11494g);
+                c.a.r0.a.w1.e.a.b("plugin download start: bundleId = " + iVar.f11636g);
             }
         }
     }
@@ -224,7 +224,7 @@ public abstract class l<T extends k> extends c.a.r0.q.f.b<c.a.r0.q.i.i> {
         if (interceptable == null || interceptable.invokeL(1048591, this, iVar) == null) {
             super.f(iVar);
             if (iVar != null) {
-                c.a.r0.a.w1.e.a.b("plugin on downloading: bundleId = " + iVar.f11494g);
+                c.a.r0.a.w1.e.a.b("plugin on downloading: bundleId = " + iVar.f11636g);
             }
             x(iVar);
         }

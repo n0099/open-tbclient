@@ -1,7 +1,7 @@
 package com.baidu.tieba.memberCenter.memberpay;
 
 import android.os.Bundle;
-import c.a.t0.f2.f.g;
+import c.a.t0.g2.f.g;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.atomData.MemberPayResultActivityConfig;

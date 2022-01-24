@@ -10,7 +10,7 @@ public final class a {
     public static final int alert_msg_force_update = 2131690073;
     public static final int alert_title_force_update = 2131690075;
     public static final int app_name = 2131690142;
-    public static final int predownload_net_error_msg = 2131693715;
-    public static final int predownload_no_available_msg = 2131693716;
+    public static final int predownload_net_error_msg = 2131693717;
+    public static final int predownload_no_available_msg = 2131693718;
     public transient /* synthetic */ FieldHolder $fh;
 }

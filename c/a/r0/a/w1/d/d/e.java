@@ -27,13 +27,13 @@ public class e extends c.a.r0.a.w1.d.d.a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c.a.r0.a.h0.j.b f9542e;
+        public final /* synthetic */ c.a.r0.a.h0.j.b f9684e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ c.a.r0.a.w1.d.c.a f9543f;
+        public final /* synthetic */ c.a.r0.a.w1.d.c.a f9685f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ c.a.r0.a.h2.d.a f9544g;
+        public final /* synthetic */ c.a.r0.a.h2.d.a f9686g;
 
         public a(e eVar, c.a.r0.a.h0.j.b bVar, c.a.r0.a.w1.d.c.a aVar, c.a.r0.a.h2.d.a aVar2) {
             Interceptable interceptable = $ic;
@@ -50,9 +50,9 @@ public class e extends c.a.r0.a.w1.d.d.a {
                     return;
                 }
             }
-            this.f9542e = bVar;
-            this.f9543f = aVar;
-            this.f9544g = aVar2;
+            this.f9684e = bVar;
+            this.f9685f = aVar;
+            this.f9686g = aVar2;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -62,23 +62,23 @@ public class e extends c.a.r0.a.w1.d.d.a {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, iVar) == null) {
                 if (iVar != null && iVar.c() && !TextUtils.isEmpty(iVar.a.a)) {
-                    JSONObject jSONObject = this.f9544g.f7190g;
+                    JSONObject jSONObject = this.f9686g.f7332g;
                     if (jSONObject != null) {
                         try {
                             jSONObject.put("code", iVar.a.a);
-                            this.f9543f.f9524d = true;
+                            this.f9685f.f9666d = true;
                         } catch (JSONException e2) {
                             if (k.a) {
                                 c.a.r0.a.w1.e.a.b(Log.getStackTraceString(e2));
                             }
                         }
-                        this.f9543f.f9525e = jSONObject.toString();
+                        this.f9685f.f9667e = jSONObject.toString();
                     }
-                    this.f9542e.a(this.f9543f);
+                    this.f9684e.a(this.f9685f);
                     return;
                 }
                 c.a.r0.a.w1.e.a.b("login failure, can't get login code");
-                this.f9542e.a(this.f9543f);
+                this.f9684e.a(this.f9685f);
             }
         }
     }
@@ -125,14 +125,14 @@ public class e extends c.a.r0.a.w1.d.d.a {
     public void p(SwanAppActivity swanAppActivity, String str, c.a.r0.a.w1.d.b.b bVar, c.a.r0.a.h2.d.a aVar, c.a.r0.a.h0.j.b<c.a.r0.a.w1.d.c.a> bVar2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLLL(1048579, this, swanAppActivity, str, bVar, aVar, bVar2) == null) {
-            c.a.r0.a.w1.d.c.a aVar2 = new c.a.r0.a.w1.d.c.a(bVar.f9518f);
-            aVar2.a = bVar.f9517e;
-            if (aVar != null && aVar.f7193j.a() == 0) {
+            c.a.r0.a.w1.d.c.a aVar2 = new c.a.r0.a.w1.d.c.a(bVar.f9660f);
+            aVar2.a = bVar.f9659e;
+            if (aVar != null && aVar.f7335j.a() == 0) {
                 c.a.r0.a.w1.e.a.b("obtain user info detail, get login code");
-                d.C0561d c0561d = new d.C0561d(bVar.f9519g);
+                d.C0570d c0570d = new d.C0570d(bVar.f9661g);
                 Bundle bundle = new Bundle();
                 bundle.putString("__plugin__", bVar.a);
-                c.a.r0.a.d2.d.J().r().d0().r(swanAppActivity, c0561d, bundle, new a(this, bVar2, aVar2, aVar), "SwanPluginUserInfoFunPage");
+                c.a.r0.a.d2.d.J().r().d0().r(swanAppActivity, c0570d, bundle, new a(this, bVar2, aVar2, aVar), "SwanPluginUserInfoFunPage");
                 return;
             }
             c.a.r0.a.w1.e.a.b("open data result failure");

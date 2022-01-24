@@ -27,10 +27,10 @@ public final class e implements c.a.r0.a.u2.b, d {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Set f9462e;
+        public final /* synthetic */ Set f9604e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ Set f9463f;
+        public final /* synthetic */ Set f9605f;
 
         public a(e eVar, Set set, Set set2) {
             Interceptable interceptable = $ic;
@@ -47,16 +47,16 @@ public final class e implements c.a.r0.a.u2.b, d {
                     return;
                 }
             }
-            this.f9462e = set;
-            this.f9463f = set2;
+            this.f9604e = set;
+            this.f9605f = set2;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                for (b bVar : this.f9462e) {
-                    bVar.onCallback(this.f9463f);
+                for (b bVar : this.f9604e) {
+                    bVar.onCallback(this.f9605f);
                 }
             }
         }

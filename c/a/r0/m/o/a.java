@@ -12,7 +12,7 @@ public class a {
     public c.a.r0.a.i1.c.h.b a;
 
     /* renamed from: b  reason: collision with root package name */
-    public View f11375b;
+    public View f11517b;
 
     public a() {
         Interceptable interceptable = $ic;

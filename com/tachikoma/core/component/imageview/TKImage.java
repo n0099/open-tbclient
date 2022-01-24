@@ -16,7 +16,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.ugc.editvideo.filter.FilterValue;
 import com.kwad.sdk.e.d;
 import com.kwad.sdk.e.f;
 import com.tachikoma.annotation.TK_EXPORT_CLASS;
@@ -455,7 +454,7 @@ public class TKImage extends TKBase<RoundImageView> {
                     c2 = 65535;
                     break;
                 case -1008619738:
-                    if (str.equals(FilterValue.DEFAULT_FILTER_VALUE)) {
+                    if (str.equals("origin")) {
                         c2 = 0;
                         break;
                     }

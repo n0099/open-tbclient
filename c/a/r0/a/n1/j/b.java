@@ -36,7 +36,7 @@ public class b extends a {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, bitmap, rect)) == null) {
-            boolean z = a.f7872c;
+            boolean z = a.f8014c;
             if (bitmap == null) {
                 return false;
             }
@@ -78,7 +78,7 @@ public class b extends a {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bitmap, rect)) == null) {
-            boolean z = a.f7872c;
+            boolean z = a.f8014c;
             if (bitmap == null) {
                 return 0.0d;
             }

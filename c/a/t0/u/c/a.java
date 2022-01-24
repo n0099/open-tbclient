@@ -25,26 +25,26 @@ public class a implements View.OnClickListener {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final BaseActivity f23926e;
+    public final BaseActivity f23841e;
 
     /* renamed from: f  reason: collision with root package name */
-    public b f23927f;
+    public b f23842f;
 
     /* renamed from: g  reason: collision with root package name */
-    public AccountSafeModel f23928g;
+    public AccountSafeModel f23843g;
 
     /* renamed from: h  reason: collision with root package name */
-    public c.a.d.c.g.a f23929h;
+    public c.a.d.c.g.a f23844h;
 
     /* renamed from: c.a.t0.u.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes8.dex */
-    public class C1454a extends c.a.d.c.g.a {
+    public class C1450a extends c.a.d.c.g.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ a a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public C1454a(a aVar, int i2, int i3) {
+        public C1450a(a aVar, int i2, int i3) {
             super(i2, i3);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -70,33 +70,33 @@ public class a implements View.OnClickListener {
             String errorString;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) {
-                if (this.a.f23928g != null) {
-                    this.a.f23928g.E(false);
+                if (this.a.f23843g != null) {
+                    this.a.f23843g.E(false);
                 }
-                this.a.f23926e.closeLoadingDialog();
+                this.a.f23841e.closeLoadingDialog();
                 if (responsedMessage == null) {
                     return;
                 }
                 if (!responsedMessage.hasError() && responsedMessage.getError() == 0) {
-                    c.a.t0.m3.k.a.a privacyData = responsedMessage instanceof ResponsedPrivacyHttpMessage ? ((ResponsedPrivacyHttpMessage) responsedMessage).getPrivacyData() : null;
+                    c.a.t0.n3.k.a.a privacyData = responsedMessage instanceof ResponsedPrivacyHttpMessage ? ((ResponsedPrivacyHttpMessage) responsedMessage).getPrivacyData() : null;
                     if (responsedMessage instanceof ResponsedPrivacySocketMessage) {
                         privacyData = ((ResponsedPrivacySocketMessage) responsedMessage).getPrivacyData();
                     }
-                    if (this.a.f23928g != null) {
-                        this.a.f23928g.D(privacyData);
+                    if (this.a.f23843g != null) {
+                        this.a.f23843g.D(privacyData);
                     }
-                    if (this.a.f23927f == null || this.a.f23928g == null || this.a.f23928g.x() == null) {
+                    if (this.a.f23842f == null || this.a.f23843g == null || this.a.f23843g.x() == null) {
                         return;
                     }
-                    this.a.f23927f.d(this.a.f23928g.x().f());
+                    this.a.f23842f.d(this.a.f23843g.x().f());
                     return;
                 }
                 if (StringUtils.isNull(responsedMessage.getErrorString())) {
-                    errorString = this.a.f23926e.getString(R.string.neterror);
+                    errorString = this.a.f23841e.getString(R.string.neterror);
                 } else {
                     errorString = responsedMessage.getErrorString();
                 }
-                this.a.f23926e.showToast(errorString);
+                this.a.f23841e.showToast(errorString);
             }
         }
     }
@@ -116,29 +116,29 @@ public class a implements View.OnClickListener {
                 return;
             }
         }
-        C1454a c1454a = new C1454a(this, CmdConfigHttp.GET_PRIVATE_INFO_CMD, 303016);
-        this.f23929h = c1454a;
-        this.f23926e = baseActivity;
-        baseActivity.registerListener(c1454a);
-        this.f23927f = new b(this.f23926e, this);
-        this.f23928g = new AccountSafeModel(this.f23926e);
+        C1450a c1450a = new C1450a(this, CmdConfigHttp.GET_PRIVATE_INFO_CMD, 303016);
+        this.f23844h = c1450a;
+        this.f23841e = baseActivity;
+        baseActivity.registerListener(c1450a);
+        this.f23842f = new b(this.f23841e, this);
+        this.f23843g = new AccountSafeModel(this.f23841e);
         if (l.z()) {
             g();
         } else {
-            this.f23926e.showToast(R.string.neterror);
+            this.f23841e.showToast(R.string.neterror);
         }
     }
 
     public View d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f23927f.a() : (View) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f23842f.a() : (View) invokeV.objValue;
     }
 
     public void e(int i2) {
         b bVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) || (bVar = this.f23927f) == null) {
+        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) || (bVar = this.f23842f) == null) {
             return;
         }
         bVar.e(i2);
@@ -147,12 +147,12 @@ public class a implements View.OnClickListener {
     public void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.f23926e.closeLoadingDialog();
-            AccountSafeModel accountSafeModel = this.f23928g;
+            this.f23841e.closeLoadingDialog();
+            AccountSafeModel accountSafeModel = this.f23843g;
             if (accountSafeModel != null) {
                 accountSafeModel.cancelLoadData();
             }
-            b bVar = this.f23927f;
+            b bVar = this.f23842f;
             if (bVar != null) {
                 bVar.c();
             }
@@ -162,10 +162,10 @@ public class a implements View.OnClickListener {
     public final void g() {
         AccountSafeModel accountSafeModel;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (accountSafeModel = this.f23928g) == null || accountSafeModel.A()) {
+        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (accountSafeModel = this.f23843g) == null || accountSafeModel.A()) {
             return;
         }
-        this.f23928g.C();
+        this.f23843g.C();
     }
 
     @Override // android.view.View.OnClickListener
@@ -175,13 +175,13 @@ public class a implements View.OnClickListener {
             if (view.getId() == R.id.bar_record) {
                 TiebaStatic.log("c10013");
                 if (!l.z()) {
-                    this.f23926e.showToast(R.string.neterror);
+                    this.f23841e.showToast(R.string.neterror);
                 } else {
-                    UrlManager.getInstance().dealOneLink(this.f23926e.getPageContext(), new String[]{"http://tieba.baidu.com/mo/q/accountSecurity/accountOption"});
+                    UrlManager.getInstance().dealOneLink(this.f23841e.getPageContext(), new String[]{"http://tieba.baidu.com/mo/q/accountSecurity/accountOption"});
                 }
             } else if (view.getId() == R.id.account_status) {
-                AccountSafeModel accountSafeModel = this.f23928g;
-                AntiHelper.p(this.f23926e, accountSafeModel != null ? accountSafeModel.y() : "");
+                AccountSafeModel accountSafeModel = this.f23843g;
+                AntiHelper.p(this.f23841e, accountSafeModel != null ? accountSafeModel.y() : "");
             }
         }
     }

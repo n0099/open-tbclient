@@ -16,33 +16,33 @@ public class d {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: j  reason: collision with root package name */
-    public static final boolean f7845j;
+    public static final boolean f7987j;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f7846b;
+    public String f7988b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f7847c;
+    public boolean f7989c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f7848d;
+    public int f7990d;
 
     /* renamed from: e  reason: collision with root package name */
-    public long f7849e;
+    public long f7991e;
 
     /* renamed from: f  reason: collision with root package name */
-    public long f7850f;
+    public long f7992f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f7851g;
+    public int f7993g;
 
     /* renamed from: h  reason: collision with root package name */
-    public Rect f7852h;
+    public Rect f7994h;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f7853i;
+    public boolean f7995i;
 
     static {
         InterceptResult invokeClinit;
@@ -57,7 +57,7 @@ public class d {
                 return;
             }
         }
-        f7845j = c.a.r0.a.d2.e.z;
+        f7987j = c.a.r0.a.d2.e.z;
     }
 
     public d(String str, String str2, long j2, boolean z) {
@@ -75,19 +75,19 @@ public class d {
                 return;
             }
         }
-        this.f7851g = 0;
+        this.f7993g = 0;
         this.a = str;
-        this.f7846b = str2;
-        this.f7849e = System.currentTimeMillis();
-        this.f7850f = j2;
-        this.f7848d = 0;
-        this.f7853i = z;
+        this.f7988b = str2;
+        this.f7991e = System.currentTimeMillis();
+        this.f7992f = j2;
+        this.f7990d = 0;
+        this.f7995i = z;
     }
 
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f7848d = 2;
+            this.f7990d = 2;
         }
     }
 
@@ -95,11 +95,11 @@ public class d {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            long j2 = this.f7850f;
+            long j2 = this.f7992f;
             if (j2 > 0) {
-                this.f7850f = j2 - (System.currentTimeMillis() - this.f7849e);
+                this.f7992f = j2 - (System.currentTimeMillis() - this.f7991e);
             }
-            return this.f7850f;
+            return this.f7992f;
         }
         return invokeV.longValue;
     }
@@ -107,17 +107,17 @@ public class d {
     public boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f7848d == 2 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f7990d == 2 : invokeV.booleanValue;
     }
 
     public void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            long j2 = this.f7850f;
+            long j2 = this.f7992f;
             if (j2 > 0) {
-                this.f7850f = j2 - (System.currentTimeMillis() - this.f7849e);
-                if (f7845j) {
-                    String str = "pause, left " + this.f7850f + "ms";
+                this.f7992f = j2 - (System.currentTimeMillis() - this.f7991e);
+                if (f7987j) {
+                    String str = "pause, left " + this.f7992f + "ms";
                 }
             }
         }
@@ -126,7 +126,7 @@ public class d {
     public void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.f7849e = System.currentTimeMillis();
+            this.f7991e = System.currentTimeMillis();
         }
     }
 
@@ -140,7 +140,7 @@ public class d {
     public void g() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            this.f7848d = 1;
+            this.f7990d = 1;
         }
     }
 }

@@ -12,10 +12,10 @@ public class a {
     public static final String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f7275b;
+    public static final String f7417b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f7276c;
+    public static final String f7418c;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -31,15 +31,15 @@ public class a {
                 return;
             }
         }
-        a = "content://" + c.a.r0.a.j0.b.b.f7273b + "/history_with_app";
-        f7275b = "content://" + c.a.r0.a.j0.b.b.f7273b + "/history";
-        f7276c = "content://" + c.a.r0.a.j0.b.b.f7273b + "/history_with_aps_pms";
+        a = "content://" + c.a.r0.a.j0.b.b.f7415b + "/history_with_app";
+        f7417b = "content://" + c.a.r0.a.j0.b.b.f7415b + "/history";
+        f7418c = "content://" + c.a.r0.a.j0.b.b.f7415b + "/history_with_aps_pms";
     }
 
     public static Uri a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? Uri.parse(f7275b) : (Uri) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? Uri.parse(f7417b) : (Uri) invokeV.objValue;
     }
 
     public static Uri b() {
@@ -51,6 +51,6 @@ public class a {
     public static Uri c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? Uri.parse(f7276c) : (Uri) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? Uri.parse(f7418c) : (Uri) invokeV.objValue;
     }
 }

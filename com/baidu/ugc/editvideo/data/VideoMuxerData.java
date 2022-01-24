@@ -4,6 +4,7 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.minivideo.arface.bean.BeautyType;
 import com.baidu.minivideo.effect.core.vlogedit.MediaTrackConfig;
+import com.baidu.searchbox.retrieve.inter.constants.StatConstants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -207,7 +208,7 @@ public class VideoMuxerData implements Serializable {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
             int i2 = this.mVideoUploadType;
-            return i2 == 1 ? "upload" : i2 == 2 ? "shoot" : "unknown";
+            return i2 == 1 ? StatConstants.VALUE_TYPE_UPLOAD : i2 == 2 ? "shoot" : "unknown";
         }
         return (String) invokeV.objValue;
     }

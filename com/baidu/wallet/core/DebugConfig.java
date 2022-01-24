@@ -43,31 +43,31 @@ public final class DebugConfig {
     public static boolean a = false;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f50907b = "wallet_config.properties";
+    public static final String f50952b = "wallet_config.properties";
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f50908c = "wallet_https_host";
+    public static final String f50953c = "wallet_https_host";
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f50909d = "wallet_passport_host";
+    public static final String f50954d = "wallet_passport_host";
 
     /* renamed from: e  reason: collision with root package name */
-    public static final String f50910e = "environment";
+    public static final String f50955e = "environment";
 
     /* renamed from: f  reason: collision with root package name */
-    public static final String f50911f = "wallet_plugin_host";
+    public static final String f50956f = "wallet_plugin_host";
 
     /* renamed from: g  reason: collision with root package name */
-    public static final String f50912g = "wallet_nfc_host";
+    public static final String f50957g = "wallet_nfc_host";
 
     /* renamed from: h  reason: collision with root package name */
-    public static final String f50913h = "wallet_web_cache_host";
+    public static final String f50958h = "wallet_web_cache_host";
 
     /* renamed from: i  reason: collision with root package name */
-    public static final String f50914i = "voiceprint_service";
+    public static final String f50959i = "voiceprint_service";
 
     /* renamed from: j  reason: collision with root package name */
-    public static final String f50915j = "voiceprint_host";
+    public static final String f50960j = "voiceprint_host";
     public static final String k = "wallet_stat_host";
     public static final String l = "wallet_stat_strategy_host";
     public static final String m = "wallet_sensor_stat_host";
@@ -131,14 +131,14 @@ public final class DebugConfig {
                     if (externalFilesDir != null && !externalFilesDir.exists()) {
                         externalFilesDir.mkdirs();
                     }
-                    this.E = new File(externalFilesDir, f50907b);
+                    this.E = new File(externalFilesDir, f50952b);
                     this.F = b();
                 }
             } catch (Exception unused) {
                 return;
             }
         }
-        this.E = new File(String.valueOf(Environment.getExternalStorageDirectory()), f50907b);
+        this.E = new File(String.valueOf(Environment.getExternalStorageDirectory()), f50952b);
         this.F = b();
     }
 
@@ -281,7 +281,7 @@ public final class DebugConfig {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             if (a) {
-                return a(f50910e);
+                return a(f50955e);
             }
             return DEFAULT_ENVIRONMENT;
         }

@@ -14,12 +14,12 @@ public final class a {
     public static final int bdvideoplayer_btn_net_error_retry = 2131690322;
     public static final int bdvideoplayer_tip_kernel_error = 2131690323;
     public static final int bdvideoplayer_tip_net_error = 2131690324;
-    public static final int liveshow_plugin_yy_impl_load_fail = 2131692519;
-    public static final int liveshow_plugin_yy_installing = 2131692520;
-    public static final int predownload_net_error_msg = 2131693715;
-    public static final int predownload_no_available_msg = 2131693716;
-    public static final int status_bar_notification_info_overflow = 2131694668;
-    public static final int yylive_textOff = 2131695989;
-    public static final int yylive_textOn = 2131695990;
+    public static final int liveshow_plugin_yy_impl_load_fail = 2131692520;
+    public static final int liveshow_plugin_yy_installing = 2131692521;
+    public static final int predownload_net_error_msg = 2131693717;
+    public static final int predownload_no_available_msg = 2131693718;
+    public static final int status_bar_notification_info_overflow = 2131694674;
+    public static final int yylive_textOff = 2131695994;
+    public static final int yylive_textOn = 2131695995;
     public transient /* synthetic */ FieldHolder $fh;
 }

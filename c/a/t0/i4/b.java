@@ -20,7 +20,7 @@ public class b {
         public final /* synthetic */ Animation.AnimationListener a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ View f18176b;
+        public final /* synthetic */ View f18459b;
 
         public a(Animation.AnimationListener animationListener, View view) {
             Interceptable interceptable = $ic;
@@ -38,7 +38,7 @@ public class b {
                 }
             }
             this.a = animationListener;
-            this.f18176b = view;
+            this.f18459b = view;
         }
 
         @Override // android.view.animation.Animation.AnimationListener
@@ -49,10 +49,10 @@ public class b {
                 if (animationListener != null) {
                     animationListener.onAnimationEnd(animation);
                 }
-                View view = this.f18176b;
+                View view = this.f18459b;
                 if (view != null) {
                     view.clearAnimation();
-                    this.f18176b.setVisibility(0);
+                    this.f18459b.setVisibility(0);
                 }
             }
         }
@@ -80,15 +80,15 @@ public class b {
 
     /* renamed from: c.a.t0.i4.b$b  reason: collision with other inner class name */
     /* loaded from: classes7.dex */
-    public static class animation.Animation$AnimationListenerC1136b implements Animation.AnimationListener {
+    public static class animation.Animation$AnimationListenerC1148b implements Animation.AnimationListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ Animation.AnimationListener a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ View f18177b;
+        public final /* synthetic */ View f18460b;
 
-        public animation.Animation$AnimationListenerC1136b(Animation.AnimationListener animationListener, View view) {
+        public animation.Animation$AnimationListenerC1148b(Animation.AnimationListener animationListener, View view) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -104,7 +104,7 @@ public class b {
                 }
             }
             this.a = animationListener;
-            this.f18177b = view;
+            this.f18460b = view;
         }
 
         @Override // android.view.animation.Animation.AnimationListener
@@ -115,10 +115,10 @@ public class b {
                 if (animationListener != null) {
                     animationListener.onAnimationEnd(animation);
                 }
-                View view = this.f18177b;
+                View view = this.f18460b;
                 if (view != null) {
                     view.clearAnimation();
-                    this.f18177b.setVisibility(8);
+                    this.f18460b.setVisibility(8);
                 }
             }
         }
@@ -160,7 +160,7 @@ public class b {
         AlphaAnimation alphaAnimation = new AlphaAnimation(1.0f, 0.0f);
         alphaAnimation.setDuration(i2);
         alphaAnimation.setFillAfter(true);
-        alphaAnimation.setAnimationListener(new animation.Animation$AnimationListenerC1136b(animationListener, view));
+        alphaAnimation.setAnimationListener(new animation.Animation$AnimationListenerC1148b(animationListener, view));
         view.setVisibility(8);
         view.startAnimation(alphaAnimation);
     }

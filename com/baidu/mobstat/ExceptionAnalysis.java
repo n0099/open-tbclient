@@ -26,16 +26,16 @@ public class ExceptionAnalysis {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f36295b;
+    public boolean f36323b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Context f36296c;
+    public Context f36324c;
 
     /* renamed from: d  reason: collision with root package name */
-    public HeadObject f36297d;
+    public HeadObject f36325d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f36298e;
+    public String f36326e;
     public Callback mCallback;
 
     /* loaded from: classes10.dex */
@@ -72,8 +72,8 @@ public class ExceptionAnalysis {
                 return;
             }
         }
-        this.f36295b = false;
-        this.f36297d = new HeadObject();
+        this.f36323b = false;
+        this.f36325d = new HeadObject();
     }
 
     private JSONObject a() {
@@ -104,17 +104,17 @@ public class ExceptionAnalysis {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(1048576, this, context, z) == null) {
             if (context != null) {
-                this.f36296c = context.getApplicationContext();
+                this.f36324c = context.getApplicationContext();
             }
-            if (this.f36296c == null || this.f36295b) {
+            if (this.f36324c == null || this.f36323b) {
                 return;
             }
-            this.f36295b = true;
-            ad.a().a(this.f36296c);
+            this.f36323b = true;
+            ad.a().a(this.f36324c);
             if (z) {
                 return;
             }
-            NativeCrashHandler.init(this.f36296c);
+            NativeCrashHandler.init(this.f36324c);
         }
     }
 
@@ -123,9 +123,9 @@ public class ExceptionAnalysis {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLZ(Constants.METHOD_SEND_USER_MSG, this, context, th, z) == null) {
             if (context != null) {
-                this.f36296c = context.getApplicationContext();
+                this.f36324c = context.getApplicationContext();
             }
-            if (this.f36296c == null) {
+            if (this.f36324c == null) {
                 return;
             }
             String th2 = th.toString();
@@ -148,7 +148,7 @@ public class ExceptionAnalysis {
             } else {
                 i2 = th instanceof Error ? 12 : 13;
             }
-            saveCrashInfo(this.f36296c, System.currentTimeMillis(), obj, str2, 0, i2);
+            saveCrashInfo(this.f36324c, System.currentTimeMillis(), obj, str2, 0, i2);
         }
     }
 
@@ -160,7 +160,7 @@ public class ExceptionAnalysis {
         if (str.length() > 256) {
             str = str.substring(0, 256);
         }
-        this.f36298e = str;
+        this.f36326e = str;
     }
 
     public ExceptionAnalysis(Callback callback) {
@@ -178,8 +178,8 @@ public class ExceptionAnalysis {
                 return;
             }
         }
-        this.f36295b = false;
-        this.f36297d = new HeadObject();
+        this.f36323b = false;
+        this.f36325d = new HeadObject();
         this.mCallback = callback;
     }
 
@@ -215,10 +215,10 @@ public class ExceptionAnalysis {
             if (context != null && str != null && !str.trim().equals("")) {
                 try {
                     StringBuilder sb = new StringBuilder(str);
-                    if (!TextUtils.isEmpty(this.f36298e)) {
+                    if (!TextUtils.isEmpty(this.f36326e)) {
                         sb.append(StringUtils.LF);
                         sb.append("ExtraInfo:");
-                        sb.append(this.f36298e);
+                        sb.append(this.f36326e);
                     }
                     String appVersionName = CooperService.instance().getAppVersionName(context);
                     JSONObject jSONObject = new JSONObject();
@@ -232,7 +232,7 @@ public class ExceptionAnalysis {
                     JSONArray jSONArray = new JSONArray();
                     jSONArray.put(jSONObject);
                     JSONObject jSONObject2 = new JSONObject();
-                    this.f36297d.installHeader(context, jSONObject2);
+                    this.f36325d.installHeader(context, jSONObject2);
                     jSONObject2.put("ss", 0);
                     jSONObject2.put("sq", 0);
                     JSONObject jSONObject3 = new JSONObject();

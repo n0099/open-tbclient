@@ -19,7 +19,7 @@ public class f {
     public static final boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final Map<String, e> f8103b;
+    public static final Map<String, e> f8245b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -36,7 +36,7 @@ public class f {
             }
         }
         a = k.a;
-        f8103b = new ArrayMap();
+        f8245b = new ArrayMap();
     }
 
     @Nullable
@@ -46,8 +46,8 @@ public class f {
         if (interceptable == null || (invokeLI = interceptable.invokeLI(65537, null, str, i2)) == null) {
             try {
                 if (ProcessUtils.isMainProcess()) {
-                    synchronized (f8103b) {
-                        e eVar = f8103b.get(str);
+                    synchronized (f8245b) {
+                        e eVar = f8245b.get(str);
                         if (eVar != null && eVar.a() != null) {
                             return eVar.a();
                         }
@@ -79,7 +79,7 @@ public class f {
                 if (ProcessUtils.isMainProcess()) {
                     return;
                 }
-                e eVar = f8103b.get(ashmemFileDescriptor.getName());
+                e eVar = f8245b.get(ashmemFileDescriptor.getName());
                 if (eVar != null && eVar.a() != null && eVar.a().getAshmemFD() != ashmemFileDescriptor.getAshmemFD()) {
                     SwanKV b2 = eVar.b();
                     eVar.c(new SwanKV(ashmemFileDescriptor));

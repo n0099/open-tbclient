@@ -1,33 +1,33 @@
 package com.ss.android.downloadlib.g;
 
 import java.lang.ref.SoftReference;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class c<P, R> implements Runnable {
     public P a;
 
     /* renamed from: b  reason: collision with root package name */
-    public R f59670b;
+    public R f59715b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f59671c;
+    public int f59716c;
 
     /* renamed from: d  reason: collision with root package name */
-    public SoftReference<a<P, R>> f59672d;
+    public SoftReference<a<P, R>> f59717d;
 
     /* renamed from: e  reason: collision with root package name */
-    public c<?, P> f59673e;
+    public c<?, P> f59718e;
 
     /* renamed from: f  reason: collision with root package name */
-    public c<R, ?> f59674f;
+    public c<R, ?> f59719f;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public interface a<PARAM, RESULT> {
         RESULT a(PARAM param);
     }
 
     public c(int i2, a<P, R> aVar, P p) {
-        this.f59671c = i2;
-        this.f59672d = new SoftReference<>(aVar);
+        this.f59716c = i2;
+        this.f59717d = new SoftReference<>(aVar);
         this.a = p;
     }
 
@@ -36,28 +36,28 @@ public class c<P, R> implements Runnable {
     }
 
     private R b() {
-        return this.f59670b;
+        return this.f59715b;
     }
 
     @Override // java.lang.Runnable
     public void run() {
         c<?, P> cVar;
-        if (this.f59671c == 0 && !l.a()) {
+        if (this.f59716c == 0 && !l.a()) {
             com.ss.android.downloadlib.f.a().b().post(this);
-        } else if (this.f59671c == 1 && l.a()) {
+        } else if (this.f59716c == 1 && l.a()) {
             com.ss.android.downloadlib.d.a().a(this);
-        } else if (this.f59671c == 2 && l.a()) {
+        } else if (this.f59716c == 2 && l.a()) {
             com.ss.android.downloadlib.d.a().b(this);
         } else {
-            if (this.a == null && (cVar = this.f59673e) != null) {
+            if (this.a == null && (cVar = this.f59718e) != null) {
                 this.a = cVar.b();
             }
-            a<P, R> aVar = this.f59672d.get();
+            a<P, R> aVar = this.f59717d.get();
             if (aVar == null) {
                 return;
             }
-            this.f59670b = aVar.a(this.a);
-            c<R, ?> cVar2 = this.f59674f;
+            this.f59715b = aVar.a(this.a);
+            c<R, ?> cVar2 = this.f59719f;
             if (cVar2 != null) {
                 cVar2.run();
             }
@@ -68,8 +68,8 @@ public class c<P, R> implements Runnable {
     /* JADX WARN: Multi-variable type inference failed */
     public <NR> c<R, NR> a(int i2, a<R, NR> aVar) {
         c cVar = (c<R, ?>) new c(i2, aVar, null);
-        this.f59674f = cVar;
-        cVar.f59673e = this;
+        this.f59719f = cVar;
+        cVar.f59718e = this;
         return cVar;
     }
 
@@ -78,7 +78,7 @@ public class c<P, R> implements Runnable {
     }
 
     public void a() {
-        c<?, P> cVar = this.f59673e;
+        c<?, P> cVar = this.f59718e;
         if (cVar != null) {
             cVar.a();
         } else {

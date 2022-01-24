@@ -18,7 +18,7 @@ public class c extends b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c  reason: collision with root package name */
-    public final Map<String, String> f8032c;
+    public final Map<String, String> f8174c;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public c(@NonNull String str) {
@@ -45,7 +45,7 @@ public class c extends b {
     public void m(Map<String, Object> map) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, map) == null) {
-            for (Map.Entry<String, String> entry : this.f8032c.entrySet()) {
+            for (Map.Entry<String, String> entry : this.f8174c.entrySet()) {
                 map.put(entry.getKey(), entry.getValue());
             }
         }
@@ -59,7 +59,7 @@ public class c extends b {
             try {
                 n(jSONObject);
             } catch (JSONException e2) {
-                if (b.f8026b) {
+                if (b.f8168b) {
                     e2.printStackTrace();
                 }
             }
@@ -84,7 +84,7 @@ public class c extends b {
             }
         }
         HashMap hashMap = new HashMap();
-        this.f8032c = hashMap;
+        this.f8174c = hashMap;
         this.a = str;
         if (map != null) {
             hashMap.putAll(map);

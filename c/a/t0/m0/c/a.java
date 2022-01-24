@@ -22,32 +22,32 @@ public final class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final C1201a f19183f;
+    public static final C1209a f19446f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final a f19184g;
+    public static final a f19447g;
     public transient /* synthetic */ FieldHolder $fh;
     public final b a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f19185b;
+    public boolean f19448b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f19186c;
+    public int f19449c;
 
     /* renamed from: d  reason: collision with root package name */
-    public CacheManager f19187d;
+    public CacheManager f19450d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f19188e;
+    public int f19451e;
 
     /* renamed from: c.a.t0.m0.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes7.dex */
-    public static final class C1201a {
+    public static final class C1209a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        public C1201a() {
+        public C1209a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -61,14 +61,14 @@ public final class a {
             }
         }
 
-        public /* synthetic */ C1201a(DefaultConstructorMarker defaultConstructorMarker) {
+        public /* synthetic */ C1209a(DefaultConstructorMarker defaultConstructorMarker) {
             this();
         }
 
         public final a a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? a.f19184g : (a) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? a.f19447g : (a) invokeV.objValue;
         }
     }
 
@@ -85,8 +85,8 @@ public final class a {
                 return;
             }
         }
-        f19183f = new C1201a(null);
-        f19184g = new a();
+        f19446f = new C1209a(null);
+        f19447g = new a();
     }
 
     public a() {
@@ -111,7 +111,7 @@ public final class a {
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Boolean.valueOf(z), Integer.valueOf(i5)})) == null) {
             synchronized (this) {
                 this.a.a(i2, i3, i4, z, i5);
-                this.f19188e = h(this.a.c());
+                this.f19451e = h(this.a.c());
             }
             return this;
         }
@@ -123,9 +123,9 @@ public final class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             synchronized (this) {
-                int i3 = this.f19186c - 1;
-                this.f19186c = i3;
-                if (i3 <= 0 && this.f19185b && (i2 = i()) != null) {
+                int i3 = this.f19449c - 1;
+                this.f19449c = i3;
+                if (i3 <= 0 && this.f19448b && (i2 = i()) != null) {
                     i2.l(this);
                 }
                 Unit unit = Unit.INSTANCE;
@@ -137,10 +137,10 @@ public final class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             synchronized (this) {
-                if (this.f19186c <= 0) {
+                if (this.f19449c <= 0) {
                     n();
                 } else {
-                    this.f19185b = true;
+                    this.f19448b = true;
                 }
                 Unit unit = Unit.INSTANCE;
             }
@@ -189,7 +189,7 @@ public final class a {
     public final CacheManager i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f19187d : (CacheManager) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f19450d : (CacheManager) invokeV.objValue;
     }
 
     public final int j() {
@@ -201,7 +201,7 @@ public final class a {
     public final int k() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f19188e : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f19451e : invokeV.intValue;
     }
 
     public final int l() {
@@ -214,7 +214,7 @@ public final class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
             synchronized (this) {
-                this.f19186c++;
+                this.f19449c++;
             }
         }
     }
@@ -226,12 +226,12 @@ public final class a {
                 if (!Intrinsics.areEqual(Thread.currentThread().getName(), "AkDanmaku-Cache")) {
                     BdLog.e(Intrinsics.stringPlus("DanmakuEngineDrawingCache recycle called must on cache thread but now on ", Thread.currentThread().getName()));
                 }
-                if (this.f19186c > 0) {
+                if (this.f19449c > 0) {
                     return;
                 }
-                this.f19185b = false;
+                this.f19448b = false;
                 this.a.g();
-                this.f19188e = 0;
+                this.f19451e = 0;
                 Unit unit = Unit.INSTANCE;
             }
         }
@@ -240,7 +240,7 @@ public final class a {
     public final void o(CacheManager cacheManager) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048588, this, cacheManager) == null) {
-            this.f19187d = cacheManager;
+            this.f19450d = cacheManager;
         }
     }
 }

@@ -14,16 +14,16 @@ public class r extends a {
     public float a;
 
     /* renamed from: b  reason: collision with root package name */
-    public float f5130b;
+    public float f5272b;
 
     /* renamed from: c  reason: collision with root package name */
-    public float f5131c;
+    public float f5273c;
 
     /* renamed from: d  reason: collision with root package name */
-    public float f5132d;
+    public float f5274d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f5133e;
+    public boolean f5275e;
 
     public r() {
         Interceptable interceptable = $ic;
@@ -38,14 +38,14 @@ public class r extends a {
                 return;
             }
         }
-        this.f5133e = false;
+        this.f5275e = false;
     }
 
     @Override // c.a.r0.a.a0.a.j.a
     public void a(b bVar, Canvas canvas) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048576, this, bVar, canvas) == null) && this.f5133e) {
-            bVar.f5075j.quadTo(this.a, this.f5130b, this.f5131c, this.f5132d);
+        if ((interceptable == null || interceptable.invokeLL(1048576, this, bVar, canvas) == null) && this.f5275e) {
+            bVar.f5217j.quadTo(this.a, this.f5272b, this.f5273c, this.f5274d);
         }
     }
 
@@ -56,9 +56,9 @@ public class r extends a {
             return;
         }
         this.a = c.a.r0.a.z2.n0.g((float) jSONArray.optDouble(0));
-        this.f5130b = c.a.r0.a.z2.n0.g((float) jSONArray.optDouble(1));
-        this.f5131c = c.a.r0.a.z2.n0.g((float) jSONArray.optDouble(2));
-        this.f5132d = c.a.r0.a.z2.n0.g((float) jSONArray.optDouble(3));
-        this.f5133e = true;
+        this.f5272b = c.a.r0.a.z2.n0.g((float) jSONArray.optDouble(1));
+        this.f5273c = c.a.r0.a.z2.n0.g((float) jSONArray.optDouble(2));
+        this.f5274d = c.a.r0.a.z2.n0.g((float) jSONArray.optDouble(3));
+        this.f5275e = true;
     }
 }

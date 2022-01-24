@@ -26,7 +26,7 @@ public class i {
     public static int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static Context f35880b;
+    public static Context f35908b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -42,7 +42,7 @@ public class i {
                 return;
             }
         }
-        f35880b = BMapManager.getContext();
+        f35908b = BMapManager.getContext();
         if (!com.baidu.mapapi.VersionInfo.getApiVersion().equals(VersionInfo.getApiVersion())) {
             throw new BaiduMapSDKException("the version of map is not match with base");
         }
@@ -58,13 +58,13 @@ public class i {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65537, null) == null) {
             if (a == 0) {
-                if (f35880b == null) {
+                if (f35908b == null) {
                     throw new IllegalStateException("BDMapSDKException: you have not supplyed the global app context info from SDKInitializer.initialize(Context) function.");
                 }
                 VMsg.init();
-                AppEngine.InitEngine(f35880b);
+                AppEngine.InitEngine(f35908b);
                 AppEngine.StartSocketProc();
-                NetworkUtil.updateNetworkProxy(f35880b);
+                NetworkUtil.updateNetworkProxy(f35908b);
             }
             a++;
         }

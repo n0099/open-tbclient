@@ -24,10 +24,10 @@ public class d {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ SwanAppConfigData f5572e;
+        public final /* synthetic */ SwanAppConfigData f5714e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ File f5573f;
+        public final /* synthetic */ File f5715f;
 
         public a(SwanAppConfigData swanAppConfigData, File file, String str) {
             Interceptable interceptable = $ic;
@@ -44,8 +44,8 @@ public class d {
                     return;
                 }
             }
-            this.f5572e = swanAppConfigData;
-            this.f5573f = file;
+            this.f5714e = swanAppConfigData;
+            this.f5715f = file;
         }
 
         @Override // java.lang.Runnable
@@ -53,14 +53,14 @@ public class d {
             FileOutputStream fileOutputStream;
             Throwable th;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f5572e == null) {
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f5714e == null) {
                 return;
             }
             FileOutputStream fileOutputStream2 = null;
             try {
-                fileOutputStream = new FileOutputStream(this.f5573f);
+                fileOutputStream = new FileOutputStream(this.f5715f);
                 try {
-                    fileOutputStream.write(SwanAppConfigData.w.call2((f<SwanAppConfigData>) this.f5572e));
+                    fileOutputStream.write(SwanAppConfigData.w.call2((f<SwanAppConfigData>) this.f5714e));
                     c.a.r0.w.d.d(fileOutputStream);
                 } catch (Exception unused) {
                     fileOutputStream2 = fileOutputStream;

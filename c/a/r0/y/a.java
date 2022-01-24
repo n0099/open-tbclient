@@ -8,7 +8,7 @@ public interface a {
 
     /* renamed from: c.a.r0.y.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public interface InterfaceC0808a {
+    public interface InterfaceC0817a {
         void a(b bVar);
 
         void b(b bVar, int i2, int i3);
@@ -23,7 +23,7 @@ public interface a {
         a b();
     }
 
-    void addRenderCallback(InterfaceC0808a interfaceC0808a);
+    void addRenderCallback(InterfaceC0817a interfaceC0817a);
 
     Bitmap getBitmap();
 
@@ -31,7 +31,7 @@ public interface a {
 
     void release();
 
-    void removeRenderCallback(InterfaceC0808a interfaceC0808a);
+    void removeRenderCallback(InterfaceC0817a interfaceC0817a);
 
     void setAspectRatio(int i2);
 

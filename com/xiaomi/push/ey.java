@@ -24,10 +24,10 @@ public class ey implements iq<ey, Object>, Serializable, Cloneable {
     public static final jg f360a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final iy f61068b;
+    public static final iy f61113b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final iy f61069c;
+    public static final iy f61114c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with other field name */
@@ -54,8 +54,8 @@ public class ey implements iq<ey, Object>, Serializable, Cloneable {
         }
         f360a = new jg("StatsEvents");
         a = new iy("", (byte) 11, (short) 1);
-        f61068b = new iy("", (byte) 11, (short) 2);
-        f61069c = new iy("", (byte) 15, (short) 3);
+        f61113b = new iy("", (byte) 11, (short) 2);
+        f61114c = new iy("", (byte) 15, (short) 3);
     }
 
     public ey() {
@@ -250,12 +250,12 @@ public class ey implements iq<ey, Object>, Serializable, Cloneable {
                 jbVar.b();
             }
             if (this.f363b != null && b()) {
-                jbVar.a(f61068b);
+                jbVar.a(f61113b);
                 jbVar.a(this.f363b);
                 jbVar.b();
             }
             if (this.f362a != null) {
-                jbVar.a(f61069c);
+                jbVar.a(f61114c);
                 jbVar.a(new iz(StandardMessageCodec.LIST, this.f362a.size()));
                 for (ex exVar : this.f362a) {
                     exVar.b(jbVar);

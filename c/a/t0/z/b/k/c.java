@@ -15,7 +15,7 @@ public class c {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile c f25946b;
+    public static volatile c f25927b;
     public transient /* synthetic */ FieldHolder $fh;
     public IWXAPI a;
 
@@ -52,14 +52,14 @@ public class c {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (f25946b == null) {
+            if (f25927b == null) {
                 synchronized (c.class) {
-                    if (f25946b == null) {
-                        f25946b = new c();
+                    if (f25927b == null) {
+                        f25927b = new c();
                     }
                 }
             }
-            return f25946b;
+            return f25927b;
         }
         return (c) invokeV.objValue;
     }

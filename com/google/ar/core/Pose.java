@@ -13,7 +13,7 @@ public class Pose {
     public final c.i.c.a.a a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final float[] f54379b;
+    public final float[] f54424b;
 
     static {
         InterceptResult invokeClinit;
@@ -28,12 +28,12 @@ public class Pose {
                 return;
             }
         }
-        c.i.c.a.a aVar = c.i.c.a.a.f29972e;
+        c.i.c.a.a aVar = c.i.c.a.a.f30000e;
     }
 
     public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? String.format(Locale.ENGLISH, "t:[x:%.3f, y:%.3f, z:%.3f], q:[x:%.2f, y:%.2f, z:%.2f, w:%.2f]", Float.valueOf(this.f54379b[0]), Float.valueOf(this.f54379b[1]), Float.valueOf(this.f54379b[2]), Float.valueOf(this.a.a()), Float.valueOf(this.a.c()), Float.valueOf(this.a.d()), Float.valueOf(this.a.e())) : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? String.format(Locale.ENGLISH, "t:[x:%.3f, y:%.3f, z:%.3f], q:[x:%.2f, y:%.2f, z:%.2f, w:%.2f]", Float.valueOf(this.f54424b[0]), Float.valueOf(this.f54424b[1]), Float.valueOf(this.f54424b[2]), Float.valueOf(this.a.a()), Float.valueOf(this.a.c()), Float.valueOf(this.a.d()), Float.valueOf(this.a.e())) : (String) invokeV.objValue;
     }
 }

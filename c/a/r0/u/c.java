@@ -37,31 +37,31 @@ public class c {
     public Context a;
 
     /* renamed from: b  reason: collision with root package name */
-    public a f11803b;
+    public a f11945b;
 
     /* renamed from: c  reason: collision with root package name */
-    public b f11804c;
+    public b f11946c;
 
     /* renamed from: d  reason: collision with root package name */
-    public List<i> f11805d;
+    public List<i> f11947d;
 
     /* renamed from: e  reason: collision with root package name */
-    public long f11806e;
+    public long f11948e;
 
     /* renamed from: f  reason: collision with root package name */
-    public long f11807f;
+    public long f11949f;
 
     /* renamed from: g  reason: collision with root package name */
-    public long f11808g;
+    public long f11950g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f11809h;
+    public int f11951h;
 
     /* renamed from: i  reason: collision with root package name */
-    public SparseArray<ArrayList> f11810i;
+    public SparseArray<ArrayList> f11952i;
 
     /* renamed from: j  reason: collision with root package name */
-    public HashMap<String, Long> f11811j;
+    public HashMap<String, Long> f11953j;
     public m k;
     public d l;
 
@@ -81,15 +81,15 @@ public class c {
             }
         }
         this.a = context;
-        this.f11803b = new a(context);
-        this.f11804c = new b(context);
+        this.f11945b = new a(context);
+        this.f11946c = new b(context);
         this.k = e.g().m();
-        this.f11805d = new ArrayList(20);
+        this.f11947d = new ArrayList(20);
         t f2 = t.f();
-        this.f11806e = f2.getLong("ubc_last_upload_all_time", 0L);
-        this.f11807f = f2.getLong("ubc_last_upload_non_real", 0L);
-        this.f11808g = f2.getLong("ubc_reset_real_time_count_time", 0L);
-        this.f11809h = f2.getInt("ubc_real_time_count", 0);
+        this.f11948e = f2.getLong("ubc_last_upload_all_time", 0L);
+        this.f11949f = f2.getLong("ubc_last_upload_non_real", 0L);
+        this.f11950g = f2.getLong("ubc_reset_real_time_count_time", 0L);
+        this.f11951h = f2.getInt("ubc_real_time_count", 0);
         d g2 = d.g();
         this.l = g2;
         g2.k(this, context);
@@ -102,13 +102,13 @@ public class c {
             if (g(this.a) && c()) {
                 j();
                 u uVar = new u();
-                uVar.f11918g = true;
-                JSONObject jSONObject = iVar.f11840e;
+                uVar.f12060g = true;
+                JSONObject jSONObject = iVar.f11982e;
                 try {
                     if (jSONObject != null && jSONObject.has("bizId")) {
                         r.a(jSONObject);
                         uVar.a(jSONObject);
-                        long j2 = iVar.f11841f;
+                        long j2 = iVar.f11983f;
                         uVar.g(j2, j2);
                         JSONObject jSONObject2 = jSONObject.getJSONObject("content");
                         JSONObject jSONObject3 = jSONObject.getJSONObject(DI.APP_INFO_NAME);
@@ -119,34 +119,34 @@ public class c {
                     } else {
                         JSONObject e2 = new r(iVar.a()).e();
                         e2.put("bizId", iVar.a);
-                        e2.put("timestamp", Long.toString(iVar.f11841f));
-                        if (iVar.f11840e != null) {
-                            e2.put("content", iVar.f11840e);
+                        e2.put("timestamp", Long.toString(iVar.f11983f));
+                        if (iVar.f11982e != null) {
+                            e2.put("content", iVar.f11982e);
                         } else {
-                            e2.put("content", iVar.f11839d);
+                            e2.put("content", iVar.f11981d);
                         }
                         e2.put("eventType", "0");
-                        if (!TextUtils.isEmpty(iVar.f11843h)) {
-                            e2.put("abtest", iVar.f11843h);
-                            uVar.f11917f = "1";
+                        if (!TextUtils.isEmpty(iVar.f11985h)) {
+                            e2.put("abtest", iVar.f11985h);
+                            uVar.f12059f = "1";
                         }
-                        if (!TextUtils.isEmpty(iVar.f11844i)) {
-                            e2.put("c", iVar.f11844i);
+                        if (!TextUtils.isEmpty(iVar.f11986i)) {
+                            e2.put("c", iVar.f11986i);
                         }
-                        if (iVar.f11845j) {
+                        if (iVar.f11987j) {
                             e2.put("of", "1");
                         }
                         e2.put(Constant.ID_TYPE, this.l.j(iVar.a));
                         uVar.a(e2);
-                        uVar.g(iVar.f11841f, iVar.f11841f);
+                        uVar.g(iVar.f11983f, iVar.f11983f);
                     }
                 } catch (JSONException unused) {
                 }
-                if (this.f11810i == null) {
+                if (this.f11952i == null) {
                     f();
                 }
-                if (this.f11810i.size() > 0) {
-                    this.f11803b.m(this.f11810i.valueAt(0), uVar);
+                if (this.f11952i.size() > 0) {
+                    this.f11945b.m(this.f11952i.valueAt(0), uVar);
                 }
                 q(uVar);
                 i();
@@ -161,15 +161,15 @@ public class c {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && g(this.a) && c()) {
             u uVar = new u();
-            uVar.f11918g = true;
-            if (this.f11810i == null) {
+            uVar.f12060g = true;
+            if (this.f11952i == null) {
                 f();
             }
-            if (this.f11810i.size() > 0) {
+            if (this.f11952i.size() > 0) {
                 if (e.g().s()) {
-                    this.f11803b.l(uVar);
+                    this.f11945b.l(uVar);
                 } else {
-                    this.f11803b.m(this.f11810i.valueAt(0), uVar);
+                    this.f11945b.m(this.f11952i.valueAt(0), uVar);
                 }
             }
             q(uVar);
@@ -181,8 +181,8 @@ public class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, str, i2) == null) {
             j();
-            this.f11803b.d(str, i2);
-            if (Math.abs(System.currentTimeMillis() - this.f11807f) >= d.g().h()) {
+            this.f11945b.d(str, i2);
+            if (Math.abs(System.currentTimeMillis() - this.f11949f) >= d.g().h()) {
                 z();
             }
         }
@@ -204,16 +204,16 @@ public class c {
                 return true;
             }
             long currentTimeMillis = System.currentTimeMillis();
-            if (Math.abs(currentTimeMillis - this.f11808g) > 86400000) {
-                this.f11809h = 0;
-                this.f11808g = currentTimeMillis;
-                t.f().putLong("ubc_reset_real_time_count_time", this.f11808g);
-                t.f().putInt("ubc_real_time_count", this.f11809h);
+            if (Math.abs(currentTimeMillis - this.f11950g) > 86400000) {
+                this.f11951h = 0;
+                this.f11950g = currentTimeMillis;
+                t.f().putLong("ubc_reset_real_time_count_time", this.f11950g);
+                t.f().putInt("ubc_real_time_count", this.f11951h);
             }
-            int i2 = this.f11809h;
+            int i2 = this.f11951h;
             if (i2 >= 1000) {
                 if (i2 == 1000) {
-                    this.f11809h = i2 + 1;
+                    this.f11951h = i2 + 1;
                     e.h("23", "realLimit");
                 }
                 return false;
@@ -227,11 +227,11 @@ public class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{str, Integer.valueOf(i2), Long.valueOf(j2), jSONArray}) == null) {
             j();
-            this.f11803b.j(str, i2, j2, jSONArray);
+            this.f11945b.j(str, i2, j2, jSONArray);
             if (this.l.b(str)) {
                 B();
             }
-            if (Math.abs(System.currentTimeMillis() - this.f11807f) >= d.g().h()) {
+            if (Math.abs(System.currentTimeMillis() - this.f11949f) >= d.g().h()) {
                 z();
             }
         }
@@ -240,23 +240,23 @@ public class c {
     public a e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f11803b : (a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f11945b : (a) invokeV.objValue;
     }
 
     public final void f() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048583, this) == null) && this.f11810i == null) {
+        if ((interceptable == null || interceptable.invokeV(1048583, this) == null) && this.f11952i == null) {
             SparseArray<ArrayList> sparseArray = new SparseArray<>();
-            this.f11810i = sparseArray;
-            this.f11803b.v(sparseArray);
-            this.f11811j = new HashMap<>();
+            this.f11952i = sparseArray;
+            this.f11945b.v(sparseArray);
+            this.f11953j = new HashMap<>();
             int i2 = 0;
-            for (int i3 = 0; i3 < this.f11810i.size(); i3++) {
-                int keyAt = this.f11810i.keyAt(i3);
+            for (int i3 = 0; i3 < this.f11952i.size(); i3++) {
+                int keyAt = this.f11952i.keyAt(i3);
                 if (keyAt != 0 && i2 == 0) {
                     i2 = keyAt;
                 }
-                HashMap<String, Long> hashMap = this.f11811j;
+                HashMap<String, Long> hashMap = this.f11953j;
                 hashMap.put("ubc_last_upload_time_level_" + keyAt, 0L);
             }
             this.l.p(i2);
@@ -300,15 +300,15 @@ public class c {
                     for (File file2 : listFiles) {
                         file2.delete();
                     }
-                    this.f11803b.h();
+                    this.f11945b.h();
                 }
                 for (int i2 = 0; i2 < listFiles.length; i2++) {
-                    j u = this.f11803b.u(listFiles[i2].getName());
+                    j u = this.f11945b.u(listFiles[i2].getName());
                     if (u != null && TextUtils.equals("0", u.a())) {
                         s.a("processFailedData file, no need to send");
                     } else if (u != null && TextUtils.equals("1", u.a())) {
                         s.a("processFailedData file, send");
-                        this.f11803b.G(listFiles[i2].getName(), "0");
+                        this.f11945b.G(listFiles[i2].getName(), "0");
                         v(listFiles[i2].getName());
                     } else {
                         s.a("processFailedData file, data in db, delete file");
@@ -322,42 +322,42 @@ public class c {
     public final void i() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            this.f11809h++;
-            t.f().putInt("ubc_real_time_count", this.f11809h);
+            this.f11951h++;
+            t.f().putInt("ubc_real_time_count", this.f11951h);
         }
     }
 
     public final void j() {
         List<i> list;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048587, this) == null) || (list = this.f11805d) == null || list.size() == 0) {
+        if (!(interceptable == null || interceptable.invokeV(1048587, this) == null) || (list = this.f11947d) == null || list.size() == 0) {
             return;
         }
-        this.f11803b.z(this.f11805d);
-        this.f11805d.clear();
+        this.f11945b.z(this.f11947d);
+        this.f11947d.clear();
     }
 
     public void k(i iVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048588, this, iVar) == null) {
-            boolean z = TextUtils.equals(iVar.a, iVar.f11837b) && this.l.b(iVar.a) && (iVar.f11842g & 64) == 0;
+            boolean z = TextUtils.equals(iVar.a, iVar.f11979b) && this.l.b(iVar.a) && (iVar.f11984g & 64) == 0;
             if (z && !A(iVar)) {
-                this.f11803b.y(iVar);
-            } else if (Math.abs(System.currentTimeMillis() - this.f11807f) >= d.g().h()) {
+                this.f11945b.y(iVar);
+            } else if (Math.abs(System.currentTimeMillis() - this.f11949f) >= d.g().h()) {
                 if (!z) {
-                    this.f11805d.add(iVar);
+                    this.f11947d.add(iVar);
                 }
                 z();
-            } else if ((1 & iVar.f11842g) != 0) {
+            } else if ((1 & iVar.f11984g) != 0) {
                 if (z) {
                     return;
                 }
-                this.f11803b.y(iVar);
+                this.f11945b.y(iVar);
             } else {
                 if (!z) {
-                    this.f11805d.add(iVar);
+                    this.f11947d.add(iVar);
                 }
-                if (this.f11805d.size() >= 20) {
+                if (this.f11947d.size() >= 20) {
                     j();
                 }
             }
@@ -367,7 +367,7 @@ public class c {
     public void l(i iVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048589, this, iVar) == null) {
-            this.f11804c.d(iVar, this.l.b(iVar.a));
+            this.f11946c.d(iVar, this.l.b(iVar.a));
         }
     }
 
@@ -418,10 +418,10 @@ public class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048591, this, z) == null) {
             u uVar = new u();
-            uVar.f11918g = z;
-            if (this.f11804c.c(uVar, z)) {
+            uVar.f12060g = z;
+            if (this.f11946c.c(uVar, z)) {
                 JSONArray jSONArray = uVar.a;
-                this.f11804c.b(z);
+                this.f11946c.b(z);
                 n.f().s(jSONArray);
             }
         }
@@ -430,14 +430,14 @@ public class c {
     public void o() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
-            this.f11803b.C();
+            this.f11945b.C();
         }
     }
 
     public void p(k kVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048593, this, kVar) == null) {
-            this.f11803b.B(kVar);
+            this.f11945b.B(kVar);
         }
     }
 
@@ -449,14 +449,14 @@ public class c {
         JSONArray jSONArray = uVar.a;
         String d2 = c.a.r0.w.f.d(jSONArray.toString().getBytes(), true);
         m(jSONArray.toString(), d2);
-        this.f11803b.A(d2, uVar.f11918g);
-        if (!this.f11803b.g(uVar.f11913b, uVar.f11914c, uVar.f11918g, d2)) {
+        this.f11945b.A(d2, uVar.f12060g);
+        if (!this.f11945b.g(uVar.f12055b, uVar.f12056c, uVar.f12060g, d2)) {
             uVar.c();
             File file = new File(this.a.getFilesDir() + File.separator + "statistics_data", d2);
             if (file.exists()) {
                 file.delete();
             }
-            this.f11803b.i(d2);
+            this.f11945b.i(d2);
             return;
         }
         n.f().r(jSONArray, d2);
@@ -470,24 +470,24 @@ public class c {
             this.l.n(qVar.d() * 86400000);
             this.l.o(qVar.c());
             t.f().putString("ubc_version_md5", qVar.b());
-            this.f11803b.D(qVar.a());
+            this.f11945b.D(qVar.a());
             qVar.a().clear();
-            if (this.f11810i == null) {
-                this.f11810i = new SparseArray<>();
+            if (this.f11952i == null) {
+                this.f11952i = new SparseArray<>();
             }
-            this.f11810i.clear();
-            if (this.f11811j == null) {
-                this.f11811j = new HashMap<>();
+            this.f11952i.clear();
+            if (this.f11953j == null) {
+                this.f11953j = new HashMap<>();
             }
-            this.f11811j.clear();
-            this.f11803b.v(this.f11810i);
+            this.f11953j.clear();
+            this.f11945b.v(this.f11952i);
             int i2 = 0;
-            for (int i3 = 0; i3 < this.f11810i.size(); i3++) {
-                int keyAt = this.f11810i.keyAt(i3);
+            for (int i3 = 0; i3 < this.f11952i.size(); i3++) {
+                int keyAt = this.f11952i.keyAt(i3);
                 if (keyAt != 0 && i2 == 0) {
                     i2 = keyAt;
                 }
-                HashMap<String, Long> hashMap = this.f11811j;
+                HashMap<String, Long> hashMap = this.f11953j;
                 hashMap.put("ubc_last_upload_time_level_" + keyAt, 0L);
             }
             this.l.p(i2);
@@ -497,27 +497,27 @@ public class c {
     public void s(String str, int i2, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLIL(1048596, this, str, i2, str2) == null) {
-            this.f11803b.E(str, i2, str2);
+            this.f11945b.E(str, i2, str2);
         }
     }
 
     public void t() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048597, this) == null) && g(this.a) && Math.abs(System.currentTimeMillis() - this.f11806e) >= 3600000) {
-            this.f11803b.f();
+        if ((interceptable == null || interceptable.invokeV(1048597, this) == null) && g(this.a) && Math.abs(System.currentTimeMillis() - this.f11948e) >= 3600000) {
+            this.f11945b.f();
             u uVar = new u();
-            if (this.f11803b.l(uVar) == 0) {
+            if (this.f11945b.l(uVar) == 0) {
                 return;
             }
             u uVar2 = new u();
-            uVar2.g(uVar.f11915d, uVar.f11916e);
-            uVar2.f11917f = uVar.f11917f;
-            uVar2.f11918g = true;
+            uVar2.g(uVar.f12057d, uVar.f12058e);
+            uVar2.f12059f = uVar.f12059f;
+            uVar2.f12060g = true;
             u uVar3 = new u();
-            uVar3.g(uVar.f11915d, uVar.f11916e);
-            uVar3.f11917f = uVar.f11917f;
-            uVar3.f11918g = false;
-            SparseIntArray sparseIntArray = uVar.f11913b;
+            uVar3.g(uVar.f12057d, uVar.f12058e);
+            uVar3.f12059f = uVar.f12059f;
+            uVar3.f12060g = false;
+            SparseIntArray sparseIntArray = uVar.f12055b;
             int size = sparseIntArray.size();
             for (int i2 = 0; i2 < size; i2++) {
                 if (this.l.b(String.valueOf(sparseIntArray.valueAt(i2)))) {
@@ -526,7 +526,7 @@ public class c {
                     uVar3.f(sparseIntArray.keyAt(i2), sparseIntArray.valueAt(i2));
                 }
             }
-            ArrayList<String> arrayList = uVar.f11914c;
+            ArrayList<String> arrayList = uVar.f12056c;
             int size2 = arrayList.size();
             for (int i3 = 0; i3 < size2; i3++) {
                 String str = arrayList.get(i3);
@@ -562,10 +562,10 @@ public class c {
             if (uVar3.a.length() > 0) {
                 q(uVar3);
             }
-            this.f11806e = System.currentTimeMillis();
-            t.f().putLong("ubc_last_upload_all_time", this.f11806e);
-            this.f11807f = this.f11806e;
-            t.f().putLong("ubc_last_upload_non_real", this.f11807f);
+            this.f11948e = System.currentTimeMillis();
+            t.f().putLong("ubc_last_upload_all_time", this.f11948e);
+            this.f11949f = this.f11948e;
+            t.f().putLong("ubc_last_upload_non_real", this.f11949f);
         }
     }
 
@@ -619,7 +619,7 @@ public class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048601, this, str) == null) {
             s.a("upload file fail");
-            this.f11803b.F(str);
+            this.f11945b.F(str);
         }
     }
 
@@ -631,33 +631,33 @@ public class c {
             if (file.exists() && file.delete()) {
                 s.a("delete file suc");
             }
-            this.f11803b.i(str);
+            this.f11945b.i(str);
         }
     }
 
     public final void z() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048603, this) == null) && g(this.a)) {
-            this.f11807f = System.currentTimeMillis();
-            t.f().putLong("ubc_last_upload_non_real", this.f11807f);
+            this.f11949f = System.currentTimeMillis();
+            t.f().putLong("ubc_last_upload_non_real", this.f11949f);
             b();
             j();
-            this.f11803b.f();
+            this.f11945b.f();
             HashSet hashSet = new HashSet();
-            if (this.f11810i == null) {
+            if (this.f11952i == null) {
                 f();
             }
             u uVar = new u();
-            uVar.f11918g = false;
+            uVar.f12060g = false;
             int i2 = 0;
-            for (int i3 = 0; i3 < this.f11810i.size(); i3++) {
-                int keyAt = this.f11810i.keyAt(i3);
+            for (int i3 = 0; i3 < this.f11952i.size(); i3++) {
+                int keyAt = this.f11952i.keyAt(i3);
                 if (keyAt != 0) {
-                    HashMap<String, Long> hashMap = this.f11811j;
+                    HashMap<String, Long> hashMap = this.f11953j;
                     long longValue = hashMap.get("ubc_last_upload_time_level_" + keyAt).longValue();
                     if (longValue == 0 || (longValue + (keyAt * 60000)) - System.currentTimeMillis() < this.l.h()) {
-                        i2 |= this.f11803b.m(this.f11810i.valueAt(i3), uVar);
-                        HashMap<String, Long> hashMap2 = this.f11811j;
+                        i2 |= this.f11945b.m(this.f11952i.valueAt(i3), uVar);
+                        HashMap<String, Long> hashMap2 = this.f11953j;
                         hashMap2.put("ubc_last_upload_time_level_" + keyAt, Long.valueOf(System.currentTimeMillis()));
                         hashSet.add(Integer.valueOf(keyAt));
                     }
@@ -666,13 +666,13 @@ public class c {
             if (i2 == 0) {
                 return;
             }
-            for (int i4 = 0; i4 < this.f11810i.size(); i4++) {
-                int keyAt2 = this.f11810i.keyAt(i4);
+            for (int i4 = 0; i4 < this.f11952i.size(); i4++) {
+                int keyAt2 = this.f11952i.keyAt(i4);
                 if (keyAt2 != 0 && !hashSet.contains(Integer.valueOf(keyAt2))) {
                     if (uVar.b(51200)) {
                         break;
                     }
-                    this.f11803b.m(this.f11810i.valueAt(i4), uVar);
+                    this.f11945b.m(this.f11952i.valueAt(i4), uVar);
                 }
             }
             q(uVar);

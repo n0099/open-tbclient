@@ -11,7 +11,7 @@ public final /* synthetic */ class m implements View.OnLongClickListener {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final /* synthetic */ m f19549e = new m();
+    public static final /* synthetic */ m f19659e = new m();
     public transient /* synthetic */ FieldHolder $fh;
 
     private /* synthetic */ m() {

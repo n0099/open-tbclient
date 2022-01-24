@@ -25,7 +25,7 @@ public class a implements c<HybridUbcFlow> {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final List<String> f9444e;
+    public static final List<String> f9586e;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -41,7 +41,7 @@ public class a implements c<HybridUbcFlow> {
                 return;
             }
         }
-        f9444e = new ArrayList(5);
+        f9586e = new ArrayList(5);
     }
 
     public a() {
@@ -67,9 +67,9 @@ public class a implements c<HybridUbcFlow> {
             c.a.r0.a.u1.r.a.g().d(false);
             String h2 = hybridUbcFlow.h("launchid");
             if (!TextUtils.isEmpty(h2)) {
-                synchronized (f9444e) {
-                    if (!f9444e.contains(h2)) {
-                        f9444e.add(h2);
+                synchronized (f9586e) {
+                    if (!f9586e.contains(h2)) {
+                        f9586e.add(h2);
                         c(h2, hybridUbcFlow);
                     }
                 }
@@ -78,9 +78,9 @@ public class a implements c<HybridUbcFlow> {
             if (TextUtils.isEmpty(str)) {
                 return;
             }
-            synchronized (f9444e) {
-                if (!f9444e.contains(str)) {
-                    f9444e.add(str);
+            synchronized (f9586e) {
+                if (!f9586e.contains(str)) {
+                    f9586e.add(str);
                     b(str, hybridUbcFlow);
                 }
             }

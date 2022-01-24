@@ -42,7 +42,7 @@ public abstract class b extends BaseExecutorCell {
     public boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f1819d && e() < this.f37111b : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f1819d && e() < this.f37139b : invokeV.booleanValue;
     }
 
     @Override // com.baidu.nadcore.thread.executor.BaseExecutorCell
@@ -64,7 +64,7 @@ public abstract class b extends BaseExecutorCell {
                 return;
             }
             this.f1819d = true;
-            this.f37112c.setKeepAliveTime(5000L, TimeUnit.MILLISECONDS);
+            this.f37140c.setKeepAliveTime(5000L, TimeUnit.MILLISECONDS);
         }
     }
 
@@ -76,7 +76,7 @@ public abstract class b extends BaseExecutorCell {
                 return;
             }
             this.f1819d = false;
-            this.f37112c.setKeepAliveTime(100L, TimeUnit.MILLISECONDS);
+            this.f37140c.setKeepAliveTime(100L, TimeUnit.MILLISECONDS);
         }
     }
 }

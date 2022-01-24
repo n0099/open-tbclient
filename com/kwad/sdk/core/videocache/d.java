@@ -11,28 +11,28 @@ import org.apache.commons.lang3.text.ExtendedMessageFormat;
 public class d {
 
     /* renamed from: d  reason: collision with root package name */
-    public static final Pattern f56266d = Pattern.compile("[R,r]ange:[ ]?bytes=(\\d*)-");
+    public static final Pattern f56311d = Pattern.compile("[R,r]ange:[ ]?bytes=(\\d*)-");
 
     /* renamed from: e  reason: collision with root package name */
-    public static final Pattern f56267e = Pattern.compile("GET /(.*) HTTP");
+    public static final Pattern f56312e = Pattern.compile("GET /(.*) HTTP");
     public final String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final long f56268b;
+    public final long f56313b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final boolean f56269c;
+    public final boolean f56314c;
 
     public d(String str) {
         j.a(str);
         long a = a(str);
-        this.f56268b = Math.max(0L, a);
-        this.f56269c = a >= 0;
+        this.f56313b = Math.max(0L, a);
+        this.f56314c = a >= 0;
         this.a = b(str);
     }
 
     private long a(String str) {
-        Matcher matcher = f56266d.matcher(str);
+        Matcher matcher = f56311d.matcher(str);
         if (matcher.find()) {
             return Long.parseLong(matcher.group(1));
         }
@@ -53,7 +53,7 @@ public class d {
     }
 
     private String b(String str) {
-        Matcher matcher = f56267e.matcher(str);
+        Matcher matcher = f56312e.matcher(str);
         if (matcher.find()) {
             return matcher.group(1);
         }
@@ -61,6 +61,6 @@ public class d {
     }
 
     public String toString() {
-        return "GetRequest{rangeOffset=" + this.f56268b + ", partial=" + this.f56269c + ", uri='" + this.a + ExtendedMessageFormat.QUOTE + ExtendedMessageFormat.END_FE;
+        return "GetRequest{rangeOffset=" + this.f56313b + ", partial=" + this.f56314c + ", uri='" + this.a + ExtendedMessageFormat.QUOTE + ExtendedMessageFormat.END_FE;
     }
 }

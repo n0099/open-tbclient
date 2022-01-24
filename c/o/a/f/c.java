@@ -18,10 +18,10 @@ public class c extends c.o.a.f.a {
     public final Map<String, Object> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final a f30252b;
+    public final a f30280b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final boolean f30253c;
+    public final boolean f30281c;
 
     /* loaded from: classes9.dex */
     public class a implements g {
@@ -30,13 +30,13 @@ public class c extends c.o.a.f.a {
         public Object a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f30254b;
+        public String f30282b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f30255c;
+        public String f30283c;
 
         /* renamed from: d  reason: collision with root package name */
-        public Object f30256d;
+        public Object f30284d;
 
         public a(c cVar) {
             Interceptable interceptable = $ic;
@@ -58,9 +58,9 @@ public class c extends c.o.a.f.a {
         public void error(String str, String str2, Object obj) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLLL(1048576, this, str, str2, obj) == null) {
-                this.f30254b = str;
-                this.f30255c = str2;
-                this.f30256d = obj;
+                this.f30282b = str;
+                this.f30283c = str2;
+                this.f30284d = obj;
             }
         }
 
@@ -88,9 +88,9 @@ public class c extends c.o.a.f.a {
                 return;
             }
         }
-        this.f30252b = new a(this);
+        this.f30280b = new a(this);
         this.a = map;
-        this.f30253c = z;
+        this.f30281c = z;
     }
 
     @Override // c.o.a.f.f
@@ -104,14 +104,14 @@ public class c extends c.o.a.f.a {
     public boolean d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f30253c : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f30281c : invokeV.booleanValue;
     }
 
     @Override // c.o.a.f.a
     public g i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f30252b : (g) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f30280b : (g) invokeV.objValue;
     }
 
     public String j() {
@@ -126,9 +126,9 @@ public class c extends c.o.a.f.a {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             HashMap hashMap = new HashMap();
             HashMap hashMap2 = new HashMap();
-            hashMap2.put("code", this.f30252b.f30254b);
-            hashMap2.put("message", this.f30252b.f30255c);
-            hashMap2.put("data", this.f30252b.f30256d);
+            hashMap2.put("code", this.f30280b.f30282b);
+            hashMap2.put("message", this.f30280b.f30283c);
+            hashMap2.put("data", this.f30280b.f30284d);
             hashMap.put("error", hashMap2);
             return hashMap;
         }
@@ -140,7 +140,7 @@ public class c extends c.o.a.f.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
             HashMap hashMap = new HashMap();
-            hashMap.put("result", this.f30252b.a);
+            hashMap.put("result", this.f30280b.a);
             return hashMap;
         }
         return (Map) invokeV.objValue;
@@ -149,8 +149,8 @@ public class c extends c.o.a.f.a {
     public void m(MethodChannel.Result result) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, result) == null) {
-            a aVar = this.f30252b;
-            result.error(aVar.f30254b, aVar.f30255c, aVar.f30256d);
+            a aVar = this.f30280b;
+            result.error(aVar.f30282b, aVar.f30283c, aVar.f30284d);
         }
     }
 

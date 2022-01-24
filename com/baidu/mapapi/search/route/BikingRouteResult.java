@@ -21,7 +21,7 @@ public class BikingRouteResult extends SearchResult implements Parcelable {
     public List<BikingRouteLine> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public SuggestAddrInfo f35579b;
+    public SuggestAddrInfo f35607b;
 
     static {
         InterceptResult invokeClinit;
@@ -71,7 +71,7 @@ public class BikingRouteResult extends SearchResult implements Parcelable {
         ArrayList arrayList = new ArrayList();
         this.a = arrayList;
         parcel.readList(arrayList, BikingRouteLine.class.getClassLoader());
-        this.f35579b = (SuggestAddrInfo) parcel.readParcelable(SuggestAddrInfo.class.getClassLoader());
+        this.f35607b = (SuggestAddrInfo) parcel.readParcelable(SuggestAddrInfo.class.getClassLoader());
     }
 
     @Override // com.baidu.mapapi.search.core.SearchResult, android.os.Parcelable
@@ -93,7 +93,7 @@ public class BikingRouteResult extends SearchResult implements Parcelable {
     public SuggestAddrInfo getSuggestAddrInfo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f35579b : (SuggestAddrInfo) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f35607b : (SuggestAddrInfo) invokeV.objValue;
     }
 
     public void setRouteLines(List<BikingRouteLine> list) {
@@ -106,7 +106,7 @@ public class BikingRouteResult extends SearchResult implements Parcelable {
     public void setSuggestAddrInfo(SuggestAddrInfo suggestAddrInfo) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, suggestAddrInfo) == null) {
-            this.f35579b = suggestAddrInfo;
+            this.f35607b = suggestAddrInfo;
         }
     }
 
@@ -115,7 +115,7 @@ public class BikingRouteResult extends SearchResult implements Parcelable {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048581, this, parcel, i2) == null) {
             parcel.writeList(this.a);
-            parcel.writeParcelable(this.f35579b, 1);
+            parcel.writeParcelable(this.f35607b, 1);
         }
     }
 }

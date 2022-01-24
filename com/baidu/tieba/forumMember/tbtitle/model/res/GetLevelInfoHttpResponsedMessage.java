@@ -1,6 +1,6 @@
 package com.baidu.tieba.forumMember.tbtitle.model.res;
 
-import c.a.t0.b1.d.a.b.a;
+import c.a.t0.c1.d.a.b.a;
 import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.forumMember.tbtitle.model.req.GetLevelInfoRequestMessage;

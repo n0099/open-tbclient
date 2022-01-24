@@ -1,8 +1,8 @@
 package com.baidu.tieba.memberCenter.index.adapter;
 
 import android.view.View;
-import c.a.t0.f2.c.f;
-import c.a.t0.f2.c.k.k;
+import c.a.t0.g2.c.f;
+import c.a.t0.g2.c.k.k;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;

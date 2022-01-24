@@ -12,7 +12,7 @@ import java.net.Socket;
 import org.apache.http.conn.scheme.SocketFactory;
 import org.apache.http.params.HttpParams;
 @Deprecated
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public final class MultihomePlainSocketFactory implements SocketFactory {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

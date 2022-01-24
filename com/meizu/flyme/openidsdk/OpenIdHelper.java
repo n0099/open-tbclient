@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.reflect.Method;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class OpenIdHelper {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "OpenIdHelper";
@@ -33,7 +33,7 @@ public class OpenIdHelper {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
             b a = b.a();
-            return a.a(context.getApplicationContext(), a.f58852c);
+            return a.a(context.getApplicationContext(), a.f58897c);
         }
         return (String) invokeL.objValue;
     }
@@ -43,7 +43,7 @@ public class OpenIdHelper {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
             b a = b.a();
-            return a.a(context.getApplicationContext(), a.f58851b);
+            return a.a(context.getApplicationContext(), a.f58896b);
         }
         return (String) invokeL.objValue;
     }
@@ -63,7 +63,7 @@ public class OpenIdHelper {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
             b a = b.a();
-            return a.a(context.getApplicationContext(), a.f58853d);
+            return a.a(context.getApplicationContext(), a.f58898d);
         }
         return (String) invokeL.objValue;
     }

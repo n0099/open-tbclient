@@ -32,11 +32,11 @@ public class FrsBannerAdStatic {
 
         /* renamed from: com.baidu.tieba.InjectPlugin.FrsBannerAd.FrsBannerAdStatic$a$a  reason: collision with other inner class name */
         /* loaded from: classes11.dex */
-        public class C1901a implements a.InterfaceC1120a {
+        public class C1907a implements a.InterfaceC1132a {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
-            public C1901a(a aVar) {
+            public C1907a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -52,7 +52,7 @@ public class FrsBannerAdStatic {
                 }
             }
 
-            @Override // c.a.t0.h.a.a.InterfaceC1120a
+            @Override // c.a.t0.h.a.a.InterfaceC1132a
             public void a(c cVar, View view) {
                 b a;
                 Interceptable interceptable = $ic;
@@ -65,7 +65,7 @@ public class FrsBannerAdStatic {
                 a.dispatchInjectPluginMessage(dVar);
             }
 
-            @Override // c.a.t0.h.a.a.InterfaceC1120a
+            @Override // c.a.t0.h.a.a.InterfaceC1132a
             public void b(c cVar, View view) {
                 b a;
                 Interceptable interceptable = $ic;
@@ -117,7 +117,7 @@ public class FrsBannerAdStatic {
                     if (!(injectPlugin instanceof c.a.t0.h.a.a)) {
                         return;
                     }
-                    ((c.a.t0.h.a.a) injectPlugin).f(new C1901a(this));
+                    ((c.a.t0.h.a.a) injectPlugin).f(new C1907a(this));
                 }
                 if (injectPlugin instanceof c.a.t0.h.a.a) {
                     c.a.t0.h.a.a aVar2 = (c.a.t0.h.a.a) injectPlugin;

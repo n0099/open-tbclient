@@ -20,7 +20,7 @@ public class h {
     public g a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f33603b;
+    public boolean f33631b;
 
     public h() {
         Interceptable interceptable = $ic;
@@ -35,7 +35,7 @@ public class h {
                 return;
             }
         }
-        this.f33603b = false;
+        this.f33631b = false;
         this.a = new g();
     }
 
@@ -139,7 +139,7 @@ public class h {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
             synchronized (this) {
-                z = this.f33603b;
+                z = this.f33631b;
             }
             return z;
         }
@@ -153,7 +153,7 @@ public class h {
                 if (this.a != null) {
                     this.a.b();
                 }
-                this.f33603b = false;
+                this.f33631b = false;
             }
         }
     }
@@ -165,7 +165,7 @@ public class h {
             synchronized (this) {
                 if (kVar != null) {
                     if (this.a != null && (a = a()) != null) {
-                        this.f33603b = true;
+                        this.f33631b = true;
                         DpSessionDatasUploader.getInstance().upload(a, "sailor_monitor");
                     }
                 }

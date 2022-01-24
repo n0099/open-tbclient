@@ -18,12 +18,12 @@ public final class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static volatile b f8419c;
+    public static volatile b f8561c;
     public transient /* synthetic */ FieldHolder $fh;
     public ArrayList<c.a.r0.a.z2.g1.c<Exception>> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ArrayList<c.a.r0.a.z2.g1.c<Exception>> f8420b;
+    public ArrayList<c.a.r0.a.z2.g1.c<Exception>> f8562b;
 
     /* loaded from: classes.dex */
     public class a implements Runnable {
@@ -31,7 +31,7 @@ public final class b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ int f8421e;
+        public final /* synthetic */ int f8563e;
 
         public a(b bVar, int i2) {
             Interceptable interceptable = $ic;
@@ -48,7 +48,7 @@ public final class b {
                     return;
                 }
             }
-            this.f8421e = i2;
+            this.f8563e = i2;
         }
 
         @Override // java.lang.Runnable
@@ -56,7 +56,7 @@ public final class b {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 d.k("PresetSwanCoreUpdater", "onPresetCheck start.");
-                c.a.r0.a.q2.e.a.s(this.f8421e);
+                c.a.r0.a.q2.e.a.s(this.f8563e);
                 d.k("PresetSwanCoreUpdater", "onPresetCheck end.");
             }
         }
@@ -64,17 +64,17 @@ public final class b {
 
     /* renamed from: c.a.r0.a.q2.e.b$b  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public class RunnableC0522b implements Runnable {
+    public class RunnableC0531b implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ int f8422e;
+        public final /* synthetic */ int f8564e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ b f8423f;
+        public final /* synthetic */ b f8565f;
 
-        public RunnableC0522b(b bVar, int i2) {
+        public RunnableC0531b(b bVar, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -89,8 +89,8 @@ public final class b {
                     return;
                 }
             }
-            this.f8423f = bVar;
-            this.f8422e = i2;
+            this.f8565f = bVar;
+            this.f8564e = i2;
         }
 
         @Override // java.lang.Runnable
@@ -98,8 +98,8 @@ public final class b {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 d.k("PresetSwanCoreUpdater", "onPresetUpdate start.");
-                b bVar = this.f8423f;
-                int i2 = this.f8422e;
+                b bVar = this.f8565f;
+                int i2 = this.f8564e;
                 bVar.c(i2, c.a.r0.a.q2.e.a.t(i2));
                 d.k("PresetSwanCoreUpdater", "onPresetUpdate end.");
             }
@@ -112,10 +112,10 @@ public final class b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c.a.r0.a.z2.g1.c f8424e;
+        public final /* synthetic */ c.a.r0.a.z2.g1.c f8566e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ Exception f8425f;
+        public final /* synthetic */ Exception f8567f;
 
         public c(b bVar, c.a.r0.a.z2.g1.c cVar, Exception exc) {
             Interceptable interceptable = $ic;
@@ -132,15 +132,15 @@ public final class b {
                     return;
                 }
             }
-            this.f8424e = cVar;
-            this.f8425f = exc;
+            this.f8566e = cVar;
+            this.f8567f = exc;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f8424e.onCallback(this.f8425f);
+                this.f8566e.onCallback(this.f8567f);
             }
         }
     }
@@ -175,21 +175,21 @@ public final class b {
             }
         }
         this.a = new ArrayList<>();
-        this.f8420b = new ArrayList<>();
+        this.f8562b = new ArrayList<>();
     }
 
     public static b b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (f8419c == null) {
+            if (f8561c == null) {
                 synchronized (b.class) {
-                    if (f8419c == null) {
-                        f8419c = new b();
+                    if (f8561c == null) {
+                        f8561c = new b();
                     }
                 }
             }
-            return f8419c;
+            return f8561c;
         }
         return (b) invokeV.objValue;
     }
@@ -206,11 +206,11 @@ public final class b {
                         }
                         this.a.clear();
                     } else if (i2 == 1) {
-                        Iterator<c.a.r0.a.z2.g1.c<Exception>> it2 = this.f8420b.iterator();
+                        Iterator<c.a.r0.a.z2.g1.c<Exception>> it2 = this.f8562b.iterator();
                         while (it2.hasNext()) {
                             d(it2.next(), exc);
                         }
-                        this.f8420b.clear();
+                        this.f8562b.clear();
                     }
                 } catch (Throwable th) {
                     throw th;
@@ -244,12 +244,12 @@ public final class b {
                     return;
                 }
                 if (i2 == 1) {
-                    arrayList = this.f8420b;
+                    arrayList = this.f8562b;
                 } else {
                     arrayList = this.a;
                 }
                 if (arrayList.isEmpty()) {
-                    new Thread(new RunnableC0522b(this, i2), "updateSwanCoreAsync").start();
+                    new Thread(new RunnableC0531b(this, i2), "updateSwanCoreAsync").start();
                 }
                 arrayList.add(cVar);
                 d.k("PresetSwanCoreUpdater", "updateSwanCoreAsync end.");

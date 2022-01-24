@@ -2,8 +2,8 @@ package com.baidu.tieba.setting.privacy;
 
 import android.os.Bundle;
 import c.a.d.f.p.l;
-import c.a.s0.s.h0.b;
-import c.a.t0.m3.g;
+import c.a.s0.s.i0.b;
+import c.a.t0.n3.g;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.HttpMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
@@ -22,7 +22,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class PrivacyMarkActivity extends BaseActivity<PrivacyMarkActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public c.a.t0.m3.n.a privacyMarkView;
+    public c.a.t0.n3.n.a privacyMarkView;
     public HttpMessageListener setPrivateHttpListener;
 
     /* loaded from: classes12.dex */
@@ -120,7 +120,7 @@ public class PrivacyMarkActivity extends BaseActivity<PrivacyMarkActivity> {
             if (intExtra2 != 1 && intExtra2 != 3) {
                 intExtra2 = 1;
             }
-            c.a.t0.m3.n.a aVar = new c.a.t0.m3.n.a(getPageContext(), (intExtra << 2) | intExtra2);
+            c.a.t0.n3.n.a aVar = new c.a.t0.n3.n.a(getPageContext(), (intExtra << 2) | intExtra2);
             this.privacyMarkView = aVar;
             setContentView(aVar.h());
             registerListener(this.setPrivateHttpListener);

@@ -13,12 +13,12 @@ public class f {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static volatile f f10812c;
+    public static volatile f f10954c;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f10813b;
+    public String f10955b;
 
     public f() {
         Interceptable interceptable = $ic;
@@ -38,14 +38,14 @@ public class f {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (f10812c == null) {
+            if (f10954c == null) {
                 synchronized (f.class) {
-                    if (f10812c == null) {
-                        f10812c = new f();
+                    if (f10954c == null) {
+                        f10954c = new f();
                     }
                 }
             }
-            return f10812c;
+            return f10954c;
         }
         return (f) invokeV.objValue;
     }
@@ -54,10 +54,10 @@ public class f {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (TextUtils.isEmpty(this.f10813b)) {
+            if (TextUtils.isEmpty(this.f10955b)) {
                 return "";
             }
-            return this.f10813b + File.separator + "index.js";
+            return this.f10955b + File.separator + "index.js";
         }
         return (String) invokeV.objValue;
     }
@@ -84,7 +84,7 @@ public class f {
     public void f(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            this.f10813b = str;
+            this.f10955b = str;
         }
     }
 }

@@ -14,7 +14,7 @@ public class k extends c.a.r0.q.j.i.b {
     public f a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f11542b;
+    public boolean f11684b;
 
     public k(f fVar, boolean z) {
         Interceptable interceptable = $ic;
@@ -32,7 +32,7 @@ public class k extends c.a.r0.q.j.i.b {
             }
         }
         this.a = fVar;
-        this.f11542b = z;
+        this.f11684b = z;
     }
 
     @Override // c.a.r0.q.j.i.b
@@ -59,12 +59,12 @@ public class k extends c.a.r0.q.j.i.b {
     @Override // c.a.r0.q.j.i.b
     public void c(boolean z) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) || this.f11542b) {
+        if (!(interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) || this.f11684b) {
             return;
         }
         if (z) {
             f fVar = this.a;
-            fVar.f11523e.f11522b.f11489b = 0L;
+            fVar.f11665e.f11664b.f11631b = 0L;
             fVar.b(0);
         }
         d.b().f(this.a);
@@ -76,7 +76,7 @@ public class k extends c.a.r0.q.j.i.b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return "isAttached=" + this.f11542b + " " + super.toString();
+            return "isAttached=" + this.f11684b + " " + super.toString();
         }
         return (String) invokeV.objValue;
     }

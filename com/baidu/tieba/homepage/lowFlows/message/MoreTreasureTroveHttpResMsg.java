@@ -1,8 +1,8 @@
 package com.baidu.tieba.homepage.lowFlows.message;
 
 import c.a.d.n.e.n;
-import c.a.t0.o1.g.e.a;
-import c.a.t0.o1.g.h.c;
+import c.a.t0.p1.g.e.a;
+import c.a.t0.p1.g.h.c;
 import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
@@ -39,7 +39,7 @@ public class MoreTreasureTroveHttpResMsg extends HttpResponsedMessage implements
         }
     }
 
-    @Override // c.a.t0.o1.g.e.a
+    @Override // c.a.t0.p1.g.e.a
     public List<n> getDataList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

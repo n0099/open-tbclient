@@ -27,31 +27,31 @@ public class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final c.a.r0.q.p.a f11471b;
+    public static final c.a.r0.q.p.a f11613b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f11472c;
+    public static final String f11614c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final Uri f11473d;
+    public static final Uri f11615d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final Uri f11474e;
+    public static final Uri f11616e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final Uri f11475f;
+    public static final Uri f11617f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final Uri f11476g;
+    public static final Uri f11618g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final Uri f11477h;
+    public static final Uri f11619h;
 
     /* renamed from: i  reason: collision with root package name */
-    public static final Uri f11478i;
+    public static final Uri f11620i;
 
     /* renamed from: j  reason: collision with root package name */
-    public static final Uri f11479j;
+    public static final Uri f11621j;
     public static UriMatcher k;
     public transient /* synthetic */ FieldHolder $fh;
     public Context a;
@@ -69,24 +69,24 @@ public class b {
                 return;
             }
         }
-        f11471b = c.a.r0.q.p.a.c();
-        f11472c = AppRuntime.getAppContext().getPackageName() + ".aiapp.pms";
-        f11473d = Uri.parse("content://" + f11472c + "/" + FlutterActivityAndFragmentDelegate.FRAMEWORK_RESTORATION_BUNDLE_KEY);
-        f11474e = Uri.parse("content://" + f11472c + "/swan_app");
-        f11475f = Uri.parse("content://" + f11472c + "/pkg_main");
-        f11476g = Uri.parse("content://" + f11472c + "/pkg_sub");
-        f11477h = Uri.parse("content://" + f11472c + "/" + ETAG.KEY_EXTENSION);
-        f11478i = Uri.parse("content://" + f11472c + "/swan_plugin");
-        f11479j = Uri.parse("content://" + f11472c + "/so_lib");
+        f11613b = c.a.r0.q.p.a.c();
+        f11614c = AppRuntime.getAppContext().getPackageName() + ".aiapp.pms";
+        f11615d = Uri.parse("content://" + f11614c + "/" + FlutterActivityAndFragmentDelegate.FRAMEWORK_RESTORATION_BUNDLE_KEY);
+        f11616e = Uri.parse("content://" + f11614c + "/swan_app");
+        f11617f = Uri.parse("content://" + f11614c + "/pkg_main");
+        f11618g = Uri.parse("content://" + f11614c + "/pkg_sub");
+        f11619h = Uri.parse("content://" + f11614c + "/" + ETAG.KEY_EXTENSION);
+        f11620i = Uri.parse("content://" + f11614c + "/swan_plugin");
+        f11621j = Uri.parse("content://" + f11614c + "/so_lib");
         UriMatcher uriMatcher = new UriMatcher(-1);
         k = uriMatcher;
-        uriMatcher.addURI(f11472c, FlutterActivityAndFragmentDelegate.FRAMEWORK_RESTORATION_BUNDLE_KEY, 2);
-        k.addURI(f11472c, "pkg_main", 0);
-        k.addURI(f11472c, "pkg_sub", 1);
-        k.addURI(f11472c, ETAG.KEY_EXTENSION, 3);
-        k.addURI(f11472c, "swan_app", 4);
-        k.addURI(f11472c, "swan_plugin", 5);
-        k.addURI(f11472c, "so_lib", 7);
+        uriMatcher.addURI(f11614c, FlutterActivityAndFragmentDelegate.FRAMEWORK_RESTORATION_BUNDLE_KEY, 2);
+        k.addURI(f11614c, "pkg_main", 0);
+        k.addURI(f11614c, "pkg_sub", 1);
+        k.addURI(f11614c, ETAG.KEY_EXTENSION, 3);
+        k.addURI(f11614c, "swan_app", 4);
+        k.addURI(f11614c, "swan_plugin", 5);
+        k.addURI(f11614c, "so_lib", 7);
     }
 
     public b(Context context) {
@@ -153,7 +153,7 @@ public class b {
                 try {
                     return a().getReadableDatabase().rawQuery(str, null);
                 } catch (SQLException e2) {
-                    f11471b.g("PMSDBProvider", "#rawQuery error", e2);
+                    f11613b.g("PMSDBProvider", "#rawQuery error", e2);
                 }
             }
             return null;
@@ -169,7 +169,7 @@ public class b {
             if (TextUtils.isEmpty(b2)) {
                 return 0;
             }
-            c.a.r0.q.p.a aVar = f11471b;
+            c.a.r0.q.p.a aVar = f11613b;
             aVar.i("PMSDBProvider", "#delete tableName=" + b2 + " selection=" + str);
             try {
                 int delete = a().getWritableDatabase().delete(b2, str, strArr);
@@ -178,7 +178,7 @@ public class b {
                 }
                 return delete;
             } catch (SQLException e2) {
-                f11471b.g("PMSDBProvider", "#delete error", e2);
+                f11613b.g("PMSDBProvider", "#delete error", e2);
                 return 0;
             }
         }
@@ -202,7 +202,7 @@ public class b {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, uri, contentValues)) == null) {
             String b2 = b(uri);
             if (!TextUtils.isEmpty(b2) && contentValues != null) {
-                c.a.r0.q.p.a aVar = f11471b;
+                c.a.r0.q.p.a aVar = f11613b;
                 aVar.i("PMSDBProvider", "#insert values=" + contentValues);
                 try {
                     long insertWithOnConflict = a().getWritableDatabase().insertWithOnConflict(b2, null, contentValues, 5);
@@ -213,7 +213,7 @@ public class b {
                     }
                     return uri;
                 } catch (SQLException e2) {
-                    f11471b.g("PMSDBProvider", "#insert error", e2);
+                    f11613b.g("PMSDBProvider", "#insert error", e2);
                 }
             }
             return null;
@@ -236,7 +236,7 @@ public class b {
             try {
                 return a().getReadableDatabase().query(b2, strArr, str, strArr2, null, null, str2, null);
             } catch (SQLException e2) {
-                f11471b.g("PMSDBProvider", "#query error", e2);
+                f11613b.g("PMSDBProvider", "#query error", e2);
                 return null;
             }
         }
@@ -251,7 +251,7 @@ public class b {
             if (TextUtils.isEmpty(b2)) {
                 return 0;
             }
-            c.a.r0.q.p.a aVar = f11471b;
+            c.a.r0.q.p.a aVar = f11613b;
             aVar.i("PMSDBProvider", "#update tableName=" + b2 + " selection=" + str);
             try {
                 int update = a().getWritableDatabase().update(b2, contentValues, str, strArr);
@@ -260,7 +260,7 @@ public class b {
                 }
                 return update;
             } catch (SQLException e2) {
-                f11471b.g("PMSDBProvider", "#update error", e2);
+                f11613b.g("PMSDBProvider", "#update error", e2);
                 return 0;
             }
         }

@@ -129,7 +129,7 @@ public class PrivilegeDeskView extends CommonTabHost {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PrivilegeDeskView f45970e;
+        public final /* synthetic */ PrivilegeDeskView f45998e;
 
         public c(PrivilegeDeskView privilegeDeskView) {
             Interceptable interceptable = $ic;
@@ -146,15 +146,15 @@ public class PrivilegeDeskView extends CommonTabHost {
                     return;
                 }
             }
-            this.f45970e = privilegeDeskView;
+            this.f45998e = privilegeDeskView;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f45970e.hide();
-                this.f45970e.sendAction(new c.a.s0.x.a(1, 16, null));
+                this.f45998e.hide();
+                this.f45998e.sendAction(new c.a.s0.x.a(1, 16, null));
             }
         }
     }
@@ -165,7 +165,7 @@ public class PrivilegeDeskView extends CommonTabHost {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PrivilegeDeskView f45971e;
+        public final /* synthetic */ PrivilegeDeskView f45999e;
 
         public d(PrivilegeDeskView privilegeDeskView) {
             Interceptable interceptable = $ic;
@@ -182,15 +182,15 @@ public class PrivilegeDeskView extends CommonTabHost {
                     return;
                 }
             }
-            this.f45971e = privilegeDeskView;
+            this.f45999e = privilegeDeskView;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f45971e.hide();
-                this.f45971e.sendAction(new c.a.s0.x.a(1, 12, null));
+                this.f45999e.hide();
+                this.f45999e.sendAction(new c.a.s0.x.a(1, 12, null));
             }
         }
     }
@@ -219,8 +219,8 @@ public class PrivilegeDeskView extends CommonTabHost {
         this.x = new c(this);
         this.y = new d(this);
         p(context);
-        c.a.t0.f2.h.e.a aVar = new c.a.t0.f2.h.e.a(context, 1);
-        n(new c.a.t0.f2.b.b(context));
+        c.a.t0.g2.h.e.a aVar = new c.a.t0.g2.h.e.a(context, 1);
+        n(new c.a.t0.g2.b.b(context));
         o(aVar);
         this.u = context;
     }
@@ -230,7 +230,7 @@ public class PrivilegeDeskView extends CommonTabHost {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             setShowDelete(false);
-            c.a.t0.f2.h.d.a aVar = new c.a.t0.f2.h.d.a();
+            c.a.t0.g2.h.d.a aVar = new c.a.t0.g2.h.d.a();
             aVar.z(this.q);
             addTab(aVar);
             r();
@@ -238,7 +238,7 @@ public class PrivilegeDeskView extends CommonTabHost {
         }
     }
 
-    public final void n(c.a.t0.f2.b.b bVar) {
+    public final void n(c.a.t0.g2.b.b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar) == null) {
             DLauncher dLauncher = (DLauncher) g.a(getContext(), bVar, 6);
@@ -248,7 +248,7 @@ public class PrivilegeDeskView extends CommonTabHost {
         }
     }
 
-    public final void o(c.a.t0.f2.h.e.a aVar) {
+    public final void o(c.a.t0.g2.h.e.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar) == null) {
             DLauncher dLauncher = (DLauncher) g.a(getContext(), aVar, 6);
@@ -267,7 +267,7 @@ public class PrivilegeDeskView extends CommonTabHost {
                 return;
             }
             if (aVar.a == 2) {
-                Object obj = aVar.f14180c;
+                Object obj = aVar.f14320c;
                 if (obj == null) {
                     this.r--;
                 } else if (obj instanceof String) {

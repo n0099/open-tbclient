@@ -30,22 +30,22 @@ public class AppletsCellView extends LinearLayout implements View.OnClickListene
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f40294e;
+    public int f40322e;
 
     /* renamed from: f  reason: collision with root package name */
-    public HeadImageView f40295f;
+    public HeadImageView f40323f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f40296g;
+    public TextView f40324g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f40297h;
+    public TextView f40325h;
 
     /* renamed from: i  reason: collision with root package name */
-    public TbImageView f40298i;
+    public TbImageView f40326i;
 
     /* renamed from: j  reason: collision with root package name */
-    public HeadImageView f40299j;
+    public HeadImageView f40327j;
     public TextView k;
     public SmartApp l;
     public String m;
@@ -82,14 +82,14 @@ public class AppletsCellView extends LinearLayout implements View.OnClickListene
             if (!(interceptable == null || interceptable.invokeLZ(1048576, this, str, z) == null) || z) {
                 return;
             }
-            this.a.f40298i.setDefaultBgResource(R.drawable.pic_share_default_applets);
+            this.a.f40326i.setDefaultBgResource(R.drawable.pic_share_default_applets);
         }
 
         @Override // com.baidu.tbadk.widget.TbImageView.g
         public void onCancel() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                this.a.f40298i.setDefaultBgResource(R.drawable.pic_share_default_applets);
+                this.a.f40326i.setDefaultBgResource(R.drawable.pic_share_default_applets);
             }
         }
     }
@@ -112,7 +112,7 @@ public class AppletsCellView extends LinearLayout implements View.OnClickListene
                 return;
             }
         }
-        this.f40294e = 3;
+        this.f40322e = 3;
         b(context);
     }
 
@@ -121,25 +121,25 @@ public class AppletsCellView extends LinearLayout implements View.OnClickListene
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
             setOrientation(1);
             LayoutInflater.from(context).inflate(R.layout.applets_cell_layout, (ViewGroup) this, true);
-            this.f40295f = (HeadImageView) findViewById(R.id.applets_app_icon);
-            this.f40296g = (TextView) findViewById(R.id.applets_app_name);
-            this.f40297h = (TextView) findViewById(R.id.applets_app_content);
-            this.f40298i = (TbImageView) findViewById(R.id.applets_app_img);
-            this.f40299j = (HeadImageView) findViewById(R.id.applets_app_type_icon);
+            this.f40323f = (HeadImageView) findViewById(R.id.applets_app_icon);
+            this.f40324g = (TextView) findViewById(R.id.applets_app_name);
+            this.f40325h = (TextView) findViewById(R.id.applets_app_content);
+            this.f40326i = (TbImageView) findViewById(R.id.applets_app_img);
+            this.f40327j = (HeadImageView) findViewById(R.id.applets_app_type_icon);
             this.k = (TextView) findViewById(R.id.applets_app_type_name);
-            this.f40295f.setIsRound(true);
-            this.f40295f.setIsPreDrawBorder(true);
-            this.f40295f.setDrawBorder(true);
-            this.f40295f.setBorderWidth(n.f(context, R.dimen.tbds1));
-            this.f40295f.setDefaultResource(R.color.CAM_X0205);
-            this.f40295f.setRadius(n.f(context, R.dimen.ds70));
-            ViewGroup.LayoutParams layoutParams = this.f40298i.getLayoutParams();
+            this.f40323f.setIsRound(true);
+            this.f40323f.setIsPreDrawBorder(true);
+            this.f40323f.setDrawBorder(true);
+            this.f40323f.setBorderWidth(n.f(context, R.dimen.tbds1));
+            this.f40323f.setDefaultResource(R.color.CAM_X0205);
+            this.f40323f.setRadius(n.f(context, R.dimen.ds70));
+            ViewGroup.LayoutParams layoutParams = this.f40326i.getLayoutParams();
             layoutParams.height = ((n.k(getContext()) - n.f(getContext(), R.dimen.tbds130)) * 9) / 16;
-            this.f40298i.setLayoutParams(layoutParams);
-            this.f40298i.setConrers(15);
+            this.f40326i.setLayoutParams(layoutParams);
+            this.f40326i.setConrers(15);
             setOnClickListener(this);
-            this.f40299j.setIsRound(true);
-            this.f40299j.setDrawBorder(false);
+            this.f40327j.setIsRound(true);
+            this.f40327j.setDrawBorder(false);
             onChangeSkinType();
         }
     }
@@ -147,16 +147,16 @@ public class AppletsCellView extends LinearLayout implements View.OnClickListene
     public void onChangeSkinType() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f40294e = TbadkCoreApplication.getInst().getSkinType();
+            this.f40322e = TbadkCoreApplication.getInst().getSkinType();
             SkinManager.setBackgroundResource(this, R.drawable.applets_cell_bg);
-            this.f40295f.setBorderColor(SkinManager.getColor(R.color.CAM_X0201));
-            this.f40295f.setSkinType(this.f40294e);
-            SkinManager.setViewTextColor(this.f40296g, R.color.CAM_X0105);
-            SkinManager.setViewTextColor(this.f40297h, R.color.CAM_X0105);
-            this.f40298i.setSkinType(this.f40294e);
-            this.f40299j.setImageDrawable(SkinManager.getDrawable(R.drawable.icon_avatar_smallapp_tie));
-            this.f40299j.setBorderColor(SkinManager.getColor(R.color.CAM_X0201));
-            this.f40299j.setSkinType(this.f40294e);
+            this.f40323f.setBorderColor(SkinManager.getColor(R.color.CAM_X0201));
+            this.f40323f.setSkinType(this.f40322e);
+            SkinManager.setViewTextColor(this.f40324g, R.color.CAM_X0105);
+            SkinManager.setViewTextColor(this.f40325h, R.color.CAM_X0105);
+            this.f40326i.setSkinType(this.f40322e);
+            this.f40327j.setImageDrawable(SkinManager.getDrawable(R.drawable.icon_avatar_smallapp_tie));
+            this.f40327j.setBorderColor(SkinManager.getColor(R.color.CAM_X0201));
+            this.f40327j.setSkinType(this.f40322e);
             SkinManager.setViewTextColor(this.k, R.color.CAM_X0109);
         }
     }
@@ -186,20 +186,20 @@ public class AppletsCellView extends LinearLayout implements View.OnClickListene
             }
             setVisibility(0);
             this.l = smartApp;
-            this.f40295f.startLoad(smartApp.avatar, 10, false);
-            this.f40296g.setText(smartApp.name);
+            this.f40323f.startLoad(smartApp.avatar, 10, false);
+            this.f40324g.setText(smartApp.name);
             if (StringUtils.isNull(smartApp._abstract, true)) {
-                this.f40297h.setVisibility(8);
+                this.f40325h.setVisibility(8);
             } else {
-                this.f40297h.setVisibility(0);
-                this.f40297h.setText(smartApp._abstract);
+                this.f40325h.setVisibility(0);
+                this.f40325h.setText(smartApp._abstract);
             }
             if (StringUtils.isNull(smartApp.pic, true)) {
-                this.f40298i.setDefaultBgResource(R.drawable.pic_share_default_applets);
+                this.f40326i.setDefaultBgResource(R.drawable.pic_share_default_applets);
                 return;
             }
-            this.f40298i.setEvent(new a(this));
-            this.f40298i.startLoad(smartApp.pic, 10, false);
+            this.f40326i.setEvent(new a(this));
+            this.f40326i.startLoad(smartApp.pic, 10, false);
         }
     }
 
@@ -243,7 +243,7 @@ public class AppletsCellView extends LinearLayout implements View.OnClickListene
                 return;
             }
         }
-        this.f40294e = 3;
+        this.f40322e = 3;
         b(context);
     }
 
@@ -266,7 +266,7 @@ public class AppletsCellView extends LinearLayout implements View.OnClickListene
                 return;
             }
         }
-        this.f40294e = 3;
+        this.f40322e = 3;
         b(context);
     }
 }

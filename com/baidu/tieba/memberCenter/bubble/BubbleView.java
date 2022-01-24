@@ -27,22 +27,22 @@ public class BubbleView extends RelativeLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f45830e;
+    public Context f45858e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ViewGroup f45831f;
+    public ViewGroup f45859f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TbImageView f45832g;
+    public TbImageView f45860g;
 
     /* renamed from: h  reason: collision with root package name */
-    public ImageView f45833h;
+    public ImageView f45861h;
 
     /* renamed from: i  reason: collision with root package name */
-    public ImageView f45834i;
+    public ImageView f45862i;
 
     /* renamed from: j  reason: collision with root package name */
-    public ImageView f45835j;
+    public ImageView f45863j;
     public ImageView k;
     public ImageView l;
     public ImageView m;
@@ -73,19 +73,19 @@ public class BubbleView extends RelativeLayout {
                 return;
             }
         }
-        this.f45830e = context;
+        this.f45858e = context;
         a();
     }
 
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            View inflate = LayoutInflater.from(this.f45830e).inflate(getXmlLayoutResId(), this);
-            this.f45831f = (ViewGroup) inflate.findViewById(R.id.bubble_layout);
-            this.f45832g = (TbImageView) inflate.findViewById(R.id.bubble_image);
-            this.f45833h = (ImageView) inflate.findViewById(R.id.bubble_iamge_bg);
-            this.f45834i = (ImageView) inflate.findViewById(R.id.free_tip);
-            this.f45835j = (ImageView) inflate.findViewById(R.id.defualt_tip);
+            View inflate = LayoutInflater.from(this.f45858e).inflate(getXmlLayoutResId(), this);
+            this.f45859f = (ViewGroup) inflate.findViewById(R.id.bubble_layout);
+            this.f45860g = (TbImageView) inflate.findViewById(R.id.bubble_image);
+            this.f45861h = (ImageView) inflate.findViewById(R.id.bubble_iamge_bg);
+            this.f45862i = (ImageView) inflate.findViewById(R.id.free_tip);
+            this.f45863j = (ImageView) inflate.findViewById(R.id.defualt_tip);
             this.k = (ImageView) inflate.findViewById(R.id.bubble_notuse_iamge);
             this.l = (ImageView) inflate.findViewById(R.id.bubble_round_up);
             this.m = (ImageView) inflate.findViewById(R.id.bubble_round_full);
@@ -110,12 +110,12 @@ public class BubbleView extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
             if (z) {
-                this.f45833h.setVisibility(0);
-                this.f45835j.setVisibility(0);
+                this.f45861h.setVisibility(0);
+                this.f45863j.setVisibility(0);
                 return;
             }
-            this.f45833h.setVisibility(8);
-            this.f45835j.setVisibility(8);
+            this.f45861h.setVisibility(8);
+            this.f45863j.setVisibility(8);
         }
     }
 
@@ -134,9 +134,9 @@ public class BubbleView extends RelativeLayout {
     public void setCurrentNotUse() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.f45831f.setVisibility(8);
+            this.f45859f.setVisibility(8);
             this.k.setVisibility(0);
-            this.f45834i.setVisibility(8);
+            this.f45862i.setVisibility(8);
             if (!this.t) {
                 this.n.setVisibility(8);
                 this.o.setVisibility(8);
@@ -150,7 +150,7 @@ public class BubbleView extends RelativeLayout {
             this.m.setVisibility(8);
             this.p.setVisibility(8);
             this.s.setVisibility(0);
-            this.s.setText(this.f45830e.getString(R.string.bubble_notuse_text));
+            this.s.setText(this.f45858e.getString(R.string.bubble_notuse_text));
         }
     }
 
@@ -161,27 +161,27 @@ public class BubbleView extends RelativeLayout {
         }
         if (bubbleData.getBcode() == 0) {
             setCurrentNotUse();
-            this.f45835j.setVisibility(z ? 0 : 8);
-            this.f45833h.setVisibility(z ? 0 : 8);
+            this.f45863j.setVisibility(z ? 0 : 8);
+            this.f45861h.setVisibility(z ? 0 : 8);
             return;
         }
-        this.f45831f.setVisibility(0);
+        this.f45859f.setVisibility(0);
         this.k.setVisibility(8);
         if (bubbleData.isDef()) {
-            this.f45833h.setVisibility(0);
-            this.f45835j.setVisibility(0);
+            this.f45861h.setVisibility(0);
+            this.f45863j.setVisibility(0);
         } else {
-            this.f45833h.setVisibility(8);
-            this.f45835j.setVisibility(8);
+            this.f45861h.setVisibility(8);
+            this.f45863j.setVisibility(8);
         }
         if (bubbleData.isFree()) {
-            this.f45834i.setVisibility(0);
+            this.f45862i.setVisibility(0);
         } else {
-            this.f45834i.setVisibility(8);
+            this.f45862i.setVisibility(8);
         }
         if (!TextUtils.isEmpty(bubbleData.getB_url())) {
-            this.f45832g.setTag(bubbleData.getB_url());
-            this.f45832g.startLoad(bubbleData.getB_url(), 10, false);
+            this.f45860g.setTag(bubbleData.getB_url());
+            this.f45860g.startLoad(bubbleData.getB_url(), 10, false);
         }
         if (!this.t) {
             this.n.setVisibility(8);
@@ -233,7 +233,7 @@ public class BubbleView extends RelativeLayout {
                 return;
             }
         }
-        this.f45830e = context;
+        this.f45858e = context;
         a();
     }
 
@@ -255,7 +255,7 @@ public class BubbleView extends RelativeLayout {
                 return;
             }
         }
-        this.f45830e = context;
+        this.f45858e = context;
         a();
     }
 }

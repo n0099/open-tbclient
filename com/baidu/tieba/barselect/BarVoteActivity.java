@@ -112,7 +112,7 @@ public class BarVoteActivity extends BaseActivity {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ BarVoteActivity f42153e;
+        public final /* synthetic */ BarVoteActivity f42174e;
 
         public b(BarVoteActivity barVoteActivity) {
             Interceptable interceptable = $ic;
@@ -129,17 +129,17 @@ public class BarVoteActivity extends BaseActivity {
                     return;
                 }
             }
-            this.f42153e = barVoteActivity;
+            this.f42174e = barVoteActivity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, view) == null) && n.C()) {
-                this.f42153e.mView.x();
-                BarVoteActivity barVoteActivity = this.f42153e;
+                this.f42174e.mView.x();
+                BarVoteActivity barVoteActivity = this.f42174e;
                 barVoteActivity.showLoadingView(barVoteActivity.mView.w());
-                this.f42153e.reload();
+                this.f42174e.reload();
             }
         }
     }

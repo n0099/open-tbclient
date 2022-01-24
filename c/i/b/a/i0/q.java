@@ -13,16 +13,16 @@ public final class q implements h {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f29733e;
+    public boolean f29761e;
 
     /* renamed from: f  reason: collision with root package name */
-    public long f29734f;
+    public long f29762f;
 
     /* renamed from: g  reason: collision with root package name */
-    public long f29735g;
+    public long f29763g;
 
     /* renamed from: h  reason: collision with root package name */
-    public c.i.b.a.p f29736h;
+    public c.i.b.a.p f29764h;
 
     public q() {
         Interceptable interceptable = $ic;
@@ -37,26 +37,26 @@ public final class q implements h {
                 return;
             }
         }
-        this.f29736h = c.i.b.a.p.f29827d;
+        this.f29764h = c.i.b.a.p.f29855d;
     }
 
     public void a(long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048576, this, j2) == null) {
-            this.f29734f = j2;
-            if (this.f29733e) {
-                this.f29735g = SystemClock.elapsedRealtime();
+            this.f29762f = j2;
+            if (this.f29761e) {
+                this.f29763g = SystemClock.elapsedRealtime();
             }
         }
     }
 
     public void b() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.f29733e) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.f29761e) {
             return;
         }
-        this.f29735g = SystemClock.elapsedRealtime();
-        this.f29733e = true;
+        this.f29763g = SystemClock.elapsedRealtime();
+        this.f29761e = true;
     }
 
     @Override // c.i.b.a.i0.h
@@ -64,10 +64,10 @@ public final class q implements h {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, pVar)) == null) {
-            if (this.f29733e) {
+            if (this.f29761e) {
                 a(q());
             }
-            this.f29736h = pVar;
+            this.f29764h = pVar;
             return pVar;
         }
         return (c.i.b.a.p) invokeL.objValue;
@@ -77,14 +77,14 @@ public final class q implements h {
     public c.i.b.a.p d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f29736h : (c.i.b.a.p) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f29764h : (c.i.b.a.p) invokeV.objValue;
     }
 
     public void e() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && this.f29733e) {
+        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && this.f29761e) {
             a(q());
-            this.f29733e = false;
+            this.f29761e = false;
         }
     }
 
@@ -94,10 +94,10 @@ public final class q implements h {
         long a;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            long j2 = this.f29734f;
-            if (this.f29733e) {
-                long elapsedRealtime = SystemClock.elapsedRealtime() - this.f29735g;
-                c.i.b.a.p pVar = this.f29736h;
+            long j2 = this.f29762f;
+            if (this.f29761e) {
+                long elapsedRealtime = SystemClock.elapsedRealtime() - this.f29763g;
+                c.i.b.a.p pVar = this.f29764h;
                 if (pVar.a == 1.0f) {
                     a = c.i.b.a.b.a(elapsedRealtime);
                 } else {

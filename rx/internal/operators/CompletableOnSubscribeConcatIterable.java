@@ -12,15 +12,15 @@ import i.u.d;
 import i.u.e;
 import java.util.Iterator;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public final class CompletableOnSubscribeConcatIterable implements b.f {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final Iterable<? extends b> f62460e;
+    public final Iterable<? extends b> f62505e;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static final class ConcatInnerSubscriber extends AtomicInteger implements c {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -7965400327305809232L;
@@ -121,7 +121,7 @@ public final class CompletableOnSubscribeConcatIterable implements b.f {
                 return;
             }
         }
-        this.f62460e = iterable;
+        this.f62505e = iterable;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -130,7 +130,7 @@ public final class CompletableOnSubscribeConcatIterable implements b.f {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, cVar) == null) {
             try {
-                Iterator<? extends b> it = this.f62460e.iterator();
+                Iterator<? extends b> it = this.f62505e.iterator();
                 if (it == null) {
                     cVar.onSubscribe(e.c());
                     cVar.onError(new NullPointerException("The iterator returned is null"));

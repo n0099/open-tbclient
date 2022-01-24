@@ -29,13 +29,13 @@ public class b {
     public static int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static int f14227b;
+    public static int f14367b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static int f14228c;
+    public static int f14368c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static int f14229d;
+    public static int f14369d;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes6.dex */
@@ -44,35 +44,35 @@ public class b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public int f14230e;
+        public int f14370e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final ViewGroup f14231f;
+        public final ViewGroup f14371f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final c.a.s0.x.x.b f14232g;
+        public final c.a.s0.x.x.b f14372g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final boolean f14233h;
+        public final boolean f14373h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final boolean f14234i;
+        public final boolean f14374i;
 
         /* renamed from: j  reason: collision with root package name */
-        public final boolean f14235j;
+        public final boolean f14375j;
         public final int k;
         public boolean l;
-        public final InterfaceC0908b m;
+        public final InterfaceC0918b m;
         public final int n;
         public boolean o;
         public int p;
 
-        public a(boolean z, boolean z2, boolean z3, ViewGroup viewGroup, c.a.s0.x.x.b bVar, InterfaceC0908b interfaceC0908b, int i2) {
+        public a(boolean z, boolean z2, boolean z3, ViewGroup viewGroup, c.a.s0.x.x.b bVar, InterfaceC0918b interfaceC0918b, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3), viewGroup, bVar, interfaceC0908b, Integer.valueOf(i2)};
+                Object[] objArr = {Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3), viewGroup, bVar, interfaceC0918b, Integer.valueOf(i2)};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i3 = newInitContext.flag;
                 if ((i3 & 1) != 0) {
@@ -82,22 +82,22 @@ public class b {
                     return;
                 }
             }
-            this.f14230e = 0;
+            this.f14370e = 0;
             this.o = false;
-            this.f14231f = viewGroup;
-            this.f14232g = bVar;
-            this.f14233h = z;
-            this.f14234i = z2;
-            this.f14235j = z3;
+            this.f14371f = viewGroup;
+            this.f14372g = bVar;
+            this.f14373h = z;
+            this.f14374i = z2;
+            this.f14375j = z3;
             this.k = c.a(viewGroup.getContext());
-            this.m = interfaceC0908b;
+            this.m = interfaceC0918b;
             this.n = i2;
         }
 
         private Context getContext() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65537, this)) == null) ? this.f14231f.getContext() : (Context) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65537, this)) == null) ? this.f14371f.getContext() : (Context) invokeV.objValue;
         }
 
         public final void a(int i2) {
@@ -105,27 +105,27 @@ public class b {
             int h2;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
-                if (this.f14230e == 0) {
-                    this.f14230e = i2;
-                    this.f14232g.refreshHeight(b.h(getContext()));
+                if (this.f14370e == 0) {
+                    this.f14370e = i2;
+                    this.f14372g.refreshHeight(b.h(getContext()));
                     return;
                 }
-                if (c.a.s0.x.x.d.a.a(this.f14233h, this.f14234i, this.f14235j)) {
-                    abs = ((View) this.f14231f.getParent()).getHeight() - i2;
+                if (c.a.s0.x.x.d.a.a(this.f14373h, this.f14374i, this.f14375j)) {
+                    abs = ((View) this.f14371f.getParent()).getHeight() - i2;
                 } else {
-                    abs = Math.abs(i2 - this.f14230e);
+                    abs = Math.abs(i2 - this.f14370e);
                 }
                 if (abs <= b.f(getContext())) {
-                    int height = ((View) this.f14231f.getParent()).getHeight() - i2;
-                    if (i2 >= this.f14230e) {
+                    int height = ((View) this.f14371f.getParent()).getHeight() - i2;
+                    if (i2 >= this.f14370e) {
                         return;
                     }
                     abs = height - this.k;
                 }
-                if (abs == this.k || !b.i(getContext(), abs) || this.f14232g.getHeight() == (h2 = b.h(getContext()))) {
+                if (abs == this.k || !b.i(getContext(), abs) || this.f14372g.getHeight() == (h2 = b.h(getContext()))) {
                     return;
                 }
-                this.f14232g.refreshHeight(h2);
+                this.f14372g.refreshHeight(h2);
             }
         }
 
@@ -133,16 +133,16 @@ public class b {
             boolean z;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
-                View view = (View) this.f14231f.getParent();
+                View view = (View) this.f14371f.getParent();
                 int height = view.getHeight() - view.getPaddingTop();
-                if (c.a.s0.x.x.d.a.a(this.f14233h, this.f14234i, this.f14235j)) {
-                    if (this.f14234i || height - i2 != this.k) {
+                if (c.a.s0.x.x.d.a.a(this.f14373h, this.f14374i, this.f14375j)) {
+                    if (this.f14374i || height - i2 != this.k) {
                         z = height > i2;
                     } else {
                         z = this.l;
                     }
                 } else {
-                    int i3 = this.f14231f.getResources().getDisplayMetrics().heightPixels;
+                    int i3 = this.f14371f.getResources().getDisplayMetrics().heightPixels;
                     int i4 = this.p;
                     if (i4 == 0) {
                         z = this.l;
@@ -152,10 +152,10 @@ public class b {
                     this.p = Math.max(this.p, height);
                 }
                 if (this.l != z) {
-                    this.f14232g.onKeyboardShowing(z);
-                    InterfaceC0908b interfaceC0908b = this.m;
-                    if (interfaceC0908b != null) {
-                        interfaceC0908b.onKeyboardShowing(z);
+                    this.f14372g.onKeyboardShowing(z);
+                    InterfaceC0918b interfaceC0918b = this.m;
+                    if (interfaceC0918b != null) {
+                        interfaceC0918b.onKeyboardShowing(z);
                     }
                 }
                 this.l = z;
@@ -168,10 +168,10 @@ public class b {
             int i2;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                View childAt = this.f14231f.getChildAt(0);
-                View view = (View) this.f14231f.getParent();
+                View childAt = this.f14371f.getChildAt(0);
+                View view = (View) this.f14371f.getParent();
                 Rect rect = new Rect();
-                if (this.f14234i) {
+                if (this.f14374i) {
                     view.getWindowVisibleDisplayFrame(rect);
                     i2 = rect.bottom - rect.top;
                     if (!this.o) {
@@ -191,14 +191,14 @@ public class b {
                 }
                 a(i2);
                 b(i2);
-                this.f14230e = i2;
+                this.f14370e = i2;
             }
         }
     }
 
     /* renamed from: c.a.s0.x.x.d.b$b  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public interface InterfaceC0908b {
+    public interface InterfaceC0918b {
         void onKeyboardShowing(boolean z);
     }
 
@@ -218,11 +218,11 @@ public class b {
     }
 
     @TargetApi(13)
-    public static ViewTreeObserver.OnGlobalLayoutListener b(Activity activity, c.a.s0.x.x.b bVar, InterfaceC0908b interfaceC0908b) {
+    public static ViewTreeObserver.OnGlobalLayoutListener b(Activity activity, c.a.s0.x.x.b bVar, InterfaceC0918b interfaceC0918b) {
         InterceptResult invokeLLL;
         int height;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65538, null, activity, bVar, interfaceC0908b)) == null) {
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65538, null, activity, bVar, interfaceC0918b)) == null) {
             ViewGroup viewGroup = (ViewGroup) activity.findViewById(16908290);
             boolean b2 = d.b(activity);
             boolean c2 = d.c(activity);
@@ -235,7 +235,7 @@ public class b {
             } else {
                 height = defaultDisplay.getHeight();
             }
-            a aVar = new a(b2, c2, a2, viewGroup, bVar, interfaceC0908b, height);
+            a aVar = new a(b2, c2, a2, viewGroup, bVar, interfaceC0918b, height);
             viewGroup.getViewTreeObserver().addOnGlobalLayoutListener(aVar);
             return aVar;
         }
@@ -260,7 +260,7 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
             if (a == 0) {
-                int l = c.a.s0.s.h0.b.k().l("key_last_keyboard_height", g(context.getResources()));
+                int l = c.a.s0.s.i0.b.k().l("key_last_keyboard_height", g(context.getResources()));
                 a = l;
                 if (l > 0) {
                     TbadkCoreApplication.getInst().setKeyboardHeight(a);
@@ -275,10 +275,10 @@ public class b {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, resources)) == null) {
-            if (f14227b == 0) {
-                f14227b = resources.getDimensionPixelSize(R.dimen.max_editor_panel_height);
+            if (f14367b == 0) {
+                f14367b = resources.getDimensionPixelSize(R.dimen.max_editor_panel_height);
             }
-            return f14227b;
+            return f14367b;
         }
         return invokeL.intValue;
     }
@@ -287,10 +287,10 @@ public class b {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, context)) == null) {
-            if (f14229d == 0) {
-                f14229d = context.getResources().getDimensionPixelSize(R.dimen.ds460);
+            if (f14369d == 0) {
+                f14369d = context.getResources().getDimensionPixelSize(R.dimen.ds460);
             }
-            return f14229d;
+            return f14369d;
         }
         return invokeL.intValue;
     }
@@ -299,10 +299,10 @@ public class b {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, resources)) == null) {
-            if (f14228c == 0) {
-                f14228c = resources.getDimensionPixelSize(R.dimen.ds460);
+            if (f14368c == 0) {
+                f14368c = resources.getDimensionPixelSize(R.dimen.ds460);
             }
-            return f14228c;
+            return f14368c;
         }
         return invokeL.intValue;
     }
@@ -320,7 +320,7 @@ public class b {
             if (a != i2 && i2 > 0) {
                 a = i2;
                 TbadkCoreApplication.getInst().setKeyboardHeight(a);
-                c.a.s0.s.h0.b.k().w("key_last_keyboard_height", i2);
+                c.a.s0.s.i0.b.k().w("key_last_keyboard_height", i2);
                 return true;
             }
             return false;

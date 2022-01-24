@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.sdk.base.framework.a.a.c;
 import com.sdk.base.framework.a.l;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public final class b extends com.sdk.base.framework.b.b<String> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -73,16 +73,16 @@ public final class b extends com.sdk.base.framework.b.b<String> {
                     return;
                 }
                 this.a.a(1, "服务端数据格式出错", 302003, null, com.sdk.base.framework.f.f.a.b().a());
-                str2 = a.f59241d;
-                z2 = a.f59242e;
+                str2 = a.f59286d;
+                z2 = a.f59287e;
                 c.b(str2, "返回数据为空", Boolean.valueOf(z2));
             } catch (Throwable th) {
                 th = th;
                 i2 = optInt;
                 com.sdk.base.framework.f.f.a.c(th.toString());
                 this.a.a(i2, "服务端数据格式出错", 302003, null, com.sdk.base.framework.f.f.a.b().a());
-                str = a.f59241d;
-                z = a.f59242e;
+                str = a.f59286d;
+                z = a.f59287e;
                 c.b(str, "返回数据解析异常：" + th.toString(), Boolean.valueOf(z));
             }
         } catch (Throwable th2) {

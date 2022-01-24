@@ -29,10 +29,10 @@ public class h extends c.a.d.n.e.a<c.a.t0.a0.l.d.k, CardViewHolder<c.a.t0.a0.l.h
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c.a.t0.a0.l.d.k f14903e;
+        public final /* synthetic */ c.a.t0.a0.l.d.k f15043e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ h f14904f;
+        public final /* synthetic */ h f15044f;
 
         public a(h hVar, c.a.t0.a0.l.d.k kVar) {
             Interceptable interceptable = $ic;
@@ -49,22 +49,22 @@ public class h extends c.a.d.n.e.a<c.a.t0.a0.l.d.k, CardViewHolder<c.a.t0.a0.l.h
                     return;
                 }
             }
-            this.f14904f = hVar;
-            this.f14903e = kVar;
+            this.f15044f = hVar;
+            this.f15043e = kVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f14904f.b0(this.f14903e);
+                this.f15044f.b0(this.f15043e);
             }
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public h(TbPageContext tbPageContext) {
-        super(tbPageContext.getPageActivity(), c.a.t0.a0.l.d.k.f14937f);
+        super(tbPageContext.getPageActivity(), c.a.t0.a0.l.d.k.f15077f);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -90,7 +90,7 @@ public class h extends c.a.d.n.e.a<c.a.t0.a0.l.d.k, CardViewHolder<c.a.t0.a0.l.h
             return;
         }
         aVar.v(8);
-        aVar.w(this.f3258e.getResources().getString(R.string.ala_person_live_my_love_family));
+        aVar.w(this.f3360e.getResources().getString(R.string.ala_person_live_my_love_family));
         aVar.l(this.m, TbadkCoreApplication.getInst().getSkinType());
     }
 
@@ -99,7 +99,7 @@ public class h extends c.a.d.n.e.a<c.a.t0.a0.l.d.k, CardViewHolder<c.a.t0.a0.l.h
         if (!(interceptable == null || interceptable.invokeL(1048579, this, kVar) == null) || kVar == null || kVar.g() == null) {
             return;
         }
-        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AlaLoveFamilyActivityConfig(this.f3258e, kVar.g().b().user_id)));
+        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AlaLoveFamilyActivityConfig(this.f3360e, kVar.g().b().user_id)));
     }
 
     /* JADX DEBUG: Method merged with bridge method */

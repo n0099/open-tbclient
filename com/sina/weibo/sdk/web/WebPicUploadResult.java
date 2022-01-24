@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class WebPicUploadResult {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String RESP_UPLOAD_PIC_PARAM_CODE = "code";

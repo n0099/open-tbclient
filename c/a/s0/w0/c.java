@@ -132,14 +132,14 @@ public class c extends c.a.d.c.f.d {
             httpMessage.addParam(TableDefine.UserInfoColumns.COLUMN_UPDATE_TIME, TbSingleton.getInstance().getAppLastUpdateTime());
             httpMessage.addParam("event_day", TbSingleton.getInstance().getData());
             httpMessage.addParam(CommonUrlParamManager.PARAM_CMODE, PermissionUtil.isAgreePrivacyPolicy() ? 1 : 2);
-            httpMessage.addParam("is_teenager", c.a.s0.h1.b.c.d() ? "1" : "0");
-            httpMessage.addParam("start_type", c.a.s0.s.y.a.f13680f);
+            httpMessage.addParam("is_teenager", c.a.s0.g1.b.c.d() ? "1" : "0");
+            httpMessage.addParam("start_type", c.a.s0.s.z.a.f13867f);
             try {
-                httpMessage.addParam("start_scheme", StringUtils.isNull(c.a.s0.s.y.a.f13679e) ? "" : URLEncoder.encode(c.a.s0.s.y.a.f13679e, "utf-8"));
+                httpMessage.addParam("start_scheme", StringUtils.isNull(c.a.s0.s.z.a.f13866e) ? "" : URLEncoder.encode(c.a.s0.s.z.a.f13866e, "utf-8"));
             } catch (UnsupportedEncodingException e2) {
                 e2.printStackTrace();
             }
-            httpMessage.addParam("extra", c.a.s0.s.h0.b.k().q("key_sync_extra_field", ""));
+            httpMessage.addParam("extra", c.a.s0.s.i0.b.k().q("key_sync_extra_field", ""));
             httpMessage.addParam("personalized_rec_switch", String.valueOf(TbSingleton.getInstance().getPersonalizedRecSwitch()));
         }
     }

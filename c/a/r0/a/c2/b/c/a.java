@@ -21,32 +21,32 @@ public class a {
     public final ViewGroup a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f5422b;
+    public int f5564b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final int f5423c;
+    public final int f5565c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f5424d;
+    public boolean f5566d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f5425e;
+    public boolean f5567e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f5426f;
+    public boolean f5568f;
 
     /* renamed from: c.a.r0.a.c2.b.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public interface InterfaceC0285a {
+    public interface InterfaceC0294a {
         a getFloatLayer();
     }
 
-    public a(@NonNull InterfaceC0285a interfaceC0285a, @NonNull ViewGroup viewGroup, int i2) {
+    public a(@NonNull InterfaceC0294a interfaceC0294a, @NonNull ViewGroup viewGroup, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {interfaceC0285a, viewGroup, Integer.valueOf(i2)};
+            Object[] objArr = {interfaceC0294a, viewGroup, Integer.valueOf(i2)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i3 = newInitContext.flag;
             if ((i3 & 1) != 0) {
@@ -56,11 +56,11 @@ public class a {
                 return;
             }
         }
-        this.f5425e = false;
-        this.f5426f = true;
+        this.f5567e = false;
+        this.f5568f = true;
         this.a = viewGroup;
-        this.f5422b = i2;
-        this.f5423c = i2;
+        this.f5564b = i2;
+        this.f5565c = i2;
     }
 
     private Context getContext() {
@@ -97,13 +97,13 @@ public class a {
                 a = a();
                 if (a == null) {
                     a = new Container(getContext());
-                    int height = this.a.getHeight() - this.f5422b;
-                    int i2 = this.a instanceof LinearLayout ? -height : this.f5422b;
+                    int height = this.a.getHeight() - this.f5564b;
+                    int i2 = this.a instanceof LinearLayout ? -height : this.f5564b;
                     if (height <= 0) {
                         height = -1;
                         i2 = 0;
                     }
-                    if (!(this.a instanceof LinearLayout) && this.f5422b == 0) {
+                    if (!(this.a instanceof LinearLayout) && this.f5564b == 0) {
                         height = -1;
                     }
                     LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, height);
@@ -120,7 +120,7 @@ public class a {
     public boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f5424d : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f5566d : invokeV.booleanValue;
     }
 
     @Nullable
@@ -140,7 +140,7 @@ public class a {
     public boolean e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f5425e : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f5567e : invokeV.booleanValue;
     }
 
     public boolean f() {
@@ -188,16 +188,16 @@ public class a {
     public final void i() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            this.f5426f = true;
-            this.f5425e = false;
-            this.f5422b = this.f5423c;
+            this.f5568f = true;
+            this.f5567e = false;
+            this.f5564b = this.f5565c;
         }
     }
 
     public boolean j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f5426f : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f5568f : invokeV.booleanValue;
     }
 
     public void k(boolean z) {
@@ -212,15 +212,15 @@ public class a {
     public void l(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048587, this, z) == null) {
-            this.f5426f = z;
+            this.f5568f = z;
         }
     }
 
     public void m(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048588, this, z) == null) {
-            this.f5424d = z;
-            this.f5422b = 0;
+            this.f5566d = z;
+            this.f5564b = 0;
         }
     }
 

@@ -1,6 +1,7 @@
 package c.a.d.f.p;
 
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.searchbox.retrieve.file.util.AESUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -47,7 +48,7 @@ public class v {
         InterceptResult invokeLLII;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLII = interceptable.invokeLLII(65537, null, secretKey, bArr, i2, i3)) == null) {
-            Cipher cipher = Cipher.getInstance("AES/ECB/PKCS5Padding");
+            Cipher cipher = Cipher.getInstance(AESUtil.ECB_TRANSFORMATION);
             cipher.init(2, secretKey);
             return cipher.doFinal(bArr, i2, i3);
         }
@@ -69,7 +70,7 @@ public class v {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, secretKey, bArr)) == null) {
-            Cipher cipher = Cipher.getInstance("AES/ECB/PKCS5Padding");
+            Cipher cipher = Cipher.getInstance(AESUtil.ECB_TRANSFORMATION);
             cipher.init(1, secretKey);
             return cipher.doFinal(bArr);
         }

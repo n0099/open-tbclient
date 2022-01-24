@@ -12,31 +12,31 @@ public class FavSyncPoi {
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f35786b;
+    public String f35814b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Point f35787c;
+    public Point f35815c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f35788d;
+    public String f35816d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f35789e;
+    public String f35817e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f35790f;
+    public String f35818f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f35791g;
+    public int f35819g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f35792h;
+    public String f35820h;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f35793i;
+    public boolean f35821i;
 
     /* renamed from: j  reason: collision with root package name */
-    public String f35794j;
+    public String f35822j;
 
     public FavSyncPoi() {
         Interceptable interceptable = $ic;

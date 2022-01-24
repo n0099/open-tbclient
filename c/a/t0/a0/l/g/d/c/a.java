@@ -23,19 +23,19 @@ public class a {
     public TbPageContext a;
 
     /* renamed from: b  reason: collision with root package name */
-    public BdTypeListView f15004b;
+    public BdTypeListView f15144b;
 
     /* renamed from: c  reason: collision with root package name */
-    public List<c.a.d.n.e.a> f15005c;
+    public List<c.a.d.n.e.a> f15145c;
 
     /* renamed from: d  reason: collision with root package name */
-    public AlaEnterEffectAdapter f15006d;
+    public AlaEnterEffectAdapter f15146d;
 
     /* renamed from: e  reason: collision with root package name */
-    public AlaEnterEffectCategoryAdapter f15007e;
+    public AlaEnterEffectCategoryAdapter f15147e;
 
     /* renamed from: f  reason: collision with root package name */
-    public List<n> f15008f;
+    public List<n> f15148f;
 
     public a(TbPageContext tbPageContext, BdTypeListView bdTypeListView) {
         Interceptable interceptable = $ic;
@@ -53,28 +53,28 @@ public class a {
             }
         }
         this.a = tbPageContext;
-        this.f15004b = bdTypeListView;
+        this.f15144b = bdTypeListView;
         a();
     }
 
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f15005c = new ArrayList();
+            this.f15145c = new ArrayList();
             AlaEnterEffectAdapter alaEnterEffectAdapter = new AlaEnterEffectAdapter(this.a.getPageActivity());
-            this.f15006d = alaEnterEffectAdapter;
-            this.f15005c.add(alaEnterEffectAdapter);
+            this.f15146d = alaEnterEffectAdapter;
+            this.f15145c.add(alaEnterEffectAdapter);
             AlaEnterEffectCategoryAdapter alaEnterEffectCategoryAdapter = new AlaEnterEffectCategoryAdapter(this.a.getPageActivity());
-            this.f15007e = alaEnterEffectCategoryAdapter;
-            this.f15005c.add(alaEnterEffectCategoryAdapter);
-            this.f15004b.addAdapters(this.f15005c);
+            this.f15147e = alaEnterEffectCategoryAdapter;
+            this.f15145c.add(alaEnterEffectCategoryAdapter);
+            this.f15144b.addAdapters(this.f15145c);
         }
     }
 
     public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            for (c.a.d.n.e.a aVar : this.f15005c) {
+            for (c.a.d.n.e.a aVar : this.f15145c) {
                 aVar.H();
             }
         }
@@ -85,14 +85,14 @@ public class a {
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) || ListUtils.isEmpty(list)) {
             return;
         }
-        this.f15004b.setData(list);
-        this.f15008f = this.f15004b.getData();
+        this.f15144b.setData(list);
+        this.f15148f = this.f15144b.getData();
     }
 
     public void d(String str, int i2) {
         List<n> list;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(1048579, this, str, i2) == null) || StringUtils.isNull(str) || (list = this.f15008f) == null) {
+        if (!(interceptable == null || interceptable.invokeLI(1048579, this, str, i2) == null) || StringUtils.isNull(str) || (list = this.f15148f) == null) {
             return;
         }
         for (n nVar : list) {
@@ -109,7 +109,7 @@ public class a {
     public void e(String str, boolean z) {
         List<n> list;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLZ(1048580, this, str, z) == null) || TextUtils.isEmpty(str) || (list = this.f15008f) == null) {
+        if (!(interceptable == null || interceptable.invokeLZ(1048580, this, str, z) == null) || TextUtils.isEmpty(str) || (list = this.f15148f) == null) {
             return;
         }
         for (n nVar : list) {
@@ -127,7 +127,7 @@ public class a {
     public void f(String str, boolean z) {
         List<n> list;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLZ(1048581, this, str, z) == null) || TextUtils.isEmpty(str) || (list = this.f15008f) == null) {
+        if (!(interceptable == null || interceptable.invokeLZ(1048581, this, str, z) == null) || TextUtils.isEmpty(str) || (list = this.f15148f) == null) {
             return;
         }
         for (n nVar : list) {

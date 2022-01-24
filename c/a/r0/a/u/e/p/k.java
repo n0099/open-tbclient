@@ -84,13 +84,13 @@ public class k extends c.a.r0.a.u.e.p.a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f9295e;
+        public final /* synthetic */ String f9437e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ s0 f9296f;
+        public final /* synthetic */ s0 f9438f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ k f9297g;
+        public final /* synthetic */ k f9439g;
 
         public b(k kVar, String str, s0 s0Var) {
             Interceptable interceptable = $ic;
@@ -107,16 +107,16 @@ public class k extends c.a.r0.a.u.e.p.a {
                     return;
                 }
             }
-            this.f9297g = kVar;
-            this.f9295e = str;
-            this.f9296f = s0Var;
+            this.f9439g = kVar;
+            this.f9437e = str;
+            this.f9438f = s0Var;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f9297g.d(this.f9295e, (c.a.r0.a.u.h.b) this.f9296f.call());
+                this.f9439g.d(this.f9437e, (c.a.r0.a.u.h.b) this.f9438f.call());
             }
         }
     }
@@ -153,7 +153,7 @@ public class k extends c.a.r0.a.u.e.p.a {
             JSONObject jSONObject2 = new JSONObject();
             jSONObject2.put("city", h2.k);
             jSONObject2.put("cityCode", h2.l);
-            jSONObject2.put("country", h2.f6043i);
+            jSONObject2.put("country", h2.f6185i);
             jSONObject2.put("district", h2.n);
             jSONObject2.put("province", h2.m);
             jSONObject2.put("street", h2.o);
@@ -335,7 +335,7 @@ public class k extends c.a.r0.a.u.e.p.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, context, jSONObject) == null) {
             jSONObject.put("cameraAuthorized", a0.j(context, PermissionRequest.RESOURCE_VIDEO_CAPTURE));
-            jSONObject.put("locationAuthorized", a0.j(context, s.f55246g));
+            jSONObject.put("locationAuthorized", a0.j(context, s.f55291g));
             jSONObject.put("microphoneAuthorized", a0.j(context, PermissionRequest.RESOURCE_AUDIO_CAPTURE));
             jSONObject.put("notificationAuthorized", q0.N(context));
             jSONObject.put("locationEnabled", q0.L(context));

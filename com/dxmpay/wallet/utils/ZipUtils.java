@@ -1,6 +1,5 @@
 package com.dxmpay.wallet.utils;
 
-import com.baidu.android.imsdk.retrieve.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -14,7 +13,7 @@ import java.io.FileOutputStream;
 import java.util.Enumeration;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipFile;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class ZipUtils {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -42,7 +41,7 @@ public class ZipUtils {
                 Enumeration<? extends ZipEntry> entries = zipFile.entries();
                 while (entries.hasMoreElements()) {
                     ZipEntry nextElement = entries.nextElement();
-                    if (!nextElement.getName().contains(Constants.PATH_PARENT)) {
+                    if (!nextElement.getName().contains("../")) {
                         if (nextElement.isDirectory()) {
                             new File(str2 + "/" + nextElement.getName()).mkdirs();
                         } else {

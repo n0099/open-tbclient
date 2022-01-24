@@ -14,7 +14,7 @@ public class q extends a {
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f5128b;
+    public int f5270b;
 
     public q() {
         Interceptable interceptable = $ic;
@@ -30,7 +30,7 @@ public class q extends a {
             }
         }
         this.a = Integer.MAX_VALUE;
-        this.f5128b = Integer.MAX_VALUE;
+        this.f5270b = Integer.MAX_VALUE;
     }
 
     @Override // c.a.r0.a.a0.a.j.a
@@ -38,10 +38,10 @@ public class q extends a {
         int i2;
         int i3;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048576, this, bVar, canvas) == null) || (i2 = this.a) == Integer.MAX_VALUE || (i3 = this.f5128b) == Integer.MAX_VALUE) {
+        if (!(interceptable == null || interceptable.invokeLL(1048576, this, bVar, canvas) == null) || (i2 = this.a) == Integer.MAX_VALUE || (i3 = this.f5270b) == Integer.MAX_VALUE) {
             return;
         }
-        bVar.f5075j.moveTo(i2, i3);
+        bVar.f5217j.moveTo(i2, i3);
     }
 
     @Override // c.a.r0.a.a0.a.j.a
@@ -51,6 +51,6 @@ public class q extends a {
             return;
         }
         this.a = c.a.r0.a.z2.n0.g((float) jSONArray.optDouble(0));
-        this.f5128b = c.a.r0.a.z2.n0.g((float) jSONArray.optDouble(1));
+        this.f5270b = c.a.r0.a.z2.n0.g((float) jSONArray.optDouble(1));
     }
 }

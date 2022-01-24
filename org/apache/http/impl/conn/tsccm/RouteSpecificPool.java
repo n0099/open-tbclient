@@ -11,7 +11,7 @@ import java.util.LinkedList;
 import java.util.Queue;
 import org.apache.http.conn.routing.HttpRoute;
 @Deprecated
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class RouteSpecificPool {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

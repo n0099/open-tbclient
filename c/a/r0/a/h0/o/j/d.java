@@ -16,7 +16,7 @@ public class d implements c {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile d f6807b;
+    public static volatile d f6949b;
     public transient /* synthetic */ FieldHolder $fh;
     public final Map<String, b> a;
 
@@ -26,10 +26,10 @@ public class d implements c {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f6808e;
+        public final /* synthetic */ String f6950e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ d f6809f;
+        public final /* synthetic */ d f6951f;
 
         public a(d dVar, String str) {
             Interceptable interceptable = $ic;
@@ -46,15 +46,15 @@ public class d implements c {
                     return;
                 }
             }
-            this.f6809f = dVar;
-            this.f6808e = str;
+            this.f6951f = dVar;
+            this.f6950e = str;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f6809f.h(this.f6808e);
+                this.f6951f.h(this.f6950e);
             }
         }
     }
@@ -79,14 +79,14 @@ public class d implements c {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (f6807b == null) {
+            if (f6949b == null) {
                 synchronized (d.class) {
-                    if (f6807b == null) {
-                        f6807b = new d();
+                    if (f6949b == null) {
+                        f6949b = new d();
                     }
                 }
             }
-            return f6807b;
+            return f6949b;
         }
         return (d) invokeV.objValue;
     }

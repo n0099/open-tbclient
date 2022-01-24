@@ -44,19 +44,19 @@ public class d implements r {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2)) == null) {
             l lVar = this.a;
-            if (a2.d(lVar.f30360c, lVar.f30365h)) {
-                this.a.f30365h = System.currentTimeMillis();
+            if (a2.d(lVar.f30388c, lVar.f30393h)) {
+                this.a.f30393h = System.currentTimeMillis();
                 l lVar2 = this.a;
-                a2.a(lVar2.a, str, lVar2.f30360c, lVar2.f30364g, str2);
+                a2.a(lVar2.a, str, lVar2.f30388c, lVar2.f30392g, str2);
                 y2 a = c3.a(this.a.a);
-                a.h(new g3(this.a.f30360c), str);
+                a.h(new g3(this.a.f30388c), str);
                 a.l("desc", str2);
                 a.m();
-                PBNativeListener pBNativeListener = this.a.f30363f;
+                PBNativeListener pBNativeListener = this.a.f30391f;
                 if (pBNativeListener != null) {
                     pBNativeListener.onClicked();
                 }
-                r0.p(this.a.f30360c, str2);
+                r0.p(this.a.f30388c, str2);
                 return true;
             }
             return true;

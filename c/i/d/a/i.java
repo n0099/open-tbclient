@@ -22,10 +22,10 @@ public class i {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ String f30016b;
+        public final /* synthetic */ String f30044b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ i f30017c;
+        public final /* synthetic */ i f30045c;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(i iVar, i iVar2, String str) {
@@ -46,15 +46,15 @@ public class i {
                     return;
                 }
             }
-            this.f30017c = iVar;
-            this.f30016b = str;
+            this.f30045c = iVar;
+            this.f30044b = str;
         }
 
         @Override // c.i.d.a.i
         public CharSequence h(Object obj) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) ? obj == null ? this.f30016b : this.f30017c.h(obj) : (CharSequence) invokeL.objValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) ? obj == null ? this.f30044b : this.f30045c.h(obj) : (CharSequence) invokeL.objValue;
         }
 
         @Override // c.i.d.a.i

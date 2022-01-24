@@ -25,22 +25,22 @@ public class CallActionLoadingDialog extends Dialog {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f37222e;
+    public Context f37250e;
 
     /* renamed from: f  reason: collision with root package name */
-    public View f37223f;
+    public View f37251f;
 
     /* renamed from: g  reason: collision with root package name */
-    public LoadingProgressBar f37224g;
+    public LoadingProgressBar f37252g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f37225h;
+    public TextView f37253h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f37226i;
+    public String f37254i;
 
     /* renamed from: j  reason: collision with root package name */
-    public boolean f37227j;
+    public boolean f37255j;
     public boolean k;
     public boolean l;
 
@@ -63,11 +63,11 @@ public class CallActionLoadingDialog extends Dialog {
                 return;
             }
         }
-        this.f37226i = "";
+        this.f37254i = "";
         this.k = false;
         this.l = false;
-        this.f37222e = context;
-        this.f37227j = a(context);
+        this.f37250e = context;
+        this.f37255j = a(context);
     }
 
     public final boolean a(Context context) {
@@ -79,11 +79,11 @@ public class CallActionLoadingDialog extends Dialog {
     public final void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f37223f = findViewById(m.root_container);
-            this.f37224g = (LoadingProgressBar) findViewById(m.loading_bar);
+            this.f37251f = findViewById(m.root_container);
+            this.f37252g = (LoadingProgressBar) findViewById(m.loading_bar);
             TextView textView = (TextView) findViewById(m.message);
-            this.f37225h = textView;
-            textView.setText(this.f37226i);
+            this.f37253h = textView;
+            textView.setText(this.f37254i);
             setCancelable(this.k);
             setCanceledOnTouchOutside(this.l);
             c();
@@ -93,19 +93,19 @@ public class CallActionLoadingDialog extends Dialog {
     public final void c() {
         Context context;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (context = this.f37222e) == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (context = this.f37250e) == null) {
             return;
         }
         Resources resources = context.getResources();
-        View view = this.f37223f;
+        View view = this.f37251f;
         if (view != null) {
             view.setBackground(resources.getDrawable(l.nad_icon_loading_dialog_bg));
         }
-        LoadingProgressBar loadingProgressBar = this.f37224g;
+        LoadingProgressBar loadingProgressBar = this.f37252g;
         if (loadingProgressBar != null) {
             loadingProgressBar.setIndeterminateDrawable(resources.getDrawable(l.nad_loading_animation));
         }
-        TextView textView = this.f37225h;
+        TextView textView = this.f37253h;
         if (textView != null) {
             textView.setTextColor(resources.getColor(j.nad_color_white));
         }
@@ -145,7 +145,7 @@ public class CallActionLoadingDialog extends Dialog {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) {
-            this.f37226i = str;
+            this.f37254i = str;
             return this;
         }
         return (CallActionLoadingDialog) invokeL.objValue;
@@ -154,7 +154,7 @@ public class CallActionLoadingDialog extends Dialog {
     @Override // android.app.Dialog
     public void show() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048583, this) == null) && this.f37227j) {
+        if ((interceptable == null || interceptable.invokeV(1048583, this) == null) && this.f37255j) {
             try {
                 super.show();
             } catch (Exception e2) {

@@ -18,7 +18,7 @@ public class h extends c.a.r0.h.j.q.a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final boolean f10647d;
+    public static final boolean f10789d;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -34,7 +34,7 @@ public class h extends c.a.r0.h.j.q.a {
                 return;
             }
         }
-        f10647d = k.a;
+        f10789d = k.a;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -86,7 +86,7 @@ public class h extends c.a.r0.h.j.q.a {
                 jSONObject.put("total", download.getTotalbytes());
                 jSONObject.put("fileExist", b.d(download) ? "1" : "0");
             } catch (JSONException e2) {
-                if (f10647d) {
+                if (f10789d) {
                     e2.printStackTrace();
                 }
             }
@@ -107,7 +107,7 @@ public class h extends c.a.r0.h.j.q.a {
                 }
                 jSONObject.put("installed", z);
             } catch (JSONException e2) {
-                if (f10647d) {
+                if (f10789d) {
                     e2.printStackTrace();
                 }
             }

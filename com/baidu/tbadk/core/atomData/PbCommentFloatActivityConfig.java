@@ -284,13 +284,13 @@ public class PbCommentFloatActivityConfig extends IntentConfig {
                 return this;
             }
             Intent intent = getIntent();
-            intent.putExtra("thread_id", e2Var.v1());
-            if (e2Var.y1() != null && !StringUtils.isNull(e2Var.y1().G())) {
-                intent.putExtra("god_reply_id", e2Var.y1().G());
+            intent.putExtra("thread_id", e2Var.w1());
+            if (e2Var.z1() != null && !StringUtils.isNull(e2Var.z1().G())) {
+                intent.putExtra("god_reply_id", e2Var.z1().G());
             }
-            intent.putExtra("is_good", e2Var.r0());
-            intent.putExtra("is_top", e2Var.s0());
-            intent.putExtra("thread_time", e2Var.w0());
+            intent.putExtra("is_good", e2Var.s0());
+            intent.putExtra("is_top", e2Var.t0());
+            intent.putExtra("thread_time", e2Var.x0());
             intent.putExtra("st_type", str2);
             intent.putExtra("squence", z);
             intent.putExtra("host_only", z2);
@@ -300,7 +300,7 @@ public class PbCommentFloatActivityConfig extends IntentConfig {
             intent.putExtra("is_start_for_result", "1");
             intent.putExtra("request_code", i2);
             intent.putExtra("is_from_thread_config", true);
-            long num = e2Var.M0() == null ? 0L : e2Var.M0().getNum();
+            long num = e2Var.N0() == null ? 0L : e2Var.N0().getNum();
             intent.putExtra("extra_pb_cache_key", "zan=" + num);
             if (e2Var.J() != null && e2Var.J().getGodUserData().getId() != null) {
                 intent.putExtra("extra_pb_funs_count_key", e2Var.J().getFansNum());
@@ -308,17 +308,17 @@ public class PbCommentFloatActivityConfig extends IntentConfig {
             }
             intent.putExtra(KEY_VIDEO_SOURCE, this.key_video_source_value);
             String valueOf = String.valueOf(e2Var.U());
-            String a0 = e2Var.a0();
+            String b0 = e2Var.b0();
             if (e2Var.J1 != null) {
                 setFromForumId(valueOf);
                 OriginalForumInfo originalForumInfo = e2Var.J1;
                 String str3 = originalForumInfo.id;
-                a0 = originalForumInfo.ori_fname;
+                b0 = originalForumInfo.ori_fname;
                 valueOf = str3;
             }
             setThreadData(e2Var);
             setForumId(String.valueOf(valueOf));
-            setForumName(a0);
+            setForumName(b0);
             addMoreIntentExtraParam();
             return this;
         }
@@ -824,7 +824,7 @@ public class PbCommentFloatActivityConfig extends IntentConfig {
             if (intent != null && e2Var != null) {
                 BaijiahaoData L = e2Var.L();
                 if (L != null) {
-                    intent.putExtra("key_is_from_dynamic", e2Var.G2());
+                    intent.putExtra("key_is_from_dynamic", e2Var.H2());
                     intent.putExtra("key_ori_ugc_nid", L.oriUgcNid);
                     intent.putExtra("key_ori_ugc_tid", L.oriUgcTid);
                     intent.putExtra("key_ori_ugc_type", L.oriUgcType);

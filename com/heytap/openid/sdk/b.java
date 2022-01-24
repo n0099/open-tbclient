@@ -27,16 +27,16 @@ public class b {
     public volatile com.heytap.openid.a a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f54954b;
+    public String f54999b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f54955c;
+    public String f55000c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final Object f54956d;
+    public final Object f55001d;
 
     /* renamed from: e  reason: collision with root package name */
-    public ServiceConnection f54957e;
+    public ServiceConnection f55002e;
 
     /* loaded from: classes3.dex */
     public class a implements ServiceConnection {
@@ -66,9 +66,9 @@ public class b {
         public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048576, this, componentName, iBinder) == null) {
-                this.a.a = a.AbstractBinderC2079a.a(iBinder);
-                synchronized (this.a.f54956d) {
-                    this.a.f54956d.notify();
+                this.a.a = a.AbstractBinderC2085a.a(iBinder);
+                synchronized (this.a.f55001d) {
+                    this.a.f55001d.notify();
                 }
             }
         }
@@ -84,7 +84,7 @@ public class b {
 
     /* renamed from: com.heytap.openid.sdk.b$b  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public static class C2081b {
+    public static class C2087b {
         public static /* synthetic */ Interceptable $ic;
         public static final b a;
         public transient /* synthetic */ FieldHolder $fh;
@@ -120,10 +120,10 @@ public class b {
             }
         }
         this.a = null;
-        this.f54954b = null;
-        this.f54955c = null;
-        this.f54956d = new Object();
-        this.f54957e = new a(this);
+        this.f54999b = null;
+        this.f55000c = null;
+        this.f55001d = new Object();
+        this.f55002e = new a(this);
     }
 
     public synchronized String a(Context context, String str) {
@@ -143,11 +143,11 @@ public class b {
                 intent.setComponent(new ComponentName("com.heytap.openid", "com.heytap.openid.IdentifyService"));
                 intent.setAction("action.com.heytap.openid.OPEN_ID_SERVICE");
                 try {
-                    if (context.bindService(intent, this.f54957e, 1) && this.a == null) {
-                        synchronized (this.f54956d) {
+                    if (context.bindService(intent, this.f55002e, 1) && this.a == null) {
+                        synchronized (this.f55001d) {
                             try {
                                 if (this.a == null) {
-                                    this.f54956d.wait(3000L);
+                                    this.f55001d.wait(3000L);
                                 }
                             } catch (InterruptedException unused2) {
                             }
@@ -177,13 +177,13 @@ public class b {
         Signature[] signatureArr;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, str)) == null) {
-            if (TextUtils.isEmpty(this.f54954b)) {
-                this.f54954b = context.getPackageName();
+            if (TextUtils.isEmpty(this.f54999b)) {
+                this.f54999b = context.getPackageName();
             }
-            if (TextUtils.isEmpty(this.f54955c)) {
+            if (TextUtils.isEmpty(this.f55000c)) {
                 String str2 = null;
                 try {
-                    signatureArr = context.getPackageManager().getPackageInfo(this.f54954b, 64).signatures;
+                    signatureArr = context.getPackageManager().getPackageInfo(this.f54999b, 64).signatures;
                 } catch (PackageManager.NameNotFoundException e2) {
                     e2.printStackTrace();
                     signatureArr = null;
@@ -204,10 +204,10 @@ public class b {
                         e3.printStackTrace();
                     }
                 }
-                this.f54955c = str2;
+                this.f55000c = str2;
             }
             if (this.a != null) {
-                String a2 = this.a.a(this.f54954b, this.f54955c, str);
+                String a2 = this.a.a(this.f54999b, this.f55000c, str);
                 return TextUtils.isEmpty(a2) ? "" : a2;
             }
             String str3 = context.getPackageName() + ":openIDService is NULL, return NULL";

@@ -7,7 +7,7 @@ import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import c.a.d.n.e.b;
-import c.a.t0.w3.u;
+import c.a.t0.x3.u;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.TbPageContextSupport;
@@ -24,19 +24,19 @@ public class a extends b implements u {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: f  reason: collision with root package name */
-    public TbPageContextSupport f12876f;
+    public TbPageContextSupport f13020f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f12877g;
+    public TextView f13021g;
 
     /* renamed from: h  reason: collision with root package name */
-    public ProgressBar f12878h;
+    public ProgressBar f13022h;
 
     /* renamed from: i  reason: collision with root package name */
-    public View.OnClickListener f12879i;
+    public View.OnClickListener f13023i;
 
     /* renamed from: j  reason: collision with root package name */
-    public View f12880j;
+    public View f13024j;
     public View k;
     public int l;
     public ViewGroup m;
@@ -57,12 +57,12 @@ public class a extends b implements u {
                 return;
             }
         }
-        this.f12876f = null;
-        this.f12877g = null;
-        this.f12878h = null;
-        this.f12879i = null;
-        this.f12880j = null;
-        this.f12876f = tbPageContextSupport;
+        this.f13020f = null;
+        this.f13021g = null;
+        this.f13022h = null;
+        this.f13023i = null;
+        this.f13024j = null;
+        this.f13020f = tbPageContextSupport;
         this.l = tbPageContextSupport.getPageContext().getResources().getDimensionPixelSize(R.dimen.ds16);
     }
 
@@ -72,26 +72,26 @@ public class a extends b implements u {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             if (this.m == null) {
-                this.f12880j = LayoutInflater.from(this.f12876f.getPageContext().getPageActivity()).inflate(R.layout.new_pb_list_more, (ViewGroup) null);
+                this.f13024j = LayoutInflater.from(this.f13020f.getPageContext().getPageActivity()).inflate(R.layout.new_pb_list_more, (ViewGroup) null);
             } else {
-                this.f12880j = LayoutInflater.from(this.f12876f.getPageContext().getPageActivity()).inflate(R.layout.new_pb_list_more, this.m, false);
+                this.f13024j = LayoutInflater.from(this.f13020f.getPageContext().getPageActivity()).inflate(R.layout.new_pb_list_more, this.m, false);
             }
-            View view = this.f12880j;
+            View view = this.f13024j;
             int i2 = this.l;
             view.setPadding(0, i2, 0, i2);
             if (this.n != 0) {
-                ViewGroup.LayoutParams layoutParams = new ViewGroup.LayoutParams(this.f12880j.getLayoutParams());
+                ViewGroup.LayoutParams layoutParams = new ViewGroup.LayoutParams(this.f13024j.getLayoutParams());
                 layoutParams.height = this.n;
-                this.f12880j.setLayoutParams(layoutParams);
+                this.f13024j.setLayoutParams(layoutParams);
             }
-            this.f12877g = (TextView) this.f12880j.findViewById(R.id.pb_more_text);
-            View findViewById = this.f12880j.findViewById(R.id.pb_more_view);
+            this.f13021g = (TextView) this.f13024j.findViewById(R.id.pb_more_text);
+            View findViewById = this.f13024j.findViewById(R.id.pb_more_view);
             this.k = findViewById;
             findViewById.setVisibility(8);
-            this.f12878h = (ProgressBar) this.f12880j.findViewById(R.id.progress);
-            onChangeSkinType(this.f12876f.getPageContext(), TbadkCoreApplication.getInst().getSkinType());
+            this.f13022h = (ProgressBar) this.f13024j.findViewById(R.id.progress);
+            onChangeSkinType(this.f13020f.getPageContext(), TbadkCoreApplication.getInst().getSkinType());
             this.k.setLayoutParams(new LinearLayout.LayoutParams(-1, -2));
-            return this.f12880j;
+            return this.f13024j;
         }
         return (View) invokeV.objValue;
     }
@@ -100,17 +100,17 @@ public class a extends b implements u {
     public void c() {
         View.OnClickListener onClickListener;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (onClickListener = this.f12879i) == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (onClickListener = this.f13023i) == null) {
             return;
         }
-        onClickListener.onClick(this.f12880j);
+        onClickListener.onClick(this.f13024j);
     }
 
     public void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             this.k.setVisibility(0);
-            View view = this.f12880j;
+            View view = this.f13024j;
             int i2 = this.l;
             view.setPadding(0, i2, 0, i2);
         }
@@ -120,15 +120,15 @@ public class a extends b implements u {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             this.k.setVisibility(8);
-            this.f12880j.setPadding(0, 0, 0, 0);
+            this.f13024j.setPadding(0, 0, 0, 0);
         }
     }
 
     public void f(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048580, this, i2) == null) {
-            this.f12878h.setVisibility(0);
-            this.f12877g.setText(i2);
+            this.f13022h.setVisibility(0);
+            this.f13021g.setText(i2);
             this.k.setVisibility(0);
         }
     }
@@ -136,8 +136,8 @@ public class a extends b implements u {
     public void g(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048581, this, i2) == null) {
-            this.f12878h.setVisibility(8);
-            this.f12877g.setText(i2);
+            this.f13022h.setVisibility(8);
+            this.f13021g.setText(i2);
         }
     }
 
@@ -148,12 +148,12 @@ public class a extends b implements u {
         }
     }
 
-    @Override // c.a.t0.w3.u
+    @Override // c.a.t0.x3.u
     public boolean onChangeSkinType(TbPageContext<?> tbPageContext, int i2) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(1048583, this, tbPageContext, i2)) == null) {
-            this.f12876f.getPageContext().getLayoutMode().j(this.k);
+            this.f13020f.getPageContext().getLayoutMode().j(this.k);
             return true;
         }
         return invokeLI.booleanValue;

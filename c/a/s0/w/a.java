@@ -38,7 +38,7 @@ public class a implements e {
     public void onFileDownloadFailed(DownloadData downloadData, int i2, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLIL(1048576, this, downloadData, i2, str) == null) {
-            c.a.t0.j3.f0.e n = c.a.t0.j3.f0.e.n();
+            c.a.t0.k3.f0.e n = c.a.t0.k3.f0.e.n();
             if (i2 == 3) {
                 n.v(downloadData);
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016484, downloadData));
@@ -46,7 +46,7 @@ public class a implements e {
                 n.B(downloadData);
             }
             b.a(downloadData);
-            c.a.t0.j3.f0.e.n().y(downloadData);
+            c.a.t0.k3.f0.e.n().y(downloadData);
         }
     }
 
@@ -64,7 +64,7 @@ public class a implements e {
         }
         b.c(downloadData);
         NotificationHelper.cancelNotification(TbadkCoreApplication.getInst().getApp(), downloadData.getNotifyId());
-        c.a.t0.j3.f0.e.n().y(downloadData);
+        c.a.t0.k3.f0.e.n().y(downloadData);
         if (downloadData.isNeedInvokeApk()) {
             UtilHelper.install_apk(TbadkCoreApplication.getInst().getApp(), downloadData.getId().replace(".", "_") + Constant.FILE.SUFFIX.BUNDLE_SUFFIX);
         }
@@ -97,8 +97,8 @@ public class a implements e {
             edit.putLong(downloadData.getId(), downloadData.getSize());
             edit.commit();
         }
-        c.a.t0.j3.f0.e.n().C(downloadData);
-        c.a.t0.j3.f0.e.n().y(downloadData);
+        c.a.t0.k3.f0.e.n().C(downloadData);
+        c.a.t0.k3.f0.e.n().y(downloadData);
     }
 
     @Override // c.a.s0.w.e

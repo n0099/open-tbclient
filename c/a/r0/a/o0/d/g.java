@@ -12,7 +12,7 @@ public class g extends b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c  reason: collision with root package name */
-    public final c.a.r0.a.u.h.b f8041c;
+    public final c.a.r0.a.u.h.b f8183c;
 
     public g(@NonNull String str, @NonNull c.a.r0.a.u.h.b bVar) {
         Interceptable interceptable = $ic;
@@ -30,16 +30,16 @@ public class g extends b {
             }
         }
         this.a = str;
-        this.f8041c = bVar;
+        this.f8183c = bVar;
     }
 
     @Override // c.a.r0.a.o0.d.b
     public void m(Map<String, Object> map) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, map) == null) {
-            map.put("status", Integer.valueOf(this.f8041c.f9323b));
-            map.put("data", this.f8041c.f9325d);
-            map.put("message", this.f8041c.f9324c);
+            map.put("status", Integer.valueOf(this.f8183c.f9465b));
+            map.put("data", this.f8183c.f9467d);
+            map.put("message", this.f8183c.f9466c);
         }
     }
 }

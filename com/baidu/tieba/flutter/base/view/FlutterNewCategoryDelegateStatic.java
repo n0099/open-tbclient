@@ -106,13 +106,13 @@ public class FlutterNewCategoryDelegateStatic extends b {
             if (c2 == null) {
                 return;
             }
-            if (c2.a() == o.f13867h) {
+            if (c2.a() == o.f14012h) {
                 if (!TextUtils.isEmpty(this.mFinalData.b())) {
                     c cVar = new c();
-                    cVar.f12791g = this.mFinalData.b();
-                    cVar.f12789e = 21;
+                    cVar.f12935g = this.mFinalData.b();
+                    cVar.f12933e = 21;
                     if (!TextUtils.isEmpty(this.mFinalData.c())) {
-                        cVar.f12787c = this.mFinalData.c();
+                        cVar.f12931c = this.mFinalData.c();
                     }
                     e.a().postDelayed(new Runnable(this, cVar) { // from class: com.baidu.tieba.flutter.base.view.FlutterNewCategoryDelegateStatic.4
                         public static /* synthetic */ Interceptable $ic;
@@ -148,13 +148,13 @@ public class FlutterNewCategoryDelegateStatic extends b {
                         }
                     }, 2000L);
                 }
-                TbSingleton.getInstance().getChannelConfigModel().d(o.f13867h);
-            } else if (this.mFinalData.a() == o.f13866g) {
+                TbSingleton.getInstance().getChannelConfigModel().d(o.f14012h);
+            } else if (this.mFinalData.a() == o.f14011g) {
                 MessageRedDotView messageRedDotView = this.tipView;
                 if (messageRedDotView != null) {
                     messageRedDotView.setVisibility(0);
                 }
-                TbSingleton.getInstance().getChannelConfigModel().d(o.f13866g);
+                TbSingleton.getInstance().getChannelConfigModel().d(o.f14011g);
             } else {
                 MessageRedDotView messageRedDotView2 = this.tipView;
                 if (messageRedDotView2 != null) {
@@ -224,7 +224,7 @@ public class FlutterNewCategoryDelegateStatic extends b {
             c cVar = new c();
             FlutterBaseFragment build = new FlutterBaseFragment.NewEngineFragmentBuilder(TbFlutterFragment.class).url(OpenFlutter.FRAGMENT_NEWCATEGORY).isTabHost(true).build();
             cVar.a = build;
-            cVar.f12789e = 21;
+            cVar.f12933e = 21;
             ((TbFlutterFragment) build).setOnPrimaryListener(new TbFlutterFragmentLifeCircleInterface(this) { // from class: com.baidu.tieba.flutter.base.view.FlutterNewCategoryDelegateStatic.3
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
@@ -257,10 +257,10 @@ public class FlutterNewCategoryDelegateStatic extends b {
                 }
             });
             Resources resources = h.a().getResources();
-            cVar.f12786b = resources.getIdentifier("new_category", "string", BdBaseApplication.getInst().getPackageName());
-            cVar.f12790f = resources.getIdentifier("lottie_tab_category", "raw", BdBaseApplication.getInst().getPackageName());
-            cVar.f12793i = c.l;
-            cVar.f12792h = c.a.s0.i0.e.c.d().c("channel");
+            cVar.f12930b = resources.getIdentifier("new_category", "string", BdBaseApplication.getInst().getPackageName());
+            cVar.f12934f = resources.getIdentifier("lottie_tab_category", "raw", BdBaseApplication.getInst().getPackageName());
+            cVar.f12937i = c.l;
+            cVar.f12936h = c.a.s0.i0.e.c.d().c("channel");
             return cVar;
         }
         return (c) invokeV.objValue;
@@ -274,14 +274,14 @@ public class FlutterNewCategoryDelegateStatic extends b {
             this.mIndicator = (MaintabBottomIndicator) LayoutInflater.from(context).inflate(h.a().getResources().getIdentifier("maintab_bottom_indicator", "layout", BdBaseApplication.getInst().getPackageName()), (ViewGroup) null);
             this.tipView = new MessageRedDotView(context);
             TbFragmentTabIndicator.a aVar = new TbFragmentTabIndicator.a();
-            aVar.f41044f = this.mIndicator;
-            aVar.f41041c = n.d(context, 10.0f);
+            aVar.f41072f = this.mIndicator;
+            aVar.f41069c = n.d(context, 10.0f);
             aVar.a = this.tipView;
             this.mIndicator.addTipWrapContent(FileHelper.FILE_CACHE_EMOTION_PACKAGE, aVar);
             this.tipView.refresh(0);
             o oVar = this.mFinalData;
             if (oVar != null) {
-                if (oVar.a() == o.f13866g) {
+                if (oVar.a() == o.f14011g) {
                     this.tipView.setVisibility(0);
                 } else {
                     this.tipView.setVisibility(8);

@@ -10,7 +10,7 @@ import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
 import c.a.d.f.p.l;
 import c.a.d.f.p.n;
-import c.a.s0.e1.o0;
+import c.a.s0.d1.o0;
 import c.a.s0.s.q.e2;
 import c.a.s0.s.q.f;
 import c.a.t0.g0.b0;
@@ -70,7 +70,7 @@ public class c extends c.a.t0.g0.a<e2> implements b0, c.a.t0.t.e {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c f14883e;
+        public final /* synthetic */ c f15023e;
 
         public a(c cVar) {
             Interceptable interceptable = $ic;
@@ -87,16 +87,16 @@ public class c extends c.a.t0.g0.a<e2> implements b0, c.a.t0.t.e {
                     return;
                 }
             }
-            this.f14883e = cVar;
+            this.f15023e = cVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f14883e.g() == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f15023e.g() == null) {
                 return;
             }
-            this.f14883e.g().a(view, this.f14883e.o);
+            this.f15023e.g().a(view, this.f15023e.o);
         }
     }
 
@@ -161,8 +161,8 @@ public class c extends c.a.t0.g0.a<e2> implements b0, c.a.t0.t.e {
         this.p.hideDisagree();
         this.p.setShareReportFrom(1);
         f fVar = new f();
-        fVar.f13371b = 2;
-        fVar.f13377h = 2;
+        fVar.f13557b = 2;
+        fVar.f13563h = 2;
         this.p.setAgreeStatisticData(fVar);
         ThreadCommentAndPraiseInfoLayout threadCommentAndPraiseInfoLayout2 = (ThreadCommentAndPraiseInfoLayout) j2.findViewById(R.id.card_bottom_op_weight_layout);
         this.q = threadCommentAndPraiseInfoLayout2;
@@ -223,38 +223,38 @@ public class c extends c.a.t0.g0.a<e2> implements b0, c.a.t0.t.e {
     public void N(TbPageContext<?> tbPageContext) {
         T t;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, tbPageContext) == null) || tbPageContext == null || (t = this.o) == 0 || ((e2) t).o1() == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048580, this, tbPageContext) == null) || tbPageContext == null || (t = this.o) == 0 || ((e2) t).p1() == null) {
             return;
         }
         if (!l.z()) {
             n.M(tbPageContext.getPageActivity(), R.string.no_network_guide);
             return;
         }
-        AlaInfoData o1 = ((e2) this.o).o1();
-        if (o1.isLegalYYLiveData()) {
+        AlaInfoData p1 = ((e2) this.o).p1();
+        if (p1.isLegalYYLiveData()) {
             TbPageContext<?> tbPageContext2 = this.m;
-            YyExtData yyExtData = o1.mYyExtData;
+            YyExtData yyExtData = p1.mYyExtData;
             String str = yyExtData.mSid;
             String str2 = yyExtData.mSsid;
             String str3 = yyExtData.mTemplateId;
-            YYLiveUtil.jumpToYYLiveRoom(tbPageContext2, str, str2, str3, "" + o1.roomId, YYLiveUtil.SOURCE_FRS_LIVE_CARD_TAB);
+            YYLiveUtil.jumpToYYLiveRoom(tbPageContext2, str, str2, str3, "" + p1.roomId, YYLiveUtil.SOURCE_FRS_LIVE_CARD_TAB);
         }
     }
 
     public final void O(TbPageContext<?> tbPageContext) {
         T t;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048581, this, tbPageContext) == null) || (t = this.o) == 0 || ((e2) t).o1() == null || ((e2) this.o).o1().share_info == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048581, this, tbPageContext) == null) || (t = this.o) == 0 || ((e2) t).p1() == null || ((e2) this.o).p1().share_info == null) {
             return;
         }
-        if (((e2) this.o).o1().share_info.record_tid <= 0) {
-            N(this.f17767f);
+        if (((e2) this.o).p1().share_info.record_tid <= 0) {
+            N(this.f17589f);
             return;
         }
-        PbActivityConfig createNormalCfg = new PbActivityConfig(tbPageContext.getPageActivity()).createNormalCfg(String.valueOf(((e2) this.o).o1().share_info.record_tid), null, FrsFragment.STAR_FRS);
-        createNormalCfg.setVideo_source(((e2) this.o).Z1() ? "floor5" : "frs");
-        createNormalCfg.setFromSmartFrs(((e2) this.o).A2());
-        createNormalCfg.setSmartFrsPosition(((e2) this.o).h1());
+        PbActivityConfig createNormalCfg = new PbActivityConfig(tbPageContext.getPageActivity()).createNormalCfg(String.valueOf(((e2) this.o).p1().share_info.record_tid), null, FrsFragment.STAR_FRS);
+        createNormalCfg.setVideo_source(((e2) this.o).a2() ? "floor5" : "frs");
+        createNormalCfg.setFromSmartFrs(((e2) this.o).B2());
+        createNormalCfg.setSmartFrsPosition(((e2) this.o).i1());
         createNormalCfg.setStartFrom(3);
         MessageManager.getInstance().sendMessage(new CustomMessage(2004001, createNormalCfg));
     }
@@ -284,22 +284,22 @@ public class c extends c.a.t0.g0.a<e2> implements b0, c.a.t0.t.e {
                 this.B.setUserAfterClickListener(this.O);
                 this.G.getController().d((e2) this.o, this.L, "", false);
                 this.G.getController().c();
-                if (((e2) this.o).o1() != null && ((e2) this.o).o1().share_info != null && !StringUtils.isNull(((e2) this.o).o1().share_info.content)) {
+                if (((e2) this.o).p1() != null && ((e2) this.o).p1().share_info != null && !StringUtils.isNull(((e2) this.o).p1().share_info.content)) {
                     this.C.setVisibility(0);
-                    this.C.setText(((e2) this.o).o1().share_info.content);
+                    this.C.setText(((e2) this.o).p1().share_info.content);
                 } else {
                     this.C.setVisibility(8);
                 }
-                if (((e2) this.o).o1() != null && ((e2) this.o).o1().user_info != null) {
-                    String str = ((e2) this.o).o1().user_info.user_name;
+                if (((e2) this.o).p1() != null && ((e2) this.o).p1().user_info != null) {
+                    String str = ((e2) this.o).p1().user_info.user_name;
                     if (o0.d(str) > 14) {
-                        str = o0.m(str, 14) + "...";
+                        str = o0.n(str, 14) + "...";
                     }
                     this.F.setText(str + ":");
-                    if (TextUtils.isEmpty(((e2) this.o).o1().user_info.portrait)) {
+                    if (TextUtils.isEmpty(((e2) this.o).p1().user_info.portrait)) {
                         this.E.setPlaceHolder(1);
                     } else {
-                        this.E.startLoad(((e2) this.o).o1().user_info.portrait, 10, false, false);
+                        this.E.startLoad(((e2) this.o).p1().user_info.portrait, 10, false, false);
                     }
                 }
                 String title = ((e2) this.o).getTitle();
@@ -310,12 +310,12 @@ public class c extends c.a.t0.g0.a<e2> implements b0, c.a.t0.t.e {
                     this.D.setVisibility(8);
                 }
                 S(L(1));
-                if (((e2) this.o).o1().mChallengeInfoData != null && ((e2) this.o).o1().mChallengeInfoData.challenge_id > 0) {
+                if (((e2) this.o).p1().mChallengeInfoData != null && ((e2) this.o).p1().mChallengeInfoData.challenge_id > 0) {
                     this.I.setVisibility(0);
                 } else {
                     this.I.setVisibility(8);
                 }
-                this.N.setVisibility((c.a.t0.d1.b.f().i() || c.a.t0.d1.a.h().j()) ? 0 : 0);
+                this.N.setVisibility((c.a.t0.e1.b.f().i() || c.a.t0.e1.a.h().j()) ? 0 : 0);
                 C(this.A);
                 l(i(), TbadkCoreApplication.getInst().getSkinType());
                 J();
@@ -380,7 +380,7 @@ public class c extends c.a.t0.g0.a<e2> implements b0, c.a.t0.t.e {
     public void l(TbPageContext<?> tbPageContext, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048590, this, tbPageContext, i2) == null) {
-            if (this.f17766e != i2) {
+            if (this.f17588e != i2) {
                 v(tbPageContext, i2);
                 c.a.s0.s.u.c d2 = c.a.s0.s.u.c.d(this.A);
                 d2.n(R.string.J_X06);
@@ -392,7 +392,7 @@ public class c extends c.a.t0.g0.a<e2> implements b0, c.a.t0.t.e {
                 }
                 this.B.onChangeSkinType(i(), TbadkCoreApplication.getInst().getSkinType());
                 this.p.onChangeSkinType();
-                this.f17766e = i2;
+                this.f17588e = i2;
                 HeadImageView headImageView = this.E;
                 if (headImageView != null) {
                     headImageView.setPlaceHolder(1);
@@ -403,7 +403,7 @@ public class c extends c.a.t0.g0.a<e2> implements b0, c.a.t0.t.e {
                 }
             }
             T t = this.o;
-            if (t != 0 && m.k(((e2) t).g0())) {
+            if (t != 0 && m.k(((e2) t).h0())) {
                 SkinManager.setViewTextColor(this.C, R.color.CAM_X0109);
                 SkinManager.setViewTextColor(this.D, R.color.CAM_X0109);
                 SkinManager.setViewTextColor(this.F, R.color.CAM_X0109);
@@ -419,7 +419,7 @@ public class c extends c.a.t0.g0.a<e2> implements b0, c.a.t0.t.e {
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048591, this, view) == null) || c.a.t0.d1.b.f().i() || c.a.t0.d1.a.h().j()) {
+        if (!(interceptable == null || interceptable.invokeL(1048591, this, view) == null) || c.a.t0.e1.b.f().i() || c.a.t0.e1.a.h().j()) {
             return;
         }
         int i2 = 1;
@@ -429,11 +429,11 @@ public class c extends c.a.t0.g0.a<e2> implements b0, c.a.t0.t.e {
                     g().a(view, this.o);
                 }
                 TiebaStatic.log(new StatisticItem("c12323"));
-                if (((e2) this.o).o1().live_status == 1) {
-                    N(this.f17767f);
+                if (((e2) this.o).p1().live_status == 1) {
+                    N(this.f17589f);
                     return;
                 } else {
-                    O(this.f17767f);
+                    O(this.f17589f);
                     return;
                 }
             }
@@ -441,24 +441,24 @@ public class c extends c.a.t0.g0.a<e2> implements b0, c.a.t0.t.e {
         }
         T t = this.o;
         if (t != 0) {
-            m.a(((e2) t).g0());
+            m.a(((e2) t).h0());
         }
         if (g() != null) {
             g().a(this.A, this.o);
         }
         TiebaStatic.log(new StatisticItem("c12323"));
-        if (((e2) this.o).o1().live_status == 1) {
-            N(this.f17767f);
+        if (((e2) this.o).p1().live_status == 1) {
+            N(this.f17589f);
             i2 = 5;
         } else {
-            O(this.f17767f);
+            O(this.f17589f);
         }
         if (view == this.p.getCommentContainer() || view == this.J.mSharePraiseView.getCommentContainer()) {
             StatisticItem statisticItem = new StatisticItem("c12942");
             statisticItem.param("obj_locate", 2);
-            statisticItem.param("tid", ((e2) this.o).v1());
+            statisticItem.param("tid", ((e2) this.o).w1());
             statisticItem.param("obj_type", i2);
-            statisticItem.param("nid", ((e2) this.o).G0());
+            statisticItem.param("nid", ((e2) this.o).H0());
             c.a.s0.o0.c f2 = TbPageExtraHelper.f(view);
             if (f2 != null) {
                 statisticItem.param(TiebaStatic.Params.OBJ_CUR_PAGE, f2.a());

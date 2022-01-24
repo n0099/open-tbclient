@@ -62,12 +62,12 @@ public class a implements k0 {
 
     /* renamed from: c.a.r0.g.n.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public class C0683a implements a.InterfaceC0497a {
+    public class C0692a implements a.InterfaceC0506a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ Context a;
 
-        public C0683a(a aVar, Context context) {
+        public C0692a(a aVar, Context context) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -129,13 +129,13 @@ public class a implements k0 {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final Context f10343e;
+        public final Context f10485e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final JSONObject f10344f;
+        public final JSONObject f10486f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ a f10345g;
+        public final /* synthetic */ a f10487g;
 
         public c(a aVar, Context context, JSONObject jSONObject) {
             Interceptable interceptable = $ic;
@@ -152,16 +152,16 @@ public class a implements k0 {
                     return;
                 }
             }
-            this.f10345g = aVar;
-            this.f10343e = context;
-            this.f10344f = jSONObject;
+            this.f10487g = aVar;
+            this.f10485e = context;
+            this.f10486f = jSONObject;
         }
 
         @Override // c.a.r0.a.v1.f
         public void a(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-                this.f10345g.l(this.f10343e, this.f10344f, this);
+                this.f10487g.l(this.f10485e, this.f10486f, this);
             }
         }
 
@@ -176,7 +176,7 @@ public class a implements k0 {
         public final void c(boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
-                c.a.r0.a.c2.b.f.e.f(this.f10343e, z ? c.a.r0.g.e.swan_app_img_menu_save_success : c.a.r0.g.e.swan_app_img_menu_save_failed).v();
+                c.a.r0.a.c2.b.f.e.f(this.f10485e, z ? c.a.r0.g.e.swan_app_img_menu_save_success : c.a.r0.g.e.swan_app_img_menu_save_failed).v();
             }
         }
 
@@ -199,7 +199,7 @@ public class a implements k0 {
                 }
                 PooledByteBufferInputStream pooledByteBufferInputStream = new PooledByteBufferInputStream(result.get());
                 try {
-                    c(a.m(this.f10343e, pooledByteBufferInputStream));
+                    c(a.m(this.f10485e, pooledByteBufferInputStream));
                 } finally {
                     CloseableReference.closeSafely(result);
                     d.d(pooledByteBufferInputStream);
@@ -211,7 +211,7 @@ public class a implements k0 {
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-                a.j(this.f10343e, this);
+                a.j(this.f10485e, this);
             }
         }
     }
@@ -379,7 +379,7 @@ public class a implements k0 {
             if (v.h()) {
                 String optString = jSONObject.optString("imageUrl");
                 if (!TextUtils.isEmpty(optString)) {
-                    v.k(context, new c.a.r0.a.p.d.t1.b().H(optString).I(true), new C0683a(this, context));
+                    v.k(context, new c.a.r0.a.p.d.t1.b().H(optString).I(true), new C0692a(this, context));
                     return;
                 } else {
                     c.a.r0.a.c2.b.f.e.g(context, "保存失败").v();

@@ -25,13 +25,13 @@ public final class BdVideoGradientMask extends View {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final Lazy f37137e;
+    public final Lazy f37165e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final Lazy f37138f;
+    public final Lazy f37166f;
 
     /* renamed from: g  reason: collision with root package name */
-    public HashMap f37139g;
+    public HashMap f37167g;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public BdVideoGradientMask(Context context, AttributeSet attributeSet) {
@@ -53,26 +53,26 @@ public final class BdVideoGradientMask extends View {
             }
         }
         Intrinsics.checkNotNullParameter(context, "context");
-        this.f37137e = LazyKt__LazyJVMKt.lazy(BdVideoGradientMask$paint$2.INSTANCE);
-        this.f37138f = LazyKt__LazyJVMKt.lazy(new BdVideoGradientMask$linearGradient$2(this));
+        this.f37165e = LazyKt__LazyJVMKt.lazy(BdVideoGradientMask$paint$2.INSTANCE);
+        this.f37166f = LazyKt__LazyJVMKt.lazy(new BdVideoGradientMask$linearGradient$2(this));
     }
 
     private final LinearGradient getLinearGradient() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, this)) == null) ? (LinearGradient) this.f37138f.getValue() : (LinearGradient) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, this)) == null) ? (LinearGradient) this.f37166f.getValue() : (LinearGradient) invokeV.objValue;
     }
 
     private final Paint getPaint() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, this)) == null) ? (Paint) this.f37137e.getValue() : (Paint) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, this)) == null) ? (Paint) this.f37165e.getValue() : (Paint) invokeV.objValue;
     }
 
     public void _$_clearFindViewByIdCache() {
         HashMap hashMap;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (hashMap = this.f37139g) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (hashMap = this.f37167g) == null) {
             return;
         }
         hashMap.clear();
@@ -82,13 +82,13 @@ public final class BdVideoGradientMask extends View {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) {
-            if (this.f37139g == null) {
-                this.f37139g = new HashMap();
+            if (this.f37167g == null) {
+                this.f37167g = new HashMap();
             }
-            View view = (View) this.f37139g.get(Integer.valueOf(i2));
+            View view = (View) this.f37167g.get(Integer.valueOf(i2));
             if (view == null) {
                 View findViewById = findViewById(i2);
-                this.f37139g.put(Integer.valueOf(i2), findViewById);
+                this.f37167g.put(Integer.valueOf(i2), findViewById);
                 return findViewById;
             }
             return view;

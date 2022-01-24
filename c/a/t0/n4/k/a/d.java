@@ -50,7 +50,7 @@ public class d extends c.a.t0.n4.k.a.a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d f19917e;
+        public final /* synthetic */ d f20018e;
 
         public a(d dVar) {
             Interceptable interceptable = $ic;
@@ -67,16 +67,16 @@ public class d extends c.a.t0.n4.k.a.a {
                     return;
                 }
             }
-            this.f19917e = dVar;
+            this.f20018e = dVar;
         }
 
         @Override // android.hardware.Camera.PreviewCallback
         public void onPreviewFrame(byte[] bArr, Camera camera) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLL(1048576, this, bArr, camera) == null) || this.f19917e.u == null) {
+            if (!(interceptable == null || interceptable.invokeLL(1048576, this, bArr, camera) == null) || this.f20018e.u == null) {
                 return;
             }
-            this.f19917e.u.a(bArr, 1);
+            this.f20018e.u.a(bArr, 1);
         }
     }
 
@@ -242,10 +242,10 @@ public class d extends c.a.t0.n4.k.a.a {
                 for (int i2 = 0; i2 < numberOfCameras; i2++) {
                     Camera.CameraInfo cameraInfo2 = new Camera.CameraInfo();
                     Camera.getCameraInfo(i2, cameraInfo2);
-                    if (this.f19903b && cameraInfo2.facing == 1) {
+                    if (this.f20004b && cameraInfo2.facing == 1) {
                         this.B = cameraInfo2;
                         return i2;
-                    } else if (!this.f19903b && cameraInfo2.facing == 0) {
+                    } else if (!this.f20004b && cameraInfo2.facing == 0) {
                         this.B = cameraInfo2;
                         return i2;
                     }
@@ -305,13 +305,13 @@ public class d extends c.a.t0.n4.k.a.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             List<Camera.Size> supportedPreviewSizes = this.r.getParameters().getSupportedPreviewSizes();
-            Camera.Size C = C(supportedPreviewSizes, this.f19907f, this.f19908g);
+            Camera.Size C = C(supportedPreviewSizes, this.f20008f, this.f20009g);
             if (C != null) {
-                this.f19905d = C.width;
-                this.f19906e = C.height;
+                this.f20006d = C.width;
+                this.f20007e = C.height;
             }
             if (c.a.t0.n4.k.a.a.q == null) {
-                if (C != null && this.f19907f == C.width && this.f19908g == C.height) {
+                if (C != null && this.f20008f == C.width && this.f20009g == C.height) {
                     return;
                 }
                 StringBuilder sb = new StringBuilder();
@@ -320,7 +320,7 @@ public class d extends c.a.t0.n4.k.a.a {
                         sb.append(size.width);
                         sb.append(',');
                         sb.append(size.height);
-                        sb.append(com.alipay.sdk.encrypt.a.f30865h);
+                        sb.append(com.alipay.sdk.encrypt.a.f30893h);
                         sb.append(size.height / size.width);
                         sb.append('\n');
                     }
@@ -333,13 +333,13 @@ public class d extends c.a.t0.n4.k.a.a {
     public final void G() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            if ((this.f19904c && this.f19905d < this.f19906e) || (!this.f19904c && this.f19905d > this.f19906e)) {
-                this.f19909h = this.f19906e;
-                this.f19910i = this.f19905d;
+            if ((this.f20005c && this.f20006d < this.f20007e) || (!this.f20005c && this.f20006d > this.f20007e)) {
+                this.f20010h = this.f20007e;
+                this.f20011i = this.f20006d;
                 return;
             }
-            this.f19909h = this.f19905d;
-            this.f19910i = this.f19906e;
+            this.f20010h = this.f20006d;
+            this.f20011i = this.f20007e;
         }
     }
 
@@ -408,9 +408,9 @@ public class d extends c.a.t0.n4.k.a.a {
     public void g(int i2, int i3, int i4, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048585, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Boolean.valueOf(z)}) == null) {
-            this.f19907f = Math.max(i2, i3);
-            this.f19908g = Math.min(i2, i3);
-            this.f19904c = i2 > i3;
+            this.f20008f = Math.max(i2, i3);
+            this.f20009g = Math.min(i2, i3);
+            this.f20005c = i2 > i3;
             this.k = i4;
             i(z);
         }
@@ -427,7 +427,7 @@ public class d extends c.a.t0.n4.k.a.a {
     public void i(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048587, this, z) == null) {
-            this.f19903b = (z && x()) || !(z || w());
+            this.f20004b = (z && x()) || !(z || w());
         }
     }
 
@@ -443,18 +443,18 @@ public class d extends c.a.t0.n4.k.a.a {
             try {
                 q();
                 int A = A();
-                this.f19911j = A;
+                this.f20012j = A;
                 if (A >= 0) {
                     Camera open = Camera.open(A);
                     this.r = open;
                     if (open != null) {
                         F();
                         int[] E = E();
-                        if (this.f19905d > 0 && this.f19906e > 0 && this.t != 0 && E != null && E.length == 2) {
+                        if (this.f20006d > 0 && this.f20007e > 0 && this.t != 0 && E != null && E.length == 2) {
                             Camera.Parameters parameters = this.r.getParameters();
                             this.s = parameters;
-                            parameters.setPreviewSize(this.f19905d, this.f19906e);
-                            if (c.f19916c && (supportedAntibanding = this.s.getSupportedAntibanding()) != null && supportedAntibanding.contains("50hz")) {
+                            parameters.setPreviewSize(this.f20006d, this.f20007e);
+                            if (c.f20017c && (supportedAntibanding = this.s.getSupportedAntibanding()) != null && supportedAntibanding.contains("50hz")) {
                                 this.s.setAntibanding("50hz");
                             }
                             List<String> supportedFocusModes = this.s.getSupportedFocusModes();
@@ -462,7 +462,7 @@ public class d extends c.a.t0.n4.k.a.a {
                                 this.s.setFocusMode("continuous-video");
                             }
                             this.s.setPreviewFpsRange(E[0], E[1]);
-                            c.a.t0.n4.k.a.h.a.g(this.v, this.f19911j, this.r);
+                            c.a.t0.n4.k.a.h.a.g(this.v, this.f20012j, this.r);
                             if (this.s.isVideoStabilizationSupported() && !this.s.getVideoStabilization()) {
                                 this.s.setVideoStabilization(true);
                             }
@@ -474,7 +474,7 @@ public class d extends c.a.t0.n4.k.a.a {
                             this.z = c.a.t0.n4.k.a.h.a.c(this.s);
                             this.r.setParameters(this.s);
                             if (this.E == null) {
-                                this.E = (byte[][]) Array.newInstance(byte.class, 3, ((this.f19905d * this.f19906e) * 3) / 2);
+                                this.E = (byte[][]) Array.newInstance(byte.class, 3, ((this.f20006d * this.f20007e) * 3) / 2);
                             }
                             a aVar = new a(this);
                             this.r.setPreviewCallbackWithBuffer(aVar);
@@ -485,7 +485,7 @@ public class d extends c.a.t0.n4.k.a.a {
                             this.r.setPreviewTexture(this.l);
                             this.r.startPreview();
                             G();
-                            c.f19915b.k(1);
+                            c.f20016b.k(1);
                             return true;
                         }
                     }
@@ -545,7 +545,7 @@ public class d extends c.a.t0.n4.k.a.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
             Camera.CameraInfo cameraInfo = this.B;
-            return (cameraInfo != null && cameraInfo.facing == 1) || this.f19903b;
+            return (cameraInfo != null && cameraInfo.facing == 1) || this.f20004b;
         }
         return invokeV.booleanValue;
     }
@@ -637,7 +637,7 @@ public class d extends c.a.t0.n4.k.a.a {
                 Matrix matrix = new Matrix();
                 TbPageContext tbPageContext = this.a;
                 if (tbPageContext != null) {
-                    c.a.t0.n4.k.a.h.a.e(tbPageContext, this.f19911j, matrix);
+                    c.a.t0.n4.k.a.h.a.e(tbPageContext, this.f20012j, matrix);
                 }
                 matrix.invert(this.y);
             }

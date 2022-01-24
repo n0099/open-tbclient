@@ -39,21 +39,21 @@ public class c {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: f  reason: collision with root package name */
-    public static String f13003f;
+    public static String f13189f;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Map<String, b> f13004b;
+    public Map<String, b> f13190b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Resources f13005c;
+    public Resources f13191c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Resources f13006d;
+    public Resources f13192d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f13007e;
+    public boolean f13193e;
 
     static {
         InterceptResult invokeClinit;
@@ -84,8 +84,8 @@ public class c {
             }
         }
         this.a = false;
-        this.f13004b = new HashMap();
-        this.f13007e = false;
+        this.f13190b = new HashMap();
+        this.f13193e = false;
     }
 
     public static int g(Resources resources, Resources resources2, int i2) {
@@ -98,11 +98,11 @@ public class c {
                 i3 = i2;
             } else {
                 String packageName = SkinManager.getPackageName();
-                f13003f = packageName;
+                f13189f = packageName;
                 if (StringUtils.isNull(packageName)) {
-                    f13003f = BdBaseApplication.getInst().getPackageName();
+                    f13189f = BdBaseApplication.getInst().getPackageName();
                 }
-                resourceName = f13003f + resourceName.substring(resourceName.indexOf(":"));
+                resourceName = f13189f + resourceName.substring(resourceName.indexOf(":"));
                 i3 = resources2.getIdentifier(resourceName + SkinManager.nightSufix, null, null);
             }
             if (i3 == 0) {
@@ -123,11 +123,11 @@ public class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
             String str = "@" + view.getId();
-            Map<String, b> map = this.f13004b;
+            Map<String, b> map = this.f13190b;
             if (map == null || !map.containsKey(str)) {
                 return;
             }
-            b bVar = this.f13004b.get(str);
+            b bVar = this.f13190b.get(str);
             if (view instanceof TextView) {
                 if (bVar.v() != 0 && (e2 = e(this.a, bVar.u(), bVar.v())) != null) {
                     ((TextView) view).setTextColor(e2);
@@ -170,7 +170,7 @@ public class c {
                 int paddingTop = view.getPaddingTop();
                 int paddingRight = view.getPaddingRight();
                 int paddingBottom = view.getPaddingBottom();
-                String resourceTypeName = this.f13005c.getResourceTypeName(bVar.b());
+                String resourceTypeName = this.f13191c.getResourceTypeName(bVar.b());
                 if (resourceTypeName != null && resourceTypeName.equals("color")) {
                     view.setBackgroundColor(d(this.a, bVar.b(), bVar.c()));
                 } else {
@@ -185,11 +185,11 @@ public class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, viewGroup) == null) {
             String str = "@" + viewGroup.getId();
-            Map<String, b> map = this.f13004b;
+            Map<String, b> map = this.f13190b;
             if (map == null || !map.containsKey(str)) {
                 return;
             }
-            b bVar = this.f13004b.get(str);
+            b bVar = this.f13190b.get(str);
             if (viewGroup instanceof AdapterView) {
                 if ((viewGroup instanceof ListView) && bVar.e() != 0) {
                     ListView listView = (ListView) viewGroup;
@@ -207,7 +207,7 @@ public class c {
                 int paddingTop = viewGroup.getPaddingTop();
                 int paddingRight = viewGroup.getPaddingRight();
                 int paddingBottom = viewGroup.getPaddingBottom();
-                String resourceTypeName = this.f13005c.getResourceTypeName(bVar.b());
+                String resourceTypeName = this.f13191c.getResourceTypeName(bVar.b());
                 if (resourceTypeName != null && resourceTypeName.equals("color")) {
                     viewGroup.setBackgroundColor(d(this.a, bVar.b(), bVar.c()));
                 } else {
@@ -221,11 +221,11 @@ public class c {
     public void c() {
         Map<String, b> map;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (map = this.f13004b) == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (map = this.f13190b) == null) {
             return;
         }
         map.clear();
-        this.f13004b = null;
+        this.f13190b = null;
     }
 
     public final int d(boolean z, int i2, int i3) {
@@ -233,25 +233,25 @@ public class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2), Integer.valueOf(i3)})) == null) {
             int skinType = TbadkCoreApplication.getInst().getSkinType();
-            if (skinType == 2 || (!this.f13007e && skinType == 4)) {
+            if (skinType == 2 || (!this.f13193e && skinType == 4)) {
                 return SkinManager.getColor(i2);
             }
             if (!z) {
-                return this.f13005c.getColor(i2);
+                return this.f13191c.getColor(i2);
             }
             if (i2 == i3) {
-                Resources resources = this.f13005c;
-                this.f13006d = resources;
+                Resources resources = this.f13191c;
+                this.f13192d = resources;
                 i3 = g(resources, resources, i2);
             }
-            Resources resources2 = this.f13006d;
+            Resources resources2 = this.f13192d;
             if (resources2 == null) {
-                return this.f13005c.getColor(i2);
+                return this.f13191c.getColor(i2);
             }
             try {
                 return resources2.getColor(i3);
             } catch (Resources.NotFoundException unused) {
-                return this.f13005c.getColor(i2);
+                return this.f13191c.getColor(i2);
             }
         }
         return invokeCommon.intValue;
@@ -262,25 +262,25 @@ public class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2), Integer.valueOf(i3)})) == null) {
             int skinType = TbadkCoreApplication.getInst().getSkinType();
-            if (skinType == 2 || (!this.f13007e && skinType == 4)) {
+            if (skinType == 2 || (!this.f13193e && skinType == 4)) {
                 return SkinManager.getColorList(i2);
             }
             if (!z) {
-                return this.f13005c.getColorStateList(i2);
+                return this.f13191c.getColorStateList(i2);
             }
             if (i2 == i3) {
-                Resources resources = this.f13005c;
-                this.f13006d = resources;
+                Resources resources = this.f13191c;
+                this.f13192d = resources;
                 i3 = g(resources, resources, i2);
             }
-            Resources resources2 = this.f13006d;
+            Resources resources2 = this.f13192d;
             if (resources2 == null) {
-                return this.f13005c.getColorStateList(i2);
+                return this.f13191c.getColorStateList(i2);
             }
             try {
                 return resources2.getColorStateList(i3);
             } catch (Resources.NotFoundException unused) {
-                return this.f13005c.getColorStateList(i2);
+                return this.f13191c.getColorStateList(i2);
             }
         }
         return (ColorStateList) invokeCommon.objValue;
@@ -291,25 +291,25 @@ public class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2), Integer.valueOf(i3)})) == null) {
             int skinType = TbadkCoreApplication.getInst().getSkinType();
-            if (skinType == 2 || (!this.f13007e && skinType == 4)) {
+            if (skinType == 2 || (!this.f13193e && skinType == 4)) {
                 return SkinManager.getDrawable(i2);
             }
             if (!z) {
                 try {
-                    return this.f13005c.getDrawable(i2);
+                    return this.f13191c.getDrawable(i2);
                 } catch (Throwable unused) {
                     return null;
                 }
             }
             if (i2 == i3) {
-                Resources resources = this.f13005c;
-                this.f13006d = resources;
+                Resources resources = this.f13191c;
+                this.f13192d = resources;
                 i3 = g(resources, resources, i2);
             }
-            Resources resources2 = this.f13006d;
+            Resources resources2 = this.f13192d;
             if (resources2 == null) {
                 try {
-                    return this.f13005c.getDrawable(i2);
+                    return this.f13191c.getDrawable(i2);
                 } catch (Throwable unused2) {
                     return null;
                 }
@@ -321,7 +321,7 @@ public class c {
                     return null;
                 }
             } catch (Resources.NotFoundException unused4) {
-                return this.f13005c.getDrawable(i2);
+                return this.f13191c.getDrawable(i2);
             } catch (ArrayIndexOutOfBoundsException unused5) {
                 return null;
             }
@@ -335,7 +335,7 @@ public class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) {
             if (TextUtils.isDigitsOnly(str.substring(1)) && (parseInt = Integer.parseInt(str.substring(1))) != 0) {
-                return new int[]{parseInt, g(this.f13005c, this.f13006d, parseInt)};
+                return new int[]{parseInt, g(this.f13191c, this.f13192d, parseInt)};
             }
             return null;
         }
@@ -349,8 +349,8 @@ public class c {
         if (interceptable == null || interceptable.invokeLLL(1048583, this, str, context, attributeSet) == null) {
             try {
                 Resources resources = context.getResources();
-                this.f13005c = resources;
-                this.f13006d = resources;
+                this.f13191c = resources;
+                this.f13192d = resources;
                 int attributeCount = attributeSet.getAttributeCount();
                 b bVar = new b();
                 bVar.R(str);
@@ -429,14 +429,14 @@ public class c {
                         z = true;
                     }
                     if (z && TbConfig.getDebugSwitch() && (e2 = c.a.d.f.m.b.e(attributeValue.substring(1), 0)) != 0) {
-                        String resourceName = this.f13005c.getResourceName(e2);
+                        String resourceName = this.f13191c.getResourceName(e2);
                         bVar.a(attributeName + "=" + resourceName);
                     }
                 }
-                if (!z || TextUtils.isEmpty(bVar.l()) || this.f13004b == null || this.f13004b.containsKey(bVar.l())) {
+                if (!z || TextUtils.isEmpty(bVar.l()) || this.f13190b == null || this.f13190b.containsKey(bVar.l())) {
                     return;
                 }
-                this.f13004b.put(bVar.l(), bVar);
+                this.f13190b.put(bVar.l(), bVar);
             } catch (Resources.NotFoundException unused) {
             } catch (Exception e3) {
                 e3.printStackTrace();
@@ -478,7 +478,7 @@ public class c {
     public void l(Resources resources) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, resources) == null) {
-            this.f13006d = resources;
+            this.f13192d = resources;
         }
     }
 }

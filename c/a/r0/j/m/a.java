@@ -22,19 +22,19 @@ public class a extends b<c.a.r0.j.m.d.a, c.a.r0.j.m.e.a> {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final boolean f11068d;
+    public static final boolean f11210d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static volatile a f11069e;
+    public static volatile a f11211e;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c.a.r0.j.m.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public static class C0753a extends a.C0499a {
+    public static class C0762a extends a.C0508a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        public C0753a() {
+        public C0762a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -48,7 +48,7 @@ public class a extends b<c.a.r0.j.m.d.a, c.a.r0.j.m.e.a> {
             }
         }
 
-        @Override // c.a.r0.a.p0.a.C0499a
+        @Override // c.a.r0.a.p0.a.C0508a
         public int c() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -72,7 +72,7 @@ public class a extends b<c.a.r0.j.m.d.a, c.a.r0.j.m.e.a> {
                 return;
             }
         }
-        f11068d = k.a;
+        f11210d = k.a;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -98,14 +98,14 @@ public class a extends b<c.a.r0.j.m.d.a, c.a.r0.j.m.e.a> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (f11069e == null) {
+            if (f11211e == null) {
                 synchronized (a.class) {
-                    if (f11069e == null) {
-                        f11069e = new a();
+                    if (f11211e == null) {
+                        f11211e = new a();
                     }
                 }
             }
-            return f11069e;
+            return f11211e;
         }
         return (a) invokeV.objValue;
     }
@@ -132,10 +132,10 @@ public class a extends b<c.a.r0.j.m.d.a, c.a.r0.j.m.e.a> {
             if (ProcessUtils.isMainProcess()) {
                 return d();
             }
-            Bundle bundle = DelegateUtils.callOnMainWithContentProvider(AppRuntime.getAppContext(), C0753a.class, null).mResult;
+            Bundle bundle = DelegateUtils.callOnMainWithContentProvider(AppRuntime.getAppContext(), C0762a.class, null).mResult;
             bundle.setClassLoader(ExtensionCore.class.getClassLoader());
             ExtensionCore extensionCore = (ExtensionCore) bundle.getParcelable("aiapps_extension_core");
-            if (f11068d) {
+            if (f11210d) {
                 String str = "getExtensionCore:" + ProcessUtils.getCurProcessName() + " extension core: " + extensionCore;
                 return extensionCore;
             }

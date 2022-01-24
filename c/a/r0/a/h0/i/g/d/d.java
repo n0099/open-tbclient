@@ -20,21 +20,21 @@ public class d {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final boolean f6504f;
+    public static final boolean f6646f;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public RequestStatus f6505b;
+    public RequestStatus f6647b;
 
     /* renamed from: c  reason: collision with root package name */
-    public List<c.a.r0.a.h0.i.g.d.a> f6506c;
+    public List<c.a.r0.a.h0.i.g.d.a> f6648c;
 
     /* renamed from: d  reason: collision with root package name */
-    public List<c.a.r0.a.h0.i.g.d.a> f6507d;
+    public List<c.a.r0.a.h0.i.g.d.a> f6649d;
 
     /* renamed from: e  reason: collision with root package name */
-    public long f6508e;
+    public long f6650e;
 
     /* loaded from: classes.dex */
     public static /* synthetic */ class a {
@@ -97,7 +97,7 @@ public class d {
                 return;
             }
         }
-        f6504f = k.a;
+        f6646f = k.a;
     }
 
     public d() {
@@ -113,23 +113,23 @@ public class d {
                 return;
             }
         }
-        this.f6505b = RequestStatus.STATUS_SUCCESS;
-        this.f6506c = new ArrayList();
-        this.f6507d = new ArrayList();
-        this.f6508e = 0L;
+        this.f6647b = RequestStatus.STATUS_SUCCESS;
+        this.f6648c = new ArrayList();
+        this.f6649d = new ArrayList();
+        this.f6650e = 0L;
     }
 
     public long a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? System.currentTimeMillis() - this.f6508e : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? System.currentTimeMillis() - this.f6650e : invokeV.longValue;
     }
 
     public int b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            List<c.a.r0.a.h0.i.g.d.a> list = this.f6506c;
+            List<c.a.r0.a.h0.i.g.d.a> list = this.f6648c;
             if (list != null) {
                 return list.size();
             }
@@ -144,23 +144,23 @@ public class d {
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             StringBuilder sb = new StringBuilder();
             String g2 = c.a.r0.a.z2.k.g(System.currentTimeMillis(), "【HH:mm:ss】");
-            for (c.a.r0.a.h0.i.g.d.a aVar : this.f6507d) {
+            for (c.a.r0.a.h0.i.g.d.a aVar : this.f6649d) {
                 if (aVar != null) {
                     try {
                         sb.append(String.format("\n%s请求%s耗时较长：%s ms；", g2, new URL(aVar.a).getPath(), Long.valueOf(aVar.d())));
                     } catch (MalformedURLException e2) {
-                        if (f6504f) {
+                        if (f6646f) {
                             e2.printStackTrace();
                         }
                     }
                 }
             }
-            for (c.a.r0.a.h0.i.g.d.a aVar2 : this.f6506c) {
+            for (c.a.r0.a.h0.i.g.d.a aVar2 : this.f6648c) {
                 if (aVar2 != null) {
                     try {
                         sb.append(String.format("\n%s请求%s请求失败；", g2, new URL(aVar2.a).getPath()));
                     } catch (MalformedURLException e3) {
-                        if (f6504f) {
+                        if (f6646f) {
                             e3.printStackTrace();
                         }
                     }
@@ -176,7 +176,7 @@ public class d {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             StringBuilder sb = new StringBuilder();
-            switch (a.a[this.f6505b.ordinal()]) {
+            switch (a.a[this.f6647b.ordinal()]) {
                 case 1:
                     sb.append("业务请求：失败率超");
                     sb.append(50);
@@ -209,14 +209,14 @@ public class d {
     public RequestStatus e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f6505b : (RequestStatus) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f6647b : (RequestStatus) invokeV.objValue;
     }
 
     public int f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            List<c.a.r0.a.h0.i.g.d.a> list = this.f6507d;
+            List<c.a.r0.a.h0.i.g.d.a> list = this.f6649d;
             if (list != null) {
                 return list.size();
             }
@@ -236,20 +236,20 @@ public class d {
         if (!(interceptable == null || interceptable.invokeL(1048583, this, list) == null) || list == null || list.isEmpty()) {
             return;
         }
-        this.f6506c = list;
+        this.f6648c = list;
     }
 
     public void i(long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(InputDeviceCompat.SOURCE_TOUCHPAD, this, j2) == null) {
-            this.f6508e = j2;
+            this.f6650e = j2;
         }
     }
 
     public void j(RequestStatus requestStatus) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, requestStatus) == null) {
-            this.f6505b = requestStatus;
+            this.f6647b = requestStatus;
         }
     }
 
@@ -258,7 +258,7 @@ public class d {
         if (!(interceptable == null || interceptable.invokeL(1048586, this, list) == null) || list == null || list.isEmpty()) {
             return;
         }
-        this.f6507d = list;
+        this.f6649d = list;
     }
 
     public void l(int i2) {

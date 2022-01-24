@@ -282,8 +282,8 @@ public final class SwanAppMessengerService extends Service {
                             Bundle bundle = (Bundle) message.obj;
                             if (bundle != null) {
                                 c.a.r0.a.t1.d.b().a = bundle.getString(BaseActivity.EXTRA_PARAM_THIRD_VERIFY_APP_ID);
-                                c.a.r0.a.t1.d.b().f8821b = bundle.getString("frameType");
-                                c.a.r0.a.t1.d.b().f8822c = bundle.getString("params");
+                                c.a.r0.a.t1.d.b().f8963b = bundle.getString("frameType");
+                                c.a.r0.a.t1.d.b().f8964c = bundle.getString("params");
                                 return;
                             }
                             return;
@@ -495,7 +495,7 @@ public final class SwanAppMessengerService extends Service {
             if (DEBUG) {
                 String str = "onBind() " + this + " pid: " + Process.myPid();
             }
-            return e.k().f9742e.asBinder();
+            return e.k().f9884e.asBinder();
         }
         return (IBinder) invokeL.objValue;
     }
@@ -557,7 +557,7 @@ public final class SwanAppMessengerService extends Service {
                 String str = "sendMessageToClient: delegation: " + cls.getName();
             }
             Message obtain = Message.obtain((Handler) null, 125);
-            obtain.replyTo = e.k().f9741d;
+            obtain.replyTo = e.k().f9883d;
             Bundle bundle2 = new Bundle();
             bundle2.putString("ai_apps_delegation_name", cls.getName());
             if (cVar != null) {
@@ -604,7 +604,7 @@ public final class SwanAppMessengerService extends Service {
         if (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048582, this, cVar, i2, bundle)) == null) {
             c.a.r0.a.y1.c.a e2 = c.a.r0.a.y1.c.a.e();
             c cVar2 = new c(i2, bundle);
-            cVar2.b(cVar.f9731f);
+            cVar2.b(cVar.f9873f);
             e2.h(cVar2);
             return true;
         }

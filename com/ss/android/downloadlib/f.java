@@ -20,32 +20,32 @@ import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.CopyOnWriteArrayList;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class f {
     public static volatile f a;
 
     /* renamed from: f  reason: collision with root package name */
-    public long f59625f;
+    public long f59670f;
 
     /* renamed from: c  reason: collision with root package name */
-    public final List<com.ss.android.downloadlib.addownload.f> f59622c = new CopyOnWriteArrayList();
+    public final List<com.ss.android.downloadlib.addownload.f> f59667c = new CopyOnWriteArrayList();
 
     /* renamed from: d  reason: collision with root package name */
-    public final Map<String, com.ss.android.downloadlib.addownload.f> f59623d = new ConcurrentHashMap();
+    public final Map<String, com.ss.android.downloadlib.addownload.f> f59668d = new ConcurrentHashMap();
 
     /* renamed from: e  reason: collision with root package name */
-    public final CopyOnWriteArrayList<Object> f59624e = new CopyOnWriteArrayList<>();
+    public final CopyOnWriteArrayList<Object> f59669e = new CopyOnWriteArrayList<>();
 
     /* renamed from: b  reason: collision with root package name */
-    public final Handler f59621b = new Handler(Looper.getMainLooper());
+    public final Handler f59666b = new Handler(Looper.getMainLooper());
 
     private synchronized void b(Context context, int i2, DownloadStatusChangeListener downloadStatusChangeListener, DownloadModel downloadModel) {
-        if (this.f59622c.size() <= 0) {
+        if (this.f59667c.size() <= 0) {
             c(context, i2, downloadStatusChangeListener, downloadModel);
         } else {
-            com.ss.android.downloadlib.addownload.f remove = this.f59622c.remove(0);
+            com.ss.android.downloadlib.addownload.f remove = this.f59667c.remove(0);
             remove.b(context).b(i2, downloadStatusChangeListener).b(downloadModel).a();
-            this.f59623d.put(downloadModel.getDownloadUrl(), remove);
+            this.f59668d.put(downloadModel.getDownloadUrl(), remove);
         }
     }
 
@@ -55,13 +55,13 @@ public class f {
         }
         com.ss.android.downloadlib.addownload.e eVar = new com.ss.android.downloadlib.addownload.e();
         eVar.b(context).b(i2, downloadStatusChangeListener).b(downloadModel).a();
-        this.f59623d.put(downloadModel.getDownloadUrl(), eVar);
+        this.f59668d.put(downloadModel.getDownloadUrl(), eVar);
     }
 
     private void d() {
         long currentTimeMillis = System.currentTimeMillis();
         ArrayList arrayList = new ArrayList();
-        for (com.ss.android.downloadlib.addownload.f fVar : this.f59622c) {
+        for (com.ss.android.downloadlib.addownload.f fVar : this.f59667c) {
             if (!fVar.b() && currentTimeMillis - fVar.d() > 300000) {
                 fVar.h();
                 arrayList.add(fVar);
@@ -70,7 +70,7 @@ public class f {
         if (arrayList.isEmpty()) {
             return;
         }
-        this.f59622c.removeAll(arrayList);
+        this.f59667c.removeAll(arrayList);
     }
 
     public static f a() {
@@ -86,11 +86,11 @@ public class f {
 
     private void c() {
         long currentTimeMillis = System.currentTimeMillis();
-        if (currentTimeMillis - this.f59625f < 300000) {
+        if (currentTimeMillis - this.f59670f < 300000) {
             return;
         }
-        this.f59625f = currentTimeMillis;
-        if (this.f59622c.isEmpty()) {
+        this.f59670f = currentTimeMillis;
+        if (this.f59667c.isEmpty()) {
             return;
         }
         d();
@@ -100,10 +100,10 @@ public class f {
         if (downloadModel == null || TextUtils.isEmpty(downloadModel.getDownloadUrl())) {
             return;
         }
-        com.ss.android.downloadlib.addownload.f fVar = this.f59623d.get(downloadModel.getDownloadUrl());
+        com.ss.android.downloadlib.addownload.f fVar = this.f59668d.get(downloadModel.getDownloadUrl());
         if (fVar != null) {
             fVar.b(context).b(i2, downloadStatusChangeListener).b(downloadModel).a();
-        } else if (!this.f59622c.isEmpty()) {
+        } else if (!this.f59667c.isEmpty()) {
             b(context, i2, downloadStatusChangeListener, downloadModel);
         } else {
             c(context, i2, downloadStatusChangeListener, downloadModel);
@@ -111,10 +111,10 @@ public class f {
     }
 
     public void b(final DownloadInfo downloadInfo, final String str) {
-        this.f59621b.post(new Runnable() { // from class: com.ss.android.downloadlib.f.4
+        this.f59666b.post(new Runnable() { // from class: com.ss.android.downloadlib.f.4
             @Override // java.lang.Runnable
             public void run() {
-                Iterator it = f.this.f59624e.iterator();
+                Iterator it = f.this.f59669e.iterator();
                 while (it.hasNext()) {
                     Object next = it.next();
                     if (next instanceof com.ss.android.download.api.download.a.a) {
@@ -131,13 +131,13 @@ public class f {
     }
 
     public Handler b() {
-        return this.f59621b;
+        return this.f59666b;
     }
 
     public com.ss.android.downloadlib.addownload.e a(String str) {
-        Map<String, com.ss.android.downloadlib.addownload.f> map = this.f59623d;
+        Map<String, com.ss.android.downloadlib.addownload.f> map = this.f59668d;
         if (map != null && map.size() != 0 && !TextUtils.isEmpty(str)) {
-            com.ss.android.downloadlib.addownload.f fVar = this.f59623d.get(str);
+            com.ss.android.downloadlib.addownload.f fVar = this.f59668d.get(str);
             if (fVar instanceof com.ss.android.downloadlib.addownload.e) {
                 return (com.ss.android.downloadlib.addownload.e) fVar;
             }
@@ -147,19 +147,19 @@ public class f {
 
     public void a(String str, int i2) {
         com.ss.android.downloadlib.addownload.f fVar;
-        if (TextUtils.isEmpty(str) || (fVar = this.f59623d.get(str)) == null) {
+        if (TextUtils.isEmpty(str) || (fVar = this.f59668d.get(str)) == null) {
             return;
         }
         if (fVar.a(i2)) {
-            this.f59622c.add(fVar);
-            this.f59623d.remove(str);
+            this.f59667c.add(fVar);
+            this.f59668d.remove(str);
         }
         c();
     }
 
     public void a(String str, boolean z) {
         com.ss.android.downloadlib.addownload.f fVar;
-        if (TextUtils.isEmpty(str) || (fVar = this.f59623d.get(str)) == null) {
+        if (TextUtils.isEmpty(str) || (fVar = this.f59668d.get(str)) == null) {
             return;
         }
         fVar.a(z);
@@ -171,7 +171,7 @@ public class f {
 
     public void a(String str, long j2, int i2, DownloadEventConfig downloadEventConfig, DownloadController downloadController, u uVar, IDownloadButtonClickListener iDownloadButtonClickListener) {
         com.ss.android.downloadlib.addownload.f fVar;
-        if (TextUtils.isEmpty(str) || (fVar = this.f59623d.get(str)) == null) {
+        if (TextUtils.isEmpty(str) || (fVar = this.f59668d.get(str)) == null) {
             return;
         }
         fVar.a(j2).b(downloadEventConfig).b(downloadController).a(uVar).a(iDownloadButtonClickListener).b(i2);
@@ -180,18 +180,18 @@ public class f {
     public void a(com.ss.android.download.api.download.a.a aVar) {
         if (aVar != null) {
             if (com.ss.android.socialbase.downloader.g.a.c().b("fix_listener_oom", false)) {
-                this.f59624e.add(new SoftReference(aVar));
+                this.f59669e.add(new SoftReference(aVar));
             } else {
-                this.f59624e.add(aVar);
+                this.f59669e.add(aVar);
             }
         }
     }
 
     public void a(final DownloadModel downloadModel, @Nullable final DownloadController downloadController, @Nullable final DownloadEventConfig downloadEventConfig) {
-        this.f59621b.post(new Runnable() { // from class: com.ss.android.downloadlib.f.1
+        this.f59666b.post(new Runnable() { // from class: com.ss.android.downloadlib.f.1
             @Override // java.lang.Runnable
             public void run() {
-                Iterator it = f.this.f59624e.iterator();
+                Iterator it = f.this.f59669e.iterator();
                 while (it.hasNext()) {
                     Object next = it.next();
                     if (next instanceof com.ss.android.download.api.download.a.a) {
@@ -208,10 +208,10 @@ public class f {
     }
 
     public void a(final DownloadInfo downloadInfo, final BaseException baseException, final String str) {
-        this.f59621b.post(new Runnable() { // from class: com.ss.android.downloadlib.f.2
+        this.f59666b.post(new Runnable() { // from class: com.ss.android.downloadlib.f.2
             @Override // java.lang.Runnable
             public void run() {
-                Iterator it = f.this.f59624e.iterator();
+                Iterator it = f.this.f59669e.iterator();
                 while (it.hasNext()) {
                     Object next = it.next();
                     if (next instanceof com.ss.android.download.api.download.a.a) {
@@ -228,10 +228,10 @@ public class f {
     }
 
     public void a(final DownloadInfo downloadInfo, final String str) {
-        this.f59621b.post(new Runnable() { // from class: com.ss.android.downloadlib.f.3
+        this.f59666b.post(new Runnable() { // from class: com.ss.android.downloadlib.f.3
             @Override // java.lang.Runnable
             public void run() {
-                Iterator it = f.this.f59624e.iterator();
+                Iterator it = f.this.f59669e.iterator();
                 while (it.hasNext()) {
                     Object next = it.next();
                     if (next instanceof com.ss.android.download.api.download.a.a) {
@@ -248,10 +248,10 @@ public class f {
     }
 
     public void a(final DownloadInfo downloadInfo) {
-        this.f59621b.post(new Runnable() { // from class: com.ss.android.downloadlib.f.5
+        this.f59666b.post(new Runnable() { // from class: com.ss.android.downloadlib.f.5
             @Override // java.lang.Runnable
             public void run() {
-                Iterator it = f.this.f59624e.iterator();
+                Iterator it = f.this.f59669e.iterator();
                 while (it.hasNext()) {
                     Object next = it.next();
                     if (next instanceof com.ss.android.download.api.download.a.a) {

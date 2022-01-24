@@ -1,6 +1,6 @@
 package com.baidu.tieba.forumsearch.message;
 
-import c.a.t0.c1.c.c;
+import c.a.t0.d1.c.c;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;

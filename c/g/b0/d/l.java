@@ -23,13 +23,13 @@ public class l implements FunNativeAd2Bridger<KsFeedAd, View> {
     public boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public k.b f28349b;
+    public k.b f28377b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final /* synthetic */ Context f28350c;
+    public final /* synthetic */ Context f28378c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final /* synthetic */ k f28351d;
+    public final /* synthetic */ k f28379d;
 
     public l(k kVar, Context context) {
         Interceptable interceptable = $ic;
@@ -46,8 +46,8 @@ public class l implements FunNativeAd2Bridger<KsFeedAd, View> {
                 return;
             }
         }
-        this.f28351d = kVar;
-        this.f28350c = context;
+        this.f28379d = kVar;
+        this.f28378c = context;
     }
 
     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
@@ -55,7 +55,7 @@ public class l implements FunNativeAd2Bridger<KsFeedAd, View> {
     public View createExpressView(KsFeedAd ksFeedAd) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, ksFeedAd)) == null) ? this.f28351d.a(this.f28350c, ksFeedAd) : (View) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, ksFeedAd)) == null) ? this.f28379d.a(this.f28378c, ksFeedAd) : (View) invokeL.objValue;
     }
 
     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [android.app.Activity, com.fun.ad.sdk.CustomInflater, java.lang.String, java.lang.Object, com.fun.ad.sdk.internal.api.BaseNativeAd2, com.fun.ad.sdk.FunAdInteractionListener] */
@@ -72,16 +72,16 @@ public class l implements FunNativeAd2Bridger<KsFeedAd, View> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{activity, expressInflater, str, ksFeedAd, baseNativeAd2, funAdInteractionListener}) == null) {
             KsFeedAd ksFeedAd2 = ksFeedAd;
-            this.f28351d.onShowStart(this.a);
+            this.f28379d.onShowStart(this.a);
             this.a = true;
             View expressView = expressInflater.getExpressView();
-            if (this.f28349b == null) {
-                k kVar = this.f28351d;
+            if (this.f28377b == null) {
+                k kVar = this.f28379d;
                 k.b bVar = new k.b(kVar, ksFeedAd2, expressView, str);
-                this.f28349b = bVar;
+                this.f28377b = bVar;
                 kVar.g(ksFeedAd2, bVar);
             }
-            this.f28349b.f28345d = funAdInteractionListener;
+            this.f28377b.f28373d = funAdInteractionListener;
             expressInflater.inflate();
         }
     }

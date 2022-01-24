@@ -15,19 +15,19 @@ public class j0 extends a {
     public float a;
 
     /* renamed from: b  reason: collision with root package name */
-    public float f5092b;
+    public float f5234b;
 
     /* renamed from: c  reason: collision with root package name */
-    public float f5093c;
+    public float f5235c;
 
     /* renamed from: d  reason: collision with root package name */
-    public float f5094d;
+    public float f5236d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f5095e;
+    public int f5237e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f5096f;
+    public int f5238f;
 
     public j0() {
         Interceptable interceptable = $ic;
@@ -54,7 +54,7 @@ public class j0 extends a {
                 bVar.b(canvas.save());
             }
             Matrix matrix = new Matrix();
-            matrix.setValues(new float[]{this.a, this.f5093c, this.f5095e, this.f5092b, this.f5094d, this.f5096f, 0.0f, 0.0f, 1.0f});
+            matrix.setValues(new float[]{this.a, this.f5235c, this.f5237e, this.f5234b, this.f5236d, this.f5238f, 0.0f, 0.0f, 1.0f});
             canvas.concat(matrix);
         }
     }
@@ -66,11 +66,11 @@ public class j0 extends a {
             try {
                 if (jSONArray.length() == 6) {
                     this.a = (float) jSONArray.optDouble(0);
-                    this.f5092b = (float) jSONArray.optDouble(1);
-                    this.f5093c = (float) jSONArray.optDouble(2);
-                    this.f5094d = (float) jSONArray.optDouble(3);
-                    this.f5095e = c.a.r0.a.z2.n0.g((float) jSONArray.optDouble(4));
-                    this.f5096f = c.a.r0.a.z2.n0.g((float) jSONArray.optDouble(5));
+                    this.f5234b = (float) jSONArray.optDouble(1);
+                    this.f5235c = (float) jSONArray.optDouble(2);
+                    this.f5236d = (float) jSONArray.optDouble(3);
+                    this.f5237e = c.a.r0.a.z2.n0.g((float) jSONArray.optDouble(4));
+                    this.f5238f = c.a.r0.a.z2.n0.g((float) jSONArray.optDouble(5));
                 }
             } catch (Exception e2) {
                 if (c.a.r0.a.k.a) {

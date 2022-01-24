@@ -14,16 +14,16 @@ public class d {
     public Boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Boolean f26229b;
+    public Boolean f26257b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Socket f26230c;
+    public Socket f26258c;
 
     /* renamed from: d  reason: collision with root package name */
-    public InputStream f26231d;
+    public InputStream f26259d;
 
     /* renamed from: e  reason: collision with root package name */
-    public OutputStream f26232e;
+    public OutputStream f26260e;
 
     public d() {
         Interceptable interceptable = $ic;
@@ -40,9 +40,9 @@ public class d {
         }
         Boolean bool = Boolean.FALSE;
         this.a = bool;
-        this.f26229b = bool;
-        this.f26230c = null;
-        this.f26231d = null;
-        this.f26232e = null;
+        this.f26257b = bool;
+        this.f26258c = null;
+        this.f26259d = null;
+        this.f26260e = null;
     }
 }

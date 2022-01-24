@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.webrtc.VideoDecoder;
 import org.webrtc.VideoDecoderWrapper;
 import org.webrtc.VideoFrame;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class VideoDecoderWrapper {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

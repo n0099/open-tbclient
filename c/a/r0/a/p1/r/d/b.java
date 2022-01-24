@@ -22,21 +22,21 @@ public class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final boolean f8321e;
+    public static final boolean f8463e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final b f8322f;
+    public static final b f8464f;
     public transient /* synthetic */ FieldHolder $fh;
     public final List<d> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final Map<String, d> f8323b;
+    public final Map<String, d> f8465b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f8324c;
+    public boolean f8466c;
 
     /* renamed from: d  reason: collision with root package name */
-    public a f8325d;
+    public a f8467d;
 
     static {
         InterceptResult invokeClinit;
@@ -51,8 +51,8 @@ public class b {
                 return;
             }
         }
-        f8321e = k.a;
-        f8322f = new b();
+        f8463e = k.a;
+        f8464f = new b();
     }
 
     public b() {
@@ -69,14 +69,14 @@ public class b {
             }
         }
         this.a = new ArrayList();
-        this.f8323b = new HashMap();
-        this.f8324c = false;
+        this.f8465b = new HashMap();
+        this.f8466c = false;
     }
 
     public static b f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f8322f : (b) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f8464f : (b) invokeV.objValue;
     }
 
     public void a(HybridUbcFlow hybridUbcFlow) {
@@ -95,10 +95,10 @@ public class b {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            if (this.f8324c) {
+            if (this.f8466c) {
                 return null;
             }
-            if (f8321e) {
+            if (f8463e) {
                 String str2 = "begin update scope id - " + str;
             }
             if (TextUtils.isEmpty(str)) {
@@ -109,9 +109,9 @@ public class b {
             d dVar = new d(str);
             dVar.a(currentTimeMillis);
             synchronized (this.a) {
-                this.f8323b.put(str3, dVar);
+                this.f8465b.put(str3, dVar);
             }
-            if (f8321e) {
+            if (f8463e) {
                 String str4 = "begin update uni tag - " + str3;
                 String str5 = "begin update ts - " + currentTimeMillis;
             }
@@ -123,21 +123,21 @@ public class b {
     public void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.f8324c = true;
+            this.f8466c = true;
             synchronized (this.a) {
                 this.a.clear();
-                this.f8323b.clear();
+                this.f8465b.clear();
             }
-            boolean z = f8321e;
+            boolean z = f8463e;
         }
     }
 
     public void d(String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, str) == null) || this.f8324c) {
+        if (!(interceptable == null || interceptable.invokeL(1048579, this, str) == null) || this.f8466c) {
             return;
         }
-        if (f8321e) {
+        if (f8463e) {
             String str2 = "end update uni tag - " + str;
         }
         if (TextUtils.isEmpty(str)) {
@@ -145,14 +145,14 @@ public class b {
         }
         long currentTimeMillis = System.currentTimeMillis();
         synchronized (this.a) {
-            d dVar = this.f8323b.get(str);
+            d dVar = this.f8465b.get(str);
             if (dVar != null) {
                 dVar.c(currentTimeMillis);
                 this.a.add(dVar);
-                this.f8323b.remove(str);
+                this.f8465b.remove(str);
             }
         }
-        if (f8321e) {
+        if (f8463e) {
             String str3 = "end update ts - " + currentTimeMillis;
         }
     }
@@ -165,17 +165,17 @@ public class b {
             synchronized (this.a) {
                 try {
                     for (d dVar : this.a) {
-                        if (dVar != null && (this.f8325d == null || this.f8325d.a(dVar))) {
+                        if (dVar != null && (this.f8467d == null || this.f8467d.a(dVar))) {
                             jSONArray.put(dVar.d());
                         }
                     }
                 } catch (Exception e2) {
-                    if (f8321e) {
+                    if (f8463e) {
                         e2.printStackTrace();
                     }
                 }
             }
-            if (f8321e) {
+            if (f8463e) {
                 jSONArray.toString();
             }
             return jSONArray;
@@ -186,19 +186,19 @@ public class b {
     public void g() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.f8324c = false;
+            this.f8466c = false;
             synchronized (this.a) {
                 this.a.clear();
-                this.f8323b.clear();
+                this.f8465b.clear();
             }
-            boolean z = f8321e;
+            boolean z = f8463e;
         }
     }
 
     public void h(a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, aVar) == null) {
-            this.f8325d = aVar;
+            this.f8467d = aVar;
         }
     }
 }

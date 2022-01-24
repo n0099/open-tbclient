@@ -23,10 +23,10 @@ public class NHLifeGridLayout extends BaseItemLayout {
     public GridLayout a;
 
     /* renamed from: b  reason: collision with root package name */
-    public NHTitleView f51256b;
+    public NHTitleView f51301b;
 
     /* renamed from: c  reason: collision with root package name */
-    public List<BaseItemView> f51257c;
+    public List<BaseItemView> f51302c;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public NHLifeGridLayout(Context context) {
@@ -46,7 +46,7 @@ public class NHLifeGridLayout extends BaseItemLayout {
                 return;
             }
         }
-        this.f51257c = new ArrayList();
+        this.f51302c = new ArrayList();
     }
 
     private void a(GridLayout gridLayout) {
@@ -60,7 +60,7 @@ public class NHLifeGridLayout extends BaseItemLayout {
     public List<BaseItemView> getChildren() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f51257c : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f51302c : (List) invokeV.objValue;
     }
 
     @Override // com.baidu.wallet.home.ui.widget.BaseItemLayout
@@ -71,7 +71,7 @@ public class NHLifeGridLayout extends BaseItemLayout {
             GridLayout gridLayout = (GridLayout) findViewById(ResUtils.id(getContext(), "grid_layout"));
             this.a = gridLayout;
             gridLayout.setBackgroundColor(ResUtils.getColor(getContext(), "wallet_home_nh_whiteColor_bg"));
-            this.f51256b = (NHTitleView) findViewById(ResUtils.id(getContext(), "tip_view"));
+            this.f51301b = (NHTitleView) findViewById(ResUtils.id(getContext(), "tip_view"));
         }
     }
 
@@ -91,7 +91,7 @@ public class NHLifeGridLayout extends BaseItemLayout {
     public void refreshData() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.f51256b.setData(this.mConfigData, getWalletInterface());
+            this.f51301b.setData(this.mConfigData, getWalletInterface());
             HomeCfgResponse.DataItem[] dataItemArr = this.mConfigData.list;
             this.a.setColumnCount(4);
             this.a.setHorizontalSpacing(0);
@@ -101,7 +101,7 @@ public class NHLifeGridLayout extends BaseItemLayout {
                 NHLifeGridItem nHLifeGridItem = new NHLifeGridItem(getContext());
                 nHLifeGridItem.setData(dataItem, getWalletInterface());
                 this.a.addView(nHLifeGridItem);
-                this.f51257c.add(nHLifeGridItem);
+                this.f51302c.add(nHLifeGridItem);
             }
         }
     }
@@ -125,6 +125,6 @@ public class NHLifeGridLayout extends BaseItemLayout {
                 return;
             }
         }
-        this.f51257c = new ArrayList();
+        this.f51302c = new ArrayList();
     }
 }

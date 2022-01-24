@@ -10,28 +10,28 @@ public class m implements com.kwad.sdk.core.d<com.kwad.sdk.internal.api.a> {
             return;
         }
         aVar.a = jSONObject.optInt("thirdAge");
-        aVar.f56993b = jSONObject.optInt("thirdGender");
-        aVar.f56994c = jSONObject.optString("thirdInterest");
+        aVar.f57038b = jSONObject.optInt("thirdGender");
+        aVar.f57039c = jSONObject.optString("thirdInterest");
         if (jSONObject.opt("thirdInterest") == JSONObject.NULL) {
-            aVar.f56994c = "";
+            aVar.f57039c = "";
         }
-        aVar.f56995d = jSONObject.optString("prevTitle");
+        aVar.f57040d = jSONObject.optString("prevTitle");
         if (jSONObject.opt("prevTitle") == JSONObject.NULL) {
-            aVar.f56995d = "";
+            aVar.f57040d = "";
         }
-        aVar.f56996e = jSONObject.optString("postTitle");
+        aVar.f57041e = jSONObject.optString("postTitle");
         if (jSONObject.opt("postTitle") == JSONObject.NULL) {
-            aVar.f56996e = "";
+            aVar.f57041e = "";
         }
-        aVar.f56997f = jSONObject.optString("historyTitle");
+        aVar.f57042f = jSONObject.optString("historyTitle");
         if (jSONObject.opt("historyTitle") == JSONObject.NULL) {
-            aVar.f56997f = "";
+            aVar.f57042f = "";
         }
-        aVar.f56998g = jSONObject.optString("channel");
+        aVar.f57043g = jSONObject.optString("channel");
         if (jSONObject.opt("channel") == JSONObject.NULL) {
-            aVar.f56998g = "";
+            aVar.f57043g = "";
         }
-        aVar.f56999h = jSONObject.optLong("cpmBidFloor");
+        aVar.f57044h = jSONObject.optLong("cpmBidFloor");
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -41,13 +41,13 @@ public class m implements com.kwad.sdk.core.d<com.kwad.sdk.internal.api.a> {
             jSONObject = new JSONObject();
         }
         com.kwad.sdk.utils.t.a(jSONObject, "thirdAge", aVar.a);
-        com.kwad.sdk.utils.t.a(jSONObject, "thirdGender", aVar.f56993b);
-        com.kwad.sdk.utils.t.a(jSONObject, "thirdInterest", aVar.f56994c);
-        com.kwad.sdk.utils.t.a(jSONObject, "prevTitle", aVar.f56995d);
-        com.kwad.sdk.utils.t.a(jSONObject, "postTitle", aVar.f56996e);
-        com.kwad.sdk.utils.t.a(jSONObject, "historyTitle", aVar.f56997f);
-        com.kwad.sdk.utils.t.a(jSONObject, "channel", aVar.f56998g);
-        com.kwad.sdk.utils.t.a(jSONObject, "cpmBidFloor", aVar.f56999h);
+        com.kwad.sdk.utils.t.a(jSONObject, "thirdGender", aVar.f57038b);
+        com.kwad.sdk.utils.t.a(jSONObject, "thirdInterest", aVar.f57039c);
+        com.kwad.sdk.utils.t.a(jSONObject, "prevTitle", aVar.f57040d);
+        com.kwad.sdk.utils.t.a(jSONObject, "postTitle", aVar.f57041e);
+        com.kwad.sdk.utils.t.a(jSONObject, "historyTitle", aVar.f57042f);
+        com.kwad.sdk.utils.t.a(jSONObject, "channel", aVar.f57043g);
+        com.kwad.sdk.utils.t.a(jSONObject, "cpmBidFloor", aVar.f57044h);
         return jSONObject;
     }
 }

@@ -28,19 +28,19 @@ public class b extends c.a.r0.a.u.e.j.a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ int f9133e;
+        public final /* synthetic */ int f9275e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ c.a.r0.a.h0.g.d f9134f;
+        public final /* synthetic */ c.a.r0.a.h0.g.d f9276f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ g f9135g;
+        public final /* synthetic */ g f9277g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ g.b f9136h;
+        public final /* synthetic */ g.b f9278h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final /* synthetic */ b f9137i;
+        public final /* synthetic */ b f9279i;
 
         public a(b bVar, int i2, c.a.r0.a.h0.g.d dVar, g gVar, g.b bVar2) {
             Interceptable interceptable = $ic;
@@ -57,21 +57,21 @@ public class b extends c.a.r0.a.u.e.j.a {
                     return;
                 }
             }
-            this.f9137i = bVar;
-            this.f9133e = i2;
-            this.f9134f = dVar;
-            this.f9135g = gVar;
-            this.f9136h = bVar2;
+            this.f9279i = bVar;
+            this.f9275e = i2;
+            this.f9276f = dVar;
+            this.f9277g = gVar;
+            this.f9278h = bVar2;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (this.f9133e > 1 && !this.f9134f.H0) {
-                    c.a.r0.a.z2.g.b(this.f9135g, this.f9137i.getContext(), 1);
+                if (this.f9275e > 1 && !this.f9276f.H0) {
+                    c.a.r0.a.z2.g.b(this.f9277g, this.f9279i.getContext(), 1);
                 }
-                this.f9136h.a();
+                this.f9278h.a();
             }
         }
     }
@@ -166,7 +166,7 @@ public class b extends c.a.r0.a.u.e.j.a {
             } else {
                 i.c(i3, uuid);
                 g.b i4 = V.i(str);
-                i4.n(g.f6401i, g.f6400h);
+                i4.n(g.f6543i, g.f6542h);
                 i4.h(i2);
                 q0.a0(new a(this, k, m, V, i4));
                 c.a.r0.a.h0.g.f o = V.o();

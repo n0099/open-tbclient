@@ -27,31 +27,31 @@ public class l implements b<a>, j {
     public final g a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final LinkedList<c.a.r0.a.o0.d.b> f6590b;
+    public final LinkedList<c.a.r0.a.o0.d.b> f6732b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final List<d<a>> f6591c;
+    public final List<d<a>> f6733c;
 
     /* renamed from: d  reason: collision with root package name */
-    public k f6592d;
+    public k f6734d;
 
     /* renamed from: e  reason: collision with root package name */
-    public volatile boolean f6593e;
+    public volatile boolean f6735e;
 
     /* renamed from: f  reason: collision with root package name */
-    public volatile boolean f6594f;
+    public volatile boolean f6736f;
 
     /* renamed from: g  reason: collision with root package name */
-    public volatile boolean f6595g;
+    public volatile boolean f6737g;
 
     /* renamed from: h  reason: collision with root package name */
-    public volatile boolean f6596h;
+    public volatile boolean f6738h;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f6597i;
+    public boolean f6739i;
 
     /* renamed from: j  reason: collision with root package name */
-    public final Object f6598j;
+    public final Object f6740j;
 
     static {
         InterceptResult invokeClinit;
@@ -83,15 +83,15 @@ public class l implements b<a>, j {
                 return;
             }
         }
-        this.f6590b = new LinkedList<>();
-        this.f6591c = new LinkedList();
+        this.f6732b = new LinkedList<>();
+        this.f6733c = new LinkedList();
         this.a = new g(l);
-        this.f6598j = new Object();
-        this.f6593e = false;
-        this.f6594f = false;
-        this.f6595g = false;
-        this.f6597i = false;
-        this.f6596h = false;
+        this.f6740j = new Object();
+        this.f6735e = false;
+        this.f6736f = false;
+        this.f6737g = false;
+        this.f6739i = false;
+        this.f6738h = false;
     }
 
     @Override // c.a.r0.a.h0.l.g.b
@@ -109,14 +109,14 @@ public class l implements b<a>, j {
             String str3 = pMSAppInfo.appId;
             if (TextUtils.isEmpty(str3)) {
                 boolean z2 = k;
-            } else if (this.f6594f) {
+            } else if (this.f6736f) {
                 c.a.r0.a.d2.e a0 = c.a.r0.a.d2.e.a0();
                 if (a0 == null) {
                     return;
                 }
                 if (TextUtils.equals(str3, a0.getAppId())) {
                     c.a.r0.a.e0.d.i(PrefetchEvent.MODULE, "prefetch after app start");
-                    this.f6592d.r(str, cVar, pMSAppInfo);
+                    this.f6734d.r(str, cVar, pMSAppInfo);
                     if (k) {
                         String str4 = "prefetch after app start - " + str3;
                         return;
@@ -124,21 +124,21 @@ public class l implements b<a>, j {
                     return;
                 }
                 boolean z3 = k;
-            } else if (!this.f6593e) {
+            } else if (!this.f6735e) {
                 boolean z4 = k;
             } else {
-                synchronized (this.f6598j) {
-                    if (this.f6594f) {
+                synchronized (this.f6740j) {
+                    if (this.f6736f) {
                         return;
                     }
                     k d2 = this.a.d(str3);
                     if (d2 == null) {
-                        d2 = k(false, this.f6597i);
+                        d2 = k(false, this.f6739i);
                         this.a.f(d2);
                     }
                     if (d2.w(pMSAppInfo, cVar)) {
                         this.a.c(str3);
-                        d2 = k(false, this.f6597i);
+                        d2 = k(false, this.f6739i);
                         this.a.f(d2);
                     }
                     this.a.g(Collections.singletonList(d2));
@@ -154,14 +154,14 @@ public class l implements b<a>, j {
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, dVar) == null) || dVar == null) {
             return;
         }
-        synchronized (this.f6598j) {
-            if (this.f6594f) {
+        synchronized (this.f6740j) {
+            if (this.f6736f) {
                 boolean z = k;
-                dVar.a(this.f6596h, this.f6592d);
+                dVar.a(this.f6738h, this.f6734d);
                 return;
             }
-            if (!this.f6591c.contains(dVar)) {
-                this.f6591c.add(dVar);
+            if (!this.f6733c.contains(dVar)) {
+                this.f6733c.add(dVar);
             }
         }
     }
@@ -169,11 +169,11 @@ public class l implements b<a>, j {
     @Override // c.a.r0.a.h0.l.g.b
     public void d(c.a.r0.a.o0.d.b bVar) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, bVar) == null) || bVar == null || this.f6594f) {
+        if (!(interceptable == null || interceptable.invokeL(1048579, this, bVar) == null) || bVar == null || this.f6736f) {
             return;
         }
-        synchronized (this.f6598j) {
-            this.f6590b.add(bVar);
+        synchronized (this.f6740j) {
+            this.f6732b.add(bVar);
         }
     }
 
@@ -181,49 +181,49 @@ public class l implements b<a>, j {
     public boolean f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f6595g : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f6737g : invokeV.booleanValue;
     }
 
     @Override // c.a.r0.a.h0.l.g.c
     public boolean g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f6594f : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f6736f : invokeV.booleanValue;
     }
 
     @Override // c.a.r0.a.h0.l.g.c
     public boolean h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f6593e : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f6735e : invokeV.booleanValue;
     }
 
     @Override // c.a.r0.a.h0.l.g.b
     public boolean i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f6597i : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f6739i : invokeV.booleanValue;
     }
 
     @Override // c.a.r0.a.h0.l.g.b
     public void j(boolean z, j jVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZL(1048585, this, z, jVar) == null) {
-            if (!this.f6595g) {
-                synchronized (this.f6598j) {
-                    if (!this.f6595g) {
-                        this.f6597i = z;
+            if (!this.f6737g) {
+                synchronized (this.f6740j) {
+                    if (!this.f6737g) {
+                        this.f6739i = z;
                         k k2 = k(true, z);
                         k2.c(this);
                         k2.c(jVar);
                         this.a.f(k2);
-                        this.f6595g = true;
+                        this.f6737g = true;
                         return;
                     }
                 }
             }
             boolean z2 = k;
-            k d2 = this.f6594f ? this.f6592d : this.a.d("_default_id_");
+            k d2 = this.f6736f ? this.f6734d : this.a.d("_default_id_");
             if (d2 != null) {
                 d2.c(jVar);
             }
@@ -238,9 +238,9 @@ public class l implements b<a>, j {
 
     public final void l() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048587, this) == null) && !this.f6590b.isEmpty() && this.f6594f) {
-            synchronized (this.f6598j) {
-                Iterator<c.a.r0.a.o0.d.b> it = this.f6590b.iterator();
+        if ((interceptable == null || interceptable.invokeV(1048587, this) == null) && !this.f6732b.isEmpty() && this.f6736f) {
+            synchronized (this.f6740j) {
+                Iterator<c.a.r0.a.o0.d.b> it = this.f6732b.iterator();
                 while (it.hasNext()) {
                     c.a.r0.a.o0.d.b next = it.next();
                     if (k) {
@@ -248,7 +248,7 @@ public class l implements b<a>, j {
                     }
                     c.a.r0.a.h0.u.g.U().U0(next);
                 }
-                this.f6590b.clear();
+                this.f6732b.clear();
             }
         }
     }
@@ -256,10 +256,10 @@ public class l implements b<a>, j {
     public final void m(boolean z, k kVar, PMSAppInfo pMSAppInfo) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048588, this, new Object[]{Boolean.valueOf(z), kVar, pMSAppInfo}) == null) {
-            this.f6596h = z;
-            this.f6592d = kVar;
+            this.f6738h = z;
+            this.f6734d = kVar;
             kVar.p(pMSAppInfo);
-            this.f6594f = true;
+            this.f6736f = true;
             l();
             long currentTimeMillis = k ? System.currentTimeMillis() : 0L;
             this.a.a(Collections.singletonList(kVar));
@@ -279,7 +279,7 @@ public class l implements b<a>, j {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
-            if (!this.f6594f) {
+            if (!this.f6736f) {
                 if (k) {
                     String str = "master not final confirmed, has default - " + f();
                     Log.getStackTraceString(new RuntimeException("throw by debug"));
@@ -287,21 +287,21 @@ public class l implements b<a>, j {
                 }
                 return null;
             }
-            return this.f6592d;
+            return this.f6734d;
         }
         return (k) invokeV.objValue;
     }
 
     public final void o(boolean z, k kVar) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZL(1048590, this, z, kVar) == null) || this.f6591c.size() <= 0) {
+        if (!(interceptable == null || interceptable.invokeZL(1048590, this, z, kVar) == null) || this.f6733c.size() <= 0) {
             return;
         }
-        synchronized (this.f6598j) {
-            for (d<a> dVar : this.f6591c) {
+        synchronized (this.f6740j) {
+            for (d<a> dVar : this.f6733c) {
                 dVar.a(z, kVar);
             }
-            this.f6591c.clear();
+            this.f6733c.clear();
         }
         if (k) {
             String str = "is hit prefetch env - " + z;
@@ -312,7 +312,7 @@ public class l implements b<a>, j {
     public void onReady() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
-            this.f6593e = true;
+            this.f6735e = true;
         }
     }
 
@@ -332,15 +332,15 @@ public class l implements b<a>, j {
             if (k) {
                 String str = "real start a swan app - " + pMSAppInfo;
             }
-            if (!this.f6593e && k) {
+            if (!this.f6735e && k) {
                 throw new RuntimeException("should call startApp after preload finished");
             }
             String str2 = pMSAppInfo == null ? null : pMSAppInfo.appId;
-            if (this.f6594f) {
-                return this.f6592d;
+            if (this.f6736f) {
+                return this.f6734d;
             }
-            synchronized (this.f6598j) {
-                if (!this.f6594f) {
+            synchronized (this.f6740j) {
+                if (!this.f6736f) {
                     boolean z = false;
                     if (!TextUtils.isEmpty(str2) && pMSAppInfo != null) {
                         d2 = this.a.d(str2);
@@ -358,9 +358,9 @@ public class l implements b<a>, j {
             if (k) {
                 long currentTimeMillis2 = System.currentTimeMillis();
                 String str3 = "get right master cost - " + (currentTimeMillis2 - currentTimeMillis) + "ms";
-                String str4 = "final master id - " + this.f6592d.i().c();
+                String str4 = "final master id - " + this.f6734d.i().c();
             }
-            return this.f6592d;
+            return this.f6734d;
         }
         return (k) invokeL.objValue;
     }
@@ -369,16 +369,16 @@ public class l implements b<a>, j {
     public void reset() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
-            this.f6593e = false;
-            this.f6594f = false;
-            this.f6595g = false;
-            this.f6597i = false;
-            this.f6596h = false;
-            this.f6592d = null;
+            this.f6735e = false;
+            this.f6736f = false;
+            this.f6737g = false;
+            this.f6739i = false;
+            this.f6738h = false;
+            this.f6734d = null;
             this.a.a(null);
-            synchronized (this.f6598j) {
-                this.f6590b.clear();
-                this.f6591c.clear();
+            synchronized (this.f6740j) {
+                this.f6732b.clear();
+                this.f6733c.clear();
             }
             e.c();
             h.b().d();

@@ -44,16 +44,16 @@ public abstract class a {
         }
     }
 
-    public static void e(n... nVarArr) {
+    public static void e(o... oVarArr) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65538, null, nVarArr) == null) || nVarArr == null) {
+        if (!(interceptable == null || interceptable.invokeL(65538, null, oVarArr) == null) || oVarArr == null) {
             return;
         }
         HashMap hashMap = new HashMap(c.a.s0.b.d.b());
-        for (n nVar : nVarArr) {
-            if (nVar != null) {
+        for (o oVar : oVarArr) {
+            if (oVar != null) {
                 for (Map.Entry entry : hashMap.entrySet()) {
-                    nVar.setABTest((BdUniqueId) entry.getKey(), (c.a.s0.b.e) entry.getValue());
+                    oVar.setABTest((BdUniqueId) entry.getKey(), (c.a.s0.b.e) entry.getValue());
                 }
             }
         }

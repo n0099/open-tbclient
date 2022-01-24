@@ -12,7 +12,7 @@ public class b {
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public JsObject f9584b;
+    public JsObject f9726b;
 
     public b(int i2, JsObject jsObject) {
         Interceptable interceptable = $ic;
@@ -30,6 +30,6 @@ public class b {
             }
         }
         this.a = i2;
-        this.f9584b = jsObject;
+        this.f9726b = jsObject;
     }
 }

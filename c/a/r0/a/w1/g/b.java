@@ -10,22 +10,22 @@ public class b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f9545e;
+    public String f9687e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f9546f;
+    public String f9688f;
 
     /* renamed from: g  reason: collision with root package name */
-    public long f9547g;
+    public long f9689g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f9548h;
+    public int f9690h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f9549i;
+    public String f9691i;
 
     /* renamed from: j  reason: collision with root package name */
-    public String f9550j;
+    public String f9692j;
 
     public b() {
         Interceptable interceptable = $ic;
@@ -40,11 +40,11 @@ public class b {
                 return;
             }
         }
-        this.f9545e = null;
-        this.f9546f = null;
-        this.f9547g = -1L;
-        this.f9548h = -1;
-        this.f9549i = null;
-        this.f9550j = null;
+        this.f9687e = null;
+        this.f9688f = null;
+        this.f9689g = -1L;
+        this.f9690h = -1;
+        this.f9691i = null;
+        this.f9692j = null;
     }
 }

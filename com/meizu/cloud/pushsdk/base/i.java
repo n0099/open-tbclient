@@ -4,17 +4,17 @@ public class i<T> {
     public T a;
 
     /* renamed from: b  reason: collision with root package name */
-    public T f58661b;
+    public T f58706b;
 
     public i(T t) {
         if (t == null) {
             throw new RuntimeException("proxy must be has a default implementation");
         }
-        this.f58661b = t;
+        this.f58706b = t;
     }
 
     public T c() {
         T t = this.a;
-        return t != null ? t : this.f58661b;
+        return t != null ? t : this.f58706b;
     }
 }

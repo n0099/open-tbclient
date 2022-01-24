@@ -193,7 +193,7 @@ public final class i {
     public static final int nad_widget_blankview_desc = 2131693010;
     public static final int nad_widget_errorview_clickreload = 2131693011;
     public static final int nad_widget_errorview_desc = 2131693012;
-    public static final int search_menu_title = 2131694371;
-    public static final int status_bar_notification_info_overflow = 2131694668;
+    public static final int search_menu_title = 2131694377;
+    public static final int status_bar_notification_info_overflow = 2131694674;
     public transient /* synthetic */ FieldHolder $fh;
 }

@@ -10,7 +10,7 @@ public class dp implements com.kwad.sdk.core.d<com.kwad.sdk.collector.kwai.e> {
             return;
         }
         eVar.a = jSONObject.optInt("sensorType");
-        eVar.f55529c = jSONObject.optLong("timestamp");
+        eVar.f55574c = jSONObject.optLong("timestamp");
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -20,7 +20,7 @@ public class dp implements com.kwad.sdk.core.d<com.kwad.sdk.collector.kwai.e> {
             jSONObject = new JSONObject();
         }
         com.kwad.sdk.utils.t.a(jSONObject, "sensorType", eVar.a);
-        com.kwad.sdk.utils.t.a(jSONObject, "timestamp", eVar.f55529c);
+        com.kwad.sdk.utils.t.a(jSONObject, "timestamp", eVar.f55574c);
         return jSONObject;
     }
 }

@@ -40,13 +40,13 @@ public class w {
     public static String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f36876b;
+    public static String f36904b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f36877c;
+    public static String f36905c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final Pattern f36878d;
+    public static final Pattern f36906d;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -62,7 +62,7 @@ public class w {
                 return;
             }
         }
-        f36878d = Pattern.compile("\\s*|\t|\r|\n");
+        f36906d = Pattern.compile("\\s*|\t|\r|\n");
     }
 
     public static String a(Context context, String str) {
@@ -212,7 +212,7 @@ public class w {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65565, null, context)) == null) {
-            String str = f36876b;
+            String str = f36904b;
             if (str == null) {
                 String n = n(context);
                 String b2 = b(context, n);
@@ -220,7 +220,7 @@ public class w {
                     b2 = c(context, n);
                 }
                 str = b2 == null ? "" : b2;
-                f36876b = str;
+                f36904b = str;
             }
             return str;
         }
@@ -466,7 +466,7 @@ public class w {
         String str;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
-            String str2 = f36877c;
+            String str2 = f36905c;
             if (str2 != null) {
                 return str2;
             }
@@ -487,7 +487,7 @@ public class w {
                     str = "flyme";
                 }
             }
-            f36877c = str;
+            f36905c = str;
             return str;
         }
         return (String) invokeV.objValue;
@@ -496,7 +496,7 @@ public class w {
     public static String a(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) ? f36878d.matcher(x.a(context)).replaceAll("") : (String) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) ? f36906d.matcher(x.a(context)).replaceAll("") : (String) invokeL.objValue;
     }
 
     public static String a(int i2, Context context) {

@@ -1,5 +1,6 @@
 package com.baidu.tieba.advert.sdk.data;
 
+import com.baidu.searchbox.download.center.clearcache.UserSettingForceListListener;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -34,7 +35,7 @@ public final class ResourceType {
                 return;
             }
         }
-        ID = new ResourceType("ID", 0, "id");
+        ID = new ResourceType(UserSettingForceListListener.FORCE_LIST_ITEM_ID_KEY, 0, "id");
         ARRAY = new ResourceType("ARRAY", 1, "array");
         LAYOUT = new ResourceType("LAYOUT", 2, "layout");
         STYLE = new ResourceType("STYLE", 3, "style");

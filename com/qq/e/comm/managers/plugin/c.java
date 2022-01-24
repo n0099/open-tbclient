@@ -31,32 +31,32 @@ import java.security.NoSuchAlgorithmException;
 import java.util.concurrent.Executor;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class c {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final Pattern f59079d;
+    public static final Pattern f59124d;
     public transient /* synthetic */ FieldHolder $fh;
     public final Context a;
 
     /* renamed from: b  reason: collision with root package name */
-    public f f59080b;
+    public f f59125b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Executor f59081c;
+    public Executor f59126c;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class a implements NetworkCallBack {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final String a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final int f59082b;
+        public final int f59127b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ c f59083c;
+        public final /* synthetic */ c f59128c;
 
         public a(c cVar, String str, int i2) {
             Interceptable interceptable = $ic;
@@ -73,9 +73,9 @@ public class c {
                     return;
                 }
             }
-            this.f59083c = cVar;
+            this.f59128c = cVar;
             this.a = str;
-            this.f59082b = i2;
+            this.f59127b = i2;
         }
 
         /* JADX DEBUG: Failed to insert an additional move for type inference into block B:15:0x003d */
@@ -176,10 +176,10 @@ public class c {
 
         private void a(String str) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(65538, this, str) == null) || this.f59083c.f59080b == null) {
+            if (!(interceptable == null || interceptable.invokeL(65538, this, str) == null) || this.f59128c.f59125b == null) {
                 return;
             }
-            ((PM.b) this.f59083c.f59080b).a.a();
+            ((PM.b) this.f59128c.f59125b).a.a();
             com.qq.e.comm.managers.plugin.a.a(new Exception(str), str);
         }
 
@@ -208,29 +208,29 @@ public class c {
                     return;
                 }
                 try {
-                    File g2 = h.g(this.f59083c.a);
-                    File h2 = h.h(this.f59083c.a);
+                    File g2 = h.g(this.f59128c.a);
+                    File h2 = h.h(this.f59128c.a);
                     String a = a(response, g2);
                     boolean z2 = true;
                     if (com.qq.e.comm.util.a.a().a(this.a, a)) {
                         try {
-                            StringUtil.writeTo(this.f59082b + "#####" + this.a, h2);
+                            StringUtil.writeTo(this.f59127b + "#####" + this.a, h2);
                             z = true;
                         } catch (IOException unused) {
                             GDTLogger.d("IOException While Update Plugin");
                             z = false;
                         }
                         if (z) {
-                            if (FileUtil.renameTo(g2, h.c(this.f59083c.a)) && FileUtil.renameTo(h2, h.d(this.f59083c.a))) {
+                            if (FileUtil.renameTo(g2, h.c(this.f59128c.a)) && FileUtil.renameTo(h2, h.d(this.f59128c.a))) {
                                 GDTLogger.d("PluginUpdateSucc:" + z2);
-                                if (this.f59083c.f59080b != null) {
-                                    PM.d(((PM.b) this.f59083c.f59080b).a);
+                                if (this.f59128c.f59125b != null) {
+                                    PM.d(((PM.b) this.f59128c.f59125b).a);
                                 }
                             }
                         }
                         z2 = false;
                         GDTLogger.d("PluginUpdateSucc:" + z2);
-                        if (this.f59083c.f59080b != null) {
+                        if (this.f59128c.f59125b != null) {
                         }
                     } else {
                         g2.delete();
@@ -270,7 +270,7 @@ public class c {
                 return;
             }
         }
-        f59079d = Pattern.compile(".*plugin\\.dex-(\\d+)\\.jar.*");
+        f59124d = Pattern.compile(".*plugin\\.dex-(\\d+)\\.jar.*");
     }
 
     public c(Context context, Executor executor) {
@@ -289,13 +289,13 @@ public class c {
             }
         }
         this.a = context.getApplicationContext();
-        this.f59081c = executor;
+        this.f59126c = executor;
     }
 
     public void a(f fVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, fVar) == null) {
-            this.f59080b = fVar;
+            this.f59125b = fVar;
         }
     }
 
@@ -304,7 +304,7 @@ public class c {
         if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2) == null) || StringUtil.isEmpty(str) || StringUtil.isEmpty(str2)) {
             return;
         }
-        Matcher matcher = f59079d.matcher(str2);
+        Matcher matcher = f59124d.matcher(str2);
         boolean z = true;
         int parseInteger = StringUtil.parseInteger(matcher.matches() ? matcher.group(1) : "0", 0);
         if (parseInteger < 1292) {
@@ -313,7 +313,7 @@ public class c {
         }
         if (z) {
             GDTLogger.d("TIMESTAP_BEFORE_OWN_PLUGIN:" + System.nanoTime());
-            NetworkClientImpl.getInstance().submit(new PlainRequest(str2, Request.Method.GET, (byte[]) null), NetworkClient.Priority.High, new a(this, str, parseInteger), this.f59081c);
+            NetworkClientImpl.getInstance().submit(new PlainRequest(str2, Request.Method.GET, (byte[]) null), NetworkClient.Priority.High, new a(this, str, parseInteger), this.f59126c);
         }
     }
 }

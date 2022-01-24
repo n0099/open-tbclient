@@ -17,16 +17,16 @@ public final class a {
     public final List<byte[]> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final int f29766b;
+    public final int f29794b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final int f29767c;
+    public final int f29795c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final int f29768d;
+    public final int f29796d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final float f29769e;
+    public final float f29797e;
 
     public a(List<byte[]> list, int i2, int i3, int i4, float f2) {
         Interceptable interceptable = $ic;
@@ -44,10 +44,10 @@ public final class a {
             }
         }
         this.a = list;
-        this.f29766b = i2;
-        this.f29767c = i3;
-        this.f29768d = i4;
-        this.f29769e = f2;
+        this.f29794b = i2;
+        this.f29795c = i3;
+        this.f29796d = i4;
+        this.f29797e = f2;
     }
 
     public static byte[] a(l lVar) {
@@ -84,9 +84,9 @@ public final class a {
                     }
                     if (x2 > 0) {
                         j.b i6 = j.i((byte[]) arrayList.get(0), x, ((byte[]) arrayList.get(0)).length);
-                        int i7 = i6.f29706b;
-                        int i8 = i6.f29707c;
-                        f2 = i6.f29708d;
+                        int i7 = i6.f29734b;
+                        int i8 = i6.f29735c;
+                        f2 = i6.f29736d;
                         i2 = i7;
                         i3 = i8;
                     } else {

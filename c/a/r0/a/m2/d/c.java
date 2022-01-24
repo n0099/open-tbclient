@@ -16,7 +16,7 @@ public class c implements a<JSONObject> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public JSONArray f7701b;
+    public JSONArray f7843b;
 
     public c() {
         Interceptable interceptable = $ic;
@@ -37,10 +37,10 @@ public class c implements a<JSONObject> {
         if (!(interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) || jSONObject == null) {
             return;
         }
-        if (this.f7701b == null) {
-            this.f7701b = new JSONArray();
+        if (this.f7843b == null) {
+            this.f7843b = new JSONArray();
         }
-        this.f7701b.put(jSONObject);
+        this.f7843b.put(jSONObject);
         if (a.a) {
             String str = "FEStage: " + jSONObject;
         }
@@ -49,7 +49,7 @@ public class c implements a<JSONObject> {
     public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f7701b = null;
+            this.f7843b = null;
         }
     }
 
@@ -59,7 +59,7 @@ public class c implements a<JSONObject> {
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             JSONObject jSONObject = new JSONObject();
             try {
-                jSONObject.put("stageError", this.f7701b);
+                jSONObject.put("stageError", this.f7843b);
             } catch (JSONException e2) {
                 if (a.a) {
                     Log.getStackTraceString(e2);

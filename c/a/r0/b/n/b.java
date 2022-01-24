@@ -29,13 +29,13 @@ public class b extends d {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f10093e;
+        public final /* synthetic */ String f10235e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ JSONObject f10094f;
+        public final /* synthetic */ JSONObject f10236f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ b f10095g;
+        public final /* synthetic */ b f10237g;
 
         public a(b bVar, String str, JSONObject jSONObject) {
             Interceptable interceptable = $ic;
@@ -52,9 +52,9 @@ public class b extends d {
                     return;
                 }
             }
-            this.f10095g = bVar;
-            this.f10093e = str;
-            this.f10094f = jSONObject;
+            this.f10237g = bVar;
+            this.f10235e = str;
+            this.f10236f = jSONObject;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -66,31 +66,31 @@ public class b extends d {
                 if (!c.a.r0.a.h2.c.d.h(iVar)) {
                     int b2 = iVar.b();
                     c.a.r0.a.h2.c.d.f(b2);
-                    this.f10095g.d(this.f10093e, new c.a.r0.a.u.h.b(b2, c.a.r0.a.h2.c.d.f(b2)));
+                    this.f10237g.d(this.f10235e, new c.a.r0.a.u.h.b(b2, c.a.r0.a.h2.c.d.f(b2)));
                     return;
                 }
-                JSONArray optJSONArray = this.f10094f.optJSONArray("tpls");
+                JSONArray optJSONArray = this.f10236f.optJSONArray("tpls");
                 ArrayList arrayList = new ArrayList();
                 int length = optJSONArray.length();
                 for (int i2 = 0; i2 < length; i2++) {
                     arrayList.add(optJSONArray.optString(i2));
                 }
-                this.f10095g.z(this.f10094f.optString("clientId"), arrayList, this.f10093e);
+                this.f10237g.z(this.f10236f.optString("clientId"), arrayList, this.f10235e);
             }
         }
     }
 
     /* renamed from: c.a.r0.b.n.b$b  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public class C0662b implements c {
+    public class C0671b implements c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ String a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ b f10096b;
+        public final /* synthetic */ b f10238b;
 
-        public C0662b(b bVar, String str) {
+        public C0671b(b bVar, String str) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -105,7 +105,7 @@ public class b extends d {
                     return;
                 }
             }
-            this.f10096b = bVar;
+            this.f10238b = bVar;
             this.a = str;
         }
 
@@ -114,9 +114,9 @@ public class b extends d {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
                 try {
-                    this.f10096b.d(this.a, new c.a.r0.a.u.h.b(0, new JSONObject(str)));
+                    this.f10238b.d(this.a, new c.a.r0.a.u.h.b(0, new JSONObject(str)));
                 } catch (JSONException unused) {
-                    this.f10096b.d(this.a, new c.a.r0.a.u.h.b(10001, "internal error"));
+                    this.f10238b.d(this.a, new c.a.r0.a.u.h.b(10001, "internal error"));
                 }
             }
         }
@@ -193,7 +193,7 @@ public class b extends d {
             if (!c.a.r0.b.l.a.F(c.a.r0.a.d2.d.J())) {
                 d(str2, new c.a.r0.a.u.h.b(202, "user is not logged in or the params are invalid"));
             } else {
-                c.a.r0.b.l.a.o(c.a.r0.a.d2.d.J(), str, arrayList, new C0662b(this, str2));
+                c.a.r0.b.l.a.o(c.a.r0.a.d2.d.J(), str, arrayList, new C0671b(this, str2));
             }
         }
     }

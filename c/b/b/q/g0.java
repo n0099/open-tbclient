@@ -14,10 +14,10 @@ public class g0<T> extends a<T> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: i  reason: collision with root package name */
-    public T[] f27412i;
+    public T[] f27440i;
 
     /* renamed from: j  reason: collision with root package name */
-    public T[] f27413j;
+    public T[] f27441j;
     public int k;
 
     public g0() {
@@ -97,8 +97,8 @@ public class g0<T> extends a<T> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
             q();
-            T[] tArr = this.f27360e;
-            this.f27412i = tArr;
+            T[] tArr = this.f27388e;
+            this.f27440i = tArr;
             this.k++;
             return tArr;
         }
@@ -110,18 +110,18 @@ public class g0<T> extends a<T> {
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             int max = Math.max(0, this.k - 1);
             this.k = max;
-            T[] tArr = this.f27412i;
+            T[] tArr = this.f27440i;
             if (tArr == null) {
                 return;
             }
-            if (tArr != this.f27360e && max == 0) {
-                this.f27413j = tArr;
+            if (tArr != this.f27388e && max == 0) {
+                this.f27441j = tArr;
                 int length = tArr.length;
                 for (int i2 = 0; i2 < length; i2++) {
-                    this.f27413j[i2] = null;
+                    this.f27441j[i2] = null;
                 }
             }
-            this.f27412i = null;
+            this.f27440i = null;
         }
     }
 
@@ -140,19 +140,19 @@ public class g0<T> extends a<T> {
         T[] tArr;
         T[] tArr2;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048585, this) == null) && (tArr = this.f27412i) != null && tArr == (tArr2 = this.f27360e)) {
-            T[] tArr3 = this.f27413j;
+        if ((interceptable == null || interceptable.invokeV(1048585, this) == null) && (tArr = this.f27440i) != null && tArr == (tArr2 = this.f27388e)) {
+            T[] tArr3 = this.f27441j;
             if (tArr3 != null) {
                 int length = tArr3.length;
-                int i2 = this.f27361f;
+                int i2 = this.f27389f;
                 if (length >= i2) {
                     System.arraycopy(tArr2, 0, tArr3, 0, i2);
-                    this.f27360e = this.f27413j;
-                    this.f27413j = null;
+                    this.f27388e = this.f27441j;
+                    this.f27441j = null;
                     return;
                 }
             }
-            j(this.f27360e.length);
+            j(this.f27388e.length);
         }
     }
 

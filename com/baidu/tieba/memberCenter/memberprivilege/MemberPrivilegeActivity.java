@@ -6,8 +6,8 @@ import android.view.View;
 import android.widget.AdapterView;
 import androidx.core.view.InputDeviceCompat;
 import c.a.d.f.p.m;
-import c.a.t0.f2.g.a;
-import c.a.t0.f2.g.d;
+import c.a.t0.g2.g.a;
+import c.a.t0.g2.g.d;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.listener.HttpMessageListener;
@@ -84,7 +84,7 @@ public class MemberPrivilegeActivity extends BaseActivity<MemberPrivilegeActivit
                         this.a.showToast(StringUtils.isNull(responseMemberPrivilegeMessage.getErrorString()) ? this.a.getResources().getString(R.string.neterror) : responseMemberPrivilegeMessage.getErrorString());
                         return;
                     }
-                    c.a.t0.f2.g.a aVar = responseMemberPrivilegeMessage.mData;
+                    c.a.t0.g2.g.a aVar = responseMemberPrivilegeMessage.mData;
                     if (aVar != null) {
                         this.a.mMemberPrivilegeView.d().h(aVar);
                     } else {
@@ -256,8 +256,8 @@ public class MemberPrivilegeActivity extends BaseActivity<MemberPrivilegeActivit
         if (!(interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{adapterView, view, Integer.valueOf(i2), Long.valueOf(j2)}) == null) || i2 == 0 || 1 == this.mMemberPrivilegeView.d().getItemViewType(i2)) {
             return;
         }
-        String str = ((a.C1106a) this.mMemberPrivilegeView.d().getItem(i2)).f17627d;
-        String str2 = ((a.C1106a) this.mMemberPrivilegeView.d().getItem(i2)).f17625b;
+        String str = ((a.C1124a) this.mMemberPrivilegeView.d().getItem(i2)).f18069d;
+        String str2 = ((a.C1124a) this.mMemberPrivilegeView.d().getItem(i2)).f18067b;
         if (m.isEmpty(str)) {
             return;
         }

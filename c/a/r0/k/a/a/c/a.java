@@ -19,28 +19,28 @@ public class a {
     public static final boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static boolean f11325b;
+    public static boolean f11467b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static Method f11326c;
+    public static Method f11468c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static Method f11327d;
+    public static Method f11469d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static Method f11328e;
+    public static Method f11470e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static Method f11329f;
+    public static Method f11471f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static Method f11330g;
+    public static Method f11472g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static Method f11331h;
+    public static Method f11473h;
 
     /* renamed from: i  reason: collision with root package name */
-    public static Method f11332i;
+    public static Method f11474i;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -61,27 +61,27 @@ public class a {
         if (f2) {
             try {
                 Method declaredMethod = Class.class.getDeclaredMethod("forName", String.class);
-                f11326c = declaredMethod;
+                f11468c = declaredMethod;
                 declaredMethod.setAccessible(true);
                 Method declaredMethod2 = Class.class.getDeclaredMethod("getDeclaredMethod", String.class, Class[].class);
-                f11327d = declaredMethod2;
+                f11469d = declaredMethod2;
                 declaredMethod2.setAccessible(true);
                 Method declaredMethod3 = Class.class.getDeclaredMethod("getMethod", String.class, Class[].class);
-                f11328e = declaredMethod3;
+                f11470e = declaredMethod3;
                 declaredMethod3.setAccessible(true);
                 Method declaredMethod4 = Class.class.getDeclaredMethod("getDeclaredField", String.class);
-                f11329f = declaredMethod4;
+                f11471f = declaredMethod4;
                 declaredMethod4.setAccessible(true);
                 Method declaredMethod5 = Class.class.getDeclaredMethod("getField", String.class);
-                f11330g = declaredMethod5;
+                f11472g = declaredMethod5;
                 declaredMethod5.setAccessible(true);
                 Method declaredMethod6 = Class.class.getDeclaredMethod("newInstance", new Class[0]);
-                f11331h = declaredMethod6;
+                f11473h = declaredMethod6;
                 declaredMethod6.setAccessible(true);
                 Method declaredMethod7 = Class.class.getDeclaredMethod("getDeclaredConstructor", Class[].class);
-                f11332i = declaredMethod7;
+                f11474i = declaredMethod7;
                 declaredMethod7.setAccessible(true);
-                f11325b = true;
+                f11467b = true;
             } catch (Throwable unused) {
             }
         }
@@ -103,7 +103,7 @@ public class a {
             if (z) {
                 c.a.r0.k.a.a.a.d(c.a.r0.k.a.a.a.b(str));
             }
-            return (a && f11325b) ? (Class) f11326c.invoke(null, str) : Class.forName(str);
+            return (a && f11467b) ? (Class) f11468c.invoke(null, str) : Class.forName(str);
         }
         return (Class) invokeLZ.objValue;
     }
@@ -115,7 +115,7 @@ public class a {
             if (cls == null) {
                 return null;
             }
-            return (a && f11325b) ? (Constructor) f11332i.invoke(cls, clsArr) : cls.getDeclaredConstructor(clsArr);
+            return (a && f11467b) ? (Constructor) f11474i.invoke(cls, clsArr) : cls.getDeclaredConstructor(clsArr);
         }
         return (Constructor) invokeLL.objValue;
     }
@@ -127,7 +127,7 @@ public class a {
             if (cls == null || TextUtils.isEmpty(str)) {
                 return null;
             }
-            return (a && f11325b) ? (Field) f11329f.invoke(cls, str) : cls.getDeclaredField(str);
+            return (a && f11467b) ? (Field) f11471f.invoke(cls, str) : cls.getDeclaredField(str);
         }
         return (Field) invokeLL.objValue;
     }
@@ -139,7 +139,7 @@ public class a {
             if (cls == null || TextUtils.isEmpty(str)) {
                 return null;
             }
-            return (a && f11325b) ? (Method) f11327d.invoke(cls, str, clsArr) : cls.getDeclaredMethod(str, clsArr);
+            return (a && f11467b) ? (Method) f11469d.invoke(cls, str, clsArr) : cls.getDeclaredMethod(str, clsArr);
         }
         return (Method) invokeLLL.objValue;
     }
@@ -180,7 +180,7 @@ public class a {
             if (cls == null || TextUtils.isEmpty(str)) {
                 return null;
             }
-            return (a && f11325b) ? (Field) f11330g.invoke(cls, str) : cls.getField(str);
+            return (a && f11467b) ? (Field) f11472g.invoke(cls, str) : cls.getField(str);
         }
         return (Field) invokeLL.objValue;
     }
@@ -239,7 +239,7 @@ public class a {
             if (cls == null || TextUtils.isEmpty(str)) {
                 return null;
             }
-            return (a && f11325b) ? (Method) f11328e.invoke(cls, str, clsArr) : cls.getMethod(str, clsArr);
+            return (a && f11467b) ? (Method) f11470e.invoke(cls, str, clsArr) : cls.getMethod(str, clsArr);
         }
         return (Method) invokeLLL.objValue;
     }
@@ -293,8 +293,8 @@ public class a {
             if (cls == null) {
                 return null;
             }
-            if (a && f11325b) {
-                return (T) f11331h.invoke(cls, new Object[0]);
+            if (a && f11467b) {
+                return (T) f11473h.invoke(cls, new Object[0]);
             }
             return cls.newInstance();
         }

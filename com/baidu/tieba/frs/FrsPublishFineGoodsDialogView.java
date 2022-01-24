@@ -7,7 +7,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import c.a.d.f.p.n;
 import c.a.s0.s.w.b.d;
-import c.a.t0.d1.h;
+import c.a.t0.e1.h;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.tbselector.TBSelector;
@@ -23,22 +23,22 @@ public class FrsPublishFineGoodsDialogView extends LinearLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public LinearLayout f43106e;
+    public LinearLayout f43127e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Context f43107f;
+    public Context f43128f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f43108g;
+    public TextView f43129g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f43109h;
+    public TextView f43130h;
 
     /* renamed from: i  reason: collision with root package name */
-    public TextView f43110i;
+    public TextView f43131i;
 
     /* renamed from: j  reason: collision with root package name */
-    public LocalBannerLayout f43111j;
+    public LocalBannerLayout f43132j;
     public d k;
 
     /* loaded from: classes12.dex */
@@ -100,7 +100,7 @@ public class FrsPublishFineGoodsDialogView extends LinearLayout {
             }
         }
         this.k = new a(this);
-        this.f43107f = context;
+        this.f43128f = context;
         b(context);
     }
 
@@ -109,23 +109,23 @@ public class FrsPublishFineGoodsDialogView extends LinearLayout {
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
             LayoutInflater.from(context).inflate(R.layout.frs_publish_major_fine_goods_dialog, this);
             LinearLayout linearLayout = (LinearLayout) findViewById(R.id.frs_broadcast_guide_main);
-            this.f43106e = linearLayout;
-            this.f43108g = (TextView) linearLayout.findViewById(R.id.frs_shop_guide_title);
-            this.f43109h = (TextView) this.f43106e.findViewById(R.id.frs_shop_guide_content);
-            this.f43111j = (LocalBannerLayout) this.f43106e.findViewById(R.id.banner_layout);
-            TextView textView = (TextView) this.f43106e.findViewById(R.id.to_next_tv);
-            this.f43110i = textView;
+            this.f43127e = linearLayout;
+            this.f43129g = (TextView) linearLayout.findViewById(R.id.frs_shop_guide_title);
+            this.f43130h = (TextView) this.f43127e.findViewById(R.id.frs_shop_guide_content);
+            this.f43132j = (LocalBannerLayout) this.f43127e.findViewById(R.id.banner_layout);
+            TextView textView = (TextView) this.f43127e.findViewById(R.id.to_next_tv);
+            this.f43131i = textView;
             textView.setText(R.string.forum_broadcast_major_history_known);
             ArrayList arrayList = new ArrayList();
             arrayList.add(new h(String.valueOf(R.drawable.pic_good_guide1)));
             arrayList.add(new h(String.valueOf(R.drawable.pic_good_guide2)));
             arrayList.add(new h(String.valueOf(R.drawable.pic_good_guide3)));
-            this.f43111j.setData(arrayList);
-            this.f43111j.setOnCoverViewCallback(this.k);
-            SkinManager.setViewTextColor(this.f43108g, R.color.CAM_X0105);
-            SkinManager.setViewTextColor(this.f43109h, R.color.CAM_X0109);
-            SkinManager.setViewTextColor(this.f43110i, R.color.CAM_X0302);
-            TBSelector.makeDrawableSelector().setShape(0).defaultColor(R.color.CAM_X0211).blRadius(n.f(this.f43107f, R.dimen.tbds30)).brRadius(n.f(this.f43107f, R.dimen.tbds30)).tlRadius(n.f(this.f43107f, R.dimen.tbds32)).trRadius(n.f(this.f43107f, R.dimen.tbds32)).into(this.f43106e);
+            this.f43132j.setData(arrayList);
+            this.f43132j.setOnCoverViewCallback(this.k);
+            SkinManager.setViewTextColor(this.f43129g, R.color.CAM_X0105);
+            SkinManager.setViewTextColor(this.f43130h, R.color.CAM_X0109);
+            SkinManager.setViewTextColor(this.f43131i, R.color.CAM_X0302);
+            TBSelector.makeDrawableSelector().setShape(0).defaultColor(R.color.CAM_X0211).blRadius(n.f(this.f43128f, R.dimen.tbds30)).brRadius(n.f(this.f43128f, R.dimen.tbds30)).tlRadius(n.f(this.f43128f, R.dimen.tbds32)).trRadius(n.f(this.f43128f, R.dimen.tbds32)).into(this.f43127e);
         }
     }
 
@@ -133,14 +133,14 @@ public class FrsPublishFineGoodsDialogView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
             if (i2 == 0 || i2 == 3) {
-                this.f43108g.setText(getResources().getString(R.string.frs_goods_dialog_first_title));
-                this.f43109h.setText(getResources().getString(R.string.frs_goods_dialog_first_content));
+                this.f43129g.setText(getResources().getString(R.string.frs_goods_dialog_first_title));
+                this.f43130h.setText(getResources().getString(R.string.frs_goods_dialog_first_content));
             } else if (i2 == 1) {
-                this.f43108g.setText(getResources().getString(R.string.frs_goods_dialog_second_title));
-                this.f43109h.setText(getResources().getString(R.string.frs_goods_dialog_second_content));
+                this.f43129g.setText(getResources().getString(R.string.frs_goods_dialog_second_title));
+                this.f43130h.setText(getResources().getString(R.string.frs_goods_dialog_second_content));
             } else if (i2 == 2) {
-                this.f43108g.setText(getResources().getString(R.string.frs_goods_dialog_third_title));
-                this.f43109h.setText(getResources().getString(R.string.frs_goods_dialog_third_content));
+                this.f43129g.setText(getResources().getString(R.string.frs_goods_dialog_third_title));
+                this.f43130h.setText(getResources().getString(R.string.frs_goods_dialog_third_content));
             }
         }
     }
@@ -150,6 +150,6 @@ public class FrsPublishFineGoodsDialogView extends LinearLayout {
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, onClickListener) == null) || onClickListener == null) {
             return;
         }
-        this.f43110i.setOnClickListener(onClickListener);
+        this.f43131i.setOnClickListener(onClickListener);
     }
 }

@@ -19,31 +19,31 @@ public class a {
     public TbPageContext a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Context f14415b;
+    public Context f14555b;
 
     /* renamed from: c  reason: collision with root package name */
-    public BdTypeRecyclerView f14416c;
+    public BdTypeRecyclerView f14556c;
 
     /* renamed from: d  reason: collision with root package name */
-    public List<c.a.d.n.e.a> f14417d;
+    public List<c.a.d.n.e.a> f14557d;
 
     /* renamed from: e  reason: collision with root package name */
-    public d f14418e;
+    public d f14558e;
 
     /* renamed from: f  reason: collision with root package name */
-    public d f14419f;
+    public d f14559f;
 
     /* renamed from: g  reason: collision with root package name */
-    public c.a.t0.a0.f.c.d.c f14420g;
+    public c.a.t0.a0.f.c.d.c f14560g;
 
     /* renamed from: h  reason: collision with root package name */
-    public c.a.t0.a0.f.c.d.b f14421h;
+    public c.a.t0.a0.f.c.d.b f14561h;
 
     /* renamed from: i  reason: collision with root package name */
-    public c.a.t0.a0.f.c.d.a f14422i;
+    public c.a.t0.a0.f.c.d.a f14562i;
 
     /* renamed from: j  reason: collision with root package name */
-    public int f14423j;
+    public int f14563j;
 
     public a(TbPageContext tbPageContext, BdTypeRecyclerView bdTypeRecyclerView, int i2) {
         Interceptable interceptable = $ic;
@@ -61,34 +61,34 @@ public class a {
             }
         }
         this.a = tbPageContext;
-        this.f14415b = tbPageContext.getPageActivity();
-        this.f14416c = bdTypeRecyclerView;
-        this.f14423j = i2;
+        this.f14555b = tbPageContext.getPageActivity();
+        this.f14556c = bdTypeRecyclerView;
+        this.f14563j = i2;
         a();
     }
 
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f14417d = new ArrayList();
-            this.f14418e = new d(this.a, this.f14423j, false);
-            this.f14419f = new d(this.a, this.f14423j, true);
-            this.f14420g = new c.a.t0.a0.f.c.d.c(this.a);
-            this.f14421h = new c.a.t0.a0.f.c.d.b(this.a);
-            this.f14422i = new c.a.t0.a0.f.c.d.a(this.a);
-            this.f14417d.add(this.f14418e);
-            this.f14417d.add(this.f14419f);
-            this.f14417d.add(this.f14420g);
-            this.f14417d.add(this.f14421h);
-            this.f14417d.add(this.f14422i);
-            this.f14416c.addAdapters(this.f14417d);
+            this.f14557d = new ArrayList();
+            this.f14558e = new d(this.a, this.f14563j, false);
+            this.f14559f = new d(this.a, this.f14563j, true);
+            this.f14560g = new c.a.t0.a0.f.c.d.c(this.a);
+            this.f14561h = new c.a.t0.a0.f.c.d.b(this.a);
+            this.f14562i = new c.a.t0.a0.f.c.d.a(this.a);
+            this.f14557d.add(this.f14558e);
+            this.f14557d.add(this.f14559f);
+            this.f14557d.add(this.f14560g);
+            this.f14557d.add(this.f14561h);
+            this.f14557d.add(this.f14562i);
+            this.f14556c.addAdapters(this.f14557d);
         }
     }
 
     public void b() {
         BdTypeRecyclerView bdTypeRecyclerView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (bdTypeRecyclerView = this.f14416c) == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (bdTypeRecyclerView = this.f14556c) == null) {
             return;
         }
         bdTypeRecyclerView.getListAdapter().notifyDataSetChanged();
@@ -97,7 +97,7 @@ public class a {
     public void c(List<n> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) {
-            this.f14416c.setData(list);
+            this.f14556c.setData(list);
         }
     }
 }

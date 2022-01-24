@@ -11,7 +11,6 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.ugc.editvideo.filter.FilterValue;
 /* loaded from: classes6.dex */
 public class a extends c {
     public static /* synthetic */ Interceptable $ic;
@@ -19,7 +18,7 @@ public class a extends c {
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public a(@NonNull Context context) {
-        super(BaiduMap.f35212e, context.getString(h.openlocation_bottommenu_baidumap), "com.baidu.BaiduMap");
+        super(BaiduMap.f35240e, context.getString(h.openlocation_bottommenu_baidumap), "com.baidu.BaiduMap");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -36,7 +35,7 @@ public class a extends c {
                 return;
             }
         }
-        this.f11413c = true;
+        this.f11555c = true;
     }
 
     @Override // c.a.r0.m.q.c
@@ -47,7 +46,7 @@ public class a extends c {
         }
         Intent intent = new Intent();
         Uri.Builder buildUpon = Uri.parse("baidumap://map/direction?").buildUpon();
-        buildUpon.appendQueryParameter(FilterValue.DEFAULT_FILTER_VALUE, "name:" + str + "|latlng:" + latLng.latitude + "," + latLng.longitude);
+        buildUpon.appendQueryParameter("origin", "name:" + str + "|latlng:" + latLng.latitude + "," + latLng.longitude);
         buildUpon.appendQueryParameter("destination", "name:" + str2 + "|latlng:" + latLng2.latitude + "," + latLng2.longitude);
         buildUpon.appendQueryParameter("mode", "driving");
         buildUpon.appendQueryParameter("target", "1");

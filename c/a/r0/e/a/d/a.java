@@ -11,13 +11,13 @@ public class a implements Object {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final int f10295e;
+    public final int f10437e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final int f10296f;
+    public final int f10438f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final int f10297g;
+    public final int f10439g;
 
     public a(int i2, int i3, int i4) {
         Interceptable interceptable = $ic;
@@ -34,9 +34,9 @@ public class a implements Object {
                 return;
             }
         }
-        this.f10295e = i2;
-        this.f10296f = i3;
-        this.f10297g = i4;
+        this.f10437e = i2;
+        this.f10438f = i3;
+        this.f10439g = i4;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -44,6 +44,6 @@ public class a implements Object {
     public int compareTo(a aVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, aVar)) == null) ? this.f10297g < aVar.f10297g ? -1 : 1 : invokeL.intValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, aVar)) == null) ? this.f10439g < aVar.f10439g ? -1 : 1 : invokeL.intValue;
     }
 }

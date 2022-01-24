@@ -13,10 +13,10 @@ public class c extends d {
     public static final String a = "1.3.7";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final int f34031b = 32;
+    public static final int f34059b = 32;
 
     /* renamed from: c  reason: collision with root package name */
-    public static c f34032c;
+    public static c f34060c;
     public transient /* synthetic */ FieldHolder $fh;
 
     public c() {
@@ -37,14 +37,14 @@ public class c extends d {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (f34032c == null) {
+            if (f34060c == null) {
                 synchronized (c.class) {
-                    if (f34032c == null) {
-                        f34032c = new c();
+                    if (f34060c == null) {
+                        f34060c = new c();
                     }
                 }
             }
-            return f34032c;
+            return f34060c;
         }
         return (c) invokeV.objValue;
     }

@@ -12,16 +12,16 @@ public class d implements e {
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f55538b;
+    public String f55583b;
 
     public d(String str, String str2) {
         this.a = str;
-        this.f55538b = str2;
+        this.f55583b = str2;
     }
 
     private String b() {
         try {
-            return this.f55538b.substring(this.f55538b.indexOf(this.a)).replaceFirst(this.a, "");
+            return this.f55583b.substring(this.f55583b.indexOf(this.a)).replaceFirst(this.a, "");
         } catch (Throwable unused) {
             return null;
         }
@@ -34,7 +34,7 @@ public class d implements e {
         try {
             JSONObject jSONObject = new JSONObject();
             t.a(jSONObject, "packageName", this.a);
-            t.a(jSONObject, "content", q.a(this.f55538b));
+            t.a(jSONObject, "content", q.a(this.f55583b));
             t.a(jSONObject, "fileName", b());
             return jSONObject;
         } catch (Throwable unused) {
@@ -51,13 +51,13 @@ public class d implements e {
         }
         d dVar = (d) obj;
         if (this.a.equals(dVar.a)) {
-            return this.f55538b.equals(dVar.f55538b);
+            return this.f55583b.equals(dVar.f55583b);
         }
         return false;
     }
 
     public int hashCode() {
-        return (this.a.hashCode() * 31) + this.f55538b.hashCode();
+        return (this.a.hashCode() * 31) + this.f55583b.hashCode();
     }
 
     @Override // com.kwad.sdk.core.b
@@ -66,18 +66,18 @@ public class d implements e {
             return;
         }
         this.a = jSONObject.optString("packageName");
-        this.f55538b = jSONObject.optString("originFilePath");
+        this.f55583b = jSONObject.optString("originFilePath");
     }
 
     @Override // com.kwad.sdk.core.b
     public JSONObject toJson() {
         JSONObject jSONObject = new JSONObject();
         t.a(jSONObject, "packageName", this.a);
-        t.a(jSONObject, "originFilePath", this.f55538b);
+        t.a(jSONObject, "originFilePath", this.f55583b);
         return jSONObject;
     }
 
     public String toString() {
-        return "UploadEntryJava{packageName='" + this.a + ExtendedMessageFormat.QUOTE + ", originFilePath='" + this.f55538b + ExtendedMessageFormat.QUOTE + ExtendedMessageFormat.END_FE;
+        return "UploadEntryJava{packageName='" + this.a + ExtendedMessageFormat.QUOTE + ", originFilePath='" + this.f55583b + ExtendedMessageFormat.QUOTE + ExtendedMessageFormat.END_FE;
     }
 }

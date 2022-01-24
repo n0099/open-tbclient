@@ -19,10 +19,10 @@ public class LifeItemViewForType3 extends BaseItemView {
     public NetImageView a;
 
     /* renamed from: b  reason: collision with root package name */
-    public MaskTextView f51145b;
+    public MaskTextView f51190b;
 
     /* renamed from: c  reason: collision with root package name */
-    public NetImageView f51146c;
+    public NetImageView f51191c;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public LifeItemViewForType3(Context context) {
@@ -50,8 +50,8 @@ public class LifeItemViewForType3 extends BaseItemView {
             removeAllViews();
             LayoutInflater.from(getContext()).inflate(ResUtils.layout(getContext(), "wallet_home_life_item_view_new"), this);
             this.a = (NetImageView) findViewById(ResUtils.id(getContext(), "life_icon"));
-            this.f51145b = (MaskTextView) findViewById(ResUtils.id(getContext(), "title"));
-            this.f51146c = (NetImageView) findViewById(ResUtils.id(getContext(), "corner_flag_im"));
+            this.f51190b = (MaskTextView) findViewById(ResUtils.id(getContext(), "title"));
+            this.f51191c = (NetImageView) findViewById(ResUtils.id(getContext(), "corner_flag_im"));
         }
     }
 
@@ -70,12 +70,12 @@ public class LifeItemViewForType3 extends BaseItemView {
         if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || getData() == null) {
             return;
         }
-        this.f51145b.setMaskText(getData().name);
+        this.f51190b.setMaskText(getData().name);
         NetImageView netImageView = this.a;
         netImageView.setImageUrl(getWalletInterface().getAndroidPrefix() + getData().logo);
         if (hasCornor()) {
-            this.f51146c.setVisibility(0);
-            NetImageView netImageView2 = this.f51146c;
+            this.f51191c.setVisibility(0);
+            NetImageView netImageView2 = this.f51191c;
             netImageView2.setImageUrl(getWalletInterface().getAndroidPrefix() + getData().corner_addr);
         }
     }

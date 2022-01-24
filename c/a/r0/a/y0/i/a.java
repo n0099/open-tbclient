@@ -14,16 +14,16 @@ public final class a extends c.a.r0.a.y0.b<c> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: h  reason: collision with root package name */
-    public final c.f f9637h;
+    public final c.f f9779h;
 
     /* renamed from: c.a.r0.a.y0.i.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public class C0626a implements c.f {
+    public class C0635a implements c.f {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ a a;
 
-        public C0626a(a aVar) {
+        public C0635a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -44,10 +44,10 @@ public final class a extends c.a.r0.a.y0.b<c> {
         @Override // c.a.r0.a.y0.i.c.f
         public void a() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.a.f9586b == null) {
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.a.f9728b == null) {
                 return;
             }
-            this.a.f9586b.onCallback(this.a, "onConfirmBtnClick", null);
+            this.a.f9728b.onCallback(this.a, "onConfirmBtnClick", null);
         }
     }
 
@@ -69,9 +69,9 @@ public final class a extends c.a.r0.a.y0.b<c> {
                 return;
             }
         }
-        C0626a c0626a = new C0626a(this);
-        this.f9637h = c0626a;
-        cVar.E0(c0626a);
+        C0635a c0635a = new C0635a(this);
+        this.f9779h = c0635a;
+        cVar.E0(c0635a);
         this.a.a(new c.a.r0.a.y0.i.d.d());
         this.a.a(new c.a.r0.a.y0.i.d.c());
         this.a.a(new e());

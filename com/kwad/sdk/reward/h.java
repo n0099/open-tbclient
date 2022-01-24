@@ -10,7 +10,7 @@ public class h {
     public volatile boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public com.kwad.sdk.core.network.i<i, BaseResultData> f57280b;
+    public com.kwad.sdk.core.network.i<i, BaseResultData> f57325b;
 
     /* loaded from: classes3.dex */
     public static class a {
@@ -46,7 +46,7 @@ public class h {
                 };
             }
         };
-        this.f57280b = iVar;
+        this.f57325b = iVar;
         iVar.a(new com.kwad.sdk.core.network.j<i, BaseResultData>() { // from class: com.kwad.sdk.reward.h.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.kwad.sdk.core.network.j, com.kwad.sdk.core.network.h
@@ -76,7 +76,7 @@ public class h {
     }
 
     public void b() {
-        com.kwad.sdk.core.network.i<i, BaseResultData> iVar = this.f57280b;
+        com.kwad.sdk.core.network.i<i, BaseResultData> iVar = this.f57325b;
         if (iVar != null) {
             iVar.e();
         }

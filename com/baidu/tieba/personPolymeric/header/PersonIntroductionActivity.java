@@ -7,10 +7,10 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 import c.a.d.f.p.m;
-import c.a.t0.y2.c;
-import c.a.t0.y2.d;
-import c.a.t0.y2.e;
-import c.a.t0.y2.g;
+import c.a.t0.z2.c;
+import c.a.t0.z2.d;
+import c.a.t0.z2.e;
+import c.a.t0.z2.g;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.util.SkinManager;
@@ -36,7 +36,7 @@ public class PersonIntroductionActivity extends BaseActivity {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PersonIntroductionActivity f47225e;
+        public final /* synthetic */ PersonIntroductionActivity f47253e;
 
         public a(PersonIntroductionActivity personIntroductionActivity) {
             Interceptable interceptable = $ic;
@@ -53,14 +53,14 @@ public class PersonIntroductionActivity extends BaseActivity {
                     return;
                 }
             }
-            this.f47225e = personIntroductionActivity;
+            this.f47253e = personIntroductionActivity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f47225e.finish();
+                this.f47253e.finish();
             }
         }
     }
@@ -98,8 +98,8 @@ public class PersonIntroductionActivity extends BaseActivity {
         if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
             super.onChangeSkinType(i2);
             this.mNavigationBar.onChangeSkinType(getPageContext(), i2);
-            SkinManager.setViewTextColor(this.mIntroView, c.a.t0.y2.a.CAM_X0105, 1, i2);
-            SkinManager.setBackgroundResource(this.mRootView, c.a.t0.y2.a.CAM_X0201, i2);
+            SkinManager.setViewTextColor(this.mIntroView, c.a.t0.z2.a.CAM_X0105, 1, i2);
+            SkinManager.setBackgroundResource(this.mRootView, c.a.t0.z2.a.CAM_X0201, i2);
         }
     }
 

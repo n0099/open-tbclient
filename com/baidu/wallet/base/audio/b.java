@@ -19,33 +19,33 @@ public class b {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final String f50469e = "RIFF";
+    public static final String f50514e = "RIFF";
 
     /* renamed from: f  reason: collision with root package name */
-    public static final String f50470f = "WAVE";
+    public static final String f50515f = "WAVE";
 
     /* renamed from: g  reason: collision with root package name */
-    public static final String f50471g = "fmt ";
+    public static final String f50516g = "fmt ";
 
     /* renamed from: h  reason: collision with root package name */
-    public static final String f50472h = "data";
+    public static final String f50517h = "data";
     public transient /* synthetic */ FieldHolder $fh;
     public short a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f50473b;
+    public int f50518b;
 
     /* renamed from: c  reason: collision with root package name */
-    public short f50474c;
+    public short f50519c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f50475d;
+    public int f50520d;
 
     /* renamed from: i  reason: collision with root package name */
-    public final ByteBuffer f50476i;
+    public final ByteBuffer f50521i;
 
     /* renamed from: j  reason: collision with root package name */
-    public int f50477j;
+    public int f50522j;
     public int k;
 
     public b() {
@@ -61,7 +61,7 @@ public class b {
                 return;
             }
         }
-        this.f50476i = ByteBuffer.allocate(44);
+        this.f50521i = ByteBuffer.allocate(44);
     }
 
     public static b a(InputStream inputStream) {
@@ -70,16 +70,16 @@ public class b {
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, inputStream)) == null) {
             b bVar = new b();
             try {
-                bVar.f50476i.order(ByteOrder.LITTLE_ENDIAN);
-                inputStream.read(bVar.f50476i.array());
-                bVar.f50477j = bVar.f50476i.getInt(4);
-                bVar.a = bVar.f50476i.getShort(22);
-                bVar.f50473b = bVar.f50476i.getInt(24);
-                bVar.f50474c = bVar.f50476i.getShort(34);
+                bVar.f50521i.order(ByteOrder.LITTLE_ENDIAN);
+                inputStream.read(bVar.f50521i.array());
+                bVar.f50522j = bVar.f50521i.getInt(4);
+                bVar.a = bVar.f50521i.getShort(22);
+                bVar.f50518b = bVar.f50521i.getInt(24);
+                bVar.f50519c = bVar.f50521i.getShort(34);
                 int b2 = bVar.b(inputStream);
                 bVar.k = b2;
                 if (-1 != b2) {
-                    bVar.f50475d = bVar.f50476i.getInt(40);
+                    bVar.f50520d = bVar.f50521i.getInt(40);
                     return bVar;
                 }
                 return bVar;
@@ -100,9 +100,9 @@ public class b {
             do {
                 int i3 = -1;
                 try {
-                    this.f50476i.position(36);
-                    this.f50476i.get(bArr);
-                    int i4 = this.f50476i.getInt(40);
+                    this.f50521i.position(36);
+                    this.f50521i.get(bArr);
+                    int i4 = this.f50521i.getInt(40);
                     if (Arrays.equals("data".getBytes(), bArr)) {
                         i3 = i2 + 8;
                         return i3;
@@ -113,7 +113,7 @@ public class b {
                     e2.printStackTrace();
                     return i3;
                 }
-            } while (8 == inputStream.read(this.f50476i.array(), 36, 8));
+            } while (8 == inputStream.read(this.f50521i.array(), 36, 8));
             return -1;
         }
         return invokeL.intValue;
@@ -124,30 +124,30 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeIIII = interceptable.invokeIIII(65537, null, i2, i3, i4, i5)) == null) {
             b bVar = new b();
-            bVar.f50476i.order(ByteOrder.LITTLE_ENDIAN);
-            bVar.f50476i.put(f50469e.getBytes());
+            bVar.f50521i.order(ByteOrder.LITTLE_ENDIAN);
+            bVar.f50521i.put(f50514e.getBytes());
             int i6 = (i5 + 44) - 8;
-            bVar.f50477j = i6;
-            bVar.f50476i.putInt(i6);
-            bVar.f50476i.put(f50470f.getBytes());
-            bVar.f50476i.put(f50471g.getBytes());
-            bVar.f50476i.putInt(16);
-            bVar.f50476i.putShort((short) 1);
+            bVar.f50522j = i6;
+            bVar.f50521i.putInt(i6);
+            bVar.f50521i.put(f50515f.getBytes());
+            bVar.f50521i.put(f50516g.getBytes());
+            bVar.f50521i.putInt(16);
+            bVar.f50521i.putShort((short) 1);
             short s = (short) i2;
             bVar.a = s;
-            bVar.f50476i.putShort(s);
-            bVar.f50473b = i4;
-            bVar.f50476i.putInt(i4);
+            bVar.f50521i.putShort(s);
+            bVar.f50518b = i4;
+            bVar.f50521i.putInt(i4);
             short s2 = (short) ((i2 * i3) / 8);
-            bVar.f50476i.putInt(i4 * s2);
-            bVar.f50476i.putShort(s2);
+            bVar.f50521i.putInt(i4 * s2);
+            bVar.f50521i.putShort(s2);
             short s3 = (short) i3;
-            bVar.f50474c = s3;
-            bVar.f50476i.putShort(s3);
-            bVar.f50476i.put("data".getBytes());
+            bVar.f50519c = s3;
+            bVar.f50521i.putShort(s3);
+            bVar.f50521i.put("data".getBytes());
             bVar.k = 44;
-            bVar.f50475d = i5;
-            bVar.f50476i.putInt(i5);
+            bVar.f50520d = i5;
+            bVar.f50521i.putInt(i5);
             return bVar;
         }
         return (b) invokeIIII.objValue;
@@ -157,7 +157,7 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, outputStream) == null) {
             try {
-                outputStream.write(this.f50476i.array());
+                outputStream.write(this.f50521i.array());
             } catch (IOException e2) {
                 e2.printStackTrace();
             }
@@ -168,7 +168,7 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dataOutput) == null) {
             try {
-                dataOutput.write(this.f50476i.array());
+                dataOutput.write(this.f50521i.array());
             } catch (IOException e2) {
                 e2.printStackTrace();
             }
@@ -178,7 +178,7 @@ public class b {
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            System.out.println("--Wave Header--\nfile length:" + this.f50477j + "\nchannels:" + ((int) this.a) + "\nsample rate:" + this.f50473b + "\nbit depth:" + ((int) this.f50474c) + "\npcm length:" + this.f50475d + "\ndata offset:" + this.k + StringUtils.LF);
+            System.out.println("--Wave Header--\nfile length:" + this.f50522j + "\nchannels:" + ((int) this.a) + "\nsample rate:" + this.f50518b + "\nbit depth:" + ((int) this.f50519c) + "\npcm length:" + this.f50520d + "\ndata offset:" + this.k + StringUtils.LF);
         }
     }
 }

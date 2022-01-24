@@ -19,7 +19,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.ugc.editvideo.filter.FilterValue;
 import com.xiaomi.mipush.sdk.PushMessageHelper;
 import java.util.ArrayList;
 import java.util.List;
@@ -492,7 +491,7 @@ public class LiveMessageParser {
                             jSONObject6.put("width", messageBody2.pic.thumbnail.width);
                             jSONObject6.put("height", messageBody2.pic.thumbnail.height);
                             jSONObject6.put("url", messageBody2.pic.thumbnail.url);
-                            jSONObject4.put(FilterValue.DEFAULT_FILTER_VALUE, jSONObject5);
+                            jSONObject4.put("origin", jSONObject5);
                             jSONObject4.put("thumbnail", jSONObject6);
                             jSONObject2.put("pic", jSONObject4);
                         } else {
@@ -537,7 +536,7 @@ public class LiveMessageParser {
                                 jSONObject11.put("width", messageBody3.pic.origin.width);
                                 jSONObject11.put("height", messageBody3.pic.origin.height);
                                 jSONObject11.put("url", messageBody3.pic.origin.url);
-                                jSONObject10.put(FilterValue.DEFAULT_FILTER_VALUE, jSONObject11);
+                                jSONObject10.put("origin", jSONObject11);
                             }
                             if (messageBody3.pic.thumbnail != null) {
                                 JSONObject jSONObject12 = new JSONObject();
@@ -643,7 +642,7 @@ public class LiveMessageParser {
                         e6.printStackTrace();
                     }
                     if (jSONObject5 != null) {
-                        String optString7 = jSONObject5.optString(FilterValue.DEFAULT_FILTER_VALUE);
+                        String optString7 = jSONObject5.optString("origin");
                         String optString8 = jSONObject5.optString("thumbnail");
                         LiveMessageBean.Pic pic = new LiveMessageBean.Pic();
                         try {

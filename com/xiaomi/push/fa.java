@@ -23,7 +23,7 @@ public class fa {
     public static final byte[] f364a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f61073b;
+    public static String f61118b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with other field name */
@@ -54,7 +54,7 @@ public class fa {
                 return;
             }
         }
-        f61073b = gn.a(5) + "-";
+        f61118b = gn.a(5) + "-";
         a = 0L;
         f364a = new byte[0];
     }
@@ -167,7 +167,7 @@ public class fa {
         if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
             synchronized (fa.class) {
                 StringBuilder sb2 = new StringBuilder();
-                sb2.append(f61073b);
+                sb2.append(f61118b);
                 long j2 = a;
                 a = 1 + j2;
                 sb2.append(Long.toString(j2));

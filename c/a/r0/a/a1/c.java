@@ -14,18 +14,18 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.IOException;
 import java.nio.channels.Pipe;
 /* loaded from: classes.dex */
-public class c extends f.AbstractC0261f {
+public class c extends f.AbstractC0270f {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: j  reason: collision with root package name */
-    public static final boolean f5135j;
+    public static final boolean f5277j;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: h  reason: collision with root package name */
-    public final String f5136h;
+    public final String f5278h;
 
     /* renamed from: i  reason: collision with root package name */
-    public final c.a.r0.q.f.f f5137i;
+    public final c.a.r0.q.f.f f5279i;
 
     static {
         InterceptResult invokeClinit;
@@ -40,7 +40,7 @@ public class c extends f.AbstractC0261f {
                 return;
             }
         }
-        f5135j = k.a;
+        f5277j = k.a;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -61,26 +61,26 @@ public class c extends f.AbstractC0261f {
                 return;
             }
         }
-        this.f5136h = str;
-        this.f5137i = fVar;
+        this.f5278h = str;
+        this.f5279i = fVar;
     }
 
-    @Override // c.a.r0.a.a1.f.AbstractC0261f
+    @Override // c.a.r0.a.a1.f.AbstractC0270f
     public boolean f(Pipe.SourceChannel sourceChannel, Bundle bundle) {
         InterceptResult invokeLL;
         c.a.r0.a.u2.a aVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, sourceChannel, bundle)) == null) {
             c.a.r0.a.f1.g.a d2 = c.a.r0.a.f1.g.a.d(bundle.getString("launch_id"));
-            b.C0320b e2 = d2.e();
+            b.C0329b e2 = d2.e();
             e2.b("SignChecker");
             e2.d(1);
             long currentTimeMillis = System.currentTimeMillis();
             try {
                 try {
-                    aVar = c.a.r0.a.h0.m.u.a.a(sourceChannel, this.f5136h, this.f5137i);
+                    aVar = c.a.r0.a.h0.m.u.a.a(sourceChannel, this.f5278h, this.f5279i);
                 } catch (IOException e3) {
-                    if (f5135j) {
+                    if (f5277j) {
                         e3.printStackTrace();
                     }
                     c.a.r0.a.u2.a aVar2 = new c.a.r0.a.u2.a();

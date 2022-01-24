@@ -27,21 +27,21 @@ public class a extends z {
 
     /* renamed from: c.a.r0.a.r2.a.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public class C0530a implements a.InterfaceC0529a {
+    public class C0539a implements a.InterfaceC0538a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ UnitedSchemeEntity a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f8610b;
+        public final /* synthetic */ CallbackHandler f8752b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ m f8611c;
+        public final /* synthetic */ m f8753c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ a f8612d;
+        public final /* synthetic */ a f8754d;
 
-        public C0530a(a aVar, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, m mVar) {
+        public C0539a(a aVar, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, m mVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -56,19 +56,19 @@ public class a extends z {
                     return;
                 }
             }
-            this.f8612d = aVar;
+            this.f8754d = aVar;
             this.a = unitedSchemeEntity;
-            this.f8610b = callbackHandler;
-            this.f8611c = mVar;
+            this.f8752b = callbackHandler;
+            this.f8753c = mVar;
         }
 
-        @Override // c.a.r0.a.r2.a.a.InterfaceC0529a
+        @Override // c.a.r0.a.r2.a.a.InterfaceC0538a
         public void a(double[] dArr) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, dArr) == null) {
                 if (dArr != null && dArr.length == 3) {
                     d.i("accelerometer", "handle accelerometer change, x : " + dArr[0] + " y: " + dArr[1] + " z: " + dArr[2]);
-                    this.f8612d.k(this.a, this.f8610b, this.f8611c, dArr);
+                    this.f8754d.k(this.a, this.f8752b, this.f8753c, dArr);
                     return;
                 }
                 d.c("accelerometer", "illegal accelerometers");
@@ -105,24 +105,24 @@ public class a extends z {
             if (eVar == null) {
                 d.c("accelerometer", "none swanApp");
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "illegal swanApp");
-                boolean z = z.f6201b;
+                boolean z = z.f6343b;
                 return false;
             } else if (context == null) {
                 d.c("accelerometer", "none context");
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "illegal context");
-                boolean z2 = z.f6201b;
+                boolean z2 = z.f6343b;
                 return false;
             } else {
                 JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
                 if (optParamsAsJo == null) {
-                    boolean z3 = z.f6201b;
+                    boolean z3 = z.f6343b;
                     d.c("accelerometer", "none params");
                     unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
                     return false;
                 }
                 String optString = optParamsAsJo.optString("cb");
                 if (TextUtils.isEmpty(optString)) {
-                    boolean z4 = z.f6201b;
+                    boolean z4 = z.f6343b;
                     d.c("accelerometer", "cb is empty");
                     unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
                     return false;
@@ -130,8 +130,8 @@ public class a extends z {
                 d.i("accelerometer", " init ");
                 m mVar = new m("accelerometerChange", optParamsAsJo, optString);
                 c.a.r0.a.r2.a.a a = c.a.r0.a.r2.a.a.a();
-                a.b(context, b.C0588b.a(optParamsAsJo.optString("interval")));
-                a.e(new C0530a(this, unitedSchemeEntity, callbackHandler, mVar));
+                a.b(context, b.C0597b.a(optParamsAsJo.optString("interval")));
+                a.e(new C0539a(this, unitedSchemeEntity, callbackHandler, mVar));
                 a.f();
                 UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
                 mVar.a(unitedSchemeEntity, callbackHandler);

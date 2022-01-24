@@ -20,23 +20,23 @@ public final class RestDebugConfig {
     public static RestDebugConfig a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final Set<String> f32507b;
+    public static final Set<String> f32535b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static volatile boolean f32508c;
+    public static volatile boolean f32536c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static volatile boolean f32509d;
+    public static volatile boolean f32537d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static volatile int f32510e;
+    public static volatile int f32538e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static volatile boolean f32511f;
+    public static volatile boolean f32539f;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f32512g;
+    public boolean f32540g;
 
     static {
         InterceptResult invokeClinit;
@@ -51,8 +51,8 @@ public final class RestDebugConfig {
                 return;
             }
         }
-        f32507b = new HashSet();
-        f32511f = true;
+        f32535b = new HashSet();
+        f32539f = true;
     }
 
     public RestDebugConfig() {
@@ -68,20 +68,20 @@ public final class RestDebugConfig {
                 return;
             }
         }
-        this.f32512g = false;
+        this.f32540g = false;
     }
 
     public static boolean allowUseOkHttp(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? !f32507b.contains(str) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? !f32535b.contains(str) : invokeL.booleanValue;
     }
 
     public static synchronized void disableUseOkHttpPath(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65539, null, str) == null) {
             synchronized (RestDebugConfig.class) {
-                f32507b.add(str);
+                f32535b.add(str);
             }
         }
     }
@@ -105,21 +105,21 @@ public final class RestDebugConfig {
     public static boolean isEnableNetworkStats() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? f32508c : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? f32536c : invokeV.booleanValue;
     }
 
     public static boolean isEnableOkHttp() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) ? f32511f : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) ? f32539f : invokeV.booleanValue;
     }
 
     public static void setEnableHappyEyeballs(boolean z) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(65543, null, z) == null) || f32509d == z) {
+        if (!(interceptable == null || interceptable.invokeZ(65543, null, z) == null) || f32537d == z) {
             return;
         }
-        f32509d = z;
+        f32537d = z;
         w client = OkHttpFactory.getInstance().client();
         OkHttpFactory okHttpFactory = OkHttpFactory.getInstance();
         w.b t = client.t();
@@ -130,23 +130,23 @@ public final class RestDebugConfig {
     public static void setEnableNetworkStats(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(65544, null, z) == null) {
-            f32508c = z;
+            f32536c = z;
         }
     }
 
     public static void setEnableOkHttp(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(65545, null, z) == null) {
-            f32511f = z;
+            f32539f = z;
         }
     }
 
     public static void setOkHttpAttemptConnectionDelay(int i2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(65546, null, i2) == null) || f32510e == i2) {
+        if (!(interceptable == null || interceptable.invokeI(65546, null, i2) == null) || f32538e == i2) {
             return;
         }
-        f32510e = i2;
+        f32538e = i2;
         w client = OkHttpFactory.getInstance().client();
         OkHttpFactory okHttpFactory = OkHttpFactory.getInstance();
         w.b t = client.t();
@@ -157,14 +157,14 @@ public final class RestDebugConfig {
     public static void updateOkHttpEventListenerFactory(double d2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65547, null, new Object[]{Double.valueOf(d2)}) == null) {
-            com.baidu.apollon.restnet.http.b.f32567e.a(d2);
+            com.baidu.apollon.restnet.http.b.f32595e.a(d2);
         }
     }
 
     public boolean isQAEnv() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f32512g : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f32540g : invokeV.booleanValue;
     }
 
     public void setDebugOn(boolean z) {
@@ -177,7 +177,7 @@ public final class RestDebugConfig {
     public void setQAEnv(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
-            this.f32512g = z;
+            this.f32540g = z;
         }
     }
 }

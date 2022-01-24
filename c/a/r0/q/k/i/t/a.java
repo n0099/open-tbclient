@@ -21,7 +21,7 @@ public class a {
     public static HashMap<String, b> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static HashMap<String, b> f11616b;
+    public static HashMap<String, b> f11758b;
     public transient /* synthetic */ FieldHolder $fh;
 
     public a() {
@@ -62,16 +62,16 @@ public class a {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            if (f11616b == null) {
+            if (f11758b == null) {
                 synchronized (a.class) {
-                    if (f11616b == null) {
+                    if (f11758b == null) {
                         HashMap<String, b> hashMap = new HashMap<>();
-                        f11616b = hashMap;
+                        f11758b = hashMap;
                         e(hashMap, "preload_api_ctrl");
                     }
                 }
             }
-            return c(str, f11616b);
+            return c(str, f11758b);
         }
         return (b) invokeL.objValue;
     }

@@ -11,19 +11,19 @@ public class t {
     public static long a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static com.baidu.location.c.a f35047b;
+    public static com.baidu.location.c.a f35075b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static Location f35048c;
+    public static Location f35076c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static String f35049d;
+    public static String f35077d;
     public transient /* synthetic */ FieldHolder $fh;
 
     public static String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) ? f35049d : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) ? f35077d : (String) invokeV.objValue;
     }
 
     public static void a(long j2) {
@@ -36,21 +36,21 @@ public class t {
     public static void a(Location location) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65538, null, location) == null) {
-            f35048c = location;
+            f35076c = location;
         }
     }
 
     public static void a(com.baidu.location.c.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65539, null, aVar) == null) {
-            f35047b = aVar;
+            f35075b = aVar;
         }
     }
 
     public static void a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str) == null) {
-            f35049d = str;
+            f35077d = str;
         }
     }
 
@@ -63,12 +63,12 @@ public class t {
     public static com.baidu.location.c.a c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) ? f35047b : (com.baidu.location.c.a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) ? f35075b : (com.baidu.location.c.a) invokeV.objValue;
     }
 
     public static Location d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) ? f35048c : (Location) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) ? f35076c : (Location) invokeV.objValue;
     }
 }

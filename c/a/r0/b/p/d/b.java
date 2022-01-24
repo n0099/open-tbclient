@@ -19,7 +19,7 @@ public class b extends c.a.r0.a.y1.a.a.a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ b f10184e;
+        public final /* synthetic */ b f10326e;
 
         public a(b bVar) {
             Interceptable interceptable = $ic;
@@ -36,7 +36,7 @@ public class b extends c.a.r0.a.y1.a.a.a {
                     return;
                 }
             }
-            this.f10184e = bVar;
+            this.f10326e = bVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -46,24 +46,24 @@ public class b extends c.a.r0.a.y1.a.a.a {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, bundle) == null) {
                 if (bundle != null) {
-                    this.f10184e.f9685d.putParcelable("quick_login_info", bundle.getParcelable("quick_login_info_result"));
+                    this.f10326e.f9827d.putParcelable("quick_login_info", bundle.getParcelable("quick_login_info_result"));
                 }
-                this.f10184e.c();
+                this.f10326e.c();
             }
         }
     }
 
     /* renamed from: c.a.r0.b.p.d.b$b  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public class C0670b implements c {
+    public class C0679b implements c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ c.a.r0.a.z2.g1.c a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ b f10185b;
+        public final /* synthetic */ b f10327b;
 
-        public C0670b(b bVar, c.a.r0.a.z2.g1.c cVar) {
+        public C0679b(b bVar, c.a.r0.a.z2.g1.c cVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -78,7 +78,7 @@ public class b extends c.a.r0.a.y1.a.a.a {
                     return;
                 }
             }
-            this.f10185b = bVar;
+            this.f10327b = bVar;
             this.a = cVar;
         }
 
@@ -90,8 +90,8 @@ public class b extends c.a.r0.a.y1.a.a.a {
                     this.a.onCallback(null);
                     return;
                 }
-                this.f10185b.f9685d.putParcelable("quick_login_info_result", quickLoginInfo);
-                this.a.onCallback(this.f10185b.f9685d);
+                this.f10327b.f9827d.putParcelable("quick_login_info_result", quickLoginInfo);
+                this.a.onCallback(this.f10327b.f9827d);
             }
         }
     }
@@ -121,7 +121,7 @@ public class b extends c.a.r0.a.y1.a.a.a {
     public void e(c.a.r0.a.z2.g1.c<Bundle> cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cVar) == null) {
-            f.a(new C0670b(this, cVar));
+            f.a(new C0679b(this, cVar));
         }
     }
 }

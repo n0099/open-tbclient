@@ -17,10 +17,10 @@ public class ArImage extends b.a.b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final Session f54371e;
+    public final Session f54416e;
 
     /* renamed from: f  reason: collision with root package name */
-    public long f54372f;
+    public long f54417f;
 
     /* loaded from: classes3.dex */
     public class a extends b.a.c {
@@ -29,10 +29,10 @@ public class ArImage extends b.a.b {
         public final long a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final int f54373b;
+        public final int f54418b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ ArImage f54374c;
+        public final /* synthetic */ ArImage f54419c;
 
         public a(ArImage arImage, long j2, int i2) {
             Interceptable interceptable = $ic;
@@ -49,9 +49,9 @@ public class ArImage extends b.a.b {
                     return;
                 }
             }
-            this.f54374c = arImage;
+            this.f54419c = arImage;
             this.a = j2;
-            this.f54373b = i2;
+            this.f54418b = i2;
         }
 
         @Override // android.media.Image.Plane
@@ -59,8 +59,8 @@ public class ArImage extends b.a.b {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                ArImage arImage = this.f54374c;
-                return arImage.nativeGetBuffer(arImage.f54371e.a, this.a, this.f54373b).asReadOnlyBuffer();
+                ArImage arImage = this.f54419c;
+                return arImage.nativeGetBuffer(arImage.f54416e.a, this.a, this.f54418b).asReadOnlyBuffer();
             }
             return (ByteBuffer) invokeV.objValue;
         }
@@ -70,8 +70,8 @@ public class ArImage extends b.a.b {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                ArImage arImage = this.f54374c;
-                int nativeGetPixelStride = arImage.nativeGetPixelStride(arImage.f54371e.a, this.a, this.f54373b);
+                ArImage arImage = this.f54419c;
+                int nativeGetPixelStride = arImage.nativeGetPixelStride(arImage.f54416e.a, this.a, this.f54418b);
                 if (nativeGetPixelStride != -1) {
                     return nativeGetPixelStride;
                 }
@@ -85,8 +85,8 @@ public class ArImage extends b.a.b {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-                ArImage arImage = this.f54374c;
-                int nativeGetRowStride = arImage.nativeGetRowStride(arImage.f54371e.a, this.a, this.f54373b);
+                ArImage arImage = this.f54419c;
+                int nativeGetRowStride = arImage.nativeGetRowStride(arImage.f54416e.a, this.a, this.f54418b);
                 if (nativeGetRowStride != -1) {
                     return nativeGetRowStride;
                 }
@@ -123,8 +123,8 @@ public class ArImage extends b.a.b {
     public void close() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            nativeClose(this.f54372f);
-            this.f54372f = 0L;
+            nativeClose(this.f54417f);
+            this.f54417f = 0L;
         }
     }
 
@@ -143,7 +143,7 @@ public class ArImage extends b.a.b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            int nativeGetFormat = nativeGetFormat(this.f54371e.a, this.f54372f);
+            int nativeGetFormat = nativeGetFormat(this.f54416e.a, this.f54417f);
             if (nativeGetFormat != -1) {
                 return nativeGetFormat;
             }
@@ -157,7 +157,7 @@ public class ArImage extends b.a.b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            int nativeGetHeight = nativeGetHeight(this.f54371e.a, this.f54372f);
+            int nativeGetHeight = nativeGetHeight(this.f54416e.a, this.f54417f);
             if (nativeGetHeight != -1) {
                 return nativeGetHeight;
             }
@@ -171,11 +171,11 @@ public class ArImage extends b.a.b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            int nativeGetNumberOfPlanes = nativeGetNumberOfPlanes(this.f54371e.a, this.f54372f);
+            int nativeGetNumberOfPlanes = nativeGetNumberOfPlanes(this.f54416e.a, this.f54417f);
             if (nativeGetNumberOfPlanes != -1) {
                 a[] aVarArr = new a[nativeGetNumberOfPlanes];
                 for (int i2 = 0; i2 < nativeGetNumberOfPlanes; i2++) {
-                    aVarArr[i2] = new a(this, this.f54372f, i2);
+                    aVarArr[i2] = new a(this, this.f54417f, i2);
                 }
                 return aVarArr;
             }
@@ -189,7 +189,7 @@ public class ArImage extends b.a.b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            long nativeGetTimestamp = nativeGetTimestamp(this.f54371e.a, this.f54372f);
+            long nativeGetTimestamp = nativeGetTimestamp(this.f54416e.a, this.f54417f);
             if (nativeGetTimestamp != -1) {
                 return nativeGetTimestamp;
             }
@@ -203,7 +203,7 @@ public class ArImage extends b.a.b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            int nativeGetWidth = nativeGetWidth(this.f54371e.a, this.f54372f);
+            int nativeGetWidth = nativeGetWidth(this.f54416e.a, this.f54417f);
             if (nativeGetWidth != -1) {
                 return nativeGetWidth;
             }

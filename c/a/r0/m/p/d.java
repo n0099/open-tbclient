@@ -22,21 +22,21 @@ public class d {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final int f11393f;
+    public static final int f11535f;
     public transient /* synthetic */ FieldHolder $fh;
     public View a;
 
     /* renamed from: b  reason: collision with root package name */
-    public View f11394b;
+    public View f11536b;
 
     /* renamed from: c  reason: collision with root package name */
-    public View f11395c;
+    public View f11537c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f11396d;
+    public boolean f11538d;
 
     /* renamed from: e  reason: collision with root package name */
-    public b f11397e;
+    public b f11539e;
 
     /* loaded from: classes6.dex */
     public class a extends AnimatorListenerAdapter {
@@ -44,13 +44,13 @@ public class d {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ boolean f11398e;
+        public final /* synthetic */ boolean f11540e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ int f11399f;
+        public final /* synthetic */ int f11541f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ d f11400g;
+        public final /* synthetic */ d f11542g;
 
         public a(d dVar, boolean z, int i2) {
             Interceptable interceptable = $ic;
@@ -67,9 +67,9 @@ public class d {
                     return;
                 }
             }
-            this.f11400g = dVar;
-            this.f11398e = z;
-            this.f11399f = i2;
+            this.f11542g = dVar;
+            this.f11540e = z;
+            this.f11541f = i2;
         }
 
         @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
@@ -78,11 +78,11 @@ public class d {
             if (interceptable == null || interceptable.invokeL(1048576, this, animator) == null) {
                 super.onAnimationEnd(animator);
                 animator.removeAllListeners();
-                if (!this.f11398e) {
-                    this.f11400g.c(this.f11399f);
+                if (!this.f11540e) {
+                    this.f11542g.c(this.f11541f);
                 }
-                if (this.f11400g.f11397e != null) {
-                    this.f11400g.f11397e.onFlipOver(this.f11398e);
+                if (this.f11542g.f11539e != null) {
+                    this.f11542g.f11539e.onFlipOver(this.f11540e);
                 }
             }
         }
@@ -108,7 +108,7 @@ public class d {
                 return;
             }
         }
-        f11393f = n0.g(58.0f);
+        f11535f = n0.g(58.0f);
     }
 
     public d(View view, FrameLayout frameLayout, View view2) {
@@ -127,8 +127,8 @@ public class d {
             }
         }
         this.a = view;
-        this.f11394b = frameLayout;
-        this.f11395c = view2;
+        this.f11536b = frameLayout;
+        this.f11537c = view2;
     }
 
     public final void c(int i2) {
@@ -143,18 +143,18 @@ public class d {
     public boolean d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f11396d : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f11538d : invokeV.booleanValue;
     }
 
     public void e(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
-            b bVar = this.f11397e;
+            b bVar = this.f11539e;
             if (bVar != null) {
                 bVar.onFlipStart(z);
             }
-            this.f11396d = z;
-            int i2 = f11393f;
+            this.f11538d = z;
+            int i2 = f11535f;
             if (z) {
                 i2 = -i2;
             }
@@ -175,7 +175,7 @@ public class d {
                 fArr2[1] = 0.0f;
             }
             AnimatorSet animatorSet = new AnimatorSet();
-            animatorSet.playTogether(ObjectAnimator.ofFloat(this.f11394b, AnimationProperty.TRANSLATE_Y, fArr), ObjectAnimator.ofFloat(this.a, AnimationProperty.TRANSLATE_Y, fArr2), ObjectAnimator.ofFloat(this.f11395c, AnimationProperty.TRANSLATE_Y, fArr2));
+            animatorSet.playTogether(ObjectAnimator.ofFloat(this.f11536b, AnimationProperty.TRANSLATE_Y, fArr), ObjectAnimator.ofFloat(this.a, AnimationProperty.TRANSLATE_Y, fArr2), ObjectAnimator.ofFloat(this.f11537c, AnimationProperty.TRANSLATE_Y, fArr2));
             animatorSet.setDuration(200L);
             animatorSet.start();
             animatorSet.addListener(new a(this, z, i2));

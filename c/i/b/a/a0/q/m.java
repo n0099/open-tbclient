@@ -14,19 +14,19 @@ public final class m {
     public final int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final long[] f28741b;
+    public final long[] f28769b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final int[] f28742c;
+    public final int[] f28770c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final int f28743d;
+    public final int f28771d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final long[] f28744e;
+    public final long[] f28772e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final int[] f28745f;
+    public final int[] f28773f;
 
     public m(long[] jArr, int[] iArr, int i2, long[] jArr2, int[] iArr2) {
         Interceptable interceptable = $ic;
@@ -46,11 +46,11 @@ public final class m {
         c.i.b.a.i0.a.a(iArr.length == jArr2.length);
         c.i.b.a.i0.a.a(jArr.length == jArr2.length);
         c.i.b.a.i0.a.a(iArr2.length == jArr2.length);
-        this.f28741b = jArr;
-        this.f28742c = iArr;
-        this.f28743d = i2;
-        this.f28744e = jArr2;
-        this.f28745f = iArr2;
+        this.f28769b = jArr;
+        this.f28770c = iArr;
+        this.f28771d = i2;
+        this.f28772e = jArr2;
+        this.f28773f = iArr2;
         this.a = jArr.length;
     }
 
@@ -58,8 +58,8 @@ public final class m {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeJ = interceptable.invokeJ(1048576, this, j2)) == null) {
-            for (int e2 = v.e(this.f28744e, j2, true, false); e2 >= 0; e2--) {
-                if ((this.f28745f[e2] & 1) != 0) {
+            for (int e2 = v.e(this.f28772e, j2, true, false); e2 >= 0; e2--) {
+                if ((this.f28773f[e2] & 1) != 0) {
                     return e2;
                 }
             }
@@ -72,8 +72,8 @@ public final class m {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j2)) == null) {
-            for (int b2 = v.b(this.f28744e, j2, true, false); b2 < this.f28744e.length; b2++) {
-                if ((this.f28745f[b2] & 1) != 0) {
+            for (int b2 = v.b(this.f28772e, j2, true, false); b2 < this.f28772e.length; b2++) {
+                if ((this.f28773f[b2] & 1) != 0) {
                     return b2;
                 }
             }

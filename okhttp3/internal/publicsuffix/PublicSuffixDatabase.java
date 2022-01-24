@@ -1,7 +1,6 @@
 package okhttp3.internal.publicsuffix;
 
 import androidx.core.view.InputDeviceCompat;
-import androidx.webkit.ProxyConfig;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.spswitch.emotion.resource.EmotionResourceInfo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -52,7 +51,7 @@ public final class PublicSuffixDatabase {
         }
         WILDCARD_LABEL = new byte[]{42};
         EMPTY_RULE = new String[0];
-        PREVAILING_RULE = new String[]{ProxyConfig.MATCH_ALL_SCHEMES};
+        PREVAILING_RULE = new String[]{"*"};
         instance = new PublicSuffixDatabase();
     }
 

@@ -10,20 +10,20 @@ public class ck implements com.kwad.sdk.core.d<com.kwad.sdk.c.kwai.b> {
             return;
         }
         bVar.a = jSONObject.optInt("Status");
-        bVar.f55462b = jSONObject.optString("Content-Encoding");
+        bVar.f55507b = jSONObject.optString("Content-Encoding");
         if (jSONObject.opt("Content-Encoding") == JSONObject.NULL) {
-            bVar.f55462b = "";
+            bVar.f55507b = "";
         }
-        bVar.f55463c = jSONObject.optString("Cache-Control");
+        bVar.f55508c = jSONObject.optString("Cache-Control");
         if (jSONObject.opt("Cache-Control") == JSONObject.NULL) {
-            bVar.f55463c = "";
+            bVar.f55508c = "";
         }
-        bVar.f55464d = jSONObject.optString("Content-Type");
+        bVar.f55509d = jSONObject.optString("Content-Type");
         if (jSONObject.opt("Content-Type") == JSONObject.NULL) {
-            bVar.f55464d = "";
+            bVar.f55509d = "";
         }
         com.kwad.sdk.c.kwai.a aVar = new com.kwad.sdk.c.kwai.a();
-        bVar.f55465e = aVar;
+        bVar.f55510e = aVar;
         aVar.parseJson(jSONObject.optJSONObject("headers"));
     }
 
@@ -34,10 +34,10 @@ public class ck implements com.kwad.sdk.core.d<com.kwad.sdk.c.kwai.b> {
             jSONObject = new JSONObject();
         }
         com.kwad.sdk.utils.t.a(jSONObject, "Status", bVar.a);
-        com.kwad.sdk.utils.t.a(jSONObject, "Content-Encoding", bVar.f55462b);
-        com.kwad.sdk.utils.t.a(jSONObject, "Cache-Control", bVar.f55463c);
-        com.kwad.sdk.utils.t.a(jSONObject, "Content-Type", bVar.f55464d);
-        com.kwad.sdk.utils.t.a(jSONObject, "headers", bVar.f55465e);
+        com.kwad.sdk.utils.t.a(jSONObject, "Content-Encoding", bVar.f55507b);
+        com.kwad.sdk.utils.t.a(jSONObject, "Cache-Control", bVar.f55508c);
+        com.kwad.sdk.utils.t.a(jSONObject, "Content-Type", bVar.f55509d);
+        com.kwad.sdk.utils.t.a(jSONObject, "headers", bVar.f55510e);
         return jSONObject;
     }
 }

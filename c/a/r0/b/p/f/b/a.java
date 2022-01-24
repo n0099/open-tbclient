@@ -25,49 +25,49 @@ public class a {
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public C0674a f10201b;
+    public C0683a f10343b;
 
     /* renamed from: c  reason: collision with root package name */
-    public c f10202c;
+    public c f10344c;
 
     /* renamed from: d  reason: collision with root package name */
-    public b f10203d;
+    public b f10345d;
 
     /* renamed from: e  reason: collision with root package name */
-    public JSONObject f10204e;
+    public JSONObject f10346e;
 
     /* renamed from: c.a.r0.b.p.f.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public static class C0674a {
+    public static class C0683a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f10205b;
+        public String f10347b;
 
         /* renamed from: c  reason: collision with root package name */
-        public int f10206c;
+        public int f10348c;
 
         /* renamed from: d  reason: collision with root package name */
-        public int f10207d;
+        public int f10349d;
 
         /* renamed from: e  reason: collision with root package name */
-        public String f10208e;
+        public String f10350e;
 
         /* renamed from: f  reason: collision with root package name */
-        public String f10209f;
+        public String f10351f;
 
         /* renamed from: g  reason: collision with root package name */
-        public int f10210g;
+        public int f10352g;
 
         /* renamed from: h  reason: collision with root package name */
-        public int f10211h;
+        public int f10353h;
 
         /* renamed from: i  reason: collision with root package name */
-        public String f10212i;
+        public String f10354i;
 
-        public C0674a() {
+        public C0683a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -89,7 +89,7 @@ public class a {
         public int a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f10213b;
+        public int f10355b;
 
         public b() {
             Interceptable interceptable = $ic;
@@ -113,10 +113,10 @@ public class a {
         public int a;
 
         /* renamed from: b  reason: collision with root package name */
-        public double f10214b;
+        public double f10356b;
 
         /* renamed from: c  reason: collision with root package name */
-        public double f10215c;
+        public double f10357c;
 
         public c() {
             Interceptable interceptable = $ic;
@@ -148,42 +148,42 @@ public class a {
                 return;
             }
         }
-        C0674a c0674a = new C0674a();
+        C0683a c0683a = new C0683a();
         c cVar = new c();
         b bVar = new b();
         String f0 = e.f0();
         String str = "";
         this.a = TextUtils.isEmpty(f0) ? "" : f0;
-        this.f10201b = c0674a;
-        this.f10202c = cVar;
-        this.f10203d = bVar;
-        this.f10204e = jSONObject;
+        this.f10343b = c0683a;
+        this.f10344c = cVar;
+        this.f10345d = bVar;
+        this.f10346e = jSONObject;
         String r = q0.r();
-        c0674a.a = "0".equals(r) ? "" : r;
+        c0683a.a = "0".equals(r) ? "" : r;
         String a = a();
-        c0674a.f10205b = "0".equals(a) ? "" : a;
-        c0674a.f10206c = 2;
-        c0674a.f10207d = c.a.r0.b.p.f.c.a.e(context) ? 3 : 2;
+        c0683a.f10347b = "0".equals(a) ? "" : a;
+        c0683a.f10348c = 2;
+        c0683a.f10349d = c.a.r0.b.p.f.c.a.e(context) ? 3 : 2;
         String i4 = c.a.r0.a.d0.c.i();
-        c0674a.f10208e = "NUL".equals(i4) ? "" : i4;
+        c0683a.f10350e = "NUL".equals(i4) ? "" : i4;
         String g2 = c.a.r0.a.d0.c.g();
-        c0674a.f10209f = "NUL".equals(g2) ? "" : g2;
-        c0674a.f10210g = n0.n(context);
-        c0674a.f10211h = n0.o(context);
+        c0683a.f10351f = "NUL".equals(g2) ? "" : g2;
+        c0683a.f10352g = n0.n(context);
+        c0683a.f10353h = n0.o(context);
         String b2 = b();
         if (!TextUtils.isEmpty(b2) && !"02:00:00:00:00:00".equals(b2)) {
             str = b2;
         }
-        c0674a.f10212i = str;
+        c0683a.f10354i = str;
         bVar.a = c.a.r0.b.p.f.c.a.c();
-        bVar.f10213b = c.a.r0.b.p.f.c.a.d(context);
+        bVar.f10355b = c.a.r0.b.p.f.c.a.d(context);
     }
 
     public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            String a = c.a.r0.f.a.b.c.f10333b.a(AppRuntime.getAppContext());
+            String a = c.a.r0.f.a.b.c.f10475b.a(AppRuntime.getAppContext());
             return TextUtils.isEmpty(a) ? "0" : a;
         }
         return (String) invokeV.objValue;
@@ -215,24 +215,24 @@ public class a {
             JSONObject jSONObject4 = new JSONObject();
             try {
                 jSONObject.put("app_id", this.a);
-                jSONObject2.put("deviceid", this.f10201b.a);
-                jSONObject2.put("androidid", this.f10201b.f10205b);
-                jSONObject2.put("os_type", this.f10201b.f10206c);
-                jSONObject2.put(HttpConstants.DEVICE_TYPE, this.f10201b.f10207d);
-                jSONObject2.put("device_vendor", this.f10201b.f10208e);
-                jSONObject2.put("device_model", this.f10201b.f10209f);
-                jSONObject2.put("screen_height", this.f10201b.f10210g);
-                jSONObject2.put("screen_width", this.f10201b.f10211h);
-                jSONObject2.put("mac", this.f10201b.f10212i);
+                jSONObject2.put("deviceid", this.f10343b.a);
+                jSONObject2.put("androidid", this.f10343b.f10347b);
+                jSONObject2.put("os_type", this.f10343b.f10348c);
+                jSONObject2.put(HttpConstants.DEVICE_TYPE, this.f10343b.f10349d);
+                jSONObject2.put("device_vendor", this.f10343b.f10350e);
+                jSONObject2.put("device_model", this.f10343b.f10351f);
+                jSONObject2.put("screen_height", this.f10343b.f10352g);
+                jSONObject2.put("screen_width", this.f10343b.f10353h);
+                jSONObject2.put("mac", this.f10343b.f10354i);
                 jSONObject.put("device", jSONObject2);
-                jSONObject3.put("coord_type", this.f10202c.a);
-                jSONObject3.put("latitude", this.f10202c.f10214b);
-                jSONObject3.put("longitude", this.f10202c.f10215c);
+                jSONObject3.put("coord_type", this.f10344c.a);
+                jSONObject3.put("latitude", this.f10344c.f10356b);
+                jSONObject3.put("longitude", this.f10344c.f10357c);
                 jSONObject.put(TableDefine.DB_TABLE_USERINFO, jSONObject3);
-                jSONObject4.put("network", this.f10203d.a);
-                jSONObject4.put("operator", this.f10203d.f10213b);
+                jSONObject4.put("network", this.f10345d.a);
+                jSONObject4.put("operator", this.f10345d.f10355b);
                 jSONObject.put("network", jSONObject4);
-                jSONObject.put("data", this.f10204e);
+                jSONObject.put("data", this.f10346e);
             } catch (JSONException e2) {
                 e2.printStackTrace();
             }

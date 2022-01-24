@@ -54,8 +54,8 @@ public class b {
                 bundle = new Bundle();
             }
             b2.a = bundle;
-            b2.f9683b = i2;
-            b2.f9684c = str2;
+            b2.f9825b = i2;
+            b2.f9826c = str2;
             b2.b(bundle);
         }
     }

@@ -8,15 +8,15 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class k implements com.ss.android.socialbase.downloader.downloader.j {
     public final SparseArray<DownloadInfo> a = new SparseArray<>();
 
     /* renamed from: b  reason: collision with root package name */
-    public final SparseArray<List<com.ss.android.socialbase.downloader.model.b>> f60167b = new SparseArray<>();
+    public final SparseArray<List<com.ss.android.socialbase.downloader.model.b>> f60212b = new SparseArray<>();
 
     /* renamed from: c  reason: collision with root package name */
-    public final SparseArray<Map<Long, com.ss.android.socialbase.downloader.f.i>> f60168c = new SparseArray<>();
+    public final SparseArray<Map<Long, com.ss.android.socialbase.downloader.f.i>> f60213c = new SparseArray<>();
 
     public SparseArray<DownloadInfo> a() {
         return this.a;
@@ -99,7 +99,7 @@ public class k implements com.ss.android.socialbase.downloader.downloader.j {
     }
 
     public SparseArray<List<com.ss.android.socialbase.downloader.model.b>> f() {
-        return this.f60167b;
+        return this.f60212b;
     }
 
     @Override // com.ss.android.socialbase.downloader.downloader.j
@@ -141,17 +141,17 @@ public class k implements com.ss.android.socialbase.downloader.downloader.j {
 
     @Override // com.ss.android.socialbase.downloader.downloader.j
     public synchronized Map<Long, com.ss.android.socialbase.downloader.f.i> l(int i2) {
-        return this.f60168c.get(i2);
+        return this.f60213c.get(i2);
     }
 
     @Override // com.ss.android.socialbase.downloader.downloader.j
     public synchronized void m(int i2) {
-        this.f60168c.remove(i2);
+        this.f60213c.remove(i2);
     }
 
     @Override // com.ss.android.socialbase.downloader.downloader.j
     public synchronized List<com.ss.android.socialbase.downloader.f.i> n(int i2) {
-        Map<Long, com.ss.android.socialbase.downloader.f.i> map = this.f60168c.get(i2);
+        Map<Long, com.ss.android.socialbase.downloader.f.i> map = this.f60213c.get(i2);
         if (map != null && !map.isEmpty()) {
             return new ArrayList(map.values());
         }
@@ -205,10 +205,10 @@ public class k implements com.ss.android.socialbase.downloader.downloader.j {
     @Override // com.ss.android.socialbase.downloader.downloader.j
     public void a(com.ss.android.socialbase.downloader.model.b bVar) {
         int k = bVar.k();
-        List<com.ss.android.socialbase.downloader.model.b> list = this.f60167b.get(k);
+        List<com.ss.android.socialbase.downloader.model.b> list = this.f60212b.get(k);
         if (list == null) {
             list = new ArrayList<>();
-            this.f60167b.put(k, list);
+            this.f60212b.put(k, list);
         }
         list.add(bVar);
     }
@@ -239,18 +239,18 @@ public class k implements com.ss.android.socialbase.downloader.downloader.j {
 
     @Override // com.ss.android.socialbase.downloader.downloader.j
     public synchronized List<com.ss.android.socialbase.downloader.model.b> c(int i2) {
-        return this.f60167b.get(i2);
+        return this.f60212b.get(i2);
     }
 
     @Override // com.ss.android.socialbase.downloader.downloader.j
     public synchronized void d(int i2) {
-        this.f60167b.remove(i2);
+        this.f60212b.remove(i2);
     }
 
     @Override // com.ss.android.socialbase.downloader.downloader.j
     public synchronized void c() {
         this.a.clear();
-        this.f60167b.clear();
+        this.f60212b.clear();
     }
 
     @Override // com.ss.android.socialbase.downloader.downloader.j
@@ -417,7 +417,7 @@ public class k implements com.ss.android.socialbase.downloader.downloader.j {
 
     @Override // com.ss.android.socialbase.downloader.downloader.j
     public synchronized boolean a(int i2, Map<Long, com.ss.android.socialbase.downloader.f.i> map) {
-        this.f60168c.put(i2, map);
+        this.f60213c.put(i2, map);
         return false;
     }
 }

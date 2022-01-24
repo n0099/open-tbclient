@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.squareup.wire.ProtoEnum;
 import java.util.Arrays;
 import java.util.Comparator;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public final class EnumAdapter<E extends ProtoEnum> {
     public static /* synthetic */ Interceptable $ic;
     public static final Comparator<ProtoEnum> COMPARATOR;

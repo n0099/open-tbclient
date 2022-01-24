@@ -91,7 +91,7 @@ public class g extends f {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             try {
-                String a = c.a.r0.f.a.b.c.f10333b.a(this.f10537b);
+                String a = c.a.r0.f.a.b.c.f10475b.a(this.f10679b);
                 return TextUtils.isEmpty(a) ? UUID.randomUUID().toString() : a;
             } catch (Exception unused) {
                 return "";
@@ -108,7 +108,7 @@ public class g extends f {
             try {
                 jSONObject.put("id", String.valueOf(System.currentTimeMillis()));
                 JSONObject jSONObject2 = new JSONObject();
-                jSONObject2.put("id", this.f10544i.e());
+                jSONObject2.put("id", this.f10686i.e());
                 jSONObject2.put("name", c.a.r0.h.i.n.a.b().a());
                 jSONObject2.put("bundle", c.a.r0.h.i.s.h.k());
                 jSONObject2.put("version", c.a.r0.h.i.s.h.l());
@@ -123,21 +123,21 @@ public class g extends f {
                 jSONObject3.put(HttpConstants.OS_VERSION, c.a.r0.h.i.s.h.f());
                 jSONObject3.put("make", c.a.r0.h.i.s.h.g());
                 jSONObject3.put("model", c.a.r0.h.i.s.h.e());
-                jSONObject3.put("language", this.f10537b.getResources().getConfiguration().locale.getLanguage());
+                jSONObject3.put("language", this.f10679b.getResources().getConfiguration().locale.getLanguage());
                 jSONObject3.put("connection_type", NetworkUtils.c(true));
-                jSONObject3.put("carrier", k(this.f10537b));
-                jSONObject3.put("mac", NetworkUtils.e(this.f10537b));
-                jSONObject3.put("screen_width", c.a.r0.h.i.s.h.i(this.f10537b));
-                jSONObject3.put("screen_height", c.a.r0.h.i.s.h.h(this.f10537b));
-                jSONObject3.put("screen_orientation", this.f10537b.getResources().getConfiguration().orientation);
+                jSONObject3.put("carrier", k(this.f10679b));
+                jSONObject3.put("mac", NetworkUtils.e(this.f10679b));
+                jSONObject3.put("screen_width", c.a.r0.h.i.s.h.i(this.f10679b));
+                jSONObject3.put("screen_height", c.a.r0.h.i.s.h.h(this.f10679b));
+                jSONObject3.put("screen_orientation", this.f10679b.getResources().getConfiguration().orientation);
                 jSONObject.put("device", jSONObject3);
                 JSONObject jSONObject4 = new JSONObject();
-                jSONObject4.put("sid", this.f10544i.b());
+                jSONObject4.put("sid", this.f10686i.b());
                 jSONObject4.put("ad_count", this.q);
                 jSONObject4.put(TiebaStatic.Params.AD_TYPE, this.r);
                 jSONObject4.put("pos", this.s);
-                jSONObject4.put("width", this.f10544i.d());
-                jSONObject4.put("height", this.f10544i.a());
+                jSONObject4.put("width", this.f10686i.d());
+                jSONObject4.put("height", this.f10686i.a());
                 jSONObject4.put(ClientCookie.SECURE_ATTR, 1);
                 JSONArray jSONArray = new JSONArray();
                 jSONArray.put(jSONObject4);
@@ -211,7 +211,7 @@ public class g extends f {
             if (TextUtils.isEmpty(this.t)) {
                 try {
                     try {
-                        this.t = WebSettings.getDefaultUserAgent(this.f10537b);
+                        this.t = WebSettings.getDefaultUserAgent(this.f10679b);
                     } catch (Exception unused) {
                         this.t = "";
                     }

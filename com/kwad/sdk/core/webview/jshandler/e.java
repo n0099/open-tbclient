@@ -15,31 +15,31 @@ public class e implements com.kwad.sdk.core.webview.kwai.a {
         public String a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f56367b;
+        public int f56412b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f56368c;
+        public String f56413c;
 
         /* renamed from: d  reason: collision with root package name */
-        public int f56369d;
+        public int f56414d;
 
         /* renamed from: e  reason: collision with root package name */
-        public int f56370e;
+        public int f56415e;
 
         /* renamed from: f  reason: collision with root package name */
-        public String f56371f;
+        public String f56416f;
 
         /* renamed from: g  reason: collision with root package name */
-        public String f56372g;
+        public String f56417g;
 
         /* renamed from: h  reason: collision with root package name */
-        public String f56373h;
+        public String f56418h;
 
         /* renamed from: i  reason: collision with root package name */
-        public String f56374i;
+        public String f56419i;
 
         /* renamed from: j  reason: collision with root package name */
-        public String f56375j;
+        public String f56420j;
         public String k;
         public String l;
         public String m;
@@ -60,15 +60,15 @@ public class e implements com.kwad.sdk.core.webview.kwai.a {
         public static a a() {
             a aVar = new a();
             aVar.a = "3.3.17.4";
-            aVar.f56367b = 3031704;
-            aVar.f56368c = KsAdSDKImpl.get().getApiVersion();
-            aVar.f56369d = KsAdSDKImpl.get().getApiVersionCode();
-            aVar.f56370e = KsAdSDKImpl.get().getSDKType();
-            aVar.f56371f = av.w(KsAdSDKImpl.get().getContext());
-            aVar.f56372g = KsAdSDKImpl.get().getAppName();
-            aVar.f56373h = KsAdSDKImpl.get().getAppId();
-            aVar.f56374i = "";
-            aVar.f56375j = com.kwad.sdk.core.a.e.a();
+            aVar.f56412b = 3031704;
+            aVar.f56413c = KsAdSDKImpl.get().getApiVersion();
+            aVar.f56414d = KsAdSDKImpl.get().getApiVersionCode();
+            aVar.f56415e = KsAdSDKImpl.get().getSDKType();
+            aVar.f56416f = av.w(KsAdSDKImpl.get().getContext());
+            aVar.f56417g = KsAdSDKImpl.get().getAppName();
+            aVar.f56418h = KsAdSDKImpl.get().getAppId();
+            aVar.f56419i = "";
+            aVar.f56420j = com.kwad.sdk.core.a.e.a();
             aVar.k = com.kwad.sdk.core.a.e.b();
             aVar.l = String.valueOf(ad.c(KsAdSDKImpl.get().getContext()));
             aVar.m = av.n();

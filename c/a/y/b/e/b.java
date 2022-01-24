@@ -22,31 +22,31 @@ public class b extends a implements c {
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f26703b;
+    public String f26731b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f26704c;
+    public String f26732c;
 
     /* renamed from: d  reason: collision with root package name */
-    public d f26705d;
+    public d f26733d;
 
     /* renamed from: e  reason: collision with root package name */
-    public c.a.y.b.f.c f26706e;
+    public c.a.y.b.f.c f26734e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f26707f;
+    public int f26735f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f26708g;
+    public int f26736g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f26709h;
+    public int f26737h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f26710i;
+    public int f26738i;
 
     /* renamed from: j  reason: collision with root package name */
-    public int f26711j;
+    public int f26739j;
 
     static {
         InterceptResult invokeClinit;
@@ -76,8 +76,8 @@ public class b extends a implements c {
                 return;
             }
         }
-        this.f26703b = "uniform mat4 uMVPMatrix;  // MVP 的变换矩阵（整体变形）\nuniform mat4 uTexMatrix;  // Texture 的变换矩阵 （只对texture变形）\nattribute vec4 aPosition;\nattribute vec4 aTextureCoord;\nvarying vec2 vTextureCoord;\nvoid main() {\n    gl_Position = uMVPMatrix * aPosition;\n    vTextureCoord = (uTexMatrix * aTextureCoord).xy;\n}\n";
-        this.f26704c = "#extension GL_OES_EGL_image_external : require\nprecision mediump float; // 指定默认精度\nvarying vec2 vTextureCoord;\nuniform samplerExternalOES uTexture;\nvoid main() {\n    gl_FragColor = texture2D(uTexture, vTextureCoord);\n}\n";
+        this.f26731b = "uniform mat4 uMVPMatrix;  // MVP 的变换矩阵（整体变形）\nuniform mat4 uTexMatrix;  // Texture 的变换矩阵 （只对texture变形）\nattribute vec4 aPosition;\nattribute vec4 aTextureCoord;\nvarying vec2 vTextureCoord;\nvoid main() {\n    gl_Position = uMVPMatrix * aPosition;\n    vTextureCoord = (uTexMatrix * aTextureCoord).xy;\n}\n";
+        this.f26732c = "#extension GL_OES_EGL_image_external : require\nprecision mediump float; // 指定默认精度\nvarying vec2 vTextureCoord;\nuniform samplerExternalOES uTexture;\nvoid main() {\n    gl_FragColor = texture2D(uTexture, vTextureCoord);\n}\n";
         new LinkedList();
     }
 
@@ -85,13 +85,13 @@ public class b extends a implements c {
     public void a(c.a.y.b.f.a aVar, c.a.y.b.g.b bVar) {
         d dVar;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048576, this, aVar, bVar) == null) && (dVar = this.f26705d) != null && dVar.f()) {
+        if ((interceptable == null || interceptable.invokeLL(1048576, this, aVar, bVar) == null) && (dVar = this.f26733d) != null && dVar.f()) {
             l();
-            d(this.f26705d);
+            d(this.f26733d);
             c(aVar, bVar);
             g(aVar, bVar);
             j();
-            k(this.f26705d);
+            k(this.f26733d);
             f();
         }
     }
@@ -100,9 +100,9 @@ public class b extends a implements c {
     public void b(d dVar, c.a.y.b.f.c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dVar, cVar) == null) {
-            this.f26705d = dVar;
-            this.f26706e = cVar;
-            e(this.f26703b, this.f26704c);
+            this.f26733d = dVar;
+            this.f26734e = cVar;
+            e(this.f26731b, this.f26732c);
             if (this.a != -1) {
                 h();
                 return;
@@ -114,12 +114,12 @@ public class b extends a implements c {
     public void c(c.a.y.b.f.a aVar, c.a.y.b.g.b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, aVar, bVar) == null) {
-            GLES20.glUniformMatrix4fv(this.f26708g, 1, false, bVar.b(), 0);
-            GLES20.glUniformMatrix4fv(this.f26709h, 1, false, bVar.c(), 0);
-            GLES20.glEnableVertexAttribArray(this.f26707f);
-            GLES20.glVertexAttribPointer(this.f26707f, aVar.a(), 5126, false, aVar.f(), (Buffer) aVar.d());
-            GLES20.glEnableVertexAttribArray(this.f26710i);
-            GLES20.glVertexAttribPointer(this.f26710i, aVar.a(), 5126, false, aVar.c(), (Buffer) aVar.b());
+            GLES20.glUniformMatrix4fv(this.f26736g, 1, false, bVar.b(), 0);
+            GLES20.glUniformMatrix4fv(this.f26737h, 1, false, bVar.c(), 0);
+            GLES20.glEnableVertexAttribArray(this.f26735f);
+            GLES20.glVertexAttribPointer(this.f26735f, aVar.a(), 5126, false, aVar.f(), (Buffer) aVar.d());
+            GLES20.glEnableVertexAttribArray(this.f26738i);
+            GLES20.glVertexAttribPointer(this.f26738i, aVar.a(), 5126, false, aVar.c(), (Buffer) aVar.b());
         }
     }
 
@@ -128,14 +128,14 @@ public class b extends a implements c {
         if (interceptable == null || interceptable.invokeL(1048579, this, dVar) == null) {
             GLES20.glActiveTexture(33984);
             GLES20.glBindTexture(dVar.getType(), dVar.c());
-            GLES20.glUniform1i(this.f26711j, 0);
+            GLES20.glUniform1i(this.f26739j, 0);
         }
     }
 
     public void e(String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048580, this, str, str2) == null) {
-            if (this.f26705d.getType() != 36197) {
+            if (this.f26733d.getType() != 36197) {
                 str2 = str2.replaceFirst("#extension GL_OES_EGL_image_external : require", "").replace("samplerExternalOES", "sampler2D");
             }
             this.a = c.a.y.b.h.a.c(str, str2);
@@ -170,11 +170,11 @@ public class b extends a implements c {
     public void h() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            this.f26711j = GLES20.glGetUniformLocation(this.a, "uTexture");
-            this.f26707f = GLES20.glGetAttribLocation(this.a, "aPosition");
-            this.f26708g = GLES20.glGetUniformLocation(this.a, "uMVPMatrix");
-            this.f26709h = GLES20.glGetUniformLocation(this.a, "uTexMatrix");
-            this.f26710i = GLES20.glGetAttribLocation(this.a, "aTextureCoord");
+            this.f26739j = GLES20.glGetUniformLocation(this.a, "uTexture");
+            this.f26735f = GLES20.glGetAttribLocation(this.a, "aPosition");
+            this.f26736g = GLES20.glGetUniformLocation(this.a, "uMVPMatrix");
+            this.f26737h = GLES20.glGetUniformLocation(this.a, "uTexMatrix");
+            this.f26738i = GLES20.glGetAttribLocation(this.a, "aTextureCoord");
         }
     }
 
@@ -189,8 +189,8 @@ public class b extends a implements c {
     public void j() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            GLES20.glDisableVertexAttribArray(this.f26707f);
-            GLES20.glDisableVertexAttribArray(this.f26710i);
+            GLES20.glDisableVertexAttribArray(this.f26735f);
+            GLES20.glDisableVertexAttribArray(this.f26738i);
         }
     }
 

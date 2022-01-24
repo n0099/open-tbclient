@@ -23,7 +23,7 @@ public class b {
             File file = new File(e2, "app.json");
             SwanAppConfigData b2 = c.a.r0.a.d2.n.d.b(e2.getAbsolutePath());
             gVar.a = e2.getPath() + File.separator;
-            gVar.f5142b = b2;
+            gVar.f5284b = b2;
             c.a.r0.a.e0.d.k("WirelessDebugBundleHelper", "configFile path: " + file.getPath() + " exist: " + file.exists() + " info.mAppBundlePath path: " + gVar.a);
             return gVar;
         }

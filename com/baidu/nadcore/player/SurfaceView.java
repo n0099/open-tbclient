@@ -19,16 +19,16 @@ public class SurfaceView extends android.view.SurfaceView implements SurfaceHold
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f37026e;
+    public int f37054e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f37027f;
+    public int f37055f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f37028g;
+    public int f37056g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final j f37029h;
+    public final j f37057h;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public SurfaceView(Context context, j jVar) {
@@ -48,8 +48,8 @@ public class SurfaceView extends android.view.SurfaceView implements SurfaceHold
                 return;
             }
         }
-        this.f37026e = 1;
-        this.f37029h = jVar;
+        this.f37054e = 1;
+        this.f37057h = jVar;
         getHolder().addCallback(this);
     }
 
@@ -64,7 +64,7 @@ public class SurfaceView extends android.view.SurfaceView implements SurfaceHold
     public int getDisplayMode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f37026e : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f37054e : invokeV.intValue;
     }
 
     @Override // android.view.SurfaceView, android.view.View
@@ -72,11 +72,11 @@ public class SurfaceView extends android.view.SurfaceView implements SurfaceHold
         int i4;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i2, i3) == null) {
-            int defaultSize = android.view.SurfaceView.getDefaultSize(this.f37027f, i2);
-            int defaultSize2 = android.view.SurfaceView.getDefaultSize(this.f37028g, i3);
-            int i5 = this.f37027f;
-            if (i5 > 0 && (i4 = this.f37028g) > 0) {
-                int i6 = this.f37026e;
+            int defaultSize = android.view.SurfaceView.getDefaultSize(this.f37055f, i2);
+            int defaultSize2 = android.view.SurfaceView.getDefaultSize(this.f37056g, i3);
+            int i5 = this.f37055f;
+            if (i5 > 0 && (i4 = this.f37056g) > 0) {
+                int i6 = this.f37054e;
                 if (i6 != 0) {
                     if (i6 != 1) {
                         if (i6 == 3) {
@@ -116,7 +116,7 @@ public class SurfaceView extends android.view.SurfaceView implements SurfaceHold
                     defaultSize2 = (i4 * defaultSize) / i5;
                 }
             }
-            String.format("onMeasure.  measure size(%sx%s)", Integer.valueOf(this.f37027f), Integer.valueOf(this.f37028g));
+            String.format("onMeasure.  measure size(%sx%s)", Integer.valueOf(this.f37055f), Integer.valueOf(this.f37056g));
             setMeasuredDimension(defaultSize, defaultSize2);
         }
     }
@@ -125,8 +125,8 @@ public class SurfaceView extends android.view.SurfaceView implements SurfaceHold
     public void onVideoSizeChanged(int i2, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(1048579, this, i2, i3) == null) {
-            this.f37027f = i2;
-            this.f37028g = i3;
+            this.f37055f = i2;
+            this.f37056g = i3;
             if (i2 == 0 || i3 == 0) {
                 return;
             }
@@ -137,7 +137,7 @@ public class SurfaceView extends android.view.SurfaceView implements SurfaceHold
     public void setDisplayMode(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048580, this, i2) == null) {
-            this.f37026e = i2;
+            this.f37054e = i2;
         }
     }
 
@@ -158,7 +158,7 @@ public class SurfaceView extends android.view.SurfaceView implements SurfaceHold
     public void surfaceCreated(SurfaceHolder surfaceHolder) {
         j jVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048583, this, surfaceHolder) == null) || (jVar = this.f37029h) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048583, this, surfaceHolder) == null) || (jVar = this.f37057h) == null) {
             return;
         }
         jVar.surfaceCreated(surfaceHolder);
@@ -168,7 +168,7 @@ public class SurfaceView extends android.view.SurfaceView implements SurfaceHold
     public void surfaceDestroyed(SurfaceHolder surfaceHolder) {
         j jVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, surfaceHolder) == null) || (jVar = this.f37029h) == null) {
+        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, surfaceHolder) == null) || (jVar = this.f37057h) == null) {
             return;
         }
         jVar.a();

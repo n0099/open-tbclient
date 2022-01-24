@@ -12,7 +12,7 @@ import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class BackupExecutors {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int BACKUP_THREAD_POOL_CORE_SIZE = 15;

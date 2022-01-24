@@ -26,13 +26,13 @@ public class d extends z {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f11077e;
+        public final /* synthetic */ CallbackHandler f11219e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ UnitedSchemeEntity f11078f;
+        public final /* synthetic */ UnitedSchemeEntity f11220f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ JSONObject f11079g;
+        public final /* synthetic */ JSONObject f11221g;
 
         public a(d dVar, CallbackHandler callbackHandler, UnitedSchemeEntity unitedSchemeEntity, JSONObject jSONObject) {
             Interceptable interceptable = $ic;
@@ -49,9 +49,9 @@ public class d extends z {
                     return;
                 }
             }
-            this.f11077e = callbackHandler;
-            this.f11078f = unitedSchemeEntity;
-            this.f11079g = jSONObject;
+            this.f11219e = callbackHandler;
+            this.f11220f = unitedSchemeEntity;
+            this.f11221g = jSONObject;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -61,11 +61,11 @@ public class d extends z {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, iVar) == null) {
                 if (!c.a.r0.a.h2.c.d.h(iVar)) {
-                    c.a.r0.a.h2.c.d.p(iVar, this.f11077e, this.f11078f);
+                    c.a.r0.a.h2.c.d.p(iVar, this.f11219e, this.f11220f);
                     return;
                 }
-                c.a.r0.a.x1.a.a.L(c.a.r0.a.p0.f.a.b(this.f11079g.optInt("emitReplaceGameCore")));
-                UnitedSchemeUtility.callCallback(this.f11077e, this.f11078f, UnitedSchemeUtility.wrapCallbackParams(0));
+                c.a.r0.a.x1.a.a.L(c.a.r0.a.p0.f.a.b(this.f11221g.optInt("emitReplaceGameCore")));
+                UnitedSchemeUtility.callCallback(this.f11219e, this.f11220f, UnitedSchemeUtility.wrapCallbackParams(0));
                 c.a.r0.a.x1.a.a.Z();
             }
         }

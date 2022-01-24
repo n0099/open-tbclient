@@ -28,7 +28,7 @@ import com.dxmpay.wallet.utils.StatHelper;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class EnterDxmPayServiceAction implements RouterAction {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String CHECK_PWD_FOR_H5 = "checkPwdForH5";

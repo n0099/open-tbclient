@@ -18,22 +18,22 @@ public final class b implements Cloneable {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f7672e;
+    public String f7814e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f7673f;
+    public String f7815f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f7674g;
+    public String f7816g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f7675h;
+    public String f7817h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f7676i;
+    public String f7818i;
 
     /* renamed from: j  reason: collision with root package name */
-    public String f7677j;
+    public String f7819j;
 
     public b() {
         Interceptable interceptable = $ic;
@@ -53,13 +53,13 @@ public final class b implements Cloneable {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, bVar)) == null) {
-            if (bVar == null || TextUtils.isEmpty(bVar.f7672e)) {
+            if (bVar == null || TextUtils.isEmpty(bVar.f7814e)) {
                 return null;
             }
-            if (TextUtils.isEmpty(bVar.f7673f)) {
-                return bVar.f7672e;
+            if (TextUtils.isEmpty(bVar.f7815f)) {
+                return bVar.f7814e;
             }
-            return bVar.f7672e + "?" + bVar.f7673f;
+            return bVar.f7814e + "?" + bVar.f7815f;
         }
         return (String) invokeL.objValue;
     }
@@ -68,13 +68,13 @@ public final class b implements Cloneable {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, bVar)) == null) {
-            if (bVar == null || TextUtils.isEmpty(bVar.f7675h)) {
+            if (bVar == null || TextUtils.isEmpty(bVar.f7817h)) {
                 return null;
             }
-            if (TextUtils.isEmpty(bVar.f7673f)) {
-                return bVar.f7675h;
+            if (TextUtils.isEmpty(bVar.f7815f)) {
+                return bVar.f7817h;
             }
-            return bVar.f7675h + "?" + bVar.f7673f;
+            return bVar.f7817h + "?" + bVar.f7815f;
         }
         return (String) invokeL.objValue;
     }
@@ -84,10 +84,10 @@ public final class b implements Cloneable {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, str, str2)) == null) {
             b bVar = new b();
-            bVar.f7672e = o0.f(str);
-            bVar.f7673f = o0.o(str);
-            bVar.f7674g = str2;
-            bVar.f7675h = j.b(bVar.f7672e);
+            bVar.f7814e = o0.f(str);
+            bVar.f7815f = o0.o(str);
+            bVar.f7816g = str2;
+            bVar.f7817h = j.b(bVar.f7814e);
             return bVar;
         }
         return (b) invokeLL.objValue;
@@ -110,25 +110,25 @@ public final class b implements Cloneable {
     public String f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f7672e : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f7814e : (String) invokeV.objValue;
     }
 
     public String g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f7673f : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f7815f : (String) invokeV.objValue;
     }
 
     public String h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f7675h : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f7817h : (String) invokeV.objValue;
     }
 
     public void i(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
-            this.f7673f = str;
+            this.f7815f = str;
         }
     }
 
@@ -136,7 +136,7 @@ public final class b implements Cloneable {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return "SwanAppPageParam{mPage='" + this.f7672e + ExtendedMessageFormat.QUOTE + ", mParams='" + this.f7673f + ExtendedMessageFormat.QUOTE + ", mBaseUrl='" + this.f7674g + ExtendedMessageFormat.QUOTE + ", mRoutePage='" + this.f7675h + ExtendedMessageFormat.QUOTE + ", mRoutType='" + this.f7676i + ExtendedMessageFormat.QUOTE + ", mRouteId='" + this.f7677j + ExtendedMessageFormat.QUOTE + ExtendedMessageFormat.END_FE;
+            return "SwanAppPageParam{mPage='" + this.f7814e + ExtendedMessageFormat.QUOTE + ", mParams='" + this.f7815f + ExtendedMessageFormat.QUOTE + ", mBaseUrl='" + this.f7816g + ExtendedMessageFormat.QUOTE + ", mRoutePage='" + this.f7817h + ExtendedMessageFormat.QUOTE + ", mRoutType='" + this.f7818i + ExtendedMessageFormat.QUOTE + ", mRouteId='" + this.f7819j + ExtendedMessageFormat.QUOTE + ExtendedMessageFormat.END_FE;
         }
         return (String) invokeV.objValue;
     }

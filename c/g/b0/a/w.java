@@ -123,7 +123,7 @@ public class w extends q<TTFullScreenVideoAd> {
             super.loadInternal(context, funAdSlot);
             AdSlot a2 = a(funAdSlot);
             onLoadStart(funAdSlot);
-            this.f28217h.loadFullScreenVideoAd(a2, new a(this));
+            this.f28245h.loadFullScreenVideoAd(a2, new a(this));
         }
     }
 

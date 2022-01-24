@@ -56,11 +56,11 @@ public class FeedTabCardStatisticHelper {
             baseThreadStatisticLog.param("obj_locate", e2Var.T1);
             baseThreadStatisticLog.param(TiebaStatic.Params.OBJ_PARAM3, System.currentTimeMillis());
             baseThreadStatisticLog.param(TiebaStatic.Params.OBJ_PARAM5, getThreadType(e2Var));
-            baseThreadStatisticLog.param("obj_type", e2Var.h3());
+            baseThreadStatisticLog.param("obj_type", e2Var.i3());
             if (e2Var.L() != null) {
                 baseThreadStatisticLog.param(TiebaStatic.Params.OBJ_PARAM4, e2Var.L().oriUgcNid);
             }
-            baseThreadStatisticLog.param(TiebaStatic.Params.IS_FULL, e2Var.y2() ? 1 : 0);
+            baseThreadStatisticLog.param(TiebaStatic.Params.IS_FULL, e2Var.z2() ? 1 : 0);
             return baseThreadStatisticLog;
         }
         return (StatisticItem) invokeLL.objValue;
@@ -74,7 +74,7 @@ public class FeedTabCardStatisticHelper {
             if (e2Var == null) {
                 return null;
             }
-            if (e2Var.getType() == e2.G3) {
+            if (e2Var.getType() == e2.H3) {
                 baseThreadStatisticLog = getBaseThreadStatisticLog(KEY_TAB_FEED_VIDEO_THREAD_ENTER_FORUM_CLICK, e2Var, str);
                 baseThreadStatisticLog.param("obj_type", 1);
                 if (e2Var.L() != null) {
@@ -82,7 +82,7 @@ public class FeedTabCardStatisticHelper {
                 }
             } else {
                 baseThreadStatisticLog = getBaseThreadStatisticLog(KEY_TAB_FEED_PICTURE_TEXT_THREAD_ENTER_FORUM_CLICK, e2Var, str);
-                baseThreadStatisticLog.param("obj_type", e2Var.h3());
+                baseThreadStatisticLog.param("obj_type", e2Var.i3());
             }
             baseThreadStatisticLog.param("uid", TbadkCoreApplication.getCurrentAccountId());
             baseThreadStatisticLog.param("obj_locate", e2Var.T1);
@@ -129,14 +129,14 @@ public class FeedTabCardStatisticHelper {
             if (e2Var == null) {
                 return null;
             }
-            if (e2Var.getType() == e2.G3) {
+            if (e2Var.getType() == e2.H3) {
                 baseThreadStatisticLog = getBaseThreadStatisticLog(KEY_TAB_FEED_VIDEO_THREAD_POTRAIT_CLICK, e2Var, str);
                 if (e2Var.L() != null) {
                     baseThreadStatisticLog.param(TiebaStatic.Params.OBJ_PARAM6, e2Var.L().oriUgcVid);
                 }
             } else {
                 baseThreadStatisticLog = getBaseThreadStatisticLog(KEY_TAB_FEED_PICTURE_TEXT_THREAD_POTRAIT_CLICK, e2Var, str);
-                baseThreadStatisticLog.param("obj_type", e2Var.h3());
+                baseThreadStatisticLog.param("obj_type", e2Var.i3());
             }
             baseThreadStatisticLog.param("uid", TbadkCoreApplication.getCurrentAccountId());
             baseThreadStatisticLog.param("obj_locate", e2Var.T1);
@@ -158,7 +158,7 @@ public class FeedTabCardStatisticHelper {
             if (e2Var == null) {
                 return null;
             }
-            if (e2Var.getType() == e2.G3) {
+            if (e2Var.getType() == e2.H3) {
                 baseThreadStatisticLog = getBaseThreadStatisticLog(KEY_TAB_FEED_VIDEO_THREAD_TITLE_CLICK, e2Var, str);
                 if (e2Var.L() != null) {
                     baseThreadStatisticLog.param(TiebaStatic.Params.OBJ_PARAM6, e2Var.L().oriUgcVid);
@@ -170,8 +170,8 @@ public class FeedTabCardStatisticHelper {
                 }
             } else {
                 baseThreadStatisticLog = getBaseThreadStatisticLog(KEY_TAB_FEED_PICTURE_TEXT_THREAD_TITLE_CLICK, e2Var, str);
-                baseThreadStatisticLog.param("obj_type", e2Var.h3());
-                baseThreadStatisticLog.param(TiebaStatic.Params.IS_FULL, e2Var.y2() ? 1 : 0);
+                baseThreadStatisticLog.param("obj_type", e2Var.i3());
+                baseThreadStatisticLog.param(TiebaStatic.Params.IS_FULL, e2Var.z2() ? 1 : 0);
             }
             baseThreadStatisticLog.param("uid", TbadkCoreApplication.getCurrentAccountId());
             baseThreadStatisticLog.param("obj_locate", e2Var.T1);
@@ -214,7 +214,7 @@ public class FeedTabCardStatisticHelper {
                 return null;
             }
             StatisticItem statisticItem = new StatisticItem(str);
-            statisticItem.param("tid", e2Var.v1());
+            statisticItem.param("tid", e2Var.w1());
             statisticItem.param("fid", e2Var.U());
             statisticItem.param(TiebaStatic.Params.RESOURCE_ID, str2);
             return statisticItem;
@@ -226,10 +226,10 @@ public class FeedTabCardStatisticHelper {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, e2Var)) == null) {
-            if (e2Var.getType() == e2.t3 || e2Var.R1()) {
+            if (e2Var.getType() == e2.u3 || e2Var.S1()) {
                 return 2;
             }
-            return (e2Var.P1() || e2Var.S1()) ? 3 : 1;
+            return (e2Var.Q1() || e2Var.T1()) ? 3 : 1;
         }
         return invokeL.intValue;
     }
@@ -247,9 +247,9 @@ public class FeedTabCardStatisticHelper {
             baseThreadStatisticLog.param("obj_source", e2Var.d0);
             baseThreadStatisticLog.param(TiebaStatic.Params.OBJ_PARAM3, System.currentTimeMillis());
             baseThreadStatisticLog.param(TiebaStatic.Params.OBJ_PARAM5, getThreadType(e2Var));
-            baseThreadStatisticLog.param("obj_type", e2Var.h3());
-            if (e2Var.y1() != null) {
-                baseThreadStatisticLog.param("obj_name", e2Var.y1().e0 ? 1 : 0);
+            baseThreadStatisticLog.param("obj_type", e2Var.i3());
+            if (e2Var.z1() != null) {
+                baseThreadStatisticLog.param("obj_name", e2Var.z1().e0 ? 1 : 0);
             }
             if (e2Var.L() != null) {
                 baseThreadStatisticLog.param(TiebaStatic.Params.OBJ_PARAM4, e2Var.L().oriUgcNid);
@@ -257,8 +257,8 @@ public class FeedTabCardStatisticHelper {
             if (e2Var.J() != null) {
                 baseThreadStatisticLog.param(TiebaStatic.Params.AB_TYPE, e2Var.J().getIsLike() ? 1 : 0);
             }
-            baseThreadStatisticLog.param(TiebaStatic.Params.IS_FULL, e2Var.y2() ? 1 : 0);
-            baseThreadStatisticLog.param(TiebaStatic.Params.OBJ_FEED_TYPE, e2Var.p0() ? 1 : 2);
+            baseThreadStatisticLog.param(TiebaStatic.Params.IS_FULL, e2Var.z2() ? 1 : 0);
+            baseThreadStatisticLog.param(TiebaStatic.Params.OBJ_FEED_TYPE, e2Var.q0() ? 1 : 2);
             return baseThreadStatisticLog;
         }
         return (StatisticItem) invokeLL.objValue;
@@ -289,7 +289,7 @@ public class FeedTabCardStatisticHelper {
             if (e2Var.J() != null) {
                 baseThreadStatisticLog.param(TiebaStatic.Params.AB_TYPE, e2Var.J().getIsLike() ? 1 : 0);
             }
-            baseThreadStatisticLog.param(TiebaStatic.Params.OBJ_FEED_TYPE, e2Var.p0() ? 1 : 2);
+            baseThreadStatisticLog.param(TiebaStatic.Params.OBJ_FEED_TYPE, e2Var.q0() ? 1 : 2);
             return baseThreadStatisticLog;
         }
         return (StatisticItem) invokeLL.objValue;

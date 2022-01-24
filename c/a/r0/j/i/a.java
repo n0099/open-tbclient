@@ -30,22 +30,22 @@ public class a extends EventTargetImpl {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public c.a.r0.h.i.k.f.a f11031e;
+    public c.a.r0.h.i.k.f.a f11173e;
 
     /* renamed from: f  reason: collision with root package name */
-    public c.a.r0.a.y.b.a f11032f;
+    public c.a.r0.a.y.b.a f11174f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f11033g;
+    public String f11175g;
 
     /* renamed from: c.a.r0.j.i.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public class C0749a implements c.a.r0.h.i.k.f.a {
+    public class C0758a implements c.a.r0.h.i.k.f.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ a a;
 
-        public C0749a(a aVar) {
+        public C0758a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -105,7 +105,7 @@ public class a extends EventTargetImpl {
         public String e() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.a.f11033g : (String) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.a.f11175g : (String) invokeV.objValue;
         }
 
         @Override // c.a.r0.h.i.k.f.a
@@ -134,10 +134,10 @@ public class a extends EventTargetImpl {
                 return;
             }
         }
-        this.f11032f = aVar;
+        this.f11174f = aVar;
         if (y()) {
-            this.f11031e = new C0749a(this);
-            c.a.r0.j.u.a.f().a(AppRuntime.getAppContext(), SwanAppDownloadAction.SwanAppDownloadType.TYPE_QUERY_STATUS, this.f11031e);
+            this.f11173e = new C0758a(this);
+            c.a.r0.j.u.a.f().a(AppRuntime.getAppContext(), SwanAppDownloadAction.SwanAppDownloadType.TYPE_QUERY_STATUS, this.f11173e);
         }
     }
 
@@ -187,7 +187,7 @@ public class a extends EventTargetImpl {
     public void deleteDownload() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            c.a.r0.j.u.a.f().a(AppRuntime.getAppContext(), SwanAppDownloadAction.SwanAppDownloadType.TYPE_CANCEL_DOWNLOAD, this.f11031e);
+            c.a.r0.j.u.a.f().a(AppRuntime.getAppContext(), SwanAppDownloadAction.SwanAppDownloadType.TYPE_CANCEL_DOWNLOAD, this.f11173e);
         }
     }
 
@@ -195,7 +195,7 @@ public class a extends EventTargetImpl {
     public void installApp() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            c.a.r0.j.u.a.f().a(AppRuntime.getAppContext(), SwanAppDownloadAction.SwanAppDownloadType.TYPE_INSTALL_APP, this.f11031e);
+            c.a.r0.j.u.a.f().a(AppRuntime.getAppContext(), SwanAppDownloadAction.SwanAppDownloadType.TYPE_INSTALL_APP, this.f11173e);
         }
     }
 
@@ -203,7 +203,7 @@ public class a extends EventTargetImpl {
     public void openApp() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            B(AppRuntime.getAppContext(), this.f11033g);
+            B(AppRuntime.getAppContext(), this.f11175g);
         }
     }
 
@@ -211,7 +211,7 @@ public class a extends EventTargetImpl {
     public void pauseDownload() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            c.a.r0.j.u.a.f().a(AppRuntime.getAppContext(), SwanAppDownloadAction.SwanAppDownloadType.TYPE_PAUSE_DOWNLOAD, this.f11031e);
+            c.a.r0.j.u.a.f().a(AppRuntime.getAppContext(), SwanAppDownloadAction.SwanAppDownloadType.TYPE_PAUSE_DOWNLOAD, this.f11173e);
         }
     }
 
@@ -219,7 +219,7 @@ public class a extends EventTargetImpl {
     public void resumeDownload() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            c.a.r0.j.u.a.f().a(AppRuntime.getAppContext(), SwanAppDownloadAction.SwanAppDownloadType.TYPE_RESUME_DOWNLOAD, this.f11031e);
+            c.a.r0.j.u.a.f().a(AppRuntime.getAppContext(), SwanAppDownloadAction.SwanAppDownloadType.TYPE_RESUME_DOWNLOAD, this.f11173e);
         }
     }
 
@@ -227,7 +227,7 @@ public class a extends EventTargetImpl {
     public void startDownload() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            c.a.r0.j.u.a.f().a(AppRuntime.getAppContext(), SwanAppDownloadAction.SwanAppDownloadType.TYPE_START_DOWNLOAD, this.f11031e);
+            c.a.r0.j.u.a.f().a(AppRuntime.getAppContext(), SwanAppDownloadAction.SwanAppDownloadType.TYPE_START_DOWNLOAD, this.f11173e);
         }
     }
 
@@ -235,24 +235,24 @@ public class a extends EventTargetImpl {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            this.f11033g = c.a.r0.j.u.a.f().getPackageName();
+            this.f11175g = c.a.r0.j.u.a.f().getPackageName();
             if (!c.a.r0.j.u.a.f().c()) {
                 c.a.r0.j.d.c.b bVar = new c.a.r0.j.d.c.b();
                 bVar.errMsg = "download url is empty";
-                c.a.r0.j.n0.c.call(this.f11032f, false, bVar);
-                z("reallyDownloadNull", this.f11033g);
+                c.a.r0.j.n0.c.call(this.f11174f, false, bVar);
+                z("reallyDownloadNull", this.f11175g);
                 return false;
-            } else if (A(AppRuntime.getAppContext(), this.f11033g)) {
+            } else if (A(AppRuntime.getAppContext(), this.f11175g)) {
                 c.a.r0.j.d.c.b bVar2 = new c.a.r0.j.d.c.b();
                 bVar2.errMsg = "apk has installed";
-                c.a.r0.j.n0.c.call(this.f11032f, false, bVar2);
-                z("reallyHasInstalled", this.f11033g);
+                c.a.r0.j.n0.c.call(this.f11174f, false, bVar2);
+                z("reallyHasInstalled", this.f11175g);
                 return false;
             } else {
                 c cVar = new c();
                 cVar.statusCode = 0;
-                cVar.packageName = this.f11033g;
-                c.a.r0.j.n0.c.call(this.f11032f, true, cVar);
+                cVar.packageName = this.f11175g;
+                c.a.r0.j.n0.c.call(this.f11174f, true, cVar);
                 return true;
             }
         }
@@ -263,7 +263,7 @@ public class a extends EventTargetImpl {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048585, this, str, str2) == null) {
             e eVar = new e();
-            eVar.f7977b = str;
+            eVar.f8119b = str;
             eVar.a = SwanFavorItemData.SCHEME_AUTHORITY_SWAN_GAME;
             eVar.a("targetPackageName", str2);
             n.g(eVar);

@@ -1,17 +1,17 @@
 package com.baidu.tieba.forumMember.member;
 
-import c.a.t0.b1.b.c;
-import c.a.t0.b1.b.d;
-import c.a.t0.b1.c.f;
-import c.a.t0.b1.c.g;
-import c.a.t0.b1.c.h;
-import c.a.t0.b1.c.i;
-import c.a.t0.b1.c.j;
-import c.a.t0.b1.c.k;
-import c.a.t0.b1.c.l;
-import c.a.t0.d1.f0;
-import c.a.t0.d1.g0;
-import c.a.t0.d1.n;
+import c.a.t0.c1.b.c;
+import c.a.t0.c1.b.d;
+import c.a.t0.c1.c.f;
+import c.a.t0.c1.c.g;
+import c.a.t0.c1.c.h;
+import c.a.t0.c1.c.i;
+import c.a.t0.c1.c.j;
+import c.a.t0.c1.c.k;
+import c.a.t0.c1.c.l;
+import c.a.t0.e1.f0;
+import c.a.t0.e1.g0;
+import c.a.t0.e1.n;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
@@ -61,12 +61,12 @@ public class FrsMemberStatic {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2003008 && (customResponsedMessage.getData() instanceof AbsDelegateAdapterList)) {
                 AbsDelegateAdapterList absDelegateAdapterList = (AbsDelegateAdapterList) customResponsedMessage.getData();
-                absDelegateAdapterList.add(new g(null, h.f15147h));
-                absDelegateAdapterList.add(new i(null, j.f15152g));
-                absDelegateAdapterList.add(new f(null, n.f16276g));
-                absDelegateAdapterList.add(new c.a.t0.b1.b.a(null, c.a.t0.b1.b.b.f15127f));
+                absDelegateAdapterList.add(new g(null, h.f15527h));
+                absDelegateAdapterList.add(new i(null, j.f15532g));
+                absDelegateAdapterList.add(new f(null, n.f16608g));
+                absDelegateAdapterList.add(new c.a.t0.c1.b.a(null, c.a.t0.c1.b.b.f15507f));
                 absDelegateAdapterList.add(new c(null, d.k));
-                absDelegateAdapterList.add(new k(null, l.f15156i));
+                absDelegateAdapterList.add(new k(null, l.f15536i));
             }
         }
     }
@@ -102,8 +102,8 @@ public class FrsMemberStatic {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2003011 && (customResponsedMessage.getData() instanceof f0)) {
                 f0 f0Var = (f0) customResponsedMessage.getData();
-                c.a.t0.b1.c.d dVar = new c.a.t0.b1.c.d();
-                dVar.E(f0Var.f16085e);
+                c.a.t0.c1.c.d dVar = new c.a.t0.c1.c.d();
+                dVar.E(f0Var.f16417e);
                 f0Var.a(3, dVar);
             }
         }

@@ -21,10 +21,10 @@ public class a {
     public static final boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static Boolean f6896b;
+    public static Boolean f7038b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static int f6897c;
+    public static int f7039c;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -42,7 +42,7 @@ public class a {
         }
         a = k.a;
         c.a.r0.a.c1.a.g0().getSwitch("swan_naview_slave_preload_type", 0);
-        f6897c = 0;
+        f7039c = 0;
     }
 
     public static boolean a() {
@@ -55,7 +55,7 @@ public class a {
                     if (a && c.a.r0.a.x1.a.a.Y()) {
                         return true;
                     }
-                    boolean z = f6897c != 0;
+                    boolean z = f7039c != 0;
                     if (a) {
                         String str = "isNARenderEnabled canUseNA: " + z;
                     }
@@ -103,12 +103,12 @@ public class a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            Boolean bool = f6896b;
+            Boolean bool = f7038b;
             if (bool != null) {
                 return bool.booleanValue();
             }
             Boolean valueOf = Boolean.valueOf(a());
-            f6896b = valueOf;
+            f7038b = valueOf;
             return valueOf.booleanValue();
         }
         return invokeV.booleanValue;
@@ -117,19 +117,19 @@ public class a {
     public static boolean e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? f6897c == 2 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? f7039c == 2 : invokeV.booleanValue;
     }
 
     public static boolean f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) ? f6897c == 1 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) ? f7039c == 1 : invokeV.booleanValue;
     }
 
     public static boolean g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) ? f6897c == 3 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) ? f7039c == 3 : invokeV.booleanValue;
     }
 
     public static boolean h(e eVar) {

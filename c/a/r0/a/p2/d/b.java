@@ -22,12 +22,12 @@ public class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final boolean f8354c;
+    public static final boolean f8496c;
     public transient /* synthetic */ FieldHolder $fh;
     public a a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f8355b;
+    public boolean f8497b;
 
     static {
         InterceptResult invokeClinit;
@@ -42,7 +42,7 @@ public class b {
                 return;
             }
         }
-        f8354c = k.a;
+        f8496c = k.a;
     }
 
     public b() {
@@ -66,24 +66,24 @@ public class b {
         if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
             synchronized (this) {
                 if (aVar != null) {
-                    if (!TextUtils.isEmpty(aVar.a) && !TextUtils.isEmpty(aVar.f8333c) && !TextUtils.isEmpty(aVar.f8332b)) {
-                        if (aVar.f8335e == -1) {
+                    if (!TextUtils.isEmpty(aVar.a) && !TextUtils.isEmpty(aVar.f8475c) && !TextUtils.isEmpty(aVar.f8474b)) {
+                        if (aVar.f8477e == -1) {
                             return;
                         }
                         SQLiteDatabase f2 = f();
                         if (f2 == null) {
                             return;
                         }
-                        if (f8354c) {
+                        if (f8496c) {
                             String str = "addCookie cookie=" + aVar.toString();
                         }
                         ContentValues contentValues = new ContentValues();
                         contentValues.put("domain", aVar.a);
-                        contentValues.put("path", aVar.f8332b);
-                        contentValues.put("name", aVar.f8333c);
-                        contentValues.put("value", aVar.f8334d);
-                        contentValues.put("expires", Long.valueOf(aVar.f8335e));
-                        contentValues.put(ClientCookie.SECURE_ATTR, Boolean.valueOf(aVar.f8336f));
+                        contentValues.put("path", aVar.f8474b);
+                        contentValues.put("name", aVar.f8475c);
+                        contentValues.put("value", aVar.f8476d);
+                        contentValues.put("expires", Long.valueOf(aVar.f8477e));
+                        contentValues.put(ClientCookie.SECURE_ATTR, Boolean.valueOf(aVar.f8478f));
                         f2.insert("cookies", null, contentValues);
                     }
                 }
@@ -99,7 +99,7 @@ public class b {
                 if (f2 == null) {
                     return;
                 }
-                boolean z = f8354c;
+                boolean z = f8496c;
                 f2.delete("cookies", "expires <= ?", new String[]{Long.toString(System.currentTimeMillis())});
             }
         }
@@ -113,10 +113,10 @@ public class b {
                     return;
                 }
                 try {
-                    boolean z = f8354c;
+                    boolean z = f8496c;
                     this.a.close();
                     this.a = null;
-                    this.f8355b = true;
+                    this.f8497b = true;
                 } catch (Exception e2) {
                     d.k("SwanCookieDatabase", "close fail:" + Log.getStackTraceString(e2));
                 }
@@ -135,7 +135,7 @@ public class b {
                 if (f2 == null) {
                     return;
                 }
-                if (f8354c) {
+                if (f8496c) {
                     String str4 = "deleteCookies domain=" + str + ";path=" + str2 + ";name=" + str3;
                 }
                 f2.delete("cookies", "(domain == ?) AND (path == ?) AND (name == ?)", new String[]{str, str2, str3});
@@ -148,7 +148,7 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
             synchronized (this) {
-                if (f8354c) {
+                if (f8496c) {
                     String str2 = "getCookiesForDomain baseDomain=" + str;
                 }
                 ArrayList<c.a.r0.a.p2.a> arrayList = new ArrayList<>();
@@ -174,19 +174,19 @@ public class b {
                     do {
                         c.a.r0.a.p2.a aVar = new c.a.r0.a.p2.a();
                         aVar.a = query.getString(columnIndex);
-                        aVar.f8332b = query.getString(columnIndex2);
-                        aVar.f8333c = query.getString(columnIndex3);
-                        aVar.f8334d = query.getString(columnIndex4);
+                        aVar.f8474b = query.getString(columnIndex2);
+                        aVar.f8475c = query.getString(columnIndex3);
+                        aVar.f8476d = query.getString(columnIndex4);
                         if (query.isNull(columnIndex5)) {
-                            aVar.f8335e = -1L;
+                            aVar.f8477e = -1L;
                         } else {
-                            aVar.f8335e = query.getLong(columnIndex5);
+                            aVar.f8477e = query.getLong(columnIndex5);
                         }
-                        aVar.f8336f = query.getShort(columnIndex6) != 0;
-                        aVar.f8339i = 1;
-                        if (aVar.f8335e > currentTimeMillis) {
+                        aVar.f8478f = query.getShort(columnIndex6) != 0;
+                        aVar.f8481i = 1;
+                        if (aVar.f8477e > currentTimeMillis) {
                             arrayList.add(aVar);
-                            if (f8354c) {
+                            if (f8496c) {
                                 String str3 = "getCookiesForDomain cookie=" + aVar.toString();
                             }
                         }
@@ -205,7 +205,7 @@ public class b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            if (this.f8355b) {
+            if (this.f8497b) {
                 return null;
             }
             a aVar = this.a;

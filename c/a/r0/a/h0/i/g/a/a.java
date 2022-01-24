@@ -14,10 +14,10 @@ public final class a {
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f6475b;
+    public String f6617b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f6476c;
+    public String f6618c;
 
     public a(String str, String str2, String str3) {
         Interceptable interceptable = $ic;
@@ -35,8 +35,8 @@ public final class a {
             }
         }
         this.a = str;
-        this.f6475b = str2;
-        this.f6476c = str3;
+        this.f6617b = str2;
+        this.f6618c = str3;
     }
 
     public static a a(String str, String str2, String str3) {
@@ -48,7 +48,7 @@ public final class a {
     public boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "1".equals(this.f6476c) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "1".equals(this.f6618c) : invokeV.booleanValue;
     }
 
     public boolean c() {
@@ -61,7 +61,7 @@ public final class a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return "JSErrorModel{mType='" + this.a + ExtendedMessageFormat.QUOTE + ", mContent='" + this.f6475b + ExtendedMessageFormat.QUOTE + ", mSource='" + this.f6476c + ExtendedMessageFormat.QUOTE + ExtendedMessageFormat.END_FE;
+            return "JSErrorModel{mType='" + this.a + ExtendedMessageFormat.QUOTE + ", mContent='" + this.f6617b + ExtendedMessageFormat.QUOTE + ", mSource='" + this.f6618c + ExtendedMessageFormat.QUOTE + ExtendedMessageFormat.END_FE;
         }
         return (String) invokeV.objValue;
     }

@@ -4,11 +4,11 @@ public class a {
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f56541b;
+    public String f56586b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f56542c;
+    public String f56587c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f56543d;
+    public String f56588d;
 }

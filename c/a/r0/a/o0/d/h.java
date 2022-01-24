@@ -16,14 +16,14 @@ public class h<T> extends b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final boolean f8042e;
+    public static final boolean f8184e;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c  reason: collision with root package name */
-    public T f8043c;
+    public T f8185c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f8044d;
+    public boolean f8186d;
 
     static {
         InterceptResult invokeClinit;
@@ -38,7 +38,7 @@ public class h<T> extends b {
                 return;
             }
         }
-        f8042e = k.a;
+        f8184e = k.a;
     }
 
     public h() {
@@ -54,7 +54,7 @@ public class h<T> extends b {
                 return;
             }
         }
-        this.f8044d = true;
+        this.f8186d = true;
         this.a = "message";
     }
 
@@ -62,14 +62,14 @@ public class h<T> extends b {
     public void m(Map<String, Object> map) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, map) == null) {
-            Object obj = this.f8043c;
+            Object obj = this.f8185c;
             if (obj instanceof String) {
                 String str = (String) obj;
-                if (this.f8044d) {
+                if (this.f8186d) {
                     str = Uri.encode(str);
                 }
-                if (f8042e) {
-                    String str2 = "mData: " + this.f8043c;
+                if (f8184e) {
+                    String str2 = "mData: " + this.f8185c;
                     String str3 = "encode mData: " + str;
                 }
                 map.put("message", str);

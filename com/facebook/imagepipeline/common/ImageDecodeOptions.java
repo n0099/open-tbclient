@@ -14,7 +14,7 @@ import com.facebook.imagepipeline.transformation.BitmapTransformation;
 import javax.annotation.Nullable;
 import javax.annotation.concurrent.Immutable;
 @Immutable
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class ImageDecodeOptions {
     public static /* synthetic */ Interceptable $ic;
     public static final ImageDecodeOptions DEFAULTS;

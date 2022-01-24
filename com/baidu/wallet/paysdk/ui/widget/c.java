@@ -16,25 +16,25 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.paysdk.datamodel.GetCardInfoResponse;
 import com.baidu.walletsdk.pay.R;
-/* loaded from: classes13.dex */
+/* loaded from: classes2.dex */
 public class c extends PopupWindow {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Context a;
 
     /* renamed from: b  reason: collision with root package name */
-    public View f52479b;
+    public View f52524b;
 
     /* renamed from: c  reason: collision with root package name */
-    public ImageView f52480c;
+    public ImageView f52525c;
 
     /* renamed from: d  reason: collision with root package name */
-    public LinearLayout f52481d;
+    public LinearLayout f52526d;
 
     /* renamed from: e  reason: collision with root package name */
-    public a f52482e;
+    public a f52527e;
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes2.dex */
     public interface a {
         void a(View view, GetCardInfoResponse.CertificateTypeInfo certificateTypeInfo, int i2);
     }
@@ -68,15 +68,15 @@ public class c extends PopupWindow {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65538, this) == null) {
             View inflate = LayoutInflater.from(this.a).inflate(R.layout.wallet_base_new_certificate_type_dialog, (ViewGroup) null);
-            this.f52479b = inflate;
-            this.f52481d = (LinearLayout) inflate.findViewById(R.id.lin_certificate_type_content);
-            this.f52480c = (ImageView) this.f52479b.findViewById(R.id.iv_certificate_type_close);
+            this.f52524b = inflate;
+            this.f52526d = (LinearLayout) inflate.findViewById(R.id.lin_certificate_type_content);
+            this.f52525c = (ImageView) this.f52524b.findViewById(R.id.iv_certificate_type_close);
             setTouchable(true);
             setFocusable(true);
             setOutsideTouchable(true);
             setWidth(((WindowManager) this.a.getSystemService("window")).getDefaultDisplay().getWidth());
             setBackgroundDrawable(null);
-            this.f52480c.setOnClickListener(new View.OnClickListener(this) { // from class: com.baidu.wallet.paysdk.ui.widget.c.1
+            this.f52525c.setOnClickListener(new View.OnClickListener(this) { // from class: com.baidu.wallet.paysdk.ui.widget.c.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ c a;
@@ -107,14 +107,14 @@ public class c extends PopupWindow {
                     }
                 }
             });
-            setContentView(this.f52479b);
+            setContentView(this.f52524b);
         }
     }
 
     public void a(GetCardInfoResponse.CertificateTypeInfo[] certificateTypeInfoArr) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, certificateTypeInfoArr) == null) {
-            this.f52481d.removeAllViews();
+            this.f52526d.removeAllViews();
             if (certificateTypeInfoArr == null || certificateTypeInfoArr.length <= 0) {
                 return;
             }
@@ -125,17 +125,17 @@ public class c extends PopupWindow {
                 if (i2 == certificateTypeInfoArr.length - 1) {
                     findViewById.setVisibility(8);
                 }
-                this.f52481d.addView(inflate);
+                this.f52526d.addView(inflate);
                 inflate.setOnClickListener(new View.OnClickListener(this, certificateTypeInfoArr, i2) { // from class: com.baidu.wallet.paysdk.ui.widget.c.2
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ GetCardInfoResponse.CertificateTypeInfo[] a;
 
                     /* renamed from: b  reason: collision with root package name */
-                    public final /* synthetic */ int f52483b;
+                    public final /* synthetic */ int f52528b;
 
                     /* renamed from: c  reason: collision with root package name */
-                    public final /* synthetic */ c f52484c;
+                    public final /* synthetic */ c f52529c;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -152,22 +152,22 @@ public class c extends PopupWindow {
                                 return;
                             }
                         }
-                        this.f52484c = this;
+                        this.f52529c = this;
                         this.a = certificateTypeInfoArr;
-                        this.f52483b = i2;
+                        this.f52528b = i2;
                     }
 
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
-                            if (this.f52484c.f52482e != null) {
-                                a aVar = this.f52484c.f52482e;
+                            if (this.f52529c.f52527e != null) {
+                                a aVar = this.f52529c.f52527e;
                                 GetCardInfoResponse.CertificateTypeInfo[] certificateTypeInfoArr2 = this.a;
-                                int i3 = this.f52483b;
+                                int i3 = this.f52528b;
                                 aVar.a(view, certificateTypeInfoArr2[i3], i3);
                             }
-                            this.f52484c.dismiss();
+                            this.f52529c.dismiss();
                         }
                     }
                 });
@@ -185,19 +185,19 @@ public class c extends PopupWindow {
     public void a(a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar) == null) {
-            this.f52482e = aVar;
+            this.f52527e = aVar;
         }
     }
 
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            LinearLayout linearLayout = this.f52481d;
+            LinearLayout linearLayout = this.f52526d;
             if (linearLayout != null) {
                 linearLayout.removeAllViews();
             }
             this.a = null;
-            this.f52482e = null;
+            this.f52527e = null;
         }
     }
 }

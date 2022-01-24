@@ -24,12 +24,12 @@ public class b {
 
     /* renamed from: c.a.m0.a.b$b  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static class C0200b {
+    public static class C0209b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public JSONObject a;
 
-        public C0200b(String str, String str2) {
+        public C0209b(String str, String str2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -49,7 +49,7 @@ public class b {
             D("material_url", str2);
         }
 
-        public C0200b A(int i2) {
+        public C0209b A(int i2) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) {
@@ -60,10 +60,10 @@ public class b {
                 }
                 return this;
             }
-            return (C0200b) invokeI.objValue;
+            return (C0209b) invokeI.objValue;
         }
 
-        public C0200b B(int i2) {
+        public C0209b B(int i2) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) {
@@ -74,10 +74,10 @@ public class b {
                 }
                 return this;
             }
-            return (C0200b) invokeI.objValue;
+            return (C0209b) invokeI.objValue;
         }
 
-        public C0200b C(JSONObject jSONObject) {
+        public C0209b C(JSONObject jSONObject) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject)) == null) {
@@ -88,7 +88,7 @@ public class b {
                 }
                 return this;
             }
-            return (C0200b) invokeL.objValue;
+            return (C0209b) invokeL.objValue;
         }
 
         public final void D(String str, String str2) {
@@ -108,7 +108,7 @@ public class b {
             return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? new b(this.a, null) : (b) invokeV.objValue;
         }
 
-        public C0200b b(int i2) {
+        public C0209b b(int i2) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i2)) == null) {
@@ -119,10 +119,10 @@ public class b {
                 }
                 return this;
             }
-            return (C0200b) invokeI.objValue;
+            return (C0209b) invokeI.objValue;
         }
 
-        public C0200b c(String str) {
+        public C0209b c(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) {
@@ -136,10 +136,10 @@ public class b {
                 }
                 return this;
             }
-            return (C0200b) invokeL.objValue;
+            return (C0209b) invokeL.objValue;
         }
 
-        public C0200b d(int i2) {
+        public C0209b d(int i2) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i2)) == null) {
@@ -150,10 +150,10 @@ public class b {
                 }
                 return this;
             }
-            return (C0200b) invokeI.objValue;
+            return (C0209b) invokeI.objValue;
         }
 
-        public C0200b e(int i2) {
+        public C0209b e(int i2) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2)) == null) {
@@ -164,10 +164,10 @@ public class b {
                 }
                 return this;
             }
-            return (C0200b) invokeI.objValue;
+            return (C0209b) invokeI.objValue;
         }
 
-        public C0200b f(int i2) {
+        public C0209b f(int i2) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeI = interceptable.invokeI(1048585, this, i2)) == null) {
@@ -178,10 +178,10 @@ public class b {
                 }
                 return this;
             }
-            return (C0200b) invokeI.objValue;
+            return (C0209b) invokeI.objValue;
         }
 
-        public C0200b g(int i2) {
+        public C0209b g(int i2) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeI = interceptable.invokeI(1048586, this, i2)) == null) {
@@ -192,10 +192,10 @@ public class b {
                 }
                 return this;
             }
-            return (C0200b) invokeI.objValue;
+            return (C0209b) invokeI.objValue;
         }
 
-        public C0200b h(int i2) {
+        public C0209b h(int i2) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeI = interceptable.invokeI(1048587, this, i2)) == null) {
@@ -206,10 +206,10 @@ public class b {
                 }
                 return this;
             }
-            return (C0200b) invokeI.objValue;
+            return (C0209b) invokeI.objValue;
         }
 
-        public C0200b i(boolean z) {
+        public C0209b i(boolean z) {
             InterceptResult invokeZ;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeZ = interceptable.invokeZ(1048588, this, z)) == null) {
@@ -220,20 +220,20 @@ public class b {
                 }
                 return this;
             }
-            return (C0200b) invokeZ.objValue;
+            return (C0209b) invokeZ.objValue;
         }
 
-        public C0200b j(String str) {
+        public C0209b j(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048589, this, str)) == null) {
                 D("gesture_lottie_url", str);
                 return this;
             }
-            return (C0200b) invokeL.objValue;
+            return (C0209b) invokeL.objValue;
         }
 
-        public C0200b k(int i2) {
+        public C0209b k(int i2) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeI = interceptable.invokeI(1048590, this, i2)) == null) {
@@ -244,10 +244,10 @@ public class b {
                 }
                 return this;
             }
-            return (C0200b) invokeI.objValue;
+            return (C0209b) invokeI.objValue;
         }
 
-        public C0200b l(int i2) {
+        public C0209b l(int i2) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeI = interceptable.invokeI(1048591, this, i2)) == null) {
@@ -258,10 +258,10 @@ public class b {
                 }
                 return this;
             }
-            return (C0200b) invokeI.objValue;
+            return (C0209b) invokeI.objValue;
         }
 
-        public C0200b m(int i2) {
+        public C0209b m(int i2) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeI = interceptable.invokeI(1048592, this, i2)) == null) {
@@ -272,10 +272,10 @@ public class b {
                 }
                 return this;
             }
-            return (C0200b) invokeI.objValue;
+            return (C0209b) invokeI.objValue;
         }
 
-        public C0200b n(int i2) {
+        public C0209b n(int i2) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeI = interceptable.invokeI(1048593, this, i2)) == null) {
@@ -286,10 +286,10 @@ public class b {
                 }
                 return this;
             }
-            return (C0200b) invokeI.objValue;
+            return (C0209b) invokeI.objValue;
         }
 
-        public C0200b o(boolean z) {
+        public C0209b o(boolean z) {
             InterceptResult invokeZ;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeZ = interceptable.invokeZ(1048594, this, z)) == null) {
@@ -300,10 +300,10 @@ public class b {
                 }
                 return this;
             }
-            return (C0200b) invokeZ.objValue;
+            return (C0209b) invokeZ.objValue;
         }
 
-        public C0200b p(JSONObject jSONObject) {
+        public C0209b p(JSONObject jSONObject) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048595, this, jSONObject)) == null) {
@@ -314,20 +314,20 @@ public class b {
                 }
                 return this;
             }
-            return (C0200b) invokeL.objValue;
+            return (C0209b) invokeL.objValue;
         }
 
-        public C0200b q(String str) {
+        public C0209b q(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048596, this, str)) == null) {
                 D("lottie_url", str);
                 return this;
             }
-            return (C0200b) invokeL.objValue;
+            return (C0209b) invokeL.objValue;
         }
 
-        public C0200b r(String str) {
+        public C0209b r(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048597, this, str)) == null) {
@@ -338,10 +338,10 @@ public class b {
                 }
                 return this;
             }
-            return (C0200b) invokeL.objValue;
+            return (C0209b) invokeL.objValue;
         }
 
-        public C0200b s(int i2) {
+        public C0209b s(int i2) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeI = interceptable.invokeI(1048598, this, i2)) == null) {
@@ -352,20 +352,20 @@ public class b {
                 }
                 return this;
             }
-            return (C0200b) invokeI.objValue;
+            return (C0209b) invokeI.objValue;
         }
 
-        public C0200b t(String str) {
+        public C0209b t(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048599, this, str)) == null) {
                 D("prod", str);
                 return this;
             }
-            return (C0200b) invokeL.objValue;
+            return (C0209b) invokeL.objValue;
         }
 
-        public C0200b u(boolean z) {
+        public C0209b u(boolean z) {
             InterceptResult invokeZ;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeZ = interceptable.invokeZ(1048600, this, z)) == null) {
@@ -376,10 +376,10 @@ public class b {
                 }
                 return this;
             }
-            return (C0200b) invokeZ.objValue;
+            return (C0209b) invokeZ.objValue;
         }
 
-        public C0200b v(boolean z) {
+        public C0209b v(boolean z) {
             InterceptResult invokeZ;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeZ = interceptable.invokeZ(1048601, this, z)) == null) {
@@ -390,10 +390,10 @@ public class b {
                 }
                 return this;
             }
-            return (C0200b) invokeZ.objValue;
+            return (C0209b) invokeZ.objValue;
         }
 
-        public C0200b w(int i2) {
+        public C0209b w(int i2) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeI = interceptable.invokeI(1048602, this, i2)) == null) {
@@ -404,10 +404,10 @@ public class b {
                 }
                 return this;
             }
-            return (C0200b) invokeI.objValue;
+            return (C0209b) invokeI.objValue;
         }
 
-        public C0200b x(int i2) {
+        public C0209b x(int i2) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeI = interceptable.invokeI(1048603, this, i2)) == null) {
@@ -418,10 +418,10 @@ public class b {
                 }
                 return this;
             }
-            return (C0200b) invokeI.objValue;
+            return (C0209b) invokeI.objValue;
         }
 
-        public C0200b y(int i2) {
+        public C0209b y(int i2) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeI = interceptable.invokeI(1048604, this, i2)) == null) {
@@ -432,10 +432,10 @@ public class b {
                 }
                 return this;
             }
-            return (C0200b) invokeI.objValue;
+            return (C0209b) invokeI.objValue;
         }
 
-        public C0200b z(int i2) {
+        public C0209b z(int i2) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeI = interceptable.invokeI(1048605, this, i2)) == null) {
@@ -446,7 +446,7 @@ public class b {
                 }
                 return this;
             }
-            return (C0200b) invokeI.objValue;
+            return (C0209b) invokeI.objValue;
         }
     }
 

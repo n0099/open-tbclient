@@ -130,22 +130,22 @@ public class SwanAppDownloadAction extends z {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f39391e;
+        public final /* synthetic */ CallbackHandler f39419e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ UnitedSchemeEntity f39392f;
+        public final /* synthetic */ UnitedSchemeEntity f39420f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ Context f39393g;
+        public final /* synthetic */ Context f39421g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ JSONObject f39394h;
+        public final /* synthetic */ JSONObject f39422h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final /* synthetic */ SwanAppDownloadType f39395i;
+        public final /* synthetic */ SwanAppDownloadType f39423i;
 
         /* renamed from: j  reason: collision with root package name */
-        public final /* synthetic */ SwanAppDownloadAction f39396j;
+        public final /* synthetic */ SwanAppDownloadAction f39424j;
 
         public a(SwanAppDownloadAction swanAppDownloadAction, CallbackHandler callbackHandler, UnitedSchemeEntity unitedSchemeEntity, Context context, JSONObject jSONObject, SwanAppDownloadType swanAppDownloadType) {
             Interceptable interceptable = $ic;
@@ -162,12 +162,12 @@ public class SwanAppDownloadAction extends z {
                     return;
                 }
             }
-            this.f39396j = swanAppDownloadAction;
-            this.f39391e = callbackHandler;
-            this.f39392f = unitedSchemeEntity;
-            this.f39393g = context;
-            this.f39394h = jSONObject;
-            this.f39395i = swanAppDownloadType;
+            this.f39424j = swanAppDownloadAction;
+            this.f39419e = callbackHandler;
+            this.f39420f = unitedSchemeEntity;
+            this.f39421g = context;
+            this.f39422h = jSONObject;
+            this.f39423i = swanAppDownloadType;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -177,13 +177,13 @@ public class SwanAppDownloadAction extends z {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, iVar) == null) {
                 if (d.h(iVar)) {
-                    if (this.f39396j.k(this.f39393g, this.f39392f, this.f39391e, this.f39394h, this.f39395i)) {
+                    if (this.f39424j.k(this.f39421g, this.f39420f, this.f39419e, this.f39422h, this.f39423i)) {
                         return;
                     }
-                    UnitedSchemeUtility.callCallback(this.f39391e, this.f39392f, UnitedSchemeUtility.wrapCallbackParams(1001));
+                    UnitedSchemeUtility.callCallback(this.f39419e, this.f39420f, UnitedSchemeUtility.wrapCallbackParams(1001));
                     return;
                 }
-                d.p(iVar, this.f39391e, this.f39392f);
+                d.p(iVar, this.f39419e, this.f39420f);
             }
         }
     }

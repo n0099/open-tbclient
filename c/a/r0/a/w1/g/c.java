@@ -52,12 +52,12 @@ public class c extends c.a.r0.a.w1.g.b implements Cloneable {
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cVar)) == null) {
                 c cVar2 = new c();
                 cVar2.k = cVar.g();
-                cVar2.f9546f = cVar.g();
-                cVar2.f9547g = cVar.readLong();
-                cVar2.f9545e = cVar.g();
-                cVar2.f9548h = cVar.readInt();
-                cVar2.f9549i = cVar.g();
-                cVar2.f9550j = cVar.g();
+                cVar2.f9688f = cVar.g();
+                cVar2.f9689g = cVar.readLong();
+                cVar2.f9687e = cVar.g();
+                cVar2.f9690h = cVar.readInt();
+                cVar2.f9691i = cVar.g();
+                cVar2.f9692j = cVar.g();
                 return cVar2;
             }
             return (c) invokeL.objValue;
@@ -90,12 +90,12 @@ public class c extends c.a.r0.a.w1.g.b implements Cloneable {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cVar, dVar) == null) {
                 dVar.f(cVar.k);
-                dVar.f(cVar.f9546f);
-                dVar.writeLong(cVar.f9547g);
-                dVar.f(cVar.f9545e);
-                dVar.writeInt(cVar.f9548h);
-                dVar.f(cVar.f9549i);
-                dVar.f(cVar.f9550j);
+                dVar.f(cVar.f9688f);
+                dVar.writeLong(cVar.f9689g);
+                dVar.f(cVar.f9687e);
+                dVar.writeInt(cVar.f9690h);
+                dVar.f(cVar.f9691i);
+                dVar.f(cVar.f9692j);
             }
         }
     }
@@ -134,7 +134,7 @@ public class c extends c.a.r0.a.w1.g.b implements Cloneable {
     public boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? !TextUtils.isEmpty(this.f9545e) && (this.f9547g >= 0 || !TextUtils.isEmpty(this.f9546f)) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? !TextUtils.isEmpty(this.f9687e) && (this.f9689g >= 0 || !TextUtils.isEmpty(this.f9688f)) : invokeV.booleanValue;
     }
 
     public Object clone() throws CloneNotSupportedException {
@@ -147,7 +147,7 @@ public class c extends c.a.r0.a.w1.g.b implements Cloneable {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return "SwanPluginModel{pluginAlias='" + this.k + ExtendedMessageFormat.QUOTE + ", versionName='" + this.f9546f + ExtendedMessageFormat.QUOTE + ", versionCode='" + this.f9547g + ExtendedMessageFormat.QUOTE + ", libName='" + this.f9545e + ExtendedMessageFormat.QUOTE + ", category=" + this.f9548h + ", libPath='" + this.f9549i + ExtendedMessageFormat.QUOTE + ", libConfig='" + this.f9550j + ExtendedMessageFormat.QUOTE + ExtendedMessageFormat.END_FE;
+            return "SwanPluginModel{pluginAlias='" + this.k + ExtendedMessageFormat.QUOTE + ", versionName='" + this.f9688f + ExtendedMessageFormat.QUOTE + ", versionCode='" + this.f9689g + ExtendedMessageFormat.QUOTE + ", libName='" + this.f9687e + ExtendedMessageFormat.QUOTE + ", category=" + this.f9690h + ", libPath='" + this.f9691i + ExtendedMessageFormat.QUOTE + ", libConfig='" + this.f9692j + ExtendedMessageFormat.QUOTE + ExtendedMessageFormat.END_FE;
         }
         return (String) invokeV.objValue;
     }
@@ -170,11 +170,11 @@ public class c extends c.a.r0.a.w1.g.b implements Cloneable {
         if (jSONObject == null) {
             return;
         }
-        this.f9546f = jSONObject.optString("version");
-        this.f9547g = jSONObject.optLong("version_code", -1L);
-        this.f9545e = jSONObject.optString("provider");
-        this.f9549i = jSONObject.optString("path");
-        this.f9550j = jSONObject.optString(UpdateCloudControlProcessor.CLOUD_UPDATE_ACTION_NAME);
-        this.f9548h = i2;
+        this.f9688f = jSONObject.optString("version");
+        this.f9689g = jSONObject.optLong("version_code", -1L);
+        this.f9687e = jSONObject.optString("provider");
+        this.f9691i = jSONObject.optString("path");
+        this.f9692j = jSONObject.optString(UpdateCloudControlProcessor.CLOUD_UPDATE_ACTION_NAME);
+        this.f9690h = i2;
     }
 }

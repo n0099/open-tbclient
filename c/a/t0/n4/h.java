@@ -21,13 +21,13 @@ public class h implements View.OnTouchListener {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final Spannable f19853e;
+    public final Spannable f19954e;
 
     /* renamed from: f  reason: collision with root package name */
-    public c.a.s0.g1.n.f f19854f;
+    public c.a.s0.f1.n.f f19955f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f19855g;
+    public int f19956g;
 
     public h(Spannable spannable) {
         Interceptable interceptable = $ic;
@@ -44,31 +44,31 @@ public class h implements View.OnTouchListener {
                 return;
             }
         }
-        this.f19854f = null;
-        this.f19855g = 0;
-        this.f19853e = spannable;
+        this.f19955f = null;
+        this.f19956g = 0;
+        this.f19954e = spannable;
     }
 
     public void a(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
-            this.f19855g = i2;
+            this.f19956g = i2;
         }
     }
 
     @Override // android.view.View.OnTouchListener
     public boolean onTouch(View view, MotionEvent motionEvent) {
         InterceptResult invokeLL;
-        c.a.s0.g1.n.f fVar;
+        c.a.s0.f1.n.f fVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view, motionEvent)) == null) {
             int action = motionEvent.getAction();
             if (view instanceof TextView) {
                 TextView textView = (TextView) view;
-                if (action == 3 && (fVar = this.f19854f) != null) {
+                if (action == 3 && (fVar = this.f19955f) != null) {
                     fVar.g(TbadkCoreApplication.getInst().getResources().getColor(R.color.transparent));
                     view.invalidate();
-                    this.f19854f = null;
+                    this.f19955f = null;
                     return false;
                 }
                 if (action == 1 || action == 0) {
@@ -79,21 +79,21 @@ public class h implements View.OnTouchListener {
                         return false;
                     }
                     int offsetForHorizontal = layout.getOffsetForHorizontal(layout.getLineForVertical((y - textView.getTotalPaddingTop()) + textView.getScrollY()), (x - textView.getTotalPaddingLeft()) + textView.getScrollX());
-                    Spannable spannable = this.f19853e;
+                    Spannable spannable = this.f19954e;
                     if (spannable == null) {
                         return false;
                     }
-                    c.a.s0.g1.n.f[] fVarArr = (c.a.s0.g1.n.f[]) spannable.getSpans(offsetForHorizontal, offsetForHorizontal, c.a.s0.g1.n.f.class);
+                    c.a.s0.f1.n.f[] fVarArr = (c.a.s0.f1.n.f[]) spannable.getSpans(offsetForHorizontal, offsetForHorizontal, c.a.s0.f1.n.f.class);
                     if (fVarArr != null && fVarArr.length != 0 && fVarArr[0] != null) {
                         if (action == 1) {
                             fVarArr[0].g(TbadkCoreApplication.getInst().getResources().getColor(R.color.transparent));
                             fVarArr[0].onClick(textView);
                             view.invalidate();
                         } else {
-                            c.a.s0.g1.n.f fVar2 = fVarArr[0];
-                            this.f19854f = fVar2;
+                            c.a.s0.f1.n.f fVar2 = fVarArr[0];
+                            this.f19955f = fVar2;
                             if (fVar2.e()) {
-                                int i2 = this.f19855g;
+                                int i2 = this.f19956g;
                                 if (i2 != 0) {
                                     fVarArr[0].g(SkinManager.getColor(i2));
                                 } else if (TbadkCoreApplication.getInst().getSkinType() == 1) {
@@ -102,18 +102,18 @@ public class h implements View.OnTouchListener {
                                     fVarArr[0].g(SkinManager.getColor(R.color.cp_bg_line_z));
                                 }
                             }
-                            Spannable spannable2 = this.f19853e;
-                            Selection.setSelection(spannable2, spannable2.getSpanStart(fVarArr[0]), this.f19853e.getSpanEnd(fVarArr[0]));
+                            Spannable spannable2 = this.f19954e;
+                            Selection.setSelection(spannable2, spannable2.getSpanStart(fVarArr[0]), this.f19954e.getSpanEnd(fVarArr[0]));
                             view.invalidate();
                         }
                         return true;
                     }
-                    c.a.s0.g1.n.f fVar3 = this.f19854f;
+                    c.a.s0.f1.n.f fVar3 = this.f19955f;
                     if (fVar3 != null) {
                         fVar3.g(TbadkCoreApplication.getInst().getResources().getColor(R.color.transparent));
                         view.invalidate();
                     }
-                    Selection.removeSelection(this.f19853e);
+                    Selection.removeSelection(this.f19954e);
                 }
                 return false;
             }

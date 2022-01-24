@@ -21,7 +21,7 @@ public class c implements c.a.r0.a.h0.q.c.a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final boolean f6846b;
+    public static final boolean f6988b;
     public transient /* synthetic */ FieldHolder $fh;
     public final g a;
 
@@ -53,7 +53,7 @@ public class c implements c.a.r0.a.h0.q.c.a {
                 if (!a && ProcessUtils.isMainProcess()) {
                     a = true;
                     new g("swan_prelink_by_preload_recorder").clear().apply();
-                    boolean unused = c.f6846b;
+                    boolean unused = c.f6988b;
                 }
                 return null;
             }
@@ -74,7 +74,7 @@ public class c implements c.a.r0.a.h0.q.c.a {
                 return;
             }
         }
-        f6846b = k.a;
+        f6988b = k.a;
     }
 
     public c() {
@@ -102,7 +102,7 @@ public class c implements c.a.r0.a.h0.q.c.a {
             if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
                 return null;
             }
-            if (f6846b) {
+            if (f6988b) {
                 String str3 = "get record : appId-" + str + ", url-" + str2;
             }
             String string = this.a.getString(e(str, str2), "");
@@ -110,7 +110,7 @@ public class c implements c.a.r0.a.h0.q.c.a {
                 return null;
             }
             b g2 = g(string, str, str2);
-            if (f6846b) {
+            if (f6988b) {
                 String str4 = "find record - " + string;
             }
             return g2;
@@ -124,7 +124,7 @@ public class c implements c.a.r0.a.h0.q.c.a {
         if (!(interceptable == null || interceptable.invokeLLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2, z) == null) || TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
             return;
         }
-        if (f6846b) {
+        if (f6988b) {
             String str3 = "record : appId-" + str + ", url-" + str2;
         }
         String e2 = e(str, str2);
@@ -146,7 +146,7 @@ public class c implements c.a.r0.a.h0.q.c.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, str, str2)) == null) {
             String str3 = str + "_##_" + str2.hashCode();
-            if (f6846b) {
+            if (f6988b) {
                 String str4 = "generateKey - " + str3;
             }
             return str3;
@@ -159,7 +159,7 @@ public class c implements c.a.r0.a.h0.q.c.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, str, str2)) == null) {
             String str3 = ProcessUtils.getCurProcessName() + "_##_" + System.currentTimeMillis();
-            if (f6846b) {
+            if (f6988b) {
                 String str4 = "generateValue - " + str3;
             }
             return str3;
@@ -177,7 +177,7 @@ public class c implements c.a.r0.a.h0.q.c.a {
             }
             b bVar = new b();
             bVar.a = split[0];
-            bVar.f6845b = h(split[1]);
+            bVar.f6987b = h(split[1]);
             return bVar;
         }
         return (b) invokeLLL.objValue;
@@ -193,7 +193,7 @@ public class c implements c.a.r0.a.h0.q.c.a {
             try {
                 return Long.parseLong(str);
             } catch (Exception e2) {
-                if (f6846b) {
+                if (f6988b) {
                     e2.printStackTrace();
                 }
                 return 0L;

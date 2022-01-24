@@ -50,7 +50,7 @@ import java.util.HashMap;
 import java.util.List;
 import org.webrtc.MediaStreamTrack;
 /* loaded from: classes13.dex */
-public class VideoMuxer implements d.b, OnGenFilterVideoListener, a.InterfaceC1974a {
+public class VideoMuxer implements d.b, OnGenFilterVideoListener, a.InterfaceC1980a {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String FILTER_TEMP_DIR_PREFIX = "video_addfilter_";
     public static int MAX_RETRY_COUNT = 2;
@@ -1538,7 +1538,7 @@ public class VideoMuxer implements d.b, OnGenFilterVideoListener, a.InterfaceC19
         combineAudioFinish();
     }
 
-    @Override // com.baidu.ugc.editvideo.editvideo.muxer.a.InterfaceC1974a
+    @Override // com.baidu.ugc.editvideo.editvideo.muxer.a.InterfaceC1980a
     public void onAudioVideoMuxerCancel() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
@@ -1547,7 +1547,7 @@ public class VideoMuxer implements d.b, OnGenFilterVideoListener, a.InterfaceC19
         }
     }
 
-    @Override // com.baidu.ugc.editvideo.editvideo.muxer.a.InterfaceC1974a
+    @Override // com.baidu.ugc.editvideo.editvideo.muxer.a.InterfaceC1980a
     public void onAudioVideoMuxerFail(c.a.a1.m.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, aVar) == null) {
@@ -1558,7 +1558,7 @@ public class VideoMuxer implements d.b, OnGenFilterVideoListener, a.InterfaceC19
         }
     }
 
-    @Override // com.baidu.ugc.editvideo.editvideo.muxer.a.InterfaceC1974a
+    @Override // com.baidu.ugc.editvideo.editvideo.muxer.a.InterfaceC1980a
     public void onAudioVideoMuxerFinish(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {

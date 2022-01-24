@@ -22,10 +22,10 @@ public abstract class d extends b implements e {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: i  reason: collision with root package name */
-    public final g f19238i;
+    public final g f19501i;
 
     /* renamed from: j  reason: collision with root package name */
-    public final Comparator<c.b.a.a.d> f19239j;
+    public final Comparator<c.b.a.a.d> f19502j;
     public final List<c.b.a.a.d> k;
     public boolean l;
 
@@ -59,15 +59,15 @@ public abstract class d extends b implements e {
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, engine) == null) {
             Intrinsics.checkNotNullParameter(engine, "engine");
             this.k.clear();
-            c.b.a.c.b<c.b.a.a.d> newEntities = engine.j(this.f19238i);
+            c.b.a.c.b<c.b.a.a.d> newEntities = engine.j(this.f19501i);
             if (newEntities.size() > 0) {
                 List<c.b.a.a.d> list = this.k;
                 Intrinsics.checkNotNullExpressionValue(newEntities, "newEntities");
                 CollectionsKt__MutableCollectionsKt.addAll(list, newEntities);
             }
-            CollectionsKt__MutableCollectionsJVMKt.sortWith(this.k, this.f19239j);
+            CollectionsKt__MutableCollectionsJVMKt.sortWith(this.k, this.f19502j);
             this.l = false;
-            engine.f(this.f19238i, this);
+            engine.f(this.f19501i, this);
         }
     }
 
@@ -105,7 +105,7 @@ public abstract class d extends b implements e {
     public final void m() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048583, this) == null) && this.l) {
-            CollectionsKt__MutableCollectionsJVMKt.sortWith(this.k, this.f19239j);
+            CollectionsKt__MutableCollectionsJVMKt.sortWith(this.k, this.f19502j);
             this.l = false;
         }
     }
@@ -142,8 +142,8 @@ public abstract class d extends b implements e {
         Intrinsics.checkNotNullParameter(context, "context");
         Intrinsics.checkNotNullParameter(family, "family");
         Intrinsics.checkNotNullParameter(comparator, "comparator");
-        this.f19238i = family;
-        this.f19239j = comparator;
+        this.f19501i = family;
+        this.f19502j = comparator;
         this.k = new ArrayList();
     }
 }

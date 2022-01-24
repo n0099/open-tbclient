@@ -19,7 +19,7 @@ import java.util.Locale;
 import java.util.Map;
 import org.apache.commons.lang3.ObjectUtils;
 import org.apache.commons.lang3.Validate;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class ExtendedMessageFormat extends MessageFormat {
     public static final /* synthetic */ boolean $assertionsDisabled = false;
     public static /* synthetic */ Interceptable $ic = null;

@@ -12,7 +12,7 @@ public class m5 implements View.OnClickListener {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final /* synthetic */ CloseParentView f30382e;
+    public final /* synthetic */ CloseParentView f30410e;
 
     public m5(CloseParentView closeParentView) {
         Interceptable interceptable = $ic;
@@ -29,14 +29,14 @@ public class m5 implements View.OnClickListener {
                 return;
             }
         }
-        this.f30382e = closeParentView;
+        this.f30410e = closeParentView;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-            this.f30382e.a();
+            this.f30410e.a();
         }
     }
 }

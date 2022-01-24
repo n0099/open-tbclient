@@ -16,32 +16,32 @@ public class bp implements com.kwad.sdk.core.d<e.a> {
         if (jSONObject.opt("SDKVersion") == JSONObject.NULL) {
             aVar.a = "";
         }
-        aVar.f56367b = jSONObject.optInt("SDKVersionCode");
-        aVar.f56368c = jSONObject.optString("sdkApiVersion");
+        aVar.f56412b = jSONObject.optInt("SDKVersionCode");
+        aVar.f56413c = jSONObject.optString("sdkApiVersion");
         if (jSONObject.opt("sdkApiVersion") == JSONObject.NULL) {
-            aVar.f56368c = "";
+            aVar.f56413c = "";
         }
-        aVar.f56369d = jSONObject.optInt("sdkApiVersionCode");
-        aVar.f56370e = jSONObject.optInt("sdkType");
-        aVar.f56371f = jSONObject.optString("appVersion");
+        aVar.f56414d = jSONObject.optInt("sdkApiVersionCode");
+        aVar.f56415e = jSONObject.optInt("sdkType");
+        aVar.f56416f = jSONObject.optString("appVersion");
         if (jSONObject.opt("appVersion") == JSONObject.NULL) {
-            aVar.f56371f = "";
+            aVar.f56416f = "";
         }
-        aVar.f56372g = jSONObject.optString("appName");
+        aVar.f56417g = jSONObject.optString("appName");
         if (jSONObject.opt("appName") == JSONObject.NULL) {
-            aVar.f56372g = "";
+            aVar.f56417g = "";
         }
-        aVar.f56373h = jSONObject.optString(BaseActivity.EXTRA_PARAM_THIRD_VERIFY_APP_ID);
+        aVar.f56418h = jSONObject.optString(BaseActivity.EXTRA_PARAM_THIRD_VERIFY_APP_ID);
         if (jSONObject.opt(BaseActivity.EXTRA_PARAM_THIRD_VERIFY_APP_ID) == JSONObject.NULL) {
-            aVar.f56373h = "";
+            aVar.f56418h = "";
         }
-        aVar.f56374i = jSONObject.optString("globalId");
+        aVar.f56419i = jSONObject.optString("globalId");
         if (jSONObject.opt("globalId") == JSONObject.NULL) {
-            aVar.f56374i = "";
+            aVar.f56419i = "";
         }
-        aVar.f56375j = jSONObject.optString("eGid");
+        aVar.f56420j = jSONObject.optString("eGid");
         if (jSONObject.opt("eGid") == JSONObject.NULL) {
-            aVar.f56375j = "";
+            aVar.f56420j = "";
         }
         aVar.k = jSONObject.optString("deviceSig");
         if (jSONObject.opt("deviceSig") == JSONObject.NULL) {
@@ -110,15 +110,15 @@ public class bp implements com.kwad.sdk.core.d<e.a> {
             jSONObject = new JSONObject();
         }
         com.kwad.sdk.utils.t.a(jSONObject, "SDKVersion", aVar.a);
-        com.kwad.sdk.utils.t.a(jSONObject, "SDKVersionCode", aVar.f56367b);
-        com.kwad.sdk.utils.t.a(jSONObject, "sdkApiVersion", aVar.f56368c);
-        com.kwad.sdk.utils.t.a(jSONObject, "sdkApiVersionCode", aVar.f56369d);
-        com.kwad.sdk.utils.t.a(jSONObject, "sdkType", aVar.f56370e);
-        com.kwad.sdk.utils.t.a(jSONObject, "appVersion", aVar.f56371f);
-        com.kwad.sdk.utils.t.a(jSONObject, "appName", aVar.f56372g);
-        com.kwad.sdk.utils.t.a(jSONObject, BaseActivity.EXTRA_PARAM_THIRD_VERIFY_APP_ID, aVar.f56373h);
-        com.kwad.sdk.utils.t.a(jSONObject, "globalId", aVar.f56374i);
-        com.kwad.sdk.utils.t.a(jSONObject, "eGid", aVar.f56375j);
+        com.kwad.sdk.utils.t.a(jSONObject, "SDKVersionCode", aVar.f56412b);
+        com.kwad.sdk.utils.t.a(jSONObject, "sdkApiVersion", aVar.f56413c);
+        com.kwad.sdk.utils.t.a(jSONObject, "sdkApiVersionCode", aVar.f56414d);
+        com.kwad.sdk.utils.t.a(jSONObject, "sdkType", aVar.f56415e);
+        com.kwad.sdk.utils.t.a(jSONObject, "appVersion", aVar.f56416f);
+        com.kwad.sdk.utils.t.a(jSONObject, "appName", aVar.f56417g);
+        com.kwad.sdk.utils.t.a(jSONObject, BaseActivity.EXTRA_PARAM_THIRD_VERIFY_APP_ID, aVar.f56418h);
+        com.kwad.sdk.utils.t.a(jSONObject, "globalId", aVar.f56419i);
+        com.kwad.sdk.utils.t.a(jSONObject, "eGid", aVar.f56420j);
         com.kwad.sdk.utils.t.a(jSONObject, "deviceSig", aVar.k);
         com.kwad.sdk.utils.t.a(jSONObject, "networkType", aVar.l);
         com.kwad.sdk.utils.t.a(jSONObject, HttpConstants.HTTP_MANUFACTURER, aVar.m);

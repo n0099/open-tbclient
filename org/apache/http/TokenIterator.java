@@ -2,7 +2,7 @@ package org.apache.http;
 
 import java.util.Iterator;
 @Deprecated
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public interface TokenIterator extends Iterator {
     @Override // java.util.Iterator
     boolean hasNext();

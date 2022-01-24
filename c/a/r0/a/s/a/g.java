@@ -17,7 +17,7 @@ public final class g {
     public static String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final g f8740b;
+    public static final g f8882b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -33,7 +33,7 @@ public final class g {
                 return;
             }
         }
-        f8740b = new g();
+        f8882b = new g();
     }
 
     public g() {

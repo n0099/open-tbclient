@@ -17,17 +17,17 @@ public abstract class a extends c.a.j.h.c.a.a<TaskBuoyViewData, TaskBuoyViewMode
     public TaskBuoyViewModel a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final c.a.j.h.c.a.d f3815b;
+    public final c.a.j.h.c.a.d f3956b;
 
     /* renamed from: c.a.j.e.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static final class C0161a implements c.a.j.h.c.a.d {
+    public static final class C0170a implements c.a.j.h.c.a.d {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ a a;
 
         /* JADX DEBUG: Incorrect args count in method signature: ()V */
-        public C0161a(a aVar) {
+        public C0170a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -87,13 +87,13 @@ public abstract class a extends c.a.j.h.c.a.a<TaskBuoyViewData, TaskBuoyViewMode
                 return;
             }
         }
-        this.f3815b = new C0161a(this);
+        this.f3956b = new C0170a(this);
     }
 
     public c.a.j.h.c.a.d c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f3815b : (c.a.j.h.c.a.d) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f3956b : (c.a.j.h.c.a.d) invokeV.objValue;
     }
 
     @CallSuper

@@ -21,10 +21,10 @@ public class a extends b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final boolean f6852b;
+    public static final boolean f6994b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f6853c;
+    public static final String f6995c;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -40,8 +40,8 @@ public class a extends b {
                 return;
             }
         }
-        f6852b = k.a;
-        f6853c = "swan_preset" + File.separator + "preset_list.json";
+        f6994b = k.a;
+        f6995c = "swan_preset" + File.separator + "preset_list.json";
     }
 
     public a() {
@@ -67,16 +67,16 @@ public class a extends b {
                 return false;
             }
             Context appContext = AppRuntime.getAppContext();
-            String str = "swan_preset" + File.separator + cVar.f11494g + File.separator + cVar.q;
+            String str = "swan_preset" + File.separator + cVar.f11636g + File.separator + cVar.q;
             try {
-                File j2 = j(cVar.f11495h, cVar.f11494g, cVar.f11496i);
+                File j2 = j(cVar.f11637h, cVar.f11636g, cVar.f11638i);
                 if (j2 == null) {
-                    boolean z = f6852b;
+                    boolean z = f6994b;
                     return false;
                 }
                 return n(new BufferedInputStream(appContext.getAssets().open(str)), j2);
             } catch (IOException e2) {
-                if (f6852b) {
+                if (f6994b) {
                     e2.printStackTrace();
                 }
                 return false;
@@ -100,6 +100,6 @@ public class a extends b {
     public String i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? h.b(c.a.r0.a.c1.a.c(), f6853c) : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? h.b(c.a.r0.a.c1.a.c(), f6995c) : (String) invokeV.objValue;
     }
 }

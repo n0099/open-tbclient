@@ -15,7 +15,7 @@ public final class l implements Runnable {
     public final /* synthetic */ List a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ k f60769b;
+    public final /* synthetic */ k f60814b;
 
     public l(k kVar, List list) {
         Interceptable interceptable = $ic;
@@ -32,7 +32,7 @@ public final class l implements Runnable {
                 return;
             }
         }
-        this.f60769b = kVar;
+        this.f60814b = kVar;
         this.a = list;
     }
 
@@ -47,17 +47,17 @@ public final class l implements Runnable {
         r.a aVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            insideNotificationItem = this.f60769b.f60764b;
+            insideNotificationItem = this.f60814b.f60809b;
             if (insideNotificationItem != null) {
                 x b2 = x.b();
-                j2 = this.f60769b.f60765c;
+                j2 = this.f60814b.f60810c;
                 b2.a("com.vivo.push.notify_key", j2);
-                context = this.f60769b.a;
+                context = this.f60814b.a;
                 List list = this.a;
-                insideNotificationItem2 = this.f60769b.f60764b;
-                j3 = this.f60769b.f60765c;
-                i2 = this.f60769b.f60767e;
-                aVar = this.f60769b.f60768f;
+                insideNotificationItem2 = this.f60814b.f60809b;
+                j3 = this.f60814b.f60810c;
+                i2 = this.f60814b.f60812e;
+                aVar = this.f60814b.f60813f;
                 NotifyAdapterUtil.pushNotification(context, list, insideNotificationItem2, j3, i2, aVar);
             }
         }

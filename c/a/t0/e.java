@@ -32,11 +32,11 @@ public class e implements c.a.k0.b.b.b<c.a.s0.j0.d.a> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: b  reason: collision with root package name */
-        public HotTopicDetailModel f17109b;
+        public HotTopicDetailModel f15967b;
         @Nullable
 
         /* renamed from: c  reason: collision with root package name */
-        public a.InterfaceC0854a f17110c;
+        public a.InterfaceC0863a f15968c;
 
         public b() {
             Interceptable interceptable = $ic;
@@ -58,9 +58,9 @@ public class e implements c.a.k0.b.b.b<c.a.s0.j0.d.a> {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{tbPageContext, Long.valueOf(j2), str})) == null) {
                 HotTopicDetailModel hotTopicDetailModel = new HotTopicDetailModel(tbPageContext);
-                this.f17109b = hotTopicDetailModel;
+                this.f15967b = hotTopicDetailModel;
                 hotTopicDetailModel.L(j2, str);
-                this.f17109b.K(this);
+                this.f15967b.K(this);
                 return this;
             }
             return (c.a.s0.j0.d.a) invokeCommon.objValue;
@@ -70,37 +70,37 @@ public class e implements c.a.k0.b.b.b<c.a.s0.j0.d.a> {
         public void b(int i2, b1 b1Var, long j2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i2), b1Var, Long.valueOf(j2)}) == null) {
-                this.f17109b.y(i2, b1Var, j2);
+                this.f15967b.y(i2, b1Var, j2);
             }
         }
 
         @Override // c.a.s0.j0.d.a
-        public void c(@Nullable a.InterfaceC0854a interfaceC0854a) {
+        public void c(@Nullable a.InterfaceC0863a interfaceC0863a) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, interfaceC0854a) == null) {
-                this.f17110c = interfaceC0854a;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, interfaceC0863a) == null) {
+                this.f15968c = interfaceC0863a;
             }
         }
 
         @Override // com.baidu.tieba.newdetail.HotTopicDetailModel.d
-        public void netLoadMoreCallback(int i2, @Nullable c.a.t0.q1.l.d dVar) {
+        public void netLoadMoreCallback(int i2, @Nullable c.a.t0.r1.l.d dVar) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeIL(1048579, this, i2, dVar) == null) || this.f17110c == null) {
+            if (!(interceptable == null || interceptable.invokeIL(1048579, this, i2, dVar) == null) || this.f15968c == null) {
                 return;
             }
             if (dVar != null) {
                 ArrayList arrayList = new ArrayList();
-                for (c.a.t0.g0.f0.b bVar : dVar.f4) {
+                for (c.a.t0.g0.f0.b bVar : dVar.g4) {
                     if (bVar instanceof c.a.t0.g0.f0.b) {
                         e2 threadData = bVar.getThreadData();
-                        if (!TextUtils.equals(threadData.v1(), "0")) {
+                        if (!TextUtils.equals(threadData.w1(), "0")) {
                             arrayList.add(threadData);
                         }
                     }
                 }
-                this.f17110c.b(arrayList, dVar.V4());
+                this.f15968c.b(arrayList, dVar.W4());
             }
-            this.f17110c.a();
+            this.f15968c.a();
         }
 
         public /* synthetic */ b(a aVar) {

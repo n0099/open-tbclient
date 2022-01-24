@@ -10,48 +10,48 @@ public class b {
     public static volatile boolean a = true;
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile boolean f55844b = false;
+    public static volatile boolean f55889b = false;
 
     /* renamed from: c  reason: collision with root package name */
-    public static volatile Set<c> f55845c = Collections.synchronizedSet(Collections.newSetFromMap(new WeakHashMap()));
+    public static volatile Set<c> f55890c = Collections.synchronizedSet(Collections.newSetFromMap(new WeakHashMap()));
 
     /* renamed from: d  reason: collision with root package name */
-    public static volatile b f55846d = null;
+    public static volatile b f55891d = null;
 
     /* renamed from: e  reason: collision with root package name */
-    public static volatile int f55847e = 204800;
+    public static volatile int f55892e = 204800;
 
     public static b a() {
-        if (f55846d == null) {
+        if (f55891d == null) {
             synchronized (b.class) {
-                if (f55846d == null) {
-                    f55846d = new b();
+                if (f55891d == null) {
+                    f55891d = new b();
                 }
             }
         }
-        return f55846d;
+        return f55891d;
     }
 
     public static synchronized InputStream a(@NonNull InputStream inputStream) {
         c cVar;
         synchronized (b.class) {
-            cVar = new c(inputStream, f55847e / (f55845c.size() + 1));
-            f55845c.add(cVar);
+            cVar = new c(inputStream, f55892e / (f55890c.size() + 1));
+            f55890c.add(cVar);
         }
         return cVar;
     }
 
     public static synchronized void a(c cVar) {
         synchronized (b.class) {
-            if (f55845c.contains(cVar)) {
-                f55845c.remove(cVar);
+            if (f55890c.contains(cVar)) {
+                f55890c.remove(cVar);
             }
         }
     }
 
     public void a(boolean z, int i2) {
         if (i2 > 0) {
-            f55847e = i2 * 1024;
+            f55892e = i2 * 1024;
         }
         a = z;
     }
@@ -65,14 +65,14 @@ public class b {
     }
 
     public int c() {
-        return f55847e / 1024;
+        return f55892e / 1024;
     }
 
     public synchronized int d() {
         int i2;
         i2 = 0;
         try {
-            for (c cVar : f55845c) {
+            for (c cVar : f55890c) {
                 i2 += (int) cVar.a();
             }
         } catch (Exception unused) {

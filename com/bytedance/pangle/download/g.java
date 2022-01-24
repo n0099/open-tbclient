@@ -4,6 +4,7 @@ import android.os.Handler;
 import android.os.Looper;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.download.center.clearcache.DiskManagerSharedPrefsUtils;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -29,33 +30,33 @@ public class g {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final ExecutorService f53032e;
+    public static final ExecutorService f53077e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static volatile g f53033f;
+    public static volatile g f53078f;
     public transient /* synthetic */ FieldHolder $fh;
     public volatile long a;
 
     /* renamed from: b  reason: collision with root package name */
-    public List<PluginDownloadBean> f53034b;
+    public List<PluginDownloadBean> f53079b;
 
     /* renamed from: c  reason: collision with root package name */
-    public List<PluginDownloadBean> f53035c;
+    public List<PluginDownloadBean> f53080c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f53036d;
+    public boolean f53081d;
 
     /* renamed from: g  reason: collision with root package name */
-    public List<PluginDownloadBean> f53037g;
+    public List<PluginDownloadBean> f53082g;
 
     /* renamed from: h  reason: collision with root package name */
-    public Map<String, Long> f53038h;
+    public Map<String, Long> f53083h;
 
     /* renamed from: i  reason: collision with root package name */
-    public Handler f53039i;
+    public Handler f53084i;
 
     /* renamed from: j  reason: collision with root package name */
-    public Runnable f53040j;
+    public Runnable f53085j;
 
     static {
         InterceptResult invokeClinit;
@@ -70,7 +71,7 @@ public class g {
                 return;
             }
         }
-        f53032e = Executors.newSingleThreadExecutor();
+        f53077e = Executors.newSingleThreadExecutor();
     }
 
     public g() {
@@ -86,27 +87,27 @@ public class g {
                 return;
             }
         }
-        this.f53037g = new CopyOnWriteArrayList();
-        this.f53034b = new CopyOnWriteArrayList();
-        this.f53038h = new ConcurrentHashMap();
-        this.f53035c = new CopyOnWriteArrayList();
-        this.f53039i = new Handler(Looper.getMainLooper());
-        this.f53040j = null;
-        this.f53036d = false;
+        this.f53082g = new CopyOnWriteArrayList();
+        this.f53079b = new CopyOnWriteArrayList();
+        this.f53083h = new ConcurrentHashMap();
+        this.f53080c = new CopyOnWriteArrayList();
+        this.f53084i = new Handler(Looper.getMainLooper());
+        this.f53085j = null;
+        this.f53081d = false;
     }
 
     public static g a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (f53033f == null) {
+            if (f53078f == null) {
                 synchronized (g.class) {
-                    if (f53033f == null) {
-                        f53033f = new g();
+                    if (f53078f == null) {
+                        f53078f = new g();
                     }
                 }
             }
-            return f53033f;
+            return f53078f;
         }
         return (g) invokeV.objValue;
     }
@@ -115,7 +116,7 @@ public class g {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             ZeusLogger.d(ZeusLogger.TAG_DOWNLOAD, "asyncFetchPlugins start");
-            f53032e.execute(new c(this));
+            f53077e.execute(new c(this));
         }
     }
 
@@ -160,7 +161,7 @@ public class g {
                     plugin2.setHostCompatVersion(pluginDownloadBean.mVersionCode, pluginDownloadBean.mClientVersionMin, pluginDownloadBean.mClientVersionMax);
                     plugin2.setApiCompatVersion(pluginDownloadBean.mVersionCode, pluginDownloadBean.mApiVersionMin, pluginDownloadBean.mApiVersionMax);
                 }
-                PluginProvider pluginProvider = com.bytedance.pangle.g.a().f53081b.getPluginProvider();
+                PluginProvider pluginProvider = com.bytedance.pangle.g.a().f53126b.getPluginProvider();
                 if (pluginProvider != null && pluginProvider.useLocalPlugin()) {
                     PluginManager.getInstance().installFromDownloadDir();
                 } else {
@@ -188,7 +189,7 @@ public class g {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
             try {
                 Plugin plugin2 = Zeus.getPlugin(str);
-                if (plugin2 != null && !plugin2.isLoaded() && (l = this.f53038h.get(str)) != null) {
+                if (plugin2 != null && !plugin2.isLoaded() && (l = this.f53083h.get(str)) != null) {
                     if (System.currentTimeMillis() - l.longValue() < 5000) {
                     }
                 }
@@ -200,9 +201,9 @@ public class g {
     }
 
     public static /* synthetic */ void a(g gVar) {
-        Runnable runnable = gVar.f53040j;
+        Runnable runnable = gVar.f53085j;
         if (runnable != null) {
-            gVar.f53039i.removeCallbacks(runnable);
+            gVar.f53084i.removeCallbacks(runnable);
         }
         Runnable runnable2 = new Runnable(gVar) { // from class: com.bytedance.pangle.download.g.2
             public static /* synthetic */ Interceptable $ic;
@@ -210,7 +211,7 @@ public class g {
             public final /* synthetic */ long a;
 
             /* renamed from: b  reason: collision with root package name */
-            public final /* synthetic */ g f53041b;
+            public final /* synthetic */ g f53086b;
 
             {
                 Interceptable interceptable = $ic;
@@ -227,8 +228,8 @@ public class g {
                         return;
                     }
                 }
-                this.f53041b = gVar;
-                this.a = 1800L;
+                this.f53086b = gVar;
+                this.a = DiskManagerSharedPrefsUtils.DISK_CHECK_DURATION_DEFAULT;
             }
 
             @Override // java.lang.Runnable
@@ -236,13 +237,13 @@ public class g {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                     if (!b.a().a) {
-                        this.f53041b.b();
+                        this.f53086b.b();
                     }
-                    this.f53041b.f53039i.postDelayed(this, this.a * 1000);
+                    this.f53086b.f53084i.postDelayed(this, this.a * 1000);
                 }
             }
         };
-        gVar.f53040j = runnable2;
-        gVar.f53039i.postDelayed(runnable2, FlushManager.ReportTimer.DEFAULT_INTERVAL);
+        gVar.f53085j = runnable2;
+        gVar.f53084i.postDelayed(runnable2, FlushManager.ReportTimer.DEFAULT_INTERVAL);
     }
 }

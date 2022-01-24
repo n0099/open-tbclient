@@ -70,7 +70,7 @@ public class BdUploadingLogInfo extends ArrayList<ArrayList<d>> {
             ArrayList<d> arrayList2 = get(i2);
             ArrayList<String> arrayList3 = new ArrayList<>();
             for (int i3 = 0; i3 < arrayList2.size(); i3++) {
-                String readLogFileString = readLogFileString(arrayList2.get(i3).f2928b);
+                String readLogFileString = readLogFileString(arrayList2.get(i3).f3030b);
                 if (!TextUtils.isEmpty(readLogFileString)) {
                     for (String str : readLogFileString.split("\r\n")) {
                         if (size > 0) {
@@ -101,7 +101,7 @@ public class BdUploadingLogInfo extends ArrayList<ArrayList<d>> {
             ArrayList<d> arrayList = get(i2);
             ArrayList<String> arrayList2 = new ArrayList<>();
             for (int i3 = 0; i3 < arrayList.size(); i3++) {
-                String readLogFileString = readLogFileString(arrayList.get(i3).f2928b);
+                String readLogFileString = readLogFileString(arrayList.get(i3).f3030b);
                 if (!TextUtils.isEmpty(readLogFileString)) {
                     for (String str : readLogFileString.split("\r\n")) {
                         arrayList2.add(str);

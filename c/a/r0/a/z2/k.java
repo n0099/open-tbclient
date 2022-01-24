@@ -18,10 +18,10 @@ public final class k {
     public static final Set<Integer> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final Set<Integer> f9997b;
+    public static final Set<Integer> f10139b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final Set<Integer> f9998c;
+    public static final Set<Integer> f10140c;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -38,17 +38,17 @@ public final class k {
             }
         }
         a = new HashSet();
-        f9997b = new HashSet();
-        f9998c = new HashSet();
+        f10139b = new HashSet();
+        f10140c = new HashSet();
         a.add(2);
         a.add(3);
         a.add(4);
         a.add(5);
         a.add(6);
-        f9997b.add(7);
-        f9997b.add(1);
-        f9998c.addAll(a);
-        f9998c.addAll(f9997b);
+        f10139b.add(7);
+        f10139b.add(1);
+        f10140c.addAll(a);
+        f10140c.addAll(f10139b);
     }
 
     public static Date a() {

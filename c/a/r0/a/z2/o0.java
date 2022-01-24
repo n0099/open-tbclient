@@ -6,6 +6,7 @@ import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.searchbox.retrieve.inter.constants.StatConstants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -476,7 +477,7 @@ public final class o0 {
             try {
                 JSONObject jSONObject = new JSONObject();
                 jSONObject.put("errcode", str);
-                jSONObject.put("errMsg", str2);
+                jSONObject.put(StatConstants.KEY_EXT_ERR_MSG, str2);
                 return jSONObject.toString();
             } catch (JSONException unused) {
                 return "";

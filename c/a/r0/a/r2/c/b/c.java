@@ -45,18 +45,18 @@ public class c extends b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, eVar)) == null) {
             if (j(context, eVar, unitedSchemeEntity)) {
-                a.C0531a a = c.a.r0.a.r2.c.a.a(context);
+                a.C0540a a = c.a.r0.a.r2.c.a.a(context);
                 if (a == null) {
                     unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "sticky broadcast receive error");
                     return false;
                 }
-                if (z.f6201b) {
-                    String str = "/swanAPI/getBatteryInfoSync = level: " + a.a + " ; plugged: " + a.f8620b;
+                if (z.f6343b) {
+                    String str = "/swanAPI/getBatteryInfoSync = level: " + a.a + " ; plugged: " + a.f8762b;
                 }
                 JSONObject k = k(a);
                 if (k == null) {
                     unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "Json error");
-                    boolean z = z.f6201b;
+                    boolean z = z.f6343b;
                     return false;
                 }
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(k, 0);

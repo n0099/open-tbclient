@@ -13,10 +13,10 @@ public abstract class c implements Runnable {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f8023e;
+    public boolean f8165e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f8024f;
+    public String f8166f;
 
     public c() {
         Interceptable interceptable = $ic;
@@ -31,23 +31,23 @@ public abstract class c implements Runnable {
                 return;
             }
         }
-        this.f8023e = true;
+        this.f8165e = true;
     }
 
     public boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f8023e : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f8165e : invokeV.booleanValue;
     }
 
     public boolean b(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            if (TextUtils.isEmpty(str) || TextUtils.isEmpty(this.f8024f)) {
+            if (TextUtils.isEmpty(str) || TextUtils.isEmpty(this.f8166f)) {
                 return false;
             }
-            return this.f8024f.endsWith(str);
+            return this.f8166f.endsWith(str);
         }
         return invokeL.booleanValue;
     }
@@ -59,7 +59,7 @@ public abstract class c implements Runnable {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             c();
-            this.f8023e = false;
+            this.f8165e = false;
         }
     }
 
@@ -78,7 +78,7 @@ public abstract class c implements Runnable {
                 return;
             }
         }
-        this.f8023e = true;
-        this.f8024f = str;
+        this.f8165e = true;
+        this.f8166f = str;
     }
 }

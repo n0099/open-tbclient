@@ -33,10 +33,10 @@ public class f {
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public BdUniqueId f21417b;
+    public BdUniqueId f21653b;
 
     /* renamed from: c  reason: collision with root package name */
-    public e f21418c;
+    public e f21654c;
 
     /* loaded from: classes8.dex */
     public static /* synthetic */ class a {
@@ -81,7 +81,7 @@ public class f {
                 if (cVarArr.length == 0 || (cVar = cVarArr[0]) == null) {
                     return null;
                 }
-                c.a.d.f.a.f.c cVar2 = new c.a.d.f.a.f.c("images", TbMd5.getNameMd5FromUrl(cVar.f21413i + 42), DiskFileOperate.Action.READ);
+                c.a.d.f.a.f.c cVar2 = new c.a.d.f.a.f.c("images", TbMd5.getNameMd5FromUrl(cVar.f21649i + 42), DiskFileOperate.Action.READ);
                 cVar2.setSubFolder(true);
                 cVar2.setIsFormatData(false);
                 ImageUploadResult m = new c.a.s0.d0.f(null).m(c(cVar2.buildPath(), cVar2.getName()), true, false);
@@ -102,7 +102,7 @@ public class f {
                     }
                 }
                 if (StringUtils.isNull(str)) {
-                    str = cVar.f21414j;
+                    str = cVar.f21650j;
                 }
                 NetWork netWork = new NetWork();
                 netWork.setUrl(TbConfig.SERVER_ADDRESS + TbConfig.POST_THREAD_ADDRESS);
@@ -115,8 +115,8 @@ public class f {
                 }
                 netWork.addPostData("new_vcode", "1");
                 netWork.addPostData("content", cVar.m);
-                netWork.addPostData("fid", cVar.f21409e);
-                netWork.addPostData(TiebaStatic.Params.H5_FORUM_NAME, cVar.f21410f);
+                netWork.addPostData("fid", cVar.f21645e);
+                netWork.addPostData(TiebaStatic.Params.H5_FORUM_NAME, cVar.f21646f);
                 netWork.addPostData("is_hide", "0");
                 netWork.addPostData(IntentConfig.CALL_FROM, "2");
                 netWork.addPostData("title", cVar.m);
@@ -124,12 +124,12 @@ public class f {
                 netWork.addPostData("st_type", "notitle");
                 netWork.addPostData("is_location", "2");
                 Address j2 = c.a.d.f.i.a.n().j(false);
-                if (j2 != null && TbadkCoreApplication.getInst().getIsLocationOn() && !TbConfig.getPositionPagerId().equals(cVar.f21409e)) {
+                if (j2 != null && TbadkCoreApplication.getInst().getIsLocationOn() && !TbConfig.getPositionPagerId().equals(cVar.f21645e)) {
                     netWork.addPostData("lbs", String.valueOf(j2.getLatitude()) + "," + String.valueOf(j2.getLongitude()));
                     netWork.addPostData(SuggestAddrField.KEY_LAT, String.valueOf(j2.getLatitude()));
                     netWork.addPostData(SuggestAddrField.KEY_LNG, String.valueOf(j2.getLongitude()));
                 }
-                LocationData b2 = c.a.t0.w3.o0.b.a().b();
+                LocationData b2 = c.a.t0.x3.o0.b.a().b();
                 if (b2 != null) {
                     netWork.addPostData("name", b2.getFormatted_address());
                     netWork.addPostData("sn", b2.getSn());
@@ -139,12 +139,12 @@ public class f {
                     netWork.addPostData("name_show", TbadkCoreApplication.getCurrentAccountNameShow());
                 }
                 netWork.addPostData("tbopen_app_key", cVar.a);
-                netWork.addPostData("tbopen_app_icon", cVar.f21408d);
-                netWork.addPostData("tbopen_app_name", cVar.f21407c);
-                netWork.addPostData("share_abstract", cVar.f21412h);
+                netWork.addPostData("tbopen_app_icon", cVar.f21644d);
+                netWork.addPostData("tbopen_app_name", cVar.f21643c);
+                netWork.addPostData("share_abstract", cVar.f21648h);
                 netWork.addPostData("share_image", str);
                 netWork.addPostData("share_h5_url", cVar.k);
-                netWork.addPostData("share_swan_app_key", cVar.f21406b);
+                netWork.addPostData("share_swan_app_key", cVar.f21642b);
                 netWork.addPostData("share_swan_path", cVar.l);
                 String postNetData = netWork.postNetData();
                 d dVar = new d();
@@ -152,8 +152,8 @@ public class f {
                     JSONObject jSONObject = new JSONObject(postNetData);
                     jSONObject.optString("msg");
                     jSONObject.optString("pre_msg");
-                    dVar.f21415b = cVar.f21409e;
-                    dVar.f21416c = jSONObject.optString("tid");
+                    dVar.f21651b = cVar.f21645e;
+                    dVar.f21652c = jSONObject.optString("tid");
                     jSONObject.optString("pid");
                     jSONObject.optString("video_id");
                 } catch (Exception unused) {
@@ -196,10 +196,10 @@ public class f {
         /* renamed from: d */
         public void onPostExecute(d dVar) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, dVar) == null) || this.a.f21418c == null) {
+            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, dVar) == null) || this.a.f21654c == null) {
                 return;
             }
-            this.a.f21418c.a(dVar);
+            this.a.f21654c.a(dVar);
         }
 
         public /* synthetic */ b(f fVar, a aVar) {
@@ -223,13 +223,13 @@ public class f {
             }
         }
         this.a = BdBaseApplication.getInst().getContext().getCacheDir().getAbsolutePath() + "/";
-        this.f21417b = bdUniqueId;
+        this.f21653b = bdUniqueId;
     }
 
     public void c(e eVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, eVar) == null) {
-            this.f21418c = eVar;
+            this.f21654c = eVar;
         }
     }
 
@@ -237,7 +237,7 @@ public class f {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cVar) == null) {
             b bVar = new b(this, null);
-            bVar.setTag(this.f21417b);
+            bVar.setTag(this.f21653b);
             bVar.execute(cVar);
         }
     }

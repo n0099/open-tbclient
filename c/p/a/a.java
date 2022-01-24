@@ -17,7 +17,6 @@ import android.text.TextUtils;
 import android.util.DisplayMetrics;
 import android.view.WindowManager;
 import androidx.core.view.InputDeviceCompat;
-import androidx.webkit.ProxyConfig;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.httpNet.HttpRequest;
 import com.baidu.tieba.flutter.plugin.passprovider.PassProviderPlugin;
@@ -41,7 +40,7 @@ public class a {
 
     /* renamed from: c.p.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes9.dex */
-    public static /* synthetic */ class C1692a {
+    public static /* synthetic */ class C1693a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
@@ -52,7 +51,7 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
         public Intent a;
 
-        public /* synthetic */ b(Context context, C1692a c1692a) {
+        public /* synthetic */ b(Context context, C1693a c1693a) {
             this(context);
         }
 
@@ -475,7 +474,7 @@ public class a {
             try {
                 DisplayMetrics displayMetrics = new DisplayMetrics();
                 ((WindowManager) context.getSystemService("window")).getDefaultDisplay().getMetrics(displayMetrics);
-                return String.valueOf(displayMetrics.widthPixels) + ProxyConfig.MATCH_ALL_SCHEMES + String.valueOf(displayMetrics.heightPixels);
+                return String.valueOf(displayMetrics.widthPixels) + "*" + String.valueOf(displayMetrics.heightPixels);
             } catch (Exception unused) {
                 return "";
             }

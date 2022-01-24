@@ -24,22 +24,22 @@ public class FaceShopModel extends BdBaseModel<FaceShopActivity> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public FaceShopData f42837e;
+    public FaceShopData f42858e;
 
     /* renamed from: f  reason: collision with root package name */
-    public b f42838f;
+    public b f42859f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f42839g;
+    public int f42860g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f42840h;
+    public String f42861h;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f42841i;
+    public boolean f42862i;
 
     /* renamed from: j  reason: collision with root package name */
-    public int f42842j;
+    public int f42863j;
     public int k;
     public float l;
 
@@ -67,50 +67,50 @@ public class FaceShopModel extends BdBaseModel<FaceShopActivity> {
                 return;
             }
         }
-        this.f42838f = null;
-        this.f42842j = 0;
+        this.f42859f = null;
+        this.f42863j = 0;
         this.k = 0;
-        this.f42837e = null;
-        this.f42841i = false;
-        this.f42839g = 0;
+        this.f42858e = null;
+        this.f42862i = false;
+        this.f42860g = 0;
         TbadkApplication inst = TbadkApplication.getInst();
-        this.f42842j = n.k(inst);
+        this.f42863j = n.k(inst);
         this.k = n.i(inst);
         this.l = inst.getResources().getDisplayMetrics().density;
     }
 
     public static /* synthetic */ int y(FaceShopModel faceShopModel) {
-        int i2 = faceShopModel.f42839g;
-        faceShopModel.f42839g = i2 + 1;
+        int i2 = faceShopModel.f42860g;
+        faceShopModel.f42860g = i2 + 1;
         return i2;
     }
 
     public FaceShopData I() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f42837e : (FaceShopData) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f42858e : (FaceShopData) invokeV.objValue;
     }
 
     public boolean J() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f42841i : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f42862i : invokeV.booleanValue;
     }
 
     public void K(int i2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) && this.f42838f == null) {
+        if ((interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) && this.f42859f == null) {
             b bVar = new b(this, null);
-            this.f42838f = bVar;
+            this.f42859f = bVar;
             bVar.setPriority(3);
-            this.f42838f.execute(Integer.valueOf(i2));
+            this.f42859f.execute(Integer.valueOf(i2));
         }
     }
 
     public void L(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            this.f42840h = str;
+            this.f42861h = str;
         }
     }
 
@@ -119,7 +119,7 @@ public class FaceShopModel extends BdBaseModel<FaceShopActivity> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            b bVar = this.f42838f;
+            b bVar = this.f42859f;
             if (bVar != null) {
                 bVar.cancel();
                 return true;
@@ -146,13 +146,13 @@ public class FaceShopModel extends BdBaseModel<FaceShopActivity> {
         public int a;
 
         /* renamed from: b  reason: collision with root package name */
-        public NetWork f42843b;
+        public NetWork f42864b;
 
         /* renamed from: c  reason: collision with root package name */
-        public volatile boolean f42844c;
+        public volatile boolean f42865c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ FaceShopModel f42845d;
+        public final /* synthetic */ FaceShopModel f42866d;
 
         public b(FaceShopModel faceShopModel) {
             Interceptable interceptable = $ic;
@@ -169,8 +169,8 @@ public class FaceShopModel extends BdBaseModel<FaceShopActivity> {
                     return;
                 }
             }
-            this.f42845d = faceShopModel;
-            this.f42844c = false;
+            this.f42866d = faceShopModel;
+            this.f42865c = false;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -182,22 +182,22 @@ public class FaceShopModel extends BdBaseModel<FaceShopActivity> {
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, objArr)) == null) {
                 this.a = ((Integer) objArr[0]).intValue();
                 try {
-                    if (this.f42844c) {
+                    if (this.f42865c) {
                         return null;
                     }
-                    this.f42843b = new NetWork(TbConfig.SERVER_ADDRESS + TbConfig.GET_PACKAGE_LIST);
+                    this.f42864b = new NetWork(TbConfig.SERVER_ADDRESS + TbConfig.GET_PACKAGE_LIST);
                     if (this.a == 1) {
-                        this.f42845d.f42839g = 0;
+                        this.f42866d.f42860g = 0;
                     } else if (this.a == 2) {
-                        FaceShopModel.y(this.f42845d);
+                        FaceShopModel.y(this.f42866d);
                     }
-                    this.f42843b.addPostData("scr_w", String.valueOf(this.f42845d.f42842j));
-                    this.f42843b.addPostData("scr_h", String.valueOf(this.f42845d.k));
-                    this.f42843b.addPostData("scr_dip", String.valueOf(this.f42845d.l));
-                    this.f42843b.addPostData("offset", String.valueOf(this.f42845d.f42839g));
-                    this.f42843b.addPostData(Constants.EXTRA_CONFIG_LIMIT, String.valueOf(10));
-                    this.f42843b.addPostData("st_type", this.f42845d.f42840h);
-                    return (FaceShopData) OrmObject.objectWithJsonStr(this.f42843b.postNetData(), FaceShopData.class);
+                    this.f42864b.addPostData("scr_w", String.valueOf(this.f42866d.f42863j));
+                    this.f42864b.addPostData("scr_h", String.valueOf(this.f42866d.k));
+                    this.f42864b.addPostData("scr_dip", String.valueOf(this.f42866d.l));
+                    this.f42864b.addPostData("offset", String.valueOf(this.f42866d.f42860g));
+                    this.f42864b.addPostData(Constants.EXTRA_CONFIG_LIMIT, String.valueOf(10));
+                    this.f42864b.addPostData("st_type", this.f42866d.f42861h);
+                    return (FaceShopData) OrmObject.objectWithJsonStr(this.f42864b.postNetData(), FaceShopData.class);
                 } catch (Exception e2) {
                     BdLog.detailException(e2);
                     return null;
@@ -213,17 +213,17 @@ public class FaceShopModel extends BdBaseModel<FaceShopActivity> {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, faceShopData) == null) {
                 super.onPostExecute(faceShopData);
-                this.f42845d.f42838f = null;
+                this.f42866d.f42859f = null;
                 if (faceShopData != null) {
-                    this.f42845d.f42841i = faceShopData.has_more == 1;
+                    this.f42866d.f42862i = faceShopData.has_more == 1;
                     int i2 = this.a;
                     if (i2 == 1) {
-                        this.f42845d.f42837e = faceShopData;
+                        this.f42866d.f42858e = faceShopData;
                     } else if (i2 == 2) {
-                        this.f42845d.f42837e.add(faceShopData);
+                        this.f42866d.f42858e.add(faceShopData);
                     }
                 }
-                this.f42845d.mLoadDataCallBack.c(this.f42845d.f42837e);
+                this.f42866d.mLoadDataCallBack.c(this.f42866d.f42858e);
             }
         }
 
@@ -232,13 +232,13 @@ public class FaceShopModel extends BdBaseModel<FaceShopActivity> {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
                 super.cancel(true);
-                this.f42844c = true;
-                NetWork netWork = this.f42843b;
+                this.f42865c = true;
+                NetWork netWork = this.f42864b;
                 if (netWork != null) {
                     netWork.cancelNetConnect();
-                    this.f42843b = null;
+                    this.f42864b = null;
                 }
-                this.f42845d.f42838f = null;
+                this.f42866d.f42859f = null;
             }
         }
 

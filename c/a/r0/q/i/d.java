@@ -11,19 +11,19 @@ public abstract class d {
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f11489b;
+    public long f11631b;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f11490c;
+    public long f11632c;
 
     /* renamed from: d  reason: collision with root package name */
-    public long f11491d;
+    public long f11633d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f11492e;
+    public int f11634e;
 
     /* renamed from: f  reason: collision with root package name */
-    public long f11493f;
+    public long f11635f;
 
     public d() {
         Interceptable interceptable = $ic;
@@ -39,9 +39,9 @@ public abstract class d {
             }
         }
         this.a = "";
-        this.f11489b = 0L;
-        this.f11490c = 0L;
-        this.f11491d = 0L;
-        this.f11492e = 0;
+        this.f11631b = 0L;
+        this.f11632c = 0L;
+        this.f11633d = 0L;
+        this.f11634e = 0;
     }
 }

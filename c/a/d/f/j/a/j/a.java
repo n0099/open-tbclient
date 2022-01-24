@@ -19,13 +19,13 @@ public class a {
     public List<String> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f2821b;
+    public String f2923b;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f2822c;
+    public long f2924c;
 
     /* renamed from: d  reason: collision with root package name */
-    public long f2823d;
+    public long f2925d;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -40,7 +40,7 @@ public class a {
                 return;
             }
         }
-        this.f2823d = System.currentTimeMillis();
+        this.f2925d = System.currentTimeMillis();
     }
 
     public List<String> a() {
@@ -59,13 +59,13 @@ public class a {
             }
             try {
                 JSONObject jSONObject = new JSONObject(str);
-                this.f2822c = jSONObject.optLong(ResultTB.TTL);
+                this.f2924c = jSONObject.optLong(ResultTB.TTL);
                 JSONObject optJSONObject = jSONObject.optJSONObject("data");
                 if (optJSONObject == null) {
                     return null;
                 }
                 String next = optJSONObject.keys().next();
-                this.f2821b = next;
+                this.f2923b = next;
                 JSONObject optJSONObject2 = optJSONObject.optJSONObject(next);
                 if (optJSONObject2 != null && (optJSONArray = optJSONObject2.optJSONArray("ip")) != null && optJSONArray.length() > 0) {
                     this.a = new ArrayList();
@@ -85,20 +85,20 @@ public class a {
     public boolean c(long j2) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j2)) == null) ? j2 - this.f2823d > this.f2822c * 1000 : invokeJ.booleanValue;
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j2)) == null) ? j2 - this.f2925d > this.f2924c * 1000 : invokeJ.booleanValue;
     }
 
     public void d(long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048579, this, j2) == null) {
-            this.f2822c = j2;
+            this.f2924c = j2;
         }
     }
 
     public void e(long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048580, this, j2) == null) {
-            this.f2823d = j2;
+            this.f2925d = j2;
         }
     }
 }

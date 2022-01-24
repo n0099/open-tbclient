@@ -15,7 +15,7 @@ public abstract class b extends f {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: h  reason: collision with root package name */
-    public final c.a.t0.m0.f.a f19237h;
+    public final c.a.t0.m0.f.a f19500h;
 
     public b(c.a.t0.m0.f.a danmakuContext) {
         Interceptable interceptable = $ic;
@@ -33,7 +33,7 @@ public abstract class b extends f {
             }
         }
         Intrinsics.checkNotNullParameter(danmakuContext, "danmakuContext");
-        this.f19237h = danmakuContext;
+        this.f19500h = danmakuContext;
     }
 
     @Override // c.b.a.a.f
@@ -50,7 +50,7 @@ public abstract class b extends f {
     public final c.a.t0.m0.f.a i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f19237h : (c.a.t0.m0.f.a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f19500h : (c.a.t0.m0.f.a) invokeV.objValue;
     }
 
     public abstract void j();

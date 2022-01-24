@@ -29,7 +29,7 @@ public class RouteShareURLOption {
         public static final RouteShareMode FOOT_ROUTE_SHARE_MODE;
 
         /* renamed from: b  reason: collision with root package name */
-        public static final /* synthetic */ RouteShareMode[] f35654b;
+        public static final /* synthetic */ RouteShareMode[] f35682b;
         public transient /* synthetic */ FieldHolder $fh;
         public int a;
 
@@ -51,7 +51,7 @@ public class RouteShareURLOption {
             CYCLE_ROUTE_SHARE_MODE = new RouteShareMode("CYCLE_ROUTE_SHARE_MODE", 2, 2);
             RouteShareMode routeShareMode = new RouteShareMode("BUS_ROUTE_SHARE_MODE", 3, 3);
             BUS_ROUTE_SHARE_MODE = routeShareMode;
-            f35654b = new RouteShareMode[]{CAR_ROUTE_SHARE_MODE, FOOT_ROUTE_SHARE_MODE, CYCLE_ROUTE_SHARE_MODE, routeShareMode};
+            f35682b = new RouteShareMode[]{CAR_ROUTE_SHARE_MODE, FOOT_ROUTE_SHARE_MODE, CYCLE_ROUTE_SHARE_MODE, routeShareMode};
         }
 
         public RouteShareMode(String str, int i2, int i3) {
@@ -85,7 +85,7 @@ public class RouteShareURLOption {
         public static RouteShareMode[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (RouteShareMode[]) f35654b.clone() : (RouteShareMode[]) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (RouteShareMode[]) f35682b.clone() : (RouteShareMode[]) invokeV.objValue;
         }
 
         public int getRouteShareMode() {

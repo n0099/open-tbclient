@@ -9,7 +9,7 @@ import android.view.View;
 import android.widget.AbsListView;
 import androidx.core.view.InputDeviceCompat;
 import c.a.d.f.p.l;
-import c.a.s0.e1.s;
+import c.a.s0.d1.s;
 import c.a.s0.s.s.j;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
@@ -55,7 +55,7 @@ public class UpdatesActivity extends BaseActivity<UpdatesActivity> implements Ab
     public c.a.d.c.g.c mListener;
     public UpdatesModel model;
     public UpdatesItemData pendingToDel;
-    public c.a.t0.s1.j.c updatesView;
+    public c.a.t0.t1.j.c updatesView;
 
     /* loaded from: classes12.dex */
     public class a implements s<LinkedList<GroupNewsPojo>> {
@@ -82,7 +82,7 @@ public class UpdatesActivity extends BaseActivity<UpdatesActivity> implements Ab
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // c.a.s0.e1.s
+        @Override // c.a.s0.d1.s
         /* renamed from: a */
         public void onReturnDataInUI(LinkedList<GroupNewsPojo> linkedList) {
             ImMessageCenterPojo imMessageCenterPojo;
@@ -117,7 +117,7 @@ public class UpdatesActivity extends BaseActivity<UpdatesActivity> implements Ab
         public final /* synthetic */ s a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ UpdatesActivity f45021b;
+        public final /* synthetic */ UpdatesActivity f45049b;
 
         public b(UpdatesActivity updatesActivity, s sVar) {
             Interceptable interceptable = $ic;
@@ -134,19 +134,19 @@ public class UpdatesActivity extends BaseActivity<UpdatesActivity> implements Ab
                     return;
                 }
             }
-            this.f45021b = updatesActivity;
+            this.f45049b = updatesActivity;
             this.a = sVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // c.a.s0.e1.s
+        @Override // c.a.s0.d1.s
         /* renamed from: a */
         public void onReturnDataInUI(Boolean bool) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, bool) == null) {
-                this.f45021b.model.clearSelect();
-                this.f45021b.updatesView.c();
-                this.f45021b.setEditMode(false);
+                this.f45049b.model.clearSelect();
+                this.f45049b.updatesView.c();
+                this.f45049b.setEditMode(false);
                 UpdatesModel.requestUpdatesDataFromDB(this.a);
             }
         }
@@ -177,7 +177,7 @@ public class UpdatesActivity extends BaseActivity<UpdatesActivity> implements Ab
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // c.a.s0.e1.s
+        @Override // c.a.s0.d1.s
         /* renamed from: a */
         public void onReturnDataInUI(LinkedList<GroupNewsPojo> linkedList) {
             Interceptable interceptable = $ic;
@@ -198,7 +198,7 @@ public class UpdatesActivity extends BaseActivity<UpdatesActivity> implements Ab
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ UpdatesActivity f45022e;
+        public final /* synthetic */ UpdatesActivity f45050e;
 
         public d(UpdatesActivity updatesActivity) {
             Interceptable interceptable = $ic;
@@ -215,21 +215,21 @@ public class UpdatesActivity extends BaseActivity<UpdatesActivity> implements Ab
                     return;
                 }
             }
-            this.f45022e = updatesActivity;
+            this.f45050e = updatesActivity;
         }
 
         @Override // c.a.s0.s.s.j.e
         public void onItemClick(j jVar, int i2, View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLIL(1048576, this, jVar, i2, view) == null) {
-                if (this.f45022e.deleteItemDialog != null && this.f45022e.deleteItemDialog.isShowing()) {
-                    this.f45022e.deleteItemDialog.dismiss();
+                if (this.f45050e.deleteItemDialog != null && this.f45050e.deleteItemDialog.isShowing()) {
+                    this.f45050e.deleteItemDialog.dismiss();
                 }
                 if (i2 != 0) {
                     return;
                 }
-                this.f45022e.updatesView.o(true);
-                UpdatesActivity updatesActivity = this.f45022e;
+                this.f45050e.updatesView.o(true);
+                UpdatesActivity updatesActivity = this.f45050e;
                 updatesActivity.processDel(updatesActivity.pendingToDel);
             }
         }
@@ -383,12 +383,12 @@ public class UpdatesActivity extends BaseActivity<UpdatesActivity> implements Ab
         if (interceptable == null || interceptable.invokeL(65549, this, updatesItemData) == null) {
             if (!l.z()) {
                 showToast(R.string.neterror);
-            } else if (updatesItemData == null || TextUtils.isEmpty(c.a.t0.s1.p.b.b().c()) || !TextUtils.isDigitsOnly(c.a.t0.s1.p.b.b().c()) || TextUtils.isEmpty(updatesItemData.getNotice_id()) || !TextUtils.isDigitsOnly(updatesItemData.getNotice_id())) {
+            } else if (updatesItemData == null || TextUtils.isEmpty(c.a.t0.t1.p.b.b().c()) || !TextUtils.isDigitsOnly(c.a.t0.t1.p.b.b().c()) || TextUtils.isEmpty(updatesItemData.getNotice_id()) || !TextUtils.isDigitsOnly(updatesItemData.getNotice_id())) {
             } else {
                 try {
                     this.updatesView.o(true);
                     RequestDelSystemMessage requestDelSystemMessage = new RequestDelSystemMessage();
-                    requestDelSystemMessage.setGroupId(c.a.d.f.m.b.g(c.a.t0.s1.p.b.b().c(), 0L));
+                    requestDelSystemMessage.setGroupId(c.a.d.f.m.b.g(c.a.t0.t1.p.b.b().c(), 0L));
                     long parseLong = Long.parseLong(updatesItemData.getNotice_id());
                     requestDelSystemMessage.setMsgIds("" + (parseLong / 100));
                     MessageManager.getInstance().sendMessage(requestDelSystemMessage);
@@ -420,7 +420,7 @@ public class UpdatesActivity extends BaseActivity<UpdatesActivity> implements Ab
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
             super.onChangeSkinType(i2);
-            c.a.t0.s1.j.c cVar = this.updatesView;
+            c.a.t0.t1.j.c cVar = this.updatesView;
             if (cVar != null) {
                 cVar.onChangeSkinType(i2);
             }
@@ -450,7 +450,7 @@ public class UpdatesActivity extends BaseActivity<UpdatesActivity> implements Ab
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
     public void onClick(View view) {
-        c.a.t0.s1.j.c cVar;
+        c.a.t0.t1.j.c cVar;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(1048579, this, view) == null) || view == null || (cVar = this.updatesView) == null) {
             return;
@@ -485,7 +485,7 @@ public class UpdatesActivity extends BaseActivity<UpdatesActivity> implements Ab
         if (interceptable == null || interceptable.invokeL(1048580, this, bundle) == null) {
             super.onCreate(bundle);
             this.model = new UpdatesModel();
-            this.updatesView = new c.a.t0.s1.j.c(this);
+            this.updatesView = new c.a.t0.t1.j.c(this);
             initDataCallBack();
             registerListener(2001132, this.mCustomListener);
             registerListener(2001133, this.mCustomListener);
@@ -503,7 +503,7 @@ public class UpdatesActivity extends BaseActivity<UpdatesActivity> implements Ab
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             super.onDestroy();
-            c.a.t0.s1.j.c cVar = this.updatesView;
+            c.a.t0.t1.j.c cVar = this.updatesView;
             if (cVar != null) {
                 cVar.destroy();
             }
@@ -650,7 +650,7 @@ public class UpdatesActivity extends BaseActivity<UpdatesActivity> implements Ab
                 showToast(R.string.neterror);
             } else if (TextUtils.isEmpty(str)) {
             } else {
-                String c2 = c.a.t0.s1.p.b.b().c();
+                String c2 = c.a.t0.t1.p.b.b().c();
                 if (TextUtils.isEmpty(c2) || !TextUtils.isDigitsOnly(c2)) {
                     return;
                 }

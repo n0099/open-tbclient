@@ -18,7 +18,7 @@ import com.dxmpay.wallet.core.utils.VerSig;
 import com.dxmpay.wallet.statistics.api.StatisticManager;
 import java.util.List;
 import org.json.JSONException;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public abstract class StringBean extends OtherBean<String> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

@@ -26,28 +26,28 @@ public class o implements j {
         public Context a;
 
         /* renamed from: b  reason: collision with root package name */
-        public a.C0250a f4911b;
+        public a.C0259a f5053b;
 
         /* renamed from: c  reason: collision with root package name */
-        public boolean f4912c;
+        public boolean f5054c;
 
         /* renamed from: d  reason: collision with root package name */
-        public boolean f4913d;
+        public boolean f5055d;
 
         /* renamed from: e  reason: collision with root package name */
-        public boolean f4914e;
+        public boolean f5056e;
 
         /* renamed from: f  reason: collision with root package name */
-        public long f4915f;
+        public long f5057f;
 
         /* renamed from: g  reason: collision with root package name */
-        public JSONObject f4916g;
+        public JSONObject f5058g;
 
         /* renamed from: h  reason: collision with root package name */
-        public JSONObject f4917h;
+        public JSONObject f5059h;
 
         /* renamed from: i  reason: collision with root package name */
-        public long f4918i;
+        public long f5060i;
 
         public a(o oVar, Context context) {
             Interceptable interceptable = $ic;
@@ -67,13 +67,13 @@ public class o implements j {
             if (context == null) {
                 throw new NullPointerException("context should not be null");
             }
-            this.f4911b = new c.a.r.h.d.a(context.getApplicationContext()).d().f("cloud").f("cstore");
+            this.f5053b = new c.a.r.h.d.a(context.getApplicationContext()).d().f("cloud").f("cstore");
         }
 
         public void a(JSONObject jSONObject) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) {
-                this.f4916g = jSONObject;
+                this.f5058g = jSONObject;
                 h();
             }
         }
@@ -101,7 +101,7 @@ public class o implements j {
         public void c(JSONObject jSONObject) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) == null) {
-                this.f4917h = jSONObject;
+                this.f5059h = jSONObject;
             }
         }
 
@@ -110,11 +110,11 @@ public class o implements j {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
                 synchronized (this) {
-                    JSONObject jSONObject = this.f4916g;
+                    JSONObject jSONObject = this.f5058g;
                     if (jSONObject == null) {
                         return true;
                     }
-                    JSONObject jSONObject2 = this.f4917h;
+                    JSONObject jSONObject2 = this.f5059h;
                     if (jSONObject2 != null) {
                         return b(jSONObject, jSONObject2);
                     }
@@ -128,7 +128,7 @@ public class o implements j {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-                JSONObject jSONObject = this.f4916g;
+                JSONObject jSONObject = this.f5058g;
                 if (jSONObject == null) {
                     return 0L;
                 }
@@ -140,7 +140,7 @@ public class o implements j {
         public final boolean f() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? Math.abs(System.currentTimeMillis() - this.f4918i) / 1000 > this.f4915f : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? Math.abs(System.currentTimeMillis() - this.f5060i) / 1000 > this.f5057f : invokeV.booleanValue;
         }
 
         /* JADX WARN: Code restructure failed: missing block: B:16:0x002d, code lost:
@@ -158,8 +158,8 @@ public class o implements j {
                     l();
                     boolean i2 = c.a.r.b.f(this.a).i();
                     boolean z = false;
-                    if (this.f4912c && i2) {
-                        if (this.f4916g == null) {
+                    if (this.f5054c && i2) {
+                        if (this.f5058g == null) {
                             return true;
                         }
                         if (!f()) {
@@ -178,7 +178,7 @@ public class o implements j {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
                 try {
-                    this.f4911b.i("cs.dat", this.f4916g.toString(), true);
+                    this.f5053b.i("cs.dat", this.f5058g.toString(), true);
                     return true;
                 } catch (Exception unused) {
                     return false;
@@ -191,11 +191,11 @@ public class o implements j {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
                 synchronized (this) {
-                    if (this.f4913d) {
-                        this.f4913d = !j();
+                    if (this.f5055d) {
+                        this.f5055d = !j();
                     }
-                    if (this.f4914e) {
-                        this.f4914e = !k();
+                    if (this.f5056e) {
+                        this.f5056e = !k();
                     }
                 }
             }
@@ -207,8 +207,8 @@ public class o implements j {
             if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
                 try {
                     JSONObject jSONObject = new JSONObject();
-                    jSONObject.put("isOn", this.f4912c);
-                    this.f4911b.i("ci.dat", jSONObject.toString(), true);
+                    jSONObject.put("isOn", this.f5054c);
+                    this.f5053b.i("ci.dat", jSONObject.toString(), true);
                     return true;
                 } catch (Exception unused) {
                     return false;
@@ -223,8 +223,8 @@ public class o implements j {
             if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
                 try {
                     JSONObject jSONObject = new JSONObject();
-                    jSONObject.put("TIME_OUT", this.f4915f);
-                    this.f4911b.i("ct.dat", jSONObject.toString(), true);
+                    jSONObject.put("TIME_OUT", this.f5057f);
+                    this.f5053b.i("ct.dat", jSONObject.toString(), true);
                     return true;
                 } catch (Exception unused) {
                     return false;
@@ -246,10 +246,10 @@ public class o implements j {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
                 try {
-                    this.f4916g = n.a(this.f4911b.g("cs.dat", true));
-                    this.f4918i = e();
+                    this.f5058g = n.a(this.f5053b.g("cs.dat", true));
+                    this.f5060i = e();
                 } catch (Exception unused) {
-                    this.f4918i = 0L;
+                    this.f5060i = 0L;
                 }
             }
         }
@@ -258,14 +258,14 @@ public class o implements j {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
                 try {
-                    JSONObject a = n.a(this.f4911b.g("ci.dat", true));
+                    JSONObject a = n.a(this.f5053b.g("ci.dat", true));
                     if (a == null) {
-                        this.f4912c = true;
+                        this.f5054c = true;
                     } else {
-                        this.f4912c = a.optBoolean("isOn", true);
+                        this.f5054c = a.optBoolean("isOn", true);
                     }
                 } catch (Exception unused) {
-                    this.f4912c = true;
+                    this.f5054c = true;
                 }
             }
         }
@@ -274,14 +274,14 @@ public class o implements j {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
                 try {
-                    JSONObject a = n.a(this.f4911b.g("ct.dat", true));
+                    JSONObject a = n.a(this.f5053b.g("ct.dat", true));
                     if (a == null) {
-                        this.f4915f = ChatMessageDBManager.CAST_RELIABLE_MSG_EXPIRED_TIME;
+                        this.f5057f = ChatMessageDBManager.CAST_RELIABLE_MSG_EXPIRED_TIME;
                     } else {
-                        this.f4915f = a.optLong("TIME_OUT", ChatMessageDBManager.CAST_RELIABLE_MSG_EXPIRED_TIME);
+                        this.f5057f = a.optLong("TIME_OUT", ChatMessageDBManager.CAST_RELIABLE_MSG_EXPIRED_TIME);
                     }
                 } catch (Exception unused) {
-                    this.f4915f = ChatMessageDBManager.CAST_RELIABLE_MSG_EXPIRED_TIME;
+                    this.f5057f = ChatMessageDBManager.CAST_RELIABLE_MSG_EXPIRED_TIME;
                 }
             }
         }

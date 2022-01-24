@@ -1,79 +1,33 @@
 package c.a.t0.s3.e;
 
-import c.a.d.n.e.n;
-import c.a.d.n.e.u;
-import com.baidu.adp.widget.ListView.BdTypeRecyclerView;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.util.CommonStatisticKey;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.LinkedList;
-import java.util.List;
 /* loaded from: classes8.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext<?> a;
 
-    /* renamed from: b  reason: collision with root package name */
-    public BdTypeRecyclerView f23456b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public b f23457c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public u f23458d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public List<c.a.d.n.e.a> f23459e;
-
-    public a(TbPageContext tbPageContext, BdTypeRecyclerView bdTypeRecyclerView) {
+    public static void a(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, bdTypeRecyclerView};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.f23459e = new LinkedList();
-        this.a = tbPageContext;
-        this.f23456b = bdTypeRecyclerView;
-        a();
-    }
-
-    public final void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            b bVar = new b(this.a);
-            this.f23457c = bVar;
-            this.f23459e.add(bVar);
-            u uVar = new u(this.a);
-            this.f23458d = uVar;
-            this.f23459e.add(uVar);
-            this.f23456b.addAdapters(this.f23459e);
+        if (interceptable == null || interceptable.invokeLL(65536, null, str, str2) == null) {
+            StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.WINDOW_CLICK);
+            statisticItem.param("obj_source", str);
+            statisticItem.param("obj_type", str2);
+            statisticItem.param("obj_locate", c.a.s0.s.z.a.e() >= 1 ? 2 : 1);
+            TiebaStatic.log(statisticItem);
         }
     }
 
-    public void b() {
+    public static void b(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f23456b.getAdapter().notifyDataSetChanged();
-        }
-    }
-
-    public void c(List<n> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) {
-            this.f23456b.setData(list);
+        if (interceptable == null || interceptable.invokeL(65537, null, str) == null) {
+            StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.WINDOW_EXPOSURE);
+            statisticItem.param("obj_type", str);
+            statisticItem.param("obj_locate", c.a.s0.s.z.a.e() >= 1 ? 2 : 1);
+            TiebaStatic.log(statisticItem);
         }
     }
 }

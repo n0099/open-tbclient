@@ -43,20 +43,20 @@ public final class a implements Serializable {
         for (int i4 = 0; i4 < length; i4++) {
             if (activityInfoArr[i4] != null) {
                 b bVar = new b();
-                bVar.f38379h = activityInfoArr[i4].configChanges;
-                bVar.f38377f = activityInfoArr[i4].flags;
+                bVar.f38407h = activityInfoArr[i4].configChanges;
+                bVar.f38405f = activityInfoArr[i4].flags;
                 bVar.l = activityInfoArr[i4].labelRes;
-                bVar.f38373b = activityInfoArr[i4].launchMode;
+                bVar.f38401b = activityInfoArr[i4].launchMode;
                 if (activityInfoArr[i4].nonLocalizedLabel != null) {
                     bVar.m = activityInfoArr[i4].nonLocalizedLabel.toString();
                 }
-                bVar.f38381j = activityInfoArr[i4].name;
+                bVar.f38409j = activityInfoArr[i4].name;
                 bVar.k = activityInfoArr[i4].packageName;
-                bVar.f38374c = activityInfoArr[i4].permission;
-                bVar.f38378g = activityInfoArr[i4].screenOrientation;
-                bVar.f38380i = activityInfoArr[i4].softInputMode;
-                bVar.f38376e = activityInfoArr[i4].targetActivity;
-                bVar.f38375d = activityInfoArr[i4].taskAffinity;
+                bVar.f38402c = activityInfoArr[i4].permission;
+                bVar.f38406g = activityInfoArr[i4].screenOrientation;
+                bVar.f38408i = activityInfoArr[i4].softInputMode;
+                bVar.f38404e = activityInfoArr[i4].targetActivity;
+                bVar.f38403d = activityInfoArr[i4].taskAffinity;
                 bVar.a = activityInfoArr[i4].theme;
                 this.a.add(bVar);
             }

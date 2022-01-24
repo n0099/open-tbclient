@@ -1,5 +1,6 @@
 package com.kwad.sdk.core.b.kwai;
 
+import com.baidu.searchbox.retrieve.inter.constants.StatConstants;
 import com.kwad.sdk.core.response.model.ABParams;
 import com.kwad.sdk.core.response.model.AdInfo;
 import com.qq.e.comm.constants.Constants;
@@ -134,7 +135,7 @@ public class g implements com.kwad.sdk.core.d<AdInfo.AdBaseInfo> {
         AdInfo.H5Config h5Config = new AdInfo.H5Config();
         adBaseInfo.apiExpParam = h5Config;
         h5Config.parseJson(jSONObject.optJSONObject("apiExpParam"));
-        adBaseInfo.taskType = jSONObject.optInt("taskType");
+        adBaseInfo.taskType = jSONObject.optInt(StatConstants.KEY_EXT_TASK_TYPE);
         adBaseInfo.campaignType = jSONObject.optInt("campaignType");
     }
 
@@ -183,7 +184,7 @@ public class g implements com.kwad.sdk.core.d<AdInfo.AdBaseInfo> {
         com.kwad.sdk.utils.t.a(jSONObject, "convUrl", adBaseInfo.convUrl);
         com.kwad.sdk.utils.t.a(jSONObject, "adAttributeType", adBaseInfo.adAttributeType);
         com.kwad.sdk.utils.t.a(jSONObject, "apiExpParam", adBaseInfo.apiExpParam);
-        com.kwad.sdk.utils.t.a(jSONObject, "taskType", adBaseInfo.taskType);
+        com.kwad.sdk.utils.t.a(jSONObject, StatConstants.KEY_EXT_TASK_TYPE, adBaseInfo.taskType);
         com.kwad.sdk.utils.t.a(jSONObject, "campaignType", adBaseInfo.campaignType);
         return jSONObject;
     }

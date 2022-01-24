@@ -15,57 +15,57 @@ public class AdBasePvFrameLayout extends AdBaseFrameLayout {
     public long a;
 
     /* renamed from: b  reason: collision with root package name */
-    public float f56310b;
+    public float f56355b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f56311c;
+    public boolean f56356c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f56312d;
+    public boolean f56357d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f56313e;
+    public int f56358e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ViewTreeObserver.OnScrollChangedListener f56314f;
+    public ViewTreeObserver.OnScrollChangedListener f56359f;
 
     /* renamed from: g  reason: collision with root package name */
-    public ViewTreeObserver f56315g;
+    public ViewTreeObserver f56360g;
 
     /* renamed from: h  reason: collision with root package name */
-    public ba f56316h;
+    public ba f56361h;
 
     /* renamed from: i  reason: collision with root package name */
-    public k f56317i;
+    public k f56362i;
 
     public AdBasePvFrameLayout(@NonNull Context context) {
         super(context);
         this.a = 500L;
-        this.f56310b = 0.1f;
-        this.f56312d = true;
+        this.f56355b = 0.1f;
+        this.f56357d = true;
         a();
     }
 
     public AdBasePvFrameLayout(@NonNull Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
         this.a = 500L;
-        this.f56310b = 0.1f;
-        this.f56312d = true;
+        this.f56355b = 0.1f;
+        this.f56357d = true;
         a();
     }
 
     public AdBasePvFrameLayout(@NonNull Context context, @Nullable AttributeSet attributeSet, int i2) {
         super(context, attributeSet, i2);
         this.a = 500L;
-        this.f56310b = 0.1f;
-        this.f56312d = true;
+        this.f56355b = 0.1f;
+        this.f56357d = true;
         a();
     }
 
     private void a() {
-        this.f56316h = new ba(this);
-        this.f56313e = av.o(getContext());
-        this.f56312d = l();
+        this.f56361h = new ba(this);
+        this.f56358e = av.o(getContext());
+        this.f56357d = l();
     }
 
     private void b() {
@@ -78,16 +78,16 @@ public class AdBasePvFrameLayout extends AdBaseFrameLayout {
 
     /* JADX INFO: Access modifiers changed from: private */
     public boolean c() {
-        if (!this.f56316h.a() || Math.abs(this.f56316h.a.height() - getHeight()) > getHeight() * (1.0f - this.f56310b) || getHeight() <= 0 || getWidth() <= 0) {
+        if (!this.f56361h.a() || Math.abs(this.f56361h.a.height() - getHeight()) > getHeight() * (1.0f - this.f56355b) || getHeight() <= 0 || getWidth() <= 0) {
             return false;
         }
-        Rect rect = this.f56316h.a;
-        return rect.bottom > 0 && rect.top < this.f56313e;
+        Rect rect = this.f56361h.a;
+        return rect.bottom > 0 && rect.top < this.f56358e;
     }
 
     private void d() {
-        if (this.f56314f == null) {
-            this.f56314f = new ViewTreeObserver.OnScrollChangedListener() { // from class: com.kwad.sdk.core.view.AdBasePvFrameLayout.1
+        if (this.f56359f == null) {
+            this.f56359f = new ViewTreeObserver.OnScrollChangedListener() { // from class: com.kwad.sdk.core.view.AdBasePvFrameLayout.1
                 @Override // android.view.ViewTreeObserver.OnScrollChangedListener
                 public void onScrollChanged() {
                     if (AdBasePvFrameLayout.this.c()) {
@@ -96,9 +96,9 @@ public class AdBasePvFrameLayout extends AdBaseFrameLayout {
                 }
             };
             ViewTreeObserver viewTreeObserver = getViewTreeObserver();
-            this.f56315g = viewTreeObserver;
+            this.f56360g = viewTreeObserver;
             if (viewTreeObserver != null) {
-                viewTreeObserver.addOnScrollChangedListener(this.f56314f);
+                viewTreeObserver.addOnScrollChangedListener(this.f56359f);
             }
         }
     }
@@ -108,14 +108,14 @@ public class AdBasePvFrameLayout extends AdBaseFrameLayout {
     }
 
     public void m() {
-        if (this.f56312d) {
+        if (this.f56357d) {
             b();
         }
     }
 
     public void n() {
         o();
-        k kVar = this.f56317i;
+        k kVar = this.f56362i;
         if (kVar != null) {
             kVar.a();
         }
@@ -123,10 +123,10 @@ public class AdBasePvFrameLayout extends AdBaseFrameLayout {
 
     public void o() {
         try {
-            if (this.f56314f != null && this.f56315g != null && this.f56315g.isAlive()) {
-                this.f56315g.removeOnScrollChangedListener(this.f56314f);
+            if (this.f56359f != null && this.f56360g != null && this.f56360g.isAlive()) {
+                this.f56360g.removeOnScrollChangedListener(this.f56359f);
             }
-            this.f56314f = null;
+            this.f56359f = null;
         } catch (Exception e2) {
             a.a(e2);
         }
@@ -142,16 +142,16 @@ public class AdBasePvFrameLayout extends AdBaseFrameLayout {
     public void onDetachedFromWindow() {
         super.onDetachedFromWindow();
         o();
-        this.f56311c = false;
+        this.f56356c = false;
     }
 
     @Override // android.view.View
     public void onSizeChanged(int i2, int i3, int i4, int i5) {
         boolean z = true;
-        if (this.f56311c || (i4 | i5) != 0 || (i2 | i3) == 0) {
+        if (this.f56356c || (i4 | i5) != 0 || (i2 | i3) == 0) {
             z = false;
         } else {
-            this.f56311c = true;
+            this.f56356c = true;
         }
         super.onSizeChanged(i2, i3, i4, i5);
         if (z) {
@@ -160,10 +160,10 @@ public class AdBasePvFrameLayout extends AdBaseFrameLayout {
     }
 
     public void setCheckDefaultImpressionLogThreshold(float f2) {
-        this.f56310b = f2;
+        this.f56355b = f2;
     }
 
     public void setVisibleListener(k kVar) {
-        this.f56317i = kVar;
+        this.f56362i = kVar;
     }
 }

@@ -19,31 +19,31 @@ public final class ResUtils {
     public static final String a = "id";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f32726b = "string";
+    public static final String f32754b = "string";
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f32727c = "layout";
+    public static final String f32755c = "layout";
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f32728d = "style";
+    public static final String f32756d = "style";
 
     /* renamed from: e  reason: collision with root package name */
-    public static final String f32729e = "drawable";
+    public static final String f32757e = "drawable";
 
     /* renamed from: f  reason: collision with root package name */
-    public static final String f32730f = "color";
+    public static final String f32758f = "color";
 
     /* renamed from: g  reason: collision with root package name */
-    public static final String f32731g = "array";
+    public static final String f32759g = "array";
 
     /* renamed from: h  reason: collision with root package name */
-    public static final String f32732h = "attr";
+    public static final String f32760h = "attr";
 
     /* renamed from: i  reason: collision with root package name */
-    public static final String f32733i = "dimen";
+    public static final String f32761i = "dimen";
 
     /* renamed from: j  reason: collision with root package name */
-    public static final String f32734j = "xml";
+    public static final String f32762j = "xml";
     public static final String k = "integer";
     public static final String l = "raw";
     public transient /* synthetic */ FieldHolder $fh;

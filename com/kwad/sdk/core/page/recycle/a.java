@@ -16,10 +16,10 @@ public abstract class a extends com.kwad.sdk.h.d {
     public RecyclerView a;
 
     /* renamed from: b  reason: collision with root package name */
-    public d f55976b;
+    public d f56021b;
 
     private void g() {
-        this.a.setAdapter(this.f55976b);
+        this.a.setAdapter(this.f56021b);
     }
 
     public View a(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
@@ -33,7 +33,7 @@ public abstract class a extends com.kwad.sdk.h.d {
     public void c() {
         this.a.setItemAnimator(null);
         this.a.setLayoutManager(e());
-        this.f55976b = a(this.a);
+        this.f56021b = a(this.a);
     }
 
     public RecyclerView d() {

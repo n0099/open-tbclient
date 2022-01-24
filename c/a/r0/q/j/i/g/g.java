@@ -14,17 +14,17 @@ public class g implements Runnable {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final c.a.r0.q.p.a f11529h;
+    public static final c.a.r0.q.p.a f11671h;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public b f11530e;
+    public b f11672e;
 
     /* renamed from: f  reason: collision with root package name */
-    public AtomicBoolean f11531f;
+    public AtomicBoolean f11673f;
 
     /* renamed from: g  reason: collision with root package name */
-    public a f11532g;
+    public a f11674g;
 
     static {
         InterceptResult invokeClinit;
@@ -39,7 +39,7 @@ public class g implements Runnable {
                 return;
             }
         }
-        f11529h = c.a.r0.q.p.a.e();
+        f11671h = c.a.r0.q.p.a.e();
     }
 
     public g(AtomicBoolean atomicBoolean, b bVar, a aVar) {
@@ -57,23 +57,23 @@ public class g implements Runnable {
                 return;
             }
         }
-        this.f11531f = atomicBoolean;
-        this.f11530e = bVar;
-        this.f11532g = aVar;
+        this.f11673f = atomicBoolean;
+        this.f11672e = bVar;
+        this.f11674g = aVar;
     }
 
     public final <T> void a(f<T> fVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, fVar) == null) {
-            this.f11530e.a(fVar);
+            this.f11672e.a(fVar);
             try {
                 try {
                     fVar.run();
                 } catch (Exception e2) {
-                    f11529h.g("PMSTaskExecutor", "#runTask 包下载任务出错", e2);
+                    f11671h.g("PMSTaskExecutor", "#runTask 包下载任务出错", e2);
                 }
             } finally {
-                this.f11530e.b(fVar);
+                this.f11672e.b(fVar);
             }
         }
     }
@@ -82,15 +82,15 @@ public class g implements Runnable {
     public void run() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            while (!this.f11531f.get()) {
-                Runnable a = this.f11532g.a(true);
+            while (!this.f11673f.get()) {
+                Runnable a = this.f11674g.a(true);
                 if (!(a instanceof f)) {
                     return;
                 }
                 try {
                     a((f) a);
                 } catch (Throwable th) {
-                    f11529h.g("PMSTaskExecutor", "#run 包下载任务出错", th);
+                    f11671h.g("PMSTaskExecutor", "#run 包下载任务出错", th);
                 }
             }
         }

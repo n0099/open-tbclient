@@ -25,10 +25,10 @@ public class g extends c.a.r0.a.u.e.p.a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f9286e;
+        public final /* synthetic */ String f9428e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ g f9287f;
+        public final /* synthetic */ g f9429f;
 
         public a(g gVar, String str) {
             Interceptable interceptable = $ic;
@@ -45,15 +45,15 @@ public class g extends c.a.r0.a.u.e.p.a {
                     return;
                 }
             }
-            this.f9287f = gVar;
-            this.f9286e = str;
+            this.f9429f = gVar;
+            this.f9428e = str;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f9287f.d(this.f9286e, new c.a.r0.a.u.h.b(0, this.f9287f.y()));
+                this.f9429f.d(this.f9428e, new c.a.r0.a.u.h.b(0, this.f9429f.y()));
             }
         }
     }

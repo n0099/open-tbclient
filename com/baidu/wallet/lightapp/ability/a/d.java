@@ -24,13 +24,13 @@ public class d extends com.baidu.wallet.lightapp.ability.b {
     public boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Class<?> f51310b;
+    public Class<?> f51355b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Method f51311c;
+    public Method f51356c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Class<?> f51312d;
+    public Class<?> f51357d;
 
     /* loaded from: classes13.dex */
     public static class a implements InvocationHandler {
@@ -111,19 +111,19 @@ public class d extends com.baidu.wallet.lightapp.ability.b {
             }
             if (!this.a) {
                 try {
-                    this.f51310b = Class.forName("com.baidu.walletfacesdk.LightInvokerImpl");
+                    this.f51355b = Class.forName("com.baidu.walletfacesdk.LightInvokerImpl");
                     Class<?> cls = Class.forName("com.baidu.walletfacesdk.LightInvokerCallback");
-                    this.f51312d = cls;
-                    this.f51311c = this.f51310b.getDeclaredMethod(LightappConstants.METHOD_INVOKE_BD_WALLET_NATIVE, Context.class, String.class, Boolean.TYPE, cls);
+                    this.f51357d = cls;
+                    this.f51356c = this.f51355b.getDeclaredMethod(LightappConstants.METHOD_INVOKE_BD_WALLET_NATIVE, Context.class, String.class, Boolean.TYPE, cls);
                 } finally {
                     try {
                     } finally {
                     }
                 }
             }
-            if (this.f51310b != null && this.f51312d != null && this.f51311c != null) {
+            if (this.f51355b != null && this.f51357d != null && this.f51356c != null) {
                 try {
-                    this.f51311c.invoke(null, activity, str, Boolean.valueOf("ONLINE".equals(DebugConfig.getInstance().getEnvironment())), Proxy.newProxyInstance(getClass().getClassLoader(), new Class[]{this.f51312d}, new a(iLightappInvokerCallback)));
+                    this.f51356c.invoke(null, activity, str, Boolean.valueOf("ONLINE".equals(DebugConfig.getInstance().getEnvironment())), Proxy.newProxyInstance(getClass().getClassLoader(), new Class[]{this.f51357d}, new a(iLightappInvokerCallback)));
                     return;
                 } catch (Throwable unused) {
                     a(iLightappInvokerCallback, str2, LightappConstants.ERRCODE_INNER_ERROR, "reflect callNativeVoice fail!", "#callNativeVoiceFail");

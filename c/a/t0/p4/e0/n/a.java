@@ -16,7 +16,7 @@ public class a {
     public Matrix a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Bitmap f21186b;
+    public Bitmap f21422b;
 
     public a(Bitmap bitmap) {
         Interceptable interceptable = $ic;
@@ -33,7 +33,7 @@ public class a {
                 return;
             }
         }
-        this.f21186b = bitmap;
+        this.f21422b = bitmap;
         this.a = new Matrix();
     }
 
@@ -42,7 +42,7 @@ public class a {
         if (!(interceptable == null || interceptable.invokeL(1048576, this, canvas) == null) || canvas == null) {
             return;
         }
-        canvas.drawBitmap(this.f21186b, this.a, null);
+        canvas.drawBitmap(this.f21422b, this.a, null);
     }
 
     public Matrix b() {
@@ -54,14 +54,14 @@ public class a {
     public Bitmap c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f21186b : (Bitmap) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f21422b : (Bitmap) invokeV.objValue;
     }
 
     public int d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            Bitmap bitmap = this.f21186b;
+            Bitmap bitmap = this.f21422b;
             if (bitmap == null) {
                 return 0;
             }
@@ -74,7 +74,7 @@ public class a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            Bitmap bitmap = this.f21186b;
+            Bitmap bitmap = this.f21422b;
             if (bitmap == null) {
                 return 0;
             }
@@ -86,7 +86,7 @@ public class a {
     public void f(Bitmap bitmap) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, bitmap) == null) {
-            this.f21186b = bitmap;
+            this.f21422b = bitmap;
         }
     }
 }

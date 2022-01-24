@@ -14,13 +14,13 @@ public class q extends v {
     public boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f28359b;
+    public boolean f28387b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final /* synthetic */ KsRewardVideoAd f28360c;
+    public final /* synthetic */ KsRewardVideoAd f28388c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final /* synthetic */ p f28361d;
+    public final /* synthetic */ p f28389d;
 
     public q(p pVar, KsRewardVideoAd ksRewardVideoAd) {
         Interceptable interceptable = $ic;
@@ -37,8 +37,8 @@ public class q extends v {
                 return;
             }
         }
-        this.f28361d = pVar;
-        this.f28360c = ksRewardVideoAd;
+        this.f28389d = pVar;
+        this.f28388c = ksRewardVideoAd;
     }
 
     @Override // com.kwad.sdk.api.KsRewardVideoAd.RewardAdInteractionListener
@@ -46,8 +46,8 @@ public class q extends v {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             LogPrinter.d();
-            this.f28361d.onAdClicked(this.f28359b);
-            this.f28359b = true;
+            this.f28389d.onAdClicked(this.f28387b);
+            this.f28387b = true;
         }
     }
 
@@ -56,7 +56,7 @@ public class q extends v {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             LogPrinter.d();
-            this.f28361d.onAdClose();
+            this.f28389d.onAdClose();
         }
     }
 
@@ -65,7 +65,7 @@ public class q extends v {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             LogPrinter.d();
-            this.f28361d.onRewardedVideo();
+            this.f28389d.onRewardedVideo();
         }
     }
 
@@ -82,7 +82,7 @@ public class q extends v {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(1048580, this, i2, i3) == null) {
             LogPrinter.d();
-            this.f28361d.onAdError(i2, String.valueOf(i3));
+            this.f28389d.onAdError(i2, String.valueOf(i3));
         }
     }
 
@@ -91,7 +91,7 @@ public class q extends v {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             LogPrinter.d();
-            this.f28361d.onAdShow(this.f28360c, this.a);
+            this.f28389d.onAdShow(this.f28388c, this.a);
             this.a = true;
         }
     }

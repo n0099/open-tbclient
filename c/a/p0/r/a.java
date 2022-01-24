@@ -14,10 +14,10 @@ public class a {
     public Object a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Class<?> f4754b;
+    public Class<?> f4896b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Method f4755c;
+    public Method f4897c;
 
     public a() {
         Interceptable interceptable = $ic;

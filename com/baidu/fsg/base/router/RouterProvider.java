@@ -14,7 +14,7 @@ public abstract class RouterProvider {
     public boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public HashMap<String, RouterAction> f33761b;
+    public HashMap<String, RouterAction> f33789b;
 
     public RouterProvider() {
         Interceptable interceptable = $ic;
@@ -30,14 +30,14 @@ public abstract class RouterProvider {
             }
         }
         this.a = true;
-        this.f33761b = new HashMap<>();
+        this.f33789b = new HashMap<>();
         registerActions();
     }
 
     public RouterAction findAction(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) ? this.f33761b.get(str) : (RouterAction) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) ? this.f33789b.get(str) : (RouterAction) invokeL.objValue;
     }
 
     public boolean isValid() {
@@ -49,7 +49,7 @@ public abstract class RouterProvider {
     public void registerAction(String str, RouterAction routerAction) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, routerAction) == null) {
-            this.f33761b.put(str, routerAction);
+            this.f33789b.put(str, routerAction);
         }
     }
 

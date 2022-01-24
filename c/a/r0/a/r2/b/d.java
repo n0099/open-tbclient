@@ -23,18 +23,18 @@ public class d {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: e  reason: collision with root package name */
-    public static d f8616e;
+    public static d f8758e;
     public transient /* synthetic */ FieldHolder $fh;
     public final ConcurrentHashMap<String, b> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public AudioManager f8617b;
+    public AudioManager f8759b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f8618c;
+    public boolean f8760c;
 
     /* renamed from: d  reason: collision with root package name */
-    public BroadcastReceiver f8619d;
+    public BroadcastReceiver f8761d;
 
     /* loaded from: classes.dex */
     public class a extends BroadcastReceiver {
@@ -64,11 +64,11 @@ public class d {
         public void onReceive(Context context, Intent intent) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeLL(1048576, this, context, intent) == null) && "android.media.VOLUME_CHANGED_ACTION".equals(intent.getAction()) && intent.getIntExtra("android.media.EXTRA_VOLUME_STREAM_TYPE", -1) == 3) {
-                if (this.this$0.f8617b == null) {
-                    this.this$0.f8617b = (AudioManager) c.a.r0.a.c1.a.c().getSystemService(MediaStreamTrack.AUDIO_TRACK_KIND);
+                if (this.this$0.f8759b == null) {
+                    this.this$0.f8759b = (AudioManager) c.a.r0.a.c1.a.c().getSystemService(MediaStreamTrack.AUDIO_TRACK_KIND);
                 }
                 for (Map.Entry entry : this.this$0.a.entrySet()) {
-                    ((b) entry.getValue()).a(this.this$0.f8617b != null ? this.this$0.f8617b.getStreamVolume(3) : 0);
+                    ((b) entry.getValue()).a(this.this$0.f8759b != null ? this.this$0.f8759b.getStreamVolume(3) : 0);
                 }
             }
         }
@@ -93,21 +93,21 @@ public class d {
             }
         }
         this.a = new ConcurrentHashMap<>();
-        this.f8619d = new a(this);
+        this.f8761d = new a(this);
     }
 
     public static d e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            if (f8616e == null) {
+            if (f8758e == null) {
                 synchronized (d.class) {
-                    if (f8616e == null) {
-                        f8616e = new d();
+                    if (f8758e == null) {
+                        f8758e = new d();
                     }
                 }
             }
-            return f8616e;
+            return f8758e;
         }
         return (d) invokeV.objValue;
     }
@@ -115,7 +115,7 @@ public class d {
     public static void h() {
         d dVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65541, null) == null) || (dVar = f8616e) == null) {
+        if (!(interceptable == null || interceptable.invokeV(65541, null) == null) || (dVar = f8758e) == null) {
             return;
         }
         dVar.g();
@@ -126,8 +126,8 @@ public class d {
         if (interceptable == null || interceptable.invokeV(65542, this) == null) {
             IntentFilter intentFilter = new IntentFilter();
             intentFilter.addAction("android.media.VOLUME_CHANGED_ACTION");
-            c.a.r0.a.c1.a.c().registerReceiver(this.f8619d, intentFilter);
-            this.f8618c = true;
+            c.a.r0.a.c1.a.c().registerReceiver(this.f8761d, intentFilter);
+            this.f8760c = true;
         }
     }
 
@@ -135,8 +135,8 @@ public class d {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65543, this) == null) {
             try {
-                c.a.r0.a.c1.a.c().unregisterReceiver(this.f8619d);
-                this.f8618c = false;
+                c.a.r0.a.c1.a.c().unregisterReceiver(this.f8761d);
+                this.f8760c = false;
             } catch (Exception e2) {
                 e2.printStackTrace();
             }
@@ -150,7 +150,7 @@ public class d {
         }
         synchronized (this) {
             this.a.put(str, bVar);
-            if (!this.f8618c) {
+            if (!this.f8760c) {
                 registerReceiver();
             }
             if (k.a) {
@@ -163,10 +163,10 @@ public class d {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (this.f8617b == null) {
-                this.f8617b = (AudioManager) c.a.r0.a.c1.a.c().getSystemService(MediaStreamTrack.AUDIO_TRACK_KIND);
+            if (this.f8759b == null) {
+                this.f8759b = (AudioManager) c.a.r0.a.c1.a.c().getSystemService(MediaStreamTrack.AUDIO_TRACK_KIND);
             }
-            AudioManager audioManager = this.f8617b;
+            AudioManager audioManager = this.f8759b;
             if (audioManager != null) {
                 return audioManager.getStreamMaxVolume(3);
             }
@@ -180,10 +180,10 @@ public class d {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             synchronized (this) {
                 this.a.clear();
-                this.f8617b = null;
-                this.f8618c = false;
+                this.f8759b = null;
+                this.f8760c = false;
             }
-            f8616e = null;
+            f8758e = null;
         }
     }
 
@@ -197,7 +197,7 @@ public class d {
             }
             synchronized (this) {
                 b remove = this.a.remove(str);
-                if (this.a.size() == 0 && this.f8618c) {
+                if (this.a.size() == 0 && this.f8760c) {
                     unregisterReceiver();
                 }
                 if (k.a && remove != null) {

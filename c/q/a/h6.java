@@ -40,10 +40,10 @@ public class h6 extends Handler {
         d1 d1Var;
         e1 e1Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, message) == null) || message.what != 0 || (e1Var = (d1Var = this.a).f30304e) == null || d1Var.f30308i) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, message) == null) || message.what != 0 || (e1Var = (d1Var = this.a).f30332e) == null || d1Var.f30336i) {
             return;
         }
         e1Var.onFail(PBError.LOAD_TIME_OUT);
-        this.a.f30309j = true;
+        this.a.f30337j = true;
     }
 }

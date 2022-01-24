@@ -18,16 +18,16 @@ public final class a {
     public com.yxcorp.kuaishou.addfp.a.b.b a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Context f61485b;
+    public Context f61530b;
 
     /* renamed from: c  reason: collision with root package name */
-    public d f61486c;
+    public d f61531c;
 
     /* renamed from: d  reason: collision with root package name */
-    public CountDownLatch f61487d;
+    public CountDownLatch f61532d;
 
     /* renamed from: e  reason: collision with root package name */
-    public ServiceConnection f61488e;
+    public ServiceConnection f61533e;
 
     public a(Context context) {
         Interceptable interceptable = $ic;
@@ -44,10 +44,10 @@ public final class a {
                 return;
             }
         }
-        this.f61486c = null;
-        this.f61487d = new CountDownLatch(1);
-        this.f61488e = new b(this);
-        this.f61485b = context;
+        this.f61531c = null;
+        this.f61532d = new CountDownLatch(1);
+        this.f61533e = new b(this);
+        this.f61530b = context;
     }
 
     private void a(boolean z) {
@@ -58,7 +58,7 @@ public final class a {
                     this.a.e();
                     return;
                 }
-                String a = this.f61486c.a();
+                String a = this.f61531c.a();
                 if (TextUtils.isEmpty(a)) {
                     this.a.a(a);
                 }
@@ -72,7 +72,7 @@ public final class a {
         ServiceConnection serviceConnection;
         Context context;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (serviceConnection = this.f61488e) == null || (context = this.f61485b) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (serviceConnection = this.f61533e) == null || (context = this.f61530b) == null) {
             return;
         }
         context.unbindService(serviceConnection);
@@ -85,12 +85,12 @@ public final class a {
                 this.a = bVar;
                 Intent intent = new Intent("com.uodis.opendevice.OPENIDS_SERVICE");
                 intent.setPackage("com.huawei.hwid");
-                if (!this.f61485b.bindService(intent, this.f61488e, 1)) {
+                if (!this.f61530b.bindService(intent, this.f61533e, 1)) {
                     a(false);
                     return;
                 }
-                this.f61487d.await(10L, TimeUnit.SECONDS);
-                if (this.f61486c != null) {
+                this.f61532d.await(10L, TimeUnit.SECONDS);
+                if (this.f61531c != null) {
                     a(true);
                 } else {
                     a(false);

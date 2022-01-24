@@ -39,10 +39,10 @@ public class LivenessVideoLoadingActivity extends LivenessBaseActivity {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public LoadingDialog f34200b;
+    public LoadingDialog f34228b;
 
     /* renamed from: c  reason: collision with root package name */
-    public LivenessRecogCallback f34201c;
+    public LivenessRecogCallback f34229c;
 
     static {
         InterceptResult invokeClinit;
@@ -76,11 +76,11 @@ public class LivenessVideoLoadingActivity extends LivenessBaseActivity {
     private void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65538, this) == null) {
-            if (this.f34201c != null) {
+            if (this.f34229c != null) {
                 LivenessRecogResult livenessRecogResult = new LivenessRecogResult();
                 livenessRecogResult.setResultCode(a.ERROR_CODE_MANY_CALL);
                 livenessRecogResult.setResultMsg(a.ERROR_MSG_MANY_CALL);
-                this.f34201c.b(livenessRecogResult);
+                this.f34229c.b(livenessRecogResult);
             }
             finish();
         }
@@ -96,13 +96,13 @@ public class LivenessVideoLoadingActivity extends LivenessBaseActivity {
 
     private void c() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65541, this) == null) || this.f34200b == null) {
+        if (!(interceptable == null || interceptable.invokeV(65541, this) == null) || this.f34228b == null) {
             return;
         }
-        if (isFinishing() && this.f34200b.isShowing()) {
+        if (isFinishing() && this.f34228b.isShowing()) {
             return;
         }
-        this.f34200b.dismiss();
+        this.f34228b.dismiss();
         finish();
     }
 
@@ -127,13 +127,13 @@ public class LivenessVideoLoadingActivity extends LivenessBaseActivity {
                 ArrayList arrayList = new ArrayList();
                 arrayList.add(this.livenessRecogDTO.getSpno() + "");
                 arrayList.add(TextUtils.isEmpty(this.livenessRecogDTO.processid) ? "" : this.livenessRecogDTO.processid);
-                RimStatisticsUtil.onEventEndWithValues(d.f34313e, i3, arrayList);
+                RimStatisticsUtil.onEventEndWithValues(d.f34341e, i3, arrayList);
             }
             c();
             LivenessRecogResult livenessRecogResult = new LivenessRecogResult();
             livenessRecogResult.setResultCode(i3);
             livenessRecogResult.setResultMsg(str);
-            LivenessRecogCallback livenessRecogCallback = this.f34201c;
+            LivenessRecogCallback livenessRecogCallback = this.f34229c;
             if (livenessRecogCallback != null) {
                 livenessRecogCallback.b(livenessRecogResult);
             }
@@ -200,13 +200,13 @@ public class LivenessVideoLoadingActivity extends LivenessBaseActivity {
             }
             a = true;
             LivenessRecogCallback livenessRecogCallback = SapiLivenessRecogManager.getInstance().getLivenessRecogCallback();
-            this.f34201c = livenessRecogCallback;
+            this.f34229c = livenessRecogCallback;
             if (this.livenessRecogDTO == null) {
                 if (livenessRecogCallback != null) {
                     LivenessRecogResult livenessRecogResult = new LivenessRecogResult();
                     livenessRecogResult.setResultCode(-206);
                     livenessRecogResult.setResultMsg(a.ERROR_MSG_SERVER_ERROR);
-                    this.f34201c.b(livenessRecogResult);
+                    this.f34229c.b(livenessRecogResult);
                 }
                 finish();
                 return;
@@ -231,16 +231,16 @@ public class LivenessVideoLoadingActivity extends LivenessBaseActivity {
         LoadingDialog loadingDialog;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65539, this, context) == null) {
-            if (this.f34200b == null) {
+            if (this.f34228b == null) {
                 LoadingDialog loadingDialog2 = new LoadingDialog(context);
-                this.f34200b = loadingDialog2;
+                this.f34228b = loadingDialog2;
                 loadingDialog2.setMessage(context.getString(R.string.sapi_liveness_recog_loading));
-                this.f34200b.setCancelable(false);
+                this.f34228b.setCancelable(false);
             }
-            if (((Activity) context).isFinishing() || (loadingDialog = this.f34200b) == null || loadingDialog.isShowing()) {
+            if (((Activity) context).isFinishing() || (loadingDialog = this.f34228b) == null || loadingDialog.isShowing()) {
                 return;
             }
-            this.f34200b.show();
+            this.f34228b.show();
         }
     }
 }

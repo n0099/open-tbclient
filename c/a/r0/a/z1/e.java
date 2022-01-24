@@ -12,38 +12,38 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.ref.WeakReference;
-/* loaded from: classes.dex */
+/* loaded from: classes6.dex */
 public class e {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static e f9870c;
+    public static e f10012c;
     public transient /* synthetic */ FieldHolder $fh;
     public b a;
 
     /* renamed from: b  reason: collision with root package name */
-    public WeakReference<d> f9871b;
+    public WeakReference<d> f10013b;
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes6.dex */
     public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes6.dex */
     public class b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public WeakReference<c.a.r0.a.d2.e> a;
 
         /* renamed from: b  reason: collision with root package name */
-        public WeakReference<f> f9872b;
+        public WeakReference<f> f10014b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f9873c;
+        public String f10015c;
 
         /* renamed from: d  reason: collision with root package name */
-        public MediaModel f9874d;
+        public MediaModel f10016d;
 
         public b(e eVar) {
             Interceptable interceptable = $ic;
@@ -84,14 +84,14 @@ public class e {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (f9870c == null) {
+            if (f10012c == null) {
                 synchronized (e.class) {
-                    if (f9870c == null) {
-                        f9870c = new e();
+                    if (f10012c == null) {
+                        f10012c = new e();
                     }
                 }
             }
-            return f9870c;
+            return f10012c;
         }
         return (e) invokeV.objValue;
     }
@@ -107,7 +107,7 @@ public class e {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            d dVar = this.f9871b.get();
+            d dVar = this.f10013b.get();
             if (dVar != null) {
                 dVar.w1();
                 return true;
@@ -126,10 +126,10 @@ public class e {
                 b bVar = new b(this, null);
                 this.a = bVar;
                 bVar.a = new WeakReference<>(L);
-                this.a.f9872b = new WeakReference<>(H);
+                this.a.f10014b = new WeakReference<>(H);
                 b bVar2 = this.a;
-                bVar2.f9873c = str;
-                bVar2.f9874d = mediaModel;
+                bVar2.f10015c = str;
+                bVar2.f10016d = mediaModel;
                 return;
             }
             this.a = null;
@@ -145,15 +145,15 @@ public class e {
         Bundle bundle = new Bundle();
         bundle.putParcelable("params", replyEditorParams);
         b bVar = this.a;
-        if (bVar != null && eVar == bVar.a.get() && H == this.a.f9872b.get()) {
+        if (bVar != null && eVar == bVar.a.get() && H == this.a.f10014b.get()) {
             bundle.putBoolean(MediaTrackConfig.AE_IMPORT_DRAFT, true);
-            bundle.putString("content", this.a.f9873c);
-            bundle.putParcelable("image", this.a.f9874d);
+            bundle.putString("content", this.a.f10015c);
+            bundle.putParcelable("image", this.a.f10016d);
         }
         d dVar = new d();
         dVar.d1(bundle);
         dVar.J1(aVar);
         dVar.n1(H.z(), "ReplyEditor");
-        this.f9871b = new WeakReference<>(dVar);
+        this.f10013b = new WeakReference<>(dVar);
     }
 }

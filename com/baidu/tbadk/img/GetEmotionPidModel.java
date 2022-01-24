@@ -23,10 +23,10 @@ public class GetEmotionPidModel extends BdBaseModel {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public b f41023e;
+    public b f41051e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final HttpMessageListener f41024f;
+    public final HttpMessageListener f41052f;
 
     /* loaded from: classes11.dex */
     public class a extends HttpMessageListener {
@@ -59,12 +59,12 @@ public class GetEmotionPidModel extends BdBaseModel {
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) && httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1003331 && (httpResponsedMessage instanceof GetEmotionPidResponseMessage) && this.a.f41023e != null) {
+            if ((interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) && httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1003331 && (httpResponsedMessage instanceof GetEmotionPidResponseMessage) && this.a.f41051e != null) {
                 GetEmotionPidResponseMessage getEmotionPidResponseMessage = (GetEmotionPidResponseMessage) httpResponsedMessage;
                 if (getEmotionPidResponseMessage.getImageInfo() != null) {
-                    this.a.f41023e.a(getEmotionPidResponseMessage.getImageInfo());
+                    this.a.f41051e.a(getEmotionPidResponseMessage.getImageInfo());
                 } else {
-                    this.a.f41023e.onFail(getEmotionPidResponseMessage.getError(), getEmotionPidResponseMessage.getErrorString());
+                    this.a.f41051e.onFail(getEmotionPidResponseMessage.getError(), getEmotionPidResponseMessage.getErrorString());
                 }
             }
         }
@@ -90,12 +90,12 @@ public class GetEmotionPidModel extends BdBaseModel {
                 return;
             }
         }
-        this.f41024f = new a(this, CmdConfigHttp.CMD_GET_PB_EMOTION_PID);
+        this.f41052f = new a(this, CmdConfigHttp.CMD_GET_PB_EMOTION_PID);
         setUniqueId(BdUniqueId.gen());
         registerTask();
-        this.f41024f.setTag(getUniqueId());
-        this.f41024f.setSelfListener(true);
-        registerListener(this.f41024f);
+        this.f41052f.setTag(getUniqueId());
+        this.f41052f.setSelfListener(true);
+        registerListener(this.f41052f);
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -103,7 +103,7 @@ public class GetEmotionPidModel extends BdBaseModel {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            MessageManager.getInstance().unRegisterListener(this.f41024f);
+            MessageManager.getInstance().unRegisterListener(this.f41052f);
             MessageManager.getInstance().unRegisterTask(CmdConfigHttp.CMD_GET_PB_EMOTION_PID);
             return true;
         }
@@ -132,7 +132,7 @@ public class GetEmotionPidModel extends BdBaseModel {
     public void x(String str, b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048579, this, str, bVar) == null) {
-            this.f41023e = bVar;
+            this.f41051e = bVar;
             if (TextUtils.isEmpty(str)) {
                 if (bVar != null) {
                     bVar.onFail(0, "picUrl is empty");

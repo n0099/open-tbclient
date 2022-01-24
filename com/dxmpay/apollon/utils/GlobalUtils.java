@@ -21,26 +21,26 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.ref.WeakReference;
 @SuppressLint({"InlinedApi", "NewApi"})
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class GlobalUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static LayoutInflater a = null;
 
     /* renamed from: b  reason: collision with root package name */
-    public static WeakReference<Toast> f53644b = null;
+    public static WeakReference<Toast> f53689b = null;
     public static String showStr = "";
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Context f53645e;
+        public final /* synthetic */ Context f53690e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ View f53646f;
+        public final /* synthetic */ View f53691f;
 
         public a(Context context, View view) {
             Interceptable interceptable = $ic;
@@ -57,15 +57,15 @@ public final class GlobalUtils {
                     return;
                 }
             }
-            this.f53645e = context;
-            this.f53646f = view;
+            this.f53690e = context;
+            this.f53691f = view;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                ((InputMethodManager) this.f53645e.getSystemService("input_method")).showSoftInput(this.f53646f, 0);
+                ((InputMethodManager) this.f53690e.getSystemService("input_method")).showSoftInput(this.f53691f, 0);
             }
         }
     }
@@ -175,9 +175,9 @@ public final class GlobalUtils {
             if (TextUtils.isEmpty(charSequence)) {
                 return;
             }
-            WeakReference<Toast> weakReference = f53644b;
+            WeakReference<Toast> weakReference = f53689b;
             if (weakReference != null && weakReference.get() != null) {
-                f53644b.get().cancel();
+                f53689b.get().cancel();
             }
             if (a == null) {
                 a = LayoutInflater.from(applicationContext);
@@ -196,7 +196,7 @@ public final class GlobalUtils {
             toast.setDuration(i3);
             toast.setGravity(17, 0, 0);
             toast.setView(inflate);
-            f53644b = new WeakReference<>(toast);
+            f53689b = new WeakReference<>(toast);
             toast.show();
         }
     }

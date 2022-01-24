@@ -28,34 +28,34 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: d  reason: collision with root package name */
-    public static String f2833d;
+    public static String f2935d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static String f2834e;
+    public static String f2936e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static String f2835f;
+    public static String f2937f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static boolean f2836g;
+    public static boolean f2938g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static String f2837h;
+    public static String f2939h;
 
     /* renamed from: i  reason: collision with root package name */
-    public static String f2838i;
+    public static String f2940i;
 
     /* renamed from: j  reason: collision with root package name */
-    public static String f2839j;
+    public static String f2941j;
     public static String k;
     public transient /* synthetic */ FieldHolder $fh;
     public e a;
 
     /* renamed from: b  reason: collision with root package name */
-    public c f2840b;
+    public c f2942b;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f2841c;
+    public long f2943c;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -76,28 +76,28 @@ public class a {
     public static void n(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65537, null, str) == null) {
-            f2833d = str;
+            f2935d = str;
         }
     }
 
     public static void o(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65538, null, str) == null) {
-            f2837h = str;
+            f2939h = str;
         }
     }
 
     public static void p(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65539, null, str) == null) {
-            f2838i = str;
+            f2940i = str;
         }
     }
 
     public static void q(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str) == null) {
-            f2839j = str;
+            f2941j = str;
         }
     }
 
@@ -111,21 +111,21 @@ public class a {
     public static void s(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(65542, null, z) == null) {
-            f2836g = z;
+            f2938g = z;
         }
     }
 
     public static void t(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65543, null, str) == null) {
-            f2835f = str;
+            f2937f = str;
         }
     }
 
     public static void u(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65544, null, str) == null) {
-            f2834e = str;
+            f2936e = str;
         }
     }
 
@@ -141,36 +141,36 @@ public class a {
         if (!(interceptable == null || interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, eVar, z) == null) || eVar == null) {
             return;
         }
-        if (!TextUtils.isEmpty(f2833d)) {
-            eVar.b().a("Cookie", f2833d);
+        if (!TextUtils.isEmpty(f2935d)) {
+            eVar.b().a("Cookie", f2935d);
         } else {
             eVar.b().a("Cookie", "");
         }
-        if (!TextUtils.isEmpty(f2835f)) {
-            eVar.b().a("client_user_token", f2835f);
+        if (!TextUtils.isEmpty(f2937f)) {
+            eVar.b().a("client_user_token", f2937f);
         }
-        if (!TextUtils.isEmpty(f2834e)) {
-            eVar.b().a("User-Agent", f2834e);
+        if (!TextUtils.isEmpty(f2936e)) {
+            eVar.b().a("User-Agent", f2936e);
         }
         if (z) {
             eVar.b().a("Accept-Encoding", "gzip");
         } else {
             eVar.b().a("Accept-Encoding", "");
         }
-        if (f2836g) {
+        if (f2938g) {
             eVar.b().a(HTTP.CONN_DIRECTIVE, HTTP.CONN_KEEP_ALIVE);
         } else {
             eVar.b().a(HTTP.CONN_DIRECTIVE, IntentConfig.CLOSE);
         }
-        eVar.b().a("client_logid", String.valueOf(this.f2841c));
-        if (!TextUtils.isEmpty(f2837h)) {
-            eVar.b().a("cuid", f2837h);
+        eVar.b().a("client_logid", String.valueOf(this.f2943c));
+        if (!TextUtils.isEmpty(f2939h)) {
+            eVar.b().a("cuid", f2939h);
         }
-        if (!TextUtils.isEmpty(f2838i)) {
-            eVar.b().a("cuid_galaxy2", f2838i);
+        if (!TextUtils.isEmpty(f2940i)) {
+            eVar.b().a("cuid_galaxy2", f2940i);
         }
-        if (!TextUtils.isEmpty(f2839j)) {
-            eVar.b().a("c3_aid", f2839j);
+        if (!TextUtils.isEmpty(f2941j)) {
+            eVar.b().a("c3_aid", f2941j);
         }
         if (TextUtils.isEmpty(k)) {
             return;
@@ -181,7 +181,7 @@ public class a {
     public void c() {
         c cVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (cVar = this.f2840b) == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (cVar = this.f2942b) == null) {
             return;
         }
         cVar.b();
@@ -197,7 +197,7 @@ public class a {
             this.a.b().s(str);
             this.a.b().o(z4);
             c cVar = new c(this.a);
-            this.f2840b = cVar;
+            this.f2942b = cVar;
             return cVar.c(str2, hVar, i2, i3, i4, i5, z2, z3);
         }
         return invokeCommon.booleanValue;
@@ -212,7 +212,7 @@ public class a {
     public c f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f2840b : (c) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f2942b : (c) invokeV.objValue;
     }
 
     public g g(String str, int i2, int i3, int i4, int i5, LinkedList<BasicNameValuePair> linkedList) throws Exception {
@@ -230,7 +230,7 @@ public class a {
             b(eVar, z);
             this.a.b().s(str);
             c cVar = new c(this.a);
-            this.f2840b = cVar;
+            this.f2942b = cVar;
             cVar.e(i2, i4, i5);
             return this.a.c();
         }
@@ -241,7 +241,7 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
             System.setProperty("http.keepAlive", "false");
-            this.f2841c = BdStatisticsManager.getInstance().getClientLogId();
+            this.f2943c = BdStatisticsManager.getInstance().getClientLogId();
         }
     }
 
@@ -249,7 +249,7 @@ public class a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            c cVar = this.f2840b;
+            c cVar = this.f2942b;
             if (cVar != null) {
                 return cVar.l();
             }
@@ -279,7 +279,7 @@ public class a {
                 }
             }
             c cVar = new c(this.a);
-            this.f2840b = cVar;
+            this.f2942b = cVar;
             cVar.n(i2, i3, -1);
             return this.a.c();
         }
@@ -314,7 +314,7 @@ public class a {
                 }
             }
             c cVar = new c(this.a);
-            this.f2840b = cVar;
+            this.f2942b = cVar;
             cVar.n(i2, i3, -1);
             return this.a.c();
         }
@@ -324,7 +324,7 @@ public class a {
     public void m() {
         c cVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048588, this) == null) || (cVar = this.f2840b) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048588, this) == null) || (cVar = this.f2942b) == null) {
             return;
         }
         cVar.q();

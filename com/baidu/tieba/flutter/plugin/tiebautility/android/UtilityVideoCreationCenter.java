@@ -1,6 +1,6 @@
 package com.baidu.tieba.flutter.plugin.tiebautility.android;
 
-import c.a.s0.s.h0.b;
+import c.a.s0.s.i0.b;
 import c.a.s0.s.m.c;
 import c.a.s0.s.m.d;
 import c.a.t0.p4.s;
@@ -44,7 +44,7 @@ public class UtilityVideoCreationCenter implements TiebaUtilityVideoCreationCent
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             int a = s.a();
             if (s.c(a)) {
-                s.e(TbadkApplication.getInst().getCurrentActivity(), a, d.f13244g);
+                s.e(TbadkApplication.getInst().getCurrentActivity(), a, d.f13430g);
             }
         }
     }

@@ -7,7 +7,7 @@ import android.text.TextUtils;
 import android.view.View;
 import androidx.core.view.InputDeviceCompat;
 import c.a.d.f.p.l;
-import c.a.s0.e1.s;
+import c.a.s0.d1.s;
 import c.a.s0.s.s.c;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
@@ -55,7 +55,7 @@ public class ValidateActivity extends BaseActivity<ValidateActivity> implements 
     public int perCount;
     public int totalCount;
     public s<Boolean> updateDataCallBack;
-    public c.a.t0.s1.x.c valiateView;
+    public c.a.t0.t1.x.c valiateView;
 
     /* loaded from: classes12.dex */
     public class a implements s<Boolean> {
@@ -82,7 +82,7 @@ public class ValidateActivity extends BaseActivity<ValidateActivity> implements 
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // c.a.s0.e1.s
+        @Override // c.a.s0.d1.s
         /* renamed from: a */
         public void onReturnDataInUI(Boolean bool) {
             Interceptable interceptable = $ic;
@@ -118,7 +118,7 @@ public class ValidateActivity extends BaseActivity<ValidateActivity> implements 
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // c.a.s0.e1.s
+        @Override // c.a.s0.d1.s
         /* renamed from: a */
         public void onReturnDataInUI(LinkedList<GroupNewsPojo> linkedList) {
             Interceptable interceptable = $ic;
@@ -160,7 +160,7 @@ public class ValidateActivity extends BaseActivity<ValidateActivity> implements 
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // c.a.s0.e1.s
+        @Override // c.a.s0.d1.s
         /* renamed from: a */
         public void onReturnDataInUI(Integer num) {
             Interceptable interceptable = $ic;
@@ -175,7 +175,7 @@ public class ValidateActivity extends BaseActivity<ValidateActivity> implements 
     }
 
     /* loaded from: classes12.dex */
-    public class d implements c.InterfaceC0884c {
+    public class d implements c.InterfaceC0893c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ValidateActivity a;
@@ -198,7 +198,7 @@ public class ValidateActivity extends BaseActivity<ValidateActivity> implements 
             this.a = validateActivity;
         }
 
-        @Override // c.a.s0.s.s.c.InterfaceC0884c
+        @Override // c.a.s0.s.s.c.InterfaceC0893c
         public void a(c.a.s0.s.s.c cVar, int i2, View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLIL(1048576, this, cVar, i2, view) == null) {
@@ -289,7 +289,7 @@ public class ValidateActivity extends BaseActivity<ValidateActivity> implements 
                         ValidateModel.deleteValidateData(this.a.pendingToDel, this.a.updateDataCallBack);
                         this.a.offset--;
                         this.a.totalCount--;
-                        c.a.t0.s1.x.a e2 = this.a.valiateView.e();
+                        c.a.t0.t1.x.a e2 = this.a.valiateView.e();
                         e2.b().remove(this.a.pendingToDel);
                         ImMessageCenterPojo imMessageCenterPojo = null;
                         if (e2.b().size() > 0) {
@@ -439,7 +439,7 @@ public class ValidateActivity extends BaseActivity<ValidateActivity> implements 
                     requestAddGroupUserMessage.setGroupId(c.a.d.f.m.b.g(validateItemData.getGroupId(), 0L));
                     requestAddGroupUserMessage.setNotice_id(validateItemData.getNotice_id());
                     String notice_id = validateItemData.getNotice_id();
-                    String c2 = c.a.t0.s1.p.b.b().c();
+                    String c2 = c.a.t0.t1.p.b.b().c();
                     if (!TextUtils.isEmpty(notice_id) && !TextUtils.isEmpty(c2) && TextUtils.isDigitsOnly(notice_id) && TextUtils.isDigitsOnly(c2)) {
                         requestAddGroupUserMessage.setSysGroupId(c.a.d.f.m.b.e(c2, 0));
                         requestAddGroupUserMessage.setSysMsgId(String.valueOf(c.a.d.f.m.b.g(notice_id, 0L) / 100));
@@ -462,7 +462,7 @@ public class ValidateActivity extends BaseActivity<ValidateActivity> implements 
                 showToast(R.string.neterror);
             } else if (validateItemData == null) {
             } else {
-                long g2 = c.a.d.f.m.b.g(c.a.t0.s1.p.b.b().c(), 0L);
+                long g2 = c.a.d.f.m.b.g(c.a.t0.t1.p.b.b().c(), 0L);
                 if (g2 == 0) {
                     return;
                 }
@@ -490,7 +490,7 @@ public class ValidateActivity extends BaseActivity<ValidateActivity> implements 
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
             super.onChangeSkinType(i2);
-            c.a.t0.s1.x.c cVar = this.valiateView;
+            c.a.t0.t1.x.c cVar = this.valiateView;
             if (cVar != null) {
                 cVar.onChangeSkinType(i2);
             }
@@ -499,7 +499,7 @@ public class ValidateActivity extends BaseActivity<ValidateActivity> implements 
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
     public void onClick(View view) {
-        c.a.t0.s1.x.c cVar;
+        c.a.t0.t1.x.c cVar;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view) == null) || view == null || (cVar = this.valiateView) == null || !view.equals(cVar.d())) {
             return;
@@ -512,7 +512,7 @@ public class ValidateActivity extends BaseActivity<ValidateActivity> implements 
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bundle) == null) {
             super.onCreate(bundle);
-            this.valiateView = new c.a.t0.s1.x.c(this);
+            this.valiateView = new c.a.t0.t1.x.c(this);
             initDataCallBack();
         }
     }
@@ -522,7 +522,7 @@ public class ValidateActivity extends BaseActivity<ValidateActivity> implements 
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             super.onDestroy();
-            c.a.t0.s1.x.c cVar = this.valiateView;
+            c.a.t0.t1.x.c cVar = this.valiateView;
             if (cVar != null) {
                 cVar.destroy();
             }
@@ -603,12 +603,12 @@ public class ValidateActivity extends BaseActivity<ValidateActivity> implements 
 
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onStop() {
-        c.a.t0.s1.x.a e2;
+        c.a.t0.t1.x.a e2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
             super.onStop();
             ChatStatusManager.getInst().setIsOpen(7, false);
-            c.a.t0.s1.x.c cVar = this.valiateView;
+            c.a.t0.t1.x.c cVar = this.valiateView;
             if (cVar == null || (e2 = cVar.e()) == null) {
                 return;
             }

@@ -1,7 +1,7 @@
 package com.baidu.tieba.frs.itemtab;
 
 import c.a.s0.l0.b.g;
-import c.a.t0.d1.n2.d;
+import c.a.t0.e1.n2.d;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbPageContext;

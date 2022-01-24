@@ -37,39 +37,39 @@ import java.lang.ref.WeakReference;
 /* loaded from: classes10.dex */
 public class a extends Service implements LLSInterface {
     public static /* synthetic */ Interceptable $ic;
-    public static HandlerC1820a a;
+    public static HandlerC1821a a;
 
     /* renamed from: c  reason: collision with root package name */
-    public static long f35114c;
+    public static long f35142c;
 
     /* renamed from: g  reason: collision with root package name */
-    public static long f35115g;
+    public static long f35143g;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public Messenger f35116b;
+    public Messenger f35144b;
 
     /* renamed from: d  reason: collision with root package name */
-    public Looper f35117d;
+    public Looper f35145d;
 
     /* renamed from: e  reason: collision with root package name */
-    public HandlerThread f35118e;
+    public HandlerThread f35146e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f35119f;
+    public boolean f35147f;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f35120h;
+    public int f35148h;
 
     /* renamed from: com.baidu.location.d.a$a  reason: collision with other inner class name */
     /* loaded from: classes10.dex */
-    public static class HandlerC1820a extends Handler {
+    public static class HandlerC1821a extends Handler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final WeakReference<a> a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public HandlerC1820a(Looper looper, a aVar) {
+        public HandlerC1821a(Looper looper, a aVar) {
             super(looper);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -157,11 +157,11 @@ public class a extends Service implements LLSInterface {
                 return;
             }
         }
-        this.f35116b = null;
-        this.f35117d = null;
-        this.f35118e = null;
-        this.f35119f = false;
-        this.f35120h = 0;
+        this.f35144b = null;
+        this.f35145d = null;
+        this.f35146e = null;
+        this.f35147f = false;
+        this.f35148h = 0;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -179,7 +179,7 @@ public class a extends Service implements LLSInterface {
             com.baidu.location.c.b.a().b();
             l.c().d();
             i.a().c();
-            this.f35120h = 2;
+            this.f35148h = 2;
         }
     }
 
@@ -208,8 +208,8 @@ public class a extends Service implements LLSInterface {
             w.d();
             com.baidu.location.b.a.a().b();
             v.a().d();
-            this.f35120h = 4;
-            if (this.f35119f) {
+            this.f35148h = 4;
+            if (this.f35147f) {
                 return;
             }
             Process.killProcess(Process.myPid());
@@ -249,12 +249,12 @@ public class a extends Service implements LLSInterface {
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, intent)) == null) {
             Bundle extras = intent.getExtras();
             if (extras != null) {
-                com.baidu.location.e.b.f35134h = extras.getString("key");
-                com.baidu.location.e.b.f35133g = extras.getString("sign");
-                this.f35119f = extras.getBoolean("kill_process");
+                com.baidu.location.e.b.f35162h = extras.getString("key");
+                com.baidu.location.e.b.f35161g = extras.getString("sign");
+                this.f35147f = extras.getBoolean("kill_process");
                 extras.getBoolean("cache_exception");
             }
-            return this.f35116b.getBinder();
+            return this.f35144b.getBinder();
         }
         return (IBinder) invokeL.objValue;
     }
@@ -267,17 +267,17 @@ public class a extends Service implements LLSInterface {
                 k.ax = context.getPackageName();
             } catch (Exception unused) {
             }
-            f35115g = System.currentTimeMillis();
+            f35143g = System.currentTimeMillis();
             HandlerThread a2 = u.a();
-            this.f35118e = a2;
+            this.f35146e = a2;
             if (a2 != null) {
-                this.f35117d = a2.getLooper();
+                this.f35145d = a2.getLooper();
             }
-            a = this.f35117d == null ? new HandlerC1820a(Looper.getMainLooper(), this) : new HandlerC1820a(this.f35117d, this);
-            f35114c = System.currentTimeMillis();
-            this.f35116b = new Messenger(a);
+            a = this.f35145d == null ? new HandlerC1821a(Looper.getMainLooper(), this) : new HandlerC1821a(this.f35145d, this);
+            f35142c = System.currentTimeMillis();
+            this.f35144b = new Messenger(a);
             a.sendEmptyMessage(0);
-            this.f35120h = 1;
+            this.f35148h = 1;
             String str = "baidu location service start1 ...20190725..." + Process.myPid();
         }
     }
@@ -292,7 +292,7 @@ public class a extends Service implements LLSInterface {
                 b();
                 Process.killProcess(Process.myPid());
             }
-            this.f35120h = 3;
+            this.f35148h = 3;
             new Handler(Looper.getMainLooper()).postDelayed(new b(this, new WeakReference(this)), 1000L);
         }
     }

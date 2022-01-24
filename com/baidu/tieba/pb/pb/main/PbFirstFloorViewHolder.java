@@ -11,15 +11,14 @@ import androidx.annotation.NonNull;
 import c.a.d.f.m.b;
 import c.a.d.f.p.n;
 import c.a.s0.s.q.e2;
-import c.a.t0.s2.g;
-import c.a.t0.s2.h;
-import c.a.t0.s2.i;
-import c.a.t0.s2.j;
-import c.a.t0.s2.r.f;
-import c.a.t0.s2.u.f.e;
-import c.a.t0.s2.u.f.h1.a;
-import c.a.t0.s2.u.f.r0;
-import c.a.t0.s2.u.f.s;
+import c.a.t0.t2.g;
+import c.a.t0.t2.h;
+import c.a.t0.t2.i;
+import c.a.t0.t2.j;
+import c.a.t0.t2.u.f.f;
+import c.a.t0.t2.u.f.i1.a;
+import c.a.t0.t2.u.f.s0;
+import c.a.t0.t2.u.f.t;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbConfig;
@@ -45,7 +44,7 @@ public class PbFirstFloorViewHolder extends TypeAdapter.ViewHolder {
     public ImageView a;
 
     /* renamed from: b  reason: collision with root package name */
-    public View f46456b;
+    public View f46484b;
     public AppletsCellView mAppletsCellView;
     public View mBottomDivider;
     public View mContentReadMoreMaskView;
@@ -55,7 +54,7 @@ public class PbFirstFloorViewHolder extends TypeAdapter.ViewHolder {
     public LinearLayout mLinkContainer;
     public a mManagerSelectView;
     public NovelInfoCardView mNovelInfoCardView;
-    public c.a.t0.s2.u.f.e1.a mOriginalThreadView;
+    public c.a.t0.t2.u.f.f1.a mOriginalThreadView;
     public FrameLayout mOrignalThreadRootView;
     public PbBusinessPromotionContainer mPbBusinessPromotionContainer;
     public ThreadSkinView mPbItemSkinView;
@@ -65,7 +64,7 @@ public class PbFirstFloorViewHolder extends TypeAdapter.ViewHolder {
     public ImageView mReadMoreIcon;
     public int mSkinType;
     public TextView mTailContent;
-    public s mViewStubController;
+    public t mViewStubController;
     public TextView mVoteTailTv;
     public VoteView mVoteView;
     public TextView mYoungsterTipTv;
@@ -92,20 +91,20 @@ public class PbFirstFloorViewHolder extends TypeAdapter.ViewHolder {
             }
         }
         this.mSkinType = 3;
-        this.mViewStubController = new s(view);
+        this.mViewStubController = new t(view);
         ImageView imageView = (ImageView) view.findViewById(i.pb_thread_type_stamp_first_floor_bottom_part);
         this.a = imageView;
         imageView.setScaleType(ImageView.ScaleType.MATRIX);
         Matrix matrix = new Matrix();
-        matrix.postTranslate(0.0f, -r0.g());
+        matrix.postTranslate(0.0f, -s0.g());
         this.a.setImageMatrix(matrix);
-        this.f46456b = view.findViewById(i.blank_view_above_rich_text);
+        this.f46484b = view.findViewById(i.blank_view_above_rich_text);
         this.richText = (TbRichTextView) view.findViewById(i.richText);
         this.pbItemViewRoot = view;
         int k = (((n.k(TbadkCoreApplication.getInst()) - view.getPaddingLeft()) - view.getPaddingRight()) - this.richText.getPaddingLeft()) - this.richText.getPaddingRight();
-        e eVar = new e(this.richText.getLayoutStrategy());
-        eVar.G = k;
-        this.richText.setLayoutStrategy(eVar);
+        f fVar = new f(this.richText.getLayoutStrategy());
+        fVar.G = k;
+        this.richText.setLayoutStrategy(fVar);
         this.mGameBanner = (TbImageView) view.findViewById(i.game_activity_banner);
         int min = Math.min(k - ((int) TbadkCoreApplication.getInst().getResources().getDimension(g.ds60)), i2);
         this.richText.getLayoutStrategy().q(min);
@@ -143,20 +142,20 @@ public class PbFirstFloorViewHolder extends TypeAdapter.ViewHolder {
     public void showBlankViewAboveRichText(boolean z, int i2) {
         View view;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2)}) == null) || (view = this.f46456b) == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2)}) == null) || (view = this.f46484b) == null) {
             return;
         }
         if (z) {
             RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) view.getLayoutParams();
             layoutParams.height = i2;
-            this.f46456b.setLayoutParams(layoutParams);
-            this.f46456b.setVisibility(0);
+            this.f46484b.setLayoutParams(layoutParams);
+            this.f46484b.setVisibility(0);
             return;
         }
         view.setVisibility(8);
     }
 
-    public void showForumEnterButton(@NonNull f fVar, boolean z, boolean z2) {
+    public void showForumEnterButton(@NonNull c.a.t0.t2.r.f fVar, boolean z, boolean z2) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{fVar, Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) || this.mForumEnterButtonContainer == null || fVar == null || fVar.l() == null) {
             return;
@@ -170,15 +169,15 @@ public class PbFirstFloorViewHolder extends TypeAdapter.ViewHolder {
             ListUtils.isEmpty(fVar.p());
         }
         e2 e2Var = new e2();
-        e2Var.S3(fVar.Q());
-        e2Var.I3(b.g(fVar.l().getId(), 0L));
-        e2Var.M3(fVar.l().getName());
-        e2Var.J3(fVar.l().getFirst_class());
-        e2Var.v4(fVar.l().getSecond_class());
+        e2Var.T3(fVar.Q());
+        e2Var.J3(b.g(fVar.l().getId(), 0L));
+        e2Var.N3(fVar.l().getName());
+        e2Var.K3(fVar.l().getFirst_class());
+        e2Var.w4(fVar.l().getSecond_class());
         if (fVar.O() != null) {
-            e2Var.D4(fVar.O().d0);
+            e2Var.E4(fVar.O().d0);
         }
-        if (fVar.f22408i) {
+        if (fVar.f22687i) {
             this.mForumEnterButtonContainer.setVisibility(8);
             this.mPbBusinessPromotionContainer.bindForumData(e2Var, fVar.h(), fVar.r0());
             return;
@@ -186,10 +185,10 @@ public class PbFirstFloorViewHolder extends TypeAdapter.ViewHolder {
         this.mPbBusinessPromotionContainer.setVisibility(8);
     }
 
-    public void showThreadTypeStampBottomPart(f fVar, boolean z, boolean z2) {
+    public void showThreadTypeStampBottomPart(c.a.t0.t2.r.f fVar, boolean z, boolean z2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{fVar, Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
-            if (fVar != null && fVar.f22409j) {
+            if (fVar != null && fVar.f22688j) {
                 this.a.setImageResource(h.pic_frs_headlines_n);
                 this.a.setVisibility(0);
             } else if (z && z2) {

@@ -32,22 +32,22 @@ public class HotTopicSelectModel extends BdBaseModel<HotTopicSelectActivity> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public TbPageContext<HotTopicSelectActivity> f44773e;
+    public TbPageContext<HotTopicSelectActivity> f44801e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final c f44774f;
+    public final c f44802f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f44775g;
+    public boolean f44803g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f44776h;
+    public boolean f44804h;
 
     /* renamed from: i  reason: collision with root package name */
-    public c.a.d.c.g.a f44777i;
+    public c.a.d.c.g.a f44805i;
 
     /* renamed from: j  reason: collision with root package name */
-    public CustomMessageListener f44778j;
+    public CustomMessageListener f44806j;
     public String k;
     public long l;
     public String m;
@@ -91,21 +91,21 @@ public class HotTopicSelectModel extends BdBaseModel<HotTopicSelectActivity> {
                     int resultStatus = hotSelectCacheResponseMessage.getResultStatus();
                     if (resultStatus == 1) {
                         HotTopicSelectModel hotTopicSelectModel = this.a;
-                        hotTopicSelectModel.E(hotTopicSelectModel.f44775g, customResponsedMessage);
+                        hotTopicSelectModel.E(hotTopicSelectModel.f44803g, customResponsedMessage);
                         return;
                     } else if (resultStatus == 2) {
-                        this.a.f44774f.onHotSelectDataNoSearchSuccess(hotSelectCacheResponseMessage.mUserData, hotSelectCacheResponseMessage.mBangData, hotSelectCacheResponseMessage.mVideoHotpicData);
+                        this.a.f44802f.onHotSelectDataNoSearchSuccess(hotSelectCacheResponseMessage.mUserData, hotSelectCacheResponseMessage.mBangData, hotSelectCacheResponseMessage.mVideoHotpicData);
                         return;
                     } else if (resultStatus != 3) {
                         return;
                     } else {
                         HotTopicSelectModel hotTopicSelectModel2 = this.a;
-                        hotTopicSelectModel2.E(hotTopicSelectModel2.f44775g, customResponsedMessage);
+                        hotTopicSelectModel2.E(hotTopicSelectModel2.f44803g, customResponsedMessage);
                         return;
                     }
                 }
                 HotTopicSelectModel hotTopicSelectModel3 = this.a;
-                hotTopicSelectModel3.E(hotTopicSelectModel3.f44775g, customResponsedMessage);
+                hotTopicSelectModel3.E(hotTopicSelectModel3.f44803g, customResponsedMessage);
             }
         }
     }
@@ -142,29 +142,29 @@ public class HotTopicSelectModel extends BdBaseModel<HotTopicSelectActivity> {
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) {
-                this.a.f44776h = false;
+                this.a.f44804h = false;
                 boolean z = responsedMessage instanceof HotSelectSocketResponseMessage;
                 if (!z && !(responsedMessage instanceof HotSelectHttpResponseMessage)) {
                     HotTopicSelectModel hotTopicSelectModel = this.a;
-                    hotTopicSelectModel.E(hotTopicSelectModel.f44775g, responsedMessage);
+                    hotTopicSelectModel.E(hotTopicSelectModel.f44803g, responsedMessage);
                 } else if (responsedMessage.getOrginalMessage() != null && (responsedMessage.getOrginalMessage().getExtra() instanceof HotTopicSelectNetMessage)) {
                     if (!responsedMessage.hasError() && responsedMessage.getError() == 0) {
                         if (responsedMessage instanceof HotSelectHttpResponseMessage) {
                             HotSelectHttpResponseMessage hotSelectHttpResponseMessage = (HotSelectHttpResponseMessage) responsedMessage;
-                            if (this.a.f44775g) {
-                                this.a.f44774f.onHotSelectDataSearchSuccess(hotSelectHttpResponseMessage.getSugTopic());
+                            if (this.a.f44803g) {
+                                this.a.f44802f.onHotSelectDataSearchSuccess(hotSelectHttpResponseMessage.getSugTopic());
                                 return;
                             } else {
-                                this.a.f44774f.onHotSelectDataNoSearchSuccess(hotSelectHttpResponseMessage.getUserHisTopic(), hotSelectHttpResponseMessage.getBangTopic(), hotSelectHttpResponseMessage.getVideoTopic());
+                                this.a.f44802f.onHotSelectDataNoSearchSuccess(hotSelectHttpResponseMessage.getUserHisTopic(), hotSelectHttpResponseMessage.getBangTopic(), hotSelectHttpResponseMessage.getVideoTopic());
                                 return;
                             }
                         } else if (z) {
                             HotSelectSocketResponseMessage hotSelectSocketResponseMessage = (HotSelectSocketResponseMessage) responsedMessage;
-                            if (this.a.f44775g) {
-                                this.a.f44774f.onHotSelectDataSearchSuccess(hotSelectSocketResponseMessage.getSugTopic());
+                            if (this.a.f44803g) {
+                                this.a.f44802f.onHotSelectDataSearchSuccess(hotSelectSocketResponseMessage.getSugTopic());
                                 return;
                             } else {
-                                this.a.f44774f.onHotSelectDataNoSearchSuccess(hotSelectSocketResponseMessage.getUserHisTopic(), hotSelectSocketResponseMessage.getBangTopic(), hotSelectSocketResponseMessage.getVideoTopic());
+                                this.a.f44802f.onHotSelectDataNoSearchSuccess(hotSelectSocketResponseMessage.getUserHisTopic(), hotSelectSocketResponseMessage.getBangTopic(), hotSelectSocketResponseMessage.getVideoTopic());
                                 return;
                             }
                         } else {
@@ -172,10 +172,10 @@ public class HotTopicSelectModel extends BdBaseModel<HotTopicSelectActivity> {
                         }
                     }
                     HotTopicSelectModel hotTopicSelectModel2 = this.a;
-                    hotTopicSelectModel2.E(hotTopicSelectModel2.f44775g, responsedMessage);
+                    hotTopicSelectModel2.E(hotTopicSelectModel2.f44803g, responsedMessage);
                 } else {
                     HotTopicSelectModel hotTopicSelectModel3 = this.a;
-                    hotTopicSelectModel3.E(hotTopicSelectModel3.f44775g, responsedMessage);
+                    hotTopicSelectModel3.E(hotTopicSelectModel3.f44803g, responsedMessage);
                 }
             }
         }
@@ -185,11 +185,11 @@ public class HotTopicSelectModel extends BdBaseModel<HotTopicSelectActivity> {
     public interface c {
         void onHotSelectDataNoSearchFailed(String str);
 
-        void onHotSelectDataNoSearchSuccess(c.a.t0.r1.c cVar, c.a.t0.r1.c cVar2, c.a.t0.r1.c cVar3);
+        void onHotSelectDataNoSearchSuccess(c.a.t0.s1.c cVar, c.a.t0.s1.c cVar2, c.a.t0.s1.c cVar3);
 
         void onHotSelectDataSearchFailed(String str);
 
-        void onHotSelectDataSearchSuccess(c.a.t0.r1.c cVar);
+        void onHotSelectDataSearchSuccess(c.a.t0.s1.c cVar);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -210,15 +210,15 @@ public class HotTopicSelectModel extends BdBaseModel<HotTopicSelectActivity> {
                 return;
             }
         }
-        this.f44775g = false;
-        this.f44776h = false;
+        this.f44803g = false;
+        this.f44804h = false;
         this.l = 0L;
         this.m = "";
         this.n = "";
         A(cVar, "HotSelectCallBack is NullPointerException");
         A(tbPageContext, "HotTopicSelectActivity is  NullPointerException");
-        this.f44773e = tbPageContext;
-        this.f44774f = cVar;
+        this.f44801e = tbPageContext;
+        this.f44802f = cVar;
     }
 
     public final void A(Object obj, String str) {
@@ -260,14 +260,14 @@ public class HotTopicSelectModel extends BdBaseModel<HotTopicSelectActivity> {
         if (interceptable == null || interceptable.invokeZL(1048580, this, z, responsedMessage) == null) {
             if (responsedMessage == null || TextUtils.isEmpty(responsedMessage.getErrorString())) {
                 if (z) {
-                    this.f44774f.onHotSelectDataSearchFailed("");
+                    this.f44802f.onHotSelectDataSearchFailed("");
                 } else {
-                    this.f44774f.onHotSelectDataNoSearchFailed(this.f44773e.getString(R.string.neterror));
+                    this.f44802f.onHotSelectDataNoSearchFailed(this.f44801e.getString(R.string.neterror));
                 }
             } else if (z) {
-                this.f44774f.onHotSelectDataSearchFailed("");
+                this.f44802f.onHotSelectDataSearchFailed("");
             } else {
-                this.f44774f.onHotSelectDataNoSearchFailed(responsedMessage.getErrorString());
+                this.f44802f.onHotSelectDataNoSearchFailed(responsedMessage.getErrorString());
             }
         }
     }
@@ -286,19 +286,19 @@ public class HotTopicSelectModel extends BdBaseModel<HotTopicSelectActivity> {
     public final void G() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            this.f44778j = new a(this, 2016491);
-            c.a.t0.w3.f0.a.b(2016491, c.a.t0.r1.a.class);
-            registerListener(this.f44778j);
+            this.f44806j = new a(this, 2016491);
+            c.a.t0.x3.f0.a.b(2016491, c.a.t0.s1.a.class);
+            registerListener(this.f44806j);
         }
     }
 
     public final void H() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            this.f44777i = new b(this, CmdConfigHttp.CMD_HTTP_GET_HOTTOPIC_SELECT, 309416);
-            c.a.t0.w3.f0.a.h(309416, HotSelectSocketResponseMessage.class, false, false);
-            c.a.t0.w3.f0.a.c(309416, CmdConfigHttp.CMD_HTTP_GET_HOTTOPIC_SELECT, TbConfig.SET_HOTSELECT, HotSelectHttpResponseMessage.class, true, true, true, true);
-            registerListener(this.f44777i);
+            this.f44805i = new b(this, CmdConfigHttp.CMD_HTTP_GET_HOTTOPIC_SELECT, 309416);
+            c.a.t0.x3.f0.a.h(309416, HotSelectSocketResponseMessage.class, false, false);
+            c.a.t0.x3.f0.a.c(309416, CmdConfigHttp.CMD_HTTP_GET_HOTTOPIC_SELECT, TbConfig.SET_HOTSELECT, HotSelectHttpResponseMessage.class, true, true, true, true);
+            registerListener(this.f44805i);
         }
     }
 
@@ -314,12 +314,12 @@ public class HotTopicSelectModel extends BdBaseModel<HotTopicSelectActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
             this.k = "";
-            this.f44775g = false;
+            this.f44803g = false;
             if (!l.z()) {
                 B();
-            } else if (this.f44776h) {
+            } else if (this.f44804h) {
             } else {
-                this.f44776h = true;
+                this.f44804h = true;
                 sendMessage(D());
             }
         }
@@ -329,12 +329,12 @@ public class HotTopicSelectModel extends BdBaseModel<HotTopicSelectActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, str) == null) {
             this.k = str;
-            this.f44775g = true;
+            this.f44803g = true;
             if (!l.z()) {
-                this.f44774f.onHotSelectDataSearchFailed("");
-            } else if (this.f44776h) {
+                this.f44802f.onHotSelectDataSearchFailed("");
+            } else if (this.f44804h) {
             } else {
-                this.f44776h = true;
+                this.f44804h = true;
                 HotTopicSelectNetMessage D = D();
                 D.setPrefix(str);
                 D.setVideoTopic(this.o);
@@ -380,8 +380,8 @@ public class HotTopicSelectModel extends BdBaseModel<HotTopicSelectActivity> {
     public void onDestroy() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
-            MessageManager.getInstance().unRegisterListener(this.f44777i);
-            MessageManager.getInstance().unRegisterListener(this.f44778j);
+            MessageManager.getInstance().unRegisterListener(this.f44805i);
+            MessageManager.getInstance().unRegisterListener(this.f44806j);
             MessageManager.getInstance().unRegisterTask(309416);
             MessageManager.getInstance().unRegisterTask(CmdConfigHttp.CMD_HTTP_GET_HOTTOPIC_SELECT);
             MessageManager.getInstance().unRegisterTask(2016491);

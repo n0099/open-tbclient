@@ -3,23 +3,23 @@ package com.ss.android.socialbase.appdownloader.f.a;
 import java.io.EOFException;
 import java.io.IOException;
 import java.io.InputStream;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class d {
     public InputStream a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f59788b;
+    public boolean f59833b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f59789c;
+    public int f59834c;
 
     public d() {
     }
 
     public final void a(InputStream inputStream, boolean z) {
         this.a = inputStream;
-        this.f59788b = z;
-        this.f59789c = 0;
+        this.f59833b = z;
+        this.f59834c = 0;
     }
 
     public final int b() throws IOException {
@@ -30,7 +30,7 @@ public class d {
         if (i2 > 0) {
             long j2 = i2;
             long skip = this.a.skip(j2);
-            this.f59789c = (int) (this.f59789c + skip);
+            this.f59834c = (int) (this.f59834c + skip);
             if (skip != j2) {
                 throw new EOFException();
             }
@@ -65,13 +65,13 @@ public class d {
     public final int a(int i2) throws IOException {
         if (i2 >= 0 && i2 <= 4) {
             int i3 = 0;
-            if (this.f59788b) {
+            if (this.f59833b) {
                 for (int i4 = (i2 - 1) * 8; i4 >= 0; i4 -= 8) {
                     int read = this.a.read();
                     if (read == -1) {
                         throw new EOFException();
                     }
-                    this.f59789c++;
+                    this.f59834c++;
                     i3 |= read << i4;
                 }
                 return i3;
@@ -83,7 +83,7 @@ public class d {
                 if (read2 == -1) {
                     throw new EOFException();
                 }
-                this.f59789c++;
+                this.f59834c++;
                 i6 |= read2 << i3;
                 i3 += 8;
             }

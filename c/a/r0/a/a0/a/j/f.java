@@ -18,10 +18,10 @@ public class f extends a {
     public Rect a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Paint f5085b;
+    public Paint f5227b;
 
     /* renamed from: c  reason: collision with root package name */
-    public PorterDuffXfermode f5086c;
+    public PorterDuffXfermode f5228c;
 
     public f() {
         Interceptable interceptable = $ic;
@@ -36,8 +36,8 @@ public class f extends a {
                 return;
             }
         }
-        this.f5085b = new Paint();
-        this.f5086c = new PorterDuffXfermode(PorterDuff.Mode.CLEAR);
+        this.f5227b = new Paint();
+        this.f5228c = new PorterDuffXfermode(PorterDuff.Mode.CLEAR);
     }
 
     @Override // c.a.r0.a.a0.a.j.a
@@ -46,8 +46,8 @@ public class f extends a {
         if (!(interceptable == null || interceptable.invokeLL(1048576, this, bVar, canvas) == null) || this.a == null) {
             return;
         }
-        this.f5085b.setXfermode(this.f5086c);
-        canvas.drawRect(this.a, this.f5085b);
+        this.f5227b.setXfermode(this.f5228c);
+        canvas.drawRect(this.a, this.f5227b);
     }
 
     @Override // c.a.r0.a.a0.a.j.a

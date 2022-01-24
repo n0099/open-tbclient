@@ -8,13 +8,13 @@ public class c extends g {
     @NonNull
 
     /* renamed from: b  reason: collision with root package name */
-    public com.kwad.sdk.reward.a.b f55950b;
+    public com.kwad.sdk.reward.a.b f55995b;
 
     /* renamed from: c  reason: collision with root package name */
-    public com.kwad.sdk.reward.c.a f55951c;
+    public com.kwad.sdk.reward.c.a f55996c;
 
     /* renamed from: d  reason: collision with root package name */
-    public com.kwad.sdk.contentalliance.detail.video.d f55952d = new e() { // from class: com.kwad.sdk.core.page.kwai.c.1
+    public com.kwad.sdk.contentalliance.detail.video.d f55997d = new e() { // from class: com.kwad.sdk.core.page.kwai.c.1
         @Override // com.kwad.sdk.contentalliance.detail.video.e, com.kwad.sdk.contentalliance.detail.video.d
         public void a(int i2, int i3) {
             c.this.h();
@@ -33,15 +33,15 @@ public class c extends g {
     public void a() {
         super.a();
         com.kwad.sdk.reward.a aVar = ((g) this).a;
-        this.f55950b = aVar.f57202b;
+        this.f55995b = aVar.f57247b;
         com.kwad.sdk.reward.c.a aVar2 = aVar.k;
-        this.f55951c = aVar2;
-        aVar2.a(this.f55952d);
+        this.f55996c = aVar2;
+        aVar2.a(this.f55997d);
     }
 
     @Override // com.kwad.sdk.mvp.Presenter
     public void c() {
         super.c();
-        this.f55951c.b(this.f55952d);
+        this.f55996c.b(this.f55997d);
     }
 }

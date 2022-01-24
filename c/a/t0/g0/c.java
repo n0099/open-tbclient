@@ -76,10 +76,10 @@ public abstract class c<T extends c.a.t0.g0.f0.a> extends b<T> {
     public void l(TbPageContext<?> tbPageContext, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i2) == null) {
-            if (this.f17766e != i2) {
+            if (this.f17588e != i2) {
                 p();
             }
-            this.f17766e = i2;
+            this.f17588e = i2;
         }
     }
 

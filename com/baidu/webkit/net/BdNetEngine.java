@@ -8,7 +8,6 @@ import android.os.Looper;
 import android.os.Message;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import androidx.webkit.ProxyConfig;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -89,22 +88,22 @@ public class BdNetEngine extends HandlerThread implements INoProGuard {
         public final String a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final int f52854b;
+        public final int f52899b;
 
         /* renamed from: c  reason: collision with root package name */
-        public int f52855c;
+        public int f52900c;
 
         /* renamed from: d  reason: collision with root package name */
-        public int f52856d;
+        public int f52901d;
 
         /* renamed from: e  reason: collision with root package name */
-        public int f52857e;
+        public int f52902e;
 
         /* renamed from: f  reason: collision with root package name */
-        public int f52858f;
+        public int f52903f;
 
         /* renamed from: g  reason: collision with root package name */
-        public char[] f52859g;
+        public char[] f52904g;
 
         public a(X500Principal x500Principal) {
             Interceptable interceptable = $ic;
@@ -123,7 +122,7 @@ public class BdNetEngine extends HandlerThread implements INoProGuard {
             }
             String name = x500Principal.getName("RFC2253");
             this.a = name;
-            this.f52854b = name.length();
+            this.f52899b = name.length();
         }
 
         private int a(int i2) throws Exception {
@@ -133,10 +132,10 @@ public class BdNetEngine extends HandlerThread implements INoProGuard {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeI = interceptable.invokeI(65537, this, i2)) == null) {
                 int i5 = i2 + 1;
-                if (i5 >= this.f52854b) {
+                if (i5 >= this.f52899b) {
                     throw new IllegalStateException("Malformed DN: " + this.a);
                 }
-                char c2 = this.f52859g[i2];
+                char c2 = this.f52904g[i2];
                 if (c2 >= '0' && c2 <= '9') {
                     i3 = c2 - '0';
                 } else if (c2 >= 'a' && c2 <= 'f') {
@@ -146,7 +145,7 @@ public class BdNetEngine extends HandlerThread implements INoProGuard {
                 } else {
                     i3 = c2 - '7';
                 }
-                char c3 = this.f52859g[i5];
+                char c3 = this.f52904g[i5];
                 if (c3 >= '0' && c3 <= '9') {
                     i4 = c3 - '0';
                 } else if (c3 >= 'a' && c3 <= 'f') {
@@ -167,8 +166,8 @@ public class BdNetEngine extends HandlerThread implements INoProGuard {
             int i3;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(65538, this)) == null) {
-                int a = a(this.f52855c);
-                this.f52855c++;
+                int a = a(this.f52900c);
+                this.f52900c++;
                 if (a < 128) {
                     return (char) a;
                 }
@@ -186,15 +185,15 @@ public class BdNetEngine extends HandlerThread implements INoProGuard {
                     i3 = a & 7;
                 }
                 for (int i4 = 0; i4 < i2; i4++) {
-                    int i5 = this.f52855c + 1;
-                    this.f52855c = i5;
-                    if (i5 == this.f52854b || this.f52859g[i5] != '\\') {
+                    int i5 = this.f52900c + 1;
+                    this.f52900c = i5;
+                    if (i5 == this.f52899b || this.f52904g[i5] != '\\') {
                         return '?';
                     }
                     int i6 = i5 + 1;
-                    this.f52855c = i6;
+                    this.f52900c = i6;
                     int a2 = a(i6);
-                    this.f52855c++;
+                    this.f52900c++;
                     if ((a2 & 192) != 128) {
                         return '?';
                     }
@@ -212,77 +211,77 @@ public class BdNetEngine extends HandlerThread implements INoProGuard {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
                 while (true) {
-                    int i3 = this.f52855c;
-                    if (i3 >= this.f52854b || this.f52859g[i3] != ' ') {
+                    int i3 = this.f52900c;
+                    if (i3 >= this.f52899b || this.f52904g[i3] != ' ') {
                         break;
                     }
-                    this.f52855c = i3 + 1;
+                    this.f52900c = i3 + 1;
                 }
-                int i4 = this.f52855c;
-                if (i4 == this.f52854b) {
+                int i4 = this.f52900c;
+                if (i4 == this.f52899b) {
                     return null;
                 }
-                this.f52856d = i4;
+                this.f52901d = i4;
                 do {
-                    this.f52855c = i4 + 1;
-                    i4 = this.f52855c;
-                    if (i4 >= this.f52854b) {
+                    this.f52900c = i4 + 1;
+                    i4 = this.f52900c;
+                    if (i4 >= this.f52899b) {
                         break;
                     }
-                    cArr = this.f52859g;
+                    cArr = this.f52904g;
                     if (cArr[i4] == '=') {
                         break;
                     }
                 } while (cArr[i4] != ' ');
-                int i5 = this.f52855c;
-                if (i5 >= this.f52854b) {
+                int i5 = this.f52900c;
+                if (i5 >= this.f52899b) {
                     throw new IllegalStateException("Unexpected end of DN: " + this.a);
                 }
-                this.f52857e = i5;
-                if (this.f52859g[i5] == ' ') {
+                this.f52902e = i5;
+                if (this.f52904g[i5] == ' ') {
                     while (true) {
-                        int i6 = this.f52855c;
-                        if (i6 >= this.f52854b) {
+                        int i6 = this.f52900c;
+                        if (i6 >= this.f52899b) {
                             break;
                         }
-                        char[] cArr2 = this.f52859g;
+                        char[] cArr2 = this.f52904g;
                         if (cArr2[i6] == '=' || cArr2[i6] != ' ') {
                             break;
                         }
-                        this.f52855c = i6 + 1;
+                        this.f52900c = i6 + 1;
                     }
-                    char[] cArr3 = this.f52859g;
-                    int i7 = this.f52855c;
-                    if (cArr3[i7] != '=' || i7 == this.f52854b) {
+                    char[] cArr3 = this.f52904g;
+                    int i7 = this.f52900c;
+                    if (cArr3[i7] != '=' || i7 == this.f52899b) {
                         throw new IllegalStateException("Unexpected end of DN: " + this.a);
                     }
                 }
                 do {
-                    i2 = this.f52855c + 1;
-                    this.f52855c = i2;
-                    if (i2 >= this.f52854b) {
+                    i2 = this.f52900c + 1;
+                    this.f52900c = i2;
+                    if (i2 >= this.f52899b) {
                         break;
                     }
-                } while (this.f52859g[i2] == ' ');
-                int i8 = this.f52857e;
-                int i9 = this.f52856d;
+                } while (this.f52904g[i2] == ' ');
+                int i8 = this.f52902e;
+                int i9 = this.f52901d;
                 if (i8 - i9 > 4) {
-                    char[] cArr4 = this.f52859g;
+                    char[] cArr4 = this.f52904g;
                     if (cArr4[i9 + 3] == '.' && (cArr4[i9] == 'O' || cArr4[i9] == 'o')) {
-                        char[] cArr5 = this.f52859g;
-                        int i10 = this.f52856d;
+                        char[] cArr5 = this.f52904g;
+                        int i10 = this.f52901d;
                         if (cArr5[i10 + 1] == 'I' || cArr5[i10 + 1] == 'i') {
-                            char[] cArr6 = this.f52859g;
-                            int i11 = this.f52856d;
+                            char[] cArr6 = this.f52904g;
+                            int i11 = this.f52901d;
                             if (cArr6[i11 + 2] == 'D' || cArr6[i11 + 2] == 'd') {
-                                this.f52856d += 4;
+                                this.f52901d += 4;
                             }
                         }
                     }
                 }
-                char[] cArr7 = this.f52859g;
-                int i12 = this.f52856d;
-                return new String(cArr7, i12, this.f52857e - i12);
+                char[] cArr7 = this.f52904g;
+                int i12 = this.f52901d;
+                return new String(cArr7, i12, this.f52902e - i12);
             }
             return (String) invokeV.objValue;
         }
@@ -291,39 +290,39 @@ public class BdNetEngine extends HandlerThread implements INoProGuard {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                int i2 = this.f52855c;
-                if (i2 + 4 >= this.f52854b) {
+                int i2 = this.f52900c;
+                if (i2 + 4 >= this.f52899b) {
                     throw new IllegalStateException("Unexpected end of DN: " + this.a);
                 }
-                this.f52856d = i2;
+                this.f52901d = i2;
                 while (true) {
-                    this.f52855c = i2 + 1;
-                    int i3 = this.f52855c;
-                    if (i3 == this.f52854b) {
+                    this.f52900c = i2 + 1;
+                    int i3 = this.f52900c;
+                    if (i3 == this.f52899b) {
                         break;
                     }
-                    char[] cArr = this.f52859g;
+                    char[] cArr = this.f52904g;
                     if (cArr[i3] == '+' || cArr[i3] == ',' || cArr[i3] == ';') {
                         break;
                     } else if (cArr[i3] == ' ') {
-                        this.f52857e = i3;
+                        this.f52902e = i3;
                         do {
-                            this.f52855c = i3 + 1;
-                            i3 = this.f52855c;
-                            if (i3 >= this.f52854b) {
+                            this.f52900c = i3 + 1;
+                            i3 = this.f52900c;
+                            if (i3 >= this.f52899b) {
                                 break;
                             }
-                        } while (this.f52859g[i3] == ' ');
+                        } while (this.f52904g[i3] == ' ');
                     } else {
                         if (cArr[i3] >= 'A' && cArr[i3] <= 'F') {
                             cArr[i3] = (char) (cArr[i3] + ' ');
                         }
-                        i2 = this.f52855c;
+                        i2 = this.f52900c;
                     }
                 }
-                this.f52857e = this.f52855c;
-                int i4 = this.f52857e;
-                int i5 = this.f52856d;
+                this.f52902e = this.f52900c;
+                int i4 = this.f52902e;
+                int i5 = this.f52901d;
                 int i6 = i4 - i5;
                 if (i6 < 5 || (i6 & 1) == 0) {
                     throw new IllegalStateException("Unexpected end of DN: " + this.a);
@@ -335,13 +334,13 @@ public class BdNetEngine extends HandlerThread implements INoProGuard {
                     bArr[i9] = (byte) a(i8);
                     i8 += 2;
                 }
-                return new String(this.f52859g, this.f52856d, i6);
+                return new String(this.f52904g, this.f52901d, i6);
             }
             return (String) invokeV.objValue;
         }
 
         /* JADX WARN: Code restructure failed: missing block: B:36:0x00a7, code lost:
-            return new java.lang.String(r1, r2, r8.f52858f - r2);
+            return new java.lang.String(r1, r2, r8.f52903f - r2);
          */
         /*
             Code decompiled incorrectly, please refer to instructions dump.
@@ -350,39 +349,39 @@ public class BdNetEngine extends HandlerThread implements INoProGuard {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-                int i2 = this.f52855c;
-                this.f52856d = i2;
-                this.f52857e = i2;
+                int i2 = this.f52900c;
+                this.f52901d = i2;
+                this.f52902e = i2;
                 while (true) {
-                    int i3 = this.f52855c;
-                    if (i3 < this.f52854b) {
-                        char[] cArr = this.f52859g;
+                    int i3 = this.f52900c;
+                    if (i3 < this.f52899b) {
+                        char[] cArr = this.f52904g;
                         char c2 = cArr[i3];
                         if (c2 == ' ') {
-                            int i4 = this.f52857e;
-                            this.f52858f = i4;
-                            this.f52855c = i3 + 1;
-                            this.f52857e = i4 + 1;
+                            int i4 = this.f52902e;
+                            this.f52903f = i4;
+                            this.f52900c = i3 + 1;
+                            this.f52902e = i4 + 1;
                             cArr[i4] = ' ';
                             while (true) {
-                                int i5 = this.f52855c;
-                                if (i5 >= this.f52854b) {
+                                int i5 = this.f52900c;
+                                if (i5 >= this.f52899b) {
                                     break;
                                 }
-                                char[] cArr2 = this.f52859g;
+                                char[] cArr2 = this.f52904g;
                                 if (cArr2[i5] != ' ') {
                                     break;
                                 }
-                                int i6 = this.f52857e;
-                                this.f52857e = i6 + 1;
+                                int i6 = this.f52902e;
+                                this.f52902e = i6 + 1;
                                 cArr2[i6] = ' ';
-                                this.f52855c = i5 + 1;
+                                this.f52900c = i5 + 1;
                             }
-                            int i7 = this.f52855c;
-                            if (i7 == this.f52854b) {
+                            int i7 = this.f52900c;
+                            if (i7 == this.f52899b) {
                                 break;
                             }
-                            char[] cArr3 = this.f52859g;
+                            char[] cArr3 = this.f52904g;
                             if (cArr3[i7] == ',' || cArr3[i7] == '+' || cArr3[i7] == ';') {
                                 break;
                             }
@@ -390,28 +389,28 @@ public class BdNetEngine extends HandlerThread implements INoProGuard {
                             break;
                         } else {
                             if (c2 == '\\') {
-                                int i8 = this.f52857e;
-                                this.f52857e = i8 + 1;
+                                int i8 = this.f52902e;
+                                this.f52902e = i8 + 1;
                                 cArr[i8] = d();
-                                i3 = this.f52855c;
+                                i3 = this.f52900c;
                             } else if (c2 == '+' || c2 == ',') {
                                 break;
                             } else {
-                                int i9 = this.f52857e;
-                                this.f52857e = i9 + 1;
+                                int i9 = this.f52902e;
+                                this.f52902e = i9 + 1;
                                 cArr[i9] = cArr[i3];
                             }
-                            this.f52855c = i3 + 1;
+                            this.f52900c = i3 + 1;
                         }
                     } else {
-                        char[] cArr4 = this.f52859g;
-                        int i10 = this.f52856d;
-                        return new String(cArr4, i10, this.f52857e - i10);
+                        char[] cArr4 = this.f52904g;
+                        int i10 = this.f52901d;
+                        return new String(cArr4, i10, this.f52902e - i10);
                     }
                 }
-                char[] cArr5 = this.f52859g;
-                int i11 = this.f52856d;
-                return new String(cArr5, i11, this.f52857e - i11);
+                char[] cArr5 = this.f52904g;
+                int i11 = this.f52901d;
+                return new String(cArr5, i11, this.f52902e - i11);
             }
             return (String) invokeV.objValue;
         }
@@ -420,12 +419,12 @@ public class BdNetEngine extends HandlerThread implements INoProGuard {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-                int i2 = this.f52855c + 1;
-                this.f52855c = i2;
-                if (i2 == this.f52854b) {
+                int i2 = this.f52900c + 1;
+                this.f52900c = i2;
+                if (i2 == this.f52899b) {
                     throw new IllegalStateException("Unexpected end of DN: " + this.a);
                 }
-                char c2 = this.f52859g[i2];
+                char c2 = this.f52904g[i2];
                 if (c2 != ' ' && c2 != '%' && c2 != '\\' && c2 != '_' && c2 != '\"' && c2 != '#') {
                     switch (c2) {
                         case '*':
@@ -444,7 +443,7 @@ public class BdNetEngine extends HandlerThread implements INoProGuard {
                             }
                     }
                 }
-                return this.f52859g[this.f52855c];
+                return this.f52904g[this.f52900c];
             }
             return invokeV.charValue;
         }
@@ -1157,8 +1156,8 @@ public class BdNetEngine extends HandlerThread implements INoProGuard {
                 quit();
                 this.mListener = null;
                 com.baidu.webkit.net.a a2 = com.baidu.webkit.net.a.a();
-                if (a2.f52868b != null && !a2.f52868b.isEmpty()) {
-                    a2.f52868b.remove(this);
+                if (a2.f52913b != null && !a2.f52913b.isEmpty()) {
+                    a2.f52913b.remove(this);
                 }
             }
         }
@@ -1236,7 +1235,7 @@ public class BdNetEngine extends HandlerThread implements INoProGuard {
             if (lowerCase.endsWith("shahe.baidu.com")) {
                 lowerCase = lowerCase.replace("shahe.baidu.com", "cbs.baidu.com");
             }
-            if (lowerCase.contains(ProxyConfig.MATCH_ALL_SCHEMES)) {
+            if (lowerCase.contains("*")) {
                 if (lowerCase.startsWith(CertificatePinner.Pin.WILDCARD) && str.equals(lowerCase.substring(2))) {
                     return true;
                 }
@@ -1272,62 +1271,62 @@ public class BdNetEngine extends HandlerThread implements INoProGuard {
             }
             if (!z) {
                 a aVar = new a(x509Certificate.getSubjectX500Principal());
-                aVar.f52855c = 0;
-                aVar.f52856d = 0;
-                aVar.f52857e = 0;
-                aVar.f52858f = 0;
-                aVar.f52859g = aVar.a.toCharArray();
+                aVar.f52900c = 0;
+                aVar.f52901d = 0;
+                aVar.f52902e = 0;
+                aVar.f52903f = 0;
+                aVar.f52904g = aVar.a.toCharArray();
                 String a2 = aVar.a();
                 String str4 = null;
                 if (a2 != null) {
                     do {
-                        int i2 = aVar.f52855c;
-                        if (i2 != aVar.f52854b) {
-                            char c2 = aVar.f52859g[i2];
+                        int i2 = aVar.f52900c;
+                        if (i2 != aVar.f52899b) {
+                            char c2 = aVar.f52904g[i2];
                             if (c2 != '\"') {
                                 str2 = c2 != '#' ? (c2 == '+' || c2 == ',' || c2 == ';') ? "" : aVar.c() : aVar.b();
                             } else {
                                 int i3 = i2 + 1;
-                                aVar.f52855c = i3;
-                                aVar.f52856d = i3;
+                                aVar.f52900c = i3;
+                                aVar.f52901d = i3;
                                 while (true) {
-                                    aVar.f52857e = i3;
-                                    int i4 = aVar.f52855c;
-                                    if (i4 == aVar.f52854b) {
+                                    aVar.f52902e = i3;
+                                    int i4 = aVar.f52900c;
+                                    if (i4 == aVar.f52899b) {
                                         throw new IllegalStateException("Unexpected end of DN: " + aVar.a);
                                     }
-                                    char[] cArr = aVar.f52859g;
+                                    char[] cArr = aVar.f52904g;
                                     if (cArr[i4] == '\"') {
                                         do {
-                                            aVar.f52855c = i4 + 1;
-                                            i4 = aVar.f52855c;
-                                            if (i4 >= aVar.f52854b) {
+                                            aVar.f52900c = i4 + 1;
+                                            i4 = aVar.f52900c;
+                                            if (i4 >= aVar.f52899b) {
                                                 break;
                                             }
-                                        } while (aVar.f52859g[i4] == ' ');
-                                        char[] cArr2 = aVar.f52859g;
-                                        int i5 = aVar.f52856d;
-                                        str2 = new String(cArr2, i5, aVar.f52857e - i5);
+                                        } while (aVar.f52904g[i4] == ' ');
+                                        char[] cArr2 = aVar.f52904g;
+                                        int i5 = aVar.f52901d;
+                                        str2 = new String(cArr2, i5, aVar.f52902e - i5);
                                     } else {
                                         if (cArr[i4] == '\\') {
-                                            cArr[aVar.f52857e] = aVar.d();
+                                            cArr[aVar.f52902e] = aVar.d();
                                         } else {
-                                            cArr[aVar.f52857e] = cArr[i4];
+                                            cArr[aVar.f52902e] = cArr[i4];
                                         }
-                                        aVar.f52855c++;
-                                        i3 = aVar.f52857e + 1;
+                                        aVar.f52900c++;
+                                        i3 = aVar.f52902e + 1;
                                     }
                                 }
                             }
                             if (AdvanceSetting.CLEAR_NOTIFICATION.equalsIgnoreCase(a2)) {
                                 str4 = str2;
                             } else {
-                                int i6 = aVar.f52855c;
-                                if (i6 < aVar.f52854b) {
-                                    if (aVar.f52859g[i6] != '+') {
+                                int i6 = aVar.f52900c;
+                                if (i6 < aVar.f52899b) {
+                                    if (aVar.f52904g[i6] != '+') {
                                         throw new IllegalStateException("Malformed DN: " + aVar.a);
                                     }
-                                    aVar.f52855c = i6 + 1;
+                                    aVar.f52900c = i6 + 1;
                                     a2 = aVar.a();
                                 }
                             }

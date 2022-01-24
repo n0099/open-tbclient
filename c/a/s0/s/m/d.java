@@ -31,26 +31,26 @@ public final class d {
     public static final a a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final int f13239b = 2;
+    public static final int f13425b = 2;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final int f13240c = 3;
+    public static final int f13426c = 3;
     @JvmField
 
     /* renamed from: d  reason: collision with root package name */
-    public static final int f13241d = 2;
+    public static final int f13427d = 2;
     @JvmField
 
     /* renamed from: e  reason: collision with root package name */
-    public static final int f13242e = 3;
+    public static final int f13428e = 3;
     @JvmField
 
     /* renamed from: f  reason: collision with root package name */
-    public static final int f13243f = 4;
+    public static final int f13429f = 4;
     @JvmField
 
     /* renamed from: g  reason: collision with root package name */
-    public static final int f13244g = 6;
+    public static final int f13430g = 6;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes6.dex */
@@ -87,13 +87,13 @@ public final class d {
         public final int a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? d.f13239b : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? d.f13425b : invokeV.intValue;
         }
 
         public final int b() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? d.f13240c : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? d.f13426c : invokeV.intValue;
         }
 
         public final void c(int i2, Context mContext, String str, String str2, String str3, String str4, Integer num, boolean z, String str5, String str6, String str7) {

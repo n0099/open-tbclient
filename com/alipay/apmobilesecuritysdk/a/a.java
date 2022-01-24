@@ -30,10 +30,10 @@ public final class a {
     public Context a;
 
     /* renamed from: b  reason: collision with root package name */
-    public com.alipay.apmobilesecuritysdk.b.a f30697b;
+    public com.alipay.apmobilesecuritysdk.b.a f30725b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f30698c;
+    public int f30726c;
 
     public a(Context context) {
         Interceptable interceptable = $ic;
@@ -50,8 +50,8 @@ public final class a {
                 return;
             }
         }
-        this.f30697b = com.alipay.apmobilesecuritysdk.b.a.a();
-        this.f30698c = 4;
+        this.f30725b = com.alipay.apmobilesecuritysdk.b.a.a();
+        this.f30726c = 4;
         this.a = context;
     }
 
@@ -135,48 +135,48 @@ public final class a {
                 String securityToken = UmidSdkWrapper.getSecurityToken(context);
                 String d2 = h.d(context);
                 if (com.alipay.security.mobile.module.a.a.b(a2)) {
-                    dVar.f31022c = a2;
+                    dVar.f31050c = a2;
                 } else {
-                    dVar.f31022c = a4;
+                    dVar.f31050c = a4;
                 }
-                dVar.f31023d = securityToken;
-                dVar.f31024e = d2;
+                dVar.f31051d = securityToken;
+                dVar.f31052e = d2;
                 dVar.a = "android";
                 com.alipay.apmobilesecuritysdk.e.c c3 = com.alipay.apmobilesecuritysdk.e.d.c(context);
                 if (c3 != null) {
                     str2 = c3.a;
-                    str = c3.f30704c;
+                    str = c3.f30732c;
                 } else {
                     str = "";
                     str2 = str;
                 }
                 if (com.alipay.security.mobile.module.a.a.a(str2) && (c2 = com.alipay.apmobilesecuritysdk.e.a.c(context)) != null) {
                     str2 = c2.a;
-                    str = c2.f30702c;
+                    str = c2.f30730c;
                 }
                 com.alipay.apmobilesecuritysdk.e.c b3 = com.alipay.apmobilesecuritysdk.e.d.b();
                 if (b3 != null) {
                     str4 = b3.a;
-                    str3 = b3.f30704c;
+                    str3 = b3.f30732c;
                 } else {
                     str3 = "";
                 }
                 if (com.alipay.security.mobile.module.a.a.a(str4) && (b2 = com.alipay.apmobilesecuritysdk.e.a.b()) != null) {
                     str4 = b2.a;
-                    str3 = b2.f30702c;
+                    str3 = b2.f30730c;
                 }
-                dVar.f31027h = str2;
-                dVar.f31026g = str4;
-                dVar.f31029j = a3;
+                dVar.f31055h = str2;
+                dVar.f31054g = str4;
+                dVar.f31057j = a3;
                 if (com.alipay.security.mobile.module.a.a.a(str2)) {
-                    dVar.f31021b = str4;
+                    dVar.f31049b = str4;
                     str = str3;
                 } else {
-                    dVar.f31021b = str2;
+                    dVar.f31049b = str2;
                 }
-                dVar.f31028i = str;
-                dVar.f31025f = e.a(context, map);
-                return com.alipay.security.mobile.module.http.d.b(this.a, this.f30697b.c()).a(dVar);
+                dVar.f31056i = str;
+                dVar.f31053f = e.a(context, map);
+                return com.alipay.security.mobile.module.http.d.b(this.a, this.f30725b.c()).a(dVar);
             } catch (Throwable th) {
                 th.printStackTrace();
                 com.alipay.apmobilesecuritysdk.c.a.a(th);
@@ -259,7 +259,7 @@ public final class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, map)) == null) {
             try {
-                com.alipay.apmobilesecuritysdk.c.a.a(this.a, com.alipay.security.mobile.module.a.a.a(map, "tid", ""), com.alipay.security.mobile.module.a.a.a(map, com.alipay.sdk.cons.b.f30824g, ""), a(this.a));
+                com.alipay.apmobilesecuritysdk.c.a.a(this.a, com.alipay.security.mobile.module.a.a.a(map, "tid", ""), com.alipay.security.mobile.module.a.a.a(map, com.alipay.sdk.cons.b.f30852g, ""), a(this.a));
                 a = com.alipay.security.mobile.module.a.a.a(map, "appName", "");
                 b();
                 b(this.a);
@@ -273,7 +273,7 @@ public final class a {
                 e.a();
                 if (!(!com.alipay.security.mobile.module.a.a.a(e.b(this.a, map), i.c()))) {
                     String a2 = com.alipay.security.mobile.module.a.a.a(map, "tid", "");
-                    String a3 = com.alipay.security.mobile.module.a.a.a(map, com.alipay.sdk.cons.b.f30824g, "");
+                    String a3 = com.alipay.security.mobile.module.a.a.a(map, com.alipay.sdk.cons.b.f30852g, "");
                     if (com.alipay.security.mobile.module.a.a.b(a2)) {
                         if (!com.alipay.security.mobile.module.a.a.a(a2, i.d())) {
                         }
@@ -298,7 +298,7 @@ public final class a {
                                 if (c2 != 1) {
                                     if (c2 != 3) {
                                         if (b3 != null) {
-                                            str = "Server error, result:" + b3.f31012b;
+                                            str = "Server error, result:" + b3.f31040b;
                                         } else {
                                             str = "Server error, returned null";
                                         }
@@ -309,8 +309,8 @@ public final class a {
                                     } else {
                                         i2 = 1;
                                     }
-                                    this.f30698c = i2;
-                                    b2 = com.alipay.security.mobile.module.http.d.b(this.a, this.f30697b.c());
+                                    this.f30726c = i2;
+                                    b2 = com.alipay.security.mobile.module.http.d.b(this.a, this.f30725b.c());
                                     context = this.a;
                                     ConnectivityManager connectivityManager = (ConnectivityManager) context.getSystemService("connectivity");
                                     activeNetworkInfo = connectivityManager != null ? connectivityManager.getActiveNetworkInfo() : null;
@@ -320,18 +320,18 @@ public final class a {
                                     if (z && h.c(context)) {
                                         new com.alipay.security.mobile.module.d.b(context.getFilesDir().getAbsolutePath() + "/log/ap", b2).a();
                                     }
-                                    return this.f30698c;
+                                    return this.f30726c;
                                 }
                                 h.a(this.a, b3.b());
                                 h.d(this.a, b3.a());
-                                h.e(this.a, b3.f31017g);
-                                h.a(this.a, b3.f31018h);
-                                h.f(this.a, b3.f31019i);
+                                h.e(this.a, b3.f31045g);
+                                h.a(this.a, b3.f31046h);
+                                h.f(this.a, b3.f31047i);
                                 h.g(this.a, b3.k);
                                 i.c(e.b(this.a, map));
-                                i.a(a, b3.f31014d);
-                                i.b(b3.f31013c);
-                                i.d(b3.f31020j);
+                                i.a(a, b3.f31042d);
+                                i.b(b3.f31041c);
+                                i.d(b3.f31048j);
                                 String a4 = com.alipay.security.mobile.module.a.a.a(map, "tid", "");
                                 if (!com.alipay.security.mobile.module.a.a.b(a4) || com.alipay.security.mobile.module.a.a.a(a4, i.d())) {
                                     a4 = i.d();
@@ -339,7 +339,7 @@ public final class a {
                                     i.e(a4);
                                 }
                                 i.e(a4);
-                                String a5 = com.alipay.security.mobile.module.a.a.a(map, com.alipay.sdk.cons.b.f30824g, "");
+                                String a5 = com.alipay.security.mobile.module.a.a.a(map, com.alipay.sdk.cons.b.f30852g, "");
                                 if (!com.alipay.security.mobile.module.a.a.b(a5) || com.alipay.security.mobile.module.a.a.a(a5, i.e())) {
                                     a5 = i.e();
                                 } else {
@@ -356,8 +356,8 @@ public final class a {
                                 h.a(this.a, a, System.currentTimeMillis());
                             }
                             i2 = 0;
-                            this.f30698c = i2;
-                            b2 = com.alipay.security.mobile.module.http.d.b(this.a, this.f30697b.c());
+                            this.f30726c = i2;
+                            b2 = com.alipay.security.mobile.module.http.d.b(this.a, this.f30725b.c());
                             context = this.a;
                             ConnectivityManager connectivityManager2 = (ConnectivityManager) context.getSystemService("connectivity");
                             if (connectivityManager2 != null) {
@@ -368,7 +368,7 @@ public final class a {
                             if (z) {
                                 new com.alipay.security.mobile.module.d.b(context.getFilesDir().getAbsolutePath() + "/log/ap", b2).a();
                             }
-                            return this.f30698c;
+                            return this.f30726c;
                         }
                     }
                 }
@@ -379,8 +379,8 @@ public final class a {
                 if (z2) {
                 }
                 i2 = 0;
-                this.f30698c = i2;
-                b2 = com.alipay.security.mobile.module.http.d.b(this.a, this.f30697b.c());
+                this.f30726c = i2;
+                b2 = com.alipay.security.mobile.module.http.d.b(this.a, this.f30725b.c());
                 context = this.a;
                 ConnectivityManager connectivityManager22 = (ConnectivityManager) context.getSystemService("connectivity");
                 if (connectivityManager22 != null) {
@@ -389,7 +389,7 @@ public final class a {
                 }
                 if (z) {
                 }
-                return this.f30698c;
+                return this.f30726c;
             }
             if (!com.alipay.security.mobile.module.a.a.a(a(this.a, a))) {
             }
@@ -400,8 +400,8 @@ public final class a {
             if (z2) {
             }
             i2 = 0;
-            this.f30698c = i2;
-            b2 = com.alipay.security.mobile.module.http.d.b(this.a, this.f30697b.c());
+            this.f30726c = i2;
+            b2 = com.alipay.security.mobile.module.http.d.b(this.a, this.f30725b.c());
             context = this.a;
             ConnectivityManager connectivityManager222 = (ConnectivityManager) context.getSystemService("connectivity");
             if (connectivityManager222 != null) {
@@ -410,7 +410,7 @@ public final class a {
             }
             if (z) {
             }
-            return this.f30698c;
+            return this.f30726c;
         }
         return invokeL.intValue;
     }

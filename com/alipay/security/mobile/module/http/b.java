@@ -14,7 +14,7 @@ public class b implements Runnable {
     public final /* synthetic */ DataReportRequest a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ c f31006b;
+    public final /* synthetic */ c f31034b;
 
     public b(c cVar, DataReportRequest dataReportRequest) {
         Interceptable interceptable = $ic;
@@ -31,7 +31,7 @@ public class b implements Runnable {
                 return;
             }
         }
-        this.f31006b = cVar;
+        this.f31034b = cVar;
         this.a = dataReportRequest;
     }
 
@@ -43,13 +43,13 @@ public class b implements Runnable {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             try {
-                dataReportService = this.f31006b.f31010c;
-                DataReportResult unused = c.f31008e = dataReportService.reportData(this.a);
+                dataReportService = this.f31034b.f31038c;
+                DataReportResult unused = c.f31036e = dataReportService.reportData(this.a);
             } catch (Throwable th) {
-                DataReportResult unused2 = c.f31008e = new DataReportResult();
-                dataReportResult = c.f31008e;
+                DataReportResult unused2 = c.f31036e = new DataReportResult();
+                dataReportResult = c.f31036e;
                 dataReportResult.success = false;
-                dataReportResult2 = c.f31008e;
+                dataReportResult2 = c.f31036e;
                 dataReportResult2.resultCode = "static data rpc upload error, " + com.alipay.security.mobile.module.a.a.a(th);
                 new StringBuilder("rpc failed:").append(com.alipay.security.mobile.module.a.a.a(th));
             }

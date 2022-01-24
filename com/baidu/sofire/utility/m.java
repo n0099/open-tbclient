@@ -15,12 +15,12 @@ public final class m {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final m f38530c;
+    public static final m f38558c;
     public transient /* synthetic */ FieldHolder $fh;
     public HandlerThread a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Handler f38531b;
+    public Handler f38559b;
 
     static {
         InterceptResult invokeClinit;
@@ -35,7 +35,7 @@ public final class m {
                 return;
             }
         }
-        f38530c = new m();
+        f38558c = new m();
     }
 
     public m() {
@@ -54,12 +54,12 @@ public final class m {
         HandlerThread handlerThread = new HandlerThread("rp_th", 10);
         this.a = handlerThread;
         handlerThread.start();
-        this.f38531b = new Handler(this.a.getLooper());
+        this.f38559b = new Handler(this.a.getLooper());
     }
 
     public static Looper a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f38530c.f38531b.getLooper() : (Looper) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f38558c.f38559b.getLooper() : (Looper) invokeV.objValue;
     }
 }

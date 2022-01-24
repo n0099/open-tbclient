@@ -27,31 +27,31 @@ public class q implements j {
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f62291b;
+    public int f62336b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f62292c;
+    public int f62337c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Context f62293d;
+    public Context f62338d;
 
     /* renamed from: e  reason: collision with root package name */
-    public j.a.a.e.n.b f62294e;
+    public j.a.a.e.n.b f62339e;
 
     /* renamed from: f  reason: collision with root package name */
-    public PayUIKitConfig f62295f;
+    public PayUIKitConfig f62340f;
 
     /* renamed from: g  reason: collision with root package name */
-    public k f62296g;
+    public k f62341g;
 
     /* renamed from: h  reason: collision with root package name */
-    public i f62297h;
+    public i f62342h;
 
     /* renamed from: i  reason: collision with root package name */
-    public e f62298i;
+    public e f62343i;
 
     /* renamed from: j  reason: collision with root package name */
-    public SparseArray<Integer> f62299j;
+    public SparseArray<Integer> f62344j;
     public SparseArray<f> k;
     public SparseArray<PayFlowModel> l;
 
@@ -71,20 +71,20 @@ public class q implements j {
             }
         }
         this.a = "YYPayController";
-        this.f62299j = new SparseArray<>(2);
+        this.f62344j = new SparseArray<>(2);
         this.k = new SparseArray<>();
         this.l = new SparseArray<>();
         this.a += "@" + hashCode();
-        this.f62291b = i2;
-        this.f62293d = context;
-        this.f62294e = bVar;
-        this.f62292c = i3;
-        this.f62296g = kVar;
-        this.f62295f = payUIKitConfig;
-        this.f62297h = new p(i2, i3, bVar, payUIKitConfig);
-        this.f62298i = new m(this.f62291b, this.f62292c, this.f62295f, this.f62294e);
-        this.f62299j.put(PayFlowType.DIOALOG_PAY_FLOW.getTypeId(), 0);
-        this.f62299j.put(PayFlowType.WALLET_PAY_FLOW.getTypeId(), 0);
+        this.f62336b = i2;
+        this.f62338d = context;
+        this.f62339e = bVar;
+        this.f62337c = i3;
+        this.f62341g = kVar;
+        this.f62340f = payUIKitConfig;
+        this.f62342h = new p(i2, i3, bVar, payUIKitConfig);
+        this.f62343i = new m(this.f62336b, this.f62337c, this.f62340f, this.f62339e);
+        this.f62344j.put(PayFlowType.DIOALOG_PAY_FLOW.getTypeId(), 0);
+        this.f62344j.put(PayFlowType.WALLET_PAY_FLOW.getTypeId(), 0);
         RLog.info(this.a, "create YYPayController:" + this + " appId:" + i2 + " userChannel:" + i3);
     }
 
@@ -125,8 +125,8 @@ public class q implements j {
                 }
                 PayFlowModel payFlowModel = this.l.get(PayFlowType.WALLET_PAY_FLOW.getTypeId());
                 if (payFlowModel != null) {
-                    bVar.f62941c = payFlowModel.appCustomExpand;
-                    bVar.f62943e = payFlowModel.viewEventListener;
+                    bVar.f62984c = payFlowModel.appCustomExpand;
+                    bVar.f62986e = payFlowModel.viewEventListener;
                 }
                 String str2 = this.a;
                 RLog.info(str2, "startPayChannelDialog payFlowModel:" + payFlowModel);
@@ -168,11 +168,11 @@ public class q implements j {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048581, this, str, payFlowType) == null) {
             synchronized (this) {
-                int intValue = this.f62299j.get(payFlowType.getTypeId()).intValue();
+                int intValue = this.f62344j.get(payFlowType.getTypeId()).intValue();
                 int i2 = intValue + 1;
                 String str2 = this.a;
                 RLog.info(str2, "payActivityVisitRecord name:" + str + " payFlowType:" + payFlowType.name() + " oldActivityCount:" + intValue + " newAcitivityCount:" + i2);
-                this.f62299j.put(payFlowType.getTypeId(), Integer.valueOf(i2));
+                this.f62344j.put(payFlowType.getTypeId(), Integer.valueOf(i2));
             }
         }
     }
@@ -193,12 +193,12 @@ public class q implements j {
                     if (fVar.n() != PayDialogType.PAY_NONE_DIALOG) {
                         z = false;
                     }
-                    int intValue = this.f62299j.get(payFlowType.getTypeId()).intValue();
+                    int intValue = this.f62344j.get(payFlowType.getTypeId()).intValue();
                     String str2 = this.a;
                     RLog.info(str2, "shouldReleasePayFlow  payFlowType:" + payFlowType + " activityCount:" + intValue + " payDialogType:" + fVar.n() + " shouldRelease" + z);
                     return z;
                 } else {
-                    int intValue2 = this.f62299j.get(payFlowType.getTypeId()).intValue();
+                    int intValue2 = this.f62344j.get(payFlowType.getTypeId()).intValue();
                     if (intValue2 != 0 || fVar.n() != PayDialogType.PAY_NONE_DIALOG) {
                         z = false;
                     }
@@ -220,12 +220,12 @@ public class q implements j {
                 RLog.info(str, "startPayDialog viewParams:" + viewParams);
                 l(PayFlowType.DIOALOG_PAY_FLOW);
                 o(PayFlowType.DIOALOG_PAY_FLOW, viewParams);
-                j.a.a.e.a.d(this.f62291b, this.f62292c, PayFlowType.DIOALOG_PAY_FLOW);
-                o oVar = new o(this.f62293d, this.f62291b, this.f62292c, this.f62296g, this.f62297h, this.f62298i, new l(PayFlowType.DIOALOG_PAY_FLOW, this.f62297h), PayFlowType.DIOALOG_PAY_FLOW, this.f62295f);
+                j.a.a.e.a.d(this.f62336b, this.f62337c, PayFlowType.DIOALOG_PAY_FLOW);
+                o oVar = new o(this.f62338d, this.f62336b, this.f62337c, this.f62341g, this.f62342h, this.f62343i, new l(PayFlowType.DIOALOG_PAY_FLOW, this.f62342h), PayFlowType.DIOALOG_PAY_FLOW, this.f62340f);
                 this.k.put(PayFlowType.DIOALOG_PAY_FLOW.getTypeId(), oVar);
                 n("startPayDialog showPayAmountDialog");
                 oVar.e(activity, iPayCallback, viewParams);
-                j.a.a.e.o.b.b(this.f62291b, this.f62292c, UiEventType.purchaseshow);
+                j.a.a.e.o.b.b(this.f62336b, this.f62337c, UiEventType.purchaseshow);
             }
         }
     }
@@ -239,12 +239,12 @@ public class q implements j {
                 RLog.info(str, "startWalletActivity viewParams:" + viewParams);
                 l(PayFlowType.WALLET_PAY_FLOW);
                 o(PayFlowType.WALLET_PAY_FLOW, viewParams);
-                j.a.a.e.a.d(this.f62291b, this.f62292c, PayFlowType.WALLET_PAY_FLOW);
-                this.k.put(PayFlowType.WALLET_PAY_FLOW.getTypeId(), new o(this.f62293d, this.f62291b, this.f62292c, this.f62296g, this.f62297h, this.f62298i, new l(PayFlowType.WALLET_PAY_FLOW, this.f62297h), PayFlowType.WALLET_PAY_FLOW, this.f62295f));
-                String c2 = j.a.a.e.n.e.c(this.f62295f);
+                j.a.a.e.a.d(this.f62336b, this.f62337c, PayFlowType.WALLET_PAY_FLOW);
+                this.k.put(PayFlowType.WALLET_PAY_FLOW.getTypeId(), new o(this.f62338d, this.f62336b, this.f62337c, this.f62341g, this.f62342h, this.f62343i, new l(PayFlowType.WALLET_PAY_FLOW, this.f62342h), PayFlowType.WALLET_PAY_FLOW, this.f62340f));
+                String c2 = j.a.a.e.n.e.c(this.f62340f);
                 n("startWalletActivity walletUrl:" + j.a.a.e.p.p.a(c2));
-                j.a.a.e.p.f.a(PayFlowType.WALLET_PAY_FLOW, this.f62291b, this.f62292c, this.f62295f, activity, c2, "我的钱包");
-                j.a.a.e.o.b.b(this.f62291b, this.f62292c, UiEventType.walletshow);
+                j.a.a.e.p.f.a(PayFlowType.WALLET_PAY_FLOW, this.f62336b, this.f62337c, this.f62340f, activity, c2, "我的钱包");
+                j.a.a.e.o.b.b(this.f62336b, this.f62337c, UiEventType.walletshow);
             }
         }
     }
@@ -254,10 +254,10 @@ public class q implements j {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048585, this, str, payFlowType) == null) {
             synchronized (this) {
-                int intValue = this.f62299j.get(payFlowType.getTypeId()).intValue();
+                int intValue = this.f62344j.get(payFlowType.getTypeId()).intValue();
                 int i2 = intValue - 1;
                 RLog.info(this.a, "payActivityDestroyRecord name:" + str + " payFlowType:" + payFlowType.name() + " oldActivityCount:" + intValue + " newAcitivityCountt:" + i2);
-                this.f62299j.put(payFlowType.getTypeId(), Integer.valueOf(i2));
+                this.f62344j.put(payFlowType.getTypeId(), Integer.valueOf(i2));
             }
         }
     }
@@ -287,9 +287,9 @@ public class q implements j {
             RLog.info(str, "innerReleasePayFlow payFlowType:" + payFlowType);
             d(payFlowType);
             if (payFlowType == PayFlowType.WALLET_PAY_FLOW) {
-                j.a.a.e.p.k.c(this.f62293d);
+                j.a.a.e.p.k.c(this.f62338d);
             } else if (payFlowType == PayFlowType.DIOALOG_PAY_FLOW) {
-                j.a.a.e.p.k.b(this.f62293d);
+                j.a.a.e.p.k.b(this.f62338d);
             }
         }
     }

@@ -2,7 +2,7 @@ package c.a.t0.f4;
 
 import androidx.core.view.InputDeviceCompat;
 import c.a.d.f.p.h;
-import c.a.t0.h2.f;
+import c.a.t0.i2.f;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
@@ -60,7 +60,7 @@ public class b {
                 int size = h2.size();
                 for (int i2 = 0; i2 < size; i2++) {
                     c.a.t0.f4.a aVar = (c.a.t0.f4.a) h2.get(i2);
-                    this.a.j(aVar.a, aVar.f17762b);
+                    this.a.j(aVar.a, aVar.f17584b);
                 }
                 return null;
             }
@@ -70,12 +70,12 @@ public class b {
 
     /* renamed from: c.a.t0.f4.b$b  reason: collision with other inner class name */
     /* loaded from: classes7.dex */
-    public class C1113b extends BdAsyncTask<c.a.t0.f4.a, Void, Void> {
+    public class C1109b extends BdAsyncTask<c.a.t0.f4.a, Void, Void> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ b a;
 
-        public C1113b(b bVar) {
+        public C1109b(b bVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -151,7 +151,7 @@ public class b {
         if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
             if (!StringUtils.isNull(str) && new File(str).exists()) {
                 try {
-                    return new JSONObject().put("running", l(c.a.t0.h2.d.d(str)));
+                    return new JSONObject().put("running", l(c.a.t0.i2.d.d(str)));
                 } catch (Exception e2) {
                     e2.printStackTrace();
                     return null;
@@ -170,7 +170,7 @@ public class b {
             File file = new File(str);
             if (file.exists()) {
                 try {
-                    jSONObject = new JSONObject(c.a.t0.h2.d.e(file));
+                    jSONObject = new JSONObject(c.a.t0.i2.d.e(file));
                 } catch (Exception e2) {
                     e2.printStackTrace();
                 }
@@ -188,7 +188,7 @@ public class b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
-            File file = new File(f.f18096e);
+            File file = new File(f.f18411e);
             if (file.exists()) {
                 return file.listFiles();
             }
@@ -210,11 +210,11 @@ public class b {
                 String name = file.getName();
                 JSONObject f2 = f(file.getAbsolutePath() + f.a + "kpi");
                 if (f2 == null) {
-                    c.a.t0.h2.d.b(name);
+                    c.a.t0.i2.d.b(name);
                 } else {
                     JSONObject e2 = e(file.getAbsolutePath() + f.a + "debug");
                     if (e2 == null) {
-                        c.a.t0.h2.d.b(name);
+                        c.a.t0.i2.d.b(name);
                     } else {
                         arrayList.add(new c.a.t0.f4.a(name, i(VideoPlatformStatic.c(), f2, e2)));
                     }
@@ -261,7 +261,7 @@ public class b {
                 }
             }
             if (!z) {
-                jSONArray.put(new c.a.t0.c3.c(502, "unknown", -4399, "").a());
+                jSONArray.put(new c.a.t0.d3.c(502, "unknown", -4399, "").a());
             }
             return jSONArray;
         }
@@ -284,9 +284,9 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
             try {
-                byte[] b2 = c.b(aVar.f17762b);
+                byte[] b2 = c.b(aVar.f17584b);
                 c.c(b2, TbConfig.SERVER_ADDRESS + TbConfig.URL_POST_VIDEO_MONITOR_REPORT);
-                c.a.t0.h2.d.b(aVar.a);
+                c.a.t0.i2.d.b(aVar.a);
             } catch (Exception e2) {
                 e2.printStackTrace();
             }
@@ -296,7 +296,7 @@ public class b {
     public void j(String str, JSONObject jSONObject) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, jSONObject) == null) {
-            new C1113b(this).execute(new c.a.t0.f4.a(str, jSONObject));
+            new C1109b(this).execute(new c.a.t0.f4.a(str, jSONObject));
         }
     }
 

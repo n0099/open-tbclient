@@ -9,10 +9,10 @@ public class b implements com.kwad.sdk.core.b {
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f56465b;
+    public String f56510b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f56466c;
+    public String f56511c;
 
     @Override // com.kwad.sdk.core.b
     public void parseJson(@Nullable JSONObject jSONObject) {
@@ -20,16 +20,16 @@ public class b implements com.kwad.sdk.core.b {
             return;
         }
         this.a = jSONObject.optString("action");
-        this.f56465b = jSONObject.optString("data");
-        this.f56466c = jSONObject.optString(WebChromeClient.KEY_ARG_CALLBACK);
+        this.f56510b = jSONObject.optString("data");
+        this.f56511c = jSONObject.optString(WebChromeClient.KEY_ARG_CALLBACK);
     }
 
     @Override // com.kwad.sdk.core.b
     public JSONObject toJson() {
         JSONObject jSONObject = new JSONObject();
         t.a(jSONObject, "action", this.a);
-        t.a(jSONObject, "data", this.f56465b);
-        t.a(jSONObject, WebChromeClient.KEY_ARG_CALLBACK, this.f56466c);
+        t.a(jSONObject, "data", this.f56510b);
+        t.a(jSONObject, WebChromeClient.KEY_ARG_CALLBACK, this.f56511c);
         return jSONObject;
     }
 }

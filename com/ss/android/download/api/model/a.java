@@ -1,54 +1,54 @@
 package com.ss.android.download.api.model;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class a {
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f59316b;
+    public String f59361b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f59317c;
+    public String f59362c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f59318d;
+    public String f59363d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f59319e;
+    public String f59364e;
 
     /* renamed from: com.ss.android.download.api.model.a$a  reason: collision with other inner class name */
-    /* loaded from: classes3.dex */
-    public static class C2178a {
+    /* loaded from: classes4.dex */
+    public static class C2184a {
         public String a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f59320b;
+        public String f59365b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f59321c;
+        public String f59366c;
 
         /* renamed from: d  reason: collision with root package name */
-        public String f59322d;
+        public String f59367d;
 
         /* renamed from: e  reason: collision with root package name */
-        public String f59323e;
+        public String f59368e;
 
-        public C2178a a(String str) {
+        public C2184a a(String str) {
             this.a = str;
             return this;
         }
 
-        public C2178a b(String str) {
-            this.f59320b = str;
+        public C2184a b(String str) {
+            this.f59365b = str;
             return this;
         }
 
-        public C2178a c(String str) {
-            this.f59322d = str;
+        public C2184a c(String str) {
+            this.f59367d = str;
             return this;
         }
 
-        public C2178a d(String str) {
-            this.f59323e = str;
+        public C2184a d(String str) {
+            this.f59368e = str;
             return this;
         }
 
@@ -57,12 +57,12 @@ public class a {
         }
     }
 
-    public a(C2178a c2178a) {
-        this.f59316b = "";
-        this.a = c2178a.a;
-        this.f59316b = c2178a.f59320b;
-        this.f59317c = c2178a.f59321c;
-        this.f59318d = c2178a.f59322d;
-        this.f59319e = c2178a.f59323e;
+    public a(C2184a c2184a) {
+        this.f59361b = "";
+        this.a = c2184a.a;
+        this.f59361b = c2184a.f59365b;
+        this.f59362c = c2184a.f59366c;
+        this.f59363d = c2184a.f59367d;
+        this.f59364e = c2184a.f59368e;
     }
 }

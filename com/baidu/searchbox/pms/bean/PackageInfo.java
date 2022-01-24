@@ -7,6 +7,7 @@ import com.baidu.android.bdutil.cuid.sdk.AppCuidManager;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.NoProGuard;
 import com.baidu.searchbox.pms.constants.PmsConstant;
+import com.baidu.searchbox.retrieve.log.bean.FetchLog;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -119,8 +120,8 @@ public class PackageInfo implements NoProGuard, Cloneable {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, jSONObject)) == null) {
-            String optString = jSONObject.optString("startTime");
-            String optString2 = jSONObject.optString("endTime");
+            String optString = jSONObject.optString(FetchLog.START_TIME);
+            String optString2 = jSONObject.optString(FetchLog.END_TIME);
             if (TextUtils.isEmpty(optString) || TextUtils.isEmpty(optString2)) {
                 return false;
             }

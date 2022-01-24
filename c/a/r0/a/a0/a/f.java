@@ -25,16 +25,16 @@ public class f extends c.a.r0.a.a0.a.a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c.a.r0.a.a0.b.e f5060e;
+        public final /* synthetic */ c.a.r0.a.a0.b.e f5202e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ CanvasView f5061f;
+        public final /* synthetic */ CanvasView f5203f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f5062g;
+        public final /* synthetic */ CallbackHandler f5204g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ f f5063h;
+        public final /* synthetic */ f f5205h;
 
         public a(f fVar, c.a.r0.a.a0.b.e eVar, CanvasView canvasView, CallbackHandler callbackHandler) {
             Interceptable interceptable = $ic;
@@ -51,10 +51,10 @@ public class f extends c.a.r0.a.a0.a.a {
                     return;
                 }
             }
-            this.f5063h = fVar;
-            this.f5060e = eVar;
-            this.f5061f = canvasView;
-            this.f5062g = callbackHandler;
+            this.f5205h = fVar;
+            this.f5202e = eVar;
+            this.f5203f = canvasView;
+            this.f5204g = callbackHandler;
         }
 
         @Override // java.lang.Runnable
@@ -62,19 +62,19 @@ public class f extends c.a.r0.a.a0.a.a {
             JSONObject wrapCallbackParams;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                int i2 = this.f5060e.i();
+                int i2 = this.f5202e.i();
                 if (i2 != 0) {
-                    wrapCallbackParams = UnitedSchemeUtility.wrapCallbackParams(i2, this.f5063h.n(i2));
+                    wrapCallbackParams = UnitedSchemeUtility.wrapCallbackParams(i2, this.f5205h.n(i2));
                 } else {
                     wrapCallbackParams = UnitedSchemeUtility.wrapCallbackParams(0);
-                    this.f5061f.addDrawActionList(this.f5060e.j(), this.f5060e.k());
-                    this.f5061f.postInvalidate();
+                    this.f5203f.addDrawActionList(this.f5202e.j(), this.f5202e.k());
+                    this.f5203f.postInvalidate();
                 }
-                String str = this.f5060e.f5311i;
+                String str = this.f5202e.f5453i;
                 if (TextUtils.isEmpty(str)) {
                     return;
                 }
-                this.f5062g.handleSchemeDispatchCallback(str, wrapCallbackParams.toString());
+                this.f5204g.handleSchemeDispatchCallback(str, wrapCallbackParams.toString());
             }
         }
     }
@@ -112,10 +112,10 @@ public class f extends c.a.r0.a.a0.a.a {
                 unitedSchemeEntity.result = l(201);
                 return false;
             }
-            if (TextUtils.isEmpty(o.f5309g) && (H = c.a.r0.a.g1.f.U().H()) != null) {
-                o.f5309g = H.n3();
+            if (TextUtils.isEmpty(o.f5451g) && (H = c.a.r0.a.g1.f.U().H()) != null) {
+                o.f5451g = H.n3();
             }
-            if (!TextUtils.isEmpty(o.f5309g) && !TextUtils.isEmpty(o.f5308f)) {
+            if (!TextUtils.isEmpty(o.f5451g) && !TextUtils.isEmpty(o.f5450f)) {
                 CanvasView a2 = c.a.r0.a.c0.c.d.b.a.a(o);
                 if (a2 == null) {
                     c.a.r0.a.e0.d.c("SwanAppCanvas", "CanvasPutImageData canvas view is null");
@@ -126,7 +126,7 @@ public class f extends c.a.r0.a.a0.a.a {
                 UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
                 return true;
             }
-            c.a.r0.a.e0.d.c("SwanAppCanvas", "CanvasPutImageData slave id = " + o.f5309g + " ; canvas id = " + o.f5308f);
+            c.a.r0.a.e0.d.c("SwanAppCanvas", "CanvasPutImageData slave id = " + o.f5451g + " ; canvas id = " + o.f5450f);
             unitedSchemeEntity.result = l(201);
             return false;
         }

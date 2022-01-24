@@ -27,16 +27,16 @@ public class ForumRuleEditModel extends BdBaseModel {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final c.a.t0.d1.c2.b.b f43325e;
+    public final c.a.t0.e1.c2.b.b f43347e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f43326f;
+    public int f43348f;
 
     /* renamed from: g  reason: collision with root package name */
-    public HttpMessageListener f43327g;
+    public HttpMessageListener f43349g;
 
     /* renamed from: h  reason: collision with root package name */
-    public HttpMessageListener f43328h;
+    public HttpMessageListener f43350h;
 
     /* loaded from: classes12.dex */
     public class a extends HttpMessageListener {
@@ -71,12 +71,12 @@ public class ForumRuleEditModel extends BdBaseModel {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) {
                 if (httpResponsedMessage == null || !(httpResponsedMessage instanceof ResponseHttpRorumRuleDraftMessage)) {
-                    this.a.f43325e.draftCallback(0, null, "");
+                    this.a.f43347e.draftCallback(0, null, "");
                     return;
                 }
                 ResponseHttpRorumRuleDraftMessage responseHttpRorumRuleDraftMessage = (ResponseHttpRorumRuleDraftMessage) httpResponsedMessage;
                 if (responseHttpRorumRuleDraftMessage != null) {
-                    this.a.f43325e.draftCallback(responseHttpRorumRuleDraftMessage.getError(), responseHttpRorumRuleDraftMessage.getData(), responseHttpRorumRuleDraftMessage.getErrorString());
+                    this.a.f43347e.draftCallback(responseHttpRorumRuleDraftMessage.getError(), responseHttpRorumRuleDraftMessage.getData(), responseHttpRorumRuleDraftMessage.getErrorString());
                 }
             }
         }
@@ -114,16 +114,16 @@ public class ForumRuleEditModel extends BdBaseModel {
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             ResponseHttpRorumRuleCommitMessage responseHttpRorumRuleCommitMessage;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) || httpResponsedMessage == null || !(httpResponsedMessage instanceof ResponseHttpRorumRuleCommitMessage) || (responseHttpRorumRuleCommitMessage = (ResponseHttpRorumRuleCommitMessage) httpResponsedMessage) == null || this.a.f43326f == -1) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) || httpResponsedMessage == null || !(httpResponsedMessage instanceof ResponseHttpRorumRuleCommitMessage) || (responseHttpRorumRuleCommitMessage = (ResponseHttpRorumRuleCommitMessage) httpResponsedMessage) == null || this.a.f43348f == -1) {
                 return;
             }
-            this.a.f43325e.commitCallback(responseHttpRorumRuleCommitMessage.getError(), responseHttpRorumRuleCommitMessage.getErrorString(), this.a.f43326f == 1);
-            this.a.f43326f = -1;
+            this.a.f43347e.commitCallback(responseHttpRorumRuleCommitMessage.getError(), responseHttpRorumRuleCommitMessage.getErrorString(), this.a.f43348f == 1);
+            this.a.f43348f = -1;
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ForumRuleEditModel(TbPageContext tbPageContext, c.a.t0.d1.c2.b.b bVar, String str) {
+    public ForumRuleEditModel(TbPageContext tbPageContext, c.a.t0.e1.c2.b.b bVar, String str) {
         super(tbPageContext);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -140,10 +140,10 @@ public class ForumRuleEditModel extends BdBaseModel {
                 return;
             }
         }
-        this.f43326f = -1;
-        this.f43327g = new a(this, CmdConfigHttp.CMD_FORUM_RULES_DRAFT);
-        this.f43328h = new b(this, CmdConfigHttp.CMD_FORUM_RULES_COMMIT);
-        this.f43325e = bVar;
+        this.f43348f = -1;
+        this.f43349g = new a(this, CmdConfigHttp.CMD_FORUM_RULES_DRAFT);
+        this.f43350h = new b(this, CmdConfigHttp.CMD_FORUM_RULES_COMMIT);
+        this.f43347e = bVar;
         B();
     }
 
@@ -159,10 +159,10 @@ public class ForumRuleEditModel extends BdBaseModel {
     public final void B() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            c.a.t0.w3.f0.a.e(CmdConfigHttp.CMD_FORUM_RULES_DRAFT, TbConfig.URL_FORUM_RULES_DRAFT, ResponseHttpRorumRuleDraftMessage.class, true, true, true, true);
-            c.a.t0.w3.f0.a.e(CmdConfigHttp.CMD_FORUM_RULES_COMMIT, TbConfig.URL_FORUM_RULES_COMMIT, ResponseHttpRorumRuleCommitMessage.class, true, true, true, true);
-            registerListener(this.f43327g);
-            registerListener(this.f43328h);
+            c.a.t0.x3.f0.a.e(CmdConfigHttp.CMD_FORUM_RULES_DRAFT, TbConfig.URL_FORUM_RULES_DRAFT, ResponseHttpRorumRuleDraftMessage.class, true, true, true, true);
+            c.a.t0.x3.f0.a.e(CmdConfigHttp.CMD_FORUM_RULES_COMMIT, TbConfig.URL_FORUM_RULES_COMMIT, ResponseHttpRorumRuleCommitMessage.class, true, true, true, true);
+            registerListener(this.f43349g);
+            registerListener(this.f43350h);
         }
     }
 
@@ -214,7 +214,7 @@ public class ForumRuleEditModel extends BdBaseModel {
             httpMessage.addParam("preface", forumRuleBaseData.getPreface());
             httpMessage.addParam("rules", C(forumRuleBaseData.getList()));
             httpMessage.addParam("is_draft", z ? 1 : 0);
-            this.f43326f = z ? 1 : 0;
+            this.f43348f = z ? 1 : 0;
             MessageManager.getInstance().sendMessage(httpMessage);
         }
     }

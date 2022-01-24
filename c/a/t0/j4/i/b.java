@@ -15,19 +15,19 @@ public abstract class b<T> {
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public T f18564b;
+    public T f18545b;
 
     /* renamed from: c  reason: collision with root package name */
-    public T f18565c;
+    public T f18546c;
 
     /* renamed from: d  reason: collision with root package name */
-    public a f18566d;
+    public a f18547d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f18567e;
+    public String f18548e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Long f18568f;
+    public Long f18549f;
 
     /* loaded from: classes7.dex */
     public interface a<T> {
@@ -49,7 +49,7 @@ public abstract class b<T> {
                 return;
             }
         }
-        this.f18567e = str2;
+        this.f18548e = str2;
         i(t);
         j(str);
     }
@@ -57,7 +57,7 @@ public abstract class b<T> {
     public T a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f18565c : (T) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f18546c : (T) invokeV.objValue;
     }
 
     public String b() {
@@ -70,10 +70,10 @@ public abstract class b<T> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (this.f18568f == null && !TextUtils.isEmpty(this.f18567e)) {
+            if (this.f18549f == null && !TextUtils.isEmpty(this.f18548e)) {
                 d();
             }
-            Long l = this.f18568f;
+            Long l = this.f18549f;
             if (l == null) {
                 return 0L;
             }
@@ -86,13 +86,13 @@ public abstract class b<T> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if (this.f18564b == null && !TextUtils.isEmpty(this.a)) {
-                this.f18564b = f();
-                if (!TextUtils.isEmpty(this.f18567e)) {
-                    this.f18568f = Long.valueOf(e(this.f18567e, 0L));
+            if (this.f18545b == null && !TextUtils.isEmpty(this.a)) {
+                this.f18545b = f();
+                if (!TextUtils.isEmpty(this.f18548e)) {
+                    this.f18549f = Long.valueOf(e(this.f18548e, 0L));
                 }
             }
-            return this.f18564b;
+            return this.f18545b;
         }
         return (T) invokeV.objValue;
     }
@@ -108,7 +108,7 @@ public abstract class b<T> {
     public void i(T t) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, t) == null) {
-            this.f18565c = t;
+            this.f18546c = t;
         }
     }
 
@@ -122,19 +122,19 @@ public abstract class b<T> {
     public void k(T t) {
         T t2;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048586, this, t) == null) || TextUtils.isEmpty(this.a) || t == (t2 = this.f18564b)) {
+        if (!(interceptable == null || interceptable.invokeL(1048586, this, t) == null) || TextUtils.isEmpty(this.a) || t == (t2 = this.f18545b)) {
             return;
         }
         if (t == null || !t.equals(t2)) {
-            T t3 = this.f18564b;
-            this.f18564b = t;
+            T t3 = this.f18545b;
+            this.f18545b = t;
             h();
-            if (!TextUtils.isEmpty(this.f18567e)) {
+            if (!TextUtils.isEmpty(this.f18548e)) {
                 Long valueOf = Long.valueOf(System.currentTimeMillis());
-                this.f18568f = valueOf;
-                g(this.f18567e, valueOf.longValue());
+                this.f18549f = valueOf;
+                g(this.f18548e, valueOf.longValue());
             }
-            a aVar = this.f18566d;
+            a aVar = this.f18547d;
             if (aVar != null) {
                 aVar.a(this, t3, t);
             }

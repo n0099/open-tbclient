@@ -13,7 +13,7 @@ public abstract class v extends s {
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f60654b;
+    public long f60699b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public v(int i2) {
@@ -41,7 +41,7 @@ public abstract class v extends s {
         if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
             super.c(aVar);
             aVar.a("OnVerifyCallBackCommand.EXTRA_SECURITY_CONTENT", this.a);
-            aVar.a("notify_id", this.f60654b);
+            aVar.a("notify_id", this.f60699b);
         }
     }
 
@@ -51,14 +51,14 @@ public abstract class v extends s {
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
             super.d(aVar);
             this.a = aVar.a("OnVerifyCallBackCommand.EXTRA_SECURITY_CONTENT");
-            this.f60654b = aVar.b("notify_id", -1L);
+            this.f60699b = aVar.b("notify_id", -1L);
         }
     }
 
     public final long f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f60654b : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f60699b : invokeV.longValue;
     }
 
     public final String i() {

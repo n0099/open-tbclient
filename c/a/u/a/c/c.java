@@ -22,7 +22,7 @@ public abstract class c {
     public Context a;
 
     /* renamed from: b  reason: collision with root package name */
-    public d f26228b;
+    public d f26256b;
 
     public c(Context context) {
         Interceptable interceptable = $ic;
@@ -39,14 +39,14 @@ public abstract class c {
                 return;
             }
         }
-        this.f26228b = null;
+        this.f26256b = null;
         this.a = context;
     }
 
     public d a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f26228b : (d) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f26256b : (d) invokeV.objValue;
     }
 
     public abstract InputStream b() throws Exception;

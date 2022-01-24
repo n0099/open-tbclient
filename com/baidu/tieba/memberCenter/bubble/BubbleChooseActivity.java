@@ -8,7 +8,7 @@ import android.text.TextUtils;
 import android.view.View;
 import android.widget.AdapterView;
 import c.a.d.f.p.n;
-import c.a.t0.f2.a.c;
+import c.a.t0.g2.a.c;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomMessage;
@@ -33,7 +33,7 @@ public class BubbleChooseActivity extends BaseActivity<BubbleChooseActivity> {
     public transient /* synthetic */ FieldHolder $fh;
     public final int PAGE_LENGTH;
     public final int PAGE_NUM;
-    public c.a.t0.f2.a.b mBubbleChooseView;
+    public c.a.t0.g2.a.b mBubbleChooseView;
     public BubbleListModel mBubbleModel;
     public c.e mFreeBubbleTipDialogCallback;
     public c.e mPayBubbleTipDialogCallback;
@@ -145,7 +145,7 @@ public class BubbleChooseActivity extends BaseActivity<BubbleChooseActivity> {
             if (interceptable == null || interceptable.invokeL(1048576, this, setBubbleResultData) == null) {
                 this.a.mBubbleChooseView.g();
                 int z = this.a.mBubbleModel.z();
-                c.a.t0.f2.a.a c2 = this.a.mBubbleChooseView.c();
+                c.a.t0.g2.a.a c2 = this.a.mBubbleChooseView.c();
                 if (z == 0) {
                     c2.d(true);
                     for (BubbleListData.BubbleData bubbleData : c2.b()) {
@@ -217,7 +217,7 @@ public class BubbleChooseActivity extends BaseActivity<BubbleChooseActivity> {
             this.a = bubbleChooseActivity;
         }
 
-        @Override // c.a.t0.f2.a.c.e
+        @Override // c.a.t0.g2.a.c.e
         public void a(int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
@@ -226,7 +226,7 @@ public class BubbleChooseActivity extends BaseActivity<BubbleChooseActivity> {
             }
         }
 
-        @Override // c.a.t0.f2.a.c.e
+        @Override // c.a.t0.g2.a.c.e
         public void b() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
@@ -258,7 +258,7 @@ public class BubbleChooseActivity extends BaseActivity<BubbleChooseActivity> {
             this.a = bubbleChooseActivity;
         }
 
-        @Override // c.a.t0.f2.a.c.e
+        @Override // c.a.t0.g2.a.c.e
         public void a(int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
@@ -270,7 +270,7 @@ public class BubbleChooseActivity extends BaseActivity<BubbleChooseActivity> {
             }
         }
 
-        @Override // c.a.t0.f2.a.c.e
+        @Override // c.a.t0.g2.a.c.e
         public void b() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
@@ -352,7 +352,7 @@ public class BubbleChooseActivity extends BaseActivity<BubbleChooseActivity> {
     private void initView() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65542, this) == null) {
-            c.a.t0.f2.a.b bVar = new c.a.t0.f2.a.b(getPageContext());
+            c.a.t0.g2.a.b bVar = new c.a.t0.g2.a.b(getPageContext());
             this.mBubbleChooseView = bVar;
             bVar.e().setOnItemClickListener(this);
             this.mBubbleChooseView.i();
@@ -452,10 +452,10 @@ public class BubbleChooseActivity extends BaseActivity<BubbleChooseActivity> {
             }
             if (f2.getBcode() != 0 && !f2.canUse()) {
                 if (f2.isFree()) {
-                    c.a.t0.f2.a.c.a(getPageContext(), f2, this.mFreeBubbleTipDialogCallback);
+                    c.a.t0.g2.a.c.a(getPageContext(), f2, this.mFreeBubbleTipDialogCallback);
                     return;
                 } else {
-                    c.a.t0.f2.a.c.b(getPageContext(), f2, this.mPayBubbleTipDialogCallback);
+                    c.a.t0.g2.a.c.b(getPageContext(), f2, this.mPayBubbleTipDialogCallback);
                     return;
                 }
             }

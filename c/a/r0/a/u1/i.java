@@ -108,10 +108,10 @@ public class i {
             }
             HybridUbcFlow q = h.q(FlutterActivityLaunchConfigs.EXTRA_INITIAL_ROUTE, str);
             UbcFlowEvent ubcFlowEvent = new UbcFlowEvent("na_pre_load_slave_start");
-            ubcFlowEvent.h(eVar.f6886d);
+            ubcFlowEvent.h(eVar.f7028d);
             q.F(ubcFlowEvent);
             UbcFlowEvent ubcFlowEvent2 = new UbcFlowEvent("na_pre_load_slave_end");
-            ubcFlowEvent2.h(eVar.f6887e);
+            ubcFlowEvent2.h(eVar.f7029e);
             q.F(ubcFlowEvent2);
         }
     }

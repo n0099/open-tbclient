@@ -14,33 +14,33 @@ public final class j {
     public final int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final int f28720b;
+    public final int f28748b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final long f28721c;
+    public final long f28749c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final long f28722d;
+    public final long f28750d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final long f28723e;
+    public final long f28751e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final Format f28724f;
+    public final Format f28752f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final int f28725g;
+    public final int f28753g;
     @Nullable
 
     /* renamed from: h  reason: collision with root package name */
-    public final long[] f28726h;
+    public final long[] f28754h;
     @Nullable
 
     /* renamed from: i  reason: collision with root package name */
-    public final long[] f28727i;
+    public final long[] f28755i;
 
     /* renamed from: j  reason: collision with root package name */
-    public final int f28728j;
+    public final int f28756j;
     @Nullable
     public final k[] k;
 
@@ -60,16 +60,16 @@ public final class j {
             }
         }
         this.a = i2;
-        this.f28720b = i3;
-        this.f28721c = j2;
-        this.f28722d = j3;
-        this.f28723e = j4;
-        this.f28724f = format;
-        this.f28725g = i4;
+        this.f28748b = i3;
+        this.f28749c = j2;
+        this.f28750d = j3;
+        this.f28751e = j4;
+        this.f28752f = format;
+        this.f28753g = i4;
         this.k = kVarArr;
-        this.f28728j = i5;
-        this.f28726h = jArr;
-        this.f28727i = jArr2;
+        this.f28756j = i5;
+        this.f28754h = jArr;
+        this.f28755i = jArr2;
     }
 
     public k a(int i2) {

@@ -20,7 +20,7 @@ public class b implements l1 {
     public HashMap<String, Boolean> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public c.a.r0.i.c.a f10746b;
+    public c.a.r0.i.c.a f10888b;
 
     /* loaded from: classes6.dex */
     public class a implements c.a.r0.a.u0.b {
@@ -29,7 +29,7 @@ public class b implements l1 {
         public final /* synthetic */ c.a.r0.a.u0.b a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ b f10747b;
+        public final /* synthetic */ b f10889b;
 
         public a(b bVar, c.a.r0.a.u0.b bVar2) {
             Interceptable interceptable = $ic;
@@ -46,7 +46,7 @@ public class b implements l1 {
                     return;
                 }
             }
-            this.f10747b = bVar;
+            this.f10889b = bVar;
             this.a = bVar2;
         }
 
@@ -54,7 +54,7 @@ public class b implements l1 {
         public void a(@Nullable JSONObject jSONObject) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) {
-                this.f10747b.g(true);
+                this.f10889b.g(true);
                 this.a.a(jSONObject);
             }
         }
@@ -63,7 +63,7 @@ public class b implements l1 {
         public void onFail(int i2, @Nullable String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, str) == null) {
-                this.f10747b.g(false);
+                this.f10889b.g(false);
                 this.a.onFail(i2, str);
             }
         }
@@ -83,7 +83,7 @@ public class b implements l1 {
             }
         }
         this.a = new HashMap<>();
-        this.f10746b = new c.a.r0.i.c.a();
+        this.f10888b = new c.a.r0.i.c.a();
     }
 
     @Override // c.a.r0.a.p.d.l1
@@ -96,7 +96,7 @@ public class b implements l1 {
                 bVar.a(null);
                 return null;
             }
-            return this.f10746b.a(jSONObject, c(bVar));
+            return this.f10888b.a(jSONObject, c(bVar));
         }
         return (c.a.r0.a.u.h.b) invokeLLL.objValue;
     }
@@ -123,7 +123,7 @@ public class b implements l1 {
     public boolean e(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) ? TextUtils.equals(this.f10746b.a, str) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) ? TextUtils.equals(this.f10888b.a, str) : invokeL.booleanValue;
     }
 
     public boolean f() {

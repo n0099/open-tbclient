@@ -21,13 +21,13 @@ public class d {
     public final Set<String> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final Map<String, a<Boolean>> f7799b;
+    public final Map<String, a<Boolean>> f7941b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final Map<String, a<b>> f7800c;
+    public final Map<String, a<b>> f7942c;
 
     /* renamed from: d  reason: collision with root package name */
-    public a<Exception> f7801d;
+    public a<Exception> f7943d;
 
     /* loaded from: classes.dex */
     public static class a<T> {
@@ -83,7 +83,7 @@ public class d {
         public final long a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final long f7802b;
+        public final long f7944b;
 
         public b(long j2, long j3) {
             Interceptable interceptable = $ic;
@@ -101,14 +101,14 @@ public class d {
                 }
             }
             this.a = j2;
-            this.f7802b = j3;
+            this.f7944b = j3;
             int i4 = (j3 > 0L ? 1 : (j3 == 0L ? 0 : -1));
         }
 
         public boolean a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f7802b > 0 : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f7944b > 0 : invokeV.booleanValue;
         }
     }
 
@@ -142,9 +142,9 @@ public class d {
             }
         }
         this.a = new HashSet();
-        this.f7799b = new HashMap();
-        this.f7800c = new HashMap();
-        this.f7801d = new a<>();
+        this.f7941b = new HashMap();
+        this.f7942c = new HashMap();
+        this.f7943d = new a<>();
     }
 
     public static <T> a<T> i(Map<String, a<T>> map, String str) {
@@ -171,15 +171,15 @@ public class d {
     public void b(Exception exc) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, exc) == null) {
-            this.f7801d.a(exc);
-            this.f7801d.b();
+            this.f7943d.a(exc);
+            this.f7943d.b();
         }
     }
 
     public void c(String str, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(Constants.METHOD_SEND_USER_MSG, this, str, z) == null) {
-            a i2 = i(this.f7799b, str);
+            a i2 = i(this.f7941b, str);
             i2.a(Boolean.valueOf(z));
             i2.b();
         }
@@ -189,7 +189,7 @@ public class d {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048579, this, str, bVar) == null) {
             if (bVar == null || bVar.a()) {
-                i(this.f7800c, str).a(bVar);
+                i(this.f7942c, str).a(bVar);
             }
         }
     }
@@ -198,7 +198,7 @@ public class d {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, cVar)) == null) {
-            this.f7801d.c(cVar);
+            this.f7943d.c(cVar);
             return this;
         }
         return (d) invokeL.objValue;
@@ -229,7 +229,7 @@ public class d {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048583, this, str, cVar)) == null) {
-            g(this.f7799b, str, cVar);
+            g(this.f7941b, str, cVar);
             return this;
         }
         return (d) invokeLL.objValue;

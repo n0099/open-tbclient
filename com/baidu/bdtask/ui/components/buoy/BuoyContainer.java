@@ -22,10 +22,10 @@ public final class BuoyContainer extends FrameLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public a f32989e;
+    public a f33017e;
 
     /* renamed from: f  reason: collision with root package name */
-    public HashMap f32990f;
+    public HashMap f33018f;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public BuoyContainer(Context context, a aVar) {
@@ -45,14 +45,14 @@ public final class BuoyContainer extends FrameLayout {
                 return;
             }
         }
-        this.f32989e = aVar;
+        this.f33017e = aVar;
         setLayoutParams(new FrameLayout.LayoutParams(-2, -2));
     }
 
     public void _$_clearFindViewByIdCache() {
         HashMap hashMap;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (hashMap = this.f32990f) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (hashMap = this.f33018f) == null) {
             return;
         }
         hashMap.clear();
@@ -62,13 +62,13 @@ public final class BuoyContainer extends FrameLayout {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) {
-            if (this.f32990f == null) {
-                this.f32990f = new HashMap();
+            if (this.f33018f == null) {
+                this.f33018f = new HashMap();
             }
-            View view = (View) this.f32990f.get(Integer.valueOf(i2));
+            View view = (View) this.f33018f.get(Integer.valueOf(i2));
             if (view == null) {
                 View findViewById = findViewById(i2);
-                this.f32990f.put(Integer.valueOf(i2), findViewById);
+                this.f33018f.put(Integer.valueOf(i2), findViewById);
                 return findViewById;
             }
             return view;
@@ -81,7 +81,7 @@ public final class BuoyContainer extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             super.onAttachedToWindow();
-            a aVar = this.f32989e;
+            a aVar = this.f33017e;
             if (aVar != null) {
                 aVar.onAttachedToWindow();
             }
@@ -93,7 +93,7 @@ public final class BuoyContainer extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             super.onDetachedFromWindow();
-            a aVar = this.f32989e;
+            a aVar = this.f33017e;
             if (aVar != null) {
                 aVar.onDetachedFromWindow();
             }

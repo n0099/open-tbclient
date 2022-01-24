@@ -14,10 +14,10 @@ public class a {
     public long a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f9624b;
+    public String f9766b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f9625c;
+    public int f9767c;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -40,8 +40,8 @@ public class a {
             JSONObject jSONObject = new JSONObject();
             try {
                 jSONObject.put("userId", this.a);
-                jSONObject.put("displayName", this.f9624b);
-                jSONObject.put("volumeLevel", this.f9625c);
+                jSONObject.put("displayName", this.f9766b);
+                jSONObject.put("volumeLevel", this.f9767c);
                 return jSONObject;
             } catch (JSONException unused) {
                 return null;

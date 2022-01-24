@@ -19,7 +19,6 @@ import com.baidu.searchbox.launch.SmartLaunchStats;
 import com.baidu.searchbox.launch.stats.SpeedStatsManager;
 import com.baidu.searchbox.launch.utils.SpeedStatsUtils;
 import com.baidu.searchbox.launched.LaunchedTaskSpeedStats;
-import com.baidu.tbadk.core.util.PermissionUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -47,7 +46,7 @@ public class SpeedStats {
     public static final int DATA_TYPE_CACHE = 0;
     public static final int DATA_TYPE_NET = 1;
     public static final int DATA_TYPE_NONE = -1;
-    public static boolean DEBUG = false;
+    public static final boolean DEBUG;
     public static final int DEFAULT_DELAY_TIME = 10000;
     public static final String TAG = "SpeedStats";
     public static final int TYPE_INTRODUCTION = 0;
@@ -670,7 +669,7 @@ public class SpeedStats {
                             sb.append("onBaseActivityCreate******有效统计一次*******isFirstEnterMainActivity=");
                             sb.append(!this.mHasMainActivityLaunched);
                             sb.toString();
-                            if (PermissionUtil.isAgreePrivacyPolicy()) {
+                            if (SpeedRuntime.getSpeedContext().isAgreePrivacyPolicy()) {
                                 this.mSpeedStatsManager.setStatsFlag(true);
                             }
                             if (this.mHasMainActivityLaunched) {

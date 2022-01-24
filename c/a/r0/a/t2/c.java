@@ -18,27 +18,27 @@ public class c {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final boolean f8886f;
+    public static final boolean f9028f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static c.a.r0.a.t2.a f8887g;
+    public static c.a.r0.a.t2.a f9029g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static volatile c f8888h;
+    public static volatile c f9030h;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f8889b;
+    public int f9031b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f8890c;
+    public int f9032c;
 
     /* renamed from: d  reason: collision with root package name */
-    public ViewTreeObserver.OnGlobalLayoutListener f8891d;
+    public ViewTreeObserver.OnGlobalLayoutListener f9033d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f8892e;
+    public String f9034e;
 
     /* loaded from: classes.dex */
     public class a implements ViewTreeObserver.OnGlobalLayoutListener {
@@ -46,10 +46,10 @@ public class c {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ View f8893e;
+        public final /* synthetic */ View f9035e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ c f8894f;
+        public final /* synthetic */ c f9036f;
 
         public a(c cVar, View view) {
             Interceptable interceptable = $ic;
@@ -66,40 +66,40 @@ public class c {
                     return;
                 }
             }
-            this.f8894f = cVar;
-            this.f8893e = view;
+            this.f9036f = cVar;
+            this.f9035e = view;
         }
 
         @Override // android.view.ViewTreeObserver.OnGlobalLayoutListener
         public void onGlobalLayout() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (c.f8887g != null) {
-                    c.f8887g.c(this.f8894f.f8892e);
+                if (c.f9029g != null) {
+                    c.f9029g.c(this.f9036f.f9034e);
                 }
                 Rect rect = new Rect();
-                this.f8893e.getWindowVisibleDisplayFrame(rect);
+                this.f9035e.getWindowVisibleDisplayFrame(rect);
                 int height = rect.height();
-                if (this.f8894f.f8890c == this.f8894f.a) {
-                    this.f8894f.f8890c = height;
-                } else if (this.f8894f.f8890c == height) {
+                if (this.f9036f.f9032c == this.f9036f.a) {
+                    this.f9036f.f9032c = height;
+                } else if (this.f9036f.f9032c == height) {
                 } else {
-                    if (this.f8894f.f8890c - height > this.f8894f.f8889b) {
-                        if (c.f8887g != null) {
-                            c.f8887g.b(this.f8894f.f8892e, this.f8894f.f8890c - height);
-                            if (c.f8886f) {
-                                String str = "onKeyBoardShow: mRootViewVisibleHeight " + this.f8894f.f8890c + " visibleHeight " + height;
+                    if (this.f9036f.f9032c - height > this.f9036f.f9031b) {
+                        if (c.f9029g != null) {
+                            c.f9029g.b(this.f9036f.f9034e, this.f9036f.f9032c - height);
+                            if (c.f9028f) {
+                                String str = "onKeyBoardShow: mRootViewVisibleHeight " + this.f9036f.f9032c + " visibleHeight " + height;
                             }
                         }
-                        this.f8894f.f8890c = height;
-                    } else if (height - this.f8894f.f8890c > this.f8894f.f8889b) {
-                        if (c.f8887g != null) {
-                            c.f8887g.a(this.f8894f.f8892e, height - this.f8894f.f8890c);
+                        this.f9036f.f9032c = height;
+                    } else if (height - this.f9036f.f9032c > this.f9036f.f9031b) {
+                        if (c.f9029g != null) {
+                            c.f9029g.a(this.f9036f.f9034e, height - this.f9036f.f9032c);
                         }
-                        if (c.f8886f) {
-                            String str2 = "onKeyBoardHide: mRootViewVisibleHeight " + this.f8894f.f8890c + " visibleHeight " + height;
+                        if (c.f9028f) {
+                            String str2 = "onKeyBoardHide: mRootViewVisibleHeight " + this.f9036f.f9032c + " visibleHeight " + height;
                         }
-                        this.f8894f.f8890c = height;
+                        this.f9036f.f9032c = height;
                     }
                 }
             }
@@ -119,7 +119,7 @@ public class c {
                 return;
             }
         }
-        f8886f = k.a;
+        f9028f = k.a;
     }
 
     public c() {
@@ -136,21 +136,21 @@ public class c {
             }
         }
         this.a = 0;
-        this.f8889b = 200;
+        this.f9031b = 200;
     }
 
     public static c i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) {
-            if (f8888h == null) {
+            if (f9030h == null) {
                 synchronized (c.class) {
-                    if (f8888h == null) {
-                        f8888h = new c();
+                    if (f9030h == null) {
+                        f9030h = new c();
                     }
                 }
             }
-            return f8888h;
+            return f9030h;
         }
         return (c) invokeV.objValue;
     }
@@ -158,28 +158,28 @@ public class c {
     public static void j() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65546, null) == null) {
-            f8887g = null;
-            f8888h = null;
+            f9029g = null;
+            f9030h = null;
         }
     }
 
     public final void h(View view) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-            if (this.f8891d == null) {
-                this.f8891d = new a(this, view);
+            if (this.f9033d == null) {
+                this.f9033d = new a(this, view);
             }
-            view.getViewTreeObserver().addOnGlobalLayoutListener(this.f8891d);
+            view.getViewTreeObserver().addOnGlobalLayoutListener(this.f9033d);
         }
     }
 
     public void k(@NonNull View view) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view) == null) {
-            view.getViewTreeObserver().removeOnGlobalLayoutListener(this.f8891d);
-            this.f8892e = "";
-            f8887g = null;
-            this.f8890c = 0;
+            view.getViewTreeObserver().removeOnGlobalLayoutListener(this.f9033d);
+            this.f9034e = "";
+            f9029g = null;
+            this.f9032c = 0;
         }
     }
 
@@ -187,9 +187,9 @@ public class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, view, str, aVar) == null) {
             h(view);
-            this.f8892e = str;
-            f8887g = aVar;
-            this.f8890c = 0;
+            this.f9034e = str;
+            f9029g = aVar;
+            this.f9032c = 0;
         }
     }
 }

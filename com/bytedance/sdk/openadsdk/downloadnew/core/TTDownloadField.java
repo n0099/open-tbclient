@@ -1,5 +1,5 @@
 package com.bytedance.sdk.openadsdk.downloadnew.core;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public interface TTDownloadField {
     public static final int CALL_ACTION_5_PARAMS = 16;
     public static final int CALL_ACTION_7_PARAMS = 17;

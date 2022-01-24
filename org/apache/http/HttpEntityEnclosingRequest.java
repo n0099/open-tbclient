@@ -1,6 +1,6 @@
 package org.apache.http;
 @Deprecated
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public interface HttpEntityEnclosingRequest extends HttpRequest {
     boolean expectContinue();
 

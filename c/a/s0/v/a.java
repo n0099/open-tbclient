@@ -9,8 +9,8 @@ import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import c.a.d.f.p.l;
 import c.a.d.f.p.n;
-import c.a.t0.j3.l0.e;
-import c.a.t0.j3.l0.g;
+import c.a.t0.k3.l0.e;
+import c.a.t0.k3.l0.g;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
@@ -52,31 +52,31 @@ public class a {
     public boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ArrayList<AdReq> f14161b;
+    public ArrayList<AdReq> f14301b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f14162c;
+    public boolean f14302c;
 
     /* renamed from: d  reason: collision with root package name */
-    public long f14163d;
+    public long f14303d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f14164e;
+    public int f14304e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Handler f14165f;
+    public Handler f14305f;
 
     /* renamed from: g  reason: collision with root package name */
-    public c.a.d.c.g.a f14166g;
+    public c.a.d.c.g.a f14306g;
 
     /* renamed from: h  reason: collision with root package name */
-    public CustomMessageListener f14167h;
+    public CustomMessageListener f14307h;
 
     /* renamed from: i  reason: collision with root package name */
-    public final CustomMessageListener f14168i;
+    public final CustomMessageListener f14308i;
 
     /* renamed from: j  reason: collision with root package name */
-    public ArrayList<AdvertAppInfo> f14169j;
+    public ArrayList<AdvertAppInfo> f14309j;
     public ArrayList<AdvertAppInfo> k;
     public HashMap<String, AdvertAppInfo> l;
     public HashMap<String, AdvertAppInfo> m;
@@ -84,13 +84,13 @@ public class a {
 
     /* renamed from: c.a.s0.v.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public class HandlerC0903a extends Handler {
+    public class HandlerC0913a extends Handler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ a a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public HandlerC0903a(a aVar, Looper looper) {
+        public HandlerC0913a(a aVar, Looper looper) {
             super(looper);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -283,19 +283,19 @@ public class a {
                 return;
             }
         }
-        this.f14165f = new HandlerC0903a(this, Looper.getMainLooper());
-        this.f14166g = new b(this, CmdConfigHttp.DISTRIBUTE_ACTRUAL_CMD, 303101);
-        this.f14167h = new c(this, 2000994);
-        this.f14168i = new d(this, 2001118);
+        this.f14305f = new HandlerC0913a(this, Looper.getMainLooper());
+        this.f14306g = new b(this, CmdConfigHttp.DISTRIBUTE_ACTRUAL_CMD, 303101);
+        this.f14307h = new c(this, 2000994);
+        this.f14308i = new d(this, 2001118);
         this.l = new HashMap<>();
         this.m = new HashMap<>();
         this.n = new HashMap<>();
-        this.f14161b = new ArrayList<>();
-        this.f14169j = new ArrayList<>();
+        this.f14301b = new ArrayList<>();
+        this.f14309j = new ArrayList<>();
         this.k = new ArrayList<>();
-        this.f14162c = true;
-        this.f14163d = 60000L;
-        this.f14164e = 10;
+        this.f14302c = true;
+        this.f14303d = 60000L;
+        this.f14304e = 10;
         this.a = l.z();
     }
 
@@ -309,8 +309,8 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, list) == null) {
             synchronized (this) {
-                if (this.f14161b != null) {
-                    this.f14161b.addAll(list);
+                if (this.f14301b != null) {
+                    this.f14301b.addAll(list);
                 }
             }
         }
@@ -319,13 +319,13 @@ public class a {
     public void h(AdvertAppInfo advertAppInfo) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, advertAppInfo) == null) {
-            this.l.put(advertAppInfo.x4, advertAppInfo);
+            this.l.put(advertAppInfo.y4, advertAppInfo);
         }
     }
 
     public final void i(boolean z) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) && this.a && this.f14162c) {
+        if ((interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) && this.a && this.f14302c) {
             List<AdReq> l = l(z);
             if (z || !o()) {
                 s();
@@ -357,16 +357,16 @@ public class a {
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048580, this, z)) == null) {
             synchronized (this) {
                 if (!z) {
-                    if (this.f14161b.size() < this.f14164e) {
+                    if (this.f14301b.size() < this.f14304e) {
                         return null;
                     }
                 }
-                if (this.f14161b.size() <= 0) {
+                if (this.f14301b.size() <= 0) {
                     return null;
                 }
                 ArrayList arrayList = new ArrayList();
-                arrayList.addAll(this.f14161b);
-                this.f14161b.clear();
+                arrayList.addAll(this.f14301b);
+                this.f14301b.clear();
                 return arrayList;
             }
         }
@@ -393,16 +393,16 @@ public class a {
                 messageManager.registerTask(m());
             }
             messageManager.registerTask(j());
-            messageManager.registerListener(this.f14166g);
-            messageManager.registerListener(this.f14167h);
-            messageManager.registerListener(this.f14168i);
+            messageManager.registerListener(this.f14306g);
+            messageManager.registerListener(this.f14307h);
+            messageManager.registerListener(this.f14308i);
         }
     }
 
     public final boolean o() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f14165f.hasMessages(1) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f14305f.hasMessages(1) : invokeV.booleanValue;
     }
 
     public final void p(DownloadStaticsData downloadStaticsData) {
@@ -410,7 +410,7 @@ public class a {
         if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, downloadStaticsData) == null) || downloadStaticsData == null) {
             return;
         }
-        c.a.t0.j3.l0.c d2 = g.d(downloadStaticsData, 101, 0);
+        c.a.t0.k3.l0.c d2 = g.d(downloadStaticsData, 101, 0);
         d2.t(null);
         d2.a("dl", "delete");
         e.b().d(d2);
@@ -429,7 +429,7 @@ public class a {
                 downloadStaticsData.setDa_page(null);
                 downloadStaticsData.setFid(null);
             }
-            c.a.t0.j3.l0.c d2 = g.d(downloadStaticsData, 101, 0);
+            c.a.t0.k3.l0.c d2 = g.d(downloadStaticsData, 101, 0);
             d2.a("dl", "start");
             e.b().d(d2);
             if (downloadStaticsData == null || !"1".equals(downloadStaticsData.getDa_range_nt())) {
@@ -440,7 +440,7 @@ public class a {
     }
 
     public final void r(String str, int i2) {
-        c.a.t0.j3.l0.c d2;
+        c.a.t0.k3.l0.c d2;
         String str2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048586, this, str, i2) == null) {
@@ -474,8 +474,8 @@ public class a {
     public final void s() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
-            this.f14165f.removeMessages(1);
-            this.f14165f.sendEmptyMessageDelayed(1, this.f14163d);
+            this.f14305f.removeMessages(1);
+            this.f14305f.sendEmptyMessageDelayed(1, this.f14303d);
         }
     }
 
@@ -496,11 +496,11 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048589, this, i2) == null) {
             if (i2 > 3600) {
-                this.f14163d = 300000L;
+                this.f14303d = 300000L;
             } else if (i2 <= 0) {
-                this.f14163d = 60000L;
+                this.f14303d = 60000L;
             } else {
-                this.f14163d = i2 * 1000;
+                this.f14303d = i2 * 1000;
             }
         }
     }
@@ -509,11 +509,11 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048590, this, i2) == null) {
             if (i2 > 20) {
-                this.f14164e = 10;
+                this.f14304e = 10;
             } else if (i2 <= 0) {
-                this.f14164e = 5;
+                this.f14304e = 5;
             } else {
-                this.f14164e = i2;
+                this.f14304e = i2;
             }
         }
     }
@@ -521,14 +521,14 @@ public class a {
     public void w(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048591, this, z) == null) {
-            this.f14162c = z;
+            this.f14302c = z;
         }
     }
 
     public final void x() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
-            this.f14165f.removeMessages(1);
+            this.f14305f.removeMessages(1);
         }
     }
 
@@ -536,7 +536,7 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048593, this, new Object[]{context, str, str2, Long.valueOf(j2)}) == null) {
             if (TextUtils.equals(str, "frs")) {
-                z(context, this.f14169j, str, str2, j2);
+                z(context, this.f14309j, str, str2, j2);
             } else if (TextUtils.equals(str, "pb")) {
                 z(context, this.k, str, str2, j2);
             }
@@ -566,18 +566,18 @@ public class a {
             AdvertAppInfo advertAppInfo = arrayList2.get(i2);
             if (advertAppInfo != null) {
                 if (i2 == size - 1) {
-                    sb2.append(advertAppInfo.l4);
-                    sb3.append(advertAppInfo.f4);
-                    sb5.append(advertAppInfo.m4);
-                    sb7.append(advertAppInfo.s4);
+                    sb2.append(advertAppInfo.m4);
+                    sb3.append(advertAppInfo.g4);
+                    sb5.append(advertAppInfo.n4);
+                    sb7.append(advertAppInfo.t4);
                 } else {
-                    sb2.append(advertAppInfo.l4);
+                    sb2.append(advertAppInfo.m4);
                     sb2.append("|");
-                    sb3.append(advertAppInfo.f4);
+                    sb3.append(advertAppInfo.g4);
                     sb3.append("|");
-                    sb5.append(advertAppInfo.m4);
+                    sb5.append(advertAppInfo.n4);
                     sb5.append("|");
-                    sb7.append(advertAppInfo.s4);
+                    sb7.append(advertAppInfo.t4);
                     sb7.append("|");
                 }
             }

@@ -28,7 +28,7 @@ public class l {
     public static final boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static JSONObject f9298b;
+    public static JSONObject f9440b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -93,12 +93,12 @@ public class l {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
             synchronized (l.class) {
-                if (f9298b == null && context != null) {
+                if (f9440b == null && context != null) {
                     boolean z = a;
-                    f9298b = a(context);
+                    f9440b = a(context);
                 }
                 boolean z2 = a;
-                jSONObject = f9298b;
+                jSONObject = f9440b;
             }
             return jSONObject;
         }
@@ -125,7 +125,7 @@ public class l {
     public static void d(int i2) {
         JSONObject jSONObject;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, null, i2) == null) || (jSONObject = f9298b) == null) {
+        if (!(interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, null, i2) == null) || (jSONObject = f9440b) == null) {
             return;
         }
         try {
@@ -142,9 +142,9 @@ public class l {
             synchronized (l.class) {
                 boolean z = a;
                 if (c.a.r0.a.c1.a.g0().t()) {
-                    if (f9298b == null && context != null) {
+                    if (f9440b == null && context != null) {
                         boolean z2 = a;
-                        f9298b = a(context);
+                        f9440b = a(context);
                     }
                     boolean z3 = a;
                 }
@@ -157,7 +157,7 @@ public class l {
         if (interceptable == null || interceptable.invokeV(65542, null) == null) {
             synchronized (l.class) {
                 boolean z = a;
-                f9298b = null;
+                f9440b = null;
             }
         }
     }

@@ -26,7 +26,7 @@ public final class ae extends ai.a {
     public final /* synthetic */ String f888a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ String f61414b;
+    public final /* synthetic */ String f61459b;
 
     public ae(int i2, String str, Context context, String str2, Notification notification) {
         Interceptable interceptable = $ic;
@@ -46,7 +46,7 @@ public final class ae extends ai.a {
         this.a = i2;
         this.f888a = str;
         this.f887a = context;
-        this.f61414b = str2;
+        this.f61459b = str2;
         this.f886a = notification;
     }
 
@@ -68,7 +68,7 @@ public final class ae extends ai.a {
     public void run() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            ac.b(this.f887a, this.f61414b, this.a, this.f888a, this.f886a);
+            ac.b(this.f887a, this.f61459b, this.a, this.f888a, this.f886a);
         }
     }
 }

@@ -55,7 +55,7 @@ public final class f {
     public static final File a = new File("/proc/self/fd");
 
     /* renamed from: b  reason: collision with root package name */
-    public static final File f56563b = new File("/proc/self/task");
+    public static final File f56608b = new File("/proc/self/task");
 
     public static int a() {
         File[] listFiles;
@@ -231,17 +231,17 @@ public final class f {
         List<String> list;
         String canonicalPath;
         SystemUtil.a c2 = SystemUtil.c();
-        c2.f56561e = Runtime.getRuntime().totalMemory() - Runtime.getRuntime().freeMemory();
+        c2.f56606e = Runtime.getRuntime().totalMemory() - Runtime.getRuntime().freeMemory();
         c2.a = SystemUtil.a();
         long pss = Debug.getPss();
-        c2.f56560d = pss;
+        c2.f56605d = pss;
         memoryInfo.mTotalMB = (int) (c2.a / 1048576);
         memoryInfo.mJavaHeapLimitMB = (int) (com.kwad.sdk.crash.c.a / 1048576.0d);
-        memoryInfo.mJavaHeapMB = (int) (c2.f56561e / 1048576);
-        memoryInfo.mVssMB = (int) (c2.f56558b / 1024);
-        memoryInfo.mRssMB = (int) (c2.f56559c / 1024);
+        memoryInfo.mJavaHeapMB = (int) (c2.f56606e / 1048576);
+        memoryInfo.mVssMB = (int) (c2.f56603b / 1024);
+        memoryInfo.mRssMB = (int) (c2.f56604c / 1024);
         memoryInfo.mPssMB = (int) (pss / 1024);
-        memoryInfo.mThreadsCount = c2.f56562f;
+        memoryInfo.mThreadsCount = c2.f56607f;
         memoryInfo.mFdCount = a();
         if (context != null) {
             memoryInfo.mAvailableMB = (int) (SystemUtil.c(context) / 1048576);
@@ -270,7 +270,7 @@ public final class f {
             }
         }
         exceptionMessage.mThreadOverflow = "False";
-        if (c2.f56562f > 400) {
+        if (c2.f56607f > 400) {
             exceptionMessage.mCrashType = exceptionMessage.getTypeThreadOOM();
             exceptionMessage.mThreadOverflow = "True";
             a(memoryInfo);
@@ -287,7 +287,7 @@ public final class f {
     }
 
     public static void a(MemoryInfo memoryInfo) {
-        File[] listFiles = f56563b.listFiles();
+        File[] listFiles = f56608b.listFiles();
         if (listFiles == null) {
             return;
         }
@@ -471,12 +471,12 @@ public final class f {
             com.kwad.sdk.core.d.a.b(e2);
             absolutePath = parentFile.getAbsolutePath();
         }
-        if (com.kwad.sdk.crash.c.f56532b.matcher(absolutePath).matches() || com.kwad.sdk.crash.c.f56533c.matcher(absolutePath).matches()) {
+        if (com.kwad.sdk.crash.c.f56577b.matcher(absolutePath).matches() || com.kwad.sdk.crash.c.f56578c.matcher(absolutePath).matches()) {
             exceptionMessage.mVirtualApp = context.getPackageName();
             return;
         }
-        Matcher matcher = com.kwad.sdk.crash.c.f56534d.matcher(absolutePath);
-        Matcher matcher2 = com.kwad.sdk.crash.c.f56535e.matcher(absolutePath);
+        Matcher matcher = com.kwad.sdk.crash.c.f56579d.matcher(absolutePath);
+        Matcher matcher2 = com.kwad.sdk.crash.c.f56580e.matcher(absolutePath);
         if (matcher.matches()) {
             group = matcher.group(1);
         } else if (!matcher2.matches()) {

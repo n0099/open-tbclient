@@ -31,22 +31,22 @@ public class SysMediaPlayer implements MediaPlayer.OnPreparedListener, MediaPlay
     @NonNull
 
     /* renamed from: e  reason: collision with root package name */
-    public final MediaPlayer f37030e;
+    public final MediaPlayer f37058e;
 
     /* renamed from: f  reason: collision with root package name */
-    public o f37031f;
+    public o f37059f;
 
     /* renamed from: g  reason: collision with root package name */
-    public State f37032g;
+    public State f37060g;
 
     /* renamed from: h  reason: collision with root package name */
-    public MediaPlayer.OnPreparedListener f37033h;
+    public MediaPlayer.OnPreparedListener f37061h;
 
     /* renamed from: i  reason: collision with root package name */
-    public MediaPlayer.OnVideoSizeChangedListener f37034i;
+    public MediaPlayer.OnVideoSizeChangedListener f37062i;
 
     /* renamed from: j  reason: collision with root package name */
-    public MediaPlayer.OnCompletionListener f37035j;
+    public MediaPlayer.OnCompletionListener f37063j;
     public MediaPlayer.OnSeekCompleteListener k;
     public MediaPlayer.OnBufferingUpdateListener l;
     public MediaPlayer.OnErrorListener m;
@@ -145,7 +145,7 @@ public class SysMediaPlayer implements MediaPlayer.OnPreparedListener, MediaPlay
             }
         }
         this.o = context;
-        this.f37030e = new MediaPlayer();
+        this.f37058e = new MediaPlayer();
         e();
     }
 
@@ -158,11 +158,11 @@ public class SysMediaPlayer implements MediaPlayer.OnPreparedListener, MediaPlay
     public void B() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            a.e("MediaPlayer", "start=" + this.f37032g);
-            State state = this.f37032g;
+            a.e("MediaPlayer", "start=" + this.f37060g);
+            State state = this.f37060g;
             if (state == State.PREPARED || state == State.PAUSED || state == State.PLAYBACKCOMPLETED) {
-                this.f37030e.start();
-                this.f37032g = State.STARTED;
+                this.f37058e.start();
+                this.f37060g = State.STARTED;
             }
         }
     }
@@ -170,10 +170,10 @@ public class SysMediaPlayer implements MediaPlayer.OnPreparedListener, MediaPlay
     public void C() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            State state = this.f37032g;
+            State state = this.f37060g;
             if (state == State.STARTED || state == State.PREPARED || state == State.PAUSED || state == State.PLAYBACKCOMPLETED) {
-                this.f37030e.stop();
-                this.f37032g = State.STOPPED;
+                this.f37058e.stop();
+                this.f37060g = State.STOPPED;
             }
         }
     }
@@ -182,9 +182,9 @@ public class SysMediaPlayer implements MediaPlayer.OnPreparedListener, MediaPlay
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            State state = this.f37032g;
+            State state = this.f37060g;
             if (state == State.IDLE || state == State.INITIALIZED || state == State.PREPARED || state == State.STARTED || state == State.PAUSED || state == State.STOPPED || state == State.PLAYBACKCOMPLETED) {
-                return this.f37030e.getCurrentPosition();
+                return this.f37058e.getCurrentPosition();
             }
             return 0;
         }
@@ -195,9 +195,9 @@ public class SysMediaPlayer implements MediaPlayer.OnPreparedListener, MediaPlay
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            State state = this.f37032g;
+            State state = this.f37060g;
             if (state == State.PREPARED || state == State.STARTED || state == State.PAUSED || state == State.STOPPED || state == State.PLAYBACKCOMPLETED) {
-                return this.f37030e.getDuration();
+                return this.f37058e.getDuration();
             }
             return 0;
         }
@@ -208,10 +208,10 @@ public class SysMediaPlayer implements MediaPlayer.OnPreparedListener, MediaPlay
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            if (this.f37032g == State.ERROR) {
+            if (this.f37060g == State.ERROR) {
                 return 0;
             }
-            return this.f37030e.getVideoHeight();
+            return this.f37058e.getVideoHeight();
         }
         return invokeV.intValue;
     }
@@ -220,10 +220,10 @@ public class SysMediaPlayer implements MediaPlayer.OnPreparedListener, MediaPlay
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            if (this.f37032g == State.ERROR) {
+            if (this.f37060g == State.ERROR) {
                 return 0;
             }
-            return this.f37030e.getVideoWidth();
+            return this.f37058e.getVideoWidth();
         }
         return invokeV.intValue;
     }
@@ -231,15 +231,15 @@ public class SysMediaPlayer implements MediaPlayer.OnPreparedListener, MediaPlay
     public final void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            this.f37032g = State.IDLE;
-            this.f37030e.setAudioStreamType(3);
-            this.f37030e.setOnPreparedListener(this);
-            this.f37030e.setOnCompletionListener(this);
-            this.f37030e.setOnVideoSizeChangedListener(this);
-            this.f37030e.setOnBufferingUpdateListener(this);
-            this.f37030e.setOnSeekCompleteListener(this);
-            this.f37030e.setOnErrorListener(this);
-            this.f37030e.setOnInfoListener(this);
+            this.f37060g = State.IDLE;
+            this.f37058e.setAudioStreamType(3);
+            this.f37058e.setOnPreparedListener(this);
+            this.f37058e.setOnCompletionListener(this);
+            this.f37058e.setOnVideoSizeChangedListener(this);
+            this.f37058e.setOnBufferingUpdateListener(this);
+            this.f37058e.setOnSeekCompleteListener(this);
+            this.f37058e.setOnErrorListener(this);
+            this.f37058e.setOnInfoListener(this);
         }
     }
 
@@ -247,9 +247,9 @@ public class SysMediaPlayer implements MediaPlayer.OnPreparedListener, MediaPlay
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) {
             if (z) {
-                this.f37030e.setVolume(0.0f, 0.0f);
+                this.f37058e.setVolume(0.0f, 0.0f);
             } else {
-                this.f37030e.setVolume(1.0f, 1.0f);
+                this.f37058e.setVolume(1.0f, 1.0f);
             }
         }
     }
@@ -257,7 +257,7 @@ public class SysMediaPlayer implements MediaPlayer.OnPreparedListener, MediaPlay
     public final void g(int i2) {
         o oVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048585, this, i2) == null) || (oVar = this.f37031f) == null) {
+        if (!(interceptable == null || interceptable.invokeI(1048585, this, i2) == null) || (oVar = this.f37059f) == null) {
             return;
         }
         oVar.a(i2);
@@ -266,11 +266,11 @@ public class SysMediaPlayer implements MediaPlayer.OnPreparedListener, MediaPlay
     public void h() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            a.e("MediaPlayer", "pause=" + this.f37032g);
-            State state = this.f37032g;
+            a.e("MediaPlayer", "pause=" + this.f37060g);
+            State state = this.f37060g;
             if (state == State.STARTED || state == State.PLAYBACKCOMPLETED) {
-                this.f37030e.pause();
-                this.f37032g = State.PAUSED;
+                this.f37058e.pause();
+                this.f37060g = State.PAUSED;
             }
         }
     }
@@ -278,16 +278,16 @@ public class SysMediaPlayer implements MediaPlayer.OnPreparedListener, MediaPlay
     public final void i() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
-            this.f37030e.prepareAsync();
-            this.f37032g = State.PREPARING;
+            this.f37058e.prepareAsync();
+            this.f37060g = State.PREPARING;
         }
     }
 
     public void j() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
-            this.f37032g = State.IDLE;
-            this.f37030e.reset();
+            this.f37060g = State.IDLE;
+            this.f37058e.reset();
         }
     }
 
@@ -302,16 +302,16 @@ public class SysMediaPlayer implements MediaPlayer.OnPreparedListener, MediaPlay
     public void l(int i2, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(1048590, this, i2, i3) == null) {
-            State state = this.f37032g;
+            State state = this.f37060g;
             if (state != State.PREPARED && state != State.STARTED && state != State.PAUSED && state != State.PLAYBACKCOMPLETED) {
-                a.e("MediaPlayer", "seekto不合法，mCurState=" + this.f37032g);
+                a.e("MediaPlayer", "seekto不合法，mCurState=" + this.f37060g);
                 return;
             }
             try {
                 if (Build.VERSION.SDK_INT >= 26) {
-                    this.f37030e.seekTo(i2, i3);
+                    this.f37058e.seekTo(i2, i3);
                 } else {
-                    this.f37030e.seekTo(i2);
+                    this.f37058e.seekTo(i2);
                 }
             } catch (Exception e2) {
                 a.e("MediaPlayer", "seekTo异常" + e2.getMessage());
@@ -330,13 +330,13 @@ public class SysMediaPlayer implements MediaPlayer.OnPreparedListener, MediaPlay
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048592, this, str, map, list) == null) {
             try {
-                this.f37030e.reset();
+                this.f37058e.reset();
                 if (Build.VERSION.SDK_INT >= 26) {
-                    this.f37030e.setDataSource(this.o, Uri.parse(str), map, list);
+                    this.f37058e.setDataSource(this.o, Uri.parse(str), map, list);
                 } else {
-                    this.f37030e.setDataSource(this.o, Uri.parse(str), map);
+                    this.f37058e.setDataSource(this.o, Uri.parse(str), map);
                 }
-                this.f37032g = State.INITIALIZED;
+                this.f37060g = State.INITIALIZED;
                 i();
             } catch (IOException e2) {
                 a.e("MediaPlayer", "setVideoPath异常" + e2.getMessage());
@@ -347,8 +347,8 @@ public class SysMediaPlayer implements MediaPlayer.OnPreparedListener, MediaPlay
     public void o(SurfaceHolder surfaceHolder) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048593, this, surfaceHolder) == null) {
-            this.f37030e.setDisplay(surfaceHolder);
-            this.f37030e.setScreenOnWhilePlaying(true);
+            this.f37058e.setDisplay(surfaceHolder);
+            this.f37058e.setScreenOnWhilePlaying(true);
         }
     }
 
@@ -366,10 +366,10 @@ public class SysMediaPlayer implements MediaPlayer.OnPreparedListener, MediaPlay
     public void onCompletion(MediaPlayer mediaPlayer) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048595, this, mediaPlayer) == null) {
-            a.e("MediaPlayer", "onCompletion" + this.f37032g);
-            this.f37032g = State.PLAYBACKCOMPLETED;
+            a.e("MediaPlayer", "onCompletion" + this.f37060g);
+            this.f37060g = State.PLAYBACKCOMPLETED;
             g(256);
-            MediaPlayer.OnCompletionListener onCompletionListener = this.f37035j;
+            MediaPlayer.OnCompletionListener onCompletionListener = this.f37063j;
             if (onCompletionListener != null) {
                 onCompletionListener.onCompletion(mediaPlayer);
             }
@@ -381,8 +381,8 @@ public class SysMediaPlayer implements MediaPlayer.OnPreparedListener, MediaPlay
         InterceptResult invokeLII;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLII = interceptable.invokeLII(1048596, this, mediaPlayer, i2, i3)) == null) {
-            a.e("MediaPlayer", "onError" + this.f37032g);
-            this.f37032g = State.ERROR;
+            a.e("MediaPlayer", "onError" + this.f37060g);
+            this.f37060g = State.ERROR;
             g(257);
             MediaPlayer.OnErrorListener onErrorListener = this.m;
             if (onErrorListener != null) {
@@ -420,9 +420,9 @@ public class SysMediaPlayer implements MediaPlayer.OnPreparedListener, MediaPlay
     public void onPrepared(MediaPlayer mediaPlayer) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048598, this, mediaPlayer) == null) {
-            this.f37032g = State.PREPARED;
+            this.f37060g = State.PREPARED;
             g(258);
-            MediaPlayer.OnPreparedListener onPreparedListener = this.f37033h;
+            MediaPlayer.OnPreparedListener onPreparedListener = this.f37061h;
             if (onPreparedListener != null) {
                 onPreparedListener.onPrepared(mediaPlayer);
             }
@@ -445,7 +445,7 @@ public class SysMediaPlayer implements MediaPlayer.OnPreparedListener, MediaPlay
     public void onVideoSizeChanged(MediaPlayer mediaPlayer, int i2, int i3) {
         MediaPlayer.OnVideoSizeChangedListener onVideoSizeChangedListener;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLII(1048600, this, mediaPlayer, i2, i3) == null) || (onVideoSizeChangedListener = this.f37034i) == null) {
+        if (!(interceptable == null || interceptable.invokeLII(1048600, this, mediaPlayer, i2, i3) == null) || (onVideoSizeChangedListener = this.f37062i) == null) {
             return;
         }
         onVideoSizeChangedListener.onVideoSizeChanged(mediaPlayer, i2, i3);
@@ -454,7 +454,7 @@ public class SysMediaPlayer implements MediaPlayer.OnPreparedListener, MediaPlay
     public void p(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048601, this, z) == null) {
-            this.f37030e.setLooping(z);
+            this.f37058e.setLooping(z);
         }
     }
 
@@ -468,7 +468,7 @@ public class SysMediaPlayer implements MediaPlayer.OnPreparedListener, MediaPlay
     public void r(MediaPlayer.OnCompletionListener onCompletionListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048603, this, onCompletionListener) == null) {
-            this.f37035j = onCompletionListener;
+            this.f37063j = onCompletionListener;
         }
     }
 
@@ -489,14 +489,14 @@ public class SysMediaPlayer implements MediaPlayer.OnPreparedListener, MediaPlay
     public void u(o oVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048606, this, oVar) == null) {
-            this.f37031f = oVar;
+            this.f37059f = oVar;
         }
     }
 
     public void v(MediaPlayer.OnPreparedListener onPreparedListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048607, this, onPreparedListener) == null) {
-            this.f37033h = onPreparedListener;
+            this.f37061h = onPreparedListener;
         }
     }
 
@@ -510,21 +510,21 @@ public class SysMediaPlayer implements MediaPlayer.OnPreparedListener, MediaPlay
     public void x(MediaPlayer.OnVideoSizeChangedListener onVideoSizeChangedListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048609, this, onVideoSizeChangedListener) == null) {
-            this.f37034i = onVideoSizeChangedListener;
+            this.f37062i = onVideoSizeChangedListener;
         }
     }
 
     public void y(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048610, this, z) == null) {
-            this.f37030e.setScreenOnWhilePlaying(z);
+            this.f37058e.setScreenOnWhilePlaying(z);
         }
     }
 
     public void z(Surface surface) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048611, this, surface) == null) {
-            this.f37030e.setSurface(surface);
+            this.f37058e.setSurface(surface);
         }
     }
 }

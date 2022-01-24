@@ -22,31 +22,31 @@ public final class b {
     public final String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final String f29494b;
+    public final String f29522b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final boolean f29495c;
+    public final boolean f29523c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final long f29496d;
+    public final long f29524d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final long f29497e;
+    public final long f29525e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final e f29498f;
+    public final e f29526f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final String f29499g;
+    public final String f29527g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final String[] f29500h;
+    public final String[] f29528h;
 
     /* renamed from: i  reason: collision with root package name */
-    public final HashMap<String, Integer> f29501i;
+    public final HashMap<String, Integer> f29529i;
 
     /* renamed from: j  reason: collision with root package name */
-    public final HashMap<String, Integer> f29502j;
+    public final HashMap<String, Integer> f29530j;
     public List<b> k;
 
     public b(String str, String str2, long j2, long j3, e eVar, String[] strArr, String str3) {
@@ -65,16 +65,16 @@ public final class b {
             }
         }
         this.a = str;
-        this.f29494b = str2;
-        this.f29498f = eVar;
-        this.f29500h = strArr;
-        this.f29495c = str2 != null;
-        this.f29496d = j2;
-        this.f29497e = j3;
+        this.f29522b = str2;
+        this.f29526f = eVar;
+        this.f29528h = strArr;
+        this.f29523c = str2 != null;
+        this.f29524d = j2;
+        this.f29525e = j3;
         c.i.b.a.i0.a.e(str3);
-        this.f29499g = str3;
-        this.f29501i = new HashMap<>();
-        this.f29502j = new HashMap<>();
+        this.f29527g = str3;
+        this.f29529i = new HashMap<>();
+        this.f29530j = new HashMap<>();
     }
 
     public static b c(String str, long j2, long j3, e eVar, String[] strArr, String str2) {
@@ -114,7 +114,7 @@ public final class b {
     public final void b(Map<String, e> map, SpannableStringBuilder spannableStringBuilder, int i2, int i3) {
         e d2;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, map, spannableStringBuilder, i2, i3) == null) || i2 == i3 || (d2 = d.d(this.f29498f, this.f29500h, map)) == null) {
+        if (!(interceptable == null || interceptable.invokeLLII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, map, spannableStringBuilder, i2, i3) == null) || i2 == i3 || (d2 = d.d(this.f29526f, this.f29528h, map)) == null) {
             return;
         }
         d.a(spannableStringBuilder, i2, i3, d2);
@@ -218,14 +218,14 @@ public final class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{Long.valueOf(j2), map, map2})) == null) {
             TreeMap treeMap = new TreeMap();
-            n(j2, false, this.f29499g, treeMap);
+            n(j2, false, this.f29527g, treeMap);
             m(map, treeMap);
             ArrayList arrayList = new ArrayList();
             for (Map.Entry entry : treeMap.entrySet()) {
                 c cVar = map2.get(entry.getKey());
                 SpannableStringBuilder spannableStringBuilder = (SpannableStringBuilder) entry.getValue();
                 e(spannableStringBuilder);
-                arrayList.add(new c.i.b.a.e0.b(spannableStringBuilder, null, cVar.f29504c, cVar.f29505d, cVar.f29506e, cVar.f29503b, Integer.MIN_VALUE, cVar.f29507f));
+                arrayList.add(new c.i.b.a.e0.b(spannableStringBuilder, null, cVar.f29532c, cVar.f29533d, cVar.f29534e, cVar.f29531b, Integer.MIN_VALUE, cVar.f29535f));
             }
             return arrayList;
         }
@@ -237,11 +237,11 @@ public final class b {
         if (interceptable == null || interceptable.invokeLZ(1048582, this, treeSet, z) == null) {
             boolean equals = "p".equals(this.a);
             if (z || equals) {
-                long j2 = this.f29496d;
+                long j2 = this.f29524d;
                 if (j2 != -9223372036854775807L) {
                     treeSet.add(Long.valueOf(j2));
                 }
-                long j3 = this.f29497e;
+                long j3 = this.f29525e;
                 if (j3 != -9223372036854775807L) {
                     treeSet.add(Long.valueOf(j3));
                 }
@@ -276,15 +276,15 @@ public final class b {
     public boolean l(long j2) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(InputDeviceCompat.SOURCE_TOUCHPAD, this, j2)) == null) ? (this.f29496d == -9223372036854775807L && this.f29497e == -9223372036854775807L) || (this.f29496d <= j2 && this.f29497e == -9223372036854775807L) || ((this.f29496d == -9223372036854775807L && j2 < this.f29497e) || (this.f29496d <= j2 && j2 < this.f29497e)) : invokeJ.booleanValue;
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(InputDeviceCompat.SOURCE_TOUCHPAD, this, j2)) == null) ? (this.f29524d == -9223372036854775807L && this.f29525e == -9223372036854775807L) || (this.f29524d <= j2 && this.f29525e == -9223372036854775807L) || ((this.f29524d == -9223372036854775807L && j2 < this.f29525e) || (this.f29524d <= j2 && j2 < this.f29525e)) : invokeJ.booleanValue;
     }
 
     public final void m(Map<String, e> map, Map<String, SpannableStringBuilder> map2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048585, this, map, map2) == null) {
-            for (Map.Entry<String, Integer> entry : this.f29502j.entrySet()) {
+            for (Map.Entry<String, Integer> entry : this.f29530j.entrySet()) {
                 String key = entry.getKey();
-                b(map, map2.get(key), this.f29501i.containsKey(key) ? this.f29501i.get(key).intValue() : 0, entry.getValue().intValue());
+                b(map, map2.get(key), this.f29529i.containsKey(key) ? this.f29529i.get(key).intValue() : 0, entry.getValue().intValue());
                 for (int i2 = 0; i2 < g(); i2++) {
                     f(i2).m(map, map2);
                 }
@@ -295,20 +295,20 @@ public final class b {
     public final void n(long j2, boolean z, String str, Map<String, SpannableStringBuilder> map) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048586, this, new Object[]{Long.valueOf(j2), Boolean.valueOf(z), str, map}) == null) {
-            this.f29501i.clear();
-            this.f29502j.clear();
-            String str2 = this.f29499g;
+            this.f29529i.clear();
+            this.f29530j.clear();
+            String str2 = this.f29527g;
             if (!"".equals(str2)) {
                 str = str2;
             }
-            if (this.f29495c && z) {
-                k(str, map).append((CharSequence) this.f29494b);
+            if (this.f29523c && z) {
+                k(str, map).append((CharSequence) this.f29522b);
             } else if ("br".equals(this.a) && z) {
                 k(str, map).append('\n');
             } else if (!"metadata".equals(this.a) && l(j2)) {
                 boolean equals = "p".equals(this.a);
                 for (Map.Entry<String, SpannableStringBuilder> entry : map.entrySet()) {
-                    this.f29501i.put(entry.getKey(), Integer.valueOf(entry.getValue().length()));
+                    this.f29529i.put(entry.getKey(), Integer.valueOf(entry.getValue().length()));
                 }
                 for (int i2 = 0; i2 < g(); i2++) {
                     f(i2).n(j2, z || equals, str, map);
@@ -317,7 +317,7 @@ public final class b {
                     d.c(k(str, map));
                 }
                 for (Map.Entry<String, SpannableStringBuilder> entry2 : map.entrySet()) {
-                    this.f29502j.put(entry2.getKey(), Integer.valueOf(entry2.getValue().length()));
+                    this.f29530j.put(entry2.getKey(), Integer.valueOf(entry2.getValue().length()));
                 }
             }
         }

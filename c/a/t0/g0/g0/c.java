@@ -56,10 +56,10 @@ public class c extends c.a.t0.g0.b<b> {
     public void l(TbPageContext tbPageContext, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i2) == null) {
-            if (this.f17766e != i2) {
+            if (this.f17588e != i2) {
                 SkinManager.setBackgroundColor(this.m, this.n);
             }
-            this.f17766e = i2;
+            this.f17588e = i2;
         }
     }
 
@@ -79,10 +79,10 @@ public class c extends c.a.t0.g0.b<b> {
             return;
         }
         this.m.setVisibility(0);
-        this.n = bVar.f17816e;
-        this.o = bVar.f17817f;
+        this.n = bVar.f17638e;
+        this.o = bVar.f17639f;
         q();
-        l(this.f17767f, TbadkCoreApplication.getInst().getSkinType());
+        l(this.f17589f, TbadkCoreApplication.getInst().getSkinType());
     }
 
     public final void q() {

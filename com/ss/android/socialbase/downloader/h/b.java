@@ -9,69 +9,69 @@ import com.ss.android.socialbase.downloader.model.DownloadTask;
 import com.ss.android.socialbase.downloader.network.i;
 import java.io.IOException;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class b implements Runnable {
     public static final String a = b.class.getSimpleName();
 
     /* renamed from: b  reason: collision with root package name */
-    public com.ss.android.socialbase.downloader.model.b f60072b;
+    public com.ss.android.socialbase.downloader.model.b f60117b;
 
     /* renamed from: c  reason: collision with root package name */
-    public com.ss.android.socialbase.downloader.model.b f60073c;
+    public com.ss.android.socialbase.downloader.model.b f60118c;
 
     /* renamed from: d  reason: collision with root package name */
-    public com.ss.android.socialbase.downloader.downloader.e f60074d;
+    public com.ss.android.socialbase.downloader.downloader.e f60119d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final DownloadTask f60075e;
+    public final DownloadTask f60120e;
 
     /* renamed from: f  reason: collision with root package name */
-    public DownloadInfo f60076f;
+    public DownloadInfo f60121f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final f f60077g;
+    public final f f60122g;
 
     /* renamed from: h  reason: collision with root package name */
-    public i f60078h;
+    public i f60123h;
 
     /* renamed from: i  reason: collision with root package name */
-    public j f60079i;
+    public j f60124i;
 
     /* renamed from: j  reason: collision with root package name */
-    public volatile boolean f60080j;
+    public volatile boolean f60125j;
     public volatile boolean k;
     public boolean l;
 
     public b(com.ss.android.socialbase.downloader.model.b bVar, DownloadTask downloadTask, f fVar) {
         this.l = false;
-        this.f60073c = bVar;
-        this.f60075e = downloadTask;
+        this.f60118c = bVar;
+        this.f60120e = downloadTask;
         if (downloadTask != null) {
-            this.f60076f = downloadTask.getDownloadInfo();
+            this.f60121f = downloadTask.getDownloadInfo();
         }
-        this.f60077g = fVar;
-        this.f60079i = com.ss.android.socialbase.downloader.downloader.c.x();
-        this.f60073c.a(this);
+        this.f60122g = fVar;
+        this.f60124i = com.ss.android.socialbase.downloader.downloader.c.x();
+        this.f60118c.a(this);
     }
 
     private String c() {
-        return this.f60076f.getConnectionUrl();
+        return this.f60121f.getConnectionUrl();
     }
 
     private void d() {
-        i iVar = this.f60078h;
+        i iVar = this.f60123h;
         if (iVar != null) {
             iVar.d();
-            this.f60078h = null;
+            this.f60123h = null;
         }
     }
 
     private boolean e() {
-        return this.f60080j || this.k;
+        return this.f60125j || this.k;
     }
 
     public void a(long j2, long j3) {
-        com.ss.android.socialbase.downloader.downloader.e eVar = this.f60074d;
+        com.ss.android.socialbase.downloader.downloader.e eVar = this.f60119d;
         if (eVar == null) {
             return;
         }
@@ -80,14 +80,14 @@ public class b implements Runnable {
 
     public void b() {
         this.k = true;
-        com.ss.android.socialbase.downloader.downloader.e eVar = this.f60074d;
+        com.ss.android.socialbase.downloader.downloader.e eVar = this.f60119d;
         if (eVar != null) {
             eVar.c();
         }
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:6:0x0017, code lost:
-        r3.f60072b.a(false);
+        r3.f60117b.a(false);
      */
     @Override // java.lang.Runnable
     @SuppressLint({"DefaultLocale"})
@@ -96,17 +96,17 @@ public class b implements Runnable {
     */
     public void run() {
         Process.setThreadPriority(10);
-        this.f60072b = this.f60073c;
+        this.f60117b = this.f60118c;
         while (true) {
             try {
-                this.f60072b.a(this);
-                if (!a(this.f60072b)) {
+                this.f60117b.a(this);
+                if (!a(this.f60117b)) {
                     break;
                 }
-                this.f60072b.a(false);
+                this.f60117b.a(false);
                 if (!e()) {
-                    this.f60072b = this.f60077g.a(this.f60072b.s());
-                    if (e() || this.f60072b == null) {
+                    this.f60117b = this.f60122g.a(this.f60117b.s());
+                    if (e() || this.f60117b == null) {
                         break;
                     }
                     Thread.sleep(50L);
@@ -114,12 +114,12 @@ public class b implements Runnable {
                     break;
                 }
             } finally {
-                com.ss.android.socialbase.downloader.model.b bVar = this.f60072b;
+                com.ss.android.socialbase.downloader.model.b bVar = this.f60117b;
                 if (bVar != null) {
                     bVar.a(false);
                 }
                 d();
-                this.f60077g.a(this);
+                this.f60122g.a(this);
             }
         }
     }
@@ -165,7 +165,7 @@ public class b implements Runnable {
                         return false;
                     }
                     String c2 = c();
-                    boolean z3 = this.f60078h != null;
+                    boolean z3 = this.f60123h != null;
                     this.l = z3;
                     bVar.b(z3);
                     try {
@@ -173,17 +173,17 @@ public class b implements Runnable {
                             try {
                                 try {
                                     if (!this.l) {
-                                        List<com.ss.android.socialbase.downloader.model.c> a3 = com.ss.android.socialbase.downloader.i.f.a(this.f60076f.getExtraHeaders(), this.f60076f.geteTag(), j4, j5);
+                                        List<com.ss.android.socialbase.downloader.model.c> a3 = com.ss.android.socialbase.downloader.i.f.a(this.f60121f.getExtraHeaders(), this.f60121f.geteTag(), j4, j5);
                                         a3.add(new com.ss.android.socialbase.downloader.model.c("Chunk-Index", String.valueOf(bVar.s())));
-                                        com.ss.android.socialbase.downloader.i.f.a(a3, this.f60076f);
-                                        com.ss.android.socialbase.downloader.i.f.b(a3, this.f60076f);
-                                        this.f60078h = com.ss.android.socialbase.downloader.downloader.c.a(this.f60076f.isNeedDefaultHttpServiceBackUp(), this.f60076f.getMaxBytes(), c2, a3);
+                                        com.ss.android.socialbase.downloader.i.f.a(a3, this.f60121f);
+                                        com.ss.android.socialbase.downloader.i.f.b(a3, this.f60121f);
+                                        this.f60123h = com.ss.android.socialbase.downloader.downloader.c.a(this.f60121f.isNeedDefaultHttpServiceBackUp(), this.f60121f.getMaxBytes(), c2, a3);
                                     }
-                                    if (this.f60078h != null && this.f60077g != null) {
+                                    if (this.f60123h != null && this.f60122g != null) {
                                         try {
-                                            int b3 = this.f60078h.b();
+                                            int b3 = this.f60123h.b();
                                             if (b3 < 200 || b3 >= 300) {
-                                                this.f60077g.a(this.f60078h);
+                                                this.f60122g.a(this.f60123h);
                                             }
                                         } catch (Throwable th) {
                                             th = th;
@@ -201,26 +201,26 @@ public class b implements Runnable {
                                             return true;
                                         }
                                         if (com.ss.android.socialbase.downloader.i.f.b(e)) {
-                                            this.f60077g.a(e, z);
+                                            this.f60122g.a(e, z);
                                             return z;
-                                        } else if (this.f60077g.a(e)) {
+                                        } else if (this.f60122g.a(e)) {
                                             if (com.ss.android.socialbase.downloader.i.f.a(e)) {
-                                                this.f60077g.a(e, true);
+                                                this.f60122g.a(e, true);
                                                 return z;
                                             }
                                             if (z2) {
-                                                if (this.f60074d != null) {
+                                                if (this.f60119d != null) {
                                                     if (com.ss.android.socialbase.downloader.i.a.a(32)) {
-                                                        j3 = this.f60074d.a() - this.f60074d.e();
+                                                        j3 = this.f60119d.a() - this.f60119d.e();
                                                         int i2 = (j3 > 0L ? 1 : (j3 == 0L ? 0 : -1));
                                                         if (i2 > 0) {
-                                                            a(bVar, this.f60074d.e());
+                                                            a(bVar, this.f60119d.e());
                                                         } else if (i2 < 0) {
                                                         }
                                                         if (!com.ss.android.socialbase.downloader.i.a.a(16)) {
-                                                            a2 = this.f60077g.a(bVar, e, j3);
+                                                            a2 = this.f60122g.a(bVar, e, j3);
                                                         } else {
-                                                            a2 = this.f60077g.a(e, j3);
+                                                            a2 = this.f60122g.a(e, j3);
                                                         }
                                                         if (a2 != com.ss.android.socialbase.downloader.exception.h.RETURN) {
                                                             return z;
@@ -228,11 +228,11 @@ public class b implements Runnable {
                                                         bVar.b(z);
                                                         d();
                                                     } else {
-                                                        j6 = this.f60074d.a() - j2;
+                                                        j6 = this.f60119d.a() - j2;
                                                         a(bVar, j2);
                                                     }
                                                 } else {
-                                                    this.f60077g.b(e);
+                                                    this.f60122g.b(e);
                                                     return z;
                                                 }
                                             }
@@ -241,11 +241,11 @@ public class b implements Runnable {
                                             }
                                             if (a2 != com.ss.android.socialbase.downloader.exception.h.RETURN) {
                                             }
-                                        } else if (this.f60076f.isNeedChunkDowngradeRetry() && !this.f60076f.isChunkDowngradeRetryUsed() && this.f60076f.getChunkCount() > 1 && com.ss.android.socialbase.downloader.i.f.a(e, this.f60076f)) {
-                                            this.f60077g.c(e);
+                                        } else if (this.f60121f.isNeedChunkDowngradeRetry() && !this.f60121f.isChunkDowngradeRetryUsed() && this.f60121f.getChunkCount() > 1 && com.ss.android.socialbase.downloader.i.f.a(e, this.f60121f)) {
+                                            this.f60122g.c(e);
                                             return z;
                                         } else {
-                                            this.f60077g.b(e);
+                                            this.f60122g.b(e);
                                             return z;
                                         }
                                     } finally {
@@ -264,12 +264,12 @@ public class b implements Runnable {
                             } catch (Throwable th2) {
                                 th = th2;
                                 Throwable th3 = th;
-                                if (this.f60078h != null) {
+                                if (this.f60123h != null) {
                                     try {
-                                        b2 = this.f60078h.b();
+                                        b2 = this.f60123h.b();
                                         if (b2 >= 200) {
                                         }
-                                        this.f60077g.a(this.f60078h);
+                                        this.f60122g.a(this.f60123h);
                                     } catch (Throwable th4) {
                                         th4.printStackTrace();
                                     }
@@ -279,11 +279,11 @@ public class b implements Runnable {
                         } catch (Throwable th5) {
                             try {
                                 com.ss.android.socialbase.downloader.i.f.a(th5, "ChunkRunnableConnection");
-                                if (this.f60078h != null && this.f60077g != null) {
+                                if (this.f60123h != null && this.f60122g != null) {
                                     try {
-                                        int b4 = this.f60078h.b();
+                                        int b4 = this.f60123h.b();
                                         if (b4 < 200 || b4 >= 300) {
-                                            this.f60077g.a(this.f60078h);
+                                            this.f60122g.a(this.f60123h);
                                         }
                                     } catch (Throwable th6) {
                                         th = th6;
@@ -295,10 +295,10 @@ public class b implements Runnable {
                             } catch (Throwable th7) {
                                 th = th7;
                                 Throwable th32 = th;
-                                if (this.f60078h != null && this.f60077g != null) {
-                                    b2 = this.f60078h.b();
+                                if (this.f60123h != null && this.f60122g != null) {
+                                    b2 = this.f60123h.b();
                                     if (b2 >= 200 || b2 >= 300) {
-                                        this.f60077g.a(this.f60078h);
+                                        this.f60122g.a(this.f60123h);
                                     }
                                 }
                                 throw th32;
@@ -307,10 +307,10 @@ public class b implements Runnable {
                         if (e()) {
                             return false;
                         }
-                        if (this.f60078h != null) {
+                        if (this.f60123h != null) {
                             if (!this.l) {
                                 try {
-                                    int b5 = this.f60078h.b();
+                                    int b5 = this.f60123h.b();
                                     if (!com.ss.android.socialbase.downloader.i.f.d(b5)) {
                                         throw new BaseException(1002, String.format("Http response error , code is : %s ", String.valueOf(b5)));
                                         break;
@@ -323,16 +323,16 @@ public class b implements Runnable {
                             }
                             z = false;
                             j2 = n2;
-                            this.f60074d = new com.ss.android.socialbase.downloader.downloader.e(this.f60076f, c2, this.f60078h, bVar, this.f60077g);
+                            this.f60119d = new com.ss.android.socialbase.downloader.downloader.e(this.f60121f, c2, this.f60123h, bVar, this.f60122g);
                             if (bVar2 != null) {
                                 long c3 = bVar2.c(false);
                                 if (j5 != 0 && j5 >= j4) {
                                     c3 = (j5 - j4) + 1;
                                 }
-                                this.f60074d.a(bVar2.n(), bVar2.p(), c3);
+                                this.f60119d.a(bVar2.n(), bVar2.p(), c3);
                             }
                             try {
-                                this.f60074d.d();
+                                this.f60119d.d();
                                 return true;
                             } catch (BaseException e7) {
                                 e = e7;
@@ -351,7 +351,7 @@ public class b implements Runnable {
                         try {
                             com.ss.android.socialbase.downloader.i.f.a(th, "downloadChunkInner");
                         } catch (BaseException e8) {
-                            this.f60077g.b(e8);
+                            this.f60122g.b(e8);
                         }
                         return z;
                     }
@@ -369,25 +369,25 @@ public class b implements Runnable {
 
     public b(com.ss.android.socialbase.downloader.model.b bVar, DownloadTask downloadTask, i iVar, f fVar) {
         this(bVar, downloadTask, fVar);
-        this.f60078h = iVar;
+        this.f60123h = iVar;
     }
 
     private void a(com.ss.android.socialbase.downloader.model.b bVar, long j2) {
         com.ss.android.socialbase.downloader.model.b e2 = bVar.d() ? bVar.e() : bVar;
         if (e2 != null) {
             if (e2.h()) {
-                this.f60079i.a(e2.k(), e2.b(), j2);
+                this.f60124i.a(e2.k(), e2.b(), j2);
             }
             e2.b(j2);
-            this.f60079i.a(e2.k(), e2.s(), e2.b(), j2);
+            this.f60124i.a(e2.k(), e2.s(), e2.b(), j2);
         } else if (bVar.d()) {
-            this.f60079i.a(bVar.k(), bVar.s(), j2);
+            this.f60124i.a(bVar.k(), bVar.s(), j2);
         }
     }
 
     public void a() {
-        this.f60080j = true;
-        com.ss.android.socialbase.downloader.downloader.e eVar = this.f60074d;
+        this.f60125j = true;
+        com.ss.android.socialbase.downloader.downloader.e eVar = this.f60119d;
         if (eVar != null) {
             eVar.b();
         }

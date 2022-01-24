@@ -12,7 +12,7 @@ public class a {
     public final String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final JSONObject f17762b;
+    public final JSONObject f17584b;
 
     public a(String str, JSONObject jSONObject) {
         Interceptable interceptable = $ic;
@@ -30,6 +30,6 @@ public class a {
             }
         }
         this.a = str;
-        this.f17762b = jSONObject;
+        this.f17584b = jSONObject;
     }
 }

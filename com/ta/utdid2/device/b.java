@@ -15,7 +15,7 @@ public class b {
     public static a a;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final Object f60338d;
+    public static final Object f60383d;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -31,7 +31,7 @@ public class b {
                 return;
             }
         }
-        f60338d = new Object();
+        f60383d = new Object();
     }
 
     public static long a(a aVar) {
@@ -78,7 +78,7 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
             if (context != null) {
-                synchronized (f60338d) {
+                synchronized (f60383d) {
                     String value = c.a(context).getValue();
                     if (g.m124a(value)) {
                         return null;

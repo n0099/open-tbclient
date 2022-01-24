@@ -15,7 +15,7 @@ public class d {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile d f3146b;
+    public static volatile d f3248b;
     public transient /* synthetic */ FieldHolder $fh;
     public Map<String, a> a;
 
@@ -26,7 +26,7 @@ public class d {
         public ServiceProxy a;
 
         /* renamed from: b  reason: collision with root package name */
-        public Intent f3147b;
+        public Intent f3249b;
 
         public a(ServiceProxy serviceProxy, Intent intent) {
             Interceptable interceptable = $ic;
@@ -44,7 +44,7 @@ public class d {
                 }
             }
             this.a = serviceProxy;
-            this.f3147b = intent;
+            this.f3249b = intent;
         }
     }
 
@@ -69,14 +69,14 @@ public class d {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (f3146b == null) {
+            if (f3248b == null) {
                 synchronized (d.class) {
-                    if (f3146b == null) {
-                        f3146b = new d();
+                    if (f3248b == null) {
+                        f3248b = new d();
                     }
                 }
             }
-            return f3146b;
+            return f3248b;
         }
         return (d) invokeV.objValue;
     }

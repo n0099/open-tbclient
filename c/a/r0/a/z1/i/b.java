@@ -17,17 +17,17 @@ public class b implements c.a.r0.a.z1.k.a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final boolean f9907h;
+    public static final boolean f10049h;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final View f9908e;
+    public final View f10050e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f9909f;
+    public boolean f10051f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f9910g;
+    public boolean f10052g;
 
     static {
         InterceptResult invokeClinit;
@@ -42,7 +42,7 @@ public class b implements c.a.r0.a.z1.k.a {
                 return;
             }
         }
-        f9907h = k.a;
+        f10049h = k.a;
     }
 
     public b(View view) {
@@ -60,9 +60,9 @@ public class b implements c.a.r0.a.z1.k.a {
                 return;
             }
         }
-        this.f9909f = false;
-        this.f9910g = false;
-        this.f9908e = view;
+        this.f10051f = false;
+        this.f10052g = false;
+        this.f10050e = view;
     }
 
     public boolean a(int i2) {
@@ -70,9 +70,9 @@ public class b implements c.a.r0.a.z1.k.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) {
             if (i2 == 0) {
-                this.f9909f = false;
+                this.f10051f = false;
             }
-            if (i2 == this.f9908e.getVisibility()) {
+            if (i2 == this.f10050e.getVisibility()) {
                 return true;
             }
             return b() && i2 == 0;
@@ -83,21 +83,21 @@ public class b implements c.a.r0.a.z1.k.a {
     public boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f9910g : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f10052g : invokeV.booleanValue;
     }
 
     public boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? !this.f9909f : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? !this.f10051f : invokeV.booleanValue;
     }
 
     public int[] d(int i2, int i3) {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeII = interceptable.invokeII(1048579, this, i2, i3)) == null) {
-            if (this.f9909f) {
-                this.f9908e.setVisibility(8);
+            if (this.f10051f) {
+                this.f10050e.setVisibility(8);
                 int makeMeasureSpec = View.MeasureSpec.makeMeasureSpec(0, 1073741824);
                 i3 = View.MeasureSpec.makeMeasureSpec(0, 1073741824);
                 i2 = makeMeasureSpec;
@@ -110,14 +110,14 @@ public class b implements c.a.r0.a.z1.k.a {
     public void e(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048580, this, i2) == null) {
-            g.g(this.f9908e, i2);
+            g.g(this.f10050e, i2);
         }
     }
 
     public void f(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
-            this.f9910g = z;
+            this.f10052g = z;
         }
     }
 
@@ -125,7 +125,7 @@ public class b implements c.a.r0.a.z1.k.a {
     public void handleHide() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            this.f9909f = true;
+            this.f10051f = true;
         }
     }
 
@@ -133,7 +133,7 @@ public class b implements c.a.r0.a.z1.k.a {
     @SuppressLint({"BDThrowableCheck"})
     public void handleShow() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048583, this) == null) && f9907h) {
+        if ((interceptable == null || interceptable.invokeV(1048583, this) == null) && f10049h) {
             throw new IllegalAccessError("You can't invoke handle show in handler, please instead of handling in the panel layout, maybe just need invoke super.setVisibility(View.VISIBLE)");
         }
     }

@@ -2,6 +2,7 @@ package c.a.r0.j.a.f;
 
 import c.a.r0.a.k;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.retrieve.inter.constants.StatConstants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -15,7 +16,7 @@ public final class c {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final boolean f10769b;
+    public static final boolean f10911b;
     public transient /* synthetic */ FieldHolder $fh;
     public c.a.r0.j.d.c.a a;
 
@@ -32,7 +33,7 @@ public final class c {
                 return;
             }
         }
-        f10769b = k.a;
+        f10911b = k.a;
     }
 
     public c() {
@@ -70,10 +71,10 @@ public final class c {
             JSONObject jSONObject = new JSONObject();
             try {
                 jSONObject.put("errCode", str);
-                jSONObject.put("errMsg", com.baidu.pass.biometrics.face.liveness.b.a.g0);
+                jSONObject.put(StatConstants.KEY_EXT_ERR_MSG, com.baidu.pass.biometrics.face.liveness.b.a.g0);
                 jSONObject.put("errDes", c.a.r0.h.i.s.b.a(str));
             } catch (Exception e2) {
-                if (f10769b) {
+                if (f10911b) {
                     e2.printStackTrace();
                 }
             }

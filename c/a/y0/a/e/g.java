@@ -33,7 +33,7 @@ public final class g {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Context f26826e;
+        public final /* synthetic */ Context f26854e;
 
         public b(Context context) {
             Interceptable interceptable = $ic;
@@ -50,14 +50,14 @@ public final class g {
                     return;
                 }
             }
-            this.f26826e = context;
+            this.f26854e = context;
         }
 
         @Override // c.a.y0.a.f.c
         public final void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                g.k(this.f26826e);
+                g.k(this.f26854e);
                 if (c.a.y0.a.c.h().i() != null && !c.a.y0.a.c.h().i().equals("")) {
                     c.a.y0.a.f.i.a("BaiDuAB sdk  init success");
                 } else {
@@ -81,7 +81,7 @@ public final class g {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f26828e;
+        public final /* synthetic */ String f26856e;
 
         /* loaded from: classes9.dex */
         public class a implements b.a<JSONObject> {
@@ -133,7 +133,7 @@ public final class g {
                     return;
                 }
             }
-            this.f26828e = str;
+            this.f26856e = str;
         }
 
         @Override // c.a.y0.a.f.c
@@ -143,7 +143,7 @@ public final class g {
                 return;
             }
             HashMap hashMap = new HashMap();
-            hashMap.put("exids", this.f26828e);
+            hashMap.put("exids", this.f26856e);
             c.a.y0.a.d.b.c(c.a.y0.a.d.b.d("http://absample.baidu.com/appabapp/appapi/updateStatus", hashMap), new a(this));
         }
     }
@@ -381,7 +381,7 @@ public final class g {
         public final /* synthetic */ long a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ Context f26827b;
+        public final /* synthetic */ Context f26855b;
 
         public c(long j2, Context context) {
             Interceptable interceptable = $ic;
@@ -399,7 +399,7 @@ public final class g {
                 }
             }
             this.a = j2;
-            this.f26827b = context;
+            this.f26855b = context;
         }
 
         /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
@@ -412,7 +412,7 @@ public final class g {
             c.a.y0.a.c.h().b(optString);
             c.a.y0.a.f.d.f("token", optString);
             c.a.y0.a.f.d.g("token_update_time", this.a);
-            c.a.y0.a.f.d.f("lastkey", g.i(this.f26827b));
+            c.a.y0.a.f.d.f("lastkey", g.i(this.f26855b));
         }
 
         @Override // c.a.y0.a.d.b.a

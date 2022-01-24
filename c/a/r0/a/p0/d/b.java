@@ -19,14 +19,14 @@ public abstract class b<P extends c.a.r0.a.p0.h.b, R extends c.a.r0.a.p0.i.a> {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final boolean f8170c;
+    public static final boolean f8312c;
     public transient /* synthetic */ FieldHolder $fh;
     @NonNull
     public P a;
     @NonNull
 
     /* renamed from: b  reason: collision with root package name */
-    public R f8171b;
+    public R f8313b;
 
     static {
         InterceptResult invokeClinit;
@@ -41,7 +41,7 @@ public abstract class b<P extends c.a.r0.a.p0.h.b, R extends c.a.r0.a.p0.i.a> {
                 return;
             }
         }
-        f8170c = k.a;
+        f8312c = k.a;
     }
 
     public b(@NonNull P p, @NonNull R r) {
@@ -60,7 +60,7 @@ public abstract class b<P extends c.a.r0.a.p0.h.b, R extends c.a.r0.a.p0.i.a> {
             }
         }
         this.a = p;
-        this.f8171b = r;
+        this.f8313b = r;
     }
 
     public <T extends c.a.r0.a.p0.g.a> Exception a(T t) {
@@ -70,7 +70,7 @@ public abstract class b<P extends c.a.r0.a.p0.h.b, R extends c.a.r0.a.p0.i.a> {
             if (t == null) {
                 return new Exception("ExtCore-Manager doRemoteUpdate: null updateInfo");
             }
-            return this.f8171b.e(t);
+            return this.f8313b.e(t);
         }
         return (Exception) invokeL.objValue;
     }
@@ -92,20 +92,20 @@ public abstract class b<P extends c.a.r0.a.p0.h.b, R extends c.a.r0.a.p0.i.a> {
                 extensionCore.extensionCoreVersionName = "0";
                 extensionCore.extensionCorePath = b(c2);
                 extensionCore.extensionCoreType = 2;
-                if (f8170c) {
+                if (f8312c) {
                     String str = "getExtensionCoreInMainProcess: debug=>" + extensionCore.toString();
                 }
                 return extensionCore;
             }
             ExtensionCore h2 = this.a.h();
-            ExtensionCore f2 = this.f8171b.f();
+            ExtensionCore f2 = this.f8313b.f();
             if (h2.extensionCoreVersionCode < f2.extensionCoreVersionCode && f2.isAvailable()) {
-                if (f8170c) {
+                if (f8312c) {
                     String str2 = "getExtensionCoreInMainProcess: remote=>" + f2.toString();
                 }
                 return f2;
             }
-            if (f8170c) {
+            if (f8312c) {
                 String str3 = "getExtensionCoreInMainProcess: preset=>" + h2.toString();
             }
             return h2;
@@ -124,7 +124,7 @@ public abstract class b<P extends c.a.r0.a.p0.h.b, R extends c.a.r0.a.p0.i.a> {
     public R f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f8171b : (R) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f8313b : (R) invokeV.objValue;
     }
 
     public void g(@Nullable c<Exception> cVar) {

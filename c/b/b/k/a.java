@@ -6,7 +6,7 @@ public interface a extends h {
 
     /* renamed from: c.b.b.k.a$a  reason: collision with other inner class name */
     /* loaded from: classes9.dex */
-    public interface InterfaceC1611a {
+    public interface InterfaceC1612a {
         void a(a aVar);
     }
 }

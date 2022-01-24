@@ -28,19 +28,19 @@ public class b extends c.a.r0.a.u.e.e.a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ File f8976e;
+        public final /* synthetic */ File f9118e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ int f8977f;
+        public final /* synthetic */ int f9119f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ String f8978g;
+        public final /* synthetic */ String f9120g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ e f8979h;
+        public final /* synthetic */ e f9121h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final /* synthetic */ b f8980i;
+        public final /* synthetic */ b f9122i;
 
         public a(b bVar, File file, int i2, String str, e eVar) {
             Interceptable interceptable = $ic;
@@ -57,30 +57,30 @@ public class b extends c.a.r0.a.u.e.e.a {
                     return;
                 }
             }
-            this.f8980i = bVar;
-            this.f8976e = file;
-            this.f8977f = i2;
-            this.f8978g = str;
-            this.f8979h = eVar;
+            this.f9122i = bVar;
+            this.f9118e = file;
+            this.f9119f = i2;
+            this.f9120g = str;
+            this.f9121h = eVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                File k = u.k(this.f8976e.getName());
-                if (!u.b(this.f8976e, k, this.f8977f)) {
+                File k = u.k(this.f9118e.getName());
+                if (!u.b(this.f9118e, k, this.f9119f)) {
                     d.c("ImageApi", "compress image failed");
-                    this.f8980i.d(this.f8978g, new c.a.r0.a.u.h.b(1001, "compress image failed"));
+                    this.f9122i.d(this.f9120g, new c.a.r0.a.u.h.b(1001, "compress image failed"));
                     return;
                 }
                 JSONObject jSONObject = new JSONObject();
                 try {
-                    jSONObject.put("tempFilePath", c.a.r0.a.o2.b.J(k.getAbsolutePath(), this.f8979h.f5537f));
+                    jSONObject.put("tempFilePath", c.a.r0.a.o2.b.J(k.getAbsolutePath(), this.f9121h.f5679f));
                 } catch (JSONException e2) {
                     d.c("ImageApi", e2.toString());
                 }
-                this.f8980i.d(this.f8978g, new c.a.r0.a.u.h.b(0, jSONObject));
+                this.f9122i.d(this.f9120g, new c.a.r0.a.u.h.b(0, jSONObject));
             }
         }
     }
@@ -149,7 +149,7 @@ public class b extends c.a.r0.a.u.e.e.a {
             PathType s = c.a.r0.a.o2.b.s(str2);
             String str3 = null;
             if (s == PathType.BD_FILE) {
-                str3 = c.a.r0.a.o2.b.M(str2, a0.f5537f);
+                str3 = c.a.r0.a.o2.b.M(str2, a0.f5679f);
             } else if (s == PathType.RELATIVE) {
                 str3 = c.a.r0.a.o2.b.L(str2, a0, a0.j0());
             }

@@ -18,22 +18,22 @@ public class g implements Cloneable {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f3790e;
+    public String f3931e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Uri f3791f;
+    public Uri f3932f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f3792g;
+    public int f3933g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String[] f3793h;
+    public String[] f3934h;
 
     /* renamed from: i  reason: collision with root package name */
-    public HashMap<String, String> f3794i;
+    public HashMap<String, String> f3935i;
 
     /* renamed from: j  reason: collision with root package name */
-    public boolean f3795j;
+    public boolean f3936j;
     public g k;
     public boolean l;
     public JSONObject m;
@@ -70,14 +70,14 @@ public class g implements Cloneable {
                 return;
             }
         }
-        this.f3790e = UnitedSchemeConstants.SCHEME_INVOKE_TYPE_INSIDE;
-        this.f3792g = -1;
-        this.f3795j = false;
+        this.f3931e = UnitedSchemeConstants.SCHEME_INVOKE_TYPE_INSIDE;
+        this.f3933g = -1;
+        this.f3936j = false;
         this.l = false;
-        this.f3790e = str;
-        this.f3791f = uri;
-        this.f3793h = j.c(uri);
-        this.f3794i = j.b(uri.toString());
+        this.f3931e = str;
+        this.f3932f = uri;
+        this.f3934h = j.c(uri);
+        this.f3935i = j.b(uri.toString());
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -86,8 +86,8 @@ public class g implements Cloneable {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            Uri uri = this.f3791f;
-            g gVar = new g(uri, this.f3790e, j.c(uri), (HashMap) this.f3794i.clone());
+            Uri uri = this.f3932f;
+            g gVar = new g(uri, this.f3931e, j.c(uri), (HashMap) this.f3935i.clone());
             gVar.k = this;
             gVar.l = this.l;
             gVar.n = this.n;
@@ -101,12 +101,12 @@ public class g implements Cloneable {
         String path;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            Uri uri = this.f3791f;
+            Uri uri = this.f3932f;
             if (uri != null) {
-                if (j.d(uri) && (path = this.f3791f.getPath()) != null && path.length() > 1) {
-                    return this.f3791f.getPath().substring(1);
+                if (j.d(uri) && (path = this.f3932f.getPath()) != null && path.length() > 1) {
+                    return this.f3932f.getPath().substring(1);
                 }
-                return this.f3791f.getHost() + this.f3791f.getPath();
+                return this.f3932f.getHost() + this.f3932f.getPath();
             }
             return "";
         }
@@ -116,19 +116,19 @@ public class g implements Cloneable {
     public HashMap<String, String> c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f3794i : (HashMap) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f3935i : (HashMap) invokeV.objValue;
     }
 
     public String e(boolean z) {
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048580, this, z)) == null) {
-            if (this.f3793h != null) {
+            if (this.f3934h != null) {
                 if (z) {
-                    this.f3792g++;
+                    this.f3933g++;
                 }
-                int i2 = this.f3792g;
-                String[] strArr = this.f3793h;
+                int i2 = this.f3933g;
+                String[] strArr = this.f3934h;
                 if (i2 < strArr.length) {
                     return strArr[i2];
                 }
@@ -142,24 +142,24 @@ public class g implements Cloneable {
     public boolean f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f3795j : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f3936j : invokeV.booleanValue;
     }
 
     public void g(String str, String str2) {
         Uri uri;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048582, this, str, str2) == null) || (uri = this.f3791f) == null || str == null || str2 == null) {
+        if (!(interceptable == null || interceptable.invokeLL(1048582, this, str, str2) == null) || (uri = this.f3932f) == null || str == null || str2 == null) {
             return;
         }
         Uri parse = Uri.parse(uri.toString().replace(str, str2));
-        this.f3791f = parse;
-        this.f3793h = j.c(parse);
+        this.f3932f = parse;
+        this.f3934h = j.c(parse);
     }
 
     public void h(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
-            this.f3795j = z;
+            this.f3936j = z;
         }
     }
 
@@ -178,13 +178,13 @@ public class g implements Cloneable {
                 return;
             }
         }
-        this.f3790e = UnitedSchemeConstants.SCHEME_INVOKE_TYPE_INSIDE;
-        this.f3792g = -1;
-        this.f3795j = false;
+        this.f3931e = UnitedSchemeConstants.SCHEME_INVOKE_TYPE_INSIDE;
+        this.f3933g = -1;
+        this.f3936j = false;
         this.l = false;
-        this.f3791f = uri;
-        this.f3790e = str;
-        this.f3793h = strArr;
-        this.f3794i = hashMap;
+        this.f3932f = uri;
+        this.f3931e = str;
+        this.f3934h = strArr;
+        this.f3935i = hashMap;
     }
 }

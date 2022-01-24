@@ -10,7 +10,6 @@ import android.os.SystemClock;
 import android.view.Surface;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
-import androidx.webkit.ProxyConfig;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.rtc.PeerConnectionClient;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -38,7 +37,7 @@ import java.util.concurrent.TimeUnit;
 import org.webrtc.EglBase;
 import org.webrtc.VideoFrame;
 @Deprecated
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class MediaCodecVideoDecoder {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int COLOR_QCOM_FORMATYUV420PackedSemiPlanar32m = 2141391876;
@@ -96,7 +95,7 @@ public class MediaCodecVideoDecoder {
     public TextureListener textureListener;
     public int width;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static class DecodedOutputBuffer {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -184,7 +183,7 @@ public class MediaCodecVideoDecoder {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static class DecodedTextureBuffer {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -261,7 +260,7 @@ public class MediaCodecVideoDecoder {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static class DecoderProperties {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -288,7 +287,7 @@ public class MediaCodecVideoDecoder {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static class HwDecoderFactory implements VideoDecoderFactory {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -427,17 +426,17 @@ public class MediaCodecVideoDecoder {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public interface MediaCodecVideoDecoderErrorCallback {
         void onMediaCodecVideoDecoderCriticalError(int i2);
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public interface MediaCodecVideoDecoderObserver {
         void onSEIRecv(ByteBuffer byteBuffer);
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class TextureListener implements VideoSink {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -558,7 +557,7 @@ public class MediaCodecVideoDecoder {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static class TimeStamps {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -588,7 +587,7 @@ public class MediaCodecVideoDecoder {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static final class VideoCodecType {
         public static final /* synthetic */ VideoCodecType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -814,7 +813,7 @@ public class MediaCodecVideoDecoder {
                     }
                 }
             }
-            throw new RuntimeException("Unexpected size change. Configured " + this.width + ProxyConfig.MATCH_ALL_SCHEMES + this.height + ". New " + integer + ProxyConfig.MATCH_ALL_SCHEMES + integer2);
+            throw new RuntimeException("Unexpected size change. Configured " + this.width + "*" + this.height + ". New " + integer + "*" + integer2);
         }
         return (DecodedOutputBuffer) invokeI.objValue;
     }

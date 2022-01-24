@@ -14,7 +14,7 @@ public final class c implements b {
     public final MediaCrypto a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final boolean f29971b;
+    public final boolean f29999b;
 
     public MediaCrypto a() {
         InterceptResult invokeV;
@@ -25,6 +25,6 @@ public final class c implements b {
     public boolean b(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) ? !this.f29971b && this.a.requiresSecureDecoderComponent(str) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) ? !this.f29999b && this.a.requiresSecureDecoderComponent(str) : invokeL.booleanValue;
     }
 }

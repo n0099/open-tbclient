@@ -8,7 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import c.a.d.f.p.n;
-import c.a.t0.j3.i0.b.g;
+import c.a.t0.k3.i0.b.g;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.lib.util.BdLog;
@@ -92,10 +92,10 @@ public class AdWebVideoActivity extends AdWebViewActivity {
         public AdvertAppInfo a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f47509b;
+        public int f47537b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f47510c;
+        public String f47538c;
 
         public b() {
             Interceptable interceptable = $ic;
@@ -158,8 +158,8 @@ public class AdWebVideoActivity extends AdWebViewActivity {
             b bVar = new b();
             STATISTIC_DATA = bVar;
             bVar.a = advertAppInfo;
-            bVar.f47510c = str;
-            bVar.f47509b = i2;
+            bVar.f47538c = str;
+            bVar.f47537b = i2;
         }
     }
 
@@ -181,7 +181,7 @@ public class AdWebVideoActivity extends AdWebViewActivity {
                 if (this.mGoodsStyle == 14) {
                     Integer valueOf = Integer.valueOf(n.k(getActivity()));
                     builder.video_height = valueOf;
-                    builder.video_width = Integer.valueOf(c.a.t0.j3.i0.c.a.c(valueOf.intValue()));
+                    builder.video_width = Integer.valueOf(c.a.t0.k3.i0.c.a.c(valueOf.intValue()));
                 } else {
                     Integer valueOf2 = Integer.valueOf(n.k(getActivity()));
                     builder.video_width = valueOf2;
@@ -213,7 +213,7 @@ public class AdWebVideoActivity extends AdWebViewActivity {
                     this.mVideoView.updateTailFrameView(bVar.a);
                     DistributeVideoView distributeVideoView = this.mVideoView;
                     b bVar2 = STATISTIC_DATA;
-                    distributeVideoView.setStatisticInfo(bVar2.a, bVar2.f47509b, bVar2.f47510c);
+                    distributeVideoView.setStatisticInfo(bVar2.a, bVar2.f47537b, bVar2.f47538c);
                 } else {
                     this.mVideoView.updateTailFrameView(null);
                 }

@@ -163,12 +163,12 @@ public class FlutterDelegateStatic extends b {
             c cVar = new c();
             cVar.a = new FlutterBaseFragment.NewEngineFragmentBuilder(TbFlutterFragment.class).url(OpenFlutter.FRAGMENT_MYTAB).isTabHost(true).build();
             isInited = false;
-            cVar.f12789e = 8;
+            cVar.f12933e = 8;
             Resources resources = h.a().getResources();
-            cVar.f12786b = resources.getIdentifier("mine", "string", BdBaseApplication.getInst().getPackageName());
-            cVar.f12790f = resources.getIdentifier("lottie_tab_my", "raw", BdBaseApplication.getInst().getPackageName());
-            cVar.f12793i = c.m;
-            cVar.f12792h = c.a.s0.i0.e.c.d().c("person");
+            cVar.f12930b = resources.getIdentifier("mine", "string", BdBaseApplication.getInst().getPackageName());
+            cVar.f12934f = resources.getIdentifier("lottie_tab_my", "raw", BdBaseApplication.getInst().getPackageName());
+            cVar.f12937i = c.m;
+            cVar.f12936h = c.a.s0.i0.e.c.d().c("person");
             return cVar;
         }
         return (c) invokeV.objValue;
@@ -182,11 +182,11 @@ public class FlutterDelegateStatic extends b {
             this.mIndicator = (MaintabBottomIndicator) LayoutInflater.from(context).inflate(h.a().getResources().getIdentifier("maintab_bottom_indicator", "layout", BdBaseApplication.getInst().getPackageName()), (ViewGroup) null);
             this.tipView = new MessageRedDotView(context);
             TbFragmentTabIndicator.a aVar = new TbFragmentTabIndicator.a();
-            aVar.f41044f = this.mIndicator;
-            aVar.f41041c = n.d(context, 10.0f);
+            aVar.f41072f = this.mIndicator;
+            aVar.f41069c = n.d(context, 10.0f);
             aVar.a = this.tipView;
             this.mIndicator.addTipWrapContent(FileHelper.FILE_CACHE_EMOTION_PACKAGE, aVar);
-            boolean h2 = c.a.s0.s.h0.b.k().h("key_feedback_tip_tab_show", false);
+            boolean h2 = c.a.s0.s.i0.b.k().h("key_feedback_tip_tab_show", false);
             if (!this.isNew.booleanValue() && !h2) {
                 this.tipView.setVisibility(8);
             } else {

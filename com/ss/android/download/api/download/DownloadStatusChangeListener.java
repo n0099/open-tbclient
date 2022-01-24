@@ -3,7 +3,7 @@ package com.ss.android.download.api.download;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import com.ss.android.download.api.model.DownloadShortInfo;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public interface DownloadStatusChangeListener {
     void onDownloadActive(DownloadShortInfo downloadShortInfo, int i2);
 

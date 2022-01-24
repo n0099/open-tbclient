@@ -4,7 +4,7 @@ import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
-import c.a.s0.e1.t0;
+import c.a.s0.d1.t0;
 import c.a.s0.o0.c;
 import c.a.s0.s.q.e2;
 import c.a.t0.g0.d0;
@@ -78,7 +78,7 @@ public class HomePageAlaLiveThreadAdapter extends c.a.d.n.e.a<j, HomePageAlaLive
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ HomePageAlaLiveThreadAdapter f44326b;
+        public final /* synthetic */ HomePageAlaLiveThreadAdapter f44354b;
 
         public a(HomePageAlaLiveThreadAdapter homePageAlaLiveThreadAdapter) {
             Interceptable interceptable = $ic;
@@ -95,12 +95,12 @@ public class HomePageAlaLiveThreadAdapter extends c.a.d.n.e.a<j, HomePageAlaLive
                     return;
                 }
             }
-            this.f44326b = homePageAlaLiveThreadAdapter;
+            this.f44354b = homePageAlaLiveThreadAdapter;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX WARN: Code restructure failed: missing block: B:51:0x01fb, code lost:
-            if (r13.getId() == r12.f44326b.o.M().getId()) goto L50;
+            if (r13.getId() == r12.f44354b.o.M().getId()) goto L50;
          */
         @Override // c.a.t0.g0.d0
         /* renamed from: d */
@@ -111,37 +111,37 @@ public class HomePageAlaLiveThreadAdapter extends c.a.d.n.e.a<j, HomePageAlaLive
             String str;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view, jVar) == null) {
-                LinearLayout linearLayout = this.f44326b.o.A;
+                LinearLayout linearLayout = this.f44354b.o.A;
                 String str2 = TiebaStatic.YYValues.YY_LIVE;
                 int i2 = 1;
                 int i3 = 0;
                 if (linearLayout != view) {
-                    if (view == this.f44326b.o.p.getCommentContainer()) {
-                        this.f44326b.b0(jVar, view);
+                    if (view == this.f44354b.o.p.getCommentContainer()) {
+                        this.f44354b.b0(jVar, view);
                         i2 = 5;
                     } else {
-                        if (view == this.f44326b.o.q.getCommentContainer()) {
-                            this.f44326b.b0(jVar, view);
+                        if (view == this.f44354b.o.q.getCommentContainer()) {
+                            this.f44354b.b0(jVar, view);
                         } else {
-                            if (this.f44326b.o.K() == null || view.getId() != this.f44326b.o.K().getId()) {
-                                if (this.f44326b.o.M() != null) {
+                            if (this.f44354b.o.K() == null || view.getId() != this.f44354b.o.K().getId()) {
+                                if (this.f44354b.o.M() != null) {
                                 }
-                            } else if (jVar.getThreadData() != null && jVar.getThreadData().o1() != null && jVar.getThreadData().o1().isLegalYYLiveData()) {
+                            } else if (jVar.getThreadData() != null && jVar.getThreadData().p1() != null && jVar.getThreadData().p1().isLegalYYLiveData()) {
                                 e2 threadData = jVar.getThreadData();
-                                AlaInfoData o1 = threadData.o1();
-                                int calculateLiveType = YYLiveUtil.calculateLiveType(jVar.getThreadData().o1());
-                                String str3 = StringUtils.isNull(jVar.getThreadData().o1().appId) ? null : jVar.getThreadData().o1().appId;
-                                if (jVar.getThreadData().o1().mYyExtData == null) {
+                                AlaInfoData p1 = threadData.p1();
+                                int calculateLiveType = YYLiveUtil.calculateLiveType(jVar.getThreadData().p1());
+                                String str3 = StringUtils.isNull(jVar.getThreadData().p1().appId) ? null : jVar.getThreadData().p1().appId;
+                                if (jVar.getThreadData().p1().mYyExtData == null) {
                                     str2 = str3;
                                 }
                                 StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.KEY_HOME_PAGE_YY_LIVE_AVATER_CLICK);
                                 statisticItem.param("fid", threadData.U());
-                                statisticItem.param("fname", threadData.a0());
+                                statisticItem.param("fname", threadData.b0());
                                 statisticItem.param("uid", TbadkCoreApplication.getCurrentAccountId());
-                                statisticItem.param("tid", threadData.v1());
+                                statisticItem.param("tid", threadData.w1());
                                 statisticItem.param("obj_param1", calculateLiveType);
                                 statisticItem.param(TiebaStatic.Params.OBJ_PARAM2, str2);
-                                TiebaStaticHelper.addYYParam(statisticItem, o1.mYyExtData);
+                                TiebaStaticHelper.addYYParam(statisticItem, p1.mYyExtData);
                                 TiebaStatic.log(statisticItem);
                             }
                             i2 = 2;
@@ -154,14 +154,14 @@ public class HomePageAlaLiveThreadAdapter extends c.a.d.n.e.a<j, HomePageAlaLive
                     if (jVar == null || jVar.getThreadData() == null) {
                         str2 = "";
                     } else {
-                        i3 = YYLiveUtil.calculateLiveType(jVar.getThreadData().o1());
-                        String v1 = jVar.getThreadData().v1();
-                        j2 = jVar.getThreadData().o1().live_id;
-                        str = StringUtils.isNull(jVar.getThreadData().o1().appId) ? "" : jVar.getThreadData().o1().appId;
-                        if (jVar.getThreadData().o1().mYyExtData == null) {
+                        i3 = YYLiveUtil.calculateLiveType(jVar.getThreadData().p1());
+                        String w1 = jVar.getThreadData().w1();
+                        j2 = jVar.getThreadData().p1().live_id;
+                        str = StringUtils.isNull(jVar.getThreadData().p1().appId) ? "" : jVar.getThreadData().p1().appId;
+                        if (jVar.getThreadData().p1().mYyExtData == null) {
                             str2 = str;
                         }
-                        str = v1;
+                        str = w1;
                     }
                     StatisticItem statisticItem2 = new StatisticItem("c11824");
                     statisticItem2.param("uid", TbadkCoreApplication.getCurrentAccount());
@@ -173,17 +173,17 @@ public class HomePageAlaLiveThreadAdapter extends c.a.d.n.e.a<j, HomePageAlaLive
                     statisticItem2.param("obj_source", jVar.t());
                     statisticItem2.param(TiebaStatic.Params.OBJ_FLOOR, jVar.q());
                     statisticItem2.param(TiebaStatic.Params.OBJ_PARAM3, str2);
-                    statisticItem2.param(TiebaStatic.Params.OBJ_PARAM4, t0.d(this.f44326b.o.getContext()) ? 1 : 0);
+                    statisticItem2.param(TiebaStatic.Params.OBJ_PARAM4, t0.d(this.f44354b.o.getContext()) ? 1 : 0);
                     if (jVar.getThreadData() != null) {
                         statisticItem2.param("fid", jVar.getThreadData().U());
-                        statisticItem2.param("fname", jVar.getThreadData().a0());
+                        statisticItem2.param("fname", jVar.getThreadData().b0());
                     }
-                    TiebaStaticHelper.addYYParam(statisticItem2, jVar.getThreadData().o1().mYyExtData);
+                    TiebaStaticHelper.addYYParam(statisticItem2, jVar.getThreadData().p1().mYyExtData);
                     TiebaStatic.log(statisticItem2);
-                    c.a.t0.o1.h.m.a.b(jVar.f17778e, jVar.t(), jVar.q(), 1);
+                    c.a.t0.p1.h.m.a.b(jVar.f17600e, jVar.t(), jVar.q(), 1);
                 }
                 if (i2 != 0) {
-                    c.a.t0.o1.h.m.a.c(jVar.f17778e, this.f44326b.m, jVar.q(), i2);
+                    c.a.t0.p1.h.m.a.c(jVar.f17600e, this.f44354b.m, jVar.q(), i2);
                 }
                 TbSingleton.getInstance().saveHomeRecommendItemClickTime();
             }
@@ -222,8 +222,8 @@ public class HomePageAlaLiveThreadAdapter extends c.a.d.n.e.a<j, HomePageAlaLive
             if (jVar == null || jVar.getThreadData() == null) {
                 str = "";
             } else {
-                str2 = jVar.getThreadData().v1();
-                str = jVar.getThreadData().G0();
+                str2 = jVar.getThreadData().w1();
+                str = jVar.getThreadData().H0();
             }
             StatisticItem statisticItem = new StatisticItem("c12942");
             statisticItem.param("obj_locate", 1);
@@ -269,7 +269,7 @@ public class HomePageAlaLiveThreadAdapter extends c.a.d.n.e.a<j, HomePageAlaLive
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i2), view, viewGroup, jVar, homePageAlaLiveThreadViewHolder})) == null) {
             jVar.K(jVar.position + 1);
-            jVar.f17778e.T1 = jVar.q();
+            jVar.f17600e.T1 = jVar.q();
             k kVar = homePageAlaLiveThreadViewHolder.mView;
             if (kVar instanceof e) {
                 kVar.d(this.q);
@@ -280,40 +280,40 @@ public class HomePageAlaLiveThreadAdapter extends c.a.d.n.e.a<j, HomePageAlaLive
             homePageAlaLiveThreadViewHolder.mView.m(this.r);
             homePageAlaLiveThreadViewHolder.mView.A(this.p);
             if (jVar != null && jVar.getThreadData() != null) {
-                int calculateLiveType = YYLiveUtil.calculateLiveType(jVar.getThreadData().o1());
-                String v1 = jVar.getThreadData().v1();
-                String str = !StringUtils.isNull(jVar.getThreadData().o1().appId) ? jVar.getThreadData().o1().appId : "";
-                if (jVar.getThreadData().o1().mYyExtData != null) {
+                int calculateLiveType = YYLiveUtil.calculateLiveType(jVar.getThreadData().p1());
+                String w1 = jVar.getThreadData().w1();
+                String str = !StringUtils.isNull(jVar.getThreadData().p1().appId) ? jVar.getThreadData().p1().appId : "";
+                if (jVar.getThreadData().p1().mYyExtData != null) {
                     str = TiebaStatic.YYValues.YY_LIVE;
                 }
-                long j2 = jVar.getThreadData().o1().live_id;
+                long j2 = jVar.getThreadData().p1().live_id;
                 StatisticItem statisticItem = new StatisticItem("c11823");
                 statisticItem.param("obj_type", calculateLiveType);
                 statisticItem.param(TiebaStatic.Params.OBJ_PARAM3, str);
-                statisticItem.param("tid", v1);
+                statisticItem.param("tid", w1);
                 statisticItem.param("ab_tag", jVar.g());
                 statisticItem.param("liveid", j2);
                 statisticItem.param("fid", jVar.getThreadData().U());
-                statisticItem.param("fname", jVar.getThreadData().a0());
+                statisticItem.param("fname", jVar.getThreadData().b0());
                 statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
                 statisticItem.param("obj_param1", jVar.k());
                 statisticItem.param("obj_source", jVar.t());
                 statisticItem.param(TiebaStatic.Params.OBJ_FLOOR, jVar.q());
                 statisticItem.param(TiebaStatic.Params.OBJ_PARAM4, t0.d(homePageAlaLiveThreadViewHolder.mView.getContext()) ? 1 : 0);
-                TiebaStaticHelper.addYYParam(statisticItem, jVar.getThreadData().o1().mYyExtData);
+                TiebaStaticHelper.addYYParam(statisticItem, jVar.getThreadData().p1().mYyExtData);
                 TiebaStatic.log(statisticItem);
                 StatisticItem statisticItem2 = new StatisticItem(CommonStatisticKey.KEY_HOME_PAGE_YY_LIVE_AVATER_SHOW);
                 statisticItem2.param("fid", jVar.getThreadData().U());
-                statisticItem2.param("fname", jVar.getThreadData().a0());
+                statisticItem2.param("fname", jVar.getThreadData().b0());
                 statisticItem2.param("uid", TbadkCoreApplication.getCurrentAccountId());
-                statisticItem2.param("tid", jVar.getThreadData().v1());
+                statisticItem2.param("tid", jVar.getThreadData().w1());
                 statisticItem2.param("obj_param1", calculateLiveType);
                 statisticItem2.param(TiebaStatic.Params.OBJ_PARAM2, str);
-                TiebaStaticHelper.addYYParam(statisticItem2, jVar.getThreadData().o1().mYyExtData);
+                TiebaStaticHelper.addYYParam(statisticItem2, jVar.getThreadData().p1().mYyExtData);
                 TiebaStatic.log(statisticItem2);
             }
-            c.a.t0.o1.h.m.a.f(jVar.f17778e, this.m, jVar.q());
-            c.a.t0.o1.h.m.a.e(jVar.f17778e, jVar.t(), jVar.q());
+            c.a.t0.p1.h.m.a.f(jVar.f17600e, this.m, jVar.q());
+            c.a.t0.p1.h.m.a.e(jVar.f17600e, jVar.t(), jVar.q());
             return homePageAlaLiveThreadViewHolder.getView();
         }
         return (View) invokeCommon.objValue;

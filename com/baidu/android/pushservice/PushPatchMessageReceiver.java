@@ -91,7 +91,7 @@ public class PushPatchMessageReceiver extends com.xiaomi.mipush.sdk.PushMessageR
             String content = miPushMessage.getContent();
             com.baidu.android.pushservice.message.i iVar = new com.baidu.android.pushservice.message.i();
             if (msgFromXMConsole(context, content)) {
-                iVar.k = k.f32283b.b();
+                iVar.k = k.f32311b.b();
             } else {
                 content = iVar.b(context, content);
             }

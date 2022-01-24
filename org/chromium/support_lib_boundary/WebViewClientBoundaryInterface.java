@@ -4,7 +4,7 @@ import android.webkit.WebResourceRequest;
 import android.webkit.WebResourceResponse;
 import android.webkit.WebView;
 import java.lang.reflect.InvocationHandler;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public interface WebViewClientBoundaryInterface extends FeatureFlagHolderBoundaryInterface {
     void onPageCommitVisible(WebView webView, String str);
 

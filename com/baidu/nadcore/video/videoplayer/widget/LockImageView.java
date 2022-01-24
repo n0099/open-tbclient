@@ -20,7 +20,7 @@ public class LockImageView extends ImageView {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public c.a.c0.h0.a.f.a f37184e;
+    public c.a.c0.h0.a.f.a f37212e;
 
     /* loaded from: classes10.dex */
     public class a implements Runnable {
@@ -28,10 +28,10 @@ public class LockImageView extends ImageView {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ int f37185e;
+        public final /* synthetic */ int f37213e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ LockImageView f37186f;
+        public final /* synthetic */ LockImageView f37214f;
 
         public a(LockImageView lockImageView, int i2) {
             Interceptable interceptable = $ic;
@@ -48,15 +48,15 @@ public class LockImageView extends ImageView {
                     return;
                 }
             }
-            this.f37186f = lockImageView;
-            this.f37185e = i2;
+            this.f37214f = lockImageView;
+            this.f37213e = i2;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f37186f.f37184e.l(this.f37185e);
+                this.f37214f.f37212e.l(this.f37213e);
             }
         }
     }
@@ -85,7 +85,7 @@ public class LockImageView extends ImageView {
     public void animateToggle() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f37184e.b();
+            this.f37212e.b();
         }
     }
 
@@ -98,7 +98,7 @@ public class LockImageView extends ImageView {
     public final void c(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context) == null) {
-            this.f37184e = new c.a.c0.h0.a.f.a(b(getResources(), l.nad_videoplayer_player_lock_header), b(getResources(), l.nad_videoplayer_player_lock_body));
+            this.f37212e = new c.a.c0.h0.a.f.a(b(getResources(), l.nad_videoplayer_player_lock_header), b(getResources(), l.nad_videoplayer_player_lock_body));
         }
     }
 
@@ -107,8 +107,8 @@ public class LockImageView extends ImageView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIIII(1048579, this, i2, i3, i4, i5) == null) {
             super.onSizeChanged(i2, i3, i4, i5);
-            this.f37184e.setBounds(0, 0, getWidth(), getHeight());
-            setImageDrawable(this.f37184e);
+            this.f37212e.setBounds(0, 0, getWidth(), getHeight());
+            setImageDrawable(this.f37212e);
         }
     }
 

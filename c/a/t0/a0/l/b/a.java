@@ -22,17 +22,17 @@ public class a extends c.a.d.n.e.a<c.a.t0.a0.l.d.d, CardViewHolder<c.a.t0.a0.l.h
 
     /* renamed from: c.a.t0.a0.l.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public class View$OnClickListenerC0945a implements View.OnClickListener {
+    public class View$OnClickListenerC0955a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c.a.t0.a0.l.d.d f14888e;
+        public final /* synthetic */ c.a.t0.a0.l.d.d f15028e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ a f14889f;
+        public final /* synthetic */ a f15029f;
 
-        public View$OnClickListenerC0945a(a aVar, c.a.t0.a0.l.d.d dVar) {
+        public View$OnClickListenerC0955a(a aVar, c.a.t0.a0.l.d.d dVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -47,22 +47,22 @@ public class a extends c.a.d.n.e.a<c.a.t0.a0.l.d.d, CardViewHolder<c.a.t0.a0.l.h
                     return;
                 }
             }
-            this.f14889f = aVar;
-            this.f14888e = dVar;
+            this.f15029f = aVar;
+            this.f15028e = dVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f14889f.b0(this.f14888e);
+                this.f15029f.b0(this.f15028e);
             }
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public a(TbPageContext tbPageContext) {
-        super(tbPageContext.getPageActivity(), c.a.t0.a0.l.d.d.f14931f);
+        super(tbPageContext.getPageActivity(), c.a.t0.a0.l.d.d.f15071f);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -85,21 +85,21 @@ public class a extends c.a.d.n.e.a<c.a.t0.a0.l.d.d, CardViewHolder<c.a.t0.a0.l.h
     public final void a0(c.a.t0.a0.l.d.d dVar, c.a.t0.a0.l.h.a aVar) {
         c.a.t0.a0.l.d.c g2;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, dVar, aVar) == null) || (g2 = dVar.g()) == null || g2.f14930h == null) {
+        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, dVar, aVar) == null) || (g2 = dVar.g()) == null || g2.f15070h == null) {
             return;
         }
         aVar.v(8);
-        aVar.w(g2.f14930h.a);
+        aVar.w(g2.f15070h.a);
         aVar.l(this.m, TbadkCoreApplication.getInst().getSkinType());
     }
 
     public final void b0(c.a.t0.a0.l.d.d dVar) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, dVar) == null) || dVar == null || dVar.g() == null || dVar.g().f14930h == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048579, this, dVar) == null) || dVar == null || dVar.g() == null || dVar.g().f15070h == null) {
             return;
         }
-        r rVar = dVar.g().f14930h;
-        c.a.s0.m.a.w(this.m.getPageActivity(), true, rVar.f14942b, rVar.a);
+        r rVar = dVar.g().f15070h;
+        c.a.s0.m.a.w(this.m.getPageActivity(), true, rVar.f15082b, rVar.a);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -122,7 +122,7 @@ public class a extends c.a.d.n.e.a<c.a.t0.a0.l.d.d, CardViewHolder<c.a.t0.a0.l.h
                 return null;
             }
             a0(dVar, cardViewHolder.getCardView());
-            cardViewHolder.getCardView().j().setOnClickListener(new View$OnClickListenerC0945a(this, dVar));
+            cardViewHolder.getCardView().j().setOnClickListener(new View$OnClickListenerC0955a(this, dVar));
             return cardViewHolder.getCardView().j();
         }
         return (View) invokeCommon.objValue;

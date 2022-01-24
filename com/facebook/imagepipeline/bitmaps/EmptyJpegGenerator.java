@@ -18,7 +18,7 @@ import com.kwad.yoga.YogaNodeJNIBase;
 import io.flutter.plugin.common.StandardMessageCodec;
 import java.io.IOException;
 import okhttp3.internal.publicsuffix.PublicSuffixDatabase;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class EmptyJpegGenerator {
     public static /* synthetic */ Interceptable $ic;
     public static final byte[] EMPTY_JPEG_PREFIX;

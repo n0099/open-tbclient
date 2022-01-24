@@ -1,7 +1,7 @@
 package com.baidu.tieba.quickWebView.message;
 
 import android.text.TextUtils;
-import c.a.t0.h3.e.a;
+import c.a.t0.i3.e.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.util.ListUtils;

@@ -44,8 +44,8 @@ public class a {
         for (String str : list) {
             if (!TextUtils.isEmpty(str)) {
                 i iVar = new i();
-                iVar.f11494g = str;
-                iVar.f11496i = -1L;
+                iVar.f11636g = str;
+                iVar.f11638i = -1L;
                 c.a.r0.q.g.a.i().f(iVar);
             }
         }
@@ -95,7 +95,7 @@ public class a {
                 int min = Math.min(list.size(), 2);
                 for (int i2 = 0; i2 < min; i2++) {
                     i iVar = list.get(i2);
-                    if (iVar != null && (j2 == iVar.f11496i || j2 == l0.c(iVar.f11497j))) {
+                    if (iVar != null && (j2 == iVar.f11638i || j2 == l0.c(iVar.f11639j))) {
                         return true;
                     }
                 }

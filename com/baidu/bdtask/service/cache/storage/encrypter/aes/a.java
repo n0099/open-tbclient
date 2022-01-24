@@ -23,26 +23,26 @@ public final class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final int[] f32984c;
+    public static final int[] f33012c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static byte[] f32985d;
+    public static byte[] f33013d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final C1788a f32986e;
+    public static final C1789a f33014e;
     public transient /* synthetic */ FieldHolder $fh;
     public final Cipher a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final Key f32987b;
+    public final Key f33015b;
 
     /* renamed from: com.baidu.bdtask.service.cache.storage.encrypter.aes.a$a  reason: collision with other inner class name */
     /* loaded from: classes10.dex */
-    public static final class C1788a {
+    public static final class C1789a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        public C1788a() {
+        public C1789a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -88,23 +88,23 @@ public final class a {
         public final void c(byte[] bArr) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bArr) == null) {
-                a.f32985d = bArr;
+                a.f33013d = bArr;
             }
         }
 
         public final int[] d() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? a.f32984c : (int[]) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? a.f33012c : (int[]) invokeV.objValue;
         }
 
         public final byte[] e() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? a.f32985d : (byte[]) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? a.f33013d : (byte[]) invokeV.objValue;
         }
 
-        public /* synthetic */ C1788a(DefaultConstructorMarker defaultConstructorMarker) {
+        public /* synthetic */ C1789a(DefaultConstructorMarker defaultConstructorMarker) {
             this();
         }
     }
@@ -122,8 +122,8 @@ public final class a {
                 return;
             }
         }
-        f32986e = new C1788a(null);
-        f32984c = new int[]{40, 114, -31, -94, OneKeyLoginResult.ONE_KEY_LOGIN_CODE_NOT_MEET_GRAY, -82, -95, -82, -96, 126, -85, 0, -116, -104, 44, -39};
+        f33014e = new C1789a(null);
+        f33012c = new int[]{40, 114, -31, -94, OneKeyLoginResult.ONE_KEY_LOGIN_CODE_NOT_MEET_GRAY, -82, -95, -82, -96, 126, -85, 0, -116, -104, 44, -39};
     }
 
     public a(Cipher cipher, Key key) {
@@ -142,13 +142,13 @@ public final class a {
             }
         }
         this.a = cipher;
-        this.f32987b = key;
+        this.f33015b = key;
     }
 
     public final void a(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
-            this.a.init(i2, this.f32987b);
+            this.a.init(i2, this.f33015b);
         }
     }
 

@@ -28,29 +28,29 @@ public class a extends c.a.r0.a.p1.r.c.b {
     public static final boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static LruCache<String, ArrayMap<String, f>> f8316b;
+    public static LruCache<String, ArrayMap<String, f>> f8458b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c.a.r0.a.p1.r.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static class C0511a implements c.a.r0.a.p1.r.b.a {
+    public static class C0520a implements c.a.r0.a.p1.r.b.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ c.a.r0.a.z2.g1.c a;
 
         /* renamed from: c.a.r0.a.p1.r.c.a$a$a  reason: collision with other inner class name */
         /* loaded from: classes.dex */
-        public class C0512a implements c.a.r0.a.p1.r.b.a {
+        public class C0521a implements c.a.r0.a.p1.r.b.a {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ C0511a a;
+            public final /* synthetic */ C0520a a;
 
-            public C0512a(C0511a c0511a) {
+            public C0521a(C0520a c0520a) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     newInitContext.initArgs = r2;
-                    Object[] objArr = {c0511a};
+                    Object[] objArr = {c0520a};
                     interceptable.invokeUnInit(65536, newInitContext);
                     int i2 = newInitContext.flag;
                     if ((i2 & 1) != 0) {
@@ -60,7 +60,7 @@ public class a extends c.a.r0.a.p1.r.c.b {
                         return;
                     }
                 }
-                this.a = c0511a;
+                this.a = c0520a;
             }
 
             @Override // c.a.r0.a.p1.r.b.a
@@ -73,7 +73,7 @@ public class a extends c.a.r0.a.p1.r.c.b {
             }
         }
 
-        public C0511a(c.a.r0.a.z2.g1.c cVar) {
+        public C0520a(c.a.r0.a.z2.g1.c cVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -102,7 +102,7 @@ public class a extends c.a.r0.a.p1.r.c.b {
                     return;
                 }
                 c.a.r0.a.e0.d.k("SwanAppUpdateManager", "has not scope set，required request from server");
-                c.a.r0.a.p1.r.a.g().update(new C0512a(this));
+                c.a.r0.a.p1.r.a.g().update(new C0521a(this));
             }
         }
     }
@@ -114,10 +114,10 @@ public class a extends c.a.r0.a.p1.r.c.b {
         public final /* synthetic */ String a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ c.a.r0.a.z2.g1.c f8317b;
+        public final /* synthetic */ c.a.r0.a.z2.g1.c f8459b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ String f8318c;
+        public final /* synthetic */ String f8460c;
 
         public b(String str, c.a.r0.a.z2.g1.c cVar, String str2) {
             Interceptable interceptable = $ic;
@@ -135,8 +135,8 @@ public class a extends c.a.r0.a.p1.r.c.b {
                 }
             }
             this.a = str;
-            this.f8317b = cVar;
-            this.f8318c = str2;
+            this.f8459b = cVar;
+            this.f8460c = str2;
         }
 
         @Override // c.a.r0.a.p1.r.b.a
@@ -144,7 +144,7 @@ public class a extends c.a.r0.a.p1.r.c.b {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 c.a.r0.a.p1.r.d.b.f().d(this.a);
-                this.f8317b.onCallback(a.g(true).get(this.f8318c));
+                this.f8459b.onCallback(a.g(true).get(this.f8460c));
             }
         }
     }
@@ -163,7 +163,7 @@ public class a extends c.a.r0.a.p1.r.c.b {
             }
         }
         a = k.a;
-        f8316b = new LruCache<>(6);
+        f8458b = new LruCache<>(6);
     }
 
     public a() {
@@ -226,7 +226,7 @@ public class a extends c.a.r0.a.p1.r.c.b {
                         sb.append("#getAccreditListData cost=");
                         sb.append((nanoTime2 - nanoTime) / 1000000.0d);
                         sb.append(" size=");
-                        LruCache<String, ArrayMap<String, f>> lruCache = f8316b;
+                        LruCache<String, ArrayMap<String, f>> lruCache = f8458b;
                         sb.append(lruCache == null ? 0 : lruCache.size());
                         sb.toString();
                     }
@@ -246,7 +246,7 @@ public class a extends c.a.r0.a.p1.r.c.b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65541, null, cVar) == null) {
             boolean z = a;
-            c.a.r0.a.p1.r.a.g().z(new C0511a(cVar));
+            c.a.r0.a.p1.r.a.g().z(new C0520a(cVar));
         }
     }
 
@@ -284,10 +284,10 @@ public class a extends c.a.r0.a.p1.r.c.b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) {
             e a0 = e.a0();
-            if (a0 == null || TextUtils.isEmpty(a0.f5537f)) {
+            if (a0 == null || TextUtils.isEmpty(a0.f5679f)) {
                 return null;
             }
-            return f8316b.get(a0.f5537f);
+            return f8458b.get(a0.f5679f);
         }
         return (ArrayMap) invokeV.objValue;
     }
@@ -325,14 +325,14 @@ public class a extends c.a.r0.a.p1.r.c.b {
             return;
         }
         c.a.r0.a.e0.d.k("SwanAppUpdateManager", "putScopeInfo to cache: appId=" + str + ",getAppId=" + c.a.r0.a.d2.d.J().getAppId());
-        f8316b.put(str, arrayMap);
+        f8458b.put(str, arrayMap);
     }
 
     public static void o() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65548, null) == null) {
             c.a.r0.a.e0.d.k("SwanAppUpdateManager", "resetCache");
-            f8316b.evictAll();
+            f8458b.evictAll();
         }
     }
 

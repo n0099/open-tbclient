@@ -15,7 +15,7 @@ public final class h extends b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public Set<Integer> f19257b;
+    public Set<Integer> f19520b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public h() {
@@ -33,7 +33,7 @@ public final class h extends b {
                 return;
             }
         }
-        this.f19257b = new LinkedHashSet();
+        this.f19520b = new LinkedHashSet();
     }
 
     @Override // c.a.t0.m0.f.d.e.b
@@ -44,7 +44,7 @@ public final class h extends b {
             Intrinsics.checkNotNullParameter(item, "item");
             Intrinsics.checkNotNullParameter(timer, "timer");
             Intrinsics.checkNotNullParameter(config, "config");
-            return (this.f19257b.isEmpty() ^ true) && !this.f19257b.contains(Integer.valueOf(c(item.e())));
+            return (this.f19520b.isEmpty() ^ true) && !this.f19520b.contains(Integer.valueOf(c(item.e())));
         }
         return invokeLLL.booleanValue;
     }

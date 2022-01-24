@@ -19,7 +19,7 @@ public final class a<T extends Comparable<? super T>> implements ReadWriteProper
     public final Function1<T, Unit> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public T f19284b;
+    public T f19547b;
 
     public a(T initial, Function1<? super T, Unit> onChange) {
         Interceptable interceptable = $ic;
@@ -39,7 +39,7 @@ public final class a<T extends Comparable<? super T>> implements ReadWriteProper
         Intrinsics.checkNotNullParameter(initial, "initial");
         Intrinsics.checkNotNullParameter(onChange, "onChange");
         this.a = onChange;
-        this.f19284b = initial;
+        this.f19547b = initial;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -51,7 +51,7 @@ public final class a<T extends Comparable<? super T>> implements ReadWriteProper
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, thisRef, property)) == null) {
             Intrinsics.checkNotNullParameter(thisRef, "thisRef");
             Intrinsics.checkNotNullParameter(property, "property");
-            return this.f19284b;
+            return this.f19547b;
         }
         return (T) invokeLL.objValue;
     }
@@ -65,8 +65,8 @@ public final class a<T extends Comparable<? super T>> implements ReadWriteProper
             Intrinsics.checkNotNullParameter(thisRef, "thisRef");
             Intrinsics.checkNotNullParameter(property, "property");
             Intrinsics.checkNotNullParameter(value, "value");
-            T t = this.f19284b;
-            this.f19284b = value;
+            T t = this.f19547b;
+            this.f19547b = value;
             if (Intrinsics.areEqual(t, value)) {
                 return;
             }
@@ -77,6 +77,6 @@ public final class a<T extends Comparable<? super T>> implements ReadWriteProper
     public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f19284b.toString() : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f19547b.toString() : (String) invokeV.objValue;
     }
 }

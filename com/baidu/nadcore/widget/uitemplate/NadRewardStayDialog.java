@@ -30,7 +30,7 @@ public class NadRewardStayDialog extends Dialog implements View.OnClickListener 
     @NonNull
 
     /* renamed from: e  reason: collision with root package name */
-    public final b f37381e;
+    public final b f37409e;
 
     /* loaded from: classes10.dex */
     public class a implements DialogInterface.OnDismissListener {
@@ -38,7 +38,7 @@ public class NadRewardStayDialog extends Dialog implements View.OnClickListener 
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ NadRewardStayDialog f37382e;
+        public final /* synthetic */ NadRewardStayDialog f37410e;
 
         public a(NadRewardStayDialog nadRewardStayDialog) {
             Interceptable interceptable = $ic;
@@ -55,14 +55,14 @@ public class NadRewardStayDialog extends Dialog implements View.OnClickListener 
                     return;
                 }
             }
-            this.f37382e = nadRewardStayDialog;
+            this.f37410e = nadRewardStayDialog;
         }
 
         @Override // android.content.DialogInterface.OnDismissListener
         public void onDismiss(DialogInterface dialogInterface) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, dialogInterface) == null) {
-                this.f37382e.f37381e.a(false);
+                this.f37410e.f37409e.a(false);
             }
         }
     }
@@ -91,7 +91,7 @@ public class NadRewardStayDialog extends Dialog implements View.OnClickListener 
             }
         }
         c(adBaseModel);
-        this.f37381e = bVar;
+        this.f37409e = bVar;
     }
 
     public final void b(AdBaseModel adBaseModel) {
@@ -137,9 +137,9 @@ public class NadRewardStayDialog extends Dialog implements View.OnClickListener 
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view) == null) {
             if (view.getId() == e.nad_reward_stay_continue) {
-                this.f37381e.a(false);
+                this.f37409e.a(false);
             } else if (view.getId() == e.nad_reward_stay_cancel) {
-                this.f37381e.a(true);
+                this.f37409e.a(true);
             }
         }
     }

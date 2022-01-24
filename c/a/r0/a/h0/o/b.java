@@ -19,7 +19,7 @@ public final class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final boolean f6743b;
+    public static final boolean f6885b;
     public transient /* synthetic */ FieldHolder $fh;
     public c a;
 
@@ -36,7 +36,7 @@ public final class b {
                 return;
             }
         }
-        f6743b = k.a;
+        f6885b = k.a;
     }
 
     public b() {
@@ -71,7 +71,7 @@ public final class b {
             if (this.a.a(prefetchEvent, pMSAppInfo, bundle)) {
                 c.a.r0.a.y1.c.a e2 = c.a.r0.a.y1.c.a.e();
                 c.a.r0.a.y1.c.c cVar2 = new c.a.r0.a.y1.c.c(120, bundle);
-                cVar2.b(cVar.f9731f);
+                cVar2.b(cVar.f9873f);
                 cVar2.p(false);
                 e2.h(cVar2);
             }
@@ -83,9 +83,9 @@ public final class b {
         if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, prefetchEvent, cVar, pMSAppInfo) == null) {
             a(cVar, prefetchEvent, pMSAppInfo);
             cVar.i0(prefetchEvent);
-            if (f6743b) {
+            if (f6885b) {
                 String str = "onPrefetchReady event: " + prefetchEvent;
-                String str2 = "onPrefetchReady client id: " + cVar.f9731f.index;
+                String str2 = "onPrefetchReady client id: " + cVar.f9873f.index;
             }
         }
     }

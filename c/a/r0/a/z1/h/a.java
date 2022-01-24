@@ -15,35 +15,35 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes.dex */
+/* loaded from: classes6.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
     @SuppressLint({"StaticFieldLeak"})
 
     /* renamed from: d  reason: collision with root package name */
-    public static a f9882d;
+    public static a f10024d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static Context f9883e;
+    public static Context f10025e;
     public transient /* synthetic */ FieldHolder $fh;
     public EditText a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f9884b;
+    public boolean f10026b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Runnable f9885c;
+    public Runnable f10027c;
 
     /* renamed from: c.a.r0.a.z1.h.a$a  reason: collision with other inner class name */
-    /* loaded from: classes.dex */
-    public class RunnableC0649a implements Runnable {
+    /* loaded from: classes6.dex */
+    public class RunnableC0658a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f9886e;
+        public final /* synthetic */ a f10028e;
 
-        public RunnableC0649a(a aVar) {
+        public RunnableC0658a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -58,26 +58,26 @@ public class a {
                     return;
                 }
             }
-            this.f9886e = aVar;
+            this.f10028e = aVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f9886e.a.dispatchKeyEvent(new KeyEvent(0, 67));
-                this.f9886e.a.postDelayed(this.f9886e.f9885c, 60L);
+                this.f10028e.a.dispatchKeyEvent(new KeyEvent(0, 67));
+                this.f10028e.a.postDelayed(this.f10028e.f10027c, 60L);
             }
         }
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes6.dex */
     public class b implements AdapterView.OnItemClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f9887e;
+        public final /* synthetic */ a f10029e;
 
         public b(a aVar) {
             Interceptable interceptable = $ic;
@@ -94,7 +94,7 @@ public class a {
                     return;
                 }
             }
-            this.f9887e = aVar;
+            this.f10029e = aVar;
         }
 
         @Override // android.widget.AdapterView.OnItemClickListener
@@ -104,35 +104,35 @@ public class a {
                 Object adapter = adapterView.getAdapter();
                 if (adapter instanceof EmojiBagLayout.b) {
                     EmojiBagLayout.b bVar = (EmojiBagLayout.b) adapter;
-                    if (this.f9887e.a == null) {
+                    if (this.f10029e.a == null) {
                         return;
                     }
                     if (i2 == bVar.getCount() - 1) {
-                        if (this.f9887e.f9884b) {
-                            this.f9887e.a.removeCallbacks(this.f9887e.f9885c);
-                            this.f9887e.f9884b = false;
+                        if (this.f10029e.f10026b) {
+                            this.f10029e.a.removeCallbacks(this.f10029e.f10027c);
+                            this.f10029e.f10026b = false;
                             return;
                         }
-                        this.f9887e.a.dispatchKeyEvent(new KeyEvent(0, 67));
+                        this.f10029e.a.dispatchKeyEvent(new KeyEvent(0, 67));
                         return;
                     }
                     String item = bVar.getItem(i2);
                     if (TextUtils.isEmpty(item)) {
                         return;
                     }
-                    this.f9887e.a.getEditableText().insert(this.f9887e.a.getSelectionStart(), c.a.r0.a.z1.h.b.c().g(a.f9883e, item, this.f9887e.a));
+                    this.f10029e.a.getEditableText().insert(this.f10029e.a.getSelectionStart(), c.a.r0.a.z1.h.b.c().g(a.f10025e, item, this.f10029e.a));
                 }
             }
         }
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes6.dex */
     public class c implements AdapterView.OnItemLongClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f9888e;
+        public final /* synthetic */ a f10030e;
 
         public c(a aVar) {
             Interceptable interceptable = $ic;
@@ -149,7 +149,7 @@ public class a {
                     return;
                 }
             }
-            this.f9888e = aVar;
+            this.f10030e = aVar;
         }
 
         @Override // android.widget.AdapterView.OnItemLongClickListener
@@ -159,9 +159,9 @@ public class a {
             if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{adapterView, view, Integer.valueOf(i2), Long.valueOf(j2)})) == null) {
                 Object adapter = adapterView.getAdapter();
                 if ((adapter instanceof EmojiBagLayout.b) && i2 == ((EmojiBagLayout.b) adapter).getCount() - 1) {
-                    this.f9888e.f9884b = true;
-                    if (this.f9888e.a != null) {
-                        this.f9888e.a.post(this.f9888e.f9885c);
+                    this.f10030e.f10026b = true;
+                    if (this.f10030e.a != null) {
+                        this.f10030e.a.post(this.f10030e.f10027c);
                         return false;
                     }
                     return false;
@@ -172,13 +172,13 @@ public class a {
         }
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes6.dex */
     public class d implements View.OnTouchListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f9889e;
+        public final /* synthetic */ a f10031e;
 
         public d(a aVar) {
             Interceptable interceptable = $ic;
@@ -195,7 +195,7 @@ public class a {
                     return;
                 }
             }
-            this.f9889e = aVar;
+            this.f10031e = aVar;
         }
 
         @Override // android.view.View.OnTouchListener
@@ -204,7 +204,7 @@ public class a {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, view, motionEvent)) == null) {
                 if (motionEvent.getAction() == 1) {
-                    this.f9889e.k();
+                    this.f10031e.k();
                     return false;
                 }
                 return false;
@@ -226,22 +226,22 @@ public class a {
                 return;
             }
         }
-        this.f9885c = new RunnableC0649a(this);
+        this.f10027c = new RunnableC0658a(this);
     }
 
     public static a g(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, context)) == null) {
-            f9883e = context.getApplicationContext();
-            if (f9882d == null) {
+            f10025e = context.getApplicationContext();
+            if (f10024d == null) {
                 synchronized (a.class) {
-                    if (f9882d == null) {
-                        f9882d = new a();
+                    if (f10024d == null) {
+                        f10024d = new a();
                     }
                 }
             }
-            return f9882d;
+            return f10024d;
         }
         return (a) invokeL.objValue;
     }
@@ -277,6 +277,6 @@ public class a {
         if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (editText = this.a) == null) {
             return;
         }
-        editText.removeCallbacks(this.f9885c);
+        editText.removeCallbacks(this.f10027c);
     }
 }

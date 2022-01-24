@@ -8,19 +8,19 @@ public class a {
     public static boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static boolean f56954b;
+    public static boolean f56999b;
 
     /* renamed from: com.kwad.sdk.g.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public interface InterfaceC2128a {
+    public interface InterfaceC2134a {
     }
 
-    public static void a(Context context, final InterfaceC2128a interfaceC2128a) {
-        if (context == null || f56954b) {
+    public static void a(Context context, final InterfaceC2134a interfaceC2134a) {
+        if (context == null || f56999b) {
             return;
         }
         if (!a()) {
-            f56954b = true;
+            f56999b = true;
         } else if (a) {
         } else {
             a = true;
@@ -31,7 +31,7 @@ public class a {
             } catch (Throwable th) {
                 String str2 = "[OADIDSDKHelper25]:oaid sdk not find " + th.getMessage();
                 a = false;
-                f56954b = true;
+                f56999b = true;
             }
         }
     }

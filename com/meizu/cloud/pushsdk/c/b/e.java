@@ -7,23 +7,23 @@ public class e {
     public final boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final i f58694b;
+    public final i f58739b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final LinkedList<Long> f58695c;
+    public final LinkedList<Long> f58740c;
 
     public e(boolean z, i iVar, LinkedList<Long> linkedList) {
         this.a = z;
-        this.f58694b = iVar;
-        this.f58695c = linkedList;
+        this.f58739b = iVar;
+        this.f58740c = linkedList;
     }
 
     public i a() {
-        return this.f58694b;
+        return this.f58739b;
     }
 
     public LinkedList<Long> b() {
-        return this.f58695c;
+        return this.f58740c;
     }
 
     public boolean c() {

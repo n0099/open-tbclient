@@ -35,7 +35,7 @@ public final class b implements c.a.r0.a.n0.l.b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final boolean f6286e;
+    public static final boolean f6428e;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes.dex */
@@ -45,17 +45,17 @@ public final class b implements c.a.r0.a.n0.l.b {
         public boolean a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ InterfaceC0348b f6287b;
+        public final /* synthetic */ InterfaceC0357b f6429b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ Map f6288c;
+        public final /* synthetic */ Map f6430c;
 
-        public a(InterfaceC0348b interfaceC0348b, Map map) {
+        public a(InterfaceC0357b interfaceC0357b, Map map) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {interfaceC0348b, map};
+                Object[] objArr = {interfaceC0357b, map};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i2 = newInitContext.flag;
                 if ((i2 & 1) != 0) {
@@ -65,8 +65,8 @@ public final class b implements c.a.r0.a.n0.l.b {
                     return;
                 }
             }
-            this.f6287b = interfaceC0348b;
-            this.f6288c = map;
+            this.f6429b = interfaceC0357b;
+            this.f6430c = map;
             this.a = false;
         }
 
@@ -75,9 +75,9 @@ public final class b implements c.a.r0.a.n0.l.b {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 super.a();
-                InterfaceC0348b interfaceC0348b = this.f6287b;
-                if (interfaceC0348b != null) {
-                    interfaceC0348b.a();
+                InterfaceC0357b interfaceC0357b = this.f6429b;
+                if (interfaceC0357b != null) {
+                    interfaceC0357b.a();
                 }
             }
         }
@@ -87,12 +87,12 @@ public final class b implements c.a.r0.a.n0.l.b {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
                 super.b(i2);
-                InterfaceC0348b interfaceC0348b = this.f6287b;
-                if (interfaceC0348b != null) {
+                InterfaceC0357b interfaceC0357b = this.f6429b;
+                if (interfaceC0357b != null) {
                     if (i2 == 1010) {
-                        interfaceC0348b.a();
+                        interfaceC0357b.a();
                     } else {
-                        interfaceC0348b.b(3);
+                        interfaceC0357b.b(3);
                     }
                 }
             }
@@ -103,8 +103,8 @@ public final class b implements c.a.r0.a.n0.l.b {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar) == null) {
                 super.c(aVar);
-                j(aVar.f11551b);
-                c.a.r0.a.h0.m.s.a.c(aVar.f11551b);
+                j(aVar.f11693b);
+                c.a.r0.a.h0.m.s.a.c(aVar.f11693b);
             }
         }
 
@@ -113,11 +113,11 @@ public final class b implements c.a.r0.a.n0.l.b {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
                 i();
-                InterfaceC0348b interfaceC0348b = this.f6287b;
-                if (interfaceC0348b == null || this.a) {
+                InterfaceC0357b interfaceC0357b = this.f6429b;
+                if (interfaceC0357b == null || this.a) {
                     return;
                 }
-                interfaceC0348b.a();
+                interfaceC0357b.a();
             }
         }
 
@@ -128,9 +128,9 @@ public final class b implements c.a.r0.a.n0.l.b {
                 super.f(bVar);
                 if (bVar.a != 1010) {
                     this.a = true;
-                    InterfaceC0348b interfaceC0348b = this.f6287b;
-                    if (interfaceC0348b != null) {
-                        interfaceC0348b.b(3);
+                    InterfaceC0357b interfaceC0357b = this.f6429b;
+                    if (interfaceC0357b != null) {
+                        interfaceC0357b.b(3);
                     }
                 }
             }
@@ -148,7 +148,7 @@ public final class b implements c.a.r0.a.n0.l.b {
         public final void i() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-                for (String str : this.f6288c.keySet()) {
+                for (String str : this.f6430c.keySet()) {
                     j(str);
                 }
             }
@@ -156,8 +156,8 @@ public final class b implements c.a.r0.a.n0.l.b {
 
         public final void j(@NonNull String str) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048583, this, str) == null) && this.f6288c.containsKey(str)) {
-                Set<String> set = (Set) this.f6288c.get(str);
+            if ((interceptable == null || interceptable.invokeL(1048583, this, str) == null) && this.f6430c.containsKey(str)) {
+                Set<String> set = (Set) this.f6430c.get(str);
                 if (set != null && !set.isEmpty()) {
                     for (String str2 : set) {
                         c.a.r0.a.h0.m.s.a.d(str, str2);
@@ -171,7 +171,7 @@ public final class b implements c.a.r0.a.n0.l.b {
 
     /* renamed from: c.a.r0.a.h0.c.a.b$b  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public interface InterfaceC0348b {
+    public interface InterfaceC0357b {
         void a();
 
         void b(int i2);
@@ -192,17 +192,17 @@ public final class b implements c.a.r0.a.n0.l.b {
                 return;
             }
         }
-        f6286e = k.a;
+        f6428e = k.a;
     }
 
-    public static void a(@NonNull List<f.b> list, @Nullable String str, InterfaceC0348b interfaceC0348b) {
+    public static void a(@NonNull List<f.b> list, @Nullable String str, InterfaceC0357b interfaceC0357b) {
         String[] i2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65537, null, list, str, interfaceC0348b) == null) {
+        if (interceptable == null || interceptable.invokeLLL(65537, null, list, str, interfaceC0357b) == null) {
             if (!c(c.a.r0.a.o2.g.h.a().getString("predownload_network_switch", "1"))) {
-                boolean z = f6286e;
-                if (interfaceC0348b != null) {
-                    interfaceC0348b.b(6);
+                boolean z = f6428e;
+                if (interfaceC0357b != null) {
+                    interfaceC0357b.b(6);
                     return;
                 }
                 return;
@@ -232,9 +232,9 @@ public final class b implements c.a.r0.a.n0.l.b {
                 }
             }
             if (arrayList.isEmpty()) {
-                boolean z3 = f6286e;
-                if (interfaceC0348b != null) {
-                    interfaceC0348b.a();
+                boolean z3 = f6428e;
+                if (interfaceC0357b != null) {
+                    interfaceC0357b.a();
                     return;
                 }
                 return;
@@ -242,7 +242,7 @@ public final class b implements c.a.r0.a.n0.l.b {
             f fVar = new f(arrayList, u0.b());
             fVar.e(str);
             fVar.d("1");
-            d dVar = new d(new a(interfaceC0348b, hashMap));
+            d dVar = new d(new a(interfaceC0357b, hashMap));
             dVar.M(m.a(str));
             c.a.r0.q.b.f(fVar, dVar);
         }
@@ -287,7 +287,7 @@ public final class b implements c.a.r0.a.n0.l.b {
                 TextUtils.equals(str, "2");
                 z = false;
             }
-            if (f6286e) {
+            if (f6428e) {
                 String str2 = "SwanPredownload: current net suits for net config = " + z;
             }
             return z;
@@ -307,14 +307,14 @@ public final class b implements c.a.r0.a.n0.l.b {
         return invokeL.booleanValue;
     }
 
-    public static void e(@NonNull String str, @Nullable String str2, @Nullable String str3, InterfaceC0348b interfaceC0348b) {
+    public static void e(@NonNull String str, @Nullable String str2, @Nullable String str3, InterfaceC0357b interfaceC0357b) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(65541, null, str, str2, str3, interfaceC0348b) == null) {
+        if (interceptable == null || interceptable.invokeLLLL(65541, null, str, str2, str3, interfaceC0357b) == null) {
             f.b bVar = new f.b(str);
             if (!TextUtils.isEmpty(str2)) {
                 bVar.l(new String[]{str2});
             }
-            a(Collections.singletonList(bVar), str3, interfaceC0348b);
+            a(Collections.singletonList(bVar), str3, interfaceC0357b);
         }
     }
 
@@ -322,15 +322,15 @@ public final class b implements c.a.r0.a.n0.l.b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(65542, null, str, str2, str3) == null) {
             if (TextUtils.isEmpty(str)) {
-                boolean z = f6286e;
+                boolean z = f6428e;
             } else if (!c(c.a.r0.a.o2.g.h.a().getString("predownload_network_switch", "1"))) {
-                boolean z2 = f6286e;
+                boolean z2 = f6428e;
             } else {
                 ArrayList arrayList = new ArrayList();
                 arrayList.add(new c.a(str));
                 List<c.a> i2 = c.a.r0.a.h0.m.s.a.i(arrayList);
                 if (i2.isEmpty()) {
-                    boolean z3 = f6286e;
+                    boolean z3 = f6428e;
                     return;
                 }
                 c cVar = new c((List<? extends c.a>) i2, (c.a.r0.q.p.b) u0.b());
@@ -343,23 +343,23 @@ public final class b implements c.a.r0.a.n0.l.b {
         }
     }
 
-    public static void g(@Nullable String str, @Nullable String str2, @Nullable String str3, boolean z, @Nullable String str4, InterfaceC0348b interfaceC0348b) {
+    public static void g(@Nullable String str, @Nullable String str2, @Nullable String str3, boolean z, @Nullable String str4, InterfaceC0357b interfaceC0357b) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65543, null, new Object[]{str, str2, str3, Boolean.valueOf(z), str4, interfaceC0348b}) == null) {
-            if (f6286e) {
+        if (interceptable == null || interceptable.invokeCommon(65543, null, new Object[]{str, str2, str3, Boolean.valueOf(z), str4, interfaceC0357b}) == null) {
+            if (f6428e) {
                 String str5 = "preDownloadSwanAppByFeed appId: " + str + " ,appType: " + str2 + " ,isClick: " + z + ", scheme=" + str4;
             }
             if (z) {
-                if (interfaceC0348b != null) {
-                    interfaceC0348b.a();
+                if (interfaceC0357b != null) {
+                    interfaceC0357b.a();
                 }
             } else if (TextUtils.isEmpty(str)) {
-                if (interfaceC0348b != null) {
-                    interfaceC0348b.c();
+                if (interfaceC0357b != null) {
+                    interfaceC0357b.c();
                 }
             } else if (!d(str2)) {
-                if (interfaceC0348b != null) {
-                    interfaceC0348b.b(6);
+                if (interfaceC0357b != null) {
+                    interfaceC0357b.b(6);
                 }
             } else {
                 String str6 = null;
@@ -370,12 +370,12 @@ public final class b implements c.a.r0.a.n0.l.b {
                             str6 = o0.n(str, parse, false);
                         }
                     } catch (Exception e2) {
-                        if (f6286e) {
+                        if (f6428e) {
                             e2.printStackTrace();
                         }
                     }
                 }
-                e(str, str6, str3, interfaceC0348b);
+                e(str, str6, str3, interfaceC0357b);
             }
         }
     }

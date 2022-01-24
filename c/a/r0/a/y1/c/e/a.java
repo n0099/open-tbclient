@@ -70,24 +70,24 @@ public final class a extends c.a.r0.a.y1.c.b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: f  reason: collision with root package name */
-    public final e f9716f;
+    public final e f9858f;
 
     /* renamed from: g  reason: collision with root package name */
-    public IProcessBridge f9717g;
+    public IProcessBridge f9859g;
 
     /* renamed from: h  reason: collision with root package name */
-    public d f9718h;
+    public d f9860h;
 
     /* renamed from: i  reason: collision with root package name */
-    public ServiceConnection f9719i;
+    public ServiceConnection f9861i;
 
     /* renamed from: j  reason: collision with root package name */
-    public final Deque<Long> f9720j;
+    public final Deque<Long> f9862j;
     public List<Runnable> k;
 
     /* renamed from: c.a.r0.a.y1.c.e.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static /* synthetic */ class C0634a {
+    public static /* synthetic */ class C0643a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
@@ -98,7 +98,7 @@ public final class a extends c.a.r0.a.y1.c.b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f9721e;
+        public final /* synthetic */ a f9863e;
 
         public b(a aVar) {
             Interceptable interceptable = $ic;
@@ -115,7 +115,7 @@ public final class a extends c.a.r0.a.y1.c.b {
                     return;
                 }
             }
-            this.f9721e = aVar;
+            this.f9863e = aVar;
         }
 
         @Override // android.content.ServiceConnection
@@ -125,18 +125,18 @@ public final class a extends c.a.r0.a.y1.c.b {
                 if (a.l) {
                     String.format("onServiceConnected: name(%s) service(%s)", componentName, iBinder);
                 }
-                if (this.f9721e.N() || !SwanAppProcessInfo.current().isSwanAppProcess()) {
+                if (this.f9863e.N() || !SwanAppProcessInfo.current().isSwanAppProcess()) {
                     if (a.l) {
-                        String.format("onServiceConnected: return by connected(%b) isSwanAppProcess(%s)", Boolean.valueOf(this.f9721e.N()), Boolean.valueOf(SwanAppProcessInfo.current().isSwanAppProcess()));
+                        String.format("onServiceConnected: return by connected(%b) isSwanAppProcess(%s)", Boolean.valueOf(this.f9863e.N()), Boolean.valueOf(SwanAppProcessInfo.current().isSwanAppProcess()));
                         return;
                     }
                     return;
                 }
-                this.f9721e.f9717g = IProcessBridge.Stub.asInterface(iBinder);
-                a aVar = this.f9721e;
+                this.f9863e.f9859g = IProcessBridge.Stub.asInterface(iBinder);
+                a aVar = this.f9863e;
                 aVar.Y(13, aVar.O());
-                if (this.f9721e.f9718h != null) {
-                    this.f9721e.f9718h.a();
+                if (this.f9863e.f9860h != null) {
+                    this.f9863e.f9860h.a();
                 }
                 c.a.r0.a.y1.c.a.e().c();
             }
@@ -147,11 +147,11 @@ public final class a extends c.a.r0.a.y1.c.b {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, componentName) == null) {
                 boolean unused = a.l;
-                this.f9721e.T();
+                this.f9863e.T();
             }
         }
 
-        public /* synthetic */ b(a aVar, C0634a c0634a) {
+        public /* synthetic */ b(a aVar, C0643a c0643a) {
             this(aVar);
         }
     }
@@ -176,11 +176,11 @@ public final class a extends c.a.r0.a.y1.c.b {
 
         /* renamed from: c.a.r0.a.y1.c.e.a$e$a  reason: collision with other inner class name */
         /* loaded from: classes.dex */
-        public class RunnableC0635a implements Runnable {
+        public class RunnableC0644a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
-            public RunnableC0635a(e eVar) {
+            public RunnableC0644a(e eVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -249,8 +249,8 @@ public final class a extends c.a.r0.a.y1.c.b {
                 }
                 String n1 = c.a.r0.a.f1.e.b.n1(prefetchEvent.schema, P);
                 if (TextUtils.isEmpty(n1)) {
-                    if (aVar.f6816b) {
-                        return P.g(aVar.f6817c);
+                    if (aVar.f6958b) {
+                        return P.g(aVar.f6959c);
                     }
                     return P.f();
                 }
@@ -299,7 +299,7 @@ public final class a extends c.a.r0.a.y1.c.b {
                             }
                         }
                         c.a.r0.a.h0.u.b.c(16);
-                        if (!a.C0402a.c()) {
+                        if (!a.C0411a.c()) {
                             return;
                         }
                     }
@@ -319,7 +319,7 @@ public final class a extends c.a.r0.a.y1.c.b {
                     c.a.r0.a.d2.d.J().m(bundle2, "update_tag_by_app_launch");
                     c.a.r0.a.d2.e a02 = c.a.r0.a.d2.e.a0();
                     if (a02 != null && c.a.r0.a.a1.d.O(a02)) {
-                        Set<a.C0796a> i2 = c.a.r0.a.w1.c.a.i(a02.V().f0());
+                        Set<a.C0805a> i2 = c.a.r0.a.w1.c.a.i(a02.V().f0());
                         a02.L0(i2);
                         if (i2 != null && !i2.isEmpty()) {
                             c.a.r0.a.h0.u.b.c(19);
@@ -402,7 +402,7 @@ public final class a extends c.a.r0.a.y1.c.b {
                 c.a.r0.a.e0.d.k("SwanAppMessengerClient", "Recovery killProcess hasAppOccupied: " + c.a.r0.a.d2.d.J().D());
                 if (c.a.r0.a.d2.d.J().D()) {
                     c.a.r0.a.d2.d.J().o("flag_finish_activity", "flag_remove_task");
-                    q0.a0(new RunnableC0635a(this));
+                    q0.a0(new RunnableC0644a(this));
                     return;
                 }
                 c.a.r0.a.e0.d.k("SwanAppMessengerClient", "Recovery kill self");
@@ -671,7 +671,7 @@ public final class a extends c.a.r0.a.y1.c.b {
             Bundle bundle;
             c.a.f0.f.b bVar;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048590, this, message) == null) || message == null || (bundle = (Bundle) message.obj) == null || (bVar = c.a.r0.a.t1.d.b().f8823d) == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048590, this, message) == null) || message == null || (bundle = (Bundle) message.obj) == null || (bVar = c.a.r0.a.t1.d.b().f8965d) == null) {
                 return;
             }
             bVar.onPayResult(c.a.r0.a.t1.d.a(bundle.getInt(PayActivityStatic.KEY_WX_RECHARGE_RESULT_ERROR_CODE)), bundle.getString(PayActivityStatic.KEY_WX_RECHARGE_RESULT_ERROR_STR));
@@ -776,8 +776,8 @@ public final class a extends c.a.r0.a.y1.c.b {
                 return;
             }
         }
-        this.f9716f = new e();
-        this.f9720j = new ArrayDeque();
+        this.f9858f = new e();
+        this.f9862j = new ArrayDeque();
     }
 
     @Deprecated
@@ -790,13 +790,13 @@ public final class a extends c.a.r0.a.y1.c.b {
     public void L(d dVar, c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, dVar, cVar) == null) {
-            this.f9718h = dVar;
-            this.f9716f.p(cVar);
+            this.f9860h = dVar;
+            this.f9858f.p(cVar);
             Y(1, O());
-            if (this.f9718h == null || !N()) {
+            if (this.f9860h == null || !N()) {
                 return;
             }
-            this.f9718h.a();
+            this.f9860h.a();
         }
     }
 
@@ -804,21 +804,21 @@ public final class a extends c.a.r0.a.y1.c.b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            synchronized (this.f9720j) {
+            synchronized (this.f9862j) {
                 S("checkRebindable ===>");
-                if (this.f9720j.size() < 3) {
-                    S(String.format(Locale.getDefault(), "allowRebind by size(%d) < max(%d)", Integer.valueOf(this.f9720j.size()), 3));
+                if (this.f9862j.size() < 3) {
+                    S(String.format(Locale.getDefault(), "allowRebind by size(%d) < max(%d)", Integer.valueOf(this.f9862j.size()), 3));
                     return true;
                 }
-                int size = this.f9720j.size() - 3;
+                int size = this.f9862j.size() - 3;
                 S("after offer purgeCount=" + size);
                 if (size > 0) {
                     for (int i2 = 0; i2 < size; i2++) {
-                        S("purge: " + this.f9720j.poll());
+                        S("purge: " + this.f9862j.poll());
                     }
                 }
                 S("after purge");
-                Long peek = this.f9720j.peek();
+                Long peek = this.f9862j.peek();
                 if (peek == null) {
                     S("allowRebind by null oldestRecord is should not happen");
                     return true;
@@ -835,7 +835,7 @@ public final class a extends c.a.r0.a.y1.c.b {
     public boolean N() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f9717g != null : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f9859g != null : invokeV.booleanValue;
     }
 
     public final Bundle O() {
@@ -854,13 +854,13 @@ public final class a extends c.a.r0.a.y1.c.b {
     public Handler Q() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f9716f : (Handler) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f9858f : (Handler) invokeV.objValue;
     }
 
     public IProcessBridge R() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f9717g : (IProcessBridge) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f9859g : (IProcessBridge) invokeV.objValue;
     }
 
     public final void S(String str) {
@@ -869,7 +869,7 @@ public final class a extends c.a.r0.a.y1.c.b {
         if ((interceptable == null || interceptable.invokeL(1048582, this, str) == null) && l) {
             String str2 = "SwanRebind:: status => " + str;
             SimpleDateFormat simpleDateFormat = new SimpleDateFormat("HH:mm:ss.SSS", Locale.getDefault());
-            while (this.f9720j.iterator().hasNext()) {
+            while (this.f9862j.iterator().hasNext()) {
                 String str3 = "SwanRebind::   >>>  record @ " + simpleDateFormat.format(new Date(it.next().longValue()));
             }
         }
@@ -879,10 +879,10 @@ public final class a extends c.a.r0.a.y1.c.b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             synchronized (this) {
-                this.f9719i = null;
-                this.f9717g = null;
-                if (this.f9718h != null) {
-                    this.f9718h.b();
+                this.f9861i = null;
+                this.f9859g = null;
+                if (this.f9860h != null) {
+                    this.f9860h.b();
                 }
                 c0();
                 if (this.k != null) {
@@ -1010,11 +1010,11 @@ public final class a extends c.a.r0.a.y1.c.b {
         if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
             synchronized (this) {
                 boolean z = l;
-                if (this.f9719i == null) {
-                    this.f9719i = new b(this, null);
+                if (this.f9861i == null) {
+                    this.f9861i = new b(this, null);
                     Application c2 = c.a.r0.a.c1.a.c();
                     try {
-                        c2.bindService(new Intent(c2, SwanAppMessengerService.class), this.f9719i, 1);
+                        c2.bindService(new Intent(c2, SwanAppMessengerService.class), this.f9861i, 1);
                     } catch (Exception e2) {
                         if (l) {
                             e2.printStackTrace();
@@ -1028,9 +1028,9 @@ public final class a extends c.a.r0.a.y1.c.b {
     public final void c0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
-            synchronized (this.f9720j) {
+            synchronized (this.f9862j) {
                 if (M()) {
-                    this.f9720j.offer(Long.valueOf(System.currentTimeMillis()));
+                    this.f9862j.offer(Long.valueOf(System.currentTimeMillis()));
                     b0();
                 }
             }

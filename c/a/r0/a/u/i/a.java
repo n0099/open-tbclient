@@ -19,7 +19,7 @@ public class a {
     public static final boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String[] f9332b;
+    public static final String[] f9474b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -36,7 +36,7 @@ public class a {
             }
         }
         a = k.a;
-        f9332b = new String[]{"swan", "swanAPI", "utils"};
+        f9474b = new String[]{"swan", "swanAPI", "utils"};
     }
 
     @NonNull
@@ -47,7 +47,7 @@ public class a {
             b bVar = new b();
             boolean b2 = b(str, aVar.a().h());
             if (b2) {
-                bVar.f9323b = 402;
+                bVar.f9465b = 402;
             }
             return new Pair<>(Boolean.valueOf(b2), bVar);
         }
@@ -100,7 +100,7 @@ public class a {
             }
             if (str.startsWith("swan")) {
                 String substring = str.substring(indexOf + 1);
-                for (String str2 : f9332b) {
+                for (String str2 : f9474b) {
                     if (c.a.r0.a.e2.a.b.g(str2 + "/" + substring)) {
                         return false;
                     }

@@ -90,7 +90,7 @@ public class f {
                 if (cVar3 != null && cVar3.isValid()) {
                     c.a.r0.a.e0.d.i("map", "initMapView coordinate is " + cVar2.n);
                     c.a.r0.a.i1.c.h.c cVar4 = cVar2.n;
-                    map.setMapStatus(MapStatusUpdateFactory.newLatLng(new LatLng(cVar4.f7214e, cVar4.f7215f)));
+                    map.setMapStatus(MapStatusUpdateFactory.newLatLng(new LatLng(cVar4.f7356e, cVar4.f7357f)));
                 }
                 map.animateMapStatus(MapStatusUpdateFactory.zoomTo((float) cVar2.o));
                 c.a.r0.a.e0.d.i("map", "initMapView scale is " + cVar2.o);

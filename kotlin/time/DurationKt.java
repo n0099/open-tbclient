@@ -27,46 +27,6 @@ public final class DurationKt {
     public static final long MAX_NANOS_IN_MILLIS = 4611686018426L;
     public static final int NANOS_IN_MILLIS = 1000000;
 
-    /* JADX DEBUG: Method not inlined, still used in: [kotlin.time.Duration.unaryMinus-UwyO8pc(long):long] */
-    public static final /* synthetic */ long access$durationOf(long j2, int i2) {
-        return durationOf(j2, i2);
-    }
-
-    /* JADX DEBUG: Method not inlined, still used in: [kotlin.time.Duration.<clinit>():void, kotlin.time.Duration.addValuesMixedRanges-UwyO8pc(long, long, long):long, kotlin.time.Duration.div-UwyO8pc(long, int):long, kotlin.time.Duration.times-UwyO8pc(long, int):long] */
-    public static final /* synthetic */ long access$durationOfMillis(long j2) {
-        return durationOfMillis(j2);
-    }
-
-    /* JADX DEBUG: Method not inlined, still used in: [kotlin.time.Duration.plus-LRDsOJo(long, long):long] */
-    public static final /* synthetic */ long access$durationOfMillisNormalized(long j2) {
-        return durationOfMillisNormalized(j2);
-    }
-
-    /* JADX DEBUG: Method not inlined, still used in: [kotlin.time.Duration.addValuesMixedRanges-UwyO8pc(long, long, long):long, kotlin.time.Duration.div-UwyO8pc(long, int):long, kotlin.time.Duration.times-UwyO8pc(long, int):long] */
-    public static final /* synthetic */ long access$durationOfNanos(long j2) {
-        return durationOfNanos(j2);
-    }
-
-    /* JADX DEBUG: Method not inlined, still used in: [kotlin.time.Duration.plus-LRDsOJo(long, long):long, kotlin.time.Duration.times-UwyO8pc(long, int):long] */
-    public static final /* synthetic */ long access$durationOfNanosNormalized(long j2) {
-        return durationOfNanosNormalized(j2);
-    }
-
-    /* JADX DEBUG: Method not inlined, still used in: [kotlin.time.Duration.addValuesMixedRanges-UwyO8pc(long, long, long):long, kotlin.time.Duration.div-UwyO8pc(long, int):long, kotlin.time.Duration.getInWholeNanoseconds-impl(long):long, kotlin.time.Duration.getNanosecondsComponent-impl(long):int, kotlin.time.Duration.times-UwyO8pc(long, int):long] */
-    public static final /* synthetic */ long access$millisToNanos(long j2) {
-        return millisToNanos(j2);
-    }
-
-    /* JADX DEBUG: Method not inlined, still used in: [kotlin.time.Duration.addValuesMixedRanges-UwyO8pc(long, long, long):long, kotlin.time.Duration.times-UwyO8pc(long, int):long] */
-    public static final /* synthetic */ long access$nanosToMillis(long j2) {
-        return nanosToMillis(j2);
-    }
-
-    /* JADX DEBUG: Method not inlined, still used in: [kotlin.time.Duration.Companion.parse-UwyO8pc(java.lang.String):long, kotlin.time.Duration.Companion.parseIsoString-UwyO8pc(java.lang.String):long, kotlin.time.Duration.Companion.parseIsoStringOrNull-FghU774(java.lang.String):kotlin.time.Duration, kotlin.time.Duration.Companion.parseOrNull-FghU774(java.lang.String):kotlin.time.Duration] */
-    public static final /* synthetic */ long access$parseDuration(String str, boolean z) {
-        return parseDuration(str, z);
-    }
-
     @ExperimentalTime
     public static final long durationOf(long j2, int i2) {
         return Duration.m1999constructorimpl((j2 << 1) + i2);

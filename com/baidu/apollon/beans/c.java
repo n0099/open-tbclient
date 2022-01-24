@@ -10,31 +10,31 @@ public abstract class c {
     public static final int a = 0;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final int f32393b = -15;
+    public static final int f32421b = -15;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final int f32394c = -16;
+    public static final int f32422c = -16;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final int f32395d = -2;
+    public static final int f32423d = -2;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final int f32396e = -3;
+    public static final int f32424e = -3;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final int f32397f = -4;
+    public static final int f32425f = -4;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final int f32398g = -5;
+    public static final int f32426g = -5;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final int f32399h = 5003;
+    public static final int f32427h = 5003;
 
     /* renamed from: i  reason: collision with root package name */
-    public static final int f32400i = -7;
+    public static final int f32428i = -7;
 
     /* renamed from: j  reason: collision with root package name */
-    public static final int f32401j = -8;
+    public static final int f32429j = -8;
     public transient /* synthetic */ FieldHolder $fh;
 
     public c() {

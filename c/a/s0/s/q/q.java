@@ -13,12 +13,12 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
 public class q extends e2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId j4;
+    public static final BdUniqueId k4;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean f4;
     public boolean g4;
     public boolean h4;
-    public int i4;
+    public boolean i4;
+    public int j4;
 
     static {
         InterceptResult invokeClinit;
@@ -33,7 +33,7 @@ public class q extends e2 {
                 return;
             }
         }
-        j4 = BdUniqueId.gen();
+        k4 = BdUniqueId.gen();
     }
 
     public q() {
@@ -49,60 +49,60 @@ public class q extends e2 {
                 return;
             }
         }
-        this.f4 = false;
         this.g4 = false;
         this.h4 = false;
+        this.i4 = false;
     }
 
-    public int T4() {
+    public int U4() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.i4 : invokeV.intValue;
-    }
-
-    public boolean U4() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f4 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.j4 : invokeV.intValue;
     }
 
     public boolean V4() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.h4 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.g4 : invokeV.booleanValue;
     }
 
     public boolean W4() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.g4 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.i4 : invokeV.booleanValue;
     }
 
-    public void X4(int i2) {
+    public boolean X4() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.h4 : invokeV.booleanValue;
+    }
+
+    public void Y4(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048580, this, i2) == null) {
-            this.i4 = i2;
-        }
-    }
-
-    public void Y4(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
-            this.f4 = z;
+            this.j4 = i2;
         }
     }
 
     public void Z4(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
-            this.h4 = z;
+        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
+            this.g4 = z;
         }
     }
 
     public void a5(boolean z) {
         Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
+            this.i4 = z;
+        }
+    }
+
+    public void b5(boolean z) {
+        Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
-            this.g4 = z;
+            this.h4 = z;
         }
     }
 
@@ -110,6 +110,6 @@ public class q extends e2 {
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? j4 : (BdUniqueId) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? k4 : (BdUniqueId) invokeV.objValue;
     }
 }

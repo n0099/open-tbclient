@@ -1,11 +1,11 @@
 package com.baidu.tieba.forumMember.bawu;
 
 import android.os.Bundle;
-import c.a.t0.b1.a.e;
-import c.a.t0.b1.a.f;
-import c.a.t0.b1.a.g;
-import c.a.t0.b1.a.i;
-import c.a.t0.b1.c.l;
+import c.a.t0.c1.a.e;
+import c.a.t0.c1.a.f;
+import c.a.t0.c1.a.g;
+import c.a.t0.c1.a.i;
+import c.a.t0.c1.c.l;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbConfig;
@@ -50,7 +50,7 @@ public class BawuTeamInfoActivity extends BaseActivity<BawuTeamInfoActivity> {
             this.a = bawuTeamInfoActivity;
         }
 
-        @Override // c.a.t0.b1.a.e.c
+        @Override // c.a.t0.c1.a.e.c
         public void a(ArrayList<i> arrayList, l lVar, boolean z, int i2, String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{arrayList, lVar, Boolean.valueOf(z), Integer.valueOf(i2), str}) == null) {
@@ -83,7 +83,7 @@ public class BawuTeamInfoActivity extends BaseActivity<BawuTeamInfoActivity> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ BawuTeamInfoActivity f43019e;
+        public final /* synthetic */ BawuTeamInfoActivity f43040e;
 
         public b(BawuTeamInfoActivity bawuTeamInfoActivity) {
             Interceptable interceptable = $ic;
@@ -100,14 +100,14 @@ public class BawuTeamInfoActivity extends BaseActivity<BawuTeamInfoActivity> {
                     return;
                 }
             }
-            this.f43019e = bawuTeamInfoActivity;
+            this.f43040e = bawuTeamInfoActivity;
         }
 
         @Override // com.baidu.tbadk.core.view.NoNetworkView.b
         public void onNetworkChange(boolean z) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeZ(1048576, this, z) == null) && z) {
-                this.f43019e.refreshData();
+                this.f43040e.refreshData();
             }
         }
     }
@@ -208,9 +208,9 @@ public class BawuTeamInfoActivity extends BaseActivity<BawuTeamInfoActivity> {
     public void registerTask() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            c.a.t0.w3.f0.a.h(301007, BawuTeamSocketResponseMessage.class, false, false);
-            c.a.t0.w3.f0.a.c(301007, CmdConfigHttp.BAWU_TEAM_INFO_CMD, TbConfig.GET_BAWU_INFO, BawuTeamHttpResponseMessage.class, false, false, false, false);
-            c.a.t0.w3.f0.a.b(2003005, f.class);
+            c.a.t0.x3.f0.a.h(301007, BawuTeamSocketResponseMessage.class, false, false);
+            c.a.t0.x3.f0.a.c(301007, CmdConfigHttp.BAWU_TEAM_INFO_CMD, TbConfig.GET_BAWU_INFO, BawuTeamHttpResponseMessage.class, false, false, false, false);
+            c.a.t0.x3.f0.a.b(2003005, f.class);
         }
     }
 }

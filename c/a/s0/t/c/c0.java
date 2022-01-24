@@ -15,7 +15,7 @@ public class c0 {
     public static final List<String> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static List<String> f13806b;
+    public static List<String> f13951b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -44,15 +44,15 @@ public class c0 {
             }
             Uri parse = Uri.parse(str);
             if (parse == null || !"file".equals(parse.getScheme()) || parse.getPath() == null || !parse.getPath().contains("bdtbNWCache")) {
-                if (f13806b == null && (q = c.a.s0.s.h0.b.k().q("js_host_white_list", null)) != null) {
-                    f13806b = b(q);
+                if (f13951b == null && (q = c.a.s0.s.i0.b.k().q("js_host_white_list", null)) != null) {
+                    f13951b = b(q);
                 }
-                if (f13806b == null) {
-                    f13806b = a;
+                if (f13951b == null) {
+                    f13951b = a;
                 }
                 if (parse != null) {
                     String host = parse.getHost();
-                    for (String str2 : f13806b) {
+                    for (String str2 : f13951b) {
                         if (host.endsWith(str2)) {
                             return true;
                         }
@@ -81,11 +81,11 @@ public class c0 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65539, null, str) == null) {
             if (str == null) {
-                c.a.s0.s.h0.b.k().y("js_host_white_list", "");
+                c.a.s0.s.i0.b.k().y("js_host_white_list", "");
             } else {
-                c.a.s0.s.h0.b.k().y("js_host_white_list", str);
+                c.a.s0.s.i0.b.k().y("js_host_white_list", str);
             }
-            f13806b = b(str);
+            f13951b = b(str);
         }
     }
 }

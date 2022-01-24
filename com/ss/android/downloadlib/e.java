@@ -14,7 +14,7 @@ import com.ss.android.socialbase.downloader.depend.af;
 import com.ss.android.socialbase.downloader.downloader.Downloader;
 import com.ss.android.socialbase.downloader.downloader.DownloaderBuilder;
 import com.ss.android.socialbase.downloader.model.DownloadInfo;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class e implements com.ss.android.download.api.a {
     @Override // com.ss.android.download.api.a
     public com.ss.android.download.api.a a(@NonNull h hVar) {

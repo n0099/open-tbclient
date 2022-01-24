@@ -17,10 +17,10 @@ public abstract class b<E> extends AbstractQueue<E> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final AtomicReference<LinkedQueueNode<E>> f62034e;
+    public final AtomicReference<LinkedQueueNode<E>> f62079e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final AtomicReference<LinkedQueueNode<E>> f62035f;
+    public final AtomicReference<LinkedQueueNode<E>> f62080f;
 
     public b() {
         Interceptable interceptable = $ic;
@@ -35,45 +35,45 @@ public abstract class b<E> extends AbstractQueue<E> {
                 return;
             }
         }
-        this.f62034e = new AtomicReference<>();
-        this.f62035f = new AtomicReference<>();
+        this.f62079e = new AtomicReference<>();
+        this.f62080f = new AtomicReference<>();
     }
 
     public final LinkedQueueNode<E> b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f62035f.get() : (LinkedQueueNode) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f62080f.get() : (LinkedQueueNode) invokeV.objValue;
     }
 
     public final LinkedQueueNode<E> c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f62034e.get() : (LinkedQueueNode) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f62079e.get() : (LinkedQueueNode) invokeV.objValue;
     }
 
     public final LinkedQueueNode<E> d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f62035f.get() : (LinkedQueueNode) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f62080f.get() : (LinkedQueueNode) invokeV.objValue;
     }
 
     public final LinkedQueueNode<E> e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f62034e.get() : (LinkedQueueNode) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f62079e.get() : (LinkedQueueNode) invokeV.objValue;
     }
 
     public final void f(LinkedQueueNode<E> linkedQueueNode) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, linkedQueueNode) == null) {
-            this.f62035f.lazySet(linkedQueueNode);
+            this.f62080f.lazySet(linkedQueueNode);
         }
     }
 
     public final void g(LinkedQueueNode<E> linkedQueueNode) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, linkedQueueNode) == null) {
-            this.f62034e.lazySet(linkedQueueNode);
+            this.f62079e.lazySet(linkedQueueNode);
         }
     }
 

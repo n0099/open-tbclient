@@ -17,7 +17,7 @@ import com.dxmpay.wallet.core.beans.BeanConstants;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicBoolean;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class MtjCrashHandler {
     public static /* synthetic */ Interceptable $ic;
     public static volatile AtomicBoolean a;
@@ -61,7 +61,7 @@ public class MtjCrashHandler {
             linkedList.add("com.baidu.wallet");
             linkedList.add(BuildConfig.APPLICATION_ID);
             linkedList.add("com.baidu.android.pay");
-            linkedList.add(a.f32334b);
+            linkedList.add(a.f32362b);
             linkedList.add("com.baidu.android.minipay");
             linkedList.add(com.baidu.android.lbspay.BuildConfig.LIBRARY_PACKAGE_NAME);
             linkedList.add("com.dxm.face");

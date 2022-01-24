@@ -9,6 +9,7 @@ import android.view.View;
 import c.a.r0.a.k;
 import c.a.r0.a.z2.n0;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.retrieve.upload.UploadConstant;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -58,7 +59,7 @@ public class f extends a {
             this.r = n0.g((float) jSONObject.optDouble("height"));
             this.s = n0.g((float) jSONObject.optDouble("destWidth"));
             this.t = n0.g((float) jSONObject.optDouble("destHeight"));
-            this.u = jSONObject.optString("fileType");
+            this.u = jSONObject.optString(UploadConstant.KEY_FILE_TYPE);
             this.v = (float) jSONObject.optDouble("quality");
         } catch (Exception e2) {
             if (k.a) {

@@ -4,27 +4,27 @@ public class d {
     public static boolean a = false;
 
     /* renamed from: b  reason: collision with root package name */
-    public static int f53184b = 4;
+    public static int f53229b = 4;
 
     public static void a(int i2) {
-        f53184b = i2;
+        f53229b = i2;
     }
 
     public static void b(String str, String str2) {
         if (a && str2 != null) {
-            int i2 = f53184b;
+            int i2 = f53229b;
         }
     }
 
     public static void c(String str, String str2) {
         if (a && str2 != null) {
-            int i2 = f53184b;
+            int i2 = f53229b;
         }
     }
 
     public static void d(String str, String str2) {
         if (a && str2 != null) {
-            int i2 = f53184b;
+            int i2 = f53229b;
         }
     }
 
@@ -38,13 +38,13 @@ public class d {
             if (str2 == null && th == null) {
                 return;
             }
-            int i2 = f53184b;
+            int i2 = f53229b;
         }
     }
 
     public static void a(String str, String str2) {
         if (a && str2 != null) {
-            int i2 = f53184b;
+            int i2 = f53229b;
         }
     }
 
@@ -59,7 +59,7 @@ public class d {
             if (str2 == null && th == null) {
                 return;
             }
-            int i2 = f53184b;
+            int i2 = f53229b;
         }
     }
 }

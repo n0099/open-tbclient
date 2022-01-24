@@ -21,7 +21,7 @@ public class e implements com.kwai.sodler.lib.kwai.g {
     public final Context a;
 
     /* renamed from: b  reason: collision with root package name */
-    public g.a f58381b;
+    public g.a f58426b;
 
     public e(Context context) {
         Interceptable interceptable = $ic;
@@ -61,12 +61,12 @@ public class e implements com.kwai.sodler.lib.kwai.g {
                 fVar.a(-3);
                 return;
             }
-            a.a("Sodler.update", "Download new plugin, version = " + a.f58368b + ", url = " + a.f58369c);
+            a.a("Sodler.update", "Download new plugin, version = " + a.f58413b + ", url = " + a.f58414c);
             fVar.a(3);
-            fVar.g(a.f58369c);
-            fVar.a(a.f58370d);
-            fVar.f(a.f58372f);
-            fVar.b(a.f58368b);
+            fVar.g(a.f58414c);
+            fVar.a(a.f58415d);
+            fVar.f(a.f58417f);
+            fVar.b(a.f58413b);
         }
     }
 
@@ -84,7 +84,7 @@ public class e implements com.kwai.sodler.lib.kwai.g {
     private void a(com.kwai.sodler.lib.kwai.f fVar, File file) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65539, this, fVar, file) == null) {
-            g.a aVar = this.f58381b;
+            g.a aVar = this.f58426b;
             if (aVar == null) {
                 throw new RuntimeException("not yet supported!");
             }
@@ -222,7 +222,7 @@ public class e implements com.kwai.sodler.lib.kwai.g {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar)) == null) {
-            this.f58381b = aVar;
+            this.f58426b = aVar;
             return this;
         }
         return (com.kwai.sodler.lib.kwai.g) invokeL.objValue;

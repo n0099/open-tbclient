@@ -46,10 +46,10 @@ public class df implements LoggerInterface {
     public Handler f239a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f60974b;
+    public String f61019b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f60975c;
+    public String f61020c;
 
     static {
         InterceptResult invokeClinit;
@@ -84,12 +84,12 @@ public class df implements LoggerInterface {
                 return;
             }
         }
-        this.f60975c = "";
+        this.f61020c = "";
         this.f238a = context;
         if (context.getApplicationContext() != null) {
             this.f238a = context.getApplicationContext();
         }
-        this.f60974b = this.f238a.getPackageName();
+        this.f61019b = this.f238a.getPackageName();
         HandlerThread handlerThread = new HandlerThread("Log2FileHandlerThread");
         handlerThread.start();
         this.f239a = new Handler(handlerThread.getLooper());
@@ -108,10 +108,10 @@ public class df implements LoggerInterface {
         }
         BufferedWriter bufferedWriter = null;
         try {
-            if (TextUtils.isEmpty(this.f60975c) && (externalFilesDir = this.f238a.getExternalFilesDir(null)) != null) {
-                this.f60975c = externalFilesDir.getAbsolutePath() + "";
+            if (TextUtils.isEmpty(this.f61020c) && (externalFilesDir = this.f238a.getExternalFilesDir(null)) != null) {
+                this.f61020c = externalFilesDir.getAbsolutePath() + "";
             }
-            file = new File(this.f60975c + a);
+            file = new File(this.f61020c + a);
         } catch (Exception unused) {
             fileLock = null;
             randomAccessFile = null;
@@ -240,7 +240,7 @@ public class df implements LoggerInterface {
     public final void setTag(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            this.f60974b = str;
+            this.f61019b = str;
         }
     }
 }

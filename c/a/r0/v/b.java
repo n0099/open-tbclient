@@ -13,7 +13,7 @@ public final class b extends j {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: d  reason: collision with root package name */
-    public static volatile b f11919d;
+    public static volatile b f12061d;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -38,14 +38,14 @@ public final class b extends j {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (f11919d == null) {
+            if (f12061d == null) {
                 synchronized (b.class) {
-                    if (f11919d == null) {
-                        f11919d = new b();
+                    if (f12061d == null) {
+                        f12061d = new b();
                     }
                 }
             }
-            return f11919d;
+            return f12061d;
         }
         return (b) invokeV.objValue;
     }

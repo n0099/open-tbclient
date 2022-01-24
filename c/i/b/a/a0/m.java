@@ -19,13 +19,13 @@ public interface m {
         public final int a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final byte[] f28573b;
+        public final byte[] f28601b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final int f28574c;
+        public final int f28602c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final int f28575d;
+        public final int f28603d;
 
         public a(int i2, byte[] bArr, int i3, int i4) {
             Interceptable interceptable = $ic;
@@ -43,9 +43,9 @@ public interface m {
                 }
             }
             this.a = i2;
-            this.f28573b = bArr;
-            this.f28574c = i3;
-            this.f28575d = i4;
+            this.f28601b = bArr;
+            this.f28602c = i3;
+            this.f28603d = i4;
         }
 
         public boolean equals(Object obj) {
@@ -59,7 +59,7 @@ public interface m {
                     return false;
                 }
                 a aVar = (a) obj;
-                return this.a == aVar.a && this.f28574c == aVar.f28574c && this.f28575d == aVar.f28575d && Arrays.equals(this.f28573b, aVar.f28573b);
+                return this.a == aVar.a && this.f28602c == aVar.f28602c && this.f28603d == aVar.f28603d && Arrays.equals(this.f28601b, aVar.f28601b);
             }
             return invokeL.booleanValue;
         }
@@ -67,7 +67,7 @@ public interface m {
         public int hashCode() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? (((((this.a * 31) + Arrays.hashCode(this.f28573b)) * 31) + this.f28574c) * 31) + this.f28575d : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? (((((this.a * 31) + Arrays.hashCode(this.f28601b)) * 31) + this.f28602c) * 31) + this.f28603d : invokeV.intValue;
         }
     }
 

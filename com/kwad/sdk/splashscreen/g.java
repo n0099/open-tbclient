@@ -27,36 +27,36 @@ public class g extends com.kwad.sdk.core.e.b {
     public KsSplashScreenAd.SplashScreenAdInteractionListener a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f57873b;
+    public boolean f57918b;
     @NonNull
 
     /* renamed from: c  reason: collision with root package name */
-    public KsVideoPlayConfig f57874c;
+    public KsVideoPlayConfig f57919c;
     @NonNull
 
     /* renamed from: d  reason: collision with root package name */
-    public AdTemplate f57875d;
+    public AdTemplate f57920d;
     @NonNull
 
     /* renamed from: e  reason: collision with root package name */
-    public AdBaseFrameLayout f57876e;
+    public AdBaseFrameLayout f57921e;
     @Nullable
 
     /* renamed from: f  reason: collision with root package name */
-    public com.kwad.sdk.splashscreen.b.a f57877f;
+    public com.kwad.sdk.splashscreen.b.a f57922f;
 
     /* renamed from: g  reason: collision with root package name */
-    public com.kwad.sdk.core.download.a.b f57878g;
+    public com.kwad.sdk.core.download.a.b f57923g;
     @NonNull
 
     /* renamed from: h  reason: collision with root package name */
-    public KsScene f57879h;
+    public KsScene f57924h;
 
     /* renamed from: i  reason: collision with root package name */
-    public com.kwad.sdk.core.j.c f57880i;
+    public com.kwad.sdk.core.j.c f57925i;
 
     /* renamed from: j  reason: collision with root package name */
-    public String f57881j;
+    public String f57926j;
     public boolean k;
 
     public static boolean a(Context context, AdInfo adInfo) {
@@ -78,9 +78,9 @@ public class g extends com.kwad.sdk.core.e.b {
 
     @Override // com.kwad.sdk.core.e.b
     public void a() {
-        com.kwad.sdk.splashscreen.b.a aVar = this.f57877f;
+        com.kwad.sdk.splashscreen.b.a aVar = this.f57922f;
         if (aVar != null) {
-            if (this.f57881j != null) {
+            if (this.f57926j != null) {
                 aVar.i();
             } else {
                 aVar.h();
@@ -93,8 +93,8 @@ public class g extends com.kwad.sdk.core.e.b {
     }
 
     public void a(Context context, final int i2, int i3, final double d2) {
-        final AdInfo j2 = com.kwad.sdk.core.response.a.d.j(this.f57875d);
-        com.kwad.sdk.core.download.a.a.a(new a.C2100a(context).a(this.f57875d).a(this.f57878g).a(i3).a(false).a(new a.b() { // from class: com.kwad.sdk.splashscreen.g.2
+        final AdInfo j2 = com.kwad.sdk.core.response.a.d.j(this.f57920d);
+        com.kwad.sdk.core.download.a.a.a(new a.C2106a(context).a(this.f57920d).a(this.f57923g).a(i3).a(false).a(new a.b() { // from class: com.kwad.sdk.splashscreen.g.2
             @Override // com.kwad.sdk.core.download.a.a.b
             public void a() {
                 String d3;
@@ -104,22 +104,22 @@ public class g extends com.kwad.sdk.core.e.b {
                 }
                 if (!com.kwad.sdk.core.response.a.a.B(j2) && (d3 = g.this.d()) != null) {
                     g gVar = g.this;
-                    gVar.f57873b = true;
-                    gVar.f57875d.mMiniWindowId = d3;
+                    gVar.f57918b = true;
+                    gVar.f57920d.mMiniWindowId = d3;
                 }
                 JSONObject jSONObject = new JSONObject();
                 try {
-                    if (g.this.f57877f != null) {
-                        jSONObject.put("duration", g.this.f57877f.c());
+                    if (g.this.f57922f != null) {
+                        jSONObject.put("duration", g.this.f57922f.c());
                     }
                 } catch (JSONException e2) {
                     com.kwad.sdk.core.d.a.a(e2);
                 }
                 p.a aVar = new p.a();
-                aVar.f56061b = i2;
+                aVar.f56106b = i2;
                 aVar.B = d2;
                 g gVar2 = g.this;
-                com.kwad.sdk.core.report.a.a(gVar2.f57875d, jSONObject, aVar, gVar2.f57876e.getTouchCoords(), (String) null);
+                com.kwad.sdk.core.report.a.a(gVar2.f57920d, jSONObject, aVar, gVar2.f57921e.getTouchCoords(), (String) null);
             }
         }));
     }
@@ -128,14 +128,14 @@ public class g extends com.kwad.sdk.core.e.b {
         if (e()) {
             return false;
         }
-        AdInfo j2 = com.kwad.sdk.core.response.a.d.j(this.f57875d);
+        AdInfo j2 = com.kwad.sdk.core.response.a.d.j(this.f57920d);
         boolean P = com.kwad.sdk.core.response.a.a.P(j2);
-        KsScene ksScene = this.f57879h;
+        KsScene ksScene = this.f57924h;
         return P && (ksScene instanceof SceneImpl ? ((SceneImpl) ksScene).needShowMiniWindow : false) && com.kwad.sdk.core.response.a.a.b(j2) > 5;
     }
 
     public String c() {
-        AdInfo j2 = com.kwad.sdk.core.response.a.d.j(this.f57875d);
+        AdInfo j2 = com.kwad.sdk.core.response.a.d.j(this.f57920d);
         boolean b2 = b();
         String a = com.kwad.sdk.core.response.a.a.a(j2);
         if (!b2 || at.a(a)) {
@@ -146,26 +146,26 @@ public class g extends com.kwad.sdk.core.e.b {
 
     public String d() {
         if (this.k) {
-            return this.f57881j;
+            return this.f57926j;
         }
-        AdInfo j2 = com.kwad.sdk.core.response.a.d.j(this.f57875d);
+        AdInfo j2 = com.kwad.sdk.core.response.a.d.j(this.f57920d);
         boolean b2 = b();
         String a = com.kwad.sdk.core.response.a.a.a(j2);
-        if (!b2 || at.a(a) || this.f57877f == null) {
+        if (!b2 || at.a(a) || this.f57922f == null) {
             return null;
         }
         String c2 = c();
-        final ImageView imageView = (ImageView) this.f57876e.findViewById(R.id.ksad_splash_foreground);
-        Bitmap createBitmap = Bitmap.createBitmap(this.f57876e.getWidth(), this.f57876e.getHeight(), Bitmap.Config.ARGB_8888);
+        final ImageView imageView = (ImageView) this.f57921e.findViewById(R.id.ksad_splash_foreground);
+        Bitmap createBitmap = Bitmap.createBitmap(this.f57921e.getWidth(), this.f57921e.getHeight(), Bitmap.Config.ARGB_8888);
         Canvas canvas = new Canvas(createBitmap);
-        Bitmap bitmap = this.f57877f.a().getBitmap();
+        Bitmap bitmap = this.f57922f.a().getBitmap();
         imageView.setVisibility(0);
         imageView.setImageDrawable(new BitmapDrawable(imageView.getResources(), bitmap));
-        this.f57876e.invalidate();
-        this.f57876e.draw(canvas);
-        this.f57877f.a = createBitmap;
-        SplashPlayModuleCache.a().a(c2, this.f57877f);
-        this.f57881j = c2;
+        this.f57921e.invalidate();
+        this.f57921e.draw(canvas);
+        this.f57922f.a = createBitmap;
+        SplashPlayModuleCache.a().a(c2, this.f57922f);
+        this.f57926j = c2;
         this.k = true;
         imageView.post(new bd(new Runnable() { // from class: com.kwad.sdk.splashscreen.g.1
             @Override // java.lang.Runnable

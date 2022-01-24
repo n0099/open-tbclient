@@ -53,7 +53,7 @@ public final class e {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ int f62399e;
+        public final /* synthetic */ int f62444e;
 
         public a(int i2) {
             Interceptable interceptable = $ic;
@@ -70,7 +70,7 @@ public final class e {
                     return;
                 }
             }
-            this.f62399e = i2;
+            this.f62444e = i2;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -91,7 +91,7 @@ public final class e {
                     if (obj != null) {
                         String substring = obj.substring(indexOf$default);
                         Intrinsics.checkExpressionValueIsNotNull(substring, "(this as java.lang.String).substring(startIndex)");
-                        if (substring.length() == this.f62399e + 1) {
+                        if (substring.length() == this.f62444e + 1) {
                             return "";
                         }
                     } else {
@@ -110,7 +110,7 @@ public final class e {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ j.a.a.e.q.g.d f62400e;
+        public final /* synthetic */ j.a.a.e.q.g.d f62445e;
 
         public b(j.a.a.e.q.g.d dVar) {
             Interceptable interceptable = $ic;
@@ -127,14 +127,14 @@ public final class e {
                     return;
                 }
             }
-            this.f62400e = dVar;
+            this.f62445e = dVar;
         }
 
         @Override // android.content.DialogInterface.OnDismissListener
         public final void onDismiss(DialogInterface dialogInterface) {
             j.a.a.e.q.g.d dVar;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, dialogInterface) == null) || (dVar = this.f62400e) == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, dialogInterface) == null) || (dVar = this.f62445e) == null) {
                 return;
             }
             dVar.a(CancelType.ON_DIALOG_DISMISS);
@@ -147,7 +147,7 @@ public final class e {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ j.a.a.e.q.g.d f62401e;
+        public final /* synthetic */ j.a.a.e.q.g.d f62446e;
 
         public c(j.a.a.e.q.g.d dVar) {
             Interceptable interceptable = $ic;
@@ -164,14 +164,14 @@ public final class e {
                     return;
                 }
             }
-            this.f62401e = dVar;
+            this.f62446e = dVar;
         }
 
         @Override // android.content.DialogInterface.OnCancelListener
         public final void onCancel(DialogInterface dialogInterface) {
             j.a.a.e.q.g.d dVar;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, dialogInterface) == null) || (dVar = this.f62401e) == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, dialogInterface) == null) || (dVar = this.f62446e) == null) {
                 return;
             }
             dVar.a(CancelType.ON_DIALOG_CANCEL);
@@ -184,16 +184,16 @@ public final class e {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PayDialogType f62402e;
+        public final /* synthetic */ PayDialogType f62447e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ AutoHideSoftInputDialog f62403f;
+        public final /* synthetic */ AutoHideSoftInputDialog f62448f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ IViewEventListener f62404g;
+        public final /* synthetic */ IViewEventListener f62449g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ j.a.a.e.q.g.d f62405h;
+        public final /* synthetic */ j.a.a.e.q.g.d f62450h;
 
         public d(PayDialogType payDialogType, AutoHideSoftInputDialog autoHideSoftInputDialog, IViewEventListener iViewEventListener, j.a.a.e.q.g.d dVar) {
             Interceptable interceptable = $ic;
@@ -210,10 +210,10 @@ public final class e {
                     return;
                 }
             }
-            this.f62402e = payDialogType;
-            this.f62403f = autoHideSoftInputDialog;
-            this.f62404g = iViewEventListener;
-            this.f62405h = dVar;
+            this.f62447e = payDialogType;
+            this.f62448f = autoHideSoftInputDialog;
+            this.f62449g = iViewEventListener;
+            this.f62450h = dVar;
         }
 
         @Override // android.view.View.OnClickListener
@@ -222,15 +222,15 @@ public final class e {
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
                 PayViewInfo payViewInfo = new PayViewInfo();
                 payViewInfo.clickArea = CancelType.EMPTY_AREA_CLICK;
-                payViewInfo.payDialogType = this.f62402e;
-                payViewInfo.viewDialog = this.f62403f;
-                IViewEventListener iViewEventListener = this.f62404g;
+                payViewInfo.payDialogType = this.f62447e;
+                payViewInfo.viewDialog = this.f62448f;
+                IViewEventListener iViewEventListener = this.f62449g;
                 if (iViewEventListener == null || !iViewEventListener.onInterceptView(payViewInfo)) {
-                    j.a.a.e.q.g.d dVar = this.f62405h;
+                    j.a.a.e.q.g.d dVar = this.f62450h;
                     if (dVar != null) {
                         dVar.a(CancelType.EMPTY_AREA_CLICK);
                     }
-                    this.f62403f.dismiss();
+                    this.f62448f.dismiss();
                 }
             }
         }
@@ -238,24 +238,24 @@ public final class e {
 
     /* renamed from: j.a.a.e.q.g.e$e  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public static final class C2312e implements TextView.OnEditorActionListener {
+    public static final class C2318e implements TextView.OnEditorActionListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ EditText a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ j.a.a.e.q.g.d f62406b;
+        public final /* synthetic */ j.a.a.e.q.g.d f62451b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ Activity f62407c;
+        public final /* synthetic */ Activity f62452c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ AutoHideSoftInputDialog f62408d;
+        public final /* synthetic */ AutoHideSoftInputDialog f62453d;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ TextView f62409e;
+        public final /* synthetic */ TextView f62454e;
 
-        public C2312e(EditText editText, j.a.a.e.q.g.d dVar, Activity activity, AutoHideSoftInputDialog autoHideSoftInputDialog, TextView textView) {
+        public C2318e(EditText editText, j.a.a.e.q.g.d dVar, Activity activity, AutoHideSoftInputDialog autoHideSoftInputDialog, TextView textView) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -271,10 +271,10 @@ public final class e {
                 }
             }
             this.a = editText;
-            this.f62406b = dVar;
-            this.f62407c = activity;
-            this.f62408d = autoHideSoftInputDialog;
-            this.f62409e = textView;
+            this.f62451b = dVar;
+            this.f62452c = activity;
+            this.f62453d = autoHideSoftInputDialog;
+            this.f62454e = textView;
         }
 
         @Override // android.widget.TextView.OnEditorActionListener
@@ -288,20 +288,20 @@ public final class e {
                     Intrinsics.checkExpressionValueIsNotNull(etInput, "etInput");
                     boolean e2 = eVar.e(etInput.getText().toString());
                     if (e2) {
-                        if (this.f62406b != null) {
+                        if (this.f62451b != null) {
                             EditText etInput2 = this.a;
                             Intrinsics.checkExpressionValueIsNotNull(etInput2, "etInput");
-                            int c2 = e.a.c(this.f62407c, etInput2.getText().toString());
+                            int c2 = e.a.c(this.f62452c, etInput2.getText().toString());
                             if (c2 > 0) {
-                                this.f62406b.b(c2);
-                                j.a.a.e.p.d.a(this.f62407c, this.a);
+                                this.f62451b.b(c2);
+                                j.a.a.e.p.d.a(this.f62452c, this.a);
                             } else {
                                 RLog.error("InputDialogManager", "tOnEditorAction amount <= 0", new Object[0]);
                             }
                         }
-                        this.f62408d.dismiss();
+                        this.f62453d.dismiss();
                     }
-                    this.f62409e.setTextColor(this.f62407c.getResources().getColor(e2 ? j.a.a.e.c.pay_ui_color_858585 : j.a.a.e.c.pay_ui_color_FF3355));
+                    this.f62454e.setTextColor(this.f62452c.getResources().getColor(e2 ? j.a.a.e.c.pay_ui_color_858585 : j.a.a.e.c.pay_ui_color_FF3355));
                 }
                 return false;
             }
@@ -315,19 +315,19 @@ public final class e {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ TextView f62410e;
+        public final /* synthetic */ TextView f62455e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ TextView f62411f;
+        public final /* synthetic */ TextView f62456f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ EditText f62412g;
+        public final /* synthetic */ EditText f62457g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ TextView f62413h;
+        public final /* synthetic */ TextView f62458h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final /* synthetic */ Activity f62414i;
+        public final /* synthetic */ Activity f62459i;
 
         public f(TextView textView, TextView textView2, EditText editText, TextView textView3, Activity activity) {
             Interceptable interceptable = $ic;
@@ -344,11 +344,11 @@ public final class e {
                     return;
                 }
             }
-            this.f62410e = textView;
-            this.f62411f = textView2;
-            this.f62412g = editText;
-            this.f62413h = textView3;
-            this.f62414i = activity;
+            this.f62455e = textView;
+            this.f62456f = textView2;
+            this.f62457g = editText;
+            this.f62458h = textView3;
+            this.f62459i = activity;
         }
 
         @Override // android.text.TextWatcher
@@ -359,32 +359,32 @@ public final class e {
                 if (editable != null && !Intrinsics.areEqual(editable.toString(), "")) {
                     if (!Intrinsics.areEqual(editable.toString(), "0")) {
                         boolean e2 = e.a.e(editable.toString());
-                        TextView btnOk = this.f62411f;
+                        TextView btnOk = this.f62456f;
                         Intrinsics.checkExpressionValueIsNotNull(btnOk, "btnOk");
                         btnOk.setEnabled(e2);
                         if (n.c(editable.toString()) >= 10000) {
                             String str = n.a(c2 / 10000.0f) + (char) 19975;
-                            TextView tvInputAmount = this.f62410e;
+                            TextView tvInputAmount = this.f62455e;
                             Intrinsics.checkExpressionValueIsNotNull(tvInputAmount, "tvInputAmount");
                             tvInputAmount.setText(str);
                         } else {
-                            TextView tvInputAmount2 = this.f62410e;
+                            TextView tvInputAmount2 = this.f62455e;
                             Intrinsics.checkExpressionValueIsNotNull(tvInputAmount2, "tvInputAmount");
                             tvInputAmount2.setText(editable);
                         }
-                        this.f62413h.setTextColor(this.f62414i.getResources().getColor(e2 ? j.a.a.e.c.pay_ui_color_858585 : j.a.a.e.c.pay_ui_color_FF3355));
+                        this.f62458h.setTextColor(this.f62459i.getResources().getColor(e2 ? j.a.a.e.c.pay_ui_color_858585 : j.a.a.e.c.pay_ui_color_FF3355));
                         return;
                     }
-                    this.f62412g.setText("");
-                    TextView btnOk2 = this.f62411f;
+                    this.f62457g.setText("");
+                    TextView btnOk2 = this.f62456f;
                     Intrinsics.checkExpressionValueIsNotNull(btnOk2, "btnOk");
                     btnOk2.setEnabled(false);
                     return;
                 }
-                TextView tvInputAmount3 = this.f62410e;
+                TextView tvInputAmount3 = this.f62455e;
                 Intrinsics.checkExpressionValueIsNotNull(tvInputAmount3, "tvInputAmount");
                 tvInputAmount3.setText("");
-                TextView btnOk3 = this.f62411f;
+                TextView btnOk3 = this.f62456f;
                 Intrinsics.checkExpressionValueIsNotNull(btnOk3, "btnOk");
                 btnOk3.setEnabled(false);
             }
@@ -411,10 +411,10 @@ public final class e {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ EditText f62415e;
+        public final /* synthetic */ EditText f62460e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ Activity f62416f;
+        public final /* synthetic */ Activity f62461f;
 
         public g(EditText editText, Activity activity) {
             Interceptable interceptable = $ic;
@@ -431,20 +431,20 @@ public final class e {
                     return;
                 }
             }
-            this.f62415e = editText;
-            this.f62416f = activity;
+            this.f62460e = editText;
+            this.f62461f = activity;
         }
 
         @Override // java.lang.Runnable
         public final void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f62415e.requestFocus();
-                Activity activity = this.f62416f;
+                this.f62460e.requestFocus();
+                Activity activity = this.f62461f;
                 if (activity == null) {
                     throw new TypeCastException("null cannot be cast to non-null type android.app.Activity");
                 }
-                j.a.a.e.p.d.b(activity, this.f62415e);
+                j.a.a.e.p.d.b(activity, this.f62460e);
             }
         }
     }
@@ -455,16 +455,16 @@ public final class e {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PayDialogType f62417e;
+        public final /* synthetic */ PayDialogType f62462e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ AutoHideSoftInputDialog f62418f;
+        public final /* synthetic */ AutoHideSoftInputDialog f62463f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ IViewEventListener f62419g;
+        public final /* synthetic */ IViewEventListener f62464g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ j.a.a.e.q.g.d f62420h;
+        public final /* synthetic */ j.a.a.e.q.g.d f62465h;
 
         public h(PayDialogType payDialogType, AutoHideSoftInputDialog autoHideSoftInputDialog, IViewEventListener iViewEventListener, j.a.a.e.q.g.d dVar) {
             Interceptable interceptable = $ic;
@@ -481,10 +481,10 @@ public final class e {
                     return;
                 }
             }
-            this.f62417e = payDialogType;
-            this.f62418f = autoHideSoftInputDialog;
-            this.f62419g = iViewEventListener;
-            this.f62420h = dVar;
+            this.f62462e = payDialogType;
+            this.f62463f = autoHideSoftInputDialog;
+            this.f62464g = iViewEventListener;
+            this.f62465h = dVar;
         }
 
         @Override // android.view.View.OnClickListener
@@ -493,15 +493,15 @@ public final class e {
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
                 PayViewInfo payViewInfo = new PayViewInfo();
                 payViewInfo.clickArea = CancelType.BUTTOM_AREA_CLICK;
-                payViewInfo.payDialogType = this.f62417e;
-                payViewInfo.viewDialog = this.f62418f;
-                IViewEventListener iViewEventListener = this.f62419g;
+                payViewInfo.payDialogType = this.f62462e;
+                payViewInfo.viewDialog = this.f62463f;
+                IViewEventListener iViewEventListener = this.f62464g;
                 if (iViewEventListener == null || !iViewEventListener.onInterceptView(payViewInfo)) {
-                    j.a.a.e.q.g.d dVar = this.f62420h;
+                    j.a.a.e.q.g.d dVar = this.f62465h;
                     if (dVar != null) {
                         dVar.a(CancelType.BUTTOM_AREA_CLICK);
                     }
-                    this.f62418f.dismiss();
+                    this.f62463f.dismiss();
                 }
             }
         }
@@ -513,16 +513,16 @@ public final class e {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ j.a.a.e.q.g.d f62421e;
+        public final /* synthetic */ j.a.a.e.q.g.d f62466e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ EditText f62422f;
+        public final /* synthetic */ EditText f62467f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ Activity f62423g;
+        public final /* synthetic */ Activity f62468g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ AutoHideSoftInputDialog f62424h;
+        public final /* synthetic */ AutoHideSoftInputDialog f62469h;
 
         public i(j.a.a.e.q.g.d dVar, EditText editText, Activity activity, AutoHideSoftInputDialog autoHideSoftInputDialog) {
             Interceptable interceptable = $ic;
@@ -539,28 +539,28 @@ public final class e {
                     return;
                 }
             }
-            this.f62421e = dVar;
-            this.f62422f = editText;
-            this.f62423g = activity;
-            this.f62424h = autoHideSoftInputDialog;
+            this.f62466e = dVar;
+            this.f62467f = editText;
+            this.f62468g = activity;
+            this.f62469h = autoHideSoftInputDialog;
         }
 
         @Override // android.view.View.OnClickListener
         public final void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                if (this.f62421e != null) {
-                    EditText etInput = this.f62422f;
+                if (this.f62466e != null) {
+                    EditText etInput = this.f62467f;
                     Intrinsics.checkExpressionValueIsNotNull(etInput, "etInput");
-                    int c2 = e.a.c(this.f62423g, etInput.getText().toString());
+                    int c2 = e.a.c(this.f62468g, etInput.getText().toString());
                     if (c2 > 0) {
-                        this.f62421e.b(c2);
-                        j.a.a.e.p.d.a(this.f62423g, this.f62422f);
+                        this.f62466e.b(c2);
+                        j.a.a.e.p.d.a(this.f62468g, this.f62467f);
                     } else {
                         RLog.error("InputDialogManager", "btnOk amount <= 0", new Object[0]);
                     }
                 }
-                this.f62424h.dismiss();
+                this.f62469h.dismiss();
             }
         }
     }
@@ -695,7 +695,7 @@ public final class e {
             Intrinsics.checkExpressionValueIsNotNull(etInput, "etInput");
             etInput.setHint(string);
             etInput.setFilters(new InputFilter[]{new InputFilter.LengthFilter(8), d(2)});
-            etInput.setOnEditorActionListener(new C2312e(etInput, dVar, activity, autoHideSoftInputDialog, textView));
+            etInput.setOnEditorActionListener(new C2318e(etInput, dVar, activity, autoHideSoftInputDialog, textView));
             etInput.addTextChangedListener(new f(textView2, btnOk, etInput, textView, activity));
             etInput.postDelayed(new g(etInput, activity), 100L);
             button.setOnClickListener(new h(payDialogType, autoHideSoftInputDialog, iViewEventListener, dVar));

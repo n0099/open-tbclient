@@ -26,13 +26,13 @@ public class e {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Class f9705e;
+        public final /* synthetic */ Class f9847e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ Bundle f9706f;
+        public final /* synthetic */ Bundle f9848f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ c.a.r0.a.y1.b.a f9707g;
+        public final /* synthetic */ c.a.r0.a.y1.b.a f9849g;
 
         public a(Class cls, Bundle bundle, c.a.r0.a.y1.b.a aVar) {
             Interceptable interceptable = $ic;
@@ -49,17 +49,17 @@ public class e {
                     return;
                 }
             }
-            this.f9705e = cls;
-            this.f9706f = bundle;
-            this.f9707g = aVar;
+            this.f9847e = cls;
+            this.f9848f = bundle;
+            this.f9849g = aVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                Bundle b2 = e.b(this.f9705e, this.f9706f);
-                c.a.r0.a.y1.b.a aVar = this.f9707g;
+                Bundle b2 = e.b(this.f9847e, this.f9848f);
+                c.a.r0.a.y1.b.a aVar = this.f9849g;
                 if (aVar != null) {
                     aVar.onResult(b2);
                 }

@@ -1,6 +1,5 @@
 package kotlin.reflect;
 
-import androidx.webkit.ProxyConfig;
 import com.baidu.searchbox.account.contants.AccountConstants;
 import com.bytedance.sdk.openadsdk.downloadnew.core.TTDownloadField;
 import kotlin.Metadata;
@@ -153,7 +152,7 @@ public final class KTypeProjection {
     public String toString() {
         KVariance kVariance = this.variance;
         if (kVariance == null) {
-            return ProxyConfig.MATCH_ALL_SCHEMES;
+            return "*";
         }
         int i2 = WhenMappings.$EnumSwitchMapping$0[kVariance.ordinal()];
         if (i2 != 1) {

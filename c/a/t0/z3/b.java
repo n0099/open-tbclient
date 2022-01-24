@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes9.dex */
-public class b implements c.a.s0.s.d0.a {
+public class b implements c.a.s0.s.e0.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public a a;
@@ -32,7 +32,7 @@ public class b implements c.a.s0.s.d0.a {
         }
     }
 
-    @Override // c.a.s0.s.d0.a
+    @Override // c.a.s0.s.e0.a
     public void a(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
@@ -45,7 +45,7 @@ public class b implements c.a.s0.s.d0.a {
         }
     }
 
-    @Override // c.a.s0.s.d0.a
+    @Override // c.a.s0.s.e0.a
     public void b(Context context, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, i2) == null) {
@@ -53,7 +53,7 @@ public class b implements c.a.s0.s.d0.a {
         }
     }
 
-    @Override // c.a.s0.s.d0.a
+    @Override // c.a.s0.s.e0.a
     public void c(Context context, int i2, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{context, Integer.valueOf(i2), Boolean.valueOf(z)}) == null) {
@@ -61,14 +61,14 @@ public class b implements c.a.s0.s.d0.a {
         }
     }
 
-    @Override // c.a.s0.s.d0.a
+    @Override // c.a.s0.s.e0.a
     public Class<?> d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? MainTabActivity.class : (Class) invokeV.objValue;
     }
 
-    @Override // c.a.s0.s.d0.a
+    @Override // c.a.s0.s.e0.a
     public void e(Context context, int i2, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{context, Integer.valueOf(i2), Boolean.valueOf(z)}) == null) {
@@ -76,7 +76,7 @@ public class b implements c.a.s0.s.d0.a {
         }
     }
 
-    @Override // c.a.s0.s.d0.a
+    @Override // c.a.s0.s.e0.a
     public String f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -90,7 +90,7 @@ public class b implements c.a.s0.s.d0.a {
         }
     }
 
-    @Override // c.a.s0.s.d0.a
+    @Override // c.a.s0.s.e0.a
     public int getCurrentTabType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

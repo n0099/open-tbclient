@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import kotlinx.coroutines.DebugKt;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes.dex */
+/* loaded from: classes6.dex */
 public class a extends c.a.r0.a.c0.b.b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -19,8 +19,8 @@ public class a extends c.a.r0.a.c0.b.b {
     public String o;
 
     /* renamed from: c.a.r0.a.z.e.a$a  reason: collision with other inner class name */
-    /* loaded from: classes.dex */
-    public static class C0644a {
+    /* loaded from: classes6.dex */
+    public static class C0653a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -91,7 +91,7 @@ public class a extends c.a.r0.a.c0.b.b {
     public String i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? C0644a.a(this.o) : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? C0653a.a(this.o) : (String) invokeV.objValue;
     }
 
     public int j() {

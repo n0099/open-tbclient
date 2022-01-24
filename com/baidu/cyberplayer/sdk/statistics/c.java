@@ -16,7 +16,7 @@ public class c {
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ArrayList<e> f33595b;
+    public ArrayList<e> f33623b;
 
     public c(int i2) {
         Interceptable interceptable = $ic;
@@ -34,7 +34,7 @@ public class c {
             }
         }
         this.a = i2;
-        this.f33595b = new ArrayList<>();
+        this.f33623b = new ArrayList<>();
     }
 
     public int a() {
@@ -54,9 +54,9 @@ public class c {
             if (i2 != 24321 && i2 != 24323 && i2 != 24322 && i2 != 20488) {
                 jSONObject.put("type", i2);
             }
-            int size = this.f33595b.size();
+            int size = this.f33623b.size();
             for (int i3 = 0; i3 < size; i3++) {
-                e eVar = this.f33595b.get(i3);
+                e eVar = this.f33623b.get(i3);
                 if (eVar != null) {
                     jSONObject.put(eVar.a(), eVar.b());
                 }
@@ -69,14 +69,14 @@ public class c {
     public void a(e eVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, eVar) == null) {
-            this.f33595b.add(eVar);
+            this.f33623b.add(eVar);
         }
     }
 
     public void b() {
         ArrayList<e> arrayList;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (arrayList = this.f33595b) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (arrayList = this.f33623b) == null) {
             return;
         }
         arrayList.clear();

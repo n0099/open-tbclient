@@ -27,23 +27,23 @@ public class VideoHolyCardModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: h  reason: collision with root package name */
-    public static String f45995h = "";
+    public static String f46023h = "";
 
     /* renamed from: i  reason: collision with root package name */
-    public static String f45996i = "";
+    public static String f46024i = "";
 
     /* renamed from: j  reason: collision with root package name */
-    public static Runnable f45997j;
+    public static Runnable f46025j;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public c f45998e;
+    public c f46026e;
 
     /* renamed from: f  reason: collision with root package name */
-    public long f45999f;
+    public long f46027f;
 
     /* renamed from: g  reason: collision with root package name */
-    public HttpMessageListener f46000g;
+    public HttpMessageListener f46028g;
 
     /* loaded from: classes12.dex */
     public static class a implements Runnable {
@@ -52,14 +52,14 @@ public class VideoHolyCardModel extends BdBaseModel {
 
         /* renamed from: com.baidu.tieba.model.VideoHolyCardModel$a$a  reason: collision with other inner class name */
         /* loaded from: classes12.dex */
-        public class RunnableC1929a implements Runnable {
+        public class RunnableC1935a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ HttpMessage f46001e;
+            public final /* synthetic */ HttpMessage f46029e;
 
-            public RunnableC1929a(a aVar, HttpMessage httpMessage) {
+            public RunnableC1935a(a aVar, HttpMessage httpMessage) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -74,14 +74,14 @@ public class VideoHolyCardModel extends BdBaseModel {
                         return;
                     }
                 }
-                this.f46001e = httpMessage;
+                this.f46029e = httpMessage;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    MessageManager.getInstance().sendMessage(this.f46001e);
+                    MessageManager.getInstance().sendMessage(this.f46029e);
                 }
             }
         }
@@ -105,10 +105,10 @@ public class VideoHolyCardModel extends BdBaseModel {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_VIDEO_HOLY_CARD);
-                httpMessage.addParam("localip", VideoHolyCardModel.f45995h);
-                httpMessage.addParam("network", VideoHolyCardModel.f45996i);
+                httpMessage.addParam("localip", VideoHolyCardModel.f46023h);
+                httpMessage.addParam("network", VideoHolyCardModel.f46024i);
                 if (Looper.myLooper() != Looper.getMainLooper()) {
-                    new Handler(Looper.getMainLooper()).post(new RunnableC1929a(this, httpMessage));
+                    new Handler(Looper.getMainLooper()).post(new RunnableC1935a(this, httpMessage));
                 } else {
                     MessageManager.getInstance().sendMessage(httpMessage);
                 }
@@ -147,8 +147,8 @@ public class VideoHolyCardModel extends BdBaseModel {
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) && (httpResponsedMessage instanceof VideoHolyCardResponseMessage) && this.a.f45998e != null) {
-                this.a.f45998e.onResult(((VideoHolyCardResponseMessage) httpResponsedMessage).isVideoHolyCard);
+            if ((interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) && (httpResponsedMessage instanceof VideoHolyCardResponseMessage) && this.a.f46026e != null) {
+                this.a.f46026e.onResult(((VideoHolyCardResponseMessage) httpResponsedMessage).isVideoHolyCard);
             }
         }
     }
@@ -171,7 +171,7 @@ public class VideoHolyCardModel extends BdBaseModel {
                 return;
             }
         }
-        f45997j = new a();
+        f46025j = new a();
     }
 
     public VideoHolyCardModel() {
@@ -187,7 +187,7 @@ public class VideoHolyCardModel extends BdBaseModel {
                 return;
             }
         }
-        this.f46000g = new b(this, CmdConfigHttp.CMD_VIDEO_HOLY_CARD);
+        this.f46028g = new b(this, CmdConfigHttp.CMD_VIDEO_HOLY_CARD);
         A();
     }
 
@@ -197,14 +197,14 @@ public class VideoHolyCardModel extends BdBaseModel {
             TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_VIDEO_HOLY_CARD, TbConfig.SERVER_ADDRESS + TbConfig.URL_VIDEO_HOLY_CARD);
             tbHttpMessageTask.setResponsedClass(VideoHolyCardResponseMessage.class);
             MessageManager.getInstance().registerTask(tbHttpMessageTask);
-            MessageManager.getInstance().registerListener(this.f46000g);
+            MessageManager.getInstance().registerListener(this.f46028g);
         }
     }
 
     public void B(c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cVar) == null) {
-            this.f45998e = cVar;
+            this.f46026e = cVar;
         }
     }
 
@@ -230,24 +230,24 @@ public class VideoHolyCardModel extends BdBaseModel {
 
     public void z() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || System.currentTimeMillis() - this.f45999f <= 200) {
+        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || System.currentTimeMillis() - this.f46027f <= 200) {
             return;
         }
-        f45995h = UtilHelper.getClientIP();
-        f45996i = RomUtils.UNKNOWN;
+        f46023h = UtilHelper.getClientIP();
+        f46024i = RomUtils.UNKNOWN;
         int networkOperator = UtilHelper.getNetworkOperator();
         if (networkOperator == 1) {
-            f45996i = "CMNET";
+            f46024i = "CMNET";
         } else if (networkOperator == 2) {
-            f45996i = "UNICOM";
+            f46024i = "UNICOM";
         } else if (networkOperator == 3) {
-            f45996i = "TELECOM";
+            f46024i = "TELECOM";
         }
         if (TbadkCoreApplication.getInst().checkInterrupt()) {
-            this.f45998e.onResult(false);
+            this.f46026e.onResult(false);
             return;
         }
-        c.a.d.e.a.b().a("VideoHolyCard", f45997j);
-        this.f45999f = System.currentTimeMillis();
+        c.a.d.e.a.b().a("VideoHolyCard", f46025j);
+        this.f46027f = System.currentTimeMillis();
     }
 }

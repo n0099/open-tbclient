@@ -15,12 +15,12 @@ public class d {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static volatile d f4597c;
+    public static volatile d f4739c;
     public transient /* synthetic */ FieldHolder $fh;
     public HandlerThread a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Handler f4598b;
+    public Handler f4740b;
 
     /* loaded from: classes.dex */
     public class a extends Handler {
@@ -77,23 +77,23 @@ public class d {
         }
         HandlerThread handlerThread = new HandlerThread("callback-handler");
         this.a = handlerThread;
-        this.f4598b = null;
+        this.f4740b = null;
         handlerThread.start();
-        this.f4598b = new a(this, this.a.getLooper());
+        this.f4740b = new a(this, this.a.getLooper());
     }
 
     public static d a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (f4597c == null) {
+            if (f4739c == null) {
                 synchronized (d.class) {
-                    if (f4597c == null) {
-                        f4597c = new d();
+                    if (f4739c == null) {
+                        f4739c = new d();
                     }
                 }
             }
-            return f4597c;
+            return f4739c;
         }
         return (d) invokeV.objValue;
     }
@@ -101,14 +101,14 @@ public class d {
     public void b(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
-            this.f4598b.removeMessages(i2);
+            this.f4740b.removeMessages(i2);
         }
     }
 
     public void c(Message message, long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, message, j2) == null) {
-            this.f4598b.sendMessageDelayed(message, j2);
+            this.f4740b.sendMessageDelayed(message, j2);
         }
     }
 }

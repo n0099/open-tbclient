@@ -21,18 +21,18 @@ public final class c implements j {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final b f3900e;
+    public static final b f4041e;
     public transient /* synthetic */ FieldHolder $fh;
     public final e a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final List<byte[]> f3901b;
+    public final List<byte[]> f4042b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final List<d> f3902c;
+    public final List<d> f4043c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final byte[] f3903d;
+    public final byte[] f4044d;
 
     /* loaded from: classes.dex */
     public static final class a {
@@ -41,13 +41,13 @@ public final class c implements j {
         public e a;
 
         /* renamed from: b  reason: collision with root package name */
-        public List<byte[]> f3904b;
+        public List<byte[]> f4045b;
 
         /* renamed from: c  reason: collision with root package name */
-        public List<d> f3905c;
+        public List<d> f4046c;
 
         /* renamed from: d  reason: collision with root package name */
-        public byte[] f3906d;
+        public byte[] f4047d;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -62,15 +62,15 @@ public final class c implements j {
                     return;
                 }
             }
-            this.f3904b = new LinkedList();
-            this.f3905c = new LinkedList();
+            this.f4045b = new LinkedList();
+            this.f4046c = new LinkedList();
         }
 
         public final a a(d dVar) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, dVar)) == null) {
-                this.f3905c.add(dVar);
+                this.f4046c.add(dVar);
                 return this;
             }
             return (a) invokeL.objValue;
@@ -90,7 +90,7 @@ public final class c implements j {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bArr)) == null) {
-                List<byte[]> list = this.f3904b;
+                List<byte[]> list = this.f4045b;
                 byte[] c2 = c.a.j.h.d.i.c(bArr);
                 Intrinsics.checkExpressionValueIsNotNull(c2, "StringUtils.base64Encode(cipherSuite)");
                 list.add(c2);
@@ -102,7 +102,7 @@ public final class c implements j {
         public final c d() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? new c(this.a, this.f3904b, this.f3905c, c.a.j.h.d.i.c(this.f3906d)) : (c) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? new c(this.a, this.f4045b, this.f4046c, c.a.j.h.d.i.c(this.f4047d)) : (c) invokeV.objValue;
         }
     }
 
@@ -150,7 +150,7 @@ public final class c implements j {
                 return;
             }
         }
-        f3900e = new b(null);
+        f4041e = new b(null);
     }
 
     public c(e eVar, List<byte[]> list, List<d> list2, byte[] bArr) {
@@ -169,16 +169,16 @@ public final class c implements j {
             }
         }
         this.a = eVar;
-        this.f3901b = list;
-        this.f3902c = list2;
-        this.f3903d = bArr;
+        this.f4042b = list;
+        this.f4043c = list2;
+        this.f4044d = bArr;
     }
 
     @JvmStatic
     public static final a d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f3900e.a() : (a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f4041e.a() : (a) invokeV.objValue;
     }
 
     public byte[] a() {
@@ -211,9 +211,9 @@ public final class c implements j {
             JSONObject jSONObject = new JSONObject();
             e eVar = this.a;
             jSONObject.putOpt("Random", eVar != null ? eVar.c() : null);
-            jSONObject.putOpt("CipherSuites", g.a.b(this.f3901b));
-            jSONObject.putOpt("Extensions", g.a.a(this.f3902c));
-            jSONObject.putOpt("SKR", c.a.j.h.d.i.a(this.f3903d));
+            jSONObject.putOpt("CipherSuites", g.a.b(this.f4042b));
+            jSONObject.putOpt("Extensions", g.a.a(this.f4043c));
+            jSONObject.putOpt("SKR", c.a.j.h.d.i.a(this.f4044d));
             return jSONObject;
         }
         return (JSONObject) invokeV.objValue;
@@ -226,7 +226,7 @@ public final class c implements j {
             if (this != obj) {
                 if (obj instanceof c) {
                     c cVar = (c) obj;
-                    return Intrinsics.areEqual(this.a, cVar.a) && Intrinsics.areEqual(this.f3901b, cVar.f3901b) && Intrinsics.areEqual(this.f3902c, cVar.f3902c) && Intrinsics.areEqual(this.f3903d, cVar.f3903d);
+                    return Intrinsics.areEqual(this.a, cVar.a) && Intrinsics.areEqual(this.f4042b, cVar.f4042b) && Intrinsics.areEqual(this.f4043c, cVar.f4043c) && Intrinsics.areEqual(this.f4044d, cVar.f4044d);
                 }
                 return false;
             }
@@ -241,11 +241,11 @@ public final class c implements j {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             e eVar = this.a;
             int hashCode = (eVar != null ? eVar.hashCode() : 0) * 31;
-            List<byte[]> list = this.f3901b;
+            List<byte[]> list = this.f4042b;
             int hashCode2 = (hashCode + (list != null ? list.hashCode() : 0)) * 31;
-            List<d> list2 = this.f3902c;
+            List<d> list2 = this.f4043c;
             int hashCode3 = (hashCode2 + (list2 != null ? list2.hashCode() : 0)) * 31;
-            byte[] bArr = this.f3903d;
+            byte[] bArr = this.f4044d;
             return hashCode3 + (bArr != null ? Arrays.hashCode(bArr) : 0);
         }
         return invokeV.intValue;
@@ -255,7 +255,7 @@ public final class c implements j {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return "ClientHello(random=" + this.a + ", cipherSuites=" + this.f3901b + ", extensions=" + this.f3902c + ", SKRBytes=" + Arrays.toString(this.f3903d) + SmallTailInfo.EMOTION_SUFFIX;
+            return "ClientHello(random=" + this.a + ", cipherSuites=" + this.f4042b + ", extensions=" + this.f4043c + ", SKRBytes=" + Arrays.toString(this.f4044d) + SmallTailInfo.EMOTION_SUFFIX;
         }
         return (String) invokeV.objValue;
     }

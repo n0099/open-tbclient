@@ -30,17 +30,17 @@ public class b extends c.a.r0.a.y1.a.a.a implements c.a.r0.a.y1.c.f.a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final boolean f10919g;
+    public static final boolean f11061g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final Set<String> f10920h;
+    public static final Set<String> f11062h;
 
     /* renamed from: i  reason: collision with root package name */
-    public static long f10921i;
+    public static long f11063i;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f10922f;
+    public int f11064f;
 
     /* loaded from: classes6.dex */
     public class a implements i.n.b<String> {
@@ -48,13 +48,13 @@ public class b extends c.a.r0.a.y1.a.a.a implements c.a.r0.a.y1.c.f.a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ boolean f10923e;
+        public final /* synthetic */ boolean f11065e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ Bundle f10924f;
+        public final /* synthetic */ Bundle f11066f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ b f10925g;
+        public final /* synthetic */ b f11067g;
 
         public a(b bVar, boolean z, Bundle bundle) {
             Interceptable interceptable = $ic;
@@ -71,9 +71,9 @@ public class b extends c.a.r0.a.y1.a.a.a implements c.a.r0.a.y1.c.f.a {
                     return;
                 }
             }
-            this.f10925g = bVar;
-            this.f10923e = z;
-            this.f10924f = bundle;
+            this.f11067g = bVar;
+            this.f11065e = z;
+            this.f11066f = bundle;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -81,26 +81,26 @@ public class b extends c.a.r0.a.y1.a.a.a implements c.a.r0.a.y1.c.f.a {
         public void call(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-                if (this.f10923e) {
-                    if (b.f10919g) {
-                        String str2 = "execCall: addCallback CALLBACK_TERM = " + b.f10921i;
+                if (this.f11065e) {
+                    if (b.f11061g) {
+                        String str2 = "execCall: addCallback CALLBACK_TERM = " + b.f11063i;
                     }
-                    e.k().c(this.f10925g, b.f10921i);
+                    e.k().c(this.f11067g, b.f11063i);
                 }
                 d d2 = f.c().d();
                 if (d2 != null) {
-                    List<String> singletonList = Collections.singletonList(this.f10924f.getString(BaseActivity.EXTRA_PARAM_THIRD_VERIFY_APP_ID));
+                    List<String> singletonList = Collections.singletonList(this.f11066f.getString(BaseActivity.EXTRA_PARAM_THIRD_VERIFY_APP_ID));
                     c.a.r0.a.n0.l.c l = c.a.r0.a.n0.l.c.l();
                     l.i(6);
                     d2.h(singletonList, true, l.k());
                 }
-                if (b.f10919g) {
+                if (b.f11061g) {
                     String str3 = "execCall: addCallback purge finish = " + d2;
                 }
-                if (this.f10923e) {
+                if (this.f11065e) {
                     return;
                 }
-                this.f10925g.h();
+                this.f11067g.h();
             }
         }
     }
@@ -118,9 +118,9 @@ public class b extends c.a.r0.a.y1.a.a.a implements c.a.r0.a.y1.c.f.a {
                 return;
             }
         }
-        f10919g = k.a;
-        f10920h = Sets.newHashSet("event_puppet_unload_app", "event_puppet_offline");
-        f10921i = TimeUnit.SECONDS.toMillis(10L);
+        f11061g = k.a;
+        f11062h = Sets.newHashSet("event_puppet_unload_app", "event_puppet_offline");
+        f11063i = TimeUnit.SECONDS.toMillis(10L);
     }
 
     public b() {
@@ -136,15 +136,15 @@ public class b extends c.a.r0.a.y1.a.a.a implements c.a.r0.a.y1.c.f.a {
                 return;
             }
         }
-        this.f10922f = SwanAppProcessInfo.UNKNOWN.index;
+        this.f11064f = SwanAppProcessInfo.UNKNOWN.index;
     }
 
     @Override // c.a.r0.a.y1.c.f.a
     public void a(String str, c.a.r0.a.y1.c.f.c cVar) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048576, this, str, cVar) == null) && cVar.f9731f.index == this.f10922f && f10920h.contains(str)) {
+        if ((interceptable == null || interceptable.invokeLL(1048576, this, str, cVar) == null) && cVar.f9873f.index == this.f11064f && f11062h.contains(str)) {
             e.k().h(this);
-            if (f10919g) {
+            if (f11061g) {
                 String str2 = "onEvent: event = " + str;
             }
             h();
@@ -156,10 +156,10 @@ public class b extends c.a.r0.a.y1.a.a.a implements c.a.r0.a.y1.c.f.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
             int i2 = bundle.getInt("target", SwanAppProcessInfo.UNKNOWN.index);
-            this.f10922f = i2;
+            this.f11064f = i2;
             boolean checkProcessId = SwanAppProcessInfo.checkProcessId(i2);
-            if (f10919g) {
-                String str = "execCall: target = " + this.f10922f;
+            if (f11061g) {
+                String str = "execCall: target = " + this.f11064f;
                 String str2 = "execCall: waitCallback = " + checkProcessId;
             }
             i.d.f("").k(Schedulers.io()).w(new a(this, checkProcessId, bundle));
@@ -170,7 +170,7 @@ public class b extends c.a.r0.a.y1.a.a.a implements c.a.r0.a.y1.c.f.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             String string = this.a.getString("scheme");
-            if (f10919g) {
+            if (f11061g) {
                 String str = "invoke: scheme = " + string;
             }
             if (TextUtils.isEmpty(string)) {
@@ -184,7 +184,7 @@ public class b extends c.a.r0.a.y1.a.a.a implements c.a.r0.a.y1.c.f.a {
     public void timeout() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            boolean z = f10919g;
+            boolean z = f11061g;
             h();
         }
     }

@@ -10,14 +10,14 @@ import androidx.core.view.InputDeviceCompat;
 import androidx.recyclerview.widget.DiffUtil;
 import androidx.recyclerview.widget.ListAdapter;
 import androidx.recyclerview.widget.RecyclerView;
-import c.a.t0.d1.c1;
-import c.a.t0.d1.d1;
-import c.a.t0.d1.e3.c;
-import c.a.t0.d1.e3.d;
-import c.a.t0.d1.f1;
-import c.a.t0.d1.g1;
-import c.a.t0.d1.h1;
-import c.a.t0.d1.i1;
+import c.a.t0.e1.c1;
+import c.a.t0.e1.d1;
+import c.a.t0.e1.e3.c;
+import c.a.t0.e1.e3.d;
+import c.a.t0.e1.f1;
+import c.a.t0.e1.g1;
+import c.a.t0.e1.h1;
+import c.a.t0.e1.i1;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pyramid.runtime.service.ServiceManager;
 import com.baidu.tbadk.TbPageContext;
@@ -56,7 +56,7 @@ public final class VoiceRoomListAdapter extends ListAdapter<VoiceRoomWrapper, Vi
     public final TbPageContext<?> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final Bundle f43901b;
+    public final Bundle f43929b;
 
     @Metadata(d1 = {"\u00002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\b\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0003\u0018\u00002\u00020\u0001B\r\u0012\u0006\u0010\u0002\u001a\u00020\u0003¢\u0006\u0002\u0010\u0004J.\u0010\u0005\u001a\u00020\u00062\n\u0010\u0007\u001a\u0006\u0012\u0002\b\u00030\b2\u0006\u0010\t\u001a\u00020\n2\u0006\u0010\u000b\u001a\u00020\f2\n\b\u0002\u0010\r\u001a\u0004\u0018\u00010\u000eJ\u000e\u0010\u000f\u001a\u00020\u00062\u0006\u0010\u0010\u001a\u00020\nR\u000e\u0010\u0002\u001a\u00020\u0003X\u0082\u0004¢\u0006\u0002\n\u0000¨\u0006\u0011"}, d2 = {"Lcom/baidu/tieba/frs/voiceroom/VoiceRoomListAdapter$ViewHolder;", "Landroidx/recyclerview/widget/RecyclerView$ViewHolder;", "binding", "Lcom/baidu/tieba/frs/voiceroom/VoiceRoomListAdapter$Binding;", "(Lcom/baidu/tieba/frs/voiceroom/VoiceRoomListAdapter$Binding;)V", "bind", "", "tbPageContext", "Lcom/baidu/tbadk/TbPageContext;", "position", "", "voiceRoomWrapper", "Lcom/baidu/tieba/frs/voiceroom/data/VoiceRoomWrapper;", "arguments", "Landroid/os/Bundle;", "changeSkin", WriteMulitImageActivityConfig.SKIN_TYPE, "frs_release"}, k = 1, mv = {1, 5, 1}, xi = 48)
     /* loaded from: classes12.dex */
@@ -158,7 +158,7 @@ public final class VoiceRoomListAdapter extends ListAdapter<VoiceRoomWrapper, Vi
                     }
                     i3 = i4;
                 }
-                View.OnClickListener onClickListener = new View.OnClickListener() { // from class: c.a.t0.d1.e3.b
+                View.OnClickListener onClickListener = new View.OnClickListener() { // from class: c.a.t0.e1.e3.b
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
@@ -216,38 +216,38 @@ public final class VoiceRoomListAdapter extends ListAdapter<VoiceRoomWrapper, Vi
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: i  reason: collision with root package name */
-        public static final C1915a f43902i;
+        public static final C1921a f43930i;
         public transient /* synthetic */ FieldHolder $fh;
         public final View a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final TBLottieAnimationView f43903b;
+        public final TBLottieAnimationView f43931b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final TextView f43904c;
+        public final TextView f43932c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final TextView f43905d;
+        public final TextView f43933d;
 
         /* renamed from: e  reason: collision with root package name */
-        public final FrameLayout f43906e;
+        public final FrameLayout f43934e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final TextView f43907f;
+        public final TextView f43935f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final TextView f43908g;
+        public final TextView f43936g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final List<HeadImageView> f43909h;
+        public final List<HeadImageView> f43937h;
 
         /* renamed from: com.baidu.tieba.frs.voiceroom.VoiceRoomListAdapter$a$a  reason: collision with other inner class name */
         /* loaded from: classes12.dex */
-        public static final class C1915a {
+        public static final class C1921a {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
-            public C1915a() {
+            public C1921a() {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -261,7 +261,7 @@ public final class VoiceRoomListAdapter extends ListAdapter<VoiceRoomWrapper, Vi
                 }
             }
 
-            public /* synthetic */ C1915a(DefaultConstructorMarker defaultConstructorMarker) {
+            public /* synthetic */ C1921a(DefaultConstructorMarker defaultConstructorMarker) {
                 this();
             }
 
@@ -306,7 +306,7 @@ public final class VoiceRoomListAdapter extends ListAdapter<VoiceRoomWrapper, Vi
                     return;
                 }
             }
-            f43902i = new C1915a(null);
+            f43930i = new C1921a(null);
         }
 
         /* JADX DEBUG: Multi-variable search result rejected for r6v2, resolved type: java.util.List<com.baidu.tbadk.core.view.HeadImageView> */
@@ -335,26 +335,26 @@ public final class VoiceRoomListAdapter extends ListAdapter<VoiceRoomWrapper, Vi
             Intrinsics.checkNotNullParameter(desc, "desc");
             Intrinsics.checkNotNullParameter(actionJoin, "actionJoin");
             this.a = root;
-            this.f43903b = voicingIcon;
-            this.f43904c = voicingText;
-            this.f43905d = title;
-            this.f43906e = headers;
-            this.f43907f = desc;
-            this.f43908g = actionJoin;
+            this.f43931b = voicingIcon;
+            this.f43932c = voicingText;
+            this.f43933d = title;
+            this.f43934e = headers;
+            this.f43935f = desc;
+            this.f43936g = actionJoin;
             ArrayList arrayList = new ArrayList();
-            this.f43909h = arrayList;
-            View findViewById = this.f43906e.findViewById(f1.header0);
+            this.f43937h = arrayList;
+            View findViewById = this.f43934e.findViewById(f1.header0);
             Intrinsics.checkNotNullExpressionValue(findViewById, "headers.findViewById(R.id.header0)");
             arrayList.add(findViewById);
-            List<HeadImageView> list = this.f43909h;
-            View findViewById2 = this.f43906e.findViewById(f1.header1);
+            List<HeadImageView> list = this.f43937h;
+            View findViewById2 = this.f43934e.findViewById(f1.header1);
             Intrinsics.checkNotNullExpressionValue(findViewById2, "headers.findViewById(R.id.header1)");
             list.add(findViewById2);
-            List<HeadImageView> list2 = this.f43909h;
-            View findViewById3 = this.f43906e.findViewById(f1.header2);
+            List<HeadImageView> list2 = this.f43937h;
+            View findViewById3 = this.f43934e.findViewById(f1.header2);
             Intrinsics.checkNotNullExpressionValue(findViewById3, "headers.findViewById(R.id.header2)");
             list2.add(findViewById3);
-            for (HeadImageView headImageView : this.f43909h) {
+            for (HeadImageView headImageView : this.f43937h) {
                 headImageView.setDefaultResource(17170445);
                 headImageView.setPlaceHolder(2);
                 headImageView.setIsRound(true);
@@ -367,19 +367,19 @@ public final class VoiceRoomListAdapter extends ListAdapter<VoiceRoomWrapper, Vi
         public final TextView a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f43908g : (TextView) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f43936g : (TextView) invokeV.objValue;
         }
 
         public final TextView b() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f43907f : (TextView) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f43935f : (TextView) invokeV.objValue;
         }
 
         public final List<HeadImageView> c() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f43909h : (List) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f43937h : (List) invokeV.objValue;
         }
 
         public final View d() {
@@ -391,7 +391,7 @@ public final class VoiceRoomListAdapter extends ListAdapter<VoiceRoomWrapper, Vi
         public final TextView e() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f43905d : (TextView) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f43933d : (TextView) invokeV.objValue;
         }
 
         public boolean equals(Object obj) {
@@ -403,7 +403,7 @@ public final class VoiceRoomListAdapter extends ListAdapter<VoiceRoomWrapper, Vi
                 }
                 if (obj instanceof a) {
                     a aVar = (a) obj;
-                    return Intrinsics.areEqual(this.a, aVar.a) && Intrinsics.areEqual(this.f43903b, aVar.f43903b) && Intrinsics.areEqual(this.f43904c, aVar.f43904c) && Intrinsics.areEqual(this.f43905d, aVar.f43905d) && Intrinsics.areEqual(this.f43906e, aVar.f43906e) && Intrinsics.areEqual(this.f43907f, aVar.f43907f) && Intrinsics.areEqual(this.f43908g, aVar.f43908g);
+                    return Intrinsics.areEqual(this.a, aVar.a) && Intrinsics.areEqual(this.f43931b, aVar.f43931b) && Intrinsics.areEqual(this.f43932c, aVar.f43932c) && Intrinsics.areEqual(this.f43933d, aVar.f43933d) && Intrinsics.areEqual(this.f43934e, aVar.f43934e) && Intrinsics.areEqual(this.f43935f, aVar.f43935f) && Intrinsics.areEqual(this.f43936g, aVar.f43936g);
                 }
                 return false;
             }
@@ -413,26 +413,26 @@ public final class VoiceRoomListAdapter extends ListAdapter<VoiceRoomWrapper, Vi
         public final TBLottieAnimationView f() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f43903b : (TBLottieAnimationView) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f43931b : (TBLottieAnimationView) invokeV.objValue;
         }
 
         public final TextView g() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f43904c : (TextView) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f43932c : (TextView) invokeV.objValue;
         }
 
         public int hashCode() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? (((((((((((this.a.hashCode() * 31) + this.f43903b.hashCode()) * 31) + this.f43904c.hashCode()) * 31) + this.f43905d.hashCode()) * 31) + this.f43906e.hashCode()) * 31) + this.f43907f.hashCode()) * 31) + this.f43908g.hashCode() : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? (((((((((((this.a.hashCode() * 31) + this.f43931b.hashCode()) * 31) + this.f43932c.hashCode()) * 31) + this.f43933d.hashCode()) * 31) + this.f43934e.hashCode()) * 31) + this.f43935f.hashCode()) * 31) + this.f43936g.hashCode() : invokeV.intValue;
         }
 
         public String toString() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-                return "Binding(root=" + this.a + ", voicingIcon=" + this.f43903b + ", voicingText=" + this.f43904c + ", title=" + this.f43905d + ", headers=" + this.f43906e + ", desc=" + this.f43907f + ", actionJoin=" + this.f43908g + ')';
+                return "Binding(root=" + this.a + ", voicingIcon=" + this.f43931b + ", voicingText=" + this.f43932c + ", title=" + this.f43933d + ", headers=" + this.f43934e + ", desc=" + this.f43935f + ", actionJoin=" + this.f43936g + ')';
             }
             return (String) invokeV.objValue;
         }
@@ -458,7 +458,7 @@ public final class VoiceRoomListAdapter extends ListAdapter<VoiceRoomWrapper, Vi
         }
         Intrinsics.checkNotNullParameter(tbPageContext, "tbPageContext");
         this.a = tbPageContext;
-        this.f43901b = bundle;
+        this.f43929b = bundle;
     }
 
     public final TbPageContext<?> getTbPageContext() {
@@ -476,7 +476,7 @@ public final class VoiceRoomListAdapter extends ListAdapter<VoiceRoomWrapper, Vi
             TbPageContext<?> tbPageContext = this.a;
             VoiceRoomWrapper item = getItem(i2);
             Intrinsics.checkNotNullExpressionValue(item, "getItem(position)");
-            holder.bind(tbPageContext, i2, item, this.f43901b);
+            holder.bind(tbPageContext, i2, item, this.f43929b);
             holder.changeSkin(TbadkCoreApplication.getInst().getSkinType());
         }
     }
@@ -489,9 +489,9 @@ public final class VoiceRoomListAdapter extends ListAdapter<VoiceRoomWrapper, Vi
         if (interceptable == null || (invokeLI = interceptable.invokeLI(1048580, this, parent, i2)) == null) {
             Intrinsics.checkNotNullParameter(parent, "parent");
             View view = LayoutInflater.from(parent.getContext()).inflate(g1.fragment_voice_room_list_item, parent, false);
-            a.C1915a c1915a = a.f43902i;
+            a.C1921a c1921a = a.f43930i;
             Intrinsics.checkNotNullExpressionValue(view, "view");
-            return new ViewHolder(c1915a.a(view));
+            return new ViewHolder(c1921a.a(view));
         }
         return (ViewHolder) invokeLI.objValue;
     }

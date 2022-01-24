@@ -2,7 +2,6 @@ package com.baidu.rtc.logreport;
 
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import androidx.webkit.ProxyConfig;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.rtc.PeerConnectionClient;
 import com.baidu.tbadk.core.util.ThreadCardUtils;
@@ -343,7 +342,7 @@ public class HUDStatistics {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.mVideoRecvWidth + ProxyConfig.MATCH_ALL_SCHEMES + this.mVideoRecvHeight;
+            return this.mVideoRecvWidth + "*" + this.mVideoRecvHeight;
         }
         return (String) invokeV.objValue;
     }
@@ -358,7 +357,7 @@ public class HUDStatistics {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return this.mVideoSendWidth + ProxyConfig.MATCH_ALL_SCHEMES + this.mVideoSendHeight;
+            return this.mVideoSendWidth + "*" + this.mVideoSendHeight;
         }
         return (String) invokeV.objValue;
     }

@@ -22,22 +22,22 @@ public class c {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Activity f10815e;
+        public final /* synthetic */ Activity f10957e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f10816f;
+        public final /* synthetic */ String f10958f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ String f10817g;
+        public final /* synthetic */ String f10959g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ boolean f10818h;
+        public final /* synthetic */ boolean f10960h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final /* synthetic */ DialogInterface.OnClickListener f10819i;
+        public final /* synthetic */ DialogInterface.OnClickListener f10961i;
 
         /* renamed from: j  reason: collision with root package name */
-        public final /* synthetic */ c f10820j;
+        public final /* synthetic */ c f10962j;
 
         public a(c cVar, Activity activity, String str, String str2, boolean z, DialogInterface.OnClickListener onClickListener) {
             Interceptable interceptable = $ic;
@@ -54,27 +54,27 @@ public class c {
                     return;
                 }
             }
-            this.f10820j = cVar;
-            this.f10815e = activity;
-            this.f10816f = str;
-            this.f10817g = str2;
-            this.f10818h = z;
-            this.f10819i = onClickListener;
+            this.f10962j = cVar;
+            this.f10957e = activity;
+            this.f10958f = str;
+            this.f10959g = str2;
+            this.f10960h = z;
+            this.f10961i = onClickListener;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (this.f10820j.a != null && this.f10820j.a.isShowing()) {
-                    this.f10820j.a.dismiss();
+                if (this.f10962j.a != null && this.f10962j.a.isShowing()) {
+                    this.f10962j.a.dismiss();
                 }
-                Activity activity = this.f10815e;
+                Activity activity = this.f10957e;
                 if (activity == null || activity.isFinishing()) {
                     return;
                 }
-                SwanAppAlertDialog.a d2 = this.f10820j.d(this.f10815e, this.f10816f, this.f10817g, this.f10818h, this.f10819i);
-                this.f10820j.a = d2.X();
+                SwanAppAlertDialog.a d2 = this.f10962j.d(this.f10957e, this.f10958f, this.f10959g, this.f10960h, this.f10961i);
+                this.f10962j.a = d2.X();
             }
         }
     }

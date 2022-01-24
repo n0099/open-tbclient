@@ -17,22 +17,22 @@ public class b {
     public List<e2> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public List<e2> f14875b;
+    public List<e2> f15015b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f14876c;
+    public boolean f15016c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f14877d;
+    public boolean f15017d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f14878e;
+    public int f15018e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f14879f;
+    public int f15019f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f14880g;
+    public int f15020g;
 
     public b(List<e2> list, boolean z, int i2) {
         Interceptable interceptable = $ic;
@@ -49,11 +49,11 @@ public class b {
                 return;
             }
         }
-        this.f14878e = 2;
-        this.f14879f = 2;
-        this.f14880g = 1;
-        this.f14877d = z;
-        this.f14879f = i2;
+        this.f15018e = 2;
+        this.f15019f = 2;
+        this.f15020g = 1;
+        this.f15017d = z;
+        this.f15019f = i2;
         j(list);
     }
 
@@ -61,12 +61,12 @@ public class b {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) {
-            if (this.f14876c) {
-                int size = this.f14875b.size();
+            if (this.f15016c) {
+                int size = this.f15015b.size();
                 if (i2 == 0) {
-                    return (size - 1) - this.f14880g;
+                    return (size - 1) - this.f15020g;
                 }
-                int i3 = this.f14880g;
+                int i3 = this.f15020g;
                 return i2 == size - i3 ? i3 : i2;
             }
             return i2;
@@ -90,15 +90,15 @@ public class b {
     public int c(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) ? this.f14876c ? i2 - this.f14880g : i2 : invokeI.intValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) ? this.f15016c ? i2 - this.f15020g : i2 : invokeI.intValue;
     }
 
     public int d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if (this.f14876c) {
-                return this.f14880g;
+            if (this.f15016c) {
+                return this.f15020g;
             }
             return 0;
         }
@@ -108,7 +108,7 @@ public class b {
     public List<e2> e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f14875b : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f15015b : (List) invokeV.objValue;
     }
 
     public final List<e2> f() {
@@ -118,22 +118,22 @@ public class b {
             ArrayList arrayList = new ArrayList();
             List<e2> list = this.a;
             if (list != null) {
-                if (this.f14876c) {
-                    if (list.size() > this.f14879f && this.a.size() >= this.f14880g) {
-                        arrayList.addAll(this.a.subList(0, this.f14879f));
+                if (this.f15016c) {
+                    if (list.size() > this.f15019f && this.a.size() >= this.f15020g) {
+                        arrayList.addAll(this.a.subList(0, this.f15019f));
                         List<e2> list2 = this.a;
-                        int i2 = this.f14879f;
-                        arrayList.addAll(0, list2.subList(i2 - this.f14880g, i2));
-                        arrayList.addAll(this.a.subList(0, this.f14880g));
+                        int i2 = this.f15019f;
+                        arrayList.addAll(0, list2.subList(i2 - this.f15020g, i2));
+                        arrayList.addAll(this.a.subList(0, this.f15020g));
                     } else {
                         arrayList.addAll(this.a);
                         List<e2> list3 = this.a;
-                        arrayList.addAll(0, list3.subList(list3.size() - this.f14880g, this.a.size()));
-                        arrayList.addAll(this.a.subList(0, this.f14880g));
+                        arrayList.addAll(0, list3.subList(list3.size() - this.f15020g, this.a.size()));
+                        arrayList.addAll(this.a.subList(0, this.f15020g));
                     }
                 } else if (list != null && list.size() > 0) {
                     int size = this.a.size();
-                    int i3 = this.f14880g;
+                    int i3 = this.f15020g;
                     if (size >= i3) {
                         arrayList.addAll(this.a.subList(0, i3));
                     }
@@ -147,7 +147,7 @@ public class b {
     public void g(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048582, this, i2) == null) {
-            this.f14880g = i2;
+            this.f15020g = i2;
             j(this.a);
         }
     }
@@ -155,7 +155,7 @@ public class b {
     public void h(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048583, this, i2) == null) {
-            this.f14879f = i2;
+            this.f15019f = i2;
             j(this.a);
         }
     }
@@ -163,7 +163,7 @@ public class b {
     public void i(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2) == null) {
-            this.f14878e = i2;
+            this.f15018e = i2;
             j(this.a);
         }
     }
@@ -174,13 +174,13 @@ public class b {
             return;
         }
         this.a = list;
-        if (list != null && list.size() >= this.f14878e && list.size() <= this.f14879f) {
-            this.f14876c = true;
-        } else if (list.size() > this.f14879f && this.f14877d) {
-            this.f14876c = true;
+        if (list != null && list.size() >= this.f15018e && list.size() <= this.f15019f) {
+            this.f15016c = true;
+        } else if (list.size() > this.f15019f && this.f15017d) {
+            this.f15016c = true;
         } else {
-            this.f14876c = false;
+            this.f15016c = false;
         }
-        this.f14875b = f();
+        this.f15015b = f();
     }
 }

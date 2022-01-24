@@ -3,20 +3,20 @@ package com.kwad.sdk.pngencrypt.chunk;
 public abstract class ae extends s {
 
     /* renamed from: h  reason: collision with root package name */
-    public String f57057h;
+    public String f57102h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f57058i;
+    public String f57103i;
 
     public ae(String str, com.kwad.sdk.pngencrypt.k kVar) {
         super(str, kVar);
     }
 
     public String c() {
-        return this.f57057h;
+        return this.f57102h;
     }
 
     public String d() {
-        return this.f57058i;
+        return this.f57103i;
     }
 }

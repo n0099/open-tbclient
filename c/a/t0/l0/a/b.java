@@ -25,7 +25,6 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.ugc.editvideo.data.MultiMediaData;
-import com.baidu.ugc.editvideo.filter.FilterValue;
 import com.baidu.ugc.editvideo.record.processor.adapter.MultiMediaDataSourceViewAdapter;
 import com.baidu.ugc.editvideo.record.source.multimedia.IMultiMediaPreparedListener;
 import com.baidu.ugc.editvideo.record.source.multimedia.IVLogPlayControlProtocol;
@@ -45,31 +44,31 @@ public class b implements c.a.t0.l0.a.a {
     public TbPageContext a;
 
     /* renamed from: b  reason: collision with root package name */
-    public VlogEditManager f19054b;
+    public VlogEditManager f19287b;
 
     /* renamed from: c  reason: collision with root package name */
-    public MultiMediaDataSourceViewAdapter f19055c;
+    public MultiMediaDataSourceViewAdapter f19288c;
 
     /* renamed from: d  reason: collision with root package name */
-    public TbGLMediaPreviewView f19056d;
+    public TbGLMediaPreviewView f19289d;
 
     /* renamed from: e  reason: collision with root package name */
-    public c.a.t0.w0.a.a f19057e;
+    public c.a.t0.x0.a.a f19290e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f19058f;
+    public boolean f19291f;
 
     /* renamed from: g  reason: collision with root package name */
-    public List<MultiMediaData> f19059g;
+    public List<MultiMediaData> f19292g;
 
     /* renamed from: h  reason: collision with root package name */
-    public float f19060h;
+    public float f19293h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f19061i;
+    public int f19294i;
 
     /* renamed from: j  reason: collision with root package name */
-    public int f19062j;
+    public int f19295j;
 
     /* loaded from: classes7.dex */
     public class a implements IMultiMediaPreparedListener {
@@ -98,21 +97,21 @@ public class b implements c.a.t0.l0.a.a {
         @Override // com.baidu.ugc.editvideo.record.source.multimedia.IMultiMediaPreparedListener
         public void onPrepared() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.a.f19054b == null) {
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.a.f19287b == null) {
                 return;
             }
-            this.a.f19054b.start();
+            this.a.f19287b.start();
         }
     }
 
     /* renamed from: c.a.t0.l0.a.b$b  reason: collision with other inner class name */
     /* loaded from: classes7.dex */
-    public class C1185b implements c.a.a1.c {
+    public class C1192b implements c.a.a1.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ b a;
 
-        public C1185b(b bVar) {
+        public C1192b(b bVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -141,7 +140,7 @@ public class b implements c.a.t0.l0.a.a {
         public String b() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a.f19058f ? c.a.t0.k4.c.f18796c : c.a.t0.k4.c.f18797d : (String) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a.f19291f ? c.a.t0.k4.c.f19029c : c.a.t0.k4.c.f19030d : (String) invokeV.objValue;
         }
 
         @Override // c.a.a1.c
@@ -195,14 +194,14 @@ public class b implements c.a.t0.l0.a.a {
     public class d extends IVLogPlayControlProtocol.OnPlayStateListenerAdapter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ a.InterfaceC1184a a;
+        public final /* synthetic */ a.InterfaceC1191a a;
 
-        public d(b bVar, a.InterfaceC1184a interfaceC1184a) {
+        public d(b bVar, a.InterfaceC1191a interfaceC1191a) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {bVar, interfaceC1184a};
+                Object[] objArr = {bVar, interfaceC1191a};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i2 = newInitContext.flag;
                 if ((i2 & 1) != 0) {
@@ -212,7 +211,7 @@ public class b implements c.a.t0.l0.a.a {
                     return;
                 }
             }
-            this.a = interfaceC1184a;
+            this.a = interfaceC1191a;
         }
 
         @Override // com.baidu.ugc.editvideo.record.source.multimedia.IVLogPlayControlProtocol.OnPlayStateListenerAdapter, com.baidu.ugc.editvideo.record.source.multimedia.IVLogPlayControlProtocol.OnPlayStateListener
@@ -220,9 +219,9 @@ public class b implements c.a.t0.l0.a.a {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 super.onPause();
-                a.InterfaceC1184a interfaceC1184a = this.a;
-                if (interfaceC1184a != null) {
-                    interfaceC1184a.a();
+                a.InterfaceC1191a interfaceC1191a = this.a;
+                if (interfaceC1191a != null) {
+                    interfaceC1191a.a();
                 }
             }
         }
@@ -256,9 +255,9 @@ public class b implements c.a.t0.l0.a.a {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
                 super.onStart();
-                a.InterfaceC1184a interfaceC1184a = this.a;
-                if (interfaceC1184a != null) {
-                    interfaceC1184a.c();
+                a.InterfaceC1191a interfaceC1191a = this.a;
+                if (interfaceC1191a != null) {
+                    interfaceC1191a.c();
                 }
             }
         }
@@ -268,14 +267,14 @@ public class b implements c.a.t0.l0.a.a {
     public class e implements MultiMediaStateEventListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ a.InterfaceC1184a a;
+        public final /* synthetic */ a.InterfaceC1191a a;
 
-        public e(b bVar, a.InterfaceC1184a interfaceC1184a) {
+        public e(b bVar, a.InterfaceC1191a interfaceC1191a) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {bVar, interfaceC1184a};
+                Object[] objArr = {bVar, interfaceC1191a};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i2 = newInitContext.flag;
                 if ((i2 & 1) != 0) {
@@ -285,7 +284,7 @@ public class b implements c.a.t0.l0.a.a {
                     return;
                 }
             }
-            this.a = interfaceC1184a;
+            this.a = interfaceC1191a;
         }
 
         @Override // com.baidu.ugc.editvideo.record.source.multimedia.MultiMediaStateEventListener
@@ -297,12 +296,12 @@ public class b implements c.a.t0.l0.a.a {
 
         @Override // com.baidu.ugc.editvideo.record.source.multimedia.MultiMediaStateEventListener
         public void onLoop() {
-            a.InterfaceC1184a interfaceC1184a;
+            a.InterfaceC1191a interfaceC1191a;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (interfaceC1184a = this.a) == null) {
+            if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (interfaceC1191a = this.a) == null) {
                 return;
             }
-            interfaceC1184a.b();
+            interfaceC1191a.b();
         }
 
         @Override // com.baidu.ugc.editvideo.record.source.multimedia.MultiMediaStateEventListener
@@ -327,7 +326,7 @@ public class b implements c.a.t0.l0.a.a {
         }
     }
 
-    public b(TbPageContext tbPageContext, TbGLMediaPreviewView tbGLMediaPreviewView, TbMultiMediaData tbMultiMediaData, c.a.t0.w0.a.a aVar, boolean z) {
+    public b(TbPageContext tbPageContext, TbGLMediaPreviewView tbGLMediaPreviewView, TbMultiMediaData tbMultiMediaData, c.a.t0.x0.a.a aVar, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -342,14 +341,14 @@ public class b implements c.a.t0.l0.a.a {
                 return;
             }
         }
-        this.f19058f = false;
+        this.f19291f = false;
         this.a = tbPageContext;
-        this.f19056d = tbGLMediaPreviewView;
+        this.f19289d = tbGLMediaPreviewView;
         ArrayList arrayList = new ArrayList();
-        this.f19059g = arrayList;
+        this.f19292g = arrayList;
         arrayList.add(tbMultiMediaData);
-        this.f19057e = aVar;
-        this.f19058f = z;
+        this.f19290e = aVar;
+        this.f19291f = z;
         m();
     }
 
@@ -360,7 +359,7 @@ public class b implements c.a.t0.l0.a.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, qmFilterItem)) == null) {
             String str = IVlogEditManager.FILTER_ORIGINAL;
-            if (qmFilterItem == null || StringUtils.isNull(qmFilterItem.localPath) || FilterValue.DEFAULT_FILTER_VALUE.equals(qmFilterItem.localPath)) {
+            if (qmFilterItem == null || StringUtils.isNull(qmFilterItem.localPath) || "origin".equals(qmFilterItem.localPath)) {
                 f2 = 0.0f;
             } else {
                 f2 = c.a.d.f.m.b.d(qmFilterItem.effect, 100.0f) / 100.0f;
@@ -372,7 +371,7 @@ public class b implements c.a.t0.l0.a.a {
                     }
                 }
             }
-            VlogEditManager vlogEditManager = this.f19054b;
+            VlogEditManager vlogEditManager = this.f19287b;
             if (vlogEditManager != null) {
                 try {
                     vlogEditManager.setFilter(f2, str);
@@ -387,16 +386,16 @@ public class b implements c.a.t0.l0.a.a {
     }
 
     @Override // c.a.t0.l0.a.a
-    public void b(a.InterfaceC1184a interfaceC1184a) {
+    public void b(a.InterfaceC1191a interfaceC1191a) {
         VlogEditManager vlogEditManager;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, interfaceC1184a) == null) || (vlogEditManager = this.f19054b) == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, interfaceC1191a) == null) || (vlogEditManager = this.f19287b) == null) {
             return;
         }
         vlogEditManager.setOnPlayStateListener(null);
-        this.f19054b.setOnPlayStateListener(new d(this, interfaceC1184a));
-        this.f19054b.setMultiMediaStateEventListener(null);
-        this.f19054b.setMultiMediaStateEventListener(new e(this, interfaceC1184a));
+        this.f19287b.setOnPlayStateListener(new d(this, interfaceC1191a));
+        this.f19287b.setMultiMediaStateEventListener(null);
+        this.f19287b.setMultiMediaStateEventListener(new e(this, interfaceC1191a));
     }
 
     @Override // c.a.t0.l0.a.a
@@ -405,8 +404,8 @@ public class b implements c.a.t0.l0.a.a {
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, tbMultiMediaData) == null) || tbMultiMediaData == null) {
             return;
         }
-        this.f19059g.clear();
-        this.f19059g.add(tbMultiMediaData);
+        this.f19292g.clear();
+        this.f19292g.add(tbMultiMediaData);
         q();
     }
 
@@ -431,16 +430,16 @@ public class b implements c.a.t0.l0.a.a {
     @Override // c.a.t0.l0.a.a
     public void f(float f2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeF(1048581, this, f2) == null) || this.f19060h == f2) {
+        if (!(interceptable == null || interceptable.invokeF(1048581, this, f2) == null) || this.f19293h == f2) {
             return;
         }
-        this.f19060h = f2;
+        this.f19293h = f2;
         l();
-        VlogEditManager vlogEditManager = this.f19054b;
+        VlogEditManager vlogEditManager = this.f19287b;
         if (vlogEditManager == null || vlogEditManager.isPlaying()) {
             return;
         }
-        VlogEditManager vlogEditManager2 = this.f19054b;
+        VlogEditManager vlogEditManager2 = this.f19287b;
         vlogEditManager2.seek(vlogEditManager2.getCurrentPlayTime());
     }
 
@@ -459,7 +458,7 @@ public class b implements c.a.t0.l0.a.a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            VlogEditManager vlogEditManager = this.f19054b;
+            VlogEditManager vlogEditManager = this.f19287b;
             if (vlogEditManager != null) {
                 return vlogEditManager.getCurrentPlayTime();
             }
@@ -483,8 +482,8 @@ public class b implements c.a.t0.l0.a.a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            if (this.f19054b != null) {
-                return (TbMediaTrackConfig) new Gson().fromJson(this.f19054b.exportConfigJson(MediaTrackConfig.AE_IMPORT_DRAFT), (Class<Object>) TbMediaTrackConfig.class);
+            if (this.f19287b != null) {
+                return (TbMediaTrackConfig) new Gson().fromJson(this.f19287b.exportConfigJson(MediaTrackConfig.AE_IMPORT_DRAFT), (Class<Object>) TbMediaTrackConfig.class);
             }
             return null;
         }
@@ -495,7 +494,7 @@ public class b implements c.a.t0.l0.a.a {
     public float getRatio() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f19060h : invokeV.floatValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f19293h : invokeV.floatValue;
     }
 
     @Override // c.a.t0.l0.a.a
@@ -510,7 +509,7 @@ public class b implements c.a.t0.l0.a.a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-            VlogEditManager vlogEditManager = this.f19054b;
+            VlogEditManager vlogEditManager = this.f19287b;
             if (vlogEditManager != null) {
                 return vlogEditManager.isPlaying();
             }
@@ -521,25 +520,25 @@ public class b implements c.a.t0.l0.a.a {
 
     public final void l() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048589, this) == null) || !(this.f19056d.getLayoutParams() instanceof FrameLayout.LayoutParams) || ListUtils.isEmpty(this.f19059g) || this.f19059g.get(0) == null || this.f19059g.get(0).height <= 0 || this.f19059g.get(0).width <= 0) {
+        if (!(interceptable == null || interceptable.invokeV(1048589, this) == null) || !(this.f19289d.getLayoutParams() instanceof FrameLayout.LayoutParams) || ListUtils.isEmpty(this.f19292g) || this.f19292g.get(0) == null || this.f19292g.get(0).height <= 0 || this.f19292g.get(0).width <= 0) {
             return;
         }
-        TbGLMediaPreviewView tbGLMediaPreviewView = this.f19056d;
+        TbGLMediaPreviewView tbGLMediaPreviewView = this.f19289d;
         if (tbGLMediaPreviewView != null) {
             ViewGroup.LayoutParams layoutParams = tbGLMediaPreviewView.getLayoutParams();
-            float f2 = this.f19060h;
+            float f2 = this.f19293h;
             if (f2 > 1.0f) {
-                layoutParams.width = Math.min((int) (this.f19061i / f2), this.f19062j);
+                layoutParams.width = Math.min((int) (this.f19294i / f2), this.f19295j);
             } else if (f2 > 0.0f) {
-                layoutParams.width = this.f19062j;
+                layoutParams.width = this.f19295j;
             }
-            layoutParams.height = (int) (layoutParams.width * this.f19060h);
+            layoutParams.height = (int) (layoutParams.width * this.f19293h);
             int statusBarHeight = UtilHelper.getStatusBarHeight();
-            this.f19056d.setTranslationY(((this.f19061i + statusBarHeight) - layoutParams.height) * 0.5f);
-            this.f19056d.setTranslationX((this.f19062j - layoutParams.width) * 0.5f);
-            this.f19056d.requestLayout();
+            this.f19289d.setTranslationY(((this.f19294i + statusBarHeight) - layoutParams.height) * 0.5f);
+            this.f19289d.setTranslationX((this.f19295j - layoutParams.width) * 0.5f);
+            this.f19289d.requestLayout();
         }
-        this.f19054b.setVideoRatio(this.f19060h);
+        this.f19287b.setVideoRatio(this.f19293h);
     }
 
     public boolean m() {
@@ -561,11 +560,11 @@ public class b implements c.a.t0.l0.a.a {
     public final void n() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
-            this.f19056d.setZOrderMediaOverlay(true);
-            this.f19056d.setMultiMediaDataSourceViewAdapter(this.f19055c, false);
-            this.f19056d.setCanMeasure(false);
-            this.f19061i = n.i(this.a.getPageActivity());
-            this.f19062j = n.k(this.a.getPageActivity());
+            this.f19289d.setZOrderMediaOverlay(true);
+            this.f19289d.setMultiMediaDataSourceViewAdapter(this.f19288c, false);
+            this.f19289d.setCanMeasure(false);
+            this.f19294i = n.i(this.a.getPageActivity());
+            this.f19295j = n.k(this.a.getPageActivity());
             l();
         }
     }
@@ -575,7 +574,7 @@ public class b implements c.a.t0.l0.a.a {
         if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
             c.a.a1.b.c().h(TbadkCoreApplication.getInst());
             c.a.a1.b.c().j(FileHelper.getCacheDir());
-            c.a.a1.b.c().k(new C1185b(this));
+            c.a.a1.b.c().k(new C1192b(this));
         }
     }
 
@@ -583,15 +582,15 @@ public class b implements c.a.t0.l0.a.a {
     public void onDestroy() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
-            VlogEditManager vlogEditManager = this.f19054b;
+            VlogEditManager vlogEditManager = this.f19287b;
             if (vlogEditManager != null) {
                 vlogEditManager.onDestroy();
             }
-            TbGLMediaPreviewView tbGLMediaPreviewView = this.f19056d;
+            TbGLMediaPreviewView tbGLMediaPreviewView = this.f19289d;
             if (tbGLMediaPreviewView != null) {
                 tbGLMediaPreviewView.onDestroy();
             }
-            c.a.t0.w0.a.a aVar = this.f19057e;
+            c.a.t0.x0.a.a aVar = this.f19290e;
             if (aVar != null) {
                 aVar.onDestroy();
             }
@@ -602,11 +601,11 @@ public class b implements c.a.t0.l0.a.a {
     public void onPause() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048594, this) == null) {
-            VlogEditManager vlogEditManager = this.f19054b;
+            VlogEditManager vlogEditManager = this.f19287b;
             if (vlogEditManager != null) {
                 vlogEditManager.onPause();
             }
-            TbGLMediaPreviewView tbGLMediaPreviewView = this.f19056d;
+            TbGLMediaPreviewView tbGLMediaPreviewView = this.f19289d;
             if (tbGLMediaPreviewView != null) {
                 tbGLMediaPreviewView.onPause();
             }
@@ -617,11 +616,11 @@ public class b implements c.a.t0.l0.a.a {
     public void onResume() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048595, this) == null) {
-            TbGLMediaPreviewView tbGLMediaPreviewView = this.f19056d;
+            TbGLMediaPreviewView tbGLMediaPreviewView = this.f19289d;
             if (tbGLMediaPreviewView != null) {
                 tbGLMediaPreviewView.onResume();
             }
-            VlogEditManager vlogEditManager = this.f19054b;
+            VlogEditManager vlogEditManager = this.f19287b;
             if (vlogEditManager != null) {
                 vlogEditManager.onResume();
             }
@@ -632,15 +631,15 @@ public class b implements c.a.t0.l0.a.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048596, this) == null) {
             MultiMediaDataSourceViewAdapter multiMediaDataSourceViewAdapter = new MultiMediaDataSourceViewAdapter();
-            this.f19055c = multiMediaDataSourceViewAdapter;
+            this.f19288c = multiMediaDataSourceViewAdapter;
             VlogEditManager vlogEditManager = new VlogEditManager(multiMediaDataSourceViewAdapter);
-            this.f19054b = vlogEditManager;
-            vlogEditManager.setMultiMediaData(this.f19059g);
-            this.f19054b.setLooping(true);
-            this.f19054b.setPreparedListener(new a(this));
-            c.a.t0.w0.a.a aVar = this.f19057e;
+            this.f19287b = vlogEditManager;
+            vlogEditManager.setMultiMediaData(this.f19292g);
+            this.f19287b.setLooping(true);
+            this.f19287b.setPreparedListener(new a(this));
+            c.a.t0.x0.a.a aVar = this.f19290e;
             if (aVar != null) {
-                aVar.c(this.f19054b, this.f19055c);
+                aVar.c(this.f19287b, this.f19288c);
             }
         }
     }
@@ -649,7 +648,7 @@ public class b implements c.a.t0.l0.a.a {
     public void pause() {
         VlogEditManager vlogEditManager;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048597, this) == null) || (vlogEditManager = this.f19054b) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048597, this) == null) || (vlogEditManager = this.f19287b) == null) {
             return;
         }
         vlogEditManager.pause();
@@ -658,16 +657,16 @@ public class b implements c.a.t0.l0.a.a {
     public final void q() {
         VlogEditManager vlogEditManager;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048598, this) == null) || (vlogEditManager = this.f19054b) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048598, this) == null) || (vlogEditManager = this.f19287b) == null) {
             return;
         }
         boolean isPlaying = vlogEditManager.isPlaying();
-        this.f19054b.reset();
-        this.f19054b.setMultiMediaData(this.f19059g);
+        this.f19287b.reset();
+        this.f19287b.setMultiMediaData(this.f19292g);
         if (isPlaying) {
-            this.f19054b.start();
+            this.f19287b.start();
         } else {
-            this.f19054b.pause();
+            this.f19287b.pause();
         }
     }
 
@@ -675,7 +674,7 @@ public class b implements c.a.t0.l0.a.a {
     public void start() {
         VlogEditManager vlogEditManager;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048599, this) == null) || (vlogEditManager = this.f19054b) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048599, this) == null) || (vlogEditManager = this.f19287b) == null) {
             return;
         }
         vlogEditManager.start();

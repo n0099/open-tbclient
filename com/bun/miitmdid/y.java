@@ -16,7 +16,7 @@ public class y extends AsyncTask<Void, Void, Boolean> {
     public a0 a;
 
     /* renamed from: b  reason: collision with root package name */
-    public MsaIdInterface f52937b;
+    public MsaIdInterface f52982b;
 
     public y(MsaIdInterface msaIdInterface, a0 a0Var) {
         Interceptable interceptable = $ic;
@@ -33,7 +33,7 @@ public class y extends AsyncTask<Void, Void, Boolean> {
                 return;
             }
         }
-        this.f52937b = msaIdInterface;
+        this.f52982b = msaIdInterface;
         this.a = a0Var;
     }
 
@@ -46,13 +46,13 @@ public class y extends AsyncTask<Void, Void, Boolean> {
         a0 a0Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, voidArr)) == null) {
-            if (this.f52937b == null) {
+            if (this.f52982b == null) {
                 return Boolean.FALSE;
             }
             int i2 = 0;
             while (true) {
                 try {
-                    isDataArrived = this.f52937b.isDataArrived();
+                    isDataArrived = this.f52982b.isDataArrived();
                 } catch (RemoteException | InterruptedException unused) {
                 }
                 if (isDataArrived) {
@@ -65,7 +65,7 @@ public class y extends AsyncTask<Void, Void, Boolean> {
                 }
             }
             if (isDataArrived && (a0Var = this.a) != null) {
-                a0Var.a(this.f52937b);
+                a0Var.a(this.f52982b);
             }
             return Boolean.valueOf(isDataArrived);
         }

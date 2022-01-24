@@ -39,31 +39,31 @@ public class b {
     @Nullable
 
     /* renamed from: b  reason: collision with root package name */
-    public WindowManager f57824b;
+    public WindowManager f57869b;
 
     /* renamed from: c  reason: collision with root package name */
-    public ImageView f57825c;
+    public ImageView f57870c;
 
     /* renamed from: d  reason: collision with root package name */
-    public com.kwad.sdk.splashscreen.b.a f57826d;
+    public com.kwad.sdk.splashscreen.b.a f57871d;
 
     /* renamed from: e  reason: collision with root package name */
-    public KsSplashScreenAd.SplashScreenAdInteractionListener f57827e;
+    public KsSplashScreenAd.SplashScreenAdInteractionListener f57872e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ViewGroup f57828f;
+    public ViewGroup f57873f;
 
     /* renamed from: g  reason: collision with root package name */
-    public FrameLayout f57829g;
+    public FrameLayout f57874g;
 
     /* renamed from: h  reason: collision with root package name */
-    public View f57830h;
+    public View f57875h;
 
     /* renamed from: i  reason: collision with root package name */
-    public ImageView f57831i;
+    public ImageView f57876i;
 
     /* renamed from: j  reason: collision with root package name */
-    public boolean f57832j;
+    public boolean f57877j;
     public long k;
     public boolean l;
     public long m;
@@ -90,26 +90,26 @@ public class b {
             WindowManager.LayoutParams layoutParams2 = b.this.o;
             Rect rect2 = this.a;
             layoutParams2.height = (rect2.bottom - rect2.top) + com.kwad.sdk.a.kwai.a.a(b.this.a, 12.0f);
-            b.this.f57825c.animate().cancel();
-            b.this.f57831i.setImageDrawable(new BitmapDrawable(b.this.a.getResources(), b.this.f57826d.a));
-            ViewParent parent = b.this.f57826d.a().getParent();
+            b.this.f57870c.animate().cancel();
+            b.this.f57876i.setImageDrawable(new BitmapDrawable(b.this.a.getResources(), b.this.f57871d.a));
+            ViewParent parent = b.this.f57871d.a().getParent();
             if (parent instanceof ViewGroup) {
-                ((ViewGroup) parent).removeView(b.this.f57826d.a());
+                ((ViewGroup) parent).removeView(b.this.f57871d.a());
             }
-            b.this.f57829g.addView(b.this.f57826d.a(), new ViewGroup.MarginLayoutParams(-1, -1));
-            if (b.this.f57824b != null) {
+            b.this.f57874g.addView(b.this.f57871d.a(), new ViewGroup.MarginLayoutParams(-1, -1));
+            if (b.this.f57869b != null) {
                 try {
-                    b.this.f57824b.addView(b.this.f57828f, b.this.o);
+                    b.this.f57869b.addView(b.this.f57873f, b.this.o);
                 } catch (Exception e2) {
                     com.kwad.sdk.core.kwai.a.a(e2);
                     com.kwad.sdk.core.d.a.b(e2);
                 }
             }
-            b.this.f57826d.d();
-            b.this.f57826d.a(new com.kwad.sdk.contentalliance.detail.video.d() { // from class: com.kwad.sdk.splashscreen.b.3.1
+            b.this.f57871d.d();
+            b.this.f57871d.a(new com.kwad.sdk.contentalliance.detail.video.d() { // from class: com.kwad.sdk.splashscreen.b.3.1
 
                 /* renamed from: b  reason: collision with root package name */
-                public boolean f57841b = false;
+                public boolean f57886b = false;
 
                 @Override // com.kwad.sdk.contentalliance.detail.video.d
                 public void a() {
@@ -145,29 +145,29 @@ public class b {
                 public void f() {
                     WindowManager windowManager;
                     ViewGroup viewGroup;
-                    if (this.f57841b) {
+                    if (this.f57886b) {
                         return;
                     }
-                    this.f57841b = true;
-                    if (b.this.f57827e != null) {
-                        b.this.f57827e.onAdShowEnd();
+                    this.f57886b = true;
+                    if (b.this.f57872e != null) {
+                        b.this.f57872e.onAdShowEnd();
                     }
                     ax.a(new Runnable() { // from class: com.kwad.sdk.splashscreen.b.3.1.1
                         @Override // java.lang.Runnable
                         public void run() {
-                            b.this.f57826d.h();
+                            b.this.f57871d.h();
                         }
                     }, 0L);
-                    if (b.this.f57824b != null) {
+                    if (b.this.f57869b != null) {
                         try {
                             if (Build.VERSION.SDK_INT < 19) {
-                                windowManager = b.this.f57824b;
-                                viewGroup = b.this.f57828f;
-                            } else if (!b.this.f57828f.isAttachedToWindow()) {
+                                windowManager = b.this.f57869b;
+                                viewGroup = b.this.f57873f;
+                            } else if (!b.this.f57873f.isAttachedToWindow()) {
                                 return;
                             } else {
-                                windowManager = b.this.f57824b;
-                                viewGroup = b.this.f57828f;
+                                windowManager = b.this.f57869b;
+                                viewGroup = b.this.f57873f;
                             }
                             windowManager.removeView(viewGroup);
                         } catch (Exception e3) {
@@ -184,7 +184,7 @@ public class b {
                 public void h() {
                 }
             });
-            b.this.f57825c.postDelayed(new bd(new Runnable() { // from class: com.kwad.sdk.splashscreen.b.3.2
+            b.this.f57870c.postDelayed(new bd(new Runnable() { // from class: com.kwad.sdk.splashscreen.b.3.2
                 @Override // java.lang.Runnable
                 public void run() {
                     b.this.l = true;
@@ -192,11 +192,11 @@ public class b {
                 }
             }), 100L);
             b.this.m = System.currentTimeMillis() + 100;
-            b.this.f57831i.postDelayed(new bd(new Runnable() { // from class: com.kwad.sdk.splashscreen.b.3.3
+            b.this.f57876i.postDelayed(new bd(new Runnable() { // from class: com.kwad.sdk.splashscreen.b.3.3
                 @Override // java.lang.Runnable
                 public void run() {
-                    b.this.f57831i.setVisibility(8);
-                    b.this.f57832j = true;
+                    b.this.f57876i.setVisibility(8);
+                    b.this.f57877j = true;
                 }
             }), 200L);
             b.this.k = System.currentTimeMillis() + 200;
@@ -230,46 +230,46 @@ public class b {
         }
         Context wrapContextIfNeed = Wrapper.wrapContextIfNeed(context);
         this.a = wrapContextIfNeed;
-        this.f57827e = splashScreenAdInteractionListener;
+        this.f57872e = splashScreenAdInteractionListener;
         this.n = z;
-        this.f57824b = (WindowManager) wrapContextIfNeed.getSystemService("window");
+        this.f57869b = (WindowManager) wrapContextIfNeed.getSystemService("window");
         com.kwad.sdk.splashscreen.b.a a2 = SplashPlayModuleCache.a().a(str);
-        this.f57826d = a2;
-        if (a2 == null || this.f57824b == null) {
+        this.f57871d = a2;
+        if (a2 == null || this.f57869b == null) {
             return;
         }
         ImageView imageView = new ImageView(this.a);
-        this.f57825c = imageView;
-        imageView.setImageDrawable(new BitmapDrawable(this.a.getResources(), this.f57826d.a));
-        final AdTemplate b2 = this.f57826d.b();
+        this.f57870c = imageView;
+        imageView.setImageDrawable(new BitmapDrawable(this.a.getResources(), this.f57871d.a));
+        final AdTemplate b2 = this.f57871d.b();
         final com.kwad.sdk.core.download.a.b bVar = new com.kwad.sdk.core.download.a.b(b2);
         ViewGroup viewGroup = (ViewGroup) LayoutInflater.from(this.a).inflate(R.layout.ksad_splash_vplush, (ViewGroup) null);
-        this.f57828f = viewGroup;
-        this.f57831i = (ImageView) viewGroup.findViewById(R.id.ksad_splash_frame);
-        this.f57829g = (FrameLayout) this.f57828f.findViewById(R.id.ksad_splash_texture);
-        this.f57830h = this.f57828f.findViewById(R.id.ksad_splash_close_btn);
-        this.f57829g.setOnClickListener(new View.OnClickListener() { // from class: com.kwad.sdk.splashscreen.b.1
+        this.f57873f = viewGroup;
+        this.f57876i = (ImageView) viewGroup.findViewById(R.id.ksad_splash_frame);
+        this.f57874g = (FrameLayout) this.f57873f.findViewById(R.id.ksad_splash_texture);
+        this.f57875h = this.f57873f.findViewById(R.id.ksad_splash_close_btn);
+        this.f57874g.setOnClickListener(new View.OnClickListener() { // from class: com.kwad.sdk.splashscreen.b.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 if (b.this.n) {
-                    com.kwad.sdk.core.download.a.a.a(new a.C2100a(view.getContext()).a(b2).a(bVar).a(false).a(2).a(new a.b() { // from class: com.kwad.sdk.splashscreen.b.1.1
+                    com.kwad.sdk.core.download.a.a.a(new a.C2106a(view.getContext()).a(b2).a(bVar).a(false).a(2).a(new a.b() { // from class: com.kwad.sdk.splashscreen.b.1.1
                         @Override // com.kwad.sdk.core.download.a.a.b
                         public void a() {
-                            if (b.this.f57827e != null) {
-                                b.this.f57827e.onAdClicked();
+                            if (b.this.f57872e != null) {
+                                b.this.f57872e.onAdClicked();
                             }
                             JSONObject jSONObject = new JSONObject();
                             try {
-                                jSONObject.put("duration", b.this.f57826d.c());
+                                jSONObject.put("duration", b.this.f57871d.c());
                             } catch (JSONException e2) {
                                 com.kwad.sdk.core.d.a.b(e2);
                             }
                             com.kwad.sdk.core.report.a.a(b2, 114, (z.a) null, jSONObject);
                         }
                     }));
-                    if (b.this.f57824b != null) {
+                    if (b.this.f57869b != null) {
                         try {
-                            b.this.f57824b.removeView(b.this.f57828f);
+                            b.this.f57869b.removeView(b.this.f57873f);
                         } catch (Exception e2) {
                             com.kwad.sdk.core.kwai.a.a(e2);
                             com.kwad.sdk.core.d.a.b(e2);
@@ -278,21 +278,21 @@ public class b {
                 }
             }
         });
-        this.f57829g.setClickable(true);
-        this.f57829g.setOnTouchListener(new View.OnTouchListener() { // from class: com.kwad.sdk.splashscreen.b.2
+        this.f57874g.setClickable(true);
+        this.f57874g.setOnTouchListener(new View.OnTouchListener() { // from class: com.kwad.sdk.splashscreen.b.2
             public float a = 0.0f;
 
             /* renamed from: b  reason: collision with root package name */
-            public float f57835b = 0.0f;
+            public float f57880b = 0.0f;
 
             /* renamed from: c  reason: collision with root package name */
-            public float f57836c = 0.0f;
+            public float f57881c = 0.0f;
 
             /* renamed from: d  reason: collision with root package name */
-            public float f57837d = 0.0f;
+            public float f57882d = 0.0f;
 
             /* renamed from: e  reason: collision with root package name */
-            public float f57838e = 0.0f;
+            public float f57883e = 0.0f;
 
             @Override // android.view.View.OnTouchListener
             public boolean onTouch(View view, MotionEvent motionEvent) {
@@ -301,21 +301,21 @@ public class b {
                 }
                 if (motionEvent.getActionMasked() == 0) {
                     this.a = motionEvent.getRawX();
-                    this.f57835b = motionEvent.getRawY();
-                    this.f57837d = b.this.o.x;
-                    this.f57836c = b.this.o.y;
-                    this.f57838e = (float) SystemClock.elapsedRealtime();
+                    this.f57880b = motionEvent.getRawY();
+                    this.f57882d = b.this.o.x;
+                    this.f57881c = b.this.o.y;
+                    this.f57883e = (float) SystemClock.elapsedRealtime();
                     PrintStream printStream = System.out;
                     printStream.println(" actionDownX " + this.a + " actionDownX " + this.a);
                 } else if (motionEvent.getActionMasked() == 2) {
                     float rawX = motionEvent.getRawX() - this.a;
-                    float rawY = motionEvent.getRawY() - this.f57835b;
+                    float rawY = motionEvent.getRawY() - this.f57880b;
                     if (Math.sqrt((rawX * rawX) + (rawY * rawY)) > 15.0d) {
-                        b.this.o.x = (int) (this.f57837d + rawX);
-                        b.this.o.y = (int) (this.f57836c + rawY);
-                        if (b.this.f57824b != null) {
+                        b.this.o.x = (int) (this.f57882d + rawX);
+                        b.this.o.y = (int) (this.f57881c + rawY);
+                        if (b.this.f57869b != null) {
                             try {
-                                b.this.f57824b.updateViewLayout(b.this.f57828f, b.this.o);
+                                b.this.f57869b.updateViewLayout(b.this.f57873f, b.this.o);
                             } catch (Exception e2) {
                                 com.kwad.sdk.core.kwai.a.a(e2);
                                 com.kwad.sdk.core.d.a.b(e2);
@@ -325,8 +325,8 @@ public class b {
                     return true;
                 } else if (motionEvent.getActionMasked() == 1) {
                     float rawX2 = motionEvent.getRawX() - this.a;
-                    float rawY2 = motionEvent.getRawY() - this.f57835b;
-                    float elapsedRealtime = ((float) SystemClock.elapsedRealtime()) - this.f57838e;
+                    float rawY2 = motionEvent.getRawY() - this.f57880b;
+                    float elapsedRealtime = ((float) SystemClock.elapsedRealtime()) - this.f57883e;
                     if (Math.sqrt((rawX2 * rawX2) + (rawY2 * rawY2)) < 15.0d && elapsedRealtime > 30.0f && elapsedRealtime < 300.0f) {
                         view.performClick();
                     }
@@ -339,15 +339,15 @@ public class b {
     /* JADX INFO: Access modifiers changed from: private */
     public void a() {
         try {
-            this.f57824b.removeView(this.f57825c);
+            this.f57869b.removeView(this.f57870c);
         } catch (Exception e2) {
             com.kwad.sdk.core.kwai.a.a(e2);
         }
         if (Build.VERSION.SDK_INT >= 21) {
-            this.f57826d.a().setOutlineProvider(new a(com.kwad.sdk.a.kwai.a.a(this.a, 1.0f)));
-            this.f57826d.a().setClipToOutline(true);
-            this.f57831i.setOutlineProvider(new a(com.kwad.sdk.a.kwai.a.a(this.a, 1.0f)));
-            this.f57831i.setClipToOutline(true);
+            this.f57871d.a().setOutlineProvider(new a(com.kwad.sdk.a.kwai.a.a(this.a, 1.0f)));
+            this.f57871d.a().setClipToOutline(true);
+            this.f57876i.setOutlineProvider(new a(com.kwad.sdk.a.kwai.a.a(this.a, 1.0f)));
+            this.f57876i.setClipToOutline(true);
         }
     }
 
@@ -362,16 +362,16 @@ public class b {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void c() {
-        if (this.f57832j || System.currentTimeMillis() <= this.k) {
+        if (this.f57877j || System.currentTimeMillis() <= this.k) {
             return;
         }
-        this.f57832j = true;
-        this.f57831i.setVisibility(8);
+        this.f57877j = true;
+        this.f57876i.setVisibility(8);
     }
 
     @SuppressLint({"RtlHardcoded"})
     public boolean a(Rect rect) {
-        if (this.f57826d == null || this.f57824b == null) {
+        if (this.f57871d == null || this.f57869b == null) {
             return false;
         }
         Rect rect2 = new Rect();
@@ -398,46 +398,46 @@ public class b {
         int i7 = rect2.top;
         float f3 = (i6 - i7) / i3;
         float f4 = (i5 * i2) / ((i5 + i2) - i4);
-        this.f57825c.setPivotX(f4);
-        this.f57825c.setPivotY((i7 * i3) / ((i7 + i3) - i6));
-        WindowManager windowManager = this.f57824b;
+        this.f57870c.setPivotX(f4);
+        this.f57870c.setPivotY((i7 * i3) / ((i7 + i3) - i6));
+        WindowManager windowManager = this.f57869b;
         if (windowManager != null) {
             try {
-                windowManager.addView(this.f57825c, this.o);
+                windowManager.addView(this.f57870c, this.o);
             } catch (Exception e2) {
                 com.kwad.sdk.core.kwai.a.a(e2);
                 com.kwad.sdk.core.d.a.b(e2);
             }
         }
-        this.f57825c.animate().scaleX(f2).scaleY(f3).setDuration(600L).start();
-        this.f57825c.animate().setInterpolator(new AccelerateDecelerateInterpolator()).setListener(new AnonymousClass3(rect2));
-        KsSplashScreenAd.SplashScreenAdInteractionListener splashScreenAdInteractionListener = this.f57827e;
+        this.f57870c.animate().scaleX(f2).scaleY(f3).setDuration(600L).start();
+        this.f57870c.animate().setInterpolator(new AccelerateDecelerateInterpolator()).setListener(new AnonymousClass3(rect2));
+        KsSplashScreenAd.SplashScreenAdInteractionListener splashScreenAdInteractionListener = this.f57872e;
         if (splashScreenAdInteractionListener != null) {
             splashScreenAdInteractionListener.onAdShowStart();
         }
-        com.kwad.sdk.core.report.a.c(this.f57826d.b(), 115, null);
-        this.f57830h.setOnClickListener(new View.OnClickListener() { // from class: com.kwad.sdk.splashscreen.b.4
+        com.kwad.sdk.core.report.a.c(this.f57871d.b(), 115, null);
+        this.f57875h.setOnClickListener(new View.OnClickListener() { // from class: com.kwad.sdk.splashscreen.b.4
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (b.this.f57824b != null) {
+                if (b.this.f57869b != null) {
                     try {
-                        b.this.f57824b.removeView(b.this.f57828f);
-                        b.this.f57826d.h();
+                        b.this.f57869b.removeView(b.this.f57873f);
+                        b.this.f57871d.h();
                     } catch (Exception e3) {
                         com.kwad.sdk.core.kwai.a.a(e3);
                     }
                 }
-                if (b.this.f57827e != null) {
-                    b.this.f57827e.onSkippedAd();
+                if (b.this.f57872e != null) {
+                    b.this.f57872e.onSkippedAd();
                 }
-                if (b.this.f57826d != null) {
+                if (b.this.f57871d != null) {
                     JSONObject jSONObject = new JSONObject();
                     try {
-                        jSONObject.put("duration", b.this.f57826d.c());
+                        jSONObject.put("duration", b.this.f57871d.c());
                     } catch (JSONException e4) {
                         com.kwad.sdk.core.d.a.b(e4);
                     }
-                    com.kwad.sdk.core.report.a.a(b.this.f57826d.b(), 1, jSONObject);
+                    com.kwad.sdk.core.report.a.a(b.this.f57871d.b(), 1, jSONObject);
                 }
             }
         });

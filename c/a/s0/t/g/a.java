@@ -10,7 +10,7 @@ import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import c.a.d.a.j;
 import c.a.s0.s.s.a;
-import c.a.t0.w3.b0;
+import c.a.t0.x3.b0;
 import com.baidu.tbadk.core.dialog.BdToast;
 import com.baidu.tbadk.coreExtra.share.ShareItem;
 import com.baidu.tieba.R;
@@ -26,20 +26,20 @@ public class a {
 
     /* renamed from: c.a.s0.t.g.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public static class C0893a implements a.e {
+    public static class C0903a implements a.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ int f14031e;
+        public final /* synthetic */ int f14171e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ Context f14032f;
+        public final /* synthetic */ Context f14172f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ DialogInterface.OnCancelListener f14033g;
+        public final /* synthetic */ DialogInterface.OnCancelListener f14173g;
 
-        public C0893a(int i2, Context context, DialogInterface.OnCancelListener onCancelListener) {
+        public C0903a(int i2, Context context, DialogInterface.OnCancelListener onCancelListener) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -54,18 +54,18 @@ public class a {
                     return;
                 }
             }
-            this.f14031e = i2;
-            this.f14032f = context;
-            this.f14033g = onCancelListener;
+            this.f14171e = i2;
+            this.f14172f = context;
+            this.f14173g = onCancelListener;
         }
 
         @Override // c.a.s0.s.s.a.e
         public void onClick(c.a.s0.s.s.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
-                a.d(this.f14031e, this.f14032f);
+                a.d(this.f14171e, this.f14172f);
                 aVar.dismiss();
-                DialogInterface.OnCancelListener onCancelListener = this.f14033g;
+                DialogInterface.OnCancelListener onCancelListener = this.f14173g;
                 if (onCancelListener != null) {
                     onCancelListener.onCancel(aVar.getDialog());
                 }
@@ -79,7 +79,7 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ DialogInterface.OnCancelListener f14034e;
+        public final /* synthetic */ DialogInterface.OnCancelListener f14174e;
 
         public b(DialogInterface.OnCancelListener onCancelListener) {
             Interceptable interceptable = $ic;
@@ -96,7 +96,7 @@ public class a {
                     return;
                 }
             }
-            this.f14034e = onCancelListener;
+            this.f14174e = onCancelListener;
         }
 
         @Override // c.a.s0.s.s.a.e
@@ -104,7 +104,7 @@ public class a {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
                 aVar.dismiss();
-                DialogInterface.OnCancelListener onCancelListener = this.f14034e;
+                DialogInterface.OnCancelListener onCancelListener = this.f14174e;
                 if (onCancelListener != null) {
                     onCancelListener.onCancel(aVar.getDialog());
                 }
@@ -202,7 +202,7 @@ public class a {
         aVar.setAutoNight(false);
         aVar.setCancelable(true);
         aVar.setTitleShowCenter(true);
-        aVar.setPositiveButton(c(i2, context), new C0893a(i2, context, onCancelListener));
+        aVar.setPositiveButton(c(i2, context), new C0903a(i2, context, onCancelListener));
         aVar.setNegativeButton(R.string.cancel, new b(onCancelListener)).create(j.a(activity));
         if (onCancelListener != null) {
             aVar.setOnCalcelListener(onCancelListener);

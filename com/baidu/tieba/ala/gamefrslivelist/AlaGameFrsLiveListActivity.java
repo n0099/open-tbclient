@@ -14,7 +14,7 @@ import androidx.fragment.app.Fragment;
 import androidx.viewpager.widget.ViewPager;
 import c.a.d.f.p.n;
 import c.a.s0.q0.e;
-import c.a.t0.d1.k0;
+import c.a.t0.e1.k0;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomMessage;
@@ -62,7 +62,7 @@ public class AlaGameFrsLiveListActivity extends BaseFragmentActivity implements 
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ AlaGameFrsLiveListActivity f42077e;
+        public final /* synthetic */ AlaGameFrsLiveListActivity f42098e;
 
         public a(AlaGameFrsLiveListActivity alaGameFrsLiveListActivity) {
             Interceptable interceptable = $ic;
@@ -79,14 +79,14 @@ public class AlaGameFrsLiveListActivity extends BaseFragmentActivity implements 
                     return;
                 }
             }
-            this.f42077e = alaGameFrsLiveListActivity;
+            this.f42098e = alaGameFrsLiveListActivity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f42077e.getPageContext().getPageActivity().finish();
+                this.f42098e.getPageContext().getPageActivity().finish();
             }
         }
     }
@@ -97,7 +97,7 @@ public class AlaGameFrsLiveListActivity extends BaseFragmentActivity implements 
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ AlaGameFrsLiveListActivity f42078e;
+        public final /* synthetic */ AlaGameFrsLiveListActivity f42099e;
 
         public b(AlaGameFrsLiveListActivity alaGameFrsLiveListActivity) {
             Interceptable interceptable = $ic;
@@ -114,16 +114,16 @@ public class AlaGameFrsLiveListActivity extends BaseFragmentActivity implements 
                     return;
                 }
             }
-            this.f42078e = alaGameFrsLiveListActivity;
+            this.f42099e = alaGameFrsLiveListActivity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || StringUtils.isNull(this.f42078e.forumId)) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || StringUtils.isNull(this.f42099e.forumId)) {
                 return;
             }
-            this.f42078e.sendMessage(new CustomMessage(2002001, new ForumDetailActivityConfig(this.f42078e.getPageContext().getPageActivity(), this.f42078e.forumId, ForumDetailActivityConfig.FromType.FRS_GAME_LIVE)));
+            this.f42099e.sendMessage(new CustomMessage(2002001, new ForumDetailActivityConfig(this.f42099e.getPageContext().getPageActivity(), this.f42099e.forumId, ForumDetailActivityConfig.FromType.FRS_GAME_LIVE)));
         }
     }
 
@@ -257,13 +257,13 @@ public class AlaGameFrsLiveListActivity extends BaseFragmentActivity implements 
         }
         FragmentTabHost.b bVar = new FragmentTabHost.b();
         FragmentTabIndicator fragmentTabIndicator = new FragmentTabIndicator(getPageContext().getContext());
-        bVar.f40268c = fragment;
+        bVar.f40296c = fragment;
         bVar.a = i2;
         fragmentTabIndicator.setText(str);
         fragmentTabIndicator.dayTextColorResId = R.color.fragment_tab_host_indicator_text_color;
         fragmentTabIndicator.setTextSize(0, getResources().getDimension(R.dimen.fontsize32));
         fragmentTabIndicator.setContentWidthWrapContent();
-        bVar.f40267b = fragmentTabIndicator;
+        bVar.f40295b = fragmentTabIndicator;
         this.mTabHost.addTabSpec(bVar);
     }
 

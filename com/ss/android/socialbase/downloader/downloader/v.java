@@ -1,7 +1,7 @@
 package com.ss.android.socialbase.downloader.downloader;
 
 import com.ss.android.socialbase.downloader.downloader.c;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class v implements c.a {
     @Override // com.ss.android.socialbase.downloader.downloader.c.a
     public o a() {
@@ -14,9 +14,9 @@ public class v implements c.a {
     }
 
     @Override // com.ss.android.socialbase.downloader.downloader.c.a
-    public t a(c.a.InterfaceC2216a interfaceC2216a) {
+    public t a(c.a.InterfaceC2222a interfaceC2222a) {
         com.ss.android.socialbase.downloader.b.f fVar = new com.ss.android.socialbase.downloader.b.f();
-        fVar.a(interfaceC2216a);
+        fVar.a(interfaceC2222a);
         return fVar;
     }
 }

@@ -14,7 +14,7 @@ public class a {
     public GiftBagsInfo a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f62340b;
+    public boolean f62385b;
 
     public a(GiftBagsInfo giftBagsInfo, boolean z) {
         Interceptable interceptable = $ic;
@@ -32,7 +32,7 @@ public class a {
             }
         }
         this.a = giftBagsInfo;
-        this.f62340b = z;
+        this.f62385b = z;
     }
 
     public static boolean b(a aVar) {
@@ -50,13 +50,13 @@ public class a {
     public boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f62340b : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f62385b : invokeV.booleanValue;
     }
 
     public void d(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
-            this.f62340b = z;
+            this.f62385b = z;
         }
     }
 }

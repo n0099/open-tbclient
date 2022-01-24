@@ -67,7 +67,7 @@ public class b {
                                 }
                                 JSONObject jSONObject = new JSONObject(new String(Base64.decode(readLine.getBytes(), 2)));
                                 if (jSONObject.has("abtest")) {
-                                    uVar.f11917f = "1";
+                                    uVar.f12059f = "1";
                                 }
                                 long j4 = jSONObject.getLong("timestamp");
                                 if (j4 > 0) {
@@ -156,7 +156,7 @@ public class b {
                             }
                             JSONObject jSONObject = new JSONObject(new String(Base64.decode(readLine.getBytes(), 2)));
                             if (jSONObject.has("abtest")) {
-                                uVar.f11917f = "1";
+                                uVar.f12059f = "1";
                             }
                             long j4 = jSONObject.getLong("timestamp");
                             if (j4 > 0) {
@@ -212,8 +212,8 @@ public class b {
             }
             JSONObject jSONObject = new JSONObject();
             try {
-                if (iVar.f11840e != null) {
-                    JSONObject jSONObject2 = iVar.f11840e;
+                if (iVar.f11982e != null) {
+                    JSONObject jSONObject2 = iVar.f11982e;
                     if (jSONObject2.has("bizId")) {
                         try {
                             JSONObject jSONObject3 = jSONObject2.getJSONObject("content");
@@ -229,19 +229,19 @@ public class b {
                     } else {
                         jSONObject.put("content", jSONObject2);
                     }
-                } else if (!TextUtils.isEmpty(iVar.f11839d)) {
-                    jSONObject.put("content", iVar.f11839d);
+                } else if (!TextUtils.isEmpty(iVar.f11981d)) {
+                    jSONObject.put("content", iVar.f11981d);
                 }
                 jSONObject.put("bizId", iVar.a);
-                jSONObject.put("timestamp", iVar.f11841f);
+                jSONObject.put("timestamp", iVar.f11983f);
                 jSONObject.put("eventType", "0");
-                if (!TextUtils.isEmpty(iVar.f11843h)) {
-                    jSONObject.put("abtest", iVar.f11843h);
+                if (!TextUtils.isEmpty(iVar.f11985h)) {
+                    jSONObject.put("abtest", iVar.f11985h);
                 }
-                if (!TextUtils.isEmpty(iVar.f11844i)) {
-                    jSONObject.put("c", iVar.f11844i);
+                if (!TextUtils.isEmpty(iVar.f11986i)) {
+                    jSONObject.put("c", iVar.f11986i);
                 }
-                if (iVar.f11845j) {
+                if (iVar.f11987j) {
                     jSONObject.put("of", "1");
                 }
                 jSONObject.put(Constant.ID_TYPE, d.g().j(iVar.a));

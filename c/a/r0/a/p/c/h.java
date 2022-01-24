@@ -46,7 +46,7 @@ public class h implements c.a.r0.a.p.d.n {
     public void b(Activity activity, Bundle bundle, c.a.r0.a.m.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity, bundle, aVar) == null) {
-            SwanAppAllianceLoginHelper.f38633d.i(aVar);
+            SwanAppAllianceLoginHelper.f38661d.i(aVar);
         }
     }
 
@@ -69,7 +69,7 @@ public class h implements c.a.r0.a.p.d.n {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, context)) == null) {
-            boolean g2 = SwanAppAllianceLoginHelper.f38633d.g();
+            boolean g2 = SwanAppAllianceLoginHelper.f38661d.g();
             this.a = Boolean.TRUE;
             return g2;
         }
@@ -96,7 +96,7 @@ public class h implements c.a.r0.a.p.d.n {
     public String h(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, context)) == null) ? c.a.r0.a.s.a.g.f8740b.a() : (String) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, context)) == null) ? c.a.r0.a.s.a.g.f8882b.a() : (String) invokeL.objValue;
     }
 
     @Override // c.a.r0.a.p.d.n

@@ -25,13 +25,13 @@ public class f extends c.a.r0.a.u.e.n.a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Context f9238e;
+        public final /* synthetic */ Context f9380e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f9239f;
+        public final /* synthetic */ String f9381f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ f f9240g;
+        public final /* synthetic */ f f9382g;
 
         public a(f fVar, Context context, String str) {
             Interceptable interceptable = $ic;
@@ -48,9 +48,9 @@ public class f extends c.a.r0.a.u.e.n.a {
                     return;
                 }
             }
-            this.f9240g = fVar;
-            this.f9238e = context;
-            this.f9239f = str;
+            this.f9382g = fVar;
+            this.f9380e = context;
+            this.f9381f = str;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -60,12 +60,12 @@ public class f extends c.a.r0.a.u.e.n.a {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, iVar) == null) {
                 if (c.a.r0.a.h2.c.d.h(iVar)) {
-                    this.f9240g.d(this.f9239f, new c.a.r0.a.u.h.b(0, this.f9240g.z(this.f9238e)));
+                    this.f9382g.d(this.f9381f, new c.a.r0.a.u.h.b(0, this.f9382g.z(this.f9380e)));
                     return;
                 }
                 int b2 = iVar.b();
                 c.a.r0.a.h2.c.d.f(b2);
-                this.f9240g.d(this.f9239f, new c.a.r0.a.u.h.b(b2, c.a.r0.a.h2.c.d.f(b2)));
+                this.f9382g.d(this.f9381f, new c.a.r0.a.u.h.b(b2, c.a.r0.a.h2.c.d.f(b2)));
             }
         }
     }
@@ -128,8 +128,8 @@ public class f extends c.a.r0.a.u.e.n.a {
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context)) == null) {
             JSONObject jSONObject = new JSONObject();
             try {
-                jSONObject.put("oaid", c.a.r0.f.a.b.c.f10333b.b(context));
-                jSONObject.put("androidId", c.a.r0.f.a.b.c.f10333b.a(context));
+                jSONObject.put("oaid", c.a.r0.f.a.b.c.f10475b.b(context));
+                jSONObject.put("androidId", c.a.r0.f.a.b.c.f10475b.a(context));
             } catch (JSONException e2) {
                 p("#getDeviceInfo json put data fail", e2, false);
             }

@@ -18,9 +18,9 @@ public class c {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final boolean f6636b;
+    public static final boolean f6778b;
     public transient /* synthetic */ FieldHolder $fh;
-    public HashMap<c.a.r0.q.i.f, Set<InterfaceC0383c>> a;
+    public HashMap<c.a.r0.q.i.f, Set<InterfaceC0392c>> a;
 
     /* loaded from: classes.dex */
     public static /* synthetic */ class a {
@@ -53,7 +53,7 @@ public class c {
 
     /* renamed from: c.a.r0.a.h0.m.c$c  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public interface InterfaceC0383c {
+    public interface InterfaceC0392c {
         void a(PMSDownloadType pMSDownloadType);
 
         void b(PMSDownloadType pMSDownloadType, c.a.r0.a.u2.a aVar);
@@ -72,7 +72,7 @@ public class c {
                 return;
             }
         }
-        f6636b = c.a.r0.a.k.a;
+        f6778b = c.a.r0.a.k.a;
     }
 
     public /* synthetic */ c(a aVar) {
@@ -89,14 +89,14 @@ public class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048576, this, fVar, pMSDownloadType, aVar) == null) {
             synchronized (this) {
-                if (f6636b) {
+                if (f6778b) {
                     String str = "downloadError:" + fVar + ZeusCrashHandler.NAME_SEPERATOR + pMSDownloadType;
                 }
-                Set<InterfaceC0383c> set = this.a.get(fVar);
+                Set<InterfaceC0392c> set = this.a.get(fVar);
                 if (set != null) {
-                    for (InterfaceC0383c interfaceC0383c : set) {
-                        if (interfaceC0383c != null) {
-                            interfaceC0383c.b(pMSDownloadType, aVar);
+                    for (InterfaceC0392c interfaceC0392c : set) {
+                        if (interfaceC0392c != null) {
+                            interfaceC0392c.b(pMSDownloadType, aVar);
                         }
                     }
                     this.a.remove(fVar);
@@ -109,14 +109,14 @@ public class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, fVar, pMSDownloadType) == null) {
             synchronized (this) {
-                if (f6636b) {
+                if (f6778b) {
                     String str = "downloadSuccess:" + fVar + ZeusCrashHandler.NAME_SEPERATOR + pMSDownloadType;
                 }
-                Set<InterfaceC0383c> set = this.a.get(fVar);
+                Set<InterfaceC0392c> set = this.a.get(fVar);
                 if (set != null) {
-                    for (InterfaceC0383c interfaceC0383c : set) {
-                        if (interfaceC0383c != null) {
-                            interfaceC0383c.a(pMSDownloadType);
+                    for (InterfaceC0392c interfaceC0392c : set) {
+                        if (interfaceC0392c != null) {
+                            interfaceC0392c.a(pMSDownloadType);
                         }
                     }
                     this.a.remove(fVar);
@@ -125,20 +125,20 @@ public class c {
         }
     }
 
-    public synchronized void d(c.a.r0.q.i.f fVar, InterfaceC0383c interfaceC0383c) {
+    public synchronized void d(c.a.r0.q.i.f fVar, InterfaceC0392c interfaceC0392c) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, fVar, interfaceC0383c) == null) {
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, fVar, interfaceC0392c) == null) {
             synchronized (this) {
-                if (f6636b) {
+                if (f6778b) {
                     String str = "registerResultListener:" + fVar;
                 }
-                if (fVar != null && interfaceC0383c != null) {
-                    Set<InterfaceC0383c> set = this.a.get(fVar);
+                if (fVar != null && interfaceC0392c != null) {
+                    Set<InterfaceC0392c> set = this.a.get(fVar);
                     if (set != null) {
-                        set.add(interfaceC0383c);
+                        set.add(interfaceC0392c);
                     } else {
                         HashSet hashSet = new HashSet();
-                        hashSet.add(interfaceC0383c);
+                        hashSet.add(interfaceC0392c);
                         this.a.put(fVar, hashSet);
                     }
                 }

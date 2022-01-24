@@ -23,7 +23,7 @@ public final class w extends XMPushService.i {
     public final /* synthetic */ String f986a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ String f61467b;
+    public final /* synthetic */ String f61512b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public w(int i2, XMPushService xMPushService, ib ibVar, String str, String str2) {
@@ -46,7 +46,7 @@ public final class w extends XMPushService.i {
         this.f985a = xMPushService;
         this.a = ibVar;
         this.f986a = str;
-        this.f61467b = str2;
+        this.f61512b = str2;
     }
 
     @Override // com.xiaomi.push.service.XMPushService.i
@@ -63,7 +63,7 @@ public final class w extends XMPushService.i {
             try {
                 ib a = q.a((Context) this.f985a, this.a);
                 a.f637a.a("error", this.f986a);
-                a.f637a.a("reason", this.f61467b);
+                a.f637a.a("reason", this.f61512b);
                 y.a(this.f985a, a);
             } catch (fw e2) {
                 com.xiaomi.channel.commonutils.logger.b.a(e2);

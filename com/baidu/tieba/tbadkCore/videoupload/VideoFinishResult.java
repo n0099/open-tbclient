@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public class VideoFinishResult implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String KEY_ERROR = "error";

@@ -1,9 +1,9 @@
 package com.baidu.tbadk;
 
-import c.a.t0.s1.c;
-import c.a.t0.s1.v.a.d;
-import c.a.t0.s1.v.a.e;
-import c.a.t0.s1.v.a.f;
+import c.a.t0.t1.c;
+import c.a.t0.t1.v.a.d;
+import c.a.t0.t1.v.a.e;
+import c.a.t0.t1.v.a.f;
 import com.baidu.adp.framework.task.SocketMessageTask;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.GroupMsgImageActivityConfig;

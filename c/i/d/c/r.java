@@ -63,7 +63,7 @@ public final class r<K, V> extends q<K, V> implements w<K, V> {
     public e1<K, V> b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? (e1) this.f30071e : (e1) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? (e1) this.f30099e : (e1) invokeV.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */

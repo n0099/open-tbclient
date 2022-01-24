@@ -209,7 +209,7 @@ public class CheckUtils {
                 return false;
             }
             FilterValue filterValue = videoMuxerData.getFilterValue();
-            if (filterValue != null && (filterValue.getFilterType() != 1 ? !(filterValue.getFilterType() != 2 || TextUtils.isEmpty(filterValue.getFilterPath())) : !(TextUtils.isEmpty(filterValue.getValue()) || FilterValue.DEFAULT_FILTER_VALUE.equalsIgnoreCase(filterValue.getValue())))) {
+            if (filterValue != null && (filterValue.getFilterType() != 1 ? !(filterValue.getFilterType() != 2 || TextUtils.isEmpty(filterValue.getFilterPath())) : !(TextUtils.isEmpty(filterValue.getValue()) || "origin".equalsIgnoreCase(filterValue.getValue())))) {
                 z = true;
             }
             if (videoMuxerData.getVideoEffectData() != null) {
@@ -234,7 +234,7 @@ public class CheckUtils {
                 return false;
             }
             if (filterValue.getFilterType() == 1) {
-                if (TextUtils.isEmpty(filterValue.getValue()) || FilterValue.DEFAULT_FILTER_VALUE.equalsIgnoreCase(filterValue.getValue())) {
+                if (TextUtils.isEmpty(filterValue.getValue()) || "origin".equalsIgnoreCase(filterValue.getValue())) {
                     return false;
                 }
             } else if (filterValue.getFilterType() != 2 || TextUtils.isEmpty(filterValue.getFilterPath())) {

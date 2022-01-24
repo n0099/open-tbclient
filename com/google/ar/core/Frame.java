@@ -16,10 +16,10 @@ public class Frame {
     public final Session a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final LightEstimate f54375b;
+    public final LightEstimate f54420b;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f54376c;
+    public long f54421c;
 
     static {
         InterceptResult invokeClinit;
@@ -53,10 +53,10 @@ public class Frame {
                 return;
             }
         }
-        this.f54376c = 0L;
+        this.f54421c = 0L;
         this.a = session;
-        this.f54376c = nativeCreateFrame(session.a);
-        this.f54375b = new LightEstimate(session);
+        this.f54421c = nativeCreateFrame(session.a);
+        this.f54420b = new LightEstimate(session);
     }
 
     private native long nativeAcquireCameraImage(long j2, long j3);
@@ -86,7 +86,7 @@ public class Frame {
     public void finalize() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            long j2 = this.f54376c;
+            long j2 = this.f54421c;
             if (j2 != 0) {
                 nativeDestroyFrame(j2);
             }
@@ -115,7 +115,7 @@ public class Frame {
                 return;
             }
         }
-        this.f54376c = 0L;
-        this.f54376c = 0L;
+        this.f54421c = 0L;
+        this.f54421c = 0L;
     }
 }

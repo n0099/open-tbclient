@@ -20,7 +20,7 @@ public class e implements c.a.r0.a.z2.g1.c<HybridUbcFlow> {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final boolean f9339e;
+    public static final boolean f9481e;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -36,7 +36,7 @@ public class e implements c.a.r0.a.z2.g1.c<HybridUbcFlow> {
                 return;
             }
         }
-        f9339e = k.a;
+        f9481e = k.a;
     }
 
     public e() {
@@ -69,11 +69,11 @@ public class e implements c.a.r0.a.z2.g1.c<HybridUbcFlow> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, hybridUbcFlow) == null) {
             c.a.r0.a.d2.e L = c.a.r0.a.d2.e.L();
-            if (hybridUbcFlow == null || hybridUbcFlow.f38987f.isEmpty() || !f9339e || L == null) {
+            if (hybridUbcFlow == null || hybridUbcFlow.f39015f.isEmpty() || !f9481e || L == null) {
                 return;
             }
             HybridUbcFlow.SubmitStrategy i2 = hybridUbcFlow.i();
-            String str = hybridUbcFlow.f38985d.contains("fe_route_start") ? "fe_route_start" : "na_first_receive_action";
+            String str = hybridUbcFlow.f39013d.contains("fe_route_start") ? "fe_route_start" : "na_first_receive_action";
             int i3 = 2;
             char c2 = 1;
             char c3 = 0;
@@ -91,15 +91,15 @@ public class e implements c.a.r0.a.z2.g1.c<HybridUbcFlow> {
             if (TextUtils.isEmpty(Y)) {
                 Y = "";
             }
-            String str2 = "\n\n  小程序路由性能报告: " + Y + " appID: " + (!TextUtils.isEmpty(L.f5537f) ? L.f5537f : "") + " launchId ：" + (L.X() != null ? L.X().V() : "") + " speedLog\n";
+            String str2 = "\n\n  小程序路由性能报告: " + Y + " appID: " + (!TextUtils.isEmpty(L.f5679f) ? L.f5679f : "") + " launchId ：" + (L.X() != null ? L.X().V() : "") + " speedLog\n";
             StringBuilder sb = new StringBuilder();
             for (int i4 = 0; i4 < 100; i4++) {
                 sb.append("&");
             }
             String.format("Delta [%s]  Cost Src  Total Action", sb.toString());
-            long g2 = hybridUbcFlow.f38987f.get(0).g();
+            long g2 = hybridUbcFlow.f39015f.get(0).g();
             long j2 = 0;
-            for (UbcFlowEvent ubcFlowEvent : hybridUbcFlow.f38987f) {
+            for (UbcFlowEvent ubcFlowEvent : hybridUbcFlow.f39015f) {
                 String[] strArr = new String[i3];
                 strArr[c3] = ubcFlowEvent.a;
                 strArr[c2] = str;
@@ -147,7 +147,7 @@ public class e implements c.a.r0.a.z2.g1.c<HybridUbcFlow> {
                 c2 = 1;
                 c3 = 0;
             }
-            String str3 = "Total  ： " + hybridUbcFlow.f38987f.size();
+            String str3 = "Total  ： " + hybridUbcFlow.f39015f.size();
             StringBuilder sb3 = new StringBuilder();
             sb3.append("\n\n小程序路由总时长：========> " + f2);
             String optString = hybridUbcFlow.m().optString("type");

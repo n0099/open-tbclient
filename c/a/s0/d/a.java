@@ -12,31 +12,31 @@ public class a {
     public static int a = 1;
 
     /* renamed from: b  reason: collision with root package name */
-    public static int f12277b = 2;
+    public static int f12422b = 2;
 
     /* renamed from: c  reason: collision with root package name */
-    public static int f12278c = 3;
+    public static int f12423c = 3;
 
     /* renamed from: d  reason: collision with root package name */
-    public static int f12279d = 1;
+    public static int f12424d = 1;
 
     /* renamed from: e  reason: collision with root package name */
-    public static int f12280e = 2;
+    public static int f12425e = 2;
 
     /* renamed from: f  reason: collision with root package name */
-    public static int f12281f = 3;
+    public static int f12426f = 3;
 
     /* renamed from: g  reason: collision with root package name */
-    public static int f12282g = 4;
+    public static int f12427g = 4;
 
     /* renamed from: h  reason: collision with root package name */
-    public static int f12283h = 5;
+    public static int f12428h = 5;
 
     /* renamed from: i  reason: collision with root package name */
-    public static int f12284i = 6;
+    public static int f12429i = 6;
 
     /* renamed from: j  reason: collision with root package name */
-    public static int f12285j = 7;
+    public static int f12430j = 7;
     public static int k = 8;
     public static int l = 9;
     public static b m;
@@ -63,11 +63,11 @@ public class a {
         if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), str, str2, str3, Integer.valueOf(i4)}) == null) {
             c cVar = new c();
             cVar.a = i2;
-            cVar.f12286b = i3;
-            cVar.f12287c = str;
-            cVar.f12288d = str2;
-            cVar.f12289e = str3;
-            cVar.f12290f = i4;
+            cVar.f12431b = i3;
+            cVar.f12432c = str;
+            cVar.f12433d = str2;
+            cVar.f12434e = str3;
+            cVar.f12435f = i4;
             m.a(cVar);
         }
     }

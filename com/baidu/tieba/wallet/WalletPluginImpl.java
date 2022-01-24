@@ -121,8 +121,8 @@ public class WalletPluginImpl implements IWalletPlugin {
                     }
                     f fVar = new f();
                     fVar.a = this.val$tag;
-                    fVar.f12966b = i2;
-                    fVar.f12967c = str3;
+                    fVar.f13110b = i2;
+                    fVar.f13111c = str3;
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921393, fVar));
                 }
             }
@@ -172,8 +172,8 @@ public class WalletPluginImpl implements IWalletPlugin {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, str2) == null) {
                         f fVar = new f();
-                        fVar.f12966b = i2;
-                        fVar.f12967c = str2;
+                        fVar.f13110b = i2;
+                        fVar.f13111c = str2;
                         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921335, fVar));
                     }
                 }
@@ -227,8 +227,8 @@ public class WalletPluginImpl implements IWalletPlugin {
                     if (interceptable2 == null || interceptable2.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, str2) == null) {
                         f fVar = new f();
                         fVar.a = this.val$tag;
-                        fVar.f12966b = i2;
-                        fVar.f12967c = str2;
+                        fVar.f13110b = i2;
+                        fVar.f13111c = str2;
                         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921393, fVar));
                     }
                 }
@@ -511,8 +511,8 @@ public class WalletPluginImpl implements IWalletPlugin {
                         int i3 = i2 == 9000 ? 0 : i2 == 8000 ? 1 : i2 == 6001 ? 2 : 6;
                         f fVar = new f();
                         fVar.a = this.val$tag;
-                        fVar.f12966b = i3;
-                        fVar.f12967c = str2;
+                        fVar.f13110b = i3;
+                        fVar.f13111c = str2;
                         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921393, fVar));
                     }
                 }

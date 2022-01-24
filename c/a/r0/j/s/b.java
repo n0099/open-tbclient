@@ -27,7 +27,7 @@ public class b {
         public final /* synthetic */ Activity a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ b f11250b;
+        public final /* synthetic */ b f11392b;
 
         public a(b bVar, Activity activity) {
             Interceptable interceptable = $ic;
@@ -44,7 +44,7 @@ public class b {
                     return;
                 }
             }
-            this.f11250b = bVar;
+            this.f11392b = bVar;
             this.a = activity;
         }
 
@@ -59,7 +59,7 @@ public class b {
         public void onClick() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                this.f11250b.d(this.a);
+                this.f11392b.d(this.a);
             }
         }
     }
@@ -95,7 +95,7 @@ public class b {
         c.a.r0.j.d0.a.a aVar;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cVar, activity) == null) && activity != null && this.a == null) {
-            if (c.a.r0.j.s.a.f((cVar == null || (aVar = cVar.f11255c) == null) ? null : aVar.f10941f).b()) {
+            if (c.a.r0.j.s.a.f((cVar == null || (aVar = cVar.f11397c) == null) ? null : aVar.f11083f).b()) {
                 b(activity);
             }
         }

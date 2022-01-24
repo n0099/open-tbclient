@@ -4,7 +4,7 @@ import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
 import c.a.d.n.e.a;
-import c.a.t0.q1.l.n;
+import c.a.t0.r1.l.n;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.imsdk.internal.Constants;
@@ -28,10 +28,10 @@ public class RelateCardForumAdapter extends a<n, CardGroupRelateForumHolder> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public int a;
-        public c.a.t0.q1.o.a mCardView;
+        public c.a.t0.r1.o.a mCardView;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public CardGroupRelateForumHolder(RelateCardForumAdapter relateCardForumAdapter, c.a.t0.q1.o.a aVar) {
+        public CardGroupRelateForumHolder(RelateCardForumAdapter relateCardForumAdapter, c.a.t0.r1.o.a aVar) {
             super(aVar.j());
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -57,7 +57,7 @@ public class RelateCardForumAdapter extends a<n, CardGroupRelateForumHolder> {
             if (!(interceptable == null || interceptable.invokeI(1048576, this, i2) == null) || this.a == i2) {
                 return;
             }
-            c.a.t0.q1.o.a aVar = this.mCardView;
+            c.a.t0.r1.o.a aVar = this.mCardView;
             if (aVar != null) {
                 aVar.l(aVar.i(), i2);
             }
@@ -103,7 +103,7 @@ public class RelateCardForumAdapter extends a<n, CardGroupRelateForumHolder> {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, viewGroup)) == null) {
-            c.a.t0.q1.o.a aVar = new c.a.t0.q1.o.a(this.m.getPageContext());
+            c.a.t0.r1.o.a aVar = new c.a.t0.r1.o.a(this.m.getPageContext());
             aVar.n(Z());
             aVar.setFrom("home");
             this.n = true;
@@ -117,7 +117,7 @@ public class RelateCardForumAdapter extends a<n, CardGroupRelateForumHolder> {
     /* renamed from: b0 */
     public View S(int i2, View view, ViewGroup viewGroup, n nVar, CardGroupRelateForumHolder cardGroupRelateForumHolder) {
         InterceptResult invokeCommon;
-        c.a.t0.q1.o.a aVar;
+        c.a.t0.r1.o.a aVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i2), view, viewGroup, nVar, cardGroupRelateForumHolder})) == null) {
             if (cardGroupRelateForumHolder == null || (aVar = cardGroupRelateForumHolder.mCardView) == null) {

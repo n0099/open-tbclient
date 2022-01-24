@@ -23,10 +23,10 @@ public class TextureMapFragment extends Fragment {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public TextureMapView f35418b;
+    public TextureMapView f35446b;
 
     /* renamed from: c  reason: collision with root package name */
-    public BaiduMapOptions f35419c;
+    public BaiduMapOptions f35447c;
 
     static {
         InterceptResult invokeClinit;
@@ -73,7 +73,7 @@ public class TextureMapFragment extends Fragment {
                 return;
             }
         }
-        this.f35419c = baiduMapOptions;
+        this.f35447c = baiduMapOptions;
     }
 
     public static TextureMapFragment newInstance() {
@@ -92,7 +92,7 @@ public class TextureMapFragment extends Fragment {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            TextureMapView textureMapView = this.f35418b;
+            TextureMapView textureMapView = this.f35446b;
             if (textureMapView == null) {
                 return null;
             }
@@ -104,7 +104,7 @@ public class TextureMapFragment extends Fragment {
     public TextureMapView getMapView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f35418b : (TextureMapView) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f35446b : (TextureMapView) invokeV.objValue;
     }
 
     @Override // android.app.Fragment
@@ -144,8 +144,8 @@ public class TextureMapFragment extends Fragment {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048582, this, layoutInflater, viewGroup, bundle)) == null) {
-            TextureMapView textureMapView = new TextureMapView(getActivity(), this.f35419c);
-            this.f35418b = textureMapView;
+            TextureMapView textureMapView = new TextureMapView(getActivity(), this.f35447c);
+            this.f35446b = textureMapView;
             return textureMapView;
         }
         return (View) invokeLLL.objValue;
@@ -164,7 +164,7 @@ public class TextureMapFragment extends Fragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
             super.onDestroyView();
-            this.f35418b.onDestroy();
+            this.f35446b.onDestroy();
         }
     }
 
@@ -181,7 +181,7 @@ public class TextureMapFragment extends Fragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
             super.onPause();
-            this.f35418b.onPause();
+            this.f35446b.onPause();
         }
     }
 
@@ -190,7 +190,7 @@ public class TextureMapFragment extends Fragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
             super.onResume();
-            this.f35418b.onResume();
+            this.f35446b.onResume();
         }
     }
 

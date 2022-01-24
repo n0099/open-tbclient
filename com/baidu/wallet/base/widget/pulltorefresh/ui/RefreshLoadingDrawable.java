@@ -23,31 +23,31 @@ public class RefreshLoadingDrawable extends Drawable {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public Paint f50873b;
+    public Paint f50918b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Paint f50874c;
+    public Paint f50919c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f50875d;
+    public int f50920d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f50876e;
+    public int f50921e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f50877f;
+    public int f50922f;
 
     /* renamed from: g  reason: collision with root package name */
-    public RectF f50878g;
+    public RectF f50923g;
 
     /* renamed from: h  reason: collision with root package name */
-    public Path f50879h;
+    public Path f50924h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f50880i;
+    public int f50925i;
 
     /* renamed from: j  reason: collision with root package name */
-    public Context f50881j;
+    public Context f50926j;
 
     public RefreshLoadingDrawable(Context context, int i2, int i3) {
         Interceptable interceptable = $ic;
@@ -64,40 +64,40 @@ public class RefreshLoadingDrawable extends Drawable {
                 return;
             }
         }
-        this.f50873b = new Paint();
-        this.f50874c = new Paint();
-        this.f50878g = new RectF();
-        this.f50879h = new Path();
+        this.f50918b = new Paint();
+        this.f50919c = new Paint();
+        this.f50923g = new RectF();
+        this.f50924h = new Path();
         i2 = i2 < 0 ? 0 : i2;
-        this.f50875d = i3;
+        this.f50920d = i3;
         Context applicationContext = DxmApplicationContextImpl.getApplicationContext(context);
-        this.f50881j = applicationContext;
+        this.f50926j = applicationContext;
         int dip2px = DisplayUtils.dip2px(applicationContext, 1.0f);
-        this.f50876e = dip2px;
+        this.f50921e = dip2px;
         int i6 = i2 + (dip2px * 2);
-        this.f50880i = i6;
-        this.f50873b.setAntiAlias(true);
-        this.f50873b.setDither(true);
-        this.f50873b.setColor(this.f50875d);
-        this.f50873b.setStyle(Paint.Style.STROKE);
-        this.f50873b.setStrokeJoin(Paint.Join.ROUND);
-        this.f50873b.setStrokeCap(Paint.Cap.ROUND);
-        this.f50873b.setStrokeWidth(this.f50876e);
-        this.f50874c.set(this.f50873b);
-        RectF rectF = this.f50878g;
-        int i7 = this.f50876e;
-        int i8 = this.f50880i;
+        this.f50925i = i6;
+        this.f50918b.setAntiAlias(true);
+        this.f50918b.setDither(true);
+        this.f50918b.setColor(this.f50920d);
+        this.f50918b.setStyle(Paint.Style.STROKE);
+        this.f50918b.setStrokeJoin(Paint.Join.ROUND);
+        this.f50918b.setStrokeCap(Paint.Cap.ROUND);
+        this.f50918b.setStrokeWidth(this.f50921e);
+        this.f50919c.set(this.f50918b);
+        RectF rectF = this.f50923g;
+        int i7 = this.f50921e;
+        int i8 = this.f50925i;
         rectF.set(i7, i7, i8 - i7, i8 - i7);
-        this.f50879h.reset();
+        this.f50924h.reset();
         float f2 = i6;
         float f3 = 0.5f * f2;
         float f4 = 0.25f * f2;
-        this.f50879h.moveTo(f3, f4);
+        this.f50924h.moveTo(f3, f4);
         float f5 = f2 * 0.75f;
-        this.f50879h.lineTo(f5, f3);
-        this.f50879h.lineTo(f3, f5);
-        this.f50879h.lineTo(f4, f3);
-        this.f50879h.close();
+        this.f50924h.lineTo(f5, f3);
+        this.f50924h.lineTo(f3, f5);
+        this.f50924h.lineTo(f4, f3);
+        this.f50924h.close();
     }
 
     public static RefreshLoadingDrawable newInstanceBlue(Context context) {
@@ -122,10 +122,10 @@ public class RefreshLoadingDrawable extends Drawable {
     public void draw(Canvas canvas) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, canvas) == null) {
-            canvas.drawArc(this.f50878g, -90.0f, (this.f50877f * 360.0f) / 100.0f, false, this.f50873b);
-            if (this.f50877f >= 100) {
-                this.f50874c.setColor(this.f50875d);
-                canvas.drawPath(this.f50879h, this.f50874c);
+            canvas.drawArc(this.f50923g, -90.0f, (this.f50922f * 360.0f) / 100.0f, false, this.f50918b);
+            if (this.f50922f >= 100) {
+                this.f50919c.setColor(this.f50920d);
+                canvas.drawPath(this.f50924h, this.f50919c);
             }
         }
     }
@@ -134,14 +134,14 @@ public class RefreshLoadingDrawable extends Drawable {
     public int getIntrinsicHeight() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f50880i : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f50925i : invokeV.intValue;
     }
 
     @Override // android.graphics.drawable.Drawable
     public int getIntrinsicWidth() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f50880i : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f50925i : invokeV.intValue;
     }
 
     @Override // android.graphics.drawable.Drawable
@@ -177,10 +177,10 @@ public class RefreshLoadingDrawable extends Drawable {
             if (i2 > 100) {
                 i2 = 100;
             }
-            if (this.f50877f == i2) {
+            if (this.f50922f == i2) {
                 return;
             }
-            this.f50877f = i2;
+            this.f50922f = i2;
         }
     }
 }

@@ -17,7 +17,7 @@ public final class k {
     public static final Pattern a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final Pattern f30655b;
+    public static final Pattern f30683b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes9.dex */
@@ -27,10 +27,10 @@ public final class k {
         public int a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f30656b;
+        public int f30684b;
 
         /* renamed from: c  reason: collision with root package name */
-        public int f30657c;
+        public int f30685c;
 
         public a(int i2, int i3, int i4) {
             Interceptable interceptable = $ic;
@@ -48,8 +48,8 @@ public final class k {
                 }
             }
             this.a = i2;
-            this.f30656b = i3;
-            this.f30657c = i4;
+            this.f30684b = i3;
+            this.f30685c = i4;
         }
     }
 
@@ -67,7 +67,7 @@ public final class k {
             }
         }
         a = Pattern.compile("([0-9]{1,2})[- ]([A-Za-z]{3,9})[- ]([0-9]{2,4})[ ]([0-9]{1,2}:[0-9][0-9]:[0-9][0-9])");
-        f30655b = Pattern.compile("[ ]([A-Za-z]{3,9})[ ]+([0-9]{1,2})[ ]([0-9]{1,2}:[0-9][0-9]:[0-9][0-9])[ ]([0-9]{2,4})");
+        f30683b = Pattern.compile("[ ]([A-Za-z]{3,9})[ ]+([0-9]{1,2})[ ]([0-9]{1,2}:[0-9][0-9]:[0-9][0-9])[ ]([0-9]{2,4})");
     }
 
     public static long a(String str) {
@@ -88,7 +88,7 @@ public final class k {
                 d2 = d(matcher.group(3));
                 aVar = e(matcher.group(4));
             } else {
-                Matcher matcher2 = f30655b.matcher(str);
+                Matcher matcher2 = f30683b.matcher(str);
                 if (!matcher2.find()) {
                     throw new IllegalArgumentException();
                 }
@@ -109,7 +109,7 @@ public final class k {
                 i5 = d2;
             }
             Time time = new Time("UTC");
-            time.set(aVar.f30657c, aVar.f30656b, aVar.a, i3, i4, i5);
+            time.set(aVar.f30685c, aVar.f30684b, aVar.a, i3, i4, i5);
             return time.toMillis(false);
         }
         return invokeL.longValue;

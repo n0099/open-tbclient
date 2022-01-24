@@ -18,7 +18,7 @@ public class j {
     public static final boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static b f7102b;
+    public static b f7244b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes.dex */
@@ -27,7 +27,7 @@ public class j {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c.a.r0.a.n2.s.e f7103e;
+        public final /* synthetic */ c.a.r0.a.n2.s.e f7245e;
 
         public a(c.a.r0.a.n2.s.e eVar) {
             Interceptable interceptable = $ic;
@@ -44,14 +44,14 @@ public class j {
                     return;
                 }
             }
-            this.f7103e = eVar;
+            this.f7245e = eVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                c.a.r0.a.n2.b.k("4178", this.f7103e.f());
+                c.a.r0.a.n2.b.k("4178", this.f7245e.f());
             }
         }
     }
@@ -75,7 +75,7 @@ public class j {
         public final void g() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f7980e = this.k;
+                this.f8122e = this.k;
                 a("isAuthorized", this.l);
                 a("isUserLogin", this.m);
                 a("isCompleteLogin", this.n);
@@ -200,8 +200,8 @@ public class j {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65539, null, bVar) == null) {
             bVar.a = n.n(c.a.r0.a.d2.d.J().r().V().G());
-            bVar.f7977b = "trigger";
-            bVar.f7982g = "multiAuthorize";
+            bVar.f8119b = "trigger";
+            bVar.f8124g = "multiAuthorize";
         }
     }
 
@@ -211,11 +211,11 @@ public class j {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
             synchronized (j.class) {
-                if (f7102b == null) {
-                    f7102b = new b(null);
+                if (f7244b == null) {
+                    f7244b = new b(null);
                     boolean z = a;
                 }
-                bVar = f7102b;
+                bVar = f7244b;
             }
             return bVar;
         }
@@ -226,7 +226,7 @@ public class j {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65541, null) == null) {
             synchronized (j.class) {
-                f7102b = null;
+                f7244b = null;
             }
         }
     }

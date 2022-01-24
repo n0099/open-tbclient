@@ -22,31 +22,31 @@ public class a extends d {
 
     /* renamed from: c.a.r0.b.n.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public class C0660a extends c.a.r0.a.u.c.c {
+    public class C0669a extends c.a.r0.a.u.c.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ a f10090d;
+        public final /* synthetic */ a f10232d;
 
         /* renamed from: c.a.r0.b.n.a$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class C0661a implements c.a.r0.a.z2.g1.c<i<b.e>> {
+        public class C0670a implements c.a.r0.a.z2.g1.c<i<b.e>> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ c.b f10091e;
+            public final /* synthetic */ c.b f10233e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ C0660a f10092f;
+            public final /* synthetic */ C0669a f10234f;
 
-            public C0661a(C0660a c0660a, c.b bVar) {
+            public C0670a(C0669a c0669a, c.b bVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     newInitContext.initArgs = r2;
-                    Object[] objArr = {c0660a, bVar};
+                    Object[] objArr = {c0669a, bVar};
                     interceptable.invokeUnInit(65536, newInitContext);
                     int i2 = newInitContext.flag;
                     if ((i2 & 1) != 0) {
@@ -56,8 +56,8 @@ public class a extends d {
                         return;
                     }
                 }
-                this.f10092f = c0660a;
-                this.f10091e = bVar;
+                this.f10234f = c0669a;
+                this.f10233e = bVar;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
@@ -67,17 +67,17 @@ public class a extends d {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(1048576, this, iVar) == null) {
                     if (c.a.r0.a.h2.c.d.h(iVar)) {
-                        this.f10091e.a(this.f10092f.f10090d.z());
+                        this.f10233e.a(this.f10234f.f10232d.z());
                         return;
                     }
                     int b2 = iVar.b();
-                    this.f10091e.a(new c.a.r0.a.u.h.b(b2, c.a.r0.a.h2.c.d.f(b2)));
+                    this.f10233e.a(new c.a.r0.a.u.h.b(b2, c.a.r0.a.h2.c.d.f(b2)));
                 }
             }
         }
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public C0660a(a aVar, String str) {
+        public C0669a(a aVar, String str) {
             super(str);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -94,7 +94,7 @@ public class a extends d {
                     return;
                 }
             }
-            this.f10090d = aVar;
+            this.f10232d = aVar;
         }
 
         @Override // c.a.r0.a.u.c.c
@@ -107,7 +107,7 @@ public class a extends d {
                 if (a0 == null) {
                     return new c.a.r0.a.u.h.b(1001, "null swan runtime");
                 }
-                a0.d0().g(c.a.r0.a.d2.d.J(), "mapp_i_get_bduss", new C0661a(this, bVar));
+                a0.d0().g(c.a.r0.a.d2.d.J(), "mapp_i_get_bduss", new C0670a(this, bVar));
                 return c.a.r0.a.u.h.b.f();
             }
             return (c.a.r0.a.u.h.b) invokeLL.objValue;
@@ -118,7 +118,7 @@ public class a extends d {
         public c.a.r0.a.u.h.b e(@NonNull JSONObject jSONObject) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject)) == null) ? this.f10090d.z() : (c.a.r0.a.u.h.b) invokeL.objValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject)) == null) ? this.f10232d.z() : (c.a.r0.a.u.h.b) invokeL.objValue;
         }
 
         @Override // c.a.r0.a.u.c.c
@@ -169,7 +169,7 @@ public class a extends d {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
             q("#getBduss", false);
-            return m(str, new C0660a(this, "getBDUSS"));
+            return m(str, new C0669a(this, "getBDUSS"));
         }
         return (c.a.r0.a.u.h.b) invokeL.objValue;
     }

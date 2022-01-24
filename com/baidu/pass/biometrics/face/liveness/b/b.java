@@ -9,13 +9,13 @@ public class b {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final int f37569h = 0;
+    public static final int f37597h = 0;
 
     /* renamed from: i  reason: collision with root package name */
-    public static final int f37570i = 1;
+    public static final int f37598i = 1;
 
     /* renamed from: j  reason: collision with root package name */
-    public static final int f37571j = 2;
+    public static final int f37599j = 2;
     public static final int k = 3;
     public static final int l = 4;
     public static final int m = 5;
@@ -35,22 +35,22 @@ public class b {
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f37572b;
+    public boolean f37600b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f37573c;
+    public boolean f37601c;
 
     /* renamed from: d  reason: collision with root package name */
-    public long f37574d;
+    public long f37602d;
 
     /* renamed from: e  reason: collision with root package name */
-    public long f37575e;
+    public long f37603e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f37576f;
+    public boolean f37604f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f37577g;
+    public boolean f37605g;
 
     public b() {
         Interceptable interceptable = $ic;
@@ -66,10 +66,10 @@ public class b {
             }
         }
         this.a = 0;
-        this.f37572b = false;
-        this.f37573c = false;
-        this.f37575e = 20000L;
-        this.f37576f = false;
-        this.f37577g = false;
+        this.f37600b = false;
+        this.f37601c = false;
+        this.f37603e = 20000L;
+        this.f37604f = false;
+        this.f37605g = false;
     }
 }

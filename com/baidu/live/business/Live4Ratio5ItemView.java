@@ -35,19 +35,19 @@ public class Live4Ratio5ItemView extends LiveBaseItemView {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: f  reason: collision with root package name */
-    public SimpleDraweeView f34705f;
+    public SimpleDraweeView f34733f;
 
     /* renamed from: g  reason: collision with root package name */
-    public SimpleDraweeView f34706g;
+    public SimpleDraweeView f34734g;
 
     /* renamed from: h  reason: collision with root package name */
-    public LiveStatusAnimView f34707h;
+    public LiveStatusAnimView f34735h;
 
     /* renamed from: i  reason: collision with root package name */
-    public TextView f34708i;
+    public TextView f34736i;
 
     /* renamed from: j  reason: collision with root package name */
-    public TextView f34709j;
+    public TextView f34737j;
     public TextView k;
     public SimpleDraweeView l;
     public FrameLayout m;
@@ -85,11 +85,11 @@ public class Live4Ratio5ItemView extends LiveBaseItemView {
             this.mContext = context;
             View inflate = RelativeLayout.inflate(context, d.live_feed_page_4_5_item_view, this);
             this.m = (FrameLayout) inflate.findViewById(c.live_feed_page_item_cover_rect);
-            this.f34705f = (SimpleDraweeView) inflate.findViewById(c.live_feed_page_item_cover);
-            this.f34707h = (LiveStatusAnimView) inflate.findViewById(c.live_feed_page_item_lable);
-            this.f34708i = (TextView) inflate.findViewById(c.live_feed_page_item_title);
-            this.f34709j = (TextView) inflate.findViewById(c.live_feed_page_item_audience_num);
-            this.f34706g = (SimpleDraweeView) inflate.findViewById(c.live_feed_page_item_avatar_iv);
+            this.f34733f = (SimpleDraweeView) inflate.findViewById(c.live_feed_page_item_cover);
+            this.f34735h = (LiveStatusAnimView) inflate.findViewById(c.live_feed_page_item_lable);
+            this.f34736i = (TextView) inflate.findViewById(c.live_feed_page_item_title);
+            this.f34737j = (TextView) inflate.findViewById(c.live_feed_page_item_audience_num);
+            this.f34734g = (SimpleDraweeView) inflate.findViewById(c.live_feed_page_item_avatar_iv);
             this.k = (TextView) inflate.findViewById(c.live_feed_page_item_name);
             this.l = (SimpleDraweeView) inflate.findViewById(c.live_feed_page_item_right_lable);
             this.o = inflate.findViewById(c.live_feed_page_4_5_mask);
@@ -107,15 +107,15 @@ public class Live4Ratio5ItemView extends LiveBaseItemView {
     public void onDarkModeChange(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            SimpleDraweeView simpleDraweeView = this.f34705f;
+            SimpleDraweeView simpleDraweeView = this.f34733f;
             if (simpleDraweeView != null) {
                 simpleDraweeView.getHierarchy().setPlaceholderImage(f.e().j(this.mIsImmersion), ScalingUtils.ScaleType.FIT_XY);
             }
-            SimpleDraweeView simpleDraweeView2 = this.f34706g;
+            SimpleDraweeView simpleDraweeView2 = this.f34734g;
             if (simpleDraweeView2 != null) {
                 simpleDraweeView2.getHierarchy().setPlaceholderImage(f.e().j(this.mIsImmersion), ScalingUtils.ScaleType.FIT_XY);
             }
-            TextView textView = this.f34708i;
+            TextView textView = this.f34736i;
             if (textView != null) {
                 textView.setTextColor(f.e().a(getContext(), this.mIsImmersion, "color_white3"));
             }
@@ -123,7 +123,7 @@ public class Live4Ratio5ItemView extends LiveBaseItemView {
             if (textView2 != null) {
                 textView2.setTextColor(f.e().a(getContext(), this.mIsImmersion, "color_white3"));
             }
-            TextView textView3 = this.f34709j;
+            TextView textView3 = this.f34737j;
             if (textView3 != null) {
                 textView3.setTextColor(f.e().a(getContext(), this.mIsImmersion, "color_white3"));
             }
@@ -135,8 +135,8 @@ public class Live4Ratio5ItemView extends LiveBaseItemView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             super.onViewAttached();
-            if (this.n && this.f34707h.isHasAnim()) {
-                this.f34707h.startAnim();
+            if (this.n && this.f34735h.isHasAnim()) {
+                this.f34735h.startAnim();
             }
         }
     }
@@ -146,7 +146,7 @@ public class Live4Ratio5ItemView extends LiveBaseItemView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             super.onViewDetached();
-            LiveStatusAnimView liveStatusAnimView = this.f34707h;
+            LiveStatusAnimView liveStatusAnimView = this.f34735h;
             if (liveStatusAnimView != null) {
                 liveStatusAnimView.stopAnim();
             }
@@ -158,7 +158,7 @@ public class Live4Ratio5ItemView extends LiveBaseItemView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             super.onViewRecycled();
-            LiveStatusAnimView liveStatusAnimView = this.f34707h;
+            LiveStatusAnimView liveStatusAnimView = this.f34735h;
             if (liveStatusAnimView != null) {
                 liveStatusAnimView.stopAnim();
             }
@@ -170,7 +170,7 @@ public class Live4Ratio5ItemView extends LiveBaseItemView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             super.releaseHolder();
-            LiveStatusAnimView liveStatusAnimView = this.f34707h;
+            LiveStatusAnimView liveStatusAnimView = this.f34735h;
             if (liveStatusAnimView != null) {
                 liveStatusAnimView.stopAnim();
             }
@@ -182,43 +182,43 @@ public class Live4Ratio5ItemView extends LiveBaseItemView {
         LiveStatusAnimView liveStatusAnimView;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048583, this, liveRoomEntity, i2) == null) {
-            this.f34707h.setIsImmersion(this.mIsImmersion);
+            this.f34735h.setIsImmersion(this.mIsImmersion);
             if (liveRoomEntity != null) {
-                this.f34705f.setImageURI(liveRoomEntity.cover);
+                this.f34733f.setImageURI(liveRoomEntity.cover);
                 LeftLableInfo leftLableInfo = liveRoomEntity.leftLabel;
-                if (leftLableInfo != null && !TextUtils.isEmpty(leftLableInfo.text) && (liveStatusAnimView = this.f34707h) != null) {
+                if (leftLableInfo != null && !TextUtils.isEmpty(leftLableInfo.text) && (liveStatusAnimView = this.f34735h) != null) {
                     int i3 = liveRoomEntity.liveStatus;
                     LeftLableInfo leftLableInfo2 = liveRoomEntity.leftLabel;
                     liveStatusAnimView.setData(i3, leftLableInfo2.text, leftLableInfo2.startColor, leftLableInfo2.endColor);
                     this.n = true;
-                    this.f34707h.setVisibility(0);
+                    this.f34735h.setVisibility(0);
                 } else {
                     this.n = false;
-                    LiveStatusAnimView liveStatusAnimView2 = this.f34707h;
+                    LiveStatusAnimView liveStatusAnimView2 = this.f34735h;
                     if (liveStatusAnimView2 != null) {
                         liveStatusAnimView2.setVisibility(8);
                     }
                 }
-                this.f34708i.setText(liveRoomEntity.title);
+                this.f34736i.setText(liveRoomEntity.title);
                 LiveHostInfo liveHostInfo = liveRoomEntity.hostInfo;
                 if (liveHostInfo != null) {
                     this.k.setText(liveHostInfo.name);
-                    this.f34706g.setImageURI(liveRoomEntity.hostInfo.avatar);
+                    this.f34734g.setImageURI(liveRoomEntity.hostInfo.avatar);
                 }
                 if (liveRoomEntity.liveStatus == 0) {
-                    this.f34709j.setVisibility(8);
+                    this.f34737j.setVisibility(8);
                 } else {
-                    this.f34709j.setText(e.a(this.mContext, liveRoomEntity.audienceCount));
-                    this.f34709j.setVisibility(0);
+                    this.f34737j.setText(e.a(this.mContext, liveRoomEntity.audienceCount));
+                    this.f34737j.setVisibility(0);
                 }
                 this.o.getLayoutParams().height = a.a(getContext(), 61.0f);
                 this.o.setBackground(getResources().getDrawable(b.live_feed_page_index_item_bottom_mask_radius_12));
                 if (liveRoomEntity.showTpl == 1) {
-                    this.f34706g.setVisibility(0);
-                    this.f34708i.setVisibility(0);
+                    this.f34734g.setVisibility(0);
+                    this.f34736i.setVisibility(0);
                 } else {
-                    this.f34706g.setVisibility(8);
-                    this.f34708i.setVisibility(8);
+                    this.f34734g.setVisibility(8);
+                    this.f34736i.setVisibility(8);
                     this.k.setTextSize(1, 14.0f);
                     this.k.setTypeface(Typeface.defaultFromStyle(1));
                     this.o.getLayoutParams().height = a.a(getContext(), 35.0f);
@@ -232,8 +232,8 @@ public class Live4Ratio5ItemView extends LiveBaseItemView {
                     this.l.setVisibility(8);
                 }
                 if (this.mIsImmersion) {
-                    this.f34705f.getHierarchy().setUseGlobalColorFilter(false);
-                    this.f34706g.getHierarchy().setUseGlobalColorFilter(false);
+                    this.f34733f.getHierarchy().setUseGlobalColorFilter(false);
+                    this.f34734g.getHierarchy().setUseGlobalColorFilter(false);
                     this.l.getHierarchy().setUseGlobalColorFilter(false);
                 }
                 onDarkModeChange("day");

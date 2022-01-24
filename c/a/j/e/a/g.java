@@ -56,7 +56,7 @@ public final class g {
         if (interceptable == null || interceptable.invokeILL(1048576, this, i2, taskInfo, taskStatus) == null) {
             c.a.j.j.d.a v = BDPTask.m.v();
             if (v != null && (d3 = v.d()) != null) {
-                d3.b(taskInfo.getSingleKey(), c.a.j.g.f.b.f3892c.a());
+                d3.b(taskInfo.getSingleKey(), c.a.j.g.f.b.f4033c.a());
             }
             c.a.j.j.d.a v2 = BDPTask.m.v();
             if (v2 != null && (d2 = v2.d()) != null) {

@@ -16,21 +16,21 @@ public class c implements a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: f  reason: collision with root package name */
-    public static c f28149f;
+    public static c f28177f;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f28150b;
+    public String f28178b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f28151c;
+    public String f28179c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f28152d;
+    public String f28180d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f28153e;
+    public String f28181e;
 
     public c() {
         Interceptable interceptable = $ic;
@@ -50,10 +50,10 @@ public class c implements a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (f28149f == null) {
-                f28149f = new c();
+            if (f28177f == null) {
+                f28177f = new c();
             }
-            return f28149f;
+            return f28177f;
         }
         return (c) invokeV.objValue;
     }
@@ -68,28 +68,28 @@ public class c implements a {
     public void c(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            this.f28150b = str;
+            this.f28178b = str;
         }
     }
 
     public void d(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            this.f28151c = str;
+            this.f28179c = str;
         }
     }
 
     public void e(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            this.f28152d = str;
+            this.f28180d = str;
         }
     }
 
     public void f(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            this.f28153e = str;
+            this.f28181e = str;
         }
     }
 
@@ -104,7 +104,7 @@ public class c implements a {
     public String getAppPayHost() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? TextUtils.isEmpty(this.f28150b) ? "https://www.dxmpay.com" : this.f28150b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? TextUtils.isEmpty(this.f28178b) ? "https://www.dxmpay.com" : this.f28178b : (String) invokeV.objValue;
     }
 
     @Override // c.f.b.b.b.a
@@ -124,7 +124,7 @@ public class c implements a {
             }
             StringBuilder sb = new StringBuilder(str);
             sb.append("://");
-            sb.append(TextUtils.isEmpty(this.f28152d) ? "ai.dxmpay.com" : this.f28152d);
+            sb.append(TextUtils.isEmpty(this.f28180d) ? "ai.dxmpay.com" : this.f28180d);
             return sb.toString();
         }
         return (String) invokeL.objValue;
@@ -134,14 +134,14 @@ public class c implements a {
     public String getSpareInitHost() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? TextUtils.isEmpty(this.f28153e) ? "https://www.dxmpay.com" : this.f28153e : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? TextUtils.isEmpty(this.f28181e) ? "https://www.dxmpay.com" : this.f28181e : (String) invokeV.objValue;
     }
 
     @Override // c.f.b.b.b.a
     public String getZhiFuHost() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? TextUtils.isEmpty(this.f28151c) ? com.baidu.wallet.core.domain.b.p : this.f28151c : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? TextUtils.isEmpty(this.f28179c) ? com.baidu.wallet.core.domain.b.p : this.f28179c : (String) invokeV.objValue;
     }
 
     @Override // c.f.b.b.b.a
@@ -153,7 +153,7 @@ public class c implements a {
         try {
             JSONObject jSONObject = new JSONObject(str);
             String optString = jSONObject.optString("app_host");
-            if (!TextUtils.isEmpty(optString) && b.f28146d.matcher(optString).matches()) {
+            if (!TextUtils.isEmpty(optString) && b.f28174d.matcher(optString).matches()) {
                 this.a = optString;
             } else {
                 this.a = "https://www.baifubao.com";
@@ -163,7 +163,7 @@ public class c implements a {
             if (TextUtils.isEmpty(optString2)) {
                 optString2 = "ai.dxmpay.com";
             }
-            this.f28152d = optString2;
+            this.f28180d = optString2;
         } catch (JSONException e2) {
             e2.printStackTrace();
         }

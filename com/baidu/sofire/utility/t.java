@@ -34,7 +34,7 @@ public final class t {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
             try {
-                return context.checkPermission(com.kuaishou.weapon.un.s.f55248i, Process.myPid(), Process.myUid()) != -1;
+                return context.checkPermission(com.kuaishou.weapon.un.s.f55293i, Process.myPid(), Process.myUid()) != -1;
             } catch (Throwable unused) {
                 c.a();
                 return false;
@@ -48,7 +48,7 @@ public final class t {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, context)) == null) {
             try {
-                return context.checkPermission(com.kuaishou.weapon.un.s.f55242c, Process.myPid(), Process.myUid()) != -1;
+                return context.checkPermission(com.kuaishou.weapon.un.s.f55287c, Process.myPid(), Process.myUid()) != -1;
             } catch (Throwable unused) {
                 c.a();
                 return false;

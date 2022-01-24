@@ -28,7 +28,7 @@ import java.util.List;
 public class AddGroupActivity extends BaseActivity<AddGroupActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public c.a.t0.s1.r.a addGroupView;
+    public c.a.t0.t1.r.a addGroupView;
     public c searchGroupCallback;
     public SearchGroupModel searchGroupModel;
 
@@ -188,7 +188,7 @@ public class AddGroupActivity extends BaseActivity<AddGroupActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, bundle) == null) {
             super.onCreate(bundle);
-            this.addGroupView = new c.a.t0.s1.r.a(this);
+            this.addGroupView = new c.a.t0.t1.r.a(this);
             this.searchGroupModel = new SearchGroupModel(this);
             registerListener(this.searchGroupCallback);
         }

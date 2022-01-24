@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.concurrent.ThreadFactory;
 import java.util.concurrent.atomic.AtomicLong;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public final class RxThreadFactory extends AtomicLong implements ThreadFactory {
     public static /* synthetic */ Interceptable $ic = null;
     public static final ThreadFactory NONE;
@@ -17,7 +17,7 @@ public final class RxThreadFactory extends AtomicLong implements ThreadFactory {
     public transient /* synthetic */ FieldHolder $fh;
     public final String prefix;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static class a implements ThreadFactory {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

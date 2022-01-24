@@ -52,7 +52,7 @@ public class TKEventCollection {
         mEventHashMap.put("scroll", TKScrollEvent.class.getName());
         mEventHashMap.put("input", TKInputEvent.class.getName());
         mEventHashMap.put("switch", TKSwitchEvent.class.getName());
-        mEventHashMap.put(TKBaseEvent.TK_DISPATCH_EVENT_NAME, TKDispatchEvent.class.getName());
+        mEventHashMap.put("dispatch", TKDispatchEvent.class.getName());
     }
 
     public TKEventCollection() {

@@ -5,6 +5,7 @@ import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import com.baidu.down.statistic.ConfigSpeedStat;
+import com.baidu.searchbox.retrieve.log.bean.FetchLog;
 import com.kwad.sdk.core.network.BaseResultData;
 import com.kwad.sdk.utils.t;
 import java.io.Serializable;
@@ -197,7 +198,7 @@ public class AppStatusRules extends BaseResultData implements com.kwad.sdk.core.
                 return;
             }
             try {
-                this.startTime = jSONObject.optLong("startTime");
+                this.startTime = jSONObject.optLong(FetchLog.START_TIME);
                 this.scanInterval = jSONObject.optLong("scanInterval");
                 int optInt = jSONObject.optInt("historyGranularity");
                 if (optInt > 0) {
@@ -254,7 +255,7 @@ public class AppStatusRules extends BaseResultData implements com.kwad.sdk.core.
         @Override // com.kwad.sdk.core.b
         public JSONObject toJson() {
             JSONObject jSONObject = new JSONObject();
-            t.a(jSONObject, "startTime", this.startTime);
+            t.a(jSONObject, FetchLog.START_TIME, this.startTime);
             t.a(jSONObject, "scanInterval", this.scanInterval);
             t.a(jSONObject, "historyGranularity", this.historyGranularity / 1000);
             t.a(jSONObject, "name", this.name);

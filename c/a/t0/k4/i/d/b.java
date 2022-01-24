@@ -18,31 +18,31 @@ public class b {
     public Context a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f18843b;
+    public String f19076b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f18844c;
+    public String f19077c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f18845d;
+    public String f19078d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f18846e;
+    public boolean f19079e;
 
     /* renamed from: f  reason: collision with root package name */
-    public c f18847f;
+    public c f19080f;
 
     /* renamed from: g  reason: collision with root package name */
-    public f f18848g;
+    public f f19081g;
 
     /* renamed from: h  reason: collision with root package name */
-    public d f18849h;
+    public d f19082h;
 
     /* renamed from: i  reason: collision with root package name */
-    public e f18850i;
+    public e f19083i;
 
     /* renamed from: j  reason: collision with root package name */
-    public volatile boolean f18851j;
+    public volatile boolean f19084j;
     public volatile boolean k;
     public volatile boolean l;
 
@@ -52,7 +52,7 @@ public class b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: j  reason: collision with root package name */
-        public final /* synthetic */ b f18852j;
+        public final /* synthetic */ b f19085j;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(b bVar, Context context, String str, String str2, e eVar, c cVar) {
@@ -73,30 +73,30 @@ public class b {
                     return;
                 }
             }
-            this.f18852j = bVar;
+            this.f19085j = bVar;
         }
 
         @Override // c.a.t0.k4.i.d.f
         public void k() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f18852j.f18851j = true;
-                this.f18852j.d();
+                this.f19085j.f19084j = true;
+                this.f19085j.d();
             }
         }
     }
 
     /* renamed from: c.a.t0.k4.i.d.b$b  reason: collision with other inner class name */
     /* loaded from: classes7.dex */
-    public class C1170b extends d {
+    public class C1177b extends d {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: j  reason: collision with root package name */
-        public final /* synthetic */ b f18853j;
+        public final /* synthetic */ b f19086j;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public C1170b(b bVar, Context context, String str, e eVar, c cVar) {
+        public C1177b(b bVar, Context context, String str, e eVar, c cVar) {
             super(context, str, eVar, cVar);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -114,15 +114,15 @@ public class b {
                     return;
                 }
             }
-            this.f18853j = bVar;
+            this.f19086j = bVar;
         }
 
         @Override // c.a.t0.k4.i.d.d
         public void k() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f18853j.k = true;
-                this.f18853j.d();
+                this.f19086j.k = true;
+                this.f19086j.d();
             }
         }
     }
@@ -151,17 +151,17 @@ public class b {
                 return;
             }
         }
-        this.f18846e = false;
+        this.f19079e = false;
         this.a = context;
-        this.f18843b = str;
-        this.f18844c = str2;
-        this.f18845d = str3;
+        this.f19076b = str;
+        this.f19077c = str2;
+        this.f19078d = str3;
     }
 
     public final void d() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.f18851j && this.k && !this.l) {
-            this.f18850i.f();
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.f19084j && this.k && !this.l) {
+            this.f19083i.f();
             this.l = true;
             g();
         }
@@ -170,15 +170,15 @@ public class b {
     public void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            f fVar = this.f18848g;
+            f fVar = this.f19081g;
             if (fVar != null) {
                 fVar.interrupt();
-                this.f18848g = null;
+                this.f19081g = null;
             }
-            d dVar = this.f18849h;
+            d dVar = this.f19082h;
             if (dVar != null) {
                 dVar.interrupt();
-                this.f18849h = null;
+                this.f19082h = null;
             }
         }
     }
@@ -186,60 +186,60 @@ public class b {
     public boolean f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f18846e : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f19079e : invokeV.booleanValue;
     }
 
     public final void g() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            if (this.f18847f != null) {
-                File file = new File(this.f18844c);
+            if (this.f19080f != null) {
+                File file = new File(this.f19077c);
                 if (file.exists() && file.length() > 0) {
-                    this.f18847f.onGenFilterVideoSuccess(this.f18844c);
+                    this.f19080f.onGenFilterVideoSuccess(this.f19077c);
                 } else {
-                    this.f18847f.onGenFilterVideoFail(223, "Err empty outputFile");
+                    this.f19080f.onGenFilterVideoFail(223, "Err empty outputFile");
                 }
             }
-            this.f18846e = false;
+            this.f19079e = false;
         }
     }
 
     public void h(c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, cVar) == null) {
-            this.f18847f = cVar;
+            this.f19080f = cVar;
         }
     }
 
     public void i() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || this.f18846e) {
+        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || this.f19079e) {
             return;
         }
-        this.f18846e = true;
-        this.f18851j = false;
+        this.f19079e = true;
+        this.f19084j = false;
         this.k = false;
         this.l = false;
         try {
-            File file = new File(new File(this.f18844c).getParent());
+            File file = new File(new File(this.f19077c).getParent());
             if (!file.exists()) {
                 file.mkdirs();
             }
         } catch (Exception e2) {
             e2.printStackTrace();
-            c cVar = this.f18847f;
+            c cVar = this.f19080f;
             if (cVar != null) {
-                cVar.onGenFilterVideoFail(w0.k, c.a.t0.h2.a.a(e2));
+                cVar.onGenFilterVideoFail(w0.k, c.a.t0.i2.a.a(e2));
             }
         }
         try {
-            this.f18850i = new e(this.f18844c);
-            a aVar = new a(this, this.a, this.f18843b, this.f18845d, this.f18850i, this.f18847f);
-            this.f18848g = aVar;
+            this.f19083i = new e(this.f19077c);
+            a aVar = new a(this, this.a, this.f19076b, this.f19078d, this.f19083i, this.f19080f);
+            this.f19081g = aVar;
             aVar.start();
-            C1170b c1170b = new C1170b(this, this.a, this.f18843b, this.f18850i, this.f18847f);
-            this.f18849h = c1170b;
-            c1170b.start();
+            C1177b c1177b = new C1177b(this, this.a, this.f19076b, this.f19083i, this.f19080f);
+            this.f19082h = c1177b;
+            c1177b.start();
         } catch (Exception unused) {
         }
     }

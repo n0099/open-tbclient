@@ -14,7 +14,7 @@ public class b extends ContextWrapper {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static b f4086b;
+    public static b f4227b;
     public transient /* synthetic */ FieldHolder $fh;
     public h a;
 
@@ -42,10 +42,10 @@ public class b extends ContextWrapper {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
             synchronized (b.class) {
-                if (f4086b == null) {
-                    f4086b = new b();
+                if (f4227b == null) {
+                    f4227b = new b();
                 }
-                bVar = f4086b;
+                bVar = f4227b;
             }
             return bVar;
         }

@@ -25,31 +25,31 @@ public class BdVideoGesture {
     public float a;
 
     /* renamed from: b  reason: collision with root package name */
-    public float f37041b;
+    public float f37069b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f37042c;
+    public int f37070c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f37043d;
+    public boolean f37071d;
 
     /* renamed from: e  reason: collision with root package name */
-    public VideoPluginGesture f37044e;
+    public VideoPluginGesture f37072e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f37045f;
+    public boolean f37073f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f37046g;
+    public boolean f37074g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f37047h;
+    public int f37075h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f37048i;
+    public int f37076i;
 
     /* renamed from: j  reason: collision with root package name */
-    public int f37049j;
+    public int f37077j;
     public int k;
     public f l;
     public int m;
@@ -152,13 +152,13 @@ public class BdVideoGesture {
                 return;
             }
         }
-        this.f37043d = true;
-        this.f37044e = VideoPluginGesture.InitChange;
-        this.f37045f = false;
-        this.f37046g = false;
-        this.f37047h = 0;
-        this.f37048i = 0;
-        this.f37049j = 0;
+        this.f37071d = true;
+        this.f37072e = VideoPluginGesture.InitChange;
+        this.f37073f = false;
+        this.f37074g = false;
+        this.f37075h = 0;
+        this.f37076i = 0;
+        this.f37077j = 0;
         this.m = d.a;
         this.n = d.f2370b;
         f(context);
@@ -180,26 +180,26 @@ public class BdVideoGesture {
                 return false;
             }
             if (fVar.p()) {
-                this.l.m(this.f37044e);
+                this.l.m(this.f37072e);
                 return false;
             } else if (motionEvent.getAction() == 0) {
-                this.f37045f = false;
-                this.f37046g = false;
-                this.f37044e = VideoPluginGesture.InitChange;
+                this.f37073f = false;
+                this.f37074g = false;
+                this.f37072e = VideoPluginGesture.InitChange;
                 this.a = motionEvent.getX();
-                this.f37041b = motionEvent.getY();
-                this.f37042c = motionEvent.getPointerId(0);
-                this.f37048i = k.c(a.b());
-                this.f37049j = this.l.getCurrentPosition();
+                this.f37069b = motionEvent.getY();
+                this.f37070c = motionEvent.getPointerId(0);
+                this.f37076i = k.c(a.b());
+                this.f37077j = this.l.getCurrentPosition();
                 this.k = n.a(this.l.o());
-                this.l.m(this.f37044e);
+                this.l.m(this.f37072e);
                 return false;
             } else if (motionEvent.getAction() == 2) {
                 if (c(motionEvent)) {
-                    this.f37044e = VideoPluginGesture.InitChange;
+                    this.f37072e = VideoPluginGesture.InitChange;
                     return false;
-                } else if (motionEvent.getPointerId(0) == this.f37042c) {
-                    d(this.a - motionEvent.getX(), this.f37041b - motionEvent.getY(), this.a, this.f37041b, this.m, this.n);
+                } else if (motionEvent.getPointerId(0) == this.f37070c) {
+                    d(this.a - motionEvent.getX(), this.f37069b - motionEvent.getY(), this.a, this.f37069b, this.m, this.n);
                     return false;
                 } else {
                     return false;
@@ -207,23 +207,23 @@ public class BdVideoGesture {
             } else {
                 boolean z = true;
                 if (motionEvent.getAction() == 1) {
-                    this.l.m(this.f37044e);
-                    z = (this.f37045f && this.f37046g) ? false : false;
-                    VideoPluginGesture videoPluginGesture = this.f37044e;
+                    this.l.m(this.f37072e);
+                    z = (this.f37073f && this.f37074g) ? false : false;
+                    VideoPluginGesture videoPluginGesture = this.f37072e;
                     if (videoPluginGesture == VideoPluginGesture.PlayTimeChange) {
-                        this.l.l(this.f37049j, this.f37047h);
+                        this.l.l(this.f37077j, this.f37075h);
                     } else if (videoPluginGesture == VideoPluginGesture.VolumeChange) {
                         this.l.b();
                     }
-                    this.f37045f = false;
-                    this.f37046g = false;
-                    this.f37044e = VideoPluginGesture.InitChange;
+                    this.f37073f = false;
+                    this.f37074g = false;
+                    this.f37072e = VideoPluginGesture.InitChange;
                     return z;
                 } else if (motionEvent.getAction() == 3) {
-                    this.l.m(this.f37044e);
-                    this.f37045f = false;
-                    this.f37046g = false;
-                    this.f37044e = VideoPluginGesture.InitChange;
+                    this.l.m(this.f37072e);
+                    this.f37073f = false;
+                    this.f37074g = false;
+                    this.f37072e = VideoPluginGesture.InitChange;
                     return false;
                 } else {
                     return false;
@@ -242,41 +242,41 @@ public class BdVideoGesture {
         }
         float abs = Math.abs(f3);
         float abs2 = Math.abs(f2);
-        this.f37046g = true;
-        if (!this.f37045f) {
+        this.f37074g = true;
+        if (!this.f37073f) {
             if (e(f4, i2)) {
-                this.f37044e = VideoPluginGesture.VirtualKeyBoard;
-                this.f37045f = true;
+                this.f37072e = VideoPluginGesture.VirtualKeyBoard;
+                this.f37073f = true;
                 return;
             }
             double d2 = abs;
             double d3 = abs2;
-            if (d2 > d3 * 1.0d && abs > b.a(30.0f) && this.f37043d) {
-                this.f37045f = true;
+            if (d2 > d3 * 1.0d && abs > b.a(30.0f) && this.f37071d) {
+                this.f37073f = true;
                 if (f4 <= i2 / 2) {
-                    this.f37044e = VideoPluginGesture.BrightChange;
+                    this.f37072e = VideoPluginGesture.BrightChange;
                     return;
                 } else {
-                    this.f37044e = VideoPluginGesture.VolumeChange;
+                    this.f37072e = VideoPluginGesture.VolumeChange;
                     return;
                 }
             } else if (d2 * 1.0d >= d3 || abs2 <= b.a(30.0f)) {
                 return;
             } else {
-                this.f37044e = VideoPluginGesture.PlayTimeChange;
-                this.f37045f = true;
+                this.f37072e = VideoPluginGesture.PlayTimeChange;
+                this.f37073f = true;
                 return;
             }
         }
-        VideoPluginGesture videoPluginGesture = this.f37044e;
+        VideoPluginGesture videoPluginGesture = this.f37072e;
         if (videoPluginGesture == VideoPluginGesture.PlayTimeChange) {
-            this.f37047h = (int) (((-f2) / 100.0f) * 15.0f);
+            this.f37075h = (int) (((-f2) / 100.0f) * 15.0f);
             a(f2, i2);
-            this.l.c(this.f37049j, this.f37047h);
+            this.l.c(this.f37077j, this.f37075h);
             return;
         }
         if (videoPluginGesture == VideoPluginGesture.VolumeChange) {
-            float f6 = this.f37048i + ((f3 / 100.0f) * o);
+            float f6 = this.f37076i + ((f3 / 100.0f) * o);
             if (f6 > 0.0f) {
                 r13 = f6 > ((float) k.b(a.b())) ? k.b(a.b()) : f6;
             }
@@ -298,7 +298,7 @@ public class BdVideoGesture {
     public void g() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            this.f37044e = VideoPluginGesture.InitChange;
+            this.f37072e = VideoPluginGesture.InitChange;
         }
     }
 

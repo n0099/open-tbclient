@@ -22,10 +22,10 @@ public abstract class SimpleMessageListener implements LifecycleObserver {
     @NonNull
 
     /* renamed from: e  reason: collision with root package name */
-    public CustomMessageListener f41114e;
+    public CustomMessageListener f41142e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f41115f;
+    public boolean f41143f;
 
     /* loaded from: classes11.dex */
     public class a extends CustomMessageListener {
@@ -85,8 +85,8 @@ public abstract class SimpleMessageListener implements LifecycleObserver {
                 return;
             }
         }
-        this.f41115f = z;
-        this.f41114e = new a(this, i2, bVar);
+        this.f41143f = z;
+        this.f41142e = new a(this, i2, bVar);
     }
 
     public static <T> void sendMessage(int i2, @Nullable T t) {
@@ -99,42 +99,42 @@ public abstract class SimpleMessageListener implements LifecycleObserver {
     public void bindPage(@NonNull TbPageContext<?> tbPageContext) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, tbPageContext) == null) {
-            this.f41114e.setSelfListener(true);
-            this.f41114e.setTag(tbPageContext.getUniqueId());
+            this.f41142e.setSelfListener(true);
+            this.f41142e.setTag(tbPageContext.getUniqueId());
         }
     }
 
     @OnLifecycleEvent(Lifecycle.Event.ON_CREATE)
     public void onCreate() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.f41115f) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.f41143f) {
             return;
         }
-        MessageManager.getInstance().registerListener(this.f41114e);
+        MessageManager.getInstance().registerListener(this.f41142e);
     }
 
     @OnLifecycleEvent(Lifecycle.Event.ON_DESTROY)
     public void onDestroy() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || this.f41115f) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || this.f41143f) {
             return;
         }
-        MessageManager.getInstance().unRegisterListener(this.f41114e);
+        MessageManager.getInstance().unRegisterListener(this.f41142e);
     }
 
     @OnLifecycleEvent(Lifecycle.Event.ON_PAUSE)
     public void onPause() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && this.f41115f) {
-            MessageManager.getInstance().unRegisterListener(this.f41114e);
+        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && this.f41143f) {
+            MessageManager.getInstance().unRegisterListener(this.f41142e);
         }
     }
 
     @OnLifecycleEvent(Lifecycle.Event.ON_RESUME)
     public void onResume() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && this.f41115f) {
-            MessageManager.getInstance().registerListener(this.f41114e);
+        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && this.f41143f) {
+            MessageManager.getInstance().registerListener(this.f41142e);
         }
     }
 

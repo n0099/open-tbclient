@@ -11,31 +11,31 @@ public class n4 {
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f30386b;
+    public int f30414b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f30387c;
+    public int f30415c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f30388d;
+    public int f30416d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f30389e;
+    public boolean f30417e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f30390f;
+    public boolean f30418f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f30391g;
+    public int f30419g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f30392h;
+    public int f30420h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f30393i;
+    public int f30421i;
 
     /* renamed from: j  reason: collision with root package name */
-    public int f30394j;
+    public int f30422j;
     public int[] k;
 
     public n4() {

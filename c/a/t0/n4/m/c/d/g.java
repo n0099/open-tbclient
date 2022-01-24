@@ -16,10 +16,10 @@ public class g {
     public boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public l f19989b;
+    public l f20090b;
 
     /* renamed from: c  reason: collision with root package name */
-    public c.a.t0.n4.m.c.d.b f19990c;
+    public c.a.t0.n4.m.c.d.b f20091c;
 
     /* loaded from: classes8.dex */
     public static /* synthetic */ class a {
@@ -34,16 +34,16 @@ public class g {
         public String a;
 
         /* renamed from: b  reason: collision with root package name */
-        public boolean f19991b;
+        public boolean f20092b;
 
         /* renamed from: c  reason: collision with root package name */
-        public int f19992c;
+        public int f20093c;
 
         /* renamed from: d  reason: collision with root package name */
-        public l f19993d;
+        public l f20094d;
 
         /* renamed from: e  reason: collision with root package name */
-        public c.a.t0.n4.m.c.d.b f19994e;
+        public c.a.t0.n4.m.c.d.b f20095e;
 
         public b() {
             Interceptable interceptable = $ic;
@@ -59,10 +59,10 @@ public class g {
                 }
             }
             this.a = "";
-            this.f19991b = true;
-            this.f19992c = 0;
-            this.f19993d = null;
-            this.f19994e = null;
+            this.f20092b = true;
+            this.f20093c = 0;
+            this.f20094d = null;
+            this.f20095e = null;
         }
 
         public g d() {
@@ -81,14 +81,14 @@ public class g {
                 if (TextUtils.isEmpty(this.a)) {
                     this.a = FileHelper.getVideoTmpDir() + File.separator + "shaft_images";
                 }
-                if (this.f19992c <= 0) {
-                    this.f19992c = ((int) (Runtime.getRuntime().maxMemory() / 1024)) / 8;
+                if (this.f20093c <= 0) {
+                    this.f20093c = ((int) (Runtime.getRuntime().maxMemory() / 1024)) / 8;
                 }
-                if (this.f19993d == null) {
-                    this.f19993d = new l(this.f19992c);
+                if (this.f20094d == null) {
+                    this.f20094d = new l(this.f20093c);
                 }
-                if (this.f19994e == null) {
-                    this.f19994e = new c.a.t0.n4.m.c.d.b(this.a);
+                if (this.f20095e == null) {
+                    this.f20095e = new c.a.t0.n4.m.c.d.b(this.a);
                 }
             }
         }
@@ -114,9 +114,9 @@ public class g {
             }
         }
         String unused = bVar.a;
-        this.a = bVar.f19991b;
-        int unused2 = bVar.f19992c;
-        this.f19989b = bVar.f19993d;
-        this.f19990c = bVar.f19994e;
+        this.a = bVar.f20092b;
+        int unused2 = bVar.f20093c;
+        this.f20090b = bVar.f20094d;
+        this.f20091c = bVar.f20095e;
     }
 }

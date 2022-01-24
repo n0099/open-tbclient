@@ -26,7 +26,7 @@ public class p0 {
     public static volatile NetworkInfo a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final HashSet<b> f54226b;
+    public static final HashSet<b> f54271b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes3.dex */
@@ -77,7 +77,7 @@ public class p0 {
             }
         }
         a aVar = new a();
-        f54226b = new HashSet<>();
+        f54271b = new HashSet<>();
         Context appContext = FunAdSdk.getAppContext();
         a(appContext, appContext.registerReceiver(aVar, new IntentFilter("android.net.conn.CONNECTIVITY_CHANGE")));
     }
@@ -97,7 +97,7 @@ public class p0 {
             NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
             LogPrinter.d("activeNetworkInfo:" + activeNetworkInfo, new Object[0]);
             a = activeNetworkInfo;
-            HashSet<b> hashSet = f54226b;
+            HashSet<b> hashSet = f54271b;
             synchronized (hashSet) {
                 Iterator<b> it = hashSet.iterator();
                 while (it.hasNext()) {
@@ -110,7 +110,7 @@ public class p0 {
     public static void b(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65538, null, bVar) == null) {
-            HashSet<b> hashSet = f54226b;
+            HashSet<b> hashSet = f54271b;
             synchronized (hashSet) {
                 hashSet.add(bVar);
             }

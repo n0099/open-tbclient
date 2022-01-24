@@ -18,16 +18,16 @@ public abstract class e extends k {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: g  reason: collision with root package name */
-    public final AtomicInteger f6650g;
+    public final AtomicInteger f6792g;
 
     /* renamed from: h  reason: collision with root package name */
-    public c.a.r0.q.p.g f6651h;
+    public c.a.r0.q.p.g f6793h;
 
     /* renamed from: i  reason: collision with root package name */
-    public c.a.r0.a.u2.a f6652i;
+    public c.a.r0.a.u2.a f6794i;
 
     /* renamed from: j  reason: collision with root package name */
-    public final c.a.r0.q.f.e<c.a.r0.q.i.i> f6653j;
+    public final c.a.r0.q.f.e<c.a.r0.q.i.i> f6795j;
 
     /* loaded from: classes.dex */
     public class a extends l<e> {
@@ -35,7 +35,7 @@ public abstract class e extends k {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ e f6654f;
+        public final /* synthetic */ e f6796f;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(e eVar, e eVar2) {
@@ -55,7 +55,7 @@ public abstract class e extends k {
                     return;
                 }
             }
-            this.f6654f = eVar;
+            this.f6796f = eVar;
         }
 
         @Override // c.a.r0.a.h0.m.l
@@ -65,7 +65,7 @@ public abstract class e extends k {
                 if (e.k) {
                     String str = "onDownloadAndUnzipSuccess:" + iVar;
                 }
-                this.f6654f.f6650g.incrementAndGet();
+                this.f6796f.f6792g.incrementAndGet();
             }
         }
 
@@ -74,8 +74,8 @@ public abstract class e extends k {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, iVar, aVar) == null) {
                 c.a.r0.a.e0.d.k("SwanAppDependentPkgDownloadCallback", "onDownloadOrUnzipFail:" + iVar + StringUtil.ARRAY_ELEMENT_SEPARATOR + aVar);
-                if (this.f6654f.f6652i == null) {
-                    this.f6654f.f6652i = aVar;
+                if (this.f6796f.f6794i == null) {
+                    this.f6796f.f6794i = aVar;
                 }
             }
         }
@@ -110,8 +110,8 @@ public abstract class e extends k {
                 return;
             }
         }
-        this.f6650g = new AtomicInteger(0);
-        this.f6653j = new a(this, this);
+        this.f6792g = new AtomicInteger(0);
+        this.f6795j = new a(this, this);
     }
 
     @Override // c.a.r0.q.f.i
@@ -146,7 +146,7 @@ public abstract class e extends k {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, gVar) == null) {
             super.H(gVar);
-            this.f6651h = gVar;
+            this.f6793h = gVar;
             if (k) {
                 StringBuilder sb = new StringBuilder();
                 sb.append("mStartDownload=");
@@ -166,7 +166,7 @@ public abstract class e extends k {
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             super.b();
             c.a.r0.a.e0.d.k("SwanAppDependentPkgDownloadCallback", "onTotalPkgDownloadFinish");
-            c.a.r0.q.p.g gVar = this.f6651h;
+            c.a.r0.q.p.g gVar = this.f6793h;
             if (gVar == null) {
                 c.a.r0.a.u2.a aVar = new c.a.r0.a.u2.a();
                 aVar.k(17L);
@@ -175,21 +175,21 @@ public abstract class e extends k {
                 R(aVar);
                 return;
             }
-            int n = gVar.n() - this.f6650g.get();
+            int n = gVar.n() - this.f6792g.get();
             if (n == 0) {
                 S();
                 return;
             }
-            if (this.f6652i == null) {
+            if (this.f6794i == null) {
                 c.a.r0.a.u2.a aVar2 = new c.a.r0.a.u2.a();
                 aVar2.k(17L);
                 aVar2.i(2900L);
                 aVar2.d("unknown error.");
-                this.f6652i = aVar2;
+                this.f6794i = aVar2;
             }
-            c.a.r0.a.u2.a aVar3 = this.f6652i;
+            c.a.r0.a.u2.a aVar3 = this.f6794i;
             aVar3.f("failCount:" + n);
-            R(this.f6652i);
+            R(this.f6794i);
         }
     }
 
@@ -197,6 +197,6 @@ public abstract class e extends k {
     public c.a.r0.q.f.e<c.a.r0.q.i.i> r() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f6653j : (c.a.r0.q.f.e) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f6795j : (c.a.r0.q.f.e) invokeV.objValue;
     }
 }

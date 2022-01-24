@@ -13,19 +13,19 @@ public class f2 extends BaseCardInfo {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public e2 f13380e;
+    public e2 f13566e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f13381f;
+    public String f13567f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f13382g;
+    public int f13568g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f13383h;
+    public int f13569h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f13384i;
+    public int f13570i;
 
     public f2(e2 e2Var) {
         Interceptable interceptable = $ic;
@@ -42,7 +42,7 @@ public class f2 extends BaseCardInfo {
                 return;
             }
         }
-        this.f13380e = e2Var;
+        this.f13566e = e2Var;
     }
 
     @Override // com.baidu.tieba.card.data.BaseCardInfo, c.a.d.n.e.n

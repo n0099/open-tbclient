@@ -17,7 +17,7 @@ public class f {
     public static boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static Location f55053b;
+    public static Location f55098b;
     public transient /* synthetic */ FieldHolder $fh;
 
     public f() {
@@ -38,22 +38,22 @@ public class f {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
-            if (a || f55053b != null || context == null) {
-                return f55053b;
+            if (a || f55098b != null || context == null) {
+                return f55098b;
             }
             if (v.a(context).a(64)) {
                 try {
                     LocationManager locationManager = (LocationManager) context.getSystemService("location");
                     if (locationManager.isProviderEnabled("gps")) {
-                        f55053b = a(context, locationManager);
+                        f55098b = a(context, locationManager);
                     }
-                    if (f55053b == null && locationManager.isProviderEnabled("network")) {
-                        f55053b = b(context, locationManager);
+                    if (f55098b == null && locationManager.isProviderEnabled("network")) {
+                        f55098b = b(context, locationManager);
                     }
-                    if (f55053b == null && locationManager.isProviderEnabled("passive")) {
-                        f55053b = c(context, locationManager);
+                    if (f55098b == null && locationManager.isProviderEnabled("passive")) {
+                        f55098b = c(context, locationManager);
                     }
-                    return f55053b;
+                    return f55098b;
                 } catch (Exception unused) {
                     a = true;
                     return null;
@@ -70,7 +70,7 @@ public class f {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, context, locationManager)) == null) {
             try {
-                if (context.checkPermission(s.f55246g, Process.myPid(), Process.myUid()) == 0) {
+                if (context.checkPermission(s.f55291g, Process.myPid(), Process.myUid()) == 0) {
                     Location lastKnownLocation = locationManager.getLastKnownLocation("gps");
                     if (lastKnownLocation == null) {
                         a = true;
@@ -92,7 +92,7 @@ public class f {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, context, locationManager)) == null) {
             try {
-                if (context.checkPermission(s.f55246g, Process.myPid(), Process.myUid()) == 0 || context.checkPermission(s.f55247h, Process.myPid(), Process.myUid()) == 0) {
+                if (context.checkPermission(s.f55291g, Process.myPid(), Process.myUid()) == 0 || context.checkPermission(s.f55292h, Process.myPid(), Process.myUid()) == 0) {
                     Location lastKnownLocation = locationManager.getLastKnownLocation("network");
                     if (lastKnownLocation == null) {
                         a = true;
@@ -114,7 +114,7 @@ public class f {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, locationManager)) == null) {
             try {
-                if (context.checkPermission(s.f55247h, Process.myPid(), Process.myUid()) == 0) {
+                if (context.checkPermission(s.f55292h, Process.myPid(), Process.myUid()) == 0) {
                     Location lastKnownLocation = locationManager.getLastKnownLocation("passive");
                     if (lastKnownLocation == null) {
                         a = true;

@@ -17,22 +17,22 @@ public class p extends BaseCardInfo implements q {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public long f17809e;
+    public long f17631e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f17810f;
+    public String f17632f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f17811g;
+    public String f17633g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f17812h;
+    public String f17634h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f17813i;
+    public String f17635i;
 
     /* renamed from: j  reason: collision with root package name */
-    public String f17814j;
+    public String f17636j;
     public String k;
     public long l;
     public String m;

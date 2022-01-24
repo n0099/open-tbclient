@@ -11,7 +11,7 @@ public class k {
     public static final boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final boolean f7553b;
+    public static final boolean f7695b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -28,6 +28,6 @@ public class k {
             }
         }
         a = c.a.r0.a.c1.a.o().isDebug();
-        f7553b = c.a.r0.a.c1.a.o().J();
+        f7695b = c.a.r0.a.c1.a.o().J();
     }
 }

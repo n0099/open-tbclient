@@ -142,7 +142,7 @@ public final class TrdVpnService extends VpnService implements TrdVpnBinderInter
             LogTo.INSTANCE.d("*****", Intrinsics.stringPlus("ENV_CUID:", tornadoSetting.getAuthCUID()));
             LogTo.INSTANCE.d("*****", Intrinsics.stringPlus("ENV_TOKEN:", tornadoSetting.getAuthToken()));
             LogTo.INSTANCE.d("*****", Intrinsics.stringPlus("ENV_CLIENT_VERSION:", tornadoSetting.getClientVersion()));
-            this.executorService.submit(new Runnable() { // from class: c.a.c1.a.b
+            this.executorService.submit(new Runnable() { // from class: c.a.e1.a.b
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 

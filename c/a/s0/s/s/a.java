@@ -39,6 +39,7 @@ import java.util.concurrent.atomic.AtomicBoolean;
 public class a {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int DIALOG_SIZE_BIG = 1;
+    public static final int DIALOG_SIZE_FOR_FRS_LIKE_POSTER = 9;
     public static final int DIALOG_SIZE_FOR_NEW_PRIVATE = 7;
     public static final int DIALOG_SIZE_FOR_PRIVACY_POLICY_GUIDE = 8;
     public static final int DIALOG_SIZE_FOR_PRIVATE = 3;
@@ -92,14 +93,14 @@ public class a {
 
     /* renamed from: c.a.s0.s.s.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public class View$OnClickListenerC0883a implements View.OnClickListener {
+    public class View$OnClickListenerC0892a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f13559e;
+        public final /* synthetic */ a f13746e;
 
-        public View$OnClickListenerC0883a(a aVar) {
+        public View$OnClickListenerC0892a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -114,18 +115,18 @@ public class a {
                     return;
                 }
             }
-            this.f13559e = aVar;
+            this.f13746e = aVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                a aVar = this.f13559e;
+                a aVar = this.f13746e;
                 aVar.noTipAgainChecked = !aVar.noTipAgainChecked;
-                this.f13559e.setCheckBoxDrawable();
-                if (this.f13559e.onNoTipAgainCheckListener != null) {
-                    this.f13559e.onNoTipAgainCheckListener.a();
+                this.f13746e.setCheckBoxDrawable();
+                if (this.f13746e.onNoTipAgainCheckListener != null) {
+                    this.f13746e.onNoTipAgainCheckListener.a();
                 }
             }
         }
@@ -176,7 +177,7 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f13560e;
+        public final /* synthetic */ a f13747e;
 
         public c(a aVar) {
             Interceptable interceptable = $ic;
@@ -193,14 +194,14 @@ public class a {
                     return;
                 }
             }
-            this.f13560e = aVar;
+            this.f13747e = aVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f13560e.show(true);
+                this.f13747e.show(true);
             }
         }
     }
@@ -211,10 +212,10 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final a f13561e;
+        public final a f13748e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final e f13562f;
+        public final e f13749f;
 
         public d(a aVar, a aVar2, e eVar) {
             Interceptable interceptable = $ic;
@@ -231,18 +232,18 @@ public class a {
                     return;
                 }
             }
-            this.f13561e = aVar2;
-            this.f13562f = eVar;
+            this.f13748e = aVar2;
+            this.f13749f = eVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             e eVar;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || (eVar = this.f13562f) == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || (eVar = this.f13749f) == null) {
                 return;
             }
-            eVar.onClick(this.f13561e);
+            eVar.onClick(this.f13748e);
         }
     }
 
@@ -482,7 +483,7 @@ public class a {
             if (fVar instanceof TbPageContext) {
                 TbPageContext tbPageContext = (TbPageContext) fVar;
                 tbPageContext.getLayoutMode().k(skinType == 1);
-                tbPageContext.getLayoutMode().f13007e = !isAutoNight();
+                tbPageContext.getLayoutMode().f13193e = !isAutoNight();
                 tbPageContext.getLayoutMode().j(this.mRootView);
                 if (this.mContentView != null) {
                     tbPageContext.getLayoutMode().j(this.mContentView);
@@ -492,7 +493,7 @@ public class a {
             if (viewGroup != null) {
                 viewGroup.setBackgroundResource(R.drawable.transparent_bg);
             }
-            if (this.mRealView != null && ((i2 = this.dialogSize) == 2 || i2 == 5)) {
+            if (this.mRealView != null && ((i2 = this.dialogSize) == 2 || i2 == 5 || i2 == 9)) {
                 this.mRealView.setBackgroundResource(R.drawable.dialog_private_background);
             } else {
                 SkinManager.setBackgroundResource(this.mRealView, R.drawable.dialog_background, skinType);
@@ -604,7 +605,7 @@ public class a {
             this.noTipAgain = (TextView) inflate.findViewById(R.id.no_tip_again_text);
             this.noTipAgainCheckBox = (ImageView) inflate.findViewById(R.id.checkbox);
             setCheckBoxDrawable();
-            this.noTipAgainCheckBox.setOnClickListener(new View$OnClickListenerC0883a(this));
+            this.noTipAgainCheckBox.setOnClickListener(new View$OnClickListenerC0892a(this));
             return inflate;
         }
         return (View) invokeV.objValue;
@@ -643,7 +644,7 @@ public class a {
                 i2 = R.dimen.tbds50;
             } else if (i3 == 7) {
                 i2 = R.dimen.tbds206;
-            } else if (i3 == 8) {
+            } else if (i3 == 8 || i3 == 9) {
                 i2 = R.dimen.tbds120;
             }
             return c.a.d.f.p.n.f(this.mActivity, i2);

@@ -19,13 +19,13 @@ public class CenterTextView extends TextView {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public StaticLayout f37325e;
+    public StaticLayout f37353e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextPaint f37326f;
+    public TextPaint f37354f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f37327g;
+    public boolean f37355g;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public CenterTextView(Context context) {
@@ -45,18 +45,18 @@ public class CenterTextView extends TextView {
                 return;
             }
         }
-        this.f37327g = true;
+        this.f37355g = true;
     }
 
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             TextPaint textPaint = new TextPaint(1);
-            this.f37326f = textPaint;
+            this.f37354f = textPaint;
             textPaint.setTextSize(getTextSize());
-            this.f37326f.setFakeBoldText(this.f37327g);
-            this.f37326f.setColor(getCurrentTextColor());
-            this.f37325e = new StaticLayout(getText(), this.f37326f, getWidth(), Layout.Alignment.ALIGN_CENTER, 1.0f, f.c.a(getContext(), 6.0f), false);
+            this.f37354f.setFakeBoldText(this.f37355g);
+            this.f37354f.setColor(getCurrentTextColor());
+            this.f37353e = new StaticLayout(getText(), this.f37354f, getWidth(), Layout.Alignment.ALIGN_CENTER, 1.0f, f.c.a(getContext(), 6.0f), false);
         }
     }
 
@@ -64,7 +64,7 @@ public class CenterTextView extends TextView {
     public void onDraw(Canvas canvas) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, canvas) == null) {
-            StaticLayout staticLayout = this.f37325e;
+            StaticLayout staticLayout = this.f37353e;
             if (staticLayout != null) {
                 staticLayout.draw(canvas);
             } else {
@@ -85,7 +85,7 @@ public class CenterTextView extends TextView {
     public void setTextBold(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
-            this.f37327g = z;
+            this.f37355g = z;
         }
     }
 
@@ -108,7 +108,7 @@ public class CenterTextView extends TextView {
                 return;
             }
         }
-        this.f37327g = true;
+        this.f37355g = true;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -130,6 +130,6 @@ public class CenterTextView extends TextView {
                 return;
             }
         }
-        this.f37327g = true;
+        this.f37355g = true;
     }
 }

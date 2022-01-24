@@ -27,17 +27,17 @@ public class a {
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public List<String> f14078b;
+    public List<String> f14218b;
 
     /* renamed from: c  reason: collision with root package name */
-    public c f14079c;
+    public c f14219c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f14080d;
+    public boolean f14220d;
 
     /* renamed from: c.a.s0.t.j.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public static /* synthetic */ class C0899a {
+    public static /* synthetic */ class C0909a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
@@ -54,18 +54,18 @@ public class a {
         public b a;
 
         /* renamed from: b  reason: collision with root package name */
-        public volatile NetWork f14081b;
+        public volatile NetWork f14221b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ a f14082c;
+        public final /* synthetic */ a f14222c;
 
         /* renamed from: c.a.s0.t.j.a$c$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class C0900a implements Comparator<Map.Entry<String, Integer>> {
+        public class C0910a implements Comparator<Map.Entry<String, Integer>> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
-            public C0900a(c cVar) {
+            public C0910a(c cVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -106,9 +106,9 @@ public class a {
                     return;
                 }
             }
-            this.f14082c = aVar;
+            this.f14222c = aVar;
             this.a = null;
-            this.f14081b = null;
+            this.f14221b = null;
             this.a = bVar;
         }
 
@@ -120,22 +120,22 @@ public class a {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, objArr)) == null) {
                 try {
-                    this.f14081b = new NetWork(TbConfig.SERVER_ADDRESS + TbConfig.GET_IP_LIST);
-                    String postNetData = this.f14081b.postNetData();
-                    if (!this.f14081b.getNetContext().getResponse().isRequestSuccess() || postNetData == null) {
+                    this.f14221b = new NetWork(TbConfig.SERVER_ADDRESS + TbConfig.GET_IP_LIST);
+                    String postNetData = this.f14221b.postNetData();
+                    if (!this.f14221b.getNetContext().getResponse().isRequestSuccess() || postNetData == null) {
                         return null;
                     }
                     JSONObject jSONObject = new JSONObject(postNetData);
                     if (jSONObject.optInt("error_code") == 0) {
                         String optString = jSONObject.optString("urls");
-                        this.f14082c.f14078b = this.f14082c.j(optString);
-                        if (this.f14082c.f14078b == null || this.f14082c.f14078b.size() <= 0) {
+                        this.f14222c.f14218b = this.f14222c.j(optString);
+                        if (this.f14222c.f14218b == null || this.f14222c.f14218b.size() <= 0) {
                             return null;
                         }
                         HashMap hashMap = new HashMap();
                         int i2 = 0;
-                        for (int i3 = 0; i3 < this.f14082c.f14078b.size(); i3++) {
-                            String str = (String) this.f14082c.f14078b.get(i3);
+                        for (int i3 = 0; i3 < this.f14222c.f14218b.size(); i3++) {
+                            String str = (String) this.f14222c.f14218b.get(i3);
                             f fVar = new f();
                             fVar.a(str);
                             if (fVar.d()) {
@@ -143,12 +143,12 @@ public class a {
                             }
                         }
                         if (hashMap.size() > 0) {
-                            this.f14082c.f14078b = new ArrayList();
+                            this.f14222c.f14218b = new ArrayList();
                             ArrayList<Map.Entry> arrayList = new ArrayList(hashMap.entrySet());
-                            Collections.sort(arrayList, new C0900a(this));
+                            Collections.sort(arrayList, new C0910a(this));
                             StringBuilder sb = new StringBuilder(50);
                             for (Map.Entry entry : arrayList) {
-                                this.f14082c.f14078b.add(entry.getKey());
+                                this.f14222c.f14218b.add(entry.getKey());
                                 if (i2 != 0) {
                                     sb.append(",");
                                 }
@@ -157,8 +157,8 @@ public class a {
                             }
                             optString = sb.toString();
                         }
-                        c.a.s0.s.h0.b.k().x("KeyOfSharedPrefListGetTime", System.currentTimeMillis());
-                        c.a.s0.s.h0.b.k().y("KeyOfSharedPrefIpList", optString);
+                        c.a.s0.s.i0.b.k().x("KeyOfSharedPrefListGetTime", System.currentTimeMillis());
+                        c.a.s0.s.i0.b.k().y("KeyOfSharedPrefIpList", optString);
                         return null;
                     }
                     return null;
@@ -176,7 +176,7 @@ public class a {
         public void onCancelled(Void r5) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, r5) == null) {
-                this.f14082c.f14079c = null;
+                this.f14222c.f14219c = null;
                 b bVar = this.a;
                 if (bVar != null) {
                     bVar.a();
@@ -188,11 +188,11 @@ public class a {
         public void cancel() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                if (this.f14081b != null) {
-                    this.f14081b.cancelNetConnect();
-                    this.f14081b = null;
+                if (this.f14221b != null) {
+                    this.f14221b.cancelNetConnect();
+                    this.f14221b = null;
                 }
-                this.f14082c.f14079c = null;
+                this.f14222c.f14219c = null;
                 super.cancel(true);
             }
         }
@@ -203,7 +203,7 @@ public class a {
         public void onPostExecute(Void r5) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048579, this, r5) == null) {
-                this.f14082c.f14079c = null;
+                this.f14222c.f14219c = null;
                 b bVar = this.a;
                 if (bVar != null) {
                     bVar.a();
@@ -215,7 +215,7 @@ public class a {
         public void onCancelled() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-                this.f14082c.f14079c = null;
+                this.f14222c.f14219c = null;
                 b bVar = this.a;
                 if (bVar != null) {
                     bVar.a();
@@ -247,7 +247,7 @@ public class a {
         }
     }
 
-    public /* synthetic */ a(C0899a c0899a) {
+    public /* synthetic */ a(C0909a c0909a) {
         this();
     }
 
@@ -260,21 +260,21 @@ public class a {
     public int e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? c.a.s0.s.h0.b.k().l("KeyOfSharedPrefImCount", 0) : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? c.a.s0.s.i0.b.k().l("KeyOfSharedPrefImCount", 0) : invokeV.intValue;
     }
 
     public List<String> g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (this.f14078b == null) {
-                if (System.currentTimeMillis() - c.a.s0.s.h0.b.k().m("KeyOfSharedPrefListGetTime", 0L) > 86400000) {
-                    c.a.s0.s.h0.b.k().y("KeyOfSharedPrefIpList", "");
+            if (this.f14218b == null) {
+                if (System.currentTimeMillis() - c.a.s0.s.i0.b.k().m("KeyOfSharedPrefListGetTime", 0L) > 86400000) {
+                    c.a.s0.s.i0.b.k().y("KeyOfSharedPrefIpList", "");
                     return null;
                 }
-                this.f14078b = j(c.a.s0.s.h0.b.k().q("KeyOfSharedPrefIpList", null));
+                this.f14218b = j(c.a.s0.s.i0.b.k().q("KeyOfSharedPrefIpList", null));
             }
-            return this.f14078b;
+            return this.f14218b;
         }
         return (List) invokeV.objValue;
     }
@@ -285,16 +285,16 @@ public class a {
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             int e2 = e();
             if (e2 >= 10) {
-                c.a.s0.s.h0.b.k().w("KeyOfSharedPrefImCount", 0);
-                c.a.s0.s.h0.b.k().y("KeyOfSharedPrefValidIp", "");
+                c.a.s0.s.i0.b.k().w("KeyOfSharedPrefImCount", 0);
+                c.a.s0.s.i0.b.k().y("KeyOfSharedPrefValidIp", "");
                 this.a = null;
                 return null;
             }
             if (this.a == null) {
-                this.a = c.a.s0.s.h0.b.k().q("KeyOfSharedPrefValidIp", null);
+                this.a = c.a.s0.s.i0.b.k().q("KeyOfSharedPrefValidIp", null);
             }
             if (!m.isEmpty(this.a)) {
-                c.a.s0.s.h0.b.k().w("KeyOfSharedPrefImCount", e2 + 1);
+                c.a.s0.s.i0.b.k().w("KeyOfSharedPrefImCount", e2 + 1);
             } else {
                 this.a = null;
             }
@@ -306,7 +306,7 @@ public class a {
     public boolean i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f14080d : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f14220d : invokeV.booleanValue;
     }
 
     public final List<String> j(String str) {
@@ -329,7 +329,7 @@ public class a {
     public void k() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.f14080d = false;
+            this.f14220d = false;
         }
     }
 
@@ -339,17 +339,17 @@ public class a {
             return;
         }
         this.a = str;
-        c.a.s0.s.h0.b.k().y("KeyOfSharedPrefValidIp", str);
+        c.a.s0.s.i0.b.k().y("KeyOfSharedPrefValidIp", str);
     }
 
     public void m(b bVar) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048583, this, bVar) == null) && this.f14079c == null) {
-            this.f14080d = true;
+        if ((interceptable == null || interceptable.invokeL(1048583, this, bVar) == null) && this.f14219c == null) {
+            this.f14220d = true;
             c cVar = new c(this, bVar);
-            this.f14079c = cVar;
+            this.f14219c = cVar;
             cVar.setSelfExecute(true);
-            this.f14079c.execute(new Object[0]);
+            this.f14219c.execute(new Object[0]);
         }
     }
 
@@ -367,10 +367,10 @@ public class a {
             }
         }
         this.a = null;
-        this.f14078b = null;
-        this.f14079c = null;
-        this.f14080d = false;
-        this.f14080d = false;
-        this.f14078b = null;
+        this.f14218b = null;
+        this.f14219c = null;
+        this.f14220d = false;
+        this.f14220d = false;
+        this.f14218b = null;
     }
 }

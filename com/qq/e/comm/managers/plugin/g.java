@@ -11,20 +11,20 @@ import com.qq.e.comm.util.GDTLogger;
 import com.qq.e.comm.util.Md5Util;
 import com.qq.e.comm.util.StringUtil;
 import java.io.File;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class g {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final File a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final File f59084b;
+    public final File f59129b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f59085c;
+    public String f59130c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f59086d;
+    public int f59131d;
 
     public g(File file, File file2) {
         Interceptable interceptable = $ic;
@@ -42,7 +42,7 @@ public class g {
             }
         }
         this.a = file;
-        this.f59084b = file2;
+        this.f59129b = file2;
     }
 
     /* JADX WARN: Removed duplicated region for block: B:20:0x004b A[Catch: all -> 0x0054, TryCatch #0 {all -> 0x0054, blocks: (B:5:0x0005, B:7:0x000d, B:9:0x0015, B:11:0x0025, B:14:0x0038, B:17:0x003f, B:20:0x004b, B:24:0x0052), top: B:32:0x0005 }] */
@@ -56,8 +56,8 @@ public class g {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             try {
-                if (this.f59084b.exists() && this.a.exists()) {
-                    String[] split = StringUtil.readAll(this.f59084b).split("#####");
+                if (this.f59129b.exists() && this.a.exists()) {
+                    String[] split = StringUtil.readAll(this.f59129b).split("#####");
                     if (split.length == 2) {
                         String str = split[1];
                         int parseInteger = StringUtil.parseInteger(split[0], 0);
@@ -69,8 +69,8 @@ public class g {
                                 if (z) {
                                     return false;
                                 }
-                                this.f59085c = str;
-                                this.f59086d = parseInteger;
+                                this.f59130c = str;
+                                this.f59131d = parseInteger;
                                 return true;
                             }
                             z = false;
@@ -93,18 +93,18 @@ public class g {
     public boolean a(File file, File file2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, file, file2)) == null) ? (file.equals(this.a) || FileUtil.renameTo(this.a, file)) && (file2.equals(this.f59084b) || FileUtil.renameTo(this.f59084b, file2)) : invokeLL.booleanValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, file, file2)) == null) ? (file.equals(this.a) || FileUtil.renameTo(this.a, file)) && (file2.equals(this.f59129b) || FileUtil.renameTo(this.f59129b, file2)) : invokeLL.booleanValue;
     }
 
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f59085c : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f59130c : (String) invokeV.objValue;
     }
 
     public int c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f59086d : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f59131d : invokeV.intValue;
     }
 }

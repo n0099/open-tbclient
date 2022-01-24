@@ -37,16 +37,16 @@ public class c extends z {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f7570e;
+        public final /* synthetic */ CallbackHandler f7712e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f7571f;
+        public final /* synthetic */ String f7713f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ SwanAppActionBar f7572g;
+        public final /* synthetic */ SwanAppActionBar f7714g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ float f7573h;
+        public final /* synthetic */ float f7715h;
 
         public a(c cVar, CallbackHandler callbackHandler, String str, SwanAppActionBar swanAppActionBar, float f2) {
             Interceptable interceptable = $ic;
@@ -63,10 +63,10 @@ public class c extends z {
                     return;
                 }
             }
-            this.f7570e = callbackHandler;
-            this.f7571f = str;
-            this.f7572g = swanAppActionBar;
-            this.f7573h = f2;
+            this.f7712e = callbackHandler;
+            this.f7713f = str;
+            this.f7714g = swanAppActionBar;
+            this.f7715h = f2;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -76,12 +76,12 @@ public class c extends z {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, iVar) == null) {
                 if (!c.a.r0.a.h2.c.d.h(iVar)) {
-                    c.a.r0.a.h2.c.d.q(iVar, this.f7570e, this.f7571f);
-                } else if (this.f7572g.getRightMenu() == null) {
-                    this.f7570e.handleSchemeDispatchCallback(this.f7571f, UnitedSchemeUtility.wrapCallbackParams(1001).toString());
+                    c.a.r0.a.h2.c.d.q(iVar, this.f7712e, this.f7713f);
+                } else if (this.f7714g.getRightMenu() == null) {
+                    this.f7712e.handleSchemeDispatchCallback(this.f7713f, UnitedSchemeUtility.wrapCallbackParams(1001).toString());
                 } else {
-                    this.f7572g.setRightMenuAlpha(this.f7573h);
-                    this.f7570e.handleSchemeDispatchCallback(this.f7571f, UnitedSchemeUtility.wrapCallbackParams(0).toString());
+                    this.f7714g.setRightMenuAlpha(this.f7715h);
+                    this.f7712e.handleSchemeDispatchCallback(this.f7713f, UnitedSchemeUtility.wrapCallbackParams(0).toString());
                 }
             }
         }
@@ -93,19 +93,19 @@ public class c extends z {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f7574e;
+        public final /* synthetic */ CallbackHandler f7716e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f7575f;
+        public final /* synthetic */ String f7717f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ boolean f7576g;
+        public final /* synthetic */ boolean f7718g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ SwanAppActionBar f7577h;
+        public final /* synthetic */ SwanAppActionBar f7719h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final /* synthetic */ c f7578i;
+        public final /* synthetic */ c f7720i;
 
         public b(c cVar, CallbackHandler callbackHandler, String str, boolean z, SwanAppActionBar swanAppActionBar) {
             Interceptable interceptable = $ic;
@@ -122,11 +122,11 @@ public class c extends z {
                     return;
                 }
             }
-            this.f7578i = cVar;
-            this.f7574e = callbackHandler;
-            this.f7575f = str;
-            this.f7576g = z;
-            this.f7577h = swanAppActionBar;
+            this.f7720i = cVar;
+            this.f7716e = callbackHandler;
+            this.f7717f = str;
+            this.f7718g = z;
+            this.f7719h = swanAppActionBar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -136,15 +136,15 @@ public class c extends z {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, iVar) == null) {
                 if (!c.a.r0.a.h2.c.d.h(iVar)) {
-                    c.a.r0.a.h2.c.d.q(iVar, this.f7574e, this.f7575f);
+                    c.a.r0.a.h2.c.d.q(iVar, this.f7716e, this.f7717f);
                     return;
                 }
-                if (this.f7576g) {
-                    this.f7578i.r(this.f7577h);
+                if (this.f7718g) {
+                    this.f7720i.r(this.f7719h);
                 } else {
-                    this.f7578i.n(this.f7577h);
+                    this.f7720i.n(this.f7719h);
                 }
-                this.f7574e.handleSchemeDispatchCallback(this.f7575f, UnitedSchemeUtility.wrapCallbackParams(0).toString());
+                this.f7716e.handleSchemeDispatchCallback(this.f7717f, UnitedSchemeUtility.wrapCallbackParams(0).toString());
             }
         }
     }

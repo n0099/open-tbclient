@@ -15,6 +15,7 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.ForumDetailActivityConfig;
+import com.baidu.tbadk.core.atomData.ForumSquareActivityConfig;
 import com.baidu.tbadk.core.atomData.HotTopicActivityConfig;
 import com.baidu.tbadk.core.atomData.PersonBarActivityConfig;
 import com.baidu.tbadk.core.atomData.PersonInfoActivityConfig;
@@ -49,6 +50,7 @@ public class OpenFlutter {
     public static final String ACTIVITY_CONCERN_FORUM = "ConcernForumPage";
     public static final String ACTIVITY_FANS = "AttentionPage";
     public static final String ACTIVITY_FORUM_DETAIL = "ForumDetailPage";
+    public static final String ACTIVITY_FORUM_SQUARE_PAGE = "BarSquarePage";
     public static final String ACTIVITY_PERSON_CENTER = "PersonalCenterPage";
     public static final String ACTIVITY_SIGN_TOGETHER = "SignTogetherPage";
     public static final String ACTIVITY_VIDEO_TOPIC_DETAILS_PAGE = "VideoTopicDetailsPage";
@@ -135,13 +137,15 @@ public class OpenFlutter {
             } else if (!(intentConfig instanceof PersonPolymericActivityConfig) && !(intentConfig instanceof PersonInfoActivityConfig)) {
                 if (intentConfig instanceof VideoWorkListActivityConfig) {
                     str = ACTIVITY_VIDEO_WORK_LIST;
-                } else if (!(intentConfig instanceof HotTopicActivityConfig) || !checkIsVideoTopic((HotTopicActivityConfig) intentConfig)) {
+                } else if ((intentConfig instanceof HotTopicActivityConfig) && checkIsVideoTopic((HotTopicActivityConfig) intentConfig)) {
+                    str = ACTIVITY_VIDEO_TOPIC_DETAILS_PAGE;
+                } else if (!(intentConfig instanceof ForumSquareActivityConfig)) {
                     return customMessage;
                 } else {
-                    str = ACTIVITY_VIDEO_TOPIC_DETAILS_PAGE;
+                    str = ACTIVITY_FORUM_SQUARE_PAGE;
                 }
             } else {
-                e.a().postDelayed(new Runnable() { // from class: com.baidu.tieba.flutter.base.util.OpenFlutter.2
+                e.a().postDelayed(new Runnable() { // from class: com.baidu.tieba.flutter.base.util.OpenFlutter.3
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
@@ -287,6 +291,9 @@ public class OpenFlutter {
                 }
             } else if (ACTIVITY_VIDEO_TOPIC_DETAILS_PAGE.equals(str)) {
                 hashMap.putAll(DataExt.g(intentConfig.getIntent().getExtras()));
+            } else if (ACTIVITY_FORUM_SQUARE_PAGE.equals(str)) {
+                hashMap.put(ForumSquareActivityConfig.SHOW_CREATE_BAR, intentConfig.getIntent().getStringExtra(ForumSquareActivityConfig.SHOW_CREATE_BAR));
+                hashMap.put(ForumSquareActivityConfig.FORUM_CLASS_NAME, intentConfig.getIntent().getStringExtra(ForumSquareActivityConfig.FORUM_CLASS_NAME));
             }
             if (intentConfig.getIntent().getParcelableExtra(IntentConfig.KEY_URI) != null) {
                 parseUriParmes(str, hashMap, (Uri) intentConfig.getIntent().getParcelableExtra(IntentConfig.KEY_URI));
@@ -301,10 +308,91 @@ public class OpenFlutter {
         int i2;
         String substring;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLL(65542, null, str, hashMap, uri) == null) && ACTIVITY_PERSON_CENTER.equals(str)) {
-            String uri2 = uri.toString();
-            if (g.c(uri)) {
-                g.b().h(uri, new g.b(hashMap) { // from class: com.baidu.tieba.flutter.base.util.OpenFlutter.1
+        if (interceptable == null || interceptable.invokeLLL(65542, null, str, hashMap, uri) == null) {
+            if (ACTIVITY_PERSON_CENTER.equals(str)) {
+                String uri2 = uri.toString();
+                if (g.c(uri)) {
+                    g.b().i(uri, new g.b(hashMap) { // from class: com.baidu.tieba.flutter.base.util.OpenFlutter.1
+                        public static /* synthetic */ Interceptable $ic;
+                        public transient /* synthetic */ FieldHolder $fh;
+                        public final /* synthetic */ HashMap val$params;
+
+                        {
+                            Interceptable interceptable2 = $ic;
+                            if (interceptable2 != null) {
+                                InitContext newInitContext = TitanRuntime.newInitContext();
+                                newInitContext.initArgs = r2;
+                                Object[] objArr = {hashMap};
+                                interceptable2.invokeUnInit(65536, newInitContext);
+                                int i3 = newInitContext.flag;
+                                if ((i3 & 1) != 0) {
+                                    int i4 = i3 & 2;
+                                    newInitContext.thisArg = this;
+                                    interceptable2.invokeInitBody(65536, newInitContext);
+                                    return;
+                                }
+                            }
+                            this.val$params = hashMap;
+                        }
+
+                        @Override // c.a.s0.a.g.b
+                        public void onCallBack(HashMap<String, Object> hashMap2) {
+                            Interceptable interceptable2 = $ic;
+                            if (!(interceptable2 == null || interceptable2.invokeL(1048576, this, hashMap2) == null) || hashMap2 == null) {
+                                return;
+                            }
+                            Boolean bool = (Boolean) hashMap2.get(g.b0);
+                            if (bool != null && bool.booleanValue()) {
+                                this.val$params.put("portrait", TbadkCoreApplication.getCurrentPortrait());
+                            }
+                            if (hashMap2.get(g.z) instanceof String) {
+                                String str2 = (String) hashMap2.get(g.z);
+                                if (StringUtils.isNull(str2)) {
+                                    return;
+                                }
+                                this.val$params.put("portrait", str2);
+                            }
+                        }
+                    });
+                } else if (StringUtils.isNull(uri2)) {
+                } else {
+                    if (uri2.startsWith("tbusercenter://") || uri2.startsWith(NewUrlSchemaHelper.Jump.JUMP_TO_USER_CENTER)) {
+                        String decode = Uri.decode(uri.getEncodedPath());
+                        if (StringUtils.isNull(decode)) {
+                            return;
+                        }
+                        if (uri2.startsWith("tbusercenter://")) {
+                            Matcher matcher = Pattern.compile(".*fr=(.*)&portrait=([\\d]+).*").matcher(decode);
+                            if (matcher.find()) {
+                                substring = matcher.group(2);
+                            } else {
+                                int indexOf = decode.indexOf("portrait=");
+                                if (indexOf < 0 || (i2 = indexOf + 9) > decode.length()) {
+                                    return;
+                                }
+                                substring = decode.substring(i2);
+                            }
+                            if (StringUtils.isNull(substring)) {
+                                return;
+                            }
+                            hashMap.put("portrait", substring);
+                        } else if (uri2.startsWith(NewUrlSchemaHelper.Jump.JUMP_TO_USER_CENTER)) {
+                            if (decode.startsWith("//")) {
+                                decode = decode.substring(2);
+                            }
+                            if (StringUtils.isNull(decode) || (paramPair = UrlManager.getParamPair(decode)) == null) {
+                                return;
+                            }
+                            String str2 = paramPair.get("uid");
+                            if (StringUtils.isNull(str2)) {
+                                return;
+                            }
+                            hashMap.put("uid", str2);
+                        }
+                    }
+                }
+            } else if (ACTIVITY_FORUM_SQUARE_PAGE.equals(str) && g.c(uri)) {
+                g.b().d(uri, new g.b(hashMap) { // from class: com.baidu.tieba.flutter.base.util.OpenFlutter.2
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ HashMap val$params;
@@ -333,55 +421,16 @@ public class OpenFlutter {
                         if (!(interceptable2 == null || interceptable2.invokeL(1048576, this, hashMap2) == null) || hashMap2 == null) {
                             return;
                         }
-                        Boolean bool = (Boolean) hashMap2.get(g.b0);
-                        if (bool != null && bool.booleanValue()) {
-                            this.val$params.put("portrait", TbadkCoreApplication.getCurrentPortrait());
-                        }
-                        if (hashMap2.get(g.z) instanceof String) {
-                            String str2 = (String) hashMap2.get(g.z);
-                            if (StringUtils.isNull(str2)) {
+                        Object obj = hashMap2.get(g.F);
+                        if (obj instanceof String) {
+                            String str3 = (String) obj;
+                            if (TextUtils.isEmpty(str3)) {
                                 return;
                             }
-                            this.val$params.put("portrait", str2);
+                            this.val$params.put(ForumSquareActivityConfig.FORUM_CLASS_NAME, str3);
                         }
                     }
                 });
-            } else if (StringUtils.isNull(uri2)) {
-            } else {
-                if (uri2.startsWith("tbusercenter://") || uri2.startsWith(NewUrlSchemaHelper.Jump.JUMP_TO_USER_CENTER)) {
-                    String decode = Uri.decode(uri.getEncodedPath());
-                    if (StringUtils.isNull(decode)) {
-                        return;
-                    }
-                    if (uri2.startsWith("tbusercenter://")) {
-                        Matcher matcher = Pattern.compile(".*fr=(.*)&portrait=([\\d]+).*").matcher(decode);
-                        if (matcher.find()) {
-                            substring = matcher.group(2);
-                        } else {
-                            int indexOf = decode.indexOf("portrait=");
-                            if (indexOf < 0 || (i2 = indexOf + 9) > decode.length()) {
-                                return;
-                            }
-                            substring = decode.substring(i2);
-                        }
-                        if (StringUtils.isNull(substring)) {
-                            return;
-                        }
-                        hashMap.put("portrait", substring);
-                    } else if (uri2.startsWith(NewUrlSchemaHelper.Jump.JUMP_TO_USER_CENTER)) {
-                        if (decode.startsWith("//")) {
-                            decode = decode.substring(2);
-                        }
-                        if (StringUtils.isNull(decode) || (paramPair = UrlManager.getParamPair(decode)) == null) {
-                            return;
-                        }
-                        String str2 = paramPair.get("uid");
-                        if (StringUtils.isNull(str2)) {
-                            return;
-                        }
-                        hashMap.put("uid", str2);
-                    }
-                }
             }
         }
     }

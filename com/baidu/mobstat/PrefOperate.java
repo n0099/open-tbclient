@@ -100,7 +100,7 @@ public class PrefOperate {
     public static void setAppKey(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65541, null, str) == null) {
-            CooperService.instance().getHeadObject().f36311e = str;
+            CooperService.instance().getHeadObject().f36339e = str;
         }
     }
 

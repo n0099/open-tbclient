@@ -52,7 +52,7 @@ public class f {
         if ((interceptable == null || interceptable.invokeV(65538, null) == null) && com.bytedance.pangle.helper.c.b(Zeus.getAppApplication())) {
             g a2 = g.a();
             b a3 = b.a();
-            a3.f53011b.add(new a(a2) { // from class: com.bytedance.pangle.download.g.1
+            a3.f53056b.add(new a(a2) { // from class: com.bytedance.pangle.download.g.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ g a;
@@ -153,16 +153,16 @@ public class f {
                 public final void onActivityStarted(Activity activity) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048581, this, activity) == null) {
-                        if (this.a.f53013e == 0) {
+                        if (this.a.f53058e == 0) {
                             this.a.a = false;
                             b bVar = this.a;
-                            if (!bVar.f53012c) {
-                                for (a aVar : bVar.f53011b) {
+                            if (!bVar.f53057c) {
+                                for (a aVar : bVar.f53056b) {
                                     aVar.b();
                                 }
-                                this.a.f53012c = true;
+                                this.a.f53057c = true;
                             }
-                            for (a aVar2 : this.a.f53011b) {
+                            for (a aVar2 : this.a.f53056b) {
                                 aVar2.a();
                             }
                         }
@@ -175,9 +175,9 @@ public class f {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048582, this, activity) == null) {
                         b.d(this.a);
-                        if (this.a.f53013e == 0) {
+                        if (this.a.f53058e == 0) {
                             this.a.a = true;
-                            Iterator it = this.a.f53011b.iterator();
+                            Iterator it = this.a.f53056b.iterator();
                             while (it.hasNext()) {
                                 it.next();
                             }

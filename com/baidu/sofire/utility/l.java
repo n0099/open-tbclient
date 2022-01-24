@@ -32,17 +32,17 @@ public final class l {
     public static final String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f38525b;
+    public static final String f38553b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f38526c;
+    public static final String f38554c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static c f38527d;
+    public static c f38555d;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f38528e;
+    public Context f38556e;
 
     /* loaded from: classes11.dex */
     public static class a {
@@ -168,7 +168,7 @@ public final class l {
         public String a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f38529b;
+        public String f38557b;
 
         public c() {
             Interceptable interceptable = $ic;
@@ -198,7 +198,7 @@ public final class l {
                     if (!TextUtils.isEmpty(string) && string2 != null) {
                         c cVar = new c();
                         cVar.a = string;
-                        cVar.f38529b = string2;
+                        cVar.f38557b = string2;
                         return cVar;
                     }
                     return null;
@@ -219,7 +219,7 @@ public final class l {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
                 try {
-                    String str = this.f38529b;
+                    String str = this.f38557b;
                     if (TextUtils.isEmpty(str)) {
                         str = "0";
                     }
@@ -280,8 +280,8 @@ public final class l {
             }
         }
         a = new String(b.a(new byte[]{77, 122, 65, 121, 77, 84, 73, 120, 77, 68, 73, 61}));
-        f38525b = new String(b.a(new byte[]{90, 71, 108, 106, 100, 87, 82, 112, 89, 87, 73, 61}));
-        f38526c = a + f38525b;
+        f38553b = new String(b.a(new byte[]{90, 71, 108, 106, 100, 87, 82, 112, 89, 87, 73, 61}));
+        f38554c = a + f38553b;
     }
 
     public l(Context context) {
@@ -299,7 +299,7 @@ public final class l {
                 return;
             }
         }
-        this.f38528e = context;
+        this.f38556e = context;
     }
 
     private String a(String str) {
@@ -307,7 +307,7 @@ public final class l {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65541, this, str)) == null) {
             try {
-                return u.b(this.f38528e) ? Settings.System.getString(this.f38528e.getContentResolver(), str) : "";
+                return u.b(this.f38556e) ? Settings.System.getString(this.f38556e.getContentResolver(), str) : "";
             } catch (Throwable unused) {
                 com.baidu.sofire.utility.c.a();
                 return null;
@@ -322,10 +322,10 @@ public final class l {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, context)) == null) {
             synchronized (l.class) {
-                if (f38527d == null) {
-                    f38527d = new l(context).a();
+                if (f38555d == null) {
+                    f38555d = new l(context).a();
                 }
-                cVar = f38527d;
+                cVar = f38555d;
             }
             return cVar;
         }
@@ -343,7 +343,7 @@ public final class l {
                     a3 = c("");
                 }
                 if (TextUtils.isEmpty(a2)) {
-                    String i2 = u.i(this.f38528e);
+                    String i2 = u.i(this.f38556e);
                     a2 = a(d.a((com.baidu.sofire.utility.c.e("q6R8gqLUgHDSsH6dbL27xN7Qr9sa0MxMqXTV66AWUUE=") + a3 + i2).getBytes()));
                 }
                 if (TextUtils.isEmpty(a2)) {
@@ -351,7 +351,7 @@ public final class l {
                 }
                 c cVar = new c((byte) 0);
                 cVar.a = a2;
-                cVar.f38529b = a3;
+                cVar.f38557b = a3;
                 return cVar;
             } catch (Throwable unused) {
                 com.baidu.sofire.utility.c.a();
@@ -369,7 +369,7 @@ public final class l {
                 return null;
             }
             try {
-                return new String(a.a(f38526c, f38526c, b.a(str.getBytes())));
+                return new String(a.a(f38554c, f38554c, b.a(str.getBytes())));
             } catch (Throwable unused) {
                 com.baidu.sofire.utility.c.a();
                 return "";
@@ -431,13 +431,13 @@ public final class l {
             } catch (Throwable unused) {
                 com.baidu.sofire.utility.c.a();
             }
-            if (u.c(this.f38528e)) {
+            if (u.c(this.f38556e)) {
                 File externalStorageDirectory = Environment.getExternalStorageDirectory();
                 File file = new File(externalStorageDirectory, com.baidu.sofire.utility.c.e("_99uIeWLLYgYWnfdVm4xmTNMy58crLVzIq1_1xd6OaXaqNsyUOaKaQPHeL9hMa2J") + "/" + com.baidu.sofire.utility.c.e("idzo8hWEQF2c4tBTa5WOlQMU8UU8Wq-86X4X9ljayiU="));
                 if (file.exists()) {
                     String a2 = a(file);
                     if (!TextUtils.isEmpty(a2)) {
-                        return c.a(new String(a.a(f38526c, f38526c, b.a(a2.getBytes()))));
+                        return c.a(new String(a.a(f38554c, f38554c, b.a(a2.getBytes()))));
                     }
                 }
                 return null;
@@ -467,7 +467,7 @@ public final class l {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65544, this, str)) == null) {
             boolean z = Build.VERSION.SDK_INT < 23;
-            if (!(z && TextUtils.isEmpty(str)) && u.c(this.f38528e)) {
+            if (!(z && TextUtils.isEmpty(str)) && u.c(this.f38556e)) {
                 String str2 = "";
                 File externalStorageDirectory = Environment.getExternalStorageDirectory();
                 File file = new File(externalStorageDirectory, com.baidu.sofire.utility.c.e("u_lhldj5Nkwulw6YvIU2wr_ieZRcYQnQZ7zSlbUYnYY=") + "/" + com.baidu.sofire.utility.c.e("u2fjUEpcZJL7IE6RlBqIRmFJW_FjZrNApjdMKDgt7FM="));
@@ -487,7 +487,7 @@ public final class l {
                         sb.append("\r\n");
                     }
                     bufferedReader.close();
-                    String[] split = new String(a.a(f38526c, f38526c, b.a(sb.toString().getBytes()))).split("=");
+                    String[] split = new String(a.a(f38554c, f38554c, b.a(sb.toString().getBytes()))).split("=");
                     if (split != null && split.length == 2) {
                         if (z && str.equals(split[0])) {
                             str2 = split[1];
@@ -506,7 +506,7 @@ public final class l {
                 }
                 c cVar = new c((byte) 0);
                 cVar.a = str2;
-                cVar.f38529b = str;
+                cVar.f38557b = str;
                 return cVar;
             }
             return null;
@@ -525,7 +525,7 @@ public final class l {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, this)) == null) {
             try {
-                File file = new File(this.f38528e.getFilesDir(), com.baidu.sofire.utility.c.e("K5j7Snuat7HHCaEg62XaRa41Ukv_4vtSH9Z4FqXi1Fs="));
+                File file = new File(this.f38556e.getFilesDir(), com.baidu.sofire.utility.c.e("K5j7Snuat7HHCaEg62XaRa41Ukv_4vtSH9Z4FqXi1Fs="));
                 c a2 = file.exists() ? c.a(d(a(file))) : null;
                 if (a2 != null) {
                     return a2;
@@ -534,7 +534,7 @@ public final class l {
                 if (a3 != null) {
                     return a3;
                 }
-                boolean z = this.f38528e.checkPermission(com.kuaishou.weapon.un.s.f55248i, Process.myPid(), Process.myUid()) == 0;
+                boolean z = this.f38556e.checkPermission(com.kuaishou.weapon.un.s.f55293i, Process.myPid(), Process.myUid()) == 0;
                 if (z) {
                     a3 = b();
                 }

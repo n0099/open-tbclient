@@ -4,7 +4,7 @@ import android.text.TextUtils;
 import c.a.k0.a.a;
 import c.a.k0.a.b.d;
 import c.a.p.b.b;
-import c.a.t0.p3.n;
+import c.a.t0.q3.n;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pyramid.annotation.Inject;
 import com.baidu.searchbox.anr.ubc.ANRPerfSampleCallback;

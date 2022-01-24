@@ -29,13 +29,13 @@ public class d extends c {
         public final /* synthetic */ String a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ String f8438b;
+        public final /* synthetic */ String f8580b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f8439c;
+        public final /* synthetic */ CallbackHandler f8581c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ d f8440d;
+        public final /* synthetic */ d f8582d;
 
         public a(d dVar, String str, String str2, CallbackHandler callbackHandler) {
             Interceptable interceptable = $ic;
@@ -52,19 +52,19 @@ public class d extends c {
                     return;
                 }
             }
-            this.f8440d = dVar;
+            this.f8582d = dVar;
             this.a = str;
-            this.f8438b = str2;
-            this.f8439c = callbackHandler;
+            this.f8580b = str2;
+            this.f8581c = callbackHandler;
         }
 
         @Override // com.baidu.searchbox.http.callback.ResponseCallback
         public void onFail(Exception exc) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, exc) == null) {
-                d dVar = this.f8440d;
-                CallbackHandler callbackHandler = this.f8439c;
-                String str = this.f8438b;
+                d dVar = this.f8582d;
+                CallbackHandler callbackHandler = this.f8581c;
+                String str = this.f8580b;
                 dVar.r(callbackHandler, str, null, "downloadFile:fail" + exc.getMessage());
             }
         }
@@ -81,7 +81,7 @@ public class d extends c {
             InterceptResult invokeLI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, response, i2)) == null) {
-                this.f8440d.s(response, this.a, this.f8438b, this.f8439c);
+                this.f8582d.s(response, this.a, this.f8580b, this.f8581c);
                 return response;
             }
             return invokeLI.objValue;
@@ -165,9 +165,9 @@ public class d extends c {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048579, this, str, str2, callbackHandler) == null) {
             c.a.r0.p.d.a aVar = new c.a.r0.p.d.a(str, new a(this, str, str2, callbackHandler));
-            aVar.f11453f = true;
-            aVar.f11454g = false;
-            aVar.f11455h = true;
+            aVar.f11595f = true;
+            aVar.f11596g = false;
+            aVar.f11597h = true;
             c.a.r0.p.e.a.g().d(aVar);
         }
     }
@@ -223,7 +223,7 @@ public class d extends c {
                 try {
                     file.createNewFile();
                 } catch (IOException e2) {
-                    if (c.f8435c) {
+                    if (c.f8577c) {
                         e2.printStackTrace();
                     }
                 }

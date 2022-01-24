@@ -16,7 +16,7 @@ public abstract class c implements a<c.a.r0.a.y1.a.b.a.b> {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final boolean f9693b;
+    public static final boolean f9835b;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
 
@@ -33,7 +33,7 @@ public abstract class c implements a<c.a.r0.a.y1.a.b.a.b> {
                 return;
             }
         }
-        f9693b = k.a;
+        f9835b = k.a;
     }
 
     public c() {
@@ -61,7 +61,7 @@ public abstract class c implements a<c.a.r0.a.y1.a.b.a.b> {
             }
             String str = System.currentTimeMillis() + "" + hashCode();
             this.a = str;
-            if (f9693b && c.a.r0.a.y1.a.b.d.a.a(str)) {
+            if (f9835b && c.a.r0.a.y1.a.b.d.a.a(str)) {
                 throw new RuntimeException("illegal observer id");
             }
             return this.a;

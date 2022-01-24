@@ -28,24 +28,24 @@ public class c {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f60586c;
+    public static String f60631c;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public d f60587b;
+    public d f60632b;
 
     /* renamed from: d  reason: collision with root package name */
-    public long f60588d;
+    public long f60633d;
 
     /* renamed from: e  reason: collision with root package name */
-    public Handler f60589e;
+    public Handler f60634e;
 
     /* renamed from: f  reason: collision with root package name */
-    public WeakReference<Activity> f60590f;
+    public WeakReference<Activity> f60635f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Runnable f60591g;
+    public Runnable f60636g;
 
     public c(Activity activity) {
         Interceptable interceptable = $ic;
@@ -62,7 +62,7 @@ public class c {
                 return;
             }
         }
-        this.f60591g = new Runnable(this) { // from class: com.tencent.open.utils.c.2
+        this.f60636g = new Runnable(this) { // from class: com.tencent.open.utils.c.2
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ c a;
@@ -92,9 +92,9 @@ public class c {
                 if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                     SLog.v("AsynLoadImg", "saveFileRunnable:");
                     String str = "share_qq_" + l.f(this.a.a) + ThreadAchievementShareDialogView.THREAD_IMG_SUFFIX;
-                    String str2 = c.f60586c + str;
+                    String str2 = c.f60631c + str;
                     File file = new File(str2);
-                    Message obtainMessage = this.a.f60589e.obtainMessage();
+                    Message obtainMessage = this.a.f60634e.obtainMessage();
                     if (!file.exists()) {
                         Bitmap a = c.a(this.a.a);
                         if (a != null) {
@@ -109,18 +109,18 @@ public class c {
                         } else {
                             obtainMessage.arg1 = 1;
                         }
-                        SLog.v("AsynLoadImg", "file not exists: download time:" + (System.currentTimeMillis() - this.a.f60588d));
+                        SLog.v("AsynLoadImg", "file not exists: download time:" + (System.currentTimeMillis() - this.a.f60633d));
                     } else {
                         obtainMessage.arg1 = 0;
                         obtainMessage.obj = str2;
-                        SLog.v("AsynLoadImg", "file exists: time:" + (System.currentTimeMillis() - this.a.f60588d));
+                        SLog.v("AsynLoadImg", "file exists: time:" + (System.currentTimeMillis() - this.a.f60633d));
                     }
-                    this.a.f60589e.sendMessage(obtainMessage);
+                    this.a.f60634e.sendMessage(obtainMessage);
                 }
             }
         };
-        this.f60590f = new WeakReference<>(activity);
-        this.f60589e = new Handler(this, activity.getMainLooper()) { // from class: com.tencent.open.utils.c.1
+        this.f60635f = new WeakReference<>(activity);
+        this.f60634e = new Handler(this, activity.getMainLooper()) { // from class: com.tencent.open.utils.c.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ c a;
@@ -152,9 +152,9 @@ public class c {
                 if (interceptable2 == null || interceptable2.invokeL(1048576, this, message) == null) {
                     SLog.v("AsynLoadImg", "handleMessage:" + message.arg1);
                     if (message.arg1 == 0) {
-                        this.a.f60587b.a(message.arg1, (String) message.obj);
+                        this.a.f60632b.a(message.arg1, (String) message.obj);
                     } else {
-                        this.a.f60587b.a(message.arg1, (String) null);
+                        this.a.f60632b.a(message.arg1, (String) null);
                     }
                 }
             }
@@ -170,8 +170,8 @@ public class c {
                     dVar.a(2, (String) null);
                     return;
                 }
-                if (this.f60590f.get() != null) {
-                    Activity activity = this.f60590f.get();
+                if (this.f60635f.get() != null) {
+                    Activity activity = this.f60635f.get();
                     File h2 = l.h(activity, "Images");
                     File externalStorageDirectory = Environment.getExternalStorageDirectory();
                     if (h2 == null) {
@@ -182,12 +182,12 @@ public class c {
                     StringBuilder sb = new StringBuilder();
                     sb.append(i.c(activity) ? h2.getAbsolutePath() : externalStorageDirectory.getAbsolutePath());
                     sb.append("/tmp/");
-                    f60586c = sb.toString();
+                    f60631c = sb.toString();
                 }
-                this.f60588d = System.currentTimeMillis();
+                this.f60633d = System.currentTimeMillis();
                 this.a = str;
-                this.f60587b = dVar;
-                new Thread(this.f60591g).start();
+                this.f60632b = dVar;
+                new Thread(this.f60636g).start();
                 return;
             }
             dVar.a(1, (String) null);
@@ -199,7 +199,7 @@ public class c {
         BufferedOutputStream bufferedOutputStream;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bitmap, str)) == null) {
-            String str2 = f60586c;
+            String str2 = f60631c;
             BufferedOutputStream bufferedOutputStream2 = null;
             try {
                 try {

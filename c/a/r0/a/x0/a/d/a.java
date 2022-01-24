@@ -15,31 +15,31 @@ public class a {
     public static File a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f9565b;
+    public static String f9707b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f9566c;
+    public static String f9708c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static String f9567d;
+    public static String f9709d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static String f9568e;
+    public static String f9710e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static String f9569f;
+    public static String f9711f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static String f9570g;
+    public static String f9712g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static String f9571h;
+    public static String f9713h;
 
     /* renamed from: i  reason: collision with root package name */
-    public static String f9572i;
+    public static String f9714i;
 
     /* renamed from: j  reason: collision with root package name */
-    public static String f9573j;
+    public static String f9715j;
     public static String k;
     public static String l;
     public static String m;
@@ -59,15 +59,15 @@ public class a {
             }
         }
         a = d.g();
-        f9565b = "swan_core";
-        f9566c = "extension_core";
-        f9567d = AppRuntime.getAppContext().getCacheDir() + File.separator + "cloneSwanApp";
-        f9568e = "cloneFolder_";
-        f9569f = f9567d + File.separator + f9568e;
-        f9570g = "clone_pkg_folder";
-        f9571h = "clone_core_folder";
-        f9572i = "clone_dynamic_lib_folder";
-        f9573j = "clone_sp_folder";
+        f9707b = "swan_core";
+        f9708c = "extension_core";
+        f9709d = AppRuntime.getAppContext().getCacheDir() + File.separator + "cloneSwanApp";
+        f9710e = "cloneFolder_";
+        f9711f = f9709d + File.separator + f9710e;
+        f9712g = "clone_pkg_folder";
+        f9713h = "clone_core_folder";
+        f9714i = "clone_dynamic_lib_folder";
+        f9715j = "clone_sp_folder";
         k = "clone_db_folder";
         l = "cloneZip.zip";
         m = "clone_zipFiles";

@@ -4,7 +4,7 @@ import android.view.View;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import c.a.s0.s.u.c;
-import c.a.t0.s2.i;
+import c.a.t0.t2.i;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -18,10 +18,10 @@ public class PbLoadMoreItemVideoViewHolder extends TypeAdapter.ViewHolder {
     public View a;
 
     /* renamed from: b  reason: collision with root package name */
-    public RelativeLayout f46584b;
+    public RelativeLayout f46612b;
 
     /* renamed from: c  reason: collision with root package name */
-    public TextView f46585c;
+    public TextView f46613c;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public PbLoadMoreItemVideoViewHolder(View view) {
@@ -42,14 +42,14 @@ public class PbLoadMoreItemVideoViewHolder extends TypeAdapter.ViewHolder {
             }
         }
         this.a = view;
-        this.f46584b = (RelativeLayout) view.findViewById(i.pb_check_video_more);
+        this.f46612b = (RelativeLayout) view.findViewById(i.pb_check_video_more);
         TextView textView = (TextView) view.findViewById(i.pb_check_more_text);
-        this.f46585c = textView;
+        this.f46613c = textView;
         c d2 = c.d(textView);
         d2.z(R.dimen.T_X12);
         d2.A(R.string.F_X01);
         d2.v(R.color.CAM_X0107);
-        this.f46584b.setVisibility(0);
+        this.f46612b.setVisibility(0);
     }
 
     public void setOnClickListener(View.OnClickListener onClickListener) {

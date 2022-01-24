@@ -5,28 +5,28 @@ import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public final class b extends Enum<b> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int a = 4;
 
     /* renamed from: b  reason: collision with root package name */
-    public static int f59153b = 1;
+    public static int f59198b = 1;
 
     /* renamed from: c  reason: collision with root package name */
-    public static int f59154c = 2;
+    public static int f59199c = 2;
 
     /* renamed from: d  reason: collision with root package name */
-    public static int f59155d = 3;
+    public static int f59200d = 3;
 
     /* renamed from: e  reason: collision with root package name */
-    public static int f59156e = 5;
+    public static int f59201e = 5;
 
     /* renamed from: f  reason: collision with root package name */
-    public static int f59157f = 6;
+    public static int f59202f = 6;
 
     /* renamed from: g  reason: collision with root package name */
-    public static int f59158g = 7;
+    public static int f59203g = 7;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {

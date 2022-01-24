@@ -18,11 +18,11 @@ public class a extends b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final boolean f8062g;
+    public static final boolean f8204g;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: f  reason: collision with root package name */
-    public final Set<String> f8063f;
+    public final Set<String> f8205f;
 
     static {
         InterceptResult invokeClinit;
@@ -37,7 +37,7 @@ public class a extends b {
                 return;
             }
         }
-        f8062g = k.a;
+        f8204g = k.a;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -58,7 +58,7 @@ public class a extends b {
                 return;
             }
         }
-        this.f8063f = new HashSet();
+        this.f8205f = new HashSet();
     }
 
     @Override // c.a.r0.a.o2.g.b, c.a.r0.a.o2.g.g, android.content.SharedPreferences
@@ -99,12 +99,12 @@ public class a extends b {
     public boolean k(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) ? this.f8063f.contains(str) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) ? this.f8205f.contains(str) : invokeL.booleanValue;
     }
 
     public final void l() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && f8062g) {
+        if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && f8204g) {
             IllegalAccessException illegalAccessException = new IllegalAccessException("read only allowed");
             illegalAccessException.toString();
             illegalAccessException.printStackTrace();

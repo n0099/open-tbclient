@@ -28,22 +28,22 @@ public class BubbleListModel extends BdBaseModel {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public c f45824e;
+    public c f45852e;
 
     /* renamed from: f  reason: collision with root package name */
-    public d f45825f;
+    public d f45853f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f45826g;
+    public int f45854g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f45827h;
+    public int f45855h;
 
     /* renamed from: i  reason: collision with root package name */
-    public final HttpMessageListener f45828i;
+    public final HttpMessageListener f45856i;
 
     /* renamed from: j  reason: collision with root package name */
-    public final HttpMessageListener f45829j;
+    public final HttpMessageListener f45857j;
 
     /* loaded from: classes12.dex */
     public class a extends HttpMessageListener {
@@ -76,22 +76,22 @@ public class BubbleListModel extends BdBaseModel {
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) || httpResponsedMessage == null || httpResponsedMessage.getCmd() != 1001500 || this.a.f45824e == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) || httpResponsedMessage == null || httpResponsedMessage.getCmd() != 1001500 || this.a.f45852e == null) {
                 return;
             }
             int statusCode = httpResponsedMessage.getStatusCode();
             int error = httpResponsedMessage.getError();
             if (!(httpResponsedMessage instanceof ResponseBubbleListMessage)) {
-                this.a.f45824e.a(null);
+                this.a.f45852e.a(null);
                 return;
             }
             ResponseBubbleListMessage responseBubbleListMessage = (ResponseBubbleListMessage) httpResponsedMessage;
             if (statusCode != 200 || error != 0) {
-                this.a.f45824e.a(responseBubbleListMessage.getBubbleListData());
+                this.a.f45852e.a(responseBubbleListMessage.getBubbleListData());
             } else if (responseBubbleListMessage.getBubbleListData() == null) {
-                this.a.f45824e.a(responseBubbleListMessage.getBubbleListData());
+                this.a.f45852e.a(responseBubbleListMessage.getBubbleListData());
             } else {
-                this.a.f45824e.b(responseBubbleListMessage.getBubbleListData());
+                this.a.f45852e.b(responseBubbleListMessage.getBubbleListData());
             }
         }
     }
@@ -127,22 +127,22 @@ public class BubbleListModel extends BdBaseModel {
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) || httpResponsedMessage == null || httpResponsedMessage.getCmd() != 1001501 || this.a.f45825f == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) || httpResponsedMessage == null || httpResponsedMessage.getCmd() != 1001501 || this.a.f45853f == null) {
                 return;
             }
             int statusCode = httpResponsedMessage.getStatusCode();
             int error = httpResponsedMessage.getError();
             if (!(httpResponsedMessage instanceof ResponseSetBubbleMessage)) {
-                this.a.f45825f.b(null);
+                this.a.f45853f.b(null);
                 return;
             }
             ResponseSetBubbleMessage responseSetBubbleMessage = (ResponseSetBubbleMessage) httpResponsedMessage;
             if (statusCode != 200 || error != 0) {
-                this.a.f45825f.b(responseSetBubbleMessage.getSetBubbleResultData());
+                this.a.f45853f.b(responseSetBubbleMessage.getSetBubbleResultData());
             } else if (responseSetBubbleMessage.getSetBubbleResultData() == null) {
-                this.a.f45825f.b(responseSetBubbleMessage.getSetBubbleResultData());
+                this.a.f45853f.b(responseSetBubbleMessage.getSetBubbleResultData());
             } else {
-                this.a.f45825f.a(responseSetBubbleMessage.getSetBubbleResultData());
+                this.a.f45853f.a(responseSetBubbleMessage.getSetBubbleResultData());
             }
         }
     }
@@ -179,8 +179,8 @@ public class BubbleListModel extends BdBaseModel {
                 return;
             }
         }
-        this.f45828i = new a(this, CmdConfigHttp.REQUEST_BUBBLELIST_CMD);
-        this.f45829j = new b(this, CmdConfigHttp.SET_BUBBLE_CMD);
+        this.f45856i = new a(this, CmdConfigHttp.REQUEST_BUBBLELIST_CMD);
+        this.f45857j = new b(this, CmdConfigHttp.SET_BUBBLE_CMD);
     }
 
     public static boolean y(List<BubbleListData.BubbleData> list) {
@@ -203,7 +203,7 @@ public class BubbleListModel extends BdBaseModel {
     public int A() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f45827h : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f45855h : invokeV.intValue;
     }
 
     public void B() {
@@ -213,7 +213,7 @@ public class BubbleListModel extends BdBaseModel {
             TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.REQUEST_BUBBLELIST_CMD, TbConfig.SERVER_ADDRESS + "c/e/bu/getbubblelist");
             tbHttpMessageTask.setResponsedClass(ResponseBubbleListMessage.class);
             messageManager.registerTask(tbHttpMessageTask);
-            registerListener(this.f45828i);
+            registerListener(this.f45856i);
         }
     }
 
@@ -224,7 +224,7 @@ public class BubbleListModel extends BdBaseModel {
             TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.SET_BUBBLE_CMD, TbConfig.SERVER_ADDRESS + TbConfig.BUBBLE_SET);
             tbHttpMessageTask.setResponsedClass(ResponseSetBubbleMessage.class);
             messageManager.registerTask(tbHttpMessageTask);
-            registerListener(this.f45829j);
+            registerListener(this.f45857j);
         }
     }
 
@@ -262,28 +262,28 @@ public class BubbleListModel extends BdBaseModel {
     public void G(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048582, this, i2) == null) {
-            this.f45826g = i2;
+            this.f45854g = i2;
         }
     }
 
     public void H(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048583, this, i2) == null) {
-            this.f45827h = i2;
+            this.f45855h = i2;
         }
     }
 
     public void I(c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, cVar) == null) {
-            this.f45824e = cVar;
+            this.f45852e = cVar;
         }
     }
 
     public void J(d dVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, dVar) == null) {
-            this.f45825f = dVar;
+            this.f45853f = dVar;
         }
     }
 
@@ -318,14 +318,14 @@ public class BubbleListModel extends BdBaseModel {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
             MessageManager messageManager = MessageManager.getInstance();
-            messageManager.unRegisterListener(this.f45829j);
-            messageManager.unRegisterListener(this.f45828i);
+            messageManager.unRegisterListener(this.f45857j);
+            messageManager.unRegisterListener(this.f45856i);
         }
     }
 
     public int z() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.f45826g : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.f45854g : invokeV.intValue;
     }
 }

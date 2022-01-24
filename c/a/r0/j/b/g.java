@@ -14,13 +14,13 @@ public class g {
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f10833b;
+    public String f10975b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f10834c;
+    public int f10976c;
 
     /* renamed from: d  reason: collision with root package name */
-    public long f10835d;
+    public long f10977d;
 
     public g() {
         Interceptable interceptable = $ic;
@@ -42,9 +42,9 @@ public class g {
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
             g gVar = new g();
             gVar.a = jSONObject.optInt("state");
-            gVar.f10833b = jSONObject.optString("msg");
-            gVar.f10834c = jSONObject.optInt("switch_open");
-            gVar.f10835d = jSONObject.optLong("heartbeat_time");
+            gVar.f10975b = jSONObject.optString("msg");
+            gVar.f10976c = jSONObject.optInt("switch_open");
+            gVar.f10977d = jSONObject.optLong("heartbeat_time");
             return gVar;
         }
         return (g) invokeL.objValue;
@@ -54,7 +54,7 @@ public class g {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return "UpUseTimeModel{state=" + this.a + ", limit='" + this.f10833b + ExtendedMessageFormat.QUOTE + ", open=" + this.f10834c + ", interval=" + this.f10835d + ExtendedMessageFormat.END_FE;
+            return "UpUseTimeModel{state=" + this.a + ", limit='" + this.f10975b + ExtendedMessageFormat.QUOTE + ", open=" + this.f10976c + ", interval=" + this.f10977d + ExtendedMessageFormat.END_FE;
         }
         return (String) invokeV.objValue;
     }

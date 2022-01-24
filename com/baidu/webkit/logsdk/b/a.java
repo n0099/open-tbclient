@@ -11,16 +11,16 @@ public final class a {
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f52822b;
+    public int f52867b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f52823c;
+    public String f52868c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f52824d;
+    public String f52869d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f52825e;
+    public String f52870e;
 
     public a(String str) {
         Interceptable interceptable = $ic;
@@ -37,7 +37,7 @@ public final class a {
                 return;
             }
         }
-        this.f52825e = "full";
+        this.f52870e = "full";
         this.a = str;
     }
 }

@@ -18,7 +18,7 @@ public class i {
             public void a(@NonNull String str, @NonNull String str2) {
                 d.a(str, str2, "ad_client_error_log".equalsIgnoreCase(str));
             }
-        }, null, com.kwad.sdk.b.f55440c.booleanValue());
+        }, null, com.kwad.sdk.b.f55485c.booleanValue());
     }
 
     public static void a(String str, CommercialAction.TKDownloadMsg tKDownloadMsg) {
@@ -31,7 +31,7 @@ public class i {
 
     public static void a(String str, String str2, JSONObject jSONObject) {
         try {
-            com.kwai.adclient.kscommerciallogger.a.a().a(("ad_client_error_log".equals(str) ? a.C2153a.a() : a.C2153a.b()).a(BusinessType.TACHIKOMA).a(str2).b(str2).a(jSONObject).c());
+            com.kwai.adclient.kscommerciallogger.a.a().a(("ad_client_error_log".equals(str) ? a.C2159a.a() : a.C2159a.b()).a(BusinessType.TACHIKOMA).a(str2).b(str2).a(jSONObject).c());
         } catch (Throwable th) {
             com.kwad.sdk.core.d.a.a(th);
             com.kwad.sdk.core.kwai.a.a(th);

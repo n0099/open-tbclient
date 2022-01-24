@@ -23,16 +23,16 @@ public class d extends c.a.r0.a.u.e.f.a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c.a.r0.a.h0.g.d f8988e;
+        public final /* synthetic */ c.a.r0.a.h0.g.d f9130e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f8989f;
+        public final /* synthetic */ String f9131f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ String f8990g;
+        public final /* synthetic */ String f9132g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ d f8991h;
+        public final /* synthetic */ d f9133h;
 
         public a(d dVar, c.a.r0.a.h0.g.d dVar2, String str, String str2) {
             Interceptable interceptable = $ic;
@@ -49,23 +49,23 @@ public class d extends c.a.r0.a.u.e.f.a {
                     return;
                 }
             }
-            this.f8991h = dVar;
-            this.f8988e = dVar2;
-            this.f8989f = str;
-            this.f8990g = str2;
+            this.f9133h = dVar;
+            this.f9130e = dVar2;
+            this.f9131f = str;
+            this.f9132g = str2;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                c.a.r0.a.h0.g.d dVar = this.f8988e;
+                c.a.r0.a.h0.g.d dVar = this.f9130e;
                 boolean z = true;
-                if (!((dVar == null || !dVar.q2(this.f8989f, true)) ? false : false)) {
+                if (!((dVar == null || !dVar.q2(this.f9131f, true)) ? false : false)) {
                     c.a.r0.a.e0.d.c("NavigationBarApi", "set title fail");
-                    this.f8991h.d(this.f8990g, new c.a.r0.a.u.h.b(1001));
+                    this.f9133h.d(this.f9132g, new c.a.r0.a.u.h.b(1001));
                 }
-                this.f8991h.d(this.f8990g, new c.a.r0.a.u.h.b(0));
+                this.f9133h.d(this.f9132g, new c.a.r0.a.u.h.b(0));
             }
         }
     }
@@ -76,22 +76,22 @@ public class d extends c.a.r0.a.u.e.f.a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c.a.r0.a.h0.g.d f8992e;
+        public final /* synthetic */ c.a.r0.a.h0.g.d f9134e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f8993f;
+        public final /* synthetic */ String f9135f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ String f8994g;
+        public final /* synthetic */ String f9136g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ String f8995h;
+        public final /* synthetic */ String f9137h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final /* synthetic */ JSONObject f8996i;
+        public final /* synthetic */ JSONObject f9138i;
 
         /* renamed from: j  reason: collision with root package name */
-        public final /* synthetic */ d f8997j;
+        public final /* synthetic */ d f9139j;
 
         public b(d dVar, c.a.r0.a.h0.g.d dVar2, String str, String str2, String str3, JSONObject jSONObject) {
             Interceptable interceptable = $ic;
@@ -108,35 +108,35 @@ public class d extends c.a.r0.a.u.e.f.a {
                     return;
                 }
             }
-            this.f8997j = dVar;
-            this.f8992e = dVar2;
-            this.f8993f = str;
-            this.f8994g = str2;
-            this.f8995h = str3;
-            this.f8996i = jSONObject;
+            this.f9139j = dVar;
+            this.f9134e = dVar2;
+            this.f9135f = str;
+            this.f9136g = str2;
+            this.f9137h = str3;
+            this.f9138i = jSONObject;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                c.a.r0.a.h0.g.d dVar = this.f8992e;
-                if (dVar != null && dVar.y2(this.f8993f, true)) {
-                    if (!this.f8992e.o2(SwanAppConfigData.t(this.f8995h), true)) {
+                c.a.r0.a.h0.g.d dVar = this.f9134e;
+                if (dVar != null && dVar.y2(this.f9135f, true)) {
+                    if (!this.f9134e.o2(SwanAppConfigData.t(this.f9137h), true)) {
                         c.a.r0.a.e0.d.c("NavigationBarApi", "set title background fail");
-                        this.f8997j.d(this.f8994g, new c.a.r0.a.u.h.b(1001));
+                        this.f9139j.d(this.f9136g, new c.a.r0.a.u.h.b(1001));
                         return;
                     }
-                    JSONObject jSONObject = this.f8996i;
+                    JSONObject jSONObject = this.f9138i;
                     if (jSONObject != null) {
-                        this.f8992e.m2(jSONObject.optInt("duration"), this.f8996i.optString("timingFunc"));
+                        this.f9134e.m2(jSONObject.optInt("duration"), this.f9138i.optString("timingFunc"));
                         c.a.r0.a.e0.d.i("NavigationBarApi", "set action bar animator");
                     }
-                    this.f8997j.d(this.f8994g, new c.a.r0.a.u.h.b(0));
+                    this.f9139j.d(this.f9136g, new c.a.r0.a.u.h.b(0));
                     return;
                 }
                 c.a.r0.a.e0.d.c("NavigationBarApi", "set title color fail");
-                this.f8997j.d(this.f8994g, new c.a.r0.a.u.h.b(1001));
+                this.f9139j.d(this.f9136g, new c.a.r0.a.u.h.b(1001));
             }
         }
     }
@@ -147,16 +147,16 @@ public class d extends c.a.r0.a.u.e.f.a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c.a.r0.a.h0.g.d f8998e;
+        public final /* synthetic */ c.a.r0.a.h0.g.d f9140e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f8999f;
+        public final /* synthetic */ String f9141f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ boolean f9000g;
+        public final /* synthetic */ boolean f9142g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ d f9001h;
+        public final /* synthetic */ d f9143h;
 
         public c(d dVar, c.a.r0.a.h0.g.d dVar2, String str, boolean z) {
             Interceptable interceptable = $ic;
@@ -173,10 +173,10 @@ public class d extends c.a.r0.a.u.e.f.a {
                     return;
                 }
             }
-            this.f9001h = dVar;
-            this.f8998e = dVar2;
-            this.f8999f = str;
-            this.f9000g = z;
+            this.f9143h = dVar;
+            this.f9140e = dVar2;
+            this.f9141f = str;
+            this.f9142g = z;
         }
 
         @Override // java.lang.Runnable
@@ -184,24 +184,24 @@ public class d extends c.a.r0.a.u.e.f.a {
             boolean M1;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                c.a.r0.a.h0.g.d dVar = this.f8998e;
+                c.a.r0.a.h0.g.d dVar = this.f9140e;
                 if (dVar == null) {
                     c.a.r0.a.e0.d.c("NavigationBarApi", "swanAppFragment is null");
-                    this.f9001h.d(this.f8999f, new c.a.r0.a.u.h.b(1001));
+                    this.f9143h.d(this.f9141f, new c.a.r0.a.u.h.b(1001));
                     return;
                 }
-                if (this.f9000g) {
+                if (this.f9142g) {
                     M1 = dVar.H2();
                 } else {
                     M1 = dVar.M1();
                 }
                 if (!M1) {
-                    String str = this.f9000g ? "show" : "hide";
+                    String str = this.f9142g ? "show" : "hide";
                     c.a.r0.a.e0.d.c("NavigationBarApi", str + " navigation loading progressbar fail");
-                    this.f9001h.d(this.f8999f, new c.a.r0.a.u.h.b(1001));
+                    this.f9143h.d(this.f9141f, new c.a.r0.a.u.h.b(1001));
                     return;
                 }
-                this.f9001h.d(this.f8999f, new c.a.r0.a.u.h.b(0));
+                this.f9143h.d(this.f9141f, new c.a.r0.a.u.h.b(0));
             }
         }
     }

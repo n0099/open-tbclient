@@ -40,16 +40,16 @@ public abstract class b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ HybridUbcFlow f6854e;
+        public final /* synthetic */ HybridUbcFlow f6996e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ c f6855f;
+        public final /* synthetic */ c f6997f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ d f6856g;
+        public final /* synthetic */ d f6998g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ b f6857h;
+        public final /* synthetic */ b f6999h;
 
         public a(b bVar, HybridUbcFlow hybridUbcFlow, c cVar, d dVar) {
             Interceptable interceptable = $ic;
@@ -66,64 +66,64 @@ public abstract class b {
                     return;
                 }
             }
-            this.f6857h = bVar;
-            this.f6854e = hybridUbcFlow;
-            this.f6855f = cVar;
-            this.f6856g = dVar;
+            this.f6999h = bVar;
+            this.f6996e = hybridUbcFlow;
+            this.f6997f = cVar;
+            this.f6998g = dVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                HybridUbcFlow hybridUbcFlow = this.f6854e;
+                HybridUbcFlow hybridUbcFlow = this.f6996e;
                 UbcFlowEvent ubcFlowEvent = new UbcFlowEvent("loadPresetApp#run-start");
                 ubcFlowEvent.a(true);
                 hybridUbcFlow.F(ubcFlowEvent);
-                String f2 = this.f6857h.f(this.f6855f.f11494g);
+                String f2 = this.f6999h.f(this.f6997f.f11636g);
                 if (TextUtils.isEmpty(f2)) {
-                    this.f6856g.onFailed(0);
+                    this.f6998g.onFailed(0);
                     return;
                 }
                 JSONObject d2 = w.d(f2);
-                HybridUbcFlow hybridUbcFlow2 = this.f6854e;
+                HybridUbcFlow hybridUbcFlow2 = this.f6996e;
                 UbcFlowEvent ubcFlowEvent2 = new UbcFlowEvent("loadPresetApp#run-appInfoJson");
                 ubcFlowEvent2.a(true);
                 hybridUbcFlow2.F(ubcFlowEvent2);
-                PMSAppInfo l = this.f6857h.l(this.f6855f, d2);
+                PMSAppInfo l = this.f6999h.l(this.f6997f, d2);
                 if (l == null) {
-                    this.f6856g.onFailed(1);
+                    this.f6998g.onFailed(1);
                     return;
                 }
-                HybridUbcFlow hybridUbcFlow3 = this.f6854e;
+                HybridUbcFlow hybridUbcFlow3 = this.f6996e;
                 UbcFlowEvent ubcFlowEvent3 = new UbcFlowEvent("loadPresetApp#run-PMSAppInfo");
                 ubcFlowEvent3.a(true);
                 hybridUbcFlow3.F(ubcFlowEvent3);
-                this.f6856g.a(l);
+                this.f6998g.a(l);
                 long currentTimeMillis = System.currentTimeMillis();
-                boolean e2 = this.f6857h.e(this.f6855f);
+                boolean e2 = this.f6999h.e(this.f6997f);
                 if (b.a) {
                     String str = "签名+解压 耗时：" + (System.currentTimeMillis() - currentTimeMillis);
                 }
-                HybridUbcFlow hybridUbcFlow4 = this.f6854e;
+                HybridUbcFlow hybridUbcFlow4 = this.f6996e;
                 UbcFlowEvent ubcFlowEvent4 = new UbcFlowEvent("loadPresetApp#run-doUnzipBundle");
                 ubcFlowEvent4.a(true);
                 hybridUbcFlow4.F(ubcFlowEvent4);
                 if (e2) {
-                    b bVar = this.f6857h;
-                    c cVar = this.f6855f;
-                    l.setOrientation(bVar.g(cVar.f11495h, cVar.f11494g, cVar.f11496i));
+                    b bVar = this.f6999h;
+                    c cVar = this.f6997f;
+                    l.setOrientation(bVar.g(cVar.f11637h, cVar.f11636g, cVar.f11638i));
                     l.updateInstallSrc(3);
-                    c.a.r0.q.g.a.i().a(this.f6855f, l);
-                    HybridUbcFlow hybridUbcFlow5 = this.f6854e;
+                    c.a.r0.q.g.a.i().a(this.f6997f, l);
+                    HybridUbcFlow hybridUbcFlow5 = this.f6996e;
                     UbcFlowEvent ubcFlowEvent5 = new UbcFlowEvent("loadPresetApp#run-bulkInsert");
                     ubcFlowEvent5.a(true);
                     hybridUbcFlow5.F(ubcFlowEvent5);
-                    this.f6856g.b(l);
+                    this.f6998g.b(l);
                 } else {
-                    this.f6856g.onFailed(2);
+                    this.f6998g.onFailed(2);
                 }
-                HybridUbcFlow hybridUbcFlow6 = this.f6854e;
+                HybridUbcFlow hybridUbcFlow6 = this.f6996e;
                 UbcFlowEvent ubcFlowEvent6 = new UbcFlowEvent("loadPresetApp#run-return");
                 ubcFlowEvent6.a(true);
                 hybridUbcFlow6.F(ubcFlowEvent6);
@@ -218,7 +218,7 @@ public abstract class b {
             for (int i3 = 0; i3 < optJSONArray.length(); i3++) {
                 c m = m(optJSONArray.optJSONObject(i3));
                 if (m != null) {
-                    hashMap.put(m.f11494g, m);
+                    hashMap.put(m.f11636g, m);
                 }
             }
             return hashMap;
@@ -305,8 +305,8 @@ public abstract class b {
                 try {
                     if (file != null) {
                         a.c i2 = c.a.r0.a.a1.g.a.i(bufferedInputStream);
-                        if ((i2 == null || i2.f5168b == -1) ? false : true) {
-                            return c.a.r0.a.a1.g.a.d(bufferedInputStream, file, i2.f5168b).a;
+                        if ((i2 == null || i2.f5310b == -1) ? false : true) {
+                            return c.a.r0.a.a1.g.a.d(bufferedInputStream, file, i2.f5310b).a;
                         }
                         return g.d(bufferedInputStream, file.getPath());
                     }

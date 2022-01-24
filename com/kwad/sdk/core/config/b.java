@@ -42,31 +42,31 @@ public class b {
     public static volatile SdkConfigData a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile SdkConfigData.TemplateConfig f55618b;
+    public static volatile SdkConfigData.TemplateConfig f55663b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static volatile SdkConfigData.TemplateConfig f55619c;
+    public static volatile SdkConfigData.TemplateConfig f55664c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static volatile SdkConfigData.TemplateConfig f55620d;
+    public static volatile SdkConfigData.TemplateConfig f55665d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static volatile SdkConfigData.TemplateConfig f55621e;
+    public static volatile SdkConfigData.TemplateConfig f55666e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static volatile SdkConfigData.TemplateConfig f55622f;
+    public static volatile SdkConfigData.TemplateConfig f55667f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static volatile SdkConfigData.TemplateConfig f55623g;
+    public static volatile SdkConfigData.TemplateConfig f55668g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static SdkConfigData.TemplateConfig f55624h;
+    public static SdkConfigData.TemplateConfig f55669h;
 
     /* renamed from: i  reason: collision with root package name */
-    public static SdkConfigData.TemplateConfig f55625i;
+    public static SdkConfigData.TemplateConfig f55670i;
 
     /* renamed from: j  reason: collision with root package name */
-    public static SdkConfigData.TemplateConfig f55626j;
+    public static SdkConfigData.TemplateConfig f55671j;
     public static boolean k;
     public static boolean l;
     public static boolean m;
@@ -77,31 +77,31 @@ public class b {
         public static j a = new j("ecKwaiBtnSwitch", 1);
 
         /* renamed from: b  reason: collision with root package name */
-        public static j f55630b = new j("fitNavigationBarSwitch", 1);
+        public static j f55675b = new j("fitNavigationBarSwitch", 1);
 
         /* renamed from: c  reason: collision with root package name */
-        public static j f55631c = new j("ecTopJumpToKwai", 1);
+        public static j f55676c = new j("ecTopJumpToKwai", 1);
 
         /* renamed from: d  reason: collision with root package name */
-        public static j f55633d = new j("toolbarSwitch", 1);
+        public static j f55678d = new j("toolbarSwitch", 1);
 
         /* renamed from: e  reason: collision with root package name */
-        public static j f55634e = new j("likeButtonSwitch", 1);
+        public static j f55679e = new j("likeButtonSwitch", 1);
 
         /* renamed from: f  reason: collision with root package name */
-        public static j f55635f = new j("moreButtonSwitch", 1);
+        public static j f55680f = new j("moreButtonSwitch", 1);
 
         /* renamed from: g  reason: collision with root package name */
-        public static j f55636g = new j("commentButtonSwitch", 1);
+        public static j f55681g = new j("commentButtonSwitch", 1);
 
         /* renamed from: h  reason: collision with root package name */
-        public static j f55637h = new j("seekBarSwitch", 59);
+        public static j f55682h = new j("seekBarSwitch", 59);
 
         /* renamed from: i  reason: collision with root package name */
-        public static j f55638i = new j("videoCacheSwitch", 0);
+        public static j f55683i = new j("videoCacheSwitch", 0);
 
         /* renamed from: j  reason: collision with root package name */
-        public static j f55639j = new j("trendDynamicEffect", 0);
+        public static j f55684j = new j("trendDynamicEffect", 0);
         public static j k = new j("homePlaySpeedTime", 90);
         public static j l = new j("homePlayCompleteType", 0);
         public static j m = new j("replayTubeEpisode", 0);
@@ -263,7 +263,7 @@ public class b {
         public static j cm = new j("rewardActiveAppTaskMinSecond", 15);
 
         /* renamed from: cn  reason: collision with root package name */
-        public static j f55632cn = new j("viewLandingPageTaskDuration", 15);
+        public static j f55677cn = new j("viewLandingPageTaskDuration", 15);
         public static q co = new q("splashBtnText", "点击跳过详情页或第三方应用");
         public static q cp = new q("kwaiLogoUrl", null);
         public static q cq = new q("attentionTips", "去关注TA");
@@ -404,7 +404,7 @@ public class b {
     }
 
     public static SdkConfigData.TemplateConfig a() {
-        return f55618b;
+        return f55663b;
     }
 
     @WorkerThread
@@ -429,7 +429,7 @@ public class b {
 
     @Nullable
     public static String a(Context context) {
-        SdkConfigData.TemplateConfig templateConfig = f55626j;
+        SdkConfigData.TemplateConfig templateConfig = f55671j;
         if (templateConfig != null) {
             return templateConfig.h5Url;
         }
@@ -439,11 +439,11 @@ public class b {
     @WorkerThread
     public static void a(Context context, SdkConfigData.TemplateConfig templateConfig) {
         if (templateConfig != null) {
-            if (((f55621e != null && f(context).exists() && (TextUtils.isEmpty(templateConfig.h5Checksum) || templateConfig.h5Checksum.equals(f55621e.h5Checksum))) ? false : true) && !TextUtils.isEmpty(templateConfig.h5Url)) {
+            if (((f55666e != null && f(context).exists() && (TextUtils.isEmpty(templateConfig.h5Checksum) || templateConfig.h5Checksum.equals(f55666e.h5Checksum))) ? false : true) && !TextUtils.isEmpty(templateConfig.h5Url)) {
                 a(context, templateConfig, "ksadsdk_interact_page_dialog_tips_template_config", "interact_page_dialog_tips.html");
             }
         }
-        f55621e = templateConfig;
+        f55666e = templateConfig;
     }
 
     public static void a(final Context context, final SdkConfigData.TemplateConfig templateConfig, final String str, final String str2) {
@@ -495,9 +495,9 @@ public class b {
         a(context, sdkConfigData.templateConfigMap.interactPageDialogTipsConfig);
         e(context, sdkConfigData.templateConfigMap.couponOpenConfig);
         f(context, sdkConfigData.templateConfigMap.couponInfoConfig);
-        f55624h = a(context, sdkConfigData.templateConfigMap.downloadLandingPageConfig, f55624h, "ksadsdk_download_landing_page_config", "download_landing_page.html");
-        f55625i = a(context, sdkConfigData.templateConfigMap.secDownloadPopWindowConfig, f55625i, "ksadsdk_sec_download_pop_window_config", "sec_download_pop_window.html");
-        f55626j = sdkConfigData.templateConfigMap.rewardReflowConfig;
+        f55669h = a(context, sdkConfigData.templateConfigMap.downloadLandingPageConfig, f55669h, "ksadsdk_download_landing_page_config", "download_landing_page.html");
+        f55670i = a(context, sdkConfigData.templateConfigMap.secDownloadPopWindowConfig, f55670i, "ksadsdk_sec_download_pop_window_config", "sec_download_pop_window.html");
+        f55671j = sdkConfigData.templateConfigMap.rewardReflowConfig;
     }
 
     public static void a(SdkConfigData sdkConfigData) {
@@ -509,7 +509,7 @@ public class b {
     }
 
     public static int aA() {
-        return a.f55632cn.a().intValue();
+        return a.f55677cn.a().intValue();
     }
 
     public static String aB() {
@@ -711,7 +711,7 @@ public class b {
     }
 
     public static String b() {
-        SdkConfigData.TemplateConfig templateConfig = f55625i;
+        SdkConfigData.TemplateConfig templateConfig = f55670i;
         return templateConfig != null ? templateConfig.h5Url : "";
     }
 
@@ -720,27 +720,27 @@ public class b {
         com.kwad.sdk.core.d.a.a("SdkConfigManager", "load");
         a.a();
         com.kwad.sdk.core.config.a.b(context);
-        f55618b = b(context, "ksadsdk_splash_template_config");
-        f55619c = b(context, "ksadsdk_download_pop_window_config");
-        f55620d = b(context, "ksadsdk_insert_screen_config");
-        f55621e = b(context, "ksadsdk_interact_page_dialog_tips_template_config");
-        f55622f = b(context, "ksadsdk_coupon_open_config");
-        f55623g = b(context, "ksadsdk_coupon_info_config");
-        f55624h = b(context, "ksadsdk_download_landing_page_config");
-        f55625i = b(context, "ksadsdk_sec_download_pop_window_config");
-        f55626j = b(context, "ksadsdk_reward_reflow_config");
+        f55663b = b(context, "ksadsdk_splash_template_config");
+        f55664c = b(context, "ksadsdk_download_pop_window_config");
+        f55665d = b(context, "ksadsdk_insert_screen_config");
+        f55666e = b(context, "ksadsdk_interact_page_dialog_tips_template_config");
+        f55667f = b(context, "ksadsdk_coupon_open_config");
+        f55668g = b(context, "ksadsdk_coupon_info_config");
+        f55669h = b(context, "ksadsdk_download_landing_page_config");
+        f55670i = b(context, "ksadsdk_sec_download_pop_window_config");
+        f55671j = b(context, "ksadsdk_reward_reflow_config");
     }
 
     @WorkerThread
     public static void b(Context context, SdkConfigData.TemplateConfig templateConfig) {
-        if (templateConfig != null && ((f55618b == null || !e(context).exists() || (!TextUtils.isEmpty(templateConfig.h5Checksum) && !templateConfig.h5Checksum.equals(f55618b.h5Checksum))) && !TextUtils.isEmpty(templateConfig.h5Url))) {
+        if (templateConfig != null && ((f55663b == null || !e(context).exists() || (!TextUtils.isEmpty(templateConfig.h5Checksum) && !templateConfig.h5Checksum.equals(f55663b.h5Checksum))) && !TextUtils.isEmpty(templateConfig.h5Url))) {
             a(context, templateConfig, "ksadsdk_splash_template_config", "feed_splash.html");
         }
-        f55618b = templateConfig;
+        f55663b = templateConfig;
     }
 
     public static SdkConfigData.TemplateConfig c() {
-        return f55619c;
+        return f55664c;
     }
 
     public static synchronized File c(Context context) {
@@ -755,11 +755,11 @@ public class b {
     public static void c(Context context, SdkConfigData.TemplateConfig templateConfig) {
         if (templateConfig != null) {
             boolean exists = c(context).exists();
-            if ((f55619c == null || !exists || (!TextUtils.isEmpty(templateConfig.h5Checksum) && !templateConfig.h5Checksum.equals(f55619c.h5Checksum))) && !TextUtils.isEmpty(templateConfig.h5Url)) {
+            if ((f55664c == null || !exists || (!TextUtils.isEmpty(templateConfig.h5Checksum) && !templateConfig.h5Checksum.equals(f55664c.h5Checksum))) && !TextUtils.isEmpty(templateConfig.h5Url)) {
                 a(context, templateConfig, "ksadsdk_download_pop_window_config", "pop_wind.html");
             }
         }
-        f55619c = templateConfig;
+        f55664c = templateConfig;
     }
 
     public static synchronized File d(Context context) {
@@ -771,8 +771,8 @@ public class b {
     }
 
     public static String d() {
-        if (f55621e != null) {
-            return f55621e.h5Url;
+        if (f55666e != null) {
+            return f55666e.h5Url;
         }
         return null;
     }
@@ -781,15 +781,15 @@ public class b {
     public static void d(Context context, SdkConfigData.TemplateConfig templateConfig) {
         if (templateConfig != null) {
             boolean exists = d(context).exists();
-            if ((f55620d == null || !exists || (!TextUtils.isEmpty(templateConfig.h5Checksum) && !templateConfig.h5Checksum.equals(f55620d.h5Checksum))) && !TextUtils.isEmpty(templateConfig.h5Url)) {
+            if ((f55665d == null || !exists || (!TextUtils.isEmpty(templateConfig.h5Checksum) && !templateConfig.h5Checksum.equals(f55665d.h5Checksum))) && !TextUtils.isEmpty(templateConfig.h5Url)) {
                 a(context, templateConfig, "ksadsdk_insert_screen_config", "insert_screen.html");
             }
         }
-        f55620d = templateConfig;
+        f55665d = templateConfig;
     }
 
     public static SdkConfigData.TemplateConfig e() {
-        return f55624h;
+        return f55669h;
     }
 
     public static synchronized File e(Context context) {
@@ -804,11 +804,11 @@ public class b {
     public static void e(Context context, SdkConfigData.TemplateConfig templateConfig) {
         if (templateConfig != null) {
             boolean exists = g(context).exists();
-            if ((f55622f == null || !exists || (!TextUtils.isEmpty(templateConfig.h5Checksum) && !templateConfig.h5Checksum.equals(f55622f.h5Checksum))) && !TextUtils.isEmpty(templateConfig.h5Url)) {
+            if ((f55667f == null || !exists || (!TextUtils.isEmpty(templateConfig.h5Checksum) && !templateConfig.h5Checksum.equals(f55667f.h5Checksum))) && !TextUtils.isEmpty(templateConfig.h5Url)) {
                 a(context, templateConfig, "ksadsdk_coupon_open_config", "coupon_open.html");
             }
         }
-        f55622f = templateConfig;
+        f55667f = templateConfig;
     }
 
     public static synchronized File f(Context context) {
@@ -827,12 +827,12 @@ public class b {
     public static void f(Context context, SdkConfigData.TemplateConfig templateConfig) {
         if (templateConfig != null) {
             boolean exists = h(context).exists();
-            if ((f55623g == null || !exists || (!TextUtils.isEmpty(templateConfig.h5Checksum) && !templateConfig.h5Checksum.equals(f55623g.h5Checksum))) && !TextUtils.isEmpty(templateConfig.h5Url)) {
+            if ((f55668g == null || !exists || (!TextUtils.isEmpty(templateConfig.h5Checksum) && !templateConfig.h5Checksum.equals(f55668g.h5Checksum))) && !TextUtils.isEmpty(templateConfig.h5Url)) {
                 a(context, templateConfig, "ksadsdk_coupon_info_config", "coupon_info.html");
                 c.a().a(templateConfig.h5Url, "coupon_info.html");
             }
         }
-        f55623g = templateConfig;
+        f55668g = templateConfig;
     }
 
     public static synchronized File g(Context context) {

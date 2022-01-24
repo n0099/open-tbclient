@@ -1,29 +1,29 @@
 package com.ss.android.socialbase.downloader.i;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class e {
     public a a;
 
     /* renamed from: b  reason: collision with root package name */
-    public a f60098b;
+    public a f60143b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f60099c;
+    public int f60144c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f60100d = 10;
+    public int f60145d = 10;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class a {
         public long a;
 
         /* renamed from: b  reason: collision with root package name */
-        public long f60101b;
+        public long f60146b;
 
         /* renamed from: c  reason: collision with root package name */
-        public a f60102c;
+        public a f60147c;
 
         /* renamed from: d  reason: collision with root package name */
-        public a f60103d;
+        public a f60148d;
 
         public a() {
         }
@@ -33,11 +33,11 @@ public class e {
         synchronized (this) {
             a aVar = this.a;
             if (aVar != null) {
-                if (j2 >= aVar.a && j3 >= aVar.f60101b) {
-                    a aVar2 = aVar.f60102c;
-                    if (aVar2 != null && j3 - aVar2.f60101b < 1000) {
+                if (j2 >= aVar.a && j3 >= aVar.f60146b) {
+                    a aVar2 = aVar.f60147c;
+                    if (aVar2 != null && j3 - aVar2.f60146b < 1000) {
                         aVar.a = j2;
-                        aVar.f60101b = j3;
+                        aVar.f60146b = j3;
                         return true;
                     }
                 }
@@ -45,10 +45,10 @@ public class e {
             }
             a a2 = a();
             a2.a = j2;
-            a2.f60101b = j3;
+            a2.f60146b = j3;
             if (aVar != null) {
-                a2.f60102c = aVar;
-                aVar.f60103d = a2;
+                a2.f60147c = aVar;
+                aVar.f60148d = a2;
             }
             this.a = a2;
             return true;
@@ -66,7 +66,7 @@ public class e {
                 return -1L;
             }
             long j4 = aVar.a - a2.a;
-            long j5 = j3 - a2.f60101b;
+            long j5 = j3 - a2.f60146b;
             if (j4 < 0 || j5 <= 0) {
                 return -1L;
             }
@@ -76,26 +76,26 @@ public class e {
 
     private a a() {
         a aVar;
-        if (this.f60099c >= this.f60100d && (aVar = this.f60098b) != null) {
-            a aVar2 = aVar.f60103d;
-            aVar.f60103d = null;
-            this.f60098b = aVar2;
+        if (this.f60144c >= this.f60145d && (aVar = this.f60143b) != null) {
+            a aVar2 = aVar.f60148d;
+            aVar.f60148d = null;
+            this.f60143b = aVar2;
             if (aVar2 != null) {
-                aVar2.f60102c = null;
+                aVar2.f60147c = null;
             }
             return aVar;
         }
-        this.f60099c++;
+        this.f60144c++;
         return new a();
     }
 
     private a a(long j2) {
         a aVar = this.a;
         a aVar2 = null;
-        while (aVar != null && aVar.f60101b > j2) {
+        while (aVar != null && aVar.f60146b > j2) {
             aVar2 = aVar;
-            aVar = aVar.f60102c;
+            aVar = aVar.f60147c;
         }
-        return (aVar == null || aVar2 == null || aVar == aVar2 || j2 - aVar.f60101b >= aVar2.f60101b - j2) ? aVar2 : aVar;
+        return (aVar == null || aVar2 == null || aVar == aVar2 || j2 - aVar.f60146b >= aVar2.f60146b - j2) ? aVar2 : aVar;
     }
 }

@@ -22,12 +22,12 @@ public class d {
 
         /* renamed from: c.a.s0.w.d$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class C0905a implements e {
+        public class C0915a implements e {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ c.a.b0.a.g.a a;
 
-            public C0905a(a aVar, c.a.b0.a.g.a aVar2) {
+            public C0915a(a aVar, c.a.b0.a.g.a aVar2) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -122,7 +122,7 @@ public class d {
                 DownloadData downloadData = new DownloadData();
                 downloadData.setPath(str2 + "/" + str3);
                 downloadData.setUrl(str);
-                downloadData.setCallback(new C0905a(this, aVar));
+                downloadData.setCallback(new C0915a(this, aVar));
                 f.k().l(downloadData);
             }
         }

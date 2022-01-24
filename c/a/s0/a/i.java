@@ -13,13 +13,13 @@ public abstract class i {
     public c a;
 
     /* renamed from: b  reason: collision with root package name */
-    public volatile long f12138b;
+    public volatile long f12280b;
 
     /* renamed from: c  reason: collision with root package name */
-    public volatile boolean f12139c;
+    public volatile boolean f12281c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f12140d;
+    public int f12282d;
 
     public i(c cVar) {
         Interceptable interceptable = $ic;
@@ -36,9 +36,9 @@ public abstract class i {
                 return;
             }
         }
-        this.f12138b = 0L;
-        this.f12139c = false;
-        this.f12140d = 0;
+        this.f12280b = 0L;
+        this.f12281c = false;
+        this.f12282d = 0;
         this.a = cVar;
     }
 
@@ -46,7 +46,7 @@ public abstract class i {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
             synchronized (this) {
-                this.f12138b += i2;
+                this.f12280b += i2;
             }
         }
     }
@@ -54,7 +54,7 @@ public abstract class i {
     public long b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f12138b : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f12280b : invokeV.longValue;
     }
 
     public c c() {
@@ -66,20 +66,20 @@ public abstract class i {
     public int d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f12140d : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f12282d : invokeV.intValue;
     }
 
     public boolean e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f12139c : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f12281c : invokeV.booleanValue;
     }
 
     public synchronized void f(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
             synchronized (this) {
-                this.f12139c = z;
+                this.f12281c = z;
             }
         }
     }
@@ -87,14 +87,14 @@ public abstract class i {
     public void g(long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048582, this, j2) == null) {
-            this.f12138b = j2;
+            this.f12280b = j2;
         }
     }
 
     public void h(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048583, this, i2) == null) {
-            this.f12140d = i2;
+            this.f12282d = i2;
         }
     }
 }

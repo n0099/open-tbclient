@@ -31,11 +31,11 @@ public class l extends m {
                 return;
             }
         }
-        this.f14191d = R.drawable.icon_pure_post_more_title24;
-        this.f14193f = R.drawable.icon_pure_post_more_tittle64;
-        this.f14194g = false;
-        this.f14195h = true;
-        this.f14196i = false;
+        this.f14331d = R.drawable.icon_pure_post_more_title24;
+        this.f14333f = R.drawable.icon_pure_post_more_tittle64;
+        this.f14334g = false;
+        this.f14335h = true;
+        this.f14336i = false;
         this.n = new int[]{56};
     }
 }

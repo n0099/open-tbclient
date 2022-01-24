@@ -109,18 +109,18 @@ public class AtListActivity extends SuspendedActivity implements c.a.s0.y0.b, Ad
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ AtListActivity f49749e;
+        public final /* synthetic */ AtListActivity f49789e;
 
         /* renamed from: com.baidu.tieba.write.write.AtListActivity$a$a  reason: collision with other inner class name */
         /* loaded from: classes13.dex */
-        public class View$OnClickListenerC1965a implements View.OnClickListener {
+        public class View$OnClickListenerC1971a implements View.OnClickListener {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ a f49750e;
+            public final /* synthetic */ a f49790e;
 
-            public View$OnClickListenerC1965a(a aVar) {
+            public View$OnClickListenerC1971a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -135,14 +135,14 @@ public class AtListActivity extends SuspendedActivity implements c.a.s0.y0.b, Ad
                         return;
                     }
                 }
-                this.f49750e = aVar;
+                this.f49790e = aVar;
             }
 
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                    this.f49750e.f49749e.close();
+                    this.f49790e.f49789e.close();
                 }
             }
         }
@@ -162,20 +162,20 @@ public class AtListActivity extends SuspendedActivity implements c.a.s0.y0.b, Ad
                     return;
                 }
             }
-            this.f49749e = atListActivity;
+            this.f49789e = atListActivity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f49749e.mEditText.getText().clear();
-                this.f49749e.mNaviTitleTV.setVisibility(0);
-                this.f49749e.mNaviSearchFindView.setVisibility(0);
-                this.f49749e.mNaviSearchEditView.setVisibility(8);
-                if (this.f49749e.mCancel == null) {
-                    AtListActivity atListActivity = this.f49749e;
-                    atListActivity.mCancel = atListActivity.mNavigationBar.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, this.f49749e.getResources().getString(c.a.t0.p4.j.dialog_cancel), new View$OnClickListenerC1965a(this));
+                this.f49789e.mEditText.getText().clear();
+                this.f49789e.mNaviTitleTV.setVisibility(0);
+                this.f49789e.mNaviSearchFindView.setVisibility(0);
+                this.f49789e.mNaviSearchEditView.setVisibility(8);
+                if (this.f49789e.mCancel == null) {
+                    AtListActivity atListActivity = this.f49789e;
+                    atListActivity.mCancel = atListActivity.mNavigationBar.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, this.f49789e.getResources().getString(c.a.t0.p4.j.dialog_cancel), new View$OnClickListenerC1971a(this));
                 }
             }
         }
@@ -187,7 +187,7 @@ public class AtListActivity extends SuspendedActivity implements c.a.s0.y0.b, Ad
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ AtListActivity f49751e;
+        public final /* synthetic */ AtListActivity f49791e;
 
         public b(AtListActivity atListActivity) {
             Interceptable interceptable = $ic;
@@ -204,14 +204,14 @@ public class AtListActivity extends SuspendedActivity implements c.a.s0.y0.b, Ad
                     return;
                 }
             }
-            this.f49751e = atListActivity;
+            this.f49791e = atListActivity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f49751e.mListView.requestFocus();
+                this.f49791e.mListView.requestFocus();
             }
         }
     }
@@ -222,7 +222,7 @@ public class AtListActivity extends SuspendedActivity implements c.a.s0.y0.b, Ad
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ AtListActivity f49752e;
+        public final /* synthetic */ AtListActivity f49792e;
 
         public c(AtListActivity atListActivity) {
             Interceptable interceptable = $ic;
@@ -239,14 +239,14 @@ public class AtListActivity extends SuspendedActivity implements c.a.s0.y0.b, Ad
                     return;
                 }
             }
-            this.f49752e = atListActivity;
+            this.f49792e = atListActivity;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                AtListActivity atListActivity = this.f49752e;
+                AtListActivity atListActivity = this.f49792e;
                 atListActivity.requestSuggestData(m.charSequence2String(atListActivity.mEditText.getText(), ""));
             }
         }
@@ -258,7 +258,7 @@ public class AtListActivity extends SuspendedActivity implements c.a.s0.y0.b, Ad
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ AtListActivity f49753e;
+        public final /* synthetic */ AtListActivity f49793e;
 
         public d(AtListActivity atListActivity) {
             Interceptable interceptable = $ic;
@@ -275,7 +275,7 @@ public class AtListActivity extends SuspendedActivity implements c.a.s0.y0.b, Ad
                     return;
                 }
             }
-            this.f49753e = atListActivity;
+            this.f49793e = atListActivity;
         }
 
         @Override // android.view.View.OnTouchListener
@@ -284,7 +284,7 @@ public class AtListActivity extends SuspendedActivity implements c.a.s0.y0.b, Ad
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, view, motionEvent)) == null) {
                 if (motionEvent.getAction() == 0) {
-                    n.w(this.f49753e.getPageContext().getPageActivity(), this.f49753e.mEditText);
+                    n.w(this.f49793e.getPageContext().getPageActivity(), this.f49793e.mEditText);
                     return false;
                 }
                 return false;
@@ -343,7 +343,7 @@ public class AtListActivity extends SuspendedActivity implements c.a.s0.y0.b, Ad
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ AtListActivity f49754e;
+        public final /* synthetic */ AtListActivity f49794e;
 
         public f(AtListActivity atListActivity) {
             Interceptable interceptable = $ic;
@@ -360,7 +360,7 @@ public class AtListActivity extends SuspendedActivity implements c.a.s0.y0.b, Ad
                     return;
                 }
             }
-            this.f49754e = atListActivity;
+            this.f49794e = atListActivity;
         }
 
         @Override // android.view.View.OnTouchListener
@@ -369,7 +369,7 @@ public class AtListActivity extends SuspendedActivity implements c.a.s0.y0.b, Ad
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, view, motionEvent)) == null) {
                 if (motionEvent.getAction() == 0) {
-                    n.w(this.f49754e.getPageContext().getPageActivity(), this.f49754e.mEditText);
+                    n.w(this.f49794e.getPageContext().getPageActivity(), this.f49794e.mEditText);
                     return false;
                 }
                 return false;
@@ -384,7 +384,7 @@ public class AtListActivity extends SuspendedActivity implements c.a.s0.y0.b, Ad
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ AtListActivity f49755e;
+        public final /* synthetic */ AtListActivity f49795e;
 
         public g(AtListActivity atListActivity) {
             Interceptable interceptable = $ic;
@@ -401,25 +401,25 @@ public class AtListActivity extends SuspendedActivity implements c.a.s0.y0.b, Ad
                     return;
                 }
             }
-            this.f49755e = atListActivity;
+            this.f49795e = atListActivity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f49755e.mResultIntent = new Intent();
+                this.f49795e.mResultIntent = new Intent();
                 Bundle bundle = new Bundle();
-                bundle.putParcelableArrayList(IntentConfig.AT_SELECT_LIST_DATA, this.f49755e.mCandidateList.getDataList());
-                this.f49755e.mResultIntent.putExtras(bundle);
-                n.w(this.f49755e.getPageContext().getPageActivity(), this.f49755e.mEditText);
+                bundle.putParcelableArrayList(IntentConfig.AT_SELECT_LIST_DATA, this.f49795e.mCandidateList.getDataList());
+                this.f49795e.mResultIntent.putExtras(bundle);
+                n.w(this.f49795e.getPageContext().getPageActivity(), this.f49795e.mEditText);
                 StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.KEY_AT_PANEL_COMMIT);
                 statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
-                statisticItem.param("tid", this.f49755e.fromTid);
-                statisticItem.param("fid", this.f49755e.fromFid);
+                statisticItem.param("tid", this.f49795e.fromTid);
+                statisticItem.param("fid", this.f49795e.fromFid);
                 StringBuilder sb = new StringBuilder();
-                if (this.f49755e.mCandidateList.getDataList() != null) {
-                    Iterator<AtSelectData> it = this.f49755e.mCandidateList.getDataList().iterator();
+                if (this.f49795e.mCandidateList.getDataList() != null) {
+                    Iterator<AtSelectData> it = this.f49795e.mCandidateList.getDataList().iterator();
                     boolean z = true;
                     while (it.hasNext()) {
                         String uid = it.next().getUid();
@@ -432,7 +432,7 @@ public class AtListActivity extends SuspendedActivity implements c.a.s0.y0.b, Ad
                     statisticItem.param(TiebaStatic.Params.FRIEND_UID, sb.toString());
                 }
                 TiebaStatic.log(statisticItem);
-                this.f49755e.finish();
+                this.f49795e.finish();
             }
         }
     }
@@ -485,7 +485,7 @@ public class AtListActivity extends SuspendedActivity implements c.a.s0.y0.b, Ad
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ AtListActivity f49756e;
+        public final /* synthetic */ AtListActivity f49796e;
 
         public i(AtListActivity atListActivity) {
             Interceptable interceptable = $ic;
@@ -502,19 +502,19 @@ public class AtListActivity extends SuspendedActivity implements c.a.s0.y0.b, Ad
                     return;
                 }
             }
-            this.f49756e = atListActivity;
+            this.f49796e = atListActivity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f49756e.mNaviTitleTV.setVisibility(8);
-                this.f49756e.mNaviSearchFindView.setVisibility(8);
-                this.f49756e.mNaviSearchEditView.setVisibility(0);
-                this.f49756e.mEditText.requestFocus();
-                this.f49756e.mNavigationBar.getViewGroup(NavigationBar.ControlAlign.HORIZONTAL_LEFT).removeAllViews();
-                this.f49756e.mCancel = null;
+                this.f49796e.mNaviTitleTV.setVisibility(8);
+                this.f49796e.mNaviSearchFindView.setVisibility(8);
+                this.f49796e.mNaviSearchEditView.setVisibility(0);
+                this.f49796e.mEditText.requestFocus();
+                this.f49796e.mNavigationBar.getViewGroup(NavigationBar.ControlAlign.HORIZONTAL_LEFT).removeAllViews();
+                this.f49796e.mCancel = null;
             }
         }
     }
@@ -525,7 +525,7 @@ public class AtListActivity extends SuspendedActivity implements c.a.s0.y0.b, Ad
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ AtListActivity f49757e;
+        public final /* synthetic */ AtListActivity f49797e;
 
         public j(AtListActivity atListActivity) {
             Interceptable interceptable = $ic;
@@ -542,7 +542,7 @@ public class AtListActivity extends SuspendedActivity implements c.a.s0.y0.b, Ad
                     return;
                 }
             }
-            this.f49757e = atListActivity;
+            this.f49797e = atListActivity;
         }
 
         @Override // android.text.TextWatcher
@@ -552,14 +552,14 @@ public class AtListActivity extends SuspendedActivity implements c.a.s0.y0.b, Ad
             if (!(interceptable == null || interceptable.invokeL(1048576, this, editable) == null) || (charSequence2String = m.charSequence2String(editable, null)) == null) {
                 return;
             }
-            if (!charSequence2String.equals(this.f49757e.mPreEditString)) {
-                this.f49757e.mHandler.removeCallbacks(this.f49757e.mSuggestRunnable);
-                this.f49757e.mHandler.postDelayed(this.f49757e.mSuggestRunnable, 300L);
+            if (!charSequence2String.equals(this.f49797e.mPreEditString)) {
+                this.f49797e.mHandler.removeCallbacks(this.f49797e.mSuggestRunnable);
+                this.f49797e.mHandler.postDelayed(this.f49797e.mSuggestRunnable, 300L);
             }
             if (charSequence2String.length() > 0) {
-                this.f49757e.mDelete.setVisibility(0);
+                this.f49797e.mDelete.setVisibility(0);
             } else {
-                this.f49757e.mDelete.setVisibility(8);
+                this.f49797e.mDelete.setVisibility(8);
             }
         }
 
@@ -567,7 +567,7 @@ public class AtListActivity extends SuspendedActivity implements c.a.s0.y0.b, Ad
         public void beforeTextChanged(CharSequence charSequence, int i2, int i3, int i4) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLIII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, charSequence, i2, i3, i4) == null) {
-                this.f49757e.mPreEditString = m.charSequence2String(charSequence, null);
+                this.f49797e.mPreEditString = m.charSequence2String(charSequence, null);
             }
         }
 
@@ -585,7 +585,7 @@ public class AtListActivity extends SuspendedActivity implements c.a.s0.y0.b, Ad
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ AtListActivity f49758e;
+        public final /* synthetic */ AtListActivity f49798e;
 
         public k(AtListActivity atListActivity) {
             Interceptable interceptable = $ic;
@@ -602,7 +602,7 @@ public class AtListActivity extends SuspendedActivity implements c.a.s0.y0.b, Ad
                     return;
                 }
             }
-            this.f49758e = atListActivity;
+            this.f49798e = atListActivity;
         }
 
         @Override // android.view.View.OnFocusChangeListener
@@ -610,9 +610,9 @@ public class AtListActivity extends SuspendedActivity implements c.a.s0.y0.b, Ad
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLZ(1048576, this, view, z) == null) {
                 if (!z) {
-                    n.w(this.f49758e.getPageContext().getPageActivity(), view);
+                    n.w(this.f49798e.getPageContext().getPageActivity(), view);
                 } else {
-                    n.L(this.f49758e.getPageContext().getPageActivity(), view);
+                    n.L(this.f49798e.getPageContext().getPageActivity(), view);
                 }
             }
         }
@@ -1109,7 +1109,7 @@ public class AtListActivity extends SuspendedActivity implements c.a.s0.y0.b, Ad
         public NetWork a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ AtListActivity f49759b;
+        public final /* synthetic */ AtListActivity f49799b;
 
         public l(AtListActivity atListActivity) {
             Interceptable interceptable = $ic;
@@ -1126,7 +1126,7 @@ public class AtListActivity extends SuspendedActivity implements c.a.s0.y0.b, Ad
                     return;
                 }
             }
-            this.f49759b = atListActivity;
+            this.f49799b = atListActivity;
             this.a = null;
         }
 
@@ -1139,8 +1139,8 @@ public class AtListActivity extends SuspendedActivity implements c.a.s0.y0.b, Ad
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, strArr)) == null) {
                 String str = strArr[0];
                 this.a = new NetWork();
-                if (!this.f49759b.isForChat) {
-                    if (this.f49759b.isForBjh) {
+                if (!this.f49799b.isForChat) {
+                    if (this.f49799b.isForBjh) {
                         NetWork netWork = this.a;
                         netWork.setUrl(TbConfig.SERVER_ADDRESS + "c/u/follow/list");
                         this.a.addPostData("from", "2");
@@ -1174,32 +1174,32 @@ public class AtListActivity extends SuspendedActivity implements c.a.s0.y0.b, Ad
         public void onPostExecute(c.a.t0.p4.v.b bVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar) == null) {
-                this.f49759b.mFriendListTask = null;
-                AtListActivity atListActivity = this.f49759b;
+                this.f49799b.mFriendListTask = null;
+                AtListActivity atListActivity = this.f49799b;
                 atListActivity.hideNetRefreshView(atListActivity.mContainer);
-                if (this.f49759b.mCandidateContainer != null && this.f49759b.mCandidateContainer.getVisibility() == 0) {
-                    this.f49759b.mDivLine.setVisibility(0);
+                if (this.f49799b.mCandidateContainer != null && this.f49799b.mCandidateContainer.getVisibility() == 0) {
+                    this.f49799b.mDivLine.setVisibility(0);
                 }
                 if (this.a.getNetContext().getResponse().isRequestSuccess()) {
-                    this.f49759b.mModel.b(bVar);
-                    if (this.f49759b.mAdapter == null) {
+                    this.f49799b.mModel.b(bVar);
+                    if (this.f49799b.mAdapter == null) {
                         return;
                     }
                     if (bVar == null || bVar.a() == null || !bVar.a().isEmpty()) {
-                        this.f49759b.setNoFriends(0);
+                        this.f49799b.setNoFriends(0);
                     } else {
-                        this.f49759b.setNoFriends(2);
+                        this.f49799b.setNoFriends(2);
                     }
                     if (bVar != null) {
-                        this.f49759b.mFriendList = bVar.a();
+                        this.f49799b.mFriendList = bVar.a();
                     }
-                    this.f49759b.mAdapter.f(this.f49759b.mFriendList);
-                    this.f49759b.mAdapter.notifyDataSetInvalidated();
-                    this.f49759b.mListView.setSelection(0);
+                    this.f49799b.mAdapter.f(this.f49799b.mFriendList);
+                    this.f49799b.mAdapter.notifyDataSetInvalidated();
+                    this.f49799b.mListView.setSelection(0);
                 } else {
-                    this.f49759b.showToast(this.a.getErrorString());
-                    AtListActivity atListActivity2 = this.f49759b;
-                    atListActivity2.showNetRefreshView(atListActivity2.mContainer, this.f49759b.getString(c.a.t0.p4.j.refresh_view_title_text), null, this.f49759b.getString(c.a.t0.p4.j.refresh_view_button_text), true, this.f49759b.getNetRefreshListener());
+                    this.f49799b.showToast(this.a.getErrorString());
+                    AtListActivity atListActivity2 = this.f49799b;
+                    atListActivity2.showNetRefreshView(atListActivity2.mContainer, this.f49799b.getString(c.a.t0.p4.j.refresh_view_title_text), null, this.f49799b.getString(c.a.t0.p4.j.refresh_view_button_text), true, this.f49799b.getNetRefreshListener());
                 }
                 super.onPostExecute(bVar);
             }
@@ -1213,7 +1213,7 @@ public class AtListActivity extends SuspendedActivity implements c.a.s0.y0.b, Ad
                 if (netWork != null) {
                     netWork.cancelNetConnect();
                 }
-                this.f49759b.mFriendListTask = null;
+                this.f49799b.mFriendListTask = null;
                 super.cancel(true);
             }
         }

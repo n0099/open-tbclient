@@ -159,12 +159,12 @@ public class c {
             } else {
                 String str2 = null;
                 if (gVar != null) {
-                    str = gVar.f11494g;
-                    j2 = gVar.f11496i;
+                    str = gVar.f11636g;
+                    j2 = gVar.f11638i;
                     str2 = gVar.p;
                 } else if (list.size() > 0) {
                     c.a.r0.q.i.h hVar = list.get(0);
-                    j2 = hVar.f11496i;
+                    j2 = hVar.f11638i;
                     str2 = hVar.s;
                 } else {
                     j2 = -1;

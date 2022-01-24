@@ -12,18 +12,18 @@ public interface a {
 
     /* renamed from: c.a.d.d.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static class C0106a implements a {
+    public static class C0113a implements a {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: c  reason: collision with root package name */
-        public static a f2660c;
+        public static a f2762c;
         public transient /* synthetic */ FieldHolder $fh;
         public int a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final e f2661b;
+        public final e f2763b;
 
-        public C0106a() {
+        public C0113a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -37,8 +37,8 @@ public interface a {
                 }
             }
             this.a = 0;
-            this.f2661b = new e();
-            if (NSGif.f31159f) {
+            this.f2763b = new e();
+            if (NSGif.f31187f) {
                 this.a = 0;
             } else {
                 this.a = 1;
@@ -50,11 +50,11 @@ public interface a {
             a aVar;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-                synchronized (C0106a.class) {
-                    if (f2660c == null) {
-                        f2660c = new C0106a();
+                synchronized (C0113a.class) {
+                    if (f2762c == null) {
+                        f2762c = new C0113a();
                     }
-                    aVar = f2660c;
+                    aVar = f2762c;
                 }
                 return aVar;
             }
@@ -68,7 +68,7 @@ public interface a {
             if (interceptable == null || (invokeLII = interceptable.invokeLII(1048576, this, bArr, i2, i3)) == null) {
                 if (this.a == 0) {
                     try {
-                        return this.f2661b.a(bArr, i2, i3);
+                        return this.f2763b.a(bArr, i2, i3);
                     } catch (Exception unused) {
                     }
                 }
@@ -84,7 +84,7 @@ public interface a {
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
                 if (this.a == 0) {
                     try {
-                        return this.f2661b.get(str);
+                        return this.f2763b.get(str);
                     } catch (Exception unused) {
                     }
                 }

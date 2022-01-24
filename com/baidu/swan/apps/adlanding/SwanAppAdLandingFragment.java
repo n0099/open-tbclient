@@ -236,21 +236,21 @@ public class SwanAppAdLandingFragment extends c.a.r0.a.h0.g.l implements c.a.r0.
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ SwanAppAdLandingFragment f38604c;
+        public final /* synthetic */ SwanAppAdLandingFragment f38632c;
 
         /* renamed from: com.baidu.swan.apps.adlanding.SwanAppAdLandingFragment$a$a  reason: collision with other inner class name */
         /* loaded from: classes11.dex */
-        public class RunnableC1875a implements Runnable {
+        public class RunnableC1881a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ String f38605e;
+            public final /* synthetic */ String f38633e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ a f38606f;
+            public final /* synthetic */ a f38634f;
 
-            public RunnableC1875a(a aVar, String str) {
+            public RunnableC1881a(a aVar, String str) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -265,15 +265,15 @@ public class SwanAppAdLandingFragment extends c.a.r0.a.h0.g.l implements c.a.r0.
                         return;
                     }
                 }
-                this.f38606f = aVar;
-                this.f38605e = str;
+                this.f38634f = aVar;
+                this.f38633e = str;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    this.f38606f.f38604c.k0.setTitle(TextUtils.isEmpty(this.f38605e) ? "" : this.f38605e);
+                    this.f38634f.f38632c.k0.setTitle(TextUtils.isEmpty(this.f38633e) ? "" : this.f38633e);
                 }
             }
         }
@@ -293,16 +293,16 @@ public class SwanAppAdLandingFragment extends c.a.r0.a.h0.g.l implements c.a.r0.
                     return;
                 }
             }
-            this.f38604c = swanAppAdLandingFragment;
+            this.f38632c = swanAppAdLandingFragment;
         }
 
         @Override // c.a.r0.a.h0.j.a, c.a.r0.a.h0.j.d
         public void a(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-                SwanAppAdLandingFragment swanAppAdLandingFragment = this.f38604c;
+                SwanAppAdLandingFragment swanAppAdLandingFragment = this.f38632c;
                 swanAppAdLandingFragment.T3(swanAppAdLandingFragment.K0.canGoBack());
-                this.f38604c.k0.post(new RunnableC1875a(this, str));
+                this.f38632c.k0.post(new RunnableC1881a(this, str));
             }
         }
 
@@ -335,10 +335,10 @@ public class SwanAppAdLandingFragment extends c.a.r0.a.h0.g.l implements c.a.r0.
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
                 super.e(str);
-                if (TextUtils.isEmpty(this.f38604c.j1) || this.f38604c.T0 == null) {
+                if (TextUtils.isEmpty(this.f38632c.j1) || this.f38632c.T0 == null) {
                     return;
                 }
-                this.f38604c.T0.e(this.f38604c.j1);
+                this.f38632c.T0.e(this.f38632c.j1);
             }
         }
 
@@ -346,7 +346,7 @@ public class SwanAppAdLandingFragment extends c.a.r0.a.h0.g.l implements c.a.r0.
         public void goBack() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-                SwanAppAdLandingFragment swanAppAdLandingFragment = this.f38604c;
+                SwanAppAdLandingFragment swanAppAdLandingFragment = this.f38632c;
                 swanAppAdLandingFragment.T3(swanAppAdLandingFragment.K0.canGoBack());
             }
         }
@@ -358,7 +358,7 @@ public class SwanAppAdLandingFragment extends c.a.r0.a.h0.g.l implements c.a.r0.
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ SwanAppAdLandingFragment f38607e;
+        public final /* synthetic */ SwanAppAdLandingFragment f38635e;
 
         public b(SwanAppAdLandingFragment swanAppAdLandingFragment) {
             Interceptable interceptable = $ic;
@@ -375,7 +375,7 @@ public class SwanAppAdLandingFragment extends c.a.r0.a.h0.g.l implements c.a.r0.
                     return;
                 }
             }
-            this.f38607e = swanAppAdLandingFragment;
+            this.f38635e = swanAppAdLandingFragment;
         }
 
         @Override // android.view.View.OnClickListener
@@ -393,7 +393,7 @@ public class SwanAppAdLandingFragment extends c.a.r0.a.h0.g.l implements c.a.r0.
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ SwanAppAdLandingFragment f38608e;
+        public final /* synthetic */ SwanAppAdLandingFragment f38636e;
 
         public c(SwanAppAdLandingFragment swanAppAdLandingFragment) {
             Interceptable interceptable = $ic;
@@ -410,14 +410,14 @@ public class SwanAppAdLandingFragment extends c.a.r0.a.h0.g.l implements c.a.r0.
                     return;
                 }
             }
-            this.f38608e = swanAppAdLandingFragment;
+            this.f38636e = swanAppAdLandingFragment;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                c.a.r0.a.c2.b.f.e g2 = c.a.r0.a.c2.b.f.e.g(this.f38608e.getContext(), "第三方页面应用未经百度审核");
+                c.a.r0.a.c2.b.f.e g2 = c.a.r0.a.c2.b.f.e.g(this.f38636e.getContext(), "第三方页面应用未经百度审核");
                 g2.p(ToastLocation.BOTTOM);
                 g2.G();
             }
@@ -430,7 +430,7 @@ public class SwanAppAdLandingFragment extends c.a.r0.a.h0.g.l implements c.a.r0.
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ SwanAppAdLandingFragment f38609e;
+        public final /* synthetic */ SwanAppAdLandingFragment f38637e;
 
         public d(SwanAppAdLandingFragment swanAppAdLandingFragment) {
             Interceptable interceptable = $ic;
@@ -447,15 +447,15 @@ public class SwanAppAdLandingFragment extends c.a.r0.a.h0.g.l implements c.a.r0.
                     return;
                 }
             }
-            this.f38609e = swanAppAdLandingFragment;
+            this.f38637e = swanAppAdLandingFragment;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                c.a.r0.a.h0.g.l.X2("adLanding", c.a.r0.a.m1.b.e(this.f38609e.N1, this.f38609e.N1));
-                this.f38609e.K1.dismiss();
+                c.a.r0.a.h0.g.l.X2("adLanding", c.a.r0.a.m1.b.e(this.f38637e.N1, this.f38637e.N1));
+                this.f38637e.K1.dismiss();
             }
         }
     }
@@ -466,7 +466,7 @@ public class SwanAppAdLandingFragment extends c.a.r0.a.h0.g.l implements c.a.r0.
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ SwanAppAdLandingFragment f38610e;
+        public final /* synthetic */ SwanAppAdLandingFragment f38638e;
 
         public e(SwanAppAdLandingFragment swanAppAdLandingFragment) {
             Interceptable interceptable = $ic;
@@ -483,15 +483,15 @@ public class SwanAppAdLandingFragment extends c.a.r0.a.h0.g.l implements c.a.r0.
                     return;
                 }
             }
-            this.f38610e = swanAppAdLandingFragment;
+            this.f38638e = swanAppAdLandingFragment;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                c.a.r0.a.h0.g.l.X2("adLanding", c.a.r0.a.m1.b.e(this.f38610e.M1, this.f38610e.M1));
-                this.f38610e.K1.dismiss();
+                c.a.r0.a.h0.g.l.X2("adLanding", c.a.r0.a.m1.b.e(this.f38638e.M1, this.f38638e.M1));
+                this.f38638e.K1.dismiss();
             }
         }
     }
@@ -502,7 +502,7 @@ public class SwanAppAdLandingFragment extends c.a.r0.a.h0.g.l implements c.a.r0.
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ SwanAppAdLandingFragment f38611e;
+        public final /* synthetic */ SwanAppAdLandingFragment f38639e;
 
         public f(SwanAppAdLandingFragment swanAppAdLandingFragment) {
             Interceptable interceptable = $ic;
@@ -519,14 +519,14 @@ public class SwanAppAdLandingFragment extends c.a.r0.a.h0.g.l implements c.a.r0.
                     return;
                 }
             }
-            this.f38611e = swanAppAdLandingFragment;
+            this.f38639e = swanAppAdLandingFragment;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f38611e.K1.dismiss();
+                this.f38639e.K1.dismiss();
             }
         }
     }
@@ -537,7 +537,7 @@ public class SwanAppAdLandingFragment extends c.a.r0.a.h0.g.l implements c.a.r0.
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ SwanAppAdLandingFragment f38612e;
+        public final /* synthetic */ SwanAppAdLandingFragment f38640e;
 
         public g(SwanAppAdLandingFragment swanAppAdLandingFragment) {
             Interceptable interceptable = $ic;
@@ -554,7 +554,7 @@ public class SwanAppAdLandingFragment extends c.a.r0.a.h0.g.l implements c.a.r0.
                     return;
                 }
             }
-            this.f38612e = swanAppAdLandingFragment;
+            this.f38640e = swanAppAdLandingFragment;
         }
 
         @Override // android.content.DialogInterface.OnCancelListener
@@ -655,7 +655,7 @@ public class SwanAppAdLandingFragment extends c.a.r0.a.h0.g.l implements c.a.r0.
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ SwanAppAdLandingFragment f38613e;
+        public final /* synthetic */ SwanAppAdLandingFragment f38641e;
 
         public i(SwanAppAdLandingFragment swanAppAdLandingFragment) {
             Interceptable interceptable = $ic;
@@ -672,7 +672,7 @@ public class SwanAppAdLandingFragment extends c.a.r0.a.h0.g.l implements c.a.r0.
                     return;
                 }
             }
-            this.f38613e = swanAppAdLandingFragment;
+            this.f38641e = swanAppAdLandingFragment;
         }
 
         @Override // android.view.View.OnClickListener
@@ -786,10 +786,10 @@ public class SwanAppAdLandingFragment extends c.a.r0.a.h0.g.l implements c.a.r0.
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ View f38614e;
+        public final /* synthetic */ View f38642e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ SwanAppAdLandingFragment f38615f;
+        public final /* synthetic */ SwanAppAdLandingFragment f38643f;
 
         public k(SwanAppAdLandingFragment swanAppAdLandingFragment, View view) {
             Interceptable interceptable = $ic;
@@ -806,28 +806,28 @@ public class SwanAppAdLandingFragment extends c.a.r0.a.h0.g.l implements c.a.r0.
                     return;
                 }
             }
-            this.f38615f = swanAppAdLandingFragment;
-            this.f38614e = view;
+            this.f38643f = swanAppAdLandingFragment;
+            this.f38642e = view;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                int height = this.f38615f.U0.getHeight();
-                if (this.f38615f.k4() || this.f38615f.i4()) {
-                    ViewGroup.LayoutParams layoutParams = this.f38614e.getLayoutParams();
+                int height = this.f38643f.U0.getHeight();
+                if (this.f38643f.k4() || this.f38643f.i4()) {
+                    ViewGroup.LayoutParams layoutParams = this.f38642e.getLayoutParams();
                     layoutParams.height = height;
-                    this.f38614e.setLayoutParams(layoutParams);
+                    this.f38642e.setLayoutParams(layoutParams);
                 }
-                if (this.f38615f.k4()) {
-                    ViewGroup.LayoutParams layoutParams2 = this.f38615f.q1.getLayoutParams();
-                    layoutParams2.height = height + (this.f38615f.t1.booleanValue() ? this.f38615f.C1 : this.f38615f.d1);
-                    this.f38615f.q1.setLayoutParams(layoutParams2);
+                if (this.f38643f.k4()) {
+                    ViewGroup.LayoutParams layoutParams2 = this.f38643f.q1.getLayoutParams();
+                    layoutParams2.height = height + (this.f38643f.t1.booleanValue() ? this.f38643f.C1 : this.f38643f.d1);
+                    this.f38643f.q1.setLayoutParams(layoutParams2);
                 }
-                this.f38615f.s1.removeView(this.f38615f.U0);
-                if (this.f38615f.r1 != null) {
-                    this.f38615f.r1.setVisibility(0);
+                this.f38643f.s1.removeView(this.f38643f.U0);
+                if (this.f38643f.r1 != null) {
+                    this.f38643f.r1.setVisibility(0);
                 }
             }
         }
@@ -840,7 +840,7 @@ public class SwanAppAdLandingFragment extends c.a.r0.a.h0.g.l implements c.a.r0.
         public final /* synthetic */ CustomerAdScrollView a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ SwanAppAdLandingFragment f38616b;
+        public final /* synthetic */ SwanAppAdLandingFragment f38644b;
 
         public l(SwanAppAdLandingFragment swanAppAdLandingFragment, CustomerAdScrollView customerAdScrollView) {
             Interceptable interceptable = $ic;
@@ -857,7 +857,7 @@ public class SwanAppAdLandingFragment extends c.a.r0.a.h0.g.l implements c.a.r0.
                     return;
                 }
             }
-            this.f38616b = swanAppAdLandingFragment;
+            this.f38644b = swanAppAdLandingFragment;
             this.a = customerAdScrollView;
         }
 
@@ -865,7 +865,7 @@ public class SwanAppAdLandingFragment extends c.a.r0.a.h0.g.l implements c.a.r0.
         public void onScrollChanged(int i2, int i3, int i4, int i5) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeIIII(1048576, this, i2, i3, i4, i5) == null) {
-                this.a.setIsWebViewOnBottom(((((float) this.f38616b.K0.getContentHeight()) * this.f38616b.K0.getScale()) - ((float) this.f38616b.K0.covertToView().getHeight())) - ((float) this.f38616b.K0.getWebViewScrollY()) < 10.0f);
+                this.a.setIsWebViewOnBottom(((((float) this.f38644b.K0.getContentHeight()) * this.f38644b.K0.getScale()) - ((float) this.f38644b.K0.covertToView().getHeight())) - ((float) this.f38644b.K0.getWebViewScrollY()) < 10.0f);
             }
         }
     }
@@ -877,7 +877,7 @@ public class SwanAppAdLandingFragment extends c.a.r0.a.h0.g.l implements c.a.r0.
         public final /* synthetic */ CustomerAdScrollView a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ SwanAppAdLandingFragment f38617b;
+        public final /* synthetic */ SwanAppAdLandingFragment f38645b;
 
         public m(SwanAppAdLandingFragment swanAppAdLandingFragment, CustomerAdScrollView customerAdScrollView) {
             Interceptable interceptable = $ic;
@@ -894,7 +894,7 @@ public class SwanAppAdLandingFragment extends c.a.r0.a.h0.g.l implements c.a.r0.
                     return;
                 }
             }
-            this.f38617b = swanAppAdLandingFragment;
+            this.f38645b = swanAppAdLandingFragment;
             this.a = customerAdScrollView;
         }
 
@@ -903,7 +903,7 @@ public class SwanAppAdLandingFragment extends c.a.r0.a.h0.g.l implements c.a.r0.
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
                 super.a(str);
-                if (Math.abs((this.f38617b.K0.getContentHeight() * this.f38617b.K0.getScale()) - this.f38617b.K0.covertToView().getHeight()) < 10.0f) {
+                if (Math.abs((this.f38645b.K0.getContentHeight() * this.f38645b.K0.getScale()) - this.f38645b.K0.covertToView().getHeight()) < 10.0f) {
                     this.a.setIsWebViewOnBottom(true);
                 } else {
                     this.a.setIsWebViewOnBottom(false);
@@ -919,7 +919,7 @@ public class SwanAppAdLandingFragment extends c.a.r0.a.h0.g.l implements c.a.r0.
         public final /* synthetic */ CustomerAdScrollView a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ SwanAppAdLandingFragment f38618b;
+        public final /* synthetic */ SwanAppAdLandingFragment f38646b;
 
         public n(SwanAppAdLandingFragment swanAppAdLandingFragment, CustomerAdScrollView customerAdScrollView) {
             Interceptable interceptable = $ic;
@@ -936,7 +936,7 @@ public class SwanAppAdLandingFragment extends c.a.r0.a.h0.g.l implements c.a.r0.
                     return;
                 }
             }
-            this.f38618b = swanAppAdLandingFragment;
+            this.f38646b = swanAppAdLandingFragment;
             this.a = customerAdScrollView;
         }
 
@@ -945,7 +945,7 @@ public class SwanAppAdLandingFragment extends c.a.r0.a.h0.g.l implements c.a.r0.
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeIIII(1048576, this, i2, i3, i4, i5) == null) {
                 CustomerAdScrollView customerAdScrollView = this.a;
-                SwanAppAdLandingFragment swanAppAdLandingFragment = this.f38618b;
+                SwanAppAdLandingFragment swanAppAdLandingFragment = this.f38646b;
                 customerAdScrollView.setIsFooterLayoutShow(swanAppAdLandingFragment.l4(swanAppAdLandingFragment.r1));
             }
         }
@@ -957,7 +957,7 @@ public class SwanAppAdLandingFragment extends c.a.r0.a.h0.g.l implements c.a.r0.
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ SwanAppAdLandingFragment f38619e;
+        public final /* synthetic */ SwanAppAdLandingFragment f38647e;
 
         public o(SwanAppAdLandingFragment swanAppAdLandingFragment) {
             Interceptable interceptable = $ic;
@@ -974,7 +974,7 @@ public class SwanAppAdLandingFragment extends c.a.r0.a.h0.g.l implements c.a.r0.
                     return;
                 }
             }
-            this.f38619e = swanAppAdLandingFragment;
+            this.f38647e = swanAppAdLandingFragment;
         }
 
         @Override // android.view.View.OnClickListener
@@ -988,12 +988,12 @@ public class SwanAppAdLandingFragment extends c.a.r0.a.h0.g.l implements c.a.r0.
                 } else if (id == c.a.r0.a.f.ad_tail_brand_name) {
                     hashMap.put("da_area", "tail_name");
                 } else if (id == c.a.r0.a.f.ad_tail_btn) {
-                    hashMap.put("da_area", this.f38619e.f1 == ActionType.DL.value() ? "tail_downloadbtn" : "tail_detailbtn");
+                    hashMap.put("da_area", this.f38647e.f1 == ActionType.DL.value() ? "tail_downloadbtn" : "tail_detailbtn");
                 }
-                if (this.f38619e.T0 != null) {
-                    this.f38619e.T0.d("c", hashMap);
+                if (this.f38647e.T0 != null) {
+                    this.f38647e.T0.d("c", hashMap);
                 }
-                c.a.r0.a.h0.g.l.X2("adLanding", c.a.r0.a.m1.b.e(this.f38619e.Q0, this.f38619e.Q0));
+                c.a.r0.a.h0.g.l.X2("adLanding", c.a.r0.a.m1.b.e(this.f38647e.Q0, this.f38647e.Q0));
             }
         }
     }
@@ -1145,12 +1145,12 @@ public class SwanAppAdLandingFragment extends c.a.r0.a.h0.g.l implements c.a.r0.
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
             this.Y0.f();
-            if (TextUtils.isEmpty(this.a1.f39655b)) {
+            if (TextUtils.isEmpty(this.a1.f39683b)) {
                 String U3 = U3(this.G1);
-                this.a1.f39655b = U3;
+                this.a1.f39683b = U3;
                 this.Y0.a(U3);
             }
-            if (q0.F(getContext(), this.a1.f39655b)) {
+            if (q0.F(getContext(), this.a1.f39683b)) {
                 s4();
                 this.Y0.b(DownloadState.INSTALLED);
                 return;
@@ -1198,12 +1198,12 @@ public class SwanAppAdLandingFragment extends c.a.r0.a.h0.g.l implements c.a.r0.
             int o2 = n0.o(getContext());
             float l2 = n0.l(getContext());
             layoutParams.width = o2 - (((int) ((10.0f * l2) + 0.5f)) * 2);
-            if (TextUtils.isEmpty(this.a1.f39655b)) {
+            if (TextUtils.isEmpty(this.a1.f39683b)) {
                 String U3 = U3(aVar.b());
-                this.a1.f39655b = U3;
+                this.a1.f39683b = U3;
                 this.Y0.a(U3);
             }
-            if (q0.F(getContext(), this.a1.f39655b)) {
+            if (q0.F(getContext(), this.a1.f39683b)) {
                 this.Y0.b(DownloadState.INSTALLED);
             }
             if (TextUtils.isEmpty(this.a1.a)) {
@@ -1417,7 +1417,7 @@ public class SwanAppAdLandingFragment extends c.a.r0.a.h0.g.l implements c.a.r0.
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, -1);
             View covertToView = this.K0.covertToView();
             c.a.r0.a.d2.n.g gVar = new c.a.r0.a.d2.n.g();
-            gVar.f5577e = SwanAppConfigData.t("#FFFFFF");
+            gVar.f5719e = SwanAppConfigData.t("#FFFFFF");
             this.J0.A(frameLayout, gVar);
             this.J0.Q(frameLayout, gVar);
             this.J0.k(frameLayout, covertToView);

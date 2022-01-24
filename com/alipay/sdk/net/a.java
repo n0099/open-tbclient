@@ -34,26 +34,26 @@ public final class a {
     public static final String a = "msp";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f30868b = "application/octet-stream;binary/octet-stream";
+    public static final String f30896b = "application/octet-stream;binary/octet-stream";
 
     /* renamed from: c  reason: collision with root package name */
-    public static final CookieManager f30869c;
+    public static final CookieManager f30897c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: com.alipay.sdk.net.a$a  reason: collision with other inner class name */
     /* loaded from: classes9.dex */
-    public static final class C1701a {
+    public static final class C1702a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final String a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final byte[] f30870b;
+        public final byte[] f30898b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final Map<String, String> f30871c;
+        public final Map<String, String> f30899c;
 
-        public C1701a(String str, Map<String, String> map, byte[] bArr) {
+        public C1702a(String str, Map<String, String> map, byte[] bArr) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -69,14 +69,14 @@ public final class a {
                 }
             }
             this.a = str;
-            this.f30870b = bArr;
-            this.f30871c = map;
+            this.f30898b = bArr;
+            this.f30899c = map;
         }
 
         public String toString() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? String.format("<UrlConnectionConfigure url=%s headers=%s>", this.a, this.f30871c) : (String) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? String.format("<UrlConnectionConfigure url=%s headers=%s>", this.a, this.f30899c) : (String) invokeV.objValue;
         }
     }
 
@@ -87,10 +87,10 @@ public final class a {
         public final Map<String, List<String>> a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final String f30872b;
+        public final String f30900b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final byte[] f30873c;
+        public final byte[] f30901c;
 
         public b(Map<String, List<String>> map, String str, byte[] bArr) {
             Interceptable interceptable = $ic;
@@ -108,8 +108,8 @@ public final class a {
                 }
             }
             this.a = map;
-            this.f30872b = str;
-            this.f30873c = bArr;
+            this.f30900b = str;
+            this.f30901c = bArr;
         }
     }
 
@@ -126,7 +126,7 @@ public final class a {
                 return;
             }
         }
-        f30869c = new CookieManager();
+        f30897c = new CookieManager();
     }
 
     public a() {
@@ -149,7 +149,7 @@ public final class a {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static b a(Context context, C1701a c1701a) {
+    public static b a(Context context, C1702a c1702a) {
         InterceptResult invokeLL;
         Throwable th;
         HttpURLConnection httpURLConnection;
@@ -158,13 +158,13 @@ public final class a {
         BufferedOutputStream bufferedOutputStream;
         URL url;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, context, c1701a)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, context, c1702a)) == null) {
             if (context == null) {
                 return null;
             }
             try {
-                c.d(com.alipay.sdk.cons.a.x, "conn config: " + c1701a);
-                url = new URL(c1701a.a);
+                c.d(com.alipay.sdk.cons.a.x, "conn config: " + c1702a);
+                url = new URL(c1702a.a);
                 Proxy c2 = c(context);
                 c.d(com.alipay.sdk.cons.a.x, "conn proxy: " + c2);
                 if (c2 != null) {
@@ -181,24 +181,24 @@ public final class a {
                 if (httpURLConnection instanceof HttpsURLConnection) {
                     HttpsURLConnection httpsURLConnection = (HttpsURLConnection) httpURLConnection;
                 }
-                if (f30869c.getCookieStore().getCookies().size() > 0) {
-                    httpURLConnection.setRequestProperty("Cookie", TextUtils.join(";", f30869c.getCookieStore().getCookies()));
+                if (f30897c.getCookieStore().getCookies().size() > 0) {
+                    httpURLConnection.setRequestProperty("Cookie", TextUtils.join(";", f30897c.getCookieStore().getCookies()));
                 }
                 httpURLConnection.setConnectTimeout(20000);
                 httpURLConnection.setReadTimeout(30000);
                 httpURLConnection.setInstanceFollowRedirects(true);
                 httpURLConnection.setRequestProperty("User-Agent", a);
-                if (c1701a.f30870b != null && c1701a.f30870b.length > 0) {
+                if (c1702a.f30898b != null && c1702a.f30898b.length > 0) {
                     httpURLConnection.setRequestMethod("POST");
-                    httpURLConnection.setRequestProperty("Content-Type", f30868b);
+                    httpURLConnection.setRequestProperty("Content-Type", f30896b);
                     httpURLConnection.setRequestProperty("Accept-Charset", "UTF-8");
                     httpURLConnection.setRequestProperty(HTTP.CONN_DIRECTIVE, HTTP.CONN_KEEP_ALIVE);
                     httpURLConnection.setRequestProperty(HTTP.CONN_KEEP_ALIVE, "timeout=180, max=100");
                 } else {
                     httpURLConnection.setRequestMethod("GET");
                 }
-                if (c1701a.f30871c != null) {
-                    for (Map.Entry<String, String> entry : c1701a.f30871c.entrySet()) {
+                if (c1702a.f30899c != null) {
+                    for (Map.Entry<String, String> entry : c1702a.f30899c.entrySet()) {
                         if (entry.getKey() != null) {
                             httpURLConnection.setRequestProperty(entry.getKey(), entry.getValue());
                         }
@@ -211,7 +211,7 @@ public final class a {
                 if ("POST".equals(httpURLConnection.getRequestMethod())) {
                     bufferedOutputStream = new BufferedOutputStream(httpURLConnection.getOutputStream());
                     try {
-                        bufferedOutputStream.write(c1701a.f30870b);
+                        bufferedOutputStream.write(c1702a.f30898b);
                         bufferedOutputStream.flush();
                     } catch (Throwable th4) {
                         th2 = th4;
@@ -253,7 +253,7 @@ public final class a {
                         for (String str : list) {
                             List<HttpCookie> parse = HttpCookie.parse(str);
                             if (parse != null && !parse.isEmpty()) {
-                                f30869c.getCookieStore().add(url.toURI(), parse.get(0));
+                                f30897c.getCookieStore().add(url.toURI(), parse.get(0));
                             }
                         }
                     }

@@ -66,7 +66,7 @@ public class dn {
         if ((interceptable == null || interceptable.invokeLLZ(InputDeviceCompat.SOURCE_TRACKBALL, this, aqVar, aiVar, z) == null) && aqVar.a(hk.a.a(), true)) {
             ds dsVar = new ds(this.f245a);
             if (z) {
-                aiVar.a((ai.a) dsVar, a(aqVar.a(hk.f61187b.a(), 86400)));
+                aiVar.a((ai.a) dsVar, a(aqVar.a(hk.f61232b.a(), 86400)));
             } else {
                 aiVar.m206a((ai.a) dsVar);
             }

@@ -7,7 +7,7 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import c.a.s0.a1.a;
-import c.a.s0.s.h0.b;
+import c.a.s0.s.i0.b;
 import c.a.s0.s.s.m;
 import c.a.s0.s.u.c;
 import c.a.s0.t.c.l0;
@@ -148,7 +148,7 @@ public class UpgradePopWindowHelper {
             d2.m(1);
             d2.n(R.string.J_X06);
             d2.f(R.color.CAM_X0205);
-            RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, UtilHelper.getDimenPixelSize(R.dimen.tbds200));
+            RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, UtilHelper.getDimenPixelSize(R.dimen.tbds237));
             layoutParams.setMargins(0, UtilHelper.getDimenPixelSize(R.dimen.tbds120), 0, 0);
             relativeLayout.addView(view, layoutParams);
             ImageView imageView = new ImageView(pageActivity);

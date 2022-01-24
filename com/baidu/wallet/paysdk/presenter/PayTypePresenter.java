@@ -16,7 +16,7 @@ import com.baidu.wallet.paysdk.ui.PayTypeActivity;
 import com.baidu.wallet.paysdk.ui.widget.PayTypeItemView;
 import com.dxmpay.apollon.eventbus.EventBus;
 import com.dxmpay.wallet.utils.StatHelper;
-/* loaded from: classes13.dex */
+/* loaded from: classes2.dex */
 public class PayTypePresenter extends PayTypeContract.Presenter {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "PayTypePresenter";

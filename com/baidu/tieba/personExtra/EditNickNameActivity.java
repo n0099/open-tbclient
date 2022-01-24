@@ -56,7 +56,7 @@ public class EditNickNameActivity extends BaseActivity<EditNickNameActivity> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ EditNickNameActivity f47117e;
+        public final /* synthetic */ EditNickNameActivity f47145e;
 
         public a(EditNickNameActivity editNickNameActivity) {
             Interceptable interceptable = $ic;
@@ -73,14 +73,14 @@ public class EditNickNameActivity extends BaseActivity<EditNickNameActivity> {
                     return;
                 }
             }
-            this.f47117e = editNickNameActivity;
+            this.f47145e = editNickNameActivity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f47117e.onBackClick();
+                this.f47145e.onBackClick();
             }
         }
     }
@@ -91,7 +91,7 @@ public class EditNickNameActivity extends BaseActivity<EditNickNameActivity> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ EditNickNameActivity f47118e;
+        public final /* synthetic */ EditNickNameActivity f47146e;
 
         public b(EditNickNameActivity editNickNameActivity) {
             Interceptable interceptable = $ic;
@@ -108,14 +108,14 @@ public class EditNickNameActivity extends BaseActivity<EditNickNameActivity> {
                     return;
                 }
             }
-            this.f47118e = editNickNameActivity;
+            this.f47146e = editNickNameActivity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f47118e.reloadPage();
+                this.f47146e.reloadPage();
             }
         }
     }
@@ -126,7 +126,7 @@ public class EditNickNameActivity extends BaseActivity<EditNickNameActivity> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ EditNickNameActivity f47119e;
+        public final /* synthetic */ EditNickNameActivity f47147e;
 
         public c(EditNickNameActivity editNickNameActivity) {
             Interceptable interceptable = $ic;
@@ -143,7 +143,7 @@ public class EditNickNameActivity extends BaseActivity<EditNickNameActivity> {
                     return;
                 }
             }
-            this.f47119e = editNickNameActivity;
+            this.f47147e = editNickNameActivity;
         }
 
         @Override // c.a.s0.s.s.a.e
@@ -151,7 +151,7 @@ public class EditNickNameActivity extends BaseActivity<EditNickNameActivity> {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
                 aVar.dismiss();
-                this.f47119e.onSaveClick();
+                this.f47147e.onSaveClick();
             }
         }
     }
@@ -162,7 +162,7 @@ public class EditNickNameActivity extends BaseActivity<EditNickNameActivity> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ EditNickNameActivity f47120e;
+        public final /* synthetic */ EditNickNameActivity f47148e;
 
         public d(EditNickNameActivity editNickNameActivity) {
             Interceptable interceptable = $ic;
@@ -179,7 +179,7 @@ public class EditNickNameActivity extends BaseActivity<EditNickNameActivity> {
                     return;
                 }
             }
-            this.f47120e = editNickNameActivity;
+            this.f47148e = editNickNameActivity;
         }
 
         @Override // c.a.s0.s.s.a.e
@@ -187,7 +187,7 @@ public class EditNickNameActivity extends BaseActivity<EditNickNameActivity> {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
                 aVar.dismiss();
-                this.f47120e.goBackOrFinish(null);
+                this.f47148e.goBackOrFinish(null);
             }
         }
     }
@@ -346,14 +346,14 @@ public class EditNickNameActivity extends BaseActivity<EditNickNameActivity> {
     private void initView() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65547, this) == null) {
-            this.mRootView = findViewById(c.a.t0.y2.d.root_layout);
-            BaseWebView baseWebView = (BaseWebView) findViewById(c.a.t0.y2.d.webview);
+            this.mRootView = findViewById(c.a.t0.z2.d.root_layout);
+            BaseWebView baseWebView = (BaseWebView) findViewById(c.a.t0.z2.d.webview);
             this.mWebView = baseWebView;
             baseWebView.setWebViewClient(new e(this, null));
-            NavigationBar navigationBar = (NavigationBar) findViewById(c.a.t0.y2.d.view_navigation_bar);
+            NavigationBar navigationBar = (NavigationBar) findViewById(c.a.t0.z2.d.view_navigation_bar);
             this.mNavigationBar = navigationBar;
             if (this.mType == 0) {
-                navigationBar.setCenterTextTitle(getResources().getString(c.a.t0.y2.g.modify_nickname));
+                navigationBar.setCenterTextTitle(getResources().getString(c.a.t0.z2.g.modify_nickname));
             }
             this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new a(this));
         }
@@ -418,9 +418,9 @@ public class EditNickNameActivity extends BaseActivity<EditNickNameActivity> {
             if (this.mDialog == null) {
                 c.a.s0.s.s.a aVar = new c.a.s0.s.s.a(getActivity());
                 this.mDialog = aVar;
-                aVar.setMessage(getPageContext().getResources().getString(c.a.t0.y2.g.modify_user_dialog_msg));
-                this.mDialog.setPositiveButton(c.a.t0.y2.g.save, new c(this));
-                this.mDialog.setNegativeButton(c.a.t0.y2.g.cancel, new d(this));
+                aVar.setMessage(getPageContext().getResources().getString(c.a.t0.z2.g.modify_user_dialog_msg));
+                this.mDialog.setPositiveButton(c.a.t0.z2.g.save, new c(this));
+                this.mDialog.setNegativeButton(c.a.t0.z2.g.cancel, new d(this));
                 this.mDialog.create(getPageContext());
             }
             this.mDialog.show();
@@ -464,7 +464,7 @@ public class EditNickNameActivity extends BaseActivity<EditNickNameActivity> {
             if (TextUtils.isEmpty(stringExtra)) {
                 this.mUrl = "https://tieba.baidu.com/n/interact/modifyname";
             }
-            setContentView(c.a.t0.y2.e.edit_nickname_activity);
+            setContentView(c.a.t0.z2.e.edit_nickname_activity);
             initView();
             c.a.s0.m.a.f(getApplicationContext());
         }
@@ -510,7 +510,7 @@ public class EditNickNameActivity extends BaseActivity<EditNickNameActivity> {
     public void showNetRefreshView() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            String string = TbadkCoreApplication.getInst().getString(c.a.t0.y2.g.neterror);
+            String string = TbadkCoreApplication.getInst().getString(c.a.t0.z2.g.neterror);
             if (this.mRefreshView == null) {
                 h hVar = new h(this.mPageContext.getPageActivity(), new b(this));
                 this.mRefreshView = hVar;
@@ -520,7 +520,7 @@ public class EditNickNameActivity extends BaseActivity<EditNickNameActivity> {
             this.mRefreshView.m(string);
             this.mRefreshView.attachView(this.mRootView, false);
             this.mRefreshView.p();
-            this.mRefreshView.k(this.mPageContext.getResources().getDimensionPixelSize(c.a.t0.y2.b.ds280));
+            this.mRefreshView.k(this.mPageContext.getResources().getDimensionPixelSize(c.a.t0.z2.b.ds280));
         }
     }
 

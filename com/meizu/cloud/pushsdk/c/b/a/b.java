@@ -9,12 +9,12 @@ public class b {
     public static ExecutorService a = null;
 
     /* renamed from: b  reason: collision with root package name */
-    public static int f58672b = 2;
+    public static int f58717b = 2;
 
     public static ExecutorService a() {
         synchronized (b.class) {
             if (a == null) {
-                a = Executors.newScheduledThreadPool(f58672b);
+                a = Executors.newScheduledThreadPool(f58717b);
             }
         }
         return a;
@@ -25,7 +25,7 @@ public class b {
     }
 
     public static void a(int i2) {
-        f58672b = i2;
+        f58717b = i2;
     }
 
     public static void a(Runnable runnable) {

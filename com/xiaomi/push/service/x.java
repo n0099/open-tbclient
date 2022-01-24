@@ -68,7 +68,7 @@ public final class x extends XMPushService.i {
                 hwVar.e(this.f987a.c());
                 hwVar.a(0L);
                 hwVar.d("success clear push message.");
-                y.a(this.f988a, y.b(this.a.b(), this.a.m515a(), hwVar, hf.f61166i));
+                y.a(this.f988a, y.b(this.a.b(), this.a.m515a(), hwVar, hf.f61211i));
             } catch (fw e2) {
                 com.xiaomi.channel.commonutils.logger.b.d("clear push message. " + e2);
                 this.f988a.a(10, e2);

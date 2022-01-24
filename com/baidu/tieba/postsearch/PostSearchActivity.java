@@ -4,9 +4,9 @@ import android.content.Intent;
 import android.os.Bundle;
 import androidx.core.view.InputDeviceCompat;
 import androidx.viewpager.widget.ViewPager;
-import c.a.t0.e3.b;
-import c.a.t0.e3.d;
-import c.a.t0.e3.g;
+import c.a.t0.f3.b;
+import c.a.t0.f3.d;
+import c.a.t0.f3.g;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -38,7 +38,7 @@ public class PostSearchActivity extends BaseFragmentActivity {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PostSearchActivity f47432e;
+        public final /* synthetic */ PostSearchActivity f47460e;
 
         public a(PostSearchActivity postSearchActivity) {
             Interceptable interceptable = $ic;
@@ -55,7 +55,7 @@ public class PostSearchActivity extends BaseFragmentActivity {
                     return;
                 }
             }
-            this.f47432e = postSearchActivity;
+            this.f47460e = postSearchActivity;
         }
 
         @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
@@ -76,7 +76,7 @@ public class PostSearchActivity extends BaseFragmentActivity {
         public void onPageSelected(int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
-                this.f47432e.stateTabClick(i2);
+                this.f47460e.stateTabClick(i2);
             }
         }
     }
@@ -190,7 +190,7 @@ public class PostSearchActivity extends BaseFragmentActivity {
     public void refreshHistoryList() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            this.mView.i(this.mModel.f17233j);
+            this.mView.i(this.mModel.f17562j);
         }
     }
 

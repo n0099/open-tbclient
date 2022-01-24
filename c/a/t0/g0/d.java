@@ -78,11 +78,11 @@ public class d extends b<c.a.t0.n0.a> {
     public void l(TbPageContext<?> tbPageContext, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i2) == null) {
-            if (this.f17766e != i2) {
+            if (this.f17588e != i2) {
                 SkinManager.setBackgroundResource(j(), R.color.CAM_X0201);
                 SkinManager.setBackgroundResource(this.x, R.color.CAM_X0204);
-                c.a.t0.w3.p0.d readThreadHistory = TbadkCoreApplication.getInst().getReadThreadHistory();
-                if (readThreadHistory != null && readThreadHistory.d(this.y.getThreadData().g0())) {
+                c.a.t0.x3.p0.d readThreadHistory = TbadkCoreApplication.getInst().getReadThreadHistory();
+                if (readThreadHistory != null && readThreadHistory.d(this.y.getThreadData().h0())) {
                     SkinManager.setViewTextColor(this.n, R.color.CAM_X0108, 1);
                 } else {
                     SkinManager.setViewTextColor(this.n, R.color.CAM_X0105, 1);
@@ -92,7 +92,7 @@ public class d extends b<c.a.t0.n0.a> {
                 SkinManager.setViewTextColor(this.w, R.color.CAM_X0304, 1);
                 SkinManager.setViewTextColor(this.r, R.color.CAM_X0101, 1);
             }
-            this.f17766e = i2;
+            this.f17588e = i2;
         }
     }
 
@@ -102,7 +102,7 @@ public class d extends b<c.a.t0.n0.a> {
         if (interceptable == null || interceptable.invokeL(1048579, this, view) == null) {
             if (view == this.w) {
                 TiebaStatic.log(new StatisticItem("c13047").param("obj_locate", 4).param("fid", this.z));
-                FrsGameStrategyActivity.startActivity(this.f17767f.getPageActivity(), this.z, this.A);
+                FrsGameStrategyActivity.startActivity(this.f17589f.getPageActivity(), this.z, this.A);
             } else if (g() != null) {
                 g().a(j(), this.y);
             }
@@ -125,7 +125,7 @@ public class d extends b<c.a.t0.n0.a> {
             this.w = (TextView) view.findViewById(R.id.card_frs_game_thread_more_article);
             this.x = view.findViewById(R.id.card_frs_game_bottom_divider);
             this.p.setDefaultBgResource(R.drawable.icon_morenpic);
-            int dimensionPixelSize = c.a.d.f.p.n.p(this.f17768g)[0] - (this.f17768g.getResources().getDimensionPixelSize(R.dimen.tbds44) * 2);
+            int dimensionPixelSize = c.a.d.f.p.n.p(this.f17590g)[0] - (this.f17590g.getResources().getDimensionPixelSize(R.dimen.tbds44) * 2);
             LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.o.getLayoutParams();
             layoutParams.width = dimensionPixelSize;
             layoutParams.height = (dimensionPixelSize * 9) / 21;
@@ -136,7 +136,7 @@ public class d extends b<c.a.t0.n0.a> {
             this.t.setIsRound(true);
             this.t.setDrawBorder(true);
             this.t.setBorderColor(SkinManager.getColor(R.color.common_color_10043));
-            this.t.setBorderWidth(this.f17768g.getResources().getDimensionPixelSize(R.dimen.tbds1));
+            this.t.setBorderWidth(this.f17590g.getResources().getDimensionPixelSize(R.dimen.tbds1));
             j().setOnClickListener(this);
         }
     }
@@ -151,24 +151,24 @@ public class d extends b<c.a.t0.n0.a> {
         }
         this.y = aVar;
         String str = null;
-        if (aVar.getThreadData().H2()) {
+        if (aVar.getThreadData().I2()) {
             this.q.setVisibility(0);
             this.r.setVisibility(0);
-            if (aVar.getThreadData().t1() != null) {
-                this.r.setText(StringHelper.stringForVideoTime(aVar.getThreadData().t1().video_duration.intValue() * 1000));
-                str = aVar.getThreadData().t1().thumbnail_url;
+            if (aVar.getThreadData().u1() != null) {
+                this.r.setText(StringHelper.stringForVideoTime(aVar.getThreadData().u1().video_duration.intValue() * 1000));
+                str = aVar.getThreadData().u1().thumbnail_url;
             }
         } else {
             this.q.setVisibility(8);
             this.r.setVisibility(4);
-            if (aVar.getThreadData().F0() != null && aVar.getThreadData().F0().size() >= 1) {
-                str = aVar.getThreadData().F0().get(0).origin_pic;
+            if (aVar.getThreadData().G0() != null && aVar.getThreadData().G0().size() >= 1) {
+                str = aVar.getThreadData().G0().get(0).origin_pic;
             }
         }
         this.p.startLoad(str, 10, false);
         this.n.setText(aVar.getThreadData().getTitle());
-        c.a.t0.w3.p0.d readThreadHistory = TbadkCoreApplication.getInst().getReadThreadHistory();
-        if (readThreadHistory != null && readThreadHistory.d(aVar.getThreadData().g0())) {
+        c.a.t0.x3.p0.d readThreadHistory = TbadkCoreApplication.getInst().getReadThreadHistory();
+        if (readThreadHistory != null && readThreadHistory.d(aVar.getThreadData().h0())) {
             SkinManager.setViewTextColor(this.n, R.color.CAM_X0108);
         } else {
             SkinManager.setViewTextColor(this.n, R.color.CAM_X0105);
@@ -176,7 +176,7 @@ public class d extends b<c.a.t0.n0.a> {
         this.t.setData(aVar.getThreadData(), false);
         w(aVar.getThreadData());
         this.v.setText(StringHelper.getFormatTimeShort(aVar.getThreadData().I()));
-        if ("guide".equals(aVar.getThreadData().c0())) {
+        if ("guide".equals(aVar.getThreadData().d0())) {
             this.w.setVisibility(0);
         } else {
             this.w.setVisibility(8);

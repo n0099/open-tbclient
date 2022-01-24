@@ -5,7 +5,6 @@ import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.down.manage.DownloadConstants;
 import com.baidu.sapi2.SapiWebView;
-import com.baidu.searchbox.aperf.bosuploader.BaseUrlManager;
 import com.baidu.searchbox.config.AppConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -70,7 +69,7 @@ public final class HostConfig {
     public static String getAppAuthorityDescription() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? String.format("%s/webpage?type=user&action=authority", BaseUrlManager.ONLINE_URL) : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? String.format("%s/webpage?type=user&action=authority", "https://mbd.baidu.com") : (String) invokeV.objValue;
     }
 
     public static String getBaiduLogoHost() {
@@ -216,7 +215,7 @@ public final class HostConfig {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65561, null)) == null) {
-            return AppConfig.getStringConfig("SEARCH_VIDEO_FULL_VIDEO_SET", isSearchboxUseHttps() ? BaseUrlManager.ONLINE_URL : "http://mbd.baidu.com");
+            return AppConfig.getStringConfig("SEARCH_VIDEO_FULL_VIDEO_SET", isSearchboxUseHttps() ? "https://mbd.baidu.com" : "http://mbd.baidu.com");
         }
         return (String) invokeV.objValue;
     }
@@ -237,7 +236,7 @@ public final class HostConfig {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65564, null)) == null) {
-            return AppConfig.getStringConfig(CONFIG_SEARCHBOX_HOST, isSearchboxUseHttps() ? BaseUrlManager.ONLINE_URL : "http://mbd.baidu.com");
+            return AppConfig.getStringConfig(CONFIG_SEARCHBOX_HOST, isSearchboxUseHttps() ? "https://mbd.baidu.com" : "http://mbd.baidu.com");
         }
         return (String) invokeV.objValue;
     }
@@ -328,7 +327,7 @@ public final class HostConfig {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65577, null)) == null) {
-            return AppConfig.getStringConfig(CONFIG_SEARCHBOX_HOST, isSearchboxUseHttps() ? BaseUrlManager.ONLINE_URL : "http://mbd.baidu.com");
+            return AppConfig.getStringConfig(CONFIG_SEARCHBOX_HOST, isSearchboxUseHttps() ? "https://mbd.baidu.com" : "http://mbd.baidu.com");
         }
         return (String) invokeV.objValue;
     }

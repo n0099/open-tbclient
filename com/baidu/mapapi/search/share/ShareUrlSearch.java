@@ -19,7 +19,7 @@ public class ShareUrlSearch extends l {
     public com.baidu.platform.core.e.a a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f35656b;
+    public boolean f35684b;
 
     public ShareUrlSearch() {
         Interceptable interceptable = $ic;
@@ -34,7 +34,7 @@ public class ShareUrlSearch extends l {
                 return;
             }
         }
-        this.f35656b = false;
+        this.f35684b = false;
         this.a = new h();
     }
 
@@ -64,10 +64,10 @@ public class ShareUrlSearch extends l {
 
     public void destroy() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f35656b) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f35684b) {
             return;
         }
-        this.f35656b = true;
+        this.f35684b = true;
         this.a.a();
         BMapManager.destroy();
     }

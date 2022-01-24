@@ -16,7 +16,7 @@ public class b implements Thread.UncaughtExceptionHandler {
     public final Context a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final Thread.UncaughtExceptionHandler f31641b;
+    public final Thread.UncaughtExceptionHandler f31669b;
 
     public b(Context context, Thread.UncaughtExceptionHandler uncaughtExceptionHandler) {
         Interceptable interceptable = $ic;
@@ -34,7 +34,7 @@ public class b implements Thread.UncaughtExceptionHandler {
             }
         }
         this.a = context;
-        this.f31641b = uncaughtExceptionHandler;
+        this.f31669b = uncaughtExceptionHandler;
     }
 
     private void a(Throwable th) {
@@ -52,7 +52,7 @@ public class b implements Thread.UncaughtExceptionHandler {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, thread, th) == null) {
             a(th);
-            Thread.UncaughtExceptionHandler uncaughtExceptionHandler = this.f31641b;
+            Thread.UncaughtExceptionHandler uncaughtExceptionHandler = this.f31669b;
             if (uncaughtExceptionHandler != null) {
                 uncaughtExceptionHandler.uncaughtException(thread, th);
             }

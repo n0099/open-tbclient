@@ -40,31 +40,31 @@ public class c extends c.a.t0.g0.b<c.a.t0.a0.f.a.b> {
         public View a;
 
         /* renamed from: b  reason: collision with root package name */
-        public TbImageView f14733b;
+        public TbImageView f14873b;
 
         /* renamed from: c  reason: collision with root package name */
-        public TextView f14734c;
+        public TextView f14874c;
 
         /* renamed from: d  reason: collision with root package name */
-        public TextView f14735d;
+        public TextView f14875d;
 
         /* renamed from: e  reason: collision with root package name */
-        public TextView f14736e;
+        public TextView f14876e;
 
         /* renamed from: f  reason: collision with root package name */
-        public TextView f14737f;
+        public TextView f14877f;
 
         /* renamed from: g  reason: collision with root package name */
-        public LinearLayout f14738g;
+        public LinearLayout f14878g;
 
         /* renamed from: h  reason: collision with root package name */
-        public RelativeLayout f14739h;
+        public RelativeLayout f14879h;
 
         /* renamed from: i  reason: collision with root package name */
-        public TextView f14740i;
+        public TextView f14880i;
 
         /* renamed from: j  reason: collision with root package name */
-        public LinearLayout f14741j;
+        public LinearLayout f14881j;
         public ImageView k;
         public TextView l;
 
@@ -84,20 +84,20 @@ public class c extends c.a.t0.g0.b<c.a.t0.a0.f.a.b> {
                 }
             }
             this.a = view;
-            this.f14733b = (TbImageView) view.findViewById(R.id.imgSquareView);
-            this.f14734c = (TextView) view.findViewById(R.id.tvActiveTitle);
-            this.f14735d = (TextView) view.findViewById(R.id.tvActiveSubTitle);
-            this.f14738g = (LinearLayout) view.findViewById(R.id.llActiveInfoPanel);
-            this.f14739h = (RelativeLayout) view.findViewById(R.id.rlSquareLivePanel);
-            this.f14740i = (TextView) view.findViewById(R.id.tvSquareTitle);
-            this.f14741j = (LinearLayout) view.findViewById(R.id.llSquareTitlePanel);
-            this.f14736e = (TextView) view.findViewById(R.id.lfActiveTitleLabel);
-            this.f14737f = (TextView) view.findViewById(R.id.rfActiveTitleLabel);
+            this.f14873b = (TbImageView) view.findViewById(R.id.imgSquareView);
+            this.f14874c = (TextView) view.findViewById(R.id.tvActiveTitle);
+            this.f14875d = (TextView) view.findViewById(R.id.tvActiveSubTitle);
+            this.f14878g = (LinearLayout) view.findViewById(R.id.llActiveInfoPanel);
+            this.f14879h = (RelativeLayout) view.findViewById(R.id.rlSquareLivePanel);
+            this.f14880i = (TextView) view.findViewById(R.id.tvSquareTitle);
+            this.f14881j = (LinearLayout) view.findViewById(R.id.llSquareTitlePanel);
+            this.f14876e = (TextView) view.findViewById(R.id.lfActiveTitleLabel);
+            this.f14877f = (TextView) view.findViewById(R.id.rfActiveTitleLabel);
             this.k = (ImageView) view.findViewById(R.id.imgNewUserCover);
             this.l = (TextView) view.findViewById(R.id.tvNewCount);
             this.k.setImageResource(R.drawable.icon_video_tieba);
-            this.f14734c.setTypeface(Typeface.defaultFromStyle(1));
-            this.f14733b.setDefaultBgResource(c.a.t0.a0.f.i.a.a());
+            this.f14874c.setTypeface(Typeface.defaultFromStyle(1));
+            this.f14873b.setDefaultBgResource(c.a.t0.a0.f.i.a.a());
         }
     }
 
@@ -138,13 +138,13 @@ public class c extends c.a.t0.g0.b<c.a.t0.a0.f.a.b> {
         if (!(interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i2) == null) || this.m == i2) {
             return;
         }
-        SkinManager.setBackgroundResource(this.o.f14739h, R.drawable.addresslist_item_bg);
-        SkinManager.setViewTextColor(this.o.f14740i, R.color.CAM_X0105);
-        SkinManager.setViewTextColor(this.o.f14734c, R.color.CAM_X0111);
-        SkinManager.setViewTextColor(this.o.f14735d, R.color.CAM_X0111);
-        this.o.f14735d.setAlpha(0.9f);
-        SkinManager.setViewTextColor(this.o.f14736e, R.color.live_cp_other_b);
-        SkinManager.setViewTextColor(this.o.f14737f, R.color.live_cp_other_b);
+        SkinManager.setBackgroundResource(this.o.f14879h, R.drawable.addresslist_item_bg);
+        SkinManager.setViewTextColor(this.o.f14880i, R.color.CAM_X0105);
+        SkinManager.setViewTextColor(this.o.f14874c, R.color.CAM_X0111);
+        SkinManager.setViewTextColor(this.o.f14875d, R.color.CAM_X0111);
+        this.o.f14875d.setAlpha(0.9f);
+        SkinManager.setViewTextColor(this.o.f14876e, R.color.live_cp_other_b);
+        SkinManager.setViewTextColor(this.o.f14877f, R.color.live_cp_other_b);
         this.m = i2;
     }
 
@@ -153,21 +153,21 @@ public class c extends c.a.t0.g0.b<c.a.t0.a0.f.a.b> {
         c.a.t0.a0.f.a.b bVar;
         e2 e2Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, view) == null) || view != j() || (e2Var = (bVar = this.n).f14334e) == null || e2Var.v1 == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048579, this, view) == null) || view != j() || (e2Var = (bVar = this.n).f14474e) == null || e2Var.v1 == null) {
             return;
         }
         d dVar = this.r;
         if (dVar != null) {
             dVar.a(view, bVar);
         }
-        t(this.n.f14334e.v1.f13409g);
+        t(this.n.f14474e.v1.f13595g);
         c.a.t0.a0.f.e.a.c().h(true);
     }
 
     public final void p() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            int k = n.k(this.f17768g) / 2;
+            int k = n.k(this.f17590g) / 2;
             this.p = k;
             this.q = (k * 9) / 16;
             this.o = new a(j());
@@ -181,27 +181,27 @@ public class c extends c.a.t0.g0.b<c.a.t0.a0.f.a.b> {
     public void k(c.a.t0.a0.f.a.b bVar) {
         e2 e2Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048581, this, bVar) == null) || bVar == null || (e2Var = bVar.f14334e) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048581, this, bVar) == null) || bVar == null || (e2Var = bVar.f14474e) == null) {
             return;
         }
         this.n = bVar;
         int i2 = this.q;
         h hVar = e2Var.v1;
-        int i3 = hVar.f13406d;
+        int i3 = hVar.f13592d;
         if (i3 > 0) {
-            i2 = (this.p * hVar.f13407e) / i3;
+            i2 = (this.p * hVar.f13593e) / i3;
         }
-        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.o.f14739h.getLayoutParams();
+        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.o.f14879h.getLayoutParams();
         layoutParams.width = this.p;
         layoutParams.height = i2;
-        this.o.f14739h.setLayoutParams(layoutParams);
-        this.o.f14740i.setText(bVar.f14334e.getTitle());
-        this.o.f14733b.startLoad(bVar.f14334e.v1.f13408f, 10, false);
-        this.o.f14734c.setText(bVar.f14334e.v1.f13404b);
-        this.o.f14735d.setText(bVar.f14334e.v1.f13405c);
-        this.o.f14735d.setVisibility(8);
-        this.o.l.setText(bVar.f14334e.v1.f13405c);
-        l(this.f17767f, TbadkCoreApplication.getInst().getSkinType());
+        this.o.f14879h.setLayoutParams(layoutParams);
+        this.o.f14880i.setText(bVar.f14474e.getTitle());
+        this.o.f14873b.startLoad(bVar.f14474e.v1.f13594f, 10, false);
+        this.o.f14874c.setText(bVar.f14474e.v1.f13590b);
+        this.o.f14875d.setText(bVar.f14474e.v1.f13591c);
+        this.o.f14875d.setVisibility(8);
+        this.o.l.setText(bVar.f14474e.v1.f13591c);
+        l(this.f17589f, TbadkCoreApplication.getInst().getSkinType());
     }
 
     public void s(d dVar) {
@@ -215,9 +215,9 @@ public class c extends c.a.t0.g0.b<c.a.t0.a0.f.a.b> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
             if (TextUtils.isEmpty(str)) {
-                n.M(this.f17767f.getPageActivity(), R.string.url_is_null);
+                n.M(this.f17589f.getPageActivity(), R.string.url_is_null);
             } else {
-                UrlManager.getInstance().dealOneLinkWithDialog(this.f17767f, "", new String[]{str}, false, null, true);
+                UrlManager.getInstance().dealOneLinkWithDialog(this.f17589f, "", new String[]{str}, false, null, true);
             }
         }
     }

@@ -88,8 +88,8 @@ public class MsgMultiImageTextViewItemAdapter extends MsgCommonItemAdapter<MsgMu
             msgItemView.A(this.m, chatMessage, viewGroup);
             this.m.getLayoutMode().k(false);
             this.m.getLayoutMode().j(view);
-            c.a.t0.s1.u.a.c().d(chatMessage, this.m.getPageActivity());
-            c.a.t0.s1.u.a.c().e(chatMessage, this.m.getPageActivity());
+            c.a.t0.t1.u.a.c().d(chatMessage, this.m.getPageActivity());
+            c.a.t0.t1.u.a.c().e(chatMessage, this.m.getPageActivity());
             return view;
         }
         return (View) invokeCommon.objValue;

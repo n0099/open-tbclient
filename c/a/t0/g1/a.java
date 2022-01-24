@@ -1,37 +1,23 @@
 package c.a.t0.g1;
 
 import androidx.core.view.InputDeviceCompat;
+import c.a.d.n.e.n;
+import c.a.s0.s.q.e2;
+import c.a.t0.x3.j0.o;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.EsportRank;
-import tbclient.EsportUser;
+import java.util.List;
+import tbclient.FrsTabInfo;
 /* loaded from: classes7.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public String f17892b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public String f17893c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public String f17894d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public String f17895e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public String f17896f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public String f17897g;
+    public int a;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -47,75 +33,91 @@ public class a {
         }
     }
 
-    public String a() {
-        InterceptResult invokeV;
+    public static a a(boolean z) {
+        InterceptResult invokeZ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f17893c : (String) invokeV.objValue;
-    }
-
-    public String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f17896f : (String) invokeV.objValue;
-    }
-
-    public String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f17897g : (String) invokeV.objValue;
-    }
-
-    public String d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f17892b : (String) invokeV.objValue;
-    }
-
-    public String e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f17894d : (String) invokeV.objValue;
-    }
-
-    public String f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f17895e : (String) invokeV.objValue;
-    }
-
-    public String g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.a : (String) invokeV.objValue;
-    }
-
-    public void h(EsportRank esportRank) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048583, this, esportRank) == null) || esportRank == null) {
-            return;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(65537, null, z)) == null) {
+            if (z && d()) {
+                return new a();
+            }
+            return null;
         }
-        this.a = esportRank.title;
-        this.f17892b = String.valueOf(esportRank.rank);
-        this.f17893c = esportRank.text;
-        this.f17897g = esportRank.url;
-        EsportUser esportUser = esportRank.user;
-        if (esportUser != null) {
-            this.f17894d = esportUser.steam_name;
-            this.f17895e = esportUser.steam_portrait;
+        return (a) invokeZ.objValue;
+    }
+
+    public static boolean d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? c.a.s0.b.d.s() : invokeV.booleanValue;
+    }
+
+    public static boolean e(FrsTabInfo frsTabInfo, int i2) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65539, null, frsTabInfo, i2)) == null) {
+            if (TbadkCoreApplication.getCurrentAccountInfo() != null && TbadkCoreApplication.getCurrentAccountInfo().getMemberCloseAdVipClose() == 1) {
+                return false;
+            }
+            if (frsTabInfo != null && 505 == frsTabInfo.tab_id.intValue() && 91 == frsTabInfo.tab_type.intValue()) {
+                return false;
+            }
+            return ((frsTabInfo != null && 502 == frsTabInfo.tab_id.intValue() && 91 == frsTabInfo.tab_type.intValue()) || i2 == 2) ? false : true;
+        }
+        return invokeLI.booleanValue;
+    }
+
+    public static boolean f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            return TbadkCoreApplication.getCurrentAccountInfo() != null && TbadkCoreApplication.getCurrentAccountInfo().getMemberCloseAdVipClose() == 1;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void b(List<n> list, boolean z, String str) {
+        int i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{list, Boolean.valueOf(z), str}) == null) {
+            int e2 = c.a.t0.f1.a.i().e();
+            if (z) {
+                i2 = c.a.t0.f1.a.i().f() - 1;
+                for (n nVar : list) {
+                    if (nVar instanceof e2) {
+                        if (((e2) nVar).t0() != 1) {
+                            break;
+                        }
+                        i2++;
+                    }
+                }
+            } else {
+                i2 = this.a;
+            }
+            this.a = c(i2, e2, list, str);
         }
     }
 
-    public void i(String str) {
+    public final int c(int i2, int i3, List<n> list, String str) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
-            this.f17896f = str;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), list, str})) == null) {
+            if (list == null || list.size() == 0 || i2 > list.size() - 1) {
+                return 0;
+            }
+            for (int i4 = 0; i4 < list.size(); i4++) {
+                e2 e2Var = new e2();
+                o oVar = new o();
+                oVar.k(true);
+                e2Var.M2 = oVar;
+                oVar.j(str);
+                list.add(i2, e2Var);
+                i2 = i2 + i3 + 1;
+                if (i2 > list.size() - 1) {
+                    return (i2 - (list.size() - 1)) - 1;
+                }
+            }
+            return 0;
         }
-    }
-
-    public void j(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, str) == null) {
-            this.f17897g = str;
-        }
+        return invokeCommon.intValue;
     }
 }

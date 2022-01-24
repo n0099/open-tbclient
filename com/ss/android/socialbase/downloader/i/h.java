@@ -2,7 +2,7 @@ package com.ss.android.socialbase.downloader.i;
 
 import java.util.LinkedHashMap;
 import java.util.Map;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class h<K, T> extends LinkedHashMap<K, T> {
     public int a;
 

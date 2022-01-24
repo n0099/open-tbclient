@@ -14,13 +14,13 @@ public final class f {
     public final TaskStatus a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final c f3824b;
+    public final c f3965b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final TaskProcessData f3825c;
+    public final TaskProcessData f3966c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final String f3826d;
+    public final String f3967d;
 
     public f(TaskStatus taskStatus, c cVar, TaskProcessData taskProcessData, String str) {
         Interceptable interceptable = $ic;
@@ -38,16 +38,16 @@ public final class f {
             }
         }
         this.a = taskStatus;
-        this.f3824b = cVar;
-        this.f3825c = taskProcessData;
-        this.f3826d = str;
+        this.f3965b = cVar;
+        this.f3966c = taskProcessData;
+        this.f3967d = str;
     }
 
     public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return "taskStatus:" + this.a + "\n uiConfig:" + this.f3824b + "\n totalProcess:" + this.f3825c + "\n extra:" + this.f3826d;
+            return "taskStatus:" + this.a + "\n uiConfig:" + this.f3965b + "\n totalProcess:" + this.f3966c + "\n extra:" + this.f3967d;
         }
         return (String) invokeV.objValue;
     }

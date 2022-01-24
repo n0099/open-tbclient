@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Date;
 import java.util.TimeZone;
 @Deprecated
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public final class DateUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final TimeZone GMT = null;

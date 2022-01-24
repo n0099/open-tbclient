@@ -19,11 +19,11 @@ import com.baidu.searchbox.task.async.appcreate.InitPrologueAdTask;
 import com.baidu.searchbox.task.async.appcreate.InitSDKAsyncTask;
 import com.baidu.searchbox.task.async.appcreate.InitSapiTask;
 import com.baidu.searchbox.task.async.appcreate.InitSyncSwitchTask;
-import com.baidu.searchbox.task.async.appcreate.InitTbAdTask;
 import com.baidu.searchbox.task.async.appcreate.InitTbCrashTask;
 import com.baidu.searchbox.task.async.appcreate.InitViewConfigTask;
 import com.baidu.searchbox.task.async.appcreate.PermissionUtilTask;
-import com.baidu.searchbox.task.async.appcreate.PreLoadCachedOid;
+import com.baidu.searchbox.task.async.appcreate.PreInitSwanDataTask;
+import com.baidu.searchbox.task.async.appcreate.PreLoadBaiduClass;
 import com.baidu.searchbox.task.async.appcreate.PreLoadTiebaClass;
 import com.baidu.searchbox.task.async.appcreate.WebViewDataDirectorySuffixTask;
 import com.baidu.searchbox.task.async.homeready.CheckRepackagingTask;
@@ -39,6 +39,7 @@ import com.baidu.searchbox.task.sync.appcreate.InitBearTask;
 import com.baidu.searchbox.task.sync.appcreate.InitCertVerifyTask;
 import com.baidu.searchbox.task.sync.appcreate.InitCmdRouterAndStaticTask;
 import com.baidu.searchbox.task.sync.appcreate.InitDebugTask;
+import com.baidu.searchbox.task.sync.appcreate.InitDiskStatTask;
 import com.baidu.searchbox.task.sync.appcreate.InitGlobalDataTask;
 import com.baidu.searchbox.task.sync.appcreate.InitIMTask;
 import com.baidu.searchbox.task.sync.appcreate.InitLaunchSyncTask;
@@ -47,12 +48,14 @@ import com.baidu.searchbox.task.sync.appcreate.InitMessageManagerTask;
 import com.baidu.searchbox.task.sync.appcreate.InitMutiProcessManagerTask;
 import com.baidu.searchbox.task.sync.appcreate.InitSDKTask;
 import com.baidu.searchbox.task.sync.appcreate.InitStatisticTask;
+import com.baidu.searchbox.task.sync.appcreate.InitSwanDataTask;
+import com.baidu.searchbox.task.sync.appcreate.InitUBCTask;
 import com.baidu.searchbox.task.sync.appcreate.InitVersionTask;
 import com.baidu.searchbox.task.sync.appcreate.InitWebsocketBaseTask;
 import com.baidu.searchbox.task.sync.privacy.InitSDKWithPrivacyTask;
 import com.baidu.searchbox.task.sync.privacy.SyncAccountTask;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.switchs.AdToMainTabActivitySwitch;
+import com.baidu.tbadk.switchs.LaunchUpNightSwitch;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -86,7 +89,6 @@ public class ApplicationTaskPool extends BaseTaskPool {
         if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) {
             ArrayList arrayList = new ArrayList();
             if (i2 == 2) {
-                arrayList.add(new PreLoadCachedOid());
                 arrayList.add(new InitImgLoaderProcTask());
                 arrayList.add(new PreLoadTiebaClass());
                 arrayList.add(new WebViewDataDirectorySuffixTask());
@@ -103,6 +105,8 @@ public class ApplicationTaskPool extends BaseTaskPool {
                 arrayList.add(new InitAccountTask());
                 arrayList.add(new InitSDKTask());
                 arrayList.add(new InitStatisticTask());
+                arrayList.add(new InitDiskStatTask());
+                arrayList.add(new InitUBCTask());
             }
             return arrayList;
         }
@@ -117,9 +121,10 @@ public class ApplicationTaskPool extends BaseTaskPool {
             ArrayList arrayList = new ArrayList();
             if (i2 == 2) {
                 arrayList.add(new InitPersonalizePageDataTask());
-                arrayList.add(new InitTbAdTask());
                 arrayList.add(new InitSapiTask());
                 arrayList.add(new InitSDKAsyncTask());
+                arrayList.add(new PreInitSwanDataTask());
+                arrayList.add(new PreLoadBaiduClass());
                 arrayList.add(new InitLocationTask());
                 arrayList.add(new InitDiskTask());
                 arrayList.add(new InitFaceTask());
@@ -137,6 +142,7 @@ public class ApplicationTaskPool extends BaseTaskPool {
                 arrayList.add(new InitWebsocketBaseTask());
                 arrayList.add(new InitIMTask());
                 arrayList.add(new InitBDPlayerTask());
+                arrayList.add(new InitSwanDataTask());
                 if (TbadkCoreApplication.getInst().isDebugMode()) {
                     arrayList.add(new InitDebugTask());
                 }
@@ -154,14 +160,14 @@ public class ApplicationTaskPool extends BaseTaskPool {
             ArrayList arrayList = new ArrayList();
             if (i2 == 2) {
                 arrayList.add(new LaunchWithPrivacyTask());
-                if (AdToMainTabActivitySwitch.getIsOn()) {
+                if (LaunchUpNightSwitch.getIsOn()) {
                     arrayList.add(new DeleteApkTask());
                     arrayList.add(new NightPluginTask());
                     arrayList.add(new LogoTask());
                 }
             } else if (i2 == 1) {
                 arrayList.add(new InitSDKWithPrivacyTask());
-                if (AdToMainTabActivitySwitch.getIsOn()) {
+                if (LaunchUpNightSwitch.getIsOn()) {
                     arrayList.add(new SyncAccountTask());
                 }
             } else if (i2 == 3) {

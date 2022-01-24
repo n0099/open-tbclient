@@ -54,37 +54,37 @@ public class a {
     public static final boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final AtomicInteger f5159b;
+    public static final AtomicInteger f5301b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static CharSequence f5160c;
+    public static CharSequence f5302c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final boolean f5161d;
+    public static final boolean f5303d;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c.a.r0.a.a1.g.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static class RunnableC0262a implements Runnable {
+    public static class RunnableC0271a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ File f5162e;
+        public final /* synthetic */ File f5304e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f5163f;
+        public final /* synthetic */ String f5305f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ byte[] f5164g;
+        public final /* synthetic */ byte[] f5306g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ AtomicInteger f5165h;
+        public final /* synthetic */ AtomicInteger f5307h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final /* synthetic */ AtomicInteger f5166i;
+        public final /* synthetic */ AtomicInteger f5308i;
 
-        public RunnableC0262a(File file, String str, byte[] bArr, AtomicInteger atomicInteger, AtomicInteger atomicInteger2) {
+        public RunnableC0271a(File file, String str, byte[] bArr, AtomicInteger atomicInteger, AtomicInteger atomicInteger2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -99,11 +99,11 @@ public class a {
                     return;
                 }
             }
-            this.f5162e = file;
-            this.f5163f = str;
-            this.f5164g = bArr;
-            this.f5165h = atomicInteger;
-            this.f5166i = atomicInteger2;
+            this.f5304e = file;
+            this.f5305f = str;
+            this.f5306g = bArr;
+            this.f5307h = atomicInteger;
+            this.f5308i = atomicInteger2;
         }
 
         /* JADX DEBUG: Another duplicated slice has different insns count: {[]}, finally: {[INVOKE] complete} */
@@ -114,9 +114,9 @@ public class a {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 try {
-                    File file = new File(this.f5162e, this.f5163f);
+                    File file = new File(this.f5304e, this.f5305f);
                     if (file.exists()) {
-                        if (file.length() == this.f5164g.length) {
+                        if (file.length() == this.f5306g.length) {
                             return;
                         }
                     }
@@ -124,18 +124,18 @@ public class a {
                     try {
                         FileOutputStream fileOutputStream = new FileOutputStream(file);
                         try {
-                            fileOutputStream.write(this.f5164g);
+                            fileOutputStream.write(this.f5306g);
                             fileOutputStream.close();
                         } finally {
                         }
                     } catch (Exception e2) {
-                        if (this.f5165h != null) {
-                            this.f5165h.incrementAndGet();
+                        if (this.f5307h != null) {
+                            this.f5307h.incrementAndGet();
                         }
                         c.a.r0.a.e0.d.l("BundleDecrypt", "write file fail - " + file.getAbsolutePath(), e2);
                     }
                 } finally {
-                    this.f5166i.getAndDecrement();
+                    this.f5308i.getAndDecrement();
                 }
             }
         }
@@ -148,7 +148,7 @@ public class a {
         public boolean a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f5167b;
+        public String f5309b;
 
         public b(boolean z) {
             Interceptable interceptable = $ic;
@@ -166,7 +166,7 @@ public class a {
                 }
             }
             this.a = z;
-            this.f5167b = "";
+            this.f5309b = "";
         }
     }
 
@@ -177,7 +177,7 @@ public class a {
         public BufferedInputStream a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f5168b;
+        public int f5310b;
 
         public c() {
             Interceptable interceptable = $ic;
@@ -192,7 +192,7 @@ public class a {
                     return;
                 }
             }
-            this.f5168b = -1;
+            this.f5310b = -1;
         }
     }
 
@@ -210,16 +210,16 @@ public class a {
             }
         }
         a = k.a;
-        f5159b = new AtomicInteger(0);
-        f5160c = "._";
+        f5301b = new AtomicInteger(0);
+        f5302c = "._";
         c.a.r0.a.c1.a.g0().getSwitch("swan_pkg_unzip_quickly", false);
-        f5161d = false;
+        f5303d = false;
     }
 
     public static void a(File file, String str, byte[] bArr, AtomicInteger atomicInteger, AtomicInteger atomicInteger2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLLL(65537, null, file, str, bArr, atomicInteger, atomicInteger2) == null) {
-            d.a(new RunnableC0262a(file, str, bArr, atomicInteger, atomicInteger2));
+            d.a(new RunnableC0271a(file, str, bArr, atomicInteger, atomicInteger2));
         }
     }
 
@@ -229,7 +229,7 @@ public class a {
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{Integer.valueOf(i2), file, Integer.valueOf(i3), bVar})) == null) {
             if (i2 > 0) {
                 String str = i2 + " files write error";
-                bVar.f5167b = str;
+                bVar.f5309b = str;
                 c.a.r0.a.e0.d.k("BundleDecrypt", str);
                 c.a.r0.a.n2.s.d dVar = new c.a.r0.a.n2.s.d();
                 c.a.r0.a.u2.a aVar = new c.a.r0.a.u2.a();
@@ -255,7 +255,7 @@ public class a {
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
             File file = new File(c.a.r0.a.c1.a.c().getFilesDir(), "swan_tmp_unzip");
             c.a.r0.w.d.l(file);
-            File file2 = new File(file, System.nanoTime() + "_" + f5159b.incrementAndGet());
+            File file2 = new File(file, System.nanoTime() + "_" + f5301b.incrementAndGet());
             boolean l = c.a.r0.w.d.l(file2);
             c.a.r0.a.e0.d.k("BundleDecrypt", "#createTmpUnzipDir tmpUnzipDir=" + file2 + " dirExist=" + l);
             return new Pair<>(Boolean.valueOf(l), file2);
@@ -291,7 +291,7 @@ public class a {
             String str5 = " 耗时(ms): ";
             String str6 = "删除tmpUnzipDir ";
             String str7 = "BundleDecrypt";
-            if (f5161d) {
+            if (f5303d) {
                 c.a.r0.a.e0.d.k("BundleDecrypt", "#decryptQuickly dstFolder=" + file + " type=" + i2);
                 return g(bufferedInputStream, file, i2);
             }
@@ -307,18 +307,18 @@ public class a {
                     try {
                         l(dataInputStream2);
                         bVar2.a = l(dataInputStream2);
-                        bVar2.f5169b = l(dataInputStream2);
+                        bVar2.f5311b = l(dataInputStream2);
                         l(dataInputStream2);
                         m(dataInputStream2);
-                        dataInputStream2.readFully(bVar2.f5170c);
-                        f2 = f(bVar2.f5170c);
+                        dataInputStream2.readFully(bVar2.f5312c);
+                        f2 = f(bVar2.f5312c);
                         try {
                         } catch (Exception e2) {
                             e = e2;
                             dataInputStream = dataInputStream2;
                             file2 = null;
                             try {
-                                bVar.f5167b = e.getLocalizedMessage();
+                                bVar.f5309b = e.getLocalizedMessage();
                                 c.a.r0.a.e0.d.l(str7, "解压异常", e);
                                 c.a.r0.w.d.d(dataInputStream);
                                 if (file2 != null) {
@@ -358,7 +358,7 @@ public class a {
                 dataInputStream = null;
             }
             if (f2 != null && f2.length > 0) {
-                byte[] bArr = new byte[bVar2.f5169b];
+                byte[] bArr = new byte[bVar2.f5311b];
                 dataInputStream2.readFully(bArr);
                 byte[] bArr2 = new byte[16];
                 byte[] bArr3 = new byte[16];
@@ -375,7 +375,7 @@ public class a {
                             dataInputStream = dataInputStream2;
                             j2 = nanoTime;
                             file2 = null;
-                            bVar.f5167b = e.getLocalizedMessage();
+                            bVar.f5309b = e.getLocalizedMessage();
                             c.a.r0.a.e0.d.l(str7, "解压异常", e);
                             c.a.r0.w.d.d(dataInputStream);
                             if (file2 != null) {
@@ -393,7 +393,7 @@ public class a {
                     if (!c.a.r0.w.d.l(file)) {
                         String str8 = "解压目录创建失败 path=" + file.getAbsolutePath();
                         c.a.r0.a.e0.d.k("BundleDecrypt", str8);
-                        bVar.f5167b = str8;
+                        bVar.f5309b = str8;
                         c.a.r0.w.d.d(dataInputStream2);
                         return bVar;
                     }
@@ -401,7 +401,7 @@ public class a {
                     if (!((Boolean) c2.first).booleanValue()) {
                         String str9 = "临时目录创建失败 path=" + ((File) c2.second).getAbsolutePath();
                         c.a.r0.a.e0.d.k("BundleDecrypt", str9);
-                        bVar.f5167b = str9;
+                        bVar.f5309b = str9;
                         c.a.r0.w.d.d(dataInputStream2);
                         return bVar;
                     }
@@ -427,7 +427,7 @@ public class a {
                                         dataInputStream = dataInputStream2;
                                         file2 = file3;
                                         str5 = str10;
-                                        bVar.f5167b = e.getLocalizedMessage();
+                                        bVar.f5309b = e.getLocalizedMessage();
                                         c.a.r0.a.e0.d.l(str7, "解压异常", e);
                                         c.a.r0.w.d.d(dataInputStream);
                                         if (file2 != null) {
@@ -449,7 +449,7 @@ public class a {
                                             c.a.r0.a.a1.g.b bVar3 = bVar2;
                                             String str11 = str7;
                                             try {
-                                                if (r.f5172c.contains(f5160c)) {
+                                                if (r.f5314c.contains(f5302c)) {
                                                     dataInputStream6.skipBytes(r.a);
                                                     str4 = str6;
                                                 } else {
@@ -459,8 +459,8 @@ public class a {
                                                     str4 = str6;
                                                     try {
                                                         c.b bVar4 = new c.b();
-                                                        bVar4.f5176b = bArr4;
-                                                        bVar4.a = r.f5172c;
+                                                        bVar4.f5318b = bArr4;
+                                                        bVar4.a = r.f5314c;
                                                         obtain.what = 100;
                                                         obtain.obj = bVar4;
                                                         handlerArr[i5 % 4].sendMessage(obtain);
@@ -501,7 +501,7 @@ public class a {
                                             str5 = str;
                                             str7 = str3;
                                             str6 = str2;
-                                            bVar.f5167b = e.getLocalizedMessage();
+                                            bVar.f5309b = e.getLocalizedMessage();
                                             c.a.r0.a.e0.d.l(str7, "解压异常", e);
                                             c.a.r0.w.d.d(dataInputStream);
                                             if (file2 != null) {
@@ -546,7 +546,7 @@ public class a {
                         str6 = str2;
                         dataInputStream = dataInputStream2;
                         file2 = file3;
-                        bVar.f5167b = e.getLocalizedMessage();
+                        bVar.f5309b = e.getLocalizedMessage();
                         c.a.r0.a.e0.d.l(str7, "解压异常", e);
                         c.a.r0.w.d.d(dataInputStream);
                         if (file2 != null) {
@@ -578,7 +578,7 @@ public class a {
                     if (!n(arrayList, file3, i2)) {
                         String str12 = "解压后校验失败 tmpUnzipDir=" + file3;
                         c.a.r0.a.e0.d.k(str7, str12);
-                        bVar.f5167b = str12;
+                        bVar.f5309b = str12;
                         c.a.r0.w.d.d(dataInputStream2);
                         if (file3 != null) {
                             c.a.r0.a.e0.d.k(str7, str6 + file3.getAbsolutePath());
@@ -606,7 +606,7 @@ public class a {
                     if (!q) {
                         String str13 = "解压后rename失败 dstFolder=" + file;
                         c.a.r0.a.e0.d.k(str7, str13);
-                        bVar.f5167b = str13;
+                        bVar.f5309b = str13;
                         c.a.r0.w.d.d(dataInputStream2);
                         if (file3 != null) {
                             c.a.r0.a.e0.d.k(str7, str6 + file3.getAbsolutePath());
@@ -626,12 +626,12 @@ public class a {
                     return bVar;
                 }
                 c.a.r0.a.e0.d.k("BundleDecrypt", "index array length <= 0");
-                bVar.f5167b = "index array length <= 0";
+                bVar.f5309b = "index array length <= 0";
                 c.a.r0.w.d.d(dataInputStream2);
                 return bVar;
             }
             c.a.r0.a.e0.d.k("BundleDecrypt", "cipher is null");
-            bVar.f5167b = "cipher is null";
+            bVar.f5309b = "cipher is null";
             c.a.r0.w.d.d(dataInputStream2);
             return bVar;
         }
@@ -695,15 +695,15 @@ public class a {
             try {
                 l(dataInputStream);
                 bVar2.a = l(dataInputStream);
-                bVar2.f5169b = l(dataInputStream);
+                bVar2.f5311b = l(dataInputStream);
                 l(dataInputStream);
                 m(dataInputStream);
-                dataInputStream.readFully(bVar2.f5170c);
-                f2 = f(bVar2.f5170c);
+                dataInputStream.readFully(bVar2.f5312c);
+                f2 = f(bVar2.f5312c);
             } catch (Exception e3) {
                 e = e3;
                 dataInputStream3 = dataInputStream;
-                bVar.f5167b = e.getLocalizedMessage();
+                bVar.f5309b = e.getLocalizedMessage();
                 c.a.r0.a.e0.d.l("BundleDecrypt", "解压异常 dstFolder=" + file, e);
                 c.a.r0.w.d.d(dataInputStream3);
                 return bVar;
@@ -714,7 +714,7 @@ public class a {
                 throw th;
             }
             if (f2 != null && f2.length > 0) {
-                byte[] bArr = new byte[bVar2.f5169b];
+                byte[] bArr = new byte[bVar2.f5311b];
                 dataInputStream.readFully(bArr);
                 byte[] bArr2 = new byte[16];
                 byte[] bArr3 = new byte[16];
@@ -732,7 +732,7 @@ public class a {
                     if (!c.a.r0.w.d.m(file)) {
                         String str = "解压目录创建失败 path=" + file.getAbsolutePath();
                         c.a.r0.a.e0.d.k("BundleDecrypt", str);
-                        bVar.f5167b = str;
+                        bVar.f5309b = str;
                         c.a.r0.w.d.d(dataInputStream);
                         return bVar;
                     }
@@ -742,13 +742,13 @@ public class a {
                     for (int i3 = 0; i3 < bVar2.a; i3++) {
                         try {
                             b.a r = r(dataInputStream3);
-                            if (r.f5172c.contains(f5160c)) {
+                            if (r.f5314c.contains(f5302c)) {
                                 atomicInteger2.getAndDecrement();
                                 dataInputStream2.skipBytes(r.a);
                             } else {
                                 byte[] bArr4 = new byte[r.a];
                                 dataInputStream2.readFully(bArr4);
-                                a(file, r.f5172c, bArr4, atomicInteger, atomicInteger2);
+                                a(file, r.f5314c, bArr4, atomicInteger, atomicInteger2);
                                 arrayList.add(r);
                             }
                         } catch (Throwable th3) {
@@ -770,7 +770,7 @@ public class a {
                     } else if (!n(arrayList, file, i2)) {
                         String str2 = "解压后校验失败 dstFolder=" + file;
                         c.a.r0.a.e0.d.k("BundleDecrypt", str2);
-                        bVar.f5167b = str2;
+                        bVar.f5309b = str2;
                         c.a.r0.w.d.d(dataInputStream);
                         return bVar;
                     } else {
@@ -780,12 +780,12 @@ public class a {
                     }
                 }
                 c.a.r0.a.e0.d.k("BundleDecrypt", "index array length <= 0");
-                bVar.f5167b = "index array length <= 0";
+                bVar.f5309b = "index array length <= 0";
                 c.a.r0.w.d.d(dataInputStream);
                 return bVar;
             }
             c.a.r0.a.e0.d.k("BundleDecrypt", "cipher is null");
-            bVar.f5167b = "cipher is null";
+            bVar.f5309b = "cipher is null";
             c.a.r0.w.d.d(dataInputStream);
             return bVar;
         }
@@ -839,9 +839,9 @@ public class a {
             bufferedInputStream.mark(8);
             int read = (bufferedInputStream.read() << 8) | bufferedInputStream.read() | (bufferedInputStream.read() << 16) | (bufferedInputStream.read() << 24);
             if (read == -1122498812) {
-                cVar.f5168b = 1;
+                cVar.f5310b = 1;
             } else if (read == -1122434039) {
-                cVar.f5168b = 2;
+                cVar.f5310b = 2;
             } else {
                 bufferedInputStream.reset();
             }
@@ -874,12 +874,12 @@ public class a {
                 }
                 if (read == -1122498812) {
                     cVar.a = bufferedInputStream;
-                    cVar.f5168b = 1;
+                    cVar.f5310b = 1;
                     return cVar;
                 }
                 if (read == -1122434039) {
                     cVar.a = bufferedInputStream;
-                    cVar.f5168b = 2;
+                    cVar.f5310b = 2;
                     return cVar;
                 }
                 c.a.r0.w.d.d(bufferedInputStream);
@@ -923,9 +923,9 @@ public class a {
         if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65550, null, list, file, i2)) == null) {
             long currentTimeMillis = a ? System.currentTimeMillis() : 0L;
             for (b.a aVar : list) {
-                File file2 = new File(file, aVar.f5172c);
+                File file2 = new File(file, aVar.f5314c);
                 if (!file2.exists() || (file2.isFile() && file2.length() != aVar.a)) {
-                    c.a.r0.a.e0.d.k("BundleDecrypt", "decrypt：unpack file " + aVar.f5172c + " fail");
+                    c.a.r0.a.e0.d.k("BundleDecrypt", "decrypt：unpack file " + aVar.f5314c + " fail");
                     c.a.r0.a.n2.s.d dVar = new c.a.r0.a.n2.s.d();
                     c.a.r0.a.u2.a aVar2 = new c.a.r0.a.u2.a();
                     aVar2.k(4L);
@@ -986,7 +986,7 @@ public class a {
                 return false;
             }
             for (b.a aVar : list) {
-                String str = aVar.f5172c;
+                String str = aVar.f5314c;
                 File file3 = new File(file, str);
                 File file4 = new File(file2, str);
                 if (!p(file3, file4)) {
@@ -1007,10 +1007,10 @@ public class a {
             l(dataInputStream);
             aVar.a = l(dataInputStream);
             int l = l(dataInputStream);
-            aVar.f5171b = l;
+            aVar.f5313b = l;
             byte[] bArr = new byte[l];
             dataInputStream.readFully(bArr);
-            aVar.f5172c = new String(bArr, "utf-8");
+            aVar.f5314c = new String(bArr, "utf-8");
             return aVar;
         }
         return (b.a) invokeL.objValue;

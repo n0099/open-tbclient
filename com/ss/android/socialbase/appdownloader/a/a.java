@@ -1,20 +1,20 @@
 package com.ss.android.socialbase.appdownloader.a;
 
 import android.content.Context;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public abstract class a implements e {
     public final Context a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final com.ss.android.socialbase.downloader.g.a f59704b;
+    public final com.ss.android.socialbase.downloader.g.a f59749b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final String f59705c;
+    public final String f59750c;
 
     public a(Context context, com.ss.android.socialbase.downloader.g.a aVar, String str) {
         this.a = context;
-        this.f59704b = aVar;
-        this.f59705c = str;
+        this.f59749b = aVar;
+        this.f59750c = str;
     }
 
     public boolean a() {

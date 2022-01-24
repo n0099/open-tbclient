@@ -29,22 +29,22 @@ public class b {
     public Context a;
 
     /* renamed from: b  reason: collision with root package name */
-    public JSONObject f51589b;
+    public JSONObject f51634b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final byte[] f51590c;
+    public final byte[] f51635c;
 
     /* renamed from: d  reason: collision with root package name */
-    public long f51591d;
+    public long f51636d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f51592e;
+    public String f51637e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String[] f51593f;
+    public String[] f51638f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String[] f51594g;
+    public String[] f51639g;
 
     /* renamed from: com.baidu.wallet.lightapp.business.b$1  reason: invalid class name */
     /* loaded from: classes13.dex */
@@ -106,19 +106,19 @@ public class b {
     private void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
-            synchronized (this.f51590c) {
+            synchronized (this.f51635c) {
                 String[] strArr = {Domains.BAIDU, Domains.BAIFUBAO, Domains.DU_XIAO_MAN, Domains.DU_XIAO_MAN_PAY, Domains.DU_XIAO_MAN_INT};
-                this.f51593f = strArr;
-                this.f51594g = new String[]{"com.android.fileexplorer", "com.android.browser", "com.android.chrome", "com.android.mms", "com.android.server.telecom", "com.android.camera", "com.miui.gallery", "com.android.fileexplorer", "com.android.contacts"};
-                this.f51591d = FlushManager.ReportTimer.DEFAULT_INTERVAL;
-                this.f51592e = "";
+                this.f51638f = strArr;
+                this.f51639g = new String[]{"com.android.fileexplorer", "com.android.browser", "com.android.chrome", "com.android.mms", "com.android.server.telecom", "com.android.camera", "com.miui.gallery", "com.android.fileexplorer", "com.android.contacts"};
+                this.f51636d = FlushManager.ReportTimer.DEFAULT_INTERVAL;
+                this.f51637e = "";
                 Arrays.sort(strArr);
-                Arrays.sort(this.f51594g);
+                Arrays.sort(this.f51639g);
                 JSONObject jSONObject = new JSONObject();
-                this.f51589b = jSONObject;
+                this.f51634b = jSONObject;
                 try {
-                    jSONObject.put("domains", this.f51593f);
-                    this.f51589b.put("packages", this.f51594g);
+                    jSONObject.put("domains", this.f51638f);
+                    this.f51634b.put("packages", this.f51639g);
                 } catch (JSONException e2) {
                     e2.printStackTrace();
                 }
@@ -136,12 +136,12 @@ public class b {
             sb.append("\"");
             sb.append("domains");
             sb.append("\":[");
-            for (String str : this.f51593f) {
+            for (String str : this.f51638f) {
                 sb.append("\"");
                 sb.append(str);
                 sb.append("\",");
             }
-            if (this.f51593f.length > 0) {
+            if (this.f51638f.length > 0) {
                 sb.replace(sb.length() - 1, sb.length(), "],");
             } else {
                 sb.append("],");
@@ -149,12 +149,12 @@ public class b {
             sb.append("\"");
             sb.append("packages");
             sb.append("\":[");
-            for (String str2 : this.f51594g) {
+            for (String str2 : this.f51639g) {
                 sb.append("\"");
                 sb.append(str2);
                 sb.append("\",");
             }
-            if (this.f51594g.length > 0) {
+            if (this.f51639g.length > 0) {
                 sb.replace(sb.length() - 1, sb.length(), "],");
             } else {
                 sb.append("],");
@@ -163,13 +163,13 @@ public class b {
             sb.append(TaskInfo.keyFingerprint);
             sb.append("\":");
             sb.append("\"");
-            sb.append(this.f51592e);
+            sb.append(this.f51637e);
             sb.append("\",");
             sb.append("\"");
             sb.append("interval");
             sb.append("\":");
             sb.append("\"");
-            sb.append(this.f51591d);
+            sb.append(this.f51636d);
             sb.append("\"}");
             return sb.toString();
         }
@@ -189,7 +189,7 @@ public class b {
                 return;
             }
         }
-        this.f51590c = new byte[0];
+        this.f51635c = new byte[0];
         b();
     }
 
@@ -208,28 +208,28 @@ public class b {
     public void a(Context context, LangBridgeCfg langBridgeCfg) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(1048576, this, context, langBridgeCfg) == null) && a(context) && langBridgeCfg.checkResponseValidity()) {
-            synchronized (this.f51590c) {
+            synchronized (this.f51635c) {
                 LangBridgeCfg.LbConfig lbConfig = langBridgeCfg.lbconfig;
-                if (this.f51592e.equals(lbConfig.fingerprint)) {
+                if (this.f51637e.equals(lbConfig.fingerprint)) {
                     return;
                 }
                 if (lbConfig.domains != null) {
                     String[] strArr = (String[]) Arrays.copyOf(lbConfig.domains, lbConfig.domains.length);
-                    this.f51593f = strArr;
+                    this.f51638f = strArr;
                     Arrays.sort(strArr);
                 } else {
-                    this.f51593f = new String[0];
+                    this.f51638f = new String[0];
                 }
                 if (lbConfig.packages != null) {
                     String[] strArr2 = (String[]) Arrays.copyOf(lbConfig.packages, lbConfig.packages.length);
-                    this.f51594g = strArr2;
+                    this.f51639g = strArr2;
                     Arrays.sort(strArr2);
                 } else {
-                    this.f51594g = new String[0];
+                    this.f51639g = new String[0];
                 }
-                this.f51592e = lbConfig.fingerprint;
+                this.f51637e = lbConfig.fingerprint;
                 if (0 <= lbConfig.interval) {
-                    this.f51591d = lbConfig.interval * 60000;
+                    this.f51636d = lbConfig.interval * 60000;
                 }
                 SharedPreferencesUtils.setParam(this.a, "langbridge", UpdateCloudControlProcessor.CLOUD_UPDATE_ACTION_NAME, c());
                 SharedPreferencesUtils.setParam(this.a, "langbridge", "lbc_update_timestamp", Long.valueOf(System.currentTimeMillis()));

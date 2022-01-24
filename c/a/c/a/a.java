@@ -85,7 +85,7 @@ public class a {
                                 e4.printStackTrace();
                             }
                             return true;
-                        } else if (!nextEntry.isDirectory() && nextEntry.getName().contains(com.baidu.android.imsdk.retrieve.Constants.PATH_PARENT)) {
+                        } else if (!nextEntry.isDirectory() && nextEntry.getName().contains("../")) {
                             try {
                                 zipInputStream.close();
                                 fileInputStream.close();

@@ -21,13 +21,13 @@ public class Download implements Serializable {
     public long a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f33363b;
+    public long f33391b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f33364c;
+    public int f33392c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f33365d;
+    public boolean f33393d;
     public long mCurrentLength;
     public String mETag;
     public String mFailReason;
@@ -72,9 +72,9 @@ public class Download implements Serializable {
         this.mNeedNotification = false;
         this.mRequestHeaders = new ArrayList();
         this.a = 0L;
-        this.f33363b = 0L;
-        this.f33364c = 0;
-        this.f33365d = true;
+        this.f33391b = 0L;
+        this.f33392c = 0;
+        this.f33393d = true;
     }
 
     public void addRequestHeader(String str, String str2) {

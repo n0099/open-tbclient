@@ -51,24 +51,24 @@ public class CaptureStatic {
 
         /* renamed from: com.baidu.tieba.CaptureStatic$a$a  reason: collision with other inner class name */
         /* loaded from: classes11.dex */
-        public class C1899a implements f {
+        public class C1905a implements f {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ CustomResponsedMessage a;
 
             /* renamed from: com.baidu.tieba.CaptureStatic$a$a$a  reason: collision with other inner class name */
             /* loaded from: classes11.dex */
-            public class C1900a extends DefaultDownloadCallback {
+            public class C1906a extends DefaultDownloadCallback {
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ C1899a a;
+                public final /* synthetic */ C1905a a;
 
-                public C1900a(C1899a c1899a) {
+                public C1906a(C1905a c1905a) {
                     Interceptable interceptable = $ic;
                     if (interceptable != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         newInitContext.initArgs = r2;
-                        Object[] objArr = {c1899a};
+                        Object[] objArr = {c1905a};
                         interceptable.invokeUnInit(65536, newInitContext);
                         int i2 = newInitContext.flag;
                         if ((i2 & 1) != 0) {
@@ -78,7 +78,7 @@ public class CaptureStatic {
                             return;
                         }
                     }
-                    this.a = c1899a;
+                    this.a = c1905a;
                 }
 
                 @Override // com.baidu.searchbox.pms.callback.DefaultDownloadCallback, com.baidu.searchbox.pms.callback.DownloadCallback
@@ -112,7 +112,7 @@ public class CaptureStatic {
                 }
             }
 
-            public C1899a(a aVar, CustomResponsedMessage customResponsedMessage) {
+            public C1905a(a aVar, CustomResponsedMessage customResponsedMessage) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -142,7 +142,7 @@ public class CaptureStatic {
                     RequestParams requestParams = new RequestParams();
                     requestParams.setRunType(e.a);
                     requestParams.setRunNode("aps");
-                    requestParams.addChannel(new d("com.baidu.tieba.soloader.libcbffmpeg", new C1900a(this)));
+                    requestParams.addChannel(new d("com.baidu.tieba.soloader.libcbffmpeg", new C1906a(this)));
                     PmsManager.getInstance().execute(requestParams);
                 }
             }
@@ -181,7 +181,7 @@ public class CaptureStatic {
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2921582) {
-                c.a.t0.j4.a.b(TbadkCoreApplication.getInst(), new C1899a(this, customResponsedMessage));
+                c.a.t0.j4.a.b(TbadkCoreApplication.getInst(), new C1905a(this, customResponsedMessage));
             }
         }
     }

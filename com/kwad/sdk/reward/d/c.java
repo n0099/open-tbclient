@@ -29,31 +29,31 @@ public class c implements com.kwad.sdk.widget.d {
     public View a;
 
     /* renamed from: b  reason: collision with root package name */
-    public View f57229b;
+    public View f57274b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Button f57230c;
+    public Button f57275c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Button f57231d;
+    public Button f57276d;
 
     /* renamed from: e  reason: collision with root package name */
-    public TextView f57232e;
+    public TextView f57277e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ImageView f57233f;
+    public ImageView f57278f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f57234g;
+    public TextView f57279g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f57235h;
+    public TextView f57280h;
 
     /* renamed from: i  reason: collision with root package name */
-    public KSRatingBar f57236i;
+    public KSRatingBar f57281i;
 
     /* renamed from: j  reason: collision with root package name */
-    public LinearLayout f57237j;
+    public LinearLayout f57282j;
     public a k;
     @Nullable
     public Animator p;
@@ -71,22 +71,22 @@ public class c implements com.kwad.sdk.widget.d {
         public String a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f57242b;
+        public String f57287b;
 
         /* renamed from: c  reason: collision with root package name */
-        public float f57243c;
+        public float f57288c;
 
         /* renamed from: d  reason: collision with root package name */
-        public List<String> f57244d;
+        public List<String> f57289d;
 
         /* renamed from: e  reason: collision with root package name */
-        public String f57245e;
+        public String f57290e;
 
         /* renamed from: f  reason: collision with root package name */
-        public int f57246f = 15;
+        public int f57291f = 15;
 
         /* renamed from: g  reason: collision with root package name */
-        public String f57247g;
+        public String f57292g;
 
         public static b a(AdTemplate adTemplate) {
             String str;
@@ -95,30 +95,30 @@ public class c implements com.kwad.sdk.widget.d {
             }
             AdInfo j2 = com.kwad.sdk.core.response.a.d.j(adTemplate);
             b bVar = new b();
-            bVar.f57242b = com.kwad.sdk.core.response.a.d.v(adTemplate) ? com.kwad.sdk.core.response.a.a.u(j2) : com.kwad.sdk.core.response.a.a.t(j2);
-            bVar.f57243c = com.kwad.sdk.core.response.a.a.y(j2);
-            bVar.f57245e = com.kwad.sdk.core.response.a.a.s(j2);
+            bVar.f57287b = com.kwad.sdk.core.response.a.d.v(adTemplate) ? com.kwad.sdk.core.response.a.a.u(j2) : com.kwad.sdk.core.response.a.a.t(j2);
+            bVar.f57288c = com.kwad.sdk.core.response.a.a.y(j2);
+            bVar.f57290e = com.kwad.sdk.core.response.a.a.s(j2);
             bVar.a = com.kwad.sdk.core.response.a.d.v(adTemplate) ? com.kwad.sdk.core.response.a.a.aE(j2) : com.kwad.sdk.core.response.a.a.au(j2);
             if (com.kwad.sdk.core.response.a.d.u(adTemplate)) {
-                bVar.f57246f = com.kwad.sdk.core.config.b.az();
+                bVar.f57291f = com.kwad.sdk.core.config.b.az();
                 str = "安装并体验%s秒  可领取奖励";
             } else {
-                bVar.f57246f = com.kwad.sdk.core.config.b.aA();
+                bVar.f57291f = com.kwad.sdk.core.config.b.aA();
                 str = "浏览详情页%s秒，领取奖励";
             }
-            bVar.f57247g = str;
-            bVar.f57244d = com.kwad.sdk.core.response.a.c.i(adTemplate);
+            bVar.f57292g = str;
+            bVar.f57289d = com.kwad.sdk.core.response.a.c.i(adTemplate);
             return bVar;
         }
 
         public String a() {
-            return String.format(this.f57247g, Integer.valueOf(this.f57246f));
+            return String.format(this.f57292g, Integer.valueOf(this.f57291f));
         }
     }
 
     /* renamed from: com.kwad.sdk.reward.d.c$c  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public static class C2135c implements Animator.AnimatorListener {
+    public static class C2141c implements Animator.AnimatorListener {
         @Override // android.animation.Animator.AnimatorListener
         public void onAnimationCancel(Animator animator) {
         }
@@ -177,8 +177,8 @@ public class c implements com.kwad.sdk.widget.d {
         float f2 = i2;
         float f3 = i3;
         Animator a2 = a(view2, f2, f3);
-        a2.addListener(new C2135c() { // from class: com.kwad.sdk.reward.d.c.3
-            @Override // com.kwad.sdk.reward.d.c.C2135c, android.animation.Animator.AnimatorListener
+        a2.addListener(new C2141c() { // from class: com.kwad.sdk.reward.d.c.3
+            @Override // com.kwad.sdk.reward.d.c.C2141c, android.animation.Animator.AnimatorListener
             public void onAnimationEnd(Animator animator) {
                 super.onAnimationEnd(animator);
                 view.setAlpha(1.0f);
@@ -202,7 +202,7 @@ public class c implements com.kwad.sdk.widget.d {
     private void a(LinearLayout linearLayout, String str) {
         TextView textView = (TextView) LayoutInflater.from(linearLayout.getContext()).inflate(R.layout.ksad_reward_apk_info_card_tag_item, (ViewGroup) linearLayout, false);
         textView.setText(str);
-        this.f57237j.addView(textView);
+        this.f57282j.addView(textView);
     }
 
     public static Animator c(View view) {
@@ -213,14 +213,14 @@ public class c implements com.kwad.sdk.widget.d {
     }
 
     private void c() {
-        this.f57230c = (Button) this.a.findViewById(R.id.ksad_reward_apk_info_install_action);
-        this.f57231d = (Button) this.a.findViewById(R.id.ksad_reward_apk_info_install_start);
-        this.f57229b = this.a.findViewById(R.id.ksad_reward_apk_info_install_container);
-        this.f57233f = (ImageView) this.a.findViewById(R.id.ksad_reward_apk_info_icon);
-        this.f57232e = (TextView) this.a.findViewById(R.id.ksad_reward_apk_info_name);
-        this.f57234g = (TextView) this.a.findViewById(R.id.ksad_reward_apk_info_desc);
-        this.f57236i = (KSRatingBar) this.a.findViewById(R.id.ksad_reward_apk_info_score);
-        this.f57237j = (LinearLayout) this.a.findViewById(R.id.ksad_reward_apk_info_tags);
+        this.f57275c = (Button) this.a.findViewById(R.id.ksad_reward_apk_info_install_action);
+        this.f57276d = (Button) this.a.findViewById(R.id.ksad_reward_apk_info_install_start);
+        this.f57274b = this.a.findViewById(R.id.ksad_reward_apk_info_install_container);
+        this.f57278f = (ImageView) this.a.findViewById(R.id.ksad_reward_apk_info_icon);
+        this.f57277e = (TextView) this.a.findViewById(R.id.ksad_reward_apk_info_name);
+        this.f57279g = (TextView) this.a.findViewById(R.id.ksad_reward_apk_info_desc);
+        this.f57281i = (KSRatingBar) this.a.findViewById(R.id.ksad_reward_apk_info_score);
+        this.f57282j = (LinearLayout) this.a.findViewById(R.id.ksad_reward_apk_info_tags);
     }
 
     private void d() {
@@ -233,16 +233,16 @@ public class c implements com.kwad.sdk.widget.d {
 
     public void a() {
         com.kwai.sodler.lib.a.b("ApkInfoCardViewHelper", "startAnimation");
-        int height = this.f57229b.getHeight();
-        int width = this.f57229b.getWidth();
+        int height = this.f57274b.getHeight();
+        int width = this.f57274b.getWidth();
         if (height == 0 || width == 0) {
             return;
         }
         if (this.p == null) {
-            Animator a2 = a(this.f57231d, this.f57230c, width, height);
+            Animator a2 = a(this.f57276d, this.f57275c, width, height);
             this.p = a2;
-            a2.addListener(new C2135c() { // from class: com.kwad.sdk.reward.d.c.2
-                @Override // com.kwad.sdk.reward.d.c.C2135c, android.animation.Animator.AnimatorListener
+            a2.addListener(new C2141c() { // from class: com.kwad.sdk.reward.d.c.2
+                @Override // com.kwad.sdk.reward.d.c.C2141c, android.animation.Animator.AnimatorListener
                 public void onAnimationEnd(final Animator animator) {
                     if (c.this.q) {
                         return;
@@ -282,47 +282,47 @@ public class c implements com.kwad.sdk.widget.d {
         if (a2 == null) {
             return;
         }
-        KSImageLoader.loadAppIcon(this.f57233f, a2.a, adTemplate, 12);
-        this.f57232e.setText(a2.f57242b);
-        this.f57234g.setText(a2.f57245e);
-        this.f57236i.setStar(a2.f57243c);
+        KSImageLoader.loadAppIcon(this.f57278f, a2.a, adTemplate, 12);
+        this.f57277e.setText(a2.f57287b);
+        this.f57279g.setText(a2.f57290e);
+        this.f57281i.setStar(a2.f57288c);
         int i2 = 0;
         if (com.kwad.sdk.core.response.a.d.u(adTemplate)) {
-            this.f57231d.setText("开始下载");
-            this.f57236i.setVisibility(0);
+            this.f57276d.setText("开始下载");
+            this.f57281i.setVisibility(0);
         } else {
-            this.f57231d.setText("查看详情");
-            this.f57236i.setVisibility(8);
+            this.f57276d.setText("查看详情");
+            this.f57281i.setVisibility(8);
         }
-        this.f57230c.setText(a2.a());
-        this.f57230c.setClickable(true);
-        this.f57231d.setClickable(true);
-        this.f57229b.setClickable(true);
-        new com.kwad.sdk.widget.f(this.f57230c, this);
-        new com.kwad.sdk.widget.f(this.f57231d, this);
-        new com.kwad.sdk.widget.f(this.f57229b, this);
-        List<String> list = a2.f57244d;
+        this.f57275c.setText(a2.a());
+        this.f57275c.setClickable(true);
+        this.f57276d.setClickable(true);
+        this.f57274b.setClickable(true);
+        new com.kwad.sdk.widget.f(this.f57275c, this);
+        new com.kwad.sdk.widget.f(this.f57276d, this);
+        new com.kwad.sdk.widget.f(this.f57274b, this);
+        List<String> list = a2.f57289d;
         if (z && list.size() == 0) {
-            this.f57234g.setVisibility(8);
+            this.f57279g.setVisibility(8);
             TextView textView = (TextView) this.a.findViewById(R.id.ksad_reward_apk_info_desc_2);
-            this.f57235h = textView;
+            this.f57280h = textView;
             textView.setVisibility(0);
-            this.f57235h.setText(a2.f57245e);
+            this.f57280h.setText(a2.f57290e);
         }
         if (list.size() == 0) {
-            this.f57237j.setVisibility(8);
+            this.f57282j.setVisibility(8);
         }
         for (String str : list) {
             i2++;
             if (i2 > 3) {
                 break;
             }
-            a(this.f57237j, str);
+            a(this.f57282j, str);
         }
-        this.f57229b.postDelayed(new Runnable() { // from class: com.kwad.sdk.reward.d.c.1
+        this.f57274b.postDelayed(new Runnable() { // from class: com.kwad.sdk.reward.d.c.1
             @Override // java.lang.Runnable
             public void run() {
-                int height = c.this.f57229b.getHeight();
+                int height = c.this.f57274b.getHeight();
                 com.kwai.sodler.lib.a.b("ApkInfoCardViewHelper", hashCode() + " parentHeight: " + height);
                 if (c.this.o) {
                     return;
@@ -337,7 +337,7 @@ public class c implements com.kwad.sdk.widget.d {
     }
 
     public void a(String str, int i2, boolean z) {
-        Button button = this.f57231d;
+        Button button = this.f57276d;
         if (button != null && str != null) {
             button.setText(str);
         }

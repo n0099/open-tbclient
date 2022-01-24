@@ -40,10 +40,10 @@ public class NHHorListLayout extends BaseItemLayout {
     public HorizontalListView a;
 
     /* renamed from: b  reason: collision with root package name */
-    public HomeLayoutOneTipView f51247b;
+    public HomeLayoutOneTipView f51292b;
 
     /* renamed from: c  reason: collision with root package name */
-    public a f51248c;
+    public a f51293c;
 
     /* loaded from: classes13.dex */
     public static class a extends BaseListAdapter<HomeCfgResponse.DataItem> {
@@ -97,23 +97,23 @@ public class NHHorListLayout extends BaseItemLayout {
         @bind("tv_value1")
 
         /* renamed from: b  reason: collision with root package name */
-        public TextView f51249b;
+        public TextView f51294b;
         @bind("tv_value2")
 
         /* renamed from: c  reason: collision with root package name */
-        public TextView f51250c;
+        public TextView f51295c;
         @bind("tv_value3")
 
         /* renamed from: d  reason: collision with root package name */
-        public TextView f51251d;
+        public TextView f51296d;
         @bind("framelayout_content")
 
         /* renamed from: e  reason: collision with root package name */
-        public FrameLayout f51252e;
+        public FrameLayout f51297e;
         @bind("divider_view")
 
         /* renamed from: f  reason: collision with root package name */
-        public View f51253f;
+        public View f51298f;
 
         public b() {
             Interceptable interceptable = $ic;
@@ -136,35 +136,35 @@ public class NHHorListLayout extends BaseItemLayout {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLILL(1048576, this, dataItem, i2, context, baseListAdapter) == null) {
                 if (!NHHorListLayout.TYPE_TWO_ITEM) {
-                    this.f51252e.setLayoutParams(new ViewGroup.LayoutParams(DisplayUtils.dip2px(context, 145.0f), DisplayUtils.dip2px(context, 89.0f)));
+                    this.f51297e.setLayoutParams(new ViewGroup.LayoutParams(DisplayUtils.dip2px(context, 145.0f), DisplayUtils.dip2px(context, 89.0f)));
                     ((LinearLayout.LayoutParams) this.a.getLayoutParams()).setMargins(DisplayUtils.dip2px(context, 16.0f), 0, 0, 0);
-                    ((LinearLayout.LayoutParams) this.f51253f.getLayoutParams()).setMargins(DisplayUtils.dip2px(context, 6.0f), 0, 0, 0);
+                    ((LinearLayout.LayoutParams) this.f51298f.getLayoutParams()).setMargins(DisplayUtils.dip2px(context, 6.0f), 0, 0, 0);
                 } else {
                     ViewGroup.LayoutParams layoutParams = new ViewGroup.LayoutParams(-2, -2);
                     layoutParams.width = (DisplayUtils.getDisplayWidth(context) - (DisplayUtils.dip2px(context, 16.0f) * 3)) / 2;
-                    this.f51252e.setLayoutParams(layoutParams);
+                    this.f51297e.setLayoutParams(layoutParams);
                     ((LinearLayout.LayoutParams) this.a.getLayoutParams()).setMargins(DisplayUtils.dip2px(context, 20.0f), 0, 0, 0);
-                    ((LinearLayout.LayoutParams) this.f51253f.getLayoutParams()).setMargins(DisplayUtils.dip2px(context, 10.0f), 0, 0, 0);
+                    ((LinearLayout.LayoutParams) this.f51298f.getLayoutParams()).setMargins(DisplayUtils.dip2px(context, 10.0f), 0, 0, 0);
                 }
                 this.a.setText(dataItem.name);
                 if (!TextUtils.isEmpty(dataItem.value2)) {
-                    this.f51250c.setText(dataItem.value2);
-                    this.f51250c.setVisibility(0);
+                    this.f51295c.setText(dataItem.value2);
+                    this.f51295c.setVisibility(0);
                 } else {
-                    this.f51250c.setVisibility(8);
+                    this.f51295c.setVisibility(8);
                 }
                 if (!TextUtils.isEmpty(dataItem.value3)) {
-                    this.f51251d.setText(dataItem.value3);
-                    this.f51251d.setVisibility(0);
+                    this.f51296d.setText(dataItem.value3);
+                    this.f51296d.setVisibility(0);
                 } else {
-                    this.f51251d.setVisibility(8);
+                    this.f51296d.setVisibility(8);
                 }
                 if (!TextUtils.isEmpty(dataItem.value1)) {
-                    this.f51249b.setText(dataItem.value1);
-                    this.f51249b.setVisibility(0);
+                    this.f51294b.setText(dataItem.value1);
+                    this.f51294b.setVisibility(0);
                     return;
                 }
-                this.f51249b.setVisibility(8);
+                this.f51294b.setVisibility(8);
             }
         }
     }
@@ -261,12 +261,12 @@ public class NHHorListLayout extends BaseItemLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             LayoutInflater.from(getContext()).inflate(ResUtils.layout(getContext(), "wallet_home_nh_horview_layout"), this);
-            this.f51247b = (HomeLayoutOneTipView) findViewById(ResUtils.id(getContext(), "tip_view"));
+            this.f51292b = (HomeLayoutOneTipView) findViewById(ResUtils.id(getContext(), "tip_view"));
             HorizontalListView horizontalListView = (HorizontalListView) findViewById(ResUtils.id(getContext(), "hor_listview"));
             this.a = horizontalListView;
             horizontalListView.setDividerWidth(DisplayUtils.dip2px(getContext(), 16.0f));
             a aVar = new a(getContext());
-            this.f51248c = aVar;
+            this.f51293c = aVar;
             this.a.setAdapter((ListAdapter) aVar);
             this.a.setOnItemClickListener(new AdapterView.OnItemClickListener(this) { // from class: com.baidu.wallet.home.ui.widget.newhome.NHHorListLayout.1
                 public static /* synthetic */ Interceptable $ic;
@@ -321,9 +321,9 @@ public class NHHorListLayout extends BaseItemLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             if (!TextUtils.isEmpty(this.mConfigData.getGroup_name())) {
-                this.f51247b.setData(this.mConfigData, getWalletInterface());
+                this.f51292b.setData(this.mConfigData, getWalletInterface());
             } else {
-                this.f51247b.setVisibility(8);
+                this.f51292b.setVisibility(8);
             }
             ArrayList arrayList = new ArrayList();
             if (this.mConfigData.list.length <= 2) {
@@ -341,7 +341,7 @@ public class NHHorListLayout extends BaseItemLayout {
                 dataItem2.empty_view = true;
                 arrayList.add(dataItem2);
             }
-            this.f51248c.initList(arrayList);
+            this.f51293c.initList(arrayList);
         }
     }
 

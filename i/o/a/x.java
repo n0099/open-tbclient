@@ -13,10 +13,10 @@ public final class x<T> implements h.c<T> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final h.c<T> f61926e;
+    public final h.c<T> f61971e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final i.g f61927f;
+    public final i.g f61972f;
 
     /* loaded from: classes4.dex */
     public static final class a<T> extends i.i<T> implements i.n.a {
@@ -24,16 +24,16 @@ public final class x<T> implements h.c<T> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: f  reason: collision with root package name */
-        public final i.i<? super T> f61928f;
+        public final i.i<? super T> f61973f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final g.a f61929g;
+        public final g.a f61974g;
 
         /* renamed from: h  reason: collision with root package name */
-        public T f61930h;
+        public T f61975h;
 
         /* renamed from: i  reason: collision with root package name */
-        public Throwable f61931i;
+        public Throwable f61976i;
 
         public a(i.i<? super T> iVar, g.a aVar) {
             Interceptable interceptable = $ic;
@@ -50,16 +50,16 @@ public final class x<T> implements h.c<T> {
                     return;
                 }
             }
-            this.f61928f = iVar;
-            this.f61929g = aVar;
+            this.f61973f = iVar;
+            this.f61974g = aVar;
         }
 
         @Override // i.i
         public void b(Throwable th) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, th) == null) {
-                this.f61931i = th;
-                this.f61929g.b(this);
+                this.f61976i = th;
+                this.f61974g.b(this);
             }
         }
 
@@ -67,8 +67,8 @@ public final class x<T> implements h.c<T> {
         public void c(T t) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, t) == null) {
-                this.f61930h = t;
-                this.f61929g.b(this);
+                this.f61975h = t;
+                this.f61974g.b(this);
             }
         }
 
@@ -77,17 +77,17 @@ public final class x<T> implements h.c<T> {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
                 try {
-                    Throwable th = this.f61931i;
+                    Throwable th = this.f61976i;
                     if (th != null) {
-                        this.f61931i = null;
-                        this.f61928f.b(th);
+                        this.f61976i = null;
+                        this.f61973f.b(th);
                     } else {
-                        T t = this.f61930h;
-                        this.f61930h = null;
-                        this.f61928f.c(t);
+                        T t = this.f61975h;
+                        this.f61975h = null;
+                        this.f61973f.c(t);
                     }
                 } finally {
-                    this.f61929g.unsubscribe();
+                    this.f61974g.unsubscribe();
                 }
             }
         }
@@ -108,8 +108,8 @@ public final class x<T> implements h.c<T> {
                 return;
             }
         }
-        this.f61926e = cVar;
-        this.f61927f = gVar;
+        this.f61971e = cVar;
+        this.f61972f = gVar;
     }
 
     @Override // i.h.c, i.n.b
@@ -120,11 +120,11 @@ public final class x<T> implements h.c<T> {
     public void call(i.i<? super T> iVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, iVar) == null) {
-            g.a createWorker = this.f61927f.createWorker();
+            g.a createWorker = this.f61972f.createWorker();
             a aVar = new a(iVar, createWorker);
             iVar.a(createWorker);
             iVar.a(aVar);
-            this.f61926e.call(aVar);
+            this.f61971e.call(aVar);
         }
     }
 }

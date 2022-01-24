@@ -2,9 +2,9 @@ package com.baidu.tieba.pb.video;
 
 import android.view.View;
 import android.widget.TextView;
-import c.a.t0.s2.f;
-import c.a.t0.s2.h;
-import c.a.t0.s2.i;
+import c.a.t0.t2.f;
+import c.a.t0.t2.h;
+import c.a.t0.t2.i;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;

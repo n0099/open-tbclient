@@ -16,28 +16,28 @@ public final class a {
     public final byte[] a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final int[] f61652b;
+    public final int[] f61697b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final h f61653c;
+    public final h f61698c;
 
     /* renamed from: d  reason: collision with root package name */
-    public InputStream f61654d;
+    public InputStream f61699d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f61655e;
+    public boolean f61700e;
 
     /* renamed from: f  reason: collision with root package name */
-    public long f61656f;
+    public long f61701f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f61657g;
+    public int f61702g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f61658h;
+    public int f61703h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f61659i;
+    public int f61704i;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -53,16 +53,16 @@ public final class a {
             }
         }
         this.a = new byte[4160];
-        this.f61652b = new int[1040];
-        this.f61653c = new h();
-        this.f61659i = 0;
+        this.f61697b = new int[1040];
+        this.f61698c = new h();
+        this.f61704i = 0;
     }
 
     public static void a(a aVar, boolean z) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLZ(65537, null, aVar, z) == null) && aVar.f61655e) {
-            int i2 = ((aVar.f61658h << 2) + ((aVar.f61657g + 7) >> 3)) - 8;
-            int i3 = aVar.f61659i;
+        if ((interceptable == null || interceptable.invokeLZ(65537, null, aVar, z) == null) && aVar.f61700e) {
+            int i2 = ((aVar.f61703h << 2) + ((aVar.f61702g + 7) >> 3)) - 8;
+            int i3 = aVar.f61704i;
             if (i2 > i3) {
                 throw new BrotliRuntimeException("Read after end");
             }
@@ -75,8 +75,8 @@ public final class a {
     public static void b(a aVar) throws IOException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65538, null, aVar) == null) {
-            InputStream inputStream = aVar.f61654d;
-            aVar.f61654d = null;
+            InputStream inputStream = aVar.f61699d;
+            aVar.f61699d = null;
             if (inputStream != null) {
                 inputStream.close();
             }
@@ -86,16 +86,16 @@ public final class a {
     public static void c(a aVar, byte[] bArr, int i2, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLII(65539, null, aVar, bArr, i2, i3) == null) {
-            if ((aVar.f61657g & 7) != 0) {
+            if ((aVar.f61702g & 7) != 0) {
                 throw new BrotliRuntimeException("Unaligned copyBytes");
             }
             while (true) {
-                int i4 = aVar.f61657g;
+                int i4 = aVar.f61702g;
                 if (i4 == 64 || i3 == 0) {
                     break;
                 }
-                bArr[i2] = (byte) (aVar.f61656f >>> i4);
-                aVar.f61657g = i4 + 8;
+                bArr[i2] = (byte) (aVar.f61701f >>> i4);
+                aVar.f61702g = i4 + 8;
                 i3--;
                 i2++;
             }
@@ -105,10 +105,10 @@ public final class a {
             int min = Math.min(f(aVar), i3 >> 2);
             if (min > 0) {
                 int i5 = min << 2;
-                System.arraycopy(aVar.a, aVar.f61658h << 2, bArr, i2, i5);
+                System.arraycopy(aVar.a, aVar.f61703h << 2, bArr, i2, i5);
                 i2 += i5;
                 i3 -= i5;
-                aVar.f61658h += min;
+                aVar.f61703h += min;
             }
             if (i3 == 0) {
                 return;
@@ -116,7 +116,7 @@ public final class a {
             if (f(aVar) <= 0) {
                 while (i3 > 0) {
                     try {
-                        int read = aVar.f61654d.read(bArr, i2, i3);
+                        int read = aVar.f61699d.read(bArr, i2, i3);
                         if (read == -1) {
                             throw new BrotliRuntimeException("Unexpected end of input");
                         }
@@ -130,10 +130,10 @@ public final class a {
             }
             d(aVar);
             while (i3 != 0) {
-                long j2 = aVar.f61656f;
-                int i6 = aVar.f61657g;
+                long j2 = aVar.f61701f;
+                int i6 = aVar.f61702g;
                 bArr[i2] = (byte) (j2 >>> i6);
-                aVar.f61657g = i6 + 8;
+                aVar.f61702g = i6 + 8;
                 i3--;
                 i2++;
             }
@@ -144,26 +144,26 @@ public final class a {
     public static void d(a aVar) {
         int i2;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, aVar) == null) || (i2 = aVar.f61657g) < 32) {
+        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, aVar) == null) || (i2 = aVar.f61702g) < 32) {
             return;
         }
-        int[] iArr = aVar.f61652b;
-        int i3 = aVar.f61658h;
-        aVar.f61658h = i3 + 1;
-        aVar.f61656f = (iArr[i3] << 32) | (aVar.f61656f >>> 32);
-        aVar.f61657g = i2 - 32;
+        int[] iArr = aVar.f61697b;
+        int i3 = aVar.f61703h;
+        aVar.f61703h = i3 + 1;
+        aVar.f61701f = (iArr[i3] << 32) | (aVar.f61701f >>> 32);
+        aVar.f61702g = i2 - 32;
     }
 
     public static void e(a aVar, InputStream inputStream) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65541, null, aVar, inputStream) == null) {
-            if (aVar.f61654d == null) {
-                h.b(aVar.f61653c, aVar.a, aVar.f61652b);
-                aVar.f61654d = inputStream;
-                aVar.f61656f = 0L;
-                aVar.f61657g = 64;
-                aVar.f61658h = 1024;
-                aVar.f61655e = false;
+            if (aVar.f61699d == null) {
+                h.b(aVar.f61698c, aVar.a, aVar.f61697b);
+                aVar.f61699d = inputStream;
+                aVar.f61701f = 0L;
+                aVar.f61702g = 64;
+                aVar.f61703h = 1024;
+                aVar.f61700e = false;
                 h(aVar);
                 return;
             }
@@ -175,7 +175,7 @@ public final class a {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, aVar)) == null) {
-            return (aVar.f61655e ? (aVar.f61659i + 3) >> 2 : 1024) - aVar.f61658h;
+            return (aVar.f61700e ? (aVar.f61704i + 3) >> 2 : 1024) - aVar.f61703h;
         }
         return invokeL.intValue;
     }
@@ -183,7 +183,7 @@ public final class a {
     public static void g(a aVar) {
         int i2;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65543, null, aVar) == null) && (i2 = (64 - aVar.f61657g) & 7) != 0 && i(aVar, i2) != 0) {
+        if ((interceptable == null || interceptable.invokeL(65543, null, aVar) == null) && (i2 = (64 - aVar.f61702g) & 7) != 0 && i(aVar, i2) != 0) {
             throw new BrotliRuntimeException("Corrupted padding bits");
         }
     }
@@ -203,18 +203,18 @@ public final class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(65545, null, aVar, i2)) == null) {
             d(aVar);
-            long j2 = aVar.f61656f;
-            int i3 = aVar.f61657g;
+            long j2 = aVar.f61701f;
+            int i3 = aVar.f61702g;
             int i4 = ((int) (j2 >>> i3)) & ((1 << i2) - 1);
-            aVar.f61657g = i3 + i2;
+            aVar.f61702g = i3 + i2;
             return i4;
         }
         return invokeLI.intValue;
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:19:0x003b, code lost:
-        r4.f61655e = true;
-        r4.f61659i = r1;
+        r4.f61700e = true;
+        r4.f61704i = r1;
      */
     /* JADX WARN: Code restructure failed: missing block: B:20:0x0040, code lost:
         r1 = r1 + 3;
@@ -225,10 +225,10 @@ public final class a {
     public static void j(a aVar) {
         int i2;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65546, null, aVar) == null) || (i2 = aVar.f61658h) <= 1015) {
+        if (!(interceptable == null || interceptable.invokeL(65546, null, aVar) == null) || (i2 = aVar.f61703h) <= 1015) {
             return;
         }
-        if (aVar.f61655e) {
+        if (aVar.f61700e) {
             if (f(aVar) < -2) {
                 throw new BrotliRuntimeException("No more input");
             }
@@ -238,13 +238,13 @@ public final class a {
         int i4 = 4096 - i3;
         byte[] bArr = aVar.a;
         System.arraycopy(bArr, i3, bArr, 0, i4);
-        aVar.f61658h = 0;
+        aVar.f61703h = 0;
         while (true) {
             if (i4 >= 4096) {
                 break;
             }
             try {
-                int read = aVar.f61654d.read(aVar.a, i4, 4096 - i4);
+                int read = aVar.f61699d.read(aVar.a, i4, 4096 - i4);
                 if (read <= 0) {
                     break;
                 }
@@ -253,12 +253,12 @@ public final class a {
                 throw new BrotliRuntimeException("Failed to read input", e2);
             }
         }
-        h.a(aVar.f61653c, i4 >> 2);
+        h.a(aVar.f61698c, i4 >> 2);
     }
 
     public static void k(a aVar) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65547, null, aVar) == null) && aVar.f61657g == 64) {
+        if ((interceptable == null || interceptable.invokeL(65547, null, aVar) == null) && aVar.f61702g == 64) {
             h(aVar);
         }
     }

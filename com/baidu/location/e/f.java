@@ -48,22 +48,22 @@ public class f implements Runnable {
         InputStream inputStream2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.a.f35157h = k.e();
+            this.a.f35185h = k.e();
             this.a.b();
             this.a.a();
-            int i2 = this.a.f35158i;
+            int i2 = this.a.f35186i;
             InputStream inputStream3 = null;
             HttpURLConnection httpURLConnection = null;
             while (i2 > 0) {
                 try {
-                    HttpURLConnection httpURLConnection2 = (HttpURLConnection) new URL(this.a.f35157h).openConnection();
+                    HttpURLConnection httpURLConnection2 = (HttpURLConnection) new URL(this.a.f35185h).openConnection();
                     try {
                         httpURLConnection2.setRequestMethod("GET");
                         httpURLConnection2.setDoInput(true);
                         httpURLConnection2.setDoOutput(true);
                         httpURLConnection2.setUseCaches(false);
-                        httpURLConnection2.setConnectTimeout(a.f35122b);
-                        httpURLConnection2.setReadTimeout(a.f35122b);
+                        httpURLConnection2.setConnectTimeout(a.f35150b);
+                        httpURLConnection2.setReadTimeout(a.f35150b);
                         httpURLConnection2.setRequestProperty("Content-Type", "application/x-www-form-urlencoded; charset=utf-8");
                         httpURLConnection2.setRequestProperty("Accept-Charset", "UTF-8");
                         if (k.ax != null) {
@@ -84,7 +84,7 @@ public class f implements Runnable {
                                     }
                                     inputStream2.close();
                                     byteArrayOutputStream.close();
-                                    this.a.f35159j = new String(byteArrayOutputStream.toByteArray(), "utf-8");
+                                    this.a.f35187j = new String(byteArrayOutputStream.toByteArray(), "utf-8");
                                     this.a.a(true);
                                     httpURLConnection2.disconnect();
                                     z = true;
@@ -203,7 +203,7 @@ public class f implements Runnable {
             }
             e.p++;
             e eVar = this.a;
-            eVar.f35159j = null;
+            eVar.f35187j = null;
             eVar.a(false);
         }
     }

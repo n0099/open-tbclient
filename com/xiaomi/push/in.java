@@ -25,25 +25,25 @@ public class in implements iq<in, Object>, Serializable, Cloneable {
     public static final jg f785a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final iy f61368b;
+    public static final iy f61413b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final iy f61369c;
+    public static final iy f61414c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final iy f61370d;
+    public static final iy f61415d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final iy f61371e;
+    public static final iy f61416e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final iy f61372f;
+    public static final iy f61417f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final iy f61373g;
+    public static final iy f61418g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final iy f61374h;
+    public static final iy f61419h;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with other field name */
@@ -85,13 +85,13 @@ public class in implements iq<in, Object>, Serializable, Cloneable {
         }
         f785a = new jg("XmPushActionUnSubscription");
         a = new iy("", (byte) 11, (short) 1);
-        f61368b = new iy("", StandardMessageCodec.LIST, (short) 2);
-        f61369c = new iy("", (byte) 11, (short) 3);
-        f61370d = new iy("", (byte) 11, (short) 4);
-        f61371e = new iy("", (byte) 11, (short) 5);
-        f61372f = new iy("", (byte) 11, (short) 6);
-        f61373g = new iy("", (byte) 11, (short) 7);
-        f61374h = new iy("", (byte) 15, (short) 8);
+        f61413b = new iy("", StandardMessageCodec.LIST, (short) 2);
+        f61414c = new iy("", (byte) 11, (short) 3);
+        f61415d = new iy("", (byte) 11, (short) 4);
+        f61416e = new iy("", (byte) 11, (short) 5);
+        f61417f = new iy("", (byte) 11, (short) 6);
+        f61418g = new iy("", (byte) 11, (short) 7);
+        f61419h = new iy("", (byte) 15, (short) 8);
     }
 
     public in() {
@@ -378,37 +378,37 @@ public class in implements iq<in, Object>, Serializable, Cloneable {
                 jbVar.b();
             }
             if (this.f786a != null && b()) {
-                jbVar.a(f61368b);
+                jbVar.a(f61413b);
                 this.f786a.b(jbVar);
                 jbVar.b();
             }
             if (this.f789b != null) {
-                jbVar.a(f61369c);
+                jbVar.a(f61414c);
                 jbVar.a(this.f789b);
                 jbVar.b();
             }
             if (this.f790c != null) {
-                jbVar.a(f61370d);
+                jbVar.a(f61415d);
                 jbVar.a(this.f790c);
                 jbVar.b();
             }
             if (this.f791d != null) {
-                jbVar.a(f61371e);
+                jbVar.a(f61416e);
                 jbVar.a(this.f791d);
                 jbVar.b();
             }
             if (this.f792e != null && f()) {
-                jbVar.a(f61372f);
+                jbVar.a(f61417f);
                 jbVar.a(this.f792e);
                 jbVar.b();
             }
             if (this.f793f != null && g()) {
-                jbVar.a(f61373g);
+                jbVar.a(f61418g);
                 jbVar.a(this.f793f);
                 jbVar.b();
             }
             if (this.f788a != null && h()) {
-                jbVar.a(f61374h);
+                jbVar.a(f61419h);
                 jbVar.a(new iz((byte) 11, this.f788a.size()));
                 for (String str : this.f788a) {
                     jbVar.a(str);

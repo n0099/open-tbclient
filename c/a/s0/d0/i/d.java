@@ -16,7 +16,7 @@ public class d extends b {
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f12336b;
+    public int f12481b;
 
     public d() {
         Interceptable interceptable = $ic;
@@ -60,7 +60,7 @@ public class d extends b {
                 return null;
             }
             c.a.s0.c0.c.k().i(BitmapHelper.getBitmapSize(bitmap) * 2);
-            return BitmapHelper.resizeBitmap(bitmap, this.a, this.f12336b, z);
+            return BitmapHelper.resizeBitmap(bitmap, this.a, this.f12481b, z);
         }
         return (Bitmap) invokeLZ.objValue;
     }
@@ -69,7 +69,7 @@ public class d extends b {
     public Bitmap c(String str) throws Exception {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) ? b(BitmapHelper.loadResizedBitmap(str, this.a, this.f12336b), true) : (Bitmap) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) ? b(BitmapHelper.loadResizedBitmap(str, this.a, this.f12481b), true) : (Bitmap) invokeL.objValue;
     }
 
     @Override // c.a.s0.d0.i.b
@@ -83,13 +83,13 @@ public class d extends b {
             return;
         }
         this.a = c.a.d.f.m.b.e(split[0], 0);
-        this.f12336b = c.a.d.f.m.b.e(split[1], 0);
+        this.f12481b = c.a.d.f.m.b.e(split[1], 0);
     }
 
     public int e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f12336b : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f12481b : invokeV.intValue;
     }
 
     public int f() {

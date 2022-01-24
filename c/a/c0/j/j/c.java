@@ -41,7 +41,7 @@ public class c {
                         a = (IDownloadViewCreator) ServiceManager.getService(IDownloadViewCreator.a);
                     }
                     if (a == null) {
-                        a = IDownloadViewCreator.f37013b;
+                        a = IDownloadViewCreator.f37041b;
                     }
                 }
             }

@@ -11,16 +11,16 @@ public class u0 {
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f28459b;
+    public int f28487b;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f28460c;
+    public long f28488c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f28461d;
+    public String f28489d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f28462e;
+    public String f28490e;
 
     public u0() {
         Interceptable interceptable = $ic;

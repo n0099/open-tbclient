@@ -16,10 +16,10 @@ public final class g extends InputStream {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public InputStream f6792e;
+    public InputStream f6934e;
 
     /* renamed from: f  reason: collision with root package name */
-    public e f6793f;
+    public e f6935f;
 
     public g(@NonNull InputStream inputStream, @NonNull e eVar) {
         Interceptable interceptable = $ic;
@@ -36,15 +36,15 @@ public final class g extends InputStream {
                 return;
             }
         }
-        this.f6792e = inputStream;
-        this.f6793f = eVar;
+        this.f6934e = inputStream;
+        this.f6935f = eVar;
     }
 
     @Override // java.io.InputStream
     public int available() throws IOException {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f6792e.available() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f6934e.available() : invokeV.intValue;
     }
 
     @Override // java.io.InputStream, java.io.Closeable, java.lang.AutoCloseable
@@ -52,9 +52,9 @@ public final class g extends InputStream {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             super.close();
-            this.f6793f.c(this.f6792e);
-            this.f6793f.a();
-            c.a.r0.w.d.d(this.f6792e);
+            this.f6935f.c(this.f6934e);
+            this.f6935f.a();
+            c.a.r0.w.d.d(this.f6934e);
         }
     }
 
@@ -63,7 +63,7 @@ public final class g extends InputStream {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
             super.mark(i2);
-            this.f6792e.mark(i2);
+            this.f6934e.mark(i2);
         }
     }
 
@@ -71,7 +71,7 @@ public final class g extends InputStream {
     public boolean markSupported() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f6792e.markSupported() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f6934e.markSupported() : invokeV.booleanValue;
     }
 
     @Override // java.io.InputStream
@@ -79,8 +79,8 @@ public final class g extends InputStream {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, bArr)) == null) {
-            int read = this.f6792e.read(bArr);
-            this.f6793f.d(bArr, 0, read);
+            int read = this.f6934e.read(bArr);
+            this.f6935f.d(bArr, 0, read);
             return read;
         }
         return invokeL.intValue;
@@ -92,7 +92,7 @@ public final class g extends InputStream {
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             synchronized (this) {
                 super.reset();
-                this.f6792e.reset();
+                this.f6934e.reset();
             }
         }
     }
@@ -102,7 +102,7 @@ public final class g extends InputStream {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeJ = interceptable.invokeJ(InputDeviceCompat.SOURCE_TOUCHPAD, this, j2)) == null) {
-            this.f6792e.skip(j2);
+            this.f6934e.skip(j2);
             return super.skip(j2);
         }
         return invokeJ.longValue;
@@ -113,8 +113,8 @@ public final class g extends InputStream {
         InterceptResult invokeLII;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLII = interceptable.invokeLII(1048582, this, bArr, i2, i3)) == null) {
-            int read = this.f6792e.read(bArr, i2, i3);
-            this.f6793f.d(bArr, i2, read);
+            int read = this.f6934e.read(bArr, i2, i3);
+            this.f6935f.d(bArr, i2, read);
             return read;
         }
         return invokeLII.intValue;
@@ -124,6 +124,6 @@ public final class g extends InputStream {
     public int read() throws IOException {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f6792e.read() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f6934e.read() : invokeV.intValue;
     }
 }

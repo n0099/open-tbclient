@@ -60,7 +60,7 @@ public class a extends ProviderDelegation {
             }
             Bundle bundle = new Bundle();
             bundle.putInt("recovery_level", aVar.a);
-            bundle.putStringArrayList("recovery_app_list", aVar.f7782b);
+            bundle.putStringArrayList("recovery_app_list", aVar.f7924b);
             DelegateUtils.callOnMainWithContentProvider(AppRuntime.getAppContext(), a.class, bundle);
         }
     }
@@ -76,7 +76,7 @@ public class a extends ProviderDelegation {
                 c.a.r0.a.n0.j.f.a aVar = new c.a.r0.a.n0.j.f.a();
                 aVar.a = i2;
                 if (stringArrayList != null) {
-                    aVar.f7782b = stringArrayList;
+                    aVar.f7924b = stringArrayList;
                 }
                 b.a(aVar).b();
                 c.a.r0.a.n0.j.e.b.b().a(aVar.a);

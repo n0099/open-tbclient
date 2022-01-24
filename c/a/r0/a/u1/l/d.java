@@ -11,7 +11,7 @@ public class d {
     public static String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static long f9407b;
+    public static long f9549b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -32,7 +32,7 @@ public class d {
     public static long a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? f9407b : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? f9549b : invokeV.longValue;
     }
 
     public static String b() {
@@ -45,7 +45,7 @@ public class d {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65539, null, str) == null) {
             a = str;
-            f9407b = System.currentTimeMillis();
+            f9549b = System.currentTimeMillis();
         }
     }
 }

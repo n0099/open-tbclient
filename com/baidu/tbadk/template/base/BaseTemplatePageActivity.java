@@ -2,7 +2,7 @@ package com.baidu.tbadk.template.base;
 
 import android.os.Bundle;
 import android.view.ViewGroup;
-import c.a.s0.c1.a;
+import c.a.s0.b1.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;

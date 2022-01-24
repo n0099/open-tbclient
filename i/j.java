@@ -12,16 +12,16 @@ public abstract class j<T> implements e<T>, k {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final i.o.d.h f61808e;
+    public final i.o.d.h f61853e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final j<?> f61809f;
+    public final j<?> f61854f;
 
     /* renamed from: g  reason: collision with root package name */
-    public f f61810g;
+    public f f61855g;
 
     /* renamed from: h  reason: collision with root package name */
-    public long f61811h;
+    public long f61856h;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public j() {
@@ -45,23 +45,23 @@ public abstract class j<T> implements e<T>, k {
     public final void b(k kVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, kVar) == null) {
-            this.f61808e.a(kVar);
+            this.f61853e.a(kVar);
         }
     }
 
     public final void c(long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j2) == null) {
-            long j3 = this.f61811h;
+            long j3 = this.f61856h;
             if (j3 == Long.MIN_VALUE) {
-                this.f61811h = j2;
+                this.f61856h = j2;
                 return;
             }
             long j4 = j3 + j2;
             if (j4 < 0) {
-                this.f61811h = Long.MAX_VALUE;
+                this.f61856h = Long.MAX_VALUE;
             } else {
-                this.f61811h = j4;
+                this.f61856h = j4;
             }
         }
     }
@@ -77,8 +77,8 @@ public abstract class j<T> implements e<T>, k {
         if (interceptable == null || interceptable.invokeJ(1048579, this, j2) == null) {
             if (j2 >= 0) {
                 synchronized (this) {
-                    if (this.f61810g != null) {
-                        this.f61810g.request(j2);
+                    if (this.f61855g != null) {
+                        this.f61855g.request(j2);
                         return;
                     }
                     c(j2);
@@ -95,16 +95,16 @@ public abstract class j<T> implements e<T>, k {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, fVar) == null) {
             synchronized (this) {
-                j2 = this.f61811h;
-                this.f61810g = fVar;
-                z = this.f61809f != null && j2 == Long.MIN_VALUE;
+                j2 = this.f61856h;
+                this.f61855g = fVar;
+                z = this.f61854f != null && j2 == Long.MIN_VALUE;
             }
             if (z) {
-                this.f61809f.f(this.f61810g);
+                this.f61854f.f(this.f61855g);
             } else if (j2 == Long.MIN_VALUE) {
-                this.f61810g.request(Long.MAX_VALUE);
+                this.f61855g.request(Long.MAX_VALUE);
             } else {
-                this.f61810g.request(j2);
+                this.f61855g.request(j2);
             }
         }
     }
@@ -113,14 +113,14 @@ public abstract class j<T> implements e<T>, k {
     public final boolean isUnsubscribed() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f61808e.isUnsubscribed() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f61853e.isUnsubscribed() : invokeV.booleanValue;
     }
 
     @Override // i.k
     public final void unsubscribe() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            this.f61808e.unsubscribe();
+            this.f61853e.unsubscribe();
         }
     }
 
@@ -160,8 +160,8 @@ public abstract class j<T> implements e<T>, k {
                 return;
             }
         }
-        this.f61811h = Long.MIN_VALUE;
-        this.f61809f = jVar;
-        this.f61808e = (!z || jVar == null) ? new i.o.d.h() : jVar.f61808e;
+        this.f61856h = Long.MIN_VALUE;
+        this.f61854f = jVar;
+        this.f61853e = (!z || jVar == null) ? new i.o.d.h() : jVar.f61853e;
     }
 }

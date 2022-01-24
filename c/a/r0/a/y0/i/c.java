@@ -27,29 +27,29 @@ public final class c implements c.a.r0.a.y0.d {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final boolean f9638g;
+    public static final boolean f9780g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final int f9639h;
+    public static final int f9781h;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
     @Nullable
 
     /* renamed from: b  reason: collision with root package name */
-    public String f9640b;
+    public String f9782b;
     @Nullable
 
     /* renamed from: c  reason: collision with root package name */
-    public c.a.r0.a.h0.g.f f9641c;
+    public c.a.r0.a.h0.g.f f9783c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f9642d;
+    public int f9784d;
 
     /* renamed from: e  reason: collision with root package name */
-    public ShowConfirmBarLayout f9643e;
+    public ShowConfirmBarLayout f9785e;
 
     /* renamed from: f  reason: collision with root package name */
-    public f f9644f;
+    public f f9786f;
 
     /* loaded from: classes.dex */
     public class a implements Runnable {
@@ -57,19 +57,19 @@ public final class c implements c.a.r0.a.y0.d {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ int f9645e;
+        public final /* synthetic */ int f9787e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ int f9646f;
+        public final /* synthetic */ int f9788f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ int f9647g;
+        public final /* synthetic */ int f9789g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ int f9648h;
+        public final /* synthetic */ int f9790h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final /* synthetic */ c f9649i;
+        public final /* synthetic */ c f9791i;
 
         public a(c cVar, int i2, int i3, int i4, int i5) {
             Interceptable interceptable = $ic;
@@ -86,18 +86,18 @@ public final class c implements c.a.r0.a.y0.d {
                     return;
                 }
             }
-            this.f9649i = cVar;
-            this.f9645e = i2;
-            this.f9646f = i3;
-            this.f9647g = i4;
-            this.f9648h = i5;
+            this.f9791i = cVar;
+            this.f9787e = i2;
+            this.f9788f = i3;
+            this.f9789g = i4;
+            this.f9790h = i5;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f9649i.D0(this.f9645e, this.f9646f, this.f9647g, this.f9648h);
+                this.f9791i.D0(this.f9787e, this.f9788f, this.f9789g, this.f9790h);
             }
         }
     }
@@ -108,7 +108,7 @@ public final class c implements c.a.r0.a.y0.d {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c f9650e;
+        public final /* synthetic */ c f9792e;
 
         public b(c cVar) {
             Interceptable interceptable = $ic;
@@ -125,31 +125,31 @@ public final class c implements c.a.r0.a.y0.d {
                     return;
                 }
             }
-            this.f9650e = cVar;
+            this.f9792e = cVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f9650e.C0();
+                this.f9792e.C0();
             }
         }
     }
 
     /* renamed from: c.a.r0.a.y0.i.c$c  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public class RunnableC0627c implements Runnable {
+    public class RunnableC0636c implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ int f9651e;
+        public final /* synthetic */ int f9793e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ c f9652f;
+        public final /* synthetic */ c f9794f;
 
-        public RunnableC0627c(c cVar, int i2) {
+        public RunnableC0636c(c cVar, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -164,15 +164,15 @@ public final class c implements c.a.r0.a.y0.d {
                     return;
                 }
             }
-            this.f9652f = cVar;
-            this.f9651e = i2;
+            this.f9794f = cVar;
+            this.f9793e = i2;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f9652f.F0(this.f9651e);
+                this.f9794f.F0(this.f9793e);
             }
         }
     }
@@ -206,8 +206,8 @@ public final class c implements c.a.r0.a.y0.d {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
                 this.a.B0("onConfirmBtnClick", null);
-                if (this.a.f9644f != null) {
-                    this.a.f9644f.a();
+                if (this.a.f9786f != null) {
+                    this.a.f9786f.a();
                 }
             }
         }
@@ -219,7 +219,7 @@ public final class c implements c.a.r0.a.y0.d {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c f9653e;
+        public final /* synthetic */ c f9795e;
 
         public e(c cVar) {
             Interceptable interceptable = $ic;
@@ -236,14 +236,14 @@ public final class c implements c.a.r0.a.y0.d {
                     return;
                 }
             }
-            this.f9653e = cVar;
+            this.f9795e = cVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f9653e.w0();
+                this.f9795e.w0();
             }
         }
     }
@@ -266,8 +266,8 @@ public final class c implements c.a.r0.a.y0.d {
                 return;
             }
         }
-        f9638g = k.a;
-        f9639h = n0.g(38.0f);
+        f9780g = k.a;
+        f9781h = n0.g(38.0f);
     }
 
     public c(ZeusPluginFactory.Invoker invoker, String str) {
@@ -286,10 +286,10 @@ public final class c implements c.a.r0.a.y0.d {
             }
         }
         if (invoker != null) {
-            this.f9640b = (String) invoker.get("id");
+            this.f9782b = (String) invoker.get("id");
         }
         this.a = str;
-        this.f9641c = u0();
+        this.f9783c = u0();
     }
 
     @Override // c.a.r0.a.y0.d
@@ -307,13 +307,13 @@ public final class c implements c.a.r0.a.y0.d {
     public void A0(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
-            q0.a0(new RunnableC0627c(this, i2));
+            q0.a0(new RunnableC0636c(this, i2));
         }
     }
 
     public final void B0(String str, @Nullable String str2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2) == null) && f9638g) {
+        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2) == null) && f9780g) {
             String str3 = (" <<" + k0() + "-" + hashCode() + ">> \t") + " <<" + str + ">> ";
             if (TextUtils.isEmpty(str2)) {
                 return;
@@ -325,32 +325,32 @@ public final class c implements c.a.r0.a.y0.d {
     public final void C0() {
         c.a.r0.a.h0.g.f fVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (fVar = this.f9641c) == null || this.f9642d == 0) {
+        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (fVar = this.f9783c) == null || this.f9784d == 0) {
             return;
         }
-        this.f9642d = 0;
+        this.f9784d = 0;
         if (fVar.r3().getScrollY() > 0) {
-            this.f9641c.r3().setScrollY(0);
+            this.f9783c.r3().setScrollY(0);
         }
     }
 
     public final void D0(int i2, int i3, int i4, int i5) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIIII(1048580, this, i2, i3, i4, i5) == null) || this.f9641c == null) {
+        if (!(interceptable == null || interceptable.invokeIIII(1048580, this, i2, i3, i4, i5) == null) || this.f9783c == null) {
             return;
         }
         c.a.r0.a.p.e.c i6 = c.a.r0.a.g1.f.U().i();
-        if (this.f9642d == i4 || i6 == null) {
+        if (this.f9784d == i4 || i6 == null) {
             return;
         }
-        this.f9642d = i4;
-        int i7 = this.f9643e == null ? 0 : f9639h;
-        int height = ((this.f9641c.r3().getHeight() - i2) - i3) + i6.getWebViewScrollY();
+        this.f9784d = i4;
+        int i7 = this.f9785e == null ? 0 : f9781h;
+        int height = ((this.f9783c.r3().getHeight() - i2) - i3) + i6.getWebViewScrollY();
         if (height - i5 < i4) {
             if (i5 > height) {
-                this.f9641c.r3().setScrollY(i4 + i7);
+                this.f9783c.r3().setScrollY(i4 + i7);
             } else {
-                this.f9641c.r3().setScrollY((i4 - height) + i5 + i7);
+                this.f9783c.r3().setScrollY((i4 - height) + i5 + i7);
             }
         }
     }
@@ -358,7 +358,7 @@ public final class c implements c.a.r0.a.y0.d {
     public void E0(@NonNull f fVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, fVar) == null) {
-            this.f9644f = fVar;
+            this.f9786f = fVar;
         }
     }
 
@@ -370,13 +370,13 @@ public final class c implements c.a.r0.a.y0.d {
         }
         View decorView = v0.getWindow().getDecorView();
         FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, -2);
-        if (this.f9643e == null) {
+        if (this.f9785e == null) {
             ShowConfirmBarLayout showConfirmBarLayout = new ShowConfirmBarLayout(v0);
-            this.f9643e = showConfirmBarLayout;
+            this.f9785e = showConfirmBarLayout;
             showConfirmBarLayout.setOnConfirmButtonClickListener(new d(this));
             FrameLayout frameLayout = (FrameLayout) decorView.findViewById(16908290);
-            layoutParams.topMargin = (frameLayout.getHeight() - i2) - f9639h;
-            frameLayout.addView(this.f9643e, layoutParams);
+            layoutParams.topMargin = (frameLayout.getHeight() - i2) - f9781h;
+            frameLayout.addView(this.f9785e, layoutParams);
         }
     }
 
@@ -393,7 +393,7 @@ public final class c implements c.a.r0.a.y0.d {
     public String k0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f9640b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f9782b : (String) invokeV.objValue;
     }
 
     public void release() {
@@ -447,12 +447,12 @@ public final class c implements c.a.r0.a.y0.d {
             return;
         }
         View decorView = v0.getWindow().getDecorView();
-        ShowConfirmBarLayout showConfirmBarLayout = this.f9643e;
+        ShowConfirmBarLayout showConfirmBarLayout = this.f9785e;
         if (showConfirmBarLayout == null || showConfirmBarLayout.getVisibility() != 0) {
             return;
         }
-        ((FrameLayout) decorView.findViewById(16908290)).removeView(this.f9643e);
-        this.f9643e = null;
+        ((FrameLayout) decorView.findViewById(16908290)).removeView(this.f9785e);
+        this.f9785e = null;
     }
 
     public void x0() {

@@ -36,11 +36,11 @@ public class a {
 
     /* renamed from: c.a.r0.a.q2.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static class C0519a implements Comparator<c> {
+    public static class C0528a implements Comparator<c> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        public C0519a() {
+        public C0528a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -103,7 +103,7 @@ public class a {
         public long a;
 
         /* renamed from: b  reason: collision with root package name */
-        public long f8411b;
+        public long f8553b;
 
         public c(long j2, long j3) {
             Interceptable interceptable = $ic;
@@ -121,7 +121,7 @@ public class a {
                 }
             }
             this.a = j2;
-            this.f8411b = j3;
+            this.f8553b = j3;
         }
 
         public String a() {
@@ -131,7 +131,7 @@ public class a {
                 try {
                     JSONObject jSONObject = new JSONObject();
                     jSONObject.put("time", this.a);
-                    jSONObject.put("version", this.f8411b);
+                    jSONObject.put("version", this.f8553b);
                     return jSONObject.toString();
                 } catch (JSONException e2) {
                     if (k.a) {
@@ -157,13 +157,13 @@ public class a {
                     }
                     str = null;
                 }
-                return str + " ---> " + this.f8411b;
+                return str + " ---> " + this.f8553b;
             }
             return (String) invokeV.objValue;
         }
     }
 
-    public /* synthetic */ a(C0519a c0519a) {
+    public /* synthetic */ a(C0528a c0528a) {
         this();
     }
 
@@ -188,7 +188,7 @@ public class a {
     public static void h(List<c> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65541, null, list) == null) {
-            Collections.sort(list, new C0519a());
+            Collections.sort(list, new C0528a());
         }
     }
 
@@ -206,7 +206,7 @@ public class a {
                     break;
                 }
                 c next = it.next();
-                if (next != null && next.f8411b == j2) {
+                if (next != null && next.f8553b == j2) {
                     z = true;
                     break;
                 }
@@ -255,7 +255,7 @@ public class a {
             } else {
                 SwanCoreVersion M = f.U().M();
                 c cVar2 = f2.get(size - 1);
-                if (cVar2 != null && M != null && M.swanCoreVersionCode > cVar2.f8411b) {
+                if (cVar2 != null && M != null && M.swanCoreVersionCode > cVar2.f8553b) {
                     sb.append(StringUtils.LF);
                     sb.append(new c(System.currentTimeMillis(), M.swanCoreVersionCode).toString());
                 }

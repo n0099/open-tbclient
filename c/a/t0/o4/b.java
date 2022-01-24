@@ -17,10 +17,10 @@ public class b {
     public Fragment a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Activity f20900b;
+    public Activity f20363b;
 
     /* renamed from: c  reason: collision with root package name */
-    public a f20901c;
+    public a f20364c;
 
     public b() {
         Interceptable interceptable = $ic;
@@ -51,14 +51,14 @@ public class b {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeIIL(1048576, this, i2, i3, intent) == null) && i2 == 25069) {
             if (i3 == -1) {
-                a aVar = this.f20901c;
+                a aVar = this.f20364c;
                 if (aVar != null) {
                     aVar.a();
                     return;
                 }
                 return;
             }
-            a aVar2 = this.f20901c;
+            a aVar2 = this.f20364c;
             if (aVar2 != null) {
                 aVar2.b();
             }
@@ -68,7 +68,7 @@ public class b {
     public void b(a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
-            this.f20901c = aVar;
+            this.f20364c = aVar;
             Fragment fragment = this.a;
             if (fragment != null) {
                 Intent prepare = VpnService.prepare(fragment.getContext());
@@ -76,21 +76,21 @@ public class b {
                     this.a.startActivityForResult(prepare, 25069);
                     return;
                 }
-                a aVar2 = this.f20901c;
+                a aVar2 = this.f20364c;
                 if (aVar2 != null) {
                     aVar2.a();
                     return;
                 }
                 return;
             }
-            Activity activity = this.f20900b;
+            Activity activity = this.f20363b;
             if (activity != null) {
                 Intent prepare2 = VpnService.prepare(activity);
                 if (prepare2 != null) {
-                    this.f20900b.startActivityForResult(prepare2, 25069);
+                    this.f20363b.startActivityForResult(prepare2, 25069);
                     return;
                 }
-                a aVar3 = this.f20901c;
+                a aVar3 = this.f20364c;
                 if (aVar3 != null) {
                     aVar3.a();
                     return;

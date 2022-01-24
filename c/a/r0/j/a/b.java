@@ -35,18 +35,18 @@ public class b extends e {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (this.f7983h == null) {
-                this.f7983h = new JSONObject();
+            if (this.f8125h == null) {
+                this.f8125h = new JSONObject();
             }
             try {
-                this.f7983h.put("error_code", this.k);
+                this.f8125h.put("error_code", this.k);
             } catch (JSONException e2) {
-                if (e.f7976j) {
+                if (e.f8118j) {
                     e2.printStackTrace();
                 }
             }
-            if (e.f7976j) {
-                String str = "SwanGameAdEvent: mExt=" + this.f7983h + "\t " + Thread.currentThread().getId();
+            if (e.f8118j) {
+                String str = "SwanGameAdEvent: mExt=" + this.f8125h + "\t " + Thread.currentThread().getId();
             }
             return super.f();
         }

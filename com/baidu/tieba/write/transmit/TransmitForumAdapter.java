@@ -7,7 +7,7 @@ import android.view.ViewGroup;
 import android.widget.CheckBox;
 import android.widget.TextView;
 import c.a.d.n.e.n;
-import c.a.d.n.e.w;
+import c.a.d.n.e.v;
 import c.a.t0.p4.d;
 import c.a.t0.p4.f;
 import c.a.t0.p4.g;
@@ -27,7 +27,7 @@ public class TransmitForumAdapter extends c.a.d.n.e.a<TransmitForumData, Transmi
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public c.a.t0.p4.a0.a m;
-    public w n;
+    public v n;
 
     /* loaded from: classes13.dex */
     public static class TransmitForumViewHolder extends TypeAdapter.ViewHolder {
@@ -62,12 +62,12 @@ public class TransmitForumAdapter extends c.a.d.n.e.a<TransmitForumData, Transmi
     }
 
     /* loaded from: classes13.dex */
-    public class a implements w {
+    public class a implements v {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ TransmitForumAdapter f49654e;
+        public final /* synthetic */ TransmitForumAdapter f49673e;
 
         public a(TransmitForumAdapter transmitForumAdapter) {
             Interceptable interceptable = $ic;
@@ -84,24 +84,24 @@ public class TransmitForumAdapter extends c.a.d.n.e.a<TransmitForumData, Transmi
                     return;
                 }
             }
-            this.f49654e = transmitForumAdapter;
+            this.f49673e = transmitForumAdapter;
         }
 
-        @Override // c.a.d.n.e.w
+        @Override // c.a.d.n.e.v
         public void b(View view, n nVar, BdUniqueId bdUniqueId, ViewGroup viewGroup, int i2, long j2) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view, nVar, bdUniqueId, viewGroup, Integer.valueOf(i2), Long.valueOf(j2)}) == null) && (nVar instanceof TransmitForumData)) {
                 CheckBox checkBox = (CheckBox) view.findViewById(g.transmit_check_box);
                 boolean isChecked = checkBox.isChecked();
-                boolean c2 = this.f49654e.m != null ? this.f49654e.m.c() : false;
+                boolean c2 = this.f49673e.m != null ? this.f49673e.m.c() : false;
                 if (!isChecked && c2) {
-                    this.f49654e.m.b();
+                    this.f49673e.m.b();
                 }
                 if (isChecked || !c2) {
                     checkBox.setChecked(!checkBox.isChecked());
                     ((TransmitForumData) nVar).checked = checkBox.isChecked();
-                    if (this.f49654e.m != null) {
-                        this.f49654e.m.a();
+                    if (this.f49673e.m != null) {
+                        this.f49673e.m.a();
                     }
                 }
             }
@@ -145,7 +145,7 @@ public class TransmitForumAdapter extends c.a.d.n.e.a<TransmitForumData, Transmi
     public TransmitForumViewHolder M(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) ? new TransmitForumViewHolder(LayoutInflater.from(this.f3258e).inflate(h.transmit_forum_layout, (ViewGroup) null)) : (TransmitForumViewHolder) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) ? new TransmitForumViewHolder(LayoutInflater.from(this.f3360e).inflate(h.transmit_forum_layout, (ViewGroup) null)) : (TransmitForumViewHolder) invokeL.objValue;
     }
 
     public View b0(int i2, View view, ViewGroup viewGroup, TransmitForumData transmitForumData, TransmitForumViewHolder transmitForumViewHolder) {

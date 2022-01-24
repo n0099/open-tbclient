@@ -25,7 +25,7 @@ public class BaseVM {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f37881b;
+    public static String f37909b;
     public transient /* synthetic */ FieldHolder $fh;
     public final g a;
 
@@ -237,14 +237,14 @@ public class BaseVM {
     public static void o() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65542, null) == null) {
-            f37881b = "";
+            f37909b = "";
         }
     }
 
     public static void p(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65543, null, str) == null) {
-            f37881b = str;
+            f37909b = str;
         }
     }
 
@@ -273,7 +273,7 @@ public class BaseVM {
     public void d(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            ClogBuilder m = new ClogBuilder().r(ClogBuilder.LogType.CLICK).p(ClogBuilder.Page.NA_SPLASH).m(this.a.f3783d);
+            ClogBuilder m = new ClogBuilder().r(ClogBuilder.LogType.CLICK).p(ClogBuilder.Page.NA_SPLASH).m(this.a.f3924d);
             if (!TextUtils.isEmpty(str)) {
                 m.j(str);
             }
@@ -284,7 +284,7 @@ public class BaseVM {
     public void e(String str, long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLJ(1048580, this, str, j2) == null) {
-            a.b(new ClogBuilder().r(ClogBuilder.LogType.CLOSE).p(ClogBuilder.Page.NA_SPLASH).m(this.a.f3783d).i(String.valueOf(j2)).h(c.a.c0.h.a.b().getResources().getConfiguration().orientation == 1 ? "1" : "0").j(str));
+            a.b(new ClogBuilder().r(ClogBuilder.LogType.CLOSE).p(ClogBuilder.Page.NA_SPLASH).m(this.a.f3924d).i(String.valueOf(j2)).h(c.a.c0.h.a.b().getResources().getConfiguration().orientation == 1 ? "1" : "0").j(str));
         }
     }
 
@@ -293,14 +293,14 @@ public class BaseVM {
         if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
             ClogBuilder p = new ClogBuilder().r(ClogBuilder.LogType.DISCARD).p(ClogBuilder.Page.NA_SPLASH);
             g gVar = this.a;
-            a.b(p.m(gVar == null ? "" : gVar.f3783d).h("10").j(str));
+            a.b(p.m(gVar == null ? "" : gVar.f3924d).h("10").j(str));
         }
     }
 
     public void j(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, jSONObject) == null) {
-            ClogBuilder m = new ClogBuilder().r(ClogBuilder.LogType.SHOW).p(ClogBuilder.Page.NA_SPLASH).m(this.a.f3783d);
+            ClogBuilder m = new ClogBuilder().r(ClogBuilder.LogType.SHOW).p(ClogBuilder.Page.NA_SPLASH).m(this.a.f3924d);
             if (jSONObject != null) {
                 if (jSONObject.has("adRenderCostTime")) {
                     m.i(jSONObject.optString("adRenderCostTime"));
@@ -332,7 +332,7 @@ public class BaseVM {
             try {
                 String optString = new JSONObject(str).optString("url");
                 if (!TextUtils.isEmpty(optString)) {
-                    c.a.c0.a0.b.a.a(new c.a.c0.a0.b.b(ClogBuilder.LogType.CLICK, optString.replace("__GESTURE__", String.valueOf(f37881b)), b.a, a(optString)));
+                    c.a.c0.a0.b.a.a(new c.a.c0.a0.b.b(ClogBuilder.LogType.CLICK, optString.replace("__GESTURE__", String.valueOf(f37909b)), b.a, a(optString)));
                 }
             } catch (JSONException e2) {
                 e2.printStackTrace();

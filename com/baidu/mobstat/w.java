@@ -15,10 +15,10 @@ public class w implements a {
     public z a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Object f36909b;
+    public Object f36937b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Class<?> f36910c;
+    public Class<?> f36938c;
 
     public w(Object obj) {
         Interceptable interceptable = $ic;
@@ -38,8 +38,8 @@ public class w implements a {
         this.a = z.a;
         if (obj != null) {
             if ("com.baidu.bottom.remote.BPStretegyController2".equals(obj.getClass().getName())) {
-                this.f36909b = obj;
-                this.f36910c = obj.getClass();
+                this.f36937b = obj;
+                this.f36938c = obj.getClass();
                 return;
             }
             throw new IllegalArgumentException("class isn't com.baidu.bottom.remote.BPStretegyController2");
@@ -132,6 +132,6 @@ public class w implements a {
     private <T> T a(Object[] objArr, String str, Class<?>[] clsArr) throws Exception {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, this, objArr, str, clsArr)) == null) ? (T) this.f36910c.getMethod(str, clsArr).invoke(this.f36909b, objArr) : (T) invokeLLL.objValue;
+        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, this, objArr, str, clsArr)) == null) ? (T) this.f36938c.getMethod(str, clsArr).invoke(this.f36937b, objArr) : (T) invokeLLL.objValue;
     }
 }

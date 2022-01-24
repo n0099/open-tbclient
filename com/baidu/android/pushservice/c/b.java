@@ -11,31 +11,31 @@ public class b {
     public long a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f31762b;
+    public long f31790b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f31763c;
+    public String f31791c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f31764d;
+    public String f31792d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f31765e;
+    public String f31793e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f31766f;
+    public String f31794f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f31767g;
+    public String f31795g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f31768h;
+    public String f31796h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f31769i;
+    public String f31797i;
 
     /* renamed from: j  reason: collision with root package name */
-    public String f31770j;
+    public String f31798j;
 
     public b() {
         Interceptable interceptable = $ic;
@@ -51,14 +51,14 @@ public class b {
             }
         }
         this.a = 0L;
-        this.f31762b = 0L;
-        this.f31763c = "";
-        this.f31764d = "";
-        this.f31765e = "";
-        this.f31766f = "";
-        this.f31767g = "";
-        this.f31768h = "";
-        this.f31769i = "";
-        this.f31770j = "";
+        this.f31790b = 0L;
+        this.f31791c = "";
+        this.f31792d = "";
+        this.f31793e = "";
+        this.f31794f = "";
+        this.f31795g = "";
+        this.f31796h = "";
+        this.f31797i = "";
+        this.f31798j = "";
     }
 }

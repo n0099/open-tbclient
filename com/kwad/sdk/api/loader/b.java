@@ -2,7 +2,6 @@ package com.kwad.sdk.api.loader;
 
 import android.content.Context;
 import android.text.TextUtils;
-import com.baidu.android.imsdk.retrieve.Constants;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -72,7 +71,7 @@ public class b {
                     ZipEntry nextElement = entries.nextElement();
                     if (!nextElement.isDirectory()) {
                         String name = nextElement.getName();
-                        if (!TextUtils.isEmpty(name) && !name.contains(Constants.PATH_PARENT) && name.endsWith(".so") && name.startsWith(str3)) {
+                        if (!TextUtils.isEmpty(name) && !name.contains("../") && name.endsWith(".so") && name.startsWith(str3)) {
                             b(zipFile2.getInputStream(nextElement), new FileOutputStream(new File(str2, name.substring(str3.length()))));
                         }
                     }

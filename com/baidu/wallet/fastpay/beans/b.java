@@ -21,7 +21,7 @@ public class b extends BaseBean<WalletChargeResultBannerResponse> {
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f51003b;
+    public boolean f51048b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public b(Context context) {
@@ -64,7 +64,7 @@ public class b extends BaseBean<WalletChargeResultBannerResponse> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             ArrayList arrayList = new ArrayList();
-            arrayList.add(new RestNameValuePair("subBizType", this.f51003b ? "1003003" : "1003002"));
+            arrayList.add(new RestNameValuePair("subBizType", this.f51048b ? "1003003" : "1003002"));
             arrayList.add(new RestNameValuePair("returnType", "2"));
             arrayList.add(new RestNameValuePair("orderNo", this.a));
             arrayList.add(new RestNameValuePair("ua", "WAP"));
@@ -93,7 +93,7 @@ public class b extends BaseBean<WalletChargeResultBannerResponse> {
     public void a(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
-            this.f51003b = z;
+            this.f51048b = z;
         }
     }
 }

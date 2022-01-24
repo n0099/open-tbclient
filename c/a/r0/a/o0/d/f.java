@@ -13,19 +13,19 @@ public class f extends b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f8036c;
+    public String f8178c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f8037d;
+    public String f8179d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f8038e;
+    public String f8180e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f8039f;
+    public String f8181f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f8040g;
+    public String f8182g;
 
     public f() {
         Interceptable interceptable = $ic;
@@ -47,16 +47,16 @@ public class f extends b {
     public void m(Map<String, Object> map) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, map) == null) {
-            map.put("fromId", this.f8036c);
-            map.put("toId", this.f8037d);
-            map.put("toTabIndex", this.f8040g);
-            if (!TextUtils.isEmpty(this.f8038e)) {
-                map.put("routeType", this.f8038e);
+            map.put("fromId", this.f8178c);
+            map.put("toId", this.f8179d);
+            map.put("toTabIndex", this.f8182g);
+            if (!TextUtils.isEmpty(this.f8180e)) {
+                map.put("routeType", this.f8180e);
             }
-            if (TextUtils.isEmpty(this.f8039f)) {
+            if (TextUtils.isEmpty(this.f8181f)) {
                 return;
             }
-            map.put("toPage", this.f8039f);
+            map.put("toPage", this.f8181f);
         }
     }
 }

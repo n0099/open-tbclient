@@ -15,11 +15,11 @@ public class a {
 
     /* renamed from: c.a.n.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static class C0216a extends d {
+    public static class C0225a extends e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        public C0216a() {
+        public C0225a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -35,23 +35,23 @@ public class a {
     }
 
     @Inject(force = false)
-    public static c a() {
+    public static d a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) ? c.a.t0.p3.f.a() : (c) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) ? c.a.t0.q3.f.a() : (d) invokeV.objValue;
     }
 
     @Inject(force = false)
-    public static d b() {
+    public static e b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? new C0216a() : (d) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? new C0225a() : (e) invokeV.objValue;
     }
 
     @Inject(force = false)
-    public static e c() {
+    public static f c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? c.a.t0.p3.h.a() : (e) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? c.a.t0.q3.h.a() : (f) invokeV.objValue;
     }
 }

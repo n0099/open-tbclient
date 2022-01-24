@@ -27,38 +27,38 @@ public class a {
     public TbPageContext<WriteActivity> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public RelativeLayout f21189b;
+    public RelativeLayout f21425b;
 
     /* renamed from: c  reason: collision with root package name */
-    public VoteView f21190c;
+    public VoteView f21426c;
 
     /* renamed from: d  reason: collision with root package name */
-    public WriteVoteData f21191d;
+    public WriteVoteData f21427d;
 
     /* renamed from: c.a.t0.p4.e0.o.a$a  reason: collision with other inner class name */
     /* loaded from: classes8.dex */
-    public class View$OnClickListenerC1324a implements View.OnClickListener {
+    public class View$OnClickListenerC1335a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f21192e;
+        public final /* synthetic */ a f21428e;
 
         /* renamed from: c.a.t0.p4.e0.o.a$a$a  reason: collision with other inner class name */
         /* loaded from: classes8.dex */
-        public class C1325a implements a.e {
+        public class C1336a implements a.e {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ View$OnClickListenerC1324a f21193e;
+            public final /* synthetic */ View$OnClickListenerC1335a f21429e;
 
-            public C1325a(View$OnClickListenerC1324a view$OnClickListenerC1324a) {
+            public C1336a(View$OnClickListenerC1335a view$OnClickListenerC1335a) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     newInitContext.initArgs = r2;
-                    Object[] objArr = {view$OnClickListenerC1324a};
+                    Object[] objArr = {view$OnClickListenerC1335a};
                     interceptable.invokeUnInit(65536, newInitContext);
                     int i2 = newInitContext.flag;
                     if ((i2 & 1) != 0) {
@@ -68,15 +68,15 @@ public class a {
                         return;
                     }
                 }
-                this.f21193e = view$OnClickListenerC1324a;
+                this.f21429e = view$OnClickListenerC1335a;
             }
 
             @Override // c.a.s0.s.s.a.e
             public void onClick(c.a.s0.s.s.a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
-                    this.f21193e.f21192e.f21191d = null;
-                    this.f21193e.f21192e.h(false);
+                    this.f21429e.f21428e.f21427d = null;
+                    this.f21429e.f21428e.h(false);
                     aVar.dismiss();
                 }
             }
@@ -88,12 +88,12 @@ public class a {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
-            public b(View$OnClickListenerC1324a view$OnClickListenerC1324a) {
+            public b(View$OnClickListenerC1335a view$OnClickListenerC1335a) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     newInitContext.initArgs = r2;
-                    Object[] objArr = {view$OnClickListenerC1324a};
+                    Object[] objArr = {view$OnClickListenerC1335a};
                     interceptable.invokeUnInit(65536, newInitContext);
                     int i2 = newInitContext.flag;
                     if ((i2 & 1) != 0) {
@@ -113,7 +113,7 @@ public class a {
             }
         }
 
-        public View$OnClickListenerC1324a(a aVar) {
+        public View$OnClickListenerC1335a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -128,21 +128,21 @@ public class a {
                     return;
                 }
             }
-            this.f21192e = aVar;
+            this.f21428e = aVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                c.a.s0.s.s.a aVar = new c.a.s0.s.s.a(this.f21192e.a.getPageActivity());
-                aVar.setTitle(this.f21192e.a.getString(j.vote_delete_dialog_title));
+                c.a.s0.s.s.a aVar = new c.a.s0.s.s.a(this.f21428e.a.getPageActivity());
+                aVar.setTitle(this.f21428e.a.getString(j.vote_delete_dialog_title));
                 aVar.setTitleShowCenter(true);
-                aVar.setMessage(this.f21192e.a.getString(j.vote_delete_dialog_message));
+                aVar.setMessage(this.f21428e.a.getString(j.vote_delete_dialog_message));
                 aVar.setMessageShowCenter(true);
-                aVar.setPositiveButton(j.delete, new C1325a(this));
+                aVar.setPositiveButton(j.delete, new C1336a(this));
                 aVar.setNegativeButton(j.cancel, new b(this));
-                aVar.create(this.f21192e.a).show();
+                aVar.create(this.f21428e.a).show();
             }
         }
     }
@@ -163,33 +163,33 @@ public class a {
             }
         }
         this.a = tbPageContext;
-        this.f21189b = relativeLayout;
+        this.f21425b = relativeLayout;
         VoteView voteView = new VoteView(this.a.getPageActivity());
-        this.f21190c = voteView;
+        this.f21426c = voteView;
         voteView.setPageContext(this.a);
-        this.f21190c.setDeleteOnClickListener(new View$OnClickListenerC1324a(this));
-        this.f21190c.setVoteViewDeleteVisibility(0);
-        this.f21189b.addView(this.f21190c);
+        this.f21426c.setDeleteOnClickListener(new View$OnClickListenerC1335a(this));
+        this.f21426c.setVoteViewDeleteVisibility(0);
+        this.f21425b.addView(this.f21426c);
         h(false);
     }
 
     public WriteVoteData c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f21191d : (WriteVoteData) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f21427d : (WriteVoteData) invokeV.objValue;
     }
 
     public void d(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
-            this.f21190c.onChangeSkinType(i2);
+            this.f21426c.onChangeSkinType(i2);
         }
     }
 
     public void e(View.OnClickListener onClickListener) {
         VoteView voteView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, onClickListener) == null) || (voteView = this.f21190c) == null || onClickListener == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, onClickListener) == null) || (voteView = this.f21426c) == null || onClickListener == null) {
             return;
         }
         voteView.setOnItemClickListener(onClickListener);
@@ -198,7 +198,7 @@ public class a {
     public void f(View.OnClickListener onClickListener) {
         VoteView voteView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, onClickListener) == null) || (voteView = this.f21190c) == null || onClickListener == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048579, this, onClickListener) == null) || (voteView = this.f21426c) == null || onClickListener == null) {
             return;
         }
         voteView.setOnClickListener(onClickListener);
@@ -210,12 +210,12 @@ public class a {
         int i2;
         String str;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, writeVoteData) == null) || writeVoteData == null || (voteView = this.f21190c) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048580, this, writeVoteData) == null) || writeVoteData == null || (voteView = this.f21426c) == null) {
             return;
         }
-        this.f21191d = writeVoteData;
+        this.f21427d = writeVoteData;
         voteView.setVoteTitle(writeVoteData.getTitle());
-        if (this.f21191d.getIs_multi() == 1) {
+        if (this.f21427d.getIs_multi() == 1) {
             tbPageContext = this.a;
             i2 = j.vote_type_multiple;
         } else {
@@ -223,7 +223,7 @@ public class a {
             i2 = j.vote_type_single;
         }
         String string = tbPageContext.getString(i2);
-        int expire_type = this.f21191d.getExpire_type();
+        int expire_type = this.f21427d.getExpire_type();
         if (expire_type > 0) {
             Calendar calendar = Calendar.getInstance();
             calendar.add(6, expire_type);
@@ -232,13 +232,13 @@ public class a {
             str = "";
         }
         if (StringUtils.isNull(str)) {
-            this.f21190c.setVoteSubContent(string);
+            this.f21426c.setVoteSubContent(string);
         } else {
-            VoteView voteView2 = this.f21190c;
+            VoteView voteView2 = this.f21426c;
             voteView2.setVoteSubContent(string + " · " + str);
         }
         ArrayList arrayList = new ArrayList();
-        for (WriteVoteItemData writeVoteItemData : this.f21191d.getOptions()) {
+        for (WriteVoteItemData writeVoteItemData : this.f21427d.getOptions()) {
             PollOptionData pollOptionData = new PollOptionData();
             pollOptionData.setId(writeVoteItemData.getId());
             pollOptionData.setText(writeVoteItemData.getText());
@@ -248,17 +248,18 @@ public class a {
             return;
         }
         if (arrayList.size() > 3) {
-            this.f21190c.setData(arrayList.subList(0, 3));
+            this.f21426c.setData(arrayList.subList(0, 3));
         } else {
-            this.f21190c.setData(arrayList);
+            this.f21426c.setData(arrayList);
         }
     }
 
     public void h(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
-            this.f21189b.setVisibility(z ? 0 : 8);
+            this.f21425b.setVisibility(z ? 0 : 8);
             this.a.getOrignalPage().changeToolButtonStatus();
+            this.a.getOrignalPage().upDateVoteInfo(this.f21427d);
         }
     }
 }

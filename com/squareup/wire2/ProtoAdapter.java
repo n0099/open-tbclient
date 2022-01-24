@@ -22,7 +22,7 @@ import okio.BufferedSink;
 import okio.BufferedSource;
 import okio.ByteString;
 import okio.Okio;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public abstract class ProtoAdapter<E> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final ProtoAdapter<Boolean> BOOL;
@@ -49,7 +49,7 @@ public abstract class ProtoAdapter<E> {
     public ProtoAdapter<List<E>> packedAdapter;
     public ProtoAdapter<List<E>> repeatedAdapter;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static final class EnumConstantNotFoundException extends IllegalArgumentException {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -77,7 +77,7 @@ public abstract class ProtoAdapter<E> {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class a extends ProtoAdapter<Float> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -135,7 +135,7 @@ public abstract class ProtoAdapter<E> {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class b extends ProtoAdapter<Double> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -193,7 +193,7 @@ public abstract class ProtoAdapter<E> {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class c extends ProtoAdapter<String> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -248,7 +248,7 @@ public abstract class ProtoAdapter<E> {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class d extends ProtoAdapter<ByteString> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -303,7 +303,7 @@ public abstract class ProtoAdapter<E> {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class e extends ProtoAdapter<List<E>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -406,7 +406,7 @@ public abstract class ProtoAdapter<E> {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class f extends ProtoAdapter<List<E>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -511,7 +511,7 @@ public abstract class ProtoAdapter<E> {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class g extends ProtoAdapter<Boolean> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -579,7 +579,7 @@ public abstract class ProtoAdapter<E> {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class h extends ProtoAdapter<Integer> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -634,7 +634,7 @@ public abstract class ProtoAdapter<E> {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class i extends ProtoAdapter<Integer> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -689,7 +689,7 @@ public abstract class ProtoAdapter<E> {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class j extends ProtoAdapter<Integer> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -744,7 +744,7 @@ public abstract class ProtoAdapter<E> {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class k extends ProtoAdapter<Integer> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -802,7 +802,7 @@ public abstract class ProtoAdapter<E> {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class l extends ProtoAdapter<Long> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -857,7 +857,7 @@ public abstract class ProtoAdapter<E> {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class m extends ProtoAdapter<Long> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -912,7 +912,7 @@ public abstract class ProtoAdapter<E> {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class n extends ProtoAdapter<Long> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -967,7 +967,7 @@ public abstract class ProtoAdapter<E> {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class o extends ProtoAdapter<Long> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -1025,14 +1025,14 @@ public abstract class ProtoAdapter<E> {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static final class p<K, V> extends ProtoAdapter<Map.Entry<K, V>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final ProtoAdapter<K> a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final ProtoAdapter<V> f59293b;
+        public final ProtoAdapter<V> f59338b;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public p(ProtoAdapter<K> protoAdapter, ProtoAdapter<V> protoAdapter2) {
@@ -1054,7 +1054,7 @@ public abstract class ProtoAdapter<E> {
                 }
             }
             this.a = protoAdapter;
-            this.f59293b = protoAdapter2;
+            this.f59338b = protoAdapter2;
         }
 
         public Map.Entry<K, V> a(c.n.a.c cVar) {
@@ -1073,7 +1073,7 @@ public abstract class ProtoAdapter<E> {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dVar, entry) == null) {
                 this.a.encodeWithTag(dVar, 1, entry.getKey());
-                this.f59293b.encodeWithTag(dVar, 2, entry.getValue());
+                this.f59338b.encodeWithTag(dVar, 2, entry.getValue());
             }
         }
 
@@ -1083,7 +1083,7 @@ public abstract class ProtoAdapter<E> {
         public int encodedSize(Map.Entry<K, V> entry) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, entry)) == null) ? this.a.encodedSizeWithTag(1, entry.getKey()) + this.f59293b.encodedSizeWithTag(2, entry.getValue()) : invokeL.intValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, entry)) == null) ? this.a.encodedSizeWithTag(1, entry.getKey()) + this.f59338b.encodedSizeWithTag(2, entry.getValue()) : invokeL.intValue;
         }
 
         @Override // com.squareup.wire2.ProtoAdapter
@@ -1093,7 +1093,7 @@ public abstract class ProtoAdapter<E> {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static final class q<K, V> extends ProtoAdapter<Map<K, V>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -1138,7 +1138,7 @@ public abstract class ProtoAdapter<E> {
                     } else if (f2 == 1) {
                         k = this.a.a.decode(cVar);
                     } else if (f2 == 2) {
-                        v = this.a.f59293b.decode(cVar);
+                        v = this.a.f59338b.decode(cVar);
                     }
                 }
                 cVar.d(c2);

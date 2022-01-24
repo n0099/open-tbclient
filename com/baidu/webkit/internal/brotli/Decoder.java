@@ -49,19 +49,19 @@ public class Decoder implements INoProGuard {
             int[] iArr = new int[DecoderJNI.a.values().length];
             a = iArr;
             try {
-                iArr[DecoderJNI.a.f52766b.ordinal()] = 1;
+                iArr[DecoderJNI.a.f52811b.ordinal()] = 1;
             } catch (NoSuchFieldError unused) {
             }
             try {
-                a[DecoderJNI.a.f52769e.ordinal()] = 2;
+                a[DecoderJNI.a.f52814e.ordinal()] = 2;
             } catch (NoSuchFieldError unused2) {
             }
             try {
-                a[DecoderJNI.a.f52767c.ordinal()] = 3;
+                a[DecoderJNI.a.f52812c.ordinal()] = 3;
             } catch (NoSuchFieldError unused3) {
             }
             try {
-                a[DecoderJNI.a.f52768d.ordinal()] = 4;
+                a[DecoderJNI.a.f52813d.ordinal()] = 4;
             } catch (NoSuchFieldError unused4) {
             }
         }
@@ -118,7 +118,7 @@ public class Decoder implements INoProGuard {
                 wrapper.getInputBuffer().put(bArr);
                 wrapper.push(bArr.length);
                 int i2 = 0;
-                while (wrapper.getStatus() != DecoderJNI.a.f52766b) {
+                while (wrapper.getStatus() != DecoderJNI.a.f52811b) {
                     int i3 = AnonymousClass1.a[wrapper.getStatus().ordinal()];
                     if (i3 == 2) {
                         wrapper.push(0);

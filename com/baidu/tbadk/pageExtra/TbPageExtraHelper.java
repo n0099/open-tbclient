@@ -38,7 +38,7 @@ public class TbPageExtraHelper {
     public static String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static HashMap<String, String> f41072b;
+    public static HashMap<String, String> f41100b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes11.dex */
@@ -47,7 +47,7 @@ public class TbPageExtraHelper {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f41073e;
+        public final /* synthetic */ String f41101e;
 
         public a(String str) {
             Interceptable interceptable = $ic;
@@ -64,14 +64,14 @@ public class TbPageExtraHelper {
                     return;
                 }
             }
-            this.f41073e = str;
+            this.f41101e = str;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                String unused = TbPageExtraHelper.a = (String) TbPageExtraHelper.f41072b.get(this.f41073e);
+                String unused = TbPageExtraHelper.a = (String) TbPageExtraHelper.f41100b.get(this.f41101e);
             }
         }
     }
@@ -89,7 +89,7 @@ public class TbPageExtraHelper {
                 return;
             }
         }
-        f41072b = new HashMap<String, String>() { // from class: com.baidu.tbadk.pageExtra.TbPageExtraHelper.1
+        f41100b = new HashMap<String, String>() { // from class: com.baidu.tbadk.pageExtra.TbPageExtraHelper.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -342,7 +342,7 @@ public class TbPageExtraHelper {
     public static boolean p(@NonNull String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65552, null, str)) == null) ? f41072b.get(str) == "a028" : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65552, null, str)) == null) ? f41100b.get(str) == "a028" : invokeL.booleanValue;
     }
 
     public static final void q(FragmentManager fragmentManager) {
@@ -420,7 +420,7 @@ public class TbPageExtraHelper {
 
     public static void w(String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65559, null, str) == null) && !StringUtil.isEmpty(str) && f41072b.containsKey(str)) {
+        if ((interceptable == null || interceptable.invokeL(65559, null, str) == null) && !StringUtil.isEmpty(str) && f41100b.containsKey(str)) {
             e.a().postDelayed(new a(str), 100L);
         }
     }

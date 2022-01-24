@@ -8,22 +8,22 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class g implements c.a.t0.p1.b.c {
+public class g implements c.a.t0.q1.b.c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f17788b;
+    public String f17610b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f17789c;
+    public String f17611c;
 
     /* renamed from: d  reason: collision with root package name */
-    public long f17790d;
+    public long f17612d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f17791e;
+    public boolean f17613e;
 
     public g() {
         Interceptable interceptable = $ic;
@@ -46,9 +46,9 @@ public class g implements c.a.t0.p1.b.c {
             if (this == obj) {
                 return true;
             }
-            if (obj instanceof c.a.s0.g1.g.a) {
-                c.a.s0.g1.g.a aVar = (c.a.s0.g1.g.a) obj;
-                return aVar.f12578d == this.f17790d && aVar.f12577c.equals(this.f17789c) && aVar.f12576b.equals(this.f17788b) && aVar.f12579e == this.f17791e && aVar.a == this.a;
+            if (obj instanceof c.a.s0.f1.g.a) {
+                c.a.s0.f1.g.a aVar = (c.a.s0.f1.g.a) obj;
+                return aVar.f12689d == this.f17612d && aVar.f12688c.equals(this.f17611c) && aVar.f12687b.equals(this.f17610b) && aVar.f12690e == this.f17613e && aVar.a == this.a;
             }
             return false;
         }
@@ -59,7 +59,7 @@ public class g implements c.a.t0.p1.b.c {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return "[HotForumInfoData:rank=" + this.a + ",forumAvatar=" + this.f17788b + ",forumName=" + this.f17789c + ",forumId=" + this.f17790d + ",isLiked=" + this.f17791e + "," + PreferencesUtil.RIGHT_MOUNT;
+            return "[HotForumInfoData:rank=" + this.a + ",forumAvatar=" + this.f17610b + ",forumName=" + this.f17611c + ",forumId=" + this.f17612d + ",isLiked=" + this.f17613e + "," + PreferencesUtil.RIGHT_MOUNT;
         }
         return (String) invokeV.objValue;
     }

@@ -34,7 +34,7 @@ public class Info implements Serializable {
     public String events;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f60833h;
+    public int f60878h;
     public boolean ho_c_sw;
     public String icon;
     public String id;
@@ -182,7 +182,7 @@ public class Info implements Serializable {
     public int getH() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.f60833h : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.f60878h : invokeV.intValue;
     }
 
     public String getIcon() {
@@ -488,7 +488,7 @@ public class Info implements Serializable {
     public void setH(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048637, this, i2) == null) {
-            this.f60833h = i2;
+            this.f60878h = i2;
         }
     }
 

@@ -65,7 +65,7 @@ public class d extends c.a.r0.a.m1.d.a {
                 return false;
             }
             boolean optBoolean = d2.optBoolean("is_opti");
-            if (c.a.r0.a.m1.d.a.f7685c) {
+            if (c.a.r0.a.m1.d.a.f7827c) {
                 String str = "is opt pkg  - " + optBoolean;
             }
             return optBoolean;
@@ -85,7 +85,7 @@ public class d extends c.a.r0.a.m1.d.a {
                 JSONObject a2 = a(pMSAppInfo);
                 z = a2 != null && a2.optBoolean(PrefetchEvent.MODULE);
             }
-            if (c.a.r0.a.m1.d.a.f7685c) {
+            if (c.a.r0.a.m1.d.a.f7827c) {
                 String str = "is prefetch on - " + z;
             }
             return z;

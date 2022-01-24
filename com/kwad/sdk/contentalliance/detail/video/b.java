@@ -10,24 +10,24 @@ public class b {
     public long a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f55577b;
+    public long f55622b;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f55578c;
+    public long f55623c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f55579d;
+    public int f55624d;
 
     public b() {
-        this.f55577b = -1L;
+        this.f55622b = -1L;
     }
 
     public b(@NonNull AdTemplate adTemplate, long j2) {
-        this.f55577b = -1L;
+        this.f55622b = -1L;
         this.a = com.kwad.sdk.core.response.a.d.p(adTemplate);
-        this.f55577b = j2;
-        this.f55578c = com.kwad.sdk.core.response.a.d.t(adTemplate);
-        this.f55579d = com.kwad.sdk.core.response.a.d.f(adTemplate);
+        this.f55622b = j2;
+        this.f55623c = com.kwad.sdk.core.response.a.d.t(adTemplate);
+        this.f55624d = com.kwad.sdk.core.response.a.d.f(adTemplate);
     }
 
     @NonNull
@@ -38,8 +38,8 @@ public class b {
     public String a() {
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put("contentType", this.f55579d);
-            jSONObject.put("adStyle", this.f55578c);
+            jSONObject.put("contentType", this.f55624d);
+            jSONObject.put("adStyle", this.f55623c);
         } catch (JSONException e2) {
             com.kwad.sdk.core.d.a.a(e2);
         }

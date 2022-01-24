@@ -28,17 +28,17 @@ public class a extends d implements b.c {
 
     /* renamed from: c.a.r0.a.u.e.h.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public class C0576a implements c.a.r0.a.z2.g1.c<i<b.e>> {
+    public class C0585a implements c.a.r0.a.z2.g1.c<i<b.e>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c f9080e;
+        public final /* synthetic */ c f9222e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ a f9081f;
+        public final /* synthetic */ a f9223f;
 
-        public C0576a(a aVar, c cVar) {
+        public C0585a(a aVar, c cVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -53,8 +53,8 @@ public class a extends d implements b.c {
                     return;
                 }
             }
-            this.f9081f = aVar;
-            this.f9080e = cVar;
+            this.f9223f = aVar;
+            this.f9222e = cVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -63,7 +63,7 @@ public class a extends d implements b.c {
         public void onCallback(i<b.e> iVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, iVar) == null) {
-                this.f9081f.z(iVar, this.f9080e, false);
+                this.f9223f.z(iVar, this.f9222e, false);
             }
         }
     }
@@ -74,18 +74,18 @@ public class a extends d implements b.c {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f9082e;
+        public final /* synthetic */ String f9224e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ a f9083f;
+        public final /* synthetic */ a f9225f;
 
         /* renamed from: c.a.r0.a.u.e.h.a$b$a  reason: collision with other inner class name */
         /* loaded from: classes.dex */
-        public class C0577a implements e.a {
+        public class C0586a implements e.a {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
-            public C0577a(b bVar) {
+            public C0586a(b bVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -135,8 +135,8 @@ public class a extends d implements b.c {
                     return;
                 }
             }
-            this.f9083f = aVar;
-            this.f9082e = str;
+            this.f9225f = aVar;
+            this.f9224e = str;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -148,13 +148,13 @@ public class a extends d implements b.c {
                 if (!c.a.r0.a.h2.c.d.h(iVar)) {
                     int b2 = iVar.b();
                     c.a.r0.a.n2.u.a.b("startLocationUpdate", 5000, c.a.r0.a.h2.c.d.f(b2), b2, c.a.r0.a.h2.c.d.f(b2));
-                    this.f9083f.d(this.f9082e, new c.a.r0.a.u.h.b(b2, c.a.r0.a.h2.c.d.f(b2)));
+                    this.f9225f.d(this.f9224e, new c.a.r0.a.u.h.b(b2, c.a.r0.a.h2.c.d.f(b2)));
                 } else if (!q0.M()) {
                     c.a.r0.a.n2.u.a.b("startLocationUpdate", 5004, "user no permission", 10005, c.a.r0.a.h2.c.d.f(10005));
-                    this.f9083f.d(this.f9082e, new c.a.r0.a.u.h.b(10005, c.a.r0.a.h2.c.d.f(10005)));
+                    this.f9225f.d(this.f9224e, new c.a.r0.a.u.h.b(10005, c.a.r0.a.h2.c.d.f(10005)));
                 } else {
-                    this.f9083f.d(this.f9082e, new c.a.r0.a.u.h.b(0));
-                    c.a.r0.a.c1.a.I().f(new C0577a(this));
+                    this.f9225f.d(this.f9224e, new c.a.r0.a.u.h.b(0));
+                    c.a.r0.a.c1.a.I().f(new C0586a(this));
                 }
             }
         }
@@ -167,10 +167,10 @@ public class a extends d implements b.c {
         public String a;
 
         /* renamed from: b  reason: collision with root package name */
-        public boolean f9084b;
+        public boolean f9226b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f9085c;
+        public String f9227c;
 
         public c() {
             Interceptable interceptable = $ic;
@@ -201,9 +201,9 @@ public class a extends d implements b.c {
                     if (TextUtils.isEmpty(optString)) {
                         cVar.a = CoordinateType.WGS84;
                     }
-                    cVar.f9084b = jSONObject.optBoolean("altitude");
+                    cVar.f9226b = jSONObject.optBoolean("altitude");
                     String optString2 = jSONObject.optString("cb");
-                    cVar.f9085c = optString2;
+                    cVar.f9227c = optString2;
                     if (TextUtils.isEmpty(optString2)) {
                         return null;
                     }
@@ -219,7 +219,7 @@ public class a extends d implements b.c {
         public boolean a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? (TextUtils.equals(this.a, CoordinateType.WGS84) || TextUtils.equals(this.a, "gcj02") || TextUtils.equals(this.a, "bd09ll")) && !TextUtils.isEmpty(this.f9085c) : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? (TextUtils.equals(this.a, CoordinateType.WGS84) || TextUtils.equals(this.a, "gcj02") || TextUtils.equals(this.a, "bd09ll")) && !TextUtils.isEmpty(this.f9227c) : invokeV.booleanValue;
         }
     }
 
@@ -285,7 +285,7 @@ public class a extends d implements b.c {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, cVar, i2) == null) {
             c.a.r0.a.e0.d.c("GetLocationApi", "request location error code : " + i2);
-            d(cVar.f9085c, new c.a.r0.a.u.h.b(1001, String.valueOf(i2)));
+            d(cVar.f9227c, new c.a.r0.a.u.h.b(1001, String.valueOf(i2)));
         }
     }
 
@@ -293,7 +293,7 @@ public class a extends d implements b.c {
     public void f(c cVar, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048579, this, cVar, str) == null) {
-            d(cVar.f9085c, new c.a.r0.a.u.h.b(10005, "system deny"));
+            d(cVar.f9227c, new c.a.r0.a.u.h.b(10005, "system deny"));
         }
     }
 
@@ -301,7 +301,7 @@ public class a extends d implements b.c {
     public void g(c cVar, c.a.r0.a.f2.f.j0.b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048580, this, cVar, bVar) == null) {
-            d(cVar.f9085c, new c.a.r0.a.u.h.b(0, "success", bVar.a()));
+            d(cVar.f9227c, new c.a.r0.a.u.h.b(0, "success", bVar.a()));
         }
     }
 
@@ -334,12 +334,12 @@ public class a extends d implements b.c {
             if (bVar.isSuccess()) {
                 c b2 = c.b(((JSONObject) s.second).toString());
                 if (b2 != null && b2.a()) {
-                    if (TextUtils.isEmpty(b2.f9085c)) {
+                    if (TextUtils.isEmpty(b2.f9227c)) {
                         c.a.r0.a.n2.u.a.b("getLocation", 1001, "empty cb", 201, "empty cb");
                         c.a.r0.a.e0.d.c("GetLocationApi", "empty cb");
                         return new c.a.r0.a.u.h.b(201, "empty cb");
                     }
-                    a0.d0().g(getContext(), "mapp_location", new C0576a(this, b2));
+                    a0.d0().g(getContext(), "mapp_location", new C0585a(this, b2));
                     return c.a.r0.a.u.h.b.f();
                 }
                 c.a.r0.a.n2.u.a.b("getLocation", 1001, "params is invalid", 201, "params is invalid");
@@ -361,7 +361,7 @@ public class a extends d implements b.c {
             }
             int b2 = iVar.b();
             c.a.r0.a.n2.u.a.b("getLocation", 5000, c.a.r0.a.h2.c.d.f(b2), b2, c.a.r0.a.h2.c.d.f(b2));
-            d(cVar.f9085c, new c.a.r0.a.u.h.b(b2, c.a.r0.a.h2.c.d.f(b2)));
+            d(cVar.f9227c, new c.a.r0.a.u.h.b(b2, c.a.r0.a.h2.c.d.f(b2)));
         }
     }
 }

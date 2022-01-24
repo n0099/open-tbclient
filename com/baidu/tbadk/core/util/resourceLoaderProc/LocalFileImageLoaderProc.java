@@ -130,7 +130,7 @@ public class LocalFileImageLoaderProc implements e<a> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048589, this, str)) == null) {
             ImageOperation g2 = d.g(this.width, this.height);
-            return "image_" + str + ':' + g2.actionName + com.alipay.sdk.encrypt.a.f30865h + g2.actionParam;
+            return "image_" + str + ':' + g2.actionName + com.alipay.sdk.encrypt.a.f30893h + g2.actionParam;
         }
         return (String) invokeL.objValue;
     }

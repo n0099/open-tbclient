@@ -34,31 +34,31 @@ public class g {
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f14101b;
+    public int f14241b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f14102c;
+    public boolean f14242c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f14103d;
+    public boolean f14243d;
 
     /* renamed from: e  reason: collision with root package name */
-    public List<String> f14104e;
+    public List<String> f14244e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f14105f;
+    public boolean f14245f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final Object f14106g;
+    public final Object f14246g;
 
     /* renamed from: h  reason: collision with root package name */
-    public List<String> f14107h;
+    public List<String> f14247h;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f14108i;
+    public boolean f14248i;
 
     /* renamed from: j  reason: collision with root package name */
-    public BDHttpDnsResult f14109j;
+    public BDHttpDnsResult f14249j;
     public final c.a.d.f.r.g k;
 
     /* loaded from: classes6.dex */
@@ -99,7 +99,7 @@ public class g {
                 if ((i2 == 2 || i2 == 9) && l.z()) {
                     g.d(this.a);
                     if (UseHttpdnsSdkSwitch.isOn()) {
-                        if (this.a.f14107h == null || this.a.f14107h.isEmpty()) {
+                        if (this.a.f14247h == null || this.a.f14247h.isEmpty()) {
                             this.a.w();
                         } else {
                             this.a.a();
@@ -107,13 +107,13 @@ public class g {
                         StringBuffer stringBuffer = new StringBuffer();
                         stringBuffer.append("retryiplist_");
                         stringBuffer.append(c.a.d.c.e.c.h.d());
-                        if (this.a.f14109j != null) {
+                        if (this.a.f14249j != null) {
                             stringBuffer.append("-dnsResolveIp_");
-                            stringBuffer.append(this.a.f14109j.a());
+                            stringBuffer.append(this.a.f14249j.a());
                             stringBuffer.append("-dnsResolveType_");
-                            stringBuffer.append(this.a.f14109j.d());
+                            stringBuffer.append(this.a.f14249j.d());
                             stringBuffer.append("-dnsResolveStatus_");
-                            stringBuffer.append(this.a.f14109j.c());
+                            stringBuffer.append(this.a.f14249j.c());
                         }
                         c.a.d.c.e.c.i.a("RetryIpListManager", 0, 0, "retry_iplist", 0, stringBuffer.toString());
                         if (this.a.a >= 5) {
@@ -183,17 +183,17 @@ public class g {
             if (interceptable == null || interceptable.invokeL(1048585, this, map) == null) {
                 if (UseHttpdnsSdkSwitch.isOn()) {
                     if (this.a.a > 0) {
-                        this.a.f14108i = false;
+                        this.a.f14248i = false;
                         StringBuffer stringBuffer = new StringBuffer();
                         stringBuffer.append("URL_");
                         stringBuffer.append(c.a.d.c.e.c.h.d());
-                        if (this.a.f14109j != null) {
+                        if (this.a.f14249j != null) {
                             stringBuffer.append("-dnsResolveIp_");
-                            stringBuffer.append(this.a.f14109j.a());
+                            stringBuffer.append(this.a.f14249j.a());
                             stringBuffer.append("-dnsResolveType_");
-                            stringBuffer.append(this.a.f14109j.d());
+                            stringBuffer.append(this.a.f14249j.d());
                             stringBuffer.append("-dnsResolveStatus_");
-                            stringBuffer.append(this.a.f14109j.c());
+                            stringBuffer.append(this.a.f14249j.c());
                         }
                         c.a.d.c.e.c.i.a("RetryIpListManager", 0, 0, "retry_iplist_succ", 0, stringBuffer.toString());
                     }
@@ -236,13 +236,13 @@ public class g {
             ArrayList<String> a;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, bDHttpDnsResult) == null) {
-                this.a.f14108i = false;
-                this.a.f14109j = bDHttpDnsResult;
+                this.a.f14248i = false;
+                this.a.f14249j = bDHttpDnsResult;
                 if (bDHttpDnsResult == null || (a = bDHttpDnsResult.a()) == null || a.isEmpty()) {
                     return;
                 }
-                synchronized (this.a.f14106g) {
-                    this.a.f14107h = a;
+                synchronized (this.a.f14246g) {
+                    this.a.f14247h = a;
                 }
                 this.a.a();
             }
@@ -256,7 +256,7 @@ public class g {
         public final /* synthetic */ String a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ g f14110b;
+        public final /* synthetic */ g f14250b;
 
         public c(g gVar, String str) {
             Interceptable interceptable = $ic;
@@ -273,7 +273,7 @@ public class g {
                     return;
                 }
             }
-            this.f14110b = gVar;
+            this.f14250b = gVar;
             this.a = str;
         }
 
@@ -281,12 +281,12 @@ public class g {
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f14110b.f14101b = 0;
-                this.f14110b.f14104e = c.a.s0.t.j.a.f().g();
-                if (this.f14110b.f14104e != null) {
-                    this.f14110b.A(this.a);
+                this.f14250b.f14241b = 0;
+                this.f14250b.f14244e = c.a.s0.t.j.a.f().g();
+                if (this.f14250b.f14244e != null) {
+                    this.f14250b.A(this.a);
                 } else {
-                    this.f14110b.f14105f = false;
+                    this.f14250b.f14245f = false;
                 }
             }
         }
@@ -326,12 +326,12 @@ public class g {
             public void a() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    this.a.a.f14101b = 0;
-                    this.a.a.f14104e = c.a.s0.t.j.a.f().g();
-                    if (this.a.a.f14104e != null) {
+                    this.a.a.f14241b = 0;
+                    this.a.a.f14244e = c.a.s0.t.j.a.f().g();
+                    if (this.a.a.f14244e != null) {
                         this.a.a.A("change ip to reconnect with DNS' failed.");
                     } else {
-                        this.a.a.f14105f = false;
+                        this.a.a.f14245f = false;
                     }
                 }
             }
@@ -361,8 +361,8 @@ public class g {
             if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
                 c.a.s0.t.j.b.e().a(z ? 2 : 1);
                 if (z) {
-                    this.a.f14104e = c.a.s0.t.j.a.f().g();
-                    if (this.a.f14104e != null) {
+                    this.a.f14244e = c.a.s0.t.j.a.f().g();
+                    if (this.a.f14244e != null) {
                         this.a.A("change ip to reconnect with DNS' failed.");
                         return;
                     } else {
@@ -370,7 +370,7 @@ public class g {
                         return;
                     }
                 }
-                this.a.f14105f = false;
+                this.a.f14245f = false;
                 this.a.D();
             }
         }
@@ -404,15 +404,15 @@ public class g {
                 return;
             }
         }
-        this.f14101b = 0;
-        this.f14102c = false;
-        this.f14103d = false;
-        this.f14104e = null;
-        this.f14105f = false;
-        this.f14106g = new Object();
-        this.f14107h = new ArrayList();
-        this.f14108i = false;
-        this.f14109j = null;
+        this.f14241b = 0;
+        this.f14242c = false;
+        this.f14243d = false;
+        this.f14244e = null;
+        this.f14245f = false;
+        this.f14246g = new Object();
+        this.f14247h = new ArrayList();
+        this.f14248i = false;
+        this.f14249j = null;
         this.k = new a(this);
     }
 
@@ -490,13 +490,13 @@ public class g {
             } else if (u(x) == null) {
                 D();
             } else {
-                this.f14105f = false;
+                this.f14245f = false;
                 BdSocketLinkService.stopReConnStrategy("change ip and stop to restart to reconnet.");
                 c.a.d.c.e.c.h.h(x);
                 BdSocketLinkService.init();
                 BdSocketLinkService.startService(true, str);
-                this.f14102c = true;
-                this.f14101b++;
+                this.f14242c = true;
+                this.f14241b++;
             }
         }
     }
@@ -505,25 +505,25 @@ public class g {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             NoNetworkView.updateUI();
-            this.f14101b = 0;
-            this.f14108i = false;
+            this.f14241b = 0;
+            this.f14248i = false;
         }
     }
 
     public final void C() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || this.f14105f) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || this.f14245f) {
             return;
         }
-        this.f14105f = true;
-        if (this.f14102c) {
-            this.f14102c = false;
+        this.f14245f = true;
+        if (this.f14242c) {
+            this.f14242c = false;
             c.a.s0.t.j.b.e().d(TiebaIMConfig.url);
         }
         c.a.s0.t.j.b.e().b();
-        if (!this.f14103d) {
+        if (!this.f14243d) {
             new c.a.s0.t.j.d("www.baidu.com", new d(this));
-            this.f14103d = true;
+            this.f14243d = true;
             return;
         }
         A("change ip to reconnect with DNS' failed.");
@@ -533,19 +533,19 @@ public class g {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             NoNetworkView.updateUI();
-            this.f14103d = false;
-            this.f14101b = 0;
-            this.f14105f = false;
-            this.f14102c = false;
+            this.f14243d = false;
+            this.f14241b = 0;
+            this.f14245f = false;
+            this.f14242c = false;
         }
     }
 
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            synchronized (this.f14106g) {
-                if (this.f14107h != null && !this.f14107h.isEmpty()) {
-                    String remove = this.f14107h.remove(0);
+            synchronized (this.f14246g) {
+                if (this.f14247h != null && !this.f14247h.isEmpty()) {
+                    String remove = this.f14247h.remove(0);
                     if (!TextUtils.isEmpty(remove)) {
                         c.a.d.c.e.c.h.h("ws://" + remove + ":" + v(TiebaIMConfig.url));
                         BdSocketLinkService.init();
@@ -557,7 +557,7 @@ public class g {
 
     public final void w() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || this.f14108i) {
+        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || this.f14248i) {
             return;
         }
         try {
@@ -566,7 +566,7 @@ public class g {
                 B();
                 return;
             }
-            this.f14108i = true;
+            this.f14248i = true;
             BDHttpDns.j(BdBaseApplication.getInst().getApplicationContext()).c(u, new b(this));
         } catch (Exception e2) {
             BdLog.e(e2);
@@ -578,11 +578,11 @@ public class g {
         int i2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            List<String> list = this.f14104e;
-            if (list == null || (i2 = this.f14101b) <= -1 || i2 >= list.size()) {
+            List<String> list = this.f14244e;
+            if (list == null || (i2 = this.f14241b) <= -1 || i2 >= list.size()) {
                 return null;
             }
-            return c.a.s0.t.j.a.f().g().get(this.f14101b);
+            return c.a.s0.t.j.a.f().g().get(this.f14241b);
         }
         return (String) invokeV.objValue;
     }

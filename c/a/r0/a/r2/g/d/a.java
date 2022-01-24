@@ -26,15 +26,15 @@ public class a extends z {
 
     /* renamed from: c.a.r0.a.r2.g.d.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public class C0536a implements c.a.r0.a.r2.g.a {
+    public class C0545a implements c.a.r0.a.r2.g.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ CallbackHandler a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ String f8646b;
+        public final /* synthetic */ String f8788b;
 
-        public C0536a(a aVar, CallbackHandler callbackHandler, String str) {
+        public C0545a(a aVar, CallbackHandler callbackHandler, String str) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -50,7 +50,7 @@ public class a extends z {
                 }
             }
             this.a = callbackHandler;
-            this.f8646b = str;
+            this.f8788b = str;
         }
 
         @Override // c.a.r0.a.r2.g.a
@@ -65,7 +65,7 @@ public class a extends z {
                     } catch (JSONException e2) {
                         e2.printStackTrace();
                     }
-                    this.a.handleSchemeDispatchCallback(this.f8646b, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0).toString());
+                    this.a.handleSchemeDispatchCallback(this.f8788b, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0).toString());
                 }
             }
         }
@@ -125,7 +125,7 @@ public class a extends z {
         b trimMemoryDispatcher;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, callbackHandler, str) == null) && (context instanceof c) && (trimMemoryDispatcher = ((c) context).getTrimMemoryDispatcher()) != null) {
-            trimMemoryDispatcher.b(new C0536a(this, callbackHandler, str));
+            trimMemoryDispatcher.b(new C0545a(this, callbackHandler, str));
         }
     }
 }

@@ -11,7 +11,7 @@ public final class e {
     public c a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f29164b;
+    public boolean f29192b;
 
     public e() {
         Interceptable interceptable = $ic;
@@ -31,7 +31,7 @@ public final class e {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             this.a = null;
-            this.f29164b = false;
+            this.f29192b = false;
         }
     }
 }

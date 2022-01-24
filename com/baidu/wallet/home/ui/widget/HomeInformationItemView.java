@@ -22,13 +22,13 @@ public class HomeInformationItemView extends BaseItemView {
     public NetImageView a;
 
     /* renamed from: b  reason: collision with root package name */
-    public TextView f51130b;
+    public TextView f51175b;
 
     /* renamed from: c  reason: collision with root package name */
-    public TextView f51131c;
+    public TextView f51176c;
 
     /* renamed from: d  reason: collision with root package name */
-    public TextView f51132d;
+    public TextView f51177d;
     public View mLine;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -58,9 +58,9 @@ public class HomeInformationItemView extends BaseItemView {
             removeAllViews();
             LayoutInflater.from(getContext()).inflate(ResUtils.layout(getContext(), "wallet_home_information_item_view"), this);
             this.a = (NetImageView) findViewById(ResUtils.id(getContext(), "home_info_item_logo"));
-            this.f51130b = (TextView) findViewById(ResUtils.id(getContext(), "home_info_item_title"));
-            this.f51131c = (TextView) findViewById(ResUtils.id(getContext(), "home_info_item_date"));
-            this.f51132d = (TextView) findViewById(ResUtils.id(getContext(), "home_info_item_source"));
+            this.f51175b = (TextView) findViewById(ResUtils.id(getContext(), "home_info_item_title"));
+            this.f51176c = (TextView) findViewById(ResUtils.id(getContext(), "home_info_item_date"));
+            this.f51177d = (TextView) findViewById(ResUtils.id(getContext(), "home_info_item_source"));
             this.mLine = findViewById(ResUtils.id(getContext(), "home_info_item_line"));
         }
     }
@@ -87,22 +87,22 @@ public class HomeInformationItemView extends BaseItemView {
                 this.a.setImageUrl(str);
             }
         }
-        if (this.f51130b != null) {
+        if (this.f51175b != null) {
             String str2 = getData().name;
             if (!TextUtils.isEmpty(str2)) {
-                this.f51130b.setText(str2);
+                this.f51175b.setText(str2);
             }
         }
-        if (this.f51131c != null) {
+        if (this.f51176c != null) {
             String str3 = getData().value2;
             if (!TextUtils.isEmpty(str3)) {
-                this.f51131c.setText(str3);
+                this.f51176c.setText(str3);
             }
         }
-        if (this.f51132d != null) {
+        if (this.f51177d != null) {
             String str4 = getData().value1;
             if (!TextUtils.isEmpty(str4)) {
-                this.f51132d.setText(str4);
+                this.f51177d.setText(str4);
             }
         }
         if (TextUtils.isEmpty(getData().link_addr)) {

@@ -39,38 +39,38 @@ public class a extends z {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: f  reason: collision with root package name */
-    public static Set<String> f5589f;
+    public static Set<String> f5731f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final Set<String> f5590g;
+    public static final Set<String> f5732g;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c  reason: collision with root package name */
-    public ExecutorService f5591c;
+    public ExecutorService f5733c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f5592d;
+    public int f5734d;
 
     /* renamed from: e  reason: collision with root package name */
-    public c f5593e;
+    public c f5735e;
 
     /* renamed from: c.a.r0.a.e0.f.d.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public class C0298a implements n.b {
+    public class C0307a implements n.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ Context a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ UnitedSchemeEntity f5594b;
+        public final /* synthetic */ UnitedSchemeEntity f5736b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f5595c;
+        public final /* synthetic */ CallbackHandler f5737c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ a f5596d;
+        public final /* synthetic */ a f5738d;
 
-        public C0298a(a aVar, Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler) {
+        public C0307a(a aVar, Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -85,10 +85,10 @@ public class a extends z {
                     return;
                 }
             }
-            this.f5596d = aVar;
+            this.f5738d = aVar;
             this.a = context;
-            this.f5594b = unitedSchemeEntity;
-            this.f5595c = callbackHandler;
+            this.f5736b = unitedSchemeEntity;
+            this.f5737c = callbackHandler;
         }
 
         @Override // c.a.r0.a.p.d.n.b
@@ -97,12 +97,12 @@ public class a extends z {
             if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
                 if (z) {
                     c.a.r0.a.e0.d.c("LocalDebugAction", "Authentication Success");
-                    a.f5590g.add(this.f5596d.o(this.a));
-                    this.f5596d.p(this.a, this.f5594b, this.f5595c);
+                    a.f5732g.add(this.f5738d.o(this.a));
+                    this.f5738d.p(this.a, this.f5736b, this.f5737c);
                     return;
                 }
                 c.a.r0.a.e0.d.c("LocalDebugAction", "Authentication Fail : Not developer");
-                this.f5596d.w(this.a, this.f5594b, 401);
+                this.f5738d.w(this.a, this.f5736b, 401);
             }
         }
 
@@ -111,7 +111,7 @@ public class a extends z {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, exc) == null) {
                 c.a.r0.a.e0.d.d("LocalDebugAction", "onFail : Authentication exception :", exc);
-                this.f5596d.w(this.a, this.f5594b, 401);
+                this.f5738d.w(this.a, this.f5736b, 401);
             }
         }
     }
@@ -122,22 +122,22 @@ public class a extends z {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Context f5597e;
+        public final /* synthetic */ Context f5739e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f5598f;
+        public final /* synthetic */ String f5740f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ File f5599g;
+        public final /* synthetic */ File f5741g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ UnitedSchemeEntity f5600h;
+        public final /* synthetic */ UnitedSchemeEntity f5742h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f5601i;
+        public final /* synthetic */ CallbackHandler f5743i;
 
         /* renamed from: j  reason: collision with root package name */
-        public final /* synthetic */ a f5602j;
+        public final /* synthetic */ a f5744j;
 
         public b(a aVar, Context context, String str, File file, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler) {
             Interceptable interceptable = $ic;
@@ -154,19 +154,19 @@ public class a extends z {
                     return;
                 }
             }
-            this.f5602j = aVar;
-            this.f5597e = context;
-            this.f5598f = str;
-            this.f5599g = file;
-            this.f5600h = unitedSchemeEntity;
-            this.f5601i = callbackHandler;
+            this.f5744j = aVar;
+            this.f5739e = context;
+            this.f5740f = str;
+            this.f5741g = file;
+            this.f5742h = unitedSchemeEntity;
+            this.f5743i = callbackHandler;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f5602j.x(this.f5597e, this.f5598f, this.f5599g, this.f5600h, this.f5601i);
+                this.f5744j.x(this.f5739e, this.f5740f, this.f5741g, this.f5742h, this.f5743i);
             }
         }
     }
@@ -184,7 +184,7 @@ public class a extends z {
                 return;
             }
         }
-        f5590g = new HashSet();
+        f5732g = new HashSet();
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -220,8 +220,8 @@ public class a extends z {
             }
             JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
             if (optParamsAsJo != null && optParamsAsJo.length() > 0) {
-                this.f5593e = c.c(optParamsAsJo);
-                if (c.a.r0.a.q2.b.e(0).swanCoreVersionCode < this.f5593e.f5612h) {
+                this.f5735e = c.c(optParamsAsJo);
+                if (c.a.r0.a.q2.b.e(0).swanCoreVersionCode < this.f5735e.f5754h) {
                     c.a.r0.a.e0.d.c("LocalDebugAction", "swan js version is low");
                     w(context, unitedSchemeEntity, 1002);
                     return false;
@@ -229,8 +229,8 @@ public class a extends z {
                     c.a.r0.a.e0.d.c("LocalDebugAction", "debug model invalid");
                     w(context, unitedSchemeEntity, 202);
                     return false;
-                } else if (!SwanAppAllianceLoginHelper.f38633d.f() && !s().contains(c.a.r0.a.c1.a.h0().h(context)) && !f5590g.contains(o(context))) {
-                    c.a.r0.a.m.b.b(this.f5593e.f5606b, new C0298a(this, context, unitedSchemeEntity, callbackHandler));
+                } else if (!SwanAppAllianceLoginHelper.f38661d.f() && !s().contains(c.a.r0.a.c1.a.h0().h(context)) && !f5732g.contains(o(context))) {
+                    c.a.r0.a.m.b.b(this.f5735e.f5748b, new C0307a(this, context, unitedSchemeEntity, callbackHandler));
                     return true;
                 } else {
                     p(context, unitedSchemeEntity, callbackHandler);
@@ -248,7 +248,7 @@ public class a extends z {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
-            return c.a.r0.a.c1.a.h0().h(context) + this.f5593e.f5606b;
+            return c.a.r0.a.c1.a.h0().h(context) + this.f5735e.f5748b;
         }
         return (String) invokeL.objValue;
     }
@@ -265,21 +265,21 @@ public class a extends z {
                 boolean L2 = c.a.r0.w.d.L(c.a.r0.a.e0.f.d.b.d());
                 c.a.r0.a.e0.d.i("LocalDebugAction", "unzip folder delete: " + L2);
             }
-            this.f5591c = Executors.newFixedThreadPool(4);
-            this.f5592d = 0;
+            this.f5733c = Executors.newFixedThreadPool(4);
+            this.f5734d = 0;
             d.e().f("downloadstart");
-            for (int i2 = 0; i2 < this.f5593e.f5607c.length(); i2++) {
-                String a = this.f5593e.a(i2);
+            for (int i2 = 0; i2 < this.f5735e.f5749c.length(); i2++) {
+                String a = this.f5735e.a(i2);
                 if (TextUtils.isEmpty(a)) {
-                    int i3 = this.f5592d + 1;
-                    this.f5592d = i3;
-                    if (i3 >= this.f5593e.f5607c.length()) {
+                    int i3 = this.f5734d + 1;
+                    this.f5734d = i3;
+                    if (i3 >= this.f5735e.f5749c.length()) {
                         c.a.r0.a.e0.d.c("LocalDebugAction", "IPs are invalid");
                         w(context, unitedSchemeEntity, 202);
                         d.e().f("downloadfail");
                     }
                 } else {
-                    this.f5591c.execute(new b(this, context, a, b2, unitedSchemeEntity, callbackHandler));
+                    this.f5733c.execute(new b(this, context, a, b2, unitedSchemeEntity, callbackHandler));
                 }
             }
         }
@@ -302,7 +302,7 @@ public class a extends z {
             try {
                 return URLEncoder.encode(str, "UTF-8");
             } catch (UnsupportedEncodingException unused) {
-                boolean z = z.f6201b;
+                boolean z = z.f6343b;
                 return str;
             }
         }
@@ -313,23 +313,23 @@ public class a extends z {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            if (f5589f == null) {
-                f5589f = new HashSet();
+            if (f5731f == null) {
+                f5731f = new HashSet();
                 c.a.r0.q.a b2 = c.a.r0.q.c.b();
                 String string = b2 != null ? b2.i().getString("auth_white_list", "") : "";
                 JSONArray jSONArray = null;
                 try {
                     jSONArray = new JSONArray(string);
                 } catch (JSONException unused) {
-                    boolean z = z.f6201b;
+                    boolean z = z.f6343b;
                 }
                 if (jSONArray != null) {
                     for (int i2 = 0; i2 < jSONArray.length(); i2++) {
-                        f5589f.add(jSONArray.optString(i2));
+                        f5731f.add(jSONArray.optString(i2));
                     }
                 }
             }
-            return f5589f;
+            return f5731f;
         }
         return (Set) invokeV.objValue;
     }
@@ -348,7 +348,7 @@ public class a extends z {
         InterceptResult invokeV;
         JSONArray jSONArray;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? (TextUtils.isEmpty(this.f5593e.a) || TextUtils.isEmpty(this.f5593e.f5606b) || (jSONArray = this.f5593e.f5607c) == null || jSONArray.length() <= 0 || TextUtils.isEmpty(this.f5593e.f5608d)) ? false : true : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? (TextUtils.isEmpty(this.f5735e.a) || TextUtils.isEmpty(this.f5735e.f5748b) || (jSONArray = this.f5735e.f5749c) == null || jSONArray.length() <= 0 || TextUtils.isEmpty(this.f5735e.f5750d)) ? false : true : invokeV.booleanValue;
     }
 
     public final c.a v(UnitedSchemeEntity unitedSchemeEntity) {
@@ -357,7 +357,7 @@ public class a extends z {
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, unitedSchemeEntity)) == null) {
             String uri = (unitedSchemeEntity == null || unitedSchemeEntity.getUri() == null) ? "" : unitedSchemeEntity.getUri().toString();
             c.a.r0.a.e0.d.i("LocalDebugAction", "local debug scheme = " + uri);
-            return (c.a) ((c.a) ((c.a) ((c.a) ((c.a) ((c.a) ((c.a) new c.a().v0(this.f5593e.f5606b)).A0(false)).L0(true)).M0(this.f5593e.f5609e)).N0(this.f5593e.f5610f)).K0(uri)).P0(this.f5593e.f5611g);
+            return (c.a) ((c.a) ((c.a) ((c.a) ((c.a) ((c.a) ((c.a) new c.a().v0(this.f5735e.f5748b)).A0(false)).L0(true)).M0(this.f5735e.f5751e)).N0(this.f5735e.f5752f)).K0(uri)).P0(this.f5735e.f5753g);
         }
         return (c.a) invokeL.objValue;
     }
@@ -381,7 +381,7 @@ public class a extends z {
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:33:0x00bb, code lost:
-        if (r6 >= r4.f5593e.f5607c.length()) goto L34;
+        if (r6 >= r4.f5735e.f5749c.length()) goto L34;
      */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -390,20 +390,20 @@ public class a extends z {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLLL(1048586, this, context, str, file, unitedSchemeEntity, callbackHandler) == null) {
             try {
-                Response executeSync = c.a.r0.p.e.a.g().getRequest().url(this.f5593e.b(str)).connectionTimeout(3000).build().executeSync();
+                Response executeSync = c.a.r0.p.e.a.g().getRequest().url(this.f5735e.b(str)).connectionTimeout(3000).build().executeSync();
                 if (executeSync != null && executeSync.code() == 200 && executeSync.body() != null) {
                     boolean a = c.a.r0.w.g.a(executeSync.body().byteStream(), file);
                     c.a.r0.a.e0.d.i("LocalDebugAction", "save debug bundle: " + a);
                     d.e().f("downloadsuccess");
-                    this.f5593e.f5609e = str;
+                    this.f5735e.f5751e = str;
                     context.startActivity(c.a.r0.a.f1.e.c.g1(context, v(unitedSchemeEntity)));
                     UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
-                    if (this.f5591c != null) {
-                        this.f5591c.shutdownNow();
-                        this.f5591c = null;
+                    if (this.f5733c != null) {
+                        this.f5733c.shutdownNow();
+                        this.f5733c = null;
                     }
                     if (!ProcessUtils.isMainProcess()) {
-                        boolean z = z.f6201b;
+                        boolean z = z.f6343b;
                         q();
                     }
                 }
@@ -412,9 +412,9 @@ public class a extends z {
                 }
             } catch (IOException unused) {
                 synchronized (this) {
-                    if (this.f5593e.f5607c != null) {
-                        int i2 = this.f5592d + 1;
-                        this.f5592d = i2;
+                    if (this.f5735e.f5749c != null) {
+                        int i2 = this.f5734d + 1;
+                        this.f5734d = i2;
                     }
                     c.a.r0.a.e0.d.c("LocalDebugAction", "Host IPs are invalid");
                     w(context, unitedSchemeEntity, 1001);

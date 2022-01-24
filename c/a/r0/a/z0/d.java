@@ -19,19 +19,19 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes.dex */
+/* loaded from: classes6.dex */
 public class d extends z {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes6.dex */
     public class a implements a.g {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ CallbackHandler a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ d f9832b;
+        public final /* synthetic */ d f9974b;
 
         public a(d dVar, CallbackHandler callbackHandler) {
             Interceptable interceptable = $ic;
@@ -48,7 +48,7 @@ public class d extends z {
                     return;
                 }
             }
-            this.f9832b = dVar;
+            this.f9974b = dVar;
             this.a = callbackHandler;
         }
 
@@ -56,7 +56,7 @@ public class d extends z {
         public void a(String str, JSONObject jSONObject) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048576, this, str, jSONObject) == null) {
-                this.f9832b.k(this.a, 0, str, jSONObject);
+                this.f9974b.k(this.a, 0, str, jSONObject);
             }
         }
     }
@@ -87,7 +87,7 @@ public class d extends z {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, eVar)) == null) {
-            if (z.f6201b) {
+            if (z.f6343b) {
                 String str = "handle entity: " + unitedSchemeEntity.toString();
             }
             JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
@@ -132,7 +132,7 @@ public class d extends z {
     public final void k(CallbackHandler callbackHandler, int i2, String str, JSONObject jSONObject) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLILL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, callbackHandler, i2, str, jSONObject) == null) {
-            if (z.f6201b) {
+            if (z.f6343b) {
                 String str2 = "sendAsyncCallback, arg0: " + i2 + ", arg1: " + jSONObject;
             }
             if (TextUtils.isEmpty(str)) {

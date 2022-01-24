@@ -29,13 +29,13 @@ public class x extends ReporterPidLoader<UnifiedBannerView> {
         public boolean a;
 
         /* renamed from: b  reason: collision with root package name */
-        public boolean f28290b;
+        public boolean f28318b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ UnifiedBannerView[] f28291c;
+        public final /* synthetic */ UnifiedBannerView[] f28319c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ x f28292d;
+        public final /* synthetic */ x f28320d;
 
         public a(x xVar, UnifiedBannerView[] unifiedBannerViewArr) {
             Interceptable interceptable = $ic;
@@ -52,8 +52,8 @@ public class x extends ReporterPidLoader<UnifiedBannerView> {
                     return;
                 }
             }
-            this.f28292d = xVar;
-            this.f28291c = unifiedBannerViewArr;
+            this.f28320d = xVar;
+            this.f28319c = unifiedBannerViewArr;
         }
 
         @Override // com.qq.e.ads.banner2.UnifiedBannerADListener
@@ -61,8 +61,8 @@ public class x extends ReporterPidLoader<UnifiedBannerView> {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 LogPrinter.d();
-                this.f28292d.onAdClicked(this.f28290b);
-                this.f28290b = true;
+                this.f28320d.onAdClicked(this.f28318b);
+                this.f28318b = true;
             }
         }
 
@@ -79,7 +79,7 @@ public class x extends ReporterPidLoader<UnifiedBannerView> {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
                 LogPrinter.e();
-                this.f28292d.onAdClose();
+                this.f28320d.onAdClose();
             }
         }
 
@@ -88,7 +88,7 @@ public class x extends ReporterPidLoader<UnifiedBannerView> {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
                 LogPrinter.d();
-                this.f28292d.onAdShow(this.f28291c[0], this.a);
+                this.f28320d.onAdShow(this.f28319c[0], this.a);
                 this.a = true;
             }
         }
@@ -114,7 +114,7 @@ public class x extends ReporterPidLoader<UnifiedBannerView> {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
                 LogPrinter.d();
-                this.f28292d.onAdLoaded((x) this.f28291c[0]);
+                this.f28320d.onAdLoaded((x) this.f28319c[0]);
             }
         }
 
@@ -122,7 +122,7 @@ public class x extends ReporterPidLoader<UnifiedBannerView> {
         public void onNoAD(AdError adError) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048583, this, adError) == null) {
-                this.f28292d.onError(adError.getErrorCode(), adError.getErrorMsg());
+                this.f28320d.onError(adError.getErrorCode(), adError.getErrorMsg());
             }
         }
     }

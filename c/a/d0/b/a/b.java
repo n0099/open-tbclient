@@ -25,19 +25,19 @@ public class b extends PathClassLoader {
     public final ClassLoader a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Method f3377b;
+    public Method f3479b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Method f3378c;
+    public Method f3480c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Method f3379d;
+    public Method f3481d;
 
     /* renamed from: e  reason: collision with root package name */
-    public Method f3380e;
+    public Method f3482e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Set<String> f3381f;
+    public Set<String> f3483f;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public b(ClassLoader classLoader, ClassLoader classLoader2) {
@@ -58,19 +58,19 @@ public class b extends PathClassLoader {
                 return;
             }
         }
-        this.f3381f = new HashSet();
+        this.f3483f = new HashSet();
         this.a = classLoader2;
         b(classLoader2);
         c(classLoader2);
-        this.f3381f.add("android.widget.ViewStub");
-        this.f3381f.add("android.widget.View");
-        this.f3381f.add("android.webkit.ViewStub");
-        this.f3381f.add("android.webkit.View");
-        this.f3381f.add("android.app.ViewStub");
-        this.f3381f.add("android.app.View");
-        this.f3381f.add("com.google.android.gms.net.PlayServicesCronetProvider");
-        this.f3381f.add("com.google.android.gms.net.GmsCoreCronetProvider");
-        this.f3381f.add("org.chromium.net.impl.JavaCronetProvider");
+        this.f3483f.add("android.widget.ViewStub");
+        this.f3483f.add("android.widget.View");
+        this.f3483f.add("android.webkit.ViewStub");
+        this.f3483f.add("android.webkit.View");
+        this.f3483f.add("android.app.ViewStub");
+        this.f3483f.add("android.app.View");
+        this.f3483f.add("com.google.android.gms.net.PlayServicesCronetProvider");
+        this.f3483f.add("com.google.android.gms.net.GmsCoreCronetProvider");
+        this.f3483f.add("org.chromium.net.impl.JavaCronetProvider");
     }
 
     public final void a(String str, ClassLoader classLoader) {
@@ -97,16 +97,16 @@ public class b extends PathClassLoader {
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, classLoader) == null) {
             Class<?> cls = classLoader.getClass();
             Method b2 = h.b(cls, "findResource", String.class);
-            this.f3377b = b2;
+            this.f3479b = b2;
             b2.setAccessible(true);
             Method b3 = h.b(cls, "findResources", String.class);
-            this.f3378c = b3;
+            this.f3480c = b3;
             b3.setAccessible(true);
             Method b4 = h.b(cls, "findLibrary", String.class);
-            this.f3379d = b4;
+            this.f3481d = b4;
             b4.setAccessible(true);
             Method b5 = h.b(cls, "getPackage", String.class);
-            this.f3380e = b5;
+            this.f3482e = b5;
             b5.setAccessible(true);
         }
     }
@@ -124,7 +124,7 @@ public class b extends PathClassLoader {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
             try {
-                return (String) this.f3379d.invoke(this.a, str);
+                return (String) this.f3481d.invoke(this.a, str);
             } catch (IllegalAccessException e2) {
                 e2.printStackTrace();
                 return super.findLibrary(str);
@@ -145,7 +145,7 @@ public class b extends PathClassLoader {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
             try {
-                return (URL) this.f3377b.invoke(this.a, str);
+                return (URL) this.f3479b.invoke(this.a, str);
             } catch (IllegalAccessException e2) {
                 e2.printStackTrace();
                 return super.findResource(str);
@@ -166,7 +166,7 @@ public class b extends PathClassLoader {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) {
             try {
-                return (Enumeration) this.f3378c.invoke(this.a, str);
+                return (Enumeration) this.f3480c.invoke(this.a, str);
             } catch (IllegalAccessException e2) {
                 e2.printStackTrace();
                 return super.findResources(str);
@@ -189,7 +189,7 @@ public class b extends PathClassLoader {
             Package r0 = null;
             if (str != null && !str.isEmpty()) {
                 try {
-                    r0 = (Package) this.f3380e.invoke(this.a, str);
+                    r0 = (Package) this.f3482e.invoke(this.a, str);
                 } catch (IllegalAccessException e2) {
                     e2.printStackTrace();
                 } catch (IllegalArgumentException e3) {
@@ -218,7 +218,7 @@ public class b extends PathClassLoader {
             try {
                 return this.a.loadClass(str);
             } catch (ClassNotFoundException unused) {
-                return (this.f3381f.contains(str) || (loadComponentClass = NPSManager.getInstance().loadComponentClass(str)) == null) ? super.loadClass(str, z) : loadComponentClass;
+                return (this.f3483f.contains(str) || (loadComponentClass = NPSManager.getInstance().loadComponentClass(str)) == null) ? super.loadClass(str, z) : loadComponentClass;
             }
         }
         return (Class) invokeLZ.objValue;

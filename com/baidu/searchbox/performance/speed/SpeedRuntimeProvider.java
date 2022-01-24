@@ -5,7 +5,9 @@ import androidx.core.view.InputDeviceCompat;
 import c.a.k0.b.b.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pyramid.runtime.service.ServiceNotFoundException;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.MainTabActivityConfig;
+import com.baidu.tbadk.core.util.PermissionUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -95,54 +97,68 @@ public class SpeedRuntimeProvider extends a<ISpeedContext> {
             }
 
             @Override // com.baidu.searchbox.performance.speed.ISpeedContext
+            public boolean isAgreePrivacyPolicy() {
+                InterceptResult invokeV2;
+                Interceptable interceptable2 = $ic;
+                return (interceptable2 == null || (invokeV2 = interceptable2.invokeV(1048580, this)) == null) ? PermissionUtil.isAgreePrivacyPolicy() : invokeV2.booleanValue;
+            }
+
+            @Override // com.baidu.searchbox.performance.speed.ISpeedContext
             public boolean isMainActivity(Activity activity) {
                 InterceptResult invokeL;
                 Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeL = interceptable2.invokeL(1048580, this, activity)) == null) ? SpeedRuntimeProvider.MAIN_ACTIVITY_NAME.equals(activity.getClass().getName()) : invokeL.booleanValue;
+                return (interceptable2 == null || (invokeL = interceptable2.invokeL(1048581, this, activity)) == null) ? SpeedRuntimeProvider.MAIN_ACTIVITY_NAME.equals(activity.getClass().getName()) : invokeL.booleanValue;
             }
 
             @Override // com.baidu.searchbox.performance.speed.ISpeedContext
             public boolean isMainLine() {
                 InterceptResult invokeV2;
                 Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || (invokeV2 = interceptable2.invokeV(1048581, this)) == null) {
+                if (interceptable2 == null || (invokeV2 = interceptable2.invokeV(1048582, this)) == null) {
                     return true;
                 }
                 return invokeV2.booleanValue;
             }
 
             @Override // com.baidu.searchbox.performance.speed.ISpeedContext
+            public boolean isMainProcess() {
+                InterceptResult invokeV2;
+                Interceptable interceptable2 = $ic;
+                return (interceptable2 == null || (invokeV2 = interceptable2.invokeV(1048583, this)) == null) ? TbadkCoreApplication.getInst().isMainProcess(false) : invokeV2.booleanValue;
+            }
+
+            @Override // com.baidu.searchbox.performance.speed.ISpeedContext
             public boolean isPushDispatchActivity(Activity activity) {
                 InterceptResult invokeL;
                 Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeL = interceptable2.invokeL(1048582, this, activity)) == null) ? SpeedRuntimeProvider.SCHEMA_ACTIVITY_NAME.equals(activity.getClass().getName()) : invokeL.booleanValue;
+                return (interceptable2 == null || (invokeL = interceptable2.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, activity)) == null) ? SpeedRuntimeProvider.SCHEMA_ACTIVITY_NAME.equals(activity.getClass().getName()) : invokeL.booleanValue;
             }
 
             @Override // com.baidu.searchbox.performance.speed.ISpeedContext
             public boolean isSchemeDispatchActivity(Activity activity) {
                 InterceptResult invokeL;
                 Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeL = interceptable2.invokeL(1048583, this, activity)) == null) ? SpeedRuntimeProvider.SCHEMA_ACTIVITY_NAME.equals(activity.getClass().getName()) : invokeL.booleanValue;
+                return (interceptable2 == null || (invokeL = interceptable2.invokeL(1048585, this, activity)) == null) ? SpeedRuntimeProvider.SCHEMA_ACTIVITY_NAME.equals(activity.getClass().getName()) : invokeL.booleanValue;
             }
 
             @Override // com.baidu.searchbox.performance.speed.ISpeedContext
             public boolean isSplashActivity(Activity activity) {
                 InterceptResult invokeL;
                 Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeL = interceptable2.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, activity)) == null) ? SpeedRuntimeProvider.SPLASH_ACTIVITY_NAME.equals(activity.getClass().getName()) : invokeL.booleanValue;
+                return (interceptable2 == null || (invokeL = interceptable2.invokeL(1048586, this, activity)) == null) ? SpeedRuntimeProvider.SPLASH_ACTIVITY_NAME.equals(activity.getClass().getName()) : invokeL.booleanValue;
             }
 
             @Override // com.baidu.searchbox.performance.speed.ISpeedContext
             public void launchData(HashMap<String, String> hashMap) {
                 Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeL(1048585, this, hashMap) == null) {
+                if (interceptable2 == null || interceptable2.invokeL(1048587, this, hashMap) == null) {
                 }
             }
 
             @Override // com.baidu.searchbox.performance.speed.ISpeedContext
             public void launchTime(boolean z, long j2) {
                 Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeCommon(1048586, this, new Object[]{Boolean.valueOf(z), Long.valueOf(j2)}) == null) {
+                if (interceptable2 == null || interceptable2.invokeCommon(1048588, this, new Object[]{Boolean.valueOf(z), Long.valueOf(j2)}) == null) {
                 }
             }
         } : (ISpeedContext) invokeV.objValue;

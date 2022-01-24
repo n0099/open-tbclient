@@ -29,33 +29,33 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: j  reason: collision with root package name */
-    public static final boolean f7501j;
+    public static final boolean f7643j;
     public transient /* synthetic */ FieldHolder $fh;
     public MediaCodec a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ByteBuffer[] f7502b;
+    public ByteBuffer[] f7644b;
 
     /* renamed from: c  reason: collision with root package name */
-    public ByteBuffer[] f7503c;
+    public ByteBuffer[] f7645c;
 
     /* renamed from: d  reason: collision with root package name */
-    public MediaCodec.BufferInfo f7504d;
+    public MediaCodec.BufferInfo f7646d;
 
     /* renamed from: e  reason: collision with root package name */
-    public ByteArrayOutputStream f7505e;
+    public ByteArrayOutputStream f7647e;
 
     /* renamed from: f  reason: collision with root package name */
-    public long f7506f;
+    public long f7648f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f7507g;
+    public int f7649g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f7508h;
+    public int f7650h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f7509i;
+    public String f7651i;
 
     static {
         InterceptResult invokeClinit;
@@ -70,7 +70,7 @@ public class a {
                 return;
             }
         }
-        f7501j = k.a;
+        f7643j = k.a;
     }
 
     /* JADX WARN: Removed duplicated region for block: B:26:0x0063  */
@@ -93,21 +93,21 @@ public class a {
                 return;
             }
         }
-        this.f7506f = 0L;
+        this.f7648f = 0L;
         char c2 = 0;
-        this.f7507g = 0;
-        this.f7508h = 0;
-        this.f7509i = "aac";
-        this.f7507g = i3;
-        this.f7508h = i2;
-        this.f7505e = new ByteArrayOutputStream();
+        this.f7649g = 0;
+        this.f7650h = 0;
+        this.f7651i = "aac";
+        this.f7649g = i3;
+        this.f7650h = i2;
+        this.f7647e = new ByteArrayOutputStream();
         if (TextUtils.isEmpty(str)) {
-            this.f7509i = "aac";
+            this.f7651i = "aac";
         } else {
-            this.f7509i = str;
+            this.f7651i = str;
         }
         try {
-            String str2 = this.f7509i;
+            String str2 = this.f7651i;
             int hashCode = str2.hashCode();
             if (hashCode == 96323) {
                 if (str2.equals("aac")) {
@@ -123,7 +123,7 @@ public class a {
                     if (c2 == 0) {
                         return;
                     }
-                    boolean z = f7501j;
+                    boolean z = f7643j;
                     MediaCodecInfo d2 = d("audio/mp4a-latm");
                     MediaFormat createAudioFormat = MediaFormat.createAudioFormat("audio/mp4a-latm", i3, i2);
                     createAudioFormat.setInteger("bitrate", i4);
@@ -134,9 +134,9 @@ public class a {
                         this.a = createByCodecName;
                         createByCodecName.configure(createAudioFormat, (Surface) null, (MediaCrypto) null, 1);
                         this.a.start();
-                        this.f7502b = this.a.getInputBuffers();
-                        this.f7503c = this.a.getOutputBuffers();
-                        this.f7504d = new MediaCodec.BufferInfo();
+                        this.f7644b = this.a.getInputBuffers();
+                        this.f7645c = this.a.getOutputBuffers();
+                        this.f7646d = new MediaCodec.BufferInfo();
                         return;
                     }
                     return;
@@ -200,7 +200,7 @@ public class a {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j2)) == null) {
-            int i2 = this.f7507g;
+            int i2 = this.f7649g;
             if (i2 == 0) {
                 return 0L;
             }
@@ -254,60 +254,60 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, bArr)) == null) {
             if (this.a != null && bArr != null) {
-                boolean z = f7501j;
+                boolean z = f7643j;
                 int dequeueInputBuffer = this.a.dequeueInputBuffer(-1L);
                 if (dequeueInputBuffer >= 0) {
-                    ByteBuffer byteBuffer = this.f7502b[dequeueInputBuffer];
+                    ByteBuffer byteBuffer = this.f7644b[dequeueInputBuffer];
                     byteBuffer.clear();
                     try {
                         byteBuffer.put(bArr);
                         byteBuffer.limit(bArr.length);
-                        this.a.queueInputBuffer(dequeueInputBuffer, 0, bArr.length, b(this.f7506f), 0);
-                        this.f7506f++;
+                        this.a.queueInputBuffer(dequeueInputBuffer, 0, bArr.length, b(this.f7648f), 0);
+                        this.f7648f++;
                     } catch (IllegalArgumentException | BufferOverflowException e2) {
-                        if (f7501j) {
+                        if (f7643j) {
                             e2.printStackTrace();
                         }
                         return bArr;
                     }
                 }
-                int dequeueOutputBuffer = this.a.dequeueOutputBuffer(this.f7504d, 0L);
+                int dequeueOutputBuffer = this.a.dequeueOutputBuffer(this.f7646d, 0L);
                 while (dequeueOutputBuffer >= 0) {
-                    MediaCodec.BufferInfo bufferInfo = this.f7504d;
+                    MediaCodec.BufferInfo bufferInfo = this.f7646d;
                     int i2 = bufferInfo.size;
-                    ByteBuffer byteBuffer2 = this.f7503c[dequeueOutputBuffer];
+                    ByteBuffer byteBuffer2 = this.f7645c[dequeueOutputBuffer];
                     try {
                         byteBuffer2.position(bufferInfo.offset);
-                        byteBuffer2.limit(this.f7504d.offset + i2);
-                        byte[] c2 = c(i2, 2, this.f7507g, this.f7508h);
+                        byteBuffer2.limit(this.f7646d.offset + i2);
+                        byte[] c2 = c(i2, 2, this.f7649g, this.f7650h);
                         try {
                             byteBuffer2.get(c2, 7, i2);
-                            byteBuffer2.position(this.f7504d.offset);
-                            this.f7505e.write(c2);
+                            byteBuffer2.position(this.f7646d.offset);
+                            this.f7647e.write(c2);
                             this.a.releaseOutputBuffer(dequeueOutputBuffer, false);
-                            dequeueOutputBuffer = this.a.dequeueOutputBuffer(this.f7504d, 0L);
+                            dequeueOutputBuffer = this.a.dequeueOutputBuffer(this.f7646d, 0L);
                         } catch (IOException | IllegalArgumentException | BufferUnderflowException e3) {
-                            if (f7501j) {
+                            if (f7643j) {
                                 e3.printStackTrace();
                             }
                             return bArr;
                         }
                     } catch (IllegalArgumentException e4) {
-                        if (f7501j) {
+                        if (f7643j) {
                             e4.printStackTrace();
                         }
                         return bArr;
                     }
                 }
-                bArr = this.f7505e.toByteArray();
+                bArr = this.f7647e.toByteArray();
                 try {
-                    this.f7505e.flush();
+                    this.f7647e.flush();
                 } catch (IOException e5) {
-                    if (f7501j) {
+                    if (f7643j) {
                         e5.printStackTrace();
                     }
                 }
-                this.f7505e.reset();
+                this.f7647e.reset();
             }
             return bArr;
         }
@@ -319,7 +319,7 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, bArr)) == null) {
             if (this.a != null && bArr != null) {
-                String str = this.f7509i;
+                String str = this.f7651i;
                 char c2 = 65535;
                 int hashCode = str.hashCode();
                 if (hashCode != 96323) {
@@ -342,7 +342,7 @@ public class a {
                 }
                 return e(bArr);
             }
-            boolean z = f7501j;
+            boolean z = f7643j;
             return bArr;
         }
         return (byte[]) invokeL.objValue;

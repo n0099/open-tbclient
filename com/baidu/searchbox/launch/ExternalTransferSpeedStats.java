@@ -24,19 +24,19 @@ public class ExternalTransferSpeedStats {
     public static final String BUSINESS_PAGE_UI_READY_ID = "external_business_ui_ready";
     public static final boolean DEBUG;
     public static final long DEFAULT_TIMESTAMP = 0;
-    public static String FEED_PAGE = null;
+    public static final String FEED_PAGE = "feed";
     public static final String FEED_UI_READY_ID = "c_dom_first_screen_paint";
     public static final long MAX_VALID_EXTERNAL_THRESHOLD = 15000;
-    public static String NORMAL_EXTERNAL_TRANSFER_TYPE = null;
-    public static String QUICK_EXTERNAL_TRANSFER_TYPE = null;
+    public static final String NORMAL_EXTERNAL_TRANSFER_TYPE = "normal";
+    public static final String QUICK_EXTERNAL_TRANSFER_TYPE = "quick";
     public static final String SCHEME_DISPATCHER_END_ID = "external_dispatch_end";
     public static final String SCHEME_DISPATCHER_START_ID = "external_dispatch_start";
-    public static String SEARCH_PAGE = null;
+    public static final String SEARCH_PAGE = "search";
     public static final String SOURCE_FROM_PUSH = "push";
     public static final String SOURCE_FROM_SCHEME = "scheme";
     public static final String SOURCE_FROM_WISE = "wise";
-    public static String SWAN_PAGE = null;
-    public static String TAG = "ExternalTransferSpeedStats";
+    public static final String SWAN_PAGE = "swan";
+    public static final String TAG = "ExternalTransferSpeedStats";
     public static final String UBC_ADDITION_INFO_KEY = "addition_info";
     public static final String UBC_APPLICATION_CREATE_KEY = "begin_time";
     public static final String UBC_DISPATCH_END_KEY = "dispatcher_duration";
@@ -69,15 +69,10 @@ public class ExternalTransferSpeedStats {
             }
         }
         DEBUG = AppConfig.isDebug();
-        NORMAL_EXTERNAL_TRANSFER_TYPE = "normal";
-        QUICK_EXTERNAL_TRANSFER_TYPE = "quick";
         sSchemeDispatcherStartTimeStamp = 0L;
         sSchemeDispatcherEndTimeStamp = 0L;
         sBusinessPageCreateTimeStamp = 0L;
         sBusinessPageUiReadyTimeStamp = 0L;
-        FEED_PAGE = "feed";
-        SEARCH_PAGE = "search";
-        SWAN_PAGE = "swan";
         sSource = "";
         sBusinessPage = "";
         sExternalTransferType = "";
@@ -112,7 +107,7 @@ public class ExternalTransferSpeedStats {
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) == null) {
             synchronized (ExternalTransferSpeedStats.class) {
                 if (LaunchStatsUtils.isAppCreateTimeValid() && !TextUtils.isEmpty(sSource) && !TextUtils.isEmpty(sBusinessPage)) {
-                    if (LaunchStatsUtils.getLaunchType() != LaunchStatsUtils.HOT_LAUNCH_TYPE && !sHasForegroundToBackground) {
+                    if (LaunchStatsUtils.getLaunchType() != 1 && !sHasForegroundToBackground) {
                         UBCManager uBCManager = (UBCManager) ServiceManager.getService(UBCManager.SERVICE_REFERENCE);
                         if (uBCManager == null) {
                             resetFlow();
@@ -126,14 +121,14 @@ public class ExternalTransferSpeedStats {
                             } else {
                                 long homePageFirstRenderEndTime = LaunchStatsUtils.getHomePageFirstRenderEndTime();
                                 if (homePageFirstRenderEndTime != 0 && sBusinessPageCreateTimeStamp - homePageFirstRenderEndTime <= 0) {
-                                    jSONObject.put("type", NORMAL_EXTERNAL_TRANSFER_TYPE);
+                                    jSONObject.put("type", "normal");
                                 }
                                 jSONObject.put("type", QUICK_EXTERNAL_TRANSFER_TYPE);
                             }
                             jSONObject.put("page", sBusinessPage);
                             jSONObject.put("source", sSource);
                             JSONObject jSONObject2 = new JSONObject();
-                            jSONObject2.put(UBC_APPLICATION_CREATE_KEY, LaunchStatsUtils.getAppCreateTime());
+                            jSONObject2.put("begin_time", LaunchStatsUtils.getAppCreateTime());
                             long appCreateTime = LaunchStatsUtils.getAppCreateTime();
                             if (sSchemeDispatcherStartTimeStamp != 0) {
                                 long j2 = sSchemeDispatcherStartTimeStamp - appCreateTime;
@@ -252,7 +247,7 @@ public class ExternalTransferSpeedStats {
         if (interceptable == null || interceptable.invokeL(65545, null, str) == null) {
             synchronized (ExternalTransferSpeedStats.class) {
                 if (LaunchStatsUtils.isAppCreateTimeValid() && !TextUtils.isEmpty(sSource)) {
-                    if (FEED_PAGE != str && SEARCH_PAGE != str && SWAN_PAGE != str) {
+                    if (FEED_PAGE != str && "search" != str && "swan" != str) {
                         if (DEBUG) {
                             String str2 = "cannot distinguish the page: " + str;
                         }

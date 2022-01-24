@@ -8,10 +8,11 @@ import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputConnection;
 import android.view.inputmethod.InputConnectionWrapper;
 import android.widget.TextView;
+import androidx.annotation.NonNull;
 import androidx.appcompat.widget.AppCompatEditText;
 import androidx.core.view.InputDeviceCompat;
 import c.a.d.a.i;
-import c.a.s0.s.j0.s.a;
+import c.a.s0.s.k0.s.a;
 import c.a.s0.s.q.w;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.ListUtils;
@@ -33,16 +34,16 @@ public class SpanGroupEditText extends AppCompatEditText {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public EDIT_TEXT_TYPE f40679e;
+    public EDIT_TEXT_TYPE f40707e;
 
     /* renamed from: f  reason: collision with root package name */
-    public SpanGroupManager f40680f;
+    public SpanGroupManager f40708f;
 
     /* renamed from: g  reason: collision with root package name */
-    public View.OnKeyListener f40681g;
+    public View.OnKeyListener f40709g;
 
     /* renamed from: h  reason: collision with root package name */
-    public long f40682h;
+    public long f40710h;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes11.dex */
@@ -150,7 +151,7 @@ public class SpanGroupEditText extends AppCompatEditText {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, keyEvent)) == null) {
-                if (this.a.f40681g == null || !this.a.f40681g.onKey(this.a, keyEvent.getKeyCode(), keyEvent)) {
+                if (this.a.f40709g == null || !this.a.f40709g.onKey(this.a, keyEvent.getKeyCode(), keyEvent)) {
                     return super.sendKeyEvent(keyEvent);
                 }
                 return true;
@@ -183,21 +184,21 @@ public class SpanGroupEditText extends AppCompatEditText {
     public void addAtSpanGroup(AtSelectData atSelectData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, atSelectData) == null) {
-            this.f40680f.i(atSelectData);
+            this.f40708f.i(atSelectData);
         }
     }
 
     public void addAtSpanGroupList(List<AtSelectData> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
-            this.f40680f.j(list);
+            this.f40708f.j(list);
         }
     }
 
     public void addTextWatcher() {
         SpanGroupManager spanGroupManager;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (spanGroupManager = this.f40680f) == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (spanGroupManager = this.f40708f) == null) {
             return;
         }
         spanGroupManager.k();
@@ -206,74 +207,113 @@ public class SpanGroupEditText extends AppCompatEditText {
     public void addVideoHotpicSpanGroup(String str, int i2, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{str, Integer.valueOf(i2), Boolean.valueOf(z)}) == null) {
-            this.f40680f.l(str, i2, z);
+            this.f40708f.l(str, i2, z);
         }
     }
 
     public void checkAndRemoveUnusedAtSpanGroup(List<AtSelectData> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, list) == null) {
-            this.f40680f.n(list);
+            this.f40708f.n(list);
         }
     }
 
     public void deleteSpanGroup(int i2) {
-        c.a.s0.s.j0.s.a A;
+        c.a.s0.s.k0.s.a C;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048581, this, i2) == null) || (A = this.f40680f.A(i2)) == null || getText() == null) {
+        if (!(interceptable == null || interceptable.invokeI(1048581, this, i2) == null) || (C = this.f40708f.C(i2)) == null || getText() == null) {
             return;
         }
-        this.f40680f.delete(A.f(), A.c());
+        this.f40708f.delete(C.f(), C.c());
     }
 
     public ArrayList<AtSelectData> getAtDataInText() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f40680f.u() : (ArrayList) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f40708f.u() : (ArrayList) invokeV.objValue;
     }
 
     public long getForumId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f40682h : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f40710h : invokeV.longValue;
+    }
+
+    public String getPlainTextContent() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f40708f.y() : (String) invokeV.objValue;
+    }
+
+    @NonNull
+    public String getSelectionAfterPlainTextContent() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            String z = this.f40708f.z();
+            return z == null ? "" : z;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @NonNull
+    public String getSelectionBeforePlainTextContent() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            String A = this.f40708f.A();
+            return A == null ? "" : A;
+        }
+        return (String) invokeV.objValue;
     }
 
     public SpanGroupManager getSpanGroupManager() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f40680f : (SpanGroupManager) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.f40708f : (SpanGroupManager) invokeV.objValue;
+    }
+
+    @NonNull
+    public String getToServerContent() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+            String E = this.f40708f.E();
+            return E == null ? "" : E;
+        }
+        return (String) invokeV.objValue;
     }
 
     public EDIT_TEXT_TYPE getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f40679e : (EDIT_TEXT_TYPE) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.f40707e : (EDIT_TEXT_TYPE) invokeV.objValue;
     }
 
     public void insert(CharSequence charSequence) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048586, this, charSequence) == null) || getText() == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048590, this, charSequence) == null) || getText() == null) {
             return;
         }
         getText().insert(getSelectionEnd(), charSequence);
     }
 
-    public void insertGoodsSpanGroup(List<c.a.t0.j1.a> list, List<String> list2) {
+    public void insertGoodsSpanGroup(List<c.a.t0.k1.a> list, List<String> list2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048587, this, list, list2) == null) || ListUtils.isEmpty(list)) {
+        if (!(interceptable == null || interceptable.invokeLL(1048591, this, list, list2) == null) || ListUtils.isEmpty(list)) {
             return;
         }
         for (int i2 = 0; i2 < list.size(); i2++) {
-            c.a.t0.j1.a aVar = list.get(i2);
+            c.a.t0.k1.a aVar = list.get(i2);
             String str = list2.get(i2);
-            if (!this.f40680f.o(aVar.a())) {
+            if (!this.f40708f.o(aVar.a())) {
                 TbLinkSpanGroup tbLinkSpanGroup = new TbLinkSpanGroup(TbLinkSpanGroup.LINK_TYPE.PARSED_EXTERNAL_LINK);
                 tbLinkSpanGroup.a(getText(), getSelectionEnd(), getSelectionEnd(), (int) getTextSize());
                 w b2 = w.b(tbLinkSpanGroup, aVar);
                 b2.l = str;
-                tbLinkSpanGroup.z(b2.f13518h);
+                tbLinkSpanGroup.z(b2.f13705h);
                 tbLinkSpanGroup.r();
-                this.f40680f.F(tbLinkSpanGroup);
+                this.f40708f.H(tbLinkSpanGroup);
             }
         }
     }
@@ -281,51 +321,51 @@ public class SpanGroupEditText extends AppCompatEditText {
     public boolean isIncludeTbLinkGroup() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.f40680f.H() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? this.f40708f.J() : invokeV.booleanValue;
     }
 
     @Override // androidx.appcompat.widget.AppCompatEditText, android.widget.TextView, android.view.View
     public InputConnection onCreateInputConnection(EditorInfo editorInfo) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048589, this, editorInfo)) == null) ? new a(this, super.onCreateInputConnection(editorInfo), true) : (InputConnection) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048593, this, editorInfo)) == null) ? new a(this, super.onCreateInputConnection(editorInfo), true) : (InputConnection) invokeL.objValue;
     }
 
     public void removeTextWatcher() {
         SpanGroupManager spanGroupManager;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048590, this) == null) || (spanGroupManager = this.f40680f) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048594, this) == null) || (spanGroupManager = this.f40708f) == null) {
             return;
         }
-        spanGroupManager.O();
+        spanGroupManager.Q();
     }
 
     public void setForumId(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048591, this, j2) == null) {
-            this.f40682h = j2;
+        if (interceptable == null || interceptable.invokeJ(1048595, this, j2) == null) {
+            this.f40710h = j2;
         }
     }
 
-    public void setOnSpanGroupChangedListener(a.InterfaceC0872a interfaceC0872a) {
+    public void setOnSpanGroupChangedListener(a.InterfaceC0881a interfaceC0881a) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048592, this, interfaceC0872a) == null) {
-            this.f40680f.S(interfaceC0872a);
+        if (interceptable == null || interceptable.invokeL(1048596, this, interfaceC0881a) == null) {
+            this.f40708f.U(interfaceC0881a);
         }
     }
 
     public void setSoftKeyListener(View.OnKeyListener onKeyListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048593, this, onKeyListener) == null) {
-            this.f40681g = onKeyListener;
+        if (interceptable == null || interceptable.invokeL(1048597, this, onKeyListener) == null) {
+            this.f40709g = onKeyListener;
         }
     }
 
     @Override // android.widget.EditText, android.widget.TextView
     public void setText(CharSequence charSequence, TextView.BufferType bufferType) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048594, this, charSequence, bufferType) == null) {
-            SpanGroupManager spanGroupManager = this.f40680f;
+        if (interceptable == null || interceptable.invokeLL(1048598, this, charSequence, bufferType) == null) {
+            SpanGroupManager spanGroupManager = this.f40708f;
             if (spanGroupManager != null) {
                 spanGroupManager.q();
             }
@@ -335,22 +375,22 @@ public class SpanGroupEditText extends AppCompatEditText {
 
     public void setTransAt(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048595, this, z) == null) {
-            this.f40680f.T(z);
+        if (interceptable == null || interceptable.invokeZ(1048599, this, z) == null) {
+            this.f40708f.V(z);
         }
     }
 
     public void setTransLink(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048596, this, z) == null) {
-            this.f40680f.U(z);
+        if (interceptable == null || interceptable.invokeZ(1048600, this, z) == null) {
+            this.f40708f.W(z);
         }
     }
 
     public void setType(EDIT_TEXT_TYPE edit_text_type) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048597, this, edit_text_type) == null) {
-            this.f40679e = edit_text_type;
+        if (interceptable == null || interceptable.invokeL(1048601, this, edit_text_type) == null) {
+            this.f40707e = edit_text_type;
         }
     }
 
@@ -394,8 +434,8 @@ public class SpanGroupEditText extends AppCompatEditText {
                 return;
             }
         }
-        this.f40679e = EDIT_TEXT_TYPE.TYPE_DEFAULT;
-        this.f40682h = 0L;
-        this.f40680f = new SpanGroupManager(this, context instanceof i ? ((i) context).getUniqueId() : null);
+        this.f40707e = EDIT_TEXT_TYPE.TYPE_DEFAULT;
+        this.f40710h = 0L;
+        this.f40708f = new SpanGroupManager(this, context instanceof i ? ((i) context).getUniqueId() : null);
     }
 }

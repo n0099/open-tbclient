@@ -153,7 +153,7 @@ public abstract class NadExpressNaBaseView extends AdFeedBaseView {
             updateTitleColor(adBaseModel);
             TextView textView = this.mTitle;
             if (textView != null) {
-                textView.setText(adBaseModel.f37016d.f2236e);
+                textView.setText(adBaseModel.f37044d.f2236e);
             }
         }
     }
@@ -188,7 +188,7 @@ public abstract class NadExpressNaBaseView extends AdFeedBaseView {
         if (!(interceptable == null || interceptable.invokeL(1048590, this, adBaseModel) == null) || adBaseModel == null || this.mTitle == null) {
             return;
         }
-        int i2 = adBaseModel.f37014b ? c.a.c0.d.b.NAD_FC4 : c.a.c0.d.b.NAD_FC1;
+        int i2 = adBaseModel.f37042b ? c.a.c0.d.b.NAD_FC4 : c.a.c0.d.b.NAD_FC1;
         TextView textView = this.mTitle;
         textView.setTextColor(textView.getContext().getResources().getColor(i2));
     }

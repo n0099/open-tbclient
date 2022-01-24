@@ -1,6 +1,6 @@
 package com.baidu.tieba.enterForum.home;
 
-import c.a.t0.u0.g.a;
+import c.a.t0.v0.g.a;
 import com.baidu.adp.base.BdBaseModel;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.data.VisitedForumData;

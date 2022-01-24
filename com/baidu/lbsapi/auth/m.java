@@ -14,10 +14,10 @@ public class m extends Thread {
     public Handler a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Object f34619b;
+    public Object f34647b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f34620c;
+    public boolean f34648c;
 
     public m() {
         Interceptable interceptable = $ic;
@@ -33,8 +33,8 @@ public class m extends Thread {
             }
         }
         this.a = null;
-        this.f34619b = new Object();
-        this.f34620c = false;
+        this.f34647b = new Object();
+        this.f34648c = false;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -56,8 +56,8 @@ public class m extends Thread {
             }
         }
         this.a = null;
-        this.f34619b = new Object();
-        this.f34620c = false;
+        this.f34647b = new Object();
+        this.f34648c = false;
     }
 
     public void a() {
@@ -73,10 +73,10 @@ public class m extends Thread {
     public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            synchronized (this.f34619b) {
+            synchronized (this.f34647b) {
                 try {
-                    if (!this.f34620c) {
-                        this.f34619b.wait();
+                    if (!this.f34648c) {
+                        this.f34647b.wait();
                     }
                 } catch (InterruptedException e2) {
                     e2.printStackTrace();
@@ -88,9 +88,9 @@ public class m extends Thread {
     public void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            synchronized (this.f34619b) {
-                this.f34620c = true;
-                this.f34619b.notifyAll();
+            synchronized (this.f34647b) {
+                this.f34648c = true;
+                this.f34647b.notifyAll();
             }
         }
     }

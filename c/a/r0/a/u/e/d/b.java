@@ -44,11 +44,11 @@ public class b extends d {
 
     /* renamed from: c.a.r0.a.u.e.d.b$b  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public class C0567b implements c.a.r0.a.u.e.d.c {
+    public class C0576b implements c.a.r0.a.u.e.d.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        public C0567b(b bVar, String str) {
+        public C0576b(b bVar, String str) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -144,7 +144,7 @@ public class b extends d {
                 }
                 i0 z = c.a.r0.a.c1.a.z();
                 if (z != null) {
-                    z.b(optString, new C0567b(this, optString2));
+                    z.b(optString, new C0576b(this, optString2));
                 }
                 return c.a.r0.a.u.h.b.f();
             }

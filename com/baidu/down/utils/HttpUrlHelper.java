@@ -241,7 +241,7 @@ public final class HttpUrlHelper {
                 }
                 sb.append(str);
                 if (str2 != null) {
-                    sb.append(a.f30865h);
+                    sb.append(a.f30893h);
                     sb.append(str2);
                 }
             }

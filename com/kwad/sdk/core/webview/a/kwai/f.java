@@ -4,8 +4,8 @@ public class f extends com.kwad.sdk.core.response.kwai.a {
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f56339b;
+    public boolean f56384b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f56340c;
+    public boolean f56385c;
 }

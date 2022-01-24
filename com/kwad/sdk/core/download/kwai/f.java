@@ -23,31 +23,31 @@ import java.io.File;
 public class f extends c {
 
     /* renamed from: b  reason: collision with root package name */
-    public KsAdWebView f55806b;
+    public KsAdWebView f55851b;
 
     /* renamed from: c  reason: collision with root package name */
-    public j.a f55807c;
+    public j.a f55852c;
 
     /* renamed from: d  reason: collision with root package name */
-    public AdInfo.DownloadSafeInfo f55808d;
+    public AdInfo.DownloadSafeInfo f55853d;
 
     /* renamed from: e  reason: collision with root package name */
-    public com.kwad.sdk.core.download.a.b f55809e;
+    public com.kwad.sdk.core.download.a.b f55854e;
 
     /* renamed from: f  reason: collision with root package name */
-    public com.kwad.sdk.core.webview.kwai.g f55810f;
+    public com.kwad.sdk.core.webview.kwai.g f55855f;
 
     /* renamed from: g  reason: collision with root package name */
-    public com.kwad.sdk.core.webview.a f55811g;
+    public com.kwad.sdk.core.webview.a f55856g;
 
     /* renamed from: h  reason: collision with root package name */
-    public s f55812h;
+    public s f55857h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f55813i;
+    public String f55858i;
 
     /* renamed from: j  reason: collision with root package name */
-    public Runnable f55814j;
+    public Runnable f55859j;
     public boolean k = false;
     public b.c l = new b.c() { // from class: com.kwad.sdk.core.download.kwai.f.1
         @Override // com.kwad.sdk.core.webview.jshandler.b.c
@@ -60,8 +60,8 @@ public class f extends c {
         @Override // com.kwad.sdk.core.webview.jshandler.j.b
         public void a(j.a aVar) {
             com.kwad.sdk.core.d.a.a("DownloadTipsDialogWebCardPresenter", "onAdFrameValid=" + aVar);
-            f.this.f55807c = aVar;
-            f.this.f55806b.setTranslationY((float) (aVar.a + aVar.f56403d));
+            f.this.f55852c = aVar;
+            f.this.f55851b.setTranslationY((float) (aVar.a + aVar.f56448d));
         }
     };
     public i.b n = new i.b() { // from class: com.kwad.sdk.core.download.kwai.f.5
@@ -87,52 +87,52 @@ public class f extends c {
     };
 
     public f(String str) {
-        this.f55813i = str;
+        this.f55858i = str;
     }
 
     private void a(com.kwad.sdk.core.webview.kwai.g gVar) {
         com.kwad.sdk.core.d.a.a("DownloadTipsDialogWebCardPresenter", "registerWebCardHandler");
-        gVar.a(new com.kwad.sdk.core.webview.jshandler.b(this.f55811g, this.f55809e, this.l));
-        gVar.a(new com.kwad.sdk.core.webview.jshandler.a(this.f55811g, this.f55809e, this.l));
-        gVar.a(new com.kwad.sdk.core.webview.jshandler.f(this.f55811g));
-        gVar.a(new com.kwad.sdk.core.webview.jshandler.g(this.f55811g));
-        gVar.a(new com.kwad.sdk.core.webview.jshandler.d(this.f55811g));
-        gVar.a(new j(this.f55811g, this.m));
+        gVar.a(new com.kwad.sdk.core.webview.jshandler.b(this.f55856g, this.f55854e, this.l));
+        gVar.a(new com.kwad.sdk.core.webview.jshandler.a(this.f55856g, this.f55854e, this.l));
+        gVar.a(new com.kwad.sdk.core.webview.jshandler.f(this.f55856g));
+        gVar.a(new com.kwad.sdk.core.webview.jshandler.g(this.f55856g));
+        gVar.a(new com.kwad.sdk.core.webview.jshandler.d(this.f55856g));
+        gVar.a(new j(this.f55856g, this.m));
         gVar.a(new p(this.o));
         s sVar = new s();
-        this.f55812h = sVar;
+        this.f55857h = sVar;
         gVar.a(sVar);
-        gVar.a(new t(this.f55811g, this.f55809e));
+        gVar.a(new t(this.f55856g, this.f55854e));
         gVar.a(new i(this.n));
-        gVar.a(new k(this.f55811g));
+        gVar.a(new k(this.f55856g));
     }
 
     private void e() {
-        this.f55806b.setVisibility(8);
-        this.f55806b.a();
+        this.f55851b.setVisibility(8);
+        this.f55851b.a();
         t();
     }
 
     private void f() {
         com.kwad.sdk.core.webview.a aVar = new com.kwad.sdk.core.webview.a();
-        this.f55811g = aVar;
-        aVar.a(((c) this).a.f55804d);
-        com.kwad.sdk.core.webview.a aVar2 = this.f55811g;
+        this.f55856g = aVar;
+        aVar.a(((c) this).a.f55849d);
+        com.kwad.sdk.core.webview.a aVar2 = this.f55856g;
         d dVar = ((c) this).a;
         aVar2.a = dVar.a;
-        AdBaseFrameLayout adBaseFrameLayout = dVar.f55803c;
-        aVar2.f56327b = adBaseFrameLayout;
-        aVar2.f56329d = adBaseFrameLayout;
-        aVar2.f56330e = this.f55806b;
+        AdBaseFrameLayout adBaseFrameLayout = dVar.f55848c;
+        aVar2.f56372b = adBaseFrameLayout;
+        aVar2.f56374d = adBaseFrameLayout;
+        aVar2.f56375e = this.f55851b;
     }
 
     private void g() {
         i();
-        this.f55806b.postDelayed(h(), 1500L);
-        this.f55806b.setBackgroundColor(0);
-        this.f55806b.getBackground().setAlpha(0);
-        this.f55806b.setVisibility(0);
-        com.kwad.sdk.core.d.a.a("DownloadTipsDialogWebCardPresenter", "downloadPanelUrl=" + this.f55808d.windowPopUrl);
+        this.f55851b.postDelayed(h(), 1500L);
+        this.f55851b.setBackgroundColor(0);
+        this.f55851b.getBackground().setAlpha(0);
+        this.f55851b.setVisibility(0);
+        com.kwad.sdk.core.d.a.a("DownloadTipsDialogWebCardPresenter", "downloadPanelUrl=" + this.f55853d.windowPopUrl);
     }
 
     private Runnable h() {
@@ -145,7 +145,7 @@ public class f extends c {
                 }
             }
         };
-        this.f55814j = runnable;
+        this.f55859j = runnable;
         return runnable;
     }
 
@@ -153,8 +153,8 @@ public class f extends c {
     private void i() {
         com.kwad.sdk.core.d.a.a("DownloadTipsDialogWebCardPresenter", "setupJsBridge");
         t();
-        be.b(this.f55806b);
-        this.f55806b.setHttpErrorListener(new KsAdWebView.d() { // from class: com.kwad.sdk.core.download.kwai.f.3
+        be.b(this.f55851b);
+        this.f55851b.setHttpErrorListener(new KsAdWebView.d() { // from class: com.kwad.sdk.core.download.kwai.f.3
             @Override // com.kwad.sdk.core.page.widget.webview.KsAdWebView.d
             public void a() {
             }
@@ -167,21 +167,21 @@ public class f extends c {
             public void b() {
             }
         });
-        com.kwad.sdk.core.webview.kwai.g gVar = new com.kwad.sdk.core.webview.kwai.g(this.f55806b);
-        this.f55810f = gVar;
+        com.kwad.sdk.core.webview.kwai.g gVar = new com.kwad.sdk.core.webview.kwai.g(this.f55851b);
+        this.f55855f = gVar;
         a(gVar);
-        this.f55806b.addJavascriptInterface(this.f55810f, "KwaiAd");
+        this.f55851b.addJavascriptInterface(this.f55855f, "KwaiAd");
         String r = r();
         com.kwad.sdk.core.d.a.a("DownloadTipsDialogWebCardPresenter", "getUrl: " + r);
-        this.f55806b.loadUrl(r);
+        this.f55851b.loadUrl(r);
     }
 
     private String r() {
-        if (TextUtils.isEmpty(this.f55813i)) {
+        if (TextUtils.isEmpty(this.f55858i)) {
             String s = s();
-            return TextUtils.isEmpty(s) ? this.f55808d.windowPopUrl : s;
+            return TextUtils.isEmpty(s) ? this.f55853d.windowPopUrl : s;
         }
-        return this.f55813i;
+        return this.f55858i;
     }
 
     /* JADX WARN: Removed duplicated region for block: B:13:0x004a A[ORIG_RETURN, RETURN] */
@@ -216,37 +216,37 @@ public class f extends c {
     }
 
     private void t() {
-        com.kwad.sdk.core.webview.kwai.g gVar = this.f55810f;
+        com.kwad.sdk.core.webview.kwai.g gVar = this.f55855f;
         if (gVar != null) {
             gVar.a();
-            this.f55810f = null;
+            this.f55855f = null;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void u() {
-        Runnable runnable = this.f55814j;
+        Runnable runnable = this.f55859j;
         if (runnable != null) {
-            this.f55806b.removeCallbacks(runnable);
+            this.f55851b.removeCallbacks(runnable);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void v() {
         com.kwad.sdk.core.d.a.a("DownloadTipsDialogWebCardPresenter", "hideWithOutAnimation  convertBridgeClicked: " + this.k);
-        if (this.f55806b.getVisibility() != 0) {
+        if (this.f55851b.getVisibility() != 0) {
             return;
         }
-        s sVar = this.f55812h;
+        s sVar = this.f55857h;
         if (sVar != null) {
             sVar.e();
         }
-        this.f55806b.setVisibility(4);
-        s sVar2 = this.f55812h;
+        this.f55851b.setVisibility(4);
+        s sVar2 = this.f55857h;
         if (sVar2 != null) {
             sVar2.f();
         }
-        e eVar = ((c) this).a.f55802b;
+        e eVar = ((c) this).a.f55847b;
         if (eVar != null) {
             eVar.a(this.k);
         }
@@ -255,8 +255,8 @@ public class f extends c {
     @Override // com.kwad.sdk.core.download.kwai.c, com.kwad.sdk.mvp.Presenter
     public void a() {
         super.a();
-        this.f55808d = com.kwad.sdk.core.response.a.a.ac(com.kwad.sdk.core.response.a.d.j(((c) this).a.f55804d));
-        this.f55809e = ((c) this).a.f55805e;
+        this.f55853d = com.kwad.sdk.core.response.a.a.ac(com.kwad.sdk.core.response.a.d.j(((c) this).a.f55849d));
+        this.f55854e = ((c) this).a.f55850e;
         f();
         g();
     }
@@ -271,6 +271,6 @@ public class f extends c {
     @Override // com.kwad.sdk.mvp.Presenter
     public void c_() {
         super.c_();
-        this.f55806b = (KsAdWebView) a(R.id.ksad_download_tips_web_card_webView);
+        this.f55851b = (KsAdWebView) a(R.id.ksad_download_tips_web_card_webView);
     }
 }

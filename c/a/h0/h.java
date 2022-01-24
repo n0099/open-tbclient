@@ -17,10 +17,10 @@ public final class h {
     public static final int dialog_common_cashiersdk = 2131558957;
     public static final int dialog_couponlist_cashiersdk = 2131558959;
     public static final int digital_bank_channel_list_item = 2131558970;
-    public static final int hostmarket_item = 2131559349;
-    public static final int layout_poly_digital_wallet_view = 2131559618;
-    public static final int layout_poly_sdk_common_toast = 2131559619;
-    public static final int layout_poly_sdk_simple_toast = 2131559620;
+    public static final int hostmarket_item = 2131559350;
+    public static final int layout_poly_digital_wallet_view = 2131559619;
+    public static final int layout_poly_sdk_common_toast = 2131559620;
+    public static final int layout_poly_sdk_simple_toast = 2131559621;
     public static final int pay_confirm = 2131560057;
     public static final int pay_success = 2131560059;
     public static final int period_list = 2131560137;

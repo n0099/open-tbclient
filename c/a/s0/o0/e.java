@@ -21,12 +21,12 @@ public class e {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static e f12950c;
+    public static e f13094c;
     public transient /* synthetic */ FieldHolder $fh;
     public List<String> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public List<String> f12951b;
+    public List<String> f13095b;
 
     public e() {
         Interceptable interceptable = $ic;
@@ -41,8 +41,8 @@ public class e {
                 return;
             }
         }
-        this.a = i(c.a.s0.s.h0.b.k().q("key_need_add_source_stat_list", ""));
-        this.f12951b = i("c12897,c12896,c12895,c12894,c12893,c12892,c12891,c12890,c13274,c12905,c12003,c13271,c12899,c11244,c11032,c12904,c13273,c13433,c10295,c12320,c12835,c10297,c13136,c12910,c10734,c10735,common_click,c10730,c10731,c11439,c10705,c13147,c13388,c13389,c10756,c10296,c10755,c13407,c13406,c12590,c10751,c12888,c12889,consume_33,c11824,c11823,consume_34,c12902,c12898,consume_24,c12887,c12909,c12908,c12942,c12901,c12900,c12903,c13008,c13146,common_exp,c12907,c12906,c10750,consume_3,c11887,c11438,c10704,c10484,c10709,c10708,c12386,c12384");
+        this.a = i(c.a.s0.s.i0.b.k().q("key_need_add_source_stat_list", ""));
+        this.f13095b = i("c12897,c12896,c12895,c12894,c12893,c12892,c12891,c12890,c13274,c12905,c12003,c13271,c12899,c11244,c11032,c12904,c13273,c13433,c10295,c12320,c12835,c10297,c13136,c12910,c10734,c10735,common_click,c10730,c10731,c11439,c10705,c13147,c13388,c13389,c10756,c10296,c10755,c13407,c13406,c12590,c10751,c12888,c12889,consume_33,c11824,c11823,consume_34,c12902,c12898,consume_24,c12887,c12909,c12908,c12942,c12901,c12900,c12903,c13008,c13146,common_exp,c12907,c12906,c10750,consume_3,c11887,c11438,c10704,c10484,c10709,c10708,c12386,c12384");
     }
 
     public static void b(Context context, StatisticItem statisticItem, c.a.s0.q0.d dVar) {
@@ -80,14 +80,14 @@ public class e {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (f12950c == null) {
+            if (f13094c == null) {
                 synchronized (e.class) {
-                    if (f12950c == null) {
-                        f12950c = new e();
+                    if (f13094c == null) {
+                        f13094c = new e();
                     }
                 }
             }
-            return f12950c;
+            return f13094c;
         }
         return (e) invokeV.objValue;
     }
@@ -154,8 +154,8 @@ public class e {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-            if (!ListUtils.isEmpty(this.f12951b) && !m.isEmpty(str)) {
-                for (String str2 : this.f12951b) {
+            if (!ListUtils.isEmpty(this.f13095b) && !m.isEmpty(str)) {
+                for (String str2 : this.f13095b) {
                     if (str.equals(str2)) {
                         return true;
                     }
@@ -201,7 +201,7 @@ public class e {
             if (str == null) {
                 str = "";
             }
-            c.a.s0.s.h0.b.k().y("key_need_add_source_stat_list", str);
+            c.a.s0.s.i0.b.k().y("key_need_add_source_stat_list", str);
         }
     }
 }

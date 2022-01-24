@@ -53,12 +53,12 @@ public class l extends k {
             return;
         }
         boolean z = true;
-        boolean z2 = this.t == null || this.u != this.k.f31201b;
+        boolean z2 = this.t == null || this.u != this.k.f31229b;
         Rect rect2 = this.v;
         if (rect2 != null && rect2.contains(rect)) {
             z = z2;
         }
-        this.u = this.k.f31201b;
+        this.u = this.k.f31229b;
         if (z) {
             this.v = rect;
             Path path = new Path();

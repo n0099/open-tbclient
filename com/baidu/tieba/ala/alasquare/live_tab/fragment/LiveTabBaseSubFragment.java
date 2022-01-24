@@ -25,7 +25,7 @@ public abstract class LiveTabBaseSubFragment extends BaseFragment {
     public final String FRS_DYNAMIC_FRAGMENT_SHOW;
 
     /* renamed from: e  reason: collision with root package name */
-    public h f41877e;
+    public h f41898e;
     public boolean isAfterLazyLoaded;
     public boolean isHideTopHeader;
     public Context mContext;
@@ -122,7 +122,7 @@ public abstract class LiveTabBaseSubFragment extends BaseFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048581, this, i2) == null) {
             super.onChangeSkinType(i2);
-            h hVar = this.f41877e;
+            h hVar = this.f41898e;
             if (hVar != null) {
                 hVar.onChangeSkinType();
             }
@@ -143,18 +143,18 @@ public abstract class LiveTabBaseSubFragment extends BaseFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
             this.mTopContainer.setVisibility(0);
-            if (this.f41877e == null) {
-                this.f41877e = new h(this.mContext, null);
+            if (this.f41898e == null) {
+                this.f41898e = new h(this.mContext, null);
             }
-            this.f41877e.e();
-            this.f41877e.i(R.drawable.new_pic_emotion_03);
-            this.f41877e.o(this.mContext.getResources().getString(R.string.no_data_common_txt));
-            this.f41877e.onChangeSkinType();
+            this.f41898e.e();
+            this.f41898e.i(R.drawable.new_pic_emotion_03);
+            this.f41898e.o(this.mContext.getResources().getString(R.string.no_data_common_txt));
+            this.f41898e.onChangeSkinType();
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, -1);
-            if (this.f41877e.b() == null || this.f41877e.b().getParent() != null) {
+            if (this.f41898e.b() == null || this.f41898e.b().getParent() != null) {
                 return;
             }
-            this.mTopContainer.addView(this.f41877e.b(), layoutParams);
+            this.mTopContainer.addView(this.f41898e.b(), layoutParams);
         }
     }
 }

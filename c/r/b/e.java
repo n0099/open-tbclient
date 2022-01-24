@@ -18,15 +18,15 @@ public final class e {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: d  reason: collision with root package name */
-    public static SoftReference<e> f30554d;
+    public static SoftReference<e> f30582d;
     public transient /* synthetic */ FieldHolder $fh;
     public c.r.b.f.a a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f30555b;
+    public String f30583b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Context f30556c;
+    public Context f30584c;
 
     static {
         InterceptResult invokeClinit;
@@ -60,8 +60,8 @@ public final class e {
         }
         c.r.b.g.a.b();
         this.a = new c.r.b.f.a(context, str);
-        this.f30555b = str;
-        this.f30556c = context;
+        this.f30583b = str;
+        this.f30584c = context;
     }
 
     public static e b(Context context, String str) {
@@ -70,12 +70,12 @@ public final class e {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, context, str)) == null) {
             if (context != null && str != null) {
-                SoftReference<e> softReference = f30554d;
+                SoftReference<e> softReference = f30582d;
                 e eVar2 = softReference == null ? null : softReference.get();
-                if (eVar2 == null || !str.equals(eVar2.f30555b)) {
+                if (eVar2 == null || !str.equals(eVar2.f30583b)) {
                     synchronized (e.class) {
                         eVar = new e(context, str);
-                        f30554d = new SoftReference<>(eVar);
+                        f30582d = new SoftReference<>(eVar);
                     }
                     return eVar;
                 }

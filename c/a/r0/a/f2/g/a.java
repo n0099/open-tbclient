@@ -47,29 +47,29 @@ public class a extends UnitedSchemeBaseInterceptor {
     public static final boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final Set<String> f6202b;
+    public static final Set<String> f6344b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c.a.r0.a.f2.g.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public class C0339a implements c.a.r0.q.f.c {
+    public class C0348a implements c.a.r0.q.f.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ String a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ Uri f6203b;
+        public final /* synthetic */ Uri f6345b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ String f6204c;
+        public final /* synthetic */ String f6346c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ UnitedSchemeEntity f6205d;
+        public final /* synthetic */ UnitedSchemeEntity f6347d;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f6206e;
+        public final /* synthetic */ a f6348e;
 
-        public C0339a(a aVar, String str, Uri uri, String str2, UnitedSchemeEntity unitedSchemeEntity) {
+        public C0348a(a aVar, String str, Uri uri, String str2, UnitedSchemeEntity unitedSchemeEntity) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -84,11 +84,11 @@ public class a extends UnitedSchemeBaseInterceptor {
                     return;
                 }
             }
-            this.f6206e = aVar;
+            this.f6348e = aVar;
             this.a = str;
-            this.f6203b = uri;
-            this.f6204c = str2;
-            this.f6205d = unitedSchemeEntity;
+            this.f6345b = uri;
+            this.f6346c = str2;
+            this.f6347d = unitedSchemeEntity;
         }
 
         @Override // c.a.r0.q.f.c
@@ -105,7 +105,7 @@ public class a extends UnitedSchemeBaseInterceptor {
             if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, map) == null) || map == null) {
                 return;
             }
-            this.f6206e.e(this.f6203b, map.get(this.a), this.f6204c, this.f6205d);
+            this.f6348e.e(this.f6345b, map.get(this.a), this.f6346c, this.f6347d);
         }
     }
 
@@ -124,11 +124,11 @@ public class a extends UnitedSchemeBaseInterceptor {
         }
         a = k.a;
         HashSet hashSet = new HashSet();
-        f6202b = hashSet;
+        f6344b = hashSet;
         hashSet.add("_baiduboxapp");
-        f6202b.add(WebChromeClient.KEY_ARG_CALLBACK);
-        f6202b.add("upgrade");
-        f6202b.add("_naExtParams");
+        f6344b.add(WebChromeClient.KEY_ARG_CALLBACK);
+        f6344b.add("upgrade");
+        f6344b.add("_naExtParams");
     }
 
     public a() {
@@ -162,7 +162,7 @@ public class a extends UnitedSchemeBaseInterceptor {
     public final String d(Uri uri) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, uri)) == null) ? o0.i(uri.getEncodedQuery(), f6202b) : (String) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, uri)) == null) ? o0.i(uri.getEncodedQuery(), f6344b) : (String) invokeL.objValue;
     }
 
     /* JADX WARN: Removed duplicated region for block: B:62:0x0228  */
@@ -342,7 +342,7 @@ public class a extends UnitedSchemeBaseInterceptor {
                 }
                 ArrayList arrayList = new ArrayList();
                 arrayList.add(j2);
-                c.a.r0.q.b.e(arrayList, d.J().r().N(), new C0339a(this, j2, uri, param, unitedSchemeEntity));
+                c.a.r0.q.b.e(arrayList, d.J().r().N(), new C0348a(this, j2, uri, param, unitedSchemeEntity));
             } else {
                 e(uri, j2, param, unitedSchemeEntity);
             }

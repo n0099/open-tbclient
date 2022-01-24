@@ -210,7 +210,7 @@ public class PluginManager {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) && com.bytedance.pangle.helper.c.b(Zeus.getAppApplication())) {
             if (this.mInstallThreadPool == null) {
-                this.mInstallThreadPool = e.a(g.a().f53081b.getInstallThreads());
+                this.mInstallThreadPool = e.a(g.a().f53126b.getInstallThreads());
             }
             e.a.execute(new d());
         }

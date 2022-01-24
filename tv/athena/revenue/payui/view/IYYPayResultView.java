@@ -90,13 +90,13 @@ public interface IYYPayResultView extends j.a.a.e.q.a {
         public Result a;
 
         /* renamed from: b  reason: collision with root package name */
-        public CurrencyChargeMessage f62936b;
+        public CurrencyChargeMessage f62979b;
 
         /* renamed from: c  reason: collision with root package name */
-        public int f62937c;
+        public int f62980c;
 
         /* renamed from: d  reason: collision with root package name */
-        public String f62938d;
+        public String f62981d;
 
         public b(Result result, CurrencyChargeMessage currencyChargeMessage) {
             Interceptable interceptable = $ic;
@@ -114,20 +114,20 @@ public interface IYYPayResultView extends j.a.a.e.q.a {
                 }
             }
             this.a = result;
-            this.f62936b = currencyChargeMessage;
+            this.f62979b = currencyChargeMessage;
         }
 
         public void a(int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
-                this.f62937c = i2;
+                this.f62980c = i2;
             }
         }
 
         public void b(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-                this.f62938d = str;
+                this.f62981d = str;
             }
         }
     }
@@ -139,7 +139,7 @@ public interface IYYPayResultView extends j.a.a.e.q.a {
         public b a;
 
         /* renamed from: b  reason: collision with root package name */
-        public AbsViewEventHandler f62939b;
+        public AbsViewEventHandler f62982b;
 
         public c() {
             Interceptable interceptable = $ic;

@@ -34,19 +34,19 @@ public class gw implements fo {
     public String f465a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f61153b;
+    public long f61198b;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f61154c;
+    public long f61199c;
 
     /* renamed from: d  reason: collision with root package name */
-    public long f61155d;
+    public long f61200d;
 
     /* renamed from: e  reason: collision with root package name */
-    public long f61156e;
+    public long f61201e;
 
     /* renamed from: f  reason: collision with root package name */
-    public long f61157f;
+    public long f61202f;
 
     public gw(XMPushService xMPushService) {
         Interceptable interceptable = $ic;
@@ -64,38 +64,38 @@ public class gw implements fo {
             }
         }
         this.f461a = 0L;
-        this.f61153b = 0L;
-        this.f61154c = 0L;
-        this.f61155d = 0L;
-        this.f61156e = 0L;
-        this.f61157f = 0L;
+        this.f61198b = 0L;
+        this.f61199c = 0L;
+        this.f61200d = 0L;
+        this.f61201e = 0L;
+        this.f61202f = 0L;
         this.f463a = xMPushService;
         this.f465a = "";
         b();
         int myUid = Process.myUid();
         try {
-            this.f61157f = TrafficStats.getUidRxBytes(myUid);
-            this.f61156e = TrafficStats.getUidTxBytes(myUid);
+            this.f61202f = TrafficStats.getUidRxBytes(myUid);
+            this.f61201e = TrafficStats.getUidTxBytes(myUid);
         } catch (Exception e2) {
             com.xiaomi.channel.commonutils.logger.b.m134a("Failed to obtain traffic data during initialization: " + e2);
-            this.f61157f = -1L;
-            this.f61156e = -1L;
+            this.f61202f = -1L;
+            this.f61201e = -1L;
         }
     }
 
     private void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65537, this) == null) {
-            this.f61153b = 0L;
-            this.f61155d = 0L;
+            this.f61198b = 0L;
+            this.f61200d = 0L;
             this.f461a = 0L;
-            this.f61154c = 0L;
+            this.f61199c = 0L;
             long elapsedRealtime = SystemClock.elapsedRealtime();
             if (bg.b(this.f463a)) {
                 this.f461a = elapsedRealtime;
             }
             if (this.f463a.m631c()) {
-                this.f61154c = elapsedRealtime;
+                this.f61199c = elapsedRealtime;
             }
         }
     }
@@ -104,14 +104,14 @@ public class gw implements fo {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65538, this) == null) {
             synchronized (this) {
-                com.xiaomi.channel.commonutils.logger.b.c("stat connpt = " + this.f465a + " netDuration = " + this.f61153b + " ChannelDuration = " + this.f61155d + " channelConnectedTime = " + this.f61154c);
+                com.xiaomi.channel.commonutils.logger.b.c("stat connpt = " + this.f465a + " netDuration = " + this.f61198b + " ChannelDuration = " + this.f61200d + " channelConnectedTime = " + this.f61199c);
                 ex exVar = new ex();
                 exVar.f349a = (byte) 0;
-                exVar.a(ew.f61056h.a());
+                exVar.a(ew.f61101h.a());
                 exVar.a(this.f465a);
                 exVar.d((int) (System.currentTimeMillis() / 1000));
-                exVar.b((int) (this.f61153b / 1000));
-                exVar.c((int) (this.f61155d / 1000));
+                exVar.b((int) (this.f61198b / 1000));
+                exVar.c((int) (this.f61200d / 1000));
                 gx.m427a().a(exVar);
                 b();
             }
@@ -136,15 +136,15 @@ public class gw implements fo {
                 boolean b2 = bg.b(this.f463a);
                 long elapsedRealtime = SystemClock.elapsedRealtime();
                 if (this.f461a > 0) {
-                    this.f61153b += elapsedRealtime - this.f461a;
+                    this.f61198b += elapsedRealtime - this.f461a;
                     this.f461a = 0L;
                 }
-                if (this.f61154c != 0) {
-                    this.f61155d += elapsedRealtime - this.f61154c;
-                    this.f61154c = 0L;
+                if (this.f61199c != 0) {
+                    this.f61200d += elapsedRealtime - this.f61199c;
+                    this.f61199c = 0L;
                 }
                 if (b2) {
-                    if ((!TextUtils.equals(this.f465a, m236a) && this.f61153b > 30000) || this.f61153b > 5400000) {
+                    if ((!TextUtils.equals(this.f465a, m236a) && this.f61198b > 30000) || this.f61198b > 5400000) {
                         c();
                     }
                     this.f465a = m236a;
@@ -152,7 +152,7 @@ public class gw implements fo {
                         this.f461a = elapsedRealtime;
                     }
                     if (this.f463a.m631c()) {
-                        this.f61154c = elapsedRealtime;
+                        this.f61199c = elapsedRealtime;
                     }
                 }
             }
@@ -181,13 +181,13 @@ public class gw implements fo {
                 this.f464a = exc;
                 gz.b(flVar.m385a(), exc);
             }
-            if (i2 == 22 && this.f61154c != 0) {
-                long m383a = flVar.m383a() - this.f61154c;
+            if (i2 == 22 && this.f61199c != 0) {
+                long m383a = flVar.m383a() - this.f61199c;
                 if (m383a < 0) {
                     m383a = 0;
                 }
-                this.f61155d += m383a + (fr.b() / 2);
-                this.f61154c = 0L;
+                this.f61200d += m383a + (fr.b() / 2);
+                this.f61199c = 0L;
             }
             m426a();
             int myUid = Process.myUid();
@@ -199,9 +199,9 @@ public class gw implements fo {
                 com.xiaomi.channel.commonutils.logger.b.m134a("Failed to obtain traffic data: " + e2);
                 j2 = -1L;
             }
-            com.xiaomi.channel.commonutils.logger.b.c("Stats rx=" + (j3 - this.f61157f) + ", tx=" + (j2 - this.f61156e));
-            this.f61157f = j3;
-            this.f61156e = j2;
+            com.xiaomi.channel.commonutils.logger.b.c("Stats rx=" + (j3 - this.f61202f) + ", tx=" + (j2 - this.f61201e));
+            this.f61202f = j3;
+            this.f61201e = j2;
         }
     }
 
@@ -209,7 +209,7 @@ public class gw implements fo {
     public void a(fl flVar, Exception exc) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048580, this, flVar, exc) == null) {
-            gz.a(0, ew.f61052d.a(), 1, flVar.m385a(), bg.c(this.f463a) ? 1 : 0);
+            gz.a(0, ew.f61097d.a(), 1, flVar.m385a(), bg.c(this.f463a) ? 1 : 0);
             m426a();
         }
     }
@@ -219,7 +219,7 @@ public class gw implements fo {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, flVar) == null) {
             m426a();
-            this.f61154c = SystemClock.elapsedRealtime();
+            this.f61199c = SystemClock.elapsedRealtime();
             gz.a(0, ew.v.a(), flVar.m385a(), flVar.a());
         }
     }

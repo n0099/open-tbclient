@@ -12,10 +12,10 @@ public class d extends Writer {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final String f11734e;
+    public final String f11876e;
 
     /* renamed from: f  reason: collision with root package name */
-    public StringBuilder f11735f;
+    public StringBuilder f11877f;
 
     public d(String str) {
         Interceptable interceptable = $ic;
@@ -32,17 +32,17 @@ public class d extends Writer {
                 return;
             }
         }
-        this.f11735f = new StringBuilder(128);
-        this.f11734e = str;
+        this.f11877f = new StringBuilder(128);
+        this.f11876e = str;
     }
 
     public final void a() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f11735f.length() <= 0) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f11877f.length() <= 0) {
             return;
         }
-        this.f11735f.toString();
-        StringBuilder sb = this.f11735f;
+        this.f11877f.toString();
+        StringBuilder sb = this.f11877f;
         sb.delete(0, sb.length());
     }
 
@@ -71,7 +71,7 @@ public class d extends Writer {
                 if (c2 == '\n') {
                     a();
                 } else {
-                    this.f11735f.append(c2);
+                    this.f11877f.append(c2);
                 }
             }
         }

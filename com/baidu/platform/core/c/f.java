@@ -19,7 +19,7 @@ public class f extends com.baidu.platform.base.a implements a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public OnGetPoiSearchResultListener f37729b;
+    public OnGetPoiSearchResultListener f37757b;
 
     public f() {
         Interceptable interceptable = $ic;
@@ -34,7 +34,7 @@ public class f extends com.baidu.platform.base.a implements a {
                 return;
             }
         }
-        this.f37729b = null;
+        this.f37757b = null;
     }
 
     @Override // com.baidu.platform.core.c.a
@@ -42,7 +42,7 @@ public class f extends com.baidu.platform.base.a implements a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             this.a.lock();
-            this.f37729b = null;
+            this.f37757b = null;
             this.a.unlock();
         }
     }
@@ -52,7 +52,7 @@ public class f extends com.baidu.platform.base.a implements a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, onGetPoiSearchResultListener) == null) {
             this.a.lock();
-            this.f37729b = onGetPoiSearchResultListener;
+            this.f37757b = onGetPoiSearchResultListener;
             this.a.unlock();
         }
     }
@@ -63,8 +63,8 @@ public class f extends com.baidu.platform.base.a implements a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, poiBoundSearchOption)) == null) {
             g gVar = new g(poiBoundSearchOption.mPageNum, poiBoundSearchOption.mPageCapacity);
-            gVar.a(SearchType.f37693c);
-            return a(new i(poiBoundSearchOption), this.f37729b, gVar);
+            gVar.a(SearchType.f37721c);
+            return a(new i(poiBoundSearchOption), this.f37757b, gVar);
         }
         return invokeL.booleanValue;
     }
@@ -75,8 +75,8 @@ public class f extends com.baidu.platform.base.a implements a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, poiCitySearchOption)) == null) {
             g gVar = new g(poiCitySearchOption.mPageNum, poiCitySearchOption.mPageCapacity);
-            gVar.a(SearchType.f37692b);
-            return a(new i(poiCitySearchOption), this.f37729b, gVar);
+            gVar.a(SearchType.f37720b);
+            return a(new i(poiCitySearchOption), this.f37757b, gVar);
         }
         return invokeL.booleanValue;
     }
@@ -90,8 +90,8 @@ public class f extends com.baidu.platform.base.a implements a {
             if (poiDetailSearchOption != null) {
                 dVar.a(poiDetailSearchOption.isSearchByUids());
             }
-            dVar.a(SearchType.f37694d);
-            return a(new e(poiDetailSearchOption), this.f37729b, dVar);
+            dVar.a(SearchType.f37722d);
+            return a(new e(poiDetailSearchOption), this.f37757b, dVar);
         }
         return invokeL.booleanValue;
     }
@@ -102,8 +102,8 @@ public class f extends com.baidu.platform.base.a implements a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, poiIndoorOption)) == null) {
             b bVar = new b();
-            bVar.a(SearchType.f37695e);
-            return a(new c(poiIndoorOption), this.f37729b, bVar);
+            bVar.a(SearchType.f37723e);
+            return a(new c(poiIndoorOption), this.f37757b, bVar);
         }
         return invokeL.booleanValue;
     }
@@ -115,7 +115,7 @@ public class f extends com.baidu.platform.base.a implements a {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, poiNearbySearchOption)) == null) {
             g gVar = new g(poiNearbySearchOption.mPageNum, poiNearbySearchOption.mPageCapacity);
             gVar.a(SearchType.a);
-            return a(new i(poiNearbySearchOption), this.f37729b, gVar);
+            return a(new i(poiNearbySearchOption), this.f37757b, gVar);
         }
         return invokeL.booleanValue;
     }

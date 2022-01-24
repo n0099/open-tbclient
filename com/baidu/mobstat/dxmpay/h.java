@@ -13,11 +13,11 @@ public class h extends g {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static h f36860c;
+    public static h f36888c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f36861b;
+    public boolean f36889b;
 
     static {
         InterceptResult invokeClinit;
@@ -32,7 +32,7 @@ public class h extends g {
                 return;
             }
         }
-        f36860c = new h();
+        f36888c = new h();
     }
 
     public h() {
@@ -52,7 +52,7 @@ public class h extends g {
     public static h c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f36860c : (h) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f36888c : (h) invokeV.objValue;
     }
 
     @Override // com.baidu.mobstat.dxmpay.g
@@ -65,7 +65,7 @@ public class h extends g {
     public void a(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
-            this.f36861b = z;
+            this.f36889b = z;
         }
     }
 
@@ -73,6 +73,6 @@ public class h extends g {
     public boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f36861b : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f36889b : invokeV.booleanValue;
     }
 }

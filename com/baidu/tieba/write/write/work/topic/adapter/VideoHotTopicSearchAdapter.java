@@ -7,7 +7,7 @@ import androidx.core.view.InputDeviceCompat;
 import androidx.recyclerview.widget.RecyclerView;
 import c.a.t0.p4.e;
 import c.a.t0.p4.h;
-import c.a.t0.r1.f;
+import c.a.t0.s1.f;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.util.ListUtils;
@@ -31,22 +31,22 @@ public class VideoHotTopicSearchAdapter extends RecyclerView.Adapter {
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f50006b;
+    public String f50050b;
 
     /* renamed from: c  reason: collision with root package name */
-    public List<f> f50007c;
+    public List<f> f50051c;
 
     /* renamed from: d  reason: collision with root package name */
-    public LayoutInflater f50008d;
+    public LayoutInflater f50052d;
 
     /* renamed from: e  reason: collision with root package name */
-    public TbPageContext f50009e;
+    public TbPageContext f50053e;
 
     /* renamed from: f  reason: collision with root package name */
-    public a f50010f;
+    public a f50054f;
 
     /* renamed from: g  reason: collision with root package name */
-    public long f50011g;
+    public long f50055g;
 
     /* loaded from: classes13.dex */
     public interface a {
@@ -85,16 +85,16 @@ public class VideoHotTopicSearchAdapter extends RecyclerView.Adapter {
             }
         }
         this.a = 1;
-        this.f50007c = new ArrayList();
-        this.f50011g = -1L;
-        this.f50009e = tbPageContext;
-        this.f50008d = LayoutInflater.from(tbPageContext.getPageActivity());
+        this.f50051c = new ArrayList();
+        this.f50055g = -1L;
+        this.f50053e = tbPageContext;
+        this.f50052d = LayoutInflater.from(tbPageContext.getPageActivity());
     }
 
     public void clearList() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f50007c.clear();
+            this.f50051c.clear();
             notifyDataSetChanged();
         }
     }
@@ -103,7 +103,7 @@ public class VideoHotTopicSearchAdapter extends RecyclerView.Adapter {
     public int getItemCount() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f50007c.size() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f50051c.size() : invokeV.intValue;
     }
 
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
@@ -123,22 +123,22 @@ public class VideoHotTopicSearchAdapter extends RecyclerView.Adapter {
     public List<f> getList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f50007c : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f50051c : (List) invokeV.objValue;
     }
 
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder viewHolder, int i2) {
         f fVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(1048581, this, viewHolder, i2) == null) || (fVar = (f) ListUtils.getItem(this.f50007c, i2)) == null) {
+        if (!(interceptable == null || interceptable.invokeLI(1048581, this, viewHolder, i2) == null) || (fVar = (f) ListUtils.getItem(this.f50051c, i2)) == null) {
             return;
         }
         if (viewHolder instanceof HotNormalViewHolder) {
             HotNormalViewHolder hotNormalViewHolder = (HotNormalViewHolder) viewHolder;
-            hotNormalViewHolder.bindViewHolder(hotNormalViewHolder, i2, fVar, this.f50009e, this.f50006b, this.f50010f);
+            hotNormalViewHolder.bindViewHolder(hotNormalViewHolder, i2, fVar, this.f50053e, this.f50050b, this.f50054f);
         } else if (viewHolder instanceof HotVideoViewHolder) {
             HotVideoViewHolder hotVideoViewHolder = (HotVideoViewHolder) viewHolder;
-            hotVideoViewHolder.bindDataToViewHolder(hotVideoViewHolder, i2, fVar, this.f50009e, this.f50011g, this.f50010f, this);
+            hotVideoViewHolder.bindDataToViewHolder(hotVideoViewHolder, i2, fVar, this.f50053e, this.f50055g, this.f50054f, this);
         }
     }
 
@@ -148,9 +148,9 @@ public class VideoHotTopicSearchAdapter extends RecyclerView.Adapter {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(1048582, this, viewGroup, i2)) == null) {
             if (i2 == 2) {
-                return new HotVideoViewHolder(this.f50008d.inflate(h.hot_video_topic_item, viewGroup, false));
+                return new HotVideoViewHolder(this.f50052d.inflate(h.hot_video_topic_item, viewGroup, false));
             }
-            return new HotNormalViewHolder(this.f50008d.inflate(h.hot_video_normal_topic_item, viewGroup, false));
+            return new HotNormalViewHolder(this.f50052d.inflate(h.hot_video_normal_topic_item, viewGroup, false));
         }
         return (RecyclerView.ViewHolder) invokeLI.objValue;
     }
@@ -158,10 +158,10 @@ public class VideoHotTopicSearchAdapter extends RecyclerView.Adapter {
     public void setList(String str, List<f> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048583, this, str, list) == null) {
-            this.f50006b = str;
-            this.f50007c.clear();
+            this.f50050b = str;
+            this.f50051c.clear();
             if (list != null) {
-                this.f50007c.addAll(list);
+                this.f50051c.addAll(list);
             }
             notifyDataSetChanged();
         }
@@ -170,14 +170,14 @@ public class VideoHotTopicSearchAdapter extends RecyclerView.Adapter {
     public void setOnClickItemListener(a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, aVar) == null) {
-            this.f50010f = aVar;
+            this.f50054f = aVar;
         }
     }
 
     public void setSelectTopicId(long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048585, this, j2) == null) {
-            this.f50011g = j2;
+            this.f50055g = j2;
         }
     }
 

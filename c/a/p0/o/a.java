@@ -19,24 +19,24 @@ public class a {
     public Context a;
 
     /* renamed from: b  reason: collision with root package name */
-    public d f4741b;
+    public d f4883b;
 
     /* renamed from: c  reason: collision with root package name */
-    public ServiceConnection f4742c;
+    public ServiceConnection f4884c;
 
     /* renamed from: d  reason: collision with root package name */
-    public c.a.p0.n.b f4743d;
+    public c.a.p0.n.b f4885d;
 
     /* renamed from: c.a.p0.o.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public class ServiceConnectionC0230a implements ServiceConnection {
+    public class ServiceConnectionC0239a implements ServiceConnection {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f4744e;
+        public final /* synthetic */ a f4886e;
 
-        public ServiceConnectionC0230a(a aVar) {
+        public ServiceConnectionC0239a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -51,7 +51,7 @@ public class a {
                     return;
                 }
             }
-            this.f4744e = aVar;
+            this.f4886e = aVar;
         }
 
         @Override // android.content.ServiceConnection
@@ -59,8 +59,8 @@ public class a {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048576, this, componentName, iBinder) == null) {
                 synchronized (this) {
-                    this.f4744e.f4741b = d.a.a(iBinder);
-                    c.a.p0.n.b bVar = this.f4744e.f4743d;
+                    this.f4886e.f4883b = d.a.a(iBinder);
+                    c.a.p0.n.b bVar = this.f4886e.f4885d;
                 }
             }
         }
@@ -69,9 +69,9 @@ public class a {
         public void onServiceDisconnected(ComponentName componentName) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, componentName) == null) {
-                a aVar = this.f4744e;
-                aVar.f4741b = null;
-                c.a.p0.n.b bVar = aVar.f4743d;
+                a aVar = this.f4886e;
+                aVar.f4883b = null;
+                c.a.p0.n.b bVar = aVar.f4885d;
             }
         }
     }
@@ -100,8 +100,8 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             try {
-                if (this.f4741b != null) {
-                    return ((d.a.C1872a) this.f4741b).a();
+                if (this.f4883b != null) {
+                    return ((d.a.C1878a) this.f4883b).a();
                 }
                 return null;
             } catch (Throwable unused) {
@@ -114,10 +114,10 @@ public class a {
     public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f4742c = new ServiceConnectionC0230a(this);
+            this.f4884c = new ServiceConnectionC0239a(this);
             Intent intent = new Intent("com.uodis.opendevice.OPENIDS_SERVICE");
             intent.setPackage("com.huawei.hwid");
-            this.a.bindService(intent, this.f4742c, 1);
+            this.a.bindService(intent, this.f4884c, 1);
         }
     }
 }

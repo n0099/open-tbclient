@@ -35,7 +35,7 @@ public class PbVideoFullscreenLikeBtn extends PbFirstFloorUserLikeButton {
         }
     }
 
-    @Override // com.baidu.tieba.pb.view.PbFirstFloorUserLikeButton, c.a.s0.s.j0.t.b
+    @Override // com.baidu.tieba.pb.view.PbFirstFloorUserLikeButton, c.a.s0.s.k0.t.b
     public void onClickEvent(View view) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {

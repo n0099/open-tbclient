@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public final class Carrier {
     public static /* synthetic */ Interceptable $ic;
     public static final Carrier CMCC;
@@ -19,7 +19,7 @@ public final class Carrier {
     public static final Carrier UNKNOWN;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final /* synthetic */ Carrier[] f59108b;
+    public static final /* synthetic */ Carrier[] f59153b;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
 
@@ -41,7 +41,7 @@ public final class Carrier {
         UNICOM = new Carrier("UNICOM", 2, 2);
         Carrier carrier = new Carrier("TELECOM", 3, 3);
         TELECOM = carrier;
-        f59108b = new Carrier[]{UNKNOWN, CMCC, UNICOM, carrier};
+        f59153b = new Carrier[]{UNKNOWN, CMCC, UNICOM, carrier};
     }
 
     public Carrier(String str, int i2, int i3) {
@@ -74,7 +74,7 @@ public final class Carrier {
     public static Carrier[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (Carrier[]) f59108b.clone() : (Carrier[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (Carrier[]) f59153b.clone() : (Carrier[]) invokeV.objValue;
     }
 
     public int getValue() {

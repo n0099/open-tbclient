@@ -5,6 +5,7 @@ import androidx.annotation.NonNull;
 import c.a.r0.a.k;
 import c.a.r0.a.n2.m;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.retrieve.log.bean.FetchLog;
 import com.baidu.swan.apps.extcore.model.ExtensionCore;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -72,36 +73,36 @@ public class c extends f {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (this.f7983h == null) {
-                this.f7983h = new JSONObject();
+            if (this.f8125h == null) {
+                this.f8125h = new JSONObject();
             }
             try {
                 if (TextUtils.equals(this.B, "1") || TextUtils.equals(this.B, "2")) {
-                    this.f7983h.put("errorno", this.v);
+                    this.f8125h.put("errorno", this.v);
                 }
                 String b2 = m.b(this.w);
                 this.w = b2;
-                this.f7983h.put("url", b2);
-                this.f7983h.put("netStatus", this.y);
+                this.f8125h.put("url", b2);
+                this.f8125h.put("netStatus", this.y);
                 if (!TextUtils.isEmpty(this.x)) {
-                    this.f7983h.put("msg", this.x);
+                    this.f8125h.put("msg", this.x);
                 }
                 if (!TextUtils.isEmpty(this.z)) {
-                    this.f7983h.put("pagetype", this.z);
+                    this.f8125h.put("pagetype", this.z);
                 }
                 if (!TextUtils.isEmpty(this.A)) {
-                    this.f7983h.put("curpage", this.A);
+                    this.f8125h.put("curpage", this.A);
                 }
                 if (!TextUtils.isEmpty(this.B)) {
-                    this.f7983h.put("requesttype", this.B);
+                    this.f8125h.put("requesttype", this.B);
                 }
                 if (this.D - this.C > 0) {
-                    this.f7983h.put("startTime", this.C);
-                    this.f7983h.put("endTime", this.D);
+                    this.f8125h.put(FetchLog.START_TIME, this.C);
+                    this.f8125h.put(FetchLog.END_TIME, this.D);
                 }
                 ExtensionCore T = c.a.r0.a.h0.u.g.U().T();
                 if (T != null) {
-                    this.f7983h.put("extension_ver", T.extensionCoreVersionName);
+                    this.f8125h.put("extension_ver", T.extensionCoreVersionName);
                 }
             } catch (JSONException e2) {
                 c.a.r0.a.e0.d.e("SwanAppRequestEvent", "834", "#toJSONObject error", e2, false);
@@ -133,7 +134,7 @@ public class c extends f {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            JSONObject jSONObject = this.f7983h;
+            JSONObject jSONObject = this.f8125h;
             return jSONObject != null && TextUtils.equals(jSONObject.optString("requesttype"), "0");
         }
         return invokeV.booleanValue;
@@ -155,8 +156,8 @@ public class c extends f {
                     jSONObject.put("requesttype", this.B);
                 }
                 if (this.D - this.C > 0) {
-                    jSONObject.put("startTime", this.C);
-                    jSONObject.put("endTime", this.D);
+                    jSONObject.put(FetchLog.START_TIME, this.C);
+                    jSONObject.put(FetchLog.END_TIME, this.D);
                 }
             } catch (JSONException e2) {
                 c.a.r0.a.e0.d.e("SwanAppRequestEvent", "834", "#mergeRequestInfo error", e2, false);

@@ -19,22 +19,22 @@ public abstract class b<T extends BaseCardInfo> implements View.OnClickListener 
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f17766e;
+    public int f17588e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TbPageContext<?> f17767f;
+    public TbPageContext<?> f17589f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Context f17768g;
+    public Context f17590g;
 
     /* renamed from: h  reason: collision with root package name */
-    public View f17769h;
+    public View f17591h;
 
     /* renamed from: i  reason: collision with root package name */
-    public d0<T> f17770i;
+    public d0<T> f17592i;
 
     /* renamed from: j  reason: collision with root package name */
-    public BdUniqueId f17771j;
+    public BdUniqueId f17593j;
     public String k;
     public int l;
 
@@ -53,11 +53,11 @@ public abstract class b<T extends BaseCardInfo> implements View.OnClickListener 
                 return;
             }
         }
-        this.f17766e = 3;
-        this.f17771j = null;
-        this.f17767f = tbPageContext;
-        this.f17768g = tbPageContext.getPageActivity();
-        this.f17769h = LayoutInflater.from(getContext()).inflate(f(), (ViewGroup) null, false);
+        this.f17588e = 3;
+        this.f17593j = null;
+        this.f17589f = tbPageContext;
+        this.f17590g = tbPageContext.getPageActivity();
+        this.f17591h = LayoutInflater.from(getContext()).inflate(f(), (ViewGroup) null, false);
     }
 
     public String e() {
@@ -71,31 +71,31 @@ public abstract class b<T extends BaseCardInfo> implements View.OnClickListener 
     public d0<T> g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f17770i : (d0) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f17592i : (d0) invokeV.objValue;
     }
 
     public Context getContext() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f17768g : (Context) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f17590g : (Context) invokeV.objValue;
     }
 
     public BdUniqueId h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f17771j : (BdUniqueId) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f17593j : (BdUniqueId) invokeV.objValue;
     }
 
     public TbPageContext<?> i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f17767f : (TbPageContext) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f17589f : (TbPageContext) invokeV.objValue;
     }
 
     public View j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f17769h : (View) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f17591h : (View) invokeV.objValue;
     }
 
     public abstract void k(T t);
@@ -105,21 +105,21 @@ public abstract class b<T extends BaseCardInfo> implements View.OnClickListener 
     public void m(d0<T> d0Var) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, d0Var) == null) {
-            this.f17770i = d0Var;
+            this.f17592i = d0Var;
         }
     }
 
     public void n(BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, bdUniqueId) == null) {
-            this.f17771j = bdUniqueId;
+            this.f17593j = bdUniqueId;
         }
     }
 
     public void o(int i2) {
         View view;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048587, this, i2) == null) || (view = this.f17769h) == null) {
+        if (!(interceptable == null || interceptable.invokeI(1048587, this, i2) == null) || (view = this.f17591h) == null) {
             return;
         }
         view.setVisibility(i2);
@@ -147,10 +147,10 @@ public abstract class b<T extends BaseCardInfo> implements View.OnClickListener 
                 return;
             }
         }
-        this.f17766e = 3;
-        this.f17771j = null;
-        this.f17767f = tbPageContext;
-        this.f17768g = tbPageContext.getPageActivity();
-        this.f17769h = LayoutInflater.from(getContext()).inflate(f(), viewGroup, false);
+        this.f17588e = 3;
+        this.f17593j = null;
+        this.f17589f = tbPageContext;
+        this.f17590g = tbPageContext.getPageActivity();
+        this.f17591h = LayoutInflater.from(getContext()).inflate(f(), viewGroup, false);
     }
 }

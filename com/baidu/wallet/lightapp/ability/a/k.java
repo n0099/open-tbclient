@@ -55,10 +55,10 @@ public class k extends com.baidu.wallet.lightapp.ability.b {
             public final /* synthetic */ ILightappInvokerCallback a;
 
             /* renamed from: b  reason: collision with root package name */
-            public final /* synthetic */ String f51332b;
+            public final /* synthetic */ String f51377b;
 
             /* renamed from: c  reason: collision with root package name */
-            public final /* synthetic */ k f51333c;
+            public final /* synthetic */ k f51378c;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -75,9 +75,9 @@ public class k extends com.baidu.wallet.lightapp.ability.b {
                         return;
                     }
                 }
-                this.f51333c = this;
+                this.f51378c = this;
                 this.a = iLightappInvokerCallback;
-                this.f51332b = str2;
+                this.f51377b = str2;
             }
 
             @Override // com.baidu.wallet.router.RouterCallback
@@ -105,9 +105,9 @@ public class k extends com.baidu.wallet.lightapp.ability.b {
                         }
                     }
                     String str4 = (String) hashMap.get("errorMsg");
-                    k kVar = this.f51333c;
+                    k kVar = this.f51378c;
                     ILightappInvokerCallback iLightappInvokerCallback2 = this.a;
-                    String str5 = this.f51332b;
+                    String str5 = this.f51377b;
                     String num = Integer.toString(i2);
                     if (!TextUtils.isEmpty(str4)) {
                         str4 = LightappConstants.ROUTER_INVOKE_FAIL;

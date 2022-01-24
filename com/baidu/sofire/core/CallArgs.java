@@ -18,19 +18,19 @@ public class CallArgs implements Parcelable {
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f38368b;
+    public int f38396b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f38369c;
+    public String f38397c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Object[] f38370d;
+    public Object[] f38398d;
 
     /* renamed from: e  reason: collision with root package name */
-    public Object[] f38371e;
+    public Object[] f38399e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Object f38372f;
+    public Object f38400f;
 
     static {
         InterceptResult invokeClinit;
@@ -106,11 +106,11 @@ public class CallArgs implements Parcelable {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, parcel, i2) == null) {
             parcel.writeInt(this.a);
-            parcel.writeInt(this.f38368b);
-            parcel.writeString(this.f38369c);
-            parcel.writeArray(this.f38371e);
-            parcel.writeArray(this.f38370d);
-            parcel.writeValue(this.f38372f);
+            parcel.writeInt(this.f38396b);
+            parcel.writeString(this.f38397c);
+            parcel.writeArray(this.f38399e);
+            parcel.writeArray(this.f38398d);
+            parcel.writeValue(this.f38400f);
         }
     }
 
@@ -130,10 +130,10 @@ public class CallArgs implements Parcelable {
             }
         }
         this.a = parcel.readInt();
-        this.f38368b = parcel.readInt();
-        this.f38369c = parcel.readString();
-        this.f38371e = parcel.readArray(CallArgs.class.getClassLoader());
-        this.f38370d = parcel.readArray(CallArgs.class.getClassLoader());
-        this.f38372f = parcel.readValue(CallArgs.class.getClassLoader());
+        this.f38396b = parcel.readInt();
+        this.f38397c = parcel.readString();
+        this.f38399e = parcel.readArray(CallArgs.class.getClassLoader());
+        this.f38398d = parcel.readArray(CallArgs.class.getClassLoader());
+        this.f38400f = parcel.readValue(CallArgs.class.getClassLoader());
     }
 }

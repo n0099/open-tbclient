@@ -17,15 +17,15 @@ public class c implements c.a.r0.a.u1.o.a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final boolean f9427d;
+    public static final boolean f9569d;
     public transient /* synthetic */ FieldHolder $fh;
     public b a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f9428b;
+    public long f9570b;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f9429c;
+    public long f9571c;
 
     /* loaded from: classes.dex */
     public class a implements View.OnLongClickListener {
@@ -33,7 +33,7 @@ public class c implements c.a.r0.a.u1.o.a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c f9430e;
+        public final /* synthetic */ c f9572e;
 
         public a(c cVar) {
             Interceptable interceptable = $ic;
@@ -50,7 +50,7 @@ public class c implements c.a.r0.a.u1.o.a {
                     return;
                 }
             }
-            this.f9430e = cVar;
+            this.f9572e = cVar;
         }
 
         @Override // android.view.View.OnLongClickListener
@@ -58,11 +58,11 @@ public class c implements c.a.r0.a.u1.o.a {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, view)) == null) {
-                if (this.f9430e.l()) {
-                    this.f9430e.m();
+                if (this.f9572e.l()) {
+                    this.f9572e.m();
                     return true;
                 }
-                this.f9430e.n();
+                this.f9572e.n();
                 return true;
             }
             return invokeL.booleanValue;
@@ -82,7 +82,7 @@ public class c implements c.a.r0.a.u1.o.a {
                 return;
             }
         }
-        f9427d = k.a;
+        f9569d = k.a;
     }
 
     public c() {
@@ -108,7 +108,7 @@ public class c implements c.a.r0.a.u1.o.a {
         b bVar;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeJ(1048576, this, j2) == null) && l() && (bVar = this.a) != null) {
-            bVar.f(j2 - this.f9428b);
+            bVar.f(j2 - this.f9570b);
         }
     }
 
@@ -117,7 +117,7 @@ public class c implements c.a.r0.a.u1.o.a {
         b bVar;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j2) == null) && l() && (bVar = this.a) != null) {
-            this.f9428b = j2;
+            this.f9570b = j2;
             bVar.e();
         }
     }
@@ -127,8 +127,8 @@ public class c implements c.a.r0.a.u1.o.a {
         b bVar;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j2) == null) && l() && (bVar = this.a) != null) {
-            this.f9429c = j2;
-            bVar.l(this.f9428b, j2);
+            this.f9571c = j2;
+            bVar.l(this.f9570b, j2);
             this.a.a();
         }
     }
@@ -138,7 +138,7 @@ public class c implements c.a.r0.a.u1.o.a {
         b bVar;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeJ(1048579, this, j2) == null) && l() && (bVar = this.a) != null) {
-            bVar.h(j2 - this.f9428b);
+            bVar.h(j2 - this.f9570b);
         }
     }
 
@@ -147,7 +147,7 @@ public class c implements c.a.r0.a.u1.o.a {
         b bVar;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeJ(1048580, this, j2) == null) && l() && (bVar = this.a) != null) {
-            bVar.i(j2 - this.f9428b);
+            bVar.i(j2 - this.f9570b);
         }
     }
 
@@ -156,14 +156,14 @@ public class c implements c.a.r0.a.u1.o.a {
         b bVar;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeJ(1048581, this, j2) == null) && l() && (bVar = this.a) != null) {
-            bVar.g(j2 - this.f9428b);
+            bVar.g(j2 - this.f9570b);
         }
     }
 
     @Override // c.a.r0.a.u1.o.a
     public void h(View view) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048582, this, view) == null) && f9427d && view != null) {
+        if ((interceptable == null || interceptable.invokeL(1048582, this, view) == null) && f9569d && view != null) {
             view.setOnLongClickListener(new a(this));
         }
     }
@@ -172,7 +172,7 @@ public class c implements c.a.r0.a.u1.o.a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            if (f9427d) {
+            if (f9569d) {
                 return AppRuntime.getAppContext().getSharedPreferences("light_info_debug", 0).getBoolean("light_info_switch", false);
             }
             return false;

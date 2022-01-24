@@ -16,22 +16,22 @@ public class o extends n {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c  reason: collision with root package name */
-    public Context f52921c;
+    public Context f52966c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f52922d;
+    public String f52967d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f52923e;
+    public String f52968e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f52924f;
+    public String f52969f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f52925g;
+    public boolean f52970g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f52926h;
+    public boolean f52971h;
 
     public o(Context context) {
         Interceptable interceptable = $ic;
@@ -48,25 +48,25 @@ public class o extends n {
                 return;
             }
         }
-        this.f52922d = "";
-        this.f52923e = "";
-        this.f52924f = "";
-        this.f52925g = false;
-        this.f52926h = false;
-        this.f52921c = context;
+        this.f52967d = "";
+        this.f52968e = "";
+        this.f52969f = "";
+        this.f52970g = false;
+        this.f52971h = false;
+        this.f52966c = context;
     }
 
     @Override // com.bun.miitmdid.interfaces.IIdProvider
     public void doStart() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f52921c = a(this.f52921c);
+            this.f52966c = a(this.f52966c);
             isSupported();
             isLimited();
             getOAID();
             getVAID();
             getAAID();
-            a(this.f52922d, this.f52923e, this.f52924f, this.f52925g, this.f52926h);
+            a(this.f52967d, this.f52968e, this.f52969f, this.f52970g, this.f52971h);
         }
     }
 
@@ -83,11 +83,11 @@ public class o extends n {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             try {
-                this.f52922d = AdvertisingIdClient.getAdvertisingIdInfo(this.f52921c).getId();
+                this.f52967d = AdvertisingIdClient.getAdvertisingIdInfo(this.f52966c).getId();
             } catch (IOException unused) {
-                this.f52922d = "";
+                this.f52967d = "";
             }
-            return this.f52922d;
+            return this.f52967d;
         }
         return (String) invokeV.objValue;
     }
@@ -105,11 +105,11 @@ public class o extends n {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             try {
-                this.f52926h = AdvertisingIdClient.getAdvertisingIdInfo(this.f52921c).isLimitAdTrackingEnabled();
+                this.f52971h = AdvertisingIdClient.getAdvertisingIdInfo(this.f52966c).isLimitAdTrackingEnabled();
             } catch (Exception unused) {
-                this.f52926h = false;
+                this.f52971h = false;
             }
-            return this.f52926h;
+            return this.f52971h;
         }
         return invokeV.booleanValue;
     }
@@ -120,12 +120,12 @@ public class o extends n {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
             try {
-                this.f52922d = AdvertisingIdClient.getAdvertisingIdInfo(this.f52921c).getId();
+                this.f52967d = AdvertisingIdClient.getAdvertisingIdInfo(this.f52966c).getId();
             } catch (IOException unused) {
-                this.f52925g = false;
+                this.f52970g = false;
             }
             boolean z = !TextUtils.isEmpty(getOAID());
-            this.f52925g = z;
+            this.f52970g = z;
             return z;
         }
         return invokeV.booleanValue;

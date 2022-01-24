@@ -20,13 +20,13 @@ public class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final boolean f5731h;
+    public static final boolean f5873h;
 
     /* renamed from: i  reason: collision with root package name */
-    public static String f5732i;
+    public static String f5874i;
 
     /* renamed from: j  reason: collision with root package name */
-    public static String f5733j;
+    public static String f5875j;
     public static String k;
     public static String l;
     public transient /* synthetic */ FieldHolder $fh;
@@ -34,22 +34,22 @@ public class b {
     @SuppressLint({"BDOfflineUrl"})
 
     /* renamed from: b  reason: collision with root package name */
-    public String f5734b;
+    public String f5876b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f5735c;
+    public boolean f5877c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f5736d;
+    public boolean f5878d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f5737e;
+    public int f5879e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f5738f;
+    public int f5880f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f5739g;
+    public boolean f5881g;
 
     static {
         InterceptResult invokeClinit;
@@ -64,9 +64,9 @@ public class b {
                 return;
             }
         }
-        f5731h = k.a;
-        f5732i = "V8Master";
-        f5733j = "page";
+        f5873h = k.a;
+        f5874i = "V8Master";
+        f5875j = "page";
         k = "runtime/index.js";
         l = "ws://localhost:4000";
     }
@@ -85,12 +85,12 @@ public class b {
             }
         }
         this.a = String.valueOf(System.currentTimeMillis());
-        this.f5734b = "http://chrome-devtools-frontend.appspot.com/serve_rev/@74dd8d5ea19a92d0e6092e59a0c8bd3a40877b71/inspector.html?ws=localhost:4000";
-        this.f5735c = false;
-        this.f5736d = true;
-        this.f5737e = 0;
-        this.f5738f = 0;
-        this.f5739g = true;
+        this.f5876b = "http://chrome-devtools-frontend.appspot.com/serve_rev/@74dd8d5ea19a92d0e6092e59a0c8bd3a40877b71/inspector.html?ws=localhost:4000";
+        this.f5877c = false;
+        this.f5878d = true;
+        this.f5879e = 0;
+        this.f5880f = 0;
+        this.f5881g = true;
     }
 
     public String toString() {
@@ -101,23 +101,23 @@ public class b {
             JSONObject jSONObject = new JSONObject();
             JSONObject jSONObject2 = new JSONObject();
             try {
-                jSONObject.putOpt("title", f5732i);
-                jSONObject.putOpt("type", f5733j);
+                jSONObject.putOpt("title", f5874i);
+                jSONObject.putOpt("type", f5875j);
                 jSONObject.putOpt("url", k);
                 jSONObject.putOpt("webSocketDebuggerUrl", l);
                 jSONObject.putOpt("id", this.a);
-                jSONObject.putOpt("devtoolsFrontendUrl", this.f5734b);
+                jSONObject.putOpt("devtoolsFrontendUrl", this.f5876b);
                 jSONObject.putOpt("swanJsVersion", c.a.r0.a.q2.b.h(0));
                 jSONObject.putOpt("appVersion", q0.D());
-                jSONObject2.putOpt("attached", Boolean.valueOf(this.f5735c));
-                jSONObject2.putOpt(SchemeCollecter.CLASSIFY_EMPTY, Boolean.valueOf(this.f5736d));
-                jSONObject2.putOpt("screenX", Integer.valueOf(this.f5737e));
-                jSONObject2.putOpt("screenY", Integer.valueOf(this.f5738f));
-                jSONObject2.putOpt(TKBase.VISIBILITY_VISIBLE, Boolean.valueOf(this.f5739g));
+                jSONObject2.putOpt("attached", Boolean.valueOf(this.f5877c));
+                jSONObject2.putOpt(SchemeCollecter.CLASSIFY_EMPTY, Boolean.valueOf(this.f5878d));
+                jSONObject2.putOpt("screenX", Integer.valueOf(this.f5879e));
+                jSONObject2.putOpt("screenY", Integer.valueOf(this.f5880f));
+                jSONObject2.putOpt(TKBase.VISIBILITY_VISIBLE, Boolean.valueOf(this.f5881g));
                 jSONObject.putOpt("description", jSONObject2.toString());
                 jSONArray.put(jSONObject);
             } catch (JSONException unused) {
-                boolean z = f5731h;
+                boolean z = f5873h;
             }
             return jSONArray.toString();
         }

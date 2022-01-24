@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.squareup.wire.ExtendableMessage;
 import com.squareup.wire.Message;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public final class Extension<T extends ExtendableMessage<?>, E> implements Comparable<Extension<?, ?>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -261,7 +261,7 @@ public final class Extension<T extends ExtendableMessage<?>, E> implements Compa
         return invokeL.intValue;
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static final class Builder<T extends ExtendableMessage<?>, E> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

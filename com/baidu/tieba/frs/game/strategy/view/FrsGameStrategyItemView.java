@@ -5,7 +5,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import c.a.s0.s.q.e2;
 import c.a.t0.g0.b;
-import c.a.t0.w3.p0.d;
+import c.a.t0.x3.p0.d;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.imsdk.internal.Constants;
@@ -21,7 +21,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes12.dex */
-public class FrsGameStrategyItemView extends b<c.a.t0.d1.e2.a.a.b> {
+public class FrsGameStrategyItemView extends b<c.a.t0.e1.e2.a.a.b> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TbPageContext m;
@@ -125,7 +125,7 @@ public class FrsGameStrategyItemView extends b<c.a.t0.d1.e2.a.a.b> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // c.a.t0.g0.b
     /* renamed from: q */
-    public void k(c.a.t0.d1.e2.a.a.b bVar) {
+    public void k(c.a.t0.e1.e2.a.a.b bVar) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(1048581, this, bVar) == null) || bVar == null || bVar.getThreadData() == null) {
             return;
@@ -133,31 +133,31 @@ public class FrsGameStrategyItemView extends b<c.a.t0.d1.e2.a.a.b> {
         e2 threadData = bVar.getThreadData();
         this.q.setText(threadData.getTitle());
         d readThreadHistory = TbadkCoreApplication.getInst().getReadThreadHistory();
-        if (readThreadHistory != null && readThreadHistory.d(threadData.g0())) {
+        if (readThreadHistory != null && readThreadHistory.d(threadData.h0())) {
             SkinManager.setViewTextColor(this.q, R.color.CAM_X0108);
         } else {
             SkinManager.setViewTextColor(this.q, R.color.CAM_X0105);
         }
-        String numberUniformFormat = StringHelper.numberUniformFormat(threadData.E1());
+        String numberUniformFormat = StringHelper.numberUniformFormat(threadData.F1());
         String formatTimeShort = StringHelper.getFormatTimeShort(threadData.I());
         if (!StringUtils.isNull(numberUniformFormat) && !StringUtils.isNull(formatTimeShort)) {
-            this.r.setText(String.format(this.f17768g.getString(R.string.frs_game_strategy_scan_info), numberUniformFormat, formatTimeShort));
+            this.r.setText(String.format(this.f17590g.getString(R.string.frs_game_strategy_scan_info), numberUniformFormat, formatTimeShort));
         }
         String str = null;
-        if (threadData.r1() == 40) {
+        if (threadData.s1() == 40) {
             this.p.setVisibility(0);
-            if (threadData.t1() != null) {
-                str = threadData.t1().thumbnail_url;
+            if (threadData.u1() != null) {
+                str = threadData.u1().thumbnail_url;
             }
         } else {
             this.p.setVisibility(8);
-            if (threadData.F0() != null && threadData.F0().size() >= 1) {
-                str = threadData.F0().get(0).getOriginalUrl();
+            if (threadData.G0() != null && threadData.G0().size() >= 1) {
+                str = threadData.G0().get(0).getOriginalUrl();
             }
         }
         this.o.startLoad(str, 10, false);
-        if (!StringUtils.isNull(threadData.c0())) {
-            this.s.setText(threadData.c0());
+        if (!StringUtils.isNull(threadData.d0())) {
+            this.s.setText(threadData.d0());
             this.s.setVisibility(0);
             return;
         }

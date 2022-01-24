@@ -20,7 +20,7 @@ public class d implements Interceptor {
     public a.b a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final e f11308b;
+    public final e f11450b;
 
     /* loaded from: classes6.dex */
     public class a implements e {
@@ -83,7 +83,7 @@ public class d implements Interceptor {
                 return;
             }
         }
-        this.f11308b = new a(this);
+        this.f11450b = new a(this);
     }
 
     public void c(a.b bVar) {
@@ -99,7 +99,7 @@ public class d implements Interceptor {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, chain)) == null) {
             Response proceed = chain.proceed(chain.request());
-            return proceed.newBuilder().body(new h(proceed.body(), this.f11308b)).build();
+            return proceed.newBuilder().body(new h(proceed.body(), this.f11450b)).build();
         }
         return (Response) invokeL.objValue;
     }

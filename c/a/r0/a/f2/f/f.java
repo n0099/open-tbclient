@@ -39,11 +39,11 @@ public class f extends c.a.r0.a.p1.a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: f  reason: collision with root package name */
-    public static AtomicLong f5902f;
+    public static AtomicLong f6044f;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f5903e;
+    public int f6045e;
 
     /* loaded from: classes.dex */
     public class a implements a.b {
@@ -52,19 +52,19 @@ public class f extends c.a.r0.a.p1.a {
         public final /* synthetic */ CallbackHandler a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ String f5904b;
+        public final /* synthetic */ String f6046b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ String f5905c;
+        public final /* synthetic */ String f6047c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ String f5906d;
+        public final /* synthetic */ String f6048d;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f5907e;
+        public final /* synthetic */ String f6049e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ f f5908f;
+        public final /* synthetic */ f f6050f;
 
         public a(f fVar, CallbackHandler callbackHandler, String str, String str2, String str3, String str4) {
             Interceptable interceptable = $ic;
@@ -81,28 +81,28 @@ public class f extends c.a.r0.a.p1.a {
                     return;
                 }
             }
-            this.f5908f = fVar;
+            this.f6050f = fVar;
             this.a = callbackHandler;
-            this.f5904b = str;
-            this.f5905c = str2;
-            this.f5906d = str3;
-            this.f5907e = str4;
+            this.f6046b = str;
+            this.f6047c = str2;
+            this.f6048d = str3;
+            this.f6049e = str4;
         }
 
         @Override // c.a.r0.a.p1.o.a.b
         public void a(long j2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeJ(1048576, this, j2) == null) {
-                this.a.handleSchemeDispatchCallback(this.f5904b, UnitedSchemeUtility.wrapCallbackParams(1001, "download file failed because file size exceeds limit").toString());
-                SwanAppNetworkUtils.a(c.a.r0.p.e.a.g().getOkHttpClient(), this.f5905c);
-                this.f5908f.q(this.f5906d);
+                this.a.handleSchemeDispatchCallback(this.f6046b, UnitedSchemeUtility.wrapCallbackParams(1001, "download file failed because file size exceeds limit").toString());
+                SwanAppNetworkUtils.a(c.a.r0.p.e.a.g().getOkHttpClient(), this.f6047c);
+                this.f6050f.q(this.f6048d);
             }
         }
 
         @Override // c.a.r0.a.p1.o.a.b
         public void b(int i2, long j2, long j3) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j2), Long.valueOf(j3)}) == null) || System.currentTimeMillis() - this.f5908f.p(this.f5906d) <= 500) {
+            if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j2), Long.valueOf(j3)}) == null) || System.currentTimeMillis() - this.f6050f.p(this.f6048d) <= 500) {
                 return;
             }
             if (i2 <= 100) {
@@ -111,23 +111,23 @@ public class f extends c.a.r0.a.p1.a {
                     jSONObject.put("progress", i2);
                     jSONObject.put("totalBytesWritten", j2);
                     jSONObject.put("totalBytesExpectedToWrite", j3);
-                    this.a.handleSchemeDispatchCallback(this.f5907e, UnitedSchemeUtility.wrapCallbackParamsWithEncode(jSONObject, 0).toString());
+                    this.a.handleSchemeDispatchCallback(this.f6049e, UnitedSchemeUtility.wrapCallbackParamsWithEncode(jSONObject, 0).toString());
                 } catch (Exception e2) {
-                    if (z.f6201b) {
+                    if (z.f6343b) {
                         e2.printStackTrace();
                     }
                 }
             }
-            this.f5908f.f8261c.put(this.f5906d, Long.valueOf(System.currentTimeMillis()));
+            this.f6050f.f8403c.put(this.f6048d, Long.valueOf(System.currentTimeMillis()));
         }
 
         @Override // c.a.r0.a.p1.o.a.b
         public void c(long j2, long j3) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3)}) == null) {
-                this.a.handleSchemeDispatchCallback(this.f5904b, UnitedSchemeUtility.wrapCallbackParams(1001, "progress callback fail()").toString());
-                SwanAppNetworkUtils.a(c.a.r0.p.e.a.g().getOkHttpClient(), this.f5905c);
-                this.f5908f.q(this.f5906d);
+                this.a.handleSchemeDispatchCallback(this.f6046b, UnitedSchemeUtility.wrapCallbackParams(1001, "progress callback fail()").toString());
+                SwanAppNetworkUtils.a(c.a.r0.p.e.a.g().getOkHttpClient(), this.f6047c);
+                this.f6050f.q(this.f6048d);
             }
         }
     }
@@ -139,31 +139,31 @@ public class f extends c.a.r0.a.p1.a {
         public final /* synthetic */ CallbackHandler a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ String f5909b;
+        public final /* synthetic */ String f6051b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ String f5910c;
+        public final /* synthetic */ String f6052c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ String f5911d;
+        public final /* synthetic */ String f6053d;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f5912e;
+        public final /* synthetic */ String f6054e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f5913f;
+        public final /* synthetic */ String f6055f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ String f5914g;
+        public final /* synthetic */ String f6056g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ String f5915h;
+        public final /* synthetic */ String f6057h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final /* synthetic */ String f5916i;
+        public final /* synthetic */ String f6058i;
 
         /* renamed from: j  reason: collision with root package name */
-        public final /* synthetic */ f f5917j;
+        public final /* synthetic */ f f6059j;
 
         public b(f fVar, CallbackHandler callbackHandler, String str, String str2, String str3, String str4, String str5, String str6, String str7, String str8) {
             Interceptable interceptable = $ic;
@@ -180,16 +180,16 @@ public class f extends c.a.r0.a.p1.a {
                     return;
                 }
             }
-            this.f5917j = fVar;
+            this.f6059j = fVar;
             this.a = callbackHandler;
-            this.f5909b = str;
-            this.f5910c = str2;
-            this.f5911d = str3;
-            this.f5912e = str4;
-            this.f5913f = str5;
-            this.f5914g = str6;
-            this.f5915h = str7;
-            this.f5916i = str8;
+            this.f6051b = str;
+            this.f6052c = str2;
+            this.f6053d = str3;
+            this.f6054e = str4;
+            this.f6055f = str5;
+            this.f6056g = str6;
+            this.f6057h = str7;
+            this.f6058i = str8;
         }
 
         @Override // okhttp3.Callback
@@ -197,10 +197,10 @@ public class f extends c.a.r0.a.p1.a {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048576, this, call, iOException) == null) {
                 c.a.r0.a.g1.f.U().R();
-                this.a.handleSchemeDispatchCallback(this.f5909b, UnitedSchemeUtility.wrapCallbackParams(1001, iOException.getMessage()).toString());
-                this.f5917j.q(this.f5910c);
+                this.a.handleSchemeDispatchCallback(this.f6051b, UnitedSchemeUtility.wrapCallbackParams(1001, iOException.getMessage()).toString());
+                this.f6059j.q(this.f6052c);
                 if (SwanAppNetworkUtils.i(null)) {
-                    c.a.r0.a.n2.n.v(0, this.f5911d, 0, iOException.getMessage(), this.f5912e, this.f5913f);
+                    c.a.r0.a.n2.n.v(0, this.f6053d, 0, iOException.getMessage(), this.f6054e, this.f6055f);
                 }
             }
         }
@@ -212,34 +212,34 @@ public class f extends c.a.r0.a.p1.a {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, call, response) == null) {
                 try {
-                    if (!TextUtils.isEmpty(this.f5914g)) {
-                        str = this.f5917j.y(this.f5914g);
+                    if (!TextUtils.isEmpty(this.f6056g)) {
+                        str = this.f6059j.y(this.f6056g);
                     } else {
-                        str = f.A(c.a.r0.a.p1.a.s(response.headers()), this.f5915h);
+                        str = f.A(c.a.r0.a.p1.a.s(response.headers()), this.f6057h);
                     }
                 } catch (JSONException e2) {
                     e2.printStackTrace();
                     str = null;
                 }
                 if (TextUtils.isEmpty(str)) {
-                    this.a.handleSchemeDispatchCallback(this.f5909b, UnitedSchemeUtility.wrapCallbackParams(1001, "realFilePath create fail").toString());
+                    this.a.handleSchemeDispatchCallback(this.f6051b, UnitedSchemeUtility.wrapCallbackParams(1001, "realFilePath create fail").toString());
                     return;
                 }
-                if (z.f6201b) {
+                if (z.f6343b) {
                     String str3 = "the real file path is " + str;
                 }
                 try {
-                    this.f5917j.r(this.f5916i, c.a.r0.a.p1.a.s(response.headers()));
+                    this.f6059j.r(this.f6058i, c.a.r0.a.p1.a.s(response.headers()));
                 } catch (JSONException e3) {
                     e3.printStackTrace();
                 }
-                if (TextUtils.isEmpty(this.f5914g)) {
+                if (TextUtils.isEmpty(this.f6056g)) {
                     str2 = c.a.r0.a.g1.f.U().G().h(str);
                 } else {
-                    str2 = this.f5914g;
+                    str2 = this.f6056g;
                 }
                 if (TextUtils.isEmpty(str2)) {
-                    this.a.handleSchemeDispatchCallback(this.f5909b, UnitedSchemeUtility.wrapCallbackParams(1001, "parse tmpFilePath from realFilePath fail").toString());
+                    this.a.handleSchemeDispatchCallback(this.f6051b, UnitedSchemeUtility.wrapCallbackParams(1001, "parse tmpFilePath from realFilePath fail").toString());
                     return;
                 }
                 int code = response.code();
@@ -248,7 +248,7 @@ public class f extends c.a.r0.a.p1.a {
                     try {
                         JSONObject jSONObject = new JSONObject();
                         jSONObject.put(EnterDxmPayServiceAction.SERVICE_STATUS_CODE, code);
-                        jSONObject.put(TextUtils.isEmpty(this.f5914g) ? "tempFilePath" : "filePath", str2);
+                        jSONObject.put(TextUtils.isEmpty(this.f6056g) ? "tempFilePath" : "filePath", str2);
                         InputStream byteStream = response.body().byteStream();
                         File file = new File(str);
                         if (file.exists()) {
@@ -256,24 +256,24 @@ public class f extends c.a.r0.a.p1.a {
                             file.createNewFile();
                         }
                         if (c.a.r0.w.g.a(byteStream, file)) {
-                            this.a.handleSchemeDispatchCallback(this.f5909b, UnitedSchemeUtility.wrapCallbackParamsWithEncode(jSONObject, 0).toString());
+                            this.a.handleSchemeDispatchCallback(this.f6051b, UnitedSchemeUtility.wrapCallbackParamsWithEncode(jSONObject, 0).toString());
                         } else {
-                            this.a.handleSchemeDispatchCallback(this.f5909b, UnitedSchemeUtility.wrapCallbackParams(1001, "streamToFile fail").toString());
+                            this.a.handleSchemeDispatchCallback(this.f6051b, UnitedSchemeUtility.wrapCallbackParams(1001, "streamToFile fail").toString());
                         }
                     } catch (Exception e4) {
-                        if (z.f6201b) {
+                        if (z.f6343b) {
                             e4.printStackTrace();
                         }
-                        this.a.handleSchemeDispatchCallback(this.f5909b, UnitedSchemeUtility.wrapCallbackParams(201, e4.getMessage()).toString());
+                        this.a.handleSchemeDispatchCallback(this.f6051b, UnitedSchemeUtility.wrapCallbackParams(201, e4.getMessage()).toString());
                     }
-                    this.f5917j.q(this.f5910c);
+                    this.f6059j.q(this.f6052c);
                     c.a.r0.a.g1.f.U().R();
-                    if (z.f6201b) {
-                        String str4 = "onResponse: respCode: " + code + ", url=" + this.f5911d + ", msg=" + message;
+                    if (z.f6343b) {
+                        String str4 = "onResponse: respCode: " + code + ", url=" + this.f6053d + ", msg=" + message;
                     }
-                    c.a.r0.a.n2.n.v(code, this.f5911d, 0, message, this.f5912e, this.f5913f);
+                    c.a.r0.a.n2.n.v(code, this.f6053d, 0, message, this.f6054e, this.f6055f);
                 } catch (Throwable th) {
-                    this.f5917j.q(this.f5910c);
+                    this.f6059j.q(this.f6052c);
                     c.a.r0.a.g1.f.U().R();
                     throw th;
                 }
@@ -282,7 +282,7 @@ public class f extends c.a.r0.a.p1.a {
     }
 
     /* loaded from: classes.dex */
-    public class c implements a.InterfaceC0497a {
+    public class c implements a.InterfaceC0506a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -316,7 +316,7 @@ public class f extends c.a.r0.a.p1.a {
                 return;
             }
         }
-        f5902f = new AtomicLong(System.currentTimeMillis());
+        f6044f = new AtomicLong(System.currentTimeMillis());
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -338,7 +338,7 @@ public class f extends c.a.r0.a.p1.a {
                 return;
             }
         }
-        this.f5903e = 0;
+        this.f6045e = 0;
     }
 
     @Nullable
@@ -373,7 +373,7 @@ public class f extends c.a.r0.a.p1.a {
                     }
                 }
             }
-            long andIncrement = f5902f.getAndIncrement();
+            long andIncrement = f6044f.getAndIncrement();
             StringBuilder sb = new StringBuilder();
             sb.append(andIncrement);
             if (TextUtils.isEmpty(str)) {
@@ -387,7 +387,7 @@ public class f extends c.a.r0.a.p1.a {
         return (String) invokeLL.objValue;
     }
 
-    public a.InterfaceC0497a B(CallbackHandler callbackHandler, String str, JSONObject jSONObject, String str2) {
+    public a.InterfaceC0506a B(CallbackHandler callbackHandler, String str, JSONObject jSONObject, String str2) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, callbackHandler, str, jSONObject, str2)) == null) {
@@ -396,7 +396,7 @@ public class f extends c.a.r0.a.p1.a {
             String z = z(optString2);
             return new c(this, str, callbackHandler, jSONObject.optString("onProgressUpdate"), jSONObject.optString("cb"), str2, optString2, c.a.r0.a.n2.n.l(), q0.n().f(), optString, z, jSONObject.optString("headersReceivedEvent"));
         }
-        return (a.InterfaceC0497a) invokeLLLL.objValue;
+        return (a.InterfaceC0506a) invokeLLLL.objValue;
     }
 
     @Override // c.a.r0.a.f2.f.z
@@ -433,7 +433,7 @@ public class f extends c.a.r0.a.p1.a {
             String a3 = c.a.r0.a.u.e.i.j.a(f0);
             Request x = x(a2, a3);
             if (x == null) {
-                unitedSchemeEntity.result = t(this.f5903e);
+                unitedSchemeEntity.result = t(this.f6045e);
                 return false;
             }
             String httpUrl = x.url().toString();
@@ -452,7 +452,7 @@ public class f extends c.a.r0.a.p1.a {
             bVar.a(m);
             c.a.r0.a.g1.f.U().a0();
             String valueOf = String.valueOf(System.currentTimeMillis());
-            this.f8261c.put(valueOf, 0L);
+            this.f8403c.put(valueOf, 0L);
             if (c.a.r0.a.c1.a.v().h()) {
                 c.a.r0.a.p.d.t1.b bVar2 = new c.a.r0.a.p.d.t1.b();
                 bVar2.H(a2.optString("url"));
@@ -492,7 +492,7 @@ public class f extends c.a.r0.a.p1.a {
                 return null;
             }
             int c2 = c.a.r0.a.e2.a.b.c("downloadFile", httpUrl, jSONObject.optString("__plugin__"));
-            this.f5903e = c2;
+            this.f6045e = c2;
             if (c2 != 0) {
                 return null;
             }

@@ -14,13 +14,13 @@ public final class d {
     public static final int[] a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final int[] f61665b;
+    public static final int[] f61710b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final int[] f61666c;
+    public static final int[] f61711c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final int[] f61667d;
+    public static final int[] f61712d;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -37,17 +37,17 @@ public final class d {
             }
         }
         a = new int[]{1, 2, 3, 4, 0, 5, 17, 6, 16, 7, 8, 9, 10, 11, 12, 13, 14, 15};
-        f61665b = new int[]{3, 2, 1, 0, 3, 3, 3, 3, 3, 3, 2, 2, 2, 2, 2, 2};
-        f61666c = new int[]{0, 0, 0, 0, -1, 1, -2, 2, -3, 3, -1, 1, -2, 2, -3, 3};
-        f61667d = new int[]{131072, 131076, 131075, 196610, 131072, 131076, 131075, V8Engine.SET_NET_REQUEST_ERROR_REGISTER_NA_REQUEST_FAILED_CAN_NOT_FIND_SWAN_NATIVE, 131072, 131076, 131075, 196610, 131072, 131076, 131075, 262149};
+        f61710b = new int[]{3, 2, 1, 0, 3, 3, 3, 3, 3, 3, 2, 2, 2, 2, 2, 2};
+        f61711c = new int[]{0, 0, 0, 0, -1, 1, -2, 2, -3, 3, -1, 1, -2, 2, -3, 3};
+        f61712d = new int[]{131072, 131076, 131075, 196610, 131072, 131076, 131075, V8Engine.SET_NET_REQUEST_ERROR_REGISTER_NA_REQUEST_FAILED_CAN_NOT_FIND_SWAN_NATIVE, 131072, 131076, 131075, 196610, 131072, 131076, 131075, 262149};
     }
 
     public static void a(j jVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65537, null, jVar) == null) {
-            a aVar = jVar.f61680c;
-            byte[] bArr = jVar.f61681d;
-            int i2 = jVar.f61684g;
+            a aVar = jVar.f61725c;
+            byte[] bArr = jVar.f61726d;
+            int i2 = jVar.f61729g;
             if (i2 <= 0) {
                 a.k(aVar);
                 jVar.a = 1;
@@ -55,12 +55,12 @@ public final class d {
             }
             int min = Math.min(jVar.Q - jVar.r, i2);
             a.c(aVar, bArr, jVar.r, min);
-            jVar.f61684g -= min;
+            jVar.f61729g -= min;
             int i3 = jVar.r + min;
             jVar.r = i3;
             int i4 = jVar.Q;
             if (i3 == i4) {
-                jVar.f61679b = 5;
+                jVar.f61724b = 5;
                 jVar.Y = i4;
                 jVar.X = 0;
                 jVar.a = 12;
@@ -75,13 +75,13 @@ public final class d {
         int i3;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(65538, null, jVar, i2) == null) {
-            a aVar = jVar.f61680c;
+            a aVar = jVar.f61725c;
             int[] iArr = jVar.p;
             int i4 = i2 * 2;
             a.d(aVar);
             int i5 = i2 * 1080;
-            int r = r(jVar.f61682e, i5, aVar);
-            jVar.n[i2] = m(jVar.f61683f, i5, aVar);
+            int r = r(jVar.f61727e, i5, aVar);
+            jVar.n[i2] = m(jVar.f61728f, i5, aVar);
             if (r == 1) {
                 i3 = iArr[i4 + 1] + 1;
             } else {
@@ -101,7 +101,7 @@ public final class d {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65539, null, jVar) == null) {
             b(jVar, 1);
-            jVar.F = jVar.l.f61670c[jVar.p[3]];
+            jVar.F = jVar.l.f61715c[jVar.p[3]];
         }
     }
 
@@ -165,9 +165,9 @@ public final class d {
             jVar.B = i3;
             int i4 = jVar.A[i3] & 255;
             jVar.v = i4;
-            jVar.w = jVar.k.f61670c[i4];
+            jVar.w = jVar.k.f61715c[i4];
             byte b2 = jVar.z[i2];
-            int[] iArr = c.f61664b;
+            int[] iArr = c.f61709b;
             jVar.D = iArr[b2];
             jVar.E = iArr[b2 + 1];
         }
@@ -177,14 +177,14 @@ public final class d {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65543, null, aVar, jVar) == null) {
             boolean z = a.i(aVar, 1) == 1;
-            jVar.f61685h = z;
-            jVar.f61684g = 0;
-            jVar.f61686i = false;
-            jVar.f61687j = false;
+            jVar.f61730h = z;
+            jVar.f61729g = 0;
+            jVar.f61731i = false;
+            jVar.f61732j = false;
             if (!z || a.i(aVar, 1) == 0) {
                 int i2 = a.i(aVar, 2) + 4;
                 if (i2 == 7) {
-                    jVar.f61687j = true;
+                    jVar.f61732j = true;
                     if (a.i(aVar, 1) == 0) {
                         int i3 = a.i(aVar, 2);
                         if (i3 == 0) {
@@ -195,7 +195,7 @@ public final class d {
                             if (i5 == 0 && i4 + 1 == i3 && i3 > 1) {
                                 throw new BrotliRuntimeException("Exuberant nibble");
                             }
-                            jVar.f61684g = (i5 << (i4 * 8)) | jVar.f61684g;
+                            jVar.f61729g = (i5 << (i4 * 8)) | jVar.f61729g;
                         }
                     } else {
                         throw new BrotliRuntimeException("Corrupted reserved bit");
@@ -206,14 +206,14 @@ public final class d {
                         if (i7 == 0 && i6 + 1 == i2 && i2 > 4) {
                             throw new BrotliRuntimeException("Exuberant nibble");
                         }
-                        jVar.f61684g = (i7 << (i6 * 4)) | jVar.f61684g;
+                        jVar.f61729g = (i7 << (i6 * 4)) | jVar.f61729g;
                     }
                 }
-                jVar.f61684g++;
-                if (jVar.f61685h) {
+                jVar.f61729g++;
+                if (jVar.f61730h) {
                     return;
                 }
-                jVar.f61686i = a.i(aVar, 1) == 1;
+                jVar.f61731i = a.i(aVar, 1) == 1;
             }
         }
     }
@@ -266,16 +266,16 @@ public final class d {
             throw new IllegalStateException("Can't decompress until initialized");
         }
         if (i8 != 11) {
-            a aVar = jVar.f61680c;
+            a aVar = jVar.f61725c;
             int i9 = jVar.Q - 1;
-            byte[] bArr = jVar.f61681d;
+            byte[] bArr = jVar.f61726d;
             while (true) {
                 int i10 = jVar.a;
                 if (i10 == 10) {
                     if (i10 == 10) {
-                        if (jVar.f61684g >= 0) {
+                        if (jVar.f61729g >= 0) {
                             a.g(aVar);
-                            a.a(jVar.f61680c, true);
+                            a.a(jVar.f61725c, true);
                             return;
                         }
                         throw new BrotliRuntimeException("Invalid metablock length");
@@ -285,10 +285,10 @@ public final class d {
                     int i11 = 0;
                     switch (i10) {
                         case 1:
-                            if (jVar.f61684g >= 0) {
+                            if (jVar.f61729g >= 0) {
                                 q(jVar);
                                 i9 = jVar.Q - 1;
-                                bArr = jVar.f61681d;
+                                bArr = jVar.f61726d;
                                 break;
                             } else {
                                 throw new BrotliRuntimeException("Invalid metablock length");
@@ -296,7 +296,7 @@ public final class d {
                         case 2:
                             p(jVar);
                             jVar.a = 3;
-                            if (jVar.f61684g > 0) {
+                            if (jVar.f61729g > 0) {
                                 jVar.a = 1;
                                 break;
                             } else {
@@ -307,17 +307,17 @@ public final class d {
                                 int[] iArr = jVar.n;
                                 iArr[1] = iArr[1] - 1;
                                 a.d(aVar);
-                                int r = r(jVar.l.f61669b, jVar.F, aVar);
+                                int r = r(jVar.l.f61714b, jVar.F, aVar);
                                 int i12 = r >>> 6;
                                 jVar.G = 0;
                                 if (i12 >= 2) {
                                     i12 -= 2;
                                     jVar.G = -1;
                                 }
-                                int i13 = i.f61677g[i12] + ((r >>> 3) & 7);
-                                int i14 = i.f61678h[i12] + (r & 7);
-                                jVar.y = i.f61673c[i13] + a.i(aVar, i.f61674d[i13]);
-                                jVar.M = i.f61675e[i14] + a.i(aVar, i.f61676f[i14]);
+                                int i13 = i.f61722g[i12] + ((r >>> 3) & 7);
+                                int i14 = i.f61723h[i12] + (r & 7);
+                                jVar.y = i.f61718c[i13] + a.i(aVar, i.f61719d[i13]);
+                                jVar.M = i.f61720e[i14] + a.i(aVar, i.f61721f[i14]);
                                 jVar.x = 0;
                                 jVar.a = 6;
                                 if (jVar.u) {
@@ -338,13 +338,13 @@ public final class d {
                                             iArr3[0] = iArr3[0] - 1;
                                             a.d(aVar);
                                             g gVar = jVar.k;
-                                            int r2 = r(gVar.f61669b, gVar.f61670c[bArr2[i18 + (iArr2[jVar.E + i17] | i19)] & 255], aVar);
+                                            int r2 = r(gVar.f61714b, gVar.f61715c[bArr2[i18 + (iArr2[jVar.E + i17] | i19)] & 255], aVar);
                                             int i20 = jVar.r;
                                             bArr[i20] = (byte) r2;
                                             jVar.x++;
                                             jVar.r = i20 + 1;
                                             if (i20 == i9) {
-                                                jVar.f61679b = 6;
+                                                jVar.f61724b = 6;
                                                 jVar.Y = jVar.Q;
                                                 jVar.X = 0;
                                                 jVar.a = 12;
@@ -365,12 +365,12 @@ public final class d {
                                             int[] iArr4 = jVar.n;
                                             iArr4[0] = iArr4[0] - 1;
                                             a.d(aVar);
-                                            bArr[jVar.r] = (byte) r(jVar.k.f61669b, jVar.w, aVar);
+                                            bArr[jVar.r] = (byte) r(jVar.k.f61714b, jVar.w, aVar);
                                             jVar.x++;
                                             int i22 = jVar.r;
                                             jVar.r = i22 + 1;
                                             if (i22 == i9) {
-                                                jVar.f61679b = 6;
+                                                jVar.f61724b = 6;
                                                 jVar.Y = jVar.Q;
                                                 jVar.X = 0;
                                                 jVar.a = 12;
@@ -381,8 +381,8 @@ public final class d {
                                 if (jVar.a == 6) {
                                     continue;
                                 } else {
-                                    int i23 = jVar.f61684g - jVar.y;
-                                    jVar.f61684g = i23;
+                                    int i23 = jVar.f61729g - jVar.y;
+                                    jVar.f61729g = i23;
                                     if (i23 <= 0) {
                                         jVar.a = 3;
                                         break;
@@ -396,8 +396,8 @@ public final class d {
                                             iArr5[2] = iArr5[2] - 1;
                                             a.d(aVar);
                                             g gVar2 = jVar.m;
-                                            int[] iArr6 = gVar2.f61669b;
-                                            int[] iArr7 = gVar2.f61670c;
+                                            int[] iArr6 = gVar2.f61714b;
+                                            int[] iArr7 = gVar2.f61715c;
                                             byte[] bArr3 = jVar.H;
                                             int i24 = jVar.C;
                                             int i25 = jVar.M;
@@ -436,7 +436,7 @@ public final class d {
                                                     iArr8[i34 & 3] = i33;
                                                     jVar.t = i34 + 1;
                                                 }
-                                                if (jVar.M <= jVar.f61684g) {
+                                                if (jVar.M <= jVar.f61729g) {
                                                     jVar.x = 0;
                                                     jVar.a = 7;
                                                     int i35 = jVar.r;
@@ -450,7 +450,7 @@ public final class d {
                                                             i2++;
                                                         }
                                                         jVar.x += i3;
-                                                        jVar.f61684g -= i3;
+                                                        jVar.f61729g -= i3;
                                                         jVar.r += i3;
                                                     } else {
                                                         do {
@@ -458,13 +458,13 @@ public final class d {
                                                             if (i4 >= jVar.M) {
                                                                 i5 = jVar.r;
                                                                 bArr[i5] = bArr[(i5 - jVar.L) & i9];
-                                                                jVar.f61684g--;
+                                                                jVar.f61729g--;
                                                                 jVar.x = i4 + 1;
                                                                 jVar.r = i5 + 1;
                                                             }
                                                         } while (i5 != i9);
                                                         i6 = 7;
-                                                        jVar.f61679b = 7;
+                                                        jVar.f61724b = 7;
                                                         jVar.Y = jVar.Q;
                                                         jVar.X = 0;
                                                         jVar.a = 12;
@@ -490,14 +490,14 @@ public final class d {
                             }
                             break;
                         case 3:
-                            if (jVar.f61684g > 0) {
+                            if (jVar.f61729g > 0) {
                             }
                             break;
                         case 4:
-                            while (jVar.f61684g > 0) {
+                            while (jVar.f61729g > 0) {
                                 a.j(aVar);
                                 a.i(aVar, 8);
-                                jVar.f61684g--;
+                                jVar.f61729g--;
                             }
                             jVar.a = 1;
                             break;
@@ -523,7 +523,7 @@ public final class d {
                                 }
                             } while (i5 != i9);
                             i6 = 7;
-                            jVar.f61679b = 7;
+                            jVar.f61724b = 7;
                             jVar.Y = jVar.Q;
                             jVar.X = 0;
                             jVar.a = 12;
@@ -540,19 +540,19 @@ public final class d {
                             if (i37 >= 4 && i37 <= 24) {
                                 int i38 = e.a[i37];
                                 int i39 = (jVar.L - jVar.s) - 1;
-                                int i40 = e.f61668b[i37];
+                                int i40 = e.f61713b[i37];
                                 int i41 = ((1 << i40) - 1) & i39;
                                 int i42 = i39 >>> i40;
                                 int i43 = i38 + (i41 * i37);
-                                if (i42 < k.f61688d.length) {
-                                    int b2 = k.b(bArr, jVar.N, e.a(), i43, jVar.M, k.f61688d[i42]);
+                                if (i42 < k.f61733d.length) {
+                                    int b2 = k.b(bArr, jVar.N, e.a(), i43, jVar.M, k.f61733d[i42]);
                                     int i44 = jVar.N + b2;
                                     jVar.N = i44;
                                     jVar.r += b2;
-                                    jVar.f61684g -= b2;
+                                    jVar.f61729g -= b2;
                                     int i45 = jVar.Q;
                                     if (i44 >= i45) {
-                                        jVar.f61679b = 8;
+                                        jVar.f61724b = 8;
                                         jVar.Y = i45;
                                         jVar.X = 0;
                                         jVar.a = 12;
@@ -578,7 +578,7 @@ public final class d {
                         jVar.s = i47;
                     }
                     jVar.r &= i9;
-                    jVar.a = jVar.f61679b;
+                    jVar.a = jVar.f61724b;
                 }
             }
         } else {
@@ -617,7 +617,7 @@ public final class d {
                     }
                     i3 = i4;
                 }
-                if (!jVar.f61685h && i3 < 16384 && jVar.P >= 16384) {
+                if (!jVar.f61730h && i3 < 16384 && jVar.P >= 16384) {
                     i3 = 16384;
                 }
             }
@@ -626,7 +626,7 @@ public final class d {
                 return;
             }
             byte[] bArr = new byte[i3 + 37];
-            byte[] bArr2 = jVar.f61681d;
+            byte[] bArr2 = jVar.f61726d;
             if (bArr2 != null) {
                 System.arraycopy(bArr2, 0, bArr, 0, i5);
             } else {
@@ -645,7 +645,7 @@ public final class d {
                     jVar.T = i6;
                 }
             }
-            jVar.f61681d = bArr;
+            jVar.f61726d = bArr;
             jVar.Q = i3;
         }
     }
@@ -668,7 +668,7 @@ public final class d {
         if (interceptable == null || (invokeLIL = interceptable.invokeLIL(65549, null, iArr, i2, aVar)) == null) {
             a.d(aVar);
             int r = r(iArr, i2, aVar);
-            return i.a[r] + a.i(aVar, i.f61672b[r]);
+            return i.a[r] + a.i(aVar, i.f61717b[r]);
         }
         return invokeLIL.intValue;
     }
@@ -730,11 +730,11 @@ public final class d {
         while (i4 < 18 && i9 > 0) {
             int i11 = a[i4];
             a.d(aVar);
-            long j2 = aVar.f61656f;
-            int i12 = aVar.f61657g;
+            long j2 = aVar.f61701f;
+            int i12 = aVar.f61702g;
             int i13 = ((int) (j2 >>> i12)) & 15;
-            int[] iArr5 = f61667d;
-            aVar.f61657g = i12 + (iArr5[i13] >> 16);
+            int[] iArr5 = f61712d;
+            aVar.f61702g = i12 + (iArr5[i13] >> 16);
             int i14 = iArr5[i13] & 65535;
             iArr4[i11] = i14;
             if (i14 != 0) {
@@ -781,10 +781,10 @@ public final class d {
             while (i4 < i2 && i5 > 0) {
                 a.j(aVar);
                 a.d(aVar);
-                long j2 = aVar.f61656f;
-                int i8 = aVar.f61657g;
+                long j2 = aVar.f61701f;
+                int i8 = aVar.f61702g;
                 int i9 = ((int) (j2 >>> i8)) & 31;
-                aVar.f61657g = i8 + (iArr3[i9] >> 16);
+                aVar.f61702g = i8 + (iArr3[i9] >> 16);
                 int i10 = iArr3[i9] & 65535;
                 if (i10 < 16) {
                     int i11 = i4 + 1;
@@ -827,16 +827,16 @@ public final class d {
         int[] iArr;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65552, null, jVar) == null) {
-            a aVar = jVar.f61680c;
+            a aVar = jVar.f61725c;
             for (int i2 = 0; i2 < 3; i2++) {
                 jVar.o[i2] = h(aVar) + 1;
                 jVar.n[i2] = 268435456;
                 int[] iArr2 = jVar.o;
                 if (iArr2[i2] > 1) {
                     int i3 = i2 * 1080;
-                    n(iArr2[i2] + 2, jVar.f61682e, i3, aVar);
-                    n(26, jVar.f61683f, i3, aVar);
-                    jVar.n[i2] = m(jVar.f61683f, i3, aVar);
+                    n(iArr2[i2] + 2, jVar.f61727e, i3, aVar);
+                    n(26, jVar.f61728f, i3, aVar);
+                    jVar.n[i2] = m(jVar.f61728f, i3, aVar);
                 }
             }
             a.j(aVar);
@@ -888,13 +888,13 @@ public final class d {
             g.a(jVar.m, aVar);
             jVar.B = 0;
             jVar.C = 0;
-            int[] iArr4 = c.f61664b;
+            int[] iArr4 = c.f61709b;
             byte[] bArr3 = jVar.z;
             jVar.D = iArr4[bArr3[0]];
             jVar.E = iArr4[bArr3[0] + 1];
             jVar.v = 0;
-            jVar.w = jVar.k.f61670c[0];
-            jVar.F = jVar.l.f61670c[0];
+            jVar.w = jVar.k.f61715c[0];
+            jVar.F = jVar.l.f61715c[0];
             int[] iArr5 = jVar.p;
             iArr5[4] = 1;
             iArr5[2] = 1;
@@ -908,36 +908,36 @@ public final class d {
     public static void q(j jVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65553, null, jVar) == null) {
-            a aVar = jVar.f61680c;
-            if (jVar.f61685h) {
-                jVar.f61679b = 10;
+            a aVar = jVar.f61725c;
+            if (jVar.f61730h) {
+                jVar.f61724b = 10;
                 jVar.Y = jVar.r;
                 jVar.X = 0;
                 jVar.a = 12;
                 return;
             }
             g gVar = jVar.k;
-            gVar.f61669b = null;
-            gVar.f61670c = null;
+            gVar.f61714b = null;
+            gVar.f61715c = null;
             g gVar2 = jVar.l;
-            gVar2.f61669b = null;
-            gVar2.f61670c = null;
+            gVar2.f61714b = null;
+            gVar2.f61715c = null;
             g gVar3 = jVar.m;
-            gVar3.f61669b = null;
-            gVar3.f61670c = null;
+            gVar3.f61714b = null;
+            gVar3.f61715c = null;
             a.j(aVar);
             g(aVar, jVar);
-            if (jVar.f61684g != 0 || jVar.f61687j) {
-                if (!jVar.f61686i && !jVar.f61687j) {
+            if (jVar.f61729g != 0 || jVar.f61732j) {
+                if (!jVar.f61731i && !jVar.f61732j) {
                     jVar.a = 2;
                 } else {
                     a.g(aVar);
-                    jVar.a = jVar.f61687j ? 4 : 5;
+                    jVar.a = jVar.f61732j ? 4 : 5;
                 }
-                if (jVar.f61687j) {
+                if (jVar.f61732j) {
                     return;
                 }
-                jVar.R += jVar.f61684g;
+                jVar.R += jVar.f61729g;
                 if (jVar.Q < jVar.P) {
                     k(jVar);
                 }
@@ -949,18 +949,18 @@ public final class d {
         InterceptResult invokeLIL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLIL = interceptable.invokeLIL(65554, null, iArr, i2, aVar)) == null) {
-            long j2 = aVar.f61656f;
-            int i3 = aVar.f61657g;
+            long j2 = aVar.f61701f;
+            int i3 = aVar.f61702g;
             int i4 = (int) (j2 >>> i3);
             int i5 = i2 + (i4 & 255);
             int i6 = iArr[i5] >> 16;
             int i7 = iArr[i5] & 65535;
             if (i6 <= 8) {
-                aVar.f61657g = i3 + i6;
+                aVar.f61702g = i3 + i6;
                 return i7;
             }
             int i8 = i5 + i7 + ((((1 << i6) - 1) & i4) >>> 8);
-            aVar.f61657g = i3 + (iArr[i8] >> 16) + 8;
+            aVar.f61702g = i3 + (iArr[i8] >> 16) + 8;
             return iArr[i8] & 65535;
         }
         return invokeLIL.intValue;
@@ -979,7 +979,7 @@ public final class d {
     public static int t(int i2, int[] iArr, int i3) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65556, null, new Object[]{Integer.valueOf(i2), iArr, Integer.valueOf(i3)})) == null) ? i2 < 16 ? iArr[(i3 + f61665b[i2]) & 3] + f61666c[i2] : (i2 - 16) + 1 : invokeCommon.intValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65556, null, new Object[]{Integer.valueOf(i2), iArr, Integer.valueOf(i3)})) == null) ? i2 < 16 ? iArr[(i3 + f61710b[i2]) & 3] + f61711c[i2] : (i2 - 16) + 1 : invokeCommon.intValue;
     }
 
     public static boolean u(j jVar) {
@@ -993,7 +993,7 @@ public final class d {
             }
             int min = Math.min(jVar.V - jVar.W, jVar.Y - jVar.X);
             if (min != 0) {
-                System.arraycopy(jVar.f61681d, jVar.X, jVar.Z, jVar.U + jVar.W, min);
+                System.arraycopy(jVar.f61726d, jVar.X, jVar.Z, jVar.U + jVar.W, min);
                 jVar.W += min;
                 jVar.X += min;
             }

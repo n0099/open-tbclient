@@ -5,6 +5,7 @@ import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.retrieve.log.bean.FetchLog;
 import com.baidu.searchbox.ubcprocessor.UBCCloudControlProcessor;
 import com.baidu.swan.apps.core.pms.PMSDownloadType;
 import com.baidu.swan.apps.core.pms.PkgDownloadError;
@@ -49,7 +50,7 @@ public class h extends g {
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public h(c.a.r0.a.d2.e eVar) {
-        super(eVar.f5537f);
+        super(eVar.f5679f);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -76,10 +77,10 @@ public class h extends g {
         }
         c.a.r0.a.n2.s.f fVar = new c.a.r0.a.n2.s.f();
         fVar.a = c.a.r0.a.n2.n.n(bVar.G());
-        fVar.f7981f = bVar.H();
-        fVar.f7978c = bVar.T();
-        fVar.f7977b = "launch";
-        fVar.f7980e = "success";
+        fVar.f8123f = bVar.H();
+        fVar.f8120c = bVar.T();
+        fVar.f8119b = "launch";
+        fVar.f8122e = "success";
         fVar.a("status", "1");
         if (aVar != null) {
             fVar.a("errcode", String.valueOf(aVar.a()));
@@ -215,7 +216,7 @@ public class h extends g {
         long optLong2 = jSONObject.optLong("dnsEndTime", optLong);
         long optLong3 = jSONObject.optLong("dnsStartTime", optLong);
         long optLong4 = jSONObject.optLong("connectedTime", optLong);
-        long optLong5 = jSONObject.optLong("startTime", optLong);
+        long optLong5 = jSONObject.optLong(FetchLog.START_TIME, optLong);
         HybridUbcFlow p = c.a.r0.a.u1.h.p(NodeJS.STARTUP_SCRIPT_NAME);
         UbcFlowEvent ubcFlowEvent = new UbcFlowEvent("pms_network_start");
         ubcFlowEvent.h(optLong5);
@@ -281,7 +282,7 @@ public class h extends g {
             return;
         }
         try {
-            PMSAppInfo a = c.a.r0.q.p.f.a(new JSONObject(bVar.f11485c));
+            PMSAppInfo a = c.a.r0.q.p.f.a(new JSONObject(bVar.f11627c));
             a.appId = a.appKey;
             c.a.r0.a.d2.d.J().r().M0(a);
             c.a.r0.a.e0.d.i("PkgSyncDownloadCallback", "onFetchError: pms info:" + a.toString());
@@ -367,22 +368,22 @@ public class h extends g {
                 boolean z2 = J;
                 c.a.r0.a.f1.e.b J0 = J0();
                 c.a.r0.q.i.e eVar = this.p;
-                if (eVar != null && eVar.f11495h == 0) {
+                if (eVar != null && eVar.f11637h == 0) {
                     J0.Z0(c.a.r0.a.q2.b.e(0));
                     J0.E(1);
                 }
                 c.a.r0.q.i.e eVar2 = this.p;
-                if (eVar2 != null && eVar2.f11495h == 1) {
+                if (eVar2 != null && eVar2.f11637h == 1) {
                     J0.Z0(c.a.r0.a.q2.b.e(1));
                     J0.E(1);
                 }
                 c.a.r0.q.i.c cVar = this.q;
-                if (cVar != null && cVar.f11495h == 0) {
+                if (cVar != null && cVar.f11637h == 0) {
                     J0.C0(c.a.r0.a.p0.b.c(0));
                     J0.E(2);
                 }
                 c.a.r0.q.i.c cVar2 = this.q;
-                if (cVar2 != null && cVar2.f11495h == 1) {
+                if (cVar2 != null && cVar2.f11637h == 1) {
                     J0.C0(c.a.r0.a.p0.b.c(1));
                     J0.E(2);
                 }

@@ -14,10 +14,10 @@ public class b<T> implements d<T> {
     public List<T> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public c.a.k0.a.a<List<T>> f4133b;
+    public c.a.k0.a.a<List<T>> f4274b;
 
     /* renamed from: c  reason: collision with root package name */
-    public c.a.k0.a.a<List<T>> f4134c;
+    public c.a.k0.a.a<List<T>> f4275c;
 
     public b() {
         Interceptable interceptable = $ic;
@@ -43,7 +43,7 @@ public class b<T> implements d<T> {
     public void a(c.a.k0.a.a<List<T>> aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
-            this.f4133b = aVar;
+            this.f4274b = aVar;
             this.a = null;
         }
     }
@@ -57,13 +57,13 @@ public class b<T> implements d<T> {
             if (list != null) {
                 return list;
             }
-            c.a.k0.a.a<List<T>> aVar = this.f4133b;
+            c.a.k0.a.a<List<T>> aVar = this.f4274b;
             if (aVar != null) {
                 List<T> list2 = aVar.get();
                 this.a = list2;
                 return list2;
             }
-            c.a.k0.a.a<List<T>> aVar2 = this.f4134c;
+            c.a.k0.a.a<List<T>> aVar2 = this.f4275c;
             if (aVar2 != null) {
                 return aVar2.get();
             }

@@ -16,7 +16,7 @@ public class c {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static c f3384b;
+    public static c f3486b;
     public transient /* synthetic */ FieldHolder $fh;
     @Inject
     public c.a.k0.a.b.c<IPackageGetter> a;
@@ -34,7 +34,7 @@ public class c {
                 return;
             }
         }
-        f3384b = new c();
+        f3486b = new c();
     }
 
     public c() {
@@ -56,7 +56,7 @@ public class c {
     public static c a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f3384b : (c) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f3486b : (c) invokeV.objValue;
     }
 
     public IPackageGetter b() {

@@ -1,4 +1,4 @@
 package com.dxmpay.wallet.core;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public interface NoProguard {
 }

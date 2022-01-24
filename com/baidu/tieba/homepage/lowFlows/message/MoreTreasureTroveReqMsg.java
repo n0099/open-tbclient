@@ -1,7 +1,7 @@
 package com.baidu.tieba.homepage.lowFlows.message;
 
-import c.a.s0.e1.b0;
-import c.a.t0.j3.j0.a;
+import c.a.s0.d1.b0;
+import c.a.t0.k3.j0.a;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;

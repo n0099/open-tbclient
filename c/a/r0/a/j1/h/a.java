@@ -20,16 +20,16 @@ public class a implements c.a.r0.a.j1.a {
     public i1 a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f7544b;
+    public String f7686b;
 
     /* renamed from: c  reason: collision with root package name */
-    public c f7545c;
+    public c f7687c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f7546d;
+    public boolean f7688d;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f7547e;
+    public Context f7689e;
 
     public a(Context context, @NonNull c cVar) {
         Interceptable interceptable = $ic;
@@ -46,16 +46,16 @@ public class a implements c.a.r0.a.j1.a {
                 return;
             }
         }
-        this.f7547e = context;
-        this.f7545c = cVar;
-        this.f7544b = cVar.n;
+        this.f7689e = context;
+        this.f7687c = cVar;
+        this.f7686b = cVar.n;
         e();
         a();
     }
 
     public final void a() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || TextUtils.isEmpty(this.f7544b)) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || TextUtils.isEmpty(this.f7686b)) {
             return;
         }
         c.a.r0.a.j1.b.a(this);
@@ -65,20 +65,20 @@ public class a implements c.a.r0.a.j1.a {
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f7545c.f5309g : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f7687c.f5451g : (String) invokeV.objValue;
     }
 
     @Override // c.a.r0.a.j1.a
     public String c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f7544b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f7686b : (String) invokeV.objValue;
     }
 
     public c d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f7545c : (c) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f7687c : (c) invokeV.objValue;
     }
 
     public i1 e() {
@@ -99,7 +99,7 @@ public class a implements c.a.r0.a.j1.a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            c cVar = this.f7545c;
+            c cVar = this.f7687c;
             return cVar != null ? cVar.x : "";
         }
         return (String) invokeV.objValue;
@@ -111,9 +111,9 @@ public class a implements c.a.r0.a.j1.a {
             d.i("VrVideo", "Open Player " + cVar.n);
             i1 i1Var = this.a;
             if (i1Var != null) {
-                i1Var.e(cVar, this.f7547e);
+                i1Var.e(cVar, this.f7689e);
             }
-            this.f7545c = cVar;
+            this.f7687c = cVar;
         }
     }
 
@@ -125,7 +125,7 @@ public class a implements c.a.r0.a.j1.a {
             if (i1Var != null) {
                 i1Var.d(cVar, true);
             }
-            this.f7545c = cVar;
+            this.f7687c = cVar;
         }
     }
 
@@ -148,12 +148,12 @@ public class a implements c.a.r0.a.j1.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048586, this, z) == null) {
             if (z) {
-                if (this.f7546d) {
+                if (this.f7688d) {
                     e().resume();
                 }
                 e().b();
             } else if (this.a != null) {
-                this.f7546d = e().isPlaying();
+                this.f7688d = e().isPlaying();
                 e().pause();
                 e().c();
             }

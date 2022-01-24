@@ -23,11 +23,11 @@ public class a implements i {
 
     /* renamed from: c.a.r0.a.p.e.j.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public class C0498a implements g {
+    public class C0507a implements g {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        public C0498a(a aVar) {
+        public C0507a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -81,7 +81,7 @@ public class a implements i {
                 return;
             }
         }
-        this.a = new C0498a(this);
+        this.a = new C0507a(this);
     }
 
     @Override // c.a.r0.a.p.e.i

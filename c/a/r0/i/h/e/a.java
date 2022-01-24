@@ -16,7 +16,7 @@ public class a extends c.a.r0.i.e.a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final boolean f10760c;
+    public static final boolean f10902c;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -32,7 +32,7 @@ public class a extends c.a.r0.i.e.a {
                 return;
             }
         }
-        f10760c = k.a;
+        f10902c = k.a;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -63,7 +63,7 @@ public class a extends c.a.r0.i.e.a {
             try {
                 jSONObject2.put("sid", k);
             } catch (JSONException e2) {
-                if (f10760c) {
+                if (f10902c) {
                     e2.printStackTrace();
                 }
             }

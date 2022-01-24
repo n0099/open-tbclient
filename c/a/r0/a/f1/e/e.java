@@ -26,11 +26,11 @@ public abstract class e<SelfT extends e<SelfT>> extends c.a.r0.a.f1.e.f.c<SelfT>
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final boolean f5831g;
+    public static final boolean f5973g;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: f  reason: collision with root package name */
-    public Pair<String, JSONObject> f5832f;
+    public Pair<String, JSONObject> f5974f;
 
     static {
         InterceptResult invokeClinit;
@@ -45,7 +45,7 @@ public abstract class e<SelfT extends e<SelfT>> extends c.a.r0.a.f1.e.f.c<SelfT>
                 return;
             }
         }
-        f5831g = k.a;
+        f5973g = k.a;
     }
 
     public e() {
@@ -199,26 +199,26 @@ public abstract class e<SelfT extends e<SelfT>> extends c.a.r0.a.f1.e.f.c<SelfT>
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) {
             String W = W();
-            Pair<String, JSONObject> pair = this.f5832f;
+            Pair<String, JSONObject> pair = this.f5974f;
             if (pair != null && TextUtils.equals((CharSequence) pair.first, W)) {
-                return (JSONObject) this.f5832f.second;
+                return (JSONObject) this.f5974f.second;
             }
-            this.f5832f = null;
+            this.f5974f = null;
             if (TextUtils.isEmpty(W)) {
-                this.f5832f = null;
+                this.f5974f = null;
                 return null;
             }
             String queryParameter = Uri.parse(W).getQueryParameter("_baiduboxapp");
             if (!TextUtils.isEmpty(queryParameter)) {
                 try {
-                    this.f5832f = new Pair<>(W, new JSONObject(queryParameter).optJSONObject("ext"));
+                    this.f5974f = new Pair<>(W, new JSONObject(queryParameter).optJSONObject("ext"));
                 } catch (JSONException e2) {
-                    if (f5831g) {
+                    if (f5973g) {
                         e2.printStackTrace();
                     }
                 }
             }
-            Pair<String, JSONObject> pair2 = this.f5832f;
+            Pair<String, JSONObject> pair2 = this.f5974f;
             if (pair2 == null) {
                 return null;
             }

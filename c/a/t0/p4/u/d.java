@@ -23,24 +23,24 @@ public class d {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: g  reason: collision with root package name */
-    public static d f21347g;
+    public static d f21583g;
     public transient /* synthetic */ FieldHolder $fh;
     public Handler a;
 
     /* renamed from: b  reason: collision with root package name */
-    public BroadcastReceiver f21348b;
+    public BroadcastReceiver f21584b;
 
     /* renamed from: c  reason: collision with root package name */
-    public ContentObserver f21349c;
+    public ContentObserver f21585c;
 
     /* renamed from: d  reason: collision with root package name */
-    public ArrayList<InterfaceC1332d> f21350d;
+    public ArrayList<InterfaceC1343d> f21586d;
 
     /* renamed from: e  reason: collision with root package name */
-    public Handler f21351e;
+    public Handler f21587e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Runnable f21352f;
+    public Runnable f21588f;
 
     /* loaded from: classes8.dex */
     public class a implements Runnable {
@@ -48,7 +48,7 @@ public class d {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d f21353e;
+        public final /* synthetic */ d f21589e;
 
         public a(d dVar) {
             Interceptable interceptable = $ic;
@@ -65,14 +65,14 @@ public class d {
                     return;
                 }
             }
-            this.f21353e = dVar;
+            this.f21589e = dVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f21353e.h(false);
+                this.f21589e.h(false);
             }
         }
     }
@@ -141,15 +141,15 @@ public class d {
         public void onChange(boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-                this.a.f21351e.removeCallbacks(this.a.f21352f);
-                this.a.f21351e.postDelayed(this.a.f21352f, 2000L);
+                this.a.f21587e.removeCallbacks(this.a.f21588f);
+                this.a.f21587e.postDelayed(this.a.f21588f, 2000L);
             }
         }
     }
 
     /* renamed from: c.a.t0.p4.u.d$d  reason: collision with other inner class name */
     /* loaded from: classes8.dex */
-    public interface InterfaceC1332d {
+    public interface InterfaceC1343d {
         void onImageRefresh(boolean z);
     }
 
@@ -167,35 +167,35 @@ public class d {
             }
         }
         this.a = new Handler(Looper.getMainLooper());
-        this.f21350d = new ArrayList<>();
-        this.f21351e = new Handler();
-        this.f21352f = new a(this);
+        this.f21586d = new ArrayList<>();
+        this.f21587e = new Handler();
+        this.f21588f = new a(this);
     }
 
     public static d f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            if (f21347g == null) {
+            if (f21583g == null) {
                 synchronized (d.class) {
-                    if (f21347g == null) {
+                    if (f21583g == null) {
                         d dVar = new d();
-                        f21347g = dVar;
+                        f21583g = dVar;
                         dVar.g(TbadkCoreApplication.getInst());
                     }
                 }
             }
-            return f21347g;
+            return f21583g;
         }
         return (d) invokeV.objValue;
     }
 
-    public void d(InterfaceC1332d interfaceC1332d) {
+    public void d(InterfaceC1343d interfaceC1343d) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, interfaceC1332d) == null) || interfaceC1332d == null || this.f21350d.contains(interfaceC1332d)) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, interfaceC1343d) == null) || interfaceC1343d == null || this.f21586d.contains(interfaceC1343d)) {
             return;
         }
-        this.f21350d.add(interfaceC1332d);
+        this.f21586d.add(interfaceC1343d);
     }
 
     public void e() {
@@ -203,18 +203,18 @@ public class d {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             j();
             TbadkCoreApplication inst = TbadkCoreApplication.getInst();
-            inst.unregisterReceiver(this.f21348b);
-            inst.getContentResolver().unregisterContentObserver(this.f21349c);
-            this.f21351e.removeCallbacks(this.f21352f);
-            f21347g = null;
+            inst.unregisterReceiver(this.f21584b);
+            inst.getContentResolver().unregisterContentObserver(this.f21585c);
+            this.f21587e.removeCallbacks(this.f21588f);
+            f21583g = null;
         }
     }
 
     public final void g(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context) == null) {
-            this.f21348b = new b(this);
-            this.f21349c = new c(this, this.a);
+            this.f21584b = new b(this);
+            this.f21585c = new c(this, this.a);
             IntentFilter intentFilter = new IntentFilter();
             intentFilter.addAction("android.intent.action.MEDIA_MOUNTED");
             intentFilter.addAction("android.intent.action.MEDIA_UNMOUNTED");
@@ -222,15 +222,15 @@ public class d {
             intentFilter.addAction("android.intent.action.MEDIA_SCANNER_FINISHED");
             intentFilter.addAction("android.intent.action.MEDIA_EJECT");
             intentFilter.addDataScheme("file");
-            context.registerReceiver(this.f21348b, intentFilter);
-            context.getContentResolver().registerContentObserver(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, true, this.f21349c);
+            context.registerReceiver(this.f21584b, intentFilter);
+            context.getContentResolver().registerContentObserver(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, true, this.f21585c);
         }
     }
 
     public void h(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
-            Iterator<InterfaceC1332d> it = this.f21350d.iterator();
+            Iterator<InterfaceC1343d> it = this.f21586d.iterator();
             while (it.hasNext()) {
                 it.next().onImageRefresh(z);
             }
@@ -244,22 +244,22 @@ public class d {
                 h(true);
                 return;
             }
-            this.f21351e.removeCallbacks(this.f21352f);
-            this.f21351e.postDelayed(this.f21352f, 2000L);
+            this.f21587e.removeCallbacks(this.f21588f);
+            this.f21587e.postDelayed(this.f21588f, 2000L);
         }
     }
 
     public void j() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.f21350d.clear();
+            this.f21586d.clear();
         }
     }
 
-    public void k(InterfaceC1332d interfaceC1332d) {
+    public void k(InterfaceC1343d interfaceC1343d) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048582, this, interfaceC1332d) == null) && this.f21350d.contains(interfaceC1332d)) {
-            this.f21350d.remove(interfaceC1332d);
+        if ((interceptable == null || interceptable.invokeL(1048582, this, interfaceC1343d) == null) && this.f21586d.contains(interfaceC1343d)) {
+            this.f21586d.remove(interfaceC1343d);
         }
     }
 }

@@ -7,15 +7,15 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes.dex */
 public interface a {
-    public static final a a = new C0528a();
+    public static final a a = new C0537a();
 
     /* renamed from: c.a.r0.a.r1.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static class C0528a implements a {
+    public static class C0537a implements a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        public C0528a() {
+        public C0537a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();

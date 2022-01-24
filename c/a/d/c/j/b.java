@@ -13,11 +13,11 @@ public class b extends d {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: d  reason: collision with root package name */
-    public static b f2656d;
+    public static b f2758d;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c  reason: collision with root package name */
-    public e f2657c;
+    public e f2759c;
 
     static {
         InterceptResult invokeClinit;
@@ -47,24 +47,24 @@ public class b extends d {
                 return;
             }
         }
-        this.f2657c = null;
+        this.f2759c = null;
         this.a = new e(28000, TbConfig.POST_IMAGE_HIGHT_LIMIT, 10000);
-        this.f2657c = new e(TbConfig.POST_IMAGE_HIGHT_LIMIT, 10000, 5000);
-        this.f2659b = 3;
+        this.f2759c = new e(TbConfig.POST_IMAGE_HIGHT_LIMIT, 10000, 5000);
+        this.f2761b = 3;
     }
 
     public static b d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (f2656d == null) {
+            if (f2758d == null) {
                 synchronized (b.class) {
-                    if (f2656d == null) {
-                        f2656d = new b();
+                    if (f2758d == null) {
+                        f2758d = new b();
                     }
                 }
             }
-            return f2656d;
+            return f2758d;
         }
         return (b) invokeV.objValue;
     }
@@ -72,6 +72,6 @@ public class b extends d {
     public e c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f2657c : (e) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f2759c : (e) invokeV.objValue;
     }
 }

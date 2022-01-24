@@ -18,16 +18,16 @@ public class b {
     public static final boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f5585b;
+    public static String f5727b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f5586c;
+    public static String f5728c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static a f5587d;
+    public static a f5729d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static int f5588e;
+    public static int f5730e;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -44,23 +44,23 @@ public class b {
             }
         }
         a = k.a;
-        f5585b = "";
-        f5586c = "";
-        f5588e = 0;
+        f5727b = "";
+        f5728c = "";
+        f5730e = 0;
     }
 
     public static String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? f5585b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? f5727b : (String) invokeV.objValue;
     }
 
     public static String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (f5587d != null) {
-                return f5587d.c() + File.separator + f5585b;
+            if (f5729d != null) {
+                return f5729d.c() + File.separator + f5727b;
             }
             return "";
         }
@@ -70,15 +70,15 @@ public class b {
     public static String c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? f5586c : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? f5728c : (String) invokeV.objValue;
     }
 
     public static String d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            if (f5587d != null) {
-                return f5587d.c() + File.separator + f5586c;
+            if (f5729d != null) {
+                return f5729d.c() + File.separator + f5728c;
             }
             return "";
         }
@@ -88,19 +88,19 @@ public class b {
     public static boolean e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? f5588e == 2 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? f5730e == 2 : invokeV.booleanValue;
     }
 
     public static boolean f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) ? f5588e == 1 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) ? f5730e == 1 : invokeV.booleanValue;
     }
 
     public static void g(Bundle bundle) {
         a aVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65543, null, bundle) == null) || (aVar = f5587d) == null) {
+        if (!(interceptable == null || interceptable.invokeL(65543, null, bundle) == null) || (aVar = f5729d) == null) {
             return;
         }
         aVar.b(bundle);
@@ -112,32 +112,32 @@ public class b {
             String i2 = v.i(bundle, "extraWSUrl");
             String i3 = v.i(bundle, "adb_debug_path");
             if (!TextUtils.isEmpty(i2)) {
-                f5587d = new d();
-                f5588e = 1;
+                f5729d = new d();
+                f5730e = 1;
             } else if (!TextUtils.isEmpty(i3)) {
-                f5587d = new c.a.r0.a.e0.f.c.b();
-                f5588e = 2;
+                f5729d = new c.a.r0.a.e0.f.c.b();
+                f5730e = 2;
             } else {
                 boolean z = a;
-                f5588e = 0;
-                f5587d = null;
+                f5730e = 0;
+                f5729d = null;
                 return;
             }
-            f5587d.a(bundle);
+            f5729d.a(bundle);
         }
     }
 
     public static void i(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65545, null, str) == null) {
-            f5585b = str;
+            f5727b = str;
         }
     }
 
     public static void j(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65546, null, str) == null) {
-            f5586c = str;
+            f5728c = str;
         }
     }
 }

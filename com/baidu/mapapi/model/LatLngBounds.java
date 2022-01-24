@@ -27,16 +27,16 @@ public final class LatLngBounds implements Parcelable {
         public double a;
 
         /* renamed from: b  reason: collision with root package name */
-        public double f35478b;
+        public double f35506b;
 
         /* renamed from: c  reason: collision with root package name */
-        public double f35479c;
+        public double f35507c;
 
         /* renamed from: d  reason: collision with root package name */
-        public double f35480d;
+        public double f35508d;
 
         /* renamed from: e  reason: collision with root package name */
-        public boolean f35481e;
+        public boolean f35509e;
 
         public Builder() {
             Interceptable interceptable = $ic;
@@ -51,13 +51,13 @@ public final class LatLngBounds implements Parcelable {
                     return;
                 }
             }
-            this.f35481e = true;
+            this.f35509e = true;
         }
 
         public LatLngBounds build() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new LatLngBounds(new LatLng(this.f35478b, this.f35480d), new LatLng(this.a, this.f35479c)) : (LatLngBounds) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new LatLngBounds(new LatLng(this.f35506b, this.f35508d), new LatLng(this.a, this.f35507c)) : (LatLngBounds) invokeV.objValue;
         }
 
         public Builder include(LatLng latLng) {
@@ -67,28 +67,28 @@ public final class LatLngBounds implements Parcelable {
                 if (latLng == null) {
                     return this;
                 }
-                if (this.f35481e) {
-                    this.f35481e = false;
+                if (this.f35509e) {
+                    this.f35509e = false;
                     double d2 = latLng.latitude;
                     this.a = d2;
-                    this.f35478b = d2;
+                    this.f35506b = d2;
                     double d3 = latLng.longitude;
-                    this.f35479c = d3;
-                    this.f35480d = d3;
+                    this.f35507c = d3;
+                    this.f35508d = d3;
                 }
                 double d4 = latLng.latitude;
                 double d5 = latLng.longitude;
                 if (d4 < this.a) {
                     this.a = d4;
                 }
-                if (d4 > this.f35478b) {
-                    this.f35478b = d4;
+                if (d4 > this.f35506b) {
+                    this.f35506b = d4;
                 }
-                if (d5 < this.f35479c) {
-                    this.f35479c = d5;
+                if (d5 < this.f35507c) {
+                    this.f35507c = d5;
                 }
-                if (d5 > this.f35480d) {
-                    this.f35480d = d5;
+                if (d5 > this.f35508d) {
+                    this.f35508d = d5;
                 }
                 return this;
             }

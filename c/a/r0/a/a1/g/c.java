@@ -19,13 +19,13 @@ public class c extends HandlerThread {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public CountDownLatch f5173e;
+    public CountDownLatch f5315e;
 
     /* renamed from: f  reason: collision with root package name */
-    public File f5174f;
+    public File f5316f;
 
     /* renamed from: g  reason: collision with root package name */
-    public AtomicInteger f5175g;
+    public AtomicInteger f5317g;
 
     /* loaded from: classes.dex */
     public class a extends Handler {
@@ -61,8 +61,8 @@ public class c extends HandlerThread {
                 int i2 = message.what;
                 if (i2 != 100) {
                     if (i2 == 200) {
-                        if (this.a.f5173e != null) {
-                            this.a.f5173e.countDown();
+                        if (this.a.f5315e != null) {
+                            this.a.f5315e.countDown();
                         }
                         this.a.quit();
                         return;
@@ -70,15 +70,15 @@ public class c extends HandlerThread {
                     return;
                 }
                 b bVar = (b) message.obj;
-                File file = new File(this.a.f5174f, bVar.a);
+                File file = new File(this.a.f5316f, bVar.a);
                 c.a.r0.w.d.m(file.getParentFile());
                 try {
                     FileOutputStream fileOutputStream = new FileOutputStream(file);
-                    fileOutputStream.write(bVar.f5176b);
+                    fileOutputStream.write(bVar.f5318b);
                     fileOutputStream.close();
                 } catch (Exception e2) {
-                    if (this.a.f5175g != null) {
-                        this.a.f5175g.incrementAndGet();
+                    if (this.a.f5317g != null) {
+                        this.a.f5317g.incrementAndGet();
                     }
                     c.a.r0.a.e0.d.l("FileOutputThread", "write file fail - " + file.getAbsolutePath(), e2);
                 }
@@ -93,7 +93,7 @@ public class c extends HandlerThread {
         public String a;
 
         /* renamed from: b  reason: collision with root package name */
-        public byte[] f5176b;
+        public byte[] f5318b;
 
         public b() {
             Interceptable interceptable = $ic;
@@ -156,8 +156,8 @@ public class c extends HandlerThread {
                 return;
             }
         }
-        this.f5174f = file;
-        this.f5173e = countDownLatch;
-        this.f5175g = atomicInteger;
+        this.f5316f = file;
+        this.f5315e = countDownLatch;
+        this.f5317g = atomicInteger;
     }
 }

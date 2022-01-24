@@ -19,7 +19,7 @@ public class v {
     public Hashtable<String, String> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Hashtable<String, String> f13911b;
+    public Hashtable<String, String> f14051b;
 
     public v() {
         Interceptable interceptable = $ic;
@@ -35,7 +35,7 @@ public class v {
             }
         }
         this.a = new Hashtable<>();
-        this.f13911b = new Hashtable<>();
+        this.f14051b = new Hashtable<>();
     }
 
     public final void a(Hashtable hashtable, JSONArray jSONArray) {
@@ -67,7 +67,7 @@ public class v {
             }
             String str2 = null;
             if (i2 == 1) {
-                str2 = this.f13911b.get(str);
+                str2 = this.f14051b.get(str);
             } else if (i2 == 2) {
                 str2 = this.a.get(str);
             }
@@ -89,9 +89,9 @@ public class v {
             JSONArray optJSONArray2 = jSONObject.optJSONArray("pay_cashier_type");
             BdLog.e("consumepath is:" + jSONObject.toString());
             a(this.a, optJSONArray);
-            a(this.f13911b, optJSONArray2);
+            a(this.f14051b, optJSONArray2);
             BdLog.e("pay mPayCashierType:" + this.a.toString());
-            BdLog.e("pay mPayCashierType:" + this.f13911b.toString());
+            BdLog.e("pay mPayCashierType:" + this.f14051b.toString());
         } catch (Exception e2) {
             e2.printStackTrace();
         }

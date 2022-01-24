@@ -19,10 +19,10 @@ public class i implements j.a.a.e.q.g.c {
     public AbsViewEventHandler a;
 
     /* renamed from: b  reason: collision with root package name */
-    public j.a.a.e.m.f f62324b;
+    public j.a.a.e.m.f f62369b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Activity f62325c;
+    public Activity f62370c;
 
     public i(AbsViewEventHandler absViewEventHandler, j.a.a.e.m.f fVar, Activity activity, IYYPayResultView iYYPayResultView) {
         Interceptable interceptable = $ic;
@@ -41,8 +41,8 @@ public class i implements j.a.a.e.q.g.c {
         }
         RLog.info("PayResultDialogListener", "create PayResultDialogListener");
         this.a = absViewEventHandler;
-        this.f62324b = fVar;
-        this.f62325c = activity;
+        this.f62369b = fVar;
+        this.f62370c = activity;
     }
 
     @Override // j.a.a.e.q.g.c
@@ -50,7 +50,7 @@ public class i implements j.a.a.e.q.g.c {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, cancelType) == null) {
             RLog.info("PayResultDialogListener", "PayResultDialog notifyCancelType clickArea:" + cancelType);
-            this.f62324b.c(cancelType, this.a);
+            this.f62369b.c(cancelType, this.a);
         }
     }
 

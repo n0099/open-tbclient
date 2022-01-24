@@ -13,7 +13,7 @@ import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
 import okhttp3.ResponseBody;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class g implements IDownloadHttpService {
     public final com.ss.android.socialbase.downloader.i.h<String, OkHttpClient> a = new com.ss.android.socialbase.downloader.i.h<>(4, 8);
 

@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.paysdk.payresult.presenter.CashierDeskPayResult;
 import com.dxmpay.apollon.NoProguard;
-/* loaded from: classes13.dex */
+/* loaded from: classes2.dex */
 public class H5ResultParams implements NoProguard {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

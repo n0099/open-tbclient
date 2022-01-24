@@ -19,33 +19,33 @@ public final class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final boolean f6965e;
+    public static final boolean f7107e;
     public transient /* synthetic */ FieldHolder $fh;
     public final c a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final List<b> f6966b;
+    public final List<b> f7108b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Boolean f6967c;
+    public Boolean f7109c;
 
     /* renamed from: d  reason: collision with root package name */
-    public b f6968d;
+    public b f7110d;
 
     /* renamed from: c.a.r0.a.h1.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static class C0412a {
+    public static class C0421a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public c a;
 
         /* renamed from: b  reason: collision with root package name */
-        public List<b> f6969b;
+        public List<b> f7111b;
 
         /* renamed from: c  reason: collision with root package name */
-        public RuntimeException f6970c;
+        public RuntimeException f7112c;
 
-        public C0412a() {
+        public C0421a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -60,32 +60,32 @@ public final class a {
         }
 
         @SuppressLint({"BDThrowableCheck"})
-        public C0412a a(@NonNull List<b> list) {
+        public C0421a a(@NonNull List<b> list) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, list)) == null) {
                 if (list.contains(null)) {
-                    this.f6970c = new IllegalArgumentException("branches contains null value");
-                    if (!a.f6965e) {
-                        this.f6969b = null;
+                    this.f7112c = new IllegalArgumentException("branches contains null value");
+                    if (!a.f7107e) {
+                        this.f7111b = null;
                         return this;
                     }
-                    throw this.f6970c;
+                    throw this.f7112c;
                 }
                 for (b bVar : list) {
                     if (bVar.c() + 0 > 100) {
-                        this.f6970c = new IllegalArgumentException("The sum of all flow in the branch must be in [0,100]");
-                        if (!a.f6965e) {
-                            this.f6969b = null;
+                        this.f7112c = new IllegalArgumentException("The sum of all flow in the branch must be in [0,100]");
+                        if (!a.f7107e) {
+                            this.f7111b = null;
                             return this;
                         }
-                        throw this.f6970c;
+                        throw this.f7112c;
                     }
                 }
-                this.f6969b = Collections.unmodifiableList(list);
+                this.f7111b = Collections.unmodifiableList(list);
                 return this;
             }
-            return (C0412a) invokeL.objValue;
+            return (C0421a) invokeL.objValue;
         }
 
         @Nullable
@@ -94,31 +94,31 @@ public final class a {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                if (this.f6970c != null) {
-                    if (a.f6965e) {
-                        throw this.f6970c;
+                if (this.f7112c != null) {
+                    if (a.f7107e) {
+                        throw this.f7112c;
                     }
                     return null;
                 } else if (this.a == null) {
-                    this.f6970c = new IllegalStateException("testSwitch == null");
-                    if (a.f6965e) {
-                        throw this.f6970c;
+                    this.f7112c = new IllegalStateException("testSwitch == null");
+                    if (a.f7107e) {
+                        throw this.f7112c;
                     }
                     return null;
                 } else {
-                    List<b> list = this.f6969b;
+                    List<b> list = this.f7111b;
                     if (list == null) {
-                        this.f6970c = new IllegalStateException("branches == null");
-                        if (a.f6965e) {
-                            throw this.f6970c;
+                        this.f7112c = new IllegalStateException("branches == null");
+                        if (a.f7107e) {
+                            throw this.f7112c;
                         }
                         return null;
                     }
                     for (b bVar : list) {
-                        if (!c.c(this.a.f(), bVar.f6976e)) {
-                            this.f6970c = new IllegalStateException("branch valueType error");
-                            if (a.f6965e) {
-                                throw this.f6970c;
+                        if (!c.c(this.a.f(), bVar.f7118e)) {
+                            this.f7112c = new IllegalStateException("branch valueType error");
+                            if (a.f7107e) {
+                                throw this.f7112c;
                             }
                             return null;
                         }
@@ -129,14 +129,14 @@ public final class a {
             return (a) invokeV.objValue;
         }
 
-        public C0412a c(@NonNull c cVar) {
+        public C0421a c(@NonNull c cVar) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, cVar)) == null) {
                 this.a = cVar;
                 return this;
             }
-            return (C0412a) invokeL.objValue;
+            return (C0421a) invokeL.objValue;
         }
     }
 
@@ -153,15 +153,15 @@ public final class a {
                 return;
             }
         }
-        f6965e = k.a;
+        f7107e = k.a;
     }
 
-    public a(C0412a c0412a) {
+    public a(C0421a c0421a) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {c0412a};
+            Object[] objArr = {c0421a};
             interceptable.invokeUnInit(65537, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -171,9 +171,9 @@ public final class a {
                 return;
             }
         }
-        this.f6967c = Boolean.FALSE;
-        this.a = c0412a.a;
-        this.f6966b = c0412a.f6969b;
+        this.f7109c = Boolean.FALSE;
+        this.a = c0421a.a;
+        this.f7108b = c0421a.f7111b;
     }
 
     @Nullable
@@ -182,16 +182,16 @@ public final class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             synchronized (this) {
-                if (this.f6967c.booleanValue()) {
-                    return this.f6968d;
+                if (this.f7109c.booleanValue()) {
+                    return this.f7110d;
                 }
                 int currentTimeMillis = (int) (System.currentTimeMillis() % 100);
-                this.f6967c = Boolean.TRUE;
-                for (int i2 = 0; i2 < this.f6966b.size(); i2++) {
-                    b bVar = this.f6966b.get(i2);
+                this.f7109c = Boolean.TRUE;
+                for (int i2 = 0; i2 < this.f7108b.size(); i2++) {
+                    b bVar = this.f7108b.get(i2);
                     currentTimeMillis -= bVar.c();
                     if (currentTimeMillis < 0) {
-                        this.f6968d = bVar;
+                        this.f7110d = bVar;
                         return bVar;
                     }
                 }

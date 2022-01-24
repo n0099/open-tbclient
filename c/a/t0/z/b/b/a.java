@@ -46,28 +46,28 @@ public class a {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f25894d = "a";
+    public static final String f25875d = "a";
 
     /* renamed from: e  reason: collision with root package name */
-    public static final boolean f25895e;
+    public static final boolean f25876e;
     public transient /* synthetic */ FieldHolder $fh;
     public c.a.t0.z.b.b.b a;
 
     /* renamed from: b  reason: collision with root package name */
-    public List<c.a.r0.a.m.c> f25896b;
+    public List<c.a.r0.a.m.c> f25877b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final CustomMessageListener f25897c;
+    public final CustomMessageListener f25878c;
 
     /* renamed from: c.a.t0.z.b.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes9.dex */
-    public class C1561a extends CustomMessageListener {
+    public class C1560a extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ a a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public C1561a(a aVar, int i2) {
+        public C1560a(a aVar, int i2) {
             super(i2);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -108,7 +108,7 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f25898e;
+        public final /* synthetic */ a f25879e;
 
         public b(a aVar) {
             Interceptable interceptable = $ic;
@@ -125,7 +125,7 @@ public class a {
                     return;
                 }
             }
-            this.f25898e = aVar;
+            this.f25879e = aVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -155,7 +155,7 @@ public class a {
         public void onFailure(GetUserInfoResult getUserInfoResult) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, getUserInfoResult) == null) {
-                this.f25898e.v(false);
+                this.f25879e.v(false);
             }
         }
 
@@ -165,9 +165,9 @@ public class a {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048582, this, getUserInfoResult) == null) {
                 if (getUserInfoResult != null) {
-                    this.f25898e.a.f25914f = getUserInfoResult.portraitHttps;
+                    this.f25879e.a.f25895f = getUserInfoResult.portraitHttps;
                 }
-                this.f25898e.v(true);
+                this.f25879e.v(true);
             }
         }
     }
@@ -179,18 +179,18 @@ public class a {
         public final /* synthetic */ c.a.r0.a.m.a a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ a f25899b;
+        public final /* synthetic */ a f25880b;
 
         /* renamed from: c.a.t0.z.b.b.a$c$a  reason: collision with other inner class name */
         /* loaded from: classes9.dex */
-        public class C1562a extends GetUserInfoCallback {
+        public class C1561a extends GetUserInfoCallback {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ c f25900e;
+            public final /* synthetic */ c f25881e;
 
-            public C1562a(c cVar) {
+            public C1561a(c cVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -205,7 +205,7 @@ public class a {
                         return;
                     }
                 }
-                this.f25900e = cVar;
+                this.f25881e = cVar;
             }
 
             @Override // com.baidu.sapi2.callback.SapiCallback
@@ -227,7 +227,7 @@ public class a {
             public void onBdussExpired(GetUserInfoResult getUserInfoResult) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(1048576, this, getUserInfoResult) == null) {
-                    this.f25900e.a.onResult(-1);
+                    this.f25881e.a.onResult(-1);
                 }
             }
 
@@ -236,7 +236,7 @@ public class a {
             public void onFailure(GetUserInfoResult getUserInfoResult) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, getUserInfoResult) == null) {
-                    this.f25900e.a.onResult(-1);
+                    this.f25881e.a.onResult(-1);
                 }
             }
 
@@ -245,18 +245,18 @@ public class a {
             public void onSuccess(GetUserInfoResult getUserInfoResult) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(1048582, this, getUserInfoResult) == null) {
-                    this.f25900e.f25899b.a.f25910b = SapiAccountManager.getInstance().getSession().bduss;
-                    this.f25900e.f25899b.a.f25916h = SapiAccountManager.getInstance().getSession().getPtoken();
-                    this.f25900e.f25899b.a.a = getUserInfoResult.displayname;
-                    this.f25900e.f25899b.a.f25915g = getUserInfoResult.uid;
-                    this.f25900e.f25899b.a.f25914f = getUserInfoResult.portraitHttps;
-                    c.a.r0.a.o2.g.h.a().putString("bd_box_display_name", this.f25900e.f25899b.a.a);
-                    c.a.r0.a.o2.g.h.a().putString("bd_box_uid", this.f25900e.f25899b.a.f25915g);
-                    c.a.r0.a.o2.g.h.a().putString("bd_box_avatar_url", this.f25900e.f25899b.a.f25914f);
-                    c.a.r0.a.o2.g.h.a().putString("bd_box_bduss", this.f25900e.f25899b.a.f25910b);
-                    c.a.r0.a.o2.g.h.a().putString("bd_box_ptoken", this.f25900e.f25899b.a.f25916h);
-                    this.f25900e.a.onResult(0);
-                    this.f25900e.f25899b.v(true);
+                    this.f25881e.f25880b.a.f25891b = SapiAccountManager.getInstance().getSession().bduss;
+                    this.f25881e.f25880b.a.f25897h = SapiAccountManager.getInstance().getSession().getPtoken();
+                    this.f25881e.f25880b.a.a = getUserInfoResult.displayname;
+                    this.f25881e.f25880b.a.f25896g = getUserInfoResult.uid;
+                    this.f25881e.f25880b.a.f25895f = getUserInfoResult.portraitHttps;
+                    c.a.r0.a.o2.g.h.a().putString("bd_box_display_name", this.f25881e.f25880b.a.a);
+                    c.a.r0.a.o2.g.h.a().putString("bd_box_uid", this.f25881e.f25880b.a.f25896g);
+                    c.a.r0.a.o2.g.h.a().putString("bd_box_avatar_url", this.f25881e.f25880b.a.f25895f);
+                    c.a.r0.a.o2.g.h.a().putString("bd_box_bduss", this.f25881e.f25880b.a.f25891b);
+                    c.a.r0.a.o2.g.h.a().putString("bd_box_ptoken", this.f25881e.f25880b.a.f25897h);
+                    this.f25881e.a.onResult(0);
+                    this.f25881e.f25880b.v(true);
                 }
             }
         }
@@ -279,7 +279,7 @@ public class a {
                     return;
                 }
             }
-            this.f25899b = aVar;
+            this.f25880b = aVar;
             this.a = aVar2;
         }
 
@@ -289,7 +289,7 @@ public class a {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && (customResponsedMessage.getData() instanceof Integer)) {
                 if (((Integer) customResponsedMessage.getData()).intValue() == 0) {
-                    SapiAccountManager.getInstance().getAccountService().getUserInfo(new C1562a(this), SapiAccountManager.getInstance().getSession().bduss);
+                    SapiAccountManager.getInstance().getAccountService().getUserInfo(new C1561a(this), SapiAccountManager.getInstance().getSession().bduss);
                 }
                 this.a.onResult(((Integer) customResponsedMessage.getData()).intValue());
             }
@@ -302,10 +302,10 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c.a.r0.a.m.a f25901e;
+        public final /* synthetic */ c.a.r0.a.m.a f25882e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ a f25902f;
+        public final /* synthetic */ a f25883f;
 
         public d(a aVar, c.a.r0.a.m.a aVar2) {
             Interceptable interceptable = $ic;
@@ -322,8 +322,8 @@ public class a {
                     return;
                 }
             }
-            this.f25902f = aVar;
-            this.f25901e = aVar2;
+            this.f25883f = aVar;
+            this.f25882e = aVar2;
         }
 
         @Override // com.baidu.sapi2.callback.SapiCallback
@@ -345,7 +345,7 @@ public class a {
         public void onBdussExpired(GetUserInfoResult getUserInfoResult) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, getUserInfoResult) == null) {
-                this.f25901e.onResult(-1);
+                this.f25882e.onResult(-1);
             }
         }
 
@@ -354,7 +354,7 @@ public class a {
         public void onFailure(GetUserInfoResult getUserInfoResult) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, getUserInfoResult) == null) {
-                this.f25901e.onResult(-1);
+                this.f25882e.onResult(-1);
             }
         }
 
@@ -363,19 +363,19 @@ public class a {
         public void onSuccess(GetUserInfoResult getUserInfoResult) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048582, this, getUserInfoResult) == null) {
-                this.f25902f.a.f25910b = SapiAccountManager.getInstance().getSession().bduss;
-                this.f25902f.a.f25916h = SapiAccountManager.getInstance().getSession().getPtoken();
-                this.f25902f.a.a = getUserInfoResult.displayname;
-                this.f25902f.a.f25915g = getUserInfoResult.uid;
-                this.f25902f.a.f25914f = getUserInfoResult.portraitHttps;
-                c.a.r0.a.o2.g.h.a().putString("bd_box_display_name", this.f25902f.a.a);
-                c.a.r0.a.o2.g.h.a().putString("bd_box_uid", this.f25902f.a.f25915g);
-                c.a.r0.a.o2.g.h.a().putString("bd_box_avatar_url", this.f25902f.a.f25914f);
-                c.a.r0.a.o2.g.h.a().putString("bd_box_bduss", this.f25902f.a.f25910b);
-                c.a.r0.a.o2.g.h.a().putString("bd_box_ptoken", this.f25902f.a.f25916h);
-                this.f25902f.m();
-                this.f25901e.onResult(0);
-                this.f25902f.v(true);
+                this.f25883f.a.f25891b = SapiAccountManager.getInstance().getSession().bduss;
+                this.f25883f.a.f25897h = SapiAccountManager.getInstance().getSession().getPtoken();
+                this.f25883f.a.a = getUserInfoResult.displayname;
+                this.f25883f.a.f25896g = getUserInfoResult.uid;
+                this.f25883f.a.f25895f = getUserInfoResult.portraitHttps;
+                c.a.r0.a.o2.g.h.a().putString("bd_box_display_name", this.f25883f.a.a);
+                c.a.r0.a.o2.g.h.a().putString("bd_box_uid", this.f25883f.a.f25896g);
+                c.a.r0.a.o2.g.h.a().putString("bd_box_avatar_url", this.f25883f.a.f25895f);
+                c.a.r0.a.o2.g.h.a().putString("bd_box_bduss", this.f25883f.a.f25891b);
+                c.a.r0.a.o2.g.h.a().putString("bd_box_ptoken", this.f25883f.a.f25897h);
+                this.f25883f.m();
+                this.f25882e.onResult(0);
+                this.f25883f.v(true);
             }
         }
     }
@@ -386,7 +386,7 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f25903e;
+        public final /* synthetic */ a f25884e;
 
         public e(a aVar) {
             Interceptable interceptable = $ic;
@@ -403,7 +403,7 @@ public class a {
                     return;
                 }
             }
-            this.f25903e = aVar;
+            this.f25884e = aVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -441,16 +441,16 @@ public class a {
         public void onSuccess(GetUserInfoResult getUserInfoResult) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048582, this, getUserInfoResult) == null) {
-                this.f25903e.a.f25910b = SapiAccountManager.getInstance().getSession().bduss;
-                this.f25903e.a.f25916h = SapiAccountManager.getInstance().getSession().getPtoken();
-                this.f25903e.a.a = getUserInfoResult.displayname;
-                this.f25903e.a.f25915g = getUserInfoResult.uid;
-                this.f25903e.a.f25914f = getUserInfoResult.portraitHttps;
-                c.a.r0.a.o2.g.h.a().putString("bd_box_display_name", this.f25903e.a.a);
-                c.a.r0.a.o2.g.h.a().putString("bd_box_uid", this.f25903e.a.f25915g);
-                c.a.r0.a.o2.g.h.a().putString("bd_box_avatar_url", this.f25903e.a.f25914f);
-                c.a.r0.a.o2.g.h.a().putString("bd_box_bduss", this.f25903e.a.f25910b);
-                c.a.r0.a.o2.g.h.a().putString("bd_box_ptoken", this.f25903e.a.f25916h);
+                this.f25884e.a.f25891b = SapiAccountManager.getInstance().getSession().bduss;
+                this.f25884e.a.f25897h = SapiAccountManager.getInstance().getSession().getPtoken();
+                this.f25884e.a.a = getUserInfoResult.displayname;
+                this.f25884e.a.f25896g = getUserInfoResult.uid;
+                this.f25884e.a.f25895f = getUserInfoResult.portraitHttps;
+                c.a.r0.a.o2.g.h.a().putString("bd_box_display_name", this.f25884e.a.a);
+                c.a.r0.a.o2.g.h.a().putString("bd_box_uid", this.f25884e.a.f25896g);
+                c.a.r0.a.o2.g.h.a().putString("bd_box_avatar_url", this.f25884e.a.f25895f);
+                c.a.r0.a.o2.g.h.a().putString("bd_box_bduss", this.f25884e.a.f25891b);
+                c.a.r0.a.o2.g.h.a().putString("bd_box_ptoken", this.f25884e.a.f25897h);
             }
         }
     }
@@ -461,10 +461,10 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f25904e;
+        public final /* synthetic */ String f25885e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ a.d f25905f;
+        public final /* synthetic */ a.d f25886f;
 
         public f(a aVar, String str, a.d dVar) {
             Interceptable interceptable = $ic;
@@ -481,27 +481,27 @@ public class a {
                     return;
                 }
             }
-            this.f25904e = str;
-            this.f25905f = dVar;
+            this.f25885e = str;
+            this.f25886f = dVar;
         }
 
         @Override // com.baidu.sapi2.ecommerce.callback.AddressManageCallback
         public void onFinish(AddressManageResult addressManageResult) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, addressManageResult) == null) {
-                if ("0".equals(this.f25904e) || this.f25905f == null) {
-                    if (a.f25895e) {
-                        String str = a.f25894d;
+                if ("0".equals(this.f25885e) || this.f25886f == null) {
+                    if (a.f25876e) {
+                        String str = a.f25875d;
                         String.format("管理收货地址流程结束（%d:%s", Integer.valueOf(addressManageResult.getResultCode()), addressManageResult.getResultMsg());
                     }
                 } else if (addressManageResult.getResultCode() != 0) {
-                    if (a.f25895e) {
-                        String str2 = a.f25894d;
+                    if (a.f25876e) {
+                        String str2 = a.f25875d;
                         String.format("选择收货地址错误（%d:%s", Integer.valueOf(addressManageResult.getResultCode()), addressManageResult.getResultMsg());
                     }
-                    this.f25905f.b();
+                    this.f25886f.b();
                 } else {
-                    this.f25905f.a(addressManageResult.map.get("addrId"));
+                    this.f25886f.a(addressManageResult.map.get("addrId"));
                 }
             }
         }
@@ -513,10 +513,10 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f25906e;
+        public final /* synthetic */ String f25887e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ a.d f25907f;
+        public final /* synthetic */ a.d f25888f;
 
         public g(a aVar, String str, a.d dVar) {
             Interceptable interceptable = $ic;
@@ -533,27 +533,27 @@ public class a {
                     return;
                 }
             }
-            this.f25906e = str;
-            this.f25907f = dVar;
+            this.f25887e = str;
+            this.f25888f = dVar;
         }
 
         @Override // com.baidu.sapi2.ecommerce.callback.InvoiceBuildCallback
         public void onFinish(InvoiceBuildResult invoiceBuildResult) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, invoiceBuildResult) == null) {
-                if ("0".equals(this.f25906e) || this.f25907f == null) {
-                    if (a.f25895e) {
-                        String str = a.f25894d;
+                if ("0".equals(this.f25887e) || this.f25888f == null) {
+                    if (a.f25876e) {
+                        String str = a.f25875d;
                         String.format("发票管理流程结束（%d:%s）", Integer.valueOf(invoiceBuildResult.getResultCode()), invoiceBuildResult.getResultMsg());
                     }
                 } else if (invoiceBuildResult.getResultCode() != 0) {
-                    if (a.f25895e) {
-                        String str2 = a.f25894d;
+                    if (a.f25876e) {
+                        String str2 = a.f25875d;
                         String.format("获取发票错误（%d:%s）", Integer.valueOf(invoiceBuildResult.getResultCode()), invoiceBuildResult.getResultMsg());
                     }
-                    this.f25907f.b();
+                    this.f25888f.b();
                 } else {
-                    this.f25907f.a(invoiceBuildResult.map.get(InvoiceBuildResult.KEY_INVOICE_ID), this.f25906e);
+                    this.f25888f.a(invoiceBuildResult.map.get(InvoiceBuildResult.KEY_INVOICE_ID), this.f25887e);
                 }
             }
         }
@@ -565,10 +565,10 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ b.c f25908e;
+        public final /* synthetic */ b.c f25889e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ a f25909f;
+        public final /* synthetic */ a f25890f;
 
         public h(a aVar, b.c cVar) {
             Interceptable interceptable = $ic;
@@ -585,8 +585,8 @@ public class a {
                     return;
                 }
             }
-            this.f25909f = aVar;
-            this.f25908e = cVar;
+            this.f25890f = aVar;
+            this.f25889e = cVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -604,28 +604,28 @@ public class a {
         public void onSuccess(OpenBdussResult openBdussResult) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, openBdussResult) == null) {
-                this.f25909f.a.f25911c = openBdussResult.openBduss;
-                this.f25909f.a.f25912d = openBdussResult.unionid;
-                this.f25909f.a.f25913e = openBdussResult.tplStokenMap;
-                c.a.r0.a.o2.g.h.a().putString("bd_box_open_bduss", this.f25909f.a.f25911c);
-                c.a.r0.a.o2.g.h.a().putString("bd_box_union_id", this.f25909f.a.f25912d);
-                c.a.r0.a.o2.g.h.a().putString("bd_box_stoken", o0.s(this.f25909f.a.f25913e));
+                this.f25890f.a.f25892c = openBdussResult.openBduss;
+                this.f25890f.a.f25893d = openBdussResult.unionid;
+                this.f25890f.a.f25894e = openBdussResult.tplStokenMap;
+                c.a.r0.a.o2.g.h.a().putString("bd_box_open_bduss", this.f25890f.a.f25892c);
+                c.a.r0.a.o2.g.h.a().putString("bd_box_union_id", this.f25890f.a.f25893d);
+                c.a.r0.a.o2.g.h.a().putString("bd_box_stoken", o0.s(this.f25890f.a.f25894e));
                 JSONObject jSONObject = new JSONObject();
                 try {
-                    jSONObject.put(OpenBdussResult.PARAMS_OPEN_BDUSS, this.f25909f.a.f25911c);
-                    jSONObject.put("unionid", this.f25909f.a.f25912d);
+                    jSONObject.put(OpenBdussResult.PARAMS_OPEN_BDUSS, this.f25890f.a.f25892c);
+                    jSONObject.put("unionid", this.f25890f.a.f25893d);
                     JSONObject jSONObject2 = new JSONObject();
-                    for (String str : this.f25909f.a.f25913e.keySet()) {
-                        jSONObject2.put(str, this.f25909f.a.f25913e.get(str));
+                    for (String str : this.f25890f.a.f25894e.keySet()) {
+                        jSONObject2.put(str, this.f25890f.a.f25894e.get(str));
                     }
                     jSONObject.put("stokenmap", jSONObject2);
-                    jSONObject.put("uid", this.f25909f.a.f25915g);
-                    jSONObject.put("bduss", this.f25909f.a.f25910b);
-                    jSONObject.put("displayname", this.f25909f.a.a);
+                    jSONObject.put("uid", this.f25890f.a.f25896g);
+                    jSONObject.put("bduss", this.f25890f.a.f25891b);
+                    jSONObject.put("displayname", this.f25890f.a.a);
                 } catch (JSONException e2) {
                     e2.printStackTrace();
                 }
-                this.f25908e.a(jSONObject.toString());
+                this.f25889e.a(jSONObject.toString());
             }
         }
 
@@ -680,10 +680,10 @@ public class a {
                 return;
             }
         }
-        f25895e = k.a;
+        f25876e = k.a;
     }
 
-    public /* synthetic */ a(C1561a c1561a) {
+    public /* synthetic */ a(C1560a c1560a) {
         this();
     }
 
@@ -696,7 +696,7 @@ public class a {
     public void f(c.a.r0.a.m.c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, cVar) == null) {
-            this.f25896b.add(cVar);
+            this.f25877b.add(cVar);
         }
     }
 
@@ -725,15 +725,15 @@ public class a {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             c.a.t0.z.b.b.b bVar = this.a;
             if (bVar == null) {
-                if (f25895e) {
+                if (f25876e) {
                     throw new NullPointerException("AccountInfo is null");
                 }
                 return "";
             }
-            if (TextUtils.isEmpty(bVar.f25914f)) {
+            if (TextUtils.isEmpty(bVar.f25895f)) {
                 o();
             }
-            return this.a.f25914f;
+            return this.a.f25895f;
         }
         return (String) invokeV.objValue;
     }
@@ -744,15 +744,15 @@ public class a {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             c.a.t0.z.b.b.b bVar = this.a;
             if (bVar == null) {
-                if (f25895e) {
+                if (f25876e) {
                     throw new NullPointerException("AccountInfo is null");
                 }
                 return "";
             }
-            if (TextUtils.isEmpty(bVar.f25910b)) {
+            if (TextUtils.isEmpty(bVar.f25891b)) {
                 o();
             }
-            return this.a.f25910b;
+            return this.a.f25891b;
         }
         return (String) invokeV.objValue;
     }
@@ -763,7 +763,7 @@ public class a {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
             c.a.t0.z.b.b.b bVar = this.a;
             if (bVar == null) {
-                if (f25895e) {
+                if (f25876e) {
                     throw new NullPointerException("AccountInfo is null");
                 }
                 return "";
@@ -786,7 +786,7 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048583, this, str, arrayList, cVar) == null) {
             if (this.a == null) {
-                if (f25895e) {
+                if (f25876e) {
                     throw new NullPointerException("AccountInfo is null");
                 }
                 return;
@@ -822,15 +822,15 @@ public class a {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
             c.a.t0.z.b.b.b bVar = this.a;
             if (bVar == null) {
-                if (f25895e) {
+                if (f25876e) {
                     throw new NullPointerException("AccountInfo is null");
                 }
                 return "";
             }
-            if (TextUtils.isEmpty(bVar.f25915g)) {
+            if (TextUtils.isEmpty(bVar.f25896g)) {
                 o();
             }
-            return this.a.f25915g;
+            return this.a.f25896g;
         }
         return (String) invokeV.objValue;
     }
@@ -848,13 +848,13 @@ public class a {
         if ((interceptable == null || interceptable.invokeL(1048587, this, context) == null) && this.a == null) {
             c.a.t0.z.b.b.b bVar = new c.a.t0.z.b.b.b();
             this.a = bVar;
-            bVar.f25914f = c.a.r0.a.o2.g.h.a().getString("bd_box_avatar_url", "");
-            this.a.f25910b = c.a.r0.a.o2.g.h.a().getString("bd_box_bduss", "");
-            this.a.f25916h = c.a.r0.a.o2.g.h.a().getString("bd_box_ptoken", "");
-            this.a.f25915g = c.a.r0.a.o2.g.h.a().getString("bd_box_uid", "");
-            this.a.f25911c = c.a.r0.a.o2.g.h.a().getString("bd_box_open_bduss", "");
-            this.a.f25912d = c.a.r0.a.o2.g.h.a().getString("bd_box_union_id", "");
-            this.a.f25913e = o0.t(c.a.r0.a.o2.g.h.a().getString("bd_box_stoken", ""));
+            bVar.f25895f = c.a.r0.a.o2.g.h.a().getString("bd_box_avatar_url", "");
+            this.a.f25891b = c.a.r0.a.o2.g.h.a().getString("bd_box_bduss", "");
+            this.a.f25897h = c.a.r0.a.o2.g.h.a().getString("bd_box_ptoken", "");
+            this.a.f25896g = c.a.r0.a.o2.g.h.a().getString("bd_box_uid", "");
+            this.a.f25892c = c.a.r0.a.o2.g.h.a().getString("bd_box_open_bduss", "");
+            this.a.f25893d = c.a.r0.a.o2.g.h.a().getString("bd_box_union_id", "");
+            this.a.f25894e = o0.t(c.a.r0.a.o2.g.h.a().getString("bd_box_stoken", ""));
             this.a.a = c.a.r0.a.o2.g.h.a().getString("bd_box_display_name", "");
         }
     }
@@ -864,7 +864,7 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
             c.a.t0.z.b.b.b bVar = this.a;
-            if (bVar != null && TextUtils.isEmpty(bVar.f25910b)) {
+            if (bVar != null && TextUtils.isEmpty(bVar.f25891b)) {
                 o();
             }
             return SapiAccountManager.getInstance().isLogin();
@@ -913,7 +913,7 @@ public class a {
     public final void v(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048591, this, z) == null) {
-            for (c.a.r0.a.m.c cVar : this.f25896b) {
+            for (c.a.r0.a.m.c cVar : this.f25877b) {
                 if (cVar != null) {
                     cVar.a(z);
                 }
@@ -924,7 +924,7 @@ public class a {
     public final void w() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
-            MessageManager.getInstance().registerListener(this.f25897c);
+            MessageManager.getInstance().registerListener(this.f25878c);
         }
     }
 
@@ -944,20 +944,20 @@ public class a {
                     if (this.a == null) {
                         this.a = new c.a.t0.z.b.b.b();
                     }
-                    this.a.f25910b = SapiAccountManager.getInstance().getSession().bduss;
-                    this.a.f25916h = SapiAccountManager.getInstance().getSession().getPtoken();
+                    this.a.f25891b = SapiAccountManager.getInstance().getSession().bduss;
+                    this.a.f25897h = SapiAccountManager.getInstance().getSession().getPtoken();
                     this.a.a = getUserInfoResult.displayname;
-                    this.a.f25915g = getUserInfoResult.uid;
-                    this.a.f25914f = getUserInfoResult.portraitHttps;
+                    this.a.f25896g = getUserInfoResult.uid;
+                    this.a.f25895f = getUserInfoResult.portraitHttps;
                     c.a.r0.a.o2.g.h.a().putString("bd_box_display_name", this.a.a);
-                    c.a.r0.a.o2.g.h.a().putString("bd_box_uid", this.a.f25915g);
-                    c.a.r0.a.o2.g.h.a().putString("bd_box_avatar_url", this.a.f25914f);
-                    c.a.r0.a.o2.g.h.a().putString("bd_box_bduss", this.a.f25910b);
-                    c.a.r0.a.o2.g.h.a().putString("bd_box_ptoken", this.a.f25916h);
-                    SapiAccountManager.getInstance().getAccountService().getUserInfo(new b(this), this.a.f25910b);
+                    c.a.r0.a.o2.g.h.a().putString("bd_box_uid", this.a.f25896g);
+                    c.a.r0.a.o2.g.h.a().putString("bd_box_avatar_url", this.a.f25895f);
+                    c.a.r0.a.o2.g.h.a().putString("bd_box_bduss", this.a.f25891b);
+                    c.a.r0.a.o2.g.h.a().putString("bd_box_ptoken", this.a.f25897h);
+                    SapiAccountManager.getInstance().getAccountService().getUserInfo(new b(this), this.a.f25891b);
                     return;
                 } catch (Exception e2) {
-                    if (f25895e) {
+                    if (f25876e) {
                         e2.printStackTrace();
                         return;
                     }
@@ -981,7 +981,7 @@ public class a {
                 return;
             }
         }
-        this.f25897c = new C1561a(this, 2921537);
-        this.f25896b = new ArrayList();
+        this.f25878c = new C1560a(this, 2921537);
+        this.f25877b = new ArrayList();
     }
 }

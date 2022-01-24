@@ -11,31 +11,31 @@ public class a {
     public static String a = "baidu_location_service";
 
     /* renamed from: b  reason: collision with root package name */
-    public static int f35122b = 12000;
+    public static int f35150b = 12000;
 
     /* renamed from: c  reason: collision with root package name */
-    public static int f35123c = 20000;
+    public static int f35151c = 20000;
 
     /* renamed from: d  reason: collision with root package name */
-    public static int f35124d = 1;
+    public static int f35152d = 1;
 
     /* renamed from: e  reason: collision with root package name */
-    public static int f35125e = 2;
+    public static int f35153e = 2;
 
     /* renamed from: f  reason: collision with root package name */
-    public static int f35126f = 3;
+    public static int f35154f = 3;
 
     /* renamed from: g  reason: collision with root package name */
-    public static int f35127g = 4;
+    public static int f35155g = 4;
 
     /* renamed from: h  reason: collision with root package name */
-    public static int f35128h = 5;
+    public static int f35156h = 5;
 
     /* renamed from: i  reason: collision with root package name */
-    public static int f35129i = 5120;
+    public static int f35157i = 5120;
 
     /* renamed from: j  reason: collision with root package name */
-    public static int f35130j = 0;
+    public static int f35158j = 0;
     public static int k = 1;
     public static int l = 2;
     public static int m = 4;

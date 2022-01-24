@@ -109,8 +109,8 @@ public class z extends b<e2> implements c.a.t0.t.e {
         if (g() != null) {
             g().b(view, this.s, this.t);
         }
-        m.a(this.s.v1());
-        m.l(this.r, this.s.v1(), R.color.CAM_X0105, R.color.CAM_X0109);
+        m.a(this.s.w1());
+        m.l(this.r, this.s.w1(), R.color.CAM_X0105, R.color.CAM_X0109);
         p();
     }
 
@@ -123,7 +123,7 @@ public class z extends b<e2> implements c.a.t0.t.e {
         String name_show = this.s.J().getName_show();
         HotTopicActivityConfig hotTopicActivityConfig = new HotTopicActivityConfig(getContext());
         HotTopicActivityConfig createNormalConfig = hotTopicActivityConfig.createNormalConfig("", name_show + "", "3");
-        createNormalConfig.setExtra(this.s.U(), this.s.V(), this.s.a1(), c.a.d.f.m.b.g(this.s.v1(), 0L));
+        createNormalConfig.setExtra(this.s.U(), this.s.V(), this.s.b1(), c.a.d.f.m.b.g(this.s.w1(), 0L));
         MessageManager.getInstance().sendMessage(new CustomMessage(2002001, createNormalConfig));
     }
 
@@ -147,18 +147,18 @@ public class z extends b<e2> implements c.a.t0.t.e {
             }
             FrsBaseVideoView frsBaseVideoView = this.u;
             if (frsBaseVideoView != null) {
-                frsBaseVideoView.onBindDataToView(this.s, e2Var.f0());
+                frsBaseVideoView.onBindDataToView(this.s, e2Var.g0());
             }
             if (e2Var.J() != null) {
                 this.p.setText(e2Var.J().getName_show());
             }
-            this.q.setText(StringHelper.getFormatTime(e2Var.w0() * 1000));
-            String str = e2Var.B1() + "：";
+            this.q.setText(StringHelper.getFormatTime(e2Var.x0() * 1000));
+            String str = e2Var.C1() + "：";
             SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(str);
-            spannableStringBuilder.append((CharSequence) e2Var.Z2(false, true));
+            spannableStringBuilder.append((CharSequence) e2Var.a3(false, true));
             spannableStringBuilder.setSpan(new ForegroundColorSpan(SkinManager.getColor(R.color.CAM_X0304)), 0, str.length(), 33);
             this.r.setText(spannableStringBuilder);
-            m.l(this.r, this.s.v1(), R.color.CAM_X0105, R.color.CAM_X0109);
+            m.l(this.r, this.s.w1(), R.color.CAM_X0105, R.color.CAM_X0109);
             l(this.n, TbadkCoreApplication.getInst().getSkinType());
         }
     }

@@ -16,7 +16,7 @@ public class j {
     public boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f8593b;
+    public boolean f8735b;
     @V8JavascriptField
     public long lastAccessedTime;
     @V8JavascriptField
@@ -52,7 +52,7 @@ public class j {
     public void b(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
-            this.f8593b = z;
+            this.f8735b = z;
         }
     }
 
@@ -67,6 +67,6 @@ public class j {
     public boolean isFile() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f8593b : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f8735b : invokeV.booleanValue;
     }
 }

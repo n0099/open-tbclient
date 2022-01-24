@@ -13,6 +13,7 @@ import com.baidu.rtc.BaiduRtcRoom;
 import com.baidu.rtc.internal.BaiduRtcRoomImp;
 import com.baidu.rtc.logreport.ErrorInfoReport;
 import com.baidu.sapi2.views.SmsLoginView;
+import com.baidu.searchbox.launch.ExternalTransferSpeedStats;
 import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -980,7 +981,7 @@ public class WebSocketChannel {
                 jSONObject2.putOpt("request", "join");
                 jSONObject2.putOpt("room", Long.valueOf(this.mRoomId));
                 jSONObject2.putOpt("ptype", "listener");
-                jSONObject2.putOpt("feed", janusHandle.feedId);
+                jSONObject2.putOpt(ExternalTransferSpeedStats.FEED_PAGE, janusHandle.feedId);
                 jSONObject2.putOpt("id", Long.valueOf(this.mUserId));
                 jSONObject2.putOpt("app_id", this.mAppId);
                 jSONObject2.putOpt(DpStatConstants.KEY_ROOM_NAME, this.mRoomName);

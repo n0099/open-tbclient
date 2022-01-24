@@ -49,12 +49,12 @@ public class b {
 
     /* renamed from: c.a.r0.h.j.n.b$b  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public class C0709b implements DownloadManager.DownloadItemFilter {
+    public class C0718b implements DownloadManager.DownloadItemFilter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ String a;
 
-        public C0709b(b bVar, String str) {
+        public C0718b(b bVar, String str) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -87,7 +87,7 @@ public class b {
         public final /* synthetic */ String a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ b f10611b;
+        public final /* synthetic */ b f10753b;
 
         public c(b bVar, String str) {
             Interceptable interceptable = $ic;
@@ -104,7 +104,7 @@ public class b {
                     return;
                 }
             }
-            this.f10611b = bVar;
+            this.f10753b = bVar;
             this.a = str;
         }
 
@@ -112,7 +112,7 @@ public class b {
         public boolean filter(Download download) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, download)) == null) ? (download == null || !TextUtils.equals(download.getKeyByUser(), this.a) || this.f10611b.e(download)) ? false : true : invokeL.booleanValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, download)) == null) ? (download == null || !TextUtils.equals(download.getKeyByUser(), this.a) || this.f10753b.e(download)) ? false : true : invokeL.booleanValue;
         }
     }
 
@@ -211,7 +211,7 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
             Download download = null;
-            if (TextUtils.isEmpty(str) || (downloadListByFilter = this.a.getDownloadListByFilter(new C0709b(this, str))) == null) {
+            if (TextUtils.isEmpty(str) || (downloadListByFilter = this.a.getDownloadListByFilter(new C0718b(this, str))) == null) {
                 return null;
             }
             for (Download download2 : downloadListByFilter) {

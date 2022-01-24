@@ -1,9 +1,9 @@
 package com.baidu.tieba.addresslist.im.newFriend;
 
 import c.a.d.a.f;
-import c.a.s0.e1.k0;
-import c.a.s0.e1.n0;
-import c.a.s0.e1.s;
+import c.a.s0.d1.k0;
+import c.a.s0.d1.n0;
+import c.a.s0.d1.s;
 import com.baidu.adp.base.BdBaseModel;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.HttpMessageListener;
@@ -26,17 +26,17 @@ public class RecommendFriendModel extends BdBaseModel<NewFriendsActivity> {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final String f41797g;
+    public static final String f41817g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static TbHttpMessageTask f41798h;
+    public static TbHttpMessageTask f41818h;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public b f41799e;
+    public b f41819e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final HttpMessageListener f41800f;
+    public final HttpMessageListener f41820f;
 
     /* loaded from: classes12.dex */
     public class a extends HttpMessageListener {
@@ -46,12 +46,12 @@ public class RecommendFriendModel extends BdBaseModel<NewFriendsActivity> {
 
         /* renamed from: com.baidu.tieba.addresslist.im.newFriend.RecommendFriendModel$a$a  reason: collision with other inner class name */
         /* loaded from: classes12.dex */
-        public class C1902a extends k0<Void> {
+        public class C1908a extends k0<Void> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ List a;
 
-            public C1902a(a aVar, List list) {
+            public C1908a(a aVar, List list) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -70,7 +70,7 @@ public class RecommendFriendModel extends BdBaseModel<NewFriendsActivity> {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // c.a.s0.e1.k0
+            @Override // c.a.s0.d1.k0
             /* renamed from: a */
             public Void doInBackground() {
                 InterceptResult invokeV;
@@ -94,7 +94,7 @@ public class RecommendFriendModel extends BdBaseModel<NewFriendsActivity> {
             public final /* synthetic */ String a;
 
             /* renamed from: b  reason: collision with root package name */
-            public final /* synthetic */ a f41801b;
+            public final /* synthetic */ a f41821b;
 
             public b(a aVar, String str) {
                 Interceptable interceptable = $ic;
@@ -111,17 +111,17 @@ public class RecommendFriendModel extends BdBaseModel<NewFriendsActivity> {
                         return;
                     }
                 }
-                this.f41801b = aVar;
+                this.f41821b = aVar;
                 this.a = str;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // c.a.s0.e1.s
+            @Override // c.a.s0.d1.s
             /* renamed from: a */
             public void onReturnDataInUI(Void r5) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(1048576, this, r5) == null) {
-                    this.f41801b.a.f41799e.a(this.a);
+                    this.f41821b.a.f41819e.a(this.a);
                 }
             }
         }
@@ -153,8 +153,8 @@ public class RecommendFriendModel extends BdBaseModel<NewFriendsActivity> {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) && httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1001900) {
                 if (httpResponsedMessage.getStatusCode() != 200 || !(httpResponsedMessage instanceof RecommendFriendResponseMessage)) {
-                    if (this.a.f41799e != null) {
-                        this.a.f41799e.onLoadFailed(null);
+                    if (this.a.f41819e != null) {
+                        this.a.f41819e.onLoadFailed(null);
                         return;
                     }
                     return;
@@ -162,13 +162,13 @@ public class RecommendFriendModel extends BdBaseModel<NewFriendsActivity> {
                 RecommendFriendResponseMessage recommendFriendResponseMessage = (RecommendFriendResponseMessage) httpResponsedMessage;
                 String errMsg = recommendFriendResponseMessage.getErrMsg();
                 if (recommendFriendResponseMessage.getError() != 0) {
-                    if (this.a.f41799e != null) {
-                        this.a.f41799e.onLoadFailed(errMsg);
+                    if (this.a.f41819e != null) {
+                        this.a.f41819e.onLoadFailed(errMsg);
                         return;
                     }
                     return;
                 }
-                n0.c(new C1902a(this, recommendFriendResponseMessage.getDatas()), new b(this, errMsg));
+                n0.c(new C1908a(this, recommendFriendResponseMessage.getDatas()), new b(this, errMsg));
             }
         }
     }
@@ -194,11 +194,11 @@ public class RecommendFriendModel extends BdBaseModel<NewFriendsActivity> {
             }
         }
         String str = TbConfig.SERVER_ADDRESS + "c/r/friend/getRecommendList";
-        f41797g = str;
+        f41817g = str;
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.RECOMMOEND_FRIEND_CMD, str);
-        f41798h = tbHttpMessageTask;
+        f41818h = tbHttpMessageTask;
         tbHttpMessageTask.setResponsedClass(RecommendFriendResponseMessage.class);
-        MessageManager.getInstance().registerTask(f41798h);
+        MessageManager.getInstance().registerTask(f41818h);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -219,9 +219,9 @@ public class RecommendFriendModel extends BdBaseModel<NewFriendsActivity> {
                 return;
             }
         }
-        this.f41799e = null;
-        this.f41800f = new a(this, CmdConfigHttp.RECOMMOEND_FRIEND_CMD);
-        this.f41799e = bVar;
+        this.f41819e = null;
+        this.f41820f = new a(this, CmdConfigHttp.RECOMMOEND_FRIEND_CMD);
+        this.f41819e = bVar;
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -247,7 +247,7 @@ public class RecommendFriendModel extends BdBaseModel<NewFriendsActivity> {
     public void registerListener() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            registerListener(this.f41800f);
+            registerListener(this.f41820f);
         }
     }
 

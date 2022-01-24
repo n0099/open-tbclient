@@ -25,31 +25,31 @@ public class HeadObject {
     public boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f36775b;
+    public boolean f36803b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f36776c;
+    public String f36804c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f36777d;
+    public String f36805d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f36778e;
+    public String f36806e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f36779f;
+    public String f36807f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f36780g;
+    public String f36808g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f36781h;
+    public int f36809h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f36782i;
+    public String f36810i;
 
     /* renamed from: j  reason: collision with root package name */
-    public String f36783j;
+    public String f36811j;
     public int k;
     public int l;
     public String m;
@@ -81,11 +81,11 @@ public class HeadObject {
             }
         }
         this.a = false;
-        this.f36775b = false;
-        this.f36778e = "0";
-        this.f36779f = null;
-        this.f36780g = null;
-        this.f36781h = -1;
+        this.f36803b = false;
+        this.f36806e = "0";
+        this.f36807f = null;
+        this.f36808g = null;
+        this.f36809h = -1;
         this.m = null;
         this.F = "";
     }
@@ -97,24 +97,24 @@ public class HeadObject {
                 if (this.a) {
                     return;
                 }
-                o.e(context, com.kuaishou.weapon.un.s.f55242c);
+                o.e(context, com.kuaishou.weapon.un.s.f55287c);
                 o.e(context, com.kuaishou.weapon.un.s.a);
                 o.e(context, "android.permission.ACCESS_NETWORK_STATE");
                 TelephonyManager telephonyManager = (TelephonyManager) context.getSystemService("phone");
-                this.f36776c = CooperService.instance().getOSVersion();
-                this.f36777d = CooperService.instance().getOSSysVersion();
+                this.f36804c = CooperService.instance().getOSVersion();
+                this.f36805d = CooperService.instance().getOSSysVersion();
                 this.o = CooperService.instance().getPhoneModel();
                 this.p = CooperService.instance().getManufacturer();
                 this.A = CooperService.instance().getUUID();
                 this.B = CooperService.instance().getHeaderExt(context);
                 this.C = CooperService.instance().getPushId(context);
-                this.f36783j = CooperService.instance().getDeviceId(telephonyManager, context);
-                this.f36778e = q.a().g(context) ? "1" : "0";
+                this.f36811j = CooperService.instance().getDeviceId(telephonyManager, context);
+                this.f36806e = q.a().g(context) ? "1" : "0";
                 if (w.m(context)) {
-                    this.f36778e = "2";
+                    this.f36806e = "2";
                 }
-                this.f36778e += "-28";
-                if (this.f36775b) {
+                this.f36806e += "-28";
+                if (this.f36803b) {
                     try {
                         this.t = CooperService.instance().getMacAddress(context, CooperService.instance().isDeviceMacEnabled(context));
                     } catch (Exception unused) {
@@ -124,7 +124,7 @@ public class HeadObject {
                     } catch (Exception unused2) {
                     }
                 }
-                this.f36780g = CooperService.instance().getCUID(context, true);
+                this.f36808g = CooperService.instance().getCUID(context, true);
                 try {
                     this.n = CooperService.instance().getOperator(telephonyManager);
                 } catch (Exception unused3) {
@@ -142,10 +142,10 @@ public class HeadObject {
                 } catch (Exception unused4) {
                 }
                 this.m = CooperService.instance().getAppChannel(context);
-                this.f36779f = CooperService.instance().getAppKey(context);
+                this.f36807f = CooperService.instance().getAppKey(context);
                 try {
-                    this.f36781h = CooperService.instance().getAppVersionCode(context);
-                    this.f36782i = CooperService.instance().getAppVersionName(context);
+                    this.f36809h = CooperService.instance().getAppVersionCode(context);
+                    this.f36810i = CooperService.instance().getAppVersionName(context);
                 } catch (Exception unused5) {
                 }
                 try {
@@ -178,7 +178,7 @@ public class HeadObject {
     public void setAuthorizedState(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
-            this.f36775b = z;
+            this.f36803b = z;
         }
     }
 
@@ -237,20 +237,20 @@ public class HeadObject {
                     jSONObject.put("o", "Android");
                     int i2 = 0;
                     jSONObject.put("st", 0);
-                    jSONObject.put("s", this.f36776c == null ? "" : this.f36776c);
-                    jSONObject.put("sv", this.f36777d == null ? "" : this.f36777d);
-                    jSONObject.put("k", this.f36779f == null ? "" : this.f36779f);
-                    jSONObject.put("pt", this.f36778e == null ? "0" : this.f36778e);
+                    jSONObject.put("s", this.f36804c == null ? "" : this.f36804c);
+                    jSONObject.put("sv", this.f36805d == null ? "" : this.f36805d);
+                    jSONObject.put("k", this.f36807f == null ? "" : this.f36807f);
+                    jSONObject.put("pt", this.f36806e == null ? "0" : this.f36806e);
                     jSONObject.put("i", "");
                     jSONObject.put("v", "4.0.0.0");
                     jSONObject.put("sc", 28);
-                    jSONObject.put("a", this.f36781h);
-                    jSONObject.put("n", this.f36782i == null ? "" : this.f36782i);
+                    jSONObject.put("a", this.f36809h);
+                    jSONObject.put("n", this.f36810i == null ? "" : this.f36810i);
                     jSONObject.put("d", "");
                     jSONObject.put("mc", this.t == null ? "" : this.t);
                     jSONObject.put("bm", this.v == null ? "" : this.v);
-                    jSONObject.put("dd", this.f36783j == null ? "" : this.f36783j);
-                    jSONObject.put("ii", this.f36780g == null ? "" : this.f36780g);
+                    jSONObject.put("dd", this.f36811j == null ? "" : this.f36811j);
+                    jSONObject.put("ii", this.f36808g == null ? "" : this.f36808g);
                     jSONObject.put("tg", 2);
                     jSONObject.put("w", this.k);
                     jSONObject.put("h", this.l);

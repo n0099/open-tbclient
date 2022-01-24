@@ -14,12 +14,12 @@ public class c {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static volatile c f4449c;
+    public static volatile c f4590c;
     public transient /* synthetic */ FieldHolder $fh;
     public ThreadPoolExecutor a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ScheduledThreadPoolExecutor f4450b;
+    public ScheduledThreadPoolExecutor f4591b;
 
     public c() {
         Interceptable interceptable = $ic;
@@ -41,14 +41,14 @@ public class c {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (f4449c == null) {
+            if (f4590c == null) {
                 synchronized (c.class) {
-                    if (f4449c == null) {
-                        f4449c = new c();
+                    if (f4590c == null) {
+                        f4590c = new c();
                     }
                 }
             }
-            return f4449c;
+            return f4590c;
         }
         return (c) invokeV.objValue;
     }
@@ -57,7 +57,7 @@ public class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             this.a = d.g(5, 15);
-            this.f4450b = d.f(3);
+            this.f4591b = d.f(3);
         }
     }
 
@@ -75,12 +75,12 @@ public class c {
     public void d(b bVar, long j2, long j3, TimeUnit timeUnit) {
         ScheduledThreadPoolExecutor scheduledThreadPoolExecutor;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{bVar, Long.valueOf(j2), Long.valueOf(j3), timeUnit}) == null) || bVar == null || (scheduledThreadPoolExecutor = this.f4450b) == null || scheduledThreadPoolExecutor.isShutdown()) {
+        if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{bVar, Long.valueOf(j2), Long.valueOf(j3), timeUnit}) == null) || bVar == null || (scheduledThreadPoolExecutor = this.f4591b) == null || scheduledThreadPoolExecutor.isShutdown()) {
             return;
         }
         try {
             bVar.i(System.currentTimeMillis());
-            bVar.h(this.f4450b.scheduleAtFixedRate(bVar, j2, j3, timeUnit));
+            bVar.h(this.f4591b.scheduleAtFixedRate(bVar, j2, j3, timeUnit));
         } catch (Throwable unused) {
         }
     }

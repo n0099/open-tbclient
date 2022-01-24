@@ -29,7 +29,7 @@ public class g extends z {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f10155c;
+    public int f10297c;
 
     /* loaded from: classes6.dex */
     public class a implements c {
@@ -38,13 +38,13 @@ public class g extends z {
         public final /* synthetic */ CallbackHandler a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ String f10156b;
+        public final /* synthetic */ String f10298b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ JSONObject f10157c;
+        public final /* synthetic */ JSONObject f10299c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ g f10158d;
+        public final /* synthetic */ g f10300d;
 
         public a(g gVar, CallbackHandler callbackHandler, String str, JSONObject jSONObject) {
             Interceptable interceptable = $ic;
@@ -61,10 +61,10 @@ public class g extends z {
                     return;
                 }
             }
-            this.f10158d = gVar;
+            this.f10300d = gVar;
             this.a = callbackHandler;
-            this.f10156b = str;
-            this.f10157c = jSONObject;
+            this.f10298b = str;
+            this.f10299c = jSONObject;
         }
 
         @Override // c.a.r0.b.p.a.g.c
@@ -72,12 +72,12 @@ public class g extends z {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) {
                 if (jSONObject == null) {
-                    this.f10158d.p(this.a, this.f10156b, this.f10157c);
+                    this.f10300d.p(this.a, this.f10298b, this.f10299c);
                     return;
                 }
-                g gVar = this.f10158d;
-                gVar.f10155c = gVar.m(jSONObject);
-                this.f10158d.p(this.a, this.f10156b, this.f10157c);
+                g gVar = this.f10300d;
+                gVar.f10297c = gVar.m(jSONObject);
+                this.f10300d.p(this.a, this.f10298b, this.f10299c);
             }
         }
     }
@@ -154,7 +154,7 @@ public class g extends z {
                 return;
             }
         }
-        this.f10155c = -1;
+        this.f10297c = -1;
     }
 
     @Override // c.a.r0.a.f2.f.z
@@ -201,7 +201,7 @@ public class g extends z {
                     if (optJSONArray != null && optJSONArray.length() > 0) {
                         optJSONObject = optJSONArray.getJSONObject(0);
                     } else {
-                        boolean z = z.f6201b;
+                        boolean z = z.f6343b;
                         optJSONObject = null;
                     }
                 }
@@ -238,8 +238,8 @@ public class g extends z {
                 JSONObject jSONObject = new JSONObject();
                 a0 g2 = c.a.r0.b.l.a.g(context);
                 jSONObject.put("displayname", g2.a);
-                jSONObject.put("portrait", g2.f10074b);
-                if (this.f10155c != -1) {
+                jSONObject.put("portrait", g2.f10216b);
+                if (this.f10297c != -1) {
                     p(callbackHandler, str, jSONObject);
                     return;
                 } else {
@@ -254,7 +254,7 @@ public class g extends z {
     public final void p(CallbackHandler callbackHandler, String str, JSONObject jSONObject) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048580, this, callbackHandler, str, jSONObject) == null) {
-            int i2 = this.f10155c;
+            int i2 = this.f10297c;
             if (i2 != -1) {
                 try {
                     jSONObject.put("gender", String.valueOf(i2));

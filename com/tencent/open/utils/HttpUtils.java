@@ -150,7 +150,7 @@ public class HttpUtils {
         public final String a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final int f60582b;
+        public final int f60627b;
 
         public a(String str, int i2) {
             Interceptable interceptable = $ic;
@@ -168,7 +168,7 @@ public class HttpUtils {
                 }
             }
             this.a = str;
-            this.f60582b = i2;
+            this.f60627b = i2;
         }
     }
 
@@ -441,7 +441,7 @@ public class HttpUtils {
             DefaultHttpClient defaultHttpClient = new DefaultHttpClient(new ThreadSafeClientConnManager(basicHttpParams, schemeRegistry), basicHttpParams);
             a proxy = getProxy(context);
             if (proxy != null) {
-                defaultHttpClient.getParams().setParameter(ConnRoutePNames.DEFAULT_PROXY, new HttpHost(proxy.a, proxy.f60582b));
+                defaultHttpClient.getParams().setParameter(ConnRoutePNames.DEFAULT_PROXY, new HttpHost(proxy.a, proxy.f60627b));
             }
             return defaultHttpClient;
         }
@@ -686,8 +686,8 @@ public class HttpUtils {
         Ld5:
             r13 = -4
         Ld6:
-            long r14 = r0.f60613b     // Catch: org.json.JSONException -> Le0 java.io.IOException -> Lf1 java.net.MalformedURLException -> L105 com.tencent.open.utils.HttpUtils.NetworkUnavailableException -> L116 com.tencent.open.utils.HttpUtils.HttpStatusException -> L11b java.net.SocketTimeoutException -> L146 org.apache.http.conn.ConnectTimeoutException -> L162
-            long r0 = r0.f60614c     // Catch: org.json.JSONException -> Le0 java.io.IOException -> Lf1 java.net.MalformedURLException -> L105 com.tencent.open.utils.HttpUtils.NetworkUnavailableException -> L116 com.tencent.open.utils.HttpUtils.HttpStatusException -> L11b java.net.SocketTimeoutException -> L146 org.apache.http.conn.ConnectTimeoutException -> L162
+            long r14 = r0.f60658b     // Catch: org.json.JSONException -> Le0 java.io.IOException -> Lf1 java.net.MalformedURLException -> L105 com.tencent.open.utils.HttpUtils.NetworkUnavailableException -> L116 com.tencent.open.utils.HttpUtils.HttpStatusException -> L11b java.net.SocketTimeoutException -> L146 org.apache.http.conn.ConnectTimeoutException -> L162
+            long r0 = r0.f60659c     // Catch: org.json.JSONException -> Le0 java.io.IOException -> Lf1 java.net.MalformedURLException -> L105 com.tencent.open.utils.HttpUtils.NetworkUnavailableException -> L116 com.tencent.open.utils.HttpUtils.HttpStatusException -> L11b java.net.SocketTimeoutException -> L146 org.apache.http.conn.ConnectTimeoutException -> L162
             r9 = r0
             r0 = r3
             r11 = r13
@@ -809,19 +809,19 @@ public class HttpUtils {
                 public final /* synthetic */ QQToken a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ Context f60577b;
+                public final /* synthetic */ Context f60622b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ String f60578c;
+                public final /* synthetic */ String f60623c;
 
                 /* renamed from: d  reason: collision with root package name */
-                public final /* synthetic */ Bundle f60579d;
+                public final /* synthetic */ Bundle f60624d;
 
                 /* renamed from: e  reason: collision with root package name */
-                public final /* synthetic */ String f60580e;
+                public final /* synthetic */ String f60625e;
 
                 /* renamed from: f  reason: collision with root package name */
-                public final /* synthetic */ IRequestListener f60581f;
+                public final /* synthetic */ IRequestListener f60626f;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -839,11 +839,11 @@ public class HttpUtils {
                         }
                     }
                     this.a = qQToken;
-                    this.f60577b = context;
-                    this.f60578c = str;
-                    this.f60579d = bundle;
-                    this.f60580e = str2;
-                    this.f60581f = iRequestListener;
+                    this.f60622b = context;
+                    this.f60623c = str;
+                    this.f60624d = bundle;
+                    this.f60625e = str2;
+                    this.f60626f = iRequestListener;
                 }
 
                 @Override // java.lang.Thread, java.lang.Runnable
@@ -851,55 +851,55 @@ public class HttpUtils {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                         try {
-                            JSONObject request = HttpUtils.request(this.a, this.f60577b, this.f60578c, this.f60579d, this.f60580e);
-                            if (this.f60581f != null) {
-                                this.f60581f.onComplete(request);
+                            JSONObject request = HttpUtils.request(this.a, this.f60622b, this.f60623c, this.f60624d, this.f60625e);
+                            if (this.f60626f != null) {
+                                this.f60626f.onComplete(request);
                                 SLog.i("openSDK_LOG.HttpUtils", "OpenApi onComplete");
                             }
                         } catch (HttpStatusException e2) {
-                            IRequestListener iRequestListener2 = this.f60581f;
+                            IRequestListener iRequestListener2 = this.f60626f;
                             if (iRequestListener2 != null) {
                                 iRequestListener2.onHttpStatusException(e2);
                                 SLog.e("openSDK_LOG.HttpUtils", "OpenApi requestAsync onHttpStatusException" + e2.toString());
                             }
                         } catch (NetworkUnavailableException e3) {
-                            IRequestListener iRequestListener3 = this.f60581f;
+                            IRequestListener iRequestListener3 = this.f60626f;
                             if (iRequestListener3 != null) {
                                 iRequestListener3.onNetworkUnavailableException(e3);
                                 SLog.e("openSDK_LOG.HttpUtils", "OpenApi requestAsync onNetworkUnavailableException" + e3.toString());
                             }
                         } catch (MalformedURLException e4) {
-                            IRequestListener iRequestListener4 = this.f60581f;
+                            IRequestListener iRequestListener4 = this.f60626f;
                             if (iRequestListener4 != null) {
                                 iRequestListener4.onMalformedURLException(e4);
                                 SLog.e("openSDK_LOG.HttpUtils", "OpenApi requestAsync MalformedURLException" + e4.toString());
                             }
                         } catch (SocketTimeoutException e5) {
-                            IRequestListener iRequestListener5 = this.f60581f;
+                            IRequestListener iRequestListener5 = this.f60626f;
                             if (iRequestListener5 != null) {
                                 iRequestListener5.onSocketTimeoutException(e5);
                                 SLog.e("openSDK_LOG.HttpUtils", "OpenApi requestAsync onSocketTimeoutException" + e5.toString());
                             }
                         } catch (ConnectTimeoutException e6) {
-                            IRequestListener iRequestListener6 = this.f60581f;
+                            IRequestListener iRequestListener6 = this.f60626f;
                             if (iRequestListener6 != null) {
                                 iRequestListener6.onConnectTimeoutException(e6);
                                 SLog.e("openSDK_LOG.HttpUtils", "OpenApi requestAsync onConnectTimeoutException" + e6.toString());
                             }
                         } catch (IOException e7) {
-                            IRequestListener iRequestListener7 = this.f60581f;
+                            IRequestListener iRequestListener7 = this.f60626f;
                             if (iRequestListener7 != null) {
                                 iRequestListener7.onIOException(e7);
                                 SLog.e("openSDK_LOG.HttpUtils", "OpenApi requestAsync IOException" + e7.toString());
                             }
                         } catch (JSONException e8) {
-                            IRequestListener iRequestListener8 = this.f60581f;
+                            IRequestListener iRequestListener8 = this.f60626f;
                             if (iRequestListener8 != null) {
                                 iRequestListener8.onJSONException(e8);
                                 SLog.e("openSDK_LOG.HttpUtils", "OpenApi requestAsync JSONException" + e8.toString());
                             }
                         } catch (Exception e9) {
-                            IRequestListener iRequestListener9 = this.f60581f;
+                            IRequestListener iRequestListener9 = this.f60626f;
                             if (iRequestListener9 != null) {
                                 iRequestListener9.onUnknowException(e9);
                                 SLog.e("openSDK_LOG.HttpUtils", "OpenApi requestAsync onUnknowException" + e9.toString());

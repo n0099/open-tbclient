@@ -70,13 +70,13 @@ public final class PayController {
     public a a;
 
     /* renamed from: b  reason: collision with root package name */
-    public IModifyPayTypeCallback f50515b;
+    public IModifyPayTypeCallback f50560b;
 
     /* renamed from: c  reason: collision with root package name */
-    public PayCallBack f50516c;
+    public PayCallBack f50561c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Context f50517d;
+    public Context f50562d;
 
     /* renamed from: com.baidu.wallet.base.controllers.PayController$1  reason: invalid class name */
     /* loaded from: classes13.dex */
@@ -279,10 +279,10 @@ public final class PayController {
 
     public void clearPreModifiedCallBack() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || this.f50515b == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || this.f50560b == null) {
             return;
         }
-        this.f50515b = null;
+        this.f50560b = null;
     }
 
     public void completeCardPay(Context context, CardData.BondCard bondCard) {
@@ -311,7 +311,7 @@ public final class PayController {
     public IModifyPayTypeCallback getModifyPayTypeCallback() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f50515b : (IModifyPayTypeCallback) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f50560b : (IModifyPayTypeCallback) invokeV.objValue;
     }
 
     public void gotoDiscountPage(BaseActivity baseActivity) {
@@ -395,21 +395,21 @@ public final class PayController {
     public void onPreModifiedPayType(PrecashierModifyPayTypeDefaultData precashierModifyPayTypeDefaultData) {
         IModifyPayTypeCallback iModifyPayTypeCallback;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048592, this, precashierModifyPayTypeDefaultData) == null) || (iModifyPayTypeCallback = this.f50515b) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048592, this, precashierModifyPayTypeDefaultData) == null) || (iModifyPayTypeCallback = this.f50560b) == null) {
             return;
         }
         iModifyPayTypeCallback.onPayTypeModified(precashierModifyPayTypeDefaultData);
-        this.f50515b = null;
+        this.f50560b = null;
     }
 
     public void onPrePayMethodSetted() {
         IModifyPayTypeCallback iModifyPayTypeCallback;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048593, this) == null) || (iModifyPayTypeCallback = this.f50515b) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048593, this) == null) || (iModifyPayTypeCallback = this.f50560b) == null) {
             return;
         }
         iModifyPayTypeCallback.onPayTypeSetted();
-        this.f50515b = null;
+        this.f50560b = null;
     }
 
     public void payPaying(BaseActivity baseActivity, PayResultContent payResultContent, int i2) {
@@ -452,15 +452,15 @@ public final class PayController {
     public void setMiniPayCallback(PayCallBack payCallBack, Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048597, this, payCallBack, context) == null) {
-            this.f50516c = payCallBack;
-            this.f50517d = context;
+            this.f50561c = payCallBack;
+            this.f50562d = context;
         }
     }
 
     public void setModifyPayTypeCallback(IModifyPayTypeCallback iModifyPayTypeCallback) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048598, this, iModifyPayTypeCallback) == null) {
-            this.f50515b = iModifyPayTypeCallback;
+            this.f50560b = iModifyPayTypeCallback;
         }
     }
 
@@ -508,8 +508,8 @@ public final class PayController {
                 return;
             }
         }
-        this.f50516c = null;
-        this.f50517d = null;
+        this.f50561c = null;
+        this.f50562d = null;
     }
 
     private void a(BaseActivity baseActivity, Bundle bundle, Class<?> cls) {

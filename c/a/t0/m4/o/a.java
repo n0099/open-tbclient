@@ -12,7 +12,7 @@ import c.a.s0.t.c.n0;
 import c.a.s0.x.e;
 import c.a.t0.m4.i;
 import c.a.t0.p4.m;
-import c.a.t0.w3.s0.h;
+import c.a.t0.x3.s0.h;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.lib.util.StringUtils;
@@ -43,19 +43,19 @@ public class a extends e {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: f  reason: collision with root package name */
-    public NewWriteModel f19539f;
+    public NewWriteModel f19649f;
 
     /* renamed from: g  reason: collision with root package name */
-    public m f19540g;
+    public m f19650g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f19541h;
+    public String f19651h;
 
     /* renamed from: i  reason: collision with root package name */
-    public TbPageContext<?> f19542i;
+    public TbPageContext<?> f19652i;
 
     /* renamed from: j  reason: collision with root package name */
-    public String f19543j;
+    public String f19653j;
     public String k;
     public String l;
     public VideoItemData m;
@@ -65,12 +65,12 @@ public class a extends e {
 
     /* renamed from: c.a.t0.m4.o.a$a  reason: collision with other inner class name */
     /* loaded from: classes7.dex */
-    public class C1218a implements NewWriteModel.g {
+    public class C1222a implements NewWriteModel.g {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ a a;
 
-        public C1218a(a aVar) {
+        public C1222a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -92,7 +92,7 @@ public class a extends e {
         public void callback(boolean z, PostWriteCallBackData postWriteCallBackData, n0 n0Var, WriteData writeData, AntiData antiData) {
             String str;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), postWriteCallBackData, n0Var, writeData, antiData}) == null) || this.a.f19539f == null) {
+            if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), postWriteCallBackData, n0Var, writeData, antiData}) == null) || this.a.f19649f == null) {
                 return;
             }
             if (this.a.a() != null) {
@@ -102,14 +102,14 @@ public class a extends e {
                 this.a.n.a(false);
             }
             if (writeData == null) {
-                writeData = this.a.f19539f.Z();
+                writeData = this.a.f19649f.Z();
             }
             WriteData writeData2 = writeData;
             if (z) {
                 String str2 = null;
-                this.a.f19540g.n(null);
-                this.a.f19540g.i(null);
-                this.a.f19540g.k(false);
+                this.a.f19650g.n(null);
+                this.a.f19650g.i(null);
+                this.a.f19650g.k(false);
                 this.a.q();
                 this.a.p();
                 if (writeData2 != null) {
@@ -131,18 +131,18 @@ public class a extends e {
                 writeData2.setVcodeMD5(n0Var.b());
                 writeData2.setVcodeUrl(n0Var.c());
                 writeData2.setVcodeExtra(n0Var.a());
-                if (c.a.s0.f1.a.b(n0Var.d())) {
-                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new NewVcodeActivityConfig(this.a.f19542i.getPageActivity(), 12006, writeData2, false, n0Var.d())));
+                if (c.a.s0.e1.a.b(n0Var.d())) {
+                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new NewVcodeActivityConfig(this.a.f19652i.getPageActivity(), 12006, writeData2, false, n0Var.d())));
                 } else {
-                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new VcodeActivityConfig(this.a.f19542i.getPageActivity(), writeData2, 12006)));
+                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new VcodeActivityConfig(this.a.f19652i.getPageActivity(), writeData2, 12006)));
                 }
             } else if (postWriteCallBackData != null && postWriteCallBackData.getErrorCode() == 227001) {
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AccountAccessActivityConfig(this.a.f19542i.getPageActivity(), 12006, writeData2, postWriteCallBackData.getAccessState())));
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AccountAccessActivityConfig(this.a.f19652i.getPageActivity(), 12006, writeData2, postWriteCallBackData.getAccessState())));
             } else if (postWriteCallBackData != null && postWriteCallBackData.getErrorCode() == 220015) {
                 this.a.z(postWriteCallBackData.getErrorString());
-                this.a.f19540g.i(postWriteCallBackData.getSensitiveWords());
-                this.a.f19540g.n(postWriteCallBackData.getErrorString());
-                if (ListUtils.isEmpty(this.a.f19540g.a())) {
+                this.a.f19650g.i(postWriteCallBackData.getSensitiveWords());
+                this.a.f19650g.n(postWriteCallBackData.getErrorString());
+                if (ListUtils.isEmpty(this.a.f19650g.a())) {
                     return;
                 }
                 this.a.k(true);
@@ -192,7 +192,7 @@ public class a extends e {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f19544e;
+        public final /* synthetic */ a f19654e;
 
         public c(a aVar) {
             Interceptable interceptable = $ic;
@@ -209,19 +209,19 @@ public class a extends e {
                     return;
                 }
             }
-            this.f19544e = aVar;
+            this.f19654e = aVar;
         }
 
         @Override // android.text.TextWatcher
         public void afterTextChanged(Editable editable) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, editable) == null) || this.f19544e.f19540g == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, editable) == null) || this.f19654e.f19650g == null) {
                 return;
             }
-            if (!this.f19544e.f19540g.e()) {
-                this.f19544e.k(false);
+            if (!this.f19654e.f19650g.e()) {
+                this.f19654e.k(false);
             }
-            this.f19544e.f19540g.l(false);
+            this.f19654e.f19650g.l(false);
         }
 
         @Override // android.text.TextWatcher
@@ -262,21 +262,21 @@ public class a extends e {
                 return;
             }
         }
-        this.f19541h = "";
-        this.f19543j = null;
-        this.o = new C1218a(this);
+        this.f19651h = "";
+        this.f19653j = null;
+        this.o = new C1222a(this);
         this.p = new c(this);
         editorTools.showLinePositionBottom(true);
         m mVar = new m();
-        this.f19540g = mVar;
+        this.f19650g = mVar;
         mVar.h(c.a.t0.m4.c.cp_cont_h_alpha85);
-        this.f19540g.j(c.a.t0.m4.c.CAM_X0101);
+        this.f19650g.j(c.a.t0.m4.c.CAM_X0101);
     }
 
     public TbPageContext<?> getContext() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f19542i : (TbPageContext) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f19652i : (TbPageContext) invokeV.objValue;
     }
 
     public final void k(boolean z) {
@@ -286,17 +286,17 @@ public class a extends e {
         }
         EditText f2 = ((c.a.t0.m4.o.c) a().findToolById(28)).f();
         int selectionEnd = f2.getSelectionEnd();
-        SpannableStringBuilder f3 = this.f19540g.f(f2.getText());
+        SpannableStringBuilder f3 = this.f19650g.f(f2.getText());
         if (f3 != null) {
-            this.f19540g.l(true);
+            this.f19650g.l(true);
             f2.setText(f3);
-            if (z && this.f19540g.b() >= 0) {
+            if (z && this.f19650g.b() >= 0) {
                 f2.requestFocus();
-                f2.setSelection(this.f19540g.b());
+                f2.setSelection(this.f19650g.b());
             } else {
                 f2.setSelection(selectionEnd);
             }
-            m mVar = this.f19540g;
+            m mVar = this.f19650g;
             mVar.k(mVar.b() >= 0);
         }
     }
@@ -304,7 +304,7 @@ public class a extends e {
     public String l() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f19541h : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f19651h : (String) invokeV.objValue;
     }
 
     public void m(int i2, int i3, Intent intent) {
@@ -321,14 +321,14 @@ public class a extends e {
             if (intent != null && (intent.getSerializableExtra("post_write_callback_data") instanceof PostWriteCallBackData)) {
                 postWriteCallBackData = (PostWriteCallBackData) intent.getSerializableExtra("post_write_callback_data");
             }
-            this.o.callback(false, postWriteCallBackData, null, this.f19539f.Z(), null);
+            this.o.callback(false, postWriteCallBackData, null, this.f19649f.Z(), null);
         }
     }
 
     public void n() {
         NewWriteModel newWriteModel;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (newWriteModel = this.f19539f) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (newWriteModel = this.f19649f) == null) {
             return;
         }
         newWriteModel.cancelLoadData();
@@ -337,35 +337,35 @@ public class a extends e {
     public void o() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            if (this.f19539f == null) {
-                NewWriteModel newWriteModel = new NewWriteModel(this.f19542i);
-                this.f19539f = newWriteModel;
+            if (this.f19649f == null) {
+                NewWriteModel newWriteModel = new NewWriteModel(this.f19652i);
+                this.f19649f = newWriteModel;
                 newWriteModel.l0(this.o);
             }
             WriteData writeData = new WriteData();
             writeData.setType(1);
-            writeData.setThreadId(this.f19543j);
+            writeData.setThreadId(this.f19653j);
             writeData.setForumId(this.k);
             writeData.setForumName(this.l);
-            writeData.setContent(this.f19541h);
+            writeData.setContent(this.f19651h);
             VideoItemData videoItemData = this.m;
             if (videoItemData != null && videoItemData.baijiahaoData != null) {
                 writeData.setIsBJHPost(true);
                 writeData.setBaijiahaoData(this.m.baijiahaoData);
             }
-            this.f19539f.setWriteData(writeData);
-            this.f19539f.p0();
+            this.f19649f.setWriteData(writeData);
+            this.f19649f.p0();
         }
     }
 
     public final void p() {
         NewWriteModel newWriteModel;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || (newWriteModel = this.f19539f) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || (newWriteModel = this.f19649f) == null) {
             return;
         }
         newWriteModel.setWriteData(null);
-        this.f19539f.g0(false);
+        this.f19649f.g0(false);
     }
 
     public final void q() {
@@ -386,14 +386,14 @@ public class a extends e {
     public void r(TbPageContext<?> tbPageContext) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, tbPageContext) == null) {
-            this.f19542i = tbPageContext;
+            this.f19652i = tbPageContext;
         }
     }
 
     public void s(String str, String str2, String str3, String str4) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLL(1048585, this, str, str2, str3, str4) == null) {
-            this.f19543j = str;
+            this.f19653j = str;
             this.k = str2;
             this.l = str3;
             if (a() == null || !(a().findToolById(28) instanceof c.a.t0.m4.o.c) || ((c.a.t0.m4.o.c) a().findToolById(28)).f() == null) {
@@ -416,7 +416,7 @@ public class a extends e {
     public void u(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048587, this, str) == null) {
-            this.f19541h = str;
+            this.f19651h = str;
         }
     }
 
@@ -431,7 +431,7 @@ public class a extends e {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(1048589, this, i2, str) == null) {
             if (AntiHelper.m(i2, str)) {
-                AntiHelper.w(this.f19542i.getPageActivity(), str, i2, null);
+                AntiHelper.w(this.f19652i.getPageActivity(), str, i2, null);
             } else if (i2 != 230277 && i2 != 230278) {
                 z(str);
             } else {
@@ -454,7 +454,7 @@ public class a extends e {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
             StatisticItem statisticItem = new StatisticItem("c13026");
-            statisticItem.param("tid", this.f19543j);
+            statisticItem.param("tid", this.f19653j);
             statisticItem.param("uid", TbadkCoreApplication.getCurrentAccountId());
             statisticItem.param("fid", this.k);
             TiebaStatic.log(statisticItem);
@@ -463,9 +463,9 @@ public class a extends e {
 
     public final void z(String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048592, this, str) == null) || this.f19542i == null || StringUtils.isNull(str)) {
+        if (!(interceptable == null || interceptable.invokeL(1048592, this, str) == null) || this.f19652i == null || StringUtils.isNull(str)) {
             return;
         }
-        this.f19542i.showToast(str);
+        this.f19652i.showToast(str);
     }
 }

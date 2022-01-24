@@ -35,11 +35,11 @@ public class b extends c.a.r0.g.o.a.a {
 
     /* renamed from: c.a.r0.g.o.a.b$b  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public static class C0684b implements Comparator<c> {
+    public static class C0693b implements Comparator<c> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        public C0684b() {
+        public C0693b() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -59,10 +59,10 @@ public class b extends c.a.r0.g.o.a.a {
         public int compare(c cVar, c cVar2) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, cVar, cVar2)) == null) ? Long.compare(cVar2.f10346b, cVar.f10346b) : invokeLL.intValue;
+            return (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, cVar, cVar2)) == null) ? Long.compare(cVar2.f10488b, cVar.f10488b) : invokeLL.intValue;
         }
 
-        public /* synthetic */ C0684b(a aVar) {
+        public /* synthetic */ C0693b(a aVar) {
             this();
         }
     }
@@ -74,7 +74,7 @@ public class b extends c.a.r0.g.o.a.a {
         public String a;
 
         /* renamed from: b  reason: collision with root package name */
-        public long f10346b;
+        public long f10488b;
 
         public c(b bVar, String str, long j2) {
             Interceptable interceptable = $ic;
@@ -92,7 +92,7 @@ public class b extends c.a.r0.g.o.a.a {
                 }
             }
             this.a = str;
-            this.f10346b = j2;
+            this.f10488b = j2;
         }
     }
 
@@ -131,7 +131,7 @@ public class b extends c.a.r0.g.o.a.a {
         if (!(interceptable == null || interceptable.invokeLILL(1048576, this, matrixCursor, i2, cVar, pMSAppInfo) == null) || matrixCursor == null || i2 < 0 || cVar == null || pMSAppInfo == null) {
             return;
         }
-        matrixCursor.newRow().add("_id", Integer.valueOf(i2)).add("app_id", pMSAppInfo.appId).add("app_key", pMSAppInfo.appKey).add("app_sign", Long.valueOf(pMSAppInfo.appSign)).add("version_code", Long.valueOf(pMSAppInfo.versionCode)).add("version_name", pMSAppInfo.versionName).add("description", pMSAppInfo.description).add("app_status", Integer.valueOf(pMSAppInfo.appStatus)).add("status_detail", pMSAppInfo.statusDetail).add("status_desc", pMSAppInfo.statusDesc).add("resume_date", pMSAppInfo.resumeDate).add("icon_url", pMSAppInfo.iconUrl).add("app_name", pMSAppInfo.appName).add("service_category", pMSAppInfo.serviceCategory).add("subject_info", pMSAppInfo.subjectInfo).add("type", Integer.valueOf(pMSAppInfo.type)).add("pkg_size", Long.valueOf(pMSAppInfo.pkgSize)).add("app_category", Integer.valueOf(pMSAppInfo.appCategory)).add("orientation", Integer.valueOf(pMSAppInfo.getOrientation())).add("create_time", Long.valueOf(pMSAppInfo.createTime)).add("favorite_time", Long.valueOf(cVar.f10346b));
+        matrixCursor.newRow().add("_id", Integer.valueOf(i2)).add("app_id", pMSAppInfo.appId).add("app_key", pMSAppInfo.appKey).add("app_sign", Long.valueOf(pMSAppInfo.appSign)).add("version_code", Long.valueOf(pMSAppInfo.versionCode)).add("version_name", pMSAppInfo.versionName).add("description", pMSAppInfo.description).add("app_status", Integer.valueOf(pMSAppInfo.appStatus)).add("status_detail", pMSAppInfo.statusDetail).add("status_desc", pMSAppInfo.statusDesc).add("resume_date", pMSAppInfo.resumeDate).add("icon_url", pMSAppInfo.iconUrl).add("app_name", pMSAppInfo.appName).add("service_category", pMSAppInfo.serviceCategory).add("subject_info", pMSAppInfo.subjectInfo).add("type", Integer.valueOf(pMSAppInfo.type)).add("pkg_size", Long.valueOf(pMSAppInfo.pkgSize)).add("app_category", Integer.valueOf(pMSAppInfo.appCategory)).add("orientation", Integer.valueOf(pMSAppInfo.getOrientation())).add("create_time", Long.valueOf(pMSAppInfo.createTime)).add("favorite_time", Long.valueOf(cVar.f10488b));
     }
 
     public final List<c> b() {
@@ -169,7 +169,7 @@ public class b extends c.a.r0.g.o.a.a {
             if (a2.isEmpty()) {
                 return null;
             }
-            Collections.sort(b2, new C0684b(null));
+            Collections.sort(b2, new C0693b(null));
             MatrixCursor matrixCursor = new MatrixCursor(a, b2.size());
             int i2 = 0;
             for (c cVar : b2) {

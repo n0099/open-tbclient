@@ -25,16 +25,16 @@ public class TKConfigResultData extends BaseResultData {
         public long a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f58108b;
+        public String f58153b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f58109c;
+        public String f58154c;
 
         /* renamed from: d  reason: collision with root package name */
-        public String f58110d;
+        public String f58155d;
 
         /* renamed from: e  reason: collision with root package name */
-        public int f58111e;
+        public int f58156e;
 
         public a() {
             Interceptable interceptable = $ic;

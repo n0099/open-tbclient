@@ -11,7 +11,7 @@ public class o2 {
     public boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f13468b;
+    public String f13654b;
 
     public o2() {
         Interceptable interceptable = $ic;

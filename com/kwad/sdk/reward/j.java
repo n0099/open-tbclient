@@ -34,66 +34,66 @@ public class j extends com.kwad.sdk.h.e {
     public static j a = null;
 
     /* renamed from: d  reason: collision with root package name */
-    public static String f57282d = "奖励还差 %s 步到手，\n确认放弃吗？";
+    public static String f57327d = "奖励还差 %s 步到手，\n确认放弃吗？";
 
     /* renamed from: b  reason: collision with root package name */
-    public AdTemplate f57283b;
+    public AdTemplate f57328b;
 
     /* renamed from: c  reason: collision with root package name */
-    public b f57284c;
+    public b f57329c;
 
     /* loaded from: classes3.dex */
     public static class a extends com.kwad.sdk.core.response.kwai.a {
         public int a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f57295b;
+        public String f57340b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f57296c;
+        public String f57341c;
 
         /* renamed from: d  reason: collision with root package name */
-        public String f57297d;
+        public String f57342d;
 
         /* renamed from: e  reason: collision with root package name */
-        public com.kwad.sdk.reward.b.a.a f57298e;
+        public com.kwad.sdk.reward.b.a.a f57343e;
 
         /* renamed from: f  reason: collision with root package name */
-        public com.kwad.sdk.reward.b.kwai.a f57299f;
+        public com.kwad.sdk.reward.b.kwai.a f57344f;
 
         /* renamed from: g  reason: collision with root package name */
-        public String f57300g;
+        public String f57345g;
 
         public static a a(AdInfo adInfo) {
             a aVar = new a();
             aVar.a = 3;
-            aVar.f57295b = com.kwad.sdk.core.response.a.a.aD(adInfo);
-            aVar.f57300g = com.kwad.sdk.core.response.a.a.aE(adInfo);
+            aVar.f57340b = com.kwad.sdk.core.response.a.a.aD(adInfo);
+            aVar.f57345g = com.kwad.sdk.core.response.a.a.aE(adInfo);
             return aVar;
         }
 
         public static a a(com.kwad.sdk.reward.b.a.a aVar, AdTemplate adTemplate) {
             a aVar2 = new a();
             aVar2.a = 1;
-            aVar2.f57298e = aVar;
-            aVar2.f57300g = com.kwad.sdk.core.response.a.a.au(com.kwad.sdk.core.response.a.d.j(adTemplate));
+            aVar2.f57343e = aVar;
+            aVar2.f57345g = com.kwad.sdk.core.response.a.a.au(com.kwad.sdk.core.response.a.d.j(adTemplate));
             return aVar2;
         }
 
         public static a a(com.kwad.sdk.reward.b.kwai.a aVar, AdTemplate adTemplate) {
             a aVar2 = new a();
             aVar2.a = 2;
-            aVar2.f57299f = aVar;
-            aVar2.f57300g = com.kwad.sdk.core.response.a.a.au(com.kwad.sdk.core.response.a.d.j(adTemplate));
+            aVar2.f57344f = aVar;
+            aVar2.f57345g = com.kwad.sdk.core.response.a.a.au(com.kwad.sdk.core.response.a.d.j(adTemplate));
             return aVar2;
         }
 
         public static a a(String str) {
             a aVar = new a();
             aVar.a = 0;
-            aVar.f57295b = str;
-            aVar.f57296c = "关闭广告";
-            aVar.f57297d = "继续观看";
+            aVar.f57340b = str;
+            aVar.f57341c = "关闭广告";
+            aVar.f57342d = "继续观看";
             return aVar;
         }
 
@@ -101,17 +101,17 @@ public class j extends com.kwad.sdk.h.e {
             a aVar = new a();
             aVar.a = 4;
             AdProductInfo aK = com.kwad.sdk.core.response.a.a.aK(adInfo);
-            aVar.f57295b = com.kwad.sdk.core.response.a.a.s(adInfo);
-            aVar.f57300g = aK.getIcon();
+            aVar.f57340b = com.kwad.sdk.core.response.a.a.s(adInfo);
+            aVar.f57345g = aK.getIcon();
             return aVar;
         }
 
         public static a b(String str) {
             a aVar = new a();
             aVar.a = 0;
-            aVar.f57295b = str;
-            aVar.f57296c = "奖励不要了";
-            aVar.f57297d = "返回";
+            aVar.f57340b = str;
+            aVar.f57341c = "奖励不要了";
+            aVar.f57342d = "返回";
             return aVar;
         }
 
@@ -133,55 +133,55 @@ public class j extends com.kwad.sdk.h.e {
             super.afterParseJson(jSONObject);
             JSONObject optJSONObject = jSONObject.optJSONObject("mLaunchAppTask");
             if (optJSONObject != null) {
-                if (this.f57298e == null) {
-                    this.f57298e = new com.kwad.sdk.reward.b.a.a();
+                if (this.f57343e == null) {
+                    this.f57343e = new com.kwad.sdk.reward.b.a.a();
                 }
-                this.f57298e.parseJson(optJSONObject);
+                this.f57343e.parseJson(optJSONObject);
             }
             JSONObject optJSONObject2 = jSONObject.optJSONObject("mLandPageOpenTask");
             if (optJSONObject2 != null) {
-                if (this.f57299f == null) {
-                    this.f57299f = new com.kwad.sdk.reward.b.kwai.a();
+                if (this.f57344f == null) {
+                    this.f57344f = new com.kwad.sdk.reward.b.kwai.a();
                 }
-                this.f57299f.parseJson(optJSONObject2);
+                this.f57344f.parseJson(optJSONObject2);
             }
         }
 
         @Override // com.kwad.sdk.core.response.kwai.a
         public void afterToJson(JSONObject jSONObject) {
             super.afterToJson(jSONObject);
-            com.kwad.sdk.reward.b.a.a aVar = this.f57298e;
+            com.kwad.sdk.reward.b.a.a aVar = this.f57343e;
             if (aVar != null) {
                 t.a(jSONObject, "mLaunchAppTask", aVar);
             }
-            com.kwad.sdk.reward.b.kwai.a aVar2 = this.f57299f;
+            com.kwad.sdk.reward.b.kwai.a aVar2 = this.f57344f;
             if (aVar2 != null) {
                 t.a(jSONObject, "mLandPageOpenTask", aVar2);
             }
         }
 
         public String b() {
-            return this.f57295b;
+            return this.f57340b;
         }
 
         public String c() {
-            return TextUtils.isEmpty(this.f57296c) ? "关闭广告" : this.f57296c;
+            return TextUtils.isEmpty(this.f57341c) ? "关闭广告" : this.f57341c;
         }
 
         public String d() {
-            return TextUtils.isEmpty(this.f57297d) ? "继续观看" : this.f57297d;
+            return TextUtils.isEmpty(this.f57342d) ? "继续观看" : this.f57342d;
         }
 
         public com.kwad.sdk.reward.b.a.a e() {
-            return this.f57298e;
+            return this.f57343e;
         }
 
         public com.kwad.sdk.reward.b.kwai.a f() {
-            return this.f57299f;
+            return this.f57344f;
         }
 
         public String g() {
-            return this.f57300g;
+            return this.f57345g;
         }
     }
 
@@ -231,7 +231,7 @@ public class j extends com.kwad.sdk.h.e {
         TextView textView2 = (TextView) inflate.findViewById(R.id.ksad_reward_task_dialog_continue);
         TextView textView3 = (TextView) inflate.findViewById(R.id.ksad_reward_task_dialog_title);
         String str = e2.l() + "";
-        String format = String.format(f57282d, str);
+        String format = String.format(f57327d, str);
         int indexOf = format.indexOf(str);
         if (indexOf < 0) {
             textView3.setText(format);
@@ -310,7 +310,7 @@ public class j extends com.kwad.sdk.h.e {
     }
 
     private void a(b bVar) {
-        this.f57284c = bVar;
+        this.f57329c = bVar;
     }
 
     public static boolean a() {
@@ -327,7 +327,7 @@ public class j extends com.kwad.sdk.h.e {
         TextView textView2 = (TextView) inflate.findViewById(R.id.ksad_reward_task_dialog_continue);
         TextView textView3 = (TextView) inflate.findViewById(R.id.ksad_reward_task_dialog_title);
         String str = f2.i() + "";
-        String format = String.format(f57282d, str);
+        String format = String.format(f57327d, str);
         int indexOf = format.indexOf(str);
         if (indexOf < 0) {
             textView3.setText(format);
@@ -398,7 +398,7 @@ public class j extends com.kwad.sdk.h.e {
 
     public static View c(final DialogFragment dialogFragment, LayoutInflater layoutInflater, ViewGroup viewGroup, a aVar, AdTemplate adTemplate, final b bVar) {
         View inflate = layoutInflater.inflate(R.layout.ksad_reward_order_dialog, viewGroup, false);
-        KSImageLoader.loadImage((KSCornerImageView) inflate.findViewById(R.id.ksad_reward_order_dialog_icon), aVar.f57300g, adTemplate);
+        KSImageLoader.loadImage((KSCornerImageView) inflate.findViewById(R.id.ksad_reward_order_dialog_icon), aVar.f57345g, adTemplate);
         ((TextView) inflate.findViewById(R.id.ksad_reward_order_dialog_desc)).setText(aVar.b());
         inflate.findViewById(R.id.ksad_reward_order_dialog_btn_close).setOnClickListener(new View.OnClickListener() { // from class: com.kwad.sdk.reward.j.3
             @Override // android.view.View.OnClickListener
@@ -443,27 +443,27 @@ public class j extends com.kwad.sdk.h.e {
         try {
             String string2 = arguments.getString("key_template_json");
             AdTemplate adTemplate = new AdTemplate();
-            this.f57283b = adTemplate;
+            this.f57328b = adTemplate;
             adTemplate.parseJson(new JSONObject(string2));
         } catch (Throwable unused) {
         }
         a c2 = a.c(string);
         int a3 = c2.a();
         if (a3 == 1) {
-            a2 = a(this, layoutInflater, viewGroup, c2, this.f57283b, this.f57284c);
+            a2 = a(this, layoutInflater, viewGroup, c2, this.f57328b, this.f57329c);
         } else if (a3 != 2) {
             if (a3 == 3) {
-                a2 = b(this, layoutInflater, viewGroup, c2, this.f57284c);
+                a2 = b(this, layoutInflater, viewGroup, c2, this.f57329c);
                 cVar = new com.kwad.sdk.widget.c(com.kwad.sdk.core.config.b.aJ());
             } else if (a3 != 4) {
-                a2 = a(this, layoutInflater, viewGroup, c2, this.f57284c);
+                a2 = a(this, layoutInflater, viewGroup, c2, this.f57329c);
             } else {
-                a2 = c(this, layoutInflater, viewGroup, c2, this.f57283b, this.f57284c);
+                a2 = c(this, layoutInflater, viewGroup, c2, this.f57328b, this.f57329c);
                 cVar = new com.kwad.sdk.widget.c(com.kwad.sdk.core.config.b.aL());
             }
             w.a(cVar, (ViewGroup) a2);
         } else {
-            a2 = b(this, layoutInflater, viewGroup, c2, this.f57283b, this.f57284c);
+            a2 = b(this, layoutInflater, viewGroup, c2, this.f57328b, this.f57329c);
         }
         getDialog().setOnKeyListener(new DialogInterface.OnKeyListener() { // from class: com.kwad.sdk.reward.j.1
             @Override // android.content.DialogInterface.OnKeyListener
@@ -492,7 +492,7 @@ public class j extends com.kwad.sdk.h.e {
         getDialog().setCanceledOnTouchOutside(false);
         window.setLayout(-1, -1);
         getDialog().getWindow().setBackgroundDrawable(new ColorDrawable(0));
-        b bVar = this.f57284c;
+        b bVar = this.f57329c;
         if (bVar != null) {
             bVar.a();
         }

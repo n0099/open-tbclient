@@ -26,13 +26,13 @@ public final class b {
     public final List<k> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f27698b;
+    public int f27726b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f27699c;
+    public boolean f27727c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f27700d;
+    public boolean f27728d;
 
     public b(List<k> list) {
         Interceptable interceptable = $ic;
@@ -49,7 +49,7 @@ public final class b {
                 return;
             }
         }
-        this.f27698b = 0;
+        this.f27726b = 0;
         this.a = list;
     }
 
@@ -58,7 +58,7 @@ public final class b {
         k kVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, sSLSocket)) == null) {
-            int i2 = this.f27698b;
+            int i2 = this.f27726b;
             int size = this.a.size();
             while (true) {
                 if (i2 >= size) {
@@ -67,17 +67,17 @@ public final class b {
                 }
                 kVar = this.a.get(i2);
                 if (kVar.c(sSLSocket)) {
-                    this.f27698b = i2 + 1;
+                    this.f27726b = i2 + 1;
                     break;
                 }
                 i2++;
             }
             if (kVar != null) {
-                this.f27699c = c(sSLSocket);
-                c.d.b.e0.a.a.c(kVar, sSLSocket, this.f27700d);
+                this.f27727c = c(sSLSocket);
+                c.d.b.e0.a.a.c(kVar, sSLSocket, this.f27728d);
                 return kVar;
             }
-            throw new UnknownServiceException("Unable to find acceptable protocols. isFallback=" + this.f27700d + ", modes=" + this.a + ", supported protocols=" + Arrays.toString(sSLSocket.getEnabledProtocols()));
+            throw new UnknownServiceException("Unable to find acceptable protocols. isFallback=" + this.f27728d + ", modes=" + this.a + ", supported protocols=" + Arrays.toString(sSLSocket.getEnabledProtocols()));
         }
         return (k) invokeL.objValue;
     }
@@ -86,8 +86,8 @@ public final class b {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, iOException)) == null) {
-            this.f27700d = true;
-            if (!this.f27699c || (iOException instanceof ProtocolException) || (iOException instanceof InterruptedIOException)) {
+            this.f27728d = true;
+            if (!this.f27727c || (iOException instanceof ProtocolException) || (iOException instanceof InterruptedIOException)) {
                 return false;
             }
             boolean z = iOException instanceof SSLHandshakeException;
@@ -103,7 +103,7 @@ public final class b {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, sSLSocket)) == null) {
-            for (int i2 = this.f27698b; i2 < this.a.size(); i2++) {
+            for (int i2 = this.f27726b; i2 < this.a.size(); i2++) {
                 if (this.a.get(i2).c(sSLSocket)) {
                     return true;
                 }

@@ -15,10 +15,10 @@ public final class d {
     public static final String a = "SAPI_BIOMETRIC";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f34041b = "%1$s\n%2$s";
+    public static final String f34069b = "%1$s\n%2$s";
 
     /* renamed from: c  reason: collision with root package name */
-    public static boolean f34042c;
+    public static boolean f34070c;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -53,7 +53,7 @@ public final class d {
     public static void a(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(65542, null, z) == null) {
-            f34042c = z;
+            f34070c = z;
         }
     }
 
@@ -101,7 +101,7 @@ public final class d {
 
     public static void a(int i2, Throwable th, String str, Object... objArr) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{Integer.valueOf(i2), th, str, objArr}) == null) && f34042c) {
+        if ((interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{Integer.valueOf(i2), th, str, objArr}) == null) && f34070c) {
             if (objArr.length > 0) {
                 str = String.format(str, objArr);
             }

@@ -18,10 +18,10 @@ public class b {
     public static final HashMap<String, Integer> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final HashMap<String, Integer> f7548b;
+    public static final HashMap<String, Integer> f7690b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final HashMap<String, Integer> f7549c;
+    public static final HashMap<String, Integer> f7691c;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -49,23 +49,23 @@ public class b {
         a.put("VRModeProjectionPlaneFull", 209);
         a.put("VRModeProjectionMultiFishEyeHorizontal", 210);
         a.put("VRModeProjectionMultiFishEyeVertical", Integer.valueOf((int) w0.A));
-        a.put("VRModeProjectionStereoSphereHorizontal", Integer.valueOf((int) w0.f55297h));
+        a.put("VRModeProjectionStereoSphereHorizontal", Integer.valueOf((int) w0.f55342h));
         a.put("VRModeProjectionStereoSphereVertical", 213);
         a.put("VRModeProjectionStereoPlaneFitHorizontal", Integer.valueOf((int) w0.c0));
         a.put("VRModeProjectionStereoPlaneFitVertical", Integer.valueOf((int) JfifUtil.MARKER_RST7));
         a.put("VRModeProjectionPlaneFullHorizontal", 216);
         a.put("VRModeProjectionPlaneFullVertical", 217);
         HashMap<String, Integer> hashMap2 = new HashMap<>(2);
-        f7548b = hashMap2;
+        f7690b = hashMap2;
         hashMap2.put("VRModeDisplayNormal", 101);
-        f7548b.put("VRModeDisplayGlass", 102);
+        f7690b.put("VRModeDisplayGlass", 102);
         HashMap<String, Integer> hashMap3 = new HashMap<>(5);
-        f7549c = hashMap3;
+        f7691c = hashMap3;
         hashMap3.put("VRModeInteractiveMotion", 1);
-        f7549c.put("VRModeInteractiveTouch", 2);
-        f7549c.put("VRModeInteractiveMotionWithTouch", 3);
-        f7549c.put("VRModeInteractiveGVRMotion", 4);
-        f7549c.put("VRModeInteractiveGVRMotionWithTouch", 5);
+        f7691c.put("VRModeInteractiveTouch", 2);
+        f7691c.put("VRModeInteractiveMotionWithTouch", 3);
+        f7691c.put("VRModeInteractiveGVRMotion", 4);
+        f7691c.put("VRModeInteractiveGVRMotionWithTouch", 5);
     }
 
     public b() {
@@ -95,12 +95,12 @@ public class b {
                 a.get(optString).intValue();
             }
             String optString2 = jSONObject.optString("displayMode");
-            if (!TextUtils.isEmpty(optString2) && f7548b.containsKey(optString2)) {
-                f7548b.get(optString2).intValue();
+            if (!TextUtils.isEmpty(optString2) && f7690b.containsKey(optString2)) {
+                f7690b.get(optString2).intValue();
             }
             String optString3 = jSONObject.optString("interactiveMode");
-            if (!TextUtils.isEmpty(optString3) && f7549c.containsKey(optString3)) {
-                f7549c.get(optString3).intValue();
+            if (!TextUtils.isEmpty(optString3) && f7691c.containsKey(optString3)) {
+                f7691c.get(optString3).intValue();
             }
             jSONObject.optInt("fov", -1);
             jSONObject.optInt("minFov", -1);

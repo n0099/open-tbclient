@@ -244,9 +244,10 @@ public class BdBaseApplication extends Application {
         }
     }
 
-    public void onCreate(Application application) {
+    @Override // android.app.Application
+    public void onCreate() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048593, this, application) == null) {
+        if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
             super.onCreate();
         }
     }

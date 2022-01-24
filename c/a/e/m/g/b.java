@@ -30,7 +30,7 @@ public class b {
     public final boolean a(@NonNull a aVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, aVar)) == null) ? aVar.f3477i == 1 : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, aVar)) == null) ? aVar.f3614i == 1 : invokeL.booleanValue;
     }
 
     public void b(@NonNull a aVar) {

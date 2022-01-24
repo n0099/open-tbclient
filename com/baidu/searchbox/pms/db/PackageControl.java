@@ -568,15 +568,10 @@ public class PackageControl {
         return (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048582, this, str, str2, str3)) == null) ? queryItems(str, str2, str3, "package_name", 10) : (List) invokeLLL.objValue;
     }
 
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:16:0x0061 */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:27:0x0075 */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:34:0x004f */
-    /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Type inference failed for: r9v11, types: [java.lang.String] */
     public List<PackageInfo> queryItems(String str, String str2, String str3, String str4, int i2) {
         InterceptResult invokeCommon;
-        Throwable th;
         Cursor cursor;
+        Throwable th;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{str, str2, str3, str4, Integer.valueOf(i2)})) == null) {
             ArrayList arrayList = new ArrayList();
@@ -585,47 +580,40 @@ public class PackageControl {
                 arrayList.add(new Pair<>("package_name", str2));
             }
             if (i2 >= 0) {
-                str2 = i2 + "";
-                arrayList.add(new Pair<>("type", str2));
+                arrayList.add(new Pair<>("type", i2 + ""));
             }
-            Cursor cursor2 = str2;
             if (!TextUtils.isEmpty(str3)) {
-                ?? r9 = PackageTable.MD5;
                 arrayList.add(new Pair<>(PackageTable.MD5, str3));
-                cursor2 = r9;
             }
             List<PackageInfo> list = null;
             try {
+                cursor = getPackageFileCursorByGroup(arrayList, true, "update_version", str4, null);
                 try {
-                    cursor = getPackageFileCursorByGroup(arrayList, true, "update_version", str4, null);
                     try {
                         list = safeLoadPackageFile(cursor);
-                        cursor2 = cursor;
                     } catch (Exception e2) {
                         e = e2;
-                        cursor2 = cursor;
                         if (AppConfig.isDebug()) {
                             e.printStackTrace();
-                            cursor2 = cursor;
                         }
-                        Closeables.closeSafely(cursor2);
+                        Closeables.closeSafely(cursor);
                         return list;
                     }
                 } catch (Throwable th2) {
                     th = th2;
-                    Closeables.closeSafely(cursor2);
+                    Closeables.closeSafely(cursor);
                     throw th;
                 }
             } catch (Exception e3) {
                 e = e3;
                 cursor = null;
             } catch (Throwable th3) {
-                cursor2 = null;
+                cursor = null;
                 th = th3;
-                Closeables.closeSafely(cursor2);
+                Closeables.closeSafely(cursor);
                 throw th;
             }
-            Closeables.closeSafely(cursor2);
+            Closeables.closeSafely(cursor);
             return list;
         }
         return (List) invokeCommon.objValue;
@@ -670,9 +658,9 @@ public class PackageControl {
         return (List) invokeL.objValue;
     }
 
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:16:0x0057 */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:25:0x0067 */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:32:0x0049 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:16:0x0055 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:25:0x0065 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:32:0x0048 */
     /* JADX WARN: Multi-variable type inference failed */
     /* JADX WARN: Type inference failed for: r5v0, types: [java.lang.Object, com.baidu.searchbox.pms.db.PackageControl] */
     /* JADX WARN: Type inference failed for: r6v11 */

@@ -20,10 +20,10 @@ public class b {
     public View a;
 
     /* renamed from: b  reason: collision with root package name */
-    public SimpleDraweeView f11193b;
+    public SimpleDraweeView f11335b;
 
     /* renamed from: c  reason: collision with root package name */
-    public TextView f11194c;
+    public TextView f11336c;
 
     @SuppressLint({"InflateParams"})
     public b(Context context) {
@@ -43,7 +43,7 @@ public class b {
         }
         View inflate = LayoutInflater.from(context).inflate(f.swangame_recommend_button, (ViewGroup) null);
         this.a = inflate;
-        this.f11193b = (SimpleDraweeView) inflate.findViewById(e.swangame_recommend_button_icon);
-        this.f11194c = (TextView) this.a.findViewById(e.swangame_recommend_button_name);
+        this.f11335b = (SimpleDraweeView) inflate.findViewById(e.swangame_recommend_button_icon);
+        this.f11336c = (TextView) this.a.findViewById(e.swangame_recommend_button_name);
     }
 }

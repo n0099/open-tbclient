@@ -1,5 +1,5 @@
 package com.qq.e.comm.constants;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public interface ErrorCode {
     public static final int AD_APP_ID_BLOCKED = 5019;
     public static final int AD_DATA_EXPIRE = 5012;
@@ -72,7 +72,7 @@ public interface ErrorCode {
     public static final int VIDEO_PLAY_ERROR = 5003;
     public static final int VIDEO_URL_ERROR = 5020;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public interface PrivateError {
         public static final int AD_DATA_DESTROYED = 9003;
         public static final int LOAD_FAIL = 9001;
@@ -80,7 +80,7 @@ public interface ErrorCode {
         public static final int PARAM_ERROR = 9002;
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public interface ServerError {
         public static final int NOT_SUPPORT_EXPRESS_VIDEO = 107035;
         public static final int ORENTATION_MISMATCH = 100159;

@@ -18,22 +18,22 @@ public class ab {
     public static final boolean f109a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final boolean f60903b;
+    public static final boolean f60948b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final boolean f60904c;
+    public static final boolean f60949c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final boolean f60905d;
+    public static final boolean f60950d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static boolean f60906e;
+    public static boolean f60951e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final boolean f60907f;
+    public static final boolean f60952f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final boolean f60908g;
+    public static final boolean f60953g;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -55,16 +55,16 @@ public class ab {
         boolean contains = str.contains("2A2FE0D7");
         f109a = contains;
         boolean z = false;
-        f60903b = contains || "DEBUG".equalsIgnoreCase(f108a);
-        f60904c = "LOGABLE".equalsIgnoreCase(f108a);
-        f60905d = f108a.contains("YY");
-        f60906e = f108a.equalsIgnoreCase("TEST");
-        f60907f = "BETA".equalsIgnoreCase(f108a);
+        f60948b = contains || "DEBUG".equalsIgnoreCase(f108a);
+        f60949c = "LOGABLE".equalsIgnoreCase(f108a);
+        f60950d = f108a.contains("YY");
+        f60951e = f108a.equalsIgnoreCase("TEST");
+        f60952f = "BETA".equalsIgnoreCase(f108a);
         String str2 = f108a;
         if (str2 != null && str2.startsWith("RC")) {
             z = true;
         }
-        f60908g = z;
+        f60953g = z;
         a = 1;
         if (f108a.equalsIgnoreCase("SANDBOX")) {
             i2 = 2;

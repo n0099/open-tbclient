@@ -16,19 +16,19 @@ public class e implements c.a.r0.a.m1.a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public ArrayList<c> f7231e;
+    public ArrayList<c> f7373e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f7232f;
+    public int f7374f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f7233g;
+    public int f7375g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f7234h;
+    public int f7376h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f7235i;
+    public int f7377i;
 
     public e() {
         Interceptable interceptable = $ic;
@@ -43,10 +43,10 @@ public class e implements c.a.r0.a.m1.a {
                 return;
             }
         }
-        this.f7232f = 1;
-        this.f7233g = -16777216;
-        this.f7234h = 0;
-        this.f7235i = 0;
+        this.f7374f = 1;
+        this.f7375g = -16777216;
+        this.f7376h = 0;
+        this.f7377i = 0;
     }
 
     @Override // c.a.r0.a.m1.a
@@ -56,26 +56,26 @@ public class e implements c.a.r0.a.m1.a {
             JSONArray optJSONArray = jSONObject.optJSONArray("points");
             int length = optJSONArray == null ? 0 : optJSONArray.length();
             if (length > 0) {
-                this.f7231e = new ArrayList<>(length);
+                this.f7373e = new ArrayList<>(length);
                 for (int i2 = 0; i2 < length; i2++) {
                     JSONObject optJSONObject = optJSONArray.optJSONObject(i2);
                     if (optJSONObject != null) {
                         c cVar = new c();
                         cVar.a(optJSONObject);
                         if (cVar.isValid()) {
-                            this.f7231e.add(cVar);
+                            this.f7373e.add(cVar);
                         }
                     }
                 }
             }
-            ArrayList<c> arrayList = this.f7231e;
+            ArrayList<c> arrayList = this.f7373e;
             if (arrayList == null || arrayList.size() <= 0) {
                 return;
             }
-            this.f7232f = (int) Math.abs(c.a.r0.a.i1.c.d.b(jSONObject.optInt("strokeWidth", 1)));
-            this.f7233g = c.a.r0.a.i1.c.d.a(jSONObject.optString("strokeColor"), -16777216);
-            this.f7234h = c.a.r0.a.i1.c.d.a(jSONObject.optString("fillColor"), 0);
-            this.f7235i = jSONObject.optInt("zIndex", 0);
+            this.f7374f = (int) Math.abs(c.a.r0.a.i1.c.d.b(jSONObject.optInt("strokeWidth", 1)));
+            this.f7375g = c.a.r0.a.i1.c.d.a(jSONObject.optString("strokeColor"), -16777216);
+            this.f7376h = c.a.r0.a.i1.c.d.a(jSONObject.optString("fillColor"), 0);
+            this.f7377i = jSONObject.optInt("zIndex", 0);
         }
     }
 
@@ -84,7 +84,7 @@ public class e implements c.a.r0.a.m1.a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            ArrayList<c> arrayList = this.f7231e;
+            ArrayList<c> arrayList = this.f7373e;
             return (arrayList == null || arrayList.isEmpty()) ? false : true;
         }
         return invokeV.booleanValue;

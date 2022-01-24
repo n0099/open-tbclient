@@ -65,10 +65,10 @@ public interface f extends IInterface {
         public static final String a = "com.baidu.helios.bridge.multiprocess.OnGetResultRemoteCallback";
 
         /* renamed from: b  reason: collision with root package name */
-        public static final int f34508b = 1;
+        public static final int f34536b = 1;
 
         /* renamed from: c  reason: collision with root package name */
-        public static final int f34509c = 2;
+        public static final int f34537c = 2;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* loaded from: classes10.dex */
@@ -76,7 +76,7 @@ public interface f extends IInterface {
             public static /* synthetic */ Interceptable $ic;
 
             /* renamed from: b  reason: collision with root package name */
-            public static f f34510b;
+            public static f f34538b;
             public transient /* synthetic */ FieldHolder $fh;
             public IBinder a;
 
@@ -199,10 +199,10 @@ public interface f extends IInterface {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, fVar)) == null) {
-                if (a.f34510b != null || fVar == null) {
+                if (a.f34538b != null || fVar == null) {
                     return false;
                 }
-                a.f34510b = fVar;
+                a.f34538b = fVar;
                 return true;
             }
             return invokeL.booleanValue;
@@ -211,7 +211,7 @@ public interface f extends IInterface {
         public static f b() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? a.f34510b : (f) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? a.f34538b : (f) invokeV.objValue;
         }
 
         @Override // android.os.IInterface

@@ -11,7 +11,7 @@ public class ai implements com.kwad.sdk.core.d<ReportAction.a> {
             return;
         }
         aVar.a = jSONObject.optInt("posIdWidth");
-        aVar.f56026b = jSONObject.optInt("posIdHeight");
+        aVar.f56071b = jSONObject.optInt("posIdHeight");
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -21,7 +21,7 @@ public class ai implements com.kwad.sdk.core.d<ReportAction.a> {
             jSONObject = new JSONObject();
         }
         com.kwad.sdk.utils.t.a(jSONObject, "posIdWidth", aVar.a);
-        com.kwad.sdk.utils.t.a(jSONObject, "posIdHeight", aVar.f56026b);
+        com.kwad.sdk.utils.t.a(jSONObject, "posIdHeight", aVar.f56071b);
         return jSONObject;
     }
 }

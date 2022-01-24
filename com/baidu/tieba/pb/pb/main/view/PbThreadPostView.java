@@ -7,9 +7,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import c.a.t0.s2.f;
-import c.a.t0.s2.i;
-import c.a.t0.s2.j;
+import c.a.t0.t2.f;
+import c.a.t0.t2.i;
+import c.a.t0.t2.j;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
@@ -23,10 +23,10 @@ public class PbThreadPostView extends LinearLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f46705e;
+    public Context f46733e;
 
     /* renamed from: f  reason: collision with root package name */
-    public View.OnClickListener f46706f;
+    public View.OnClickListener f46734f;
     public View mThreadPostContainer;
     public TextView mVoteThreadPostButton;
     public TextView mVoteThreadPostContent;
@@ -64,7 +64,7 @@ public class PbThreadPostView extends LinearLayout {
     public final void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f46705e = getContext();
+            this.f46733e = getContext();
             setClipChildren(false);
             setClipToPadding(false);
             setOrientation(1);
@@ -85,13 +85,13 @@ public class PbThreadPostView extends LinearLayout {
 
     public void setChildOnClickLinstener(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048579, this, onClickListener) == null) && this.f46706f == null) {
-            this.f46706f = onClickListener;
+        if ((interceptable == null || interceptable.invokeL(1048579, this, onClickListener) == null) && this.f46734f == null) {
+            this.f46734f = onClickListener;
             this.mVoteThreadPostButton.setOnClickListener(onClickListener);
         }
     }
 
-    public void setData(c.a.t0.s2.r.f fVar) {
+    public void setData(c.a.t0.t2.r.f fVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, fVar) == null) {
             onSkinChange(TbadkCoreApplication.getInst().getSkinType());

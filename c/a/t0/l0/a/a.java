@@ -8,7 +8,7 @@ public interface a {
 
     /* renamed from: c.a.t0.l0.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes7.dex */
-    public interface InterfaceC1184a {
+    public interface InterfaceC1191a {
         void a();
 
         void b();
@@ -18,7 +18,7 @@ public interface a {
 
     boolean a(QmFilterItem qmFilterItem);
 
-    void b(InterfaceC1184a interfaceC1184a);
+    void b(InterfaceC1191a interfaceC1191a);
 
     void c(TbMultiMediaData tbMultiMediaData);
 

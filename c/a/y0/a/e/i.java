@@ -33,20 +33,20 @@ public final class i {
     public static String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f26830b;
+    public static String f26858b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f26831c;
+    public static String f26859c;
     public transient /* synthetic */ FieldHolder $fh;
 
     public static String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            if (TextUtils.isEmpty(f26831c)) {
+            if (TextUtils.isEmpty(f26859c)) {
                 k(c.a.y0.a.c.h().getContext());
             }
-            return f26831c;
+            return f26859c;
         }
         return (String) invokeV.objValue;
     }
@@ -261,8 +261,8 @@ public final class i {
             DisplayMetrics displayMetrics = new DisplayMetrics();
             ((WindowManager) context.getSystemService("window")).getDefaultDisplay().getMetrics(displayMetrics);
             a = String.valueOf(displayMetrics.widthPixels);
-            f26830b = String.valueOf(displayMetrics.heightPixels);
-            f26831c = String.valueOf(displayMetrics.density);
+            f26858b = String.valueOf(displayMetrics.heightPixels);
+            f26859c = String.valueOf(displayMetrics.density);
         }
     }
 
@@ -296,10 +296,10 @@ public final class i {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65549, null)) == null) {
-            if (TextUtils.isEmpty(f26830b)) {
+            if (TextUtils.isEmpty(f26858b)) {
                 k(c.a.y0.a.c.h().getContext());
             }
-            return f26830b;
+            return f26858b;
         }
         return (String) invokeV.objValue;
     }

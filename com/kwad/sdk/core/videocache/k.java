@@ -7,25 +7,25 @@ public class k {
     public final m a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final com.kwad.sdk.core.videocache.a f56297b;
+    public final com.kwad.sdk.core.videocache.a f56342b;
 
     /* renamed from: f  reason: collision with root package name */
-    public volatile Thread f56301f;
+    public volatile Thread f56346f;
 
     /* renamed from: g  reason: collision with root package name */
-    public volatile boolean f56302g;
+    public volatile boolean f56347g;
 
     /* renamed from: c  reason: collision with root package name */
-    public final Object f56298c = new Object();
+    public final Object f56343c = new Object();
 
     /* renamed from: d  reason: collision with root package name */
-    public final Object f56299d = new Object();
+    public final Object f56344d = new Object();
 
     /* renamed from: h  reason: collision with root package name */
-    public volatile int f56303h = -1;
+    public volatile int f56348h = -1;
 
     /* renamed from: e  reason: collision with root package name */
-    public final AtomicInteger f56300e = new AtomicInteger();
+    public final AtomicInteger f56345e = new AtomicInteger();
 
     /* loaded from: classes3.dex */
     public class a implements Runnable {
@@ -40,39 +40,39 @@ public class k {
 
     public k(m mVar, com.kwad.sdk.core.videocache.a aVar) {
         this.a = (m) j.a(mVar);
-        this.f56297b = (com.kwad.sdk.core.videocache.a) j.a(aVar);
+        this.f56342b = (com.kwad.sdk.core.videocache.a) j.a(aVar);
     }
 
     private void b() {
-        int i2 = this.f56300e.get();
+        int i2 = this.f56345e.get();
         if (i2 < 1) {
             return;
         }
-        this.f56300e.set(0);
+        this.f56345e.set(0);
         throw new ProxyCacheException("Error reading source " + i2 + " times");
     }
 
     private void b(long j2, long j3) {
         a(j2, j3);
-        synchronized (this.f56298c) {
-            this.f56298c.notifyAll();
+        synchronized (this.f56343c) {
+            this.f56343c.notifyAll();
         }
     }
 
     private synchronized void c() {
-        boolean z = (this.f56301f == null || this.f56301f.getState() == Thread.State.TERMINATED) ? false : true;
-        if (!this.f56302g && !this.f56297b.d() && !z) {
+        boolean z = (this.f56346f == null || this.f56346f.getState() == Thread.State.TERMINATED) ? false : true;
+        if (!this.f56347g && !this.f56342b.d() && !z) {
             a aVar = new a();
-            this.f56301f = new Thread(aVar, "Source reader for " + this.a);
-            this.f56301f.start();
+            this.f56346f = new Thread(aVar, "Source reader for " + this.a);
+            this.f56346f.start();
         }
     }
 
     private void d() {
-        synchronized (this.f56298c) {
+        synchronized (this.f56343c) {
             try {
                 try {
-                    this.f56298c.wait(1000L);
+                    this.f56343c.wait(1000L);
                 } catch (InterruptedException e2) {
                     throw new ProxyCacheException("Waiting source data is interrupted!", e2);
                 }
@@ -87,7 +87,7 @@ public class k {
         long j2 = -1;
         long j3 = 0;
         try {
-            j3 = this.f56297b.a();
+            j3 = this.f56342b.a();
             this.a.a(j3);
             j2 = this.a.a();
             byte[] bArr = new byte[8192];
@@ -98,11 +98,11 @@ public class k {
                     f();
                     break;
                 }
-                synchronized (this.f56299d) {
+                synchronized (this.f56344d) {
                     if (h()) {
                         return;
                     }
-                    this.f56297b.a(bArr, a2);
+                    this.f56342b.a(bArr, a2);
                 }
                 j3 += a2;
                 b(j3, j2);
@@ -115,20 +115,20 @@ public class k {
     }
 
     private void f() {
-        this.f56303h = 100;
-        a(this.f56303h);
+        this.f56348h = 100;
+        a(this.f56348h);
     }
 
     private void g() {
-        synchronized (this.f56299d) {
-            if (!h() && this.f56297b.a() == this.a.a()) {
-                this.f56297b.c();
+        synchronized (this.f56344d) {
+            if (!h() && this.f56342b.a() == this.a.a()) {
+                this.f56342b.c();
             }
         }
     }
 
     private boolean h() {
-        return Thread.currentThread().isInterrupted() || this.f56302g;
+        return Thread.currentThread().isInterrupted() || this.f56347g;
     }
 
     private void i() {
@@ -141,28 +141,28 @@ public class k {
 
     public int a(byte[] bArr, long j2, int i2) {
         l.a(bArr, j2, i2);
-        while (!this.f56297b.d() && this.f56297b.a() < i2 + j2 && !this.f56302g) {
+        while (!this.f56342b.d() && this.f56342b.a() < i2 + j2 && !this.f56347g) {
             c();
             d();
             b();
         }
-        int a2 = this.f56297b.a(bArr, j2, i2);
-        if (this.f56297b.d() && this.f56303h != 100) {
-            this.f56303h = 100;
+        int a2 = this.f56342b.a(bArr, j2, i2);
+        if (this.f56342b.d() && this.f56348h != 100) {
+            this.f56348h = 100;
             a(100);
         }
         return a2;
     }
 
     public void a() {
-        synchronized (this.f56299d) {
+        synchronized (this.f56344d) {
             com.kwad.sdk.core.d.a.a("ProxyCache", "Shutdown proxy for " + this.a);
             try {
-                this.f56302g = true;
-                if (this.f56301f != null) {
-                    this.f56301f.interrupt();
+                this.f56347g = true;
+                if (this.f56346f != null) {
+                    this.f56346f.interrupt();
                 }
-                this.f56297b.b();
+                this.f56342b.b();
             } catch (ProxyCacheException e2) {
                 a(e2);
             }
@@ -175,11 +175,11 @@ public class k {
     public void a(long j2, long j3) {
         int i2 = (j3 > 0L ? 1 : (j3 == 0L ? 0 : -1));
         int i3 = i2 == 0 ? 100 : (int) ((((float) j2) / ((float) j3)) * 100.0f);
-        boolean z = i3 != this.f56303h;
+        boolean z = i3 != this.f56348h;
         if ((i2 >= 0) && z) {
             a(i3);
         }
-        this.f56303h = i3;
+        this.f56348h = i3;
     }
 
     public final void a(Throwable th) {

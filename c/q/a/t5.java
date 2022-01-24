@@ -14,13 +14,13 @@ public class t5 {
     public Context a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f30465b;
+    public String f30493b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f30466c;
+    public String f30494c;
 
     /* renamed from: d  reason: collision with root package name */
-    public q1 f30467d;
+    public q1 f30495d;
 
     public t5(Context context) {
         Interceptable interceptable = $ic;
@@ -44,7 +44,7 @@ public class t5 {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, q1Var)) == null) {
-            this.f30467d = q1Var;
+            this.f30495d = q1Var;
             return this;
         }
         return (t5) invokeL.objValue;
@@ -53,7 +53,7 @@ public class t5 {
     public void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f30466c = x5.f30519d + x5.f30521f;
+            this.f30494c = x5.f30547d + x5.f30549f;
             x5.b(this);
         }
     }
@@ -61,7 +61,7 @@ public class t5 {
     public void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.f30466c = x5.f30519d + x5.f30525j;
+            this.f30494c = x5.f30547d + x5.f30553j;
             x5.b(this);
         }
     }
@@ -69,7 +69,7 @@ public class t5 {
     public void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.f30466c = x5.f30519d + x5.f30522g;
+            this.f30494c = x5.f30547d + x5.f30550g;
             x5.b(this);
         }
     }
@@ -77,7 +77,7 @@ public class t5 {
     public void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.f30466c = x5.f30519d + x5.f30520e;
+            this.f30494c = x5.f30547d + x5.f30548e;
             x5.b(this);
         }
     }
@@ -85,7 +85,7 @@ public class t5 {
     public void g() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.f30466c = x5.f30519d + x5.f30524i;
+            this.f30494c = x5.f30547d + x5.f30552i;
             x5.b(this);
         }
     }
@@ -93,7 +93,7 @@ public class t5 {
     public void h() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            this.f30466c = x5.f30519d + x5.f30523h;
+            this.f30494c = x5.f30547d + x5.f30551h;
             x5.b(this);
         }
     }

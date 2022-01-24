@@ -14,29 +14,29 @@ public class cs implements com.kwad.sdk.core.d<com.kwad.sdk.c.kwai.d> {
         if (jSONObject.opt("packageId") == JSONObject.NULL) {
             dVar.a = "";
         }
-        dVar.f55467b = jSONObject.optString("zipFileName");
+        dVar.f55512b = jSONObject.optString("zipFileName");
         if (jSONObject.opt("zipFileName") == JSONObject.NULL) {
-            dVar.f55467b = "";
+            dVar.f55512b = "";
         }
-        dVar.f55468c = jSONObject.optString(FileMetaUtil.ZIP_PATH);
+        dVar.f55513c = jSONObject.optString(FileMetaUtil.ZIP_PATH);
         if (jSONObject.opt(FileMetaUtil.ZIP_PATH) == JSONObject.NULL) {
-            dVar.f55468c = "";
+            dVar.f55513c = "";
         }
-        dVar.f55469d = jSONObject.optString("packageUrl");
+        dVar.f55514d = jSONObject.optString("packageUrl");
         if (jSONObject.opt("packageUrl") == JSONObject.NULL) {
-            dVar.f55469d = "";
+            dVar.f55514d = "";
         }
-        dVar.f55470e = jSONObject.optString("version");
+        dVar.f55515e = jSONObject.optString("version");
         if (jSONObject.opt("version") == JSONObject.NULL) {
-            dVar.f55470e = "";
+            dVar.f55515e = "";
         }
-        dVar.f55471f = jSONObject.optString("checksum");
+        dVar.f55516f = jSONObject.optString("checksum");
         if (jSONObject.opt("checksum") == JSONObject.NULL) {
-            dVar.f55471f = "";
+            dVar.f55516f = "";
         }
-        dVar.f55472g = jSONObject.optInt("loadType");
-        dVar.f55473h = jSONObject.optInt("packageType");
-        dVar.f55474i = jSONObject.optBoolean("isPublic");
+        dVar.f55517g = jSONObject.optInt("loadType");
+        dVar.f55518h = jSONObject.optInt("packageType");
+        dVar.f55519i = jSONObject.optBoolean("isPublic");
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -46,14 +46,14 @@ public class cs implements com.kwad.sdk.core.d<com.kwad.sdk.c.kwai.d> {
             jSONObject = new JSONObject();
         }
         com.kwad.sdk.utils.t.a(jSONObject, "packageId", dVar.a);
-        com.kwad.sdk.utils.t.a(jSONObject, "zipFileName", dVar.f55467b);
-        com.kwad.sdk.utils.t.a(jSONObject, FileMetaUtil.ZIP_PATH, dVar.f55468c);
-        com.kwad.sdk.utils.t.a(jSONObject, "packageUrl", dVar.f55469d);
-        com.kwad.sdk.utils.t.a(jSONObject, "version", dVar.f55470e);
-        com.kwad.sdk.utils.t.a(jSONObject, "checksum", dVar.f55471f);
-        com.kwad.sdk.utils.t.a(jSONObject, "loadType", dVar.f55472g);
-        com.kwad.sdk.utils.t.a(jSONObject, "packageType", dVar.f55473h);
-        com.kwad.sdk.utils.t.a(jSONObject, "isPublic", dVar.f55474i);
+        com.kwad.sdk.utils.t.a(jSONObject, "zipFileName", dVar.f55512b);
+        com.kwad.sdk.utils.t.a(jSONObject, FileMetaUtil.ZIP_PATH, dVar.f55513c);
+        com.kwad.sdk.utils.t.a(jSONObject, "packageUrl", dVar.f55514d);
+        com.kwad.sdk.utils.t.a(jSONObject, "version", dVar.f55515e);
+        com.kwad.sdk.utils.t.a(jSONObject, "checksum", dVar.f55516f);
+        com.kwad.sdk.utils.t.a(jSONObject, "loadType", dVar.f55517g);
+        com.kwad.sdk.utils.t.a(jSONObject, "packageType", dVar.f55518h);
+        com.kwad.sdk.utils.t.a(jSONObject, "isPublic", dVar.f55519i);
         return jSONObject;
     }
 }

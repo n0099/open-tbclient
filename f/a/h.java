@@ -19,13 +19,13 @@ public abstract class h<T> {
     public final Future<SharedPreferences> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final a f61620b;
+    public final a f61665b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final String f61621c;
+    public final String f61666c;
 
     /* renamed from: d  reason: collision with root package name */
-    public T f61622d;
+    public T f61667d;
 
     /* loaded from: classes4.dex */
     public interface a<T> {
@@ -52,8 +52,8 @@ public abstract class h<T> {
             }
         }
         this.a = future;
-        this.f61620b = aVar;
-        this.f61621c = str;
+        this.f61665b = aVar;
+        this.f61666c = str;
     }
 
     /* JADX WARN: Removed duplicated region for block: B:14:0x001b A[Catch: all -> 0x0012, DONT_GENERATE, TryCatch #1 {, blocks: (B:6:0x0009, B:14:0x001b, B:16:0x001d, B:18:0x0034, B:20:0x003b, B:19:0x0038, B:11:0x0015), top: B:28:0x0009, inners: #3 }] */
@@ -65,7 +65,7 @@ public abstract class h<T> {
         SharedPreferences sharedPreferences;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, t) == null) {
-            this.f61622d = t;
+            this.f61667d = t;
             synchronized (this.a) {
                 try {
                     sharedPreferences = this.a.get();
@@ -83,7 +83,7 @@ public abstract class h<T> {
                     return;
                 }
                 SharedPreferences.Editor edit = sharedPreferences.edit();
-                edit.putString(this.f61621c, this.f61620b.a(this.f61622d));
+                edit.putString(this.f61666c, this.f61665b.a(this.f61667d));
                 if (Build.VERSION.SDK_INT >= 9) {
                     edit.apply();
                 } else {
@@ -100,29 +100,29 @@ public abstract class h<T> {
         Object load;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (this.f61622d == null) {
+            if (this.f61667d == null) {
                 synchronized (this.a) {
                     String str = null;
                     try {
                         SharedPreferences sharedPreferences = this.a.get();
                         if (sharedPreferences != null) {
-                            str = sharedPreferences.getString(this.f61621c, null);
+                            str = sharedPreferences.getString(this.f61666c, null);
                         }
                     } catch (InterruptedException unused) {
                     } catch (ExecutionException e2) {
                         e2.getCause();
                     }
                     if (str == null) {
-                        load = this.f61620b.create();
+                        load = this.f61665b.create();
                     } else {
-                        load = this.f61620b.load(str);
+                        load = this.f61665b.load(str);
                     }
                     if (load != null) {
                         a(load);
                     }
                 }
             }
-            return this.f61622d;
+            return this.f61667d;
         }
         return (T) invokeV.objValue;
     }

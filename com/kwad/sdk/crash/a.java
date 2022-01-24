@@ -9,7 +9,7 @@ public class a {
     public static volatile boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile boolean f56501b;
+    public static volatile boolean f56546b;
 
     public static synchronized void a() {
         synchronized (a.class) {
@@ -23,22 +23,22 @@ public class a {
                         } catch (Throwable unused) {
                         }
                     }
-                }, TimeUnit.SECONDS.toMillis(c.f56536f));
+                }, TimeUnit.SECONDS.toMillis(c.f56581f));
             }
         }
     }
 
     public static void a(@NonNull b bVar) {
-        if (bVar.f56508g == null || f56501b) {
+        if (bVar.f56553g == null || f56546b) {
             return;
         }
-        f56501b = true;
+        f56546b = true;
         try {
-            com.kwad.sdk.crash.utils.d.a(bVar.f56508g);
-            com.kwad.sdk.crash.kwai.a.a(bVar.f56508g, bVar.n);
+            com.kwad.sdk.crash.utils.d.a(bVar.f56553g);
+            com.kwad.sdk.crash.kwai.a.a(bVar.f56553g, bVar.n);
             d.a().a(bVar);
             c();
-            Thread.setDefaultUncaughtExceptionHandler(new com.kwad.sdk.crash.b.d(bVar.f56508g));
+            Thread.setDefaultUncaughtExceptionHandler(new com.kwad.sdk.crash.b.d(bVar.f56553g));
             a();
         } catch (Throwable unused) {
         }

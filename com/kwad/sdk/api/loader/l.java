@@ -10,15 +10,15 @@ public class l extends ContextThemeWrapper implements ResContext {
     public final ContextThemeWrapper a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Resources.Theme f55425b;
+    public Resources.Theme f55470b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f55426c;
+    public int f55471c;
 
     public l(ContextThemeWrapper contextThemeWrapper) {
         super(contextThemeWrapper, 0);
         this.a = contextThemeWrapper;
-        this.f55426c = ((Integer) Reflect.a(contextThemeWrapper).d("getThemeResId").a()).intValue();
+        this.f55471c = ((Integer) Reflect.a(contextThemeWrapper).d("getThemeResId").a()).intValue();
     }
 
     @Override // android.content.ContextWrapper, android.content.Context
@@ -60,11 +60,11 @@ public class l extends ContextThemeWrapper implements ResContext {
             e2.printStackTrace();
             theme = null;
         }
-        Resources.Theme theme2 = this.f55425b;
+        Resources.Theme theme2 = this.f55470b;
         if (theme2 == null || theme2 == theme) {
-            this.f55425b = Wrapper.replaceTheme(theme, this.f55425b, this.f55426c);
+            this.f55470b = Wrapper.replaceTheme(theme, this.f55470b, this.f55471c);
         }
-        return this.f55425b;
+        return this.f55470b;
     }
 
     @Override // android.content.Context
@@ -74,7 +74,7 @@ public class l extends ContextThemeWrapper implements ResContext {
 
     @Override // android.view.ContextThemeWrapper, android.content.ContextWrapper, android.content.Context
     public void setTheme(int i2) {
-        this.f55426c = i2;
+        this.f55471c = i2;
         super.setTheme(i2);
     }
 

@@ -31,10 +31,10 @@ public class s {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final byte[] f38538b;
+    public static final byte[] f38566b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static OkHttpClient f38539c;
+    public static OkHttpClient f38567c;
     public transient /* synthetic */ FieldHolder $fh;
     public Context a;
 
@@ -51,7 +51,7 @@ public class s {
                 return;
             }
         }
-        f38538b = new byte[1024];
+        f38566b = new byte[1024];
     }
 
     public s(Context context) {
@@ -76,9 +76,9 @@ public class s {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, this)) == null) {
-            if (f38539c == null) {
+            if (f38567c == null) {
                 synchronized (s.class) {
-                    if (f38539c == null) {
+                    if (f38567c == null) {
                         OkHttpClient.Builder builder = new OkHttpClient.Builder();
                         builder.hostnameVerifier(SSLSocketFactory.STRICT_HOSTNAME_VERIFIER);
                         builder.connectTimeout(AppConfig.TIMESTAMP_AVAILABLE_DURATION, TimeUnit.MILLISECONDS);
@@ -118,11 +118,11 @@ public class s {
                                 return (Response) invokeL.objValue;
                             }
                         });
-                        f38539c = builder.build();
+                        f38567c = builder.build();
                     }
                 }
             }
-            return f38539c;
+            return f38567c;
         }
         return (OkHttpClient) invokeV.objValue;
     }
@@ -207,9 +207,9 @@ public class s {
         try {
             BufferedOutputStream bufferedOutputStream = new BufferedOutputStream(new FileOutputStream(file));
             while (true) {
-                int read = inputStream.read(f38538b);
+                int read = inputStream.read(f38566b);
                 if (read != -1) {
-                    bufferedOutputStream.write(f38538b, 0, read);
+                    bufferedOutputStream.write(f38566b, 0, read);
                     bufferedOutputStream.flush();
                 } else {
                     bufferedOutputStream.flush();

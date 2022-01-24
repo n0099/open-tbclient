@@ -20,14 +20,14 @@ public class a {
 
     /* renamed from: c.b.b.o.a$a  reason: collision with other inner class name */
     /* loaded from: classes9.dex */
-    public class ThreadFactoryC1618a implements ThreadFactory {
+    public class ThreadFactoryC1619a implements ThreadFactory {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public AtomicInteger f27342e;
+        public AtomicInteger f27370e;
 
-        public ThreadFactoryC1618a(a aVar) {
+        public ThreadFactoryC1619a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -42,7 +42,7 @@ public class a {
                     return;
                 }
             }
-            this.f27342e = new AtomicInteger();
+            this.f27370e = new AtomicInteger();
         }
 
         @Override // java.util.concurrent.ThreadFactory
@@ -50,7 +50,7 @@ public class a {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, runnable)) == null) {
-                Thread thread = new Thread(runnable, "NetThread" + this.f27342e.getAndIncrement());
+                Thread thread = new Thread(runnable, "NetThread" + this.f27370e.getAndIncrement());
                 thread.setDaemon(true);
                 return thread;
             }
@@ -74,7 +74,7 @@ public class a {
             }
         }
         boolean z = i2 == Integer.MAX_VALUE;
-        ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor(z ? 0 : i2, i2, 60L, TimeUnit.SECONDS, z ? new SynchronousQueue() : new LinkedBlockingQueue(), new ThreadFactoryC1618a(this));
+        ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor(z ? 0 : i2, i2, 60L, TimeUnit.SECONDS, z ? new SynchronousQueue() : new LinkedBlockingQueue(), new ThreadFactoryC1619a(this));
         this.a = threadPoolExecutor;
         threadPoolExecutor.allowCoreThreadTimeOut(!z);
         new w();

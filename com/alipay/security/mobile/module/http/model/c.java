@@ -17,28 +17,28 @@ public class c extends a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f31013c;
+    public String f31041c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f31014d;
+    public String f31042d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f31015e;
+    public String f31043e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f31016f;
+    public String f31044f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f31017g;
+    public String f31045g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f31018h;
+    public String f31046h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f31019i;
+    public String f31047i;
 
     /* renamed from: j  reason: collision with root package name */
-    public String f31020j;
+    public String f31048j;
     public String k;
 
     public c() {
@@ -61,7 +61,7 @@ public class c extends a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            String str = this.f31016f;
+            String str = this.f31044f;
             return str == null ? "0" : str;
         }
         return (String) invokeV.objValue;
@@ -70,12 +70,12 @@ public class c extends a {
     public boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "1".equals(this.f31015e) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "1".equals(this.f31043e) : invokeV.booleanValue;
     }
 
     public int c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a ? com.alipay.security.mobile.module.a.a.a(this.f31013c) ? 2 : 1 : o.equals(this.f31012b) ? 3 : 2 : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a ? com.alipay.security.mobile.module.a.a.a(this.f31041c) ? 2 : 1 : o.equals(this.f31040b) ? 3 : 2 : invokeV.intValue;
     }
 }

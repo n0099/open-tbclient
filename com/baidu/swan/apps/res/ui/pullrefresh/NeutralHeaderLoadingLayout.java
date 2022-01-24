@@ -26,10 +26,10 @@ public class NeutralHeaderLoadingLayout extends LoadingLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f39142i;
+    public int f39170i;
 
     /* renamed from: j  reason: collision with root package name */
-    public int f39143j;
+    public int f39171j;
     public int k;
     public int l;
     public View m;
@@ -41,10 +41,10 @@ public class NeutralHeaderLoadingLayout extends LoadingLayout {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Runnable f39144e;
+        public final /* synthetic */ Runnable f39172e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ NeutralHeaderLoadingLayout f39145f;
+        public final /* synthetic */ NeutralHeaderLoadingLayout f39173f;
 
         public a(NeutralHeaderLoadingLayout neutralHeaderLoadingLayout, Runnable runnable) {
             Interceptable interceptable = $ic;
@@ -61,15 +61,15 @@ public class NeutralHeaderLoadingLayout extends LoadingLayout {
                     return;
                 }
             }
-            this.f39145f = neutralHeaderLoadingLayout;
-            this.f39144e = runnable;
+            this.f39173f = neutralHeaderLoadingLayout;
+            this.f39172e = runnable;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f39144e.run();
+                this.f39172e.run();
             }
         }
     }
@@ -108,7 +108,7 @@ public class NeutralHeaderLoadingLayout extends LoadingLayout {
                 return;
             }
         }
-        this.f39142i = 0;
+        this.f39170i = 0;
         a();
     }
 
@@ -117,14 +117,14 @@ public class NeutralHeaderLoadingLayout extends LoadingLayout {
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             this.n = (NeutralRefreshAnimView) findViewById(f.neutral_refresh_anim_view);
             int f2 = n0.f(getContext(), 29.0f);
-            this.f39142i = f2;
-            this.f39143j = (int) (f2 * 2.4f);
+            this.f39170i = f2;
+            this.f39171j = (int) (f2 * 2.4f);
             int i2 = (int) (f2 * 1.5f);
             this.l = i2;
             this.k = i2;
             if (o) {
-                String str = "mRefreshingViewSizeInPixel" + this.f39142i;
-                String str2 = "mTriggerRefreshLength" + this.f39143j;
+                String str = "mRefreshingViewSizeInPixel" + this.f39170i;
+                String str2 = "mTriggerRefreshLength" + this.f39171j;
                 String str3 = "mRefreshingHeight" + this.l;
                 String str4 = "mScrollStartLength" + this.k;
             }
@@ -136,9 +136,9 @@ public class NeutralHeaderLoadingLayout extends LoadingLayout {
         float f2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) {
-            int i3 = this.f39143j;
+            int i3 = this.f39171j;
             if (i2 < i3) {
-                int i4 = this.f39142i;
+                int i4 = this.f39170i;
                 f2 = i2 < i4 ? 0.0f : (i2 - i4) / (i3 - i4);
             } else {
                 f2 = 1.0f;
@@ -168,7 +168,7 @@ public class NeutralHeaderLoadingLayout extends LoadingLayout {
     public int getCanRefreshPullLength() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f39143j : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f39171j : invokeV.intValue;
     }
 
     @Override // com.baidu.swan.apps.res.ui.pullrefresh.LoadingLayout

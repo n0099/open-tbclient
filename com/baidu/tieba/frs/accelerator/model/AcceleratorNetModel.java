@@ -21,13 +21,13 @@ public class AcceleratorNetModel extends BdBaseModel {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public b f43160e;
+    public b f43181e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f43161f;
+    public boolean f43182f;
 
     /* renamed from: g  reason: collision with root package name */
-    public HttpMessageListener f43162g;
+    public HttpMessageListener f43183g;
 
     /* loaded from: classes12.dex */
     public class a extends HttpMessageListener {
@@ -62,15 +62,15 @@ public class AcceleratorNetModel extends BdBaseModel {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) {
                 if (httpResponsedMessage == null || httpResponsedMessage.getCmd() != 1003524 || !(httpResponsedMessage instanceof GetAcceleratorInfoRespondedMessage)) {
-                    this.a.f43161f = false;
-                } else if (httpResponsedMessage.getError() == 0 || this.a.f43160e == null) {
-                    if (this.a.f43160e != null) {
-                        this.a.f43160e.a(((GetAcceleratorInfoRespondedMessage) httpResponsedMessage).getAcceleratorData());
+                    this.a.f43182f = false;
+                } else if (httpResponsedMessage.getError() == 0 || this.a.f43181e == null) {
+                    if (this.a.f43181e != null) {
+                        this.a.f43181e.a(((GetAcceleratorInfoRespondedMessage) httpResponsedMessage).getAcceleratorData());
                     }
-                    this.a.f43161f = false;
+                    this.a.f43182f = false;
                 } else {
-                    this.a.f43160e.b();
-                    this.a.f43161f = false;
+                    this.a.f43181e.b();
+                    this.a.f43182f = false;
                 }
             }
         }
@@ -96,8 +96,8 @@ public class AcceleratorNetModel extends BdBaseModel {
                 return;
             }
         }
-        this.f43161f = false;
-        this.f43162g = new a(this, CmdConfigHttp.CMD_GET_ACCELERATOR_INFO);
+        this.f43182f = false;
+        this.f43183g = new a(this, CmdConfigHttp.CMD_GET_ACCELERATOR_INFO);
         z();
         registerListener();
     }
@@ -105,7 +105,7 @@ public class AcceleratorNetModel extends BdBaseModel {
     public void A(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, bVar) == null) {
-            this.f43160e = bVar;
+            this.f43181e = bVar;
         }
     }
 
@@ -123,7 +123,7 @@ public class AcceleratorNetModel extends BdBaseModel {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             MessageManager.getInstance().unRegisterTask(CmdConfigHttp.CMD_GET_ACCELERATOR_INFO);
-            MessageManager.getInstance().unRegisterListener(this.f43162g);
+            MessageManager.getInstance().unRegisterListener(this.f43183g);
         }
     }
 
@@ -140,19 +140,19 @@ public class AcceleratorNetModel extends BdBaseModel {
     public final void registerListener() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            MessageManager.getInstance().registerListener(this.f43162g);
+            MessageManager.getInstance().registerListener(this.f43183g);
         }
     }
 
     public void y(int i2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048581, this, i2) == null) || this.f43161f) {
+        if (!(interceptable == null || interceptable.invokeI(1048581, this, i2) == null) || this.f43182f) {
             return;
         }
         HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_GET_ACCELERATOR_INFO);
         httpMessage.addParam("item_id", i2);
         MessageManager.getInstance().sendMessage(httpMessage);
-        this.f43161f = true;
+        this.f43182f = true;
     }
 
     public final void z() {

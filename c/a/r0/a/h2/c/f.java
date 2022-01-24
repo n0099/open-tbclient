@@ -24,31 +24,31 @@ public class f {
     public JSONObject a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final String f7123b;
+    public final String f7265b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f7124c;
+    public boolean f7266c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f7125d;
+    public boolean f7267d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f7126e;
+    public String f7268e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f7127f;
+    public String f7269f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f7128g;
+    public String f7270g;
 
     /* renamed from: h  reason: collision with root package name */
-    public List<String> f7129h;
+    public List<String> f7271h;
 
     /* renamed from: i  reason: collision with root package name */
-    public final List<String> f7130i;
+    public final List<String> f7272i;
 
     /* renamed from: j  reason: collision with root package name */
-    public int f7131j;
+    public int f7273j;
     public String k;
     public String l;
     public String m;
@@ -66,19 +66,19 @@ public class f {
         public String a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f7132b;
+        public String f7274b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f7133c;
+        public String f7275c;
 
         /* renamed from: d  reason: collision with root package name */
-        public String f7134d;
+        public String f7276d;
 
         /* renamed from: e  reason: collision with root package name */
-        public String f7135e;
+        public String f7277e;
 
         /* renamed from: f  reason: collision with root package name */
-        public JSONArray f7136f;
+        public JSONArray f7278f;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -110,16 +110,16 @@ public class f {
                 return;
             }
         }
-        this.f7126e = "";
-        this.f7127f = "";
-        this.f7128g = "";
-        this.f7129h = new ArrayList();
-        this.f7130i = new ArrayList();
-        this.f7131j = -1;
+        this.f7268e = "";
+        this.f7269f = "";
+        this.f7270g = "";
+        this.f7271h = new ArrayList();
+        this.f7272i = new ArrayList();
+        this.f7273j = -1;
         this.k = "";
         this.l = "";
         this.m = "";
-        this.f7123b = str;
+        this.f7265b = str;
     }
 
     public static String c(String str) {
@@ -362,28 +362,28 @@ public class f {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, str, jSONObject)) == null) {
             f fVar = new f(str);
             fVar.a = jSONObject;
-            fVar.f7124c = jSONObject.optBoolean("permit", false);
-            fVar.f7125d = jSONObject.optBoolean("forbidden", true);
-            fVar.f7126e = jSONObject.optString("grade");
+            fVar.f7266c = jSONObject.optBoolean("permit", false);
+            fVar.f7267d = jSONObject.optBoolean("forbidden", true);
+            fVar.f7268e = jSONObject.optString("grade");
             fVar.k = jSONObject.optString("type", "");
-            fVar.f7127f = jSONObject.optString("name", "");
-            fVar.f7128g = jSONObject.optString("short_name", "");
+            fVar.f7269f = jSONObject.optString("name", "");
+            fVar.f7270g = jSONObject.optString("short_name", "");
             jSONObject.optString("description", "");
-            fVar.f7131j = jSONObject.optInt("tip_status", -1);
+            fVar.f7273j = jSONObject.optInt("tip_status", -1);
             fVar.l = jSONObject.optString("explain", "");
             fVar.m = jSONObject.optString("sub_explain", "");
             JSONArray optJSONArray = jSONObject.optJSONArray("ext");
             if (optJSONArray != null) {
                 int length = optJSONArray.length();
                 for (int i2 = 0; i2 < length; i2++) {
-                    fVar.f7130i.add(optJSONArray.optString(i2));
+                    fVar.f7272i.add(optJSONArray.optString(i2));
                 }
             }
             JSONArray optJSONArray2 = jSONObject.optJSONArray("rule");
             if (optJSONArray2 != null) {
                 int length2 = optJSONArray2.length();
                 for (int i3 = 0; i3 < length2; i3++) {
-                    fVar.f7129h.add(optJSONArray2.optString(i3));
+                    fVar.f7271h.add(optJSONArray2.optString(i3));
                 }
             }
             fVar.o = jSONObject.optJSONObject("other");
@@ -416,13 +416,13 @@ public class f {
     public boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f7131j > 0 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f7273j > 0 : invokeV.booleanValue;
     }
 
     public boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f7131j != 0 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f7273j != 0 : invokeV.booleanValue;
     }
 
     public boolean e() {
@@ -440,13 +440,13 @@ public class f {
         a aVar = new a();
         this.n = aVar;
         aVar.a = this.o.optString("detail_text");
-        this.n.f7133c = this.o.optString("detail_url");
-        this.n.f7132b = this.o.optString(MultiMediaDataConstant.KEY_EXT_TEXT_WORDS_COLOR);
-        this.n.f7134d = this.o.optString("keyword");
-        this.n.f7135e = this.o.optString("key_color");
+        this.n.f7275c = this.o.optString("detail_url");
+        this.n.f7274b = this.o.optString(MultiMediaDataConstant.KEY_EXT_TEXT_WORDS_COLOR);
+        this.n.f7276d = this.o.optString("keyword");
+        this.n.f7277e = this.o.optString("key_color");
         JSONObject optJSONObject = this.o.optJSONObject("developer_agreements");
         if (optJSONObject != null) {
-            this.n.f7136f = optJSONObject.optJSONArray("details");
+            this.n.f7278f = optJSONObject.optJSONArray("details");
         }
     }
 
@@ -460,6 +460,6 @@ public class f {
     public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? String.format(Locale.getDefault(), "Scope(%s) tipStatus=%d", this.f7123b, Integer.valueOf(this.f7131j)) : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? String.format(Locale.getDefault(), "Scope(%s) tipStatus=%d", this.f7265b, Integer.valueOf(this.f7273j)) : (String) invokeV.objValue;
     }
 }

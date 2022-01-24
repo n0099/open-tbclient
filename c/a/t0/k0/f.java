@@ -25,16 +25,16 @@ public class f {
     public Context a;
 
     /* renamed from: b  reason: collision with root package name */
-    public View f18663b;
+    public View f18645b;
 
     /* renamed from: c  reason: collision with root package name */
-    public RelativeLayout f18664c;
+    public RelativeLayout f18646c;
 
     /* renamed from: d  reason: collision with root package name */
-    public ImageView f18665d;
+    public ImageView f18647d;
 
     /* renamed from: e  reason: collision with root package name */
-    public MessageRedDotView f18666e;
+    public MessageRedDotView f18648e;
 
     public f(Context context) {
         Interceptable interceptable = $ic;
@@ -53,37 +53,37 @@ public class f {
         }
         this.a = context;
         View inflate = LayoutInflater.from(context).inflate(R.layout.widget_message_entrance, (ViewGroup) null);
-        this.f18663b = inflate;
-        this.f18664c = (RelativeLayout) inflate.findViewById(R.id.message_view_layout);
-        this.f18665d = (ImageView) this.f18663b.findViewById(R.id.img_message);
-        MessageRedDotView messageRedDotView = (MessageRedDotView) this.f18663b.findViewById(R.id.img_red_tip);
-        this.f18666e = messageRedDotView;
+        this.f18645b = inflate;
+        this.f18646c = (RelativeLayout) inflate.findViewById(R.id.message_view_layout);
+        this.f18647d = (ImageView) this.f18645b.findViewById(R.id.img_message);
+        MessageRedDotView messageRedDotView = (MessageRedDotView) this.f18645b.findViewById(R.id.img_red_tip);
+        this.f18648e = messageRedDotView;
         messageRedDotView.setShadowEnabled(false);
     }
 
     public MessageRedDotView a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f18666e : (MessageRedDotView) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f18648e : (MessageRedDotView) invokeV.objValue;
     }
 
     public ImageView b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f18665d : (ImageView) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f18647d : (ImageView) invokeV.objValue;
     }
 
     public View c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f18663b : (View) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f18645b : (View) invokeV.objValue;
     }
 
     public void d(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
-            this.f18666e.onChangeSkinType();
-            this.f18665d.setImageDrawable(WebPManager.getPureDrawable(R.drawable.icon_pure_topbar_information40, SkinManager.getColor(R.color.CAM_X0106), WebPManager.ResourceStateType.NORMAL_PRESS));
+            this.f18648e.onChangeSkinType();
+            this.f18647d.setImageDrawable(WebPManager.getPureDrawable(R.drawable.icon_pure_topbar_information40, SkinManager.getColor(R.color.CAM_X0106), WebPManager.ResourceStateType.NORMAL_PRESS));
         }
     }
 
@@ -91,27 +91,27 @@ public class f {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2)}) == null) {
             if (z) {
-                this.f18666e.refresh(i2);
-                this.f18666e.setVisibility(0);
+                this.f18648e.refresh(i2);
+                this.f18648e.setVisibility(0);
                 return;
             }
-            this.f18666e.setVisibility(8);
+            this.f18648e.setVisibility(8);
         }
     }
 
     public void f(NavigationBar.ControlAlign controlAlign, boolean z) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLZ(1048581, this, controlAlign, z) == null) && !z && controlAlign == NavigationBar.ControlAlign.HORIZONTAL_RIGHT) {
-            ((RelativeLayout.LayoutParams) this.f18665d.getLayoutParams()).rightMargin = -n.f(this.a, R.dimen.tbds10);
-            ((RelativeLayout.LayoutParams) this.f18666e.getLayoutParams()).rightMargin = -n.f(this.a, R.dimen.tbds10);
-            this.f18664c.getLayoutParams().width = n.f(this.a, R.dimen.ds88);
+            ((RelativeLayout.LayoutParams) this.f18647d.getLayoutParams()).rightMargin = -n.f(this.a, R.dimen.tbds10);
+            ((RelativeLayout.LayoutParams) this.f18648e.getLayoutParams()).rightMargin = -n.f(this.a, R.dimen.tbds10);
+            this.f18646c.getLayoutParams().width = n.f(this.a, R.dimen.ds88);
         }
     }
 
     public void g(int i2) {
         View view;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048582, this, i2) == null) || (view = this.f18663b) == null) {
+        if (!(interceptable == null || interceptable.invokeI(1048582, this, i2) == null) || (view = this.f18645b) == null) {
             return;
         }
         view.setVisibility(i2);

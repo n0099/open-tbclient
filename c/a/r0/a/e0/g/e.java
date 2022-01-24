@@ -26,21 +26,21 @@ public class e {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static ActivityManager f5716c;
+    public static ActivityManager f5858c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static float f5717d;
+    public static float f5859d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static int f5718e;
+    public static int f5860e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static int f5719f;
+    public static int f5861f;
     public transient /* synthetic */ FieldHolder $fh;
     public DecimalFormat a;
 
     /* renamed from: b  reason: collision with root package name */
-    public volatile d f5720b;
+    public volatile d f5862b;
 
     /* loaded from: classes.dex */
     public static /* synthetic */ class a {
@@ -87,10 +87,10 @@ public class e {
         public float a;
 
         /* renamed from: b  reason: collision with root package name */
-        public float f5721b;
+        public float f5863b;
 
         /* renamed from: c  reason: collision with root package name */
-        public float f5722c;
+        public float f5864c;
 
         public c() {
             Interceptable interceptable = $ic;
@@ -106,8 +106,8 @@ public class e {
                 }
             }
             this.a = 0.0f;
-            this.f5721b = 0.0f;
-            this.f5722c = 0.0f;
+            this.f5863b = 0.0f;
+            this.f5864c = 0.0f;
         }
     }
 
@@ -116,18 +116,18 @@ public class e {
         public static /* synthetic */ Interceptable $ic = null;
 
         /* renamed from: e  reason: collision with root package name */
-        public static volatile String f5723e = "0";
+        public static volatile String f5865e = "0";
         public transient /* synthetic */ FieldHolder $fh;
         public String a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f5724b;
+        public String f5866b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f5725c;
+        public String f5867c;
 
         /* renamed from: d  reason: collision with root package name */
-        public String f5726d;
+        public String f5868d;
 
         static {
             InterceptResult invokeClinit;
@@ -158,15 +158,15 @@ public class e {
                 }
             }
             this.a = "0";
-            this.f5724b = "0";
-            this.f5725c = "0";
-            this.f5726d = "0";
+            this.f5866b = "0";
+            this.f5867c = "0";
+            this.f5868d = "0";
         }
     }
 
     /* renamed from: c.a.r0.a.e0.g.e$e  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static class C0304e {
+    public static class C0313e {
         public static /* synthetic */ Interceptable $ic;
         public static final e a;
         public transient /* synthetic */ FieldHolder $fh;
@@ -202,11 +202,11 @@ public class e {
             }
         }
         boolean z = k.a;
-        f5716c = (ActivityManager) c.a.r0.a.c1.a.c().getSystemService("activity");
-        f5717d = -1.0f;
+        f5858c = (ActivityManager) c.a.r0.a.c1.a.c().getSystemService("activity");
+        f5859d = -1.0f;
         c.a.r0.a.c1.a.g0().getSwitch("swan_memory_sample", 0);
-        f5718e = 0;
-        f5719f = new Random().nextInt(100);
+        f5860e = 0;
+        f5861f = new Random().nextInt(100);
     }
 
     public /* synthetic */ e(a aVar) {
@@ -216,17 +216,17 @@ public class e {
     public static e c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? C0304e.a : (e) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? C0313e.a : (e) invokeV.objValue;
     }
 
     public static float d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            if (f5717d < 0.0f) {
-                f5717d = e().floatValue();
+            if (f5859d < 0.0f) {
+                f5859d = e().floatValue();
             }
-            return f5717d;
+            return f5859d;
         }
         return invokeV.floatValue;
     }
@@ -236,7 +236,7 @@ public class e {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
             ActivityManager.MemoryInfo memoryInfo = new ActivityManager.MemoryInfo();
-            f5716c.getMemoryInfo(memoryInfo);
+            f5858c.getMemoryInfo(memoryInfo);
             return Float.valueOf(((float) memoryInfo.totalMem) / 1048576.0f);
         }
         return (Float) invokeV.objValue;
@@ -254,15 +254,15 @@ public class e {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
             c cVar = new c();
-            Debug.MemoryInfo[] processMemoryInfo = f5716c.getProcessMemoryInfo(new int[]{Process.myPid(), c.a.r0.a.d2.d.J().r().V().j("main_pid", -1)});
+            Debug.MemoryInfo[] processMemoryInfo = f5858c.getProcessMemoryInfo(new int[]{Process.myPid(), c.a.r0.a.d2.d.J().r().V().j("main_pid", -1)});
             ActivityManager.MemoryInfo memoryInfo = new ActivityManager.MemoryInfo();
-            f5716c.getMemoryInfo(memoryInfo);
-            cVar.f5722c = ((float) (memoryInfo.totalMem - memoryInfo.availMem)) / 1048576.0f;
+            f5858c.getMemoryInfo(memoryInfo);
+            cVar.f5864c = ((float) (memoryInfo.totalMem - memoryInfo.availMem)) / 1048576.0f;
             if (processMemoryInfo != null && processMemoryInfo.length == 2) {
                 Debug.MemoryInfo memoryInfo2 = processMemoryInfo[0];
                 Debug.MemoryInfo memoryInfo3 = processMemoryInfo[1];
                 if (memoryInfo2 != null) {
-                    cVar.f5721b = ((float) Debug.getPss()) / 1024.0f;
+                    cVar.f5863b = ((float) Debug.getPss()) / 1024.0f;
                 }
                 if (memoryInfo3 != null) {
                     cVar.a = ((float) f()) / 1024.0f;
@@ -278,11 +278,11 @@ public class e {
         if (!(interceptable == null || interceptable.invokeLL(1048576, this, jSONObject, memoryInfo) == null) || jSONObject == null || memoryInfo == null) {
             return;
         }
-        this.f5720b = new d();
-        this.f5720b.f5724b = jSONObject.optString("host_used_mem");
-        this.f5720b.a = jSONObject.optString("smart_app_used_mem");
-        this.f5720b.f5726d = jSONObject.optString("sys_free_mem");
-        this.f5720b.f5725c = b(((float) memoryInfo.totalMem) / 1048576.0f);
+        this.f5862b = new d();
+        this.f5862b.f5866b = jSONObject.optString("host_used_mem");
+        this.f5862b.a = jSONObject.optString("smart_app_used_mem");
+        this.f5862b.f5868d = jSONObject.optString("sys_free_mem");
+        this.f5862b.f5867c = b(((float) memoryInfo.totalMem) / 1048576.0f);
     }
 
     public final String b(float f2) {
@@ -295,7 +295,7 @@ public class e {
     public d g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f5720b != null ? this.f5720b : new d() : (d) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f5862b != null ? this.f5862b : new d() : (d) invokeV.objValue;
     }
 
     public String h(int i2) {
@@ -306,7 +306,7 @@ public class e {
                 JSONObject jSONObject = new JSONObject();
                 try {
                     c.a.r0.a.e0.d.k("SwanMemoryProperty", "getMemoryInfo mainPid: " + i2);
-                    Debug.MemoryInfo[] processMemoryInfo = f5716c.getProcessMemoryInfo(new int[]{Process.myPid(), i2});
+                    Debug.MemoryInfo[] processMemoryInfo = f5858c.getProcessMemoryInfo(new int[]{Process.myPid(), i2});
                     if (processMemoryInfo != null && processMemoryInfo.length == 2) {
                         Debug.MemoryInfo memoryInfo = processMemoryInfo[0];
                         if (memoryInfo != null) {
@@ -323,7 +323,7 @@ public class e {
                         }
                     }
                     ActivityManager.MemoryInfo memoryInfo3 = new ActivityManager.MemoryInfo();
-                    f5716c.getMemoryInfo(memoryInfo3);
+                    f5858c.getMemoryInfo(memoryInfo3);
                     jSONObject.put("sys_free_mem", b(((float) memoryInfo3.availMem) / 1048576.0f));
                     jSONObject.put("sys_low_mem", memoryInfo3.lowMemory ? "1" : "0");
                     jSONObject.put("native_heap", b(((float) Debug.getNativeHeapSize()) / 1048576.0f));
@@ -349,22 +349,22 @@ public class e {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             d dVar = new d();
-            Debug.MemoryInfo[] processMemoryInfo = f5716c.getProcessMemoryInfo(new int[]{Process.myPid(), c.a.r0.a.d2.d.J().r().V().j("main_pid", -1)});
+            Debug.MemoryInfo[] processMemoryInfo = f5858c.getProcessMemoryInfo(new int[]{Process.myPid(), c.a.r0.a.d2.d.J().r().V().j("main_pid", -1)});
             ActivityManager.MemoryInfo memoryInfo = new ActivityManager.MemoryInfo();
-            f5716c.getMemoryInfo(memoryInfo);
+            f5858c.getMemoryInfo(memoryInfo);
             if (processMemoryInfo != null && processMemoryInfo.length == 2) {
                 Debug.MemoryInfo memoryInfo2 = processMemoryInfo[0];
                 Debug.MemoryInfo memoryInfo3 = processMemoryInfo[1];
                 if (memoryInfo2 != null) {
-                    if (TextUtils.equals("0", d.f5723e)) {
-                        String unused = d.f5723e = b(((float) memoryInfo.totalMem) / 1048576.0f);
+                    if (TextUtils.equals("0", d.f5865e)) {
+                        String unused = d.f5865e = b(((float) memoryInfo.totalMem) / 1048576.0f);
                     }
-                    dVar.f5725c = d.f5723e;
-                    dVar.f5726d = b(((float) memoryInfo.availMem) / 1048576.0f);
+                    dVar.f5867c = d.f5865e;
+                    dVar.f5868d = b(((float) memoryInfo.availMem) / 1048576.0f);
                     dVar.a = b(((float) Debug.getPss()) / 1024.0f);
                 }
                 if (memoryInfo3 != null) {
-                    dVar.f5724b = b((((memoryInfo3.getTotalPrivateClean() + memoryInfo3.getTotalPrivateDirty()) + memoryInfo3.getTotalSharedClean()) + memoryInfo3.getTotalSharedDirty()) / 1024.0f);
+                    dVar.f5866b = b((((memoryInfo3.getTotalPrivateClean() + memoryInfo3.getTotalPrivateDirty()) + memoryInfo3.getTotalSharedClean()) + memoryInfo3.getTotalSharedDirty()) / 1024.0f);
                 }
             }
             return dVar;
@@ -378,7 +378,7 @@ public class e {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
             if (m()) {
                 ActivityManager.MemoryInfo memoryInfo = new ActivityManager.MemoryInfo();
-                f5716c.getMemoryInfo(memoryInfo);
+                f5858c.getMemoryInfo(memoryInfo);
                 String b2 = b(((float) memoryInfo.totalMem) / 1048576.0f);
                 c.a.r0.a.e0.d.k("SwanMemoryProperty", "getMemoryInfo sysTotalMemory=" + b2);
                 return b2;
@@ -390,8 +390,8 @@ public class e {
 
     public void l() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && this.f5720b == null) {
-            this.f5720b = j();
+        if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && this.f5862b == null) {
+            this.f5862b = j();
         }
     }
 
@@ -399,12 +399,12 @@ public class e {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            c.a.r0.a.e0.d.k("SwanMemoryProperty", "getMemoryInfo mMemSample =" + f5718e + "; mRandomNum =" + f5719f);
-            int i2 = f5718e;
+            c.a.r0.a.e0.d.k("SwanMemoryProperty", "getMemoryInfo mMemSample =" + f5860e + "; mRandomNum =" + f5861f);
+            int i2 = f5860e;
             if (i2 <= 0) {
                 return false;
             }
-            return i2 >= 100 || f5719f <= i2;
+            return i2 >= 100 || f5861f <= i2;
         }
         return invokeV.booleanValue;
     }
@@ -412,7 +412,7 @@ public class e {
     public void n() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            this.f5720b = null;
+            this.f5862b = null;
         }
     }
 

@@ -15,7 +15,7 @@ import java.io.Serializable;
 import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Locale;
-/* loaded from: classes13.dex */
+/* loaded from: classes2.dex */
 public class TransRecordsResponse implements IBeanResponse, Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = -1418345316412035914L;

@@ -14,31 +14,31 @@ public class f {
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f33488b;
+    public int f33516b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f33489c;
+    public int f33517c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f33490d;
+    public int f33518d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f33491e;
+    public int f33519e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f33492f;
+    public int f33520f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f33493g;
+    public int f33521g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f33494h;
+    public int f33522h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f33495i;
+    public int f33523i;
 
     /* renamed from: j  reason: collision with root package name */
-    public int f33496j;
+    public int f33524j;
     public float[] k;
     public float[] l;
 
@@ -56,38 +56,38 @@ public class f {
             }
         }
         this.a = 0;
-        this.f33488b = 0;
-        this.f33489c = 1;
-        this.f33490d = 1;
-        this.f33491e = 0;
-        this.f33492f = 0;
-        this.f33493g = 0;
-        this.f33494h = 0;
-        this.f33495i = 0;
-        this.f33496j = 0;
+        this.f33516b = 0;
+        this.f33517c = 1;
+        this.f33518d = 1;
+        this.f33519e = 0;
+        this.f33520f = 0;
+        this.f33521g = 0;
+        this.f33522h = 0;
+        this.f33523i = 0;
+        this.f33524j = 0;
         this.k = r3;
         float[] fArr = {1.0f, 1.0f};
         this.l = r3;
         float[] fArr2 = {0.0f, 0.0f};
-        this.f33496j = 2;
+        this.f33524j = 2;
     }
 
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             this.a = 0;
-            this.f33488b = 0;
-            this.f33489c = 1;
-            this.f33490d = 1;
-            this.f33491e = 0;
-            this.f33492f = 0;
-            this.f33493g = 0;
-            this.f33494h = 0;
-            this.f33495i = 0;
+            this.f33516b = 0;
+            this.f33517c = 1;
+            this.f33518d = 1;
+            this.f33519e = 0;
+            this.f33520f = 0;
+            this.f33521g = 0;
+            this.f33522h = 0;
+            this.f33523i = 0;
             float[] fArr = this.k;
             fArr[0] = 1.0f;
             fArr[1] = 1.0f;
-            this.f33496j = 2;
+            this.f33524j = 2;
         }
     }
 
@@ -95,9 +95,9 @@ public class f {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) {
-            if (this.f33492f != i2) {
-                this.f33492f = i2;
-                this.f33493g = ((this.f33491e + 360) - i2) % 360;
+            if (this.f33520f != i2) {
+                this.f33520f = i2;
+                this.f33521g = ((this.f33519e + 360) - i2) % 360;
                 return true;
             }
             return false;
@@ -109,11 +109,11 @@ public class f {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeII = interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i2, i3)) == null) {
-            if (this.a == i2 && this.f33488b == i3) {
+            if (this.a == i2 && this.f33516b == i3) {
                 return false;
             }
             this.a = i2;
-            this.f33488b = i3;
+            this.f33516b = i3;
             return true;
         }
         return invokeII.booleanValue;
@@ -123,17 +123,17 @@ public class f {
         InterceptResult invokeIIII;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeIIII = interceptable.invokeIIII(1048579, this, i2, i3, i4, i5)) == null) {
-            if (this.f33494h == i2 && i3 == this.f33495i && this.f33489c == i4 && this.f33490d == i5) {
+            if (this.f33522h == i2 && i3 == this.f33523i && this.f33517c == i4 && this.f33518d == i5) {
                 return false;
             }
-            this.f33494h = i2;
-            this.f33495i = i3;
+            this.f33522h = i2;
+            this.f33523i = i3;
             if (i5 == 0 || i4 == 0) {
-                this.f33489c = 1;
-                this.f33490d = 1;
+                this.f33517c = 1;
+                this.f33518d = 1;
             } else {
-                this.f33489c = i4;
-                this.f33490d = i5;
+                this.f33517c = i4;
+                this.f33518d = i5;
             }
             return true;
         }
@@ -191,24 +191,24 @@ public class f {
         float f6;
         float f7;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || this.a == 0 || this.f33488b == 0 || this.f33494h == 0 || this.f33495i == 0) {
+        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || this.a == 0 || this.f33516b == 0 || this.f33522h == 0 || this.f33523i == 0) {
             return;
         }
-        int i4 = this.f33496j;
+        int i4 = this.f33524j;
         boolean z = i4 == 0 || i4 == 2;
         float f8 = 1.0f;
-        float f9 = (this.f33488b * 1.0f) / this.a;
-        float f10 = (this.f33495i * 1.0f) / this.f33494h;
-        int i5 = this.f33493g;
-        if ((i5 != 90 && i5 != 270) || (i2 = this.f33495i) == 0) {
+        float f9 = (this.f33516b * 1.0f) / this.a;
+        float f10 = (this.f33523i * 1.0f) / this.f33522h;
+        int i5 = this.f33521g;
+        if ((i5 != 90 && i5 != 270) || (i2 = this.f33523i) == 0) {
             if (z) {
-                f2 = this.f33490d * 1.0f;
-                i3 = this.f33489c;
+                f2 = this.f33518d * 1.0f;
+                i3 = this.f33517c;
                 f10 *= f2 / i3;
             }
-            CyberLog.d("CyberRenderSizeHelper", "updateDisplaySize called mVideoWidth:" + this.f33494h + " mVideoHeight:" + this.f33495i + " mVideoSarNum:" + this.f33489c + " mVideoSarDen:" + this.f33490d + " mSurfaceWidth:" + this.a + " mSurfaceHeight:" + this.f33488b + " mDisplayMode:" + this.f33496j);
+            CyberLog.d("CyberRenderSizeHelper", "updateDisplaySize called mVideoWidth:" + this.f33522h + " mVideoHeight:" + this.f33523i + " mVideoSarNum:" + this.f33517c + " mVideoSarDen:" + this.f33518d + " mSurfaceWidth:" + this.a + " mSurfaceHeight:" + this.f33516b + " mDisplayMode:" + this.f33524j);
             float f11 = 0.0f;
-            switch (this.f33496j) {
+            switch (this.f33524j) {
             }
             float[] fArr = this.k;
             fArr[0] = f8;
@@ -218,15 +218,15 @@ public class f {
             fArr2[1] = f3;
             CyberLog.d("CyberRenderSizeHelper", "updateDisplaySize called sx:" + f8 + " sy:" + f4 + " translateX:" + f11 + " translateY:" + f3);
         }
-        f10 = (this.f33494h * 1.0f) / i2;
+        f10 = (this.f33522h * 1.0f) / i2;
         if (z) {
-            f2 = this.f33489c * 1.0f;
-            i3 = this.f33490d;
+            f2 = this.f33517c * 1.0f;
+            i3 = this.f33518d;
             f10 *= f2 / i3;
         }
-        CyberLog.d("CyberRenderSizeHelper", "updateDisplaySize called mVideoWidth:" + this.f33494h + " mVideoHeight:" + this.f33495i + " mVideoSarNum:" + this.f33489c + " mVideoSarDen:" + this.f33490d + " mSurfaceWidth:" + this.a + " mSurfaceHeight:" + this.f33488b + " mDisplayMode:" + this.f33496j);
+        CyberLog.d("CyberRenderSizeHelper", "updateDisplaySize called mVideoWidth:" + this.f33522h + " mVideoHeight:" + this.f33523i + " mVideoSarNum:" + this.f33517c + " mVideoSarDen:" + this.f33518d + " mSurfaceWidth:" + this.a + " mSurfaceHeight:" + this.f33516b + " mDisplayMode:" + this.f33524j);
         float f112 = 0.0f;
-        switch (this.f33496j) {
+        switch (this.f33524j) {
             case 1:
                 f3 = 0.0f;
                 f4 = 1.0f;
@@ -241,8 +241,8 @@ public class f {
                 f5 = 0.5625f;
                 break;
             case 6:
-                float f12 = (this.f33494h * 1.0f) / this.a;
-                f4 = (this.f33495i * 1.0f) / this.f33488b;
+                float f12 = (this.f33522h * 1.0f) / this.a;
+                f4 = (this.f33523i * 1.0f) / this.f33516b;
                 f8 = f12;
                 f3 = 0.0f;
                 break;
@@ -308,9 +308,9 @@ public class f {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i2)) == null) {
-            if (this.f33491e != i2) {
-                this.f33491e = i2;
-                this.f33493g = ((360 - this.f33492f) + i2) % 360;
+            if (this.f33519e != i2) {
+                this.f33519e = i2;
+                this.f33521g = ((360 - this.f33520f) + i2) % 360;
                 return true;
             }
             return false;
@@ -322,8 +322,8 @@ public class f {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i2)) == null) {
-            if (this.f33496j != i2) {
-                this.f33496j = i2;
+            if (this.f33524j != i2) {
+                this.f33524j = i2;
                 return true;
             }
             return false;
@@ -340,7 +340,7 @@ public class f {
     public int d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f33496j : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f33524j : invokeV.intValue;
     }
 
     public float[] e() {
@@ -353,7 +353,7 @@ public class f {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            int i2 = this.f33496j;
+            int i2 = this.f33524j;
             return i2 == 7 || i2 == 8 || i2 == 9 || i2 == 10;
         }
         return invokeV.booleanValue;
@@ -362,19 +362,19 @@ public class f {
     public int g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.f33493g : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.f33521g : invokeV.intValue;
     }
 
     public int h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.f33494h : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.f33522h : invokeV.intValue;
     }
 
     public int i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.f33495i : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.f33523i : invokeV.intValue;
     }
 
     public int j() {
@@ -386,6 +386,6 @@ public class f {
     public int k() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? this.f33488b : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? this.f33516b : invokeV.intValue;
     }
 }

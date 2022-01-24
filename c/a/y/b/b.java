@@ -16,10 +16,10 @@ public class b {
     public c.a.y.b.d.a a;
 
     /* renamed from: b  reason: collision with root package name */
-    public c f26696b;
+    public c f26724b;
 
     /* renamed from: c  reason: collision with root package name */
-    public c.a.y.b.g.c f26697c;
+    public c.a.y.b.g.c f26725c;
 
     static {
         InterceptResult invokeClinit;
@@ -51,7 +51,7 @@ public class b {
                 return;
             }
         }
-        this.f26697c = cVar;
+        this.f26725c = cVar;
         this.a = new c.a.y.b.d.a(cVar.g(), 1);
         d();
     }
@@ -60,27 +60,27 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, cVar) == null) {
             if (cVar == null) {
-                this.f26696b = new c.a.y.b.e.b();
+                this.f26724b = new c.a.y.b.e.b();
             } else {
-                this.f26696b = cVar;
+                this.f26724b = cVar;
             }
-            this.f26696b.b(this.f26697c.k(), this.f26697c.j());
+            this.f26724b.b(this.f26725c.k(), this.f26725c.j());
         }
     }
 
     public void b(long j2) {
         c.a.y.b.g.c cVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j2) == null) || this.f26696b == null || (cVar = this.f26697c) == null) {
+        if (!(interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j2) == null) || this.f26724b == null || (cVar = this.f26725c) == null) {
             return;
         }
         if (cVar.m()) {
             d();
         }
         if (j2 != 0) {
-            this.f26697c.i().i(j2);
+            this.f26725c.i().i(j2);
         }
-        this.f26696b.a(this.f26697c.f(), this.f26697c.i());
+        this.f26724b.a(this.f26725c.f(), this.f26725c.i());
     }
 
     public c.a.y.b.d.a c() {
@@ -92,30 +92,30 @@ public class b {
     public final void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            float[] b2 = this.f26697c.i().b();
+            float[] b2 = this.f26725c.i().b();
             c.a.y.b.h.b.b(b2);
-            c.a.y.b.g.a c2 = this.f26697c.c();
+            c.a.y.b.g.a c2 = this.f26725c.c();
             c.a.y.b.h.b.e(b2, c2.h(), c2.i());
             c.a.y.b.h.b.a(b2, c2.e());
             c.a.y.b.h.b.c(b2, c2.b());
             if ((c2.g() + 360) % 180 == 0) {
-                c.a.y.b.h.b.d(b2, this.f26697c.k(), this.f26697c.j(), c2.f(), c2.c());
+                c.a.y.b.h.b.d(b2, this.f26725c.k(), this.f26725c.j(), c2.f(), c2.c());
                 return;
             }
-            c.a.y.b.f.c clone = this.f26697c.j().clone();
-            clone.f(this.f26697c.j().b());
-            clone.e(this.f26697c.j().c());
-            c.a.y.b.h.b.d(b2, this.f26697c.k(), clone, c2.f(), c2.c());
+            c.a.y.b.f.c clone = this.f26725c.j().clone();
+            clone.f(this.f26725c.j().b());
+            clone.e(this.f26725c.j().c());
+            c.a.y.b.h.b.d(b2, this.f26725c.k(), clone, c2.f(), c2.c());
         }
     }
 
     public void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            c cVar = this.f26696b;
+            c cVar = this.f26724b;
             if (cVar != null) {
                 cVar.release();
-                this.f26696b = null;
+                this.f26724b = null;
             }
             c.a.y.b.d.a aVar = this.a;
             if (aVar != null) {
@@ -128,8 +128,8 @@ public class b {
     public void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            c h2 = this.f26697c.h();
-            this.f26696b = h2;
+            c h2 = this.f26725c.h();
+            this.f26724b = h2;
             a(h2);
         }
     }
@@ -137,11 +137,11 @@ public class b {
     public void g(c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, cVar) == null) {
-            c.a.y.b.g.c cVar2 = this.f26697c;
+            c.a.y.b.g.c cVar2 = this.f26725c;
             if (cVar2 != null) {
                 cVar2.p(cVar);
             }
-            this.f26696b.release();
+            this.f26724b.release();
             a(cVar);
         }
     }

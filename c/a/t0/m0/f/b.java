@@ -32,7 +32,7 @@ public final class b extends i {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: j  reason: collision with root package name */
-    public final c.a.t0.m0.f.a f19236j;
+    public final c.a.t0.m0.f.a f19499j;
     public final c.a.t0.m0.k.b k;
     public long l;
 
@@ -122,26 +122,26 @@ public final class b extends i {
         Intrinsics.checkNotNullParameter(renderer, "renderer");
         Intrinsics.checkNotNullParameter(layouter, "layouter");
         c.a.t0.m0.f.a aVar = new c.a.t0.m0.f.a(renderer);
-        this.f19236j = aVar;
+        this.f19499j = aVar;
         this.k = aVar.f();
-        c.a.t0.m0.f.e.c cVar = new c.a.t0.m0.f.e.c(this.f19236j);
-        cVar.f26900e = 1;
+        c.a.t0.m0.f.e.c cVar = new c.a.t0.m0.f.e.c(this.f19499j);
+        cVar.f26928e = 1;
         Unit unit = Unit.INSTANCE;
         g(cVar);
-        DataSystem dataSystem = new DataSystem(this.f19236j);
-        dataSystem.f26900e = 2;
+        DataSystem dataSystem = new DataSystem(this.f19499j);
+        dataSystem.f26928e = 2;
         Unit unit2 = Unit.INSTANCE;
         g(dataSystem);
-        c.a.t0.m0.f.e.e.a aVar2 = new c.a.t0.m0.f.e.e.a(this.f19236j);
-        aVar2.f26900e = 3;
+        c.a.t0.m0.f.e.e.a aVar2 = new c.a.t0.m0.f.e.e.a(this.f19499j);
+        aVar2.f26928e = 3;
         Unit unit3 = Unit.INSTANCE;
         g(aVar2);
-        c.a.t0.m0.f.e.a aVar3 = new c.a.t0.m0.f.e.a(this.f19236j);
-        aVar3.f26900e = 4;
+        c.a.t0.m0.f.e.a aVar3 = new c.a.t0.m0.f.e.a(this.f19499j);
+        aVar3.f26928e = 4;
         Unit unit4 = Unit.INSTANCE;
         g(aVar3);
-        RenderSystem renderSystem = new RenderSystem(this.f19236j);
-        renderSystem.f26900e = 5;
+        RenderSystem renderSystem = new RenderSystem(this.f19499j);
+        renderSystem.f26928e = 5;
         Unit unit5 = Unit.INSTANCE;
         g(renderSystem);
         c.a.t0.m0.f.e.e.a aVar4 = (c.a.t0.m0.f.e.e.a) k(c.a.t0.m0.f.e.e.a.class);
@@ -174,9 +174,9 @@ public final class b extends i {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j2) == null) {
             c.a.t0.m0.k.b.f(this.k, j2, 0.0f, 2, null);
-            this.f19236j.c().J();
-            this.f19236j.c().I();
-            this.f19236j.c().F();
+            this.f19499j.c().J();
+            this.f19499j.c().I();
+            this.f19499j.c().F();
         }
     }
 
@@ -255,7 +255,7 @@ public final class b extends i {
     public final c.a.t0.m0.f.a u() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f19236j : (c.a.t0.m0.f.a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f19499j : (c.a.t0.m0.f.a) invokeV.objValue;
     }
 
     public final long v() {

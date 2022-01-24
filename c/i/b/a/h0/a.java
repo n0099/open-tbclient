@@ -11,7 +11,7 @@ public final class a {
     public final byte[] a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final int f29618b;
+    public final int f29646b;
 
     public a(byte[] bArr, int i2) {
         Interceptable interceptable = $ic;
@@ -29,6 +29,6 @@ public final class a {
             }
         }
         this.a = bArr;
-        this.f29618b = i2;
+        this.f29646b = i2;
     }
 }

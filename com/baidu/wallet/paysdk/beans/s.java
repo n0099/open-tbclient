@@ -23,17 +23,17 @@ import com.dxmpay.wallet.statistics.api.StatisticManager;
 import com.dxmpay.wallet.utils.StatHelper;
 import java.util.HashMap;
 import java.util.List;
-/* loaded from: classes13.dex */
+/* loaded from: classes2.dex */
 public class s extends BaseBean<DirectPayContentResponse> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public PayRequest a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f51942b;
+    public String f51987b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f51943c;
+    public String f51988c;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public <T> s(Context context) {
@@ -54,15 +54,15 @@ public class s extends BaseBean<DirectPayContentResponse> {
             }
         }
         this.a = null;
-        this.f51942b = null;
-        this.f51943c = null;
+        this.f51987b = null;
+        this.f51988c = null;
         this.a = (PayRequest) PayRequestCache.getInstance().getBeanRequestFromCache(BeanConstants.REQUEST_ID_PAY);
     }
 
     public void a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            this.f51942b = str;
+            this.f51987b = str;
         }
     }
 
@@ -70,7 +70,7 @@ public class s extends BaseBean<DirectPayContentResponse> {
     public void execBean() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            if (BeanConstants.API_GET_PAY_ORDER.equals(this.f51943c)) {
+            if (BeanConstants.API_GET_PAY_ORDER.equals(this.f51988c)) {
                 List<String> collectData = StatHelper.collectData(StatHelper.getOrderNo(), StatHelper.getSpNo());
                 HashMap hashMap = new HashMap();
                 hashMap.put("sp_no", StatHelper.getSpNo());
@@ -124,24 +124,24 @@ public class s extends BaseBean<DirectPayContentResponse> {
         String str;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            this.f51943c = BeanConstants.API_GET_PAY_ORDER;
+            this.f51988c = BeanConstants.API_GET_PAY_ORDER;
             if (this.a.hasCashDeskCode()) {
-                this.f51943c = BeanConstants.API_GET_PAY_ORDER_PREPAY;
+                this.f51988c = BeanConstants.API_GET_PAY_ORDER_PREPAY;
             } else if (BaiduPay.PAY_FROM_HUA_ZHUAN_ZHANG.equals(this.a.getPayFrom())) {
-                this.f51943c = BeanConstants.API_GET_PAY_ORDER_TRANSFER;
+                this.f51988c = BeanConstants.API_GET_PAY_ORDER_TRANSFER;
             } else if (BaiduPay.PAY_FROM_HUA_FEI.equals(this.a.getPayFrom())) {
-                this.f51943c = BeanConstants.API_GET_PAY_ORDER_CHARGE;
+                this.f51988c = BeanConstants.API_GET_PAY_ORDER_CHARGE;
             } else if (BaiduPay.PAY_FROM_BIND_CARD.equals(this.a.getPayFrom())) {
-                this.f51943c = BeanConstants.API_CARD_ADD;
+                this.f51988c = BeanConstants.API_CARD_ADD;
             } else if (BaiduPay.PAY_FROM_AUTHORIZE.equals(this.a.getPayFrom())) {
-                this.f51943c = BeanConstants.API_AUTHORIZE_ORDER;
+                this.f51988c = BeanConstants.API_AUTHORIZE_ORDER;
             } else if (PayDataCache.getInstance().isFromPreCashier()) {
-                this.f51943c = BeanConstants.API_GET_PRE_PAY_ORDER;
+                this.f51988c = BeanConstants.API_GET_PRE_PAY_ORDER;
             }
             if (PayDataCache.getInstance().isFromPreCashier()) {
-                str = DomainConfig.getInstance().getAppPayHost() + this.f51943c + "?" + this.a.mParams + "&" + this.f51942b;
+                str = DomainConfig.getInstance().getAppPayHost() + this.f51988c + "?" + this.a.mParams + "&" + this.f51987b;
             } else {
-                str = DomainConfig.getInstance().getAppPayHost() + this.f51943c + "?" + this.a.mParams;
+                str = DomainConfig.getInstance().getAppPayHost() + this.f51988c + "?" + this.a.mParams;
             }
             if (WalletFingerprint.getInstance(this.mContext).hasEnrollFingerprint()) {
                 str = str + "&enroll_fingerprint=1";

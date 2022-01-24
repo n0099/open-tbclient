@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.kuaishou.weapon.un.s;
 import com.qq.e.comm.constants.CustomPkgConstants;
 import com.qq.e.comm.util.GDTLogger;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -29,7 +29,7 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, context)) == null) {
             try {
-                String[] strArr = {s.a, "android.permission.ACCESS_NETWORK_STATE", s.f55243d};
+                String[] strArr = {s.a, "android.permission.ACCESS_NETWORK_STATE", s.f55288d};
                 int i2 = 0;
                 while (true) {
                     if (i2 >= 3) {

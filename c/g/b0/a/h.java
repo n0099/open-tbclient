@@ -17,7 +17,7 @@ public class h implements TTAppDownloadListener {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Button f28184e;
+    public Button f28212e;
 
     public h(Button button) {
         Interceptable interceptable = $ic;
@@ -34,7 +34,7 @@ public class h implements TTAppDownloadListener {
                 return;
             }
         }
-        this.f28184e = button;
+        this.f28212e = button;
     }
 
     public final String a(Context context, long j2, long j3) {
@@ -48,7 +48,7 @@ public class h implements TTAppDownloadListener {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3), str, str2}) == null) {
             LogPrinter.d("CSJAppDownloadListener 下载中，点击图片暂停", new Object[0]);
-            Button button = this.f28184e;
+            Button button = this.f28212e;
             if (button != null) {
                 button.setText(a(button.getContext(), j2, j3));
             }
@@ -60,7 +60,7 @@ public class h implements TTAppDownloadListener {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3), str, str2}) == null) {
             LogPrinter.e("CSJAppDownloadListener 下载失败，点击图片重新下载", new Object[0]);
-            Button button = this.f28184e;
+            Button button = this.f28212e;
             if (button != null) {
                 button.setText(R.string.fun_ad_interaction_type_download);
             }
@@ -72,7 +72,7 @@ public class h implements TTAppDownloadListener {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Long.valueOf(j2), str, str2}) == null) {
             LogPrinter.d("CSJAppDownloadListener 点击图片安装", new Object[0]);
-            Button button = this.f28184e;
+            Button button = this.f28212e;
             if (button != null) {
                 button.setText(R.string.fun_ad_interaction_type_install);
             }
@@ -84,7 +84,7 @@ public class h implements TTAppDownloadListener {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3), str, str2}) == null) {
             LogPrinter.d("CSJAppDownloadListener 下载暂停，点击图片继续", new Object[0]);
-            Button button = this.f28184e;
+            Button button = this.f28212e;
             if (button != null) {
                 button.setText(a(button.getContext(), j2, j3));
             }
@@ -96,7 +96,7 @@ public class h implements TTAppDownloadListener {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             LogPrinter.e("CSJAppDownloadListener 点击图片开始下载", new Object[0]);
-            Button button = this.f28184e;
+            Button button = this.f28212e;
             if (button != null) {
                 button.setText(R.string.fun_ad_interaction_type_download);
             }
@@ -108,7 +108,7 @@ public class h implements TTAppDownloadListener {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048582, this, str, str2) == null) {
             LogPrinter.d("CSJAppDownloadListener 安装完成，点击图片打开", new Object[0]);
-            Button button = this.f28184e;
+            Button button = this.f28212e;
             if (button != null) {
                 button.setText(R.string.fun_ad_interaction_type_open);
             }

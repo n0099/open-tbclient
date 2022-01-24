@@ -19,7 +19,7 @@ public class c extends c.a.r0.q.j.d<c.a.r0.q.j.l.c> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: h  reason: collision with root package name */
-    public final String f11545h;
+    public final String f11687h;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public c(String str, i iVar, h hVar) {
@@ -40,7 +40,7 @@ public class c extends c.a.r0.q.j.d<c.a.r0.q.j.l.c> {
                 return;
             }
         }
-        this.f11545h = str;
+        this.f11687h = str;
     }
 
     @Override // c.a.r0.q.j.d
@@ -61,12 +61,12 @@ public class c extends c.a.r0.q.j.d<c.a.r0.q.j.l.c> {
             if (cVar == null) {
                 return false;
             }
-            if (cVar.a == null && (((list = cVar.f11558b) == null || list.isEmpty()) && cVar.f11560d == null && cVar.f11562f == null && cVar.f11561e == null)) {
+            if (cVar.a == null && (((list = cVar.f11700b) == null || list.isEmpty()) && cVar.f11702d == null && cVar.f11704f == null && cVar.f11703e == null)) {
                 return false;
             }
             g gVar = cVar.a;
             if (gVar == null || gVar.a()) {
-                List<c.a.r0.q.i.h> list2 = cVar.f11558b;
+                List<c.a.r0.q.i.h> list2 = cVar.f11700b;
                 if (list2 != null) {
                     for (c.a.r0.q.i.h hVar : list2) {
                         if (!hVar.a()) {
@@ -74,11 +74,11 @@ public class c extends c.a.r0.q.j.d<c.a.r0.q.j.l.c> {
                         }
                     }
                 }
-                c.a.r0.q.i.e eVar = cVar.f11560d;
+                c.a.r0.q.i.e eVar = cVar.f11702d;
                 if (eVar == null || eVar.a()) {
-                    c.a.r0.q.i.c cVar2 = cVar.f11562f;
+                    c.a.r0.q.i.c cVar2 = cVar.f11704f;
                     if (cVar2 == null || cVar2.a()) {
-                        PMSAppInfo pMSAppInfo = cVar.f11561e;
+                        PMSAppInfo pMSAppInfo = cVar.f11703e;
                         return pMSAppInfo == null || pMSAppInfo.checkValid();
                     }
                     return false;
@@ -98,7 +98,7 @@ public class c extends c.a.r0.q.j.d<c.a.r0.q.j.l.c> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(1048582, this, cVar, i2)) == null) {
             if (cVar != null) {
-                r(cVar.f11561e);
+                r(cVar.f11703e);
                 return false;
             }
             return false;
@@ -113,20 +113,20 @@ public class c extends c.a.r0.q.j.d<c.a.r0.q.j.l.c> {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, cVar)) == null) {
-            this.f11505e.F();
+            this.f11647e.F();
             c.a.r0.q.p.g gVar = new c.a.r0.q.p.g();
             o(cVar.a, gVar);
-            p(cVar.f11558b, gVar);
-            n(g(cVar.f11559c), gVar);
-            m(cVar.f11560d, gVar);
-            l(cVar.f11562f, gVar);
-            r(cVar.f11561e);
+            p(cVar.f11700b, gVar);
+            n(g(cVar.f11701c), gVar);
+            m(cVar.f11702d, gVar);
+            l(cVar.f11704f, gVar);
+            r(cVar.f11703e);
             if (gVar.n() == 0) {
-                this.f11505e.G();
+                this.f11647e.G();
                 return null;
             }
-            this.f11505e.H(gVar);
-            c.a.r0.q.j.i.a.b(cVar, this.f11505e);
+            this.f11647e.H(gVar);
+            c.a.r0.q.j.i.a.b(cVar, this.f11647e);
             return null;
         }
         return (c.a.r0.q.i.b) invokeL.objValue;
@@ -138,6 +138,6 @@ public class c extends c.a.r0.q.j.d<c.a.r0.q.j.l.c> {
     public c.a.r0.q.j.l.c u(JSONObject jSONObject) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, jSONObject)) == null) ? c.a.r0.q.p.f.g(this.f11545h, jSONObject) : (c.a.r0.q.j.l.c) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, jSONObject)) == null) ? c.a.r0.q.p.f.g(this.f11687h, jSONObject) : (c.a.r0.q.j.l.c) invokeL.objValue;
     }
 }

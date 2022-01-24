@@ -1,7 +1,7 @@
 package com.baidu.searchbox.looper.ioc;
 
 import c.a.k0.a.a;
-import c.a.t0.p3.m;
+import c.a.t0.q3.m;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;

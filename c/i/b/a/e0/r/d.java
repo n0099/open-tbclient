@@ -19,31 +19,31 @@ public final class d {
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f29526b;
+    public String f29554b;
 
     /* renamed from: c  reason: collision with root package name */
-    public List<String> f29527c;
+    public List<String> f29555c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f29528d;
+    public String f29556d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f29529e;
+    public String f29557e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f29530f;
+    public int f29558f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f29531g;
+    public boolean f29559g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f29532h;
+    public int f29560h;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f29533i;
+    public boolean f29561i;
 
     /* renamed from: j  reason: collision with root package name */
-    public int f29534j;
+    public int f29562j;
     public int k;
     public int l;
     public int m;
@@ -86,8 +86,8 @@ public final class d {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (this.f29533i) {
-                return this.f29532h;
+            if (this.f29561i) {
+                return this.f29560h;
             }
             throw new IllegalStateException("Background color not defined.");
         }
@@ -98,8 +98,8 @@ public final class d {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (this.f29531g) {
-                return this.f29530f;
+            if (this.f29559g) {
+                return this.f29558f;
             }
             throw new IllegalStateException("Font color not defined");
         }
@@ -109,7 +109,7 @@ public final class d {
     public String c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f29529e : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f29557e : (String) invokeV.objValue;
     }
 
     public float d() {
@@ -128,14 +128,14 @@ public final class d {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048581, this, str, str2, strArr, str3)) == null) {
-            if (this.a.isEmpty() && this.f29526b.isEmpty() && this.f29527c.isEmpty() && this.f29528d.isEmpty()) {
+            if (this.a.isEmpty() && this.f29554b.isEmpty() && this.f29555c.isEmpty() && this.f29556d.isEmpty()) {
                 return str2.isEmpty() ? 1 : 0;
             }
-            int x = x(x(x(0, this.a, str, 1073741824), this.f29526b, str2, 2), this.f29528d, str3, 4);
-            if (x == -1 || !Arrays.asList(strArr).containsAll(this.f29527c)) {
+            int x = x(x(x(0, this.a, str, 1073741824), this.f29554b, str2, 2), this.f29556d, str3, 4);
+            if (x == -1 || !Arrays.asList(strArr).containsAll(this.f29555c)) {
                 return 0;
             }
-            return x + (this.f29527c.size() * 4);
+            return x + (this.f29555c.size() * 4);
         }
         return invokeLLLL.intValue;
     }
@@ -161,19 +161,19 @@ public final class d {
     public boolean i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f29533i : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f29561i : invokeV.booleanValue;
     }
 
     public boolean j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f29531g : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f29559g : invokeV.booleanValue;
     }
 
     public boolean k() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f29534j == 1 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f29562j == 1 : invokeV.booleanValue;
     }
 
     public boolean l() {
@@ -186,13 +186,13 @@ public final class d {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
             this.a = "";
-            this.f29526b = "";
-            this.f29527c = Collections.emptyList();
-            this.f29528d = "";
-            this.f29529e = null;
-            this.f29531g = false;
-            this.f29533i = false;
-            this.f29534j = -1;
+            this.f29554b = "";
+            this.f29555c = Collections.emptyList();
+            this.f29556d = "";
+            this.f29557e = null;
+            this.f29559g = false;
+            this.f29561i = false;
+            this.f29562j = -1;
             this.k = -1;
             this.l = -1;
             this.m = -1;
@@ -205,8 +205,8 @@ public final class d {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048589, this, i2)) == null) {
-            this.f29532h = i2;
-            this.f29533i = true;
+            this.f29560h = i2;
+            this.f29561i = true;
             return this;
         }
         return (d) invokeI.objValue;
@@ -226,8 +226,8 @@ public final class d {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048591, this, i2)) == null) {
-            this.f29530f = i2;
-            this.f29531g = true;
+            this.f29558f = i2;
+            this.f29559g = true;
             return this;
         }
         return (d) invokeI.objValue;
@@ -237,7 +237,7 @@ public final class d {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048592, this, str)) == null) {
-            this.f29529e = v.J(str);
+            this.f29557e = v.J(str);
             return this;
         }
         return (d) invokeL.objValue;
@@ -256,7 +256,7 @@ public final class d {
     public void s(String[] strArr) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048594, this, strArr) == null) {
-            this.f29527c = Arrays.asList(strArr);
+            this.f29555c = Arrays.asList(strArr);
         }
     }
 
@@ -270,14 +270,14 @@ public final class d {
     public void u(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048596, this, str) == null) {
-            this.f29526b = str;
+            this.f29554b = str;
         }
     }
 
     public void v(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048597, this, str) == null) {
-            this.f29528d = str;
+            this.f29556d = str;
         }
     }
 

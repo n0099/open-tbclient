@@ -118,7 +118,7 @@ public class DeviceUtil {
             if (i2 >= 29) {
                 return "";
             }
-            if (i2 < 23 || context.checkSelfPermission(s.f55242c) == 0) {
+            if (i2 < 23 || context.checkSelfPermission(s.f55287c) == 0) {
                 String str = null;
                 try {
                     TelephonyManager telephonyManager = (TelephonyManager) context.getSystemService("phone");

@@ -28,22 +28,22 @@ public class Crypto {
     public static final int a = 16;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final int f33836b = 8;
+    public static final int f33864b = 8;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final int f33837c = 128;
+    public static final int f33865c = 128;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final int f33838d = 64;
+    public static final int f33866d = 64;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final int f33839e = 8;
+    public static final int f33867e = 8;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final int f33840f = 1000;
+    public static final int f33868f = 1000;
 
     /* renamed from: g  reason: collision with root package name */
-    public static SecureRandom f33841g;
+    public static SecureRandom f33869g;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -59,7 +59,7 @@ public class Crypto {
                 return;
             }
         }
-        f33841g = new SecureRandom();
+        f33869g = new SecureRandom();
     }
 
     public Crypto() {
@@ -104,7 +104,7 @@ public class Crypto {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, null, i2)) == null) {
             byte[] bArr = new byte[i2];
-            f33841g.nextBytes(bArr);
+            f33869g.nextBytes(bArr);
             return bArr;
         }
         return (byte[]) invokeI.objValue;

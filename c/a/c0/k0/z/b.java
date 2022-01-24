@@ -55,13 +55,13 @@ public abstract class b {
         InterceptResult invokeL;
         c.a.c0.s.c cVar;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, adBaseModel)) == null) ? d(adBaseModel) && adBaseModel.f37018f.a == AdOperator.TYPE.DOWNLOAD && (cVar = adBaseModel.f37021i) != null && cVar.f2223d : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, adBaseModel)) == null) ? d(adBaseModel) && adBaseModel.f37046f.a == AdOperator.TYPE.DOWNLOAD && (cVar = adBaseModel.f37049i) != null && cVar.f2223d : invokeL.booleanValue;
     }
 
     public static boolean d(AdBaseModel adBaseModel) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, adBaseModel)) == null) ? (adBaseModel == null || adBaseModel.f37018f == null) ? false : true : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, adBaseModel)) == null) ? (adBaseModel == null || adBaseModel.f37046f == null) ? false : true : invokeL.booleanValue;
     }
 
     public final <T> T a(int i2) {

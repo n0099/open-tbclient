@@ -17,7 +17,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 import tbclient.ThreadInfo;
 import tbclient.User;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public class VideoAttentionPersonListData implements Serializable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -74,7 +74,7 @@ public class VideoAttentionPersonListData implements Serializable {
         for (int i2 = 0; i2 < list.size(); i2++) {
             VideoItemData videoItemData = new VideoItemData();
             e2 e2Var = new e2();
-            e2Var.c3(list.get(i2));
+            e2Var.d3(list.get(i2));
             videoItemData.parseProto(e2Var);
             this.mVideoItemDatas.add(videoItemData);
         }

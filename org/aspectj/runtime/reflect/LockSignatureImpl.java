@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.aspectj.lang.reflect.LockSignature;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class LockSignatureImpl extends SignatureImpl implements LockSignature {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

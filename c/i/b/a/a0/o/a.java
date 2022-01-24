@@ -16,26 +16,26 @@ public final class a implements c.i.b.a.a0.o.b {
     public final byte[] a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final Stack<b> f28595b;
+    public final Stack<b> f28623b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final f f28596c;
+    public final f f28624c;
 
     /* renamed from: d  reason: collision with root package name */
-    public c f28597d;
+    public c f28625d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f28598e;
+    public int f28626e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f28599f;
+    public int f28627f;
 
     /* renamed from: g  reason: collision with root package name */
-    public long f28600g;
+    public long f28628g;
 
     /* renamed from: c.i.b.a.a0.o.a$a  reason: collision with other inner class name */
     /* loaded from: classes9.dex */
-    public static /* synthetic */ class C1650a {
+    public static /* synthetic */ class C1651a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
@@ -47,9 +47,9 @@ public final class a implements c.i.b.a.a0.o.b {
         public final int a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final long f28601b;
+        public final long f28629b;
 
-        public /* synthetic */ b(int i2, long j2, C1650a c1650a) {
+        public /* synthetic */ b(int i2, long j2, C1651a c1651a) {
             this(i2, j2);
         }
 
@@ -69,7 +69,7 @@ public final class a implements c.i.b.a.a0.o.b {
                 }
             }
             this.a = i2;
-            this.f28601b = j2;
+            this.f28629b = j2;
         }
     }
 
@@ -87,8 +87,8 @@ public final class a implements c.i.b.a.a0.o.b {
             }
         }
         this.a = new byte[8];
-        this.f28595b = new Stack<>();
-        this.f28596c = new f();
+        this.f28623b = new Stack<>();
+        this.f28624c = new f();
     }
 
     @Override // c.i.b.a.a0.o.b
@@ -98,69 +98,69 @@ public final class a implements c.i.b.a.a0.o.b {
         if (interceptable != null && (invokeL = interceptable.invokeL(1048576, this, fVar)) != null) {
             return invokeL.booleanValue;
         }
-        c.i.b.a.i0.a.f(this.f28597d != null);
+        c.i.b.a.i0.a.f(this.f28625d != null);
         while (true) {
-            if (!this.f28595b.isEmpty() && fVar.getPosition() >= this.f28595b.peek().f28601b) {
-                this.f28597d.a(this.f28595b.pop().a);
+            if (!this.f28623b.isEmpty() && fVar.getPosition() >= this.f28623b.peek().f28629b) {
+                this.f28625d.a(this.f28623b.pop().a);
                 return true;
             }
-            if (this.f28598e == 0) {
-                long d2 = this.f28596c.d(fVar, true, false, 4);
+            if (this.f28626e == 0) {
+                long d2 = this.f28624c.d(fVar, true, false, 4);
                 if (d2 == -2) {
                     d2 = c(fVar);
                 }
                 if (d2 == -1) {
                     return false;
                 }
-                this.f28599f = (int) d2;
-                this.f28598e = 1;
+                this.f28627f = (int) d2;
+                this.f28626e = 1;
             }
-            if (this.f28598e == 1) {
-                this.f28600g = this.f28596c.d(fVar, false, true, 8);
-                this.f28598e = 2;
+            if (this.f28626e == 1) {
+                this.f28628g = this.f28624c.d(fVar, false, true, 8);
+                this.f28626e = 2;
             }
-            int g2 = this.f28597d.g(this.f28599f);
+            int g2 = this.f28625d.g(this.f28627f);
             if (g2 != 0) {
                 if (g2 == 1) {
                     long position = fVar.getPosition();
-                    this.f28595b.add(new b(this.f28599f, this.f28600g + position, null));
-                    this.f28597d.f(this.f28599f, position, this.f28600g);
-                    this.f28598e = 0;
+                    this.f28623b.add(new b(this.f28627f, this.f28628g + position, null));
+                    this.f28625d.f(this.f28627f, position, this.f28628g);
+                    this.f28626e = 0;
                     return true;
                 } else if (g2 == 2) {
-                    long j2 = this.f28600g;
+                    long j2 = this.f28628g;
                     if (j2 <= 8) {
-                        this.f28597d.c(this.f28599f, e(fVar, (int) j2));
-                        this.f28598e = 0;
+                        this.f28625d.c(this.f28627f, e(fVar, (int) j2));
+                        this.f28626e = 0;
                         return true;
                     }
-                    throw new ParserException("Invalid integer size: " + this.f28600g);
+                    throw new ParserException("Invalid integer size: " + this.f28628g);
                 } else if (g2 == 3) {
-                    long j3 = this.f28600g;
+                    long j3 = this.f28628g;
                     if (j3 <= 2147483647L) {
-                        this.f28597d.e(this.f28599f, f(fVar, (int) j3));
-                        this.f28598e = 0;
+                        this.f28625d.e(this.f28627f, f(fVar, (int) j3));
+                        this.f28626e = 0;
                         return true;
                     }
-                    throw new ParserException("String element size: " + this.f28600g);
+                    throw new ParserException("String element size: " + this.f28628g);
                 } else if (g2 == 4) {
-                    this.f28597d.d(this.f28599f, (int) this.f28600g, fVar);
-                    this.f28598e = 0;
+                    this.f28625d.d(this.f28627f, (int) this.f28628g, fVar);
+                    this.f28626e = 0;
                     return true;
                 } else if (g2 == 5) {
-                    long j4 = this.f28600g;
+                    long j4 = this.f28628g;
                     if (j4 != 4 && j4 != 8) {
-                        throw new ParserException("Invalid float size: " + this.f28600g);
+                        throw new ParserException("Invalid float size: " + this.f28628g);
                     }
-                    this.f28597d.b(this.f28599f, d(fVar, (int) this.f28600g));
-                    this.f28598e = 0;
+                    this.f28625d.b(this.f28627f, d(fVar, (int) this.f28628g));
+                    this.f28626e = 0;
                     return true;
                 } else {
                     throw new ParserException("Invalid element type " + g2);
                 }
             }
-            fVar.h((int) this.f28600g);
-            this.f28598e = 0;
+            fVar.h((int) this.f28628g);
+            this.f28626e = 0;
         }
     }
 
@@ -168,7 +168,7 @@ public final class a implements c.i.b.a.a0.o.b {
     public void b(c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cVar) == null) {
-            this.f28597d = cVar;
+            this.f28625d = cVar;
         }
     }
 
@@ -184,7 +184,7 @@ public final class a implements c.i.b.a.a0.o.b {
             int c2 = f.c(this.a[0]);
             if (c2 != -1 && c2 <= 4) {
                 int a = (int) f.a(this.a, c2, false);
-                if (this.f28597d.h(a)) {
+                if (this.f28625d.h(a)) {
                     fVar.h(c2);
                     return a;
                 }
@@ -238,9 +238,9 @@ public final class a implements c.i.b.a.a0.o.b {
     public void reset() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            this.f28598e = 0;
-            this.f28595b.clear();
-            this.f28596c.e();
+            this.f28626e = 0;
+            this.f28623b.clear();
+            this.f28624c.e();
         }
     }
 }

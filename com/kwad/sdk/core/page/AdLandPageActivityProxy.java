@@ -70,8 +70,8 @@ public class AdLandPageActivityProxy extends com.kwad.sdk.h.a {
         aVar.a(this.mAdTemplate);
         com.kwad.sdk.core.webview.a aVar2 = this.mJsBridgeContext;
         aVar2.a = 0;
-        aVar2.f56330e = this.mAdWebView;
-        aVar2.f56329d = this.mWebContainer;
+        aVar2.f56375e = this.mAdWebView;
+        aVar2.f56374d = this.mWebContainer;
     }
 
     private void initTipBarView() {

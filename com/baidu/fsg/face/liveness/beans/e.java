@@ -23,10 +23,10 @@ public class e extends l {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f34225b;
+    public String f34253b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f34226c;
+    public String f34254c;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public e(Context context) {
@@ -46,13 +46,13 @@ public class e extends l {
                 return;
             }
         }
-        this.f34226c = "1";
+        this.f34254c = "1";
     }
 
     public void a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            this.f34225b = str;
+            this.f34253b = str;
         }
     }
 
@@ -76,7 +76,7 @@ public class e extends l {
                 arrayList.add(new RestNameValuePair("processid", livenessRecogDTO.processid));
                 arrayList.add(new RestNameValuePair("exuid", livenessRecogDTO.exUid));
             }
-            arrayList.add(new RestNameValuePair("imgdigests", this.f34225b));
+            arrayList.add(new RestNameValuePair("imgdigests", this.f34253b));
             String randomString = RandomUtils.getRandomString(4096);
             try {
                 arrayList.add(new RestNameValuePair("image", Base64Utils.encodeToString(SafeUtils.xor(this.a, randomString).getBytes("UTF-8"))));
@@ -84,7 +84,7 @@ public class e extends l {
                 e2.printStackTrace();
             }
             arrayList.add(new RestNameValuePair("ik", RimArmor.getInstance().encryptProxy(randomString)));
-            arrayList.add(new RestNameValuePair("last", this.f34226c));
+            arrayList.add(new RestNameValuePair("last", this.f34254c));
             return arrayList;
         }
         return (List) invokeV.objValue;
@@ -130,7 +130,7 @@ public class e extends l {
     public void a(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
-            this.f34226c = z ? "1" : "0";
+            this.f34254c = z ? "1" : "0";
         }
     }
 }

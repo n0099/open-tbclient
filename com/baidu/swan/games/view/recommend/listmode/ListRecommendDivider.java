@@ -22,10 +22,10 @@ public class ListRecommendDivider extends RecyclerView.ItemDecoration {
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f39835b;
+    public int f39863b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Paint f39836c;
+    public Paint f39864c;
 
     public ListRecommendDivider(@NonNull Context context) {
         Interceptable interceptable = $ic;
@@ -44,9 +44,9 @@ public class ListRecommendDivider extends RecyclerView.ItemDecoration {
         }
         Resources resources = context.getResources();
         this.a = resources.getDimensionPixelSize(c.swangame_recommend_dialog_list_divider_height);
-        this.f39835b = resources.getDimensionPixelSize(c.swangame_recommend_dialog_list_divider_margin);
+        this.f39863b = resources.getDimensionPixelSize(c.swangame_recommend_dialog_list_divider_margin);
         Paint paint = new Paint();
-        this.f39836c = paint;
+        this.f39864c = paint;
         paint.setColor(resources.getColor(b.swangame_recommend_dialog_list_divider));
     }
 
@@ -66,7 +66,7 @@ public class ListRecommendDivider extends RecyclerView.ItemDecoration {
             for (int i2 = 0; i2 < itemCount; i2++) {
                 View childAt = recyclerView.getChildAt(i2);
                 if (childAt != null && recyclerView.getChildAdapterPosition(childAt) != itemCount - 1) {
-                    canvas.drawRect(this.f39835b, childAt.getBottom(), childAt.getWidth() - this.f39835b, childAt.getBottom() + this.a, this.f39836c);
+                    canvas.drawRect(this.f39863b, childAt.getBottom(), childAt.getWidth() - this.f39863b, childAt.getBottom() + this.a, this.f39864c);
                 }
             }
         }

@@ -26,36 +26,36 @@ public class a {
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f19502b;
+    public String f19612b;
 
     /* renamed from: c  reason: collision with root package name */
-    public c.a.d.f.g.c f19503c;
+    public c.a.d.f.g.c f19613c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Runnable f19504d;
+    public Runnable f19614d;
 
     /* renamed from: e  reason: collision with root package name */
-    public c.a.d.f.g.b f19505e;
+    public c.a.d.f.g.b f19615e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final Handler f19506f;
+    public final Handler f19616f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final Activity f19507g;
+    public final Activity f19617g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final ViewGroup f19508h;
+    public final ViewGroup f19618h;
 
     /* renamed from: c.a.t0.m4.l.a$a  reason: collision with other inner class name */
     /* loaded from: classes7.dex */
-    public class RunnableC1217a implements Runnable {
+    public class RunnableC1221a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f19509e;
+        public final /* synthetic */ a f19619e;
 
-        public RunnableC1217a(a aVar) {
+        public RunnableC1221a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -70,16 +70,16 @@ public class a {
                     return;
                 }
             }
-            this.f19509e = aVar;
+            this.f19619e = aVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f19509e.f19503c == null) {
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f19619e.f19613c == null) {
                 return;
             }
-            this.f19509e.f19503c.f(this.f19509e.f19508h);
+            this.f19619e.f19613c.f(this.f19619e.f19618h);
         }
     }
 
@@ -111,8 +111,8 @@ public class a {
         public void onDismiss() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.f19503c = null;
-                this.a.f19506f.removeCallbacks(this.a.f19504d);
+                this.a.f19613c = null;
+                this.a.f19616f.removeCallbacks(this.a.f19614d);
             }
         }
 
@@ -173,15 +173,15 @@ public class a {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, layoutInflater)) == null) {
-                View inflate = LayoutInflater.from(this.a.f19507g).inflate(g.warning_toast, (ViewGroup) null);
+                View inflate = LayoutInflater.from(this.a.f19617g).inflate(g.warning_toast, (ViewGroup) null);
                 TextView textView = (TextView) inflate.findViewById(f.toast_title);
                 TextView textView2 = (TextView) inflate.findViewById(f.toast_tip);
                 SkinManager.setViewTextColor(textView, c.a.t0.m4.c.CAM_X0101);
                 SkinManager.setViewTextColor(textView2, c.a.t0.m4.c.CAM_X0101);
                 ((ImageView) inflate.findViewById(f.toast_img)).setImageDrawable(WebPManager.getPureDrawable(c.a.t0.m4.e.icon_pure_toast_mistake_40, SkinManager.getColor(c.a.t0.m4.c.CAM_X0101), null));
                 textView.setText(this.a.a);
-                if (!StringUtils.isNull(this.a.f19502b)) {
-                    textView2.setText(this.a.f19502b);
+                if (!StringUtils.isNull(this.a.f19612b)) {
+                    textView2.setText(this.a.f19612b);
                 } else {
                     textView2.setVisibility(8);
                 }
@@ -226,9 +226,9 @@ public class a {
                 return;
             }
         }
-        this.f19506f = new Handler();
-        this.f19507g = activity;
-        this.f19508h = viewGroup;
+        this.f19616f = new Handler();
+        this.f19617g = activity;
+        this.f19618h = viewGroup;
     }
 
     public final c.a.d.f.g.b i() {
@@ -240,11 +240,11 @@ public class a {
     public void j() {
         c.a.d.f.g.c cVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (cVar = this.f19503c) == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (cVar = this.f19613c) == null) {
             return;
         }
-        cVar.f(this.f19508h);
-        this.f19508h.setVisibility(8);
+        cVar.f(this.f19618h);
+        this.f19618h.setVisibility(8);
     }
 
     public a k(String str) {
@@ -260,25 +260,25 @@ public class a {
     public void l() {
         ViewGroup viewGroup;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (viewGroup = this.f19508h) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (viewGroup = this.f19618h) == null) {
             return;
         }
         viewGroup.setVisibility(0);
-        c.a.d.f.g.c cVar = this.f19503c;
+        c.a.d.f.g.c cVar = this.f19613c;
         if (cVar != null) {
-            cVar.f(this.f19508h);
+            cVar.f(this.f19618h);
         }
-        this.f19504d = new RunnableC1217a(this);
+        this.f19614d = new RunnableC1221a(this);
         c.a.d.f.g.d dVar = new c.a.d.f.g.d();
         dVar.d(true);
         dVar.g(new b(this));
-        if (this.f19505e == null) {
-            this.f19505e = i();
+        if (this.f19615e == null) {
+            this.f19615e = i();
         }
-        dVar.a(this.f19505e);
+        dVar.a(this.f19615e);
         c.a.d.f.g.c b2 = dVar.b();
-        this.f19503c = b2;
-        b2.u(this.f19507g, this.f19508h, false);
-        this.f19506f.postDelayed(this.f19504d, 3000L);
+        this.f19613c = b2;
+        b2.u(this.f19617g, this.f19618h, false);
+        this.f19616f.postDelayed(this.f19614d, 3000L);
     }
 }

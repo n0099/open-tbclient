@@ -16,10 +16,10 @@ public class h0 extends c.a.s0.s.q.p {
     public long a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f13837b;
+    public long f13982b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f13838c;
+    public String f13983c;
 
     public h0() {
         Interceptable interceptable = $ic;
@@ -35,20 +35,20 @@ public class h0 extends c.a.s0.s.q.p {
             }
         }
         this.a = Long.MAX_VALUE;
-        this.f13837b = 0L;
-        this.f13838c = null;
+        this.f13982b = 0L;
+        this.f13983c = null;
     }
 
     public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f13838c : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f13983c : (String) invokeV.objValue;
     }
 
     public long b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f13837b : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f13982b : invokeV.longValue;
     }
 
     public long c() {
@@ -65,8 +65,8 @@ public class h0 extends c.a.s0.s.q.p {
         }
         try {
             this.a = jSONObject.optLong(SmartLaunchStats.UBC_BUSINESS_START_TIME_KEY, Long.MAX_VALUE);
-            this.f13837b = jSONObject.optLong("end_time", 0L);
-            this.f13838c = jSONObject.optString("dest_url", "");
+            this.f13982b = jSONObject.optLong("end_time", 0L);
+            this.f13983c = jSONObject.optString("dest_url", "");
         } catch (Exception e2) {
             BdLog.detailException(e2);
         }

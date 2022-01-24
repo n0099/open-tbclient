@@ -16,10 +16,10 @@ public final class m {
     public static final Handler a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final HandlerThread f60713b;
+    public static final HandlerThread f60758b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final Handler f60714c;
+    public static final Handler f60759c;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -37,9 +37,9 @@ public final class m {
         }
         a = new Handler(Looper.getMainLooper());
         HandlerThread handlerThread = new HandlerThread("push_client_thread");
-        f60713b = handlerThread;
+        f60758b = handlerThread;
         handlerThread.start();
-        f60714c = new n(f60713b.getLooper());
+        f60759c = new n(f60758b.getLooper());
     }
 
     public static void a(l lVar) {
@@ -53,7 +53,7 @@ public final class m {
             Message message = new Message();
             message.what = a2;
             message.obj = lVar;
-            f60714c.sendMessageDelayed(message, 0L);
+            f60759c.sendMessageDelayed(message, 0L);
         }
     }
 
@@ -67,7 +67,7 @@ public final class m {
     public static void c(Runnable runnable) {
         Handler handler;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, runnable) == null) || (handler = f60714c) == null) {
+        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, runnable) == null) || (handler = f60759c) == null) {
             return;
         }
         handler.post(runnable);
@@ -76,8 +76,8 @@ public final class m {
     public static void a(Runnable runnable) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65538, null, runnable) == null) {
-            f60714c.removeCallbacks(runnable);
-            f60714c.postDelayed(runnable, 15000L);
+            f60759c.removeCallbacks(runnable);
+            f60759c.postDelayed(runnable, 15000L);
         }
     }
 }

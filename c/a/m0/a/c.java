@@ -26,25 +26,25 @@ public final class c {
         public String a;
 
         /* renamed from: b  reason: collision with root package name */
-        public Map<String, String> f4366b;
+        public Map<String, String> f4507b;
 
         /* renamed from: c  reason: collision with root package name */
-        public int f4367c;
+        public int f4508c;
 
         /* renamed from: d  reason: collision with root package name */
-        public boolean f4368d;
+        public boolean f4509d;
 
         /* renamed from: e  reason: collision with root package name */
-        public int f4369e;
+        public int f4510e;
 
         /* renamed from: f  reason: collision with root package name */
-        public int f4370f;
+        public int f4511f;
 
         /* renamed from: g  reason: collision with root package name */
-        public int f4371g;
+        public int f4512g;
 
         /* renamed from: h  reason: collision with root package name */
-        public boolean f4372h;
+        public boolean f4513h;
 
         public b() {
             Interceptable interceptable = $ic;
@@ -59,13 +59,13 @@ public final class c {
                     return;
                 }
             }
-            this.f4366b = new HashMap();
-            this.f4367c = 3;
-            this.f4368d = false;
-            this.f4369e = 640;
-            this.f4370f = 480;
-            this.f4371g = 1;
-            this.f4372h = false;
+            this.f4507b = new HashMap();
+            this.f4508c = 3;
+            this.f4509d = false;
+            this.f4510e = 640;
+            this.f4511f = 480;
+            this.f4512g = 1;
+            this.f4513h = false;
         }
 
         public final c i() {
@@ -78,8 +78,8 @@ public final class c {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) {
-                this.f4370f = i2;
-                this.f4372h = true;
+                this.f4511f = i2;
+                this.f4513h = true;
                 return this;
             }
             return (b) invokeI.objValue;
@@ -89,8 +89,8 @@ public final class c {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) {
-                this.f4369e = i2;
-                this.f4372h = true;
+                this.f4510e = i2;
+                this.f4513h = true;
                 return this;
             }
             return (b) invokeI.objValue;
@@ -123,12 +123,12 @@ public final class c {
             }
         }
         String unused = bVar.a;
-        int unused2 = bVar.f4367c;
-        int unused3 = bVar.f4369e;
-        int unused4 = bVar.f4370f;
-        boolean unused5 = bVar.f4372h;
-        boolean unused6 = bVar.f4368d;
-        int unused7 = bVar.f4371g;
-        a(bVar.f4366b);
+        int unused2 = bVar.f4508c;
+        int unused3 = bVar.f4510e;
+        int unused4 = bVar.f4511f;
+        boolean unused5 = bVar.f4513h;
+        boolean unused6 = bVar.f4509d;
+        int unused7 = bVar.f4512g;
+        a(bVar.f4507b);
     }
 }

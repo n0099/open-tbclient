@@ -57,7 +57,7 @@ public class a extends c.a.r0.a.f2.f.b {
         InterceptResult invokeLLLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, unitedSchemeEntity, callbackHandler, str, eVar)) == null) {
-            boolean z = z.f6201b;
+            boolean z = z.f6343b;
             c.a.r0.a.c0.c.e.c.b q = q(unitedSchemeEntity);
             if (q == null) {
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
@@ -69,7 +69,7 @@ public class a extends c.a.r0.a.f2.f.b {
             if (a) {
                 UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
             } else {
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, insert.f5313b);
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, insert.f5455b);
             }
             return a;
         }
@@ -81,7 +81,7 @@ public class a extends c.a.r0.a.f2.f.b {
         InterceptResult invokeLLLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(Constants.METHOD_SEND_USER_MSG, this, context, unitedSchemeEntity, callbackHandler, str, eVar)) == null) {
-            boolean z = z.f6201b;
+            boolean z = z.f6343b;
             c.a.r0.a.c0.c.e.c.b q = q(unitedSchemeEntity);
             if (q == null) {
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
@@ -90,7 +90,7 @@ public class a extends c.a.r0.a.f2.f.b {
             }
             c.a.r0.a.c0.c.e.c.a aVar = (c.a.r0.a.c0.c.e.c.a) c.a.r0.a.c0.d.a.a(q);
             if (aVar == null) {
-                String str2 = "can't find coverView component:#" + q.f5308f;
+                String str2 = "can't find coverView component:#" + q.f5450f;
                 d.c("Component-Action-CoverView", str2);
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, str2);
                 return false;
@@ -100,7 +100,7 @@ public class a extends c.a.r0.a.f2.f.b {
             if (a) {
                 UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
             } else {
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, B.f5313b);
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, B.f5455b);
             }
             return a;
         }
@@ -112,7 +112,7 @@ public class a extends c.a.r0.a.f2.f.b {
         InterceptResult invokeLLLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048579, this, context, unitedSchemeEntity, callbackHandler, str, eVar)) == null) {
-            boolean z = z.f6201b;
+            boolean z = z.f6343b;
             c.a.r0.a.c0.c.e.c.b q = q(unitedSchemeEntity);
             if (q == null) {
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
@@ -121,7 +121,7 @@ public class a extends c.a.r0.a.f2.f.b {
             }
             c.a.r0.a.c0.c.e.c.a aVar = (c.a.r0.a.c0.c.e.c.a) c.a.r0.a.c0.d.a.a(q);
             if (aVar == null) {
-                String str2 = "can't find coverView component:#" + q.f5308f;
+                String str2 = "can't find coverView component:#" + q.f5450f;
                 d.c("Component-Action-CoverView", str2);
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, str2);
                 return false;
@@ -131,7 +131,7 @@ public class a extends c.a.r0.a.f2.f.b {
             if (a) {
                 UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
             } else {
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, update.f5313b);
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, update.f5455b);
             }
             return a;
         }

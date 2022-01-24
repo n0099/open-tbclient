@@ -28,31 +28,31 @@ public final class i implements g {
     public final r[] a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final c.i.b.a.f0.h f29683b;
+    public final c.i.b.a.f0.h f29711b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final c.i.b.a.f0.g f29684c;
+    public final c.i.b.a.f0.g f29712c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final Handler f29685d;
+    public final Handler f29713d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final j f29686e;
+    public final j f29714e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final CopyOnWriteArraySet<q.b> f29687f;
+    public final CopyOnWriteArraySet<q.b> f29715f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final w.c f29688g;
+    public final w.c f29716g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final w.b f29689h;
+    public final w.b f29717h;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f29690i;
+    public boolean f29718i;
 
     /* renamed from: j  reason: collision with root package name */
-    public boolean f29691j;
+    public boolean f29719j;
     public int k;
     public boolean l;
     public int m;
@@ -119,26 +119,26 @@ public final class i implements g {
                 return;
             }
         }
-        String str = "Init " + Integer.toHexString(System.identityHashCode(this)) + " [ExoPlayerLib/2.6.0] [" + c.i.b.a.i0.v.f29742e + PreferencesUtil.RIGHT_MOUNT;
+        String str = "Init " + Integer.toHexString(System.identityHashCode(this)) + " [ExoPlayerLib/2.6.0] [" + c.i.b.a.i0.v.f29770e + PreferencesUtil.RIGHT_MOUNT;
         c.i.b.a.i0.a.f(rVarArr.length > 0);
         c.i.b.a.i0.a.e(rVarArr);
         this.a = rVarArr;
         c.i.b.a.i0.a.e(hVar);
-        this.f29683b = hVar;
-        this.f29691j = false;
+        this.f29711b = hVar;
+        this.f29719j = false;
         this.k = 0;
         this.l = false;
         this.m = 1;
-        this.f29687f = new CopyOnWriteArraySet<>();
-        this.f29684c = new c.i.b.a.f0.g(new c.i.b.a.f0.f[rVarArr.length]);
-        this.f29688g = new w.c();
-        this.f29689h = new w.b();
-        this.q = c.i.b.a.d0.t.f29142d;
-        this.r = this.f29684c;
-        this.s = p.f29827d;
-        this.f29685d = new a(this, Looper.myLooper() != null ? Looper.myLooper() : Looper.getMainLooper());
+        this.f29715f = new CopyOnWriteArraySet<>();
+        this.f29712c = new c.i.b.a.f0.g(new c.i.b.a.f0.f[rVarArr.length]);
+        this.f29716g = new w.c();
+        this.f29717h = new w.b();
+        this.q = c.i.b.a.d0.t.f29170d;
+        this.r = this.f29712c;
+        this.s = p.f29855d;
+        this.f29713d = new a(this, Looper.myLooper() != null ? Looper.myLooper() : Looper.getMainLooper());
         this.t = new o(w.a, null, 0, 0L);
-        this.f29686e = new j(rVarArr, hVar, mVar, this.f29691j, this.k, this.l, this.f29685d, this);
+        this.f29714e = new j(rVarArr, hVar, mVar, this.f29719j, this.k, this.l, this.f29713d, this);
     }
 
     public void A(c.i.b.a.d0.l lVar, boolean z, boolean z2) {
@@ -154,27 +154,27 @@ public final class i implements g {
                 this.w = 0L;
             }
             if (z2) {
-                if (!this.t.a.p() || this.t.f29821b != null) {
+                if (!this.t.a.p() || this.t.f29849b != null) {
                     this.t = this.t.c(w.a, null);
-                    Iterator<q.b> it = this.f29687f.iterator();
+                    Iterator<q.b> it = this.f29715f.iterator();
                     while (it.hasNext()) {
                         o oVar = this.t;
-                        it.next().c(oVar.a, oVar.f29821b);
+                        it.next().c(oVar.a, oVar.f29849b);
                     }
                 }
-                if (this.f29690i) {
-                    this.f29690i = false;
-                    this.q = c.i.b.a.d0.t.f29142d;
-                    this.r = this.f29684c;
-                    this.f29683b.b(null);
-                    Iterator<q.b> it2 = this.f29687f.iterator();
+                if (this.f29718i) {
+                    this.f29718i = false;
+                    this.q = c.i.b.a.d0.t.f29170d;
+                    this.r = this.f29712c;
+                    this.f29711b.b(null);
+                    Iterator<q.b> it2 = this.f29715f.iterator();
                     while (it2.hasNext()) {
                         it2.next().i(this.q, this.r);
                     }
                 }
             }
             this.o++;
-            this.f29686e.z(lVar, z);
+            this.f29714e.z(lVar, z);
         }
     }
 
@@ -188,7 +188,7 @@ public final class i implements g {
     public void a(g.b... bVarArr) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bVarArr) == null) {
-            this.f29686e.a(bVarArr);
+            this.f29714e.a(bVarArr);
         }
     }
 
@@ -205,9 +205,9 @@ public final class i implements g {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, pVar) == null) {
             if (pVar == null) {
-                pVar = p.f29827d;
+                pVar = p.f29855d;
             }
-            this.f29686e.T(pVar);
+            this.f29714e.T(pVar);
         }
     }
 
@@ -222,14 +222,14 @@ public final class i implements g {
     public boolean e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? !B() && this.t.f29822c.b() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? !B() && this.t.f29850c.b() : invokeV.booleanValue;
     }
 
     @Override // c.i.b.a.q
     public void f(q.b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, bVar) == null) {
-            this.f29687f.remove(bVar);
+            this.f29715f.remove(bVar);
         }
     }
 
@@ -237,7 +237,7 @@ public final class i implements g {
     public boolean g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f29691j : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f29719j : invokeV.booleanValue;
     }
 
     @Override // c.i.b.a.q
@@ -248,7 +248,7 @@ public final class i implements g {
             if (B()) {
                 return this.w;
             }
-            return z(this.t.f29825f);
+            return z(this.t.f29853f);
         }
         return invokeV.longValue;
     }
@@ -263,11 +263,11 @@ public final class i implements g {
                 return -9223372036854775807L;
             }
             if (e()) {
-                l.b bVar = this.t.f29822c;
-                wVar.f(bVar.a, this.f29689h);
-                return b.b(this.f29689h.b(bVar.f29104b, bVar.f29105c));
+                l.b bVar = this.t.f29850c;
+                wVar.f(bVar.a, this.f29717h);
+                return b.b(this.f29717h.b(bVar.f29132b, bVar.f29133c));
             }
-            return wVar.l(k(), this.f29688g).b();
+            return wVar.l(k(), this.f29716g).b();
         }
         return invokeV.longValue;
     }
@@ -293,8 +293,8 @@ public final class i implements g {
             return;
         }
         this.l = z;
-        this.f29686e.Y(z);
-        Iterator<q.b> it = this.f29687f.iterator();
+        this.f29714e.Y(z);
+        Iterator<q.b> it = this.f29715f.iterator();
         while (it.hasNext()) {
             it.next().b(z);
         }
@@ -304,7 +304,7 @@ public final class i implements g {
     public void i(q.b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048590, this, bVar) == null) {
-            this.f29687f.add(bVar);
+            this.f29715f.add(bVar);
         }
     }
 
@@ -335,7 +335,7 @@ public final class i implements g {
                 return this.u;
             }
             o oVar = this.t;
-            return oVar.a.f(oVar.f29822c.a, this.f29689h).f29842c;
+            return oVar.a.f(oVar.f29850c.a, this.f29717h).f29870c;
         }
         return invokeV.intValue;
     }
@@ -343,12 +343,12 @@ public final class i implements g {
     @Override // c.i.b.a.q
     public void l(boolean z) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048593, this, z) == null) || this.f29691j == z) {
+        if (!(interceptable == null || interceptable.invokeZ(1048593, this, z) == null) || this.f29719j == z) {
             return;
         }
-        this.f29691j = z;
-        this.f29686e.R(z);
-        Iterator<q.b> it = this.f29687f.iterator();
+        this.f29719j = z;
+        this.f29714e.R(z);
+        Iterator<q.b> it = this.f29715f.iterator();
         while (it.hasNext()) {
             it.next().l(z, this.m);
         }
@@ -384,7 +384,7 @@ public final class i implements g {
             if (i2 >= 0 && (wVar.p() || i2 < wVar.o())) {
                 if (e()) {
                     if (this.n == 0) {
-                        Iterator<q.b> it = this.f29687f.iterator();
+                        Iterator<q.b> it = this.f29715f.iterator();
                         while (it.hasNext()) {
                             it.next().e();
                         }
@@ -398,26 +398,26 @@ public final class i implements g {
                     this.w = j2 == -9223372036854775807L ? 0L : j2;
                     this.v = 0;
                 } else {
-                    wVar.l(i2, this.f29688g);
+                    wVar.l(i2, this.f29716g);
                     if (j2 == -9223372036854775807L) {
-                        a2 = this.f29688g.a();
+                        a2 = this.f29716g.a();
                     } else {
                         a2 = b.a(j2);
                     }
-                    w.c cVar = this.f29688g;
-                    int i3 = cVar.f29854f;
+                    w.c cVar = this.f29716g;
+                    int i3 = cVar.f29882f;
                     long c2 = cVar.c() + a2;
-                    long h2 = wVar.f(i3, this.f29689h).h();
-                    while (h2 != -9223372036854775807L && c2 >= h2 && i3 < this.f29688g.f29855g) {
+                    long h2 = wVar.f(i3, this.f29717h).h();
+                    while (h2 != -9223372036854775807L && c2 >= h2 && i3 < this.f29716g.f29883g) {
                         c2 -= h2;
                         i3++;
-                        h2 = wVar.f(i3, this.f29689h).h();
+                        h2 = wVar.f(i3, this.f29717h).h();
                     }
                     this.w = b.b(a2);
                     this.v = i3;
                 }
-                this.f29686e.L(wVar, i2, b.a(j2));
-                Iterator<q.b> it2 = this.f29687f.iterator();
+                this.f29714e.L(wVar, i2, b.a(j2));
+                Iterator<q.b> it2 = this.f29715f.iterator();
                 while (it2.hasNext()) {
                     it2.next().k(1);
                 }
@@ -434,8 +434,8 @@ public final class i implements g {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) {
             if (e()) {
                 o oVar = this.t;
-                oVar.a.f(oVar.f29822c.a, this.f29689h);
-                return this.f29689h.j() + b.b(this.t.f29824e);
+                oVar.a.f(oVar.f29850c.a, this.f29717h);
+                return this.f29717h.j() + b.b(this.t.f29852e);
             }
             return getCurrentPosition();
         }
@@ -460,9 +460,9 @@ public final class i implements g {
     public void release() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048600, this) == null) {
-            String str = "Release " + Integer.toHexString(System.identityHashCode(this)) + " [ExoPlayerLib/2.6.0] [" + c.i.b.a.i0.v.f29742e + "] [" + k.b() + PreferencesUtil.RIGHT_MOUNT;
-            this.f29686e.B();
-            this.f29685d.removeCallbacksAndMessages(null);
+            String str = "Release " + Integer.toHexString(System.identityHashCode(this)) + " [ExoPlayerLib/2.6.0] [" + c.i.b.a.i0.v.f29770e + "] [" + k.b() + PreferencesUtil.RIGHT_MOUNT;
+            this.f29714e.B();
+            this.f29713d.removeCallbacksAndMessages(null);
         }
     }
 
@@ -470,7 +470,7 @@ public final class i implements g {
     public void s(g.b... bVarArr) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048601, this, bVarArr) == null) {
-            this.f29686e.O(bVarArr);
+            this.f29714e.O(bVarArr);
         }
     }
 
@@ -481,8 +481,8 @@ public final class i implements g {
             return;
         }
         this.k = i2;
-        this.f29686e.W(i2);
-        Iterator<q.b> it = this.f29687f.iterator();
+        this.f29714e.W(i2);
+        Iterator<q.b> it = this.f29715f.iterator();
         while (it.hasNext()) {
             it.next().onRepeatModeChanged(i2);
         }
@@ -492,7 +492,7 @@ public final class i implements g {
     public void stop() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048603, this) == null) {
-            this.f29686e.d0();
+            this.f29714e.d0();
         }
     }
 
@@ -504,7 +504,7 @@ public final class i implements g {
             if (B()) {
                 return this.w;
             }
-            return z(this.t.f29826g);
+            return z(this.t.f29854g);
         }
         return invokeV.longValue;
     }
@@ -537,7 +537,7 @@ public final class i implements g {
             if (B()) {
                 return this.v;
             }
-            return this.t.f29822c.a;
+            return this.t.f29850c.a;
         }
         return invokeV.intValue;
     }
@@ -548,14 +548,14 @@ public final class i implements g {
             switch (message.what) {
                 case 0:
                     this.m = message.arg1;
-                    Iterator<q.b> it = this.f29687f.iterator();
+                    Iterator<q.b> it = this.f29715f.iterator();
                     while (it.hasNext()) {
-                        it.next().l(this.f29691j, this.m);
+                        it.next().l(this.f29719j, this.m);
                     }
                     return;
                 case 1:
                     this.p = message.arg1 != 0;
-                    Iterator<q.b> it2 = this.f29687f.iterator();
+                    Iterator<q.b> it2 = this.f29715f.iterator();
                     while (it2.hasNext()) {
                         it2.next().a(this.p);
                     }
@@ -563,11 +563,11 @@ public final class i implements g {
                 case 2:
                     if (this.o == 0) {
                         c.i.b.a.f0.i iVar = (c.i.b.a.f0.i) message.obj;
-                        this.f29690i = true;
+                        this.f29718i = true;
                         this.q = iVar.a;
-                        this.r = iVar.f29604c;
-                        this.f29683b.b(iVar.f29605d);
-                        Iterator<q.b> it3 = this.f29687f.iterator();
+                        this.r = iVar.f29632c;
+                        this.f29711b.b(iVar.f29633d);
+                        Iterator<q.b> it3 = this.f29715f.iterator();
                         while (it3.hasNext()) {
                             it3.next().i(this.q, this.r);
                         }
@@ -589,14 +589,14 @@ public final class i implements g {
                         return;
                     }
                     this.s = pVar;
-                    Iterator<q.b> it4 = this.f29687f.iterator();
+                    Iterator<q.b> it4 = this.f29715f.iterator();
                     while (it4.hasNext()) {
                         it4.next().j(pVar);
                     }
                     return;
                 case 7:
                     ExoPlaybackException exoPlaybackException = (ExoPlaybackException) message.obj;
-                    Iterator<q.b> it5 = this.f29687f.iterator();
+                    Iterator<q.b> it5 = this.f29715f.iterator();
                     while (it5.hasNext()) {
                         it5.next().d(exoPlaybackException);
                     }
@@ -617,7 +617,7 @@ public final class i implements g {
             this.n = i6;
             if (i5 == 0 && i6 == 0) {
                 o oVar2 = this.t;
-                boolean z2 = (oVar2.a == oVar.a && oVar2.f29821b == oVar.f29821b) ? false : true;
+                boolean z2 = (oVar2.a == oVar.a && oVar2.f29849b == oVar.f29849b) ? false : true;
                 this.t = oVar;
                 if (oVar.a.p()) {
                     this.v = 0;
@@ -625,13 +625,13 @@ public final class i implements g {
                     this.w = 0L;
                 }
                 if (z2) {
-                    Iterator<q.b> it = this.f29687f.iterator();
+                    Iterator<q.b> it = this.f29715f.iterator();
                     while (it.hasNext()) {
-                        it.next().c(oVar.a, oVar.f29821b);
+                        it.next().c(oVar.a, oVar.f29849b);
                     }
                 }
                 if (z) {
-                    Iterator<q.b> it2 = this.f29687f.iterator();
+                    Iterator<q.b> it2 = this.f29715f.iterator();
                     while (it2.hasNext()) {
                         it2.next().k(i4);
                     }
@@ -640,7 +640,7 @@ public final class i implements g {
             if (this.n != 0 || i3 <= 0) {
                 return;
             }
-            Iterator<q.b> it3 = this.f29687f.iterator();
+            Iterator<q.b> it3 = this.f29715f.iterator();
             while (it3.hasNext()) {
                 it3.next().e();
             }
@@ -652,12 +652,12 @@ public final class i implements g {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeJ = interceptable.invokeJ(1048610, this, j2)) == null) {
             long b2 = b.b(j2);
-            if (this.t.f29822c.b()) {
+            if (this.t.f29850c.b()) {
                 return b2;
             }
             o oVar = this.t;
-            oVar.a.f(oVar.f29822c.a, this.f29689h);
-            return b2 + this.f29689h.j();
+            oVar.a.f(oVar.f29850c.a, this.f29717h);
+            return b2 + this.f29717h.j();
         }
         return invokeJ.longValue;
     }

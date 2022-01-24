@@ -28,21 +28,21 @@ public class FloorImageTextViewNew extends AbsFloorImageTextView {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: j  reason: collision with root package name */
-    public static final int f40805j;
+    public static final int f40833j;
     public static final int k;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: f  reason: collision with root package name */
-    public TbRichTextView f40806f;
+    public TbRichTextView f40834f;
 
     /* renamed from: g  reason: collision with root package name */
-    public EditorScrollView f40807g;
+    public EditorScrollView f40835g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f40808h;
+    public int f40836h;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f40809i;
+    public boolean f40837i;
 
     static {
         InterceptResult invokeClinit;
@@ -57,7 +57,7 @@ public class FloorImageTextViewNew extends AbsFloorImageTextView {
                 return;
             }
         }
-        f40805j = n.f(TbadkApplication.getInst(), R.dimen.tbds348);
+        f40833j = n.f(TbadkApplication.getInst(), R.dimen.tbds348);
         k = n.f(TbadkApplication.getInst(), R.dimen.tbds308);
     }
 
@@ -79,7 +79,7 @@ public class FloorImageTextViewNew extends AbsFloorImageTextView {
                 return;
             }
         }
-        this.f40809i = false;
+        this.f40837i = false;
         b(context);
     }
 
@@ -89,9 +89,9 @@ public class FloorImageTextViewNew extends AbsFloorImageTextView {
         if (!(interceptable == null || interceptable.invokeZ(65538, this, z) == null) || (layoutParams = getLayoutParams()) == null) {
             return;
         }
-        setVisibility(this.f40809i ? 0 : 8);
+        setVisibility(this.f40837i ? 0 : 8);
         if (z) {
-            layoutParams.height = this.f40808h;
+            layoutParams.height = this.f40836h;
             setLayoutParams(layoutParams);
             return;
         }
@@ -106,14 +106,14 @@ public class FloorImageTextViewNew extends AbsFloorImageTextView {
         }
         if (((Integer) pair.second).intValue() > 2) {
             if (c()) {
-                this.f40808h = k + AbsFloorImageTextView.TOP + AbsFloorImageTextView.BOTTOM;
+                this.f40836h = k + AbsFloorImageTextView.TOP + AbsFloorImageTextView.BOTTOM;
             } else {
-                this.f40808h = f40805j + AbsFloorImageTextView.TOP + AbsFloorImageTextView.BOTTOM;
+                this.f40836h = f40833j + AbsFloorImageTextView.TOP + AbsFloorImageTextView.BOTTOM;
             }
         } else {
-            this.f40808h = -2;
+            this.f40836h = -2;
         }
-        checkAndSetViewHeight(this.f40808h);
+        checkAndSetViewHeight(this.f40836h);
     }
 
     public final void b(Context context) {
@@ -121,16 +121,16 @@ public class FloorImageTextViewNew extends AbsFloorImageTextView {
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
             LayoutInflater.from(context).inflate(R.layout.floorimage_textview_layout_new, (ViewGroup) this, true);
             TbRichTextView tbRichTextView = (TbRichTextView) findViewById(R.id.textview);
-            this.f40806f = tbRichTextView;
+            this.f40834f = tbRichTextView;
             tbRichTextView.setVerticalScrollBarEnabled(true);
-            this.f40806f.setTextSize(AbsFloorImageTextView.TEXT_SIZE);
-            this.f40806f.setTextColor(SkinManager.getColor(R.color.white_alpha83));
-            this.f40806f.hasShadow = true;
+            this.f40834f.setTextSize(AbsFloorImageTextView.TEXT_SIZE);
+            this.f40834f.setTextColor(SkinManager.getColor(R.color.white_alpha83));
+            this.f40834f.hasShadow = true;
             EditorScrollView editorScrollView = (EditorScrollView) findViewById(R.id.scrollview);
-            this.f40807g = editorScrollView;
+            this.f40835g = editorScrollView;
             editorScrollView.setPadding(0, n.f(TbadkApplication.getInst(), R.dimen.tbds34), 0, AbsFloorImageTextView.BOTTOM);
-            this.f40807g.setOnTouchListener(this.mTbGestureDetector);
-            ((ViewGroup.MarginLayoutParams) this.f40807g.getLayoutParams()).topMargin = n.f(TbadkApplication.getInst(), R.dimen.tbds174);
+            this.f40835g.setOnTouchListener(this.mTbGestureDetector);
+            ((ViewGroup.MarginLayoutParams) this.f40835g.getLayoutParams()).topMargin = n.f(TbadkApplication.getInst(), R.dimen.tbds174);
             setVisibility(8);
         }
     }
@@ -179,15 +179,15 @@ public class FloorImageTextViewNew extends AbsFloorImageTextView {
                 }
             }
             if (imageUrlData != null && jSONArray != null && jSONArray.length() > 0) {
-                this.f40809i = true;
+                this.f40837i = true;
                 b.a().d(TbadkCoreApplication.getInst().getResources().getColor(R.color.transparent));
                 TbRichText parse = TbRichTextView.parse(jSONArray, false);
                 a(measureTextViewHeightAndLine(parse.toString()));
-                this.f40806f.setText(parse);
+                this.f40834f.setText(parse);
             } else {
-                this.f40809i = false;
+                this.f40837i = false;
             }
-            setVisibility(this.f40809i ? 0 : 8);
+            setVisibility(this.f40837i ? 0 : 8);
         }
     }
 }

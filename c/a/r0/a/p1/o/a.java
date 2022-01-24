@@ -21,16 +21,16 @@ public class a implements Interceptor {
     @SuppressLint({"BDThrowableCheck"})
 
     /* renamed from: b  reason: collision with root package name */
-    public final e f8298b;
+    public final e f8440b;
 
     /* renamed from: c.a.r0.a.p1.o.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public class C0508a implements e {
+    public class C0517a implements e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ a a;
 
-        public C0508a(a aVar) {
+        public C0517a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -94,7 +94,7 @@ public class a implements Interceptor {
                 return;
             }
         }
-        this.f8298b = new C0508a(this);
+        this.f8440b = new C0517a(this);
     }
 
     public void b(b bVar) {
@@ -110,7 +110,7 @@ public class a implements Interceptor {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, chain)) == null) {
             Response proceed = chain.proceed(chain.request());
-            return proceed.newBuilder().body(new h(proceed.body(), this.f8298b)).build();
+            return proceed.newBuilder().body(new h(proceed.body(), this.f8440b)).build();
         }
         return (Response) invokeL.objValue;
     }

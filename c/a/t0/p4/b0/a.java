@@ -3,10 +3,10 @@ package c.a.t0.p4.b0;
 import android.text.InputFilter;
 import android.text.Spanned;
 import android.text.TextUtils;
+import android.widget.EditText;
 import androidx.core.view.InputDeviceCompat;
-import androidx.webkit.ProxyConfig;
 import c.a.s0.b.d;
-import c.a.s0.e1.o0;
+import c.a.s0.d1.o0;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.FileHelper;
@@ -30,20 +30,20 @@ public class a {
 
     /* renamed from: c.a.t0.p4.b0.a$a  reason: collision with other inner class name */
     /* loaded from: classes8.dex */
-    public static class C1318a implements InputFilter {
+    public static class C1329a implements InputFilter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public c f21037e;
+        public c f21271e;
 
         /* renamed from: f  reason: collision with root package name */
-        public int f21038f;
+        public int f21272f;
 
         /* renamed from: g  reason: collision with root package name */
-        public String f21039g;
+        public String f21273g;
 
-        public C1318a(int i2, c cVar) {
+        public C1329a(int i2, c cVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -58,9 +58,9 @@ public class a {
                     return;
                 }
             }
-            this.f21039g = "[^a-zA-Z0-9一-龥]";
-            this.f21038f = i2;
-            this.f21037e = cVar;
+            this.f21273g = "[^a-zA-Z0-9一-龥]";
+            this.f21272f = i2;
+            this.f21271e = cVar;
         }
 
         public final String a(String str, String str2) {
@@ -77,13 +77,13 @@ public class a {
                 if (spanned == null || charSequence == null) {
                     return charSequence;
                 }
-                String a = a(this.f21039g, charSequence.toString());
+                String a = a(this.f21273g, charSequence.toString());
                 int b2 = o0.b(spanned.toString()) - (i5 - i4);
                 int b3 = o0.b(a);
-                int i6 = this.f21038f;
+                int i6 = this.f21272f;
                 int i7 = i6 - b2;
                 if (b2 + b3 > i6) {
-                    c cVar = this.f21037e;
+                    c cVar = this.f21271e;
                     if (cVar != null) {
                         cVar.a();
                     }
@@ -101,17 +101,20 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public c f21040e;
+        public c f21274e;
 
         /* renamed from: f  reason: collision with root package name */
-        public int f21041f;
+        public EditText f21275f;
 
-        public b(int i2, c cVar) {
+        /* renamed from: g  reason: collision with root package name */
+        public int f21276g;
+
+        public b(EditText editText, int i2, c cVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i2), cVar};
+                Object[] objArr = {editText, Integer.valueOf(i2), cVar};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i3 = newInitContext.flag;
                 if ((i3 & 1) != 0) {
@@ -121,8 +124,9 @@ public class a {
                     return;
                 }
             }
-            this.f21041f = i2;
-            this.f21040e = cVar;
+            this.f21275f = editText;
+            this.f21276g = i2;
+            this.f21274e = cVar;
         }
 
         @Override // android.text.InputFilter
@@ -130,10 +134,15 @@ public class a {
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{charSequence, Integer.valueOf(i2), Integer.valueOf(i3), spanned, Integer.valueOf(i4), Integer.valueOf(i5)})) == null) {
-                if (spanned == null || charSequence == null || (o0.c(spanned.toString()) - (i5 - i4)) + o0.c(charSequence.toString()) <= this.f21041f) {
+                if (spanned == null || charSequence == null || " ".equals(charSequence)) {
                     return charSequence;
                 }
-                c cVar = this.f21040e;
+                int c2 = o0.c(spanned.toString()) - (i5 - i4);
+                int c3 = o0.c(charSequence.toString());
+                if (TextUtils.isEmpty(this.f21275f.getText()) || (c2 + c3) - o0.j(this.f21275f.getText().toString()) <= this.f21276g) {
+                    return charSequence;
+                }
+                c cVar = this.f21274e;
                 if (cVar != null) {
                     cVar.a();
                 }
@@ -176,7 +185,7 @@ public class a {
                 }
                 int[] imageFileWH = FileHelper.getImageFileWH(filePath);
                 if (imageFileWH[0] < 100 || imageFileWH[1] < 100) {
-                    e(2, imageFileWH[0] + ProxyConfig.MATCH_ALL_SCHEMES + imageFileWH[1]);
+                    e(2, imageFileWH[0] + "*" + imageFileWH[1]);
                     return true;
                 }
             }
@@ -190,8 +199,8 @@ public class a {
         String filePath;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, imageFileInfo)) == null) {
-            int l = c.a.s0.s.h0.b.k().l("key_upload_pic_max_width", 0);
-            int l2 = c.a.s0.s.h0.b.k().l("key_upload_pic_max_height", 0);
+            int l = c.a.s0.s.i0.b.k().l("key_upload_pic_max_width", 0);
+            int l2 = c.a.s0.s.i0.b.k().l("key_upload_pic_max_height", 0);
             if (l <= 0 || l2 <= 0 || imageFileInfo == null || imageFileInfo.isGif() || (filePath = imageFileInfo.getFilePath()) == null) {
                 return false;
             }
@@ -204,13 +213,13 @@ public class a {
     public static int c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? c.a.s0.s.h0.b.k().l("show_write_title_tip_count", 0) : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? c.a.s0.s.i0.b.k().l("show_write_title_tip_count", 0) : invokeV.intValue;
     }
 
     public static boolean d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? d.g0() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? d.l0() : invokeV.booleanValue;
     }
 
     public static void e(int i2, String str) {
@@ -225,6 +234,6 @@ public class a {
         if (!(interceptable == null || interceptable.invokeL(65542, null, writeData) == null) || writeData == null || !d() || TextUtils.isEmpty(writeData.getTitle())) {
             return;
         }
-        c.a.s0.s.h0.b.k().w("show_write_title_tip_count", c() + 1);
+        c.a.s0.s.i0.b.k().w("show_write_title_tip_count", c() + 1);
     }
 }

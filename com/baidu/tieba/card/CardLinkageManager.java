@@ -4,6 +4,7 @@ import android.view.View;
 import androidx.recyclerview.widget.RecyclerView;
 import c.a.d.n.e.n;
 import c.a.d.n.e.s;
+import c.a.s0.d1.f;
 import c.a.s0.s.u.c;
 import com.baidu.adp.widget.ListView.BdTypeRecyclerView;
 import com.baidu.android.imsdk.internal.Constants;
@@ -162,12 +163,14 @@ public final class CardLinkageManager {
             BaseCardInfo baseCardInfo = (BaseCardInfo) item;
             for (int firstVisiblePosition = bdTypeRecyclerView.getFirstVisiblePosition(); firstVisiblePosition <= lastVisiblePosition; firstVisiblePosition++) {
                 Object item2 = ListUtils.getItem(data, firstVisiblePosition - headerViewsCount);
-                if (!(item2 instanceof BaseCardInfo)) {
-                    if ((item2 instanceof n) && (findViewByPosition2 = layoutManager.findViewByPosition(firstVisiblePosition)) != null) {
-                        findViewByPosition2.setTranslationY(f2);
+                if (!f.d(item2)) {
+                    if (!(item2 instanceof BaseCardInfo)) {
+                        if ((item2 instanceof n) && (findViewByPosition2 = layoutManager.findViewByPosition(firstVisiblePosition)) != null) {
+                            findViewByPosition2.setTranslationY(f2);
+                        }
+                    } else if (baseCardInfo.position == ((BaseCardInfo) item2).position && (findViewByPosition = layoutManager.findViewByPosition(firstVisiblePosition)) != null) {
+                        findViewByPosition.setTranslationY(f2);
                     }
-                } else if (baseCardInfo.position == ((BaseCardInfo) item2).position && (findViewByPosition = layoutManager.findViewByPosition(firstVisiblePosition)) != null) {
-                    findViewByPosition.setTranslationY(f2);
                 }
             }
         }

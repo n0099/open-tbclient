@@ -4,7 +4,7 @@ import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
 import c.a.d.n.e.a;
-import c.a.t0.y0.x.c.b;
+import c.a.t0.z0.x.c.b;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.imsdk.internal.Constants;
@@ -55,7 +55,7 @@ public class EmotionHorizontalAdapter extends a<b, EmotionGridViewHolder> {
             if (!(interceptable == null || interceptable.invokeL(1048576, this, bVar) == null) || (emotionHorizontalView = this.a) == null || bVar == null) {
                 return;
             }
-            emotionHorizontalView.setData(bVar.f25804e);
+            emotionHorizontalView.setData(bVar.f26087e);
         }
     }
 

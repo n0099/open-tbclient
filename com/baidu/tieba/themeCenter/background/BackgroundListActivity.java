@@ -1,7 +1,7 @@
 package com.baidu.tieba.themeCenter.background;
 
 import android.os.Bundle;
-import c.a.s0.s.j0.f;
+import c.a.s0.s.k0.f;
 import c.a.t0.c4.e.d;
 import c.a.t0.c4.h.e;
 import com.baidu.adp.widget.ListView.BdListView;
@@ -16,7 +16,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public class BackgroundListActivity extends BaseActivity<BackgroundListActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -28,7 +28,7 @@ public class BackgroundListActivity extends BaseActivity<BackgroundListActivity>
     public BdListView.p mScrollToBottomListener;
     public c.a.t0.c4.e.f mView;
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes13.dex */
     public class a implements BackgroundListModel.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -69,13 +69,13 @@ public class BackgroundListActivity extends BaseActivity<BackgroundListActivity>
         }
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes13.dex */
     public class b implements BdListView.p {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ BackgroundListActivity f48423e;
+        public final /* synthetic */ BackgroundListActivity f48433e;
 
         public b(BackgroundListActivity backgroundListActivity) {
             Interceptable interceptable = $ic;
@@ -92,26 +92,26 @@ public class BackgroundListActivity extends BaseActivity<BackgroundListActivity>
                     return;
                 }
             }
-            this.f48423e = backgroundListActivity;
+            this.f48433e = backgroundListActivity;
         }
 
         @Override // com.baidu.adp.widget.ListView.BdListView.p
         public void onScrollToBottom() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f48423e.mModel == null) {
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f48433e.mModel == null) {
                 return;
             }
-            this.f48423e.mModel.w();
+            this.f48433e.mModel.w();
         }
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes13.dex */
     public class c implements f.g {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ BackgroundListActivity f48424e;
+        public final /* synthetic */ BackgroundListActivity f48434e;
 
         public c(BackgroundListActivity backgroundListActivity) {
             Interceptable interceptable = $ic;
@@ -128,16 +128,16 @@ public class BackgroundListActivity extends BaseActivity<BackgroundListActivity>
                     return;
                 }
             }
-            this.f48424e = backgroundListActivity;
+            this.f48434e = backgroundListActivity;
         }
 
-        @Override // c.a.s0.s.j0.f.g
+        @Override // c.a.s0.s.k0.f.g
         public void onListPullRefresh(boolean z) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeZ(1048576, this, z) == null) || this.f48424e.mModel == null) {
+            if (!(interceptable == null || interceptable.invokeZ(1048576, this, z) == null) || this.f48434e.mModel == null) {
                 return;
             }
-            this.f48424e.mModel.loadData();
+            this.f48434e.mModel.loadData();
         }
     }
 

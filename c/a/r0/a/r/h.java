@@ -22,7 +22,7 @@ public class h extends RequestBody {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final boolean f8447b;
+    public static final boolean f8589b;
     public transient /* synthetic */ FieldHolder $fh;
     public final File a;
 
@@ -39,7 +39,7 @@ public class h extends RequestBody {
                 return;
             }
         }
-        f8447b = k.a;
+        f8589b = k.a;
     }
 
     public h(File file) {
@@ -78,24 +78,24 @@ public class h extends RequestBody {
                                 try {
                                     mediaMetadataRetriever.release();
                                 } catch (Exception e2) {
-                                    if (f8447b) {
+                                    if (f8589b) {
                                         e2.printStackTrace();
                                     }
                                 }
                             } catch (Exception e3) {
-                                if (f8447b) {
+                                if (f8589b) {
                                     e3.printStackTrace();
                                 }
                                 return "image/jpeg";
                             }
                         } catch (Exception e4) {
-                            if (f8447b) {
+                            if (f8589b) {
                                 e4.printStackTrace();
                             }
                             return "image/jpeg";
                         }
                     } catch (Exception e5) {
-                        if (f8447b) {
+                        if (f8589b) {
                             e5.printStackTrace();
                         }
                     }
@@ -111,7 +111,7 @@ public class h extends RequestBody {
                     try {
                         mediaMetadataRetriever.release();
                     } catch (Exception e6) {
-                        if (f8447b) {
+                        if (f8589b) {
                             e6.printStackTrace();
                         }
                     }

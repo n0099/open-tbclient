@@ -23,6 +23,7 @@ import com.baidu.poly.widget.PayWebActivity;
 import com.baidu.poly.widget.PolyActivity;
 import com.baidu.poly.widget.PolyNoticeDialog;
 import com.baidu.poly.widget.PopupWindow;
+import com.baidu.searchbox.retrieve.inter.constants.StatConstants;
 import com.baidu.tbadk.core.util.TbEnum;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -41,13 +42,13 @@ public class d {
     public c.a.h0.s.c a;
 
     /* renamed from: b  reason: collision with root package name */
-    public c.a.h0.s.g.c f3654b;
+    public c.a.h0.s.g.c f3795b;
 
     /* renamed from: c  reason: collision with root package name */
-    public c.a.h0.s.f.a f3655c;
+    public c.a.h0.s.f.a f3796c;
 
     /* renamed from: d  reason: collision with root package name */
-    public PolyNoticeDialog f3656d;
+    public PolyNoticeDialog f3797d;
 
     /* loaded from: classes.dex */
     public class a extends c.a.h0.l.a<Map<String, String>> {
@@ -56,16 +57,16 @@ public class d {
         public final /* synthetic */ Bundle a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ PayChannelEntity f3657b;
+        public final /* synthetic */ PayChannelEntity f3798b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ ChannelListView f3658c;
+        public final /* synthetic */ ChannelListView f3799c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ String f3659d;
+        public final /* synthetic */ String f3800d;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d f3660e;
+        public final /* synthetic */ d f3801e;
 
         public a(d dVar, Bundle bundle, PayChannelEntity payChannelEntity, ChannelListView channelListView, String str) {
             Interceptable interceptable = $ic;
@@ -82,11 +83,11 @@ public class d {
                     return;
                 }
             }
-            this.f3660e = dVar;
+            this.f3801e = dVar;
             this.a = bundle;
-            this.f3657b = payChannelEntity;
-            this.f3658c = channelListView;
-            this.f3659d = str;
+            this.f3798b = payChannelEntity;
+            this.f3799c = channelListView;
+            this.f3800d = str;
         }
 
         @Override // c.a.h0.l.a
@@ -103,9 +104,9 @@ public class d {
                 String string2 = this.a.getString(PolyActivity.TRADE_TYPE);
                 h.g("onWindowFocusChanged panelType=" + string + ", tradeType=" + string2);
                 if (TextUtils.equals(string, PolyActivity.NONE_PANEL_TYPE) && TextUtils.equals(string2, PolyActivity.DIRECT_PAY_TRADE_TYPE)) {
-                    this.f3658c.errorEnd(c.a.h0.r.d.c(l.a().getString(i.pay_first_interface_fail) + message), str);
+                    this.f3799c.errorEnd(c.a.h0.r.d.c(l.a().getString(i.pay_first_interface_fail) + message), str);
                 } else {
-                    ChannelListView channelListView = this.f3658c;
+                    ChannelListView channelListView = this.f3799c;
                     channelListView.errorEnd(l.a().getString(i.pay_first_interface_fail) + message, str);
                 }
                 c.a.h0.p.c cVar = new c.a.h0.p.c("1");
@@ -121,30 +122,30 @@ public class d {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, map) == null) {
                 c.a.h0.n.c.b().d(map.get("orderInfoUrl"));
-                c.a.h0.p.f.f3612e = map.get("orderId");
+                c.a.h0.p.f.f3753e = map.get("orderId");
                 String str = map.get("logicType");
                 if (TextUtils.equals(str, "PASS_CHECK")) {
                     String str2 = map.get("authId");
-                    if (this.f3660e.f3655c != null) {
+                    if (this.f3801e.f3796c != null) {
                         c.a.h0.l.c cVar = new c.a.h0.l.c();
                         cVar.d("logicType", str);
                         cVar.d("authId", str2);
-                        this.f3660e.f3655c.showNeedAuthDialog(new c.a.h0.s.a(cVar, this.a, this.f3657b));
+                        this.f3801e.f3796c.showNeedAuthDialog(new c.a.h0.s.a(cVar, this.a, this.f3798b));
                     }
                 } else if (TextUtils.equals(str, "RISK_BLOCK")) {
-                    if (this.f3660e.f3655c != null) {
-                        this.f3660e.f3655c.showBlockDialog();
+                    if (this.f3801e.f3796c != null) {
+                        this.f3801e.f3796c.showBlockDialog();
                     }
                 } else if (TextUtils.equals(str, "DIRECT_OUTTER")) {
-                    this.f3660e.o(this.f3657b, this.f3658c, map);
+                    this.f3801e.o(this.f3798b, this.f3799c, map);
                 } else if (TextUtils.equals(str, "SDK_TO_AGREEMENT")) {
-                    this.f3660e.p(this.f3658c, map);
+                    this.f3801e.p(this.f3799c, map);
                 } else if (TextUtils.equals(str, "SIGN_AFTER_PAY")) {
-                    this.f3660e.q(this.f3658c, map);
+                    this.f3801e.q(this.f3799c, map);
                 } else if (!TextUtils.equals(str, "DIRECT_DRMB")) {
-                    this.f3660e.n(this.f3657b, this.f3658c, map, this.f3659d);
+                    this.f3801e.n(this.f3798b, this.f3799c, map, this.f3800d);
                 } else {
-                    this.f3658c.showVerifyView(map.get("orderId"), this.f3657b);
+                    this.f3799c.showVerifyView(map.get("orderId"), this.f3798b);
                 }
             }
         }
@@ -191,10 +192,10 @@ public class d {
         public final /* synthetic */ String a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ ChannelListView f3661b;
+        public final /* synthetic */ ChannelListView f3802b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ d f3662c;
+        public final /* synthetic */ d f3803c;
 
         public c(d dVar, String str, ChannelListView channelListView) {
             Interceptable interceptable = $ic;
@@ -211,9 +212,9 @@ public class d {
                     return;
                 }
             }
-            this.f3662c = dVar;
+            this.f3803c = dVar;
             this.a = str;
-            this.f3661b = channelListView;
+            this.f3802b = channelListView;
         }
 
         @Override // c.a.h0.s.g.a
@@ -221,20 +222,20 @@ public class d {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeIL(1048576, this, i2, str) == null) {
                 if (1 == i2) {
-                    this.f3662c.t(this.a, this.f3661b);
+                    this.f3803c.t(this.a, this.f3802b);
                 } else if (6 == i2) {
-                    if (this.f3662c.f3656d != null) {
-                        this.f3662c.f3656d.setTips("请点击查询按钮确认支付结果");
-                        this.f3662c.f3656d.stopLoadingAnim();
-                        this.f3662c.f3656d.setRightBtnEnable(true);
+                    if (this.f3803c.f3797d != null) {
+                        this.f3803c.f3797d.setTips("请点击查询按钮确认支付结果");
+                        this.f3803c.f3797d.stopLoadingAnim();
+                        this.f3803c.f3797d.setRightBtnEnable(true);
                     }
                 } else if (i2 == 0) {
                     c.a.h0.p.f.e(new c.a.h0.p.c("108"));
-                    this.f3661b.payEnd(i2, c.a.h0.r.e.a(i2, "", str), "0");
+                    this.f3802b.payEnd(i2, c.a.h0.r.e.a(i2, "", str), "0");
                 } else if (3 == i2) {
                     c.a.h0.p.f.e(new c.a.h0.p.c(TbEnum.SystemMessage.EVENT_ID_INVITE_GROUP));
-                    this.f3661b.payPause();
-                    this.f3662c.u(this.f3661b);
+                    this.f3802b.payPause();
+                    this.f3803c.u(this.f3802b);
                 }
             }
         }
@@ -242,12 +243,12 @@ public class d {
 
     /* renamed from: c.a.h0.s.d$d  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public class C0148d implements PolyNoticeDialog.a {
+    public class C0157d implements PolyNoticeDialog.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ PolyNoticeDialog a;
 
-        public C0148d(d dVar, PolyNoticeDialog polyNoticeDialog) {
+        public C0157d(d dVar, PolyNoticeDialog polyNoticeDialog) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -298,10 +299,10 @@ public class d {
         public final /* synthetic */ ChannelListView a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ String f3663b;
+        public final /* synthetic */ String f3804b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ d f3664c;
+        public final /* synthetic */ d f3805c;
 
         /* loaded from: classes.dex */
         public class a implements c.a.h0.s.g.a {
@@ -332,9 +333,9 @@ public class d {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeIL(1048576, this, i2, str) == null) {
                     if (6 == i2) {
-                        this.a.f3664c.f3656d.setTips("请点击查询按钮确认支付结果");
-                        this.a.f3664c.f3656d.stopLoadingAnim();
-                        this.a.f3664c.f3656d.setRightBtnEnable(true);
+                        this.a.f3805c.f3797d.setTips("请点击查询按钮确认支付结果");
+                        this.a.f3805c.f3797d.stopLoadingAnim();
+                        this.a.f3805c.f3797d.setRightBtnEnable(true);
                     } else if (i2 == 0) {
                         c.a.h0.p.f.e(new c.a.h0.p.c("108"));
                         this.a.a.payEnd(i2, c.a.h0.r.e.a(i2, "", str), "0");
@@ -342,7 +343,7 @@ public class d {
                         c.a.h0.p.f.e(new c.a.h0.p.c(TbEnum.SystemMessage.EVENT_ID_INVITE_GROUP));
                         this.a.a.payPause();
                         e eVar = this.a;
-                        eVar.f3664c.u(eVar.a);
+                        eVar.f3805c.u(eVar.a);
                     }
                 }
             }
@@ -363,20 +364,20 @@ public class d {
                     return;
                 }
             }
-            this.f3664c = dVar;
+            this.f3805c = dVar;
             this.a = channelListView;
-            this.f3663b = str;
+            this.f3804b = str;
         }
 
         @Override // com.baidu.poly.widget.PolyNoticeDialog.a
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f3664c.f3656d.setTitle("确认小额免密支付结果");
-                this.f3664c.f3656d.setTips("支付结果查询中 请稍后");
-                this.f3664c.f3656d.startLoadingAnim();
-                this.f3664c.f3656d.setActionLayoutBtnText("关闭", "查询");
-                this.f3664c.f3656d.setRightBtnEnable(false);
+                this.f3805c.f3797d.setTitle("确认小额免密支付结果");
+                this.f3805c.f3797d.setTips("支付结果查询中 请稍后");
+                this.f3805c.f3797d.startLoadingAnim();
+                this.f3805c.f3797d.setActionLayoutBtnText("关闭", "查询");
+                this.f3805c.f3797d.setRightBtnEnable(false);
             }
         }
 
@@ -395,13 +396,13 @@ public class d {
                 if (i2 == g.poly_notice_dialog_left_action_btn) {
                     c.a.h0.n.b.h().f();
                     this.a.payEnd(6, "支付结果查询失败，请重试", "0");
-                    this.f3664c.f3656d.dismiss();
+                    this.f3805c.f3797d.dismiss();
                 } else if (i2 == g.poly_notice_dialog_right_action_btn) {
                     c.a.h0.p.f.e(new c.a.h0.p.c("111"));
-                    this.f3664c.f3656d.setRightBtnEnable(false);
-                    this.f3664c.f3656d.startLoadingAnim();
-                    this.f3664c.f3656d.setTips("支付结果查询中 请稍后");
-                    c.a.h0.n.b.h().g(this.f3663b, new a(this));
+                    this.f3805c.f3797d.setRightBtnEnable(false);
+                    this.f3805c.f3797d.startLoadingAnim();
+                    this.f3805c.f3797d.setTips("支付结果查询中 请稍后");
+                    c.a.h0.n.b.h().g(this.f3804b, new a(this));
                 }
             }
         }
@@ -413,13 +414,13 @@ public class d {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PopupWindow f3665e;
+        public final /* synthetic */ PopupWindow f3806e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ ChannelListView f3666f;
+        public final /* synthetic */ ChannelListView f3807f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ String f3667g;
+        public final /* synthetic */ String f3808g;
 
         public f(d dVar, PopupWindow popupWindow, ChannelListView channelListView, String str) {
             Interceptable interceptable = $ic;
@@ -436,20 +437,20 @@ public class d {
                     return;
                 }
             }
-            this.f3665e = popupWindow;
-            this.f3666f = channelListView;
-            this.f3667g = str;
+            this.f3806e = popupWindow;
+            this.f3807f = channelListView;
+            this.f3808g = str;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                PopupWindow popupWindow = this.f3665e;
+                PopupWindow popupWindow = this.f3806e;
                 if (popupWindow != null && popupWindow.r()) {
-                    this.f3665e.n();
+                    this.f3806e.n();
                 }
-                this.f3666f.payEnd(0, this.f3667g, "0");
+                this.f3807f.payEnd(0, this.f3808g, "0");
             }
         }
     }
@@ -470,7 +471,7 @@ public class d {
             }
         }
         this.a = cVar;
-        this.f3655c = aVar;
+        this.f3796c = aVar;
     }
 
     public final void i(Map<String, String> map, PayChannelEntity payChannelEntity, String str, ChannelListView channelListView) {
@@ -520,7 +521,7 @@ public class d {
                     if (!TextUtils.isEmpty(str)) {
                         hashMap3.put("isFoldChannel", str);
                     }
-                    hashMap3.put("errMsg", e2.getMessage());
+                    hashMap3.put(StatConstants.KEY_EXT_ERR_MSG, e2.getMessage());
                     c.a.h0.p.b.c("8", hashMap3);
                     channelListView.errorEnd("launchpayment extData analyze failed ", null);
                     HashMap hashMap4 = new HashMap();
@@ -655,7 +656,7 @@ public class d {
                 Activity activity = (Activity) channelListView.getContext();
                 JSONObject jSONObject = new JSONObject(str);
                 String optString = jSONObject.optString("preEntrustWebId");
-                this.f3654b.a(activity, jSONObject.optString("wechatAppId"), optString);
+                this.f3795b.a(activity, jSONObject.optString("wechatAppId"), optString);
                 c.a.h0.n.c.b().e(new b(this, channelListView));
             } catch (Exception e2) {
                 e2.printStackTrace();
@@ -667,7 +668,7 @@ public class d {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048585, this, map, channelListView) == null) {
             String str = map.get("orderId");
-            c.a.h0.p.f.f3612e = str;
+            c.a.h0.p.f.f3753e = str;
             String str2 = map.get("extData");
             if (TextUtils.isEmpty(str2)) {
                 return;
@@ -703,7 +704,7 @@ public class d {
     public void s(c.a.h0.s.g.c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, cVar) == null) {
-            this.f3654b = cVar;
+            this.f3795b = cVar;
         }
     }
 
@@ -711,10 +712,10 @@ public class d {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048587, this, str, channelListView) == null) {
             PolyNoticeDialog polyNoticeDialog = new PolyNoticeDialog();
-            this.f3656d = polyNoticeDialog;
+            this.f3797d = polyNoticeDialog;
             polyNoticeDialog.setCancelable(false);
-            this.f3656d.setOptionOnClickListener(new e(this, channelListView, str));
-            this.f3656d.show(((Activity) channelListView.getContext()).getFragmentManager(), "QUERY_ORDER_NOTICE_FRAGMENT_TAG");
+            this.f3797d.setOptionOnClickListener(new e(this, channelListView, str));
+            this.f3797d.show(((Activity) channelListView.getContext()).getFragmentManager(), "QUERY_ORDER_NOTICE_FRAGMENT_TAG");
             c.a.h0.p.f.e(new c.a.h0.p.c(TbEnum.SystemMessage.EVENT_ID_COMMON));
         }
     }
@@ -724,7 +725,7 @@ public class d {
         if (interceptable == null || interceptable.invokeL(1048588, this, channelListView) == null) {
             PolyNoticeDialog polyNoticeDialog = new PolyNoticeDialog();
             polyNoticeDialog.setCancelable(true);
-            polyNoticeDialog.setOptionOnClickListener(new C0148d(this, polyNoticeDialog));
+            polyNoticeDialog.setOptionOnClickListener(new C0157d(this, polyNoticeDialog));
             polyNoticeDialog.show(((Activity) channelListView.getContext()).getFragmentManager(), "PAY_FAILED_NOTICE_FRAGMENT_TAG");
         }
     }

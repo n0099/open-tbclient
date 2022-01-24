@@ -100,7 +100,7 @@ public class f implements b<String> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            String a = c.a.r0.f.a.b.c.f10333b.a(this.a);
+            String a = c.a.r0.f.a.b.c.f10475b.a(this.a);
             if (TextUtils.isEmpty(a)) {
                 a = e();
             }

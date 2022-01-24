@@ -17,22 +17,22 @@ public class d implements c.a.r0.j.c.j.c {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public SwanAudioPlayer f10888e;
+    public SwanAudioPlayer f11030e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f10889f;
+    public String f11031f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f10890g;
+    public boolean f11032g;
 
     /* renamed from: h  reason: collision with root package name */
-    public float f10891h;
+    public float f11033h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f10892i;
+    public int f11034i;
 
     /* renamed from: j  reason: collision with root package name */
-    public MediaPlayer.OnPreparedListener f10893j;
+    public MediaPlayer.OnPreparedListener f11035j;
     public MediaPlayer.OnCompletionListener k;
     public MediaPlayer.OnErrorListener l;
     public MediaPlayer.OnSeekCompleteListener m;
@@ -45,7 +45,7 @@ public class d implements c.a.r0.j.c.j.c {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d f10894e;
+        public final /* synthetic */ d f11036e;
 
         public a(d dVar) {
             Interceptable interceptable = $ic;
@@ -62,16 +62,16 @@ public class d implements c.a.r0.j.c.j.c {
                     return;
                 }
             }
-            this.f10894e = dVar;
+            this.f11036e = dVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || 2 == this.f10894e.f10888e.getState(this.f10894e.f10892i)) {
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || 2 == this.f11036e.f11030e.getState(this.f11036e.f11034i)) {
                 return;
             }
-            this.f10894e.f10888e.play(this.f10894e.f10892i, this.f10894e.f10891h, this.f10894e.f10890g);
+            this.f11036e.f11030e.play(this.f11036e.f11034i, this.f11036e.f11033h, this.f11036e.f11032g);
         }
     }
 
@@ -81,7 +81,7 @@ public class d implements c.a.r0.j.c.j.c {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d f10895e;
+        public final /* synthetic */ d f11037e;
 
         public b(d dVar) {
             Interceptable interceptable = $ic;
@@ -98,14 +98,14 @@ public class d implements c.a.r0.j.c.j.c {
                     return;
                 }
             }
-            this.f10895e = dVar;
+            this.f11037e = dVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f10895e.f10888e.pause(this.f10895e.f10892i);
+                this.f11037e.f11030e.pause(this.f11037e.f11034i);
             }
         }
     }
@@ -116,10 +116,10 @@ public class d implements c.a.r0.j.c.j.c {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ float f10896e;
+        public final /* synthetic */ float f11038e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ d f10897f;
+        public final /* synthetic */ d f11039f;
 
         public c(d dVar, float f2) {
             Interceptable interceptable = $ic;
@@ -136,29 +136,29 @@ public class d implements c.a.r0.j.c.j.c {
                     return;
                 }
             }
-            this.f10897f = dVar;
-            this.f10896e = f2;
+            this.f11039f = dVar;
+            this.f11038e = f2;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f10897f.f10888e.seek(this.f10897f.f10892i, (int) this.f10896e);
+                this.f11039f.f11030e.seek(this.f11039f.f11034i, (int) this.f11038e);
             }
         }
     }
 
     /* renamed from: c.a.r0.j.c.j.d$d  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public class RunnableC0737d implements Runnable {
+    public class RunnableC0746d implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d f10898e;
+        public final /* synthetic */ d f11040e;
 
-        public RunnableC0737d(d dVar) {
+        public RunnableC0746d(d dVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -173,14 +173,14 @@ public class d implements c.a.r0.j.c.j.c {
                     return;
                 }
             }
-            this.f10898e = dVar;
+            this.f11040e = dVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f10898e.f10888e.stop(this.f10898e.f10892i);
+                this.f11040e.f11030e.stop(this.f11040e.f11034i);
             }
         }
     }
@@ -191,10 +191,10 @@ public class d implements c.a.r0.j.c.j.c {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f10899e;
+        public final /* synthetic */ String f11041e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ d f10900f;
+        public final /* synthetic */ d f11042f;
 
         /* loaded from: classes6.dex */
         public class a implements MediaPlayer.OnPreparedListener {
@@ -202,7 +202,7 @@ public class d implements c.a.r0.j.c.j.c {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ e f10901e;
+            public final /* synthetic */ e f11043e;
 
             public a(e eVar) {
                 Interceptable interceptable = $ic;
@@ -219,16 +219,16 @@ public class d implements c.a.r0.j.c.j.c {
                         return;
                     }
                 }
-                this.f10901e = eVar;
+                this.f11043e = eVar;
             }
 
             @Override // android.media.MediaPlayer.OnPreparedListener
             public void onPrepared(MediaPlayer mediaPlayer) {
                 Interceptable interceptable = $ic;
-                if (!(interceptable == null || interceptable.invokeL(1048576, this, mediaPlayer) == null) || this.f10901e.f10900f.f10893j == null) {
+                if (!(interceptable == null || interceptable.invokeL(1048576, this, mediaPlayer) == null) || this.f11043e.f11042f.f11035j == null) {
                     return;
                 }
-                this.f10901e.f10900f.f10893j.onPrepared(mediaPlayer);
+                this.f11043e.f11042f.f11035j.onPrepared(mediaPlayer);
             }
         }
 
@@ -238,7 +238,7 @@ public class d implements c.a.r0.j.c.j.c {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ e f10902e;
+            public final /* synthetic */ e f11044e;
 
             public b(e eVar) {
                 Interceptable interceptable = $ic;
@@ -255,16 +255,16 @@ public class d implements c.a.r0.j.c.j.c {
                         return;
                     }
                 }
-                this.f10902e = eVar;
+                this.f11044e = eVar;
             }
 
             @Override // android.media.MediaPlayer.OnCompletionListener
             public void onCompletion(MediaPlayer mediaPlayer) {
                 Interceptable interceptable = $ic;
-                if (!(interceptable == null || interceptable.invokeL(1048576, this, mediaPlayer) == null) || this.f10902e.f10900f.k == null) {
+                if (!(interceptable == null || interceptable.invokeL(1048576, this, mediaPlayer) == null) || this.f11044e.f11042f.k == null) {
                     return;
                 }
-                this.f10902e.f10900f.k.onCompletion(mediaPlayer);
+                this.f11044e.f11042f.k.onCompletion(mediaPlayer);
             }
         }
 
@@ -274,7 +274,7 @@ public class d implements c.a.r0.j.c.j.c {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ e f10903e;
+            public final /* synthetic */ e f11045e;
 
             public c(e eVar) {
                 Interceptable interceptable = $ic;
@@ -291,29 +291,29 @@ public class d implements c.a.r0.j.c.j.c {
                         return;
                     }
                 }
-                this.f10903e = eVar;
+                this.f11045e = eVar;
             }
 
             @Override // android.media.MediaPlayer.OnSeekCompleteListener
             public void onSeekComplete(MediaPlayer mediaPlayer) {
                 Interceptable interceptable = $ic;
-                if (!(interceptable == null || interceptable.invokeL(1048576, this, mediaPlayer) == null) || this.f10903e.f10900f.m == null) {
+                if (!(interceptable == null || interceptable.invokeL(1048576, this, mediaPlayer) == null) || this.f11045e.f11042f.m == null) {
                     return;
                 }
-                this.f10903e.f10900f.m.onSeekComplete(mediaPlayer);
+                this.f11045e.f11042f.m.onSeekComplete(mediaPlayer);
             }
         }
 
         /* renamed from: c.a.r0.j.c.j.d$e$d  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class C0738d implements MediaPlayer.OnErrorListener {
+        public class C0747d implements MediaPlayer.OnErrorListener {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ e f10904e;
+            public final /* synthetic */ e f11046e;
 
-            public C0738d(e eVar) {
+            public C0747d(e eVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -328,7 +328,7 @@ public class d implements c.a.r0.j.c.j.c {
                         return;
                     }
                 }
-                this.f10904e = eVar;
+                this.f11046e = eVar;
             }
 
             @Override // android.media.MediaPlayer.OnErrorListener
@@ -336,8 +336,8 @@ public class d implements c.a.r0.j.c.j.c {
                 InterceptResult invokeLII;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeLII = interceptable.invokeLII(1048576, this, mediaPlayer, i2, i3)) == null) {
-                    if (this.f10904e.f10900f.l != null) {
-                        return this.f10904e.f10900f.l.onError(mediaPlayer, i2, i3);
+                    if (this.f11046e.f11042f.l != null) {
+                        return this.f11046e.f11042f.l.onError(mediaPlayer, i2, i3);
                     }
                     return false;
                 }
@@ -347,12 +347,12 @@ public class d implements c.a.r0.j.c.j.c {
 
         /* renamed from: c.a.r0.j.c.j.d$e$e  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class C0739e implements c.a.r0.o.a.c {
+        public class C0748e implements c.a.r0.o.a.c {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ e a;
 
-            public C0739e(e eVar) {
+            public C0748e(e eVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -373,10 +373,10 @@ public class d implements c.a.r0.j.c.j.c {
             @Override // c.a.r0.o.a.c
             public void onPause() {
                 Interceptable interceptable = $ic;
-                if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.a.f10900f.n == null) {
+                if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.a.f11042f.n == null) {
                     return;
                 }
-                this.a.f10900f.n.onPause();
+                this.a.f11042f.n.onPause();
             }
         }
 
@@ -395,27 +395,27 @@ public class d implements c.a.r0.j.c.j.c {
                     return;
                 }
             }
-            this.f10900f = dVar;
-            this.f10899e = str;
+            this.f11042f = dVar;
+            this.f11041e = str;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f10900f.f10889f = this.f10899e;
-                File file = new File(this.f10899e);
+                this.f11042f.f11031f = this.f11041e;
+                File file = new File(this.f11041e);
                 if (!file.exists() || file.isDirectory()) {
                     return;
                 }
-                d dVar = this.f10900f;
-                dVar.f10892i = dVar.f10888e.setDataSource(this.f10899e, (int) file.length());
-                this.f10900f.f10888e.setOnPreparedListener(this.f10900f.f10892i, new a(this));
-                this.f10900f.f10888e.setOnCompletionListener(this.f10900f.f10892i, new b(this));
-                this.f10900f.f10888e.setOnSeekCompleteListener(this.f10900f.f10892i, new c(this));
-                this.f10900f.f10888e.setOnErrorListener(this.f10900f.f10892i, new C0738d(this));
-                this.f10900f.f10888e.setOnPauseListener(this.f10900f.f10892i, new C0739e(this));
-                this.f10900f.f10888e.prepare(this.f10900f.f10892i);
+                d dVar = this.f11042f;
+                dVar.f11034i = dVar.f11030e.setDataSource(this.f11041e, (int) file.length());
+                this.f11042f.f11030e.setOnPreparedListener(this.f11042f.f11034i, new a(this));
+                this.f11042f.f11030e.setOnCompletionListener(this.f11042f.f11034i, new b(this));
+                this.f11042f.f11030e.setOnSeekCompleteListener(this.f11042f.f11034i, new c(this));
+                this.f11042f.f11030e.setOnErrorListener(this.f11042f.f11034i, new C0747d(this));
+                this.f11042f.f11030e.setOnPauseListener(this.f11042f.f11034i, new C0748e(this));
+                this.f11042f.f11030e.prepare(this.f11042f.f11034i);
             }
         }
     }
@@ -426,10 +426,10 @@ public class d implements c.a.r0.j.c.j.c {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ boolean f10905e;
+        public final /* synthetic */ boolean f11047e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ d f10906f;
+        public final /* synthetic */ d f11048f;
 
         public f(d dVar, boolean z) {
             Interceptable interceptable = $ic;
@@ -446,18 +446,18 @@ public class d implements c.a.r0.j.c.j.c {
                     return;
                 }
             }
-            this.f10906f = dVar;
-            this.f10905e = z;
+            this.f11048f = dVar;
+            this.f11047e = z;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (2 == this.f10906f.f10888e.getState(this.f10906f.f10892i)) {
-                    this.f10906f.f10888e.setLoop(this.f10906f.f10892i, this.f10905e);
+                if (2 == this.f11048f.f11030e.getState(this.f11048f.f11034i)) {
+                    this.f11048f.f11030e.setLoop(this.f11048f.f11034i, this.f11047e);
                 }
-                this.f10906f.f10890g = this.f10905e;
+                this.f11048f.f11032g = this.f11047e;
             }
         }
     }
@@ -468,10 +468,10 @@ public class d implements c.a.r0.j.c.j.c {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ float f10907e;
+        public final /* synthetic */ float f11049e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ d f10908f;
+        public final /* synthetic */ d f11050f;
 
         public g(d dVar, float f2) {
             Interceptable interceptable = $ic;
@@ -488,18 +488,18 @@ public class d implements c.a.r0.j.c.j.c {
                     return;
                 }
             }
-            this.f10908f = dVar;
-            this.f10907e = f2;
+            this.f11050f = dVar;
+            this.f11049e = f2;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (2 == this.f10908f.f10888e.getState(this.f10908f.f10892i)) {
-                    this.f10908f.f10888e.setVolume(this.f10908f.f10892i, this.f10907e);
+                if (2 == this.f11050f.f11030e.getState(this.f11050f.f11034i)) {
+                    this.f11050f.f11030e.setVolume(this.f11050f.f11034i, this.f11049e);
                 }
-                this.f10908f.f10891h = this.f10907e;
+                this.f11050f.f11033h = this.f11049e;
             }
         }
     }
@@ -517,7 +517,7 @@ public class d implements c.a.r0.j.c.j.c {
                 return;
             }
         }
-        this.f10888e = SwanAudioPlayer.getInstance();
+        this.f11030e = SwanAudioPlayer.getInstance();
         this.o = c.a.r0.j.c.j.b.h().e();
     }
 
@@ -541,7 +541,7 @@ public class d implements c.a.r0.j.c.j.c {
     public void destroy() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.f10888e.release(this.f10892i);
+            this.f11030e.release(this.f11034i);
             stop();
         }
     }
@@ -565,7 +565,7 @@ public class d implements c.a.r0.j.c.j.c {
     public int getDuration() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f10888e.getDuration(this.f10892i) : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f11030e.getDuration(this.f11034i) : invokeV.intValue;
     }
 
     @Override // c.a.r0.j.c.j.c
@@ -580,7 +580,7 @@ public class d implements c.a.r0.j.c.j.c {
     public void j(MediaPlayer.OnPreparedListener onPreparedListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, onPreparedListener) == null) {
-            this.f10893j = onPreparedListener;
+            this.f11035j = onPreparedListener;
         }
     }
 
@@ -653,7 +653,7 @@ public class d implements c.a.r0.j.c.j.c {
     public void stop() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
-            this.o.post(new RunnableC0737d(this));
+            this.o.post(new RunnableC0746d(this));
         }
     }
 
@@ -661,6 +661,6 @@ public class d implements c.a.r0.j.c.j.c {
     public int v() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? this.f10888e.getPosition(this.f10892i) : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? this.f11030e.getPosition(this.f11034i) : invokeV.intValue;
     }
 }

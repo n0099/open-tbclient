@@ -15,7 +15,7 @@ public class CommonParam {
     public static final boolean a = false;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f31528b = "CommonParam";
+    public static final String f31556b = "CommonParam";
     public transient /* synthetic */ FieldHolder $fh;
 
     static {

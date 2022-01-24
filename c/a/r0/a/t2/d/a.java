@@ -61,14 +61,14 @@ public class a extends z {
             }
             c.a.r0.a.c0.c.g.a aVar = (c.a.r0.a.c0.c.g.a) c.a.r0.a.c0.d.a.a(bVar);
             if (aVar == null) {
-                String str = "can't find textarea component:#" + bVar.f5308f;
+                String str = "can't find textarea component:#" + bVar.f5450f;
                 d.c("CloseTextAreaAction", str);
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, str);
                 return false;
             }
             c.a.r0.a.c0.b.c B = aVar.B();
             if (!B.a()) {
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, B.f5313b);
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, B.f5455b);
                 return false;
             }
             UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));

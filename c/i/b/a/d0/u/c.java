@@ -15,25 +15,25 @@ public abstract class c implements Loader.c {
     public final c.i.b.a.h0.g a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final int f29147b;
+    public final int f29175b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final Format f29148c;
+    public final Format f29176c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final int f29149d;
+    public final int f29177d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final Object f29150e;
+    public final Object f29178e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final long f29151f;
+    public final long f29179f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final long f29152g;
+    public final long f29180g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final c.i.b.a.h0.e f29153h;
+    public final c.i.b.a.h0.e f29181h;
 
     public c(c.i.b.a.h0.e eVar, c.i.b.a.h0.g gVar, int i2, Format format, int i3, Object obj, long j2, long j3) {
         Interceptable interceptable = $ic;
@@ -51,15 +51,15 @@ public abstract class c implements Loader.c {
             }
         }
         c.i.b.a.i0.a.e(eVar);
-        this.f29153h = eVar;
+        this.f29181h = eVar;
         c.i.b.a.i0.a.e(gVar);
         this.a = gVar;
-        this.f29147b = i2;
-        this.f29148c = format;
-        this.f29149d = i3;
-        this.f29150e = obj;
-        this.f29151f = j2;
-        this.f29152g = j3;
+        this.f29175b = i2;
+        this.f29176c = format;
+        this.f29177d = i3;
+        this.f29178e = obj;
+        this.f29179f = j2;
+        this.f29180g = j3;
     }
 
     public abstract long b();
@@ -67,6 +67,6 @@ public abstract class c implements Loader.c {
     public final long c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f29152g - this.f29151f : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f29180g - this.f29179f : invokeV.longValue;
     }
 }

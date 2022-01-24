@@ -29,7 +29,7 @@ public class fe {
     public short f384a;
 
     /* renamed from: b  reason: collision with root package name */
-    public byte[] f61076b;
+    public byte[] f61121b;
 
     /* loaded from: classes4.dex */
     public static class a {
@@ -69,7 +69,7 @@ public class fe {
             if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, bArr, bVar)) == null) {
                 if (fe.m377a(bArr)) {
                     fe a2 = fe.a(bArr);
-                    return (a2.f382a == 0 || a2.f382a != bVar.a()) ? a2.f61076b : bVar.a(a2.f61076b, a2.f383a);
+                    return (a2.f382a == 0 || a2.f382a != bVar.a()) ? a2.f61121b : bVar.a(a2.f61121b, a2.f383a);
                 }
                 return bArr;
             }
@@ -235,7 +235,7 @@ public class fe {
         this.f384a = s;
         this.f382a = b2;
         this.f383a = i2;
-        this.f61076b = bArr;
+        this.f61121b = bArr;
     }
 
     public static fe a(byte b2, int i2, byte[] bArr) {

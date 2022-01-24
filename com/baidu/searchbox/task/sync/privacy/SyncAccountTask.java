@@ -1,6 +1,6 @@
 package com.baidu.searchbox.task.sync.privacy;
 
-import c.a.s0.s.b0.a;
+import c.a.s0.s.c0.a;
 import c.a.s0.s.l.c;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;

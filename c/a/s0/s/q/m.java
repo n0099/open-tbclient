@@ -14,10 +14,10 @@ public class m implements c.a.s0.s.w.b.a {
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f13456b;
+    public String f13642b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f13457c;
+    public String f13643c;
 
     public m() {
         Interceptable interceptable = $ic;
@@ -44,13 +44,13 @@ public class m implements c.a.s0.s.w.b.a {
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f13456b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f13642b : (String) invokeV.objValue;
     }
 
     public String c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f13456b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f13642b : (String) invokeV.objValue;
     }
 
     public String d() {
@@ -62,7 +62,7 @@ public class m implements c.a.s0.s.w.b.a {
     public String e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f13457c : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f13643c : (String) invokeV.objValue;
     }
 
     public void f(BannerImage bannerImage) {
@@ -71,14 +71,14 @@ public class m implements c.a.s0.s.w.b.a {
             return;
         }
         this.a = bannerImage.img_url;
-        this.f13456b = bannerImage.ahead_url;
-        this.f13457c = bannerImage.title;
+        this.f13642b = bannerImage.ahead_url;
+        this.f13643c = bannerImage.title;
     }
 
     public void g(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
-            this.f13456b = str;
+            this.f13642b = str;
         }
     }
 }

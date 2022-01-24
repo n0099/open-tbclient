@@ -37,6 +37,10 @@ public final class LogoActivityStaticAutoGenerateUrlCollectorImpl implements ICm
             HashMap hashMap = new HashMap();
             new ArrayList();
             hashMap.put("2002001", "com.baidu.tieba.LogoActivityStatic");
+            hashMap.put("2016521", "com.baidu.tieba.LogoActivityStatic");
+            hashMap.put("2016520", "com.baidu.tieba.LogoActivityStatic");
+            hashMap.put("2016522", "com.baidu.tieba.LogoActivityStatic");
+            hashMap.put("2016523", "com.baidu.tieba.LogoActivityStatic");
             return hashMap;
         }
         return (Map) invokeV.objValue;

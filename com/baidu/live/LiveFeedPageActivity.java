@@ -84,10 +84,10 @@ public class LiveFeedPageActivity extends AppCompatActivity {
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: e  reason: collision with root package name */
-                    public final /* synthetic */ String f34673e;
+                    public final /* synthetic */ String f34701e;
 
                     /* renamed from: f  reason: collision with root package name */
-                    public final /* synthetic */ LiveFeedPageActivity f34674f;
+                    public final /* synthetic */ LiveFeedPageActivity f34702f;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -104,8 +104,8 @@ public class LiveFeedPageActivity extends AppCompatActivity {
                                 return;
                             }
                         }
-                        this.f34674f = this;
-                        this.f34673e = str;
+                        this.f34702f = this;
+                        this.f34701e = str;
                     }
 
                     @Override // java.lang.Runnable
@@ -115,7 +115,7 @@ public class LiveFeedPageActivity extends AppCompatActivity {
                         if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || (g2 = LiveFeedPageSdk.f().g()) == null) {
                             return;
                         }
-                        g2.invokeScheme(this.f34674f, this.f34673e);
+                        g2.invokeScheme(this.f34702f, this.f34701e);
                     }
                 }, 350L);
             }

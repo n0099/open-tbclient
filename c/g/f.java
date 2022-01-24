@@ -14,10 +14,10 @@ public class f {
     public static final a a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static long f28395b;
+    public static long f28423b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static long f28396c;
+    public static long f28424c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes9.dex */
@@ -27,13 +27,13 @@ public class f {
         public long a;
 
         /* renamed from: b  reason: collision with root package name */
-        public long f28397b;
+        public long f28425b;
 
         /* renamed from: c  reason: collision with root package name */
-        public long f28398c;
+        public long f28426c;
 
         /* renamed from: d  reason: collision with root package name */
-        public long f28399d;
+        public long f28427d;
 
         public a() {
             Interceptable interceptable = $ic;

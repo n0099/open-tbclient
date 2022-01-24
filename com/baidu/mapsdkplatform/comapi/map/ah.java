@@ -22,8 +22,8 @@ public class ah extends d {
                 return;
             }
         }
-        this.f35856c = 2;
-        this.f35855b = "android_sdk";
-        this.f35857d = 0;
+        this.f35884c = 2;
+        this.f35883b = "android_sdk";
+        this.f35885d = 0;
     }
 }

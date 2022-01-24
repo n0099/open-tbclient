@@ -24,7 +24,7 @@ public final class n {
     public long a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f13775b;
+    public long f13920b;
 
     public n() {
         Interceptable interceptable = $ic;
@@ -40,7 +40,7 @@ public final class n {
             }
         }
         this.a = -1L;
-        this.f13775b = -1L;
+        this.f13920b = -1L;
     }
 
     public void a() {
@@ -100,7 +100,7 @@ public final class n {
                 th = th2;
             }
             if (j3 <= 0) {
-                this.f13775b = this.a - j3;
+                this.f13920b = this.a - j3;
             }
         }
     }
@@ -109,10 +109,10 @@ public final class n {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (this.f13775b == -1) {
+            if (this.f13920b == -1) {
                 b();
             }
-            return this.f13775b;
+            return this.f13920b;
         }
         return invokeV.longValue;
     }

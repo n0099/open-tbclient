@@ -14,16 +14,16 @@ public class ap {
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f36417b;
+    public long f36445b;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f36418c;
+    public long f36446c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f36419d;
+    public boolean f36447d;
 
     /* renamed from: e  reason: collision with root package name */
-    public long f36420e;
+    public long f36448e;
 
     public ap(String str, long j2, long j3, long j4, boolean z) {
         Interceptable interceptable = $ic;
@@ -41,41 +41,41 @@ public class ap {
             }
         }
         this.a = str;
-        this.f36417b = j2;
-        this.f36418c = j3;
-        this.f36420e = j4;
-        this.f36419d = z;
+        this.f36445b = j2;
+        this.f36446c = j3;
+        this.f36448e = j4;
+        this.f36447d = z;
     }
 
     public void a(long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j2) == null) {
-            this.f36418c = j2;
+            this.f36446c = j2;
         }
     }
 
     public long b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f36417b : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f36445b : invokeV.longValue;
     }
 
     public long c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f36418c : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f36446c : invokeV.longValue;
     }
 
     public boolean d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f36419d : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f36447d : invokeV.booleanValue;
     }
 
     public long e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f36420e : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f36448e : invokeV.longValue;
     }
 
     public String a() {
@@ -87,7 +87,7 @@ public class ap {
     public void b(long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048580, this, j2) == null) {
-            this.f36420e = j2;
+            this.f36448e = j2;
         }
     }
 
@@ -98,9 +98,9 @@ public class ap {
             JSONObject jSONObject = new JSONObject();
             try {
                 jSONObject.put("name", str);
-                jSONObject.put("s", this.f36417b);
-                jSONObject.put("e", this.f36418c);
-                jSONObject.put("user", this.f36419d ? 1 : 0);
+                jSONObject.put("s", this.f36445b);
+                jSONObject.put("e", this.f36446c);
+                jSONObject.put("user", this.f36447d ? 1 : 0);
                 return jSONObject;
             } catch (Exception unused) {
                 return null;

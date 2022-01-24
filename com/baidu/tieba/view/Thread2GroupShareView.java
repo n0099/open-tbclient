@@ -18,28 +18,28 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public final class Thread2GroupShareView extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public LinearLayout f49232e;
+    public LinearLayout f49251e;
 
     /* renamed from: f  reason: collision with root package name */
-    public EditText f49233f;
+    public EditText f49252f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TbImageView f49234g;
+    public TbImageView f49253g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f49235h;
+    public TextView f49254h;
 
     /* renamed from: i  reason: collision with root package name */
-    public TextView f49236i;
+    public TextView f49255i;
 
     /* renamed from: j  reason: collision with root package name */
-    public ShareFromPBMsgData f49237j;
+    public ShareFromPBMsgData f49256j;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public Thread2GroupShareView(Context context, AttributeSet attributeSet) {
@@ -68,16 +68,16 @@ public final class Thread2GroupShareView extends LinearLayout {
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
             LayoutInflater.from(context).inflate(R.layout.thread_to_group_share_view, this);
             setOrientation(1);
-            this.f49232e = (LinearLayout) findViewById(R.id.share_content);
-            this.f49236i = (TextView) findViewById(R.id.share_title_view);
-            this.f49233f = (EditText) findViewById(R.id.chat_msg);
-            this.f49234g = (TbImageView) findViewById(R.id.chat_group_img);
-            this.f49235h = (TextView) findViewById(R.id.chat_group_desc);
-            SkinManager.setViewTextColor(this.f49236i, R.color.CAM_X0105, 1);
-            SkinManager.setViewTextColor(this.f49233f, R.color.CAM_X0105, 2);
-            SkinManager.setViewTextColor(this.f49235h, R.color.CAM_X0106, 1);
-            this.f49233f.setHintTextColor(SkinManager.getColor(R.color.CAM_X0110));
-            this.f49233f.setPadding(context.getResources().getDimensionPixelSize(R.dimen.ds20), 0, 0, 0);
+            this.f49251e = (LinearLayout) findViewById(R.id.share_content);
+            this.f49255i = (TextView) findViewById(R.id.share_title_view);
+            this.f49252f = (EditText) findViewById(R.id.chat_msg);
+            this.f49253g = (TbImageView) findViewById(R.id.chat_group_img);
+            this.f49254h = (TextView) findViewById(R.id.chat_group_desc);
+            SkinManager.setViewTextColor(this.f49255i, R.color.CAM_X0105, 1);
+            SkinManager.setViewTextColor(this.f49252f, R.color.CAM_X0105, 2);
+            SkinManager.setViewTextColor(this.f49254h, R.color.CAM_X0106, 1);
+            this.f49252f.setHintTextColor(SkinManager.getColor(R.color.CAM_X0110));
+            this.f49252f.setPadding(context.getResources().getDimensionPixelSize(R.dimen.ds20), 0, 0, 0);
             hideEditTextCursor();
         }
     }
@@ -85,23 +85,23 @@ public final class Thread2GroupShareView extends LinearLayout {
     public final void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f49236i.setText(this.f49237j.getTitle());
-            this.f49234g.setTag(this.f49237j.getImageUrl());
-            this.f49235h.setText(this.f49237j.getContent());
+            this.f49255i.setText(this.f49256j.getTitle());
+            this.f49253g.setTag(this.f49256j.getImageUrl());
+            this.f49254h.setText(this.f49256j.getContent());
         }
     }
 
     public EditText getChatMsgView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f49233f : (EditText) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f49252f : (EditText) invokeV.objValue;
     }
 
     public String getLeaveMsg() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            EditText editText = this.f49233f;
+            EditText editText = this.f49252f;
             if (editText != null) {
                 return m.charSequence2String(editText.getText(), null);
             }
@@ -113,16 +113,16 @@ public final class Thread2GroupShareView extends LinearLayout {
     public void hideEditTextCursor() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            this.f49232e.setFocusable(true);
-            this.f49232e.setFocusableInTouchMode(true);
-            this.f49232e.requestFocus();
+            this.f49251e.setFocusable(true);
+            this.f49251e.setFocusableInTouchMode(true);
+            this.f49251e.requestFocus();
         }
     }
 
     public void loadImageIcon(String str, boolean z) {
         TbImageView tbImageView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLZ(1048583, this, str, z) == null) || (tbImageView = this.f49234g) == null) {
+        if (!(interceptable == null || interceptable.invokeLZ(1048583, this, str, z) == null) || (tbImageView = this.f49253g) == null) {
             return;
         }
         tbImageView.startLoad(str, z ? 17 : 18, false);
@@ -131,7 +131,7 @@ public final class Thread2GroupShareView extends LinearLayout {
     public void setData(ShareFromPBMsgData shareFromPBMsgData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, shareFromPBMsgData) == null) {
-            this.f49237j = shareFromPBMsgData;
+            this.f49256j = shareFromPBMsgData;
             b();
         }
     }

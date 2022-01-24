@@ -31,7 +31,7 @@ public class c {
     public c.a.m.j.d.d a;
 
     /* renamed from: b  reason: collision with root package name */
-    public List<b> f4249b;
+    public List<b> f4390b;
 
     /* loaded from: classes.dex */
     public class a implements Comparator<b> {
@@ -61,15 +61,15 @@ public class c {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, bVar, bVar2)) == null) {
-                int i2 = bVar2.f4246b - bVar.f4246b;
+                int i2 = bVar2.f4387b - bVar.f4387b;
                 if (i2 == 0) {
-                    if (bVar.f4248d && bVar2.f4248d) {
+                    if (bVar.f4389d && bVar2.f4389d) {
                         return 0;
                     }
-                    if (bVar.f4248d) {
+                    if (bVar.f4389d) {
                         return -1;
                     }
-                    if (bVar2.f4248d) {
+                    if (bVar2.f4389d) {
                         return 1;
                     }
                 }
@@ -152,10 +152,10 @@ public class c {
                                     byte[] b2 = c.a.m.k.a.b(string.getBytes("utf-8"));
                                     JSONObject jSONObject = new JSONObject(new String(b2));
                                     b bVar = new b();
-                                    bVar.f4246b = jSONObject.getInt("priority");
+                                    bVar.f4387b = jSONObject.getInt("priority");
                                     bVar.a = resolveInfo.activityInfo.applicationInfo;
                                     if (context.getPackageName().equals(resolveInfo.activityInfo.applicationInfo.packageName)) {
-                                        bVar.f4248d = true;
+                                        bVar.f4389d = true;
                                     }
                                     if (z) {
                                         String string2 = bundle.getString("galaxy_sf");
@@ -170,7 +170,7 @@ public class c {
                                             if (e(strArr, g(packageInfo.signatures))) {
                                                 byte[] f2 = f(c.a.m.k.a.b(string2.getBytes()), this.a);
                                                 if (f2 != null && Arrays.equals(f2, c.a.m.k.c.a(b2))) {
-                                                    bVar.f4247c = true;
+                                                    bVar.f4388c = true;
                                                 }
                                             }
                                         }
@@ -206,7 +206,7 @@ public class c {
                 }
                 return false;
             }
-            boolean z = b2.get(0).f4247c;
+            boolean z = b2.get(0).f4388c;
             if (!z) {
                 for (int i3 = 0; i3 < 3; i3++) {
                 }
@@ -254,13 +254,13 @@ public class c {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, context)) == null) {
-            List<b> list = this.f4249b;
+            List<b> list = this.f4390b;
             if (list != null) {
                 return list;
             }
             d(context);
             List<b> b2 = b(context, new Intent("com.baidu.intent.action.GALAXY"), true);
-            this.f4249b = b2;
+            this.f4390b = b2;
             return b2;
         }
         return (List) invokeL.objValue;

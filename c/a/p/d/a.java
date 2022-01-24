@@ -16,7 +16,7 @@ public class a implements FlutterPlugin, MethodChannel.MethodCallHandler {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public MethodChannel f4536e;
+    public MethodChannel f4678e;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -37,7 +37,7 @@ public class a implements FlutterPlugin, MethodChannel.MethodCallHandler {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, flutterPluginBinding) == null) {
             MethodChannel methodChannel = new MethodChannel(flutterPluginBinding.getFlutterEngine().getDartExecutor(), "flutter_open_page_perf");
-            this.f4536e = methodChannel;
+            this.f4678e = methodChannel;
             methodChannel.setMethodCallHandler(this);
         }
     }
@@ -46,7 +46,7 @@ public class a implements FlutterPlugin, MethodChannel.MethodCallHandler {
     public void onDetachedFromEngine(@NonNull FlutterPlugin.FlutterPluginBinding flutterPluginBinding) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, flutterPluginBinding) == null) {
-            this.f4536e.setMethodCallHandler(null);
+            this.f4678e.setMethodCallHandler(null);
         }
     }
 

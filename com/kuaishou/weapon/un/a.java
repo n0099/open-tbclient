@@ -10,23 +10,23 @@ public final class a {
     public static final boolean a = false;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f55028b = "com.kuaishou.weapon";
+    public static final String f55073b = "com.kuaishou.weapon";
     @Deprecated
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f55029c = "com.kuaishou.weapon";
+    public static final String f55074c = "com.kuaishou.weapon";
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f55030d = "release";
+    public static final String f55075d = "release";
 
     /* renamed from: e  reason: collision with root package name */
-    public static final String f55031e = "";
+    public static final String f55076e = "";
 
     /* renamed from: f  reason: collision with root package name */
-    public static final int f55032f = 1;
+    public static final int f55077f = 1;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final String f55033g = "2.8.3";
+    public static final String f55078g = "2.8.3";
     public transient /* synthetic */ FieldHolder $fh;
 
     public a() {

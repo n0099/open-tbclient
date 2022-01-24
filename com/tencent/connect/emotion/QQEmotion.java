@@ -101,8 +101,8 @@ public class QQEmotion extends BaseApi {
                     }
                     stringBuffer.append("&app_name=" + Base64.encodeToString(l.i(a), 2));
                 }
-                String appId = this.f60431c.getAppId();
-                String openId = this.f60431c.getOpenId();
+                String appId = this.f60476c.getAppId();
+                String openId = this.f60476c.getOpenId();
                 if (!TextUtils.isEmpty(appId)) {
                     stringBuffer.append("&share_id=" + appId);
                 }

@@ -28,22 +28,22 @@ public final class o {
     @Nullable
 
     /* renamed from: b  reason: collision with root package name */
-    public final Signature[] f53074b;
+    public final Signature[] f53119b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final int f53075c;
+    public final int f53120c;
     @Nullable
 
     /* renamed from: d  reason: collision with root package name */
-    public final ArraySet<PublicKey> f53076d;
+    public final ArraySet<PublicKey> f53121d;
     @Nullable
 
     /* renamed from: e  reason: collision with root package name */
-    public final Signature[] f53077e;
+    public final Signature[] f53122e;
     @Nullable
 
     /* renamed from: f  reason: collision with root package name */
-    public final int[] f53078f;
+    public final int[] f53123f;
 
     static {
         InterceptResult invokeClinit;
@@ -76,11 +76,11 @@ public final class o {
                 return;
             }
         }
-        this.f53074b = signatureArr;
-        this.f53075c = i2;
-        this.f53076d = arraySet;
-        this.f53077e = signatureArr2;
-        this.f53078f = iArr;
+        this.f53119b = signatureArr;
+        this.f53120c = i2;
+        this.f53121d = arraySet;
+        this.f53122e = signatureArr2;
+        this.f53123f = iArr;
     }
 
     public static ArraySet<PublicKey> a(Signature[] signatureArr) {
@@ -134,16 +134,16 @@ public final class o {
             }
             if (obj instanceof o) {
                 o oVar = (o) obj;
-                if (this.f53075c == oVar.f53075c && a(this.f53074b, oVar.f53074b)) {
-                    ArraySet<PublicKey> arraySet = this.f53076d;
+                if (this.f53120c == oVar.f53120c && a(this.f53119b, oVar.f53119b)) {
+                    ArraySet<PublicKey> arraySet = this.f53121d;
                     if (arraySet != null) {
-                        if (!arraySet.equals(oVar.f53076d)) {
+                        if (!arraySet.equals(oVar.f53121d)) {
                             return false;
                         }
-                    } else if (oVar.f53076d != null) {
+                    } else if (oVar.f53121d != null) {
                         return false;
                     }
-                    return Arrays.equals(this.f53077e, oVar.f53077e) && Arrays.equals(this.f53078f, oVar.f53078f);
+                    return Arrays.equals(this.f53122e, oVar.f53122e) && Arrays.equals(this.f53123f, oVar.f53123f);
                 }
                 return false;
             }
@@ -156,9 +156,9 @@ public final class o {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            int hashCode = ((Arrays.hashCode(this.f53074b) * 31) + this.f53075c) * 31;
-            ArraySet<PublicKey> arraySet = this.f53076d;
-            return ((((hashCode + (arraySet != null ? arraySet.hashCode() : 0)) * 31) + Arrays.hashCode(this.f53077e)) * 31) + Arrays.hashCode(this.f53078f);
+            int hashCode = ((Arrays.hashCode(this.f53119b) * 31) + this.f53120c) * 31;
+            ArraySet<PublicKey> arraySet = this.f53121d;
+            return ((((hashCode + (arraySet != null ? arraySet.hashCode() : 0)) * 31) + Arrays.hashCode(this.f53122e)) * 31) + Arrays.hashCode(this.f53123f);
         }
         return invokeV.intValue;
     }

@@ -115,12 +115,12 @@ public final class b {
 
     /* renamed from: com.bytedance.pangle.receiver.b$b  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public static class C2042b extends e {
+    public static class C2048b extends e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public C2042b() {
+        public C2048b() {
             super((byte) 0);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -147,7 +147,7 @@ public final class b {
             return invokeL.booleanValue;
         }
 
-        public /* synthetic */ C2042b(byte b2) {
+        public /* synthetic */ C2048b(byte b2) {
             this();
         }
     }
@@ -270,7 +270,7 @@ public final class b {
         } else if (i2 < 28) {
             a = new e((byte) 0);
         } else {
-            a = new C2042b((byte) 0);
+            a = new C2048b((byte) 0);
         }
     }
 

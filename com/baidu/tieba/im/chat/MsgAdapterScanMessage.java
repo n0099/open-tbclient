@@ -19,7 +19,7 @@ public class MsgAdapterScanMessage extends CustomResponsedMessage<a> {
         public TbPageContext<MsglistActivity<?>> a;
 
         /* renamed from: b  reason: collision with root package name */
-        public List<MsgCommonItemAdapter> f44808b;
+        public List<MsgCommonItemAdapter> f44836b;
 
         public a() {
             Interceptable interceptable = $ic;

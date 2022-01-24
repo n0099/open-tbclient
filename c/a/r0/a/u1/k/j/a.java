@@ -2,6 +2,7 @@ package c.a.r0.a.u1.k.j;
 
 import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.retrieve.log.bean.FetchLog;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -19,10 +20,10 @@ public class a implements c {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f9398b;
+    public String f9540b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Set<String> f9399c;
+    public Set<String> f9541c;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -37,8 +38,8 @@ public class a implements c {
                 return;
             }
         }
-        this.f9398b = "boxjs.";
-        this.f9399c = Sets.newHashSet("getAppInfoSync", "performpanel", "statisticEvent", "ubcReport", "getSlaveIdSync", "ubcFlowJar");
+        this.f9540b = "boxjs.";
+        this.f9541c = Sets.newHashSet("getAppInfoSync", "performpanel", "statisticEvent", "ubcReport", "getSlaveIdSync", "ubcFlowJar");
     }
 
     @Override // c.a.r0.a.u1.k.j.c
@@ -57,8 +58,8 @@ public class a implements c {
             if (optInt <= 0) {
                 return arrayList;
             }
-            JSONArray optJSONArray = jSONObject.optJSONArray("startTime");
-            JSONArray optJSONArray2 = jSONObject.optJSONArray("endTime");
+            JSONArray optJSONArray = jSONObject.optJSONArray(FetchLog.START_TIME);
+            JSONArray optJSONArray2 = jSONObject.optJSONArray(FetchLog.END_TIME);
             if (optJSONArray != null && optJSONArray2 != null) {
                 int min = Math.min(optJSONArray.length(), optJSONArray2.length());
                 if (min <= 0) {
@@ -91,7 +92,7 @@ public class a implements c {
             if (TextUtils.isEmpty(a)) {
                 return 0;
             }
-            return (a.startsWith(this.f9398b) || this.f9399c.contains(a)) ? 1 : 0;
+            return (a.startsWith(this.f9540b) || this.f9541c.contains(a)) ? 1 : 0;
         }
         return invokeL.intValue;
     }

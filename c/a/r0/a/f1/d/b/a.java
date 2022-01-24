@@ -18,13 +18,13 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final int f5828b;
+    public static final int f5970b;
     public transient /* synthetic */ FieldHolder $fh;
     public final Map<String, Integer> a;
 
     /* renamed from: c.a.r0.a.f1.d.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static class C0317a {
+    public static class C0326a {
         public static /* synthetic */ Interceptable $ic;
         public static final a a;
         public transient /* synthetic */ FieldHolder $fh;
@@ -61,7 +61,7 @@ public class a {
         }
         boolean z = k.a;
         c.a.r0.a.c1.a.g0().getSwitch("swan_pms_request_retry_count", 1);
-        f5828b = 1;
+        f5970b = 1;
     }
 
     public a() {
@@ -83,7 +83,7 @@ public class a {
     public static a b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? C0317a.a : (a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? C0326a.a : (a) invokeV.objValue;
     }
 
     public void a(String str) {
@@ -129,7 +129,7 @@ public class a {
     public boolean f(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) ? d() && c(str) < f5828b : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) ? d() && c(str) < f5970b : invokeL.booleanValue;
     }
 
     public void g(String str) {

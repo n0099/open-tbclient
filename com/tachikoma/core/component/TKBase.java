@@ -607,7 +607,7 @@ public abstract class TKBase<T extends View> implements ILifeCycle {
                                     iBaseEvent.configWithData(new HashMap<String, Object>(this) { // from class: com.tachikoma.core.component.TKBase.2.2.1
                                         public static /* synthetic */ Interceptable $ic;
                                         public transient /* synthetic */ FieldHolder $fh;
-                                        public final /* synthetic */ C22332 this$2;
+                                        public final /* synthetic */ C22392 this$2;
 
                                         {
                                             Interceptable interceptable4 = $ic;
@@ -981,7 +981,7 @@ public abstract class TKBase<T extends View> implements ILifeCycle {
                                         tKTapEvent.setPosition(new HashMap<String, Float>(this) { // from class: com.tachikoma.core.component.TKBase.1.1.1
                                             public static /* synthetic */ Interceptable $ic;
                                             public transient /* synthetic */ FieldHolder $fh;
-                                            public final /* synthetic */ C22301 this$2;
+                                            public final /* synthetic */ C22361 this$2;
 
                                             {
                                                 Interceptable interceptable4 = $ic;

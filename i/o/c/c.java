@@ -27,33 +27,33 @@ public final class c extends i.g {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final Executor f61973e;
+        public final Executor f62018e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final i.u.b f61974f;
+        public final i.u.b f62019f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final ConcurrentLinkedQueue<ScheduledAction> f61975g;
+        public final ConcurrentLinkedQueue<ScheduledAction> f62020g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final AtomicInteger f61976h;
+        public final AtomicInteger f62021h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final ScheduledExecutorService f61977i;
+        public final ScheduledExecutorService f62022i;
 
         /* renamed from: i.o.c.c$a$a  reason: collision with other inner class name */
         /* loaded from: classes4.dex */
-        public class C2293a implements i.n.a {
+        public class C2299a implements i.n.a {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ i.u.c f61978e;
+            public final /* synthetic */ i.u.c f62023e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ a f61979f;
+            public final /* synthetic */ a f62024f;
 
-            public C2293a(a aVar, i.u.c cVar) {
+            public C2299a(a aVar, i.u.c cVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -68,15 +68,15 @@ public final class c extends i.g {
                         return;
                     }
                 }
-                this.f61979f = aVar;
-                this.f61978e = cVar;
+                this.f62024f = aVar;
+                this.f62023e = cVar;
             }
 
             @Override // i.n.a
             public void call() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    this.f61979f.f61974f.b(this.f61978e);
+                    this.f62024f.f62019f.b(this.f62023e);
                 }
             }
         }
@@ -87,16 +87,16 @@ public final class c extends i.g {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ i.u.c f61980e;
+            public final /* synthetic */ i.u.c f62025e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ i.n.a f61981f;
+            public final /* synthetic */ i.n.a f62026f;
 
             /* renamed from: g  reason: collision with root package name */
-            public final /* synthetic */ k f61982g;
+            public final /* synthetic */ k f62027g;
 
             /* renamed from: h  reason: collision with root package name */
-            public final /* synthetic */ a f61983h;
+            public final /* synthetic */ a f62028h;
 
             public b(a aVar, i.u.c cVar, i.n.a aVar2, k kVar) {
                 Interceptable interceptable = $ic;
@@ -113,22 +113,22 @@ public final class c extends i.g {
                         return;
                     }
                 }
-                this.f61983h = aVar;
-                this.f61980e = cVar;
-                this.f61981f = aVar2;
-                this.f61982g = kVar;
+                this.f62028h = aVar;
+                this.f62025e = cVar;
+                this.f62026f = aVar2;
+                this.f62027g = kVar;
             }
 
             @Override // i.n.a
             public void call() {
                 Interceptable interceptable = $ic;
-                if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f61980e.isUnsubscribed()) {
+                if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f62025e.isUnsubscribed()) {
                     return;
                 }
-                k b2 = this.f61983h.b(this.f61981f);
-                this.f61980e.a(b2);
+                k b2 = this.f62028h.b(this.f62026f);
+                this.f62025e.a(b2);
                 if (b2.getClass() == ScheduledAction.class) {
-                    ((ScheduledAction) b2).add(this.f61982g);
+                    ((ScheduledAction) b2).add(this.f62027g);
                 }
             }
         }
@@ -148,11 +148,11 @@ public final class c extends i.g {
                     return;
                 }
             }
-            this.f61973e = executor;
-            this.f61975g = new ConcurrentLinkedQueue<>();
-            this.f61976h = new AtomicInteger();
-            this.f61974f = new i.u.b();
-            this.f61977i = d.a();
+            this.f62018e = executor;
+            this.f62020g = new ConcurrentLinkedQueue<>();
+            this.f62021h = new AtomicInteger();
+            this.f62019f = new i.u.b();
+            this.f62022i = d.a();
         }
 
         @Override // i.g.a
@@ -163,15 +163,15 @@ public final class c extends i.g {
                 if (isUnsubscribed()) {
                     return i.u.e.c();
                 }
-                ScheduledAction scheduledAction = new ScheduledAction(i.r.c.q(aVar), this.f61974f);
-                this.f61974f.a(scheduledAction);
-                this.f61975g.offer(scheduledAction);
-                if (this.f61976h.getAndIncrement() == 0) {
+                ScheduledAction scheduledAction = new ScheduledAction(i.r.c.q(aVar), this.f62019f);
+                this.f62019f.a(scheduledAction);
+                this.f62020g.offer(scheduledAction);
+                if (this.f62021h.getAndIncrement() == 0) {
                     try {
-                        this.f61973e.execute(this);
+                        this.f62018e.execute(this);
                     } catch (RejectedExecutionException e2) {
-                        this.f61974f.b(scheduledAction);
-                        this.f61976h.decrementAndGet();
+                        this.f62019f.b(scheduledAction);
+                        this.f62021h.decrementAndGet();
                         i.r.c.j(e2);
                         throw e2;
                     }
@@ -196,12 +196,12 @@ public final class c extends i.g {
                 i.u.c cVar = new i.u.c();
                 i.u.c cVar2 = new i.u.c();
                 cVar2.a(cVar);
-                this.f61974f.a(cVar2);
-                k a = i.u.e.a(new C2293a(this, cVar2));
+                this.f62019f.a(cVar2);
+                k a = i.u.e.a(new C2299a(this, cVar2));
                 ScheduledAction scheduledAction = new ScheduledAction(new b(this, cVar2, q, a));
                 cVar.a(scheduledAction);
                 try {
-                    scheduledAction.add(this.f61977i.schedule(scheduledAction, j2, timeUnit));
+                    scheduledAction.add(this.f62022i.schedule(scheduledAction, j2, timeUnit));
                     return a;
                 } catch (RejectedExecutionException e2) {
                     i.r.c.j(e2);
@@ -215,31 +215,31 @@ public final class c extends i.g {
         public boolean isUnsubscribed() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f61974f.isUnsubscribed() : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f62019f.isUnsubscribed() : invokeV.booleanValue;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-                while (!this.f61974f.isUnsubscribed()) {
-                    ScheduledAction poll = this.f61975g.poll();
+                while (!this.f62019f.isUnsubscribed()) {
+                    ScheduledAction poll = this.f62020g.poll();
                     if (poll == null) {
                         return;
                     }
                     if (!poll.isUnsubscribed()) {
-                        if (!this.f61974f.isUnsubscribed()) {
+                        if (!this.f62019f.isUnsubscribed()) {
                             poll.run();
                         } else {
-                            this.f61975g.clear();
+                            this.f62020g.clear();
                             return;
                         }
                     }
-                    if (this.f61976h.decrementAndGet() == 0) {
+                    if (this.f62021h.decrementAndGet() == 0) {
                         return;
                     }
                 }
-                this.f61975g.clear();
+                this.f62020g.clear();
             }
         }
 
@@ -247,8 +247,8 @@ public final class c extends i.g {
         public void unsubscribe() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-                this.f61974f.unsubscribe();
-                this.f61975g.clear();
+                this.f62019f.unsubscribe();
+                this.f62020g.clear();
             }
         }
     }

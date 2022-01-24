@@ -35,7 +35,7 @@ public class i extends c.a.d.n.e.a<c.a.t0.a0.l.d.l, CardViewHolder<c.a.t0.a0.l.h
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ i f14905e;
+        public final /* synthetic */ i f15045e;
 
         public a(i iVar) {
             Interceptable interceptable = $ic;
@@ -52,21 +52,21 @@ public class i extends c.a.d.n.e.a<c.a.t0.a0.l.d.l, CardViewHolder<c.a.t0.a0.l.h
                     return;
                 }
             }
-            this.f14905e = iVar;
+            this.f15045e = iVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f14905e.b0();
+                this.f15045e.b0();
             }
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public i(TbPageContext tbPageContext) {
-        super(tbPageContext.getPageActivity(), c.a.t0.a0.l.d.l.f14938f);
+        super(tbPageContext.getPageActivity(), c.a.t0.a0.l.d.l.f15078f);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -96,7 +96,7 @@ public class i extends c.a.d.n.e.a<c.a.t0.a0.l.d.l, CardViewHolder<c.a.t0.a0.l.h
         this.o = g2.b().user_id;
         e0(g2, aVar);
         aVar.v(8);
-        aVar.w(this.f3258e.getResources().getString(R.string.ala_person_live_privilege));
+        aVar.w(this.f3360e.getResources().getString(R.string.ala_person_live_privilege));
         aVar.l(this.m, TbadkCoreApplication.getInst().getSkinType());
     }
 
@@ -108,7 +108,7 @@ public class i extends c.a.d.n.e.a<c.a.t0.a0.l.d.l, CardViewHolder<c.a.t0.a0.l.h
             StatisticItem statisticItem = new StatisticItem("c13333");
             statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
             TiebaStatic.log(statisticItem);
-            String q = c.a.s0.s.h0.b.k().q("ala_personal_privilege_detail_url", "http://lumotian.rmb.rmb.otp.baidu.com/cashliveui/privilege.html");
+            String q = c.a.s0.s.i0.b.k().q("ala_personal_privilege_detail_url", "http://lumotian.rmb.rmb.otp.baidu.com/cashliveui/privilege.html");
             if (q == null) {
                 return;
             }

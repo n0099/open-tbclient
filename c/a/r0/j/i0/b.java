@@ -30,7 +30,7 @@ public class b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ c.a.r0.j.i0.a f11034c;
+        public final /* synthetic */ c.a.r0.j.i0.a f11176c;
 
         public a(c.a.r0.j.i0.a aVar) {
             Interceptable interceptable = $ic;
@@ -47,7 +47,7 @@ public class b {
                     return;
                 }
             }
-            this.f11034c = aVar;
+            this.f11176c = aVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -64,7 +64,7 @@ public class b {
                 if (b.a) {
                     String str = "get NetworkQuality: " + i2;
                 }
-                c.a.r0.j.i0.a aVar = this.f11034c;
+                c.a.r0.j.i0.a aVar = this.f11176c;
                 aVar.m = i2;
                 n.x("976", aVar);
             }
@@ -113,12 +113,12 @@ public class b {
             return;
         }
         c.a.r0.j.i0.a aVar = new c.a.r0.j.i0.a();
-        aVar.f7977b = "stuck";
-        aVar.f7980e = "jserror";
-        aVar.f7981f = e.f0();
+        aVar.f8119b = "stuck";
+        aVar.f8122e = "jserror";
+        aVar.f8123f = e.f0();
         if (e.L() != null && e.L().X() != null) {
             b.a X = e.L().X();
-            aVar.f7978c = X.T();
+            aVar.f8120c = X.T();
             aVar.a = n.n(X.G());
         }
         aVar.l = str + ";" + str2;

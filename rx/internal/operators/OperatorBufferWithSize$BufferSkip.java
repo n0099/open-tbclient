@@ -8,18 +8,18 @@ import i.f;
 import i.j;
 import i.o.a.a;
 import java.util.concurrent.atomic.AtomicBoolean;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public final class OperatorBufferWithSize$BufferSkip<T> extends j<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: i  reason: collision with root package name */
-    public final int f62493i;
+    public final int f62538i;
 
     /* renamed from: j  reason: collision with root package name */
-    public final int f62494j;
+    public final int f62539j;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public final class BufferSkipProducer extends AtomicBoolean implements f {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 3428177408082367154L;
@@ -54,9 +54,9 @@ public final class OperatorBufferWithSize$BufferSkip<T> extends j<T> {
                 } else if (i2 != 0) {
                     OperatorBufferWithSize$BufferSkip operatorBufferWithSize$BufferSkip = this.this$0;
                     if (get() || !compareAndSet(false, true)) {
-                        operatorBufferWithSize$BufferSkip.e(a.c(j2, operatorBufferWithSize$BufferSkip.f62494j));
+                        operatorBufferWithSize$BufferSkip.e(a.c(j2, operatorBufferWithSize$BufferSkip.f62539j));
                     } else {
-                        operatorBufferWithSize$BufferSkip.e(a.a(a.c(j2, operatorBufferWithSize$BufferSkip.f62493i), a.c(operatorBufferWithSize$BufferSkip.f62494j - operatorBufferWithSize$BufferSkip.f62493i, j2 - 1)));
+                        operatorBufferWithSize$BufferSkip.e(a.a(a.c(j2, operatorBufferWithSize$BufferSkip.f62538i), a.c(operatorBufferWithSize$BufferSkip.f62539j - operatorBufferWithSize$BufferSkip.f62538i, j2 - 1)));
                     }
                 }
             }

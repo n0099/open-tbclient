@@ -15,7 +15,7 @@ public class m {
     public boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ InstallActivity f30000b;
+    public final /* synthetic */ InstallActivity f30028b;
 
     public m(InstallActivity installActivity) {
         Interceptable interceptable = $ic;
@@ -32,27 +32,27 @@ public class m {
                 return;
             }
         }
-        this.f30000b = installActivity;
+        this.f30028b = installActivity;
         this.a = false;
     }
 
     public void a(com.google.ar.core.p pVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, pVar) == null) {
-            synchronized (this.f30000b) {
+            synchronized (this.f30028b) {
                 if (this.a) {
                     return;
                 }
-                InstallActivity.access$402(this.f30000b, pVar);
+                InstallActivity.access$402(this.f30028b, pVar);
                 int ordinal = pVar.ordinal();
                 if (ordinal != 0) {
                     if (ordinal == 1) {
-                        InstallActivity.access$000(this.f30000b, new UnavailableUserDeclinedInstallationException());
+                        InstallActivity.access$000(this.f30028b, new UnavailableUserDeclinedInstallationException());
                     } else if (ordinal == 2) {
-                        if (!InstallActivity.access$500(this.f30000b)) {
-                            InstallActivity.access$600(this.f30000b);
+                        if (!InstallActivity.access$500(this.f30028b)) {
+                            InstallActivity.access$600(this.f30028b);
                         }
-                        InstallActivity.access$000(this.f30000b, null);
+                        InstallActivity.access$000(this.f30028b, null);
                     }
                     this.a = true;
                 }
@@ -63,14 +63,14 @@ public class m {
     public void b(Exception exc) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, exc) == null) {
-            synchronized (this.f30000b) {
+            synchronized (this.f30028b) {
                 if (this.a) {
                     return;
                 }
                 this.a = true;
-                InstallActivity.access$402(this.f30000b, com.google.ar.core.p.f54402b);
+                InstallActivity.access$402(this.f30028b, com.google.ar.core.p.f54447b);
                 boolean z = exc instanceof UnavailableException;
-                InstallActivity.access$000(this.f30000b, exc);
+                InstallActivity.access$000(this.f30028b, exc);
             }
         }
     }

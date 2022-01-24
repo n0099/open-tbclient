@@ -19,10 +19,10 @@ public class b {
     public AlertDialog a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Activity f13563b;
+    public Activity f13750b;
 
     /* renamed from: c  reason: collision with root package name */
-    public View f13564c;
+    public View f13751c;
 
     public b(Activity activity) {
         Interceptable interceptable = $ic;
@@ -39,7 +39,7 @@ public class b {
                 return;
             }
         }
-        this.f13563b = activity;
+        this.f13750b = activity;
     }
 
     public void a() {
@@ -59,36 +59,38 @@ public class b {
     public void c(View view) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view) == null) {
-            this.f13564c = view;
+            this.f13751c = view;
         }
     }
 
     public void d() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            if (this.a == null) {
-                AlertDialog create = new AlertDialog.Builder(this.f13563b).create();
-                this.a = create;
-                Window window = create.getWindow();
-                window.getDecorView().setSystemUiVisibility(b());
-                window.addFlags(Integer.MIN_VALUE);
-                window.setStatusBarColor(0);
-                WindowManager.LayoutParams attributes = window.getAttributes();
-                attributes.width = -1;
-                attributes.height = -1;
-                window.setNavigationBarColor(0);
-                window.setAttributes(attributes);
-                window.setDimAmount(0.0f);
-                this.a.setCancelable(true);
-                View view = this.f13564c;
-                if (view != null) {
-                    this.a.setView(view);
-                }
-            }
-            if (this.a.isShowing()) {
-                this.a.dismiss();
-            }
-            this.a.show();
+        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || this.f13750b == null) {
+            return;
+        }
+        if (this.a == null) {
+            AlertDialog create = new AlertDialog.Builder(this.f13750b).create();
+            this.a = create;
+            create.requestWindowFeature(b());
+        }
+        if (this.a.isShowing()) {
+            this.a.dismiss();
+        }
+        this.a.setCancelable(true);
+        this.a.show();
+        Window window = this.a.getWindow();
+        window.getDecorView().setSystemUiVisibility(b());
+        window.addFlags(Integer.MIN_VALUE);
+        window.setStatusBarColor(0);
+        WindowManager.LayoutParams attributes = window.getAttributes();
+        attributes.width = -1;
+        attributes.height = -1;
+        window.setNavigationBarColor(0);
+        window.setAttributes(attributes);
+        window.setDimAmount(0.0f);
+        View view = this.f13751c;
+        if (view != null) {
+            this.a.setContentView(view);
         }
     }
 }

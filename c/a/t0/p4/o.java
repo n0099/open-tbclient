@@ -17,13 +17,13 @@ public class o extends q {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: h  reason: collision with root package name */
-    public a.b f21274h;
+    public a.b f21510h;
 
     /* renamed from: i  reason: collision with root package name */
-    public Animation f21275i;
+    public Animation f21511i;
 
     /* renamed from: j  reason: collision with root package name */
-    public Animation f21276j;
+    public Animation f21512j;
 
     /* loaded from: classes8.dex */
     public class a implements Animation.AnimationListener {
@@ -138,11 +138,11 @@ public class o extends q {
                 return;
             }
         }
-        this.f21274h = bVar;
-        this.f21275i = AnimationUtils.loadAnimation(this.a, R.anim.ubs_test_in_anim);
-        this.f21276j = AnimationUtils.loadAnimation(this.a, R.anim.ubs_test_out_anim);
-        this.f21275i.setAnimationListener(new a(this));
-        this.f21276j.setAnimationListener(new b(this));
+        this.f21510h = bVar;
+        this.f21511i = AnimationUtils.loadAnimation(this.a, R.anim.ubs_test_in_anim);
+        this.f21512j = AnimationUtils.loadAnimation(this.a, R.anim.ubs_test_out_anim);
+        this.f21511i.setAnimationListener(new a(this));
+        this.f21512j.setAnimationListener(new b(this));
     }
 
     @Override // c.a.t0.p4.q
@@ -164,46 +164,46 @@ public class o extends q {
     @Override // c.a.t0.p4.q
     public void g() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && this.f21293e == 4) {
-            this.f21293e = 1;
-            q.a aVar = this.f21292d;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && this.f21529e == 4) {
+            this.f21529e = 1;
+            q.a aVar = this.f21528d;
             if (aVar != null) {
                 aVar.a(1);
             }
             k();
-            this.f21274h.f20992f.startAnimation(this.f21275i);
+            this.f21510h.f21226f.startAnimation(this.f21511i);
         }
     }
 
     @Override // c.a.t0.p4.q
     public void h() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && this.f21293e == 2) {
-            this.f21293e = 3;
-            q.a aVar = this.f21292d;
+        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && this.f21529e == 2) {
+            this.f21529e = 3;
+            q.a aVar = this.f21528d;
             if (aVar != null) {
                 aVar.a(3);
             }
             k();
-            this.f21274h.f20992f.startAnimation(this.f21276j);
+            this.f21510h.f21226f.startAnimation(this.f21512j);
         }
     }
 
     public final void k() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.f21275i.cancel();
-            this.f21276j.cancel();
-            this.f21274h.f20992f.clearAnimation();
+            this.f21511i.cancel();
+            this.f21512j.cancel();
+            this.f21510h.f21226f.clearAnimation();
         }
     }
 
     public final void l() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.f21274h.f20991e.setClickable(false);
-            this.f21293e = 4;
-            q.a aVar = this.f21292d;
+            this.f21510h.f21225e.setClickable(false);
+            this.f21529e = 4;
+            q.a aVar = this.f21528d;
             if (aVar != null) {
                 aVar.a(4);
             }
@@ -213,9 +213,9 @@ public class o extends q {
     public final void m() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            this.f21274h.f20991e.setClickable(true);
-            this.f21293e = 2;
-            q.a aVar = this.f21292d;
+            this.f21510h.f21225e.setClickable(true);
+            this.f21529e = 2;
+            q.a aVar = this.f21528d;
             if (aVar != null) {
                 aVar.a(2);
             }

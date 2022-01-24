@@ -200,7 +200,7 @@ public class SwanWebModeWidget extends SwanAppWebViewWidget implements CallbackH
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, dVar) == null) {
             super.W0(dVar);
-            dVar.f38759b = true;
+            dVar.f38787b = true;
         }
     }
 

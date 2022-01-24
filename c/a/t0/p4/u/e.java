@@ -66,30 +66,31 @@ public class e implements c.a.s0.y0.b, View.OnClickListener {
     public int G;
     public int H;
     public Intent I;
-    public PostPrefixData J;
-    public AntiData K;
-    public String L;
+    public boolean J;
+    public PostPrefixData K;
+    public AntiData L;
     public String M;
-    public CustomMessageListener N;
+    public String N;
     public CustomMessageListener O;
+    public CustomMessageListener P;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f21354e;
+    public int f21590e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f21355f;
+    public int f21591f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f21356g;
+    public int f21592g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f21357h;
+    public boolean f21593h;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f21358i;
+    public boolean f21594i;
 
     /* renamed from: j  reason: collision with root package name */
-    public BaseFragmentActivity f21359j;
+    public BaseFragmentActivity f21595j;
     public c.a.t0.p4.u.c k;
     public c.a.t0.p4.u.a l;
     public f m;
@@ -138,10 +139,10 @@ public class e implements c.a.s0.y0.b, View.OnClickListener {
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || this.a.f21359j == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || this.a.f21595j == null) {
                 return;
             }
-            this.a.f21359j.finish();
+            this.a.f21595j.finish();
         }
     }
 
@@ -176,10 +177,10 @@ public class e implements c.a.s0.y0.b, View.OnClickListener {
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || this.a.f21359j == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || this.a.f21595j == null) {
                 return;
             }
-            this.a.f21359j.closeLoadingDialog();
+            this.a.f21595j.closeLoadingDialog();
         }
     }
 
@@ -224,7 +225,7 @@ public class e implements c.a.s0.y0.b, View.OnClickListener {
                         }
                     }
                 }
-                BdToast.i(this.a.f21359j, this.a.f21359j.getString(c.a.t0.p4.j.uploade_attation), c.a.t0.p4.f.icon_toast_game_error, false).q();
+                BdToast.i(this.a.f21595j, this.a.f21595j.getString(c.a.t0.p4.j.uploade_attation), c.a.t0.p4.f.icon_toast_game_error, false).q();
                 return false;
             }
             return invokeL.booleanValue;
@@ -278,8 +279,8 @@ public class e implements c.a.s0.y0.b, View.OnClickListener {
             if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
                 Intent intent = new Intent();
                 intent.putExtra(AlbumActivityConfig.ALBUM_RESULT, str);
-                this.a.f21359j.setResult(-1, intent);
-                this.a.f21359j.finish();
+                this.a.f21595j.setResult(-1, intent);
+                this.a.f21595j.finish();
             }
         }
     }
@@ -299,9 +300,9 @@ public class e implements c.a.s0.y0.b, View.OnClickListener {
                 return;
             }
         }
-        this.f21356g = 0;
-        this.f21357h = false;
-        this.f21358i = false;
+        this.f21592g = 0;
+        this.f21593h = false;
+        this.f21594i = false;
         this.o = "";
         this.q = "";
         this.r = "";
@@ -319,31 +320,31 @@ public class e implements c.a.s0.y0.b, View.OnClickListener {
         this.F = 5;
         this.G = 0;
         this.H = -1;
-        this.J = null;
         this.K = null;
-        this.L = "";
+        this.L = null;
         this.M = "";
-        this.N = new a(this, 2921583);
-        this.O = new b(this, 2921614);
+        this.N = "";
+        this.O = new a(this, 2921583);
+        this.P = new b(this, 2921614);
         s(baseFragmentActivity, i2, i3);
         if (bundle == null) {
-            t(this.f21359j.getIntent());
+            t(this.f21595j.getIntent());
         } else {
             u(bundle);
         }
-        P(0, this.f21354e);
-        BaseFragmentActivity baseFragmentActivity2 = this.f21359j;
+        P(0, this.f21590e);
+        BaseFragmentActivity baseFragmentActivity2 = this.f21595j;
         if (baseFragmentActivity2 != null) {
-            baseFragmentActivity2.registerListener(this.N);
-            this.f21359j.registerListener(this.O);
+            baseFragmentActivity2.registerListener(this.O);
+            this.f21595j.registerListener(this.P);
         }
     }
 
     public void A() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f21359j.closeLoadingDialog();
-            int i2 = this.f21356g;
+            this.f21595j.closeLoadingDialog();
+            int i2 = this.f21592g;
             if (i2 != 0) {
                 if (i2 == 1) {
                     O(0);
@@ -393,10 +394,10 @@ public class e implements c.a.s0.y0.b, View.OnClickListener {
             bundle.putInt(IntentConfig.KEY_IMAGE_CLIP_TYPE, this.A);
             bundle.putInt(IntentConfig.KEY_FROM_WRITE_TYPE, this.F);
             bundle.putSerializable("tab_list", this.E);
-            bundle.putSerializable("anti_data", this.K);
-            bundle.putSerializable("prefix_data", this.J);
-            bundle.putString(IntentConfig.FORUM_FIRST_DIR, this.L);
-            bundle.putString(IntentConfig.FORUM_SECOND_DIR, this.M);
+            bundle.putSerializable("anti_data", this.L);
+            bundle.putSerializable("prefix_data", this.K);
+            bundle.putString(IntentConfig.FORUM_FIRST_DIR, this.M);
+            bundle.putString(IntentConfig.FORUM_SECOND_DIR, this.N);
         }
     }
 
@@ -416,8 +417,8 @@ public class e implements c.a.s0.y0.b, View.OnClickListener {
             if (jVar != null) {
                 jVar.m();
             }
-            if (this.f21358i) {
-                this.f21359j.finish();
+            if (this.f21594i) {
+                this.f21595j.finish();
             }
         }
     }
@@ -448,8 +449,8 @@ public class e implements c.a.s0.y0.b, View.OnClickListener {
                 } else {
                     Intent intent2 = new Intent();
                     intent2.putExtra(VideoCoverSelectActivityConfig.KEY_VIDEO_COVER_IMAGE_PATH, intent.getStringExtra(VideoCoverSelectActivityConfig.KEY_VIDEO_COVER_IMAGE_PATH));
-                    this.f21359j.setResult(-1, intent2);
-                    this.f21359j.finish();
+                    this.f21595j.setResult(-1, intent2);
+                    this.f21595j.finish();
                     return;
                 }
             }
@@ -493,10 +494,10 @@ public class e implements c.a.s0.y0.b, View.OnClickListener {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
             PermissionJudgePolicy permissionJudgePolicy = new PermissionJudgePolicy();
             permissionJudgePolicy.clearRequestPermissionList();
-            permissionJudgePolicy.appendRequestPermission(this.f21359j, PermissionRequest.RESOURCE_VIDEO_CAPTURE);
-            permissionJudgePolicy.appendRequestPermission(this.f21359j, PermissionRequest.RESOURCE_AUDIO_CAPTURE);
-            permissionJudgePolicy.appendRequestPermission(this.f21359j, "android.permission.WRITE_EXTERNAL_STORAGE");
-            return permissionJudgePolicy.startRequestPermission(this.f21359j);
+            permissionJudgePolicy.appendRequestPermission(this.f21595j, PermissionRequest.RESOURCE_VIDEO_CAPTURE);
+            permissionJudgePolicy.appendRequestPermission(this.f21595j, PermissionRequest.RESOURCE_AUDIO_CAPTURE);
+            permissionJudgePolicy.appendRequestPermission(this.f21595j, "android.permission.WRITE_EXTERNAL_STORAGE");
+            return permissionJudgePolicy.startRequestPermission(this.f21595j);
         }
         return invokeV.booleanValue;
     }
@@ -507,9 +508,9 @@ public class e implements c.a.s0.y0.b, View.OnClickListener {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
             PermissionJudgePolicy permissionJudgePolicy = new PermissionJudgePolicy();
             permissionJudgePolicy.clearRequestPermissionList();
-            permissionJudgePolicy.appendRequestPermission(this.f21359j, PermissionRequest.RESOURCE_VIDEO_CAPTURE);
-            permissionJudgePolicy.appendRequestPermission(this.f21359j, "android.permission.WRITE_EXTERNAL_STORAGE");
-            return permissionJudgePolicy.startRequestPermission(this.f21359j);
+            permissionJudgePolicy.appendRequestPermission(this.f21595j, PermissionRequest.RESOURCE_VIDEO_CAPTURE);
+            permissionJudgePolicy.appendRequestPermission(this.f21595j, "android.permission.WRITE_EXTERNAL_STORAGE");
+            return permissionJudgePolicy.startRequestPermission(this.f21595j);
         }
         return invokeV.booleanValue;
     }
@@ -526,31 +527,31 @@ public class e implements c.a.s0.y0.b, View.OnClickListener {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048590, this, i2) == null) {
             if (i2 == 1) {
-                P(i2, this.f21355f);
+                P(i2, this.f21591f);
             } else {
-                P(i2, this.f21354e);
+                P(i2, this.f21590e);
             }
         }
     }
 
     public final void P(int i2, int i3) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeII(1048591, this, i2, i3) == null) || this.f21357h) {
+        if (!(interceptable == null || interceptable.invokeII(1048591, this, i2, i3) == null) || this.f21593h) {
             return;
         }
-        FragmentTransaction beginTransaction = this.f21359j.getSupportFragmentManager().beginTransaction();
-        Fragment findFragmentByTag = this.f21359j.getSupportFragmentManager().findFragmentByTag(this.l.i(this.f21356g));
+        FragmentTransaction beginTransaction = this.f21595j.getSupportFragmentManager().beginTransaction();
+        Fragment findFragmentByTag = this.f21595j.getSupportFragmentManager().findFragmentByTag(this.l.i(this.f21592g));
         if (findFragmentByTag != null) {
             beginTransaction.hide(findFragmentByTag);
         }
-        this.f21356g = i2;
-        if (this.f21359j.getSupportFragmentManager().findFragmentByTag(this.l.i(i2)) != null) {
+        this.f21592g = i2;
+        if (this.f21595j.getSupportFragmentManager().findFragmentByTag(this.l.i(i2)) != null) {
             beginTransaction.show(this.l.h(i2));
         } else {
             beginTransaction.add(i3, this.l.h(i2), this.l.i(i2));
         }
         beginTransaction.commitAllowingStateLoss();
-        this.f21359j.getSupportFragmentManager().executePendingTransactions();
+        this.f21595j.getSupportFragmentManager().executePendingTransactions();
     }
 
     public final void Q() {
@@ -580,11 +581,11 @@ public class e implements c.a.s0.y0.b, View.OnClickListener {
                 if (L()) {
                     return;
                 }
-                this.f21359j.showLoadingDialog(null);
+                this.f21595j.showLoadingDialog(null);
                 TbCaptureActivityConfig tbCaptureActivityConfig = new TbCaptureActivityConfig(tbPageContext.getPageActivity());
-                tbCaptureActivityConfig.getIntent().putExtras(this.f21359j.getIntent());
+                tbCaptureActivityConfig.getIntent().putExtras(this.f21595j.getIntent());
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921582, tbCaptureActivityConfig));
-                this.f21358i = true;
+                this.f21594i = true;
                 TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_ENTRANCE_CLICKED).param("obj_locate", 5).param("obj_type", 2));
                 if (c.a.s0.s.m.c.b()) {
                     TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_WORK_PUBLISH_ENTER_TYPE_CLICK).param("obj_locate", 1).param("obj_source", c.a.s0.s.m.c.d() ? 2 : 1));
@@ -593,12 +594,12 @@ public class e implements c.a.s0.y0.b, View.OnClickListener {
             } else {
                 ForumWriteData forumWriteData = new ForumWriteData(this.s, this.r, null, null);
                 forumWriteData.statisticFrom = this.p;
-                this.f21359j.showLoadingDialog(null);
+                this.f21595j.showLoadingDialog(null);
                 RecordVideoActivityConfig recordVideoActivityConfig = new RecordVideoActivityConfig(tbPageContext.getPageActivity(), this.F != 5 ? 2 : 3, forumWriteData, this.k.m(), "", this.G);
-                recordVideoActivityConfig.getIntent().putExtras(this.f21359j.getIntent());
+                recordVideoActivityConfig.getIntent().putExtras(this.f21595j.getIntent());
                 recordVideoActivityConfig.setShowType(1);
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921615, recordVideoActivityConfig));
-                this.f21358i = false;
+                this.f21594i = false;
                 TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_ENTRANCE_CLICKED).param("obj_locate", 5).param("obj_type", 2));
             }
         }
@@ -631,7 +632,7 @@ public class e implements c.a.s0.y0.b, View.OnClickListener {
             } else if (l()) {
                 return d(imageFileInfo);
             } else {
-                this.f21359j.showToast(String.format(this.f21359j.getString(c.a.t0.p4.j.max_choose_image_count), Integer.valueOf(l)));
+                this.f21595j.showToast(String.format(this.f21595j.getString(c.a.t0.p4.j.max_choose_image_count), Integer.valueOf(l)));
                 return false;
             }
         }
@@ -713,7 +714,7 @@ public class e implements c.a.s0.y0.b, View.OnClickListener {
                 TiebaStatic.log(TbadkCoreStatisticKey.UPGRADE_DIALOG_CHOOSE_IMAGE);
             }
             if (this.t == 5) {
-                this.f21359j.showLoadingDialog("正在上传");
+                this.f21595j.showLoadingDialog("正在上传");
                 new d(this, null).execute(new String[0]);
             } else if (this.k == null) {
             } else {
@@ -722,10 +723,10 @@ public class e implements c.a.s0.y0.b, View.OnClickListener {
                     if (this.k.p()) {
                         VideoFileInfo f2 = this.k.f();
                         if (this.n == null) {
-                            j jVar2 = new j(this.f21359j, this.r, this.s, "");
+                            j jVar2 = new j(this.f21595j, this.r, this.s, "");
                             this.n = jVar2;
                             jVar2.p(this.E);
-                            this.n.o(this.K, this.J, this.L, this.M);
+                            this.n.o(this.L, this.K, this.M, this.N);
                             c.a.t0.p4.u.a aVar = this.l;
                             if (aVar != null) {
                                 aVar.s(this.n);
@@ -740,12 +741,13 @@ public class e implements c.a.s0.y0.b, View.OnClickListener {
                         if (WriteActivityConfig.isAsyncWriting()) {
                             return;
                         }
-                        WriteActivityConfig newInstance = WriteActivityConfig.newInstance(this.f21359j);
+                        WriteActivityConfig newInstance = WriteActivityConfig.newInstance(this.f21595j);
                         newInstance.getIntent().setFlags(536870912);
                         newInstance.getIntent().setFlags(CodedInputStream.DEFAULT_SIZE_LIMIT);
-                        newInstance.getIntent().putExtras(this.f21359j.getIntent());
-                        newInstance.setType(9).setWriteImagesInfo(this.k.m()).send();
-                        this.f21359j.finish();
+                        newInstance.getIntent().putExtras(this.f21595j.getIntent());
+                        newInstance.setType(9).setForumId(TextUtils.isEmpty(this.s) ? "0" : this.s).setWriteImagesInfo(this.k.m()).send();
+                        newInstance.setRichModeEnable(this.J);
+                        this.f21595j.finish();
                     } else if (this.z) {
                         x();
                     } else {
@@ -776,7 +778,7 @@ public class e implements c.a.s0.y0.b, View.OnClickListener {
         int l;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048606, this)) == null) {
-            if (this.f21359j.getIntent().getBooleanExtra(AlbumActivityConfig.IS_SELECT_DIRECTLY, false) && this.k.D() == (l = this.k.l()) && l == 1) {
+            if (this.f21595j.getIntent().getBooleanExtra(AlbumActivityConfig.IS_SELECT_DIRECTLY, false) && this.k.D() == (l = this.k.l()) && l == 1) {
                 try {
                     ImageFileInfo imageFileInfo = (ImageFileInfo) ListUtils.getItem(this.k.g(), 0);
                     if (k(imageFileInfo)) {
@@ -802,8 +804,8 @@ public class e implements c.a.s0.y0.b, View.OnClickListener {
             }
             intent.putExtra(AlbumActivityConfig.LAST_ALBUM_ID, k);
             intent.putExtra(AlbumActivityConfig.CAMERA_REQUEST_FROM, this.t);
-            this.f21359j.setResult(0, intent);
-            this.f21359j.finish();
+            this.f21595j.setResult(0, intent);
+            this.f21595j.finish();
         }
     }
 
@@ -819,8 +821,8 @@ public class e implements c.a.s0.y0.b, View.OnClickListener {
         intent.putExtra(AlbumActivityConfig.ALBUM_RESULT, this.k.m().toJsonString());
         intent.putExtra(AlbumActivityConfig.CAMERA_REQUEST_FROM, this.t);
         intent.putExtra("from_type", this.G);
-        this.f21359j.setResult(-1, intent);
-        this.f21359j.finish();
+        this.f21595j.setResult(-1, intent);
+        this.f21595j.finish();
     }
 
     public final void o(Intent intent) {
@@ -833,8 +835,8 @@ public class e implements c.a.s0.y0.b, View.OnClickListener {
             if (intent != null && !StringUtils.isNull(intent.getStringExtra("file_name"))) {
                 intent2.putExtra("file_name", intent.getStringExtra("file_name"));
             }
-            this.f21359j.setResult(-1, intent2);
-            this.f21359j.finish();
+            this.f21595j.setResult(-1, intent2);
+            this.f21595j.finish();
             if (AlbumActivityConfig.FROM_FLUTTER.equals(this.q)) {
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921464, intent2));
             }
@@ -856,7 +858,7 @@ public class e implements c.a.s0.y0.b, View.OnClickListener {
                 }
                 m();
             } else if (view == this.l.c()) {
-                P(0, this.f21354e);
+                P(0, this.f21590e);
             } else if (view == this.l.l()) {
                 R(2);
             } else if (view == this.l.k()) {
@@ -868,10 +870,10 @@ public class e implements c.a.s0.y0.b, View.OnClickListener {
     public void onDestroy() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048611, this) == null) {
-            this.f21357h = true;
+            this.f21593h = true;
             Q();
-            this.f21359j.closeLoadingDialog();
-            this.f21359j.dismissAllDialog();
+            this.f21595j.closeLoadingDialog();
+            this.f21595j.dismissAllDialog();
             c.a.t0.p4.u.d.f().e();
             c.a.t0.p4.u.a aVar = this.l;
             if (aVar != null) {
@@ -903,7 +905,7 @@ public class e implements c.a.s0.y0.b, View.OnClickListener {
             if (jVar != null) {
                 jVar.k();
             }
-            this.f21358i = false;
+            this.f21594i = false;
         }
     }
 
@@ -950,9 +952,9 @@ public class e implements c.a.s0.y0.b, View.OnClickListener {
     public final void s(BaseFragmentActivity baseFragmentActivity, int i2, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLII(1048617, this, baseFragmentActivity, i2, i3) == null) {
-            this.f21359j = baseFragmentActivity;
-            this.f21354e = i2;
-            this.f21355f = i3;
+            this.f21595j = baseFragmentActivity;
+            this.f21590e = i2;
+            this.f21591f = i3;
             c.a.t0.p4.u.a aVar = new c.a.t0.p4.u.a(baseFragmentActivity.getPageContext(), this);
             this.l = aVar;
             aVar.m();
@@ -963,7 +965,7 @@ public class e implements c.a.s0.y0.b, View.OnClickListener {
         WriteImagesInfo writeImagesInfo;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048618, this, intent) == null) {
-            this.k = new c.a.t0.p4.u.c(this.f21359j.getPageContext());
+            this.k = new c.a.t0.p4.u.c(this.f21595j.getPageContext());
             if (intent != null) {
                 this.v = intent.getBooleanExtra(IntentConfig.KEY_CAN_SELECT_VIDEO, false);
                 this.w = intent.getBooleanExtra(IntentConfig.KEY_CAN_SELECT_ONLY_VIDEO, false);
@@ -995,14 +997,15 @@ public class e implements c.a.s0.y0.b, View.OnClickListener {
                 this.H = intent.getIntExtra(WriteActivityConfig.KEY_PROFESSION_ZONE, -1);
                 Serializable serializableExtra = intent.getSerializableExtra("anti_data");
                 if (serializableExtra instanceof AntiData) {
-                    this.K = (AntiData) serializableExtra;
+                    this.L = (AntiData) serializableExtra;
                 }
                 Serializable serializableExtra2 = intent.getSerializableExtra("prefix_data");
                 if (serializableExtra2 instanceof PostPrefixData) {
-                    this.J = (PostPrefixData) serializableExtra2;
+                    this.K = (PostPrefixData) serializableExtra2;
                 }
-                this.L = intent.getStringExtra(IntentConfig.FORUM_FIRST_DIR);
-                this.M = intent.getStringExtra(IntentConfig.FORUM_SECOND_DIR);
+                this.M = intent.getStringExtra(IntentConfig.FORUM_FIRST_DIR);
+                this.N = intent.getStringExtra(IntentConfig.FORUM_SECOND_DIR);
+                this.J = intent.getBooleanExtra(WriteActivityConfig.RICH_MODE_ENABLE, false);
             }
             i();
         }
@@ -1012,7 +1015,7 @@ public class e implements c.a.s0.y0.b, View.OnClickListener {
         WriteImagesInfo writeImagesInfo;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048619, this, bundle) == null) {
-            this.k = new c.a.t0.p4.u.c(this.f21359j.getPageContext());
+            this.k = new c.a.t0.p4.u.c(this.f21595j.getPageContext());
             if (bundle != null) {
                 this.v = bundle.getBoolean(IntentConfig.KEY_CAN_SELECT_VIDEO);
                 this.w = bundle.getBoolean(IntentConfig.KEY_CAN_SELECT_ONLY_VIDEO);
@@ -1042,14 +1045,15 @@ public class e implements c.a.s0.y0.b, View.OnClickListener {
                 this.H = bundle.getInt(WriteActivityConfig.KEY_PROFESSION_ZONE, -1);
                 Serializable serializable = bundle.getSerializable("anti_data");
                 if (serializable instanceof AntiData) {
-                    this.K = (AntiData) serializable;
+                    this.L = (AntiData) serializable;
                 }
                 Serializable serializable2 = bundle.getSerializable("prefix_data");
                 if (serializable2 instanceof PostPrefixData) {
-                    this.J = (PostPrefixData) serializable2;
+                    this.K = (PostPrefixData) serializable2;
                 }
-                this.L = bundle.getString(IntentConfig.FORUM_FIRST_DIR, "");
-                this.M = bundle.getString(IntentConfig.FORUM_SECOND_DIR, "");
+                this.M = bundle.getString(IntentConfig.FORUM_FIRST_DIR, "");
+                this.N = bundle.getString(IntentConfig.FORUM_SECOND_DIR, "");
+                this.J = bundle.getBoolean(WriteActivityConfig.RICH_MODE_ENABLE, false);
             }
             i();
         }
@@ -1074,12 +1078,12 @@ public class e implements c.a.s0.y0.b, View.OnClickListener {
         if (!(interceptable == null || interceptable.invokeV(1048622, this) == null) || (cVar = this.k) == null || (m = cVar.m()) == null || m.getChosedFiles() == null || m.getChosedFiles().size() < 1) {
             return;
         }
-        boolean booleanExtra = this.f21359j.getIntent().getBooleanExtra(AlbumActivityConfig.KEY_DIRECT_TO_WORK_PUBLISH_PAGE, false);
-        VideoCoverSelectActivityConfig videoCoverSelectActivityConfig = new VideoCoverSelectActivityConfig(this.f21359j);
+        boolean booleanExtra = this.f21595j.getIntent().getBooleanExtra(AlbumActivityConfig.KEY_DIRECT_TO_WORK_PUBLISH_PAGE, false);
+        VideoCoverSelectActivityConfig videoCoverSelectActivityConfig = new VideoCoverSelectActivityConfig(this.f21595j);
         videoCoverSelectActivityConfig.setImagePath(m.getChosedFiles().getFirst().getFilePath());
         videoCoverSelectActivityConfig.getIntent().putExtra(AlbumActivityConfig.KEY_DIRECT_TO_WORK_PUBLISH_PAGE, booleanExtra);
         videoCoverSelectActivityConfig.setVideoType(this.A);
-        this.f21359j.sendMessage(new CustomMessage(2002001, videoCoverSelectActivityConfig));
+        this.f21595j.sendMessage(new CustomMessage(2002001, videoCoverSelectActivityConfig));
     }
 
     public final void y() {
@@ -1089,7 +1093,7 @@ public class e implements c.a.s0.y0.b, View.OnClickListener {
         if (!(interceptable == null || interceptable.invokeV(1048623, this) == null) || (cVar = this.k) == null || (m = cVar.m()) == null) {
             return;
         }
-        this.f21359j.sendMessage(new CustomMessage(2002001, new WriteMulitImageActivityConfig(this.f21359j, 12012, m, p())));
+        this.f21595j.sendMessage(new CustomMessage(2002001, new WriteMulitImageActivityConfig(this.f21595j, 12012, m, p())));
     }
 
     public final boolean z() {

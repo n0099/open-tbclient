@@ -7,7 +7,7 @@ import com.ss.android.socialbase.appdownloader.g;
 import com.ss.android.socialbase.downloader.model.DownloadInfo;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class f {
     public static void a(DownloadInfo downloadInfo, JSONObject jSONObject) {
         try {

@@ -59,7 +59,7 @@ import com.facebook.imagepipeline.request.ImageRequestBuilder;
 import java.util.List;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes.dex */
+/* loaded from: classes6.dex */
 public class d extends c.a.r0.r.a.a.i implements View.OnClickListener, c.a.r0.a.j1.d.d.c<MediaModel> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -85,13 +85,13 @@ public class d extends c.a.r0.r.a.a.i implements View.OnClickListener, c.a.r0.a.
     public TextView y0;
     public TextView z0;
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes6.dex */
     public class a implements DialogInterface.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d f9861e;
+        public final /* synthetic */ d f10003e;
 
         public a(d dVar) {
             Interceptable interceptable = $ic;
@@ -108,25 +108,25 @@ public class d extends c.a.r0.r.a.a.i implements View.OnClickListener, c.a.r0.a.
                     return;
                 }
             }
-            this.f9861e = dVar;
+            this.f10003e = dVar;
         }
 
         @Override // android.content.DialogInterface.OnClickListener
         public void onClick(DialogInterface dialogInterface, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLI(1048576, this, dialogInterface, i2) == null) {
-                this.f9861e.h1();
+                this.f10003e.h1();
             }
         }
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes6.dex */
     public class b implements View.OnKeyListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d f9862e;
+        public final /* synthetic */ d f10004e;
 
         public b(d dVar) {
             Interceptable interceptable = $ic;
@@ -143,7 +143,7 @@ public class d extends c.a.r0.r.a.a.i implements View.OnClickListener, c.a.r0.a.
                     return;
                 }
             }
-            this.f9862e = dVar;
+            this.f10004e = dVar;
         }
 
         @Override // android.view.View.OnKeyListener
@@ -152,7 +152,7 @@ public class d extends c.a.r0.r.a.a.i implements View.OnClickListener, c.a.r0.a.
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048576, this, view, i2, keyEvent)) == null) {
                 if (keyEvent.getAction() == 0 && i2 == 4) {
-                    this.f9862e.z1();
+                    this.f10004e.z1();
                     return true;
                 }
                 return false;
@@ -161,13 +161,13 @@ public class d extends c.a.r0.r.a.a.i implements View.OnClickListener, c.a.r0.a.
         }
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes6.dex */
     public class c implements View.OnTouchListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d f9863e;
+        public final /* synthetic */ d f10005e;
 
         public c(d dVar) {
             Interceptable interceptable = $ic;
@@ -184,7 +184,7 @@ public class d extends c.a.r0.r.a.a.i implements View.OnClickListener, c.a.r0.a.
                     return;
                 }
             }
-            this.f9863e = dVar;
+            this.f10005e = dVar;
         }
 
         @Override // android.view.View.OnTouchListener
@@ -192,7 +192,7 @@ public class d extends c.a.r0.r.a.a.i implements View.OnClickListener, c.a.r0.a.
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, view, motionEvent)) == null) {
-                this.f9863e.z1();
+                this.f10005e.z1();
                 return false;
             }
             return invokeLL.booleanValue;
@@ -200,15 +200,15 @@ public class d extends c.a.r0.r.a.a.i implements View.OnClickListener, c.a.r0.a.
     }
 
     /* renamed from: c.a.r0.a.z1.d$d  reason: collision with other inner class name */
-    /* loaded from: classes.dex */
-    public class C0648d implements TextWatcher {
+    /* loaded from: classes6.dex */
+    public class C0657d implements TextWatcher {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d f9864e;
+        public final /* synthetic */ d f10006e;
 
-        public C0648d(d dVar) {
+        public C0657d(d dVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -223,14 +223,14 @@ public class d extends c.a.r0.r.a.a.i implements View.OnClickListener, c.a.r0.a.
                     return;
                 }
             }
-            this.f9864e = dVar;
+            this.f10006e = dVar;
         }
 
         @Override // android.text.TextWatcher
         public void afterTextChanged(Editable editable) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, editable) == null) {
-                this.f9864e.I1(editable);
+                this.f10006e.I1(editable);
             }
         }
 
@@ -249,7 +249,7 @@ public class d extends c.a.r0.r.a.a.i implements View.OnClickListener, c.a.r0.a.
         }
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes6.dex */
     public class e implements EmojiEditText.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -296,7 +296,7 @@ public class d extends c.a.r0.r.a.a.i implements View.OnClickListener, c.a.r0.a.
         }
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes6.dex */
     public class f implements EmojiEditText.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -343,24 +343,24 @@ public class d extends c.a.r0.r.a.a.i implements View.OnClickListener, c.a.r0.a.
         }
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes6.dex */
     public class g implements e.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ ViewGroup f9865e;
+        public final /* synthetic */ ViewGroup f10007e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ d f9866f;
+        public final /* synthetic */ d f10008f;
 
-        /* loaded from: classes.dex */
+        /* loaded from: classes6.dex */
         public class a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ g f9867e;
+            public final /* synthetic */ g f10009e;
 
             public a(g gVar) {
                 Interceptable interceptable = $ic;
@@ -377,14 +377,14 @@ public class d extends c.a.r0.r.a.a.i implements View.OnClickListener, c.a.r0.a.
                         return;
                     }
                 }
-                this.f9867e = gVar;
+                this.f10009e = gVar;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    this.f9867e.f9866f.u0.setVisibility(0);
+                    this.f10009e.f10008f.u0.setVisibility(0);
                 }
             }
         }
@@ -404,24 +404,24 @@ public class d extends c.a.r0.r.a.a.i implements View.OnClickListener, c.a.r0.a.
                     return;
                 }
             }
-            this.f9866f = dVar;
-            this.f9865e = viewGroup;
+            this.f10008f = dVar;
+            this.f10007e = viewGroup;
         }
 
         @Override // c.a.r0.a.z1.j.e.b
         public void onSoftInputShowing(boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-                this.f9866f.J0 = z;
+                this.f10008f.J0 = z;
                 if (z) {
-                    this.f9866f.H0.setImageResource(c.a.r0.a.e.swanapp_reply_editor_emotion);
-                    this.f9865e.post(new a(this));
+                    this.f10008f.H0.setImageResource(c.a.r0.a.e.swanapp_reply_editor_emotion);
+                    this.f10007e.post(new a(this));
                 }
             }
         }
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes6.dex */
     public class h implements b.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -460,13 +460,13 @@ public class d extends c.a.r0.r.a.a.i implements View.OnClickListener, c.a.r0.a.
         }
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes6.dex */
     public class i implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d f9868e;
+        public final /* synthetic */ d f10010e;
 
         public i(d dVar) {
             Interceptable interceptable = $ic;
@@ -483,25 +483,25 @@ public class d extends c.a.r0.r.a.a.i implements View.OnClickListener, c.a.r0.a.
                     return;
                 }
             }
-            this.f9868e = dVar;
+            this.f10010e = dVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f9868e.u0.setVisibility(0);
+                this.f10010e.u0.setVisibility(0);
             }
         }
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes6.dex */
     public class j implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d f9869e;
+        public final /* synthetic */ d f10011e;
 
         public j(d dVar) {
             Interceptable interceptable = $ic;
@@ -518,14 +518,14 @@ public class d extends c.a.r0.r.a.a.i implements View.OnClickListener, c.a.r0.a.
                     return;
                 }
             }
-            this.f9869e = dVar;
+            this.f10011e = dVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                ((InputMethodManager) this.f9869e.w0.getContext().getSystemService("input_method")).hideSoftInputFromWindow(this.f9869e.w0.getWindowToken(), 0);
+                ((InputMethodManager) this.f10011e.w0.getContext().getSystemService("input_method")).hideSoftInputFromWindow(this.f10011e.w0.getWindowToken(), 0);
             }
         }
     }
@@ -998,7 +998,7 @@ public class d extends c.a.r0.r.a.a.i implements View.OnClickListener, c.a.r0.a.
                 this.H0.setVisibility(8);
             }
             this.F0.setOnTouchListener(new c(this));
-            this.w0.addTextChangedListener(new C0648d(this));
+            this.w0.addTextChangedListener(new C0657d(this));
             this.w0.setListener(new e(this));
             this.w0.setListener(new f(this));
             F1();

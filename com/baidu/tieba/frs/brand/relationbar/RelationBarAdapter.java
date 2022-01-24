@@ -19,7 +19,7 @@ public class RelationBarAdapter extends RecyclerView.Adapter<RelationBarHolder> 
     public Context a;
 
     /* renamed from: b  reason: collision with root package name */
-    public List<OriForumInfo> f43246b;
+    public List<OriForumInfo> f43268b;
 
     public RelationBarAdapter(Context context) {
         Interceptable interceptable = $ic;
@@ -43,7 +43,7 @@ public class RelationBarAdapter extends RecyclerView.Adapter<RelationBarHolder> 
     public int getItemCount() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? ListUtils.getCount(this.f43246b) : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? ListUtils.getCount(this.f43268b) : invokeV.intValue;
     }
 
     public void setData(List<OriForumInfo> list) {
@@ -51,7 +51,7 @@ public class RelationBarAdapter extends RecyclerView.Adapter<RelationBarHolder> 
         if (!(interceptable == null || interceptable.invokeL(1048581, this, list) == null) || ListUtils.isEmpty(list)) {
             return;
         }
-        this.f43246b = list;
+        this.f43268b = list;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -59,7 +59,7 @@ public class RelationBarAdapter extends RecyclerView.Adapter<RelationBarHolder> 
     public void onBindViewHolder(RelationBarHolder relationBarHolder, int i2) {
         OriForumInfo oriForumInfo;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, relationBarHolder, i2) == null) || (oriForumInfo = (OriForumInfo) ListUtils.getItem(this.f43246b, i2)) == null) {
+        if (!(interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, relationBarHolder, i2) == null) || (oriForumInfo = (OriForumInfo) ListUtils.getItem(this.f43268b, i2)) == null) {
             return;
         }
         RelationBarCellView relationBarCellView = (RelationBarCellView) relationBarHolder.getRelationBarCellView();

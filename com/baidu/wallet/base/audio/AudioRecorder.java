@@ -19,10 +19,10 @@ public class AudioRecorder extends Observable implements Runnable {
     public AudioRecord a;
 
     /* renamed from: b  reason: collision with root package name */
-    public State f50459b;
+    public State f50504b;
 
     /* renamed from: c  reason: collision with root package name */
-    public byte[] f50460c;
+    public byte[] f50505c;
 
     /* renamed from: com.baidu.wallet.base.audio.AudioRecorder$1  reason: invalid class name */
     /* loaded from: classes13.dex */
@@ -141,7 +141,7 @@ public class AudioRecorder extends Observable implements Runnable {
     private void a(State state) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65538, this, state) == null) {
-            this.f50459b = state;
+            this.f50504b = state;
             setChanged();
             notifyObservers(state);
         }
@@ -155,15 +155,15 @@ public class AudioRecorder extends Observable implements Runnable {
 
     public void end() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && State.RUNNING == this.f50459b) {
-            this.f50459b = State.STOP;
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && State.RUNNING == this.f50504b) {
+            this.f50504b = State.STOP;
         }
     }
 
     public State getState() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f50459b : (State) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f50504b : (State) invokeV.objValue;
     }
 
     public synchronized boolean init(int i2, int i3, int i4, int i5) {
@@ -171,12 +171,12 @@ public class AudioRecorder extends Observable implements Runnable {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeIIII = interceptable.invokeIIII(Constants.METHOD_SEND_USER_MSG, this, i2, i3, i4, i5)) == null) {
             synchronized (this) {
-                if (this.f50459b == null || State.DESTROY == this.f50459b) {
+                if (this.f50504b == null || State.DESTROY == this.f50504b) {
                     try {
                         AudioRecord audioRecord = new AudioRecord(1, i2, i3, i4, i5);
                         this.a = audioRecord;
                         if (1 == audioRecord.getState()) {
-                            this.f50460c = new byte[i5];
+                            this.f50505c = new byte[i5];
                             a(State.INIT);
                             return true;
                         }
@@ -200,12 +200,12 @@ public class AudioRecorder extends Observable implements Runnable {
         }
         audioRecord.startRecording();
         a(State.OPEN);
-        ByteBuffer wrap = ByteBuffer.wrap(this.f50460c);
-        this.f50459b = State.RUNNING;
-        while (State.RUNNING == this.f50459b) {
+        ByteBuffer wrap = ByteBuffer.wrap(this.f50505c);
+        this.f50504b = State.RUNNING;
+        while (State.RUNNING == this.f50504b) {
             wrap.clear();
             AudioRecord audioRecord2 = this.a;
-            byte[] bArr = this.f50460c;
+            byte[] bArr = this.f50505c;
             int read = audioRecord2.read(bArr, 0, bArr.length);
             if (read <= 0) {
                 break;
@@ -220,7 +220,7 @@ public class AudioRecorder extends Observable implements Runnable {
         this.a = null;
         a(State.DESTROY);
         deleteObservers();
-        this.f50460c = null;
+        this.f50505c = null;
     }
 
     public AudioRecorder() {
@@ -237,6 +237,6 @@ public class AudioRecorder extends Observable implements Runnable {
             }
         }
         this.a = null;
-        this.f50459b = null;
+        this.f50504b = null;
     }
 }

@@ -21,41 +21,41 @@ public class a {
     public BdUniqueId a;
 
     /* renamed from: b  reason: collision with root package name */
-    public List<SimpleForum> f21028b;
+    public List<SimpleForum> f21262b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f21029c;
+    public String f21263c;
 
     /* renamed from: d  reason: collision with root package name */
-    public b f21030d;
+    public b f21264d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f21031e;
+    public String f21265e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f21032f;
+    public String f21266f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f21033g;
+    public int f21267g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f21034h;
+    public String f21268h;
 
     /* renamed from: i  reason: collision with root package name */
-    public BdUniqueId f21035i;
+    public BdUniqueId f21269i;
 
     /* renamed from: j  reason: collision with root package name */
-    public c.a.d.c.g.a f21036j;
+    public c.a.d.c.g.a f21270j;
 
     /* renamed from: c.a.t0.p4.a0.d.a$a  reason: collision with other inner class name */
     /* loaded from: classes8.dex */
-    public class C1317a extends c.a.d.c.g.a {
+    public class C1328a extends c.a.d.c.g.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ a a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public C1317a(a aVar, int i2, int i3) {
+        public C1328a(a aVar, int i2, int i3) {
             super(i2, i3);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -84,28 +84,28 @@ public class a {
             }
             boolean z = responsedMessage instanceof GetRepostForumHttpResMessage;
             if (z || (responsedMessage instanceof GetRepostForumSocketResMessage)) {
-                if (responsedMessage.getOrginalMessage() == null || !(responsedMessage.getOrginalMessage().getExtra() instanceof GetRepostForumReqMessage) || this.a.f21035i == ((GetRepostForumReqMessage) responsedMessage.getOrginalMessage().getExtra()).getRequestId()) {
+                if (responsedMessage.getOrginalMessage() == null || !(responsedMessage.getOrginalMessage().getExtra() instanceof GetRepostForumReqMessage) || this.a.f21269i == ((GetRepostForumReqMessage) responsedMessage.getOrginalMessage().getExtra()).getRequestId()) {
                     if (responsedMessage.hasError()) {
-                        if (this.a.f21030d != null) {
-                            this.a.f21030d.onError();
+                        if (this.a.f21264d != null) {
+                            this.a.f21264d.onError();
                             return;
                         }
                         return;
                     }
                     if (z) {
                         GetRepostForumHttpResMessage getRepostForumHttpResMessage = (GetRepostForumHttpResMessage) responsedMessage;
-                        this.a.f21028b = getRepostForumHttpResMessage.getForumList();
-                        this.a.f21029c = getRepostForumHttpResMessage.getRecommendExtension();
-                        this.a.f21033g = getRepostForumHttpResMessage.getPrivateThread();
+                        this.a.f21262b = getRepostForumHttpResMessage.getForumList();
+                        this.a.f21263c = getRepostForumHttpResMessage.getRecommendExtension();
+                        this.a.f21267g = getRepostForumHttpResMessage.getPrivateThread();
                     }
                     if (responsedMessage instanceof GetRepostForumSocketResMessage) {
                         GetRepostForumSocketResMessage getRepostForumSocketResMessage = (GetRepostForumSocketResMessage) responsedMessage;
-                        this.a.f21028b = getRepostForumSocketResMessage.getForumList();
-                        this.a.f21029c = getRepostForumSocketResMessage.getRecommendExtension();
-                        this.a.f21033g = getRepostForumSocketResMessage.getPrivateThread();
+                        this.a.f21262b = getRepostForumSocketResMessage.getForumList();
+                        this.a.f21263c = getRepostForumSocketResMessage.getRecommendExtension();
+                        this.a.f21267g = getRepostForumSocketResMessage.getPrivateThread();
                     }
-                    if (this.a.f21030d != null) {
-                        this.a.f21030d.a(this.a.f21028b, this.a.f21033g);
+                    if (this.a.f21264d != null) {
+                        this.a.f21264d.a(this.a.f21262b, this.a.f21267g);
                     }
                 }
             }
@@ -134,24 +134,24 @@ public class a {
                 return;
             }
         }
-        C1317a c1317a = new C1317a(this, CmdConfigHttp.CMD_GET_REPOST_RECOMMEND_FORUM, 309450);
-        this.f21036j = c1317a;
+        C1328a c1328a = new C1328a(this, CmdConfigHttp.CMD_GET_REPOST_RECOMMEND_FORUM, 309450);
+        this.f21270j = c1328a;
         this.a = bdUniqueId;
-        c1317a.setTag(bdUniqueId);
-        MessageManager.getInstance().registerListener(this.f21036j);
-        this.f21036j.getHttpMessageListener().setSelfListener(true);
-        this.f21036j.getSocketMessageListener().setSelfListener(true);
+        c1328a.setTag(bdUniqueId);
+        MessageManager.getInstance().registerListener(this.f21270j);
+        this.f21270j.getHttpMessageListener().setSelfListener(true);
+        this.f21270j.getSocketMessageListener().setSelfListener(true);
     }
 
     public void h() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             GetRepostForumReqMessage getRepostForumReqMessage = new GetRepostForumReqMessage();
-            getRepostForumReqMessage.setThreadTitle(this.f21031e);
-            getRepostForumReqMessage.setThreadContent(this.f21032f);
-            getRepostForumReqMessage.setForumId(this.f21034h);
+            getRepostForumReqMessage.setThreadTitle(this.f21265e);
+            getRepostForumReqMessage.setThreadContent(this.f21266f);
+            getRepostForumReqMessage.setForumId(this.f21268h);
             getRepostForumReqMessage.setTag(this.a);
-            getRepostForumReqMessage.setRequestId(this.f21035i);
+            getRepostForumReqMessage.setRequestId(this.f21269i);
             MessageManager.getInstance().sendMessage(getRepostForumReqMessage);
         }
     }
@@ -159,28 +159,28 @@ public class a {
     public void i(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar) == null) {
-            this.f21030d = bVar;
+            this.f21264d = bVar;
         }
     }
 
     public void j(BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bdUniqueId) == null) {
-            this.f21035i = bdUniqueId;
+            this.f21269i = bdUniqueId;
         }
     }
 
     public void k(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            this.f21032f = str;
+            this.f21266f = str;
         }
     }
 
     public void l(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            this.f21031e = str;
+            this.f21265e = str;
         }
     }
 }

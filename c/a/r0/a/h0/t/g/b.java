@@ -22,7 +22,7 @@ public class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final boolean f6900b;
+    public static final boolean f7042b;
     public transient /* synthetic */ FieldHolder $fh;
     public final List<c> a;
 
@@ -32,7 +32,7 @@ public class b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: d  reason: collision with root package name */
-        public String f6901d;
+        public String f7043d;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(@Nullable Map<String, String> map) {
@@ -60,10 +60,10 @@ public class b {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, aVar)) == null) {
-                if (this.f6901d == null) {
-                    this.f6901d = super.c(aVar);
+                if (this.f7043d == null) {
+                    this.f7043d = super.c(aVar);
                 }
-                return this.f6901d;
+                return this.f7043d;
             }
             return (String) invokeL.objValue;
         }
@@ -82,7 +82,7 @@ public class b {
                 return;
             }
         }
-        f6900b = k.a;
+        f7042b = k.a;
     }
 
     public b() {
@@ -117,10 +117,10 @@ public class b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            long currentTimeMillis = f6900b ? System.currentTimeMillis() : 0L;
+            long currentTimeMillis = f7042b ? System.currentTimeMillis() : 0L;
             TreeMap treeMap = new TreeMap();
             treeMap.put(NotificationCompat.WearableExtender.KEY_PAGES, c().toString());
-            if (f6900b) {
+            if (f7042b) {
                 long currentTimeMillis2 = System.currentTimeMillis();
                 String str = "build slave preload msg cost - " + (currentTimeMillis2 - currentTimeMillis) + "ms";
             }

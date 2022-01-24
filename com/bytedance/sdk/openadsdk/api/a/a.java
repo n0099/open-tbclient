@@ -1,6 +1,5 @@
 package com.bytedance.sdk.openadsdk.api.a;
 
-import androidx.webkit.ProxyConfig;
 import com.baidu.android.common.others.IStringUtil;
 import com.meizu.cloud.pushsdk.notification.model.AdvanceSetting;
 import java.security.cert.CertificateParsingException;
@@ -20,7 +19,7 @@ public final class a implements HostnameVerifier {
     public static final a a = new a();
 
     /* renamed from: b  reason: collision with root package name */
-    public static final Pattern f53177b = Pattern.compile("([0-9a-fA-F]*:[0-9a-fA-F:.]*)|([\\d.]+)");
+    public static final Pattern f53222b = Pattern.compile("([0-9a-fA-F]*:[0-9a-fA-F:.]*)|([\\d.]+)");
 
     private boolean a(String str, X509Certificate x509Certificate) {
         if (a(str)) {
@@ -70,7 +69,7 @@ public final class a implements HostnameVerifier {
     }
 
     public static boolean a(String str) {
-        return f53177b.matcher(str).matches();
+        return f53222b.matcher(str).matches();
     }
 
     public static List<String> a(X509Certificate x509Certificate, int i2) {
@@ -102,7 +101,7 @@ public final class a implements HostnameVerifier {
                 str2 = str2 + '.';
             }
             String lowerCase = str2.toLowerCase(Locale.US);
-            if (!lowerCase.contains(ProxyConfig.MATCH_ALL_SCHEMES)) {
+            if (!lowerCase.contains("*")) {
                 return str.equals(lowerCase);
             }
             if (!lowerCase.startsWith(CertificatePinner.Pin.WILDCARD) || lowerCase.indexOf(42, 1) != -1 || str.length() < lowerCase.length() || CertificatePinner.Pin.WILDCARD.equals(lowerCase)) {

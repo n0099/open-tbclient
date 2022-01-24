@@ -23,22 +23,22 @@ public class a {
     public final int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final int f62210b;
+    public final int f62255b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final boolean f62211c;
+    public final boolean f62256c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final int f62212d;
+    public final int f62257d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final int f62213e;
+    public final int f62258e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final boolean f62214f;
+    public final boolean f62259f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final float f62215g;
+    public final float f62260g;
 
     public a(Activity activity) {
         Interceptable interceptable = $ic;
@@ -56,13 +56,13 @@ public class a {
             }
         }
         Resources resources = activity.getResources();
-        this.f62214f = resources.getConfiguration().orientation == 1;
-        this.f62215g = h(activity);
+        this.f62259f = resources.getConfiguration().orientation == 1;
+        this.f62260g = h(activity);
         this.a = c(resources, "status_bar_height");
-        this.f62210b = b(activity);
-        this.f62212d = e(activity);
-        this.f62213e = g(activity);
-        this.f62211c = this.f62212d > 0;
+        this.f62255b = b(activity);
+        this.f62257d = e(activity);
+        this.f62258e = g(activity);
+        this.f62256c = this.f62257d > 0;
     }
 
     @TargetApi(14)
@@ -87,7 +87,7 @@ public class a {
     public int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f62210b : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f62255b : invokeV.intValue;
     }
 
     @TargetApi(14)
@@ -127,7 +127,7 @@ public class a {
     public int d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f62212d : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f62257d : invokeV.intValue;
     }
 
     @TargetApi(14)
@@ -139,7 +139,7 @@ public class a {
             if (Build.VERSION.SDK_INT < 14 || !j((Activity) context)) {
                 return 0;
             }
-            return c(resources, this.f62214f ? "navigation_bar_height" : "navigation_bar_height_landscape");
+            return c(resources, this.f62259f ? "navigation_bar_height" : "navigation_bar_height_landscape");
         }
         return invokeL.intValue;
     }
@@ -147,7 +147,7 @@ public class a {
     public int f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f62213e : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f62258e : invokeV.intValue;
     }
 
     @TargetApi(14)
@@ -190,12 +190,12 @@ public class a {
     public boolean k() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f62211c : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f62256c : invokeV.booleanValue;
     }
 
     public boolean l() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f62215g >= 600.0f || this.f62214f : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f62260g >= 600.0f || this.f62259f : invokeV.booleanValue;
     }
 }

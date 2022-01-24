@@ -52,7 +52,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
 /* loaded from: classes.dex */
-public class f extends c.a.r0.a.h0.g.d implements a.InterfaceC0285a {
+public class f extends c.a.r0.a.h0.g.d implements a.InterfaceC0294a {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean Z0;
     public static final int a1;
@@ -84,7 +84,7 @@ public class f extends c.a.r0.a.h0.g.d implements a.InterfaceC0285a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ f f6387e;
+        public final /* synthetic */ f f6529e;
 
         public a(f fVar) {
             Interceptable interceptable = $ic;
@@ -101,16 +101,16 @@ public class f extends c.a.r0.a.h0.g.d implements a.InterfaceC0285a {
                     return;
                 }
             }
-            this.f6387e = fVar;
+            this.f6529e = fVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f6387e.V0 = c.a.r0.a.c1.a.Q();
-                u0 u0Var = this.f6387e.V0;
-                f fVar = this.f6387e;
+                this.f6529e.V0 = c.a.r0.a.c1.a.Q();
+                u0 u0Var = this.f6529e.V0;
+                f fVar = this.f6529e;
                 u0Var.a(fVar.f0, fVar.h0, fVar.getContext());
             }
         }
@@ -147,7 +147,7 @@ public class f extends c.a.r0.a.h0.g.d implements a.InterfaceC0285a {
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
                 String c2 = this.a.O0.c();
                 c.a.r0.a.o0.d.h hVar = new c.a.r0.a.o0.d.h();
-                hVar.f8043c = c.a.r0.a.a3.g.c.a.a(c2, "scrollViewBackToTop");
+                hVar.f8185c = c.a.r0.a.a3.g.c.a.a(c2, "scrollViewBackToTop");
                 c.a.r0.a.g1.f.U().m(c2, hVar);
             }
         }
@@ -159,7 +159,7 @@ public class f extends c.a.r0.a.h0.g.d implements a.InterfaceC0285a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ f f6388e;
+        public final /* synthetic */ f f6530e;
 
         public c(f fVar) {
             Interceptable interceptable = $ic;
@@ -176,14 +176,14 @@ public class f extends c.a.r0.a.h0.g.d implements a.InterfaceC0285a {
                     return;
                 }
             }
-            this.f6388e = fVar;
+            this.f6530e = fVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f6388e.d3();
+                this.f6530e.d3();
             }
         }
     }
@@ -195,19 +195,19 @@ public class f extends c.a.r0.a.h0.g.d implements a.InterfaceC0285a {
         public final /* synthetic */ a.e a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ String f6389b;
+        public final /* synthetic */ String f6531b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ String f6390c;
+        public final /* synthetic */ String f6532c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ String f6391d;
+        public final /* synthetic */ String f6533d;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f6392e;
+        public final /* synthetic */ String f6534e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ f f6393f;
+        public final /* synthetic */ f f6535f;
 
         public d(f fVar, a.e eVar, String str, String str2, String str3, String str4) {
             Interceptable interceptable = $ic;
@@ -224,12 +224,12 @@ public class f extends c.a.r0.a.h0.g.d implements a.InterfaceC0285a {
                     return;
                 }
             }
-            this.f6393f = fVar;
+            this.f6535f = fVar;
             this.a = eVar;
-            this.f6389b = str;
-            this.f6390c = str2;
-            this.f6391d = str3;
-            this.f6392e = str4;
+            this.f6531b = str;
+            this.f6532c = str2;
+            this.f6533d = str3;
+            this.f6534e = str4;
         }
 
         /* JADX WARN: Type inference failed for: r1v19, types: [c.a.r0.a.p.e.c] */
@@ -239,44 +239,44 @@ public class f extends c.a.r0.a.h0.g.d implements a.InterfaceC0285a {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 c.a.r0.a.h0.u.d dVar = new c.a.r0.a.h0.u.d();
-                dVar.f6921i = this.a.a.L();
-                if (!TextUtils.isEmpty(this.f6389b)) {
-                    c.a.r0.a.u1.i.e(this.a, this.f6389b);
+                dVar.f7063i = this.a.a.L();
+                if (!TextUtils.isEmpty(this.f6531b)) {
+                    c.a.r0.a.u1.i.e(this.a, this.f6531b);
                 }
-                String b2 = c.a.r0.a.f2.f.o0.j.b(this.f6390c);
-                dVar.a = this.f6391d;
-                if (TextUtils.isEmpty(this.f6392e)) {
-                    str = this.f6390c;
+                String b2 = c.a.r0.a.f2.f.o0.j.b(this.f6532c);
+                dVar.a = this.f6533d;
+                if (TextUtils.isEmpty(this.f6534e)) {
+                    str = this.f6532c;
                 } else {
-                    str = this.f6390c + "?" + this.f6392e;
+                    str = this.f6532c + "?" + this.f6534e;
                 }
-                dVar.f6914b = str;
+                dVar.f7056b = str;
                 if (c.a.r0.a.d2.e.a0() != null) {
-                    dVar.f6915c = c.a.r0.a.d2.e.a0().c0(b2);
-                    dVar.f6918f = c.a.r0.a.d2.e.a0().W(b2);
+                    dVar.f7057c = c.a.r0.a.d2.e.a0().c0(b2);
+                    dVar.f7060f = c.a.r0.a.d2.e.a0().W(b2);
                 }
-                dVar.k = c.a.r0.a.h0.u.a.c(c.a.r0.a.d2.e.L(), dVar.f6914b);
-                dVar.f6916d = c.a.r0.a.g1.f.U().f(b2).f5579g;
-                dVar.f6917e = String.valueOf(c.a.r0.a.e0.a.a());
-                dVar.f6919g = f.Z0 || c.a.r0.a.g1.f.U().N();
+                dVar.k = c.a.r0.a.h0.u.a.c(c.a.r0.a.d2.e.L(), dVar.f7056b);
+                dVar.f7058d = c.a.r0.a.g1.f.U().f(b2).f5721g;
+                dVar.f7059e = String.valueOf(c.a.r0.a.e0.a.a());
+                dVar.f7061g = f.Z0 || c.a.r0.a.g1.f.U().N();
                 if (c.a.r0.a.x1.a.a.H()) {
-                    dVar.f6922j = c.a.r0.a.e0.f.b.d();
+                    dVar.f7064j = c.a.r0.a.e0.f.b.d();
                 }
-                if (!TextUtils.isEmpty(this.f6389b)) {
-                    String str2 = this.f6389b;
-                    dVar.f6920h = str2;
+                if (!TextUtils.isEmpty(this.f6531b)) {
+                    String str2 = this.f6531b;
+                    dVar.f7062h = str2;
                     c.a.r0.a.u1.h.q(FlutterActivityLaunchConfigs.EXTRA_INITIAL_ROUTE, str2).F(new UbcFlowEvent("slave_dispatch_start"));
                 }
                 d0.d();
-                this.a.a.t().setDefaultViewSize(Integer.MIN_VALUE, Integer.MIN_VALUE, this.f6390c);
-                this.a.a.T(dVar.f6914b);
+                this.a.a.t().setDefaultViewSize(Integer.MIN_VALUE, Integer.MIN_VALUE, this.f6532c);
+                this.a.a.T(dVar.f7056b);
                 c.a.r0.a.g1.f.U().m(this.a.a.c(), c.a.r0.a.h0.u.d.a(dVar));
                 if (c.a.r0.a.h0.u.e.b()) {
                     c.a.r0.a.h0.u.e eVar = new c.a.r0.a.h0.u.e();
                     eVar.a = this.a.a.c();
                     c.a.r0.a.g1.f.U().u(c.a.r0.a.h0.u.e.a(eVar));
                 }
-                c.a.r0.a.n2.e.F(this.a.a.c(), dVar.f6914b);
+                c.a.r0.a.n2.e.F(this.a.a.c(), dVar.f7056b);
                 if (f.Z0) {
                     String str3 = "createSlaveAndLoad onReady. pageEvent: " + dVar.toString();
                 }
@@ -290,7 +290,7 @@ public class f extends c.a.r0.a.h0.g.d implements a.InterfaceC0285a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ f f6394e;
+        public final /* synthetic */ f f6536e;
 
         /* loaded from: classes.dex */
         public class a implements Runnable {
@@ -298,7 +298,7 @@ public class f extends c.a.r0.a.h0.g.d implements a.InterfaceC0285a {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ e f6395e;
+            public final /* synthetic */ e f6537e;
 
             public a(e eVar) {
                 Interceptable interceptable = $ic;
@@ -315,15 +315,15 @@ public class f extends c.a.r0.a.h0.g.d implements a.InterfaceC0285a {
                         return;
                     }
                 }
-                this.f6395e = eVar;
+                this.f6537e = eVar;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    this.f6395e.f6394e.X0 = false;
-                    this.f6395e.f6394e.v2(true, false);
+                    this.f6537e.f6536e.X0 = false;
+                    this.f6537e.f6536e.v2(true, false);
                 }
             }
         }
@@ -343,7 +343,7 @@ public class f extends c.a.r0.a.h0.g.d implements a.InterfaceC0285a {
                     return;
                 }
             }
-            this.f6394e = fVar;
+            this.f6536e = fVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -351,7 +351,7 @@ public class f extends c.a.r0.a.h0.g.d implements a.InterfaceC0285a {
         /* renamed from: a */
         public void onCallback(c.a.r0.a.h2.c.f fVar) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, fVar) == null) || fVar == null || fVar.f7125d || fVar.f7131j != 1) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, fVar) == null) || fVar == null || fVar.f7267d || fVar.f7273j != 1) {
                 return;
             }
             q0.e0(new a(this));
@@ -360,12 +360,12 @@ public class f extends c.a.r0.a.h0.g.d implements a.InterfaceC0285a {
 
     /* renamed from: c.a.r0.a.h0.g.f$f  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public class C0365f implements c.a.r0.a.h0.j.c {
+    public class C0374f implements c.a.r0.a.h0.j.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ f a;
 
-        public C0365f(f fVar) {
+        public C0374f(f fVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -444,7 +444,7 @@ public class f extends c.a.r0.a.h0.g.d implements a.InterfaceC0285a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ f f6396c;
+        public final /* synthetic */ f f6538c;
 
         public h(f fVar) {
             Interceptable interceptable = $ic;
@@ -461,14 +461,14 @@ public class f extends c.a.r0.a.h0.g.d implements a.InterfaceC0285a {
                     return;
                 }
             }
-            this.f6396c = fVar;
+            this.f6538c = fVar;
         }
 
         @Override // c.a.r0.a.h0.j.a, c.a.r0.a.h0.j.d
         public void a(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-                this.f6396c.p2(str);
+                this.f6538c.p2(str);
             }
         }
     }
@@ -640,7 +640,7 @@ public class f extends c.a.r0.a.h0.g.d implements a.InterfaceC0285a {
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             c.a.r0.a.d2.n.g gVar = this.S0;
             if (gVar != null) {
-                return TextUtils.equals(gVar.f5582j, "custom");
+                return TextUtils.equals(gVar.f5724j, "custom");
             }
             return false;
         }
@@ -758,7 +758,7 @@ public class f extends c.a.r0.a.h0.g.d implements a.InterfaceC0285a {
                 if (cVar != null) {
                     i2 = cVar.getWebViewScrollY();
                     gVar = this.S0;
-                    if (gVar != null && gVar.f5581i) {
+                    if (gVar != null && gVar.f5723i) {
                         i3 = 0;
                     }
                 }
@@ -800,18 +800,18 @@ public class f extends c.a.r0.a.h0.g.d implements a.InterfaceC0285a {
         this.h0 = g2;
         if (g2 == null) {
             c.a.r0.a.m1.b bVar = this.K0;
-            bVar.f7672e = "";
-            bVar.f7673f = "";
-            bVar.f7676i = "";
-            bVar.f7677j = "";
+            bVar.f7814e = "";
+            bVar.f7815f = "";
+            bVar.f7818i = "";
+            bVar.f7819j = "";
         } else {
-            this.K0.f7672e = g2.i();
-            this.K0.f7673f = this.h0.j();
-            this.K0.f7676i = this.h0.l();
-            this.K0.f7677j = this.h0.k();
+            this.K0.f7814e = g2.i();
+            this.K0.f7815f = this.h0.j();
+            this.K0.f7818i = this.h0.l();
+            this.K0.f7819j = this.h0.k();
         }
         c.a.r0.a.m1.b bVar2 = this.K0;
-        bVar2.f7675h = c.a.r0.a.f2.f.o0.j.b(bVar2.f());
+        bVar2.f7817h = c.a.r0.a.f2.f.o0.j.b(bVar2.f());
         c.a.r0.a.d2.n.g f2 = c.a.r0.a.g1.f.U().f(this.K0.h());
         this.S0 = f2;
         if (f2.p) {
@@ -819,8 +819,8 @@ public class f extends c.a.r0.a.h0.g.d implements a.InterfaceC0285a {
         }
         if (this.H0) {
             c.a.r0.a.d2.n.g gVar = this.S0;
-            gVar.f5578f = false;
-            gVar.f5580h = true;
+            gVar.f5720f = false;
+            gVar.f5722h = true;
             gVar.p = true;
         }
         this.T0 = D1().getDimensionPixelSize(c.a.r0.a.d.aiapps_normal_base_action_bar_height);
@@ -869,14 +869,14 @@ public class f extends c.a.r0.a.h0.g.d implements a.InterfaceC0285a {
             if (!TextUtils.equals(d1, this.O0.c()) || TextUtils.equals(e1, "switchTab")) {
                 int o = this.P0.o(g3().h());
                 c.a.r0.a.o0.d.f fVar = new c.a.r0.a.o0.d.f();
-                fVar.f8036c = d1;
-                fVar.f8037d = this.O0.c();
-                fVar.f8038e = e1;
-                fVar.f8039f = this.K0.f7672e;
-                fVar.f8040g = String.valueOf(o);
+                fVar.f8178c = d1;
+                fVar.f8179d = this.O0.c();
+                fVar.f8180e = e1;
+                fVar.f8181f = this.K0.f7814e;
+                fVar.f8182g = String.valueOf(o);
                 e1 = "";
                 if (Z0) {
-                    String str = "sendRouteMessage fromId: " + fVar.f8036c + " ,toId: " + fVar.f8037d + " ,RouteType: " + fVar.f8038e + " page:" + fVar.f8039f + ",TabIndex: " + fVar.f8040g;
+                    String str = "sendRouteMessage fromId: " + fVar.f8178c + " ,toId: " + fVar.f8179d + " ,RouteType: " + fVar.f8180e + " page:" + fVar.f8181f + ",TabIndex: " + fVar.f8182g;
                 }
                 c.a.r0.a.g1.f.U().u(fVar);
                 d1 = this.O0.c();
@@ -954,8 +954,8 @@ public class f extends c.a.r0.a.h0.g.d implements a.InterfaceC0285a {
             }
             if (this.P0.o(g3().h()) == this.P0.o(bVar.h())) {
                 c.a.r0.a.m1.b bVar2 = this.K0;
-                bVar2.f7676i = bVar.f7676i;
-                bVar2.f7677j = bVar.f7677j;
+                bVar2.f7818i = bVar.f7818i;
+                bVar2.f7819j = bVar.f7819j;
                 return;
             }
             this.P0.E(bVar.h());
@@ -982,8 +982,8 @@ public class f extends c.a.r0.a.h0.g.d implements a.InterfaceC0285a {
         }
         this.O0 = bVar2;
         c.a.r0.a.m1.b bVar4 = this.K0;
-        bVar4.f7676i = bVar.f7676i;
-        bVar4.f7677j = bVar.f7677j;
+        bVar4.f7818i = bVar.f7818i;
+        bVar4.f7819j = bVar.f7819j;
         bVar2.i(bVar4);
     }
 
@@ -1030,7 +1030,7 @@ public class f extends c.a.r0.a.h0.g.d implements a.InterfaceC0285a {
                 background2.setAlpha(i4);
             }
             c.a.r0.a.d2.n.g gVar = this.S0;
-            if (gVar != null && gVar.f5581i && (centerTitleView = this.k0.getCenterTitleView()) != null) {
+            if (gVar != null && gVar.f5723i && (centerTitleView = this.k0.getCenterTitleView()) != null) {
                 centerTitleView.setAlpha(f2);
             }
             Drawable background3 = this.s0.getBackground();
@@ -1139,7 +1139,7 @@ public class f extends c.a.r0.a.h0.g.d implements a.InterfaceC0285a {
             if (!TextUtils.isEmpty(str4)) {
                 HybridUbcFlow q = c.a.r0.a.u1.h.q(FlutterActivityLaunchConfigs.EXTRA_INITIAL_ROUTE, str4);
                 q.F(new UbcFlowEvent("na_pre_load_slave_check"));
-                q.D("preload", f2.f6884b ? "1" : "0");
+                q.D("preload", f2.f7026b ? "1" : "0");
             }
             if (Z0) {
                 String str5 = "createSlaveAndLoad preloadManager: " + f2;
@@ -1195,8 +1195,8 @@ public class f extends c.a.r0.a.h0.g.d implements a.InterfaceC0285a {
         if (interceptable == null || interceptable.invokeV(1048605, this) == null) {
             J1();
             c.a.r0.a.n2.s.f fVar = new c.a.r0.a.n2.s.f();
-            fVar.f7980e = "gohome";
-            fVar.f7978c = "bar";
+            fVar.f8122e = "gohome";
+            fVar.f8120c = "bar";
             f H = c.a.r0.a.g1.f.U().H();
             c.a.r0.a.m1.c H1 = H == null ? null : H.H1();
             if (H1 != null && !TextUtils.isEmpty(H1.i())) {
@@ -1208,20 +1208,20 @@ public class f extends c.a.r0.a.h0.g.d implements a.InterfaceC0285a {
 
     public final void c3(c.a.r0.a.m1.b bVar, String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048606, this, bVar, str) == null) && this.M0.get(bVar.f7675h) == null) {
-            String a2 = q0.a(bVar.f7674g, bVar.f7672e, bVar.f7673f);
+        if ((interceptable == null || interceptable.invokeLL(1048606, this, bVar, str) == null) && this.M0.get(bVar.f7817h) == null) {
+            String a2 = q0.a(bVar.f7816g, bVar.f7814e, bVar.f7815f);
             c.a.r0.a.p.e.b h2 = c.a.r0.a.h0.t.a.h(a2);
             if (h2 != null) {
                 if (Z0) {
                     String str2 = "createTabSlaveWebView loaded manager pageUrl: " + a2;
                 }
-                this.M0.put(bVar.f7672e, h2);
+                this.M0.put(bVar.f7814e, h2);
             } else {
                 boolean z = Z0;
-                h2 = a3(bVar.f7674g, bVar.f7672e, bVar.f7673f, str);
-                this.M0.put(bVar.f7672e, h2);
+                h2 = a3(bVar.f7816g, bVar.f7814e, bVar.f7815f, str);
+                this.M0.put(bVar.f7814e, h2);
             }
-            v3(bVar.f7672e);
+            v3(bVar.f7814e);
             X2(h2);
         }
     }
@@ -1277,7 +1277,7 @@ public class f extends c.a.r0.a.h0.g.d implements a.InterfaceC0285a {
     public void e3() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048609, this) == null) {
-            this.S0.f5582j = "default";
+            this.S0.f5724j = "default";
             p1();
             H3();
         }
@@ -1291,13 +1291,13 @@ public class f extends c.a.r0.a.h0.g.d implements a.InterfaceC0285a {
             if (Z0) {
                 String str2 = "doSwitchTab mPrePageParams=" + this.L0;
             }
-            String str3 = bVar.f7672e;
-            String str4 = bVar.f7675h;
+            String str3 = bVar.f7814e;
+            String str4 = bVar.f7817h;
             c.a.r0.a.d2.n.g f2 = c.a.r0.a.g1.f.U().f(TextUtils.isEmpty(str4) ? "" : str4);
             c.a.r0.a.m1.b bVar2 = this.K0;
-            bVar2.f7672e = str3;
-            bVar2.f7673f = bVar != null ? bVar.g() : "";
-            this.K0.f7675h = str4;
+            bVar2.f7814e = str3;
+            bVar2.f7815f = bVar != null ? bVar.g() : "";
+            this.K0.f7817h = str4;
             this.S0 = f2;
             boolean z = !E3(str4);
             if (!TextUtils.isEmpty(str)) {
@@ -1317,12 +1317,12 @@ public class f extends c.a.r0.a.h0.g.d implements a.InterfaceC0285a {
                 c.a.r0.a.u1.h.q(FlutterActivityLaunchConfigs.EXTRA_INITIAL_ROUTE, str).F(new UbcFlowEvent("na_push_page_end"));
                 c.a.r0.a.u1.i.a(str, bVar);
             }
-            p2(f2.f5574b);
-            w2(SwanAppConfigData.t(f2.f5575c));
+            p2(f2.f5716b);
+            w2(SwanAppConfigData.t(f2.f5717c));
             n2(f2.a);
             H3();
             T3();
-            c.a.r0.a.e0.d.i("SwanAppFragment", "switch tab title: " + f2.f5574b + " page:" + str3);
+            c.a.r0.a.e0.d.i("SwanAppFragment", "switch tab title: " + f2.f5716b + " page:" + str3);
         }
     }
 
@@ -1350,7 +1350,7 @@ public class f extends c.a.r0.a.h0.g.d implements a.InterfaceC0285a {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048612, this)) == null) ? this.K0 : (c.a.r0.a.m1.b) invokeV.objValue;
     }
 
-    @Override // c.a.r0.a.c2.b.c.a.InterfaceC0285a
+    @Override // c.a.r0.a.c2.b.c.a.InterfaceC0294a
     public c.a.r0.a.c2.b.c.a getFloatLayer() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -1679,8 +1679,8 @@ public class f extends c.a.r0.a.h0.g.d implements a.InterfaceC0285a {
         if (TextUtils.isEmpty(str)) {
             str = "";
         }
-        if (U.f(str).f5580h && this.U0 == null) {
-            this.U0 = new C0365f(this);
+        if (U.f(str).f5722h && this.U0 == null) {
+            this.U0 = new C0374f(this);
         }
     }
 
@@ -1774,7 +1774,7 @@ public class f extends c.a.r0.a.h0.g.d implements a.InterfaceC0285a {
             if (s == null) {
                 return false;
             }
-            return !((TextUtils.equals(s.f(), this.K0.f7672e) || s.r(this.K0.f7672e)) ? true : true);
+            return !((TextUtils.equals(s.f(), this.K0.f7814e) || s.r(this.K0.f7814e)) ? true : true);
         }
         return invokeV.booleanValue;
     }
@@ -1792,7 +1792,7 @@ public class f extends c.a.r0.a.h0.g.d implements a.InterfaceC0285a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048647, this)) == null) {
             c.a.r0.a.d2.n.g gVar = this.S0;
-            return gVar != null && gVar.f5580h;
+            return gVar != null && gVar.f5722h;
         }
         return invokeV.booleanValue;
     }

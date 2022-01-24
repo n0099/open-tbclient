@@ -8,7 +8,7 @@ import i.f;
 import i.j;
 import i.m.a;
 import java.util.concurrent.atomic.AtomicBoolean;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public final class SingleProducer<T> extends AtomicBoolean implements f {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = -3353584923995471404L;

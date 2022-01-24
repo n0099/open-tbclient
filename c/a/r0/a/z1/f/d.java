@@ -20,22 +20,22 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
-/* loaded from: classes.dex */
+/* loaded from: classes6.dex */
 public class d extends z {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes6.dex */
     public class a implements c.a.r0.a.z1.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ CallbackHandler a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ UnitedSchemeEntity f9880b;
+        public final /* synthetic */ UnitedSchemeEntity f10022b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ String f9881c;
+        public final /* synthetic */ String f10023c;
 
         public a(d dVar, CallbackHandler callbackHandler, UnitedSchemeEntity unitedSchemeEntity, String str) {
             Interceptable interceptable = $ic;
@@ -53,8 +53,8 @@ public class d extends z {
                 }
             }
             this.a = callbackHandler;
-            this.f9880b = unitedSchemeEntity;
-            this.f9881c = str;
+            this.f10022b = unitedSchemeEntity;
+            this.f10023c = str;
         }
 
         @Override // c.a.r0.a.z1.a
@@ -62,9 +62,9 @@ public class d extends z {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) {
                 if (jSONObject == null) {
-                    UnitedSchemeUtility.safeCallback(this.a, this.f9880b, UnitedSchemeUtility.wrapCallbackParams(1, "empty post data").toString(), this.f9881c);
+                    UnitedSchemeUtility.safeCallback(this.a, this.f10022b, UnitedSchemeUtility.wrapCallbackParams(1, "empty post data").toString(), this.f10023c);
                 } else {
-                    UnitedSchemeUtility.safeCallback(this.a, this.f9880b, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0).toString(), this.f9881c);
+                    UnitedSchemeUtility.safeCallback(this.a, this.f10022b, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0).toString(), this.f10023c);
                 }
             }
         }
@@ -73,12 +73,12 @@ public class d extends z {
         public void onCancel() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                UnitedSchemeUtility.safeCallback(this.a, this.f9880b, UnitedSchemeUtility.wrapCallbackParams(1001, "user cancel").toString(), this.f9881c);
+                UnitedSchemeUtility.safeCallback(this.a, this.f10022b, UnitedSchemeUtility.wrapCallbackParams(1001, "user cancel").toString(), this.f10023c);
             }
         }
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes6.dex */
     public class b implements DialogInterface.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -137,7 +137,7 @@ public class d extends z {
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "illegal app info");
                 return false;
             } else if (eVar.m0()) {
-                boolean z = z.f6201b;
+                boolean z = z.f6343b;
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "this operation does not supported when app is invisible.");
                 return false;
             } else {

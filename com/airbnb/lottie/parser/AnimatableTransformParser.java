@@ -12,11 +12,10 @@ import com.airbnb.lottie.model.animatable.AnimatableValue;
 import com.airbnb.lottie.parser.moshi.JsonReader;
 import com.airbnb.lottie.value.Keyframe;
 import com.airbnb.lottie.value.ScaleXY;
-import com.baidu.searchbox.aperf.bosuploader.ContentUtil;
 import java.io.IOException;
 /* loaded from: classes9.dex */
 public class AnimatableTransformParser {
-    public static JsonReader.Options NAMES = JsonReader.Options.of("a", "p", "s", "rz", "r", "o", "so", "eo", ContentUtil.RESULT_KEY_SK, "sa");
+    public static JsonReader.Options NAMES = JsonReader.Options.of("a", "p", "s", "rz", "r", "o", "so", "eo", "sk", "sa");
     public static JsonReader.Options ANIMATABLE_NAMES = JsonReader.Options.of("k");
 
     public static boolean isAnchorPointIdentity(AnimatablePathValue animatablePathValue) {

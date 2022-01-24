@@ -153,7 +153,7 @@ public final class GeneralAppIdDecoder {
                         c2 = Typography.less;
                         break;
                     case 248:
-                        c2 = a.f30865h;
+                        c2 = a.f30893h;
                         break;
                     case 249:
                         c2 = Typography.greater;

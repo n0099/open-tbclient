@@ -17,7 +17,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 /* loaded from: classes9.dex */
 public class GradientStrokeParser {
-    public static JsonReader.Options NAMES = JsonReader.Options.of(SearchView.IME_OPTION_NO_MICROPHONE, "g", "o", "t", "s", "e", "w", k.f33814h, "lj", "ml", "hd", "d");
+    public static JsonReader.Options NAMES = JsonReader.Options.of(SearchView.IME_OPTION_NO_MICROPHONE, "g", "o", "t", "s", "e", "w", k.f33842h, "lj", "ml", "hd", "d");
     public static final JsonReader.Options GRADIENT_NAMES = JsonReader.Options.of("p", "k");
     public static final JsonReader.Options DASH_PATTERN_NAMES = JsonReader.Options.of("n", "v");
 

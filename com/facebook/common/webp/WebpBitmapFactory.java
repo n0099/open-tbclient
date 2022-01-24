@@ -5,10 +5,10 @@ import android.graphics.BitmapFactory;
 import android.graphics.Rect;
 import java.io.FileDescriptor;
 import java.io.InputStream;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public interface WebpBitmapFactory {
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface WebpErrorLogger {
         void onWebpErrorLog(String str, String str2);
     }

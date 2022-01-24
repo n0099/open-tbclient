@@ -5,7 +5,7 @@ import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import c.a.d.f.p.l;
 import c.a.k.a.o.d;
-import c.a.s0.e1.v0;
+import c.a.s0.d1.v0;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.browser.core.async.BdRunnable;
 import com.baidu.tbadk.TbConfig;
@@ -36,37 +36,37 @@ public class a {
 
     /* renamed from: c.a.t0.v.i.a$a  reason: collision with other inner class name */
     /* loaded from: classes8.dex */
-    public class C1487a extends BdRunnable {
+    public class C1470a extends BdRunnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ Map f24511g;
+        public final /* synthetic */ Map f24216g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ String f24512h;
+        public final /* synthetic */ String f24217h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final /* synthetic */ a f24513i;
+        public final /* synthetic */ a f24218i;
 
         /* renamed from: c.a.t0.v.i.a$a$a  reason: collision with other inner class name */
         /* loaded from: classes8.dex */
-        public class C1488a extends BdRunnable {
+        public class C1471a extends BdRunnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: g  reason: collision with root package name */
-            public final /* synthetic */ JSONObject f24514g;
+            public final /* synthetic */ JSONObject f24219g;
 
             /* renamed from: h  reason: collision with root package name */
-            public final /* synthetic */ C1487a f24515h;
+            public final /* synthetic */ C1470a f24220h;
 
-            public C1488a(C1487a c1487a, JSONObject jSONObject) {
+            public C1471a(C1470a c1470a, JSONObject jSONObject) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     newInitContext.initArgs = r2;
-                    Object[] objArr = {c1487a, jSONObject};
+                    Object[] objArr = {c1470a, jSONObject};
                     interceptable.invokeUnInit(65536, newInitContext);
                     int i2 = newInitContext.flag;
                     if ((i2 & 1) != 0) {
@@ -76,20 +76,20 @@ public class a {
                         return;
                     }
                 }
-                this.f24515h = c1487a;
-                this.f24514g = jSONObject;
+                this.f24220h = c1470a;
+                this.f24219g = jSONObject;
             }
 
             @Override // com.baidu.browser.core.async.BdRunnable
             public void b() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    this.f24515h.f24513i.a.a(this.f24514g);
+                    this.f24220h.f24218i.a.a(this.f24219g);
                 }
             }
         }
 
-        public C1487a(a aVar, Map map, String str) {
+        public C1470a(a aVar, Map map, String str) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -104,9 +104,9 @@ public class a {
                     return;
                 }
             }
-            this.f24513i = aVar;
-            this.f24511g = map;
-            this.f24512h = str;
+            this.f24218i = aVar;
+            this.f24216g = map;
+            this.f24217h = str;
         }
 
         @Override // com.baidu.browser.core.async.BdRunnable
@@ -116,8 +116,8 @@ public class a {
                 MediaType parse = MediaType.parse(AbstractBceClient.DEFAULT_CONTENT_TYPE);
                 JSONObject jSONObject = new JSONObject();
                 try {
-                    this.f24513i.d(this.f24511g);
-                    this.f24513i.f(this.f24511g, jSONObject);
+                    this.f24218i.d(this.f24216g);
+                    this.f24218i.f(this.f24216g, jSONObject);
                 } catch (JSONException e2) {
                     e2.printStackTrace();
                 }
@@ -125,12 +125,12 @@ public class a {
                 RequestBody create = RequestBody.create(parse, String.valueOf(jSONObject));
                 Response response = null;
                 try {
-                    response = okHttpClient.newCall(new Request.Builder().url(this.f24512h).post(create).build()).execute();
+                    response = okHttpClient.newCall(new Request.Builder().url(this.f24217h).post(create).build()).execute();
                 } catch (IOException e3) {
                     e3.printStackTrace();
                 }
                 try {
-                    d.f().h(new C1488a(this, new JSONObject(response.body().string())));
+                    d.f().h(new C1471a(this, new JSONObject(response.body().string())));
                 } catch (IOException e4) {
                     e4.printStackTrace();
                 } catch (JSONException e5) {
@@ -200,7 +200,7 @@ public class a {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, map, jSONObject)) == null) {
-            if (c.a.t0.x1.o.k.a.f(map)) {
+            if (c.a.t0.y1.o.k.a.f(map)) {
                 return jSONObject;
             }
             for (Map.Entry<String, String> entry : map.entrySet()) {
@@ -214,7 +214,7 @@ public class a {
     public void g(Map<String, String> map, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, map, str) == null) {
-            d.f().g(new C1487a(this, map, str));
+            d.f().g(new C1470a(this, map, str));
         }
     }
 }

@@ -15,7 +15,7 @@ import java.io.Reader;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.annotation.Nullable;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class Closeables {
     public static /* synthetic */ Interceptable $ic;
     @VisibleForTesting

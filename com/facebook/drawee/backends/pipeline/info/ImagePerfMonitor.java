@@ -16,7 +16,7 @@ import com.facebook.imagepipeline.listener.ForwardingRequestListener;
 import java.util.LinkedList;
 import java.util.List;
 import javax.annotation.Nullable;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class ImagePerfMonitor {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

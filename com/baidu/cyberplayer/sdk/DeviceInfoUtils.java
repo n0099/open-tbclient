@@ -28,7 +28,7 @@ public class DeviceInfoUtils {
     public static String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f33418b;
+    public static String f33446b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -311,7 +311,7 @@ public class DeviceInfoUtils {
                 return str2;
             }
             try {
-                InputStream inputStream = new ProcessBuilder("/system/bin/cat", z.f55318b).start().getInputStream();
+                InputStream inputStream = new ProcessBuilder("/system/bin/cat", z.f55363b).start().getInputStream();
                 String str3 = "";
                 while (inputStream.read(new byte[24]) != -1) {
                     str3 = str3 + new String(bArr);
@@ -385,12 +385,12 @@ public class DeviceInfoUtils {
         byte[] bArr;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65568, null)) == null) {
-            String str2 = f33418b;
+            String str2 = f33446b;
             if (str2 != null) {
                 return str2;
             }
             try {
-                InputStream inputStream = new ProcessBuilder("/system/bin/cat", z.f55319c).start().getInputStream();
+                InputStream inputStream = new ProcessBuilder("/system/bin/cat", z.f55364c).start().getInputStream();
                 String str3 = "";
                 while (inputStream.read(new byte[24]) != -1) {
                     str3 = str3 + new String(bArr);
@@ -402,7 +402,7 @@ public class DeviceInfoUtils {
                 str = null;
             }
             if (str != null) {
-                f33418b = str;
+                f33446b = str;
             }
             return str;
         }

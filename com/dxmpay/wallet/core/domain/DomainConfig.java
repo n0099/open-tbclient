@@ -11,20 +11,20 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class DomainConfig implements c.f.b.b.b.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public c.f.b.b.b.a a;
 
     /* renamed from: b  reason: collision with root package name */
-    public c.f.b.b.b.a f53956b;
+    public c.f.b.b.b.a f54001b;
 
     /* renamed from: c  reason: collision with root package name */
-    public c.f.b.b.b.a f53957c;
+    public c.f.b.b.b.a f54002c;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class DomainStrategyType {
         public static final /* synthetic */ DomainStrategyType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -83,7 +83,7 @@ public class DomainConfig implements c.f.b.b.b.a {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public static final /* synthetic */ int[] a;
@@ -115,7 +115,7 @@ public class DomainConfig implements c.f.b.b.b.a {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class b {
         public static /* synthetic */ Interceptable $ic;
         public static final DomainConfig a;
@@ -215,10 +215,10 @@ public class DomainConfig implements c.f.b.b.b.a {
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, domainStrategyType) == null) {
             int i2 = a.a[domainStrategyType.ordinal()];
             if (i2 == 1) {
-                this.a = this.f53957c;
+                this.a = this.f54002c;
             } else if (i2 != 2) {
             } else {
-                this.a = this.f53956b;
+                this.a = this.f54001b;
             }
         }
     }
@@ -236,9 +236,9 @@ public class DomainConfig implements c.f.b.b.b.a {
                 return;
             }
         }
-        this.f53956b = new c.f.b.b.b.b();
-        this.f53957c = c.a();
-        this.a = this.f53956b;
+        this.f54001b = new c.f.b.b.b.b();
+        this.f54002c = c.a();
+        this.a = this.f54001b;
     }
 
     public void setStrategy(DomainStrategyType domainStrategyType, String str) {
@@ -246,9 +246,9 @@ public class DomainConfig implements c.f.b.b.b.a {
         if (interceptable == null || interceptable.invokeLL(1048585, this, domainStrategyType, str) == null) {
             int i2 = a.a[domainStrategyType.ordinal()];
             if (i2 == 1) {
-                this.a = this.f53957c;
+                this.a = this.f54002c;
             } else if (i2 == 2) {
-                this.a = this.f53956b;
+                this.a = this.f54001b;
             }
             this.a.setDomainConfig(str);
         }

@@ -22,31 +22,31 @@ public class a {
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f12083b;
+    public int f12225b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f12084c;
+    public int f12226c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f12085d;
+    public int f12227d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f12086e;
+    public String f12228e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f12087f;
+    public String f12229f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f12088g;
+    public String f12230g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f12089h;
+    public String f12231h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f12090i;
+    public int f12232i;
 
     /* renamed from: j  reason: collision with root package name */
-    public String f12091j;
+    public String f12233j;
     public String k;
     public String l;
     public String m;

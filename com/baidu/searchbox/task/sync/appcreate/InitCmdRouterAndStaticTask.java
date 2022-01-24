@@ -1,7 +1,7 @@
 package com.baidu.searchbox.task.sync.appcreate;
 
-import c.a.s0.s.h0.b;
-import c.a.s0.s.x.d;
+import c.a.s0.s.i0.b;
+import c.a.s0.s.y.a;
 import c.a.s0.s0.l;
 import com.baidu.adp.framework.cmdRouter.CmdRouter;
 import com.baidu.android.imsdk.internal.Constants;
@@ -35,7 +35,7 @@ public class InitCmdRouterAndStaticTask extends LaunchTask {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65537, this) == null) {
             long currentTimeMillis = System.currentTimeMillis();
-            d.a();
+            a.a();
             l.b().u(System.currentTimeMillis() - currentTimeMillis);
         }
     }

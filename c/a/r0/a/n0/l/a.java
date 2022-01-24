@@ -19,7 +19,7 @@ public class a implements b.a {
     public final String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public JSONObject f7823b;
+    public JSONObject f7965b;
 
     public a(String str, boolean z) {
         Interceptable interceptable = $ic;
@@ -37,7 +37,7 @@ public class a implements b.a {
             }
         }
         JSONObject jSONObject = new JSONObject();
-        this.f7823b = jSONObject;
+        this.f7965b = jSONObject;
         this.a = str;
         try {
             jSONObject.put(IntentConfig.PKG_ID, str);
@@ -61,13 +61,13 @@ public class a implements b.a {
         PMSAppInfo u;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(65538, this) == null) && isValid() && (u = c.a.r0.q.g.a.i().u(this.a)) != null) {
-            this.f7823b.put("app_name", u.appName);
-            this.f7823b.put("pkg_vername", u.versionName);
-            this.f7823b.put("pkg_vercode", u.versionCode);
-            this.f7823b.put("create_time", u.createTime);
-            this.f7823b.put("last_launch_time", u.getLastLaunchTime());
-            this.f7823b.put("launch_count", u.getLaunchCount());
-            this.f7823b.put("install_src", u.getInstallSrc());
+            this.f7965b.put("app_name", u.appName);
+            this.f7965b.put("pkg_vername", u.versionName);
+            this.f7965b.put("pkg_vercode", u.versionCode);
+            this.f7965b.put("create_time", u.createTime);
+            this.f7965b.put("last_launch_time", u.getLastLaunchTime());
+            this.f7965b.put("launch_count", u.getLaunchCount());
+            this.f7965b.put("install_src", u.getInstallSrc());
         }
     }
 
@@ -82,7 +82,7 @@ public class a implements b.a {
     public JSONObject b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f7823b : (JSONObject) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f7965b : (JSONObject) invokeV.objValue;
     }
 
     @Override // c.a.r0.a.n0.l.b.a

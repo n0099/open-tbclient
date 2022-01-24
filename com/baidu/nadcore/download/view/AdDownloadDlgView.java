@@ -31,22 +31,22 @@ public class AdDownloadDlgView extends RelativeLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public ImageView f36978e;
+    public ImageView f37006e;
 
     /* renamed from: f  reason: collision with root package name */
-    public AdImageView f36979f;
+    public AdImageView f37007f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f36980g;
+    public TextView f37008g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f36981h;
+    public TextView f37009h;
 
     /* renamed from: i  reason: collision with root package name */
-    public TextView f36982i;
+    public TextView f37010i;
 
     /* renamed from: j  reason: collision with root package name */
-    public TextView f36983j;
+    public TextView f37011j;
     public TextView k;
     public TextView l;
     public TextView m;
@@ -59,7 +59,7 @@ public class AdDownloadDlgView extends RelativeLayout {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ AdDownloadDlgView f36984e;
+        public final /* synthetic */ AdDownloadDlgView f37012e;
 
         public a(AdDownloadDlgView adDownloadDlgView) {
             Interceptable interceptable = $ic;
@@ -76,15 +76,15 @@ public class AdDownloadDlgView extends RelativeLayout {
                     return;
                 }
             }
-            this.f36984e = adDownloadDlgView;
+            this.f37012e = adDownloadDlgView;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             String str;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, view) == null) && (this.f36984e.getTag() instanceof p)) {
-                p pVar = (p) this.f36984e.getTag();
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view) == null) && (this.f37012e.getTag() instanceof p)) {
+                p pVar = (p) this.f37012e.getTag();
                 int id = view.getId();
                 if (id == e.nad_download_lp_dlg_privacy) {
                     p.b bVar = pVar.f2271g;
@@ -99,12 +99,12 @@ public class AdDownloadDlgView extends RelativeLayout {
                             str = aVar.f2275b;
                         }
                     } else if (id == e.nad_download_lp_dlg_dev_name && !TextUtils.isEmpty(pVar.f2268d)) {
-                        this.f36984e.c(pVar.f2268d);
+                        this.f37012e.c(pVar.f2268d);
                         return;
                     }
                     str = "";
                 }
-                d.c("baiduboxapp://vendor/ad/easybrowse?url=_URL_&newbrowser=1".replace("_URL_", str), this.f36984e.getContext());
+                d.c("baiduboxapp://vendor/ad/easybrowse?url=_URL_&newbrowser=1".replace("_URL_", str), this.f37012e.getContext());
             }
         }
     }
@@ -134,12 +134,12 @@ public class AdDownloadDlgView extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
             View inflate = LayoutInflater.from(context).inflate(f.nad_download_lp_dlg, this);
-            this.f36978e = (ImageView) inflate.findViewById(e.nad_download_lp_dlg_close);
-            this.f36979f = (AdImageView) inflate.findViewById(e.nad_download_lp_dlg_logo);
-            this.f36980g = (TextView) inflate.findViewById(e.nad_download_lp_dlg_app_name);
-            this.f36981h = (TextView) inflate.findViewById(e.nad_download_lp_dlg_app_size);
-            this.f36982i = (TextView) inflate.findViewById(e.nad_download_lp_dlg_dev_name);
-            this.f36983j = (TextView) inflate.findViewById(e.nad_download_lp_dlg_app_version);
+            this.f37006e = (ImageView) inflate.findViewById(e.nad_download_lp_dlg_close);
+            this.f37007f = (AdImageView) inflate.findViewById(e.nad_download_lp_dlg_logo);
+            this.f37008g = (TextView) inflate.findViewById(e.nad_download_lp_dlg_app_name);
+            this.f37009h = (TextView) inflate.findViewById(e.nad_download_lp_dlg_app_size);
+            this.f37010i = (TextView) inflate.findViewById(e.nad_download_lp_dlg_dev_name);
+            this.f37011j = (TextView) inflate.findViewById(e.nad_download_lp_dlg_app_version);
             this.k = (TextView) inflate.findViewById(e.nad_download_lp_dlg_privacy);
             this.l = (TextView) inflate.findViewById(e.nad_download_lp_dlg_permission);
             this.m = (TextView) inflate.findViewById(e.nad_download_lp_dlg_tip);
@@ -155,12 +155,12 @@ public class AdDownloadDlgView extends RelativeLayout {
                 this.m.setVisibility(gVar.a != 2 ? 0 : 8);
                 p pVar = gVar.f1981b;
                 setTag(pVar);
-                this.f36979f.displayImage(pVar.f2266b);
-                this.f36980g.setText(pVar.f2267c);
-                this.f36981h.setText(pVar.f2273i);
-                this.f36982i.setText(pVar.f2268d);
-                this.f36982i.setOnClickListener(this.o);
-                this.f36983j.setText(pVar.f2270f);
+                this.f37007f.displayImage(pVar.f2266b);
+                this.f37008g.setText(pVar.f2267c);
+                this.f37009h.setText(pVar.f2273i);
+                this.f37010i.setText(pVar.f2268d);
+                this.f37010i.setOnClickListener(this.o);
+                this.f37011j.setText(pVar.f2270f);
                 p.b bVar = pVar.f2271g;
                 if (bVar != null && !TextUtils.isEmpty(bVar.f2276b) && !TextUtils.isEmpty(bVar.a)) {
                     this.k.setText(bVar.a);
@@ -204,7 +204,7 @@ public class AdDownloadDlgView extends RelativeLayout {
     public void setOnCloseClickListener(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, onClickListener) == null) {
-            this.f36978e.setOnClickListener(onClickListener);
+            this.f37006e.setOnClickListener(onClickListener);
         }
     }
 

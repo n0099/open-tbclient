@@ -12,7 +12,7 @@ public class r {
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f14942b;
+    public String f15082b;
 
     public r() {
         Interceptable interceptable = $ic;
@@ -34,6 +34,6 @@ public class r {
             return;
         }
         this.a = jSONObject.optString("name");
-        this.f14942b = jSONObject.optString("url");
+        this.f15082b = jSONObject.optString("url");
     }
 }

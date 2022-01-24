@@ -39,7 +39,7 @@ public final class o {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Context f20049e;
+        public final /* synthetic */ Context f20150e;
 
         public a(Context context) {
             Interceptable interceptable = $ic;
@@ -56,7 +56,7 @@ public final class o {
                     return;
                 }
             }
-            this.f20049e = context;
+            this.f20150e = context;
         }
 
         @Override // android.text.style.ClickableSpan
@@ -64,7 +64,7 @@ public final class o {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, widget) == null) {
                 Intrinsics.checkNotNullParameter(widget, "widget");
-                c.a.s0.m.a.j(this.f20049e, "http://tieba.baidu.com/tb/mobile/wisemainstatic/secretright.html");
+                c.a.s0.m.a.j(this.f20150e, "http://tieba.baidu.com/tb/mobile/wisemainstatic/secretright.html");
             }
         }
     }
@@ -75,7 +75,7 @@ public final class o {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Context f20050e;
+        public final /* synthetic */ Context f20151e;
 
         public b(Context context) {
             Interceptable interceptable = $ic;
@@ -92,7 +92,7 @@ public final class o {
                     return;
                 }
             }
-            this.f20050e = context;
+            this.f20151e = context;
         }
 
         @Override // android.text.style.ClickableSpan
@@ -100,7 +100,7 @@ public final class o {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, widget) == null) {
                 Intrinsics.checkNotNullParameter(widget, "widget");
-                c.a.s0.m.a.j(this.f20050e, "https://gsp0.baidu.com/5aAHeD3nKhI2p27j8IqW0jdnxx1xbK/tb/eula.html");
+                c.a.s0.m.a.j(this.f20151e, "https://gsp0.baidu.com/5aAHeD3nKhI2p27j8IqW0jdnxx1xbK/tb/eula.html");
             }
         }
     }
@@ -138,7 +138,7 @@ public final class o {
             TBSpecificationBtn tBSpecificationBtn = (TBSpecificationBtn) inflate.findViewById(R.id.yesBtn);
             tBSpecificationBtn.setText(tbPageContext.getString(R.string.secret_hint_agree_and_go_on));
             tBSpecificationBtn.setTextSize(R.dimen.T_X07);
-            c.a.s0.s.j0.n.b bVar = new c.a.s0.s.j0.n.b();
+            c.a.s0.s.k0.n.b bVar = new c.a.s0.s.k0.n.b();
             bVar.p(R.color.CAM_X0303, R.color.CAM_X0101);
             tBSpecificationBtn.setConfig(bVar);
             tBSpecificationBtn.setOnClickListener(listener);

@@ -46,22 +46,22 @@ public class f implements c.a.r0.q.a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Set f5382e;
+        public final /* synthetic */ Set f5524e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ c.a.r0.q.k.i.k f5383f;
+        public final /* synthetic */ c.a.r0.q.k.i.k f5525f;
 
         /* renamed from: c.a.r0.a.c1.c.f$a$a  reason: collision with other inner class name */
         /* loaded from: classes.dex */
-        public class C0283a extends c.a.r0.a.h0.m.a {
+        public class C0292a extends c.a.r0.a.h0.m.a {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ AtomicInteger a;
 
             /* renamed from: b  reason: collision with root package name */
-            public final /* synthetic */ a f5384b;
+            public final /* synthetic */ a f5526b;
 
-            public C0283a(a aVar, AtomicInteger atomicInteger) {
+            public C0292a(a aVar, AtomicInteger atomicInteger) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -76,7 +76,7 @@ public class f implements c.a.r0.q.a {
                         return;
                     }
                 }
-                this.f5384b = aVar;
+                this.f5526b = aVar;
                 this.a = atomicInteger;
             }
 
@@ -84,7 +84,7 @@ public class f implements c.a.r0.q.a {
             public void d() {
                 Interceptable interceptable = $ic;
                 if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.a.get() == 0) {
-                    c.a.r0.q.k.i.l.a().c(this.f5384b.f5383f);
+                    c.a.r0.q.k.i.l.a().c(this.f5526b.f5525f);
                 }
             }
 
@@ -105,7 +105,7 @@ public class f implements c.a.r0.q.a {
             public void h() {
                 Interceptable interceptable = $ic;
                 if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && this.a.get() == 0) {
-                    c.a.r0.q.k.i.l.a().c(this.f5384b.f5383f);
+                    c.a.r0.q.k.i.l.a().c(this.f5526b.f5525f);
                 }
             }
         }
@@ -125,8 +125,8 @@ public class f implements c.a.r0.q.a {
                     return;
                 }
             }
-            this.f5382e = set;
-            this.f5383f = kVar;
+            this.f5524e = set;
+            this.f5525f = kVar;
         }
 
         @Override // java.lang.Runnable
@@ -135,7 +135,7 @@ public class f implements c.a.r0.q.a {
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 ArrayList arrayList = new ArrayList();
                 AtomicInteger atomicInteger = new AtomicInteger(0);
-                for (String str : this.f5382e) {
+                for (String str : this.f5524e) {
                     if (!TextUtils.isEmpty(str)) {
                         arrayList.add(new c.a(str, 0));
                     }
@@ -143,7 +143,7 @@ public class f implements c.a.r0.q.a {
                 if (arrayList.isEmpty()) {
                     return;
                 }
-                c.a.r0.a.h0.c.a.b.b(arrayList, "3", new C0283a(this, atomicInteger));
+                c.a.r0.a.h0.c.a.b.b(arrayList, "3", new C0292a(this, atomicInteger));
             }
         }
     }
@@ -154,10 +154,10 @@ public class f implements c.a.r0.q.a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c.a.r0.a.o2.g.b f5385e;
+        public final /* synthetic */ c.a.r0.a.o2.g.b f5527e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ JSONObject f5386f;
+        public final /* synthetic */ JSONObject f5528f;
 
         public b(f fVar, c.a.r0.a.o2.g.b bVar, JSONObject jSONObject) {
             Interceptable interceptable = $ic;
@@ -174,15 +174,15 @@ public class f implements c.a.r0.q.a {
                     return;
                 }
             }
-            this.f5385e = bVar;
-            this.f5386f = jSONObject;
+            this.f5527e = bVar;
+            this.f5528f = jSONObject;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                c.a.r0.a.p1.r.a.g().q(this.f5385e, this.f5386f);
+                c.a.r0.a.p1.r.a.g().q(this.f5527e, this.f5528f);
             }
         }
     }
@@ -218,7 +218,7 @@ public class f implements c.a.r0.q.a {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bool) == null) {
                 c.a.r0.a.w1.e.a.b("download plugin result = " + bool);
-                c.a.r0.a.w1.f.a.b(this.a.f11494g);
+                c.a.r0.a.w1.f.a.b(this.a.f11636g);
             }
         }
     }
@@ -533,18 +533,18 @@ public class f implements c.a.r0.q.a {
     public void t(c.a.r0.q.k.k.a aVar, c.a.r0.q.p.g gVar) {
         Collection<c.a.r0.q.i.i> collection;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048608, this, aVar, gVar) == null) || aVar == null || (collection = aVar.f11633e) == null || gVar == null) {
+        if (!(interceptable == null || interceptable.invokeLL(1048608, this, aVar, gVar) == null) || aVar == null || (collection = aVar.f11775e) == null || gVar == null) {
             return;
         }
         for (c.a.r0.q.i.i iVar : collection) {
-            c.a.r0.a.w1.b.a aVar2 = new c.a.r0.a.w1.b.a(iVar.f11494g, iVar.f11497j, iVar.f11496i, new c(this, iVar));
+            c.a.r0.a.w1.b.a aVar2 = new c.a.r0.a.w1.b.a(iVar.f11636g, iVar.f11639j, iVar.f11638i, new c(this, iVar));
             c.a.r0.q.k.k.a aVar3 = new c.a.r0.q.k.k.a();
-            aVar3.f11633e = new ArrayList();
+            aVar3.f11775e = new ArrayList();
             c.a.r0.q.p.g gVar2 = new c.a.r0.q.p.g();
             c.a.r0.q.k.k.b.b(iVar, gVar2);
             aVar2.H(gVar2);
-            aVar3.f11633e.clear();
-            aVar3.f11633e.add(iVar);
+            aVar3.f11775e.clear();
+            aVar3.f11775e.add(iVar);
             c.a.r0.q.j.i.a.e(aVar3, aVar2);
         }
     }

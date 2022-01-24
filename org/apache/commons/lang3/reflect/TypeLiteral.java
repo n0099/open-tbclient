@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.reflect.Type;
 import java.lang.reflect.TypeVariable;
 import org.apache.commons.lang3.Validate;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public abstract class TypeLiteral<T> implements Typed<T> {
     public static /* synthetic */ Interceptable $ic;
     public static final TypeVariable<Class<TypeLiteral>> T;

@@ -22,15 +22,15 @@ public class z {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: d  reason: collision with root package name */
-    public static String f52938d = "MsaClient";
+    public static String f52983d = "MsaClient";
     public transient /* synthetic */ FieldHolder $fh;
     public ServiceConnection a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Context f52939b;
+    public Context f52984b;
 
     /* renamed from: c  reason: collision with root package name */
-    public MsaIdInterface f52940c;
+    public MsaIdInterface f52985c;
 
     /* loaded from: classes2.dex */
     public class a implements ServiceConnection {
@@ -39,7 +39,7 @@ public class z {
         public final /* synthetic */ a0 a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ z f52941b;
+        public final /* synthetic */ z f52986b;
 
         public a(z zVar, a0 a0Var) {
             Interceptable interceptable = $ic;
@@ -56,7 +56,7 @@ public class z {
                     return;
                 }
             }
-            this.f52941b = zVar;
+            this.f52986b = zVar;
             this.a = a0Var;
         }
 
@@ -65,9 +65,9 @@ public class z {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048576, this, componentName, iBinder) == null) {
                 synchronized (this) {
-                    this.f52941b.f52940c = MsaIdInterface.Stub.asInterface(iBinder);
-                    new y(this.f52941b.f52940c, this.a).executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR, new Void[0]);
-                    String str = z.f52938d;
+                    this.f52986b.f52985c = MsaIdInterface.Stub.asInterface(iBinder);
+                    new y(this.f52986b.f52985c, this.a).executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR, new Void[0]);
+                    String str = z.f52983d;
                 }
             }
         }
@@ -76,7 +76,7 @@ public class z {
         public void onServiceDisconnected(ComponentName componentName) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, componentName) == null) {
-                this.f52941b.f52940c = null;
+                this.f52986b.f52985c = null;
             }
         }
     }
@@ -114,7 +114,7 @@ public class z {
         if (context == null) {
             throw new NullPointerException("Context can not be null.");
         }
-        this.f52939b = context;
+        this.f52984b = context;
         this.a = new a(this, a0Var);
     }
 
@@ -136,7 +136,7 @@ public class z {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             try {
-                MsaIdInterface msaIdInterface = this.f52940c;
+                MsaIdInterface msaIdInterface = this.f52985c;
                 return msaIdInterface != null ? msaIdInterface.getAAID() : "";
             } catch (RemoteException unused) {
                 return "";
@@ -152,7 +152,7 @@ public class z {
             intent.setClassName("com.mdid.msa", "com.mdid.msa.service.MsaIdService");
             intent.setAction("com.bun.msa.action.bindto.service");
             intent.putExtra("com.bun.msa.param.pkgname", str);
-            if (!this.f52939b.bindService(intent, this.a, 1)) {
+            if (!this.f52984b.bindService(intent, this.a, 1)) {
                 throw new NullPointerException("BindService failed.");
             }
         }
@@ -163,7 +163,7 @@ public class z {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             try {
-                MsaIdInterface msaIdInterface = this.f52940c;
+                MsaIdInterface msaIdInterface = this.f52985c;
                 return msaIdInterface != null ? msaIdInterface.getOAID() : "";
             } catch (RemoteException unused) {
                 return "";
@@ -177,7 +177,7 @@ public class z {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             try {
-                MsaIdInterface msaIdInterface = this.f52940c;
+                MsaIdInterface msaIdInterface = this.f52985c;
                 return msaIdInterface != null ? msaIdInterface.getVAID() : "";
             } catch (RemoteException unused) {
                 return "";
@@ -191,7 +191,7 @@ public class z {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             try {
-                MsaIdInterface msaIdInterface = this.f52940c;
+                MsaIdInterface msaIdInterface = this.f52985c;
                 if (msaIdInterface != null) {
                     return msaIdInterface.isSupported();
                 }
@@ -206,7 +206,7 @@ public class z {
     public void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            MsaIdInterface msaIdInterface = this.f52940c;
+            MsaIdInterface msaIdInterface = this.f52985c;
             if (msaIdInterface != null) {
                 try {
                     msaIdInterface.shutDown();
@@ -215,7 +215,7 @@ public class z {
                 }
             }
             try {
-                this.f52939b.unbindService(this.a);
+                this.f52984b.unbindService(this.a);
             } catch (IllegalArgumentException unused) {
             }
         }

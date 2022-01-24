@@ -17,23 +17,23 @@ import java.io.FileOutputStream;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class LogUtil {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean DEBUG;
     public static final boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final boolean f53647b;
+    public static final boolean f53692b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final boolean f53648c;
+    public static final boolean f53693c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final boolean f53649d;
+    public static final boolean f53694d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final boolean f53650e;
+    public static final boolean f53695e;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -52,10 +52,10 @@ public final class LogUtil {
         boolean z = ApollonConstants.DEBUG;
         DEBUG = z;
         a = z;
-        f53647b = z;
-        f53648c = z;
-        f53649d = z;
-        f53650e = z;
+        f53692b = z;
+        f53693c = z;
+        f53694d = z;
+        f53695e = z;
     }
 
     public LogUtil() {
@@ -74,7 +74,7 @@ public final class LogUtil {
 
     public static void d(String str, String str2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65539, null, str, str2) == null) && f53647b) {
+        if ((interceptable == null || interceptable.invokeLL(65539, null, str, str2) == null) && f53692b) {
             TextUtils.isEmpty(str2);
             TextUtils.isEmpty(str);
         }
@@ -82,7 +82,7 @@ public final class LogUtil {
 
     public static void e(String str, String str2, Throwable th) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2, th) == null) && f53650e) {
+        if ((interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2, th) == null) && f53695e) {
             TextUtils.isEmpty(str2);
             TextUtils.isEmpty(str);
         }
@@ -116,7 +116,7 @@ public final class LogUtil {
 
     public static void i(String str, String str2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65544, null, str, str2) == null) && f53648c) {
+        if ((interceptable == null || interceptable.invokeLL(65544, null, str, str2) == null) && f53693c) {
             TextUtils.isEmpty(str2);
             TextUtils.isEmpty(str);
         }
@@ -139,7 +139,7 @@ public final class LogUtil {
     public static void saveLog(Context context, String str) {
         String absolutePath;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65549, null, context, str) == null) && f53647b) {
+        if ((interceptable == null || interceptable.invokeLL(65549, null, context, str) == null) && f53692b) {
             String str2 = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss:SSS    ", Locale.ENGLISH).format(new Date()) + str + org.apache.commons.lang3.StringUtils.LF;
             try {
                 File externalFilesDir = context.getExternalFilesDir(null);
@@ -193,7 +193,7 @@ public final class LogUtil {
 
     public static void w(String str, String str2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65552, null, str, str2) == null) && f53649d) {
+        if ((interceptable == null || interceptable.invokeLL(65552, null, str, str2) == null) && f53694d) {
             TextUtils.isEmpty(str2);
             TextUtils.isEmpty(str);
         }

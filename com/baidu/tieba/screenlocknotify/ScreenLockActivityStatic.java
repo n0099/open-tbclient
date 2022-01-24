@@ -1,7 +1,7 @@
 package com.baidu.tieba.screenlocknotify;
 
 import android.content.Intent;
-import c.a.t0.l3.a;
+import c.a.t0.m3.a;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.TbadkCoreApplication;

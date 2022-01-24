@@ -10,19 +10,19 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public class CancelableTimePickerDialog extends TimePickerDialog {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f49027e;
+    public int f49046e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f49028f;
+    public int f49047f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f49029g;
+    public boolean f49048g;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public CancelableTimePickerDialog(Context context, int i2, TimePickerDialog.OnTimeSetListener onTimeSetListener, int i3, int i4, boolean z) {
@@ -43,11 +43,11 @@ public class CancelableTimePickerDialog extends TimePickerDialog {
                 return;
             }
         }
-        this.f49027e = -1;
-        this.f49028f = -1;
-        this.f49029g = false;
-        this.f49027e = i3;
-        this.f49028f = i4;
+        this.f49046e = -1;
+        this.f49047f = -1;
+        this.f49048g = false;
+        this.f49046e = i3;
+        this.f49047f = i4;
     }
 
     @Override // android.app.TimePickerDialog, android.content.DialogInterface.OnClickListener
@@ -56,10 +56,10 @@ public class CancelableTimePickerDialog extends TimePickerDialog {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048576, this, dialogInterface, i2) == null) {
             if (i2 == -1) {
-                this.f49029g = true;
+                this.f49048g = true;
             } else {
-                int i4 = this.f49027e;
-                if (i4 >= 0 && (i3 = this.f49028f) >= 0) {
+                int i4 = this.f49046e;
+                if (i4 >= 0 && (i3 = this.f49047f) >= 0) {
                     updateTime(i4, i3);
                 }
             }
@@ -73,10 +73,10 @@ public class CancelableTimePickerDialog extends TimePickerDialog {
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
             super.onRestoreInstanceState(bundle);
             updateTime(0, 0);
-            this.f49027e = bundle.getInt("hour_key");
+            this.f49046e = bundle.getInt("hour_key");
             int i2 = bundle.getInt("min_key");
-            this.f49028f = i2;
-            updateTime(this.f49027e, i2);
+            this.f49047f = i2;
+            updateTime(this.f49046e, i2);
         }
     }
 
@@ -94,8 +94,8 @@ public class CancelableTimePickerDialog extends TimePickerDialog {
             if (bundle == null) {
                 bundle = new Bundle();
             }
-            bundle.putInt("hour_key", this.f49027e);
-            bundle.putInt("min_key", this.f49028f);
+            bundle.putInt("hour_key", this.f49046e);
+            bundle.putInt("min_key", this.f49047f);
             return bundle;
         }
         return (Bundle) invokeV.objValue;
@@ -105,8 +105,8 @@ public class CancelableTimePickerDialog extends TimePickerDialog {
     public void onStop() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            if (!this.f49029g) {
-                updateTime(this.f49027e, this.f49028f);
+            if (!this.f49048g) {
+                updateTime(this.f49046e, this.f49047f);
             }
             super.onStop();
         }
@@ -117,9 +117,9 @@ public class CancelableTimePickerDialog extends TimePickerDialog {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(1048580, this, i2, i3) == null) {
             super.updateTime(i2, i3);
-            this.f49027e = i2;
-            this.f49028f = i3;
-            this.f49029g = false;
+            this.f49046e = i2;
+            this.f49047f = i3;
+            this.f49048g = false;
         }
     }
 
@@ -142,10 +142,10 @@ public class CancelableTimePickerDialog extends TimePickerDialog {
                 return;
             }
         }
-        this.f49027e = -1;
-        this.f49028f = -1;
-        this.f49029g = false;
-        this.f49027e = i2;
-        this.f49028f = i3;
+        this.f49046e = -1;
+        this.f49047f = -1;
+        this.f49048g = false;
+        this.f49046e = i2;
+        this.f49047f = i3;
     }
 }

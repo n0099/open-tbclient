@@ -21,7 +21,7 @@ public class AddressListModel extends BdBaseModel<BaseFragmentActivity> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public a f41804e;
+    public a f41824e;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public AddressListModel(BaseFragmentActivity baseFragmentActivity) {
@@ -41,7 +41,7 @@ public class AddressListModel extends BdBaseModel<BaseFragmentActivity> {
                 return;
             }
         }
-        this.f41804e = a.d();
+        this.f41824e = a.d();
     }
 
     public void A() {
@@ -58,24 +58,24 @@ public class AddressListModel extends BdBaseModel<BaseFragmentActivity> {
         }
     }
 
-    public void C(a.InterfaceC1510a interfaceC1510a) {
+    public void C(a.InterfaceC1505a interfaceC1505a) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, interfaceC1510a) == null) {
-            this.f41804e.f(interfaceC1510a);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, interfaceC1505a) == null) {
+            this.f41824e.f(interfaceC1505a);
         }
     }
 
     public void D(List<c.a.s0.t.f.a> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, list) == null) {
-            this.f41804e.g(list);
+            this.f41824e.g(list);
         }
     }
 
-    public void E(a.InterfaceC1510a interfaceC1510a) {
+    public void E(a.InterfaceC1505a interfaceC1505a) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, interfaceC1510a) == null) {
-            this.f41804e.h(interfaceC1510a);
+        if (interceptable == null || interceptable.invokeL(1048580, this, interfaceC1505a) == null) {
+            this.f41824e.h(interfaceC1505a);
         }
     }
 
@@ -102,7 +102,7 @@ public class AddressListModel extends BdBaseModel<BaseFragmentActivity> {
     public void w(c.a.s0.t.f.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, aVar) == null) {
-            this.f41804e.a(aVar);
+            this.f41824e.a(aVar);
         }
     }
 
@@ -111,7 +111,7 @@ public class AddressListModel extends BdBaseModel<BaseFragmentActivity> {
         List<c.a.s0.t.f.a> c2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str)) == null) {
-            if (c.a(str) && (c2 = this.f41804e.c()) != null) {
+            if (c.a(str) && (c2 = this.f41824e.c()) != null) {
                 for (c.a.s0.t.f.a aVar : c2) {
                     if (str.equals(aVar.a())) {
                         return c2.indexOf(aVar);
@@ -127,13 +127,13 @@ public class AddressListModel extends BdBaseModel<BaseFragmentActivity> {
     public void y(long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048585, this, j2) == null) {
-            this.f41804e.b(j2);
+            this.f41824e.b(j2);
         }
     }
 
     public List<c.a.s0.t.f.a> z() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f41804e.c() : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f41824e.c() : (List) invokeV.objValue;
     }
 }

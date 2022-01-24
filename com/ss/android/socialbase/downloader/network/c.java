@@ -4,35 +4,35 @@ import android.net.Uri;
 import android.os.Handler;
 import java.net.InetAddress;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class c {
     public final com.ss.android.socialbase.downloader.i.h<String, b> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final Handler f60262b;
+    public final Handler f60307b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final Handler f60263c;
+    public final Handler f60308c;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public interface a {
         void a(String str, List<InetAddress> list);
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class b {
         public List<InetAddress> a;
 
         /* renamed from: b  reason: collision with root package name */
-        public long f60270b;
+        public long f60315b;
 
         public b() {
         }
     }
 
     /* renamed from: com.ss.android.socialbase.downloader.network.c$c  reason: collision with other inner class name */
-    /* loaded from: classes3.dex */
-    public static class C2224c {
+    /* loaded from: classes4.dex */
+    public static class C2230c {
         public static final c a = new c();
     }
 
@@ -54,7 +54,7 @@ public class c {
                 bVar = this.a.get(host);
             }
             if (bVar != null) {
-                if (System.currentTimeMillis() - bVar.f60270b < com.ss.android.socialbase.downloader.g.a.c().a("dns_expire_min", 10) * 60 * 1000) {
+                if (System.currentTimeMillis() - bVar.f60315b < com.ss.android.socialbase.downloader.g.a.c().a("dns_expire_min", 10) * 60 * 1000) {
                     if (aVar != null) {
                         aVar.a(str, bVar.a);
                         return;
@@ -73,7 +73,7 @@ public class c {
                     }
                 }
             };
-            this.f60263c.postDelayed(runnable, j2);
+            this.f60308c.postDelayed(runnable, j2);
             List<InetAddress> list = null;
             if (com.ss.android.socialbase.downloader.g.a.c().a("use_host_dns", 1) == 1 && (u = com.ss.android.socialbase.downloader.downloader.c.u()) != null) {
                 list = u.a(host);
@@ -83,14 +83,14 @@ public class c {
             }
             if (list != null && !list.isEmpty()) {
                 a(host, list);
-                this.f60263c.removeCallbacks(runnable);
+                this.f60308c.removeCallbacks(runnable);
                 if (aVar == null) {
                     aVar.a(str, list);
                     return;
                 }
                 return;
             }
-            this.f60263c.removeCallbacks(runnable);
+            this.f60308c.removeCallbacks(runnable);
             if (aVar == null) {
             }
         } catch (Throwable th) {
@@ -100,16 +100,16 @@ public class c {
 
     public c() {
         this.a = new com.ss.android.socialbase.downloader.i.h<>(4, 16, false);
-        this.f60262b = new Handler(com.ss.android.socialbase.downloader.network.a.b.a());
-        this.f60263c = new Handler(com.ss.android.socialbase.downloader.h.e.a());
+        this.f60307b = new Handler(com.ss.android.socialbase.downloader.network.a.b.a());
+        this.f60308c = new Handler(com.ss.android.socialbase.downloader.h.e.a());
     }
 
     public static c a() {
-        return C2224c.a;
+        return C2230c.a;
     }
 
     public void a(final String str, final a aVar, final long j2) {
-        this.f60262b.post(new Runnable() { // from class: com.ss.android.socialbase.downloader.network.c.1
+        this.f60307b.post(new Runnable() { // from class: com.ss.android.socialbase.downloader.network.c.1
             @Override // java.lang.Runnable
             public void run() {
                 c.this.b(str, aVar, j2);
@@ -125,7 +125,7 @@ public class c {
                 this.a.put(str, bVar);
             }
             bVar.a = list;
-            bVar.f60270b = System.currentTimeMillis();
+            bVar.f60315b = System.currentTimeMillis();
         }
     }
 }

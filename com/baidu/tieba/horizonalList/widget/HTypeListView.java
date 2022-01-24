@@ -20,7 +20,7 @@ public class HTypeListView extends HListView {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public TypeAdapter f44634e;
+    public TypeAdapter f44662e;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public HTypeListView(Context context) {
@@ -40,22 +40,22 @@ public class HTypeListView extends HListView {
                 return;
             }
         }
-        this.f44634e = null;
+        this.f44662e = null;
         a();
     }
 
     public final void a() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.f44634e == null) {
-            this.f44634e = new TypeAdapter();
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.f44662e == null) {
+            this.f44662e = new TypeAdapter();
         }
     }
 
     public void addAdapter(a<n, TypeAdapter.ViewHolder> aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
-            this.f44634e.a(aVar);
-            setAdapter((ListAdapter) this.f44634e);
+            this.f44662e.a(aVar);
+            setAdapter((ListAdapter) this.f44662e);
         }
     }
 
@@ -64,28 +64,28 @@ public class HTypeListView extends HListView {
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) {
             Iterator<a> it = list.iterator();
             while (it.hasNext()) {
-                this.f44634e.a(it.next());
+                this.f44662e.a(it.next());
             }
-            setAdapter((ListAdapter) this.f44634e);
+            setAdapter((ListAdapter) this.f44662e);
         }
     }
 
     public List<n> getData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f44634e.b() : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f44662e.b() : (List) invokeV.objValue;
     }
 
     public n getItem(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i2)) == null) ? this.f44634e.getItem(i2) : (n) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i2)) == null) ? this.f44662e.getItem(i2) : (n) invokeI.objValue;
     }
 
     public void setData(List<? extends n> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, list) == null) {
-            this.f44634e.f(list);
+            this.f44662e.f(list);
         }
     }
 
@@ -108,7 +108,7 @@ public class HTypeListView extends HListView {
                 return;
             }
         }
-        this.f44634e = null;
+        this.f44662e = null;
         a();
     }
 
@@ -131,6 +131,6 @@ public class HTypeListView extends HListView {
                 return;
             }
         }
-        this.f44634e = null;
+        this.f44662e = null;
     }
 }

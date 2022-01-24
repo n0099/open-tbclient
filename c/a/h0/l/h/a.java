@@ -22,15 +22,15 @@ public final class a {
 
     /* renamed from: c.a.h0.l.h.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static final class C0139a extends c.a.h0.l.a<String> {
+    public static final class C0148a extends c.a.h0.l.a<String> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ c.a.h0.o.a a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ JSONObject f3539b;
+        public final /* synthetic */ JSONObject f3680b;
 
-        public C0139a(c.a.h0.o.a aVar, JSONObject jSONObject) {
+        public C0148a(c.a.h0.o.a aVar, JSONObject jSONObject) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -46,7 +46,7 @@ public final class a {
                 }
             }
             this.a = aVar;
-            this.f3539b = jSONObject;
+            this.f3680b = jSONObject;
         }
 
         @Override // c.a.h0.l.a
@@ -57,7 +57,7 @@ public final class a {
                 if (aVar != null) {
                     aVar.a(1, str);
                 }
-                c.a.h0.l.i.a.d(this.f3539b);
+                c.a.h0.l.i.a.d(this.f3680b);
             }
         }
 
@@ -159,7 +159,7 @@ public final class a {
         c.a.h0.l.b e2 = c.e(jSONObject);
         c.c(cVar, e2.a("bduss"));
         HttpSigner.b(e2);
-        new g(false).a(d.f(), cVar, e2, new C0139a(aVar, jSONObject));
+        new g(false).a(d.f(), cVar, e2, new C0148a(aVar, jSONObject));
     }
 
     public static final void d(JSONArray jSONArray, c.a.h0.o.a aVar) {

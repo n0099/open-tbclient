@@ -1,6 +1,6 @@
 package com.baidu.tieba.ala.personcenter;
 
-import c.a.t0.d1.j0;
+import c.a.t0.e1.j0;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;

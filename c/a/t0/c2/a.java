@@ -1,71 +1,110 @@
 package c.a.t0.c2;
 
-import android.text.SpannableStringBuilder;
-import android.text.TextUtils;
-import android.text.style.ForegroundColorSpan;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.BaseAdapter;
-import android.widget.TextView;
-import androidx.core.view.InputDeviceCompat;
+import android.content.Context;
+import android.location.Address;
+import android.os.Bundle;
+import c.a.d.f.i.a;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.BaseActivity;
+import com.baidu.location.BDLocation;
+import com.baidu.location.BDLocationListener;
+import com.baidu.location.LocationClient;
+import com.baidu.location.LocationClientOption;
+import com.baidu.permissionhelper.ApiUtil;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.view.BarImageView;
-import com.baidu.tieba.R;
-import com.baidu.tieba.mainentrance.ForumSuggestModel;
+import com.baidu.tbadk.core.util.PermissionUtil;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-/* loaded from: classes7.dex */
-public class a extends BaseAdapter {
+import java.util.Locale;
+/* loaded from: classes6.dex */
+public class a implements c.a.d.f.i.b {
     public static /* synthetic */ Interceptable $ic;
+    public static a k;
     public transient /* synthetic */ FieldHolder $fh;
+    public Context a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public boolean f15571b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public String f15572c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public a.d f15573d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final BaseActivity<?> f15353e;
+    public b f15574e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final boolean f15354f;
+    public LocationClient f15575f;
 
     /* renamed from: g  reason: collision with root package name */
-    public ArrayList<ForumSuggestModel.Forum> f15355g;
+    public LocationClientOption f15576g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f15356h;
+    public Address f15577h;
+
+    /* renamed from: i  reason: collision with root package name */
+    public long f15578i;
+
+    /* renamed from: j  reason: collision with root package name */
+    public boolean f15579j;
 
     /* renamed from: c.a.t0.c2.a$a  reason: collision with other inner class name */
-    /* loaded from: classes7.dex */
-    public static /* synthetic */ class C0988a {
+    /* loaded from: classes6.dex */
+    public static class C0993a extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public C0993a(int i2) {
+            super(i2);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {Integer.valueOf(i2)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2001330) {
+                if ((!ApiUtil.shouldCheckPermission() || PermissionUtil.checkLocationForBaiduLocation(TbadkCoreApplication.getInst())) && (customResponsedMessage.getData() instanceof Boolean)) {
+                    if (((Boolean) customResponsedMessage.getData()).booleanValue()) {
+                        c.a.d.f.i.a.n().r(a.j());
+                    } else {
+                        c.a.d.f.i.a.n().v(a.j());
+                    }
+                }
+            }
+        }
     }
 
-    /* loaded from: classes7.dex */
-    public class b {
+    /* loaded from: classes6.dex */
+    public class b implements BDLocationListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public View a;
-
-        /* renamed from: b  reason: collision with root package name */
-        public TextView f15357b;
-
-        /* renamed from: c  reason: collision with root package name */
-        public BarImageView f15358c;
-
-        /* renamed from: d  reason: collision with root package name */
-        public TextView f15359d;
-
-        /* renamed from: e  reason: collision with root package name */
-        public TextView f15360e;
-
-        /* renamed from: f  reason: collision with root package name */
-        public TextView f15361f;
+        public final /* synthetic */ a a;
 
         public b(a aVar) {
             Interceptable interceptable = $ic;
@@ -79,177 +118,184 @@ public class a extends BaseAdapter {
                     int i3 = i2 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = aVar;
+        }
+
+        @Override // com.baidu.location.BDLocationListener
+        public void onReceiveLocation(BDLocation bDLocation) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, bDLocation) == null) {
+                if ((ApiUtil.shouldCheckPermission() && !PermissionUtil.checkLocationForBaiduLocation(TbadkCoreApplication.getInst())) || bDLocation == null || bDLocation.getLocType() == 62 || bDLocation.getLocType() == 63 || bDLocation.getLocType() == 67 || bDLocation.getLocType() == 68 || bDLocation.getLocType() > 161) {
+                    return;
+                }
+                this.a.c();
+                this.a.f15577h = new Address(Locale.getDefault());
+                this.a.f15577h.setLatitude(bDLocation.getLatitude());
+                this.a.f15577h.setLongitude(bDLocation.getLongitude());
+                c.a.s0.s.i0.b k = c.a.s0.s.i0.b.k();
+                k.y("key_last_receive_location_latitude_and_longitude", bDLocation.getLatitude() + "," + bDLocation.getLongitude());
+                this.a.f15577h.setLocality(bDLocation.getCity());
+                Bundle bundle = new Bundle();
+                bundle.putFloat("radius", bDLocation.getRadius());
+                bundle.putDouble("altitude", bDLocation.getAltitude());
+                bundle.putFloat("speed", bDLocation.getSpeed());
+                bundle.putString("cityCode", bDLocation.getCityCode());
+                bundle.putString("street", bDLocation.getStreet());
+                bundle.putString("streetNumber", bDLocation.getStreetNumber());
+                bundle.putString("province", bDLocation.getProvince());
+                this.a.f15577h.setExtras(bundle);
+                this.a.f15578i = System.currentTimeMillis();
+                StringBuffer stringBuffer = new StringBuffer();
+                if (bDLocation.getDistrict() == null || bDLocation.getStreet() == null) {
+                    stringBuffer.append(bDLocation.getCity());
+                }
+                stringBuffer.append(bDLocation.getDistrict());
+                stringBuffer.append(bDLocation.getStreet());
+                if (bDLocation.getAddrStr() != null) {
+                    this.a.f15577h.setAddressLine(0, stringBuffer.toString());
+                }
+                if (this.a.f15573d != null) {
+                    this.a.f15573d.a(0, "", this.a.f15577h, this.a.f15578i, this.a.f15579j);
+                    c.a.t0.k3.j0.a.e().i(String.valueOf(this.a.f15577h.getLatitude()));
+                    c.a.t0.k3.j0.a.e().j(String.valueOf(this.a.f15577h.getLongitude()));
+                    c.a.t0.k3.j0.a.e().k(System.currentTimeMillis());
                 }
             }
         }
 
-        public /* synthetic */ b(a aVar, C0988a c0988a) {
+        public /* synthetic */ b(a aVar, C0993a c0993a) {
             this(aVar);
         }
     }
 
-    public a(BaseActivity<?> baseActivity, ArrayList<ForumSuggestModel.Forum> arrayList) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(971748781, "Lc/a/t0/c2/a;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(971748781, "Lc/a/t0/c2/a;");
+                return;
+            }
+        }
+        MessageManager.getInstance().registerListener(new C0993a(2001330));
+    }
+
+    public a() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {baseActivity, arrayList};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
                 int i3 = i2 & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.f15353e = baseActivity;
-        this.f15354f = true;
-        this.f15355g = arrayList;
+        this.f15571b = true;
+        this.f15572c = "";
+        this.f15573d = null;
+        this.f15578i = 0L;
+        this.f15579j = false;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // android.widget.Adapter
-    /* renamed from: a */
-    public ForumSuggestModel.Forum getItem(int i2) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) {
-            int count = getCount();
-            if (count <= 0 || i2 >= count) {
-                return null;
-            }
-            return this.f15355g.get(i2);
-        }
-        return (ForumSuggestModel.Forum) invokeI.objValue;
-    }
-
-    public String b(int i2) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) {
-            if (i2 >= 100000) {
-                return String.valueOf(i2 / 10000) + this.f15353e.getPageContext().getString(R.string.member_count_unit);
-            }
-            return String.valueOf(i2);
-        }
-        return (String) invokeI.objValue;
-    }
-
-    public void c(TextView textView, String str) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, textView, str) == null) || textView == null || TextUtils.isEmpty(str) || TextUtils.isEmpty(this.f15356h)) {
-            return;
-        }
-        String lowerCase = str.toLowerCase();
-        String lowerCase2 = this.f15356h.toLowerCase();
-        if (!lowerCase.contains(lowerCase2)) {
-            textView.setText(str);
-            return;
-        }
-        int indexOf = lowerCase.indexOf(lowerCase2);
-        ForegroundColorSpan foregroundColorSpan = new ForegroundColorSpan(SkinManager.getColor(R.color.CAM_X0301));
-        SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(str);
-        spannableStringBuilder.setSpan(foregroundColorSpan, indexOf, this.f15356h.length() + indexOf, 33);
-        textView.setText(spannableStringBuilder);
-    }
-
-    public void d(ArrayList<ForumSuggestModel.Forum> arrayList) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, arrayList) == null) {
-            this.f15355g = arrayList;
-            if (arrayList != null) {
-                notifyDataSetChanged();
-            }
-        }
-    }
-
-    public void e(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            this.f15356h = str;
-        }
-    }
-
-    @Override // android.widget.Adapter
-    public int getCount() {
+    public static a j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            ArrayList<ForumSuggestModel.Forum> arrayList = this.f15355g;
-            if (arrayList == null) {
-                return 0;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
+            if (k == null) {
+                synchronized (a.class) {
+                    if (k == null) {
+                        k = new a();
+                    }
+                }
             }
-            return arrayList.size();
+            return k;
         }
-        return invokeV.intValue;
+        return (a) invokeV.objValue;
     }
 
-    @Override // android.widget.Adapter
-    public long getItemId(int i2) {
-        InterceptResult invokeI;
+    @Override // c.a.d.f.i.b
+    public void a(boolean z) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i2)) == null) ? i2 : invokeI.longValue;
+        if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
+            if ((!ApiUtil.shouldCheckPermission() || PermissionUtil.checkLocationForBaiduLocation(TbadkCoreApplication.getInst())) && this.f15571b && this.f15575f != null) {
+                try {
+                    this.f15579j = z;
+                    if (z) {
+                        this.f15576g.setLocationMode(LocationClientOption.LocationMode.Hight_Accuracy);
+                    }
+                    this.f15575f.setLocOption(this.f15576g);
+                    if (!this.f15575f.isStarted()) {
+                        this.f15575f.start();
+                    }
+                    this.f15575f.requestLocation();
+                } catch (Exception e2) {
+                    BdLog.e(e2.getMessage());
+                    c();
+                    a.d dVar = this.f15573d;
+                    if (dVar != null) {
+                        dVar.a(5, "", this.f15577h, this.f15578i, this.f15579j);
+                    }
+                }
+            }
+        }
     }
 
-    @Override // android.widget.Adapter
-    public View getView(int i2, View view, ViewGroup viewGroup) {
-        InterceptResult invokeILL;
-        b bVar;
-        String str;
+    @Override // c.a.d.f.i.b
+    public void b(a.d dVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2, view, viewGroup)) == null) {
-            if (view == null) {
-                view = LayoutInflater.from(this.f15353e.getPageContext().getPageActivity()).inflate(R.layout.square_dialog_search_item, (ViewGroup) null);
-                bVar = new b(this, null);
-                BarImageView barImageView = (BarImageView) view.findViewById(R.id.forum_avatar);
-                bVar.f15358c = barImageView;
-                barImageView.setGifIconSupport(false);
-                bVar.f15357b = (TextView) view.findViewById(R.id.name);
-                bVar.f15359d = (TextView) view.findViewById(R.id.forum_member_count);
-                bVar.f15360e = (TextView) view.findViewById(R.id.forum_thread_count);
-                bVar.f15361f = (TextView) view.findViewById(R.id.slogan);
-                bVar.a = view.findViewById(R.id.offical_icon);
-                view.setTag(bVar);
-            } else {
-                bVar = (b) view.getTag();
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dVar) == null) {
+            Context context = TbadkCoreApplication.getInst().getContext();
+            this.a = context;
+            this.f15573d = dVar;
+            this.f15572c = "baidu";
+            if (this.f15571b) {
+                try {
+                    this.f15575f = new LocationClient(context);
+                    LocationClientOption locationClientOption = new LocationClientOption();
+                    this.f15576g = locationClientOption;
+                    locationClientOption.setOpenGps(true);
+                    this.f15576g.setIgnoreKillProcess(true);
+                    this.f15576g.setProdName(this.f15572c);
+                    this.f15576g.setAddrType("all");
+                    this.f15576g.setCoorType("bd09ll");
+                    b bVar = new b(this, null);
+                    this.f15574e = bVar;
+                    this.f15575f.registerLocationListener(bVar);
+                } catch (Exception e2) {
+                    BdLog.e(e2.getMessage());
+                }
             }
-            ForumSuggestModel.Forum item = getItem(i2);
-            if (item == null) {
-                return view;
-            }
-            int skinType = TbadkCoreApplication.getInst().getSkinType();
-            String str2 = item.avatar;
-            bVar.f15358c.setTag(str2);
-            bVar.f15358c.startLoad(str2, 10, false);
-            bVar.f15358c.invalidate();
-            if (this.f15354f) {
-                str = this.f15353e.getPageContext().getPageActivity().getString(R.string.chosen_pb_original_bar, new Object[]{item.forum_name});
-            } else {
-                str = item.forum_name;
-            }
-            c(bVar.f15357b, str);
-            bVar.f15358c.setTag(item.avatar);
-            TextView textView = bVar.f15359d;
-            textView.setText(this.f15353e.getPageContext().getString(R.string.attention) + " " + b(item.member_num));
-            TextView textView2 = bVar.f15360e;
-            textView2.setText(this.f15353e.getPageContext().getString(R.string.text_post) + " " + b(item.thread_num));
-            if (!this.f15354f && TextUtils.isEmpty(item.slogan)) {
-                bVar.f15361f.setVisibility(8);
-            } else {
-                bVar.f15361f.setVisibility(0);
-                bVar.f15361f.setText(item.slogan);
-            }
-            if (item.is_offical == 1) {
-                bVar.a.setVisibility(0);
-                SkinManager.setBackgroundResource(bVar.a, R.drawable.icon_search_official);
-            } else {
-                bVar.a.setVisibility(8);
-            }
-            this.f15353e.getLayoutMode().k(skinType == 1);
-            this.f15353e.getLayoutMode().j(view);
-            return view;
         }
-        return (View) invokeILL.objValue;
+    }
+
+    @Override // c.a.d.f.i.b
+    public void c() {
+        LocationClient locationClient;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (locationClient = this.f15575f) != null && locationClient.isStarted()) {
+            try {
+                this.f15575f.stop();
+            } catch (Exception e2) {
+                BdLog.e(e2.getMessage());
+            }
+        }
+    }
+
+    @Override // c.a.d.f.i.b
+    public void destroy() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            c();
+        }
     }
 }

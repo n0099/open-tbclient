@@ -17,7 +17,7 @@ public class LocationFooterViewHolder extends RecyclerView.ViewHolder {
     public TextView a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ProgressBar f39891b;
+    public ProgressBar f39919b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public LocationFooterViewHolder(View view) {
@@ -44,14 +44,14 @@ public class LocationFooterViewHolder extends RecyclerView.ViewHolder {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
             this.a = (TextView) view.findViewById(f.loading_text);
-            this.f39891b = (ProgressBar) view.findViewById(f.loading_progress);
+            this.f39919b = (ProgressBar) view.findViewById(f.loading_progress);
         }
     }
 
     public void setLoadIconVisibility(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
-            this.f39891b.setVisibility(z ? 0 : 8);
+            this.f39919b.setVisibility(z ? 0 : 8);
         }
     }
 

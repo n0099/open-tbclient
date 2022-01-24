@@ -108,7 +108,7 @@ public abstract class TypeToken<T> extends c.i.d.h.d<T> implements Serializable 
         public Set<Class<? super T>> rawTypes() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? ImmutableSet.copyOf((Collection) f.f54931b.a().c(this.this$0.getRawTypes())) : (Set) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? ImmutableSet.copyOf((Collection) f.f54976b.a().c(this.this$0.getRawTypes())) : (Set) invokeV.objValue;
         }
 
         public /* synthetic */ ClassSet(TypeToken typeToken, a aVar) {
@@ -293,12 +293,12 @@ public abstract class TypeToken<T> extends c.i.d.h.d<T> implements Serializable 
     }
 
     /* loaded from: classes3.dex */
-    public class a extends b.C1684b<T> {
+    public class a extends b.C1685b<T> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ TypeToken f54926h;
+        public final /* synthetic */ TypeToken f54971h;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(TypeToken typeToken, Method method) {
@@ -318,14 +318,14 @@ public abstract class TypeToken<T> extends c.i.d.h.d<T> implements Serializable 
                     return;
                 }
             }
-            this.f54926h = typeToken;
+            this.f54971h = typeToken;
         }
 
         @Override // c.i.d.h.a
         public TypeToken<T> a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f54926h : (TypeToken) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f54971h : (TypeToken) invokeV.objValue;
         }
 
         @Override // c.i.d.h.a
@@ -345,7 +345,7 @@ public abstract class TypeToken<T> extends c.i.d.h.d<T> implements Serializable 
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ TypeToken f54927h;
+        public final /* synthetic */ TypeToken f54972h;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public b(TypeToken typeToken, Constructor constructor) {
@@ -365,14 +365,14 @@ public abstract class TypeToken<T> extends c.i.d.h.d<T> implements Serializable 
                     return;
                 }
             }
-            this.f54927h = typeToken;
+            this.f54972h = typeToken;
         }
 
         @Override // c.i.d.h.a
         public TypeToken<T> a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f54927h : (TypeToken) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f54972h : (TypeToken) invokeV.objValue;
         }
 
         @Override // c.i.d.h.b.a
@@ -380,7 +380,7 @@ public abstract class TypeToken<T> extends c.i.d.h.d<T> implements Serializable 
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                c.i.d.h.f invariantTypeResolver = this.f54927h.getInvariantTypeResolver();
+                c.i.d.h.f invariantTypeResolver = this.f54972h.getInvariantTypeResolver();
                 Type[] b2 = super.b();
                 invariantTypeResolver.l(b2);
                 return b2;
@@ -405,7 +405,7 @@ public abstract class TypeToken<T> extends c.i.d.h.d<T> implements Serializable 
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ TypeToken f54928b;
+        public final /* synthetic */ TypeToken f54973b;
 
         public c(TypeToken typeToken) {
             Interceptable interceptable = $ic;
@@ -422,7 +422,7 @@ public abstract class TypeToken<T> extends c.i.d.h.d<T> implements Serializable 
                     return;
                 }
             }
-            this.f54928b = typeToken;
+            this.f54973b = typeToken;
         }
 
         @Override // c.i.d.h.g
@@ -446,7 +446,7 @@ public abstract class TypeToken<T> extends c.i.d.h.d<T> implements Serializable 
         public void e(TypeVariable<?> typeVariable) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, typeVariable) == null) {
-                throw new IllegalArgumentException(this.f54928b.runtimeType + "contains a type variable and is not safe for the operation");
+                throw new IllegalArgumentException(this.f54973b.runtimeType + "contains a type variable and is not safe for the operation");
             }
         }
 
@@ -466,7 +466,7 @@ public abstract class TypeToken<T> extends c.i.d.h.d<T> implements Serializable 
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ ImmutableSet.a f54929b;
+        public final /* synthetic */ ImmutableSet.a f54974b;
 
         public d(TypeToken typeToken, ImmutableSet.a aVar) {
             Interceptable interceptable = $ic;
@@ -483,14 +483,14 @@ public abstract class TypeToken<T> extends c.i.d.h.d<T> implements Serializable 
                     return;
                 }
             }
-            this.f54929b = aVar;
+            this.f54974b = aVar;
         }
 
         @Override // c.i.d.h.g
         public void b(Class<?> cls) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, cls) == null) {
-                this.f54929b.a(cls);
+                this.f54974b.a(cls);
             }
         }
 
@@ -498,7 +498,7 @@ public abstract class TypeToken<T> extends c.i.d.h.d<T> implements Serializable 
         public void c(GenericArrayType genericArrayType) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, genericArrayType) == null) {
-                this.f54929b.a(Types.i(TypeToken.of(genericArrayType.getGenericComponentType()).getRawType()));
+                this.f54974b.a(Types.i(TypeToken.of(genericArrayType.getGenericComponentType()).getRawType()));
             }
         }
 
@@ -506,7 +506,7 @@ public abstract class TypeToken<T> extends c.i.d.h.d<T> implements Serializable 
         public void d(ParameterizedType parameterizedType) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, parameterizedType) == null) {
-                this.f54929b.a((Class) parameterizedType.getRawType());
+                this.f54974b.a((Class) parameterizedType.getRawType());
             }
         }
 
@@ -534,7 +534,7 @@ public abstract class TypeToken<T> extends c.i.d.h.d<T> implements Serializable 
         public final Type[] a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final boolean f54930b;
+        public final boolean f54975b;
 
         public e(Type[] typeArr, boolean z) {
             Interceptable interceptable = $ic;
@@ -552,7 +552,7 @@ public abstract class TypeToken<T> extends c.i.d.h.d<T> implements Serializable 
                 }
             }
             this.a = typeArr;
-            this.f54930b = z;
+            this.f54975b = z;
         }
 
         public boolean a(Type type) {
@@ -561,12 +561,12 @@ public abstract class TypeToken<T> extends c.i.d.h.d<T> implements Serializable 
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, type)) == null) {
                 for (Type type2 : this.a) {
                     boolean isSubtypeOf = TypeToken.of(type2).isSubtypeOf(type);
-                    boolean z = this.f54930b;
+                    boolean z = this.f54975b;
                     if (isSubtypeOf == z) {
                         return z;
                     }
                 }
-                return !this.f54930b;
+                return !this.f54975b;
             }
             return invokeL.booleanValue;
         }
@@ -578,12 +578,12 @@ public abstract class TypeToken<T> extends c.i.d.h.d<T> implements Serializable 
                 TypeToken<?> of = TypeToken.of(type);
                 for (Type type2 : this.a) {
                     boolean isSubtypeOf = of.isSubtypeOf(type2);
-                    boolean z = this.f54930b;
+                    boolean z = this.f54975b;
                     if (isSubtypeOf == z) {
                         return z;
                     }
                 }
-                return !this.f54930b;
+                return !this.f54975b;
             }
             return invokeL.booleanValue;
         }
@@ -595,7 +595,7 @@ public abstract class TypeToken<T> extends c.i.d.h.d<T> implements Serializable 
         public static final f<TypeToken<?>> a;
 
         /* renamed from: b  reason: collision with root package name */
-        public static final f<Class<?>> f54931b;
+        public static final f<Class<?>> f54976b;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* loaded from: classes3.dex */
@@ -760,10 +760,10 @@ public abstract class TypeToken<T> extends c.i.d.h.d<T> implements Serializable 
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ Comparator f54932e;
+            public final /* synthetic */ Comparator f54977e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ Map f54933f;
+            public final /* synthetic */ Map f54978f;
 
             public d(Comparator comparator, Map map) {
                 Interceptable interceptable = $ic;
@@ -780,8 +780,8 @@ public abstract class TypeToken<T> extends c.i.d.h.d<T> implements Serializable 
                         return;
                     }
                 }
-                this.f54932e = comparator;
-                this.f54933f = map;
+                this.f54977e = comparator;
+                this.f54978f = map;
             }
 
             /* JADX DEBUG: Multi-variable search result rejected for r0v2, resolved type: java.util.Comparator */
@@ -790,7 +790,7 @@ public abstract class TypeToken<T> extends c.i.d.h.d<T> implements Serializable 
             public int compare(K k, K k2) {
                 InterceptResult invokeLL;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, k, k2)) == null) ? this.f54932e.compare(this.f54933f.get(k), this.f54933f.get(k2)) : invokeLL.intValue;
+                return (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, k, k2)) == null) ? this.f54977e.compare(this.f54978f.get(k), this.f54978f.get(k2)) : invokeLL.intValue;
             }
         }
 
@@ -800,7 +800,7 @@ public abstract class TypeToken<T> extends c.i.d.h.d<T> implements Serializable 
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: c  reason: collision with root package name */
-            public final f<K> f54934c;
+            public final f<K> f54979c;
 
             /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
             public e(f<K> fVar) {
@@ -820,21 +820,21 @@ public abstract class TypeToken<T> extends c.i.d.h.d<T> implements Serializable 
                         return;
                     }
                 }
-                this.f54934c = fVar;
+                this.f54979c = fVar;
             }
 
             @Override // com.google.common.reflect.TypeToken.f
             public Class<?> f(K k) {
                 InterceptResult invokeL;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, k)) == null) ? this.f54934c.f(k) : (Class) invokeL.objValue;
+                return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, k)) == null) ? this.f54979c.f(k) : (Class) invokeL.objValue;
             }
 
             @Override // com.google.common.reflect.TypeToken.f
             public K g(K k) {
                 InterceptResult invokeL;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, k)) == null) ? this.f54934c.g(k) : (K) invokeL.objValue;
+                return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, k)) == null) ? this.f54979c.g(k) : (K) invokeL.objValue;
             }
         }
 
@@ -852,7 +852,7 @@ public abstract class TypeToken<T> extends c.i.d.h.d<T> implements Serializable 
                 }
             }
             a = new a();
-            f54931b = new b();
+            f54976b = new b();
         }
 
         public f() {
@@ -1628,7 +1628,7 @@ public abstract class TypeToken<T> extends c.i.d.h.d<T> implements Serializable 
         public Set<Class<? super T>> rawTypes() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? x.d(f.f54931b.c(this.this$0.getRawTypes())).c(new a(this)).f() : (Set) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? x.d(f.f54976b.c(this.this$0.getRawTypes())).c(new a(this)).f() : (Set) invokeV.objValue;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -1690,7 +1690,7 @@ public abstract class TypeToken<T> extends c.i.d.h.d<T> implements Serializable 
         public Set<Class<? super T>> rawTypes() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? ImmutableSet.copyOf((Collection) f.f54931b.c(this.this$0.getRawTypes())) : (Set) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? ImmutableSet.copyOf((Collection) f.f54976b.c(this.this$0.getRawTypes())) : (Set) invokeV.objValue;
         }
 
         /* JADX DEBUG: Method merged with bridge method */

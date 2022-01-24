@@ -15,7 +15,7 @@ public class d extends c {
     @Nullable
 
     /* renamed from: d  reason: collision with root package name */
-    public ContentValues f8033d;
+    public ContentValues f8175d;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public d(@Nullable Map<String, String> map) {
@@ -44,10 +44,10 @@ public class d extends c {
         if (interceptable == null || interceptable.invokeL(1048576, this, map) == null) {
             map.put("cuid", c.a.r0.a.c1.a.h0().i(c.a.r0.a.c1.a.c()));
             map.put("mtjCuid", c.a.r0.a.c1.a.h0().i(c.a.r0.a.c1.a.c()));
-            ContentValues contentValues = this.f8033d;
+            ContentValues contentValues = this.f8175d;
             if (contentValues != null) {
                 for (String str : contentValues.keySet()) {
-                    Object obj = this.f8033d.get(str);
+                    Object obj = this.f8175d.get(str);
                     if (!(obj instanceof Number) && !(obj instanceof Boolean)) {
                         map.put(str, String.valueOf(obj));
                     } else {
@@ -56,7 +56,7 @@ public class d extends c {
                 }
                 return;
             }
-            for (Map.Entry<String, String> entry : this.f8032c.entrySet()) {
+            for (Map.Entry<String, String> entry : this.f8174c.entrySet()) {
                 map.put(entry.getKey(), entry.getValue());
             }
         }
@@ -81,6 +81,6 @@ public class d extends c {
                 return;
             }
         }
-        this.f8033d = contentValues;
+        this.f8175d = contentValues;
     }
 }

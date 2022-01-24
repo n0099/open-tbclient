@@ -14,9 +14,9 @@ import java.util.ArrayList;
 /* loaded from: classes6.dex */
 public class p1 extends e2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId g4;
+    public static final BdUniqueId h4;
     public transient /* synthetic */ FieldHolder $fh;
-    public ArrayList<RecommendForumData> f4;
+    public ArrayList<RecommendForumData> g4;
 
     static {
         InterceptResult invokeClinit;
@@ -31,7 +31,7 @@ public class p1 extends e2 {
                 return;
             }
         }
-        g4 = BdUniqueId.gen();
+        h4 = BdUniqueId.gen();
     }
 
     public p1() {
@@ -47,19 +47,19 @@ public class p1 extends e2 {
                 return;
             }
         }
-        this.f4 = new ArrayList<>();
+        this.g4 = new ArrayList<>();
     }
 
-    public ArrayList<RecommendForumData> T4() {
+    public ArrayList<RecommendForumData> U4() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f4 : (ArrayList) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.g4 : (ArrayList) invokeV.objValue;
     }
 
     @Override // c.a.s0.s.q.e2, com.baidu.tieba.card.data.BaseCardInfo, c.a.d.n.e.n
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? g4 : (BdUniqueId) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? h4 : (BdUniqueId) invokeV.objValue;
     }
 }

@@ -32,16 +32,16 @@ public class a implements c.a.r0.a.h0.o.g.b.a, c.a.r0.a.h0.o.g.d.a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public c.a.r0.a.h0.o.g.e.b f6768b;
+    public c.a.r0.a.h0.o.g.e.b f6910b;
 
     /* renamed from: c.a.r0.a.h0.o.g.e.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public class C0397a implements d {
+    public class C0406a implements d {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ c.a.r0.a.h0.o.g.b.b a;
 
-        public C0397a(a aVar, c.a.r0.a.h0.o.g.b.b bVar) {
+        public C0406a(a aVar, c.a.r0.a.h0.o.g.b.b bVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -155,7 +155,7 @@ public class a implements c.a.r0.a.h0.o.g.b.a, c.a.r0.a.h0.o.g.d.a {
         }
     }
 
-    public /* synthetic */ a(C0397a c0397a) {
+    public /* synthetic */ a(C0406a c0406a) {
         this();
     }
 
@@ -178,7 +178,7 @@ public class a implements c.a.r0.a.h0.o.g.b.a, c.a.r0.a.h0.o.g.d.a {
         if (z) {
             bVar.a();
         } else {
-            e(str, new C0397a(this, bVar));
+            e(str, new C0406a(this, bVar));
         }
     }
 
@@ -187,7 +187,7 @@ public class a implements c.a.r0.a.h0.o.g.b.a, c.a.r0.a.h0.o.g.d.a {
         FileInputStream fileInputStream;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, file)) == null) {
-            CacheKey a = this.f6768b.a(str);
+            CacheKey a = this.f6910b.a(str);
             boolean z = false;
             FileInputStream fileInputStream2 = null;
             try {
@@ -231,7 +231,7 @@ public class a implements c.a.r0.a.h0.o.g.b.a, c.a.r0.a.h0.o.g.d.a {
         BinaryResource resource;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            CacheKey a = this.f6768b.a(str);
+            CacheKey a = this.f6910b.a(str);
             if (a == null) {
                 return null;
             }
@@ -315,6 +315,6 @@ public class a implements c.a.r0.a.h0.o.g.b.a, c.a.r0.a.h0.o.g.d.a {
                 return;
             }
         }
-        this.f6768b = new b(this);
+        this.f6910b = new b(this);
     }
 }

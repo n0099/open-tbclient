@@ -13,7 +13,7 @@ public class x extends m {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: i  reason: collision with root package name */
-    public Context f52936i;
+    public Context f52981i;
 
     public x(Context context) {
         Interceptable interceptable = $ic;
@@ -30,7 +30,7 @@ public class x extends m {
                 return;
             }
         }
-        this.f52936i = context;
+        this.f52981i = context;
     }
 
     @Override // com.bun.miitmdid.m
@@ -39,12 +39,12 @@ public class x extends m {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             g gVar = new g();
-            this.f52936i = a(this.f52936i);
+            this.f52981i = a(this.f52981i);
             gVar.e(new h(IdentifierManager.class, null, "isSupported", null, null));
             gVar.d(null);
-            gVar.b(new h(IdentifierManager.class, null, "getOAID", new Class[]{Context.class}, new Object[]{this.f52936i}));
-            gVar.c(new h(IdentifierManager.class, null, "getVAID", new Class[]{Context.class}, new Object[]{this.f52936i}));
-            gVar.a(new h(IdentifierManager.class, null, "getAAID", new Class[]{Context.class}, new Object[]{this.f52936i}));
+            gVar.b(new h(IdentifierManager.class, null, "getOAID", new Class[]{Context.class}, new Object[]{this.f52981i}));
+            gVar.c(new h(IdentifierManager.class, null, "getVAID", new Class[]{Context.class}, new Object[]{this.f52981i}));
+            gVar.a(new h(IdentifierManager.class, null, "getAAID", new Class[]{Context.class}, new Object[]{this.f52981i}));
             return gVar;
         }
         return (g) invokeV.objValue;

@@ -20,12 +20,12 @@ public class c {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final boolean f6547c;
+    public static final boolean f6689c;
     public transient /* synthetic */ FieldHolder $fh;
     public c.a.r0.a.l0.a a;
 
     /* renamed from: b  reason: collision with root package name */
-    public k f6548b;
+    public k f6690b;
 
     /* loaded from: classes.dex */
     public class a extends c.a.r0.a.l0.p.a {
@@ -34,10 +34,10 @@ public class c {
         public String a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f6549b;
+        public String f6691b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ c f6550c;
+        public final /* synthetic */ c f6692c;
 
         public a(@NonNull c cVar, @NonNull String str, String str2) {
             Interceptable interceptable = $ic;
@@ -54,10 +54,10 @@ public class c {
                     return;
                 }
             }
-            this.f6550c = cVar;
+            this.f6692c = cVar;
             this.a = str;
-            this.f6549b = str2;
-            if (c.f6547c) {
+            this.f6691b = str2;
+            if (c.f6689c) {
                 String str3 = "basePath: " + str + ", jsFile: " + str2;
             }
         }
@@ -66,7 +66,7 @@ public class c {
         public String a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f6549b : (String) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f6691b : (String) invokeV.objValue;
         }
 
         @Override // c.a.r0.a.l0.p.a, c.a.r0.a.l0.p.b
@@ -81,8 +81,8 @@ public class c {
         public void c(c.a.r0.a.l0.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar) == null) {
-                if (this.f6550c.f6548b != null) {
-                    this.f6550c.f6548b.a(aVar);
+                if (this.f6692c.f6690b != null) {
+                    this.f6692c.f6690b.a(aVar);
                 }
                 aVar.A0();
             }
@@ -117,7 +117,7 @@ public class c {
                 return;
             }
         }
-        f6547c = c.a.r0.a.k.a;
+        f6689c = c.a.r0.a.k.a;
     }
 
     public c(@NonNull String str, @NonNull String str2) {
@@ -165,14 +165,14 @@ public class c {
                 aVar.m0();
                 this.a = null;
             }
-            this.f6548b = null;
+            this.f6690b = null;
         }
     }
 
     public void f(k kVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, kVar) == null) {
-            this.f6548b = kVar;
+            this.f6690b = kVar;
         }
     }
 }

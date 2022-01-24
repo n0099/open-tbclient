@@ -101,7 +101,7 @@ public final class FragmentState implements Parcelable {
             }
         }
         this.mClassName = fragment.getClass().getName();
-        this.mIndex = fragment.f39955j;
+        this.mIndex = fragment.f39983j;
         this.mFromLayout = fragment.s;
         this.mFragmentId = fragment.A;
         this.mContainerId = fragment.B;
@@ -138,7 +138,7 @@ public final class FragmentState implements Parcelable {
             Bundle bundle2 = this.mSavedFragmentState;
             if (bundle2 != null) {
                 bundle2.setClassLoader(context.getClassLoader());
-                this.mInstance.f39953h = this.mSavedFragmentState;
+                this.mInstance.f39981h = this.mSavedFragmentState;
             }
             this.mInstance.e1(this.mIndex, fragment);
             Fragment fragment3 = this.mInstance;
@@ -149,7 +149,7 @@ public final class FragmentState implements Parcelable {
             fragment3.C = this.mTag;
             fragment3.F = this.mRetainInstance;
             fragment3.E = this.mDetached;
-            fragment3.w = lVar.f11673e;
+            fragment3.w = lVar.f11815e;
             if (n.x) {
                 String str = "Instantiated fragment " + this.mInstance;
             }

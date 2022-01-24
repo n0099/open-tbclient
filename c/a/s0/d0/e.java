@@ -27,27 +27,27 @@ public class e {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final String f12311h;
+    public static final String f12456h;
     public transient /* synthetic */ FieldHolder $fh;
     public c.a.s0.d0.b a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f12312b;
+    public boolean f12457b;
 
     /* renamed from: c  reason: collision with root package name */
-    public ImageFileInfo f12313c;
+    public ImageFileInfo f12458c;
 
     /* renamed from: d  reason: collision with root package name */
-    public d f12314d;
+    public d f12459d;
 
     /* renamed from: e  reason: collision with root package name */
-    public d f12315e;
+    public d f12460e;
 
     /* renamed from: f  reason: collision with root package name */
-    public d f12316f;
+    public d f12461f;
 
     /* renamed from: g  reason: collision with root package name */
-    public d f12317g;
+    public d f12462g;
 
     /* loaded from: classes6.dex */
     public class a implements d {
@@ -198,7 +198,7 @@ public class e {
                 return;
             }
         }
-        f12311h = FileHelper.EXTERNAL_STORAGE_DIRECTORY + "/" + TbConfig.getTempDirName() + "/dynamicimgtmp";
+        f12456h = FileHelper.EXTERNAL_STORAGE_DIRECTORY + "/" + TbConfig.getTempDirName() + "/dynamicimgtmp";
     }
 
     public e() {
@@ -214,12 +214,12 @@ public class e {
                 return;
             }
         }
-        this.f12312b = false;
-        this.f12314d = new a(this);
+        this.f12457b = false;
+        this.f12459d = new a(this);
         b bVar = new b(this);
-        this.f12315e = bVar;
-        this.f12316f = bVar;
-        this.f12317g = new c(this);
+        this.f12460e = bVar;
+        this.f12461f = bVar;
+        this.f12462g = new c(this);
     }
 
     public final String g(String str) {
@@ -298,28 +298,28 @@ public class e {
             if (imageFileInfo == null) {
                 return null;
             }
-            this.f12313c = imageFileInfo;
+            this.f12458c = imageFileInfo;
             String filePath = imageFileInfo.getFilePath();
             boolean checkIsLongImage = FileHelper.checkIsLongImage(filePath);
             boolean checkIsHeifImage = FileHelper.checkIsHeifImage(filePath);
             if (imageFileInfo.isGif() || !(!z || imageFileInfo.hasActionsWithoutResize() || checkIsHeifImage)) {
                 if (checkIsLongImage) {
-                    dVar = this.f12316f;
+                    dVar = this.f12461f;
                     str = "原始·长图";
                 } else {
-                    dVar = this.f12315e;
+                    dVar = this.f12460e;
                     str = "原始·图";
                 }
             } else if (checkIsLongImage) {
-                dVar = this.f12317g;
+                dVar = this.f12462g;
                 str = "正常·长图";
             } else {
-                dVar = this.f12314d;
+                dVar = this.f12459d;
                 str = "正常·图";
             }
-            c.a.t0.w3.s0.a.s(writeData, imageFileInfo, filePath, FileHelper.getImageFileWH(filePath), FileHelper.getFileSize(filePath), checkIsLongImage, checkIsHeifImage, imageFileInfo.hasActionsWithoutResize(), str);
+            c.a.t0.x3.s0.a.s(writeData, imageFileInfo, filePath, FileHelper.getImageFileWH(filePath), FileHelper.getFileSize(filePath), checkIsLongImage, checkIsHeifImage, imageFileInfo.hasActionsWithoutResize(), str);
             String a2 = dVar.a(imageFileInfo);
-            c.a.t0.w3.s0.a.j(writeData, imageFileInfo, a2, FileHelper.getImageFileWH(a2), FileHelper.getFileSize(a2));
+            c.a.t0.x3.s0.a.j(writeData, imageFileInfo, a2, FileHelper.getImageFileWH(a2), FileHelper.getFileSize(a2));
             return a2;
         }
         return (String) invokeLLZ.objValue;
@@ -370,15 +370,15 @@ public class e {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048582, this, new Object[]{bitmap, Long.valueOf(j2), Integer.valueOf(i2)})) == null) {
-            if (this.f12312b) {
-                ImageFileInfo imageFileInfo = this.f12313c;
+            if (this.f12457b) {
+                ImageFileInfo imageFileInfo = this.f12458c;
                 if (imageFileInfo == null || TextUtils.isEmpty(imageFileInfo.getFilePath())) {
                     return "";
                 }
-                return FileHelper.compressBitmapToFile(f12311h, t.c(this.f12313c.toCachedKey(false)) + h(this.f12313c.getFilePath()), bitmap, (float) j2, i2);
+                return FileHelper.compressBitmapToFile(f12456h, t.c(this.f12458c.toCachedKey(false)) + h(this.f12458c.getFilePath()), bitmap, (float) j2, i2);
             }
-            ImageFileInfo imageFileInfo2 = this.f12313c;
-            return FileHelper.compressBitmapToFile((imageFileInfo2 == null || TextUtils.isEmpty(imageFileInfo2.getTempUploadFileName())) ? "img_upload_temp_file.temp" : this.f12313c.getTempUploadFileName(), bitmap, (float) j2, i2);
+            ImageFileInfo imageFileInfo2 = this.f12458c;
+            return FileHelper.compressBitmapToFile((imageFileInfo2 == null || TextUtils.isEmpty(imageFileInfo2.getTempUploadFileName())) ? "img_upload_temp_file.temp" : this.f12458c.getTempUploadFileName(), bitmap, (float) j2, i2);
         }
         return (String) invokeCommon.objValue;
     }

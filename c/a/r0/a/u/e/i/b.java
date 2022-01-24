@@ -29,10 +29,10 @@ public class b extends c.a.r0.a.u.e.i.a {
         public final /* synthetic */ String a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ String f9090b;
+        public final /* synthetic */ String f9232b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ b f9091c;
+        public final /* synthetic */ b f9233c;
 
         public a(b bVar, String str, String str2) {
             Interceptable interceptable = $ic;
@@ -49,17 +49,33 @@ public class b extends c.a.r0.a.u.e.i.a {
                     return;
                 }
             }
-            this.f9091c = bVar;
+            this.f9233c = bVar;
             this.a = str;
-            this.f9090b = str2;
+            this.f9232b = str2;
+        }
+
+        @Override // com.baidu.searchbox.http.callback.ResponseCallback
+        public void onFail(Exception exc) {
+            String str;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, exc) == null) {
+                c.a.r0.a.e0.d.i("CallServiceApi", "Cloud capability request failed: " + this.a + StringUtils.LF + Log.getStackTraceString(exc));
+                b bVar = this.f9233c;
+                String str2 = this.f9232b;
+                if (TextUtils.isEmpty(exc.getMessage())) {
+                    str = "请求失败";
+                } else {
+                    str = exc.getMessage() + "";
+                }
+                bVar.d(str2, new c.a.r0.a.u.h.b(1001, str));
+            }
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.searchbox.http.callback.ResponseCallback
-        /* renamed from: a */
         public void onSuccess(JSONObject jSONObject, int i2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLI(1048576, this, jSONObject, i2) == null) {
+            if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, jSONObject, i2) == null) {
                 JSONObject jSONObject2 = new JSONObject();
                 try {
                     jSONObject2.put(EnterDxmPayServiceAction.SERVICE_STATUS_CODE, String.valueOf(i2));
@@ -68,40 +84,22 @@ public class b extends c.a.r0.a.u.e.i.a {
                     c.a.r0.a.e0.d.b("CallServiceApi", Log.getStackTraceString(e2));
                 }
                 c.a.r0.a.e0.d.b("CallServiceApi", "Cloud capability '" + this.a + "' request success: data:" + jSONObject2.toString());
-                this.f9091c.d(this.f9090b, new c.a.r0.a.u.h.b(0, jSONObject2));
+                this.f9233c.d(this.f9232b, new c.a.r0.a.u.h.b(0, jSONObject2));
             }
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.searchbox.http.callback.ResponseCallback
-        /* renamed from: b */
         public JSONObject parseResponse(Response response, int i2) throws Exception {
             InterceptResult invokeLI;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, response, i2)) == null) {
+            if (interceptable == null || (invokeLI = interceptable.invokeLI(1048580, this, response, i2)) == null) {
                 if (response == null || response.body() == null) {
                     return null;
                 }
                 return w.d(response.body().string());
             }
             return (JSONObject) invokeLI.objValue;
-        }
-
-        @Override // com.baidu.searchbox.http.callback.ResponseCallback
-        public void onFail(Exception exc) {
-            String str;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, exc) == null) {
-                c.a.r0.a.e0.d.i("CallServiceApi", "Cloud capability request failed: " + this.a + StringUtils.LF + Log.getStackTraceString(exc));
-                b bVar = this.f9091c;
-                String str2 = this.f9090b;
-                if (TextUtils.isEmpty(exc.getMessage())) {
-                    str = "请求失败";
-                } else {
-                    str = exc.getMessage() + "";
-                }
-                bVar.d(str2, new c.a.r0.a.u.h.b(1001, str));
-            }
         }
     }
 

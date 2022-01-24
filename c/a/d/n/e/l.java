@@ -19,31 +19,31 @@ public class l {
     public i a;
 
     /* renamed from: b  reason: collision with root package name */
-    public m f3323b;
+    public m f3425b;
 
     /* renamed from: c  reason: collision with root package name */
-    public RecyclerView f3324c;
+    public RecyclerView f3426c;
 
     /* renamed from: d  reason: collision with root package name */
-    public VelocityTracker f3325d;
+    public VelocityTracker f3427d;
 
     /* renamed from: e  reason: collision with root package name */
-    public float f3326e;
+    public float f3428e;
 
     /* renamed from: f  reason: collision with root package name */
-    public float f3327f;
+    public float f3429f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f3328g;
+    public int f3430g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f3329h;
+    public int f3431h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f3330i;
+    public int f3432i;
 
     /* renamed from: j  reason: collision with root package name */
-    public c.a.s0.s0.o.a f3331j;
+    public c.a.s0.s0.o.a f3433j;
     public RecyclerView.OnChildAttachStateChangeListener k;
     public RecyclerView.OnScrollListener l;
     public RecyclerView.OnItemTouchListener m;
@@ -161,41 +161,41 @@ public class l {
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, recyclerView, motionEvent)) == null) {
                 int actionMasked = motionEvent.getActionMasked();
                 if (actionMasked == 0) {
-                    this.a.f3324c.stopScroll();
-                    this.a.f3326e = motionEvent.getX();
-                    this.a.f3327f = motionEvent.getY();
+                    this.a.f3426c.stopScroll();
+                    this.a.f3428e = motionEvent.getX();
+                    this.a.f3429f = motionEvent.getY();
                     l lVar = this.a;
-                    View x = lVar.x(lVar.f3326e, this.a.f3327f);
+                    View x = lVar.x(lVar.f3428e, this.a.f3429f);
                     l lVar2 = this.a;
-                    lVar2.f3328g = lVar2.f3324c.getChildAdapterPosition(x);
-                    if (this.a.f3325d == null) {
-                        this.a.f3325d = VelocityTracker.obtain();
+                    lVar2.f3430g = lVar2.f3426c.getChildAdapterPosition(x);
+                    if (this.a.f3427d == null) {
+                        this.a.f3427d = VelocityTracker.obtain();
                     }
-                    this.a.f3325d.addMovement(motionEvent);
+                    this.a.f3427d.addMovement(motionEvent);
                     return false;
                 }
                 if (actionMasked != 2) {
                     if (actionMasked == 3 || actionMasked == 1) {
-                        this.a.f3326e = 0.0f;
-                        this.a.f3327f = 0.0f;
-                        this.a.f3325d.clear();
+                        this.a.f3428e = 0.0f;
+                        this.a.f3429f = 0.0f;
+                        this.a.f3427d.clear();
                         return false;
                     }
                     return false;
                 }
                 float x2 = motionEvent.getX();
                 float y = motionEvent.getY();
-                int i2 = (this.a.f3330i == 2 ? y - this.a.f3327f : x2 - this.a.f3326e) >= 0.0f ? 2 : 1;
-                if (i2 != this.a.f3329h) {
-                    this.a.f3329h = i2;
-                    this.a.f3325d.clear();
+                int i2 = (this.a.f3432i == 2 ? y - this.a.f3429f : x2 - this.a.f3428e) >= 0.0f ? 2 : 1;
+                if (i2 != this.a.f3431h) {
+                    this.a.f3431h = i2;
+                    this.a.f3427d.clear();
                 }
-                this.a.f3325d.addMovement(motionEvent);
-                this.a.f3325d.computeCurrentVelocity(50);
+                this.a.f3427d.addMovement(motionEvent);
+                this.a.f3427d.computeCurrentVelocity(50);
                 l lVar3 = this.a;
-                lVar3.v(lVar3.f3325d.getXVelocity(), this.a.f3325d.getYVelocity());
-                this.a.f3326e = x2;
-                this.a.f3327f = y;
+                lVar3.v(lVar3.f3427d.getXVelocity(), this.a.f3427d.getYVelocity());
+                this.a.f3428e = x2;
+                this.a.f3429f = y;
                 return false;
             }
             return invokeLL.booleanValue;
@@ -235,7 +235,7 @@ public class l {
         this.l = new b(this);
         this.m = new c(this);
         this.a = new i(jVar);
-        this.f3323b = new m(jVar);
+        this.f3425b = new m(jVar);
     }
 
     public void q(RecyclerView recyclerView, int i2) {
@@ -243,29 +243,29 @@ public class l {
         if (!(interceptable == null || interceptable.invokeLI(1048576, this, recyclerView, i2) == null) || recyclerView == null) {
             return;
         }
-        RecyclerView recyclerView2 = this.f3324c;
+        RecyclerView recyclerView2 = this.f3426c;
         if (recyclerView2 != null) {
             recyclerView2.removeOnItemTouchListener(this.m);
-            this.f3324c.removeOnScrollListener(this.l);
-            this.f3324c.removeOnChildAttachStateChangeListener(this.k);
+            this.f3426c.removeOnScrollListener(this.l);
+            this.f3426c.removeOnChildAttachStateChangeListener(this.k);
         }
-        this.f3324c = recyclerView;
-        this.f3330i = i2;
+        this.f3426c = recyclerView;
+        this.f3432i = i2;
         if (recyclerView instanceof BdTypeRecyclerView) {
-            this.f3323b.e((BdTypeRecyclerView) recyclerView, i2);
+            this.f3425b.e((BdTypeRecyclerView) recyclerView, i2);
         } else {
             this.a.e(recyclerView, i2);
         }
-        this.f3324c.addOnItemTouchListener(this.m);
-        this.f3324c.addOnScrollListener(this.l);
-        this.f3324c.addOnChildAttachStateChangeListener(this.k);
+        this.f3426c.addOnItemTouchListener(this.m);
+        this.f3426c.addOnScrollListener(this.l);
+        this.f3426c.addOnChildAttachStateChangeListener(this.k);
     }
 
     public final void r(View view) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view) == null) {
-            if (this.f3324c instanceof BdTypeRecyclerView) {
-                this.f3323b.j(view);
+            if (this.f3426c instanceof BdTypeRecyclerView) {
+                this.f3425b.k(view);
             } else {
                 this.a.g(view);
             }
@@ -275,8 +275,8 @@ public class l {
     public final void s(View view) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view) == null) {
-            if (this.f3324c instanceof BdTypeRecyclerView) {
-                this.f3323b.k(view);
+            if (this.f3426c instanceof BdTypeRecyclerView) {
+                this.f3425b.l(view);
             } else {
                 this.a.h(view);
             }
@@ -286,10 +286,10 @@ public class l {
     public final void t(int i2, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(1048579, this, i2, i3) == null) {
-            if (this.f3324c instanceof BdTypeRecyclerView) {
-                this.f3323b.o(i2, i3, this.f3328g);
+            if (this.f3426c instanceof BdTypeRecyclerView) {
+                this.f3425b.p(i2, i3, this.f3430g);
             }
-            this.a.l(i2, i3, this.f3328g);
+            this.a.l(i2, i3, this.f3430g);
         }
     }
 
@@ -298,16 +298,16 @@ public class l {
         if (interceptable == null || interceptable.invokeI(1048580, this, i2) == null) {
             if (i2 == 1) {
                 if (TbSingleton.getInstance().isEnableBenchmark() && !TbSingleton.getInstance().isAnimFpsComputed("anim_switch_slide")) {
-                    if (this.f3331j == null) {
-                        this.f3331j = new c.a.s0.s0.o.a("anim_switch_slide");
+                    if (this.f3433j == null) {
+                        this.f3433j = new c.a.s0.s0.o.a("anim_switch_slide");
                     }
-                    this.f3331j.b();
+                    this.f3433j.b();
                 }
-            } else if (i2 == 0 && this.f3331j != null && TbSingleton.getInstance().isEnableBenchmark() && !TbSingleton.getInstance().isAnimFpsComputed("anim_switch_slide")) {
-                this.f3331j.c();
+            } else if (i2 == 0 && this.f3433j != null && TbSingleton.getInstance().isEnableBenchmark() && !TbSingleton.getInstance().isAnimFpsComputed("anim_switch_slide")) {
+                this.f3433j.c();
             }
-            if (this.f3324c instanceof BdTypeRecyclerView) {
-                this.f3323b.p(i2);
+            if (this.f3426c instanceof BdTypeRecyclerView) {
+                this.f3425b.q(i2);
             }
             this.a.m(i2);
         }
@@ -316,34 +316,34 @@ public class l {
     public final void v(float f2, float f3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3)}) == null) {
-            if (this.f3324c instanceof BdTypeRecyclerView) {
-                this.f3323b.s(f2, f3, this.f3328g);
+            if (this.f3426c instanceof BdTypeRecyclerView) {
+                this.f3425b.t(f2, f3, this.f3430g);
             }
-            this.a.o(f2, f3, this.f3328g);
+            this.a.o(f2, f3, this.f3430g);
         }
     }
 
     public void w() {
         RecyclerView recyclerView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || (recyclerView = this.f3324c) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || (recyclerView = this.f3426c) == null) {
             return;
         }
         recyclerView.removeOnItemTouchListener(this.m);
-        this.f3324c.removeOnScrollListener(this.l);
-        this.f3324c.removeOnChildAttachStateChangeListener(this.k);
+        this.f3426c.removeOnScrollListener(this.l);
+        this.f3426c.removeOnChildAttachStateChangeListener(this.k);
     }
 
     public View x(float f2, float f3) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048583, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3)})) == null) {
-            RecyclerView recyclerView = this.f3324c;
+            RecyclerView recyclerView = this.f3426c;
             if (recyclerView == null) {
                 return null;
             }
             for (int childCount = recyclerView.getChildCount() - 1; childCount >= 0; childCount--) {
-                View childAt = this.f3324c.getChildAt(childCount);
+                View childAt = this.f3426c.getChildAt(childCount);
                 float translationX = childAt.getTranslationX();
                 float translationY = childAt.getTranslationY();
                 if (f2 >= childAt.getLeft() + translationX && f2 <= childAt.getRight() + translationX && f3 >= childAt.getTop() + translationY && f3 <= childAt.getBottom() + translationY) {

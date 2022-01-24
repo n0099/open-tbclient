@@ -457,7 +457,7 @@ public class FlutterPageActivity<T> extends BoostFlutterActivity implements TbPa
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIIL(1048596, this, i2, i3, intent) == null) {
             super.onActivityResult(i2, i3, intent);
-            if (c.a.s0.f1.a.c(i2, i3, intent)) {
+            if (c.a.s0.e1.a.c(i2, i3, intent)) {
             }
         }
     }

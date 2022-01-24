@@ -12,16 +12,16 @@ public class p {
     public long a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f20019b;
+    public int f20120b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f20020c;
+    public int f20121c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f20021d;
+    public int f20122d;
 
     /* renamed from: e  reason: collision with root package name */
-    public MultiMediaData f20022e;
+    public MultiMediaData f20123e;
 
     public p() {
         Interceptable interceptable = $ic;

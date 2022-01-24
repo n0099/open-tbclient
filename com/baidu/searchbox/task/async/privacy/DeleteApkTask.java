@@ -106,7 +106,7 @@ public class DeleteApkTask extends LaunchTask {
     public static void deleteH5File() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65541, null) == null) {
-            String str = DOWNLOAD_DIR + "bdtbWCache";
+            String str = DOWNLOAD_DIR + QUICK_WEB_VIEW_DIR_NAME;
             File file = new File(str);
             if (file.exists() && file.isDirectory()) {
                 FileHelper.deleteFileOrDir(new File(str));

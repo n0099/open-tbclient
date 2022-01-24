@@ -69,12 +69,12 @@ public class e extends b<c.a.t0.n0.b> {
     public void l(TbPageContext<?> tbPageContext, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i2) == null) {
-            if (this.f17766e != i2) {
+            if (this.f17588e != i2) {
                 SkinManager.setBackgroundResource(j(), R.color.CAM_X0201);
                 SkinManager.setBackgroundResource(this.v, R.color.CAM_X0204);
                 SkinManager.setViewTextColor(this.q, R.color.CAM_X0101, 1);
-                c.a.t0.w3.p0.d readThreadHistory = TbadkCoreApplication.getInst().getReadThreadHistory();
-                if (readThreadHistory != null && readThreadHistory.d(this.w.getThreadData().g0())) {
+                c.a.t0.x3.p0.d readThreadHistory = TbadkCoreApplication.getInst().getReadThreadHistory();
+                if (readThreadHistory != null && readThreadHistory.d(this.w.getThreadData().h0())) {
                     SkinManager.setViewTextColor(this.r, R.color.CAM_X0108);
                 } else {
                     SkinManager.setViewTextColor(this.r, R.color.CAM_X0105);
@@ -82,7 +82,7 @@ public class e extends b<c.a.t0.n0.b> {
                 SkinManager.setViewTextColor(this.t, R.color.CAM_X0109, 1);
                 SkinManager.setViewTextColor(this.u, R.color.CAM_X0109, 1);
             }
-            this.f17766e = i2;
+            this.f17588e = i2;
         }
     }
 
@@ -109,7 +109,7 @@ public class e extends b<c.a.t0.n0.b> {
             this.u = (TextView) view.findViewById(R.id.card_frs_game_publish_time);
             this.v = view.findViewById(R.id.card_frs_game_bottom_divider);
             this.o.setDefaultBgResource(R.drawable.icon_morenpic);
-            int dimensionPixelSize = this.f17768g.getResources().getDimensionPixelSize(R.dimen.tbds326);
+            int dimensionPixelSize = this.f17590g.getResources().getDimensionPixelSize(R.dimen.tbds326);
             LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.n.getLayoutParams();
             layoutParams.width = dimensionPixelSize;
             layoutParams.height = (dimensionPixelSize * 9) / 16;
@@ -119,7 +119,7 @@ public class e extends b<c.a.t0.n0.b> {
             this.s.setIsRound(true);
             this.s.setDrawBorder(true);
             this.s.setBorderColor(SkinManager.getColor(R.color.common_color_10043));
-            this.s.setBorderWidth(this.f17768g.getResources().getDimensionPixelSize(R.dimen.tbds1));
+            this.s.setBorderWidth(this.f17590g.getResources().getDimensionPixelSize(R.dimen.tbds1));
             j().setOnClickListener(this);
         }
     }
@@ -134,33 +134,33 @@ public class e extends b<c.a.t0.n0.b> {
         }
         this.w = bVar;
         String str = null;
-        if (bVar.getThreadData().H2()) {
+        if (bVar.getThreadData().I2()) {
             this.p.setVisibility(0);
             this.q.setVisibility(0);
-            if (bVar.getThreadData().t1() != null) {
-                this.q.setText(StringHelper.stringForVideoTime(bVar.getThreadData().t1().video_duration.intValue() * 1000));
-                str = bVar.getThreadData().t1().thumbnail_url;
+            if (bVar.getThreadData().u1() != null) {
+                this.q.setText(StringHelper.stringForVideoTime(bVar.getThreadData().u1().video_duration.intValue() * 1000));
+                str = bVar.getThreadData().u1().thumbnail_url;
             }
         } else {
             this.p.setVisibility(8);
             this.q.setVisibility(8);
-            if (bVar.getThreadData().F0() != null && bVar.getThreadData().F0().size() >= 1) {
-                str = bVar.getThreadData().F0().get(0).origin_pic;
+            if (bVar.getThreadData().G0() != null && bVar.getThreadData().G0().size() >= 1) {
+                str = bVar.getThreadData().G0().get(0).origin_pic;
             }
         }
         this.o.startLoad(str, 10, false);
         this.r.setText(bVar.getThreadData().getTitle());
-        c.a.t0.w3.p0.d readThreadHistory = TbadkCoreApplication.getInst().getReadThreadHistory();
-        if (readThreadHistory != null && readThreadHistory.d(bVar.getThreadData().g0())) {
+        c.a.t0.x3.p0.d readThreadHistory = TbadkCoreApplication.getInst().getReadThreadHistory();
+        if (readThreadHistory != null && readThreadHistory.d(bVar.getThreadData().h0())) {
             SkinManager.setViewTextColor(this.r, R.color.CAM_X0108);
         } else {
             SkinManager.setViewTextColor(this.r, R.color.CAM_X0105);
         }
         this.s.setData(bVar.getThreadData(), false);
         this.u.setText(StringHelper.getFormatTimeShort(bVar.getThreadData().I()));
-        if ("news".equals(bVar.getThreadData().c0())) {
+        if ("news".equals(bVar.getThreadData().d0())) {
             this.s.setVisibility(8);
-            this.t.setText(this.f17767f.getPageActivity().getResources().getString(R.string.person_view_num, StringHelper.numberUniformFormat(bVar.getThreadData().E1())));
+            this.t.setText(this.f17589f.getPageActivity().getResources().getString(R.string.person_view_num, StringHelper.numberUniformFormat(bVar.getThreadData().F1())));
             return;
         }
         this.s.setVisibility(0);

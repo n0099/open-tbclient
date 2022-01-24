@@ -3,7 +3,7 @@ package com.baidu.tieba.pb.videopb;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
-import c.a.t0.s2.l;
+import c.a.t0.t2.l;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.BaseFragment;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -24,7 +24,7 @@ public class VideoPbFragmentAdapter extends FragmentPagerAdapter {
     public List<String> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ArrayList<BaseFragment> f46880b;
+    public ArrayList<BaseFragment> f46908b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public VideoPbFragmentAdapter(FragmentManager fragmentManager, AbsVideoPbFragment absVideoPbFragment) {
@@ -54,16 +54,16 @@ public class VideoPbFragmentAdapter extends FragmentPagerAdapter {
         } else {
             this.a.add(TbadkCoreApplication.getInst().getString(l.pb_video_reply));
         }
-        if (this.f46880b == null) {
-            this.f46880b = new ArrayList<>();
+        if (this.f46908b == null) {
+            this.f46908b = new ArrayList<>();
         }
-        this.f46880b.clear();
+        this.f46908b.clear();
         if (absVideoPbFragment.isShowDoubleTab()) {
-            this.f46880b.add(DetailInfoFragment.newInstance(absVideoPbFragment));
-            this.f46880b.add(ReplyFragment.newInstance(absVideoPbFragment));
+            this.f46908b.add(DetailInfoFragment.newInstance(absVideoPbFragment));
+            this.f46908b.add(ReplyFragment.newInstance(absVideoPbFragment));
             return;
         }
-        this.f46880b.add(DetailInfoAndReplyFragment.newInstance(absVideoPbFragment));
+        this.f46908b.add(DetailInfoAndReplyFragment.newInstance(absVideoPbFragment));
     }
 
     @Override // androidx.viewpager.widget.PagerAdapter
@@ -71,7 +71,7 @@ public class VideoPbFragmentAdapter extends FragmentPagerAdapter {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            ArrayList<BaseFragment> arrayList = this.f46880b;
+            ArrayList<BaseFragment> arrayList = this.f46908b;
             if (arrayList == null) {
                 return 0;
             }
@@ -84,11 +84,11 @@ public class VideoPbFragmentAdapter extends FragmentPagerAdapter {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) {
-            ArrayList<BaseFragment> arrayList = this.f46880b;
+            ArrayList<BaseFragment> arrayList = this.f46908b;
             if (arrayList == null || i2 >= arrayList.size()) {
                 return null;
             }
-            return this.f46880b.get(i2);
+            return this.f46908b.get(i2);
         }
         return (BaseFragment) invokeI.objValue;
     }
@@ -96,7 +96,7 @@ public class VideoPbFragmentAdapter extends FragmentPagerAdapter {
     public ArrayList<BaseFragment> getFragments() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f46880b : (ArrayList) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f46908b : (ArrayList) invokeV.objValue;
     }
 
     @Override // androidx.fragment.app.FragmentPagerAdapter
@@ -123,12 +123,12 @@ public class VideoPbFragmentAdapter extends FragmentPagerAdapter {
     public void onChangeSkinType(int i2) {
         ArrayList<BaseFragment> arrayList;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048581, this, i2) == null) || (arrayList = this.f46880b) == null || arrayList.size() <= 0) {
+        if (!(interceptable == null || interceptable.invokeI(1048581, this, i2) == null) || (arrayList = this.f46908b) == null || arrayList.size() <= 0) {
             return;
         }
-        int size = this.f46880b.size();
+        int size = this.f46908b.size();
         for (int i3 = 0; i3 < size; i3++) {
-            BaseFragment baseFragment = this.f46880b.get(i3);
+            BaseFragment baseFragment = this.f46908b.get(i3);
             if (baseFragment != null) {
                 baseFragment.onChangeSkinType(i2);
             }
@@ -137,13 +137,13 @@ public class VideoPbFragmentAdapter extends FragmentPagerAdapter {
 
     public void setItemPrimary(int i2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048582, this, i2) == null) || this.f46880b == null) {
+        if (!(interceptable == null || interceptable.invokeI(1048582, this, i2) == null) || this.f46908b == null) {
             return;
         }
         int i3 = 0;
-        while (i3 < this.f46880b.size()) {
-            if (this.f46880b.get(i3) != null) {
-                this.f46880b.get(i3).setPrimary(i3 == i2);
+        while (i3 < this.f46908b.size()) {
+            if (this.f46908b.get(i3) != null) {
+                this.f46908b.get(i3).setPrimary(i3 == i2);
             }
             i3++;
         }

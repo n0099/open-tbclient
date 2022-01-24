@@ -20,7 +20,7 @@ public class a extends d {
 
     /* renamed from: c.a.r0.a.u0.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static /* synthetic */ class C0593a {
+    public static /* synthetic */ class C0602a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
@@ -32,9 +32,9 @@ public class a extends d {
         public String a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ a f9333b;
+        public final /* synthetic */ a f9475b;
 
-        public /* synthetic */ b(a aVar, String str, C0593a c0593a) {
+        public /* synthetic */ b(a aVar, String str, C0602a c0602a) {
             this(aVar, str);
         }
 
@@ -42,7 +42,7 @@ public class a extends d {
         public void a(@Nullable JSONObject jSONObject) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) {
-                this.f9333b.d(this.a, jSONObject == null ? new c.a.r0.a.u.h.b(0) : new c.a.r0.a.u.h.b(0, jSONObject));
+                this.f9475b.d(this.a, jSONObject == null ? new c.a.r0.a.u.h.b(0) : new c.a.r0.a.u.h.b(0, jSONObject));
             }
         }
 
@@ -50,7 +50,7 @@ public class a extends d {
         public void onFail(int i2, @Nullable String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, str) == null) {
-                this.f9333b.d(this.a, str == null ? new c.a.r0.a.u.h.b(i2) : new c.a.r0.a.u.h.b(i2, str));
+                this.f9475b.d(this.a, str == null ? new c.a.r0.a.u.h.b(i2) : new c.a.r0.a.u.h.b(i2, str));
             }
         }
 
@@ -69,7 +69,7 @@ public class a extends d {
                     return;
                 }
             }
-            this.f9333b = aVar;
+            this.f9475b = aVar;
             this.a = str;
         }
     }
@@ -109,7 +109,7 @@ public class a extends d {
             }
         }
 
-        public /* synthetic */ c(a aVar, C0593a c0593a) {
+        public /* synthetic */ c(a aVar, C0602a c0602a) {
             this(aVar);
         }
     }

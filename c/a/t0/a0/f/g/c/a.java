@@ -16,16 +16,16 @@ public class a {
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f14601b;
+    public String f14741b;
 
     /* renamed from: c  reason: collision with root package name */
-    public List<e2> f14602c;
+    public List<e2> f14742c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f14603d;
+    public int f14743d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f14604e;
+    public int f14744e;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -48,20 +48,20 @@ public class a {
         }
         this.a = jSONObject.optString("head_pic");
         jSONObject.optString("url_type");
-        this.f14601b = jSONObject.optString("url");
-        this.f14603d = jSONObject.optInt("head_type", 0);
-        this.f14604e = jSONObject.optInt("is_set", -1);
+        this.f14741b = jSONObject.optString("url");
+        this.f14743d = jSONObject.optInt("head_type", 0);
+        this.f14744e = jSONObject.optInt("is_set", -1);
         JSONArray optJSONArray = jSONObject.optJSONArray("head_thread");
         if (optJSONArray == null || optJSONArray.length() <= 0) {
             return;
         }
-        this.f14602c = new ArrayList(optJSONArray.length());
+        this.f14742c = new ArrayList(optJSONArray.length());
         for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
             JSONObject jSONObject2 = (JSONObject) optJSONArray.opt(i2);
             if (jSONObject2 != null) {
                 e2 e2Var = new e2();
-                e2Var.b3(jSONObject2);
-                this.f14602c.add(e2Var);
+                e2Var.c3(jSONObject2);
+                this.f14742c.add(e2Var);
             }
         }
     }

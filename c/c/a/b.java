@@ -13,13 +13,13 @@ public class b {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: b  reason: collision with root package name */
-    public static long f27546b = 922337203685477580L;
+    public static long f27574b = 922337203685477580L;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final float[] f27547c;
+    public static final float[] f27575c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final float[] f27548d;
+    public static final float[] f27576d;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
 
@@ -36,8 +36,8 @@ public class b {
                 return;
             }
         }
-        f27547c = new float[]{1.0f, 10.0f, 100.0f, 1000.0f, 10000.0f, 100000.0f, 1000000.0f, 1.0E7f, 1.0E8f, 1.0E9f, 1.0E10f, 1.0E11f, 1.0E12f, 1.0E13f, 1.0E14f, 1.0E15f, 1.0E16f, 1.0E17f, 1.0E18f, 1.0E19f, 1.0E20f, 1.0E21f, 1.0E22f, 1.0E23f, 1.0E24f, 1.0E25f, 1.0E26f, 1.0E27f, 1.0E28f, 1.0E29f, 1.0E30f, 1.0E31f, 1.0E32f, 1.0E33f, 1.0E34f, 1.0E35f, 1.0E36f, 1.0E37f, 1.0E38f};
-        f27548d = new float[]{1.0f, 0.1f, 0.01f, 0.001f, 1.0E-4f, 1.0E-5f, 1.0E-6f, 1.0E-7f, 1.0E-8f, 1.0E-9f, 1.0E-10f, 1.0E-11f, 1.0E-12f, 1.0E-13f, 1.0E-14f, 1.0E-15f, 1.0E-16f, 1.0E-17f, 1.0E-18f, 1.0E-19f, 1.0E-20f, 1.0E-21f, 1.0E-22f, 1.0E-23f, 1.0E-24f, 1.0E-25f, 1.0E-26f, 1.0E-27f, 1.0E-28f, 1.0E-29f, 1.0E-30f, 1.0E-31f, 1.0E-32f, 1.0E-33f, 1.0E-34f, 1.0E-35f, 1.0E-36f, 1.0E-37f, 1.0E-38f};
+        f27575c = new float[]{1.0f, 10.0f, 100.0f, 1000.0f, 10000.0f, 100000.0f, 1000000.0f, 1.0E7f, 1.0E8f, 1.0E9f, 1.0E10f, 1.0E11f, 1.0E12f, 1.0E13f, 1.0E14f, 1.0E15f, 1.0E16f, 1.0E17f, 1.0E18f, 1.0E19f, 1.0E20f, 1.0E21f, 1.0E22f, 1.0E23f, 1.0E24f, 1.0E25f, 1.0E26f, 1.0E27f, 1.0E28f, 1.0E29f, 1.0E30f, 1.0E31f, 1.0E32f, 1.0E33f, 1.0E34f, 1.0E35f, 1.0E36f, 1.0E37f, 1.0E38f};
+        f27576d = new float[]{1.0f, 0.1f, 0.01f, 0.001f, 1.0E-4f, 1.0E-5f, 1.0E-6f, 1.0E-7f, 1.0E-8f, 1.0E-9f, 1.0E-10f, 1.0E-11f, 1.0E-12f, 1.0E-13f, 1.0E-14f, 1.0E-15f, 1.0E-16f, 1.0E-17f, 1.0E-18f, 1.0E-19f, 1.0E-20f, 1.0E-21f, 1.0E-22f, 1.0E-23f, 1.0E-24f, 1.0E-25f, 1.0E-26f, 1.0E-27f, 1.0E-28f, 1.0E-29f, 1.0E-30f, 1.0E-31f, 1.0E-32f, 1.0E-33f, 1.0E-34f, 1.0E-35f, 1.0E-36f, 1.0E-37f, 1.0E-38f};
     }
 
     public b() {
@@ -118,13 +118,13 @@ public class b {
                     } else if (charAt4 >= '1' && charAt4 <= '9') {
                         int i13 = i4 + i5;
                         while (i5 > 0) {
-                            if (j2 > f27546b) {
+                            if (j2 > f27574b) {
                                 return Float.NaN;
                             }
                             j2 *= 10;
                             i5--;
                         }
-                        if (j2 > f27546b) {
+                        if (j2 > f27574b) {
                             return Float.NaN;
                         }
                         j2 = (j2 * 10) + (charAt4 - '0');
@@ -187,7 +187,7 @@ public class b {
                                 while (true) {
                                     int i16 = this.a;
                                     if (i16 < i3 && (charAt2 = str.charAt(i16)) >= '0' && charAt2 <= '9') {
-                                        if (i15 > f27546b) {
+                                        if (i15 > f27574b) {
                                             return Float.NaN;
                                         }
                                         i15 = (i15 * 10) + (charAt2 - '0');
@@ -215,13 +215,13 @@ public class b {
                     float f3 = (float) j3;
                     if (j3 != 0) {
                         if (i5 > 0) {
-                            f2 = f27547c[i5];
+                            f2 = f27575c[i5];
                         } else if (i5 < 0) {
                             if (i5 < -38) {
                                 f3 = (float) (f3 * 1.0E-20d);
                                 i5 += 20;
                             }
-                            f2 = f27548d[-i5];
+                            f2 = f27576d[-i5];
                         }
                         f3 *= f2;
                     }

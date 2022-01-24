@@ -1,5 +1,5 @@
 package com.ss.android.socialbase.appdownloader;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class e {
     public static int a() {
         return i.a("tt_appdownloader_notification_layout");

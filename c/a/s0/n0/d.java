@@ -37,34 +37,34 @@ import java.util.Locale;
 public class d {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public InterfaceC0860d a;
+    public InterfaceC0869d a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final HttpMessageListener f12933b;
+    public final HttpMessageListener f13077b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final TbHttpMessageTask f12934c;
+    public final TbHttpMessageTask f13078c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final BdUniqueId f12935d;
+    public final BdUniqueId f13079d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final BdUniqueId f12936e;
+    public final BdUniqueId f13080e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f12937f;
+    public int f13081f;
 
     /* renamed from: g  reason: collision with root package name */
-    public long f12938g;
+    public long f13082g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f12939h;
+    public String f13083h;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f12940i;
+    public boolean f13084i;
 
     /* renamed from: j  reason: collision with root package name */
-    public AlertDialog f12941j;
+    public AlertDialog f13085j;
     public final TbPageContext<?> k;
     public final CustomMessageListener l;
     public boolean m;
@@ -105,24 +105,24 @@ public class d {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) {
                 if (!(httpResponsedMessage instanceof NovelPayResponse) || httpResponsedMessage.getOrginalMessage() == null) {
-                    this.a.f12940i = false;
+                    this.a.f13084i = false;
                     return;
                 }
                 NovelPayResponse novelPayResponse = (NovelPayResponse) httpResponsedMessage;
                 if (this.a.a == null) {
-                    this.a.f12940i = false;
+                    this.a.f13084i = false;
                     return;
                 }
                 BdUniqueId tag = novelPayResponse.getOrginalMessage().getTag();
-                if (tag != this.a.f12935d) {
-                    if (tag == this.a.f12936e) {
-                        this.a.f12940i = false;
+                if (tag != this.a.f13079d) {
+                    if (tag == this.a.f13080e) {
+                        this.a.f13084i = false;
                         this.a.a.a(novelPayResponse.isSuccessful() ? NovelResult.PAY_NOVEL_SUCC : NovelResult.PAY_NOVEL_FAIL);
                         return;
                     }
-                    this.a.f12940i = false;
+                    this.a.f13084i = false;
                 } else if (!novelPayResponse.isSuccessful() || novelPayResponse.getYYCoin() < 0) {
-                    this.a.f12940i = false;
+                    this.a.f13084i = false;
                     this.a.a.a(NovelResult.PAY_NOVEL_FAIL);
                 } else {
                     this.a.p(novelPayResponse.getYYCoin());
@@ -206,7 +206,7 @@ public class d {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeB(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, b2) == null) && b2 == 6) {
                 if (!this.a.m) {
-                    this.a.f12940i = false;
+                    this.a.f13084i = false;
                     if (this.a.a != null) {
                         this.a.a.a(NovelResult.DEPOSIT_CANCEL);
                         return;
@@ -214,7 +214,7 @@ public class d {
                     return;
                 }
                 d dVar = this.a;
-                dVar.r(dVar.f12938g, this.a.f12939h, this.a.f12937f, true);
+                dVar.r(dVar.f13082g, this.a.f13083h, this.a.f13081f, true);
                 this.a.m = false;
             }
         }
@@ -223,7 +223,7 @@ public class d {
         public void onFail(int i2, String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i2, str) == null) {
-                this.a.f12940i = false;
+                this.a.f13084i = false;
                 if (this.a.a != null) {
                     this.a.a.a(NovelResult.DEPOSIT_FAIL);
                 }
@@ -233,7 +233,7 @@ public class d {
 
     /* renamed from: c.a.s0.n0.d$d  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public interface InterfaceC0860d {
+    public interface InterfaceC0869d {
         void a(NovelResult novelResult);
     }
 
@@ -252,64 +252,64 @@ public class d {
                 return;
             }
         }
-        this.f12935d = BdUniqueId.gen();
-        this.f12936e = BdUniqueId.gen();
-        this.f12937f = -1;
-        this.f12938g = -1L;
-        this.f12940i = false;
+        this.f13079d = BdUniqueId.gen();
+        this.f13080e = BdUniqueId.gen();
+        this.f13081f = -1;
+        this.f13082g = -1L;
+        this.f13084i = false;
         this.m = false;
         this.p = null;
         this.k = tbPageContext;
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_NOVEL_PAY, TbDomainConfig.DOMAIN_HTTPS_SERVER_ADDRESS + TbConfig.NOVEL_PAY);
-        this.f12934c = tbHttpMessageTask;
+        this.f13078c = tbHttpMessageTask;
         tbHttpMessageTask.setResponsedClass(NovelPayResponse.class);
-        this.f12933b = new a(this, CmdConfigHttp.CMD_NOVEL_PAY);
+        this.f13077b = new a(this, CmdConfigHttp.CMD_NOVEL_PAY);
         this.l = new b(this, 2001227);
     }
 
-    public void l(InterfaceC0860d interfaceC0860d) {
+    public void l(InterfaceC0869d interfaceC0869d) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, interfaceC0860d) == null) {
-            this.a = interfaceC0860d;
-            MessageManager.getInstance().registerTask(this.f12934c);
-            this.k.registerListener(this.f12933b);
+        if (interceptable == null || interceptable.invokeL(1048576, this, interfaceC0869d) == null) {
+            this.a = interfaceC0869d;
+            MessageManager.getInstance().registerTask(this.f13078c);
+            this.k.registerListener(this.f13077b);
             this.k.registerListener(this.l);
         }
     }
 
     public /* synthetic */ void m(View view) {
-        AlertDialog alertDialog = this.f12941j;
+        AlertDialog alertDialog = this.f13085j;
         if (alertDialog != null) {
             alertDialog.dismiss();
         }
-        this.f12940i = false;
-        InterfaceC0860d interfaceC0860d = this.a;
-        if (interfaceC0860d != null) {
-            interfaceC0860d.a(NovelResult.PAY_NOVEL_CANCEL);
+        this.f13084i = false;
+        InterfaceC0869d interfaceC0869d = this.a;
+        if (interfaceC0869d != null) {
+            interfaceC0869d.a(NovelResult.PAY_NOVEL_CANCEL);
         }
-        f.a(CommonStatisticKey.KEY_PB_NOVEL_INFO_PAY_DIALOG_CLICK, 1, String.valueOf(this.f12938g), this.n, this.o);
+        f.a(CommonStatisticKey.KEY_PB_NOVEL_INFO_PAY_DIALOG_CLICK, 1, String.valueOf(this.f13082g), this.n, this.o);
     }
 
     public /* synthetic */ void n(View view) {
-        AlertDialog alertDialog = this.f12941j;
+        AlertDialog alertDialog = this.f13085j;
         if (alertDialog != null) {
             alertDialog.dismiss();
         }
-        int i2 = this.f12937f;
+        int i2 = this.f13081f;
         if (i2 == 0) {
             this.a.a(NovelResult.PAY_NOVEL_SUCC);
         } else if (i2 > 0) {
-            r(this.f12938g, this.f12939h, i2, false);
+            r(this.f13082g, this.f13083h, i2, false);
         }
-        f.a(CommonStatisticKey.KEY_PB_NOVEL_INFO_PAY_DIALOG_CLICK, 2, String.valueOf(this.f12938g), this.n, this.o);
+        f.a(CommonStatisticKey.KEY_PB_NOVEL_INFO_PAY_DIALOG_CLICK, 2, String.valueOf(this.f13082g), this.n, this.o);
     }
 
     public void o() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             this.a = null;
-            MessageManager.getInstance().unRegisterTask(this.f12934c.getCmd());
-            MessageManager.getInstance().unRegisterListener(this.f12933b);
+            MessageManager.getInstance().unRegisterTask(this.f13078c.getCmd());
+            MessageManager.getInstance().unRegisterListener(this.f13077b);
             MessageManager.getInstance().unRegisterListener(this.l);
             MessageManager.getInstance().sendMessage(new CustomMessage(2921661, this.p));
         }
@@ -318,28 +318,28 @@ public class d {
     public final void p(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048580, this, i2) == null) {
-            if (i2 >= this.f12937f) {
+            if (i2 >= this.f13081f) {
                 t(i2);
             } else if (!n.C()) {
-                this.f12940i = false;
-                InterfaceC0860d interfaceC0860d = this.a;
-                if (interfaceC0860d != null) {
-                    interfaceC0860d.a(NovelResult.DEPOSIT_FAIL);
+                this.f13084i = false;
+                InterfaceC0869d interfaceC0869d = this.a;
+                if (interfaceC0869d != null) {
+                    interfaceC0869d.a(NovelResult.DEPOSIT_FAIL);
                 }
             } else {
                 this.p = new c(this);
-                CurrencyJumpHelper.buyGiftGotoBuyTBeanPage(this.k.getPageActivity(), this.p, this.k.getString(R.string.novel_yy_not_enough), Long.valueOf(this.f12937f), false, 1);
+                CurrencyJumpHelper.buyGiftGotoBuyTBeanPage(this.k.getPageActivity(), this.p, this.k.getString(R.string.novel_yy_not_enough), Long.valueOf(this.f13081f), false, 1);
             }
         }
     }
 
     public void q(long j2, String str, int i2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{Long.valueOf(j2), str, Integer.valueOf(i2)}) == null) && !this.f12940i && ViewHelper.checkUpIsLogin(this.k.getPageActivity())) {
-            this.f12940i = true;
-            this.f12937f = i2;
-            this.f12938g = j2;
-            this.f12939h = str;
+        if ((interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{Long.valueOf(j2), str, Integer.valueOf(i2)}) == null) && !this.f13084i && ViewHelper.checkUpIsLogin(this.k.getPageActivity())) {
+            this.f13084i = true;
+            this.f13081f = i2;
+            this.f13082g = j2;
+            this.f13083h = str;
             r(j2, str, i2, true);
         }
     }
@@ -352,7 +352,7 @@ public class d {
             httpMessage.addParam("goods_name", str);
             httpMessage.addParam("cost", i2);
             httpMessage.addParam("only_check_yycoin", z ? 1 : 0);
-            httpMessage.setTag(z ? this.f12935d : this.f12936e);
+            httpMessage.setTag(z ? this.f13079d : this.f13080e);
             MessageManager.getInstance().sendMessage(httpMessage);
         }
     }
@@ -368,12 +368,12 @@ public class d {
     public final void t(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2) == null) {
-            AlertDialog alertDialog = this.f12941j;
+            AlertDialog alertDialog = this.f13085j;
             if (alertDialog != null && alertDialog.isShowing()) {
-                this.f12941j.dismiss();
+                this.f13085j.dismiss();
             }
             m mVar = new m(this.k.getPageActivity());
-            mVar.s(String.format(Locale.CHINA, this.k.getString(R.string.novel_pay_info), Double.valueOf((this.f12937f * 1.0d) / 100.0d)));
+            mVar.s(String.format(Locale.CHINA, this.k.getString(R.string.novel_pay_info), Double.valueOf((this.f13081f * 1.0d) / 100.0d)));
             mVar.q(R.string.novel_confirm_pay_info);
             mVar.n(String.format(Locale.CHINA, this.k.getString(R.string.novel_current_yy_coin), Double.valueOf((i2 * 1.0d) / 100.0d)));
             mVar.l(true);
@@ -401,12 +401,12 @@ public class d {
                     }
                 }
             }));
-            this.f12941j = mVar.u();
-            InterfaceC0860d interfaceC0860d = this.a;
-            if (interfaceC0860d != null) {
-                interfaceC0860d.a(NovelResult.PAY_NOVEL_CONFIRM_DIALOG);
+            this.f13085j = mVar.u();
+            InterfaceC0869d interfaceC0869d = this.a;
+            if (interfaceC0869d != null) {
+                interfaceC0869d.a(NovelResult.PAY_NOVEL_CONFIRM_DIALOG);
             }
-            f.b(CommonStatisticKey.KEY_PB_NOVEL_INFO_PAY_DIALOG_SHOW, String.valueOf(this.f12938g), this.n, this.o);
+            f.b(CommonStatisticKey.KEY_PB_NOVEL_INFO_PAY_DIALOG_SHOW, String.valueOf(this.f13082g), this.n, this.o);
         }
     }
 }

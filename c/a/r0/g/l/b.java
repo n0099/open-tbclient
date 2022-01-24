@@ -18,10 +18,10 @@ public class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final boolean f10339b;
+    public static final boolean f10481b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static SharedPreferences f10340c;
+    public static SharedPreferences f10482c;
     public transient /* synthetic */ FieldHolder $fh;
     public Context a;
 
@@ -38,8 +38,8 @@ public class b {
                 return;
             }
         }
-        f10339b = k.a;
-        f10340c = null;
+        f10481b = k.a;
+        f10482c = null;
     }
 
     public b(Context context) {
@@ -68,7 +68,7 @@ public class b {
             try {
                 return context.getPackageManager().getPackageInfo(context.getPackageName(), 0).versionCode;
             } catch (PackageManager.NameNotFoundException e2) {
-                if (f10339b) {
+                if (f10481b) {
                     String str = "error:" + e2.getMessage();
                     return -1;
                 }
@@ -82,10 +82,10 @@ public class b {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
-            if (f10340c == null) {
-                f10340c = context.getSharedPreferences("downgradefile", 0);
+            if (f10482c == null) {
+                f10482c = context.getSharedPreferences("downgradefile", 0);
             }
-            return f10340c;
+            return f10482c;
         }
         return (SharedPreferences) invokeL.objValue;
     }
@@ -99,7 +99,7 @@ public class b {
     public static void j(Context context, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(65541, null, context, i2) == null) {
-            if (f10339b) {
+            if (f10481b) {
                 String str = "set last version code:" + i2;
             }
             SharedPreferences.Editor edit = c(context).edit();
@@ -113,7 +113,7 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
             int i2 = c(context).getInt("old_versioncode_key", 0);
-            if (f10339b) {
+            if (f10481b) {
                 String str = "get old versioncode:" + i2;
             }
             return i2;
@@ -136,7 +136,7 @@ public class b {
 
     public final void g() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && f10339b) {
+        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && f10481b) {
             String str = "新旧版本一样:" + b(this.a);
         }
     }
@@ -145,7 +145,7 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(1048580, this, i2, i3) == null) {
             c.a.r0.a.x2.a.d(i3, i2);
-            c.a.r0.a.n0.k.c.f7795d.u();
+            c.a.r0.a.n0.k.c.f7937d.u();
         }
     }
 
@@ -154,7 +154,7 @@ public class b {
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             int a = a(this.a);
             int b2 = b(this.a);
-            if (f10339b) {
+            if (f10481b) {
                 String str = "处理升级逻辑：newVersionCode=" + a + " /oldVersionCode=" + b2;
             }
             if (b2 == 0) {
@@ -178,7 +178,7 @@ public class b {
     public final void k(Context context, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048582, this, context, i2) == null) {
-            if (f10339b) {
+            if (f10481b) {
                 String str = "set new versioncode:" + i2;
             }
             SharedPreferences.Editor edit = c(context).edit();

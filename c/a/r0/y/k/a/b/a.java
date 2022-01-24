@@ -104,9 +104,9 @@ public class a implements c.a.r0.a.y0.g.h.a {
     }
 
     @Override // c.a.r0.a.y0.g.h.a
-    public void o(@NonNull a.InterfaceC0624a interfaceC0624a) {
+    public void o(@NonNull a.InterfaceC0633a interfaceC0633a) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, interfaceC0624a) == null) {
+        if (interceptable == null || interceptable.invokeL(1048585, this, interfaceC0633a) == null) {
         }
     }
 

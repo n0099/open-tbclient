@@ -8,12 +8,12 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import c.a.s0.s.u.c;
-import c.a.t0.s2.f;
-import c.a.t0.s2.g;
-import c.a.t0.s2.h;
-import c.a.t0.s2.i;
-import c.a.t0.s2.j;
-import c.a.t0.s2.l;
+import c.a.t0.t2.f;
+import c.a.t0.t2.g;
+import c.a.t0.t2.h;
+import c.a.t0.t2.i;
+import c.a.t0.t2.j;
+import c.a.t0.t2.l;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.elementsMaven.view.EMTextView;
 import com.baidu.tbadk.core.util.WebPManager;
@@ -31,22 +31,22 @@ public class PbFloorComplaint extends RelativeLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public ImageView f46457e;
+    public ImageView f46485e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ImageView f46458f;
+    public ImageView f46486f;
 
     /* renamed from: g  reason: collision with root package name */
-    public EMTextView f46459g;
+    public EMTextView f46487g;
 
     /* renamed from: h  reason: collision with root package name */
-    public EMTextView f46460h;
+    public EMTextView f46488h;
 
     /* renamed from: i  reason: collision with root package name */
-    public RelativeLayout f46461i;
+    public RelativeLayout f46489i;
 
     /* renamed from: j  reason: collision with root package name */
-    public int f46462j;
+    public int f46490j;
     public int k;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -74,45 +74,45 @@ public class PbFloorComplaint extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
             LayoutInflater.from(context).inflate(j.pb_reply_floor_complaint_reminder, (ViewGroup) this, true);
-            this.f46457e = (ImageView) findViewById(i.remind_icon);
-            this.f46458f = (ImageView) findViewById(i.right_icon);
-            this.f46459g = (EMTextView) findViewById(i.remind_text);
-            this.f46460h = (EMTextView) findViewById(i.reply_remind);
-            this.f46461i = (RelativeLayout) findViewById(i.folding_prompt);
+            this.f46485e = (ImageView) findViewById(i.remind_icon);
+            this.f46486f = (ImageView) findViewById(i.right_icon);
+            this.f46487g = (EMTextView) findViewById(i.remind_text);
+            this.f46488h = (EMTextView) findViewById(i.reply_remind);
+            this.f46489i = (RelativeLayout) findViewById(i.folding_prompt);
         }
     }
 
     public void onChangeSkinType() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            ImageView imageView = this.f46457e;
+            ImageView imageView = this.f46485e;
             if (imageView != null) {
                 imageView.invalidate();
             }
-            int i2 = this.f46462j;
+            int i2 = this.f46490j;
             if (i2 == 1) {
-                this.f46459g.setText(l.reply_has_been_folded);
-                c.d(this.f46459g).v(f.CAM_X0301);
+                this.f46487g.setText(l.reply_has_been_folded);
+                c.d(this.f46487g).v(f.CAM_X0301);
             } else if (i2 == 2) {
-                this.f46459g.setText(l.folded_and_complaint);
-                c.d(this.f46459g).v(f.CAM_X0105);
+                this.f46487g.setText(l.folded_and_complaint);
+                c.d(this.f46487g).v(f.CAM_X0105);
             } else if (i2 == 3) {
-                this.f46459g.setText(l.folded_and_not_complain);
-                c.d(this.f46459g).v(f.CAM_X0301);
+                this.f46487g.setText(l.folded_and_not_complain);
+                c.d(this.f46487g).v(f.CAM_X0301);
             } else {
-                this.f46459g.setText(l.reply_has_been_folded);
-                c.d(this.f46459g).v(f.CAM_X0301);
+                this.f46487g.setText(l.reply_has_been_folded);
+                c.d(this.f46487g).v(f.CAM_X0301);
             }
             int i3 = this.k;
             if (i3 == 1 || i3 == 3) {
-                WebPManager.setPureDrawable(this.f46457e, h.icon_pure_warning, f.CAM_X0301, null);
+                WebPManager.setPureDrawable(this.f46485e, h.icon_pure_warning, f.CAM_X0301, null);
             } else if (i3 == 2) {
-                WebPManager.setPureDrawable(this.f46457e, h.icon_pure_await12, f.CAM_X0105, null);
+                WebPManager.setPureDrawable(this.f46485e, h.icon_pure_await12, f.CAM_X0105, null);
             } else {
-                WebPManager.setPureDrawable(this.f46457e, h.icon_pure_warning, f.CAM_X0301, null);
+                WebPManager.setPureDrawable(this.f46485e, h.icon_pure_warning, f.CAM_X0301, null);
             }
-            WebPManager.setPureDrawable(this.f46458f, h.icon_pure_arrow14_right_n, f.CAM_X0304, null);
-            c d2 = c.d(this.f46460h);
+            WebPManager.setPureDrawable(this.f46486f, h.icon_pure_arrow14_right_n, f.CAM_X0304, null);
+            c d2 = c.d(this.f46488h);
             d2.v(f.CAM_X0107);
             d2.z(g.T_X09);
         }
@@ -121,7 +121,7 @@ public class PbFloorComplaint extends RelativeLayout {
     public void setAmendIconListener(View.OnClickListener onClickListener) {
         RelativeLayout relativeLayout;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, onClickListener) == null) || (relativeLayout = this.f46461i) == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, onClickListener) == null) || (relativeLayout = this.f46489i) == null) {
             return;
         }
         relativeLayout.setOnClickListener(onClickListener);
@@ -138,7 +138,7 @@ public class PbFloorComplaint extends RelativeLayout {
     public void setRemindText(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048580, this, i2) == null) {
-            this.f46462j = i2;
+            this.f46490j = i2;
             onChangeSkinType();
         }
     }
@@ -183,7 +183,7 @@ public class PbFloorComplaint extends RelativeLayout {
                 return;
             }
         }
-        this.f46462j = 0;
+        this.f46490j = 0;
         this.k = 0;
         a(context);
     }

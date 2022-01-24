@@ -21,15 +21,15 @@ public final class a {
     public static final Pattern a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final Pattern f8364b;
+    public static final Pattern f8506b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final SparseIntArray f8365c;
+    public static final SparseIntArray f8507c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c.a.r0.a.p2.f.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static /* synthetic */ class C0516a {
+    public static /* synthetic */ class C0525a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
@@ -48,21 +48,21 @@ public final class a {
             }
         }
         a = Pattern.compile("([0-9]{1,2})[- ]([A-Za-z]{3,9})[- ]([0-9]{2,4})[ ]([0-9]{1,2}:[0-9][0-9]:[0-9][0-9])");
-        f8364b = Pattern.compile("[ ]([A-Za-z]{3,9})[ ]+([0-9]{1,2})[ ]([0-9]{1,2}:[0-9][0-9]:[0-9][0-9])[ ]([0-9]{2,4})");
+        f8506b = Pattern.compile("[ ]([A-Za-z]{3,9})[ ]+([0-9]{1,2})[ ]([0-9]{1,2}:[0-9][0-9]:[0-9][0-9])[ ]([0-9]{2,4})");
         SparseIntArray sparseIntArray = new SparseIntArray();
-        f8365c = sparseIntArray;
+        f8507c = sparseIntArray;
         sparseIntArray.put(d("jan"), 0);
-        f8365c.put(d("feb"), 1);
-        f8365c.put(d("mar"), 2);
-        f8365c.put(d("apr"), 3);
-        f8365c.put(d("may"), 4);
-        f8365c.put(d("jun"), 5);
-        f8365c.put(d("jul"), 6);
-        f8365c.put(d("aug"), 7);
-        f8365c.put(d("sep"), 8);
-        f8365c.put(d("oct"), 9);
-        f8365c.put(d("nov"), 10);
-        f8365c.put(d("dec"), 11);
+        f8507c.put(d("feb"), 1);
+        f8507c.put(d("mar"), 2);
+        f8507c.put(d("apr"), 3);
+        f8507c.put(d("may"), 4);
+        f8507c.put(d("jun"), 5);
+        f8507c.put(d("jul"), 6);
+        f8507c.put(d("aug"), 7);
+        f8507c.put(d("sep"), 8);
+        f8507c.put(d("oct"), 9);
+        f8507c.put(d("nov"), 10);
+        f8507c.put(d("dec"), 11);
     }
 
     public static int a(@NonNull Matcher matcher, int i2) {
@@ -90,7 +90,7 @@ public final class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(65538, null, matcher, i2)) == null) {
             try {
-                return f8365c.get(d(matcher.group(i2)), -1);
+                return f8507c.get(d(matcher.group(i2)), -1);
             } catch (Exception unused) {
                 return -1;
             }
@@ -150,17 +150,17 @@ public final class a {
             b bVar = new b(null);
             Matcher matcher = a.matcher(str);
             if (matcher.find()) {
-                bVar.f8367c = a(matcher, 1);
-                bVar.f8366b = b(matcher, 2);
+                bVar.f8509c = a(matcher, 1);
+                bVar.f8508b = b(matcher, 2);
                 bVar.a = c(matcher, 3);
                 f(bVar, matcher, 4);
             } else {
-                Matcher matcher2 = f8364b.matcher(str);
+                Matcher matcher2 = f8506b.matcher(str);
                 if (!matcher2.find()) {
                     return -1L;
                 }
-                bVar.f8366b = b(matcher2, 1);
-                bVar.f8367c = a(matcher2, 2);
+                bVar.f8508b = b(matcher2, 1);
+                bVar.f8509c = a(matcher2, 2);
                 f(bVar, matcher2, 3);
                 bVar.a = c(matcher2, 4);
             }
@@ -169,12 +169,12 @@ public final class a {
             }
             if (bVar.a >= 2038) {
                 bVar.a = 2038;
-                bVar.f8366b = 0;
-                bVar.f8367c = 1;
+                bVar.f8508b = 0;
+                bVar.f8509c = 1;
             }
             GregorianCalendar gregorianCalendar = new GregorianCalendar();
             gregorianCalendar.setTimeZone(TimeZone.getTimeZone("UTC"));
-            gregorianCalendar.set(bVar.a, bVar.f8366b, bVar.f8367c, bVar.f8368d, bVar.f8369e, bVar.f8370f);
+            gregorianCalendar.set(bVar.a, bVar.f8508b, bVar.f8509c, bVar.f8510d, bVar.f8511e, bVar.f8512f);
             return gregorianCalendar.getTimeInMillis();
         }
         return invokeL.longValue;
@@ -198,10 +198,10 @@ public final class a {
                 } else {
                     i3 = 1;
                 }
-                bVar.f8368d = charAt;
-                bVar.f8369e = ((group.charAt(i4) - '0') * 10) + (group.charAt(i5) - '0');
+                bVar.f8510d = charAt;
+                bVar.f8511e = ((group.charAt(i4) - '0') * 10) + (group.charAt(i5) - '0');
                 int i6 = i3 + 1 + 1 + 1 + 1;
-                bVar.f8370f = ((group.charAt(i6) - '0') * 10) + (group.charAt(i6 + 1) - '0');
+                bVar.f8512f = ((group.charAt(i6) - '0') * 10) + (group.charAt(i6 + 1) - '0');
             } catch (Exception unused) {
             }
         }
@@ -214,19 +214,19 @@ public final class a {
         public int a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f8366b;
+        public int f8508b;
 
         /* renamed from: c  reason: collision with root package name */
-        public int f8367c;
+        public int f8509c;
 
         /* renamed from: d  reason: collision with root package name */
-        public int f8368d;
+        public int f8510d;
 
         /* renamed from: e  reason: collision with root package name */
-        public int f8369e;
+        public int f8511e;
 
         /* renamed from: f  reason: collision with root package name */
-        public int f8370f;
+        public int f8512f;
 
         public b() {
             Interceptable interceptable = $ic;
@@ -242,20 +242,20 @@ public final class a {
                 }
             }
             this.a = -1;
-            this.f8366b = -1;
-            this.f8367c = -1;
-            this.f8368d = -1;
-            this.f8369e = -1;
-            this.f8370f = -1;
+            this.f8508b = -1;
+            this.f8509c = -1;
+            this.f8510d = -1;
+            this.f8511e = -1;
+            this.f8512f = -1;
         }
 
         public boolean a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a == -1 || this.f8366b == -1 || this.f8367c == -1 || this.f8368d == -1 || this.f8369e == -1 || this.f8370f == -1 : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a == -1 || this.f8508b == -1 || this.f8509c == -1 || this.f8510d == -1 || this.f8511e == -1 || this.f8512f == -1 : invokeV.booleanValue;
         }
 
-        public /* synthetic */ b(C0516a c0516a) {
+        public /* synthetic */ b(C0525a c0525a) {
             this();
         }
     }

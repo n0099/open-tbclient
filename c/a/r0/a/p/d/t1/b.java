@@ -20,16 +20,16 @@ public final class b extends c<b> {
         public static final String a = c.r("SwanFileFetcher.Params", "file_url");
 
         /* renamed from: b  reason: collision with root package name */
-        public static final String f8155b = c.r("SwanFileFetcher.Params", "file_save_path");
+        public static final String f8297b = c.r("SwanFileFetcher.Params", "file_save_path");
 
         /* renamed from: c  reason: collision with root package name */
-        public static final String f8156c = c.r("SwanFileFetcher.Params", "file_head_map");
+        public static final String f8298c = c.r("SwanFileFetcher.Params", "file_head_map");
 
         /* renamed from: d  reason: collision with root package name */
-        public static final String f8157d = c.r("SwanFileFetcher.Params", "image_save_gallery");
+        public static final String f8299d = c.r("SwanFileFetcher.Params", "image_save_gallery");
 
         /* renamed from: e  reason: collision with root package name */
-        public static final String f8158e = c.r("SwanFileFetcher.Params", "file_cancel_tag");
+        public static final String f8300e = c.r("SwanFileFetcher.Params", "file_cancel_tag");
     }
 
     public b() {
@@ -49,7 +49,7 @@ public final class b extends c<b> {
     public b E(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) ? z(a.f8158e, str) : (b) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) ? z(a.f8300e, str) : (b) invokeL.objValue;
     }
 
     public b F(Map<String, String> map) {
@@ -62,7 +62,7 @@ public final class b extends c<b> {
                     bundle.putString(entry.getKey(), entry.getValue());
                 }
             }
-            return u(a.f8156c, bundle);
+            return u(a.f8298c, bundle);
         }
         return (b) invokeL.objValue;
     }
@@ -70,7 +70,7 @@ public final class b extends c<b> {
     public b G(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) ? z(a.f8155b, str) : (b) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) ? z(a.f8297b, str) : (b) invokeL.objValue;
     }
 
     public b H(String str) {
@@ -82,7 +82,7 @@ public final class b extends c<b> {
     public b I(boolean z) {
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeZ = interceptable.invokeZ(1048580, this, z)) == null) ? t(a.f8157d, z) : (b) invokeZ.objValue;
+        return (interceptable == null || (invokeZ = interceptable.invokeZ(1048580, this, z)) == null) ? t(a.f8299d, z) : (b) invokeZ.objValue;
     }
 
     public b J() {

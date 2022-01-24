@@ -16,6 +16,7 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.TbSingleton;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.TbWebViewActivityConfig;
+import com.baidu.tbadk.core.util.LoginPostStatisticHelper;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.UtilHelper;
@@ -39,24 +40,24 @@ public abstract class a {
     public View a;
 
     /* renamed from: b  reason: collision with root package name */
-    public TbPageContext f20987b;
+    public TbPageContext f21221b;
 
     /* renamed from: c  reason: collision with root package name */
-    public p f20988c;
+    public p f21222c;
 
     /* renamed from: d  reason: collision with root package name */
-    public View.OnClickListener f20989d;
+    public View.OnClickListener f21223d;
 
     /* renamed from: c.a.t0.p4.a$a  reason: collision with other inner class name */
     /* loaded from: classes8.dex */
-    public class View$OnClickListenerC1312a implements View.OnClickListener {
+    public class View$OnClickListenerC1323a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f20990e;
+        public final /* synthetic */ a f21224e;
 
-        public View$OnClickListenerC1312a(a aVar) {
+        public View$OnClickListenerC1323a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -71,20 +72,20 @@ public abstract class a {
                     return;
                 }
             }
-            this.f20990e = aVar;
+            this.f21224e = aVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             p pVar;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || (pVar = this.f20990e.f20988c) == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || (pVar = this.f21224e.f21222c) == null) {
                 return;
             }
             if (pVar.g() != 0) {
-                UtilHelper.setNavigationBarBackground(this.f20990e.f20987b.getPageActivity(), this.f20990e.f20988c.g());
+                UtilHelper.setNavigationBarBackground(this.f21224e.f21221b.getPageActivity(), this.f21224e.f21222c.g());
             }
-            this.f20990e.f20988c.m(true);
+            this.f21224e.f21222c.m(true);
         }
     }
 
@@ -102,22 +103,22 @@ public abstract class a {
         public View H;
 
         /* renamed from: e  reason: collision with root package name */
-        public View f20991e;
+        public View f21225e;
 
         /* renamed from: f  reason: collision with root package name */
-        public LinearLayout f20992f;
+        public LinearLayout f21226f;
 
         /* renamed from: g  reason: collision with root package name */
-        public LinearLayout f20993g;
+        public LinearLayout f21227g;
 
         /* renamed from: h  reason: collision with root package name */
-        public LinearLayout f20994h;
+        public LinearLayout f21228h;
 
         /* renamed from: i  reason: collision with root package name */
-        public LinearLayout f20995i;
+        public LinearLayout f21229i;
 
         /* renamed from: j  reason: collision with root package name */
-        public LinearLayout f20996j;
+        public LinearLayout f21230j;
         public LinearLayout k;
         public LinearLayout l;
         public ImageView m;
@@ -137,14 +138,14 @@ public abstract class a {
 
         /* renamed from: c.a.t0.p4.a$b$a  reason: collision with other inner class name */
         /* loaded from: classes8.dex */
-        public class View$OnClickListenerC1313a implements View.OnClickListener {
+        public class View$OnClickListenerC1324a implements View.OnClickListener {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ b f20997e;
+            public final /* synthetic */ b f21231e;
 
-            public View$OnClickListenerC1313a(b bVar) {
+            public View$OnClickListenerC1324a(b bVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -159,30 +160,31 @@ public abstract class a {
                         return;
                     }
                 }
-                this.f20997e = bVar;
+                this.f21231e = bVar;
             }
 
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                p pVar;
                 Interceptable interceptable = $ic;
-                if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || (pVar = this.f20997e.f20988c) == null) {
+                if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f21231e.f21222c == null) {
                     return;
                 }
+                LoginPostStatisticHelper.statisticClickPost(LoginPostStatisticHelper.newStatisticData(3));
+                p pVar = this.f21231e.f21222c;
                 pVar.s(pVar.k());
             }
         }
 
         /* renamed from: c.a.t0.p4.a$b$b  reason: collision with other inner class name */
         /* loaded from: classes8.dex */
-        public class View$OnClickListenerC1314b implements View.OnClickListener {
+        public class View$OnClickListenerC1325b implements View.OnClickListener {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ b f20998e;
+            public final /* synthetic */ b f21232e;
 
-            public View$OnClickListenerC1314b(b bVar) {
+            public View$OnClickListenerC1325b(b bVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -197,14 +199,14 @@ public abstract class a {
                         return;
                     }
                 }
-                this.f20998e = bVar;
+                this.f21232e = bVar;
             }
 
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 p pVar;
                 Interceptable interceptable = $ic;
-                if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || (pVar = this.f20998e.f20988c) == null) {
+                if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || (pVar = this.f21232e.f21222c) == null) {
                     return;
                 }
                 pVar.r();
@@ -217,7 +219,7 @@ public abstract class a {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ b f20999e;
+            public final /* synthetic */ b f21233e;
 
             public c(b bVar) {
                 Interceptable interceptable = $ic;
@@ -234,17 +236,17 @@ public abstract class a {
                         return;
                     }
                 }
-                this.f20999e = bVar;
+                this.f21233e = bVar;
             }
 
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 p pVar;
                 Interceptable interceptable = $ic;
-                if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || (pVar = this.f20999e.f20988c) == null) {
+                if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || (pVar = this.f21233e.f21222c) == null) {
                     return;
                 }
-                pVar.w(c.a.s0.s.m.d.f13241d);
+                pVar.w(c.a.s0.s.m.d.f13427d);
             }
         }
 
@@ -254,7 +256,7 @@ public abstract class a {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ b f21000e;
+            public final /* synthetic */ b f21234e;
 
             public d(b bVar) {
                 Interceptable interceptable = $ic;
@@ -271,14 +273,14 @@ public abstract class a {
                         return;
                     }
                 }
-                this.f21000e = bVar;
+                this.f21234e = bVar;
             }
 
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 p pVar;
                 Interceptable interceptable = $ic;
-                if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || (pVar = this.f21000e.f20988c) == null) {
+                if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || (pVar = this.f21234e.f21222c) == null) {
                     return;
                 }
                 pVar.q();
@@ -291,7 +293,7 @@ public abstract class a {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ b f21001e;
+            public final /* synthetic */ b f21235e;
 
             public e(b bVar) {
                 Interceptable interceptable = $ic;
@@ -308,14 +310,14 @@ public abstract class a {
                         return;
                     }
                 }
-                this.f21001e = bVar;
+                this.f21235e = bVar;
             }
 
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 p pVar;
                 Interceptable interceptable = $ic;
-                if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || (pVar = this.f21001e.f20988c) == null) {
+                if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || (pVar = this.f21235e.f21222c) == null) {
                     return;
                 }
                 pVar.y(pVar.k());
@@ -328,7 +330,7 @@ public abstract class a {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ b f21002e;
+            public final /* synthetic */ b f21236e;
 
             public f(b bVar) {
                 Interceptable interceptable = $ic;
@@ -345,14 +347,14 @@ public abstract class a {
                         return;
                     }
                 }
-                this.f21002e = bVar;
+                this.f21236e = bVar;
             }
 
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 p pVar;
                 Interceptable interceptable = $ic;
-                if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || (pVar = this.f21002e.f20988c) == null) {
+                if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || (pVar = this.f21236e.f21222c) == null) {
                     return;
                 }
                 pVar.z();
@@ -365,7 +367,7 @@ public abstract class a {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ b f21003e;
+            public final /* synthetic */ b f21237e;
 
             public g(b bVar) {
                 Interceptable interceptable = $ic;
@@ -382,14 +384,14 @@ public abstract class a {
                         return;
                     }
                 }
-                this.f21003e = bVar;
+                this.f21237e = bVar;
             }
 
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 p pVar;
                 Interceptable interceptable = $ic;
-                if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || (pVar = this.f21003e.f20988c) == null) {
+                if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || (pVar = this.f21237e.f21222c) == null) {
                     return;
                 }
                 pVar.x(null, null);
@@ -415,23 +417,23 @@ public abstract class a {
                     return;
                 }
             }
-            this.f20991e = this.a.findViewById(R.id.view_background);
-            this.f20992f = (LinearLayout) this.a.findViewById(R.id.type_container);
-            this.f20993g = (LinearLayout) this.a.findViewById(R.id.thread_text);
+            this.f21225e = this.a.findViewById(R.id.view_background);
+            this.f21226f = (LinearLayout) this.a.findViewById(R.id.type_container);
+            this.f21227g = (LinearLayout) this.a.findViewById(R.id.thread_text);
             this.m = (ImageView) this.a.findViewById(R.id.thread_text_iv);
             this.s = (TextView) this.a.findViewById(R.id.thread_text_tv);
-            this.f20994h = (LinearLayout) this.a.findViewById(R.id.thread_pic);
+            this.f21228h = (LinearLayout) this.a.findViewById(R.id.thread_pic);
             this.n = (ImageView) this.a.findViewById(R.id.thread_pic_iv);
             this.t = (TextView) this.a.findViewById(R.id.thread_pic_tv);
-            this.f20995i = (LinearLayout) this.a.findViewById(R.id.thread_video);
+            this.f21229i = (LinearLayout) this.a.findViewById(R.id.thread_video);
             this.o = (ImageView) this.a.findViewById(R.id.thread_video_iv);
             this.u = (TextView) this.a.findViewById(R.id.thread_video_tv);
             d();
-            this.f20996j = (LinearLayout) this.a.findViewById(R.id.thread_ala);
+            this.f21230j = (LinearLayout) this.a.findViewById(R.id.thread_ala);
             this.p = (ImageView) this.a.findViewById(R.id.thread_ala_iv);
             this.v = (TextView) this.a.findViewById(R.id.thread_ala_tv);
-            this.f20996j.setVisibility(TbSingleton.getInstance().isShowStartLiveEntry() ? 0 : 8);
-            this.f20996j.setVisibility(TbSingleton.getInstance().isAuditPackageSwitchOn() ? 0 : 8);
+            this.f21230j.setVisibility(TbSingleton.getInstance().isShowStartLiveEntry() ? 0 : 8);
+            this.f21230j.setVisibility(TbSingleton.getInstance().isAuditPackageSwitchOn() ? 0 : 8);
             this.k = (LinearLayout) this.a.findViewById(R.id.thread_vote);
             this.q = (ImageView) this.a.findViewById(R.id.thread_vote_iv);
             this.w = (TextView) this.a.findViewById(R.id.thread_vote_tv);
@@ -450,11 +452,11 @@ public abstract class a {
             this.v.setText(TbadkCoreApplication.getInst().getResources().getString(R.string.ala_live));
             this.w.setText(TbadkCoreApplication.getInst().getResources().getString(R.string.frs_write_vote_title));
             this.x.setText(TbadkCoreApplication.getInst().getResources().getString(R.string.evaluate));
-            this.f20991e.setOnClickListener(this.f20989d);
-            this.f20993g.setOnClickListener(new View$OnClickListenerC1313a(this));
-            this.f20994h.setOnClickListener(new View$OnClickListenerC1314b(this));
-            this.f20995i.setOnClickListener(new c(this));
-            this.f20996j.setOnClickListener(new d(this));
+            this.f21225e.setOnClickListener(this.f21223d);
+            this.f21227g.setOnClickListener(new View$OnClickListenerC1324a(this));
+            this.f21228h.setOnClickListener(new View$OnClickListenerC1325b(this));
+            this.f21229i.setOnClickListener(new c(this));
+            this.f21230j.setOnClickListener(new d(this));
             this.k.setOnClickListener(new e(this));
             this.l.setOnClickListener(new f(this));
             this.D = c.a.d.f.p.n.f(TbadkCoreApplication.getInst(), R.dimen.tbds21);
@@ -465,7 +467,7 @@ public abstract class a {
         public View b() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? LayoutInflater.from(this.f20987b.getPageActivity()).inflate(R.layout.home_page_test_write_thread_view, (ViewGroup) null) : (View) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? LayoutInflater.from(this.f21221b.getPageActivity()).inflate(R.layout.home_page_test_write_thread_view, (ViewGroup) null) : (View) invokeV.objValue;
         }
 
         @Override // c.a.t0.p4.a
@@ -473,8 +475,8 @@ public abstract class a {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
                 super.c(i2);
-                SkinManager.setBackgroundColor(this.f20991e, R.color.CAM_X0603);
-                TBSelector.makeDrawableSelector().setShape(0).setType(1).radius(this.D).defaultColor(R.color.CAM_X0701).into(this.f20992f);
+                SkinManager.setBackgroundColor(this.f21225e, R.color.CAM_X0603);
+                TBSelector.makeDrawableSelector().setShape(0).setType(1).radius(this.D).defaultColor(R.color.CAM_X0701).into(this.f21226f);
                 this.m.setImageDrawable(WebPManager.getMaskDrawable(R.drawable.icon_mask_post_text24, WebPManager.ResourceStateType.NORMAL));
                 this.n.setImageDrawable(WebPManager.getMaskDrawable(R.drawable.icon_mask_post_image24, WebPManager.ResourceStateType.NORMAL));
                 this.o.setImageDrawable(WebPManager.getMaskDrawable(R.drawable.icon_mask_post_photograph24, WebPManager.ResourceStateType.NORMAL));
@@ -489,11 +491,11 @@ public abstract class a {
                 SkinManager.setViewTextColor(this.v, R.color.CAM_X0101);
                 SkinManager.setViewTextColor(this.w, R.color.CAM_X0101);
                 SkinManager.setViewTextColor(this.x, R.color.CAM_X0101);
-                TBSelector.makeDrawableSelector().setShape(0).setType(1).tlRadius(this.D).trRadius(this.D).into(this.f20993g);
-                TBSelector.makeDrawableSelector().setShape(0).setType(1).into(this.f20994h);
-                TBSelector.makeDrawableSelector().setShape(0).setType(1).into(this.f20995i);
+                TBSelector.makeDrawableSelector().setShape(0).setType(1).tlRadius(this.D).trRadius(this.D).into(this.f21227g);
+                TBSelector.makeDrawableSelector().setShape(0).setType(1).into(this.f21228h);
+                TBSelector.makeDrawableSelector().setShape(0).setType(1).into(this.f21229i);
                 TBSelector.makeDrawableSelector().setShape(0).setType(1).into(this.E);
-                TBSelector.makeDrawableSelector().setShape(0).setType(1).into(this.f20996j);
+                TBSelector.makeDrawableSelector().setShape(0).setType(1).into(this.f21230j);
                 TBSelector.makeDrawableSelector().setShape(0).setType(1).blRadius(this.D).brRadius(this.D).into(this.k);
                 TBSelector.makeDrawableSelector().setShape(0).setType(1).blRadius(this.D).brRadius(this.D).into(this.l);
                 SkinManager.setBackgroundColor(this.y, R.color.CAM_X0613);
@@ -543,22 +545,22 @@ public abstract class a {
         public TBLottieAnimationView I;
 
         /* renamed from: e  reason: collision with root package name */
-        public View f21004e;
+        public View f21238e;
 
         /* renamed from: f  reason: collision with root package name */
-        public View f21005f;
+        public View f21239f;
 
         /* renamed from: g  reason: collision with root package name */
-        public LinearLayout f21006g;
+        public LinearLayout f21240g;
 
         /* renamed from: h  reason: collision with root package name */
-        public ImageView f21007h;
+        public ImageView f21241h;
 
         /* renamed from: i  reason: collision with root package name */
-        public TextView f21008i;
+        public TextView f21242i;
 
         /* renamed from: j  reason: collision with root package name */
-        public LinearLayout f21009j;
+        public LinearLayout f21243j;
         public ImageView k;
         public TextView l;
         public LinearLayout m;
@@ -578,14 +580,14 @@ public abstract class a {
 
         /* renamed from: c.a.t0.p4.a$c$a  reason: collision with other inner class name */
         /* loaded from: classes8.dex */
-        public class View$OnClickListenerC1315a implements View.OnClickListener {
+        public class View$OnClickListenerC1326a implements View.OnClickListener {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ c f21010e;
+            public final /* synthetic */ c f21244e;
 
-            public View$OnClickListenerC1315a(c cVar) {
+            public View$OnClickListenerC1326a(c cVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -600,16 +602,17 @@ public abstract class a {
                         return;
                     }
                 }
-                this.f21010e = cVar;
+                this.f21244e = cVar;
             }
 
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                p pVar;
                 Interceptable interceptable = $ic;
-                if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || (pVar = this.f21010e.f20988c) == null) {
+                if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f21244e.f21222c == null) {
                     return;
                 }
+                LoginPostStatisticHelper.statisticClickPost(LoginPostStatisticHelper.newStatisticData(2));
+                p pVar = this.f21244e.f21222c;
                 pVar.s(pVar.k());
             }
         }
@@ -620,7 +623,7 @@ public abstract class a {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ c f21011e;
+            public final /* synthetic */ c f21245e;
 
             public b(c cVar) {
                 Interceptable interceptable = $ic;
@@ -637,30 +640,30 @@ public abstract class a {
                         return;
                     }
                 }
-                this.f21011e = cVar;
+                this.f21245e = cVar;
             }
 
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 p pVar;
                 Interceptable interceptable = $ic;
-                if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || (pVar = this.f21011e.f20988c) == null) {
+                if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || (pVar = this.f21245e.f21222c) == null) {
                     return;
                 }
-                pVar.w(c.a.s0.s.m.d.f13243f);
+                pVar.w(c.a.s0.s.m.d.f13429f);
             }
         }
 
         /* renamed from: c.a.t0.p4.a$c$c  reason: collision with other inner class name */
         /* loaded from: classes8.dex */
-        public class View$OnClickListenerC1316c implements View.OnClickListener {
+        public class View$OnClickListenerC1327c implements View.OnClickListener {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ c f21012e;
+            public final /* synthetic */ c f21246e;
 
-            public View$OnClickListenerC1316c(c cVar) {
+            public View$OnClickListenerC1327c(c cVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -675,14 +678,14 @@ public abstract class a {
                         return;
                     }
                 }
-                this.f21012e = cVar;
+                this.f21246e = cVar;
             }
 
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 p pVar;
                 Interceptable interceptable = $ic;
-                if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || (pVar = this.f21012e.f20988c) == null) {
+                if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || (pVar = this.f21246e.f21222c) == null) {
                     return;
                 }
                 pVar.r();
@@ -695,7 +698,7 @@ public abstract class a {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ c f21013e;
+            public final /* synthetic */ c f21247e;
 
             public d(c cVar) {
                 Interceptable interceptable = $ic;
@@ -712,14 +715,14 @@ public abstract class a {
                         return;
                     }
                 }
-                this.f21013e = cVar;
+                this.f21247e = cVar;
             }
 
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 p pVar;
                 Interceptable interceptable = $ic;
-                if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || (pVar = this.f21013e.f20988c) == null) {
+                if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || (pVar = this.f21247e.f21222c) == null) {
                     return;
                 }
                 pVar.q();
@@ -732,7 +735,7 @@ public abstract class a {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ c f21014e;
+            public final /* synthetic */ c f21248e;
 
             public e(c cVar) {
                 Interceptable interceptable = $ic;
@@ -749,14 +752,14 @@ public abstract class a {
                         return;
                     }
                 }
-                this.f21014e = cVar;
+                this.f21248e = cVar;
             }
 
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 p pVar;
                 Interceptable interceptable = $ic;
-                if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || (pVar = this.f21014e.f20988c) == null) {
+                if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || (pVar = this.f21248e.f21222c) == null) {
                     return;
                 }
                 pVar.y(pVar.k());
@@ -769,7 +772,7 @@ public abstract class a {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ c f21015e;
+            public final /* synthetic */ c f21249e;
 
             public f(c cVar) {
                 Interceptable interceptable = $ic;
@@ -786,14 +789,14 @@ public abstract class a {
                         return;
                     }
                 }
-                this.f21015e = cVar;
+                this.f21249e = cVar;
             }
 
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 p pVar;
                 Interceptable interceptable = $ic;
-                if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || (pVar = this.f21015e.f20988c) == null) {
+                if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || (pVar = this.f21249e.f21222c) == null) {
                     return;
                 }
                 pVar.z();
@@ -806,7 +809,7 @@ public abstract class a {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ c f21016e;
+            public final /* synthetic */ c f21250e;
 
             public g(c cVar) {
                 Interceptable interceptable = $ic;
@@ -823,14 +826,14 @@ public abstract class a {
                         return;
                     }
                 }
-                this.f21016e = cVar;
+                this.f21250e = cVar;
             }
 
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 p pVar;
                 Interceptable interceptable = $ic;
-                if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || (pVar = this.f21016e.f20988c) == null) {
+                if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || (pVar = this.f21250e.f21222c) == null) {
                     return;
                 }
                 pVar.u();
@@ -843,10 +846,10 @@ public abstract class a {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ o0 f21017e;
+            public final /* synthetic */ o0 f21251e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ c f21018f;
+            public final /* synthetic */ c f21252f;
 
             public h(c cVar, o0 o0Var) {
                 Interceptable interceptable = $ic;
@@ -863,17 +866,17 @@ public abstract class a {
                         return;
                     }
                 }
-                this.f21018f = cVar;
-                this.f21017e = o0Var;
+                this.f21252f = cVar;
+                this.f21251e = o0Var;
             }
 
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new TbWebViewActivityConfig(this.f21018f.f20987b.getPageActivity(), null, this.f21017e.b(), true)));
+                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new TbWebViewActivityConfig(this.f21252f.f21221b.getPageActivity(), null, this.f21251e.b(), true)));
                     StatisticItem statisticItem = new StatisticItem("c14500");
-                    statisticItem.param("aid", this.f21017e.b());
+                    statisticItem.param("aid", this.f21251e.b());
                     statisticItem.eventStat();
                 }
             }
@@ -885,10 +888,10 @@ public abstract class a {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ p f21019e;
+            public final /* synthetic */ p f21253e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ c f21020f;
+            public final /* synthetic */ c f21254f;
 
             public i(c cVar, p pVar) {
                 Interceptable interceptable = $ic;
@@ -905,16 +908,16 @@ public abstract class a {
                         return;
                     }
                 }
-                this.f21020f = cVar;
-                this.f21019e = pVar;
+                this.f21254f = cVar;
+                this.f21253e = pVar;
             }
 
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                    ForumWriteData h2 = this.f21019e.h();
-                    p pVar = this.f21020f.f20988c;
+                    ForumWriteData h2 = this.f21253e.h();
+                    p pVar = this.f21254f.f21222c;
                     if (pVar == null || h2 == null) {
                         return;
                     }
@@ -946,12 +949,12 @@ public abstract class a {
                 return;
             }
             e();
-            this.f21009j = (LinearLayout) this.a.findViewById(R.id.home_write_article);
+            this.f21243j = (LinearLayout) this.a.findViewById(R.id.home_write_article);
             this.k = (ImageView) this.a.findViewById(R.id.home_write_article_icon);
             this.l = (TextView) this.a.findViewById(R.id.home_write_article_title);
-            this.f21006g = (LinearLayout) this.a.findViewById(R.id.home_write_photo);
-            this.f21007h = (ImageView) this.a.findViewById(R.id.home_write_photo_icon);
-            this.f21008i = (TextView) this.a.findViewById(R.id.home_write_photo_title);
+            this.f21240g = (LinearLayout) this.a.findViewById(R.id.home_write_photo);
+            this.f21241h = (ImageView) this.a.findViewById(R.id.home_write_photo_icon);
+            this.f21242i = (TextView) this.a.findViewById(R.id.home_write_photo_title);
             this.m = (LinearLayout) this.a.findViewById(R.id.home_write_album);
             this.n = (ImageView) this.a.findViewById(R.id.home_write_album_icon);
             this.o = (TextView) this.a.findViewById(R.id.home_write_album_title);
@@ -971,13 +974,13 @@ public abstract class a {
             this.E = (ImageView) this.a.findViewById(R.id.home_write_commodity_icon);
             this.F = (TextView) this.a.findViewById(R.id.home_write_commodity_title);
             this.G = (OvalActionButton) this.a.findViewById(R.id.write_close_view);
-            p pVar2 = this.f20988c;
+            p pVar2 = this.f21222c;
             if (pVar2 != null && "frs".equals(pVar2.i())) {
                 this.G.setIsCircle(true);
                 this.G.setHasShadow(false);
             }
-            this.f21005f = this.a.findViewById(R.id.view_background_white);
-            this.f21004e = this.a.findViewById(R.id.view_background_translate);
+            this.f21239f = this.a.findViewById(R.id.view_background_white);
+            this.f21238e = this.a.findViewById(R.id.view_background_translate);
             GridLayout gridLayout = (GridLayout) this.a.findViewById(R.id.type_container);
             this.H = gridLayout;
             gridLayout.setMeasureAllChild(true);
@@ -986,11 +989,11 @@ public abstract class a {
             this.I = tBLottieAnimationView;
             tBLottieAnimationView.setSpeed(1.2f);
             a();
-            this.f21004e.setOnClickListener(this.f20989d);
-            this.f21004e.setClickable(true);
-            this.k.setOnClickListener(new View$OnClickListenerC1315a(this));
-            this.f21007h.setOnClickListener(new b(this));
-            this.n.setOnClickListener(new View$OnClickListenerC1316c(this));
+            this.f21238e.setOnClickListener(this.f21223d);
+            this.f21238e.setClickable(true);
+            this.k.setOnClickListener(new View$OnClickListenerC1326a(this));
+            this.f21241h.setOnClickListener(new b(this));
+            this.n.setOnClickListener(new View$OnClickListenerC1327c(this));
             this.q.setOnClickListener(new d(this));
             this.x.setOnClickListener(new e(this));
             this.A.setOnClickListener(new f(this));
@@ -1002,10 +1005,10 @@ public abstract class a {
             int f2;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                float k = c.a.d.f.p.n.k(this.f20987b.getPageActivity());
+                float k = c.a.d.f.p.n.k(this.f21221b.getPageActivity());
                 int i2 = (int) (0.13518518f * k);
                 f(this.k, i2);
-                f(this.f21007h, i2);
+                f(this.f21241h, i2);
                 f(this.n, i2);
                 f(this.q, i2);
                 f(this.v, i2);
@@ -1023,7 +1026,7 @@ public abstract class a {
                     ((RelativeLayout.LayoutParams) layoutParams2).bottomMargin = (int) (c.a.d.f.p.n.f(TbadkCoreApplication.getInst(), R.dimen.tbds932) * f3);
                     this.s.setLayoutParams(layoutParams2);
                 }
-                ViewGroup.LayoutParams layoutParams3 = this.f21005f.getLayoutParams();
+                ViewGroup.LayoutParams layoutParams3 = this.f21239f.getLayoutParams();
                 if (layoutParams3 instanceof RelativeLayout.LayoutParams) {
                     if (TbSingleton.getInstance().getVideoEventsConfig() != null && TbSingleton.getInstance().getVideoEventsConfig().d()) {
                         f2 = (int) (c.a.d.f.p.n.f(TbadkCoreApplication.getInst(), R.dimen.tbds1162) * f3);
@@ -1037,7 +1040,7 @@ public abstract class a {
                         }
                     }
                     ((RelativeLayout.LayoutParams) layoutParams3).height = f2;
-                    this.f21005f.setLayoutParams(layoutParams3);
+                    this.f21239f.setLayoutParams(layoutParams3);
                 }
                 ViewGroup.LayoutParams layoutParams4 = this.I.getLayoutParams();
                 if (layoutParams4 instanceof RelativeLayout.LayoutParams) {
@@ -1051,7 +1054,7 @@ public abstract class a {
         public View b() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? LayoutInflater.from(this.f20987b.getPageActivity()).inflate(R.layout.bottom_write_thread, (ViewGroup) null) : (View) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? LayoutInflater.from(this.f21221b.getPageActivity()).inflate(R.layout.bottom_write_thread, (ViewGroup) null) : (View) invokeV.objValue;
         }
 
         @Override // c.a.t0.p4.a
@@ -1060,8 +1063,8 @@ public abstract class a {
             if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
                 this.G.onChangeSkinType(i2);
                 SkinManager.setLottieAnimation(this.I, R.raw.bottom_bar_bg);
-                SkinManager.setBackgroundResource(this.f21005f, R.drawable.write_tab_background);
-                SkinManager.setImageResource(this.f21007h, R.drawable.icon_mask_post_photograph56);
+                SkinManager.setBackgroundResource(this.f21239f, R.drawable.write_tab_background);
+                SkinManager.setImageResource(this.f21241h, R.drawable.icon_mask_post_photograph56);
                 SkinManager.setImageResource(this.k, R.drawable.icon_mask_post_text56);
                 SkinManager.setImageResource(this.n, R.drawable.icon_mask_post_image56);
                 SkinManager.setImageResource(this.q, R.drawable.icon_mask_post_live56);
@@ -1069,7 +1072,7 @@ public abstract class a {
                 SkinManager.setImageResource(this.y, R.drawable.icon_mask_post_vote56);
                 SkinManager.setImageResource(this.B, R.drawable.icon_mask_post_evaluation56);
                 SkinManager.setImageResource(this.E, R.drawable.icon_mask_post_goods56);
-                SkinManager.setViewTextColor(this.f21008i, R.color.CAM_X0107);
+                SkinManager.setViewTextColor(this.f21242i, R.color.CAM_X0107);
                 SkinManager.setViewTextColor(this.l, R.color.CAM_X0107);
                 SkinManager.setViewTextColor(this.o, R.color.CAM_X0107);
                 SkinManager.setViewTextColor(this.r, R.color.CAM_X0107);
@@ -1123,7 +1126,7 @@ public abstract class a {
                 this.t.setVisibility(videoEventsConfig.d() ? 0 : 8);
                 this.s.setVisibility(videoEventsConfig.d() ? 0 : 8);
                 this.s.setVisible(Boolean.valueOf(videoEventsConfig.d()));
-                this.s.startLoad(videoEventsConfig.c(), this.f20987b.getUniqueId());
+                this.s.startLoad(videoEventsConfig.c(), this.f21221b.getUniqueId());
                 StatisticItem statisticItem = new StatisticItem("c14501");
                 statisticItem.param("aid", videoEventsConfig.b());
                 statisticItem.eventStat();
@@ -1163,9 +1166,9 @@ public abstract class a {
                 return;
             }
         }
-        this.f20989d = new View$OnClickListenerC1312a(this);
-        this.f20987b = tbPageContext;
-        this.f20988c = pVar;
+        this.f21223d = new View$OnClickListenerC1323a(this);
+        this.f21221b = tbPageContext;
+        this.f21222c = pVar;
         this.a = b();
     }
 

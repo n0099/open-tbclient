@@ -147,11 +147,11 @@ public final class R {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int FILL = 0x7f09000a;
         public static final int STROKE = 0x7f090018;
-        public static final int circleProgressBar = 0x7f090758;
-        public static final int ivBigLoading = 0x7f0911b9;
-        public static final int ivSmallLoading = 0x7f0911ba;
-        public static final int sv_outmost_container = 0x7f0920f1;
-        public static final int tvMsg = 0x7f0924a4;
+        public static final int circleProgressBar = 0x7f090759;
+        public static final int ivBigLoading = 0x7f0911d3;
+        public static final int ivSmallLoading = 0x7f0911d4;
+        public static final int sv_outmost_container = 0x7f092111;
+        public static final int tvMsg = 0x7f0924c3;
         public transient /* synthetic */ FieldHolder $fh;
 
         public id() {
@@ -193,7 +193,7 @@ public final class R {
     /* loaded from: classes2.dex */
     public static final class layout {
         public static /* synthetic */ Interceptable $ic = null;
-        public static final int layout_svprogresshud = 0x7f0d050d;
+        public static final int layout_svprogresshud = 0x7f0d050e;
         public static final int view_svprogressdefault = 0x7f0d08c7;
         public transient /* synthetic */ FieldHolder $fh;
 

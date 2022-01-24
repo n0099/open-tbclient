@@ -6,5 +6,5 @@ public interface f {
     public static final MediaType a = MediaType.parse("application/json");
 
     /* renamed from: b  reason: collision with root package name */
-    public static final MediaType f8265b = MediaType.parse("application/x-www-form-urlencoded");
+    public static final MediaType f8407b = MediaType.parse("application/x-www-form-urlencoded");
 }

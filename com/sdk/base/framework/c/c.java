@@ -10,20 +10,20 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
 import org.apache.commons.lang3.text.ExtendedMessageFormat;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public final class c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public List<d> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public List<String> f59232b;
+    public List<String> f59277b;
 
     /* renamed from: c  reason: collision with root package name */
-    public List<String> f59233c;
+    public List<String> f59278c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f59234d;
+    public String f59279d;
 
     public c() {
         Interceptable interceptable = $ic;
@@ -39,21 +39,21 @@ public final class c {
             }
         }
         this.a = new ArrayList();
-        this.f59232b = new ArrayList();
-        this.f59233c = new ArrayList();
-        this.f59234d = "";
+        this.f59277b = new ArrayList();
+        this.f59278c = new ArrayList();
+        this.f59279d = "";
     }
 
     public final String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f59234d : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f59279d : (String) invokeV.objValue;
     }
 
     public final void a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            this.f59234d = str;
+            this.f59279d = str;
         }
     }
 
@@ -73,34 +73,34 @@ public final class c {
     public final void b(List<String> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, list) == null) {
-            this.f59232b = list;
+            this.f59277b = list;
         }
     }
 
     public final List<String> c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f59232b : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f59277b : (List) invokeV.objValue;
     }
 
     public final void c(List<String> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, list) == null) {
-            this.f59233c = list;
+            this.f59278c = list;
         }
     }
 
     public final List<String> d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f59233c : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f59278c : (List) invokeV.objValue;
     }
 
     public final String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return "StatusBean{_$101005=" + this.a + ", _$302001=" + this.f59232b + ", _$302002=" + this.f59233c + ", _$302003='" + this.f59234d + ExtendedMessageFormat.QUOTE + ExtendedMessageFormat.END_FE;
+            return "StatusBean{_$101005=" + this.a + ", _$302001=" + this.f59277b + ", _$302002=" + this.f59278c + ", _$302003='" + this.f59279d + ExtendedMessageFormat.QUOTE + ExtendedMessageFormat.END_FE;
         }
         return (String) invokeV.objValue;
     }

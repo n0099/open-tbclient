@@ -13,21 +13,21 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public class AnniversaryEtModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public b f49251e;
+    public b f49270e;
 
     /* renamed from: f  reason: collision with root package name */
-    public c.a.t0.n4.i.e.a f49252f;
+    public c.a.t0.n4.i.e.a f49271f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final c.a.d.c.g.a f49253g;
+    public final c.a.d.c.g.a f49272g;
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes13.dex */
     public class a extends c.a.d.c.g.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -58,11 +58,11 @@ public class AnniversaryEtModel extends BdBaseModel {
         @Override // c.a.d.c.g.a
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) || responsedMessage == null || this.a.f49251e == null || this.a.f49252f == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) || responsedMessage == null || this.a.f49270e == null || this.a.f49271f == null) {
                 return;
             }
             if (responsedMessage.hasError() || responsedMessage.getError() != 0) {
-                this.a.f49251e.onError(responsedMessage.getError(), responsedMessage.getErrorString());
+                this.a.f49270e.onError(responsedMessage.getError(), responsedMessage.getErrorString());
                 return;
             }
             c.a.t0.n4.i.d.b bVar = null;
@@ -72,9 +72,9 @@ public class AnniversaryEtModel extends BdBaseModel {
                 bVar = ((AnniversaryEtHttpResMessage) responsedMessage).getResultData();
             }
             if (bVar != null) {
-                this.a.f49251e.onResponeSucess(bVar);
+                this.a.f49270e.onResponeSucess(bVar);
             } else {
-                this.a.f49251e.onError(-1, "请求失败，请稍后重试");
+                this.a.f49270e.onError(-1, "请求失败，请稍后重试");
             }
         }
     }
@@ -97,16 +97,16 @@ public class AnniversaryEtModel extends BdBaseModel {
                 return;
             }
         }
-        this.f49253g = new a(this, CmdConfigHttp.CMD_HTTP_ET_VIDEO, 309725);
-        this.f49251e = bVar;
-        this.f49252f = new c.a.t0.n4.i.e.a(tbPageContext, bVar);
+        this.f49272g = new a(this, CmdConfigHttp.CMD_HTTP_ET_VIDEO, 309725);
+        this.f49270e = bVar;
+        this.f49271f = new c.a.t0.n4.i.e.a(tbPageContext, bVar);
         init();
     }
 
     public void cancel() {
         c.a.t0.n4.i.e.a aVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (aVar = this.f49252f) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (aVar = this.f49271f) == null) {
             return;
         }
         aVar.i();
@@ -125,9 +125,9 @@ public class AnniversaryEtModel extends BdBaseModel {
     public final void init() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            c.a.t0.w3.f0.a.h(309725, AnniversaryEtSocketResMessage.class, false, false);
-            c.a.t0.w3.f0.a.c(309725, CmdConfigHttp.CMD_HTTP_ET_VIDEO, "c/f/video/videoTemplate", AnniversaryEtHttpResMessage.class, true, true, true, false);
-            registerListener(this.f49253g);
+            c.a.t0.x3.f0.a.h(309725, AnniversaryEtSocketResMessage.class, false, false);
+            c.a.t0.x3.f0.a.c(309725, CmdConfigHttp.CMD_HTTP_ET_VIDEO, "c/f/video/videoTemplate", AnniversaryEtHttpResMessage.class, true, true, true, false);
+            registerListener(this.f49272g);
         }
     }
 
@@ -154,7 +154,7 @@ public class AnniversaryEtModel extends BdBaseModel {
     public void z(c.a.t0.n4.i.d.b bVar) {
         c.a.t0.n4.i.e.a aVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048581, this, bVar) == null) || (aVar = this.f49252f) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048581, this, bVar) == null) || (aVar = this.f49271f) == null) {
             return;
         }
         aVar.m(bVar);

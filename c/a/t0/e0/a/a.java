@@ -4,7 +4,7 @@ public interface a {
 
     /* renamed from: c.a.t0.e0.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes7.dex */
-    public interface InterfaceC1082a {
+    public interface InterfaceC1016a {
         boolean a(float f2);
     }
 

@@ -28,20 +28,20 @@ public class a extends BaseAdapter {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public BaseActivity f23919e;
+    public BaseActivity f23834e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f23920f;
+    public boolean f23835f;
 
     /* renamed from: g  reason: collision with root package name */
-    public List<AccountData> f23921g;
+    public List<AccountData> f23836g;
 
     /* renamed from: h  reason: collision with root package name */
-    public View.OnClickListener f23922h;
+    public View.OnClickListener f23837h;
 
     /* renamed from: c.a.t0.u.a$a  reason: collision with other inner class name */
     /* loaded from: classes8.dex */
-    public static /* synthetic */ class C1453a {
+    public static /* synthetic */ class C1449a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
@@ -53,13 +53,13 @@ public class a extends BaseAdapter {
         public TextView a;
 
         /* renamed from: b  reason: collision with root package name */
-        public TextView f23923b;
+        public TextView f23838b;
 
         /* renamed from: c  reason: collision with root package name */
-        public ImageView f23924c;
+        public ImageView f23839c;
 
         /* renamed from: d  reason: collision with root package name */
-        public TextView f23925d;
+        public TextView f23840d;
 
         public b(a aVar) {
             Interceptable interceptable = $ic;
@@ -77,7 +77,7 @@ public class a extends BaseAdapter {
             }
         }
 
-        public /* synthetic */ b(a aVar, C1453a c1453a) {
+        public /* synthetic */ b(a aVar, C1449a c1449a) {
             this(aVar);
         }
     }
@@ -97,29 +97,29 @@ public class a extends BaseAdapter {
                 return;
             }
         }
-        this.f23919e = baseActivity;
-        this.f23921g = null;
-        this.f23920f = false;
-        this.f23922h = onClickListener;
+        this.f23834e = baseActivity;
+        this.f23836g = null;
+        this.f23835f = false;
+        this.f23837h = onClickListener;
     }
 
     public boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f23920f : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f23835f : invokeV.booleanValue;
     }
 
     public void b(List<AccountData> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
-            this.f23921g = list;
+            this.f23836g = list;
         }
     }
 
     public void c(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
-            this.f23920f = z;
+            this.f23835f = z;
         }
     }
 
@@ -128,7 +128,7 @@ public class a extends BaseAdapter {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            List<AccountData> list = this.f23921g;
+            List<AccountData> list = this.f23836g;
             return (list != null ? list.size() : 0) + 1;
         }
         return invokeV.intValue;
@@ -139,11 +139,11 @@ public class a extends BaseAdapter {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i2)) == null) {
-            List<AccountData> list = this.f23921g;
+            List<AccountData> list = this.f23836g;
             if (list == null || i2 < 0 || i2 >= list.size()) {
                 return null;
             }
-            return this.f23921g.get(i2);
+            return this.f23836g.get(i2);
         }
         return invokeI.objValue;
     }
@@ -178,38 +178,38 @@ public class a extends BaseAdapter {
                 try {
                     if (view == null) {
                         if (getItemViewType(i2) == 0) {
-                            view = LayoutInflater.from(this.f23919e.getPageContext().getContext()).inflate(R.layout.account_item, viewGroup, false);
+                            view = LayoutInflater.from(this.f23834e.getPageContext().getContext()).inflate(R.layout.account_item, viewGroup, false);
                             bVar = new b(this, null);
                             bVar.a = (TextView) view.findViewById(R.id.account);
-                            bVar.f23924c = (ImageView) view.findViewById(R.id.active);
+                            bVar.f23839c = (ImageView) view.findViewById(R.id.active);
                             TextView textView = (TextView) view.findViewById(R.id.delete);
-                            bVar.f23925d = textView;
-                            textView.setOnClickListener(this.f23922h);
+                            bVar.f23840d = textView;
+                            textView.setOnClickListener(this.f23837h);
                             view.setTag(bVar);
                             c.d(bVar.a).v(R.color.CAM_X0105);
-                            SkinManager.setBackgroundResource(bVar.f23924c, R.drawable.icon_set_list_ok_s);
+                            SkinManager.setBackgroundResource(bVar.f23839c, R.drawable.icon_set_list_ok_s);
                         } else {
-                            view = LayoutInflater.from(this.f23919e.getPageContext().getContext()).inflate(R.layout.account_add_item, viewGroup, false);
+                            view = LayoutInflater.from(this.f23834e.getPageContext().getContext()).inflate(R.layout.account_add_item, viewGroup, false);
                             bVar = new b(this, null);
-                            bVar.f23923b = (TextView) view.findViewById(R.id.add_text);
+                            bVar.f23838b = (TextView) view.findViewById(R.id.add_text);
                             view.setTag(bVar);
-                            c.d(bVar.f23923b).v(R.color.CAM_X0302);
+                            c.d(bVar.f23838b).v(R.color.CAM_X0302);
                         }
                     } else {
                         bVar = (b) view.getTag();
                     }
                     if (getItemViewType(i2) == 0) {
                         AccountData accountData = (AccountData) getItem(i2);
-                        bVar.f23924c.setVisibility(8);
-                        bVar.f23925d.setVisibility(8);
-                        bVar.f23925d.setTag(accountData);
+                        bVar.f23839c.setVisibility(8);
+                        bVar.f23840d.setVisibility(8);
+                        bVar.f23840d.setTag(accountData);
                         if (accountData != null) {
                             bVar.a.setText(accountData.getAccountNameShow());
                             if (TextUtils.equals(accountData.getID(), TbadkCoreApplication.getCurrentAccount())) {
-                                bVar.f23924c.setVisibility(0);
+                                bVar.f23839c.setVisibility(0);
                             }
-                            if (this.f23920f) {
-                                bVar.f23925d.setVisibility(0);
+                            if (this.f23835f) {
+                                bVar.f23840d.setVisibility(0);
                             }
                         }
                     }

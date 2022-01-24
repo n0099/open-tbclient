@@ -1,102 +1,73 @@
 package c.a.t0.f2.f;
 
-import android.graphics.drawable.Drawable;
-import android.view.View;
-import android.widget.GridView;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.ListAdapter;
-import android.widget.RelativeLayout;
-import android.widget.TextView;
-import androidx.core.view.InputDeviceCompat;
-import c.a.d.f.p.n;
-import c.a.t0.f2.f.f;
+import android.app.Activity;
+import android.content.Context;
+import android.os.Build;
+import c.a.s0.d1.v0;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.UrlManager;
-import com.baidu.tbadk.core.view.NoNetworkView;
-import com.baidu.tbadk.pay.PayConfig;
-import com.baidu.tbadk.util.PageDialogHelper;
-import com.baidu.tieba.R;
-import com.baidu.tieba.horizonalList.widget.AdapterView;
-import com.baidu.tieba.horizonalList.widget.HListView;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.searchbox.live.interfaces.pay.IPayCallback;
+import com.baidu.searchbox.live.interfaces.pay.IPayChannel;
+import com.baidu.searchbox.live.interfaces.pay.PayChannelType;
+import com.baidu.searchbox.live.interfaces.pay.YYPayResultService;
+import com.baidu.searchbox.live.interfaces.service.PayChannelService;
+import com.baidu.tbadk.core.data.SmallTailInfo;
+import com.baidu.tieba.wallet.ITiebaPay;
+import com.baidu.tieba.wallet.ITiebaPayCallback;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.LinkedHashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.HashMap;
 /* loaded from: classes7.dex */
-public class b {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static String F = "https://tieba.baidu.com/tb/vip_eula_mobile.html";
-    public static String G = "https://tieba.baidu.com/tb/viprenew_eula_mobile.html";
+public class b implements PayChannelService {
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String A;
-    public int B;
-    public Boolean C;
-    public AdapterView.d D;
-    public View.OnClickListener E;
-    public TbPageContext a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public View f17566b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public RelativeLayout f17567c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public HListView f17568d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public ImageView f17569e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public TextView f17570f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public TextView f17571g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public GridView f17572h;
-
-    /* renamed from: i  reason: collision with root package name */
-    public LinearLayout f17573i;
-
-    /* renamed from: j  reason: collision with root package name */
-    public TextView f17574j;
-    public NoNetworkView k;
-    public TextView l;
-    public c m;
-    public e n;
-    public f o;
-    public f.g p;
-    public f.b q;
-    public f.c r;
-    public f.a s;
-    public String t;
-    public String u;
-    public String v;
-    public String w;
-    public int x;
-    public long y;
-    public String z;
+    public ITiebaPay a;
 
     /* loaded from: classes7.dex */
-    public class a implements AdapterView.d {
+    public class a implements IPayChannel {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ b a;
+
+        /* renamed from: c.a.t0.f2.f.b$a$a  reason: collision with other inner class name */
+        /* loaded from: classes7.dex */
+        public class C1102a implements ITiebaPayCallback {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ IPayCallback a;
+
+            public C1102a(a aVar, IPayCallback iPayCallback) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {aVar, iPayCallback};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i2 = newInitContext.flag;
+                    if ((i2 & 1) != 0) {
+                        int i3 = i2 & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.a = iPayCallback;
+            }
+
+            @Override // com.baidu.tieba.wallet.ITiebaPayCallback
+            public void onPayResult(int i2, String str) {
+                IPayCallback iPayCallback;
+                Interceptable interceptable = $ic;
+                if (!(interceptable == null || interceptable.invokeIL(1048576, this, i2, str) == null) || (iPayCallback = this.a) == null) {
+                    return;
+                }
+                iPayCallback.onPayResult(i2, str);
+            }
+        }
 
         public a(b bVar) {
             Interceptable interceptable = $ic;
@@ -116,408 +87,96 @@ public class b {
             this.a = bVar;
         }
 
-        @Override // com.baidu.tieba.horizonalList.widget.AdapterView.d
-        public void a(AdapterView<?> adapterView, View view, int i2, long j2) {
-            f.d item;
+        @Override // com.baidu.searchbox.live.interfaces.pay.IPayChannel
+        public PayChannelType getType() {
+            InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{adapterView, view, Integer.valueOf(i2), Long.valueOf(j2)}) == null) || (item = this.a.m.getItem(i2)) == null) {
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? PayChannelType.WALLET : (PayChannelType) invokeV.objValue;
+        }
+
+        @Override // com.baidu.searchbox.live.interfaces.pay.IPayChannel
+        public String getUaForFrontPay() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return v0.b() + " (Baidu; P1 " + Build.VERSION.RELEASE + SmallTailInfo.EMOTION_SUFFIX;
+            }
+            return (String) invokeV.objValue;
+        }
+
+        @Override // com.baidu.searchbox.live.interfaces.pay.IPayChannel
+        public void onPayResult(String str, String str2, String str3, Context context, boolean z) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{str, str2, str3, context, Boolean.valueOf(z)}) == null) {
+            }
+        }
+
+        @Override // com.baidu.searchbox.live.interfaces.pay.IPayChannel
+        public void pay(Activity activity, HashMap<String, String> hashMap, IPayCallback iPayCallback) {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeLLL(1048579, this, activity, hashMap, iPayCallback) == null) || hashMap == null || hashMap.isEmpty()) {
                 return;
             }
-            item.m = true;
-            this.a.m.g(item);
-            this.a.u(item.n);
-            this.a.x(item.f17610j);
-        }
-    }
-
-    /* renamed from: c.a.t0.f2.f.b$b  reason: collision with other inner class name */
-    /* loaded from: classes7.dex */
-    public class View$OnClickListenerC1104b implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ b f17575e;
-
-        public View$OnClickListenerC1104b(b bVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {bVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+            this.a.c();
+            if (this.a.a != null) {
+                this.a.a.pay(hashMap.remove("channel"), hashMap, new C1102a(this, iPayCallback));
+            } else if (iPayCallback != null) {
+                iPayCallback.onPayResult(2, null);
             }
-            this.f17575e = bVar;
         }
 
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view) {
+        @Override // com.baidu.searchbox.live.interfaces.pay.IPayChannel
+        public void release() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                int i2 = 0;
-                if (view == this.f17575e.f17574j) {
-                    this.f17575e.l();
-                    int i3 = 2;
-                    if (this.f17575e.x != 1) {
-                        int unused = this.f17575e.x;
-                        i3 = 1;
-                    }
-                    f.d b2 = this.f17575e.m.b();
-                    if (b2 != null && b2.n != 1) {
-                        long j2 = b2.l;
-                        if (j2 == 1) {
-                            i2 = 1;
-                        } else if (j2 == 3) {
-                            i2 = 3;
-                        } else if (j2 == 6) {
-                            i2 = 6;
-                        } else if (j2 == 12) {
-                            i2 = 12;
-                        }
-                    }
-                    TiebaStatic.log(new StatisticItem("c13200").param("obj_type", i3).param("obj_locate", i2));
-                } else if (view != this.f17575e.f17569e) {
-                    if (view == this.f17575e.f17571g) {
-                        UrlManager.getInstance().dealOneLink(this.f17575e.a, new String[]{b.F});
-                    }
-                } else {
-                    UrlManager.getInstance().dealOneLink(this.f17575e.a, new String[]{b.G});
-                }
+            if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             }
         }
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(210359576, "Lc/a/t0/f2/f/b;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(210359576, "Lc/a/t0/f2/f/b;");
-        }
-    }
-
-    public b(TbPageContext tbPageContext, View view, int i2, String str, String str2, boolean z, int i3) {
+    public b() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, view, Integer.valueOf(i2), str, str2, Boolean.valueOf(z), Integer.valueOf(i3)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i4 = newInitContext.flag;
-            if ((i4 & 1) != 0) {
-                int i5 = i4 & 2;
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.x = 2;
-        this.C = Boolean.FALSE;
-        this.D = new a(this);
-        this.E = new View$OnClickListenerC1104b(this);
-        this.f17566b = view;
-        this.a = tbPageContext;
-        this.x = i2;
-        this.C = Boolean.valueOf(z);
-        this.z = str;
-        this.A = str2;
-        this.B = i3;
-        o();
+        this.a = null;
     }
 
-    public final void l() {
+    @Override // com.baidu.searchbox.live.interfaces.service.PayChannelService
+    public IPayChannel buildPayChannel(PayChannelType payChannelType) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            f.d b2 = this.m.b();
-            if (b2 == null) {
-                n.M(this.a.getPageActivity(), R.string.tb_member_select_money_tip);
-            } else if (b2.n == 1 && b2.o) {
-                n.M(this.a.getPageActivity(), R.string.tips_auto_pay_succ);
-            } else {
-                t(b2.f17609i, b2.f17610j / 100, b2.l, b2.n);
-                if (this.B == 26) {
-                    TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.MEMBER_PAY_PAGE_SHOW_PAY_CLICK).param("obj_source", 1));
-                }
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, payChannelType)) == null) {
+            if (payChannelType == PayChannelType.WALLET) {
+                return new a(this);
             }
+            return null;
         }
+        return (IPayChannel) invokeL.objValue;
     }
 
-    public final void m() {
-        f fVar;
-        f.e eVar;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (fVar = this.o) == null) {
-            return;
-        }
-        f.b bVar = fVar.f17592b;
-        this.q = bVar;
-        f.g gVar = fVar.a;
-        this.p = gVar;
-        if (bVar == null || gVar == null || (eVar = gVar.f17613c) == null) {
-            return;
-        }
-        this.y = eVar.a;
-        f.a aVar = bVar.f17597b;
-        this.s = aVar;
-        if (aVar != null) {
-            this.t = aVar.f17594c;
-        }
-        f.c cVar = this.q.a;
-        this.r = cVar;
-        if (cVar != null) {
-            this.u = cVar.f17599c;
-        }
-    }
-
-    public final ArrayList<d> n() {
+    @Override // com.baidu.searchbox.live.interfaces.service.PayChannelService
+    public YYPayResultService buildYYPayResChannel() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            ArrayList<d> arrayList = new ArrayList<>();
-            LinkedHashMap linkedHashMap = new LinkedHashMap();
-            int i2 = this.x;
-            if (i2 == 1) {
-                linkedHashMap.put(this.a.getPageActivity().getResources().getString(R.string.member_privilege_update_name), Integer.valueOf(R.drawable.ic_icon_pure_tbvip_nickname24_svg));
-                linkedHashMap.put(this.a.getPageActivity().getResources().getString(R.string.member_privilege_special_identity), Integer.valueOf(R.drawable.ic_icon_pure_tbvip_member24_svg));
-                linkedHashMap.put(this.a.getPageActivity().getResources().getString(R.string.member_privilege_patch_card), Integer.valueOf(R.drawable.ic_icon_pure_tbvip_remedy24_svg));
-                linkedHashMap.put(this.a.getPageActivity().getResources().getString(R.string.member_privilege_write_pop), Integer.valueOf(R.drawable.ic_icon_pure_tbvip_qipao24_svg));
-                linkedHashMap.put(this.a.getPageActivity().getResources().getString(R.string.member_privilege_tail), Integer.valueOf(R.drawable.ic_icon_pure_tbvip_tail24_1x));
-            } else if (i2 == 2) {
-                linkedHashMap.put(this.a.getPageActivity().getResources().getString(R.string.member_privilege_update_name), Integer.valueOf(R.drawable.ic_icon_pure_tbvip_nickname24_svg));
-                linkedHashMap.put(this.a.getPageActivity().getResources().getString(R.string.member_privilege_special_identity), Integer.valueOf(R.drawable.ic_icon_pure_tbvip_member24_svg));
-                linkedHashMap.put(this.a.getPageActivity().getResources().getString(R.string.member_privilege_forbid_adv), Integer.valueOf(R.drawable.ic_icon_pure_tbvip_advertising24_svg));
-                linkedHashMap.put(this.a.getPageActivity().getResources().getString(R.string.member_privilege_experience_acc), Integer.valueOf(R.drawable.ic_icon_pure_tbvip_accelerate24_svg));
-                linkedHashMap.put(this.a.getPageActivity().getResources().getString(R.string.member_privilege_one_key_sign), Integer.valueOf(R.drawable.ic_icon_pure_tbvip_checkin24_svg));
-                linkedHashMap.put(this.a.getPageActivity().getResources().getString(R.string.member_privilege_special_bg), Integer.valueOf(R.drawable.ic_icon_pure_tbvip_bg24_svg));
-                linkedHashMap.put(this.a.getPageActivity().getResources().getString(R.string.member_privilege_patch_card), Integer.valueOf(R.drawable.ic_icon_pure_tbvip_remedy24_svg));
-                linkedHashMap.put(this.a.getPageActivity().getResources().getString(R.string.member_privilege_write_pop), Integer.valueOf(R.drawable.ic_icon_pure_tbvip_qipao24_svg));
-                linkedHashMap.put(this.a.getPageActivity().getResources().getString(R.string.member_privilege_forbid_speak), Integer.valueOf(R.drawable.ic_icon_pure_tbvip_notalk24_svg));
-                linkedHashMap.put(this.a.getPageActivity().getResources().getString(R.string.member_privilege_tail), Integer.valueOf(R.drawable.ic_icon_pure_tbvip_tail24_1x));
-                linkedHashMap.put(this.a.getPageActivity().getResources().getString(R.string.member_privilege_more_link), Integer.valueOf(R.drawable.ic_icon_pure_tbvip_morelink26_svg));
-            }
-            for (Map.Entry entry : linkedHashMap.entrySet()) {
-                d dVar = new d();
-                dVar.f17588b = (String) entry.getKey();
-                dVar.a = ((Integer) entry.getValue()).intValue();
-                arrayList.add(dVar);
-            }
-            return arrayList;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return null;
         }
-        return (ArrayList) invokeV.objValue;
+        return (YYPayResultService) invokeV.objValue;
     }
 
-    public final void o() {
+    public final void c() {
+        CustomResponsedMessage runTask;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.f17567c = (RelativeLayout) this.f17566b.findViewById(R.id.root);
-            this.f17568d = (HListView) this.f17566b.findViewById(R.id.price_listview);
-            this.f17573i = (LinearLayout) this.f17566b.findViewById(R.id.renew_layout);
-            this.f17569e = (ImageView) this.f17566b.findViewById(R.id.renew_tip_img);
-            this.f17570f = (TextView) this.f17566b.findViewById(R.id.privilege_title);
-            this.f17571g = (TextView) this.f17566b.findViewById(R.id.privilege_rule);
-            this.f17572h = (GridView) this.f17566b.findViewById(R.id.privilege_container);
-            this.k = (NoNetworkView) this.f17566b.findViewById(R.id.view_no_network);
-            this.f17574j = (TextView) this.f17566b.findViewById(R.id.member_pay_button);
-            this.l = (TextView) this.f17566b.findViewById(R.id.tv_member_auto_pay_cancel_tip);
-            this.f17568d.setBackgroundResource(R.drawable.transparent_bg);
-            this.f17568d.setOnItemClickListener(this.D);
-            this.f17568d.setSelector(this.a.getPageActivity().getResources().getDrawable(R.drawable.transparent_bg));
-            this.f17572h.setVerticalSpacing(this.a.getPageActivity().getResources().getDimensionPixelSize(R.dimen.tbds58));
-            this.f17572h.setHorizontalSpacing(this.a.getPageActivity().getResources().getDimensionPixelSize(R.dimen.tbds108));
-            this.f17574j.setOnClickListener(this.E);
-            this.f17569e.setOnClickListener(this.E);
-            this.f17571g.setOnClickListener(this.E);
-        }
-    }
-
-    public void p(int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048580, this, i2) == null) {
-            this.k.onChangeSkinType(this.a, i2);
-            SkinManager.setBackgroundColor(this.f17567c, R.color.CAM_X0201);
-            SkinManager.setViewTextColor(this.l, R.color.CAM_X0107);
-            SkinManager.setViewTextColor(this.f17570f, R.color.CAM_X0105);
-            SkinManager.setViewTextColor(this.f17571g, R.color.CAM_X0107);
-            this.f17571g.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, SkinManager.getDrawable(R.drawable.icon_tbvip_arrow_right), (Drawable) null);
-            SkinManager.setViewTextColor(this.f17574j, R.color.CAM_X0101);
-            SkinManager.setBackgroundResource(this.f17574j, R.drawable.member_price_btn_bg);
-            SkinManager.setImageResource(this.f17569e, R.drawable.icon_tbvip_attention);
-        }
-    }
-
-    public void q(boolean z) {
-        f.c cVar;
-        List<f.d> list;
-        f.a aVar;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048581, this, z) == null) || this.o == null) {
-            return;
-        }
-        List<f.d> list2 = null;
-        if (2 != this.x ? !((cVar = this.r) == null || (list = cVar.a) == null) : !((aVar = this.s) == null || (list = aVar.a) == null)) {
-            list2 = list;
-        }
-        if (ListUtils.isEmpty(list2)) {
-            return;
-        }
-        for (int i2 = 0; i2 < list2.size(); i2++) {
-            f.d dVar = list2.get(i2);
-            if (dVar != null && dVar.f17610j >= 0 && dVar.n == 1) {
-                dVar.o = z;
-                return;
-            }
-        }
-    }
-
-    public final void r() {
-        f.g gVar;
-        f.a aVar;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            if (this.o == null) {
-                this.f17567c.setVisibility(8);
-            } else if (this.q != null && (gVar = this.p) != null) {
-                if (gVar.f17613c == null) {
-                    this.f17567c.setVisibility(8);
-                } else if (this.s == null && this.r == null) {
-                    this.f17567c.setVisibility(8);
-                } else if (this.x == 2 && ((aVar = this.s) == null || ListUtils.isEmpty(aVar.a))) {
-                    this.f17567c.setVisibility(8);
-                } else {
-                    this.f17567c.setVisibility(0);
-                    v();
-                    w();
-                    y();
-                }
-            } else {
-                this.f17567c.setVisibility(8);
-            }
-        }
-    }
-
-    public void s(f fVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, fVar) == null) {
-            if (fVar == null) {
-                this.f17567c.setVisibility(8);
-                return;
-            }
-            this.o = fVar;
-            m();
-            r();
-        }
-    }
-
-    public final void t(long j2, long j3, long j4, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3), Long.valueOf(j4), Integer.valueOf(i2)}) == null) {
-            PayConfig payConfig = new PayConfig(1, "0", String.valueOf(j2), String.valueOf(j3), String.valueOf(j4), true, this.C.booleanValue(), PageDialogHelper.PayForm.NOT_SET, this.z, this.A);
-            payConfig.setTitle(this.v);
-            payConfig.setOrderName(this.w + this.a.getPageActivity().getString(R.string.member_month, new Object[]{String.valueOf(j4)}));
-            payConfig.setAutoPay(i2);
-            if (this.B == 23) {
-                payConfig.paymentPosKey = PayConfig.PAYMENT_POS_KEY_MANGA;
-            }
-            c.a.s0.r0.e.c().a(payConfig, this.a.getPageActivity());
-        }
-    }
-
-    public final void u(int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048585, this, i2) == null) {
-            if (i2 == 1) {
-                this.f17573i.setVisibility(0);
-            } else {
-                this.f17573i.setVisibility(8);
-            }
-        }
-    }
-
-    public final void v() {
-        f.c cVar;
-        List<f.d> list;
-        f.a aVar;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            if (2 != this.x ? (cVar = this.r) == null || (list = cVar.a) == null : (aVar = this.s) == null || (list = aVar.a) == null) {
-                list = null;
-            }
-            if (ListUtils.isEmpty(list)) {
-                return;
-            }
-            for (f.d dVar : list) {
-                if (dVar.m) {
-                    u(dVar.n);
-                    x(dVar.f17610j);
-                }
-            }
-            if (this.m == null) {
-                c cVar2 = new c(this.a);
-                this.m = cVar2;
-                cVar2.d(list);
-                this.f17568d.setAdapter((ListAdapter) this.m);
-            }
-            this.m.d(list);
-            this.m.notifyDataSetChanged();
-        }
-    }
-
-    public final void w() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048587, this) == null) && this.n == null) {
-            ArrayList<d> n = n();
-            e eVar = new e(this.a.getPageActivity());
-            this.n = eVar;
-            eVar.c(n);
-            this.f17572h.setAdapter((ListAdapter) this.n);
-        }
-    }
-
-    public final void x(long j2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048588, this, j2) == null) {
-            this.f17574j.setText(this.a.getPageActivity().getResources().getString(R.string.tb_member_need_pay_money, "" + (j2 / 100)));
-        }
-    }
-
-    public final void y() {
-        String string;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
-            int i2 = this.x;
-            if (2 == i2) {
-                if (this.y == 2) {
-                    string = this.a.getPageActivity().getString(R.string.continue_dredge, new Object[]{this.t});
-                } else {
-                    string = this.a.getPageActivity().getString(R.string.dredge, new Object[]{this.t});
-                }
-                this.w = this.t;
-            } else if (1 == i2) {
-                long j2 = this.y;
-                if (j2 == 1) {
-                    string = this.a.getPageActivity().getString(R.string.continue_dredge, new Object[]{this.u});
-                } else {
-                    string = j2 == 0 ? this.a.getPageActivity().getString(R.string.dredge, new Object[]{this.u}) : null;
-                }
-                this.w = this.u;
-            } else {
-                string = this.a.getPageActivity().getString(R.string.dredge, new Object[]{this.u});
-                this.w = this.u;
-            }
-            this.v = string;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && this.a == null && (runTask = MessageManager.getInstance().runTask(2921432, ITiebaPay.class)) != null) {
+            this.a = (ITiebaPay) runTask.getData();
         }
     }
 }

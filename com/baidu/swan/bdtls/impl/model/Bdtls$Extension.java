@@ -72,13 +72,13 @@ public final class Bdtls$Extension extends GeneratedMessageLite implements c.a.r
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public int f39559e;
+        public int f39587e;
 
         /* renamed from: f  reason: collision with root package name */
-        public int f39560f;
+        public int f39588f;
 
         /* renamed from: g  reason: collision with root package name */
-        public ByteString f39561g;
+        public ByteString f39589g;
 
         public b() {
             Interceptable interceptable = $ic;
@@ -93,7 +93,7 @@ public final class Bdtls$Extension extends GeneratedMessageLite implements c.a.r
                     return;
                 }
             }
-            this.f39561g = ByteString.EMPTY;
+            this.f39589g = ByteString.EMPTY;
             maybeForceBuilderInitialization();
         }
 
@@ -112,13 +112,13 @@ public final class Bdtls$Extension extends GeneratedMessageLite implements c.a.r
         public int getType() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f39560f : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f39588f : invokeV.intValue;
         }
 
         public boolean hasType() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? (this.f39559e & 1) == 1 : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? (this.f39587e & 1) == 1 : invokeV.booleanValue;
         }
 
         @Override // com.google.protobuf.MessageLiteOrBuilder
@@ -164,13 +164,13 @@ public final class Bdtls$Extension extends GeneratedMessageLite implements c.a.r
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
                 Bdtls$Extension bdtls$Extension = new Bdtls$Extension(this, (c.a.r0.c.a.i.a) null);
-                int i2 = this.f39559e;
+                int i2 = this.f39587e;
                 int i3 = (i2 & 1) != 1 ? 0 : 1;
-                bdtls$Extension.type_ = this.f39560f;
+                bdtls$Extension.type_ = this.f39588f;
                 if ((i2 & 2) == 2) {
                     i3 |= 2;
                 }
-                bdtls$Extension.data_ = this.f39561g;
+                bdtls$Extension.data_ = this.f39589g;
                 bdtls$Extension.bitField0_ = i3;
                 return bdtls$Extension;
             }
@@ -182,11 +182,11 @@ public final class Bdtls$Extension extends GeneratedMessageLite implements c.a.r
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
                 super.clear();
-                this.f39560f = 0;
-                int i2 = this.f39559e & (-2);
-                this.f39559e = i2;
-                this.f39561g = ByteString.EMPTY;
-                this.f39559e = i2 & (-3);
+                this.f39588f = 0;
+                int i2 = this.f39587e & (-2);
+                this.f39587e = i2;
+                this.f39589g = ByteString.EMPTY;
+                this.f39587e = i2 & (-3);
                 return this;
             }
             return (b) invokeV.objValue;
@@ -218,7 +218,7 @@ public final class Bdtls$Extension extends GeneratedMessageLite implements c.a.r
         public boolean s() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) ? (this.f39559e & 2) == 2 : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) ? (this.f39587e & 2) == 2 : invokeV.booleanValue;
         }
 
         public b t(Bdtls$Extension bdtls$Extension) {
@@ -283,8 +283,8 @@ public final class Bdtls$Extension extends GeneratedMessageLite implements c.a.r
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048601, this, byteString)) == null) {
                 if (byteString != null) {
-                    this.f39559e |= 2;
-                    this.f39561g = byteString;
+                    this.f39587e |= 2;
+                    this.f39589g = byteString;
                     return this;
                 }
                 throw null;
@@ -296,8 +296,8 @@ public final class Bdtls$Extension extends GeneratedMessageLite implements c.a.r
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeI = interceptable.invokeI(1048602, this, i2)) == null) {
-                this.f39559e |= 1;
-                this.f39560f = i2;
+                this.f39587e |= 1;
+                this.f39588f = i2;
                 return this;
             }
             return (b) invokeI.objValue;

@@ -15,10 +15,10 @@ public abstract class a extends m implements c.a.r0.a.z2.g1.c<i.a> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f5918f;
+    public int f6060f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f5919g;
+    public boolean f6061g;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public a(h hVar) {
@@ -38,8 +38,8 @@ public abstract class a extends m implements c.a.r0.a.z2.g1.c<i.a> {
                 return;
             }
         }
-        this.f5918f = 0;
-        this.f5919g = false;
+        this.f6060f = 0;
+        this.f6061g = false;
     }
 
     public static void J(String str) {
@@ -56,7 +56,7 @@ public abstract class a extends m implements c.a.r0.a.z2.g1.c<i.a> {
         if (interceptable == null || interceptable.invokeLI(65538, null, str, i2) == null) {
             if (SwanAppProcessInfo.SERVICE.equals(SwanAppProcessInfo.current())) {
                 a B = c.a.r0.a.d2.d.J().B();
-                B.f5918f = i2;
+                B.f6060f = i2;
                 B.H(str);
                 return;
             }
@@ -70,12 +70,12 @@ public abstract class a extends m implements c.a.r0.a.z2.g1.c<i.a> {
 
     public void I() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.f5919g) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.f6061g) {
             return;
         }
         c.a.r0.a.d2.b bVar = new c.a.r0.a.d2.b();
         bVar.e(this, "event_messenger_call");
         v(bVar);
-        this.f5919g = true;
+        this.f6061g = true;
     }
 }

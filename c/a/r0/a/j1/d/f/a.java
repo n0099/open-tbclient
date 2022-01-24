@@ -16,16 +16,16 @@ public class a implements Comparable<Object> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f7442e;
+    public String f7584e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f7443f;
+    public String f7585f;
 
     /* renamed from: g  reason: collision with root package name */
-    public long f7444g;
+    public long f7586g;
 
     /* renamed from: h  reason: collision with root package name */
-    public ArrayList<MediaModel> f7445h;
+    public ArrayList<MediaModel> f7587h;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -44,42 +44,42 @@ public class a implements Comparable<Object> {
     public void a(MediaModel mediaModel) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, mediaModel) == null) {
-            if (this.f7445h == null) {
-                this.f7445h = new ArrayList<>();
+            if (this.f7587h == null) {
+                this.f7587h = new ArrayList<>();
             }
-            this.f7445h.add(mediaModel);
+            this.f7587h.add(mediaModel);
         }
     }
 
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f7443f : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f7585f : (String) invokeV.objValue;
     }
 
     public String c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f7442e : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f7584e : (String) invokeV.objValue;
     }
 
     @Override // java.lang.Comparable
     public int compareTo(Object obj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, obj)) == null) ? Long.valueOf(((a) obj).e()).compareTo(Long.valueOf(this.f7444g)) : invokeL.intValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, obj)) == null) ? Long.valueOf(((a) obj).e()).compareTo(Long.valueOf(this.f7586g)) : invokeL.intValue;
     }
 
     public int d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f7445h.size() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f7587h.size() : invokeV.intValue;
     }
 
     public long e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f7444g : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f7586g : invokeV.longValue;
     }
 
     public boolean equals(Object obj) {
@@ -87,7 +87,7 @@ public class a implements Comparable<Object> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, obj)) == null) {
             if (obj instanceof a) {
-                return this.f7442e.equals(((a) obj).f7442e);
+                return this.f7584e.equals(((a) obj).f7584e);
             }
             return false;
         }
@@ -97,20 +97,20 @@ public class a implements Comparable<Object> {
     public ArrayList<MediaModel> f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f7445h : (ArrayList) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f7587h : (ArrayList) invokeV.objValue;
     }
 
     public void g(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
-            this.f7443f = str;
+            this.f7585f = str;
         }
     }
 
     public void h(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, str) == null) {
-            this.f7442e = str;
+            this.f7584e = str;
         }
     }
 
@@ -123,7 +123,7 @@ public class a implements Comparable<Object> {
     public void i(long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048587, this, j2) == null) {
-            this.f7444g = j2;
+            this.f7586g = j2;
         }
     }
 
@@ -131,7 +131,7 @@ public class a implements Comparable<Object> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-            return "MediaDir [firstImgPath=, dirName=" + this.f7442e + ", imageCount=" + d() + PreferencesUtil.RIGHT_MOUNT;
+            return "MediaDir [firstImgPath=, dirName=" + this.f7584e + ", imageCount=" + d() + PreferencesUtil.RIGHT_MOUNT;
         }
         return (String) invokeV.objValue;
     }

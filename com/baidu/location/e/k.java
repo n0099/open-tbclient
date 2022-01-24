@@ -96,31 +96,31 @@ public class k {
     public static String az = "http://loc.map.baidu.com/user_err.php";
 
     /* renamed from: b  reason: collision with root package name */
-    public static boolean f35165b = false;
+    public static boolean f35193b = false;
 
     /* renamed from: c  reason: collision with root package name */
-    public static boolean f35166c = false;
+    public static boolean f35194c = false;
 
     /* renamed from: d  reason: collision with root package name */
-    public static int f35167d = 0;
+    public static int f35195d = 0;
 
     /* renamed from: e  reason: collision with root package name */
-    public static String f35168e = "http://loc.map.baidu.com/sdk_ep.php";
+    public static String f35196e = "http://loc.map.baidu.com/sdk_ep.php";
 
     /* renamed from: f  reason: collision with root package name */
-    public static String f35169f = "https://loc.map.baidu.com/sdk.php";
+    public static String f35197f = "https://loc.map.baidu.com/sdk.php";
 
     /* renamed from: g  reason: collision with root package name */
-    public static String f35170g = "no";
+    public static String f35198g = "no";
 
     /* renamed from: h  reason: collision with root package name */
-    public static boolean f35171h = false;
+    public static boolean f35199h = false;
 
     /* renamed from: i  reason: collision with root package name */
-    public static boolean f35172i = false;
+    public static boolean f35200i = false;
 
     /* renamed from: j  reason: collision with root package name */
-    public static boolean f35173j = false;
+    public static boolean f35201j = false;
     public static boolean k = false;
     public static boolean l = false;
     public static boolean m = false;
@@ -240,7 +240,7 @@ public class k {
                 }
             }
             if (location != null) {
-                String b4 = (f35167d == 0 || i2 == 0) ? com.baidu.location.c.e.b(location) : com.baidu.location.c.e.c(location);
+                String b4 = (f35195d == 0 || i2 == 0) ? com.baidu.location.c.e.b(location) : com.baidu.location.c.e.c(location);
                 if (b4 != null) {
                     stringBuffer.append(b4);
                 }
@@ -259,7 +259,7 @@ public class k {
             if (location != null && hVar != null) {
                 try {
                     float speed = location.getSpeed();
-                    int i3 = f35167d;
+                    int i3 = f35195d;
                     int h2 = hVar.h();
                     int a4 = hVar.a();
                     boolean i4 = hVar.i();
@@ -404,9 +404,9 @@ public class k {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65550, null, context)) == null) {
-            int a2 = a(context, s.f55247h);
-            int a3 = a(context, s.f55246g);
-            int a4 = a(context, s.f55242c);
+            int a2 = a(context, s.f55292h);
+            int a3 = a(context, s.f55291g);
+            int a4 = a(context, s.f55287c);
             return "&per=" + a2 + "|" + a3 + "|" + a4;
         }
         return (String) invokeL.objValue;

@@ -3,7 +3,7 @@ package com.baidu.tieba.memberCenter.index.adapter;
 import android.view.View;
 import android.widget.TextView;
 import c.a.s0.x0.a;
-import c.a.t0.f2.c.k.f;
+import c.a.t0.g2.c.k.f;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.BaseFragmentActivity;
@@ -21,13 +21,13 @@ public class ExpandViewHolder extends TypeAdapter.ViewHolder {
     public View a;
 
     /* renamed from: b  reason: collision with root package name */
-    public BaseFragmentActivity f45904b;
+    public BaseFragmentActivity f45932b;
 
     /* renamed from: c  reason: collision with root package name */
-    public TextView f45905c;
+    public TextView f45933c;
 
     /* renamed from: d  reason: collision with root package name */
-    public TbImageView f45906d;
+    public TbImageView f45934d;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ExpandViewHolder(View view, BaseFragmentActivity baseFragmentActivity) {
@@ -48,15 +48,15 @@ public class ExpandViewHolder extends TypeAdapter.ViewHolder {
             }
         }
         this.a = view;
-        this.f45904b = baseFragmentActivity;
-        this.f45905c = (TextView) view.findViewById(R.id.expand_text);
-        this.f45906d = (TbImageView) this.a.findViewById(R.id.expand_icon);
+        this.f45932b = baseFragmentActivity;
+        this.f45933c = (TextView) view.findViewById(R.id.expand_text);
+        this.f45934d = (TbImageView) this.a.findViewById(R.id.expand_icon);
     }
 
     public void onChangeSkinType() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            a.a(this.f45904b.getPageContext(), this.a);
+            a.a(this.f45932b.getPageContext(), this.a);
         }
     }
 
@@ -76,18 +76,18 @@ public class ExpandViewHolder extends TypeAdapter.ViewHolder {
             z2 = false;
         }
         if (z2) {
-            this.f45905c.setVisibility(0);
-            this.f45906d.setVisibility(0);
+            this.f45933c.setVisibility(0);
+            this.f45934d.setVisibility(0);
             if (z) {
-                this.f45905c.setText(R.string.unexpand_text);
-                SkinManager.setImageResource(this.f45906d, R.drawable.ic_shop_up);
+                this.f45933c.setText(R.string.unexpand_text);
+                SkinManager.setImageResource(this.f45934d, R.drawable.ic_shop_up);
             } else {
-                this.f45905c.setText(R.string.expand);
-                SkinManager.setImageResource(this.f45906d, R.drawable.ic_shop_down);
+                this.f45933c.setText(R.string.expand);
+                SkinManager.setImageResource(this.f45934d, R.drawable.ic_shop_down);
             }
         } else {
-            this.f45905c.setVisibility(8);
-            this.f45906d.setVisibility(8);
+            this.f45933c.setVisibility(8);
+            this.f45934d.setVisibility(8);
         }
         onChangeSkinType();
     }

@@ -6,7 +6,7 @@ import android.webkit.WebView;
 import c.a.d.f.p.n;
 import c.a.s0.t.c.n0;
 import c.a.t0.p4.j;
-import c.a.t0.w3.s0.h;
+import c.a.t0.x3.s0.h;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.lib.util.StringUtils;
@@ -32,28 +32,28 @@ public class a implements b {
     public final NewVcodeView a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final NewWriteModel f21042b;
+    public final NewWriteModel f21277b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f21043c;
+    public boolean f21278c;
 
     /* renamed from: d  reason: collision with root package name */
-    public PostWriteCallBackData f21044d;
+    public PostWriteCallBackData f21279d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final NewWriteModel.g f21045e;
+    public final NewWriteModel.g f21280e;
 
     /* renamed from: f  reason: collision with root package name */
-    public NewWriteModel.g f21046f;
+    public NewWriteModel.g f21281f;
 
     /* renamed from: c.a.t0.p4.c0.a.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes8.dex */
-    public class C1319a implements NewWriteModel.g {
+    public class C1330a implements NewWriteModel.g {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ a a;
 
-        public C1319a(a aVar) {
+        public C1330a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -81,8 +81,8 @@ public class a implements b {
             }
             this.a.a.showPostThreadLoadingView(false);
             if (z) {
-                this.a.f21044d = postWriteCallBackData;
-                this.a.f21043c = true;
+                this.a.f21279d = postWriteCallBackData;
+                this.a.f21278c = true;
                 String str3 = null;
                 if (n0Var == null || n0Var.a() == null) {
                     str = null;
@@ -96,8 +96,8 @@ public class a implements b {
                 }
                 this.a.a.runJsMethod("success", str3 + "," + str + "," + str2);
             } else if (postWriteCallBackData == null || postWriteCallBackData.getErrorCode() != 227001) {
-                if (this.a.f21046f != null) {
-                    this.a.f21046f.callback(false, postWriteCallBackData, n0Var, writeData, antiData);
+                if (this.a.f21281f != null) {
+                    this.a.f21281f.callback(false, postWriteCallBackData, n0Var, writeData, antiData);
                 }
             } else {
                 this.a.a.getContext().setVisible(false);
@@ -121,11 +121,11 @@ public class a implements b {
                 return;
             }
         }
-        C1319a c1319a = new C1319a(this);
-        this.f21045e = c1319a;
+        C1330a c1330a = new C1330a(this);
+        this.f21280e = c1330a;
         this.a = newVcodeView;
-        this.f21042b = newWriteModel;
-        newWriteModel.l0(c1319a);
+        this.f21277b = newWriteModel;
+        newWriteModel.l0(c1330a);
     }
 
     @Override // c.a.t0.p4.c0.a.a.b
@@ -145,7 +145,7 @@ public class a implements b {
         String str2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webView, str)) == null) {
-            if (this.f21042b.Z() == null || StringUtils.isNull(str) || (Z = this.f21042b.Z()) == null) {
+            if (this.f21277b.Z() == null || StringUtils.isNull(str) || (Z = this.f21277b.Z()) == null) {
                 return false;
             }
             if (str.contains("objc:loadReady")) {
@@ -155,7 +155,7 @@ public class a implements b {
                 this.a.runJsMethod("handleFreshCaptcha", "'" + Z.getVcodeUrl() + "','" + Z.getVcodeExtra().slideImg + "','" + Z.getVcodeExtra().textImg + "'");
                 return true;
             } else if (str.contains("objc:jsChangePosition")) {
-                j(c.a.s0.f1.a.a(str));
+                j(c.a.s0.e1.a.a(str));
                 return true;
             } else if (str.contains("objc:finish")) {
                 if (Z != null && Z.getVideoReviewType() == 1) {
@@ -166,12 +166,12 @@ public class a implements b {
                     newVcodeView2.showToast(true, newVcodeView2.getContext().getResources().getString(j.video_send_success));
                 } else {
                     String string = this.a.getContext().getResources().getString(j.send_success);
-                    PostWriteCallBackData postWriteCallBackData = this.f21044d;
+                    PostWriteCallBackData postWriteCallBackData = this.f21279d;
                     String str3 = null;
                     if (postWriteCallBackData != null) {
                         str3 = postWriteCallBackData.getPreMsg();
-                        str2 = this.f21044d.getColorMsg();
-                        string = this.f21044d.getErrorString();
+                        str2 = this.f21279d.getColorMsg();
+                        string = this.f21279d.getErrorString();
                     } else {
                         str2 = null;
                     }
@@ -181,7 +181,7 @@ public class a implements b {
                 }
                 Intent intent = new Intent();
                 Bundle bundle = new Bundle();
-                bundle.putSerializable("post_write_callback_data", this.f21044d);
+                bundle.putSerializable("post_write_callback_data", this.f21279d);
                 intent.putExtras(bundle);
                 BaseActivity context = this.a.getContext();
                 this.a.getContext();
@@ -202,7 +202,7 @@ public class a implements b {
     public void c(NewWriteModel.g gVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, gVar) == null) {
-            this.f21046f = gVar;
+            this.f21281f = gVar;
         }
     }
 
@@ -211,7 +211,7 @@ public class a implements b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             this.a.showPostThreadLoadingView(false);
-            this.f21042b.cancelLoadData();
+            this.f21277b.cancelLoadData();
         }
     }
 
@@ -230,9 +230,9 @@ public class a implements b {
                 this.a.getContext().finish();
             } else if (!StringUtils.isNull(str)) {
                 this.a.showPostThreadLoadingView(true);
-                this.f21042b.Z().setVcode(str);
-                this.f21042b.Z().setVcodeType("5");
-                this.f21042b.p0();
+                this.f21277b.Z().setVcode(str);
+                this.f21277b.Z().setVcodeType("5");
+                this.f21277b.p0();
             } else {
                 this.a.getContext().showToast(j.neterror);
                 this.a.getContext().finish();

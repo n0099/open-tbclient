@@ -15,16 +15,16 @@ public class a {
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f8721b;
+    public String f8863b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f8722c;
+    public String f8864c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f8723d;
+    public String f8865d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f8724e;
+    public boolean f8866e;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -50,10 +50,10 @@ public class a {
                 return aVar;
             }
             aVar.a = jSONObject.optString("SSID");
-            aVar.f8721b = jSONObject.optString("BSSID");
-            aVar.f8724e = jSONObject.optBoolean("maunal");
-            aVar.f8723d = jSONObject.optString(InputType.PASSWORD);
-            aVar.f8722c = jSONObject.optString("identity");
+            aVar.f8863b = jSONObject.optString("BSSID");
+            aVar.f8866e = jSONObject.optBoolean("maunal");
+            aVar.f8865d = jSONObject.optString(InputType.PASSWORD);
+            aVar.f8864c = jSONObject.optString("identity");
             return aVar;
         }
         return (a) invokeL.objValue;

@@ -161,11 +161,11 @@ public class t {
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{zVar, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6), Long.valueOf(j2)}) == null) {
             z.f e2 = zVar.k.e();
             e2.a = j2;
-            e2.f27079h = i5;
-            e2.f27074c = i3;
-            e2.f27075d = i4;
-            e2.f27073b = i2;
-            e2.f27078g = i6;
+            e2.f27107h = i5;
+            e2.f27102c = i3;
+            e2.f27103d = i4;
+            e2.f27101b = i2;
+            e2.f27106g = i6;
             zVar.n.add(e2);
         }
     }

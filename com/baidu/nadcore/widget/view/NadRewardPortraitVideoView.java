@@ -32,7 +32,7 @@ public class NadRewardPortraitVideoView extends NadRewardVideoView {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ NadRewardPortraitVideoView f37408e;
+        public final /* synthetic */ NadRewardPortraitVideoView f37436e;
 
         public a(NadRewardPortraitVideoView nadRewardPortraitVideoView) {
             Interceptable interceptable = $ic;
@@ -49,16 +49,16 @@ public class NadRewardPortraitVideoView extends NadRewardVideoView {
                     return;
                 }
             }
-            this.f37408e = nadRewardPortraitVideoView;
+            this.f37436e = nadRewardPortraitVideoView;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                AdBaseModel adBaseModel = this.f37408e.getTag() instanceof AdBaseModel ? (AdBaseModel) this.f37408e.getTag() : null;
-                if (this.f37408e.mFeedListener != null) {
-                    this.f37408e.mFeedListener.b(adBaseModel);
+                AdBaseModel adBaseModel = this.f37436e.getTag() instanceof AdBaseModel ? (AdBaseModel) this.f37436e.getTag() : null;
+                if (this.f37436e.mFeedListener != null) {
+                    this.f37436e.mFeedListener.b(adBaseModel);
                 }
             }
         }
@@ -159,7 +159,7 @@ public class NadRewardPortraitVideoView extends NadRewardVideoView {
         if (!(interceptable == null || interceptable.invokeL(1048582, this, adBaseModel) == null) || (portraitVideoTailView = this.k) == null || adBaseModel == null) {
             return;
         }
-        p pVar = adBaseModel.f37019g;
+        p pVar = adBaseModel.f37047g;
         if (pVar != null && pVar.k) {
             portraitVideoTailView.setAdInfo(pVar);
         }

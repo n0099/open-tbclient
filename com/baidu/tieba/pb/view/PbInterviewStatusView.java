@@ -14,11 +14,11 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import c.a.d.f.p.n;
 import c.a.s0.s.s.a;
-import c.a.t0.s2.g;
-import c.a.t0.s2.h;
-import c.a.t0.s2.i;
-import c.a.t0.s2.j;
-import c.a.t0.s2.l;
+import c.a.t0.t2.g;
+import c.a.t0.t2.h;
+import c.a.t0.t2.i;
+import c.a.t0.t2.j;
+import c.a.t0.t2.l;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
@@ -39,22 +39,22 @@ public class PbInterviewStatusView extends FrameLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public View f46990e;
+    public View f47018e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f46991f;
+    public TextView f47019f;
 
     /* renamed from: g  reason: collision with root package name */
-    public ImageView f46992g;
+    public ImageView f47020g;
 
     /* renamed from: h  reason: collision with root package name */
-    public FrameLayout f46993h;
+    public FrameLayout f47021h;
 
     /* renamed from: i  reason: collision with root package name */
-    public TextView f46994i;
+    public TextView f47022i;
 
     /* renamed from: j  reason: collision with root package name */
-    public ImageView f46995j;
+    public ImageView f47023j;
     public ImageView k;
     public View l;
     public Animation m;
@@ -74,13 +74,13 @@ public class PbInterviewStatusView extends FrameLayout {
         public final /* synthetic */ PbFragment a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ c.a.t0.s2.r.f f46996b;
+        public final /* synthetic */ c.a.t0.t2.r.f f47024b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ PbInterviewStatusView f46997c;
+        public final /* synthetic */ PbInterviewStatusView f47025c;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(PbInterviewStatusView pbInterviewStatusView, long j2, long j3, PbFragment pbFragment, c.a.t0.s2.r.f fVar) {
+        public a(PbInterviewStatusView pbInterviewStatusView, long j2, long j3, PbFragment pbFragment, c.a.t0.t2.r.f fVar) {
             super(j2, j3);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -98,16 +98,16 @@ public class PbInterviewStatusView extends FrameLayout {
                     return;
                 }
             }
-            this.f46997c = pbInterviewStatusView;
+            this.f47025c = pbInterviewStatusView;
             this.a = pbFragment;
-            this.f46996b = fVar;
+            this.f47024b = fVar;
         }
 
         @Override // android.os.CountDownTimer
         public void onFinish() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f46997c.p(this.a, this.f46996b);
+                this.f47025c.p(this.a, this.f47024b);
             }
         }
 
@@ -126,7 +126,7 @@ public class PbInterviewStatusView extends FrameLayout {
         public final /* synthetic */ PbFragment a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ PbInterviewStatusView f46998b;
+        public final /* synthetic */ PbInterviewStatusView f47026b;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public b(PbInterviewStatusView pbInterviewStatusView, long j2, long j3, PbFragment pbFragment) {
@@ -147,7 +147,7 @@ public class PbInterviewStatusView extends FrameLayout {
                     return;
                 }
             }
-            this.f46998b = pbInterviewStatusView;
+            this.f47026b = pbInterviewStatusView;
             this.a = pbFragment;
         }
 
@@ -155,16 +155,16 @@ public class PbInterviewStatusView extends FrameLayout {
         public void onFinish() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                TiebaStatic.log(new StatisticItem("c11106").param("obj_id", this.f46998b.t));
-                this.f46998b.r = false;
-                this.f46998b.f46991f.setText(this.a.getPageContext().getPageActivity().getString(l.interview_live_start));
-                this.f46998b.f46991f.setTextSize(0, n.f(this.a.getPageContext().getPageActivity(), g.fontsize24));
-                this.f46998b.f46992g.setVisibility(0);
-                this.f46998b.l.setVisibility(8);
-                this.f46998b.k.setVisibility(0);
-                this.f46998b.f46993h.setVisibility(8);
-                this.f46998b.setClickable(true);
-                this.f46998b.s = true;
+                TiebaStatic.log(new StatisticItem("c11106").param("obj_id", this.f47026b.t));
+                this.f47026b.r = false;
+                this.f47026b.f47019f.setText(this.a.getPageContext().getPageActivity().getString(l.interview_live_start));
+                this.f47026b.f47019f.setTextSize(0, n.f(this.a.getPageContext().getPageActivity(), g.fontsize24));
+                this.f47026b.f47020g.setVisibility(0);
+                this.f47026b.l.setVisibility(8);
+                this.f47026b.k.setVisibility(0);
+                this.f47026b.f47021h.setVisibility(8);
+                this.f47026b.setClickable(true);
+                this.f47026b.s = true;
             }
         }
 
@@ -172,7 +172,7 @@ public class PbInterviewStatusView extends FrameLayout {
         public void onTick(long j2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j2) == null) {
-                this.f46998b.f46994i.setText(StringUtils.string(Long.valueOf(TimeUnit.MILLISECONDS.toSeconds(j2))));
+                this.f47026b.f47022i.setText(StringUtils.string(Long.valueOf(TimeUnit.MILLISECONDS.toSeconds(j2))));
             }
         }
     }
@@ -183,7 +183,7 @@ public class PbInterviewStatusView extends FrameLayout {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PbInterviewStatusView f46999e;
+        public final /* synthetic */ PbInterviewStatusView f47027e;
 
         public c(PbInterviewStatusView pbInterviewStatusView) {
             Interceptable interceptable = $ic;
@@ -200,18 +200,18 @@ public class PbInterviewStatusView extends FrameLayout {
                     return;
                 }
             }
-            this.f46999e = pbInterviewStatusView;
+            this.f47027e = pbInterviewStatusView;
         }
 
         @Override // c.a.s0.s.s.a.e
         public void onClick(c.a.s0.s.s.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
-                if (this.f46999e.q != null) {
-                    this.f46999e.q.cancel();
+                if (this.f47027e.q != null) {
+                    this.f47027e.q.cancel();
                 }
-                if (this.f46999e.n != null) {
-                    this.f46999e.n.dismiss();
+                if (this.f47027e.n != null) {
+                    this.f47027e.n.dismiss();
                 }
             }
         }
@@ -223,7 +223,7 @@ public class PbInterviewStatusView extends FrameLayout {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PbInterviewStatusView f47000e;
+        public final /* synthetic */ PbInterviewStatusView f47028e;
 
         public d(PbInterviewStatusView pbInterviewStatusView) {
             Interceptable interceptable = $ic;
@@ -240,16 +240,16 @@ public class PbInterviewStatusView extends FrameLayout {
                     return;
                 }
             }
-            this.f47000e = pbInterviewStatusView;
+            this.f47028e = pbInterviewStatusView;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f47000e.n == null) {
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f47028e.n == null) {
                 return;
             }
-            this.f47000e.n.show();
+            this.f47028e.n.show();
         }
     }
 
@@ -260,10 +260,10 @@ public class PbInterviewStatusView extends FrameLayout {
         public final /* synthetic */ TextView a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ PbFragment f47001b;
+        public final /* synthetic */ PbFragment f47029b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ PbInterviewStatusView f47002c;
+        public final /* synthetic */ PbInterviewStatusView f47030c;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public e(PbInterviewStatusView pbInterviewStatusView, long j2, long j3, TextView textView, PbFragment pbFragment) {
@@ -284,19 +284,19 @@ public class PbInterviewStatusView extends FrameLayout {
                     return;
                 }
             }
-            this.f47002c = pbInterviewStatusView;
+            this.f47030c = pbInterviewStatusView;
             this.a = textView;
-            this.f47001b = pbFragment;
+            this.f47029b = pbFragment;
         }
 
         @Override // android.os.CountDownTimer
         public void onFinish() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (this.f47002c.n != null) {
-                    this.f47002c.n.dismiss();
+                if (this.f47030c.n != null) {
+                    this.f47030c.n.dismiss();
                 }
-                PbFragment pbFragment = this.f47001b;
+                PbFragment pbFragment = this.f47029b;
                 if (pbFragment != null) {
                     pbFragment.goInterviewLivePage();
                 }
@@ -335,7 +335,7 @@ public class PbInterviewStatusView extends FrameLayout {
                 return;
             }
         }
-        this.f46990e = null;
+        this.f47018e = null;
         this.n = null;
         this.o = null;
         this.p = null;
@@ -384,7 +384,7 @@ public class PbInterviewStatusView extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, pbFragment)) == null) {
             if (this.m == null) {
-                Animation loadAnimation = AnimationUtils.loadAnimation(pbFragment.getPageContext().getPageActivity(), c.a.t0.s2.e.rotate_anim);
+                Animation loadAnimation = AnimationUtils.loadAnimation(pbFragment.getPageContext().getPageActivity(), c.a.t0.t2.e.rotate_anim);
                 this.m = loadAnimation;
                 loadAnimation.setDuration(TimeUnit.SECONDS.toMillis(3L));
                 this.m.setInterpolator(new LinearInterpolator());
@@ -399,22 +399,22 @@ public class PbInterviewStatusView extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, context) == null) {
             View inflate = LayoutInflater.from(context).inflate(j.pb_interview_status, (ViewGroup) this, true);
-            this.f46990e = inflate;
-            this.f46991f = (TextView) inflate.findViewById(i.interview_live_status_btn);
-            this.f46993h = (FrameLayout) this.f46990e.findViewById(i.count_container);
-            this.f46992g = (ImageView) this.f46990e.findViewById(i.interview_mic);
-            this.k = (ImageView) this.f46990e.findViewById(i.interview_arrow);
-            this.f46994i = (TextView) this.f46990e.findViewById(i.count_text);
-            this.f46995j = (ImageView) this.f46990e.findViewById(i.count_bg);
-            this.l = this.f46990e.findViewById(i.interview_live_status_divider);
-            this.f46990e.setAlpha(0.8f);
-            SkinManager.setBackgroundColor(this.f46990e, c.a.t0.s2.f.CAM_X0302);
-            SkinManager.setViewTextColor(this.f46991f, c.a.t0.s2.f.CAM_X0111);
-            SkinManager.setBackgroundResource(this.f46995j, h.icon_interview_loding);
-            SkinManager.setViewTextColor(this.f46994i, c.a.t0.s2.f.CAM_X0111);
-            SkinManager.setBackgroundResource(this.f46992g, h.icon_interview_mic);
+            this.f47018e = inflate;
+            this.f47019f = (TextView) inflate.findViewById(i.interview_live_status_btn);
+            this.f47021h = (FrameLayout) this.f47018e.findViewById(i.count_container);
+            this.f47020g = (ImageView) this.f47018e.findViewById(i.interview_mic);
+            this.k = (ImageView) this.f47018e.findViewById(i.interview_arrow);
+            this.f47022i = (TextView) this.f47018e.findViewById(i.count_text);
+            this.f47023j = (ImageView) this.f47018e.findViewById(i.count_bg);
+            this.l = this.f47018e.findViewById(i.interview_live_status_divider);
+            this.f47018e.setAlpha(0.8f);
+            SkinManager.setBackgroundColor(this.f47018e, c.a.t0.t2.f.CAM_X0302);
+            SkinManager.setViewTextColor(this.f47019f, c.a.t0.t2.f.CAM_X0111);
+            SkinManager.setBackgroundResource(this.f47023j, h.icon_interview_loding);
+            SkinManager.setViewTextColor(this.f47022i, c.a.t0.t2.f.CAM_X0111);
+            SkinManager.setBackgroundResource(this.f47020g, h.icon_interview_mic);
             SkinManager.setBackgroundResource(this.k, h.icon_arrow_tip_white);
-            SkinManager.setBackgroundColor(this.l, c.a.t0.s2.f.CAM_X0204);
+            SkinManager.setBackgroundColor(this.l, c.a.t0.t2.f.CAM_X0204);
         }
     }
 
@@ -428,11 +428,11 @@ public class PbInterviewStatusView extends FrameLayout {
         View findViewById = inflate.findViewById(i.line_left);
         View findViewById2 = inflate.findViewById(i.line_right);
         SkinManager.setBackgroundResource((ImageView) inflate.findViewById(i.pop_live), h.pic_pop_live_n);
-        SkinManager.setViewTextColor((TextView) inflate.findViewById(i.transfer_tip_txt), c.a.t0.s2.f.CAM_X0105);
-        SkinManager.setViewTextColor((TextView) inflate.findViewById(i.transfer_tip_txt_1), c.a.t0.s2.f.CAM_X0105);
-        SkinManager.setBackgroundColor(findViewById, c.a.t0.s2.f.CAM_X0204);
-        SkinManager.setBackgroundColor(findViewById2, c.a.t0.s2.f.CAM_X0204);
-        SkinManager.setViewTextColor(textView, c.a.t0.s2.f.CAM_X0106);
+        SkinManager.setViewTextColor((TextView) inflate.findViewById(i.transfer_tip_txt), c.a.t0.t2.f.CAM_X0105);
+        SkinManager.setViewTextColor((TextView) inflate.findViewById(i.transfer_tip_txt_1), c.a.t0.t2.f.CAM_X0105);
+        SkinManager.setBackgroundColor(findViewById, c.a.t0.t2.f.CAM_X0204);
+        SkinManager.setBackgroundColor(findViewById2, c.a.t0.t2.f.CAM_X0204);
+        SkinManager.setViewTextColor(textView, c.a.t0.t2.f.CAM_X0106);
         c.a.s0.s.s.a aVar = new c.a.s0.s.s.a(pbFragment.getPageContext().getPageActivity());
         this.n = aVar;
         aVar.setContentView(inflate);
@@ -444,33 +444,33 @@ public class PbInterviewStatusView extends FrameLayout {
         this.q = new e(this, TimeUnit.MILLISECONDS.toMillis(3300L), TimeUnit.SECONDS.toMillis(1L), textView, pbFragment).start();
     }
 
-    public final void p(PbFragment pbFragment, c.a.t0.s2.r.f fVar) {
+    public final void p(PbFragment pbFragment, c.a.t0.t2.r.f fVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048581, this, pbFragment, fVar) == null) {
-            int n1 = fVar.O().n1();
-            if (n1 == 1) {
-                long millis = TimeUnit.SECONDS.toMillis(fVar.O().m1().e()) - System.currentTimeMillis();
+            int o1 = fVar.O().o1();
+            if (o1 == 1) {
+                long millis = TimeUnit.SECONDS.toMillis(fVar.O().n1().e()) - System.currentTimeMillis();
                 if (millis > TimeUnit.SECONDS.toMillis(61L)) {
                     long millis2 = millis - TimeUnit.SECONDS.toMillis(61L);
                     this.o = new a(this, millis2, millis2, pbFragment, fVar).start();
-                    this.f46990e.setVisibility(8);
+                    this.f47018e.setVisibility(8);
                     f fVar2 = this.u;
                     if (fVar2 != null) {
                         fVar2.a(false);
                     }
                 } else {
                     TiebaStatic.log(new StatisticItem("c11105").param("obj_id", this.t));
-                    this.f46990e.setVisibility(0);
+                    this.f47018e.setVisibility(0);
                     f fVar3 = this.u;
                     if (fVar3 != null) {
                         fVar3.a(true);
                     }
-                    this.f46991f.setText(pbFragment.getPageContext().getPageActivity().getString(l.interview_live_before_start));
-                    this.f46991f.setTextSize(0, n.f(pbFragment.getPageContext().getPageActivity(), g.fontsize24));
-                    this.f46992g.setVisibility(8);
+                    this.f47019f.setText(pbFragment.getPageContext().getPageActivity().getString(l.interview_live_before_start));
+                    this.f47019f.setTextSize(0, n.f(pbFragment.getPageContext().getPageActivity(), g.fontsize24));
+                    this.f47020g.setVisibility(8);
                     this.k.setVisibility(8);
                     this.l.setVisibility(8);
-                    c.a.t0.w3.a.c(pbFragment, this.f46995j, m(pbFragment), null);
+                    c.a.t0.x3.a.c(pbFragment, this.f47023j, m(pbFragment), null);
                     CountDownTimer countDownTimer = this.p;
                     if (countDownTimer != null) {
                         countDownTimer.cancel();
@@ -478,33 +478,33 @@ public class PbInterviewStatusView extends FrameLayout {
                     this.p = new b(this, millis, TimeUnit.SECONDS.toMillis(1L), pbFragment).start();
                 }
                 setClickable(false);
-            } else if (n1 != 2 && n1 != 3) {
-                this.f46990e.setVisibility(8);
+            } else if (o1 != 2 && o1 != 3) {
+                this.f47018e.setVisibility(8);
             } else {
-                this.f46990e.setVisibility(0);
+                this.f47018e.setVisibility(0);
                 f fVar4 = this.u;
                 if (fVar4 != null) {
                     fVar4.a(true);
                 }
-                this.f46992g.setVisibility(8);
+                this.f47020g.setVisibility(8);
                 this.k.setVisibility(8);
-                this.f46993h.setVisibility(8);
+                this.f47021h.setVisibility(8);
                 this.l.setVisibility(0);
-                this.f46991f.setTextSize(0, n.f(pbFragment.getPageContext().getPageActivity(), g.fontsize28));
-                SkinManager.setBackgroundColor(this.f46990e, c.a.t0.s2.f.CAM_X0205);
-                SkinManager.setViewTextColor(this.f46991f, c.a.t0.s2.f.CAM_X0106);
-                SkinManager.setBackgroundColor(this.l, c.a.t0.s2.f.CAM_X0204);
-                this.f46990e.setAlpha(0.95f);
+                this.f47019f.setTextSize(0, n.f(pbFragment.getPageContext().getPageActivity(), g.fontsize28));
+                SkinManager.setBackgroundColor(this.f47018e, c.a.t0.t2.f.CAM_X0205);
+                SkinManager.setViewTextColor(this.f47019f, c.a.t0.t2.f.CAM_X0106);
+                SkinManager.setBackgroundColor(this.l, c.a.t0.t2.f.CAM_X0204);
+                this.f47018e.setAlpha(0.95f);
                 setClickable(true);
-                if (n1 == 2) {
-                    this.f46991f.setText(pbFragment.getPageContext().getPageActivity().getString(l.interview_live_in_process));
+                if (o1 == 2) {
+                    this.f47019f.setText(pbFragment.getPageContext().getPageActivity().getString(l.interview_live_in_process));
                     if (this.r) {
                         o(pbFragment);
                         return;
                     }
                     return;
                 }
-                this.f46991f.setText(pbFragment.getPageContext().getPageActivity().getString(l.interview_live_finished));
+                this.f47019f.setText(pbFragment.getPageContext().getPageActivity().getString(l.interview_live_finished));
             }
         }
     }
@@ -516,13 +516,13 @@ public class PbInterviewStatusView extends FrameLayout {
         }
     }
 
-    public void setData(PbFragment pbFragment, c.a.t0.s2.r.f fVar) {
+    public void setData(PbFragment pbFragment, c.a.t0.t2.r.f fVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048583, this, pbFragment, fVar) == null) {
-            String d2 = fVar.O().m1().d();
+            String d2 = fVar.O().n1().d();
             this.t = d2;
             if (StringUtils.isNull(d2)) {
-                this.t = fVar.O().m1().f();
+                this.t = fVar.O().n1().f();
             }
             this.r = !"from_interview_live".equals(pbFragment.getFromWhere());
             p(pbFragment, fVar);
@@ -548,7 +548,7 @@ public class PbInterviewStatusView extends FrameLayout {
                 return;
             }
         }
-        this.f46990e = null;
+        this.f47018e = null;
         this.n = null;
         this.o = null;
         this.p = null;
@@ -579,7 +579,7 @@ public class PbInterviewStatusView extends FrameLayout {
                 return;
             }
         }
-        this.f46990e = null;
+        this.f47018e = null;
         this.n = null;
         this.o = null;
         this.p = null;

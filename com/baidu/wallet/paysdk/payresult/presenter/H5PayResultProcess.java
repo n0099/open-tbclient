@@ -12,7 +12,7 @@ import com.dxmpay.apollon.restnet.rest.httpurlconnection.RestUrlConnectionReques
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 import java.util.List;
-/* loaded from: classes13.dex */
+/* loaded from: classes2.dex */
 public abstract class H5PayResultProcess {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

@@ -16,7 +16,7 @@ public class a implements IInterface {
     public final IBinder a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final String f54234b;
+    public final String f54279b;
 
     public a(IBinder iBinder, String str) {
         Interceptable interceptable = $ic;
@@ -34,7 +34,7 @@ public class a implements IInterface {
             }
         }
         this.a = iBinder;
-        this.f54234b = str;
+        this.f54279b = str;
     }
 
     public final Parcel a() {
@@ -42,7 +42,7 @@ public class a implements IInterface {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             Parcel obtain = Parcel.obtain();
-            obtain.writeInterfaceToken(this.f54234b);
+            obtain.writeInterfaceToken(this.f54279b);
             return obtain;
         }
         return (Parcel) invokeV.objValue;

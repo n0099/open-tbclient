@@ -29,7 +29,7 @@ public class y extends q<TTNativeExpressAd> {
         public final /* synthetic */ FunAdSlot a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ y f28236b;
+        public final /* synthetic */ y f28264b;
 
         public a(y yVar, FunAdSlot funAdSlot) {
             Interceptable interceptable = $ic;
@@ -46,7 +46,7 @@ public class y extends q<TTNativeExpressAd> {
                     return;
                 }
             }
-            this.f28236b = yVar;
+            this.f28264b = yVar;
             this.a = funAdSlot;
         }
 
@@ -55,7 +55,7 @@ public class y extends q<TTNativeExpressAd> {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeIL(1048576, this, i2, str) == null) {
                 LogPrinter.e("onError code: " + i2 + ", message: " + str, new Object[0]);
-                this.f28236b.onError(i2, str);
+                this.f28264b.onError(i2, str);
             }
         }
 
@@ -66,7 +66,7 @@ public class y extends q<TTNativeExpressAd> {
                 LogPrinter.d();
                 if (list != null && !list.isEmpty()) {
                     TTNativeExpressAd tTNativeExpressAd = list.get(0);
-                    y yVar = this.f28236b;
+                    y yVar = this.f28264b;
                     this.a.getSid();
                     yVar.getClass();
                     tTNativeExpressAd.setExpressInteractionListener((TTNativeExpressAd.AdInteractionListener) new z(yVar, tTNativeExpressAd));
@@ -74,7 +74,7 @@ public class y extends q<TTNativeExpressAd> {
                     return;
                 }
                 LogPrinter.e("onNativeExpressAdLoad error: adList is null or empty", new Object[0]);
-                this.f28236b.onError(0, "NoFill");
+                this.f28264b.onError(0, "NoFill");
             }
         }
     }
@@ -121,7 +121,7 @@ public class y extends q<TTNativeExpressAd> {
             }
             AdSlot build = new AdSlot.Builder().setCodeId(this.mPid.pid).setSupportDeepLink(true).setAdCount(1).setDownloadType(FunAdSdk.getFunAdConfig().downLoadType).setExpressViewAcceptedSize(expressWidth, expressHeight).build();
             onLoadStart(funAdSlot);
-            this.f28217h.loadInteractionExpressAd(build, new a(this, funAdSlot));
+            this.f28245h.loadInteractionExpressAd(build, new a(this, funAdSlot));
         }
     }
 

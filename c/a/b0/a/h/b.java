@@ -104,7 +104,7 @@ public class b extends i {
                 fileInputStream.read(bArr);
                 String str = new String(bArr);
                 fileInputStream.close();
-                JSONArray optJSONArray = new JSONObject(str).optJSONArray(com.baidu.fsg.face.base.b.c.f34001g);
+                JSONArray optJSONArray = new JSONObject(str).optJSONArray(com.baidu.fsg.face.base.b.c.f34029g);
                 if (optJSONArray != null && optJSONArray.length() > 0) {
                     ArrayList arrayList = new ArrayList();
                     int length = optJSONArray.length();

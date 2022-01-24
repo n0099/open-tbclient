@@ -18,7 +18,7 @@ public class g implements c {
     public final c a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final Map<Integer, c> f19263b;
+    public final Map<Integer, c> f19526b;
 
     public g(c defaultLayouter, Pair<Integer, ? extends c>... layouter) {
         Interceptable interceptable = $ic;
@@ -38,7 +38,7 @@ public class g implements c {
         Intrinsics.checkNotNullParameter(defaultLayouter, "defaultLayouter");
         Intrinsics.checkNotNullParameter(layouter, "layouter");
         this.a = defaultLayouter;
-        this.f19263b = MapsKt__MapsKt.mutableMapOf((Pair[]) Arrays.copyOf(layouter, layouter.length));
+        this.f19526b = MapsKt__MapsKt.mutableMapOf((Pair[]) Arrays.copyOf(layouter, layouter.length));
     }
 
     @Override // c.a.t0.m0.h.c
@@ -66,7 +66,7 @@ public class g implements c {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i2, i3) == null) {
             this.a.c(i2, i3);
-            for (c cVar : this.f19263b.values()) {
+            for (c cVar : this.f19526b.values()) {
                 cVar.c(i2, i3);
             }
         }
@@ -77,7 +77,7 @@ public class g implements c {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             this.a.clear();
-            for (c cVar : this.f19263b.values()) {
+            for (c cVar : this.f19526b.values()) {
                 cVar.clear();
             }
         }
@@ -110,7 +110,7 @@ public class g implements c {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, aVar)) == null) {
-            c cVar = this.f19263b.get(Integer.valueOf(e(aVar)));
+            c cVar = this.f19526b.get(Integer.valueOf(e(aVar)));
             return cVar == null ? this.a : cVar;
         }
         return (c) invokeL.objValue;

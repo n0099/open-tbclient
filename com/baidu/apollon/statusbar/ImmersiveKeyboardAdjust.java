@@ -59,7 +59,7 @@ public class ImmersiveKeyboardAdjust {
                 public final /* synthetic */ View a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ ImmersiveKeyboardAdjust f32653b;
+                public final /* synthetic */ ImmersiveKeyboardAdjust f32681b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -76,7 +76,7 @@ public class ImmersiveKeyboardAdjust {
                             return;
                         }
                     }
-                    this.f32653b = this;
+                    this.f32681b = this;
                     this.a = view;
                 }
 
@@ -85,12 +85,12 @@ public class ImmersiveKeyboardAdjust {
                     int computeUsableHeight;
                     View view2;
                     Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || (computeUsableHeight = this.f32653b.computeUsableHeight(this.a)) == this.f32653b.usableHeightPrevious || (view2 = this.a) == null) {
+                    if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || (computeUsableHeight = this.f32681b.computeUsableHeight(this.a)) == this.f32681b.usableHeightPrevious || (view2 = this.a) == null) {
                         return;
                     }
                     view2.getLayoutParams().height = computeUsableHeight;
                     this.a.requestLayout();
-                    this.f32653b.usableHeightPrevious = computeUsableHeight;
+                    this.f32681b.usableHeightPrevious = computeUsableHeight;
                 }
             };
         }

@@ -50,12 +50,12 @@ public class d extends z {
             if (eVar == null) {
                 c.a.r0.a.e0.d.c("setFullscreenOrientationSync", "none swanApp");
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "illegal runtime");
-                boolean z = z.f6201b;
+                boolean z = z.f6343b;
                 return false;
             } else if (context == null) {
                 c.a.r0.a.e0.d.c("setFullscreenOrientationSync", "none context");
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "illegal context");
-                boolean z2 = z.f6201b;
+                boolean z2 = z.f6343b;
                 return false;
             } else {
                 JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
@@ -73,7 +73,7 @@ public class d extends z {
                 }
                 int j2 = j(optInt);
                 ((SwanAppWebViewManager) A).c1(j2);
-                if (z.f6201b) {
+                if (z.f6343b) {
                     String str = "orientation set to : " + j2;
                 }
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(0);

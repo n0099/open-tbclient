@@ -14,19 +14,19 @@ public class a implements c.a.r0.a.m1.a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public c f7205e;
+    public c f7347e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f7206f;
+    public int f7348f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f7207g;
+    public int f7349g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f7208h;
+    public int f7350h;
 
     /* renamed from: i  reason: collision with root package name */
-    public float f7209i;
+    public float f7351i;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -41,10 +41,10 @@ public class a implements c.a.r0.a.m1.a {
                 return;
             }
         }
-        this.f7206f = 0;
-        this.f7207g = -16777216;
-        this.f7208h = -1;
-        this.f7209i = 0.0f;
+        this.f7348f = 0;
+        this.f7349g = -16777216;
+        this.f7350h = -1;
+        this.f7351i = 0.0f;
     }
 
     @Override // c.a.r0.a.m1.a
@@ -52,13 +52,13 @@ public class a implements c.a.r0.a.m1.a {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) && jSONObject != null && jSONObject.has("radius")) {
             c cVar = new c();
-            this.f7205e = cVar;
+            this.f7347e = cVar;
             cVar.a(jSONObject);
-            if (this.f7205e.isValid()) {
-                this.f7206f = c.a.r0.a.i1.c.d.a(jSONObject.optString("color"), 0);
-                this.f7207g = c.a.r0.a.i1.c.d.a(jSONObject.optString("fillColor"), -16777216);
-                this.f7208h = jSONObject.optInt("radius", -1);
-                this.f7209i = Math.abs(c.a.r0.a.i1.c.d.b(jSONObject.optDouble("strokeWidth", 0.0d)));
+            if (this.f7347e.isValid()) {
+                this.f7348f = c.a.r0.a.i1.c.d.a(jSONObject.optString("color"), 0);
+                this.f7349g = c.a.r0.a.i1.c.d.a(jSONObject.optString("fillColor"), -16777216);
+                this.f7350h = jSONObject.optInt("radius", -1);
+                this.f7351i = Math.abs(c.a.r0.a.i1.c.d.b(jSONObject.optDouble("strokeWidth", 0.0d)));
             }
         }
     }
@@ -68,8 +68,8 @@ public class a implements c.a.r0.a.m1.a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            c cVar = this.f7205e;
-            return (cVar == null || !cVar.isValid() || this.f7208h == -1) ? false : true;
+            c cVar = this.f7347e;
+            return (cVar == null || !cVar.isValid() || this.f7350h == -1) ? false : true;
         }
         return invokeV.booleanValue;
     }
@@ -78,7 +78,7 @@ public class a implements c.a.r0.a.m1.a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return "coordinate ->" + this.f7205e + "color ->" + this.f7206f + "fillColor ->" + this.f7207g + "radius ->" + this.f7208h + "strokeWidth ->" + this.f7209i;
+            return "coordinate ->" + this.f7347e + "color ->" + this.f7348f + "fillColor ->" + this.f7349g + "radius ->" + this.f7350h + "strokeWidth ->" + this.f7351i;
         }
         return (String) invokeV.objValue;
     }

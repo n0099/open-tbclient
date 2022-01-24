@@ -12,7 +12,7 @@ import android.webkit.JsPromptResult;
 import android.webkit.WebView;
 import android.widget.RelativeLayout;
 import c.a.d.f.p.n;
-import c.a.s0.e1.v;
+import c.a.s0.d1.v;
 import c.a.s0.s.s.g;
 import c.a.s0.s.s.j;
 import com.baidu.adp.framework.MessageManager;
@@ -45,7 +45,7 @@ import java.util.List;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes12.dex */
-public class ForumTestActivity extends BaseActivity implements c.a.t0.u0.e.a.b {
+public class ForumTestActivity extends BaseActivity implements c.a.t0.v0.e.a.b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public j.d mDialogSaveToDiskListener;
@@ -66,7 +66,7 @@ public class ForumTestActivity extends BaseActivity implements c.a.t0.u0.e.a.b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ ForumTestActivity f42540e;
+        public final /* synthetic */ ForumTestActivity f42561e;
 
         public a(ForumTestActivity forumTestActivity) {
             Interceptable interceptable = $ic;
@@ -83,14 +83,14 @@ public class ForumTestActivity extends BaseActivity implements c.a.t0.u0.e.a.b {
                     return;
                 }
             }
-            this.f42540e = forumTestActivity;
+            this.f42561e = forumTestActivity;
         }
 
         @Override // android.view.View.OnLongClickListener
         public boolean onLongClick(View view) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, view)) == null) ? this.f42540e.handleLongClick() : invokeL.booleanValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, view)) == null) ? this.f42561e.handleLongClick() : invokeL.booleanValue;
         }
     }
 
@@ -100,10 +100,10 @@ public class ForumTestActivity extends BaseActivity implements c.a.t0.u0.e.a.b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ ShareItem f42541e;
+        public final /* synthetic */ ShareItem f42562e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ ForumTestActivity f42542f;
+        public final /* synthetic */ ForumTestActivity f42563f;
 
         public b(ForumTestActivity forumTestActivity, ShareItem shareItem) {
             Interceptable interceptable = $ic;
@@ -120,16 +120,16 @@ public class ForumTestActivity extends BaseActivity implements c.a.t0.u0.e.a.b {
                     return;
                 }
             }
-            this.f42542f = forumTestActivity;
-            this.f42541e = shareItem;
+            this.f42563f = forumTestActivity;
+            this.f42562e = shareItem;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                c.a.d.f.p.c.a(this.f42541e.t);
-                n.N(this.f42542f, view.getResources().getString(R.string.copy_pb_url_success));
+                c.a.d.f.p.c.a(this.f42562e.t);
+                n.N(this.f42563f, view.getResources().getString(R.string.copy_pb_url_success));
             }
         }
     }
@@ -226,7 +226,7 @@ public class ForumTestActivity extends BaseActivity implements c.a.t0.u0.e.a.b {
             this.a = forumTestActivity;
         }
 
-        @Override // c.a.s0.e1.v.a
+        @Override // c.a.s0.d1.v.a
         public void onError(int i2, String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeIL(1048576, this, i2, str) == null) {
@@ -234,7 +234,7 @@ public class ForumTestActivity extends BaseActivity implements c.a.t0.u0.e.a.b {
             }
         }
 
-        @Override // c.a.s0.e1.v.a
+        @Override // c.a.s0.d1.v.a
         public void onSuccess(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
@@ -363,7 +363,7 @@ public class ForumTestActivity extends BaseActivity implements c.a.t0.u0.e.a.b {
         this.mMoreDialog.showDialog();
     }
 
-    @Override // c.a.t0.u0.e.a.b
+    @Override // c.a.t0.v0.e.a.b
     public boolean dealJsInterface(String str, String str2, String str3, JsPromptResult jsPromptResult) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;

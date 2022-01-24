@@ -44,12 +44,12 @@ public class e2 implements e5 {
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj) == null) {
             Info info = (Info) obj;
             try {
-                this.a.f30483c = info;
-                if (this.a.f30486f != null) {
+                this.a.f30511c = info;
+                if (this.a.f30514f != null) {
                     if (info == null || info.getType() != 61) {
-                        this.a.f30486f.onFail(PBError.PID_TYPE_ERROR);
+                        this.a.f30514f.onFail(PBError.PID_TYPE_ERROR);
                     } else if (this.a.e()) {
-                        this.a.f30486f.onLoaded();
+                        this.a.f30514f.onLoaded();
                     }
                 }
             } catch (Exception unused) {
@@ -61,7 +61,7 @@ public class e2 implements e5 {
     public void onFail(PBError pBError) {
         i3 i3Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, pBError) == null) || (i3Var = this.a.f30486f) == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, pBError) == null) || (i3Var = this.a.f30514f) == null) {
             return;
         }
         i3Var.onFail(pBError);

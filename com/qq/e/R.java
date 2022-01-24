@@ -4,12 +4,12 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public final class R {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static final class anim {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int slide_right_in = 0x7f01013a;
@@ -31,7 +31,7 @@ public final class R {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static final class drawable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int gdt_ic_back = 0x7f080648;
@@ -79,7 +79,7 @@ public final class R {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static final class string {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int app_name = 0x7f0f029e;
@@ -100,7 +100,7 @@ public final class R {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static final class style {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int DialogAnimationRight = 0x7f100103;
@@ -123,7 +123,7 @@ public final class R {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static final class xml {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int gdt_file_path = 0x7f130005;

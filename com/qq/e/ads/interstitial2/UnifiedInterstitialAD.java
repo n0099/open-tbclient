@@ -19,22 +19,22 @@ import com.qq.e.comm.util.AdErrorConvertor;
 import com.qq.e.comm.util.GDTLogger;
 import java.util.Map;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class UnifiedInterstitialAD extends LiteAbstractAD<UIADI> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: g  reason: collision with root package name */
-    public AtomicInteger f58983g;
+    public AtomicInteger f59028g;
 
     /* renamed from: h  reason: collision with root package name */
-    public AtomicInteger f58984h;
+    public AtomicInteger f59029h;
 
     /* renamed from: i  reason: collision with root package name */
-    public volatile UnifiedInterstitialMediaListener f58985i;
+    public volatile UnifiedInterstitialMediaListener f59030i;
 
     /* renamed from: j  reason: collision with root package name */
-    public volatile VideoOption f58986j;
+    public volatile VideoOption f59031j;
     public volatile int k;
     public volatile int l;
     public volatile LoadAdParams m;
@@ -78,8 +78,8 @@ public class UnifiedInterstitialAD extends LiteAbstractAD<UIADI> {
                 return;
             }
         }
-        this.f58983g = new AtomicInteger(0);
-        this.f58984h = new AtomicInteger(0);
+        this.f59028g = new AtomicInteger(0);
+        this.f59029h = new AtomicInteger(0);
         this.n = unifiedInterstitialADListener;
         a(activity, str);
     }
@@ -99,8 +99,8 @@ public class UnifiedInterstitialAD extends LiteAbstractAD<UIADI> {
                 return;
             }
         }
-        this.f58983g = new AtomicInteger(0);
-        this.f58984h = new AtomicInteger(0);
+        this.f59028g = new AtomicInteger(0);
+        this.f59029h = new AtomicInteger(0);
         this.n = unifiedInterstitialADListener;
         a(activity, str, str2);
     }
@@ -185,17 +185,17 @@ public class UnifiedInterstitialAD extends LiteAbstractAD<UIADI> {
     public void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            setVideoOption(this.f58986j);
-            setMediaListener(this.f58985i);
+            setVideoOption(this.f59031j);
+            setMediaListener(this.f59030i);
             setMinVideoDuration(this.k);
             setMaxVideoDuration(this.l);
             setRewardListener(this.o);
             setLoadAdParams(this.m);
             setServerSideVerificationOptions(this.p);
-            while (this.f58983g.getAndDecrement() > 0) {
+            while (this.f59028g.getAndDecrement() > 0) {
                 loadAD();
             }
-            while (this.f58984h.getAndDecrement() > 0) {
+            while (this.f59029h.getAndDecrement() > 0) {
                 loadFullScreenAD();
             }
         }
@@ -288,7 +288,7 @@ public class UnifiedInterstitialAD extends LiteAbstractAD<UIADI> {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048587, this) == null) && a()) {
             if (!b()) {
-                this.f58983g.incrementAndGet();
+                this.f59028g.incrementAndGet();
                 return;
             }
             T t = this.a;
@@ -304,7 +304,7 @@ public class UnifiedInterstitialAD extends LiteAbstractAD<UIADI> {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048588, this) == null) && a()) {
             if (!b()) {
-                this.f58984h.incrementAndGet();
+                this.f59029h.incrementAndGet();
                 return;
             }
             T t = this.a;
@@ -344,7 +344,7 @@ public class UnifiedInterstitialAD extends LiteAbstractAD<UIADI> {
     public void setMediaListener(UnifiedInterstitialMediaListener unifiedInterstitialMediaListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048591, this, unifiedInterstitialMediaListener) == null) {
-            this.f58985i = unifiedInterstitialMediaListener;
+            this.f59030i = unifiedInterstitialMediaListener;
             T t = this.a;
             if (t != 0) {
                 ((UIADI) t).setMediaListener(unifiedInterstitialMediaListener);
@@ -391,7 +391,7 @@ public class UnifiedInterstitialAD extends LiteAbstractAD<UIADI> {
     public void setVideoOption(VideoOption videoOption) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048595, this, videoOption) == null) {
-            this.f58986j = videoOption;
+            this.f59031j = videoOption;
             T t = this.a;
             if (t != 0) {
                 ((UIADI) t).setVideoOption(videoOption);

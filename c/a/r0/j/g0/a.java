@@ -15,13 +15,13 @@ public class a {
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public c.a.r0.j.g0.i.d f11016b;
+    public c.a.r0.j.g0.i.d f11158b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f11017c;
+    public int f11159c;
 
     /* renamed from: d  reason: collision with root package name */
-    public long f11018d;
+    public long f11160d;
 
     public a(int i2, c.a.r0.j.g0.i.d dVar) {
         Interceptable interceptable = $ic;
@@ -39,9 +39,9 @@ public class a {
             }
         }
         this.a = i2;
-        this.f11016b = dVar;
-        this.f11017c = h.d() ? 20 : 10;
-        this.f11018d = System.currentTimeMillis();
+        this.f11158b = dVar;
+        this.f11159c = h.d() ? 20 : 10;
+        this.f11160d = System.currentTimeMillis();
     }
 
     public JSONObject a() {
@@ -51,10 +51,10 @@ public class a {
             JSONObject jSONObject = new JSONObject();
             try {
                 jSONObject.put("type", this.a);
-                jSONObject.put("stage", this.f11017c);
-                jSONObject.put(TimeDisplaySetting.TIME_DISPLAY_SETTING, this.f11018d);
-                if (this.f11016b != null) {
-                    jSONObject.put("msg", this.f11016b.a());
+                jSONObject.put("stage", this.f11159c);
+                jSONObject.put(TimeDisplaySetting.TIME_DISPLAY_SETTING, this.f11160d);
+                if (this.f11158b != null) {
+                    jSONObject.put("msg", this.f11158b.a());
                 }
             } catch (JSONException unused) {
             }

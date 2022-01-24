@@ -22,11 +22,11 @@ public class a implements c.a.r0.a.h0.o.g.d.a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public CopyOnWriteArrayList<c.a.r0.a.h0.o.g.f.a> f6757b;
+    public CopyOnWriteArrayList<c.a.r0.a.h0.o.g.f.a> f6899b;
 
     /* renamed from: c.a.r0.a.h0.o.g.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static /* synthetic */ class C0395a {
+    public static /* synthetic */ class C0404a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
@@ -54,7 +54,7 @@ public class a implements c.a.r0.a.h0.o.g.d.a {
         }
     }
 
-    public /* synthetic */ a(C0395a c0395a) {
+    public /* synthetic */ a(C0404a c0404a) {
         this();
     }
 
@@ -66,10 +66,10 @@ public class a implements c.a.r0.a.h0.o.g.d.a {
 
     public void a(c.a.r0.a.h0.o.g.f.a aVar) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) || aVar == null || this.f6757b.contains(aVar)) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) || aVar == null || this.f6899b.contains(aVar)) {
             return;
         }
-        this.f6757b.add(aVar);
+        this.f6899b.add(aVar);
     }
 
     @RequiresApi(api = 21)
@@ -90,10 +90,10 @@ public class a implements c.a.r0.a.h0.o.g.d.a {
         InterceptResult invokeLLZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(Constants.METHOD_SEND_USER_MSG, this, str, map, z)) == null) {
-            if (this.f6757b.isEmpty() || TextUtils.isEmpty(str) || str.startsWith("file://")) {
+            if (this.f6899b.isEmpty() || TextUtils.isEmpty(str) || str.startsWith("file://")) {
                 return null;
             }
-            return new d(this.f6757b, str, map, 0, z).b(str, map, z);
+            return new d(this.f6899b, str, map, 0, z).b(str, map, z);
         }
         return (WebResourceResponse) invokeLLZ.objValue;
     }
@@ -111,6 +111,6 @@ public class a implements c.a.r0.a.h0.o.g.d.a {
                 return;
             }
         }
-        this.f6757b = new CopyOnWriteArrayList<>();
+        this.f6899b = new CopyOnWriteArrayList<>();
     }
 }

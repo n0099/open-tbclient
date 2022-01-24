@@ -37,7 +37,7 @@ public final class b extends z {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: e  reason: collision with root package name */
-        public static final a f8743e;
+        public static final a f8885e;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -53,7 +53,7 @@ public final class b extends z {
                     return;
                 }
             }
-            f8743e = new a();
+            f8885e = new a();
         }
 
         public a() {
@@ -107,53 +107,53 @@ public final class b extends z {
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, entity, callbackHandler, eVar)) == null) {
             Intrinsics.checkNotNullParameter(entity, "entity");
             JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(entity);
-            SwanAppAllianceLoginHelper.f38633d.l(true);
+            SwanAppAllianceLoginHelper.f38661d.l(true);
             if (optParamsAsJo == null) {
-                c.a.r0.a.m.a d2 = SwanAppAllianceLoginHelper.f38633d.d();
+                c.a.r0.a.m.a d2 = SwanAppAllianceLoginHelper.f38661d.d();
                 if (d2 != null) {
                     d2.onResult(-1);
                 }
                 entity.result = UnitedSchemeUtility.wrapCallbackParams(201, "empty joParams");
-                SwanAppAllianceLoginHelper.f38633d.a(f.d(), f.a());
+                SwanAppAllianceLoginHelper.f38661d.a(f.d(), f.a());
                 return false;
             }
             int optInt = optParamsAsJo.optInt("errno");
             JSONObject optJSONObject = optParamsAsJo.optJSONObject("data");
-            q0.a0(a.f8743e);
+            q0.a0(a.f8885e);
             if (optInt != 0) {
-                c.a.r0.a.m.a d3 = SwanAppAllianceLoginHelper.f38633d.d();
+                c.a.r0.a.m.a d3 = SwanAppAllianceLoginHelper.f38661d.d();
                 if (d3 != null) {
                     d3.onResult(-1);
                 }
                 entity.result = UnitedSchemeUtility.wrapCallbackParams(201, "error number is " + optInt);
-                SwanAppAllianceLoginHelper.f38633d.a(f.d(), f.a());
+                SwanAppAllianceLoginHelper.f38661d.a(f.d(), f.a());
                 return false;
             } else if (optJSONObject != null) {
                 Map<String, String> c2 = i.c(CookieManager.getInstance().getCookie(Domains.BAIDU));
                 Intrinsics.checkNotNullExpressionValue(c2, "SwanAppUrlUtils.parseCookie(cookieString)");
                 String str = c2.get(BeanConstants.COOKIE_OPENBDUSS);
                 if (!(str == null || StringsKt__StringsJVMKt.isBlank(str))) {
-                    g.f8740b.c(optInt, optJSONObject);
+                    g.f8882b.c(optInt, optJSONObject);
                     c.a.r0.a.s.a.a.b(context, str);
-                    SwanAppAllianceLoginHelper.f38633d.j(true);
-                    c.a.r0.a.m.a d4 = SwanAppAllianceLoginHelper.f38633d.d();
+                    SwanAppAllianceLoginHelper.f38661d.j(true);
+                    c.a.r0.a.m.a d4 = SwanAppAllianceLoginHelper.f38661d.d();
                     if (d4 != null) {
                         d4.onResult(0);
                     }
                     UnitedSchemeUtility.callCallback(callbackHandler, entity, 0);
-                    SwanAppAllianceLoginHelper.f38633d.a(f.f(), f.c());
+                    SwanAppAllianceLoginHelper.f38661d.a(f.f(), f.c());
                     return true;
                 }
-                c.a.r0.a.m.a d5 = SwanAppAllianceLoginHelper.f38633d.d();
+                c.a.r0.a.m.a d5 = SwanAppAllianceLoginHelper.f38661d.d();
                 if (d5 != null) {
                     d5.onResult(-1);
                 }
                 entity.result = UnitedSchemeUtility.wrapCallbackParams(201, "bduss is null");
-                SwanAppAllianceLoginHelper.f38633d.a(f.d(), f.a());
+                SwanAppAllianceLoginHelper.f38661d.a(f.d(), f.a());
                 return false;
             } else {
                 entity.result = UnitedSchemeUtility.wrapCallbackParams(201, "json data is null");
-                SwanAppAllianceLoginHelper.f38633d.a(f.d(), f.a());
+                SwanAppAllianceLoginHelper.f38661d.a(f.d(), f.a());
                 return false;
             }
         }

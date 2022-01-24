@@ -154,7 +154,7 @@ public class WriteMultiImgsActivity extends BaseActivity {
                 Intent intent = new Intent();
                 intent.putExtra(AlbumActivityConfig.ALBUM_RESULT, writeImagesInfo.toJsonString());
                 if (!ListUtils.isEmpty(writeImagesInfo.getChosedFiles()) && writeImagesInfo.getChosedFiles().get(0) != null) {
-                    intent.putExtra("file_name", writeImagesInfo.getChosedFiles().get(0).extra);
+                    intent.putExtra("file_name", writeImagesInfo.getChosedFiles().get(0).getExtra());
                 }
                 setResult(-1, intent);
             }
@@ -181,7 +181,7 @@ public class WriteMultiImgsActivity extends BaseActivity {
             if (jVar != null) {
                 jVar.h(i2);
             }
-            this.mControler.f21164c.notifyDataSetChanged();
+            this.mControler.f21400c.notifyDataSetChanged();
         }
     }
 
@@ -196,8 +196,8 @@ public class WriteMultiImgsActivity extends BaseActivity {
             setContentView(jVar.k);
             k kVar = new k(getPageContext(), this.mMainView, bundle);
             this.mControler = kVar;
-            if (kVar.f21171j != TbadkCoreApplication.getInst().getSkinType()) {
-                TbadkCoreApplication.getInst().setSkinType(this.mControler.f21171j);
+            if (kVar.f21407j != TbadkCoreApplication.getInst().getSkinType()) {
+                TbadkCoreApplication.getInst().setSkinType(this.mControler.f21407j);
             }
         }
     }
@@ -225,11 +225,11 @@ public class WriteMultiImgsActivity extends BaseActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, bundle) == null) {
             k kVar = this.mControler;
-            if (kVar != null && (multiImagePagerAdapter = kVar.f21164c) != null) {
+            if (kVar != null && (multiImagePagerAdapter = kVar.f21400c) != null) {
                 bundle.putInt(OUTSTATE_KEY_CURRENT_INDEX, multiImagePagerAdapter.j());
                 bundle.putInt(OUTSTATE_KEY_WRITE_ENTRANCE, this.mControler.u());
                 bundle.putSerializable(OUTSTATE_KEY_WRITE_INFO_DATA, this.mControler.v());
-                this.mControler.f21164c.g(true);
+                this.mControler.f21400c.g(true);
                 if (this.mControler.w() != null) {
                     bundle.putString(OUTSTATE_KEY_WRITE_IMG_INFO, this.mControler.w().toJsonString());
                 }

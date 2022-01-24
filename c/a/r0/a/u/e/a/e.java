@@ -19,7 +19,7 @@ public class e extends c.a.r0.a.u.e.a.a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final boolean f8931f;
+    public static final boolean f9073f;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes.dex */
@@ -28,10 +28,10 @@ public class e extends c.a.r0.a.u.e.a.a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f8932e;
+        public final /* synthetic */ String f9074e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ e f8933f;
+        public final /* synthetic */ e f9075f;
 
         public a(e eVar, String str) {
             Interceptable interceptable = $ic;
@@ -48,8 +48,8 @@ public class e extends c.a.r0.a.u.e.a.a {
                     return;
                 }
             }
-            this.f8933f = eVar;
-            this.f8932e = str;
+            this.f9075f = eVar;
+            this.f9074e = str;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -59,16 +59,16 @@ public class e extends c.a.r0.a.u.e.a.a {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, iVar) == null) {
                 c.a.r0.a.u.h.b bVar = new c.a.r0.a.u.h.b();
-                String z = this.f8933f.z(iVar);
+                String z = this.f9075f.z(iVar);
                 if (TextUtils.isEmpty(z)) {
-                    bVar.f9323b = 1001;
-                    bVar.f9324c = "openid is empty";
-                    this.f8933f.d(this.f8932e, bVar);
+                    bVar.f9465b = 1001;
+                    bVar.f9466c = "openid is empty";
+                    this.f9075f.d(this.f9074e, bVar);
                     return;
                 }
                 bVar.g("openid", z);
-                bVar.f9323b = 0;
-                this.f8933f.d(this.f8932e, bVar);
+                bVar.f9465b = 0;
+                this.f9075f.d(this.f9074e, bVar);
             }
         }
     }
@@ -86,7 +86,7 @@ public class e extends c.a.r0.a.u.e.a.a {
                 return;
             }
         }
-        f8931f = k.a;
+        f9073f = k.a;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -121,7 +121,7 @@ public class e extends c.a.r0.a.u.e.a.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
             q("#getOpenId", false);
-            if (f8931f) {
+            if (f9073f) {
                 String str2 = "#getOpenId params = " + str;
             }
             Pair<c.a.r0.a.u.h.b, JSONObject> s = s(str);

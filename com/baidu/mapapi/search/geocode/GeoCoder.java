@@ -15,7 +15,7 @@ public class GeoCoder extends l {
     public com.baidu.platform.core.b.d a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f35540b;
+    public boolean f35568b;
 
     public GeoCoder() {
         Interceptable interceptable = $ic;
@@ -45,10 +45,10 @@ public class GeoCoder extends l {
 
     public void destroy() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f35540b) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f35568b) {
             return;
         }
-        this.f35540b = true;
+        this.f35568b = true;
         this.a.a();
         BMapManager.destroy();
     }

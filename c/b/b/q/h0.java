@@ -12,12 +12,12 @@ public class h0 {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static h0 f27414c;
+    public static h0 f27442c;
     public transient /* synthetic */ FieldHolder $fh;
     public l0 a;
 
     /* renamed from: b  reason: collision with root package name */
-    public g f27415b;
+    public g f27443b;
 
     public h0() {
         Interceptable interceptable = $ic;
@@ -37,10 +37,10 @@ public class h0 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (f27414c == null) {
-                f27414c = new h0();
+            if (f27442c == null) {
+                f27442c = new h0();
             }
-            return f27414c;
+            return f27442c;
         }
         return (h0) invokeV.objValue;
     }
@@ -48,10 +48,10 @@ public class h0 {
     public void b(Object[] objArr, int i2, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLII(1048576, this, objArr, i2, i3) == null) {
-            if (this.f27415b == null) {
-                this.f27415b = new g();
+            if (this.f27443b == null) {
+                this.f27443b = new g();
             }
-            this.f27415b.c(objArr, i2, i3);
+            this.f27443b.c(objArr, i2, i3);
         }
     }
 

@@ -24,10 +24,10 @@ public class LocalChannelTopicDecoration extends RecyclerView.ItemDecoration {
     public final int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final int f44483b;
+    public final int f44511b;
 
     /* renamed from: c  reason: collision with root package name */
-    public ColorDrawable f44484c;
+    public ColorDrawable f44512c;
 
     public LocalChannelTopicDecoration() {
         Interceptable interceptable = $ic;
@@ -43,8 +43,8 @@ public class LocalChannelTopicDecoration extends RecyclerView.ItemDecoration {
             }
         }
         this.a = n.f(TbadkCoreApplication.getInst(), R.dimen.tbds3);
-        this.f44483b = n.f(TbadkCoreApplication.getInst(), R.dimen.M_W_X007);
-        this.f44484c = new ColorDrawable(SkinManager.getColor(R.color.CAM_X0203));
+        this.f44511b = n.f(TbadkCoreApplication.getInst(), R.dimen.M_W_X007);
+        this.f44512c = new ColorDrawable(SkinManager.getColor(R.color.CAM_X0203));
     }
 
     @Override // androidx.recyclerview.widget.RecyclerView.ItemDecoration
@@ -73,8 +73,8 @@ public class LocalChannelTopicDecoration extends RecyclerView.ItemDecoration {
                 View childAt = recyclerView.getChildAt(i2);
                 if (childAt != null) {
                     int bottom = childAt.getBottom() + ((ViewGroup.MarginLayoutParams) ((RecyclerView.LayoutParams) childAt.getLayoutParams())).bottomMargin;
-                    this.f44484c.setBounds(this.f44483b, bottom, recyclerView.getWidth() - this.f44483b, this.a + bottom);
-                    this.f44484c.draw(canvas);
+                    this.f44512c.setBounds(this.f44511b, bottom, recyclerView.getWidth() - this.f44511b, this.a + bottom);
+                    this.f44512c.draw(canvas);
                 }
             }
         }

@@ -7,7 +7,7 @@ import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import c.a.d.f.m.e;
 import c.a.d.f.p.n;
-import c.a.s0.g1.n.f;
+import c.a.s0.f1.n.f;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.cmdRouter.CmdRouter;
 import com.baidu.adp.framework.message.CustomMessage;
@@ -495,7 +495,7 @@ public class UrlManager {
                     for (String str3 : parse.getQueryParameterNames()) {
                         hashMap.put(str3, parse.getQueryParameter(str3));
                     }
-                    MessageManager.getInstance().sendMessage(new CustomMessage(2002015, new c.a.t0.w3.j0.n(tbPageContext.getPageActivity(), host, hashMap)));
+                    MessageManager.getInstance().sendMessage(new CustomMessage(2002015, new c.a.t0.x3.j0.n(tbPageContext.getPageActivity(), host, hashMap)));
                     return false;
                 } catch (Exception e2) {
                     BdLog.e(e2);

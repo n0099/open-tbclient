@@ -59,12 +59,12 @@ public class b {
 
     /* renamed from: c.a.i0.a.c.b$b  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public class C0156b implements LottieListener<LottieComposition> {
+    public class C0165b implements LottieListener<LottieComposition> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ f a;
 
-        public C0156b(b bVar, f fVar) {
+        public C0165b(b bVar, f fVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -231,7 +231,7 @@ public class b {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(1048576, this, file, fVar) == null) && file != null && file.exists()) {
             try {
-                LottieCompositionFactory.fromZipStream(new ZipInputStream(new FileInputStream(file.getPath())), null).addListener(new C0156b(this, fVar)).addFailureListener(new a(this, fVar));
+                LottieCompositionFactory.fromZipStream(new ZipInputStream(new FileInputStream(file.getPath())), null).addListener(new C0165b(this, fVar)).addFailureListener(new a(this, fVar));
             } catch (Exception unused) {
                 if (fVar != null) {
                     fVar.b();

@@ -22,22 +22,22 @@ public final class d implements Closeable, Flushable {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final c.d.b.e0.m.a f27689e;
+    public final c.d.b.e0.m.a f27717e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final File f27690f;
+    public final File f27718f;
 
     /* renamed from: g  reason: collision with root package name */
-    public long f27691g;
+    public long f27719g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final int f27692h;
+    public final int f27720h;
 
     /* renamed from: i  reason: collision with root package name */
-    public long f27693i;
+    public long f27721i;
 
     /* renamed from: j  reason: collision with root package name */
-    public BufferedSink f27694j;
+    public BufferedSink f27722j;
     public final LinkedHashMap<String, b> k;
     public int l;
     public boolean m;
@@ -66,13 +66,13 @@ public final class d implements Closeable, Flushable {
         public final String a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final long[] f27695b;
+        public final long[] f27723b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final File[] f27696c;
+        public final File[] f27724c;
 
         /* renamed from: d  reason: collision with root package name */
-        public a f27697d;
+        public a f27725d;
     }
 
     /* loaded from: classes9.dex */
@@ -129,13 +129,13 @@ public final class d implements Closeable, Flushable {
             synchronized (this) {
                 if (this.m && !this.n) {
                     for (b bVar : (b[]) this.k.values().toArray(new b[this.k.size()])) {
-                        if (bVar.f27697d != null) {
-                            bVar.f27697d.a();
+                        if (bVar.f27725d != null) {
+                            bVar.f27725d.a();
                         }
                     }
                     e();
-                    this.f27694j.close();
-                    this.f27694j = null;
+                    this.f27722j.close();
+                    this.f27722j = null;
                     this.n = true;
                     return;
                 }
@@ -148,19 +148,19 @@ public final class d implements Closeable, Flushable {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, bVar)) == null) {
-            a aVar = bVar.f27697d;
+            a aVar = bVar.f27725d;
             if (aVar != null) {
                 aVar.c();
             }
-            for (int i2 = 0; i2 < this.f27692h; i2++) {
-                this.f27689e.delete(bVar.f27696c[i2]);
-                long j2 = this.f27693i;
-                long[] jArr = bVar.f27695b;
-                this.f27693i = j2 - jArr[i2];
+            for (int i2 = 0; i2 < this.f27720h; i2++) {
+                this.f27717e.delete(bVar.f27724c[i2]);
+                long j2 = this.f27721i;
+                long[] jArr = bVar.f27723b;
+                this.f27721i = j2 - jArr[i2];
                 jArr[i2] = 0;
             }
             this.l++;
-            this.f27694j.writeUtf8("REMOVE").writeByte(32).writeUtf8(bVar.a).writeByte(10);
+            this.f27722j.writeUtf8("REMOVE").writeByte(32).writeUtf8(bVar.a).writeByte(10);
             this.k.remove(bVar.a);
             if (c()) {
                 this.o.execute(this.p);
@@ -174,14 +174,14 @@ public final class d implements Closeable, Flushable {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             close();
-            this.f27689e.deleteContents(this.f27690f);
+            this.f27717e.deleteContents(this.f27718f);
         }
     }
 
     public void e() throws IOException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            while (this.f27693i > this.f27691g) {
+            while (this.f27721i > this.f27719g) {
                 d(this.k.values().iterator().next());
             }
         }
@@ -195,7 +195,7 @@ public final class d implements Closeable, Flushable {
                 if (this.m) {
                     a();
                     e();
-                    this.f27694j.flush();
+                    this.f27722j.flush();
                 }
             }
         }

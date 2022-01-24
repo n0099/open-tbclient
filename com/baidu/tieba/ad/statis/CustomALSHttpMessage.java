@@ -33,7 +33,7 @@ public class CustomALSHttpMessage extends HttpMessage {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ CustomALSHttpMessage f41751e;
+        public final /* synthetic */ CustomALSHttpMessage f41771e;
 
         public a(CustomALSHttpMessage customALSHttpMessage) {
             Interceptable interceptable = $ic;
@@ -50,14 +50,14 @@ public class CustomALSHttpMessage extends HttpMessage {
                     return;
                 }
             }
-            this.f41751e = customALSHttpMessage;
+            this.f41771e = customALSHttpMessage;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                MessageManager.getInstance().sendMessage(this.f41751e, CustomALSHttpMessage.task);
+                MessageManager.getInstance().sendMessage(this.f41771e, CustomALSHttpMessage.task);
             }
         }
     }

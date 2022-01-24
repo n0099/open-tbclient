@@ -26,19 +26,19 @@ import java.io.InputStream;
 import java.nio.channels.Channels;
 import java.nio.channels.Pipe;
 /* loaded from: classes.dex */
-public class e extends f.AbstractC0261f {
+public class e extends f.AbstractC0270f {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean k;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: h  reason: collision with root package name */
-    public final c.a.r0.q.i.f f5143h;
+    public final c.a.r0.q.i.f f5285h;
 
     /* renamed from: i  reason: collision with root package name */
-    public final c.a.r0.q.f.f f5144i;
+    public final c.a.r0.q.f.f f5286i;
 
     /* renamed from: j  reason: collision with root package name */
-    public c.a.r0.a.r2.f.b f5145j;
+    public c.a.r0.a.r2.f.b f5287j;
 
     /* loaded from: classes.dex */
     public class a implements Runnable {
@@ -46,7 +46,7 @@ public class e extends f.AbstractC0261f {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ e f5146e;
+        public final /* synthetic */ e f5288e;
 
         public a(e eVar) {
             Interceptable interceptable = $ic;
@@ -63,14 +63,14 @@ public class e extends f.AbstractC0261f {
                     return;
                 }
             }
-            this.f5146e = eVar;
+            this.f5288e = eVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f5146e.j();
+                this.f5288e.j();
             }
         }
     }
@@ -109,11 +109,11 @@ public class e extends f.AbstractC0261f {
                 return;
             }
         }
-        this.f5143h = fVar;
-        this.f5144i = fVar2;
+        this.f5285h = fVar;
+        this.f5286i = fVar2;
     }
 
-    @Override // c.a.r0.a.a1.f.AbstractC0261f
+    @Override // c.a.r0.a.a1.f.AbstractC0270f
     public void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -126,7 +126,7 @@ public class e extends f.AbstractC0261f {
         }
     }
 
-    @Override // c.a.r0.a.a1.f.AbstractC0261f
+    @Override // c.a.r0.a.a1.f.AbstractC0270f
     public boolean f(Pipe.SourceChannel sourceChannel, Bundle bundle) {
         InterceptResult invokeLL;
         c.a.r0.a.f1.g.a aVar;
@@ -135,7 +135,7 @@ public class e extends f.AbstractC0261f {
             String string = bundle.getString("launch_id");
             if (k) {
                 aVar = c.a.r0.a.f1.g.a.d(string);
-                b.C0320b e2 = aVar.e();
+                b.C0329b e2 = aVar.e();
                 e2.b("SwanExtractor");
                 e2.d(1);
             } else {
@@ -153,10 +153,10 @@ public class e extends f.AbstractC0261f {
     public final void j() {
         c.a.r0.q.i.f fVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (fVar = this.f5143h) == null || fVar.f11495h != 0 || d.w()) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (fVar = this.f5285h) == null || fVar.f11637h != 0 || d.w()) {
             return;
         }
-        d.e(this.f5143h.f11494g + File.separator + this.f5143h.f11496i);
+        d.e(this.f5285h.f11636g + File.separator + this.f5285h.f11638i);
     }
 
     public final boolean k(InputStream inputStream, String str) {
@@ -213,9 +213,9 @@ public class e extends f.AbstractC0261f {
             return;
         }
         boolean z = k;
-        if (this.f5145j == null) {
+        if (this.f5287j == null) {
             c.a.r0.a.r2.f.b bVar = new c.a.r0.a.r2.f.b(str);
-            this.f5145j = bVar;
+            this.f5287j = bVar;
             bVar.startWatching();
         }
     }
@@ -226,18 +226,18 @@ public class e extends f.AbstractC0261f {
             return;
         }
         boolean z = k;
-        c.a.r0.a.r2.f.b bVar = this.f5145j;
+        c.a.r0.a.r2.f.b bVar = this.f5287j;
         if (bVar == null) {
             return;
         }
         bVar.stopWatching();
-        this.f5145j = null;
+        this.f5287j = null;
     }
 
     public final void p(String str, String str2) {
         c.a.r0.q.f.f fVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, str2) == null) || (fVar = this.f5144i) == null) {
+        if (!(interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, str2) == null) || (fVar = this.f5286i) == null) {
             return;
         }
         fVar.n(str, str2);
@@ -250,7 +250,7 @@ public class e extends f.AbstractC0261f {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048585, this, bufferedInputStream, str)) == null) {
             c.a.r0.a.f1.g.a d2 = c.a.r0.a.f1.g.a.d(str);
-            c.a.r0.q.i.f fVar = this.f5143h;
+            c.a.r0.q.i.f fVar = this.f5285h;
             if (fVar == null) {
                 c.a.r0.a.u2.a aVar = new c.a.r0.a.u2.a();
                 aVar.k(11L);
@@ -259,14 +259,14 @@ public class e extends f.AbstractC0261f {
                 c.a.r0.a.u2.e.a().f(aVar);
                 return aVar;
             }
-            int i3 = fVar.f11495h;
+            int i3 = fVar.f11637h;
             boolean z = true;
             if (i3 == 1) {
                 c.a.r0.a.p.b.a.e g2 = c.a.r0.a.c1.b.g();
-                c.a.r0.q.i.f fVar2 = this.f5143h;
-                i2 = g2.a(fVar2.f11494g, String.valueOf(fVar2.f11496i));
+                c.a.r0.q.i.f fVar2 = this.f5285h;
+                i2 = g2.a(fVar2.f11636g, String.valueOf(fVar2.f11638i));
             } else if (i3 == 0) {
-                i2 = d.e.i(fVar.f11494g, String.valueOf(fVar.f11496i));
+                i2 = d.e.i(fVar.f11636g, String.valueOf(fVar.f11638i));
             } else {
                 c.a.r0.a.u2.a aVar2 = new c.a.r0.a.u2.a();
                 aVar2.k(11L);
@@ -316,7 +316,7 @@ public class e extends f.AbstractC0261f {
                 long currentTimeMillis = System.currentTimeMillis();
                 try {
                     a.c i4 = c.a.r0.a.a1.g.a.i(bufferedInputStream);
-                    int i5 = i4 == null ? -1 : i4.f5168b;
+                    int i5 = i4 == null ? -1 : i4.f5310b;
                     boolean z2 = i5 != -1;
                     m(z2);
                     if (z2) {
@@ -334,10 +334,10 @@ public class e extends f.AbstractC0261f {
                     if (k) {
                         c.a.r0.a.a1.g.a.h((int) (currentTimeMillis2 - currentTimeMillis));
                     }
-                    if (this.f5144i != null) {
+                    if (this.f5286i != null) {
                         Bundle bundle = new Bundle();
                         bundle.putInt("download_package_type_id", i5);
-                        j.a(this.f5144i, bundle, "event_download_package_type");
+                        j.a(this.f5286i, bundle, "event_download_package_type");
                     }
                     o();
                     if (z) {
@@ -347,7 +347,7 @@ public class e extends f.AbstractC0261f {
                     aVar6.k(11L);
                     if (z2) {
                         aVar6.i(2330L);
-                        aVar6.f("decrypt failed:" + bVar.f5167b);
+                        aVar6.f("decrypt failed:" + bVar.f5309b);
                     } else {
                         aVar6.i(2320L);
                         aVar6.f("unzip failed");

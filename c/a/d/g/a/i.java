@@ -29,7 +29,7 @@ public class i extends c {
     public void h(Canvas canvas, d dVar, ImageView imageView) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048576, this, canvas, dVar, imageView) == null) {
-            this.f3102b.setColorFilter(null);
+            this.f3204b.setColorFilter(null);
             super.h(canvas, dVar, imageView);
         }
     }

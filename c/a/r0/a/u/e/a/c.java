@@ -26,13 +26,13 @@ public class c extends c.a.r0.a.u.e.a.a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ h f8908e;
+        public final /* synthetic */ h f9050e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f8909f;
+        public final /* synthetic */ CallbackHandler f9051f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ String f8910g;
+        public final /* synthetic */ String f9052g;
 
         public a(c cVar, h hVar, CallbackHandler callbackHandler, String str) {
             Interceptable interceptable = $ic;
@@ -49,9 +49,9 @@ public class c extends c.a.r0.a.u.e.a.a {
                     return;
                 }
             }
-            this.f8908e = hVar;
-            this.f8909f = callbackHandler;
-            this.f8910g = str;
+            this.f9050e = hVar;
+            this.f9051f = callbackHandler;
+            this.f9052g = str;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -72,10 +72,10 @@ public class c extends c.a.r0.a.u.e.a.a {
                     }
                 } else {
                     wrapCallbackParams = UnitedSchemeUtility.wrapCallbackParams(iVar.b());
-                    this.f8908e.g(this.f8909f, wrapCallbackParams.toString());
+                    this.f9050e.g(this.f9051f, wrapCallbackParams.toString());
                     n.U("checkSession", com.baidu.pass.biometrics.face.liveness.b.a.g0, "result failed");
                 }
-                this.f8909f.handleSchemeDispatchCallback(this.f8910g, wrapCallbackParams.toString());
+                this.f9051f.handleSchemeDispatchCallback(this.f9052g, wrapCallbackParams.toString());
             }
         }
     }

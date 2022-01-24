@@ -12,7 +12,6 @@ public final class SpeedStatsStampTable {
     public static final int AD_SHOW_END_STAMP_KEY = 3306;
     public static final int AD_SHOW_START_STAMP_KEY = 3305;
     public static final int AD_START_STAMP_KEY = 3301;
-    public static final int AD_TB_LOAD_END_STAMP_KEY = 3302;
     public static final int AD_VIEW_END_STAMP_KEY = 3307;
     public static final int AD_XIAOXIONG_LOAD_END_STAMP_KEY = 3309;
     public static final int AD_XUZHANG_LOAD_END_STAMP_KEY = 3308;

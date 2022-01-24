@@ -60,7 +60,7 @@ public class e extends z {
                             jSONObject.put("filePath", c.a.r0.a.o2.b.J(aVar.b(), c.a.r0.a.d2.e.f0()));
                             jSONObject.put("createTime", aVar.a());
                             jSONObject.put("size", aVar.c());
-                            if (z.f6201b) {
+                            if (z.f6343b) {
                                 String str = "——> handle: fileInfo (" + jSONObject.get("filePath") + " , " + jSONObject.get("createTime") + " , " + jSONObject.get("size") + SmallTailInfo.EMOTION_SUFFIX;
                             }
                         } catch (JSONException e2) {
@@ -77,7 +77,7 @@ public class e extends z {
                     } catch (JSONException e3) {
                         c.a.r0.a.e0.d.c("getSavedFileList", "file list to json fail");
                         UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(2003, c.a.r0.a.f2.b.a(2003)));
-                        if (z.f6201b) {
+                        if (z.f6343b) {
                             String str2 = "——> handle: jsonException " + e3.getMessage();
                         }
                         return false;

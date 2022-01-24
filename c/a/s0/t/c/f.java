@@ -14,7 +14,7 @@ public class f {
     public g a;
 
     /* renamed from: b  reason: collision with root package name */
-    public g f13818b;
+    public g f13963b;
 
     public f() {
         Interceptable interceptable = $ic;
@@ -39,7 +39,7 @@ public class f {
     public g b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f13818b : (g) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f13963b : (g) invokeV.objValue;
     }
 
     public void c(JSONObject jSONObject) {
@@ -52,14 +52,14 @@ public class f {
             g gVar = new g();
             this.a = gVar;
             gVar.u = 1;
-            gVar.d(optJSONObject);
+            gVar.e(optJSONObject);
         }
         JSONObject optJSONObject2 = jSONObject.optJSONObject("pb");
         if (optJSONObject2 != null) {
             g gVar2 = new g();
-            this.f13818b = gVar2;
+            this.f13963b = gVar2;
             gVar2.u = 2;
-            gVar2.d(optJSONObject2);
+            gVar2.e(optJSONObject2);
         }
     }
 }

@@ -27,7 +27,7 @@ public class SslCertificateDialog extends AutoOrientationBtnDialog {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: g  reason: collision with root package name */
-        public View f37310g;
+        public View f37338g;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(Context context) {
@@ -72,7 +72,7 @@ public class SslCertificateDialog extends AutoOrientationBtnDialog {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view)) == null) {
-                this.f37310g = view;
+                this.f37338g = view;
                 return this;
             }
             return (a) invokeL.objValue;
@@ -128,7 +128,7 @@ public class SslCertificateDialog extends AutoOrientationBtnDialog {
         if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (aVar = this.m) == null) {
             return;
         }
-        this.l.addView(aVar.f37310g);
+        this.l.addView(aVar.f37338g);
     }
 
     public void setSafeBuilder(a aVar) {

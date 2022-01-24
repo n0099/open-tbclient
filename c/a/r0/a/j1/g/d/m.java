@@ -48,7 +48,7 @@ public class m extends h {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{aVar, cVar, context, unitedSchemeEntity, callbackHandler, eVar})) == null) {
-            c.a.r0.a.e0.d.i("video", "update, video id:" + cVar.n + " slave id: " + cVar.f5309g);
+            c.a.r0.a.e0.d.i("video", "update, video id:" + cVar.n + " slave id: " + cVar.f5451g);
             update(aVar, cVar, unitedSchemeEntity, callbackHandler);
             return true;
         }

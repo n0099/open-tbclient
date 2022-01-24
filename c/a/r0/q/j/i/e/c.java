@@ -13,7 +13,7 @@ public class c extends a<f> implements c.a.r0.q.j.i.g.b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public volatile f f11516b;
+    public volatile f f11658b;
 
     public c() {
         Interceptable interceptable = $ic;
@@ -33,7 +33,7 @@ public class c extends a<f> implements c.a.r0.q.j.i.g.b {
     public <T> void a(f<T> fVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, fVar) == null) {
-            this.f11516b = fVar;
+            this.f11658b = fVar;
         }
     }
 
@@ -41,8 +41,8 @@ public class c extends a<f> implements c.a.r0.q.j.i.g.b {
     public <T> void b(f<T> fVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, fVar) == null) {
-            if (this.f11516b == fVar) {
-                this.f11516b = null;
+            if (this.f11658b == fVar) {
+                this.f11658b = null;
             }
             k(fVar);
         }
@@ -68,7 +68,7 @@ public class c extends a<f> implements c.a.r0.q.j.i.g.b {
                 if (fVar == null) {
                     return;
                 }
-                if (this.f11516b != null && this.f11516b.d(fVar)) {
+                if (this.f11658b != null && this.f11658b.d(fVar)) {
                     fVar.e().f(fVar.f());
                     return;
                 }
@@ -119,11 +119,11 @@ public class c extends a<f> implements c.a.r0.q.j.i.g.b {
     public final void j(f fVar) {
         f fVar2;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048581, this, fVar) == null) || fVar.g() != 300 || (fVar2 = this.f11516b) == null || fVar2.g() == 300) {
+        if (!(interceptable == null || interceptable.invokeL(1048581, this, fVar) == null) || fVar.g() != 300 || (fVar2 = this.f11658b) == null || fVar2.g() == 300) {
             return;
         }
         fVar2.o();
-        for (int i2 = 0; i2 < 500 && this.f11516b != null; i2++) {
+        for (int i2 = 0; i2 < 500 && this.f11658b != null; i2++) {
             try {
                 Thread.sleep(10L);
             } catch (InterruptedException e2) {

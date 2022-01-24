@@ -24,20 +24,20 @@ public class a extends z {
 
     /* renamed from: c.a.r0.a.q.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public class RunnableC0517a implements Runnable {
+    public class RunnableC0526a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ UnitedSchemeEntity f8373e;
+        public final /* synthetic */ UnitedSchemeEntity f8515e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ c.a.r0.a.m1.b f8374f;
+        public final /* synthetic */ c.a.r0.a.m1.b f8516f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ a f8375g;
+        public final /* synthetic */ a f8517g;
 
-        public RunnableC0517a(a aVar, UnitedSchemeEntity unitedSchemeEntity, c.a.r0.a.m1.b bVar) {
+        public RunnableC0526a(a aVar, UnitedSchemeEntity unitedSchemeEntity, c.a.r0.a.m1.b bVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -52,16 +52,16 @@ public class a extends z {
                     return;
                 }
             }
-            this.f8375g = aVar;
-            this.f8373e = unitedSchemeEntity;
-            this.f8374f = bVar;
+            this.f8517g = aVar;
+            this.f8515e = unitedSchemeEntity;
+            this.f8516f = bVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f8375g.k(this.f8373e, this.f8374f);
+                this.f8517g.k(this.f8515e, this.f8516f);
             }
         }
     }
@@ -92,7 +92,7 @@ public class a extends z {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, eVar)) == null) {
-            if (z.f6201b) {
+            if (z.f6343b) {
                 String str = "handle entity: " + unitedSchemeEntity.toString();
             }
             String o = c.a.r0.a.f2.f.o0.a.o(unitedSchemeEntity, "params");
@@ -107,7 +107,7 @@ public class a extends z {
                 return false;
             } else {
                 c.a.r0.a.m1.b e2 = c.a.r0.a.m1.b.e(o, o);
-                e2.f7673f = n;
+                e2.f7815f = n;
                 if (l.e().g()) {
                     l(unitedSchemeEntity, e2);
                 } else {
@@ -133,7 +133,7 @@ public class a extends z {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, unitedSchemeEntity, bVar) == null) {
             l.e().i();
-            q0.b0(new RunnableC0517a(this, unitedSchemeEntity, bVar), 200L);
+            q0.b0(new RunnableC0526a(this, unitedSchemeEntity, bVar), 200L);
         }
     }
 }

@@ -17,21 +17,21 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: f  reason: collision with root package name */
-    public static volatile a f4561f;
+    public static volatile a f4703f;
     public transient /* synthetic */ FieldHolder $fh;
     public AtomicBoolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public AtomicBoolean f4562b;
+    public AtomicBoolean f4704b;
 
     /* renamed from: c  reason: collision with root package name */
-    public AtomicBoolean f4563c;
+    public AtomicBoolean f4705c;
 
     /* renamed from: d  reason: collision with root package name */
-    public AtomicBoolean f4564d;
+    public AtomicBoolean f4706d;
 
     /* renamed from: e  reason: collision with root package name */
-    public HashMap<Integer, a.InterfaceC0222a> f4565e;
+    public HashMap<Integer, a.InterfaceC0231a> f4707e;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -47,53 +47,53 @@ public class a {
             }
         }
         this.a = new AtomicBoolean(false);
-        this.f4562b = new AtomicBoolean(false);
-        this.f4563c = new AtomicBoolean(false);
-        this.f4564d = new AtomicBoolean(false);
-        this.f4565e = new HashMap<>();
+        this.f4704b = new AtomicBoolean(false);
+        this.f4705c = new AtomicBoolean(false);
+        this.f4706d = new AtomicBoolean(false);
+        this.f4707e = new HashMap<>();
     }
 
     public static a c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (f4561f == null) {
+            if (f4703f == null) {
                 synchronized (a.class) {
-                    if (f4561f == null) {
-                        f4561f = new a();
+                    if (f4703f == null) {
+                        f4703f = new a();
                     }
                 }
             }
-            return f4561f;
+            return f4703f;
         }
         return (a) invokeV.objValue;
     }
 
-    public synchronized int a(a.InterfaceC0222a interfaceC0222a) {
+    public synchronized int a(a.InterfaceC0231a interfaceC0231a) {
         InterceptResult invokeL;
         int currentTimeMillis;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, interfaceC0222a)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, interfaceC0231a)) == null) {
             synchronized (this) {
                 currentTimeMillis = (int) System.currentTimeMillis();
-                this.f4565e.put(Integer.valueOf(currentTimeMillis), interfaceC0222a);
+                this.f4707e.put(Integer.valueOf(currentTimeMillis), interfaceC0231a);
             }
             return currentTimeMillis;
         }
         return invokeL.intValue;
     }
 
-    public synchronized Pair<Boolean, a.InterfaceC0222a> b(int i2) {
+    public synchronized Pair<Boolean, a.InterfaceC0231a> b(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) {
             synchronized (this) {
-                if (!this.f4565e.containsKey(Integer.valueOf(i2))) {
+                if (!this.f4707e.containsKey(Integer.valueOf(i2))) {
                     return new Pair<>(Boolean.FALSE, null);
                 }
                 d.a().b(i2);
-                this.f4565e.remove(Integer.valueOf(i2));
-                return new Pair<>(Boolean.TRUE, this.f4565e.get(Integer.valueOf(i2)));
+                this.f4707e.remove(Integer.valueOf(i2));
+                return new Pair<>(Boolean.TRUE, this.f4707e.get(Integer.valueOf(i2)));
             }
         }
         return (Pair) invokeI.objValue;
@@ -115,14 +115,14 @@ public class a {
     public void f(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
-            this.f4562b.set(z);
+            this.f4704b.set(z);
         }
     }
 
     public boolean g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f4562b.get() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f4704b.get() : invokeV.booleanValue;
     }
 
     public synchronized boolean h(int i2) {
@@ -131,7 +131,7 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i2)) == null) {
             synchronized (this) {
-                containsKey = this.f4565e.containsKey(Integer.valueOf(i2));
+                containsKey = this.f4707e.containsKey(Integer.valueOf(i2));
             }
             return containsKey;
         }
@@ -141,38 +141,38 @@ public class a {
     public boolean i(boolean z, boolean z2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048583, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) ? this.f4562b.compareAndSet(z, z2) : invokeCommon.booleanValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048583, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) ? this.f4704b.compareAndSet(z, z2) : invokeCommon.booleanValue;
     }
 
     public void j(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) {
-            this.f4563c.set(z);
+            this.f4705c.set(z);
         }
     }
 
     public boolean k() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f4563c.get() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f4705c.get() : invokeV.booleanValue;
     }
 
     public boolean l(boolean z, boolean z2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048586, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) ? this.f4563c.compareAndSet(z, z2) : invokeCommon.booleanValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048586, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) ? this.f4705c.compareAndSet(z, z2) : invokeCommon.booleanValue;
     }
 
     public void m(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048587, this, z) == null) {
-            this.f4564d.set(z);
+            this.f4706d.set(z);
         }
     }
 
     public boolean n(boolean z, boolean z2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048588, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) ? this.f4564d.compareAndSet(z, z2) : invokeCommon.booleanValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048588, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) ? this.f4706d.compareAndSet(z, z2) : invokeCommon.booleanValue;
     }
 }

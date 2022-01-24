@@ -222,7 +222,7 @@ public final class k extends c.i.b.a.a implements Handler.Callback {
                         this.r = true;
                     }
                 }
-            } else if (this.x.f29959f <= j2) {
+            } else if (this.x.f29987f <= j2) {
                 i iVar2 = this.w;
                 if (iVar2 != null) {
                     iVar2.m();
@@ -261,7 +261,7 @@ public final class k extends c.i.b.a.a implements Handler.Callback {
                     if (this.v.j()) {
                         this.q = true;
                     } else {
-                        this.v.f29404j = this.p.a.subsampleOffsetUs;
+                        this.v.f29432j = this.p.a.subsampleOffsetUs;
                         this.v.o();
                     }
                     this.u.d(this.v);

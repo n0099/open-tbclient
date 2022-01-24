@@ -11,7 +11,7 @@ import c.a.d.f.p.m;
 import c.a.d.f.p.n;
 import c.a.s0.k0.h;
 import c.a.s0.u0.a;
-import c.a.t0.x1.o.k.b;
+import c.a.t0.y1.o.k.b;
 import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;

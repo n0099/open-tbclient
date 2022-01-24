@@ -61,11 +61,11 @@ public final class TaskBuoyView$onViewModelBind$1$$special$$inlined$let$lambda$3
             String J;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                ProgressBar progressBar = this.this$0.this$0.a.f32996h;
+                ProgressBar progressBar = this.this$0.this$0.a.f33024h;
                 if (progressBar != null) {
                     progressBar.setVisibility(8);
                 }
-                this.this$0.this$0.a.f32991c.setVisibility(0);
+                this.this$0.this$0.a.f33019c.setVisibility(0);
                 TaskBuoyView$onViewModelBind$1$$special$$inlined$let$lambda$3 taskBuoyView$onViewModelBind$1$$special$$inlined$let$lambda$3 = this.this$0;
                 TaskBuoyView taskBuoyView = taskBuoyView$onViewModelBind$1$$special$$inlined$let$lambda$3.this$0.a;
                 J = taskBuoyView.J(taskBuoyView$onViewModelBind$1$$special$$inlined$let$lambda$3.$it.getCurProcessRate(), this.this$0.$it.getMessage(), this.this$0.$it.getTotal());

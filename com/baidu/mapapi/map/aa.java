@@ -14,7 +14,7 @@ public class aa extends AnimatorListenerAdapter {
     public final /* synthetic */ View a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ WearMapView f35456b;
+    public final /* synthetic */ WearMapView f35484b;
 
     public aa(WearMapView wearMapView, View view) {
         Interceptable interceptable = $ic;
@@ -31,7 +31,7 @@ public class aa extends AnimatorListenerAdapter {
                 return;
             }
         }
-        this.f35456b = wearMapView;
+        this.f35484b = wearMapView;
         this.a = view;
     }
 

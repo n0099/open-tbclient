@@ -16,7 +16,7 @@ public class q2 {
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public p2 f13478b;
+    public p2 f13664b;
 
     public q2() {
         Interceptable interceptable = $ic;
@@ -32,7 +32,7 @@ public class q2 {
             }
         }
         this.a = 0;
-        this.f13478b = new p2();
+        this.f13664b = new p2();
     }
 
     public boolean a() {
@@ -44,7 +44,7 @@ public class q2 {
     public p2 b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f13478b : (p2) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f13664b : (p2) invokeV.objValue;
     }
 
     public void c(JSONObject jSONObject) {
@@ -54,7 +54,7 @@ public class q2 {
         }
         try {
             this.a = jSONObject.optInt("activity_show");
-            this.f13478b.d(jSONObject.optJSONObject("yule_activity"));
+            this.f13664b.d(jSONObject.optJSONObject("yule_activity"));
         } catch (Exception e2) {
             BdLog.e(e2.getMessage());
         }
@@ -66,6 +66,6 @@ public class q2 {
             return;
         }
         this.a = yule.activity_show.intValue();
-        this.f13478b.e(yule.yule_activity);
+        this.f13664b.e(yule.yule_activity);
     }
 }

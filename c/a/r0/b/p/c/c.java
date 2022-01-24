@@ -25,19 +25,19 @@ public class c extends z {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes6.dex */
-    public class a implements b.InterfaceC0669b {
+    public class a implements b.InterfaceC0678b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ Context a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ JSONObject f10175b;
+        public final /* synthetic */ JSONObject f10317b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f10176c;
+        public final /* synthetic */ CallbackHandler f10318c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ String f10177d;
+        public final /* synthetic */ String f10319d;
 
         public a(c cVar, Context context, JSONObject jSONObject, CallbackHandler callbackHandler, String str) {
             Interceptable interceptable = $ic;
@@ -55,12 +55,12 @@ public class c extends z {
                 }
             }
             this.a = context;
-            this.f10175b = jSONObject;
-            this.f10176c = callbackHandler;
-            this.f10177d = str;
+            this.f10317b = jSONObject;
+            this.f10318c = callbackHandler;
+            this.f10319d = str;
         }
 
-        @Override // c.a.r0.b.p.c.b.InterfaceC0669b
+        @Override // c.a.r0.b.p.c.b.InterfaceC0678b
         public void onResult(boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
@@ -68,13 +68,13 @@ public class c extends z {
                     b.d(this.a);
                 }
                 try {
-                    this.f10175b.put("canceled", z);
+                    this.f10317b.put("canceled", z);
                 } catch (JSONException e2) {
-                    if (z.f6201b) {
+                    if (z.f6343b) {
                         e2.printStackTrace();
                     }
                 }
-                this.f10176c.handleSchemeDispatchCallback(this.f10177d, UnitedSchemeUtility.wrapCallbackParams(this.f10175b, 0).toString());
+                this.f10318c.handleSchemeDispatchCallback(this.f10319d, UnitedSchemeUtility.wrapCallbackParams(this.f10317b, 0).toString());
             }
         }
     }
@@ -134,7 +134,7 @@ public class c extends z {
                 try {
                     jSONObject.put("authorized", b2);
                 } catch (JSONException e2) {
-                    if (z.f6201b) {
+                    if (z.f6343b) {
                         e2.printStackTrace();
                     }
                 }
@@ -149,7 +149,7 @@ public class c extends z {
                     UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(jSONObject2, 0));
                     return true;
                 } catch (JSONException e3) {
-                    if (z.f6201b) {
+                    if (z.f6343b) {
                         e3.printStackTrace();
                     }
                     unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
@@ -160,9 +160,9 @@ public class c extends z {
         return invokeLLLL.booleanValue;
     }
 
-    public final b.InterfaceC0669b k(Context context, JSONObject jSONObject, String str, CallbackHandler callbackHandler) {
+    public final b.InterfaceC0678b k(Context context, JSONObject jSONObject, String str, CallbackHandler callbackHandler) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, jSONObject, str, callbackHandler)) == null) ? new a(this, context, jSONObject, callbackHandler, str) : (b.InterfaceC0669b) invokeLLLL.objValue;
+        return (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, jSONObject, str, callbackHandler)) == null) ? new a(this, context, jSONObject, callbackHandler, str) : (b.InterfaceC0678b) invokeLLLL.objValue;
     }
 }

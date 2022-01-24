@@ -6,12 +6,12 @@ import androidx.annotation.NonNull;
 import c.a.d.f.p.m;
 import c.a.s0.b.d;
 import c.a.s0.b.e;
-import c.a.s0.b.f.a0;
-import c.a.s0.e1.t0;
-import c.a.s0.h1.b.c;
-import c.a.s0.s.h0.b;
+import c.a.s0.b.f.b0;
+import c.a.s0.d1.t0;
+import c.a.s0.g1.b.c;
+import c.a.s0.s.i0.b;
 import c.a.s0.t.b.a;
-import c.a.t0.z0.a.b.g;
+import c.a.t0.a1.a.b.g;
 import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
@@ -445,7 +445,7 @@ public class globalStateSyncPlugin implements FlutterPlugin, GlobalStateSyncAuto
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65548, null)) == null) {
-            e a = d.a(a0.f12202c);
+            e a = d.a(b0.f12348c);
             if (a == null || m.isEmpty(a.a)) {
                 return "";
             }
@@ -626,8 +626,8 @@ public class globalStateSyncPlugin implements FlutterPlugin, GlobalStateSyncAuto
             hashMap2.put("userBigPhotoHost", TbConfig.getBigPhotoAdress());
             hashMap2.put("isYYUser", TbSingleton.getInstance().getSyncYYSwitch() ? "1" : "0");
             hashMap2.put("videoWorksProgressBarWaitingTime", String.valueOf(b.k().l("key_video_works_progress_bar_waiting_time", 0)));
-            hashMap2.put("experimentPersonalVideoTabID", d.R() ? "12_10_zhuye_feed_b" : "");
-            hashMap2.put("experimentNickNameID", d.N() ? "12_11_nick_name_a" : "");
+            hashMap2.put("experimentPersonalVideoTabID", d.W() ? "12_10_zhuye_feed_b" : "");
+            hashMap2.put("experimentNickNameID", d.S() ? "12_11_nick_name_a" : "");
             hashMap2.put("ubsConfigMap", c.a.s0.b.c.d().f());
             hashMap.put("syncData", hashMap2);
             if (TbSingleton.getInstance().getTiebaPlusConfigData() != null) {

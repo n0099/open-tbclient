@@ -3,11 +3,11 @@ package com.baidu.tieba.person.holder;
 import android.view.View;
 import android.widget.TextView;
 import c.a.d.n.e.n;
-import c.a.t0.u2.g.e;
-import c.a.t0.u2.g.f;
-import c.a.t0.y2.a;
-import c.a.t0.y2.b;
-import c.a.t0.y2.d;
+import c.a.t0.v2.g.e;
+import c.a.t0.v2.g.f;
+import c.a.t0.z2.a;
+import c.a.t0.z2.b;
+import c.a.t0.z2.d;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
@@ -70,7 +70,7 @@ public class PersonInfoUserPicsHolder extends TypeAdapter.ViewHolder {
                 return list;
             }
             ArrayList arrayList = new ArrayList(list);
-            c.a.t0.u2.d dVar = new c.a.t0.u2.d(c.a.d.f.p.n.f(this.mPageContext.getPageActivity(), b.ds32), c.a.d.f.p.n.f(this.mPageContext.getPageActivity(), b.ds120));
+            c.a.t0.v2.d dVar = new c.a.t0.v2.d(c.a.d.f.p.n.f(this.mPageContext.getPageActivity(), b.ds32), c.a.d.f.p.n.f(this.mPageContext.getPageActivity(), b.ds120));
             ListUtils.add(arrayList, 0, dVar);
             ListUtils.add(arrayList, dVar);
             return arrayList;

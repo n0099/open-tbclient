@@ -296,7 +296,7 @@ public final class SapiOptions implements NoProguard {
                 CacheGray cacheGray = new CacheGray();
                 if (jSONObject != null) {
                     try {
-                        cacheGray.percent = jSONObject.optString(SapiOptions.KEY_CACHE_PERCENT);
+                        cacheGray.percent = jSONObject.optString("percent");
                         JSONArray optJSONArray = jSONObject.optJSONArray(SapiOptions.KEY_CACHE_MODULES);
                         for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
                             cacheGray.getModules().add(Cache.Module.fromJSON(optJSONArray.getJSONObject(i2)));

@@ -22,7 +22,7 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static a f14562b;
+    public static a f14702b;
     public transient /* synthetic */ FieldHolder $fh;
     public List<StatisticItem> a;
 
@@ -44,14 +44,14 @@ public class a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (f14562b == null) {
+            if (f14702b == null) {
                 synchronized (a.class) {
-                    if (f14562b == null) {
-                        f14562b = new a();
+                    if (f14702b == null) {
+                        f14702b = new a();
                     }
                 }
             }
-            return f14562b;
+            return f14702b;
         }
         return (a) invokeV.objValue;
     }
@@ -88,10 +88,10 @@ public class a {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, e2Var)) == null) {
-            if (e2Var == null || e2Var.o1() == null) {
+            if (e2Var == null || e2Var.p1() == null) {
                 return -1L;
             }
-            return e2Var.o1().live_id;
+            return e2Var.p1().live_id;
         }
         return invokeL.longValue;
     }
@@ -103,11 +103,11 @@ public class a {
             if (e2Var == null) {
                 return null;
             }
-            String str3 = (e2Var.o1() == null || StringUtils.isNull(e2Var.o1().appId)) ? "" : e2Var.o1().appId;
+            String str3 = (e2Var.p1() == null || StringUtils.isNull(e2Var.p1().appId)) ? "" : e2Var.p1().appId;
             StatisticItem statisticItem = new StatisticItem(str);
             statisticItem.param("obj_type", 1);
             statisticItem.param("obj_id", d(e2Var));
-            statisticItem.param("tid", e2Var.g0());
+            statisticItem.param("tid", e2Var.h0());
             statisticItem.param(TiebaStatic.Params.OBJ_PARAM3, str3);
             statisticItem.param("entryid", i3);
             statisticItem.param("name", str2);

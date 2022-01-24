@@ -25,10 +25,10 @@ public class c extends b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: f  reason: collision with root package name */
-    public static volatile c.a.r0.w.b f9222f;
+    public static volatile c.a.r0.w.b f9364f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static long f9223g;
+    public static long f9365g;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes.dex */
@@ -54,7 +54,7 @@ public class c extends b {
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                long unused = c.f9223g = c.f9222f.c();
+                long unused = c.f9365g = c.f9364f.c();
             }
         }
     }
@@ -93,7 +93,7 @@ public class c extends b {
             }
         }
         synchronized (c.class) {
-            if (f9222f == null) {
+            if (f9364f == null) {
                 a0();
             }
         }
@@ -103,11 +103,11 @@ public class c extends b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) == null) {
             synchronized (c.class) {
-                if (f9222f == null) {
+                if (f9364f == null) {
                     try {
-                        f9222f = new c.a.r0.a.o2.h.c("swan_js_global_storage", 2, d.g().getAbsolutePath());
+                        f9364f = new c.a.r0.a.o2.h.c("swan_js_global_storage", 2, d.g().getAbsolutePath());
                     } catch (NoClassDefFoundError | UnsatisfiedLinkError unused) {
-                        f9222f = new j("swan_js_global_storage");
+                        f9364f = new j("swan_js_global_storage");
                         c.a.r0.a.o2.h.d.i(1, "swan_js_global_storage");
                     }
                     b0();
@@ -118,7 +118,7 @@ public class c extends b {
 
     public static void b0() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65541, null) == null) || f9222f == null) {
+        if (!(interceptable == null || interceptable.invokeV(65541, null) == null) || f9364f == null) {
             return;
         }
         q.f().execute(new a());
@@ -161,7 +161,7 @@ public class c extends b {
     public c.a.r0.w.b F(@NonNull e eVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, eVar)) == null) ? f9222f : (c.a.r0.w.b) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, eVar)) == null) ? f9364f : (c.a.r0.w.b) invokeL.objValue;
     }
 
     @Override // c.a.r0.a.u.e.l.b
@@ -172,8 +172,8 @@ public class c extends b {
             q("#getStorageInfo", false);
             JSONObject jSONObject = new JSONObject();
             try {
-                jSONObject.put(SavedStateHandle.KEYS, new JSONArray((Collection) f9222f.a()));
-                jSONObject.put("currentSize", f9223g / 1024);
+                jSONObject.put(SavedStateHandle.KEYS, new JSONArray((Collection) f9364f.a()));
+                jSONObject.put("currentSize", f9365g / 1024);
                 jSONObject.put("limitSize", 10240);
                 return new c.a.r0.a.u.h.b(0, jSONObject);
             } catch (JSONException unused) {
@@ -219,7 +219,7 @@ public class c extends b {
     public boolean N(@Nullable e eVar, @NonNull String str, @NonNull String str2) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, eVar, str, str2)) == null) ? (f9223g - ((long) f9222f.getString(str, "").length())) + ((long) str2.length()) > 10485760 : invokeLLL.booleanValue;
+        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, eVar, str, str2)) == null) ? (f9365g - ((long) f9364f.getString(str, "").length())) + ((long) str2.length()) > 10485760 : invokeLLL.booleanValue;
     }
 
     @Override // c.a.r0.a.u.e.l.b

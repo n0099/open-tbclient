@@ -54,6 +54,6 @@ public final class p extends ai.a {
             return;
         }
         ieVar.a(com.xiaomi.push.service.at.a());
-        an.a(this.a.getApplicationContext()).a((an) this.f100a, hf.f61166i, true, (hs) null, true);
+        an.a(this.a.getApplicationContext()).a((an) this.f100a, hf.f61211i, true, (hs) null, true);
     }
 }

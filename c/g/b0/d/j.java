@@ -14,7 +14,7 @@ public class j implements KsInterstitialAd.AdInteractionListener {
     public final /* synthetic */ KsInterstitialAd a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ i f28342b;
+    public final /* synthetic */ i f28370b;
 
     public j(i iVar, KsInterstitialAd ksInterstitialAd) {
         Interceptable interceptable = $ic;
@@ -31,7 +31,7 @@ public class j implements KsInterstitialAd.AdInteractionListener {
                 return;
             }
         }
-        this.f28342b = iVar;
+        this.f28370b = iVar;
         this.a = ksInterstitialAd;
     }
 
@@ -40,7 +40,7 @@ public class j implements KsInterstitialAd.AdInteractionListener {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             LogPrinter.d();
-            this.f28342b.onAdClicked(false);
+            this.f28370b.onAdClicked(false);
         }
     }
 
@@ -56,7 +56,7 @@ public class j implements KsInterstitialAd.AdInteractionListener {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             LogPrinter.d();
-            this.f28342b.onAdShow(this.a, false);
+            this.f28370b.onAdShow(this.a, false);
         }
     }
 
@@ -65,7 +65,7 @@ public class j implements KsInterstitialAd.AdInteractionListener {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             LogPrinter.d();
-            this.f28342b.onAdClose();
+            this.f28370b.onAdClose();
         }
     }
 
@@ -90,7 +90,7 @@ public class j implements KsInterstitialAd.AdInteractionListener {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(1048582, this, i2, i3) == null) {
             LogPrinter.e("onVideoPlayError code:%d extra:%d", Integer.valueOf(i2), Integer.valueOf(i3));
-            this.f28342b.onAdError(i2, String.valueOf(i3));
+            this.f28370b.onAdError(i2, String.valueOf(i3));
         }
     }
 

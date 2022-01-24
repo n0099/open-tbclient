@@ -12,7 +12,7 @@ public class c {
     public static boolean a = false;
 
     /* renamed from: b  reason: collision with root package name */
-    public static int f14236b = 50;
+    public static int f14376b = 50;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -39,11 +39,11 @@ public class c {
             synchronized (c.class) {
                 if (!a && (identifier = context.getResources().getIdentifier("status_bar_height", "dimen", "android")) > 0) {
                     int dimensionPixelSize = context.getResources().getDimensionPixelSize(identifier);
-                    f14236b = dimensionPixelSize;
+                    f14376b = dimensionPixelSize;
                     a = true;
                     String.format("Get status bar height %d", Integer.valueOf(dimensionPixelSize));
                 }
-                i2 = f14236b;
+                i2 = f14376b;
             }
             return i2;
         }

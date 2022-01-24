@@ -15,20 +15,20 @@ public class a extends InputStream {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: i  reason: collision with root package name */
-    public static final String f26303i;
+    public static final String f26331i;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public InputStream f26304e;
+    public InputStream f26332e;
 
     /* renamed from: f  reason: collision with root package name */
-    public b f26305f;
+    public b f26333f;
 
     /* renamed from: g  reason: collision with root package name */
-    public long f26306g;
+    public long f26334g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f26307h;
+    public boolean f26335h;
 
     static {
         InterceptResult invokeClinit;
@@ -43,7 +43,7 @@ public class a extends InputStream {
                 return;
             }
         }
-        f26303i = a.class.getName();
+        f26331i = a.class.getName();
     }
 
     public a(InputStream inputStream, b bVar) {
@@ -61,10 +61,10 @@ public class a extends InputStream {
                 return;
             }
         }
-        this.f26306g = 0L;
-        this.f26307h = false;
-        this.f26304e = inputStream;
-        this.f26305f = bVar;
+        this.f26334g = 0L;
+        this.f26335h = false;
+        this.f26332e = inputStream;
+        this.f26333f = bVar;
     }
 
     @Override // java.io.InputStream
@@ -73,9 +73,9 @@ public class a extends InputStream {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             try {
-                return this.f26304e.available();
+                return this.f26332e.available();
             } catch (IOException e2) {
-                this.f26305f.b(e2, this.f26306g);
+                this.f26333f.b(e2, this.f26334g);
                 throw e2;
             }
         }
@@ -85,30 +85,30 @@ public class a extends InputStream {
     @Override // java.io.InputStream, java.io.Closeable, java.lang.AutoCloseable
     public void close() throws IOException {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.f26307h) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.f26335h) {
             return;
         }
-        this.f26307h = true;
+        this.f26335h = true;
         try {
             try {
-                if (this.f26304e.read() == -1) {
-                    this.f26305f.onComplete(this.f26306g);
+                if (this.f26332e.read() == -1) {
+                    this.f26333f.onComplete(this.f26334g);
                 } else {
-                    this.f26305f.a(this.f26306g);
+                    this.f26333f.a(this.f26334g);
                 }
-                this.f26304e.close();
+                this.f26332e.close();
             } catch (Exception unused) {
-                this.f26304e.close();
+                this.f26332e.close();
             } catch (Throwable th) {
                 try {
-                    this.f26304e.close();
+                    this.f26332e.close();
                 } catch (Exception e2) {
-                    this.f26305f.b(e2, this.f26306g);
+                    this.f26333f.b(e2, this.f26334g);
                 }
                 throw th;
             }
         } catch (Exception e3) {
-            this.f26305f.b(e3, this.f26306g);
+            this.f26333f.b(e3, this.f26334g);
         }
     }
 
@@ -117,20 +117,20 @@ public class a extends InputStream {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, bArr)) == null) {
-            if (this.f26307h) {
+            if (this.f26335h) {
                 return -1;
             }
             try {
-                int read = this.f26304e.read(bArr, 0, bArr.length);
+                int read = this.f26332e.read(bArr, 0, bArr.length);
                 if (read >= 0) {
-                    this.f26306g += read;
+                    this.f26334g += read;
                 } else {
-                    this.f26307h = true;
-                    this.f26305f.onComplete(this.f26306g);
+                    this.f26335h = true;
+                    this.f26333f.onComplete(this.f26334g);
                 }
                 return read;
             } catch (IOException e2) {
-                this.f26305f.b(e2, this.f26306g);
+                this.f26333f.b(e2, this.f26334g);
                 throw e2;
             } catch (IllegalStateException unused) {
                 return -1;
@@ -145,9 +145,9 @@ public class a extends InputStream {
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             synchronized (this) {
                 try {
-                    this.f26304e.reset();
+                    this.f26332e.reset();
                 } catch (IOException e2) {
-                    this.f26305f.b(e2, this.f26306g);
+                    this.f26333f.b(e2, this.f26334g);
                     throw e2;
                 }
             }
@@ -159,8 +159,8 @@ public class a extends InputStream {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeJ = interceptable.invokeJ(1048582, this, j2)) == null) {
-            long skip = this.f26304e.skip(j2);
-            this.f26306g += skip;
+            long skip = this.f26332e.skip(j2);
+            this.f26334g += skip;
             return skip;
         }
         return invokeJ.longValue;
@@ -171,20 +171,20 @@ public class a extends InputStream {
         InterceptResult invokeLII;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLII = interceptable.invokeLII(1048580, this, bArr, i2, i3)) == null) {
-            if (this.f26307h) {
+            if (this.f26335h) {
                 return -1;
             }
             try {
-                int read = this.f26304e.read(bArr, i2, i3);
+                int read = this.f26332e.read(bArr, i2, i3);
                 if (read >= 0) {
-                    this.f26306g += read;
+                    this.f26334g += read;
                 } else {
-                    this.f26307h = true;
-                    this.f26305f.onComplete(this.f26306g);
+                    this.f26335h = true;
+                    this.f26333f.onComplete(this.f26334g);
                 }
                 return read;
             } catch (IOException e2) {
-                this.f26305f.b(e2, this.f26306g);
+                this.f26333f.b(e2, this.f26334g);
                 throw e2;
             } catch (IllegalStateException unused) {
                 return -1;
@@ -198,20 +198,20 @@ public class a extends InputStream {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (this.f26307h) {
+            if (this.f26335h) {
                 return -1;
             }
             try {
-                int read = this.f26304e.read();
+                int read = this.f26332e.read();
                 if (read >= 0) {
-                    this.f26306g += read;
+                    this.f26334g += read;
                 } else {
-                    this.f26307h = true;
-                    this.f26305f.onComplete(this.f26306g);
+                    this.f26335h = true;
+                    this.f26333f.onComplete(this.f26334g);
                 }
                 return read;
             } catch (IOException e2) {
-                this.f26305f.b(e2, this.f26306g);
+                this.f26333f.b(e2, this.f26334g);
                 throw e2;
             } catch (IllegalStateException unused) {
                 return -1;

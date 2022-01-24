@@ -22,7 +22,7 @@ public class SelectNumberDialog extends BaseDialog implements View.OnClickListen
     public LinearLayout a;
 
     /* renamed from: b  reason: collision with root package name */
-    public AdapterView.OnItemClickListener f50797b;
+    public AdapterView.OnItemClickListener f50842b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public SelectNumberDialog(Context context) {
@@ -53,10 +53,10 @@ public class SelectNumberDialog extends BaseDialog implements View.OnClickListen
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
             dismiss();
-            if (this.f50797b == null || view.getTag() == null) {
+            if (this.f50842b == null || view.getTag() == null) {
                 return;
             }
-            this.f50797b.onItemClick(null, view, ((Integer) view.getTag()).intValue(), 0L);
+            this.f50842b.onItemClick(null, view, ((Integer) view.getTag()).intValue(), 0L);
         }
     }
 
@@ -101,7 +101,7 @@ public class SelectNumberDialog extends BaseDialog implements View.OnClickListen
     public void setOnItemClickListener(AdapterView.OnItemClickListener onItemClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, onItemClickListener) == null) {
-            this.f50797b = onItemClickListener;
+            this.f50842b = onItemClickListener;
         }
     }
 }

@@ -21,14 +21,14 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class CameraEnumerationAndroid {
     public static /* synthetic */ Interceptable $ic = null;
     public static final ArrayList<Size> COMMON_RESOLUTIONS;
     public static final String TAG = "CameraEnumerationAndroid";
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static class CaptureFormat {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -37,7 +37,7 @@ public class CameraEnumerationAndroid {
         public final int imageFormat;
         public final int width;
 
-        /* loaded from: classes4.dex */
+        /* loaded from: classes5.dex */
         public static class FramerateRange {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -181,7 +181,7 @@ public class CameraEnumerationAndroid {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static abstract class ClosestComparator<T> implements Comparator<T> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

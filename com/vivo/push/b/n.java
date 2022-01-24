@@ -14,10 +14,10 @@ public final class n extends s {
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f60644b;
+    public int f60689b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f60645c;
+    public boolean f60690c;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public n() {
@@ -35,14 +35,14 @@ public final class n extends s {
                 return;
             }
         }
-        this.f60644b = 0;
-        this.f60645c = false;
+        this.f60689b = 0;
+        this.f60690c = false;
     }
 
     public final void a(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
-            this.f60644b = i2;
+            this.f60689b = i2;
         }
     }
 
@@ -59,8 +59,8 @@ public final class n extends s {
         if (interceptable == null || interceptable.invokeL(1048579, this, aVar) == null) {
             super.c(aVar);
             aVar.a("content", this.a);
-            aVar.a("log_level", this.f60644b);
-            aVar.a("is_server_log", this.f60645c);
+            aVar.a("log_level", this.f60689b);
+            aVar.a("is_server_log", this.f60690c);
         }
     }
 
@@ -73,13 +73,13 @@ public final class n extends s {
     public final int e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f60644b : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f60689b : invokeV.intValue;
     }
 
     public final boolean f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f60645c : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f60690c : invokeV.booleanValue;
     }
 
     @Override // com.vivo.push.b.s, com.vivo.push.o
@@ -92,7 +92,7 @@ public final class n extends s {
     public final void a(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
-            this.f60645c = z;
+            this.f60690c = z;
         }
     }
 
@@ -102,8 +102,8 @@ public final class n extends s {
         if (interceptable == null || interceptable.invokeL(1048581, this, aVar) == null) {
             super.d(aVar);
             this.a = aVar.a("content");
-            this.f60644b = aVar.b("log_level", 0);
-            this.f60645c = aVar.e("is_server_log");
+            this.f60689b = aVar.b("log_level", 0);
+            this.f60690c = aVar.e("is_server_log");
         }
     }
 }

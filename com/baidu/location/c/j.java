@@ -15,7 +15,7 @@ public class j implements Runnable {
     public final /* synthetic */ boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ i.a f35113b;
+    public final /* synthetic */ i.a f35141b;
 
     public j(i.a aVar, boolean z) {
         Interceptable interceptable = $ic;
@@ -32,7 +32,7 @@ public class j implements Runnable {
                 return;
             }
         }
-        this.f35113b = aVar;
+        this.f35141b = aVar;
         this.a = z;
     }
 
@@ -41,11 +41,11 @@ public class j implements Runnable {
         boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            z = this.f35113b.a.f35110j;
+            z = this.f35141b.a.f35138j;
             if (!z) {
-                this.f35113b.a.f35110j = this.a;
+                this.f35141b.a.f35138j = this.a;
             }
-            this.f35113b.a.q();
+            this.f35141b.a.q();
             l.c().h();
             if (System.currentTimeMillis() - t.b() <= 5000) {
                 x.a().c();

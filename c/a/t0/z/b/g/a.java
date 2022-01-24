@@ -46,7 +46,7 @@ public class a {
             }
             if (context.checkSelfPermission("android.permission.WRITE_EXTERNAL_STORAGE") != 0) {
                 a.add("android.permission.WRITE_EXTERNAL_STORAGE");
-                a.add(s.f55248i);
+                a.add(s.f55293i);
             }
         }
     }

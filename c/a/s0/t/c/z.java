@@ -35,30 +35,30 @@ public class z {
             this.a = new ArrayList();
             try {
                 if (jSONArray == null) {
-                    c.a.s0.s.h0.b.k().y("key_index_tab_info_list", "[]");
+                    c.a.s0.s.i0.b.k().y("key_index_tab_info_list", "[]");
                     return;
                 }
-                JSONArray jSONArray2 = new JSONArray(c.a.s0.s.h0.b.k().q("key_index_tab_info_list", "[]"));
+                JSONArray jSONArray2 = new JSONArray(c.a.s0.s.i0.b.k().q("key_index_tab_info_list", "[]"));
                 for (int i2 = 0; i2 < jSONArray.length(); i2++) {
                     a0 a0Var = new a0();
                     a0 a0Var2 = new a0();
                     a0Var.e(jSONArray.getJSONObject(i2));
                     for (int i3 = 0; i3 < jSONArray2.length(); i3++) {
                         a0Var2.e(jSONArray2.getJSONObject(i3));
-                        if (a0Var.f13788c != null && a0Var.f13788c.equals(a0Var2.f13788c)) {
-                            if (!TextUtils.isEmpty(a0Var2.f13790e) && a0Var2.f13790e.equals(a0Var.f13790e)) {
+                        if (a0Var.f13933c != null && a0Var.f13933c.equals(a0Var2.f13933c)) {
+                            if (!TextUtils.isEmpty(a0Var2.f13935e) && a0Var2.f13935e.equals(a0Var.f13935e)) {
                                 z = false;
-                                a0Var.f13791f = z;
+                                a0Var.f13936f = z;
                             }
                             z = true;
-                            a0Var.f13791f = z;
+                            a0Var.f13936f = z;
                         }
                     }
                     if (!a0Var.c()) {
                         this.a.add(a0Var);
                     }
                 }
-                c.a.s0.s.h0.b.k().y("key_index_tab_info_list", jSONArray.toString());
+                c.a.s0.s.i0.b.k().y("key_index_tab_info_list", jSONArray.toString());
             } catch (Exception e2) {
                 e2.printStackTrace();
             }

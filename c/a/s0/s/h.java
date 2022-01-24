@@ -46,7 +46,7 @@ public class h {
             c.a.d.f.l.d.h().o(27, new BigImageLoaderProc(27));
             c.a.d.f.l.d.h().o(29, new SimpleForeverLoaderProc(true, 29));
             c.a.d.f.l.d.h().o(32, new LocalFileDrawableLoaderProc(32));
-            c.a.d.f.l.d.h().o(23, new c.a.s0.s.k0.b.c());
+            c.a.d.f.l.d.h().o(23, new c.a.s0.s.l0.b.c());
             c.a.d.f.l.d.h().o(33, new MemeLoaderProc2());
             c.a.d.f.l.d.h().o(34, new EmotionShareLoaderProc());
             c.a.d.f.l.d.h().o(35, new LocalFileImageLoaderProc(160, 160));

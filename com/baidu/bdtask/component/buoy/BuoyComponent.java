@@ -35,25 +35,25 @@ public abstract class BuoyComponent implements a {
     public boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f32934b;
+    public boolean f32962b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f32935c;
+    public boolean f32963c;
 
     /* renamed from: d  reason: collision with root package name */
-    public ViewGroup f32936d;
+    public ViewGroup f32964d;
 
     /* renamed from: e  reason: collision with root package name */
-    public Function0<Unit> f32937e;
+    public Function0<Unit> f32965e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final c.a.j.h.c.a.a<TaskBuoyViewData, TaskBuoyViewModel> f32938f;
+    public final c.a.j.h.c.a.a<TaskBuoyViewData, TaskBuoyViewModel> f32966f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final TaskBuoyViewModel f32939g;
+    public final TaskBuoyViewModel f32967g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final TaskInfo f32940h;
+    public final TaskInfo f32968h;
 
     @Metadata(bv = {1, 0, 2}, d1 = {"\u0000\b\n\u0000\n\u0002\u0010\u0002\n\u0000\u0010\u0000\u001a\u00020\u0001H\n¢\u0006\u0002\b\u0002"}, d2 = {"<anonymous>", "", "run"}, k = 3, mv = {1, 1, 9}, pn = "", xi = 0, xs = "")
     /* loaded from: classes10.dex */
@@ -62,13 +62,13 @@ public abstract class BuoyComponent implements a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ BuoyComponent f32941e;
+        public final /* synthetic */ BuoyComponent f32969e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ TaskStatus f32942f;
+        public final /* synthetic */ TaskStatus f32970f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ TaskInfo f32943g;
+        public final /* synthetic */ TaskInfo f32971g;
 
         public b(BuoyComponent buoyComponent, TaskStatus taskStatus, TaskInfo taskInfo) {
             Interceptable interceptable = $ic;
@@ -85,9 +85,9 @@ public abstract class BuoyComponent implements a {
                     return;
                 }
             }
-            this.f32941e = buoyComponent;
-            this.f32942f = taskStatus;
-            this.f32943g = taskInfo;
+            this.f32969e = buoyComponent;
+            this.f32970f = taskStatus;
+            this.f32971g = taskInfo;
         }
 
         /* JADX DEBUG: Multi-variable search result rejected for r2v20, resolved type: T */
@@ -103,57 +103,57 @@ public abstract class BuoyComponent implements a {
             e eVar;
             c.a.j.j.i.a f2;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.f32941e.u()) {
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.f32969e.u()) {
                 Ref.ObjectRef objectRef = new Ref.ObjectRef();
-                ?? r2 = this.f32942f;
+                ?? r2 = this.f32970f;
                 objectRef.element = r2;
                 if (((TaskStatus) r2) == null) {
-                    TaskState m = BDPTask.m.m(this.f32943g.getActionId());
+                    TaskState m = BDPTask.m.m(this.f32971g.getActionId());
                     objectRef.element = m != null ? m.getTaskStatus() : 0;
                 }
                 T t = objectRef.element;
                 if (((TaskStatus) t) != null && ((TaskStatus) t).isEnable()) {
                     Ref.ObjectRef objectRef2 = new Ref.ObjectRef();
-                    objectRef2.element = this.f32943g.getTaskMeter().getUi();
-                    long r = this.f32941e.r(this.f32943g, (TaskStatus) objectRef.element);
-                    c.a.j.i.g.a a = c.a.j.i.g.b.a.a((TaskStatus) objectRef.element, this.f32943g);
+                    objectRef2.element = this.f32971g.getTaskMeter().getUi();
+                    long r = this.f32969e.r(this.f32971g, (TaskStatus) objectRef.element);
+                    c.a.j.i.g.a a = c.a.j.i.g.b.a.a((TaskStatus) objectRef.element, this.f32971g);
                     int b2 = a.b();
                     ?? a2 = a.a();
                     if (a2 != 0) {
                         objectRef2.element = a2;
                     }
                     if (TaskGuideData.Companion.a(b2)) {
-                        this.f32941e.y();
+                        this.f32969e.y();
                         c cVar = new c(b2, ((TaskUIData) objectRef2.element).getMessage(), ((TaskUIData) objectRef2.element).getTxtColor(), ((TaskUIData) objectRef2.element).getBgUrl(), ((TaskUIData) objectRef2.element).getProgress().getForeColor(), ((TaskUIData) objectRef2.element).getProgress().getBackColor(), ((TaskUIData) objectRef2.element).getCloseBg(), ((TaskUIData) objectRef2.element).getBackBtn().getScheme());
-                        TaskProcessData processData = this.f32943g.getResponse().isEmpty() ? null : this.f32943g.getResponse().getProcessData();
-                        e eVar2 = new e(this.f32941e.q(this.f32943g, (TaskStatus) objectRef.element), r);
-                        if (this.f32941e.t((TaskStatus) objectRef.element)) {
+                        TaskProcessData processData = this.f32971g.getResponse().isEmpty() ? null : this.f32971g.getResponse().getProcessData();
+                        e eVar2 = new e(this.f32969e.q(this.f32971g, (TaskStatus) objectRef.element), r);
+                        if (this.f32969e.t((TaskStatus) objectRef.element)) {
                             ?? a3 = c.a.j.m.b.a.a((TaskStatus) objectRef.element);
                             objectRef.element = a3;
-                            e eVar3 = new e(this.f32941e.s(this.f32943g, (TaskStatus) a3), r);
-                            this.f32941e.v();
+                            e eVar3 = new e(this.f32969e.s(this.f32971g, (TaskStatus) a3), r);
+                            this.f32969e.v();
                             eVar = eVar3;
                         } else {
                             eVar = eVar2;
                         }
                         TaskBuoyViewData taskBuoyViewData = new TaskBuoyViewData((TaskStatus) objectRef.element, cVar, eVar, processData, ((TaskUIData) objectRef2.element).getExtra());
                         DebugTrace.a.c(new BuoyComponent$update$1$4(objectRef, objectRef2, taskBuoyViewData));
-                        this.f32941e.f32939g.f(taskBuoyViewData);
-                        if (this.f32941e.f32935c) {
+                        this.f32969e.f32967g.f(taskBuoyViewData);
+                        if (this.f32969e.f32963c) {
                             return;
                         }
-                        this.f32941e.f32935c = true;
+                        this.f32969e.f32963c = true;
                         String str = TaskGuideData.Companion.b(a.b()) ? "y_task_icon" : "y_task_diyicon";
                         String c2 = c.a.j.j.i.b.a.c((TaskStatus) objectRef.element);
                         c.a.j.j.d.a v = BDPTask.m.v();
                         if (v == null || (f2 = v.f()) == null) {
                             return;
                         }
-                        f2.a(str, "c_pv", c.a.j.j.i.b.a.a(this.f32943g.getId(), this.f32943g.getActTaskId(), c2));
+                        f2.a(str, "c_pv", c.a.j.j.i.b.a.a(this.f32971g.getId(), this.f32971g.getActTaskId(), c2));
                         return;
                     }
                     DebugTrace.a.c(new BuoyComponent$update$1$3(b2));
-                    this.f32941e.m();
+                    this.f32969e.m();
                     return;
                 }
                 DebugTrace.a.c(new BuoyComponent$update$1$1(objectRef));
@@ -191,9 +191,9 @@ public abstract class BuoyComponent implements a {
                 return;
             }
         }
-        this.f32938f = aVar;
-        this.f32939g = taskBuoyViewModel;
-        this.f32940h = taskInfo;
+        this.f32966f = aVar;
+        this.f32967g = taskBuoyViewModel;
+        this.f32968h = taskInfo;
         aVar.a(taskBuoyViewModel);
     }
 
@@ -215,7 +215,7 @@ public abstract class BuoyComponent implements a {
             DebugTrace.a.c(new BuoyComponent$onChanged$2(taskInfo));
             update(taskInfo, taskStatus);
             if (taskStatus.isUnRegistered()) {
-                this.f32934b = true;
+                this.f32962b = true;
                 DebugTrace.a.c(BuoyComponent$onChanged$3.INSTANCE);
             }
         }
@@ -224,9 +224,9 @@ public abstract class BuoyComponent implements a {
     public void l(ViewGroup viewGroup, ViewGroup.LayoutParams layoutParams) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, viewGroup, layoutParams) == null) && u()) {
-            this.f32937e = new BuoyComponent$attachToWindow$1(this, viewGroup, layoutParams);
-            this.f32936d = viewGroup;
-            BDPTask.m.z(this.f32940h, this);
+            this.f32965e = new BuoyComponent$attachToWindow$1(this, viewGroup, layoutParams);
+            this.f32964d = viewGroup;
+            BDPTask.m.z(this.f32968h, this);
         }
     }
 
@@ -234,9 +234,9 @@ public abstract class BuoyComponent implements a {
         ViewGroup viewGroup;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            ViewGroup viewGroup2 = this.f32936d;
-            if ((viewGroup2 == null || viewGroup2.indexOfChild(this.f32938f.getContentView()) != -1) && (viewGroup = this.f32936d) != null) {
-                viewGroup.removeView(this.f32938f.getContentView());
+            ViewGroup viewGroup2 = this.f32964d;
+            if ((viewGroup2 == null || viewGroup2.indexOfChild(this.f32966f.getContentView()) != -1) && (viewGroup = this.f32964d) != null) {
+                viewGroup.removeView(this.f32966f.getContentView());
             }
         }
     }
@@ -260,8 +260,8 @@ public abstract class BuoyComponent implements a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             m();
-            this.f32937e = null;
-            BDPTask.m.G(this.f32940h.getActionId(), this);
+            this.f32965e = null;
+            BDPTask.m.G(this.f32968h.getActionId(), this);
         }
     }
 
@@ -282,7 +282,7 @@ public abstract class BuoyComponent implements a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
             DebugTrace.a.c(new BuoyComponent$isValid$1(this));
-            return (this.a || !x(this, null, 1, null) || this.f32934b) ? false : true;
+            return (this.a || !x(this, null, 1, null) || this.f32962b) ? false : true;
         }
         return invokeV.booleanValue;
     }
@@ -314,12 +314,12 @@ public abstract class BuoyComponent implements a {
             Ref.ObjectRef objectRef = new Ref.ObjectRef();
             objectRef.element = taskInfo;
             if (taskInfo == null) {
-                TaskState m = BDPTask.m.m(this.f32940h.getActionId());
+                TaskState m = BDPTask.m.m(this.f32968h.getActionId());
                 objectRef.element = m != null ? m.getTaskInfo() : 0;
             }
             if (((TaskInfo) objectRef.element) != null) {
                 DebugTrace.a.c(new BuoyComponent$taskSignCheck$1(this, objectRef));
-                return Intrinsics.areEqual(((TaskInfo) objectRef.element).getSingleKey(), this.f32940h.getSingleKey());
+                return Intrinsics.areEqual(((TaskInfo) objectRef.element).getSingleKey(), this.f32968h.getSingleKey());
             }
             return false;
         }
@@ -330,8 +330,8 @@ public abstract class BuoyComponent implements a {
         Function0<Unit> function0;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
-            View contentView = this.f32938f.getContentView();
-            if ((contentView != null ? contentView.getParent() : null) == null && (function0 = this.f32937e) != null) {
+            View contentView = this.f32966f.getContentView();
+            if ((contentView != null ? contentView.getParent() : null) == null && (function0 = this.f32965e) != null) {
                 function0.invoke();
             }
         }

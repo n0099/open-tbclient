@@ -29,7 +29,7 @@ public class m {
     public transient /* synthetic */ FieldHolder $fh;
 
     public static void a(String str) {
-        c.a.t0.w3.p0.d readThreadHistory;
+        c.a.t0.x3.p0.d readThreadHistory;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(65536, null, str) == null) || StringUtils.isNull(str) || "0".equalsIgnoreCase(str) || (readThreadHistory = TbadkCoreApplication.getInst().getReadThreadHistory()) == null || readThreadHistory.b(str)) {
             return;
@@ -39,26 +39,26 @@ public class m {
 
     public static void b(e2 e2Var, SpannableStringBuilder spannableStringBuilder, boolean z) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLZ(65537, null, e2Var, spannableStringBuilder, z) == null) || spannableStringBuilder == null || c.a.d.f.p.m.isEmptyStringAfterTrim(spannableStringBuilder.toString()) || e2Var == null || e2Var.s0() != 0) {
+        if (!(interceptable == null || interceptable.invokeLLZ(65537, null, e2Var, spannableStringBuilder, z) == null) || spannableStringBuilder == null || c.a.d.f.p.m.isEmptyStringAfterTrim(spannableStringBuilder.toString()) || e2Var == null || e2Var.t0() != 0) {
             return;
         }
-        if (z || e2Var.o0() == 1 || StringUtils.isNull(e2Var.getTitle())) {
-            ArrayList<c.a.s0.g1.n.b> N0 = e2Var.N0();
-            if (ListUtils.isEmpty(N0)) {
+        if (z || e2Var.p0() == 1 || StringUtils.isNull(e2Var.getTitle())) {
+            ArrayList<c.a.s0.f1.n.b> O0 = e2Var.O0();
+            if (ListUtils.isEmpty(O0)) {
                 return;
             }
             StringBuilder sb = new StringBuilder();
-            for (int i2 = 0; i2 < N0.size(); i2++) {
-                if (N0.get(i2) != null && !StringUtils.isNull(N0.get(i2).a())) {
-                    sb.append(N0.get(i2).a());
+            for (int i2 = 0; i2 < O0.size(); i2++) {
+                if (O0.get(i2) != null && !StringUtils.isNull(O0.get(i2).a())) {
+                    sb.append(O0.get(i2).a());
                 }
             }
             SpannableString spannableString = new SpannableString(sb.toString());
             int i3 = 0;
-            for (int i4 = 0; i4 < N0.size(); i4++) {
-                if (N0.get(i4) != null && !StringUtils.isNull(N0.get(i4).a())) {
-                    int length = N0.get(i4).a().length();
-                    c(spannableString, N0.get(i4), i3, length);
+            for (int i4 = 0; i4 < O0.size(); i4++) {
+                if (O0.get(i4) != null && !StringUtils.isNull(O0.get(i4).a())) {
+                    int length = O0.get(i4).a().length();
+                    c(spannableString, O0.get(i4), i3, length);
                     i3 += length;
                 }
             }
@@ -66,14 +66,14 @@ public class m {
         }
     }
 
-    public static void c(SpannableString spannableString, c.a.s0.g1.n.b bVar, int i2, int i3) {
+    public static void c(SpannableString spannableString, c.a.s0.f1.n.b bVar, int i2, int i3) {
         int i4;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeLLII(65538, null, spannableString, bVar, i2, i3) == null) || spannableString == null || bVar == null || (i4 = i3 + i2) > spannableString.length()) {
             return;
         }
-        spannableString.setSpan(new c.a.s0.g1.n.c(bVar), i2, i4, 33);
-        spannableString.setSpan(new AbsoluteSizeSpan(bVar.f12654i), i2, i4, 33);
+        spannableString.setSpan(new c.a.s0.f1.n.c(bVar), i2, i4, 33);
+        spannableString.setSpan(new AbsoluteSizeSpan(bVar.f12765i), i2, i4, 33);
     }
 
     public static SpannableStringBuilder d(String str, String str2) {
@@ -125,22 +125,22 @@ public class m {
                 if (aVar != null) {
                     int i3 = aVar.a;
                     if (i3 > 0) {
-                        aVar.f17834b = context.getString(i3);
+                        aVar.f17656b = context.getString(i3);
                     }
-                    if (!c.a.d.f.p.m.isEmpty(aVar.f17834b)) {
+                    if (!c.a.d.f.p.m.isEmpty(aVar.f17656b)) {
                         int length = spannableStringBuilder.length();
-                        spannableStringBuilder.append((CharSequence) aVar.f17834b);
-                        spannableStringBuilder.setSpan(new ForegroundColorSpan(SkinManager.getColor(aVar.f17835c)), length, spannableStringBuilder.length(), 17);
+                        spannableStringBuilder.append((CharSequence) aVar.f17656b);
+                        spannableStringBuilder.setSpan(new ForegroundColorSpan(SkinManager.getColor(aVar.f17657c)), length, spannableStringBuilder.length(), 17);
                         if (i2 == arrayList.size() - 1 && !z2) {
                             break;
                         }
-                        Bitmap bitmap = SkinManager.getBitmap(aVar.f17836d);
+                        Bitmap bitmap = SkinManager.getBitmap(aVar.f17658d);
                         BitmapDrawable bitmapDrawable = new BitmapDrawable(bitmap);
                         if (bitmap != null) {
                             bitmapDrawable.setBounds(0, 0, bitmap.getWidth(), bitmap.getHeight());
                         }
-                        c.a.s0.s.j0.j jVar = new c.a.s0.s.j0.j(bitmapDrawable);
-                        int i4 = aVar.f17837e;
+                        c.a.s0.s.k0.j jVar = new c.a.s0.s.k0.j(bitmapDrawable);
+                        int i4 = aVar.f17659e;
                         if (i4 != 0) {
                             jVar.b(i4);
                         }
@@ -163,11 +163,11 @@ public class m {
     public static void j(e2 e2Var, TextView textView) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65545, null, e2Var, textView) == null) {
-            if ((StringUtils.isNull(e2Var.getTitle()) && (e2Var.Y0() == null || e2Var.Y0().size() == 0)) || e2Var.o0() == 1) {
-                e2Var.d3(false, true);
-                if (e2Var.i1() != null && !StringUtils.isNull(e2Var.i1().toString())) {
+            if ((StringUtils.isNull(e2Var.getTitle()) && (e2Var.Z0() == null || e2Var.Z0().size() == 0)) || e2Var.p0() == 1) {
+                e2Var.e3(false, true);
+                if (e2Var.j1() != null && !StringUtils.isNull(e2Var.j1().toString())) {
                     textView.setVisibility(0);
-                    textView.setText(e2Var.i1());
+                    textView.setText(e2Var.j1());
                     return;
                 }
                 textView.setVisibility(8);
@@ -175,17 +175,17 @@ public class m {
             }
             textView.setVisibility(0);
             e2Var.q = 0;
-            e2Var.d3(false, true);
-            SpannableStringBuilder i1 = e2Var.i1();
-            textView.setOnTouchListener(new c.a.t0.n4.h(i1));
-            textView.setText(i1);
-            l(textView, e2Var.g0(), R.color.CAM_X0105, R.color.CAM_X0109);
+            e2Var.e3(false, true);
+            SpannableStringBuilder j1 = e2Var.j1();
+            textView.setOnTouchListener(new c.a.t0.n4.h(j1));
+            textView.setText(j1);
+            l(textView, e2Var.h0(), R.color.CAM_X0105, R.color.CAM_X0109);
         }
     }
 
     public static boolean k(String str) {
         InterceptResult invokeL;
-        c.a.t0.w3.p0.d readThreadHistory;
+        c.a.t0.x3.p0.d readThreadHistory;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeL = interceptable.invokeL(65546, null, str)) == null) ? (StringUtils.isNull(str) || "0".equalsIgnoreCase(str) || (readThreadHistory = TbadkCoreApplication.getInst().getReadThreadHistory()) == null || !readThreadHistory.d(str)) ? false : true : invokeL.booleanValue;
     }
@@ -208,16 +208,16 @@ public class m {
         public int a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f17834b;
+        public String f17656b;
 
         /* renamed from: c  reason: collision with root package name */
-        public int f17835c;
+        public int f17657c;
 
         /* renamed from: d  reason: collision with root package name */
-        public int f17836d;
+        public int f17658d;
 
         /* renamed from: e  reason: collision with root package name */
-        public int f17837e;
+        public int f17659e;
 
         public a(int i2, int i3, int i4) {
             Interceptable interceptable = $ic;
@@ -235,13 +235,13 @@ public class m {
                 }
             }
             this.a = -1;
-            this.f17834b = "";
-            this.f17835c = R.color.CAM_X0304;
-            this.f17836d = R.drawable.pic_dot_title;
-            this.f17837e = 0;
+            this.f17656b = "";
+            this.f17657c = R.color.CAM_X0304;
+            this.f17658d = R.drawable.pic_dot_title;
+            this.f17659e = 0;
             this.a = i2;
-            this.f17835c = i3;
-            this.f17836d = i4;
+            this.f17657c = i3;
+            this.f17658d = i4;
         }
 
         public a(int i2) {
@@ -260,10 +260,10 @@ public class m {
                 }
             }
             this.a = -1;
-            this.f17834b = "";
-            this.f17835c = R.color.CAM_X0304;
-            this.f17836d = R.drawable.pic_dot_title;
-            this.f17837e = 0;
+            this.f17656b = "";
+            this.f17657c = R.color.CAM_X0304;
+            this.f17658d = R.drawable.pic_dot_title;
+            this.f17659e = 0;
             this.a = i2;
         }
 
@@ -283,11 +283,11 @@ public class m {
                 }
             }
             this.a = -1;
-            this.f17834b = "";
-            this.f17835c = R.color.CAM_X0304;
-            this.f17836d = R.drawable.pic_dot_title;
-            this.f17837e = 0;
-            this.f17834b = str;
+            this.f17656b = "";
+            this.f17657c = R.color.CAM_X0304;
+            this.f17658d = R.drawable.pic_dot_title;
+            this.f17659e = 0;
+            this.f17656b = str;
         }
 
         public a(String str, int i2) {
@@ -306,12 +306,12 @@ public class m {
                 }
             }
             this.a = -1;
-            this.f17834b = "";
-            this.f17835c = R.color.CAM_X0304;
-            this.f17836d = R.drawable.pic_dot_title;
-            this.f17837e = 0;
-            this.f17834b = str;
-            this.f17836d = i2;
+            this.f17656b = "";
+            this.f17657c = R.color.CAM_X0304;
+            this.f17658d = R.drawable.pic_dot_title;
+            this.f17659e = 0;
+            this.f17656b = str;
+            this.f17658d = i2;
         }
     }
 }

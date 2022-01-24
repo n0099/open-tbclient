@@ -38,7 +38,7 @@ public class EMABTest {
             if (TextUtils.isEmpty(o)) {
                 return 0;
             }
-            String a = c.a.t0.s0.a.a(o);
+            String a = c.a.t0.t0.a.a(o);
             if (TextUtils.isEmpty(a)) {
                 return 0;
             }

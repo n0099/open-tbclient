@@ -36,10 +36,10 @@ public class AdVideoTailFrameView extends AdEmbeddedTailFrameView implements Vie
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: i  reason: collision with root package name */
-    public n f37072i;
+    public n f37100i;
 
     /* renamed from: j  reason: collision with root package name */
-    public boolean f37073j;
+    public boolean f37101j;
     public Handler k;
     public b l;
     public View m;
@@ -109,7 +109,7 @@ public class AdVideoTailFrameView extends AdEmbeddedTailFrameView implements Vie
             if (interceptable == null || interceptable.invokeL(1048576, this, message) == null) {
                 super.handleMessage(message);
                 AdVideoTailFrameView adVideoTailFrameView = this.a.get();
-                if (adVideoTailFrameView == null || message.what != 1 || adVideoTailFrameView.f37073j) {
+                if (adVideoTailFrameView == null || message.what != 1 || adVideoTailFrameView.f37101j) {
                     return;
                 }
                 adVideoTailFrameView.mHasPlayTime++;
@@ -171,7 +171,7 @@ public class AdVideoTailFrameView extends AdEmbeddedTailFrameView implements Vie
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
             this.mHalfFlag = z;
-            n nVar = this.f37072i;
+            n nVar = this.f37100i;
             if (nVar != null && TextUtils.equals(nVar.n, "ad_full_video")) {
                 j(z);
             }
@@ -233,7 +233,7 @@ public class AdVideoTailFrameView extends AdEmbeddedTailFrameView implements Vie
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            n nVar = this.f37072i;
+            n nVar = this.f37100i;
             return nVar != null && nVar.b();
         }
         return invokeV.booleanValue;
@@ -328,7 +328,7 @@ public class AdVideoTailFrameView extends AdEmbeddedTailFrameView implements Vie
     public void pauseCountDown() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            this.f37073j = true;
+            this.f37101j = true;
             Handler handler = this.k;
             if (handler != null) {
                 handler.removeMessages(1);
@@ -338,14 +338,14 @@ public class AdVideoTailFrameView extends AdEmbeddedTailFrameView implements Vie
 
     public void sendALS(String str, String str2, String str3) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLL(1048586, this, str, str2, str3) == null) && this.f37072i != null && NetUtil.a(getContext())) {
+        if ((interceptable == null || interceptable.invokeLLL(1048586, this, str, str2, str3) == null) && this.f37100i != null && NetUtil.a(getContext())) {
             ClogBuilder clogBuilder = new ClogBuilder();
             clogBuilder.s(str);
             clogBuilder.p(ClogBuilder.Page.AD_TAIL);
             if (!TextUtils.isEmpty(str2)) {
                 clogBuilder.g(str2);
             }
-            clogBuilder.m(this.f37072i.l);
+            clogBuilder.m(this.f37100i.l);
             if (!TextUtils.isEmpty(str3)) {
                 clogBuilder.j(str3);
             }
@@ -363,24 +363,24 @@ public class AdVideoTailFrameView extends AdEmbeddedTailFrameView implements Vie
     public void setData(@NonNull Object obj) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048588, this, obj) == null) && (obj instanceof n)) {
-            this.f37072i = (n) obj;
+            this.f37100i = (n) obj;
         }
     }
 
     public void showTail() {
         n nVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048589, this) == null) || (nVar = this.f37072i) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048589, this) == null) || (nVar = this.f37100i) == null) {
             return;
         }
         this.mDurationTime = nVar.f2248f;
         showTailFrame(nVar);
-        if (this.f37072i.q) {
+        if (this.f37100i.q) {
             startCountDown();
         } else {
             pauseCountDown();
         }
-        if (TextUtils.equals(this.f37072i.n, "ad_full_video")) {
+        if (TextUtils.equals(this.f37100i.n, "ad_full_video")) {
             this.mVideoADClose.setVisibility(0);
             j(!this.q.u().V0());
         }
@@ -395,7 +395,7 @@ public class AdVideoTailFrameView extends AdEmbeddedTailFrameView implements Vie
             } else {
                 this.k = new c(this, null);
             }
-            this.f37073j = false;
+            this.f37101j = false;
             this.k.sendMessage(this.k.obtainMessage(1));
         }
     }

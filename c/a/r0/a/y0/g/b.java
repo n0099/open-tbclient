@@ -42,7 +42,7 @@ public class b extends c.a.r0.a.y0.b<c.a.r0.a.y0.g.h.b> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: h  reason: collision with root package name */
-    public b.a f9622h;
+    public b.a f9764h;
 
     /* loaded from: classes.dex */
     public class a implements b.a {
@@ -85,7 +85,7 @@ public class b extends c.a.r0.a.y0.b<c.a.r0.a.y0.g.h.b> {
             }
         }
         a aVar = new a(this);
-        this.f9622h = aVar;
+        this.f9764h = aVar;
         bVar.Z(aVar);
         this.a.a(new c.a.r0.a.y0.g.f.b.a());
         this.a.a(new c.a.r0.a.y0.g.f.b.b());
@@ -128,11 +128,11 @@ public class b extends c.a.r0.a.y0.b<c.a.r0.a.y0.g.h.b> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, command) == null) {
             String str = command == null ? "" : command.what;
-            if (((c.a.r0.a.y0.g.h.b) this.f9587c).q()) {
+            if (((c.a.r0.a.y0.g.h.b) this.f9729c).q()) {
                 c.a.r0.a.e0.d.i("InlineRtcRoomController", "isReleased command：" + str);
                 return;
             }
-            c.a.r0.a.e0.d.i("InlineRtcRoomController", "authorize type：" + ((c.a.r0.a.y0.g.h.b) this.f9587c).a() + " command：" + str);
+            c.a.r0.a.e0.d.i("InlineRtcRoomController", "authorize type：" + ((c.a.r0.a.y0.g.h.b) this.f9729c).a() + " command：" + str);
             super.sendCommand(command);
         }
     }

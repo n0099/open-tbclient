@@ -18,7 +18,7 @@ public class SPSwitchFSPanelLinearLayout extends LinearLayout implements b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public a f39037e;
+    public a f39065e;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public SPSwitchFSPanelLinearLayout(Context context) {
@@ -44,7 +44,7 @@ public class SPSwitchFSPanelLinearLayout extends LinearLayout implements b {
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f39037e = new a(this);
+            this.f39065e = new a(this);
         }
     }
 
@@ -52,7 +52,7 @@ public class SPSwitchFSPanelLinearLayout extends LinearLayout implements b {
     public void onSoftInputShowing(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
-            this.f39037e.a(z);
+            this.f39065e.a(z);
         }
     }
 

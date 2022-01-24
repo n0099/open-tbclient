@@ -16,16 +16,16 @@ public class Loader {
     public static final /* synthetic */ boolean a = !Loader.class.desiredAssertionStatus();
 
     /* renamed from: b  reason: collision with root package name */
-    public volatile Context f55365b;
+    public volatile Context f55410b;
 
     /* renamed from: c  reason: collision with root package name */
-    public IKsAdSDK f55366c;
+    public IKsAdSDK f55411c;
 
     /* renamed from: d  reason: collision with root package name */
-    public j f55367d;
+    public j f55412d;
 
     /* renamed from: e  reason: collision with root package name */
-    public AtomicBoolean f55368e;
+    public AtomicBoolean f55413e;
 
     /* loaded from: classes3.dex */
     public static class a {
@@ -33,9 +33,9 @@ public class Loader {
     }
 
     public Loader() {
-        this.f55366c = null;
-        this.f55367d = null;
-        this.f55368e = new AtomicBoolean(false);
+        this.f55411c = null;
+        this.f55412d = null;
+        this.f55413e = new AtomicBoolean(false);
     }
 
     @NonNull
@@ -71,7 +71,7 @@ public class Loader {
             return false;
         }
         if (!TextUtils.isEmpty(b2) && f.a(b2, a2)) {
-            f.a(context, f.f55396b, b2);
+            f.a(context, f.f55441b, b2);
             a(context, a2);
             f.a(context, f.a, "");
             a2 = b2;
@@ -82,8 +82,8 @@ public class Loader {
     private void d(Context context) {
         String a2 = f.a(context);
         if (TextUtils.isEmpty(a2) || !a2.equals("3.3.17.4")) {
-            String a3 = f.a(context, f.f55396b);
-            f.a(context, f.f55396b, "");
+            String a3 = f.a(context, f.f55441b);
+            f.a(context, f.f55441b, "");
             f.a(context, f.a, "");
             g.b(g.c(context, a3));
             f.b(context, "3.3.17.4");
@@ -95,7 +95,7 @@ public class Loader {
     }
 
     public String a(Context context) {
-        return f.a(context, f.f55396b);
+        return f.a(context, f.f55441b);
     }
 
     public String b(Context context) {
@@ -103,16 +103,16 @@ public class Loader {
     }
 
     public void checkUpdate(IKsAdSDK iKsAdSDK) {
-        r.a(this.f55365b, iKsAdSDK);
+        r.a(this.f55410b, iKsAdSDK);
     }
 
     public Context getContext() {
-        return this.f55365b;
+        return this.f55410b;
     }
 
     @MainThread
     public ClassLoader getExternalClassLoader() {
-        j jVar = this.f55367d;
+        j jVar = this.f55412d;
         if (jVar != null) {
             return jVar.b();
         }
@@ -121,7 +121,7 @@ public class Loader {
 
     @MainThread
     public Resources getExternalResource() {
-        j jVar = this.f55367d;
+        j jVar = this.f55412d;
         if (jVar != null) {
             return jVar.a();
         }
@@ -130,47 +130,47 @@ public class Loader {
 
     @MainThread
     public IKsAdSDK getKsAdSDKImpl() {
-        j jVar = this.f55367d;
+        j jVar = this.f55412d;
         if (jVar != null) {
             IKsAdSDK c2 = jVar.c();
             c2.setIsExternal(true);
             return c2;
         }
-        if (this.f55366c == null) {
-            this.f55366c = a(this.f55365b != null ? this.f55365b.getClassLoader() : Loader.class.getClassLoader());
+        if (this.f55411c == null) {
+            this.f55411c = a(this.f55410b != null ? this.f55410b.getClassLoader() : Loader.class.getClassLoader());
         }
-        this.f55366c.setIsExternal(false);
-        return this.f55366c;
+        this.f55411c.setIsExternal(false);
+        return this.f55411c;
     }
 
     public ClassLoader getRealClassLoader() {
-        j jVar = this.f55367d;
+        j jVar = this.f55412d;
         return jVar != null ? jVar.b() : Loader.class.getClassLoader();
     }
 
     @MainThread
     public void init(Context context) {
-        if (this.f55368e.get()) {
+        if (this.f55413e.get()) {
             return;
         }
-        this.f55368e.set(true);
-        this.f55365b = context.getApplicationContext();
-        d(this.f55365b);
+        this.f55413e.set(true);
+        this.f55410b = context.getApplicationContext();
+        d(this.f55410b);
         if (c(context)) {
-            this.f55367d = j.a(this.f55365b, a(context));
+            this.f55412d = j.a(this.f55410b, a(context));
         }
-        if (this.f55367d == null) {
-            this.f55366c = a(Loader.class.getClassLoader());
+        if (this.f55412d == null) {
+            this.f55411c = a(Loader.class.getClassLoader());
         }
     }
 
     public boolean isExternalLoaded() {
-        return this.f55367d != null;
+        return this.f55412d != null;
     }
 
     @MainThread
     public <T extends IComponentProxy> T newComponentProxy(Context context, Class<?> cls, Object obj) {
-        if (!this.f55368e.get()) {
+        if (!this.f55413e.get()) {
             KsAdSDK.init(context, SdkConfig.create(q.a(context, "sdkconfig")));
         }
         return (T) getKsAdSDKImpl().newComponentProxy(cls, obj);
@@ -178,7 +178,7 @@ public class Loader {
 
     @MainThread
     public <T extends IComponentProxy> T newComponentProxyNewProcess(Context context, Class<?> cls, Object obj) {
-        if (!this.f55368e.get()) {
+        if (!this.f55413e.get()) {
             KsAdSDK.init(context, SdkConfig.create(q.a(context, "sdkconfig")));
         }
         return (T) getKsAdSDKImpl().newComponentProxy(cls, obj);

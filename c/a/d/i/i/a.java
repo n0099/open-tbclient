@@ -25,19 +25,19 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile a f3173b;
+    public static volatile a f3275b;
     public transient /* synthetic */ FieldHolder $fh;
     public HashMap<String, ArrayList<Message<?>>> a;
 
     /* renamed from: c.a.d.i.i.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public class C0119a extends CustomMessageListener {
+    public class C0126a extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ a a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public C0119a(a aVar, int i2) {
+        public C0126a(a aVar, int i2) {
             super(i2);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -65,7 +65,7 @@ public class a {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2000997 && (data = customResponsedMessage.getData()) != null && (data instanceof PluginLoadedMessage.a)) {
                 PluginLoadedMessage.a aVar = (PluginLoadedMessage.a) data;
-                if (aVar.f31221b == 0 && this.a.a.size() > 0 && (arrayList = (ArrayList) this.a.a.get(aVar.a)) != null && arrayList.size() > 0) {
+                if (aVar.f31249b == 0 && this.a.a.size() > 0 && (arrayList = (ArrayList) this.a.a.get(aVar.a)) != null && arrayList.size() > 0) {
                     Iterator it = arrayList.iterator();
                     while (it.hasNext()) {
                         MessageManager.getInstance().sendMessage((Message) it.next());
@@ -161,14 +161,14 @@ public class a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            if (f3173b == null) {
+            if (f3275b == null) {
                 synchronized (a.class) {
-                    if (f3173b == null) {
-                        f3173b = new a();
+                    if (f3275b == null) {
+                        f3275b = new a();
                     }
                 }
             }
-            return f3173b;
+            return f3275b;
         }
         return (a) invokeV.objValue;
     }
@@ -205,7 +205,7 @@ public class a {
     public final void g() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            MessageManager.getInstance().registerListener(2000997, new C0119a(this, 0));
+            MessageManager.getInstance().registerListener(2000997, new C0126a(this, 0));
         }
     }
 }

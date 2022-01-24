@@ -20,7 +20,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes12.dex */
-public class EmotionCategoryAdapter extends a<c.a.t0.y0.x.c.a, EmotionCategoryViewHolder> {
+public class EmotionCategoryAdapter extends a<c.a.t0.z0.x.c.a, EmotionCategoryViewHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -31,16 +31,16 @@ public class EmotionCategoryAdapter extends a<c.a.t0.y0.x.c.a, EmotionCategoryVi
         public View a;
 
         /* renamed from: b  reason: collision with root package name */
-        public TextView f42898b;
+        public TextView f42919b;
 
         /* renamed from: c  reason: collision with root package name */
-        public ImageView f42899c;
+        public ImageView f42920c;
 
         /* renamed from: d  reason: collision with root package name */
-        public TextView f42900d;
+        public TextView f42921d;
 
         /* renamed from: e  reason: collision with root package name */
-        public View f42901e;
+        public View f42922e;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public EmotionCategoryViewHolder(View view) {
@@ -70,20 +70,20 @@ public class EmotionCategoryAdapter extends a<c.a.t0.y0.x.c.a, EmotionCategoryVi
             if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (view = this.a) == null) {
                 return;
             }
-            this.f42898b = (TextView) view.findViewById(R.id.emotion_title);
-            this.f42899c = (ImageView) this.a.findViewById(R.id.emotion_change_iv);
-            this.f42900d = (TextView) this.a.findViewById(R.id.emotion_function);
-            this.f42898b.setText(this.a.getResources().getText(R.string.emotion_center_quality_recommend));
-            this.f42899c.setVisibility(8);
-            this.f42900d.setVisibility(8);
-            this.f42901e = this.a.findViewById(R.id.category_line_top);
+            this.f42919b = (TextView) view.findViewById(R.id.emotion_title);
+            this.f42920c = (ImageView) this.a.findViewById(R.id.emotion_change_iv);
+            this.f42921d = (TextView) this.a.findViewById(R.id.emotion_function);
+            this.f42919b.setText(this.a.getResources().getText(R.string.emotion_center_quality_recommend));
+            this.f42920c.setVisibility(8);
+            this.f42921d.setVisibility(8);
+            this.f42922e = this.a.findViewById(R.id.category_line_top);
         }
 
         public void onChangeSkin(int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
-                SkinManager.setBackgroundColor(this.f42901e, R.color.common_color_10312);
-                SkinManager.setViewTextColor(this.f42898b, R.color.CAM_X0107);
+                SkinManager.setBackgroundColor(this.f42922e, R.color.common_color_10312);
+                SkinManager.setViewTextColor(this.f42919b, R.color.CAM_X0107);
             }
         }
     }
@@ -116,7 +116,7 @@ public class EmotionCategoryAdapter extends a<c.a.t0.y0.x.c.a, EmotionCategoryVi
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
-            EmotionCategoryViewHolder emotionCategoryViewHolder = new EmotionCategoryViewHolder(LayoutInflater.from(this.f3258e).inflate(R.layout.emotion_category_layout, viewGroup, false));
+            EmotionCategoryViewHolder emotionCategoryViewHolder = new EmotionCategoryViewHolder(LayoutInflater.from(this.f3360e).inflate(R.layout.emotion_category_layout, viewGroup, false));
             emotionCategoryViewHolder.onChangeSkin(TbadkCoreApplication.getInst().getSkinType());
             return emotionCategoryViewHolder;
         }
@@ -126,7 +126,7 @@ public class EmotionCategoryAdapter extends a<c.a.t0.y0.x.c.a, EmotionCategoryVi
     /* JADX DEBUG: Method merged with bridge method */
     @Override // c.a.d.n.e.a
     /* renamed from: a0 */
-    public View S(int i2, View view, ViewGroup viewGroup, c.a.t0.y0.x.c.a aVar, EmotionCategoryViewHolder emotionCategoryViewHolder) {
+    public View S(int i2, View view, ViewGroup viewGroup, c.a.t0.z0.x.c.a aVar, EmotionCategoryViewHolder emotionCategoryViewHolder) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i2), view, viewGroup, aVar, emotionCategoryViewHolder})) == null) ? emotionCategoryViewHolder.getView() : (View) invokeCommon.objValue;

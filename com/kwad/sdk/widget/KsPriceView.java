@@ -17,30 +17,30 @@ import com.kwad.sdk.R;
 public class KsPriceView extends TextView implements b {
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f58045b = "¥%s 到手约 ¥%s";
+    public static String f58090b = "¥%s 到手约 ¥%s";
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f58046c = "¥%s";
+    public static String f58091c = "¥%s";
     public a a;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f58047d;
+    public String f58092d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f58048e;
+    public String f58093e;
 
     /* loaded from: classes3.dex */
     public static class a {
         public int a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f58049b;
+        public int f58094b;
 
         /* renamed from: c  reason: collision with root package name */
-        public int f58050c;
+        public int f58095c;
 
         /* renamed from: d  reason: collision with root package name */
-        public int f58051d;
+        public int f58096d;
 
         public a() {
         }
@@ -50,15 +50,15 @@ public class KsPriceView extends TextView implements b {
         }
 
         public int b() {
-            return this.f58050c;
+            return this.f58095c;
         }
 
         public int c() {
-            return this.f58049b;
+            return this.f58094b;
         }
 
         public int d() {
-            return this.f58051d;
+            return this.f58096d;
         }
     }
 
@@ -97,7 +97,7 @@ public class KsPriceView extends TextView implements b {
 
     @Nullable
     public static SpannableString a(String str, @Nullable String str2, a aVar) {
-        String format = str2 == null ? String.format(f58046c, str) : String.format(f58045b, str, str2);
+        String format = str2 == null ? String.format(f58091c, str) : String.format(f58090b, str, str2);
         SpannableString spannableString = new SpannableString(format);
         int indexOf = format.indexOf(str) - 1;
         if (indexOf < 0) {
@@ -119,28 +119,28 @@ public class KsPriceView extends TextView implements b {
     private void a(Context context, @Nullable AttributeSet attributeSet, int i2) {
         setMaxLines(1);
         this.a.a = context.getResources().getColor(R.color.ksad_reward_main_color);
-        this.a.f58049b = context.getResources().getDimensionPixelSize(R.dimen.ksad_reward_order_price_size);
-        this.a.f58050c = context.getResources().getColor(R.color.ksad_reward_original_price);
-        this.a.f58051d = context.getResources().getDimensionPixelSize(R.dimen.ksad_reward_order_original_price_size);
+        this.a.f58094b = context.getResources().getDimensionPixelSize(R.dimen.ksad_reward_order_price_size);
+        this.a.f58095c = context.getResources().getColor(R.color.ksad_reward_original_price);
+        this.a.f58096d = context.getResources().getDimensionPixelSize(R.dimen.ksad_reward_order_original_price_size);
     }
 
     @Override // com.kwad.sdk.widget.b
     public void a(c cVar) {
         this.a.a = cVar.a();
-        a(this.f58047d, this.f58048e);
+        a(this.f58092d, this.f58093e);
     }
 
     public void a(String str, String str2) {
         if (TextUtils.isEmpty(str) && TextUtils.isEmpty(str2)) {
             return;
         }
-        this.f58047d = str;
-        this.f58048e = str2;
+        this.f58092d = str;
+        this.f58093e = str2;
         if (a(str2) <= 0.0f) {
-            this.f58048e = null;
+            this.f58093e = null;
         }
         setTextColor(this.a.a());
-        SpannableString a2 = a(str, this.f58048e, this.a);
+        SpannableString a2 = a(str, this.f58093e, this.a);
         if (a2 != null) {
             setText(a2);
         }

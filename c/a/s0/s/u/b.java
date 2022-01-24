@@ -44,22 +44,22 @@ public class b extends Drawable implements Cloneable {
     public int F;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f13648e;
+    public int f13835e;
 
     /* renamed from: f  reason: collision with root package name */
-    public View f13649f;
+    public View f13836f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Paint f13650g;
+    public Paint f13837g;
 
     /* renamed from: h  reason: collision with root package name */
-    public Paint f13651h;
+    public Paint f13838h;
 
     /* renamed from: i  reason: collision with root package name */
-    public Paint f13652i;
+    public Paint f13839i;
 
     /* renamed from: j  reason: collision with root package name */
-    public float f13653j;
+    public float f13840j;
     public int k;
     public float l;
     public float m;
@@ -83,24 +83,24 @@ public class b extends Drawable implements Cloneable {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ b f13654e;
+        public final /* synthetic */ b f13841e;
 
         /* renamed from: c.a.s0.s.u.b$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class RunnableC0886a implements Runnable {
+        public class RunnableC0895a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ View f13655e;
+            public final /* synthetic */ View f13842e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ ViewGroup.MarginLayoutParams f13656f;
+            public final /* synthetic */ ViewGroup.MarginLayoutParams f13843f;
 
             /* renamed from: g  reason: collision with root package name */
-            public final /* synthetic */ a f13657g;
+            public final /* synthetic */ a f13844g;
 
-            public RunnableC0886a(a aVar, View view, ViewGroup.MarginLayoutParams marginLayoutParams) {
+            public RunnableC0895a(a aVar, View view, ViewGroup.MarginLayoutParams marginLayoutParams) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -115,16 +115,16 @@ public class b extends Drawable implements Cloneable {
                         return;
                     }
                 }
-                this.f13657g = aVar;
-                this.f13655e = view;
-                this.f13656f = marginLayoutParams;
+                this.f13844g = aVar;
+                this.f13842e = view;
+                this.f13843f = marginLayoutParams;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    this.f13655e.setLayoutParams(this.f13656f);
+                    this.f13842e.setLayoutParams(this.f13843f);
                 }
             }
         }
@@ -144,7 +144,7 @@ public class b extends Drawable implements Cloneable {
                     return;
                 }
             }
-            this.f13654e = bVar;
+            this.f13841e = bVar;
         }
 
         @Override // android.view.View.OnLayoutChangeListener
@@ -153,17 +153,17 @@ public class b extends Drawable implements Cloneable {
             if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6), Integer.valueOf(i7), Integer.valueOf(i8), Integer.valueOf(i9)}) == null) {
                 if (view.getBackground() instanceof b) {
                     b bVar = (b) view.getBackground();
-                    this.f13654e.n = bVar.n;
-                    this.f13654e.s = bVar.s;
-                    this.f13654e.t = bVar.t;
-                    this.f13654e.r = bVar.r;
+                    this.f13841e.n = bVar.n;
+                    this.f13841e.s = bVar.s;
+                    this.f13841e.t = bVar.t;
+                    this.f13841e.r = bVar.r;
                 }
-                float[] v = this.f13654e.v();
-                if (this.f13654e.p == 1) {
-                    v[0] = (this.f13654e.F & 1) == 1 ? v[0] : 0.0f;
-                    v[1] = (this.f13654e.F & 16) == 16 ? v[1] : 0.0f;
-                    v[2] = (this.f13654e.F & 256) == 256 ? v[2] : 0.0f;
-                    v[3] = (this.f13654e.F & 4096) == 4096 ? v[3] : 0.0f;
+                float[] v = this.f13841e.v();
+                if (this.f13841e.p == 1) {
+                    v[0] = (this.f13841e.F & 1) == 1 ? v[0] : 0.0f;
+                    v[1] = (this.f13841e.F & 16) == 16 ? v[1] : 0.0f;
+                    v[2] = (this.f13841e.F & 256) == 256 ? v[2] : 0.0f;
+                    v[3] = (this.f13841e.F & 4096) == 4096 ? v[3] : 0.0f;
                 }
                 ViewGroup.LayoutParams layoutParams = view.getLayoutParams();
                 if (layoutParams instanceof ViewGroup.MarginLayoutParams) {
@@ -174,7 +174,7 @@ public class b extends Drawable implements Cloneable {
                     marginLayoutParams.bottomMargin -= (int) v[3];
                     marginLayoutParams.width = (i4 - i2) + ((int) v[0]) + ((int) v[2]);
                     marginLayoutParams.height = (i5 - i3) + ((int) v[1]) + ((int) v[3]);
-                    view.post(new RunnableC0886a(this, view, marginLayoutParams));
+                    view.post(new RunnableC0895a(this, view, marginLayoutParams));
                 }
                 view.removeOnLayoutChangeListener(this);
             }
@@ -183,7 +183,7 @@ public class b extends Drawable implements Cloneable {
 
     /* renamed from: c.a.s0.s.u.b$b  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public static /* synthetic */ class C0887b {
+    public static /* synthetic */ class C0896b {
         public static /* synthetic */ Interceptable $ic;
         public static final /* synthetic */ int[] a;
         public transient /* synthetic */ FieldHolder $fh;
@@ -235,8 +235,8 @@ public class b extends Drawable implements Cloneable {
                 return;
             }
         }
-        this.f13648e = 0;
-        this.f13653j = 1.0f;
+        this.f13835e = 0;
+        this.f13840j = 1.0f;
         this.k = 0;
         this.l = 1.0f;
         this.m = 0.0f;
@@ -255,21 +255,21 @@ public class b extends Drawable implements Cloneable {
         this.E = new a(this);
         this.F = ShadowDrawable.ALL;
         Paint paint = new Paint();
-        this.f13651h = paint;
+        this.f13838h = paint;
         paint.setColor(0);
-        this.f13651h.setAntiAlias(true);
-        this.f13651h.setShadowLayer(this.n, this.s, this.t, this.o);
-        this.f13651h.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.DST_ATOP));
+        this.f13838h.setAntiAlias(true);
+        this.f13838h.setShadowLayer(this.n, this.s, this.t, this.o);
+        this.f13838h.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.DST_ATOP));
         Paint paint2 = new Paint();
-        this.f13650g = paint2;
+        this.f13837g = paint2;
         paint2.setAntiAlias(true);
         Paint paint3 = new Paint();
-        this.f13652i = paint3;
+        this.f13839i = paint3;
         paint3.setColor(this.k);
-        this.f13652i.setAlpha((int) (this.l * 255.0f));
-        this.f13652i.setStrokeWidth(this.m);
-        this.f13652i.setStyle(Paint.Style.STROKE);
-        this.f13652i.setAntiAlias(true);
+        this.f13839i.setAlpha((int) (this.l * 255.0f));
+        this.f13839i.setStrokeWidth(this.m);
+        this.f13839i.setStyle(Paint.Style.STROKE);
+        this.f13839i.setAntiAlias(true);
     }
 
     public static b z() {
@@ -281,20 +281,20 @@ public class b extends Drawable implements Cloneable {
     public void A() {
         View view;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (view = this.f13649f) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (view = this.f13836f) == null) {
             return;
         }
         view.removeOnLayoutChangeListener(this.E);
-        this.f13649f.setLayerType(0, null);
-        this.f13649f = null;
+        this.f13836f.setLayerType(0, null);
+        this.f13836f = null;
     }
 
     public b B(@FloatRange(from = 0.0d, to = 1.0d) float f2) {
         InterceptResult invokeF;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeF = interceptable.invokeF(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, f2)) == null) {
-            if (this.f13653j != f2) {
-                this.f13653j = f2;
+            if (this.f13840j != f2) {
+                this.f13840j = f2;
             }
             return this;
         }
@@ -372,10 +372,10 @@ public class b extends Drawable implements Cloneable {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i2)) == null) {
-            if (this.f13648e == i2) {
+            if (this.f13835e == i2) {
                 return this;
             }
-            this.f13648e = i2;
+            this.f13835e = i2;
             R();
             return this;
         }
@@ -403,7 +403,7 @@ public class b extends Drawable implements Cloneable {
                 return this;
             }
             this.s = i2;
-            this.f13651h.setShadowLayer(this.n, i2, this.t, this.o);
+            this.f13838h.setShadowLayer(this.n, i2, this.t, this.o);
             return this;
         }
         return (b) invokeI.objValue;
@@ -418,7 +418,7 @@ public class b extends Drawable implements Cloneable {
                 return this;
             }
             this.t = i2;
-            this.f13651h.setShadowLayer(this.n, i3, i2, this.o);
+            this.f13838h.setShadowLayer(this.n, i3, i2, this.o);
             return this;
         }
         return (b) invokeI.objValue;
@@ -445,7 +445,7 @@ public class b extends Drawable implements Cloneable {
                 return this;
             }
             this.o = i2;
-            this.f13651h.setShadowLayer(this.n, this.s, this.t, i2);
+            this.f13838h.setShadowLayer(this.n, this.s, this.t, i2);
             return this;
         }
         return (b) invokeI.objValue;
@@ -459,7 +459,7 @@ public class b extends Drawable implements Cloneable {
                 return this;
             }
             this.n = i2;
-            this.f13651h.setShadowLayer(i2, this.s, this.t, this.o);
+            this.f13838h.setShadowLayer(i2, this.s, this.t, this.o);
             return this;
         }
         return (b) invokeI.objValue;
@@ -511,7 +511,7 @@ public class b extends Drawable implements Cloneable {
             float[] fArr = this.q;
             float[] fArr2 = this.r;
             System.arraycopy(fArr, 0, fArr2, 0, Math.min(fArr2.length, 8));
-            int i2 = this.f13648e;
+            int i2 = this.f13835e;
             if (i2 == 1) {
                 for (int i3 = 4; i3 < 8; i3++) {
                     this.r[i3] = 0.0f;
@@ -540,7 +540,7 @@ public class b extends Drawable implements Cloneable {
             }
             bVar.P(this.p);
             bVar.O(this.F);
-            bVar.H(this.f13648e);
+            bVar.H(this.f13835e);
             bVar.Q((float[]) this.q.clone());
             bVar.M(this.o);
             bVar.N(this.n);
@@ -552,7 +552,7 @@ public class b extends Drawable implements Cloneable {
             bVar.F(this.k);
             bVar.E(this.l);
             bVar.G(this.m);
-            bVar.B(this.f13653j);
+            bVar.B(this.f13840j);
             return bVar;
         }
         return invokeV.objValue;
@@ -565,29 +565,29 @@ public class b extends Drawable implements Cloneable {
             int[] r = r();
             if (r != null) {
                 if (r.length == 1) {
-                    this.f13650g.setColor(r[0]);
+                    this.f13837g.setColor(r[0]);
                 } else {
                     PointF x = x(this.z, this.y);
                     PointF w = w(this.z, this.y);
                     LinearGradient linearGradient = new LinearGradient(x.x, x.y, w.x, w.y, r, this.x, Shader.TileMode.CLAMP);
                     this.v = linearGradient;
-                    this.f13650g.setShader(linearGradient);
+                    this.f13837g.setShader(linearGradient);
                 }
             }
-            this.f13652i.setColor(c.a.t0.w3.c.a(this.k, this.f13653j));
-            this.f13652i.setAlpha((int) (this.l * 255.0f));
-            this.f13652i.setStrokeWidth(this.m);
+            this.f13839i.setColor(c.a.t0.x3.c.a(this.k, this.f13840j));
+            this.f13839i.setAlpha((int) (this.l * 255.0f));
+            this.f13839i.setStrokeWidth(this.m);
             int i2 = this.p;
             if (i2 == 1) {
                 q(canvas);
-                canvas.drawPath(this.C, this.f13650g);
+                canvas.drawPath(this.C, this.f13837g);
                 p(canvas);
             } else if (i2 == 2) {
-                canvas.drawCircle(this.z.centerX(), this.z.centerY(), Math.min(this.z.width(), this.z.height()) / 2.0f, this.f13651h);
-                canvas.drawCircle(this.z.centerX(), this.z.centerY(), Math.min(this.z.width(), this.z.height()) / 2.0f, this.f13650g);
-                canvas.drawCircle(this.z.centerX(), this.z.centerY(), (Math.min(this.z.width(), this.z.height()) / 2.0f) - (this.m * 0.5f), this.f13652i);
+                canvas.drawCircle(this.z.centerX(), this.z.centerY(), Math.min(this.z.width(), this.z.height()) / 2.0f, this.f13838h);
+                canvas.drawCircle(this.z.centerX(), this.z.centerY(), Math.min(this.z.width(), this.z.height()) / 2.0f, this.f13837g);
+                canvas.drawCircle(this.z.centerX(), this.z.centerY(), (Math.min(this.z.width(), this.z.height()) / 2.0f) - (this.m * 0.5f), this.f13839i);
             } else {
-                canvas.drawRect(this.z, this.f13650g);
+                canvas.drawRect(this.z, this.f13837g);
             }
         }
     }
@@ -603,7 +603,7 @@ public class b extends Drawable implements Cloneable {
                 return false;
             }
             b bVar = (b) obj;
-            return hashCode() == bVar.hashCode() && this.f13648e == bVar.f13648e && this.n == bVar.n && this.o == bVar.o && this.p == bVar.p && this.s == bVar.s && this.t == bVar.t && this.F == bVar.F && Arrays.equals(this.q, bVar.q) && Arrays.equals(this.r, bVar.r) && Arrays.equals(this.u, bVar.u) && Arrays.equals(this.w, bVar.w) && this.y.equals(bVar.y) && this.k == bVar.k && this.l == bVar.l && this.m == bVar.m && this.f13653j == bVar.f13653j;
+            return hashCode() == bVar.hashCode() && this.f13835e == bVar.f13835e && this.n == bVar.n && this.o == bVar.o && this.p == bVar.p && this.s == bVar.s && this.t == bVar.t && this.F == bVar.F && Arrays.equals(this.q, bVar.q) && Arrays.equals(this.r, bVar.r) && Arrays.equals(this.u, bVar.u) && Arrays.equals(this.w, bVar.w) && this.y.equals(bVar.y) && this.k == bVar.k && this.l == bVar.l && this.m == bVar.m && this.f13840j == bVar.f13840j;
         }
         return invokeL.booleanValue;
     }
@@ -621,7 +621,7 @@ public class b extends Drawable implements Cloneable {
     public int hashCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) ? (((((((Objects.hash(Integer.valueOf(this.f13648e), Integer.valueOf(this.n), Integer.valueOf(this.o), Integer.valueOf(this.p), Integer.valueOf(this.s), Integer.valueOf(this.t), this.y, Integer.valueOf(this.F), Integer.valueOf(this.k), Float.valueOf(this.l), Float.valueOf(this.m), Float.valueOf(this.f13653j)) * 31) + Arrays.hashCode(this.q)) * 31) + Arrays.hashCode(this.r)) * 31) + Arrays.hashCode(this.u)) * 31) + Arrays.hashCode(this.w) : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) ? (((((((Objects.hash(Integer.valueOf(this.f13835e), Integer.valueOf(this.n), Integer.valueOf(this.o), Integer.valueOf(this.p), Integer.valueOf(this.s), Integer.valueOf(this.t), this.y, Integer.valueOf(this.F), Integer.valueOf(this.k), Float.valueOf(this.l), Float.valueOf(this.m), Float.valueOf(this.f13840j)) * 31) + Arrays.hashCode(this.q)) * 31) + Arrays.hashCode(this.r)) * 31) + Arrays.hashCode(this.u)) * 31) + Arrays.hashCode(this.w) : invokeV.intValue;
     }
 
     public GradientDrawable m(int i2) {
@@ -637,7 +637,7 @@ public class b extends Drawable implements Cloneable {
                 }
             }
             gradientDrawable.setCornerRadii(this.r);
-            gradientDrawable.setAlpha((int) (this.f13653j * 255.0f));
+            gradientDrawable.setAlpha((int) (this.f13840j * 255.0f));
             return gradientDrawable;
         }
         return (GradientDrawable) invokeI.objValue;
@@ -646,7 +646,7 @@ public class b extends Drawable implements Cloneable {
     public final void n(float[] fArr, float[] fArr2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048600, this, fArr, fArr2) == null) {
-            int i2 = C0887b.a[this.y.ordinal()];
+            int i2 = C0896b.a[this.y.ordinal()];
             if (i2 == 1) {
                 RectF rectF = this.z;
                 float f2 = rectF.top;
@@ -699,12 +699,12 @@ public class b extends Drawable implements Cloneable {
             if (view == null) {
                 return null;
             }
-            this.f13649f = view;
+            this.f13836f = view;
             if (equals(view.getBackground())) {
                 return null;
             }
-            this.f13649f.removeOnLayoutChangeListener(this.E);
-            this.f13649f.addOnLayoutChangeListener(this.E);
+            this.f13836f.removeOnLayoutChangeListener(this.E);
+            this.f13836f.addOnLayoutChangeListener(this.E);
             return this;
         }
         return (b) invokeL.objValue;
@@ -754,7 +754,7 @@ public class b extends Drawable implements Cloneable {
         if (!(interceptable == null || interceptable.invokeL(1048603, this, canvas) == null) || this.m == 0.0f || this.l == 0.0f || this.k == 0) {
             return;
         }
-        canvas.drawPath(this.D, this.f13652i);
+        canvas.drawPath(this.D, this.f13839i);
     }
 
     public void q(Canvas canvas) {
@@ -763,7 +763,7 @@ public class b extends Drawable implements Cloneable {
             if (this.n == 0 && this.s == 0 && this.t == 0) {
                 return;
             }
-            canvas.drawPath(this.B, this.f13651h);
+            canvas.drawPath(this.B, this.f13838h);
         }
     }
 
@@ -778,7 +778,7 @@ public class b extends Drawable implements Cloneable {
             int length = iArr.length;
             int[] iArr2 = new int[length];
             for (int i2 = 0; i2 < length; i2++) {
-                iArr2[i2] = c.a.t0.w3.c.a(this.u[i2], this.f13653j);
+                iArr2[i2] = c.a.t0.x3.c.a(this.u[i2], this.f13840j);
             }
             return iArr2;
         }
@@ -795,7 +795,7 @@ public class b extends Drawable implements Cloneable {
     public void setAlpha(@IntRange(from = 0, to = 255) int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048607, this, i2) == null) {
-            this.f13651h.setAlpha(i2);
+            this.f13838h.setAlpha(i2);
         }
     }
 
@@ -803,7 +803,7 @@ public class b extends Drawable implements Cloneable {
     public void setColorFilter(@Nullable ColorFilter colorFilter) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048608, this, colorFilter) == null) {
-            this.f13651h.setColorFilter(colorFilter);
+            this.f13838h.setColorFilter(colorFilter);
         }
     }
 
@@ -842,7 +842,7 @@ public class b extends Drawable implements Cloneable {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048612, this, rectF, direction)) == null) {
-            int i2 = C0887b.a[direction.ordinal()];
+            int i2 = C0896b.a[direction.ordinal()];
             if (i2 != 1) {
                 if (i2 != 2) {
                     if (i2 != 3) {
@@ -864,7 +864,7 @@ public class b extends Drawable implements Cloneable {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048613, this, rectF, direction)) == null) {
-            int i2 = C0887b.a[direction.ordinal()];
+            int i2 = C0896b.a[direction.ordinal()];
             if (i2 != 1) {
                 if (i2 != 2) {
                     if (i2 != 3) {

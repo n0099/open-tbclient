@@ -53,7 +53,7 @@ import java.lang.ref.WeakReference;
 import org.json.JSONObject;
 import org.webrtc.MediaStreamTrack;
 /* loaded from: classes6.dex */
-public class a extends c.a.r0.a.h0.g.d implements c.a.r0.j.f0.a.b.b, a.InterfaceC0285a {
+public class a extends c.a.r0.a.h0.g.d implements c.a.r0.j.f0.a.b.b, a.InterfaceC0294a {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean m1;
     public transient /* synthetic */ FieldHolder $fh;
@@ -89,14 +89,14 @@ public class a extends c.a.r0.a.h0.g.d implements c.a.r0.j.f0.a.b.b, a.Interface
 
     /* renamed from: c.a.r0.j.n.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public class RunnableC0755a implements Runnable {
+    public class RunnableC0764a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f11086e;
+        public final /* synthetic */ a f11228e;
 
-        public RunnableC0755a(a aVar) {
+        public RunnableC0764a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -111,14 +111,14 @@ public class a extends c.a.r0.a.h0.g.d implements c.a.r0.j.f0.a.b.b, a.Interface
                     return;
                 }
             }
-            this.f11086e = aVar;
+            this.f11228e = aVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f11086e.O0.removeView(this.f11086e.P0);
+                this.f11228e.O0.removeView(this.f11228e.P0);
             }
         }
     }
@@ -130,18 +130,18 @@ public class a extends c.a.r0.a.h0.g.d implements c.a.r0.j.f0.a.b.b, a.Interface
         public final /* synthetic */ c.a.r0.a.l0.a a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ a f11087b;
+        public final /* synthetic */ a f11229b;
 
         /* renamed from: c.a.r0.j.n.a$b$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class RunnableC0756a implements Runnable {
+        public class RunnableC0765a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ b f11088e;
+            public final /* synthetic */ b f11230e;
 
-            public RunnableC0756a(b bVar) {
+            public RunnableC0765a(b bVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -156,17 +156,17 @@ public class a extends c.a.r0.a.h0.g.d implements c.a.r0.j.f0.a.b.b, a.Interface
                         return;
                     }
                 }
-                this.f11088e = bVar;
+                this.f11230e = bVar;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 int b2;
                 Interceptable interceptable = $ic;
-                if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && f0.q(this.f11088e.f11087b.getActivity(), this.f11088e.f11087b.K0) && (b2 = f0.b(this.f11088e.f11087b.getActivity())) > 0) {
-                    FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.f11088e.f11087b.K0.getLayoutParams();
+                if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && f0.q(this.f11230e.f11229b.getActivity(), this.f11230e.f11229b.K0) && (b2 = f0.b(this.f11230e.f11229b.getActivity())) > 0) {
+                    FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.f11230e.f11229b.K0.getLayoutParams();
                     layoutParams.rightMargin += b2;
-                    this.f11088e.f11087b.K0.setLayoutParams(layoutParams);
+                    this.f11230e.f11229b.K0.setLayoutParams(layoutParams);
                     c.a.r0.j.u.a.e().b(b2);
                 }
             }
@@ -191,7 +191,7 @@ public class a extends c.a.r0.a.h0.g.d implements c.a.r0.j.f0.a.b.b, a.Interface
                     return;
                 }
             }
-            this.f11087b = aVar;
+            this.f11229b = aVar;
             this.a = aVar2;
         }
 
@@ -199,31 +199,31 @@ public class a extends c.a.r0.a.h0.g.d implements c.a.r0.j.f0.a.b.b, a.Interface
         @SuppressLint({"SourceLockedOrientationActivity"})
         public void onOrientationChanged(int i2) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeI(1048576, this, i2) == null) || this.f11087b.Q0.h()) {
+            if (!(interceptable == null || interceptable.invokeI(1048576, this, i2) == null) || this.f11229b.Q0.h()) {
                 return;
             }
-            if (260 >= i2 || i2 >= 280 || this.f11087b.d1.equals("landscape")) {
-                if (80 >= i2 || i2 >= 100 || this.f11087b.d1.endsWith("landscapeReverse")) {
+            if (260 >= i2 || i2 >= 280 || this.f11229b.d1.equals("landscape")) {
+                if (80 >= i2 || i2 >= 100 || this.f11229b.d1.endsWith("landscapeReverse")) {
                     return;
                 }
-                this.f11087b.g0.setRequestedOrientation(8);
-                this.f11087b.d1 = "landscapeReverse";
-                c.a.r0.j.k0.a.a(this.a, this.f11087b.d1);
+                this.f11229b.g0.setRequestedOrientation(8);
+                this.f11229b.d1 = "landscapeReverse";
+                c.a.r0.j.k0.a.a(this.a, this.f11229b.d1);
                 if (a.m1) {
-                    String str = "onOrientationChanged: " + this.f11087b.d1;
+                    String str = "onOrientationChanged: " + this.f11229b.d1;
                 }
-                this.f11087b.K0.postDelayed(new RunnableC0756a(this), 100L);
+                this.f11229b.K0.postDelayed(new RunnableC0765a(this), 100L);
                 return;
             }
-            this.f11087b.g0.setRequestedOrientation(0);
-            this.f11087b.d1 = "landscape";
-            FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.f11087b.K0.getLayoutParams();
-            layoutParams.rightMargin = this.f11087b.getResources().getDimensionPixelSize(c.a.r0.a.d.aigames_action_bar_right_operation_margin);
-            this.f11087b.K0.setLayoutParams(layoutParams);
+            this.f11229b.g0.setRequestedOrientation(0);
+            this.f11229b.d1 = "landscape";
+            FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.f11229b.K0.getLayoutParams();
+            layoutParams.rightMargin = this.f11229b.getResources().getDimensionPixelSize(c.a.r0.a.d.aigames_action_bar_right_operation_margin);
+            this.f11229b.K0.setLayoutParams(layoutParams);
             c.a.r0.j.u.a.e().b(0);
-            c.a.r0.j.k0.a.a(this.a, this.f11087b.d1);
+            c.a.r0.j.k0.a.a(this.a, this.f11229b.d1);
             if (a.m1) {
-                String str2 = "onOrientationChanged: " + this.f11087b.d1;
+                String str2 = "onOrientationChanged: " + this.f11229b.d1;
             }
         }
     }
@@ -234,7 +234,7 @@ public class a extends c.a.r0.a.h0.g.d implements c.a.r0.j.f0.a.b.b, a.Interface
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f11089e;
+        public final /* synthetic */ a f11231e;
 
         public c(a aVar) {
             Interceptable interceptable = $ic;
@@ -251,14 +251,14 @@ public class a extends c.a.r0.a.h0.g.d implements c.a.r0.j.f0.a.b.b, a.Interface
                     return;
                 }
             }
-            this.f11089e = aVar;
+            this.f11231e = aVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                c.a.r0.j.u.a.j().a(this.f11089e.h0, this.f11089e.getContext());
+                c.a.r0.j.u.a.j().a(this.f11231e.h0, this.f11231e.getContext());
             }
         }
     }
@@ -307,7 +307,7 @@ public class a extends c.a.r0.a.h0.g.d implements c.a.r0.j.f0.a.b.b, a.Interface
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f11090e;
+        public final /* synthetic */ a f11232e;
 
         public e(a aVar) {
             Interceptable interceptable = $ic;
@@ -324,20 +324,20 @@ public class a extends c.a.r0.a.h0.g.d implements c.a.r0.j.f0.a.b.b, a.Interface
                     return;
                 }
             }
-            this.f11090e = aVar;
+            this.f11232e = aVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                int e2 = f0.e(this.f11090e.getContext());
-                if (!f0.q(this.f11090e.getActivity(), this.f11090e.K0) || ((SwanAppActivity) this.f11090e.getActivity()).isLandScape()) {
+                int e2 = f0.e(this.f11232e.getContext());
+                if (!f0.q(this.f11232e.getActivity(), this.f11232e.K0) || ((SwanAppActivity) this.f11232e.getActivity()).isLandScape()) {
                     return;
                 }
-                FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.f11090e.K0.getLayoutParams();
-                layoutParams.topMargin = this.f11090e.K0.getTop() + e2;
-                this.f11090e.K0.setLayoutParams(layoutParams);
+                FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.f11232e.K0.getLayoutParams();
+                layoutParams.topMargin = this.f11232e.K0.getTop() + e2;
+                this.f11232e.K0.setLayoutParams(layoutParams);
             }
         }
     }
@@ -348,7 +348,7 @@ public class a extends c.a.r0.a.h0.g.d implements c.a.r0.j.f0.a.b.b, a.Interface
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f11091e;
+        public final /* synthetic */ a f11233e;
 
         public f(a aVar) {
             Interceptable interceptable = $ic;
@@ -365,17 +365,17 @@ public class a extends c.a.r0.a.h0.g.d implements c.a.r0.j.f0.a.b.b, a.Interface
                     return;
                 }
             }
-            this.f11091e = aVar;
+            this.f11233e = aVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f11091e.d2();
+                this.f11233e.d2();
                 c.a.r0.a.n2.s.f fVar = new c.a.r0.a.n2.s.f();
-                fVar.f7980e = SupportMenuInflater.XML_MENU;
-                this.f11091e.u1(fVar);
+                fVar.f8122e = SupportMenuInflater.XML_MENU;
+                this.f11233e.u1(fVar);
             }
         }
     }
@@ -386,7 +386,7 @@ public class a extends c.a.r0.a.h0.g.d implements c.a.r0.j.f0.a.b.b, a.Interface
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f11092e;
+        public final /* synthetic */ a f11234e;
 
         public g(a aVar) {
             Interceptable interceptable = $ic;
@@ -403,7 +403,7 @@ public class a extends c.a.r0.a.h0.g.d implements c.a.r0.j.f0.a.b.b, a.Interface
                     return;
                 }
             }
-            this.f11092e = aVar;
+            this.f11234e = aVar;
         }
 
         @Override // android.view.View.OnClickListener
@@ -415,16 +415,16 @@ public class a extends c.a.r0.a.h0.g.d implements c.a.r0.j.f0.a.b.b, a.Interface
                 }
                 c.a.r0.a.d2.e L = c.a.r0.a.d2.e.L();
                 if (L != null && TextUtils.equals(c.a.r0.a.d2.e.f0(), "7TxyeScrKPj02EATE68RBG5Z8f46a8So")) {
-                    this.f11092e.F3();
+                    this.f11234e.F3();
                 } else if (L != null && c.a.r0.a.v0.c.c().h()) {
-                    this.f11092e.E3("exitButton");
+                    this.f11234e.E3("exitButton");
                 } else {
                     c.a.r0.j.r.a aVar = new c.a.r0.j.r.a();
                     aVar.e();
                     if (aVar.f()) {
-                        c.a.r0.j.u.a.h().a(this.f11092e.g0, aVar, this.f11092e.m3());
+                        c.a.r0.j.u.a.h().a(this.f11234e.g0, aVar, this.f11234e.m3());
                     } else {
-                        this.f11092e.E3("exitButton");
+                        this.f11234e.E3("exitButton");
                     }
                 }
             }
@@ -626,17 +626,17 @@ public class a extends c.a.r0.a.h0.g.d implements c.a.r0.j.f0.a.b.b, a.Interface
 
         /* renamed from: c.a.r0.j.n.a$l$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class RunnableC0757a implements Runnable {
+        public class RunnableC0766a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ int f11093e;
+            public final /* synthetic */ int f11235e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ l f11094f;
+            public final /* synthetic */ l f11236f;
 
-            public RunnableC0757a(l lVar, int i2) {
+            public RunnableC0766a(l lVar, int i2) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -651,24 +651,24 @@ public class a extends c.a.r0.a.h0.g.d implements c.a.r0.j.f0.a.b.b, a.Interface
                         return;
                     }
                 }
-                this.f11094f = lVar;
-                this.f11093e = i2;
+                this.f11236f = lVar;
+                this.f11235e = i2;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable = $ic;
-                if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f11094f.a.z3()) {
+                if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f11236f.a.z3()) {
                     return;
                 }
-                int i2 = this.f11093e;
+                int i2 = this.f11235e;
                 if (i2 == -2) {
                     boolean unused = a.m1;
-                    this.f11094f.a.O2();
+                    this.f11236f.a.O2();
                 } else if (i2 != -1) {
                 } else {
                     boolean unused2 = a.m1;
-                    this.f11094f.a.O2();
+                    this.f11236f.a.O2();
                 }
             }
         }
@@ -695,7 +695,7 @@ public class a extends c.a.r0.a.h0.g.d implements c.a.r0.j.f0.a.b.b, a.Interface
         public void onAudioFocusChange(int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
-                q0.e0(new RunnableC0757a(this, i2));
+                q0.e0(new RunnableC0766a(this, i2));
             }
         }
 
@@ -711,7 +711,7 @@ public class a extends c.a.r0.a.h0.g.d implements c.a.r0.j.f0.a.b.b, a.Interface
         public WeakReference<TextView> a;
 
         /* renamed from: b  reason: collision with root package name */
-        public WeakReference<DuMixGameSurfaceView> f11095b;
+        public WeakReference<DuMixGameSurfaceView> f11237b;
 
         public m(TextView textView, DuMixGameSurfaceView duMixGameSurfaceView) {
             Interceptable interceptable = $ic;
@@ -729,7 +729,7 @@ public class a extends c.a.r0.a.h0.g.d implements c.a.r0.j.f0.a.b.b, a.Interface
                 }
             }
             this.a = new WeakReference<>(textView);
-            this.f11095b = new WeakReference<>(duMixGameSurfaceView);
+            this.f11237b = new WeakReference<>(duMixGameSurfaceView);
         }
 
         @Override // android.os.Handler
@@ -737,7 +737,7 @@ public class a extends c.a.r0.a.h0.g.d implements c.a.r0.j.f0.a.b.b, a.Interface
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, message) == null) {
                 TextView textView = this.a.get();
-                DuMixGameSurfaceView duMixGameSurfaceView = this.f11095b.get();
+                DuMixGameSurfaceView duMixGameSurfaceView = this.f11237b.get();
                 if (textView != null) {
                     String valueOf = String.valueOf(duMixGameSurfaceView == null ? 0 : duMixGameSurfaceView.getFPS());
                     textView.setText(valueOf);
@@ -799,7 +799,7 @@ public class a extends c.a.r0.a.h0.g.d implements c.a.r0.j.f0.a.b.b, a.Interface
             return;
         }
         c.a.r0.a.n2.s.f fVar = new c.a.r0.a.n2.s.f();
-        fVar.f7980e = str;
+        fVar.f8122e = str;
         u1(fVar);
     }
 
@@ -1034,7 +1034,7 @@ public class a extends c.a.r0.a.h0.g.d implements c.a.r0.j.f0.a.b.b, a.Interface
         }
     }
 
-    @Override // c.a.r0.a.c2.b.c.a.InterfaceC0285a
+    @Override // c.a.r0.a.c2.b.c.a.InterfaceC0294a
     public c.a.r0.a.c2.b.c.a getFloatLayer() {
         InterceptResult invokeV;
         c.a.r0.j.p0.c cVar;
@@ -1054,7 +1054,7 @@ public class a extends c.a.r0.a.h0.g.d implements c.a.r0.j.f0.a.b.b, a.Interface
         if ((interceptable == null || interceptable.invokeV(1048593, this) == null) && (activity = this.g0) != null && (activity instanceof SwanAppActivity)) {
             activity.moveTaskToBack(true);
             c.a.r0.a.n2.s.f fVar = new c.a.r0.a.n2.s.f();
-            fVar.f7980e = IntentConfig.CLOSE;
+            fVar.f8122e = IntentConfig.CLOSE;
             u1(fVar);
             ((SwanAppActivity) this.g0).handleSwanAppExit(1);
             y0.b().e(2);
@@ -1262,7 +1262,7 @@ public class a extends c.a.r0.a.h0.g.d implements c.a.r0.j.f0.a.b.b, a.Interface
             }
             v8Engine.onResume();
             if (this.O0 != null && this.P0 != null) {
-                q0.b0(new RunnableC0755a(this), 500L);
+                q0.b0(new RunnableC0764a(this), 500L);
             }
             Activity activity3 = this.g0;
             if (activity3 != null && (activity3 instanceof SwanAppActivity)) {

@@ -36,7 +36,7 @@ public class c0 extends a {
         if (!(interceptable == null || interceptable.invokeLL(1048576, this, bVar, canvas) == null) || (join = this.a) == null) {
             return;
         }
-        bVar.f5072g.setStrokeJoin(join);
+        bVar.f5214g.setStrokeJoin(join);
     }
 
     @Override // c.a.r0.a.a0.a.j.a

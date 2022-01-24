@@ -25,14 +25,14 @@ public class a extends c.a.r0.j.p0.g.b.a {
 
     /* renamed from: c.a.r0.j.p0.g.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public class View$OnClickListenerC0768a implements View.OnClickListener {
+    public class View$OnClickListenerC0777a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f11191e;
+        public final /* synthetic */ a f11333e;
 
-        public View$OnClickListenerC0768a(a aVar) {
+        public View$OnClickListenerC0777a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -47,19 +47,19 @@ public class a extends c.a.r0.j.p0.g.b.a {
                     return;
                 }
             }
-            this.f11191e = aVar;
+            this.f11333e = aVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f11191e.f11186g == null || this.f11191e.n < -1) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f11333e.f11328g == null || this.f11333e.n < -1) {
                 return;
             }
-            if (this.f11191e.n == -1) {
-                this.f11191e.f11186g.o();
+            if (this.f11333e.n == -1) {
+                this.f11333e.f11328g.o();
             } else {
-                this.f11191e.f11186g.u(this.f11191e.n);
+                this.f11333e.f11328g.u(this.f11333e.n);
             }
         }
     }
@@ -70,7 +70,7 @@ public class a extends c.a.r0.j.p0.g.b.a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f11192e;
+        public final /* synthetic */ a f11334e;
 
         public b(a aVar) {
             Interceptable interceptable = $ic;
@@ -87,23 +87,23 @@ public class a extends c.a.r0.j.p0.g.b.a {
                     return;
                 }
             }
-            this.f11192e = aVar;
+            this.f11334e = aVar;
         }
 
         @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
         public void onAnimationEnd(Animator animator) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, animator) == null) {
-                a aVar = this.f11192e;
+                a aVar = this.f11334e;
                 RecommendItemModel y = aVar.y(aVar.n);
-                this.f11192e.o.f11193b.setImageURI(y.iconUrl);
-                this.f11192e.o.f11194c.setText(y.appName);
-                this.f11192e.o.a.setAlpha(1.0f);
-                a aVar2 = this.f11192e;
-                RecommendItemModel y2 = this.f11192e.y(aVar2.x(aVar2.n));
-                this.f11192e.p.f11193b.setImageURI(y2.iconUrl);
-                this.f11192e.p.f11194c.setText(y2.appName);
-                this.f11192e.p.a.setAlpha(0.0f);
+                this.f11334e.o.f11335b.setImageURI(y.iconUrl);
+                this.f11334e.o.f11336c.setText(y.appName);
+                this.f11334e.o.a.setAlpha(1.0f);
+                a aVar2 = this.f11334e;
+                RecommendItemModel y2 = this.f11334e.y(aVar2.x(aVar2.n));
+                this.f11334e.p.f11335b.setImageURI(y2.iconUrl);
+                this.f11334e.p.f11336c.setText(y2.appName);
+                this.f11334e.p.a.setAlpha(0.0f);
                 a.super.k();
             }
         }
@@ -140,8 +140,8 @@ public class a extends c.a.r0.j.p0.g.b.a {
                 return;
             }
             this.n = -2;
-            this.p.f11193b.setImageURI(aVar.a.iconUrl);
-            this.p.f11194c.setText(aVar.a.appName);
+            this.p.f11335b.setImageURI(aVar.a.iconUrl);
+            this.p.f11336c.setText(aVar.a.appName);
         }
     }
 
@@ -150,18 +150,18 @@ public class a extends c.a.r0.j.p0.g.b.a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            FrameLayout frameLayout = new FrameLayout(this.f11184e);
-            c.a.r0.j.p0.g.c.b bVar = new c.a.r0.j.p0.g.c.b(this.f11184e);
+            FrameLayout frameLayout = new FrameLayout(this.f11326e);
+            c.a.r0.j.p0.g.c.b bVar = new c.a.r0.j.p0.g.c.b(this.f11326e);
             this.p = bVar;
             bVar.a.setAlpha(0.0f);
             frameLayout.addView(this.p.a);
-            c.a.r0.j.p0.g.c.b bVar2 = new c.a.r0.j.p0.g.c.b(this.f11184e);
+            c.a.r0.j.p0.g.c.b bVar2 = new c.a.r0.j.p0.g.c.b(this.f11326e);
             this.o = bVar2;
             bVar2.a.setAlpha(0.0f);
-            this.o.f11193b.setActualImageResource(17170445);
-            this.o.f11194c.setText((CharSequence) null);
+            this.o.f11335b.setActualImageResource(17170445);
+            this.o.f11336c.setText((CharSequence) null);
             frameLayout.addView(this.o.a);
-            this.o.a.setOnClickListener(new View$OnClickListenerC0768a(this));
+            this.o.a.setOnClickListener(new View$OnClickListenerC0777a(this));
             return frameLayout;
         }
         return (View) invokeV.objValue;
@@ -171,10 +171,10 @@ public class a extends c.a.r0.j.p0.g.b.a {
     public void k() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            if (z(this.f11185f)) {
+            if (z(this.f11327f)) {
                 this.o.a.setAlpha(1.0f);
-                this.o.f11193b.setActualImageResource(c.a.r0.h.d.aiapps_gamecenter_logo);
-                this.o.f11194c.setText(g.swangame_recommend_button_goto_game_center);
+                this.o.f11335b.setActualImageResource(c.a.r0.h.d.aiapps_gamecenter_logo);
+                this.o.f11336c.setText(g.swangame_recommend_button_goto_game_center);
                 super.k();
                 return;
             }
@@ -189,7 +189,7 @@ public class a extends c.a.r0.j.p0.g.b.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i2)) == null) {
             int i3 = i2 + 1;
-            if (i3 == this.f11185f.f11199b.size()) {
+            if (i3 == this.f11327f.f11341b.size()) {
                 return -1;
             }
             return i3;
@@ -200,12 +200,12 @@ public class a extends c.a.r0.j.p0.g.b.a {
     public final RecommendItemModel y(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i2)) == null) ? i2 == -1 ? this.f11185f.a : this.f11185f.f11199b.get(i2) : (RecommendItemModel) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i2)) == null) ? i2 == -1 ? this.f11327f.a : this.f11327f.f11341b.get(i2) : (RecommendItemModel) invokeI.objValue;
     }
 
     public final boolean z(c.a.r0.j.p0.g.e.a aVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, aVar)) == null) ? aVar == null || aVar.f11199b == null || aVar.a == null : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, aVar)) == null) ? aVar == null || aVar.f11341b == null || aVar.a == null : invokeL.booleanValue;
     }
 }

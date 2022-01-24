@@ -12,10 +12,10 @@ public class b2 implements Runnable {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final /* synthetic */ Info f30290e;
+    public final /* synthetic */ Info f30318e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final /* synthetic */ WDownLoadService f30291f;
+    public final /* synthetic */ WDownLoadService f30319f;
 
     public b2(WDownLoadService wDownLoadService, Info info) {
         Interceptable interceptable = $ic;
@@ -32,17 +32,17 @@ public class b2 implements Runnable {
                 return;
             }
         }
-        this.f30291f = wDownLoadService;
-        this.f30290e = info;
+        this.f30319f = wDownLoadService;
+        this.f30318e = info;
     }
 
     @Override // java.lang.Runnable
     public void run() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            Info info = this.f30290e;
-            WDownLoadService wDownLoadService = this.f30291f;
-            wDownLoadService.a(info, info != null ? info.getDl_name() : wDownLoadService.getString(m1.win_wdownload_download_finish), this.f30291f.getString(m1.win_wdownload_download_finish), 100);
+            Info info = this.f30318e;
+            WDownLoadService wDownLoadService = this.f30319f;
+            wDownLoadService.a(info, info != null ? info.getDl_name() : wDownLoadService.getString(m1.win_wdownload_download_finish), this.f30319f.getString(m1.win_wdownload_download_finish), 100);
         }
     }
 }

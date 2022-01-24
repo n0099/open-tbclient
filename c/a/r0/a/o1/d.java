@@ -18,7 +18,7 @@ public final class d {
     public static final boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final List<b> f8048b;
+    public static final List<b> f8190b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -35,7 +35,7 @@ public final class d {
             }
         }
         a = e.z;
-        f8048b = Arrays.asList(new b());
+        f8190b = Arrays.asList(new b());
     }
 
     public static JSONObject a() throws JSONException {
@@ -82,7 +82,7 @@ public final class d {
         }
         Iterator<String> keys = jSONObject.keys();
         while (keys.hasNext()) {
-            for (b bVar : f8048b) {
+            for (b bVar : f8190b) {
                 if (bVar.a(keys.next())) {
                     keys.remove();
                 }

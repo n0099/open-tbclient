@@ -30,20 +30,20 @@ public class a {
 
     /* renamed from: c.a.s0.t.h.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public static class View$OnClickListenerC0895a implements View.OnClickListener {
+    public static class View$OnClickListenerC0905a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ TbPageContext f14044e;
+        public final /* synthetic */ TbPageContext f14184e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ int[] f14045f;
+        public final /* synthetic */ int[] f14185f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ c.a.s0.s.s.a f14046g;
+        public final /* synthetic */ c.a.s0.s.s.a f14186g;
 
-        public View$OnClickListenerC0895a(TbPageContext tbPageContext, int[] iArr, c.a.s0.s.s.a aVar) {
+        public View$OnClickListenerC0905a(TbPageContext tbPageContext, int[] iArr, c.a.s0.s.s.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -58,18 +58,18 @@ public class a {
                     return;
                 }
             }
-            this.f14044e = tbPageContext;
-            this.f14045f = iArr;
-            this.f14046g = aVar;
+            this.f14184e = tbPageContext;
+            this.f14185f = iArr;
+            this.f14186g = aVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                a.c(this.f14044e);
-                this.f14045f[0] = 1;
-                this.f14046g.dismiss();
+                a.c(this.f14184e);
+                this.f14185f[0] = 1;
+                this.f14186g.dismiss();
             }
         }
     }
@@ -80,10 +80,10 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ int[] f14047e;
+        public final /* synthetic */ int[] f14187e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ c.a.s0.s.s.a f14048f;
+        public final /* synthetic */ c.a.s0.s.s.a f14188f;
 
         public b(int[] iArr, c.a.s0.s.s.a aVar) {
             Interceptable interceptable = $ic;
@@ -100,16 +100,16 @@ public class a {
                     return;
                 }
             }
-            this.f14047e = iArr;
-            this.f14048f = aVar;
+            this.f14187e = iArr;
+            this.f14188f = aVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f14047e[0] = 2;
-                this.f14048f.dismiss();
+                this.f14187e[0] = 2;
+                this.f14188f.dismiss();
             }
         }
     }
@@ -120,10 +120,10 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ int f14049e;
+        public final /* synthetic */ int f14189e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ int[] f14050f;
+        public final /* synthetic */ int[] f14190f;
 
         public c(int i2, int[] iArr) {
             Interceptable interceptable = $ic;
@@ -140,8 +140,8 @@ public class a {
                     return;
                 }
             }
-            this.f14049e = i2;
-            this.f14050f = iArr;
+            this.f14189e = i2;
+            this.f14190f = iArr;
         }
 
         @Override // android.content.DialogInterface.OnDismissListener
@@ -149,8 +149,8 @@ public class a {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, dialogInterface) == null) {
                 StatisticItem statisticItem = new StatisticItem("c13673");
-                statisticItem.param("obj_source", this.f14049e);
-                statisticItem.param("obj_type", this.f14050f[0]);
+                statisticItem.param("obj_source", this.f14189e);
+                statisticItem.param("obj_type", this.f14190f[0]);
                 TiebaStatic.log(statisticItem);
             }
         }
@@ -232,8 +232,8 @@ public class a {
             if (NotificationManagerCompat.from(context).areNotificationsEnabled()) {
                 return false;
             }
-            Date date = new Date(c.a.s0.s.h0.b.k().m("push_permission_dialog_scene_cold_start_key", 0L));
-            Date date2 = new Date(c.a.s0.s.h0.b.k().m("push_permission_dialog_scene_interaction_key", 0L));
+            Date date = new Date(c.a.s0.s.i0.b.k().m("push_permission_dialog_scene_cold_start_key", 0L));
+            Date date2 = new Date(c.a.s0.s.i0.b.k().m("push_permission_dialog_scene_interaction_key", 0L));
             long currentTimeMillis = System.currentTimeMillis();
             Date date3 = new Date(currentTimeMillis);
             if (i2 == 0 && TimeHelper.getDayDifference(date3, date2) >= 7 && !TimeHelper.isSameDay(date3, date)) {
@@ -244,9 +244,9 @@ public class a {
             }
             if (z) {
                 if (i2 == 0) {
-                    c.a.s0.s.h0.b.k().x("push_permission_dialog_scene_interaction_key", currentTimeMillis);
+                    c.a.s0.s.i0.b.k().x("push_permission_dialog_scene_interaction_key", currentTimeMillis);
                 } else if (i2 == 1) {
-                    c.a.s0.s.h0.b.k().x("push_permission_dialog_scene_cold_start_key", currentTimeMillis);
+                    c.a.s0.s.i0.b.k().x("push_permission_dialog_scene_cold_start_key", currentTimeMillis);
                 }
             }
             return z;
@@ -273,7 +273,7 @@ public class a {
             CustomPushPremissionDialogView customPushPremissionDialogView = new CustomPushPremissionDialogView(tbPageContext.getPageActivity());
             aVar.setContentView(customPushPremissionDialogView);
             int[] iArr = {-1};
-            customPushPremissionDialogView.getPushPermissionDialogConfirmButton().setOnClickListener(new View$OnClickListenerC0895a(tbPageContext, iArr, aVar));
+            customPushPremissionDialogView.getPushPermissionDialogConfirmButton().setOnClickListener(new View$OnClickListenerC0905a(tbPageContext, iArr, aVar));
             customPushPremissionDialogView.getPushPermissionDialogCancelButton().setOnClickListener(new b(iArr, aVar));
             aVar.setOnDismissListener(new c(i2, iArr));
             if (j2 > 0) {

@@ -1,6 +1,6 @@
 package com.baidu.tbadk.switchs;
 
-import c.a.s0.s.h0.b;
+import c.a.s0.s.i0.b;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;

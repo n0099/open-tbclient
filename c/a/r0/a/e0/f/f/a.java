@@ -41,36 +41,36 @@ public class a extends z {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c  reason: collision with root package name */
-    public c f5675c;
+    public c f5817c;
 
     /* renamed from: d  reason: collision with root package name */
-    public ExecutorService f5676d;
+    public ExecutorService f5818d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f5677e;
+    public int f5819e;
 
     /* renamed from: c.a.r0.a.e0.f.f.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public class RunnableC0301a implements Runnable {
+    public class RunnableC0310a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Context f5678e;
+        public final /* synthetic */ Context f5820e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ File f5679f;
+        public final /* synthetic */ File f5821f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ UnitedSchemeEntity f5680g;
+        public final /* synthetic */ UnitedSchemeEntity f5822g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f5681h;
+        public final /* synthetic */ CallbackHandler f5823h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final /* synthetic */ a f5682i;
+        public final /* synthetic */ a f5824i;
 
-        public RunnableC0301a(a aVar, Context context, File file, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler) {
+        public RunnableC0310a(a aVar, Context context, File file, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -85,19 +85,19 @@ public class a extends z {
                     return;
                 }
             }
-            this.f5682i = aVar;
-            this.f5678e = context;
-            this.f5679f = file;
-            this.f5680g = unitedSchemeEntity;
-            this.f5681h = callbackHandler;
+            this.f5824i = aVar;
+            this.f5820e = context;
+            this.f5821f = file;
+            this.f5822g = unitedSchemeEntity;
+            this.f5823h = callbackHandler;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                a aVar = this.f5682i;
-                aVar.q(this.f5678e, aVar.f5675c.f5690b, this.f5682i.f5675c.f5691c, this.f5679f, this.f5680g, this.f5681h);
+                a aVar = this.f5824i;
+                aVar.q(this.f5820e, aVar.f5817c.f5832b, this.f5824i.f5817c.f5833c, this.f5821f, this.f5822g, this.f5823h);
             }
         }
     }
@@ -108,22 +108,22 @@ public class a extends z {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Context f5683e;
+        public final /* synthetic */ Context f5825e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f5684f;
+        public final /* synthetic */ String f5826f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ String f5685g;
+        public final /* synthetic */ String f5827g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ File f5686h;
+        public final /* synthetic */ File f5828h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final /* synthetic */ UnitedSchemeEntity f5687i;
+        public final /* synthetic */ UnitedSchemeEntity f5829i;
 
         /* renamed from: j  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f5688j;
+        public final /* synthetic */ CallbackHandler f5830j;
         public final /* synthetic */ a k;
 
         public b(a aVar, Context context, String str, String str2, File file, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler) {
@@ -142,19 +142,19 @@ public class a extends z {
                 }
             }
             this.k = aVar;
-            this.f5683e = context;
-            this.f5684f = str;
-            this.f5685g = str2;
-            this.f5686h = file;
-            this.f5687i = unitedSchemeEntity;
-            this.f5688j = callbackHandler;
+            this.f5825e = context;
+            this.f5826f = str;
+            this.f5827g = str2;
+            this.f5828h = file;
+            this.f5829i = unitedSchemeEntity;
+            this.f5830j = callbackHandler;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.k.q(this.f5683e, this.f5684f, this.f5685g, this.f5686h, this.f5687i, this.f5688j);
+                this.k.q(this.f5825e, this.f5826f, this.f5827g, this.f5828h, this.f5829i, this.f5830j);
             }
         }
     }
@@ -188,12 +188,12 @@ public class a extends z {
             JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
             if (optParamsAsJo != null && optParamsAsJo.length() > 0) {
                 c e2 = c.e(optParamsAsJo);
-                this.f5675c = e2;
+                this.f5817c = e2;
                 if (e2 != null && !e2.d()) {
                     l(context, unitedSchemeEntity, callbackHandler);
                     return true;
                 }
-                boolean z = z.f6201b;
+                boolean z = z.f6343b;
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
                 return false;
             }
@@ -211,27 +211,27 @@ public class a extends z {
             if (b2.exists()) {
                 b2.delete();
             }
-            this.f5676d = Executors.newFixedThreadPool(4);
-            this.f5677e = 0;
-            JSONArray jSONArray = this.f5675c.f5695g;
+            this.f5818d = Executors.newFixedThreadPool(4);
+            this.f5819e = 0;
+            JSONArray jSONArray = this.f5817c.f5837g;
             if (jSONArray != null && jSONArray.length() > 0) {
-                int length = this.f5675c.f5695g.length();
+                int length = this.f5817c.f5837g.length();
                 for (int i2 = 0; i2 < length; i2++) {
-                    String a = this.f5675c.a(i2);
+                    String a = this.f5817c.a(i2);
                     if (TextUtils.isEmpty(a)) {
-                        int i3 = this.f5677e + 1;
-                        this.f5677e = i3;
+                        int i3 = this.f5819e + 1;
+                        this.f5819e = i3;
                         if (i3 >= length) {
                             c.a.r0.a.e0.d.c("WirelessDebugAction", "Hosts are invalid");
                             p(context, "404");
                         }
                     } else {
-                        this.f5676d.execute(new b(this, context, a, this.f5675c.c(i2), b2, unitedSchemeEntity, callbackHandler));
+                        this.f5818d.execute(new b(this, context, a, this.f5817c.c(i2), b2, unitedSchemeEntity, callbackHandler));
                     }
                 }
                 return;
             }
-            ExecutorUtilsExt.postOnSerial(new RunnableC0301a(this, context, b2, unitedSchemeEntity, callbackHandler), "WirelessDebugAction");
+            ExecutorUtilsExt.postOnSerial(new RunnableC0310a(this, context, b2, unitedSchemeEntity, callbackHandler), "WirelessDebugAction");
         }
     }
 
@@ -242,7 +242,7 @@ public class a extends z {
             try {
                 return URLEncoder.encode(str, "UTF-8");
             } catch (UnsupportedEncodingException unused) {
-                boolean z = z.f6201b;
+                boolean z = z.f6343b;
                 return str;
             }
         }
@@ -256,9 +256,9 @@ public class a extends z {
             f fVar = new f();
             fVar.j(V);
             fVar.a = n.n(V.G());
-            fVar.f7977b = "launch";
-            fVar.f7978c = "adb-debug";
-            fVar.f7980e = "download_fail";
+            fVar.f8119b = "launch";
+            fVar.f8120c = "adb-debug";
+            fVar.f8122e = "download_fail";
             n.onEvent(fVar);
         }
     }
@@ -266,7 +266,7 @@ public class a extends z {
     public final c.a o() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? (c.a) ((c.a) ((c.a) new c.a().v0(this.f5675c.a)).A0(false)).P0(this.f5675c.f5692d) : (c.a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? (c.a) ((c.a) ((c.a) new c.a().v0(this.f5817c.a)).A0(false)).P0(this.f5817c.f5834d) : (c.a) invokeV.objValue;
     }
 
     public final void p(Context context, String str) {
@@ -286,7 +286,7 @@ public class a extends z {
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:34:0x00b0, code lost:
-        if (r6 >= r4.f5675c.f5695g.length()) goto L35;
+        if (r6 >= r4.f5817c.f5837g.length()) goto L35;
      */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -299,17 +299,17 @@ public class a extends z {
                 if (executeSync != null && executeSync.code() == 200 && executeSync.body() != null) {
                     g.a(executeSync.body().byteStream(), file);
                     Intent g1 = c.a.r0.a.f1.e.c.g1(context, o());
-                    g1.putExtra(PrefetchEvent.EVENT_DATA_DEBUG_PRELOAD, this.f5675c.f5693e);
-                    g1.putExtra("slavePreload", this.f5675c.f5694f);
+                    g1.putExtra(PrefetchEvent.EVENT_DATA_DEBUG_PRELOAD, this.f5817c.f5835e);
+                    g1.putExtra("slavePreload", this.f5817c.f5836f);
                     g1.putExtra("extraWSUrl", str2);
                     context.startActivity(g1);
                     UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
-                    if (this.f5676d != null) {
-                        this.f5676d.shutdownNow();
-                        this.f5676d = null;
+                    if (this.f5818d != null) {
+                        this.f5818d.shutdownNow();
+                        this.f5818d = null;
                     }
                     if (!ProcessUtils.isMainProcess()) {
-                        boolean z = z.f6201b;
+                        boolean z = z.f6343b;
                         d.d();
                     }
                 }
@@ -319,9 +319,9 @@ public class a extends z {
             } catch (IOException unused) {
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
                 synchronized (this) {
-                    if (this.f5675c.f5695g != null) {
-                        int i2 = this.f5677e + 1;
-                        this.f5677e = i2;
+                    if (this.f5817c.f5837g != null) {
+                        int i2 = this.f5819e + 1;
+                        this.f5819e = i2;
                     }
                     c.a.r0.a.e0.d.c("WirelessDebugAction", "Host IPs are invalid");
                     p(context, "404");

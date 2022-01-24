@@ -14,7 +14,7 @@ public final class g {
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long[] f29700b;
+    public long[] f29728b;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public g() {
@@ -38,11 +38,11 @@ public final class g {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048576, this, j2) == null) {
             int i2 = this.a;
-            long[] jArr = this.f29700b;
+            long[] jArr = this.f29728b;
             if (i2 == jArr.length) {
-                this.f29700b = Arrays.copyOf(jArr, i2 * 2);
+                this.f29728b = Arrays.copyOf(jArr, i2 * 2);
             }
-            long[] jArr2 = this.f29700b;
+            long[] jArr2 = this.f29728b;
             int i3 = this.a;
             this.a = i3 + 1;
             jArr2[i3] = j2;
@@ -54,7 +54,7 @@ public final class g {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) {
             if (i2 >= 0 && i2 < this.a) {
-                return this.f29700b[i2];
+                return this.f29728b[i2];
             }
             throw new IndexOutOfBoundsException("Invalid index " + i2 + ", size is " + this.a);
         }
@@ -70,7 +70,7 @@ public final class g {
     public long[] d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? Arrays.copyOf(this.f29700b, this.a) : (long[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? Arrays.copyOf(this.f29728b, this.a) : (long[]) invokeV.objValue;
     }
 
     public g(int i2) {
@@ -88,6 +88,6 @@ public final class g {
                 return;
             }
         }
-        this.f29700b = new long[i2];
+        this.f29728b = new long[i2];
     }
 }

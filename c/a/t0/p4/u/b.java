@@ -30,19 +30,19 @@ public class b extends BaseAdapter {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public List<c.a.s0.f.a> f21333e;
+    public List<c.a.s0.f.a> f21569e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f21334f;
+    public String f21570f;
 
     /* renamed from: g  reason: collision with root package name */
-    public BaseFragmentActivity f21335g;
+    public BaseFragmentActivity f21571g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f21336h;
+    public int f21572h;
 
     /* renamed from: i  reason: collision with root package name */
-    public LayoutInflater f21337i;
+    public LayoutInflater f21573i;
 
     /* loaded from: classes8.dex */
     public static /* synthetic */ class a {
@@ -52,18 +52,18 @@ public class b extends BaseAdapter {
 
     /* renamed from: c.a.t0.p4.u.b$b  reason: collision with other inner class name */
     /* loaded from: classes8.dex */
-    public class C1331b {
+    public class C1342b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public TbImageView a;
 
         /* renamed from: b  reason: collision with root package name */
-        public TextView f21338b;
+        public TextView f21574b;
 
         /* renamed from: c  reason: collision with root package name */
-        public ImageView f21339c;
+        public ImageView f21575c;
 
-        public C1331b(b bVar) {
+        public C1342b(b bVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -79,7 +79,7 @@ public class b extends BaseAdapter {
             }
         }
 
-        public /* synthetic */ C1331b(b bVar, a aVar) {
+        public /* synthetic */ C1342b(b bVar, a aVar) {
             this(bVar);
         }
     }
@@ -99,9 +99,9 @@ public class b extends BaseAdapter {
                 return;
             }
         }
-        this.f21335g = baseFragmentActivity;
-        this.f21337i = LayoutInflater.from(baseFragmentActivity.getPageContext().getPageActivity());
-        this.f21336h = n.k(this.f21335g.getPageContext().getPageActivity()) / 2;
+        this.f21571g = baseFragmentActivity;
+        this.f21573i = LayoutInflater.from(baseFragmentActivity.getPageContext().getPageActivity());
+        this.f21572h = n.k(this.f21571g.getPageContext().getPageActivity()) / 2;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -110,14 +110,14 @@ public class b extends BaseAdapter {
     public c.a.s0.f.a getItem(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) ? (c.a.s0.f.a) ListUtils.getItem(this.f21333e, i2) : (c.a.s0.f.a) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) ? (c.a.s0.f.a) ListUtils.getItem(this.f21569e, i2) : (c.a.s0.f.a) invokeI.objValue;
     }
 
     public void b(List<c.a.s0.f.a> list, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list, str) == null) {
-            this.f21333e = list;
-            this.f21334f = str;
+            this.f21569e = list;
+            this.f21570f = str;
         }
     }
 
@@ -125,7 +125,7 @@ public class b extends BaseAdapter {
     public int getCount() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? ListUtils.getCount(this.f21333e) : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? ListUtils.getCount(this.f21569e) : invokeV.intValue;
     }
 
     @Override // android.widget.Adapter
@@ -138,20 +138,20 @@ public class b extends BaseAdapter {
     @Override // android.widget.Adapter
     public View getView(int i2, View view, ViewGroup viewGroup) {
         InterceptResult invokeILL;
-        C1331b c1331b;
+        C1342b c1342b;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeILL = interceptable.invokeILL(1048581, this, i2, view, viewGroup)) == null) {
-            if (view != null && (view.getTag() instanceof C1331b)) {
-                c1331b = (C1331b) view.getTag();
+            if (view != null && (view.getTag() instanceof C1342b)) {
+                c1342b = (C1342b) view.getTag();
             } else {
-                view = this.f21337i.inflate(c.a.t0.p4.h.album_list_item, viewGroup, false);
-                c1331b = new C1331b(this, null);
-                c1331b.a = (TbImageView) view.findViewById(c.a.t0.p4.g.item_head);
-                c1331b.f21338b = (TextView) view.findViewById(c.a.t0.p4.g.item_name);
-                c1331b.f21339c = (ImageView) view.findViewById(c.a.t0.p4.g.item_arrow);
-                c1331b.a.setGifIconSupport(false);
-                c1331b.a.setLongIconSupport(false);
-                view.setTag(c1331b);
+                view = this.f21573i.inflate(c.a.t0.p4.h.album_list_item, viewGroup, false);
+                c1342b = new C1342b(this, null);
+                c1342b.a = (TbImageView) view.findViewById(c.a.t0.p4.g.item_head);
+                c1342b.f21574b = (TextView) view.findViewById(c.a.t0.p4.g.item_name);
+                c1342b.f21575c = (ImageView) view.findViewById(c.a.t0.p4.g.item_arrow);
+                c1342b.a.setGifIconSupport(false);
+                c1342b.a.setLongIconSupport(false);
+                view.setTag(c1342b);
             }
             c.a.s0.f.a item = getItem(i2);
             if (item == null) {
@@ -160,25 +160,25 @@ public class b extends BaseAdapter {
             }
             view.setVisibility(0);
             if (!TextUtils.isEmpty(item.g())) {
-                String s = n.s(c1331b.f21338b.getPaint(), item.g(), this.f21336h);
-                c1331b.f21338b.setText(s + "(" + item.c() + SmallTailInfo.EMOTION_SUFFIX);
+                String s = n.s(c1342b.f21574b.getPaint(), item.g(), this.f21572h);
+                c1342b.f21574b.setText(s + "(" + item.c() + SmallTailInfo.EMOTION_SUFFIX);
             } else {
-                c1331b.f21338b.setText("");
+                c1342b.f21574b.setText("");
             }
             String b2 = item.b();
-            if (!TextUtils.isEmpty(b2) && b2.equals(this.f21334f)) {
-                c1331b.f21339c.setImageDrawable(WebPManager.getPureDrawable(c.a.t0.p4.f.icon_pure_strok324_select, SkinManager.getColor(c.a.t0.p4.d.CAM_X0302), WebPManager.ResourceStateType.NORMAL));
-                c1331b.f21339c.setVisibility(0);
+            if (!TextUtils.isEmpty(b2) && b2.equals(this.f21570f)) {
+                c1342b.f21575c.setImageDrawable(WebPManager.getPureDrawable(c.a.t0.p4.f.icon_pure_strok324_select, SkinManager.getColor(c.a.t0.p4.d.CAM_X0302), WebPManager.ResourceStateType.NORMAL));
+                c1342b.f21575c.setVisibility(0);
             } else {
-                c1331b.f21339c.setVisibility(8);
+                c1342b.f21575c.setVisibility(8);
             }
             MediaFileInfo f2 = item.f();
             if (f2 instanceof VideoFileInfo) {
-                c1331b.a.startLoad(((VideoFileInfo) f2).videoPath, 37, false);
+                c1342b.a.startLoad(((VideoFileInfo) f2).videoPath, 37, false);
             } else if (f2 instanceof ImageFileInfo) {
-                c1331b.a.startLoad(((ImageFileInfo) f2).getFilePath(), 35, false);
+                c1342b.a.startLoad(((ImageFileInfo) f2).getFilePath(), 35, false);
             }
-            SkinManager.setViewTextColor(c1331b.f21338b, c.a.t0.p4.d.CAM_X0105);
+            SkinManager.setViewTextColor(c1342b.f21574b, c.a.t0.p4.d.CAM_X0105);
             SkinManager.setBackgroundResource(view, c.a.t0.p4.f.addresslist_item_bg);
             return view;
         }

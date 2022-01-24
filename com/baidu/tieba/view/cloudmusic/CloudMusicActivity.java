@@ -43,7 +43,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public class CloudMusicActivity extends SuspendedActivity implements c.a.s0.y0.b, d, g {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -60,7 +60,7 @@ public class CloudMusicActivity extends SuspendedActivity implements c.a.s0.y0.b
     public List<String> mTitles;
     public BdBaseViewPager mViewPager;
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes13.dex */
     public class a extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -97,7 +97,7 @@ public class CloudMusicActivity extends SuspendedActivity implements c.a.s0.y0.b
         }
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes13.dex */
     public class b extends FragmentPagerAdapter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -325,7 +325,7 @@ public class CloudMusicActivity extends SuspendedActivity implements c.a.s0.y0.b
             super.onDestroy();
             this.mICloudMusicPresenter.cancelLoadData();
             MusicPlayer.c().f();
-            c.a.t0.w0.c.d.a.h().d();
+            c.a.t0.x0.c.d.a.h().d();
         }
     }
 
@@ -343,7 +343,7 @@ public class CloudMusicActivity extends SuspendedActivity implements c.a.s0.y0.b
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
             super.onRestart();
-            c.a.t0.w0.c.d.a.h().e();
+            c.a.t0.x0.c.d.a.h().e();
         }
     }
 

@@ -3,7 +3,7 @@ package com.baidu.tieba.setting.model;
 import android.content.Context;
 import android.text.TextUtils;
 import c.a.d.a.f;
-import c.a.t0.m3.g;
+import c.a.t0.n3.g;
 import com.baidu.adp.base.BdBaseModel;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
@@ -29,16 +29,16 @@ public class SystemHelpSettingModel extends BdBaseModel {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public b f47799e;
+    public b f47827e;
 
     /* renamed from: f  reason: collision with root package name */
-    public c f47800f;
+    public c f47828f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Context f47801g;
+    public Context f47829g;
 
     /* renamed from: h  reason: collision with root package name */
-    public BaseActivity.LoadDataCallBack f47802h;
+    public BaseActivity.LoadDataCallBack f47830h;
 
     /* loaded from: classes12.dex */
     public static /* synthetic */ class a {
@@ -81,7 +81,7 @@ public class SystemHelpSettingModel extends BdBaseModel {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, strArr)) == null) {
                 TiebaDatabase.getInstance().getSdcardMainDBDatabaseManager().b();
-                c.a.s0.s.k0.b.b.a();
+                c.a.s0.s.l0.b.b.a();
                 try {
                     FileHelper.clearCacheDir("image");
                     FileHelper.clearCacheDir("images");
@@ -102,9 +102,9 @@ public class SystemHelpSettingModel extends BdBaseModel {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
                 super.onPostExecute((b) str);
-                this.a.f47799e = null;
-                if (this.a.f47802h != null) {
-                    this.a.f47802h.callback(MoreModel.TaskType.DO_CACHE_CLEAR);
+                this.a.f47827e = null;
+                if (this.a.f47830h != null) {
+                    this.a.f47830h.callback(MoreModel.TaskType.DO_CACHE_CLEAR);
                 }
             }
         }
@@ -157,7 +157,7 @@ public class SystemHelpSettingModel extends BdBaseModel {
                 long longValue = directorySize + directorySize3 + fileSize + directorySize2 + ((runTask == null || !(runTask.getData() instanceof Long)) ? 0L : ((Long) runTask.getData()).longValue());
                 float f2 = ((float) longValue) + 0.0f;
                 if (longValue >= 10485.76d) {
-                    return String.format("%.2f", Float.valueOf(f2 / 1048576.0f)) + this.a.f47801g.getString(g.mebibyte);
+                    return String.format("%.2f", Float.valueOf(f2 / 1048576.0f)) + this.a.f47829g.getString(g.mebibyte);
                 }
                 return "";
             }
@@ -170,9 +170,9 @@ public class SystemHelpSettingModel extends BdBaseModel {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
                 super.onPostExecute((c) str);
-                this.a.f47800f = null;
-                if (this.a.f47802h != null) {
-                    this.a.f47802h.callback(MoreModel.TaskType.GET_SIZE, str);
+                this.a.f47828f = null;
+                if (this.a.f47830h != null) {
+                    this.a.f47830h.callback(MoreModel.TaskType.GET_SIZE, str);
                 }
             }
         }
@@ -196,18 +196,18 @@ public class SystemHelpSettingModel extends BdBaseModel {
                 return;
             }
         }
-        this.f47799e = null;
-        this.f47800f = null;
-        this.f47801g = null;
-        this.f47802h = null;
-        this.f47801g = systemHelpSettingActivity.getPageContext().getPageActivity();
+        this.f47827e = null;
+        this.f47828f = null;
+        this.f47829g = null;
+        this.f47830h = null;
+        this.f47829g = systemHelpSettingActivity.getPageContext().getPageActivity();
     }
 
     public void A() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.f47799e == null) {
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.f47827e == null) {
             b bVar = new b(this, null);
-            this.f47799e = bVar;
+            this.f47827e = bVar;
             bVar.execute(new String[0]);
         }
     }
@@ -225,9 +225,9 @@ public class SystemHelpSettingModel extends BdBaseModel {
 
     public void C() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && this.f47800f == null) {
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && this.f47828f == null) {
             c cVar = new c(this, null);
-            this.f47800f = cVar;
+            this.f47828f = cVar;
             cVar.execute(new String[0]);
         }
     }
@@ -242,7 +242,7 @@ public class SystemHelpSettingModel extends BdBaseModel {
     public void E(BaseActivity.LoadDataCallBack loadDataCallBack) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, loadDataCallBack) == null) {
-            this.f47802h = loadDataCallBack;
+            this.f47830h = loadDataCallBack;
         }
     }
 

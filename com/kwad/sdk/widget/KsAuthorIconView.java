@@ -31,25 +31,25 @@ public class KsAuthorIconView extends FrameLayout {
     public ViewGroup a;
 
     /* renamed from: b  reason: collision with root package name */
-    public KSCornerImageView f58025b;
+    public KSCornerImageView f58070b;
 
     /* renamed from: c  reason: collision with root package name */
-    public KSCornerImageView f58026c;
+    public KSCornerImageView f58071c;
 
     /* renamed from: d  reason: collision with root package name */
-    public KSCornerImageView f58027d;
+    public KSCornerImageView f58072d;
 
     /* renamed from: e  reason: collision with root package name */
-    public KSCornerImageView f58028e;
+    public KSCornerImageView f58073e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f58029f;
+    public TextView f58074f;
 
     /* renamed from: g  reason: collision with root package name */
-    public View f58030g;
+    public View f58075g;
 
     /* renamed from: h  reason: collision with root package name */
-    public ImageView f58031h;
+    public ImageView f58076h;
 
     public KsAuthorIconView(@NonNull Context context) {
         super(context);
@@ -114,13 +114,13 @@ public class KsAuthorIconView extends FrameLayout {
     private void a(@NonNull Context context, @Nullable AttributeSet attributeSet, int i2) {
         FrameLayout.inflate(context, R.layout.ksad_author_icon, this);
         this.a = (ViewGroup) findViewById(R.id.ksad_author_icon_frame);
-        this.f58026c = (KSCornerImageView) findViewById(R.id.ksad_author_icon);
-        this.f58025b = (KSCornerImageView) findViewById(R.id.ksad_author_icon_outer);
-        this.f58027d = (KSCornerImageView) findViewById(R.id.ksad_author_animator);
-        this.f58028e = (KSCornerImageView) findViewById(R.id.ksad_author_animator2);
-        this.f58029f = (TextView) findViewById(R.id.ksad_fans_count);
-        this.f58030g = findViewById(R.id.ksad_author_btn_follow);
-        this.f58031h = (ImageView) findViewById(R.id.ksad_author_arrow_down);
+        this.f58071c = (KSCornerImageView) findViewById(R.id.ksad_author_icon);
+        this.f58070b = (KSCornerImageView) findViewById(R.id.ksad_author_icon_outer);
+        this.f58072d = (KSCornerImageView) findViewById(R.id.ksad_author_animator);
+        this.f58073e = (KSCornerImageView) findViewById(R.id.ksad_author_animator2);
+        this.f58074f = (TextView) findViewById(R.id.ksad_fans_count);
+        this.f58075g = findViewById(R.id.ksad_author_btn_follow);
+        this.f58076h = (ImageView) findViewById(R.id.ksad_author_arrow_down);
     }
 
     private void a(c cVar, Drawable drawable) {
@@ -149,18 +149,18 @@ public class KsAuthorIconView extends FrameLayout {
         AdInfo j2 = com.kwad.sdk.core.response.a.d.j(adTemplate);
         String aE = com.kwad.sdk.core.response.a.a.aE(j2);
         if (!TextUtils.isEmpty(aE)) {
-            KSImageLoader.loadImage(this.f58026c, aE, adTemplate);
+            KSImageLoader.loadImage(this.f58071c, aE, adTemplate);
         }
-        this.f58029f.setText(com.kwad.sdk.core.response.a.a.aB(j2));
-        this.f58027d.post(new Runnable() { // from class: com.kwad.sdk.widget.KsAuthorIconView.1
+        this.f58074f.setText(com.kwad.sdk.core.response.a.a.aB(j2));
+        this.f58072d.post(new Runnable() { // from class: com.kwad.sdk.widget.KsAuthorIconView.1
             @Override // java.lang.Runnable
             public void run() {
                 KsAuthorIconView ksAuthorIconView = KsAuthorIconView.this;
-                final Animator a = ksAuthorIconView.a(ksAuthorIconView.f58027d, 900L);
+                final Animator a = ksAuthorIconView.a(ksAuthorIconView.f58072d, 900L);
                 KsAuthorIconView ksAuthorIconView2 = KsAuthorIconView.this;
-                final Animator a2 = ksAuthorIconView2.a(ksAuthorIconView2.f58028e, 1000L);
+                final Animator a2 = ksAuthorIconView2.a(ksAuthorIconView2.f58073e, 1000L);
                 KsAuthorIconView ksAuthorIconView3 = KsAuthorIconView.this;
-                final Animator a3 = ksAuthorIconView3.a(ksAuthorIconView3.f58026c);
+                final Animator a3 = ksAuthorIconView3.a(ksAuthorIconView3.f58071c);
                 if (a == null || a2 == null || a3 == null) {
                     return;
                 }
@@ -185,16 +185,16 @@ public class KsAuthorIconView extends FrameLayout {
         int i2;
         w.a(cVar, this);
         if (z) {
-            imageView = this.f58031h;
+            imageView = this.f58076h;
             i2 = R.drawable.ksad_reward_follow_arrow_down;
         } else {
-            imageView = this.f58031h;
+            imageView = this.f58076h;
             i2 = R.drawable.ksad_reward_follow_arrow_down_orange;
         }
         imageView.setImageResource(i2);
-        a(cVar, this.f58027d.getBackground());
-        a(cVar, this.f58025b.getBackground());
-        a(cVar, this.f58028e.getBackground());
+        a(cVar, this.f58072d.getBackground());
+        a(cVar, this.f58070b.getBackground());
+        a(cVar, this.f58073e.getBackground());
         a(cVar, this.a.getBackground());
     }
 }

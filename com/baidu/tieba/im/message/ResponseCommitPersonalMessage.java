@@ -1,6 +1,6 @@
 package com.baidu.tieba.im.message;
 
-import c.a.t0.s1.w.b;
+import c.a.t0.t1.w.b;
 import com.baidu.adp.lib.stats.BdStatisticsManager;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;

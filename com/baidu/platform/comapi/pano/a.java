@@ -22,7 +22,7 @@ public class a {
 
     /* renamed from: com.baidu.platform.comapi.pano.a$a  reason: collision with other inner class name */
     /* loaded from: classes10.dex */
-    public interface InterfaceC1839a<T> {
+    public interface InterfaceC1840a<T> {
         void a(HttpClient.HttpStateError httpStateError);
 
         void a(T t);
@@ -50,18 +50,18 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, this, str)) == null) {
             if (str == null || str.equals("")) {
-                return new c(PanoStateError.f37714c);
+                return new c(PanoStateError.f37742c);
             }
             try {
                 JSONObject jSONObject = new JSONObject(str);
                 JSONObject optJSONObject = jSONObject.optJSONObject("result");
                 if (optJSONObject == null) {
-                    return new c(PanoStateError.f37714c);
+                    return new c(PanoStateError.f37742c);
                 }
                 if (optJSONObject.optInt("error") == 0) {
                     JSONArray optJSONArray = jSONObject.optJSONArray("content");
                     if (optJSONArray == null) {
-                        return new c(PanoStateError.f37714c);
+                        return new c(PanoStateError.f37742c);
                     }
                     c cVar = null;
                     for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
@@ -74,10 +74,10 @@ public class a {
                     }
                     return cVar;
                 }
-                return new c(PanoStateError.f37713b);
+                return new c(PanoStateError.f37741b);
             } catch (JSONException e2) {
                 e2.printStackTrace();
-                return new c(PanoStateError.f37714c);
+                return new c(PanoStateError.f37742c);
             }
         }
         return (c) invokeL.objValue;
@@ -103,9 +103,9 @@ public class a {
         builder.appendQueryParameter(str, str2);
     }
 
-    public void a(String str, InterfaceC1839a<c> interfaceC1839a) {
+    public void a(String str, InterfaceC1840a<c> interfaceC1840a) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, str, interfaceC1839a) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048576, this, str, interfaceC1840a) == null) {
             Uri.Builder builder = new Uri.Builder();
             builder.scheme(HttpClient.isHttpsEnable ? "https" : "http");
             builder.encodedAuthority("api.map.baidu.com");
@@ -115,11 +115,11 @@ public class a {
             a(builder, "action", "0");
             String authToken = HttpClient.getAuthToken();
             if (authToken == null) {
-                interfaceC1839a.a((InterfaceC1839a<c>) new c(PanoStateError.f37715d));
+                interfaceC1840a.a((InterfaceC1840a<c>) new c(PanoStateError.f37743d));
                 return;
             }
             a(builder, "token", authToken);
-            this.a.get(a(builder), new b(this, interfaceC1839a));
+            this.a.get(a(builder), new b(this, interfaceC1840a));
         }
     }
 }

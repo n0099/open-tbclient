@@ -2,15 +2,15 @@ package com.ss.android.socialbase.downloader.h;
 
 import java.util.concurrent.ThreadFactory;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class a implements ThreadFactory {
     public final String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final AtomicInteger f60070b;
+    public final AtomicInteger f60115b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final boolean f60071c;
+    public final boolean f60116c;
 
     public a(String str) {
         this(str, false);
@@ -18,9 +18,9 @@ public class a implements ThreadFactory {
 
     @Override // java.util.concurrent.ThreadFactory
     public Thread newThread(Runnable runnable) {
-        int incrementAndGet = this.f60070b.incrementAndGet();
+        int incrementAndGet = this.f60115b.incrementAndGet();
         Thread thread = new Thread(runnable, this.a + "-" + incrementAndGet);
-        if (!this.f60071c) {
+        if (!this.f60116c) {
             if (thread.isDaemon()) {
                 thread.setDaemon(false);
             }
@@ -32,8 +32,8 @@ public class a implements ThreadFactory {
     }
 
     public a(String str, boolean z) {
-        this.f60070b = new AtomicInteger();
+        this.f60115b = new AtomicInteger();
         this.a = str;
-        this.f60071c = z;
+        this.f60116c = z;
     }
 }

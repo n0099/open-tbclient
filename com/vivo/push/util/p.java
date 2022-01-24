@@ -13,10 +13,10 @@ public final class p {
     public static final o a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static boolean f60770b;
+    public static boolean f60815b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static boolean f60771c;
+    public static boolean f60816c;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -39,13 +39,13 @@ public final class p {
     public static boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) ? f60770b : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) ? f60815b : invokeV.booleanValue;
     }
 
     public static void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65546, null) == null) {
-            f60770b = aa.b("persist.sys.log.ctrl", "no").equals("yes");
+            f60815b = aa.b("persist.sys.log.ctrl", "no").equals("yes");
         }
     }
 
@@ -71,7 +71,7 @@ public final class p {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(65542, null, z) == null) {
             b();
-            f60771c = z;
+            f60816c = z;
         }
     }
 

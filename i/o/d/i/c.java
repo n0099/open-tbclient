@@ -18,16 +18,16 @@ public final class c<E> extends a<E> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: g  reason: collision with root package name */
-    public final AtomicLong f62036g;
+    public final AtomicLong f62081g;
 
     /* renamed from: h  reason: collision with root package name */
-    public long f62037h;
+    public long f62082h;
 
     /* renamed from: i  reason: collision with root package name */
-    public final AtomicLong f62038i;
+    public final AtomicLong f62083i;
 
     /* renamed from: j  reason: collision with root package name */
-    public final int f62039j;
+    public final int f62084j;
 
     static {
         InterceptResult invokeClinit;
@@ -63,34 +63,34 @@ public final class c<E> extends a<E> {
                 return;
             }
         }
-        this.f62036g = new AtomicLong();
-        this.f62038i = new AtomicLong();
-        this.f62039j = Math.min(i2 / 4, k.intValue());
+        this.f62081g = new AtomicLong();
+        this.f62083i = new AtomicLong();
+        this.f62084j = Math.min(i2 / 4, k.intValue());
     }
 
     public final long f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f62038i.get() : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f62083i.get() : invokeV.longValue;
     }
 
     public final long g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f62036g.get() : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f62081g.get() : invokeV.longValue;
     }
 
     public final void h(long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j2) == null) {
-            this.f62038i.lazySet(j2);
+            this.f62083i.lazySet(j2);
         }
     }
 
     public final void i(long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048579, this, j2) == null) {
-            this.f62036g.lazySet(j2);
+            this.f62081g.lazySet(j2);
         }
     }
 
@@ -107,14 +107,14 @@ public final class c<E> extends a<E> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, e2)) == null) {
             if (e2 != null) {
-                AtomicReferenceArray<E> atomicReferenceArray = this.f62032e;
-                int i2 = this.f62033f;
-                long j2 = this.f62036g.get();
+                AtomicReferenceArray<E> atomicReferenceArray = this.f62077e;
+                int i2 = this.f62078f;
+                long j2 = this.f62081g.get();
                 int b2 = b(j2, i2);
-                if (j2 >= this.f62037h) {
-                    long j3 = this.f62039j + j2;
+                if (j2 >= this.f62082h) {
+                    long j3 = this.f62084j + j2;
                     if (d(atomicReferenceArray, b(j3, i2)) == null) {
-                        this.f62037h = j3;
+                        this.f62082h = j3;
                     } else if (d(atomicReferenceArray, b2) != null) {
                         return false;
                     }
@@ -132,7 +132,7 @@ public final class c<E> extends a<E> {
     public E peek() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? c(a(this.f62038i.get())) : (E) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? c(a(this.f62083i.get())) : (E) invokeV.objValue;
     }
 
     @Override // java.util.Queue
@@ -140,9 +140,9 @@ public final class c<E> extends a<E> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            long j2 = this.f62038i.get();
+            long j2 = this.f62083i.get();
             int a = a(j2);
-            AtomicReferenceArray<E> atomicReferenceArray = this.f62032e;
+            AtomicReferenceArray<E> atomicReferenceArray = this.f62077e;
             E d2 = d(atomicReferenceArray, a);
             if (d2 == null) {
                 return null;

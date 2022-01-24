@@ -53,9 +53,9 @@ public class e extends f {
             hashMap.put("prod", this.q);
             hashMap.put("at", this.r);
             hashMap.put("fet", this.s);
-            if (this.f10544i != null) {
-                hashMap.put("w", "" + this.f10544i.d());
-                hashMap.put("h", "" + this.f10544i.a());
+            if (this.f10686i != null) {
+                hashMap.put("w", "" + this.f10686i.d());
+                hashMap.put("h", "" + this.f10686i.a());
             }
             return hashMap;
         }

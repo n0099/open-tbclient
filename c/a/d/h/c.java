@@ -28,13 +28,13 @@ public class c {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static boolean f3124b;
+    public static boolean f3226b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static boolean f3125c;
+    public static boolean f3227c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static c f3126d;
+    public static c f3228d;
     public transient /* synthetic */ FieldHolder $fh;
     public volatile c.a.d.j.a a;
 
@@ -86,7 +86,7 @@ public class c {
                 return;
             }
         }
-        f3126d = new c();
+        f3228d = new c();
     }
 
     public c() {
@@ -105,25 +105,25 @@ public class c {
 
     public static void a() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65538, null) == null) && !f3125c && c.a.d.j.a.m()) {
-            f3125c = true;
+        if ((interceptable == null || interceptable.invokeV(65538, null) == null) && !f3227c && c.a.d.j.a.m()) {
+            f3227c = true;
             NPSPackageManager.getInstance().downloadAllBundles();
         }
     }
 
     public static void b() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65539, null) == null) || f3124b) {
+        if (!(interceptable == null || interceptable.invokeV(65539, null) == null) || f3226b) {
             return;
         }
-        f3124b = true;
+        f3226b = true;
         NPSPackageManager.getInstance().fetchBundleInfo();
     }
 
     public static c e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? f3126d : (c) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? f3228d : (c) invokeV.objValue;
     }
 
     public static void i() {

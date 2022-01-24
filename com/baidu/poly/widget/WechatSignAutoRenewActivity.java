@@ -46,21 +46,21 @@ public class WechatSignAutoRenewActivity extends Activity implements View.OnClic
         public final /* synthetic */ boolean a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ WechatSignAutoRenewActivity f37834b;
+        public final /* synthetic */ WechatSignAutoRenewActivity f37862b;
 
         /* renamed from: com.baidu.poly.widget.WechatSignAutoRenewActivity$a$a  reason: collision with other inner class name */
         /* loaded from: classes10.dex */
-        public class RunnableC1841a implements Runnable {
+        public class RunnableC1842a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ int f37835e;
+            public final /* synthetic */ int f37863e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ a f37836f;
+            public final /* synthetic */ a f37864f;
 
-            public RunnableC1841a(a aVar, int i2) {
+            public RunnableC1842a(a aVar, int i2) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -75,15 +75,15 @@ public class WechatSignAutoRenewActivity extends Activity implements View.OnClic
                         return;
                     }
                 }
-                this.f37836f = aVar;
-                this.f37835e = i2;
+                this.f37864f = aVar;
+                this.f37863e = i2;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    this.f37836f.f37834b.processCheckOrderStatus(this.f37835e);
+                    this.f37864f.f37862b.processCheckOrderStatus(this.f37863e);
                 }
             }
         }
@@ -103,7 +103,7 @@ public class WechatSignAutoRenewActivity extends Activity implements View.OnClic
                     return;
                 }
             }
-            this.f37834b = wechatSignAutoRenewActivity;
+            this.f37862b = wechatSignAutoRenewActivity;
             this.a = z;
         }
 
@@ -114,14 +114,14 @@ public class WechatSignAutoRenewActivity extends Activity implements View.OnClic
                 if (this.a) {
                     long currentTimeMillis = System.currentTimeMillis() - WechatSignAutoRenewActivity.startTimeMillis;
                     if (currentTimeMillis >= 2000) {
-                        this.f37834b.processCheckOrderStatus(i2);
+                        this.f37862b.processCheckOrderStatus(i2);
                         return;
                     } else {
-                        new Handler(Looper.getMainLooper()).postDelayed(new RunnableC1841a(this, i2), 2000 - currentTimeMillis);
+                        new Handler(Looper.getMainLooper()).postDelayed(new RunnableC1842a(this, i2), 2000 - currentTimeMillis);
                         return;
                     }
                 }
-                this.f37834b.processCheckOrderStatus(i2);
+                this.f37862b.processCheckOrderStatus(i2);
             }
         }
     }

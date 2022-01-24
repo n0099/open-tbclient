@@ -31,22 +31,22 @@ public class CardFrsGameCompetitionItemView extends LinearLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public RelativeLayout f42297e;
+    public RelativeLayout f42318e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TbImageView f42298f;
+    public TbImageView f42319f;
 
     /* renamed from: g  reason: collision with root package name */
-    public LinearLayout f42299g;
+    public LinearLayout f42320g;
 
     /* renamed from: h  reason: collision with root package name */
-    public ClickableHeaderImageView f42300h;
+    public ClickableHeaderImageView f42321h;
 
     /* renamed from: i  reason: collision with root package name */
-    public TextView f42301i;
+    public TextView f42322i;
 
     /* renamed from: j  reason: collision with root package name */
-    public RelativeLayout f42302j;
+    public RelativeLayout f42323j;
     public TextView k;
     public ClickableHeaderImageView l;
     public TextView m;
@@ -62,7 +62,7 @@ public class CardFrsGameCompetitionItemView extends LinearLayout {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ CardFrsGameCompetitionItemView f42303e;
+        public final /* synthetic */ CardFrsGameCompetitionItemView f42324e;
 
         public a(CardFrsGameCompetitionItemView cardFrsGameCompetitionItemView) {
             Interceptable interceptable = $ic;
@@ -79,15 +79,15 @@ public class CardFrsGameCompetitionItemView extends LinearLayout {
                     return;
                 }
             }
-            this.f42303e = cardFrsGameCompetitionItemView;
+            this.f42324e = cardFrsGameCompetitionItemView;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, view) == null) && (view.getTag() instanceof String)) {
-                TiebaStatic.log(new StatisticItem("c13047").param("obj_locate", 7).param("fid", this.f42303e.q));
-                UrlManager.getInstance().dealOneLink((TbPageContext) j.a(this.f42303e.getContext()), new String[]{(String) view.getTag()}, true);
+                TiebaStatic.log(new StatisticItem("c13047").param("obj_locate", 7).param("fid", this.f42324e.q));
+                UrlManager.getInstance().dealOneLink((TbPageContext) j.a(this.f42324e.getContext()), new String[]{(String) view.getTag()}, true);
             }
         }
     }
@@ -118,12 +118,12 @@ public class CardFrsGameCompetitionItemView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
             LayoutInflater.from(context).inflate(R.layout.card_frs_game_competition_view_item, (ViewGroup) this, true);
-            this.f42297e = (RelativeLayout) findViewById(R.id.card_competition_layout);
-            this.f42298f = (TbImageView) findViewById(R.id.card_competition_bg);
-            this.f42299g = (LinearLayout) findViewById(R.id.card_competition_title_layout);
-            this.f42300h = (ClickableHeaderImageView) findViewById(R.id.card_competition_title_header);
-            this.f42301i = (TextView) findViewById(R.id.card_competition_title);
-            this.f42302j = (RelativeLayout) findViewById(R.id.card_competition_content_layout);
+            this.f42318e = (RelativeLayout) findViewById(R.id.card_competition_layout);
+            this.f42319f = (TbImageView) findViewById(R.id.card_competition_bg);
+            this.f42320g = (LinearLayout) findViewById(R.id.card_competition_title_layout);
+            this.f42321h = (ClickableHeaderImageView) findViewById(R.id.card_competition_title_header);
+            this.f42322i = (TextView) findViewById(R.id.card_competition_title);
+            this.f42323j = (RelativeLayout) findViewById(R.id.card_competition_content_layout);
             this.k = (TextView) findViewById(R.id.card_competition_vs);
             this.l = (ClickableHeaderImageView) findViewById(R.id.card_competition_left_img);
             this.m = (TextView) findViewById(R.id.card_competition_left_name);
@@ -132,21 +132,21 @@ public class CardFrsGameCompetitionItemView extends LinearLayout {
             this.p = (TextView) findViewById(R.id.card_competition_btn_discuss);
             int dimensionPixelSize = context.getResources().getDimensionPixelSize(R.dimen.tbds170) * 2;
             int i2 = (dimensionPixelSize * 21) / 9;
-            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.f42298f.getLayoutParams();
+            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.f42319f.getLayoutParams();
             layoutParams.height = dimensionPixelSize;
             layoutParams.width = i2;
-            this.f42298f.setLayoutParams(layoutParams);
-            LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) this.f42297e.getLayoutParams();
+            this.f42319f.setLayoutParams(layoutParams);
+            LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) this.f42318e.getLayoutParams();
             layoutParams2.height = dimensionPixelSize;
             layoutParams2.width = i2;
-            this.f42297e.setLayoutParams(layoutParams2);
-            this.f42298f.setDefaultBgResource(R.drawable.icon_morenpic);
-            this.f42300h.setDrawBorder(true);
-            this.f42300h.setDrawerType(1);
-            this.f42300h.setRadius(context.getResources().getDimensionPixelSize(R.dimen.tbds5));
-            this.f42300h.setScaleType(ImageView.ScaleType.CENTER_CROP);
-            this.f42300h.setBorderColor(SkinManager.getColor(R.color.common_color_10043));
-            this.f42300h.setBorderWidth(context.getResources().getDimensionPixelSize(R.dimen.tbds1));
+            this.f42318e.setLayoutParams(layoutParams2);
+            this.f42319f.setDefaultBgResource(R.drawable.icon_morenpic);
+            this.f42321h.setDrawBorder(true);
+            this.f42321h.setDrawerType(1);
+            this.f42321h.setRadius(context.getResources().getDimensionPixelSize(R.dimen.tbds5));
+            this.f42321h.setScaleType(ImageView.ScaleType.CENTER_CROP);
+            this.f42321h.setBorderColor(SkinManager.getColor(R.color.common_color_10043));
+            this.f42321h.setBorderWidth(context.getResources().getDimensionPixelSize(R.dimen.tbds1));
             this.l.setDefaultResource(17170445);
             this.l.setDefaultBgResource(R.color.CAM_X0205);
             this.l.setIsRound(true);
@@ -166,9 +166,9 @@ public class CardFrsGameCompetitionItemView extends LinearLayout {
     public void bindDataToView(FeatureCardCompetitionSubNode featureCardCompetitionSubNode) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, featureCardCompetitionSubNode) == null) {
-            this.f42300h.startLoad(featureCardCompetitionSubNode.competition_logo, 10, false);
-            this.f42298f.startLoad(featureCardCompetitionSubNode.competition_image, 10, false);
-            this.f42301i.setText(featureCardCompetitionSubNode.title);
+            this.f42321h.startLoad(featureCardCompetitionSubNode.competition_logo, 10, false);
+            this.f42319f.startLoad(featureCardCompetitionSubNode.competition_image, 10, false);
+            this.f42322i.setText(featureCardCompetitionSubNode.title);
             this.l.startLoad(featureCardCompetitionSubNode.team1_image, 10, false);
             this.m.setText(featureCardCompetitionSubNode.team1_name);
             this.n.startLoad(featureCardCompetitionSubNode.team2_image, 10, false);
@@ -180,7 +180,7 @@ public class CardFrsGameCompetitionItemView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
             if (this.mSkinType != i2) {
-                SkinManager.setViewTextColor(this.f42301i, R.color.CAM_X0101, 1);
+                SkinManager.setViewTextColor(this.f42322i, R.color.CAM_X0101, 1);
                 SkinManager.setViewTextColor(this.k, R.color.CAM_X0101, 1);
                 SkinManager.setViewTextColor(this.m, R.color.CAM_X0101, 1);
                 SkinManager.setViewTextColor(this.o, R.color.CAM_X0101, 1);

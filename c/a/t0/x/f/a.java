@@ -19,7 +19,7 @@ public class a {
     public List<e> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public List<e> f25090b;
+    public List<e> f24899b;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -77,7 +77,7 @@ public class a {
             if (dataRes == null || dataRes.robots_list == null) {
                 z = false;
             } else {
-                this.f25090b = new ArrayList();
+                this.f24899b = new ArrayList();
                 z = false;
                 for (robotsList robotslist : dataRes.robots_list) {
                     if (TextUtils.isEmpty(robotslist.key)) {
@@ -85,7 +85,7 @@ public class a {
                     } else {
                         e eVar = new e();
                         eVar.d(robotslist);
-                        this.f25090b.add(eVar);
+                        this.f24899b.add(eVar);
                     }
                 }
             }
@@ -99,7 +99,7 @@ public class a {
                         eVar2.c(listdata);
                         if (eVar2.a() != null) {
                             for (c.a.s0.t.f.a aVar : eVar2.a()) {
-                                if (b(this.f25090b, aVar)) {
+                                if (b(this.f24899b, aVar)) {
                                     aVar.r(1);
                                 } else {
                                     aVar.r(0);

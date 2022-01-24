@@ -1,6 +1,7 @@
 package com.baidu.rtc.signalling.play;
 
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.launch.ExternalTransferSpeedStats;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -53,7 +54,7 @@ public class RemoteSdpResponse {
                 remoteSdpResponse.roomId = jSONObject2.optString("room");
                 remoteSdpResponse.roomName = jSONObject2.optString("roomname");
                 remoteSdpResponse.userId = jSONObject2.optString("id");
-                remoteSdpResponse.feed = jSONObject2.optString("feed");
+                remoteSdpResponse.feed = jSONObject2.optString(ExternalTransferSpeedStats.FEED_PAGE);
             } catch (JSONException e2) {
                 Logging.e("RemoteSdpRequest", "Caught error while play response parse" + e2.getMessage());
             }

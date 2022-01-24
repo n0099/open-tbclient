@@ -25,13 +25,13 @@ public class c extends a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c  reason: collision with root package name */
-    public View f21090c;
+    public View f21325c;
 
     /* renamed from: d  reason: collision with root package name */
-    public HorizontalListView f21091d;
+    public HorizontalListView f21326d;
 
     /* renamed from: e  reason: collision with root package name */
-    public f f21092e;
+    public f f21327e;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public c(c.a.d.a.f fVar) {
@@ -58,24 +58,24 @@ public class c extends a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             View inflate = LayoutInflater.from(this.a.getPageActivity()).inflate(h.pic_sticker_view, (ViewGroup) null);
-            this.f21090c = inflate;
-            this.f21091d = (HorizontalListView) inflate.findViewById(g.horizontal_list);
+            this.f21325c = inflate;
+            this.f21326d = (HorizontalListView) inflate.findViewById(g.horizontal_list);
             f fVar = new f();
-            this.f21092e = fVar;
-            this.f21091d.setAdapter((ListAdapter) fVar);
+            this.f21327e = fVar;
+            this.f21326d.setAdapter((ListAdapter) fVar);
         }
     }
 
     public View d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f21090c : (View) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f21325c : (View) invokeV.objValue;
     }
 
     public void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.f21092e.notifyDataSetChanged();
+            this.f21327e.notifyDataSetChanged();
         }
     }
 
@@ -84,14 +84,14 @@ public class c extends a {
         if (!(interceptable == null || interceptable.invokeL(1048579, this, list) == null) || ListUtils.isEmpty(list)) {
             return;
         }
-        this.f21092e.c(list);
-        this.f21092e.notifyDataSetChanged();
+        this.f21327e.c(list);
+        this.f21327e.notifyDataSetChanged();
     }
 
     public void g() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            SkinManager.setBackgroundColor(this.f21090c, d.CAM_X0201);
+            SkinManager.setBackgroundColor(this.f21325c, d.CAM_X0201);
             e();
         }
     }
@@ -99,7 +99,7 @@ public class c extends a {
     public void h(e eVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, eVar) == null) {
-            this.f21092e.d(eVar);
+            this.f21327e.d(eVar);
         }
     }
 }

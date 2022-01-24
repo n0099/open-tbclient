@@ -26,10 +26,10 @@ public class u {
     public v a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f12176b;
+    public long f12318b;
 
     /* renamed from: c  reason: collision with root package name */
-    public CustomMessageListener f12177c;
+    public CustomMessageListener f12319c;
 
     /* loaded from: classes6.dex */
     public class a extends CustomMessageListener {
@@ -82,11 +82,11 @@ public class u {
                 return;
             }
         }
-        this.f12177c = new a(this, 2001371);
+        this.f12319c = new a(this, 2001371);
         this.a = new v();
-        MessageManager.getInstance().registerListener(this.f12177c);
+        MessageManager.getInstance().registerListener(this.f12319c);
         g();
-        this.f12176b = c.a.s0.s.h0.b.k().m("key_redpacket_pop_last_time", 0L);
+        this.f12318b = c.a.s0.s.i0.b.k().m("key_redpacket_pop_last_time", 0L);
     }
 
     public void b() {
@@ -99,7 +99,7 @@ public class u {
     public final boolean c(z zVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, zVar)) == null) ? zVar != null && this.f12176b >= zVar.b() && this.f12176b <= zVar.a() : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, zVar)) == null) ? zVar != null && this.f12318b >= zVar.b() && this.f12318b <= zVar.a() : invokeL.booleanValue;
     }
 
     public final boolean d() {
@@ -137,8 +137,8 @@ public class u {
         if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || c.a.d.f.p.m.isEmpty(this.a.d())) {
             return;
         }
-        this.f12176b = System.currentTimeMillis();
-        c.a.s0.s.h0.b.k().x("key_redpacket_pop_last_time", this.f12176b);
+        this.f12318b = System.currentTimeMillis();
+        c.a.s0.s.i0.b.k().x("key_redpacket_pop_last_time", this.f12318b);
         TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_RED_PACKET_POP_WINDOW_SHOW));
         String str = this.a.d() + TbWebViewActivityConfig.JUMP_PARAMS_PAGE_TYPE;
         Activity currentActivity = TbadkCoreApplication.getInst().getCurrentActivity();
@@ -150,7 +150,7 @@ public class u {
     public final void g() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.a.e(c.a.s0.s.h0.b.k().q("key_redpacket_pop", ""));
+            this.a.e(c.a.s0.s.i0.b.k().q("key_redpacket_pop", ""));
         }
     }
 }

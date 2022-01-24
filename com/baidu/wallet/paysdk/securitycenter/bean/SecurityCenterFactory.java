@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.dxmpay.apollon.beans.IBeanFactory;
 import com.dxmpay.wallet.core.beans.BeanManager;
 import com.dxmpay.wallet.core.beans.OtherBean;
-/* loaded from: classes13.dex */
+/* loaded from: classes2.dex */
 public final class SecurityCenterFactory implements IBeanFactory {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int BEAN_ID_PAY_SET_LIST = 1;
@@ -20,13 +20,13 @@ public final class SecurityCenterFactory implements IBeanFactory {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: com.baidu.wallet.paysdk.securitycenter.bean.SecurityCenterFactory$1  reason: invalid class name */
-    /* loaded from: classes13.dex */
+    /* loaded from: classes2.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes2.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public static SecurityCenterFactory a;

@@ -14,7 +14,7 @@ public class f {
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f10832b;
+    public String f10974b;
 
     public f() {
         Interceptable interceptable = $ic;
@@ -36,7 +36,7 @@ public class f {
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
             f fVar = new f();
             fVar.a = jSONObject.optInt("state");
-            fVar.f10832b = jSONObject.optString("msg");
+            fVar.f10974b = jSONObject.optString("msg");
             return fVar;
         }
         return (f) invokeL.objValue;
@@ -46,7 +46,7 @@ public class f {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return "CheckPayAuthModel{state=" + this.a + ", msg='" + this.f10832b + ExtendedMessageFormat.QUOTE + ExtendedMessageFormat.END_FE;
+            return "CheckPayAuthModel{state=" + this.a + ", msg='" + this.f10974b + ExtendedMessageFormat.QUOTE + ExtendedMessageFormat.END_FE;
         }
         return (String) invokeV.objValue;
     }

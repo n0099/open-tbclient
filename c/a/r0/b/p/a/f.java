@@ -30,13 +30,13 @@ public class f extends z {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f10145e;
+        public final /* synthetic */ CallbackHandler f10287e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f10146f;
+        public final /* synthetic */ String f10288f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ f f10147g;
+        public final /* synthetic */ f f10289g;
 
         public a(f fVar, CallbackHandler callbackHandler, String str) {
             Interceptable interceptable = $ic;
@@ -53,9 +53,9 @@ public class f extends z {
                     return;
                 }
             }
-            this.f10147g = fVar;
-            this.f10145e = callbackHandler;
-            this.f10146f = str;
+            this.f10289g = fVar;
+            this.f10287e = callbackHandler;
+            this.f10288f = str;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -64,12 +64,12 @@ public class f extends z {
         public void onCallback(c.a.r0.a.h2.c.f fVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, fVar) == null) {
-                if (fVar == null || fVar.f7125d) {
-                    this.f10147g.n(false, null, this.f10145e, this.f10146f, 10005, "system deny");
+                if (fVar == null || fVar.f7267d) {
+                    this.f10289g.n(false, null, this.f10287e, this.f10288f, 10005, "system deny");
                     n.r(10005, fVar);
                     return;
                 }
-                this.f10147g.p(fVar, this.f10145e, this.f10146f);
+                this.f10289g.p(fVar, this.f10287e, this.f10288f);
             }
         }
     }
@@ -80,16 +80,16 @@ public class f extends z {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c.a.r0.a.h2.c.f f10148e;
+        public final /* synthetic */ c.a.r0.a.h2.c.f f10290e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f10149f;
+        public final /* synthetic */ CallbackHandler f10291f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ String f10150g;
+        public final /* synthetic */ String f10292g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ f f10151h;
+        public final /* synthetic */ f f10293h;
 
         public b(f fVar, c.a.r0.a.h2.c.f fVar2, CallbackHandler callbackHandler, String str) {
             Interceptable interceptable = $ic;
@@ -106,25 +106,25 @@ public class f extends z {
                     return;
                 }
             }
-            this.f10151h = fVar;
-            this.f10148e = fVar2;
-            this.f10149f = callbackHandler;
-            this.f10150g = str;
+            this.f10293h = fVar;
+            this.f10290e = fVar2;
+            this.f10291f = callbackHandler;
+            this.f10292g = str;
         }
 
         @Override // c.a.r0.a.m.a
         public void onResult(int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
-                if (z.f6201b) {
+                if (z.f6343b) {
                     String str = "onResult: loginStatusCode = " + i2;
                 }
                 if (i2 == -2) {
-                    this.f10151h.n(false, null, this.f10149f, this.f10150g, 20050002, "user did cancel login");
+                    this.f10293h.n(false, null, this.f10291f, this.f10292g, 20050002, "user did cancel login");
                 } else if (i2 != 0) {
-                    this.f10151h.n(false, null, this.f10149f, this.f10150g, 20050003, "user fail to login");
+                    this.f10293h.n(false, null, this.f10291f, this.f10292g, 20050003, "user fail to login");
                 } else {
-                    this.f10151h.o(this.f10148e.f7124c, c.a.r0.a.g1.f.U().getActivity(), this.f10149f, this.f10150g);
+                    this.f10293h.o(this.f10290e.f7266c, c.a.r0.a.g1.f.U().getActivity(), this.f10291f, this.f10292g);
                 }
             }
         }
@@ -136,13 +136,13 @@ public class f extends z {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ CallbackHandler f10152e;
+        public final /* synthetic */ CallbackHandler f10294e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f10153f;
+        public final /* synthetic */ String f10295f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ f f10154g;
+        public final /* synthetic */ f f10296g;
 
         public c(f fVar, CallbackHandler callbackHandler, String str) {
             Interceptable interceptable = $ic;
@@ -159,9 +159,9 @@ public class f extends z {
                     return;
                 }
             }
-            this.f10154g = fVar;
-            this.f10152e = callbackHandler;
-            this.f10153f = str;
+            this.f10296g = fVar;
+            this.f10294e = callbackHandler;
+            this.f10295f = str;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -171,15 +171,15 @@ public class f extends z {
             a.b bVar;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, iVar) == null) {
-                if (iVar == null || !iVar.c() || (bVar = iVar.a) == null || bVar.f7166c == null) {
-                    this.f10154g.n(true, null, this.f10152e, this.f10153f, 20050004, "user fail to get mobile information");
+                if (iVar == null || !iVar.c() || (bVar = iVar.a) == null || bVar.f7308c == null) {
+                    this.f10296g.n(true, null, this.f10294e, this.f10295f, 20050004, "user fail to get mobile information");
                     return;
                 }
                 try {
                     JSONObject jSONObject = new JSONObject();
-                    jSONObject.put("data", iVar.a.f7166c.optString("data"));
-                    jSONObject.put("iv", iVar.a.f7166c.optString("iv"));
-                    this.f10154g.n(true, jSONObject, this.f10152e, this.f10153f, 0, "success");
+                    jSONObject.put("data", iVar.a.f7308c.optString("data"));
+                    jSONObject.put("iv", iVar.a.f7308c.optString("iv"));
+                    this.f10296g.n(true, jSONObject, this.f10294e, this.f10295f, 0, "success");
                 } catch (JSONException unused) {
                 }
             }

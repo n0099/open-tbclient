@@ -26,7 +26,7 @@ public class a extends d {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: d  reason: collision with root package name */
-    public long f18957d;
+    public long f19190d;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public a(String str) {
@@ -46,7 +46,7 @@ public class a extends d {
                 return;
             }
         }
-        this.f18957d = 88200L;
+        this.f19190d = 88200L;
     }
 
     /* JADX WARN: Removed duplicated region for block: B:107:0x0170 A[SYNTHETIC] */
@@ -75,13 +75,13 @@ public class a extends d {
         FileInputStream fileInputStream = null;
         try {
             try {
-                if (aVar.f18959b == 0) {
-                    aVar.f18959b = MediaEncodeParams.AUDIO_SAMPLE_RATE;
+                if (aVar.f19192b == 0) {
+                    aVar.f19192b = MediaEncodeParams.AUDIO_SAMPLE_RATE;
                 }
-                if (aVar.f18960c == 0) {
-                    aVar.f18960c = 1;
+                if (aVar.f19193c == 0) {
+                    aVar.f19193c = 1;
                 }
-                aVar.f18957d = (aVar.f18959b * 16) / 8;
+                aVar.f19190d = (aVar.f19192b * 16) / 8;
                 FileInputStream fileInputStream2 = new FileInputStream(aVar.a);
                 try {
                     fileOutputStream = new FileOutputStream(str);
@@ -175,7 +175,7 @@ public class a extends d {
                                     f2.queueInputBuffer(dequeueInputBuffer, 0, i7, j4, 0);
                                     i4 = i8;
                                     i3 = i7;
-                                    j4 = (long) (((i8 / 2.0d) * 1000000.0d) / aVar.f18957d);
+                                    j4 = (long) (((i8 / 2.0d) * 1000000.0d) / aVar.f19190d);
                                     bArr = bArr2;
                                     z2 = z;
                                 }
@@ -253,7 +253,7 @@ public class a extends d {
                 if (i3 >= 13) {
                     i3 = 4;
                     break;
-                } else if (iArr[i3] == this.f18959b) {
+                } else if (iArr[i3] == this.f19192b) {
                     break;
                 } else {
                     i3++;
@@ -278,8 +278,8 @@ public class a extends d {
             MediaFormat mediaFormat = new MediaFormat();
             mediaFormat.setString("mime", "audio/mp4a-latm");
             mediaFormat.setInteger("bitrate", EncoderParams.AUDIO_BIT_RATE);
-            mediaFormat.setInteger("channel-count", this.f18960c);
-            mediaFormat.setInteger("sample-rate", this.f18959b);
+            mediaFormat.setInteger("channel-count", this.f19193c);
+            mediaFormat.setInteger("sample-rate", this.f19192b);
             mediaFormat.setInteger("aac-profile", 2);
             createEncoderByType.configure(mediaFormat, (Surface) null, (MediaCrypto) null, 1);
             return createEncoderByType;

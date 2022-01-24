@@ -45,7 +45,7 @@ public class b extends c.a.t0.g0.b<e2> implements b0 {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ b f14882e;
+        public final /* synthetic */ b f15022e;
 
         public a(b bVar) {
             Interceptable interceptable = $ic;
@@ -62,17 +62,17 @@ public class b extends c.a.t0.g0.b<e2> implements b0 {
                     return;
                 }
             }
-            this.f14882e = bVar;
+            this.f15022e = bVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f14882e.o == null || this.f14882e.g() == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f15022e.o == null || this.f15022e.g() == null) {
                 return;
             }
-            this.f14882e.g().a(view, this.f14882e.o);
-            TiebaStatic.log(new StatisticItem("c11844").param("uid", TbadkCoreApplication.getCurrentAccount()).param("fid", this.f14882e.o.U()));
+            this.f15022e.g().a(view, this.f15022e.o);
+            TiebaStatic.log(new StatisticItem("c11844").param("uid", TbadkCoreApplication.getCurrentAccount()).param("fid", this.f15022e.o.U()));
         }
     }
 
@@ -124,7 +124,7 @@ public class b extends c.a.t0.g0.b<e2> implements b0 {
     @Override // c.a.t0.g0.b
     public void l(TbPageContext<?> tbPageContext, int i2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(1048579, this, tbPageContext, i2) == null) || this.f17766e == i2) {
+        if (!(interceptable == null || interceptable.invokeLI(1048579, this, tbPageContext, i2) == null) || this.f17588e == i2) {
             return;
         }
         SkinManager.setBackgroundResource(this.t, R.drawable.ala_live_card_start_live_selector);
@@ -136,7 +136,7 @@ public class b extends c.a.t0.g0.b<e2> implements b0 {
         SkinManager.setViewTextColor(this.s, R.color.CAM_X0109);
         SkinManager.setViewTextColor(this.u, R.color.CAM_X0108);
         SkinManager.setBackgroundColor(this.v, R.color.CAM_X0201);
-        this.f17766e = i2;
+        this.f17588e = i2;
     }
 
     @Override // android.view.View.OnClickListener

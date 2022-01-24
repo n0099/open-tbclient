@@ -33,24 +33,24 @@ public class a implements v0, u0 {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile a f8767b;
+    public static volatile a f8909b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f8768c;
+    public static final String f8910c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f8769d;
+    public static final String f8911d;
     public transient /* synthetic */ FieldHolder $fh;
     public c<SwanAppPageInfo> a;
 
     /* renamed from: c.a.r0.a.s1.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public class C0552a implements e<String, Boolean> {
+    public class C0561a implements e<String, Boolean> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ JSONObject a;
 
-        public C0552a(a aVar, JSONObject jSONObject) {
+        public C0561a(a aVar, JSONObject jSONObject) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -128,8 +128,8 @@ public class a implements v0, u0 {
             }
         }
         boolean z = k.a;
-        f8768c = c.a.r0.a.c1.a.n().a();
-        f8769d = f8768c + "_";
+        f8910c = c.a.r0.a.c1.a.n().a();
+        f8911d = f8910c + "_";
     }
 
     public a() {
@@ -150,14 +150,14 @@ public class a implements v0, u0 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (f8767b == null) {
+            if (f8909b == null) {
                 synchronized (a.class) {
-                    if (f8767b == null) {
-                        f8767b = new a();
+                    if (f8909b == null) {
+                        f8909b = new a();
                     }
                 }
             }
-            return f8767b;
+            return f8909b;
         }
         return (a) invokeV.objValue;
     }
@@ -232,12 +232,12 @@ public class a implements v0, u0 {
                 c.a.r0.a.e0.d.o("SwanAppPageInfoHelper", "addPageHistory: ret by isNotSamePage\n    fragmentUrl = " + i2 + "\n        dataUrl = " + str);
                 return;
             }
-            if (optString.startsWith(f8769d)) {
-                optString = optString.substring(f8769d.length());
+            if (optString.startsWith(f8911d)) {
+                optString = optString.substring(f8911d.length());
             }
             jSONObject.put("type", optString);
             l(jSONObject, "pageId", g2.f0);
-            l(jSONObject, "scheme", f8768c + "://swan/" + d.J().getAppId() + "/" + str);
+            l(jSONObject, "scheme", f8910c + "://swan/" + d.J().getAppId() + "/" + str);
             c.a.r0.a.f1.e.b f2 = f();
             if (f2 != null) {
                 l(jSONObject, "appName", f2.K());
@@ -251,7 +251,7 @@ public class a implements v0, u0 {
     public final boolean d(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) ? !TextUtils.isEmpty(str) && ("history".equals(str) || str.startsWith(f8769d)) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) ? !TextUtils.isEmpty(str) && ("history".equals(str) || str.startsWith(f8911d)) : invokeL.booleanValue;
     }
 
     public final c.a.r0.a.f1.e.b f() {
@@ -331,7 +331,7 @@ public class a implements v0, u0 {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048586, this, jSONObject, str, str2)) == null) {
-            k(jSONObject, str, str2, new C0552a(this, jSONObject));
+            k(jSONObject, str, str2, new C0561a(this, jSONObject));
             return jSONObject;
         }
         return (JSONObject) invokeLLL.objValue;

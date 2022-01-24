@@ -12,18 +12,18 @@ public class g {
     public static HashMap<String, ArrayList<String>> a = new HashMap<>();
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f57939b;
+    public static String f57984b;
 
     @Nullable
     public static String a(Context context) {
-        if (TextUtils.isEmpty(f57939b)) {
+        if (TextUtils.isEmpty(f57984b)) {
             ArrayList<String> a2 = a(context, "SHA1");
             if (a2 != null && a2.size() != 0) {
-                f57939b = a2.get(0);
+                f57984b = a2.get(0);
             }
-            return f57939b;
+            return f57984b;
         }
-        return f57939b;
+        return f57984b;
     }
 
     public static String a(Signature signature, String str) {

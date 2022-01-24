@@ -18,7 +18,7 @@ public final class a {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, bArr, bArr2)) == null) {
             try {
                 SecretKeySpec secretKeySpec = new SecretKeySpec(bArr, "AES");
-                Cipher cipher = Cipher.getInstance(i1.f55076c);
+                Cipher cipher = Cipher.getInstance(i1.f55121c);
                 byte[] bArr3 = new byte[16];
                 for (int i2 = 0; i2 < 16; i2++) {
                     bArr3[i2] = 0;
@@ -44,7 +44,7 @@ public final class a {
         if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65537, null, bArr, bArr2, z)) == null) {
             try {
                 SecretKeySpec secretKeySpec = new SecretKeySpec(bArr, "AES");
-                Cipher cipher = Cipher.getInstance(i1.f55076c);
+                Cipher cipher = Cipher.getInstance(i1.f55121c);
                 byte[] bArr3 = new byte[16];
                 for (int i2 = 0; i2 < 16; i2++) {
                     bArr3[i2] = 0;

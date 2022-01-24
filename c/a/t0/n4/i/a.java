@@ -5,7 +5,7 @@ import android.graphics.Bitmap;
 import androidx.annotation.NonNull;
 import c.a.d.f.m.e;
 import c.a.d.f.p.n;
-import c.a.t0.w0.a.g.b;
+import c.a.t0.x0.a.g.b;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
@@ -55,39 +55,39 @@ public class a {
     public final TbPageContext<?> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final String f19856b;
+    public final String f19957b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final d f19857c;
+    public final d f19958c;
 
     /* renamed from: d  reason: collision with root package name */
-    public TbMultiMediaData f19858d;
+    public TbMultiMediaData f19959d;
 
     /* renamed from: e  reason: collision with root package name */
-    public c.a.t0.w0.a.c f19859e;
+    public c.a.t0.x0.a.c f19960e;
 
     /* renamed from: f  reason: collision with root package name */
-    public VlogEditManager f19860f;
+    public VlogEditManager f19961f;
 
     /* renamed from: c.a.t0.n4.i.a$a  reason: collision with other inner class name */
     /* loaded from: classes8.dex */
-    public static class RunnableC1244a implements Runnable {
+    public static class RunnableC1239a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ TbPageContext f19861e;
+        public final /* synthetic */ TbPageContext f19962e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ VideoInfo f19862f;
+        public final /* synthetic */ VideoInfo f19963f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ String f19863g;
+        public final /* synthetic */ String f19964g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ String f19864h;
+        public final /* synthetic */ String f19965h;
 
-        public RunnableC1244a(TbPageContext tbPageContext, VideoInfo videoInfo, String str, String str2) {
+        public RunnableC1239a(TbPageContext tbPageContext, VideoInfo videoInfo, String str, String str2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -102,10 +102,10 @@ public class a {
                     return;
                 }
             }
-            this.f19861e = tbPageContext;
-            this.f19862f = videoInfo;
-            this.f19863g = str;
-            this.f19864h = str2;
+            this.f19962e = tbPageContext;
+            this.f19963f = videoInfo;
+            this.f19964g = str;
+            this.f19965h = str2;
         }
 
         @Override // java.lang.Runnable
@@ -113,18 +113,18 @@ public class a {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 c.a.a1.b.c().k(null);
-                a.l(this.f19861e, this.f19862f, this.f19863g, this.f19864h);
+                a.l(this.f19962e, this.f19963f, this.f19964g, this.f19965h);
             }
         }
     }
 
     /* loaded from: classes8.dex */
-    public class b implements c.a.t0.w0.a.b {
+    public class b implements c.a.t0.x0.a.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f19865e;
+        public final /* synthetic */ a f19966e;
 
         public b(a aVar) {
             Interceptable interceptable = $ic;
@@ -141,19 +141,19 @@ public class a {
                     return;
                 }
             }
-            this.f19865e = aVar;
+            this.f19966e = aVar;
         }
 
-        @Override // c.a.t0.w0.a.b
+        @Override // c.a.t0.x0.a.b
         public void onCoverPathCallBack(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-                this.f19865e.f19857c.h(str);
-                this.f19865e.f19858d.coverPath = str;
+                this.f19966e.f19958c.h(str);
+                this.f19966e.f19959d.coverPath = str;
                 c.a.s0.d0.b bVar = new c.a.s0.d0.b();
                 ImageFileInfo imageFileInfo = new ImageFileInfo();
                 imageFileInfo.setFilePath(str);
-                ImageOperation g2 = c.a.s0.d0.i.d.g(n.k(this.f19865e.a.getPageActivity()) - (UtilHelper.getDimenPixelSize(R.dimen.M_W_X007) * 2), n.f(this.f19865e.a.getPageActivity(), R.dimen.tbds866));
+                ImageOperation g2 = c.a.s0.d0.i.d.g(n.k(this.f19966e.a.getPageActivity()) - (UtilHelper.getDimenPixelSize(R.dimen.M_W_X007) * 2), n.f(this.f19966e.a.getPageActivity(), R.dimen.tbds866));
                 imageFileInfo.clearPageActions();
                 imageFileInfo.addPageAction(g2);
                 bVar.d(imageFileInfo, null, false);
@@ -196,7 +196,7 @@ public class a {
         public String b() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? c.a.t0.k4.c.f18796c : (String) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? c.a.t0.k4.c.f19029c : (String) invokeV.objValue;
         }
 
         @Override // c.a.a1.c
@@ -307,8 +307,8 @@ public class a {
             }
         }
         this.a = tbPageContext;
-        this.f19856b = str;
-        this.f19857c = dVar;
+        this.f19957b = str;
+        this.f19958c = dVar;
         e();
         f();
     }
@@ -331,11 +331,11 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65543, null, tbPageContext, str)) == null) {
             File file = new File(str);
-            File file2 = new File(c.a.t0.k4.c.f18800g);
+            File file2 = new File(c.a.t0.k4.c.f19033g);
             if (!file2.exists()) {
                 file2.mkdir();
             }
-            String str2 = c.a.t0.k4.c.f18800g + file.getName();
+            String str2 = c.a.t0.k4.c.f19033g + file.getName();
             if (!str2.equals(file.getAbsolutePath())) {
                 FileHelper.copyFileByAbsolutelyPath(file.getAbsolutePath(), str2);
             }
@@ -369,14 +369,14 @@ public class a {
         videoInfo.setThumbPath(str2);
         EditVideoData editVideoData = new EditVideoData();
         if (StringUtils.isNull(videoInfo.getThumbPath())) {
-            editVideoData.coverPath = c.a.t0.k4.c.f18795b;
+            editVideoData.coverPath = c.a.t0.k4.c.f19028b;
         } else {
             editVideoData.coverPath = videoInfo.getThumbPath();
         }
         editVideoData.originPath = videoInfo.getVideoPath();
         videoInfo.setEditVideoData(editVideoData);
         videoInfo.setMultiMediaData(c.a.t0.n4.m.c.d.d.a(videoInfo));
-        e.a().post(new RunnableC1244a(tbPageContext, videoInfo, str3, str4));
+        e.a().post(new RunnableC1239a(tbPageContext, videoInfo, str3, str4));
     }
 
     public static VideoMuxer p(@NonNull TbPageContext<?> tbPageContext, @NonNull String str, @NonNull List<c.a.t0.n4.i.d.a> list, @NonNull d dVar) {
@@ -388,13 +388,13 @@ public class a {
     public final void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            VideoFileInfo c2 = c.a.t0.j4.c.c(this.f19856b);
+            VideoFileInfo c2 = c.a.t0.j4.c.c(this.f19957b);
             if (c2 == null) {
                 this.a.getPageActivity().finish();
                 return;
             }
             TbMultiMediaData tbMultiMediaData = new TbMultiMediaData();
-            this.f19858d = tbMultiMediaData;
+            this.f19959d = tbMultiMediaData;
             tbMultiMediaData.path = c2.videoPath;
             tbMultiMediaData.coverPath = c2.thumbPath;
             int i2 = c2.videoHeight;
@@ -422,17 +422,17 @@ public class a {
             }
             g();
             MultiMediaDataSourceViewAdapter multiMediaDataSourceViewAdapter = new MultiMediaDataSourceViewAdapter();
-            this.f19860f = new VlogEditManager(multiMediaDataSourceViewAdapter);
+            this.f19961f = new VlogEditManager(multiMediaDataSourceViewAdapter);
             GLMediaPreviewView gLMediaPreviewView = new GLMediaPreviewView(TbadkCoreApplication.getInst());
             gLMediaPreviewView.setZOrderMediaOverlay(true);
             gLMediaPreviewView.setMultiMediaDataSourceViewAdapter(multiMediaDataSourceViewAdapter, false);
             gLMediaPreviewView.setCanMeasure(false);
-            gLMediaPreviewView.setVideoRatio(this.f19858d.videoRatio);
+            gLMediaPreviewView.setVideoRatio(this.f19959d.videoRatio);
             ArrayList arrayList = new ArrayList();
-            arrayList.add(this.f19858d);
-            this.f19860f.setMultiMediaData(arrayList);
-            this.f19860f.setVideoRatio(this.f19858d.videoRatio);
-            this.f19859e = new c.a.t0.w0.a.c(true);
+            arrayList.add(this.f19959d);
+            this.f19961f.setMultiMediaData(arrayList);
+            this.f19961f.setVideoRatio(this.f19959d.videoRatio);
+            this.f19960e = new c.a.t0.x0.a.c(true);
             h();
         }
     }
@@ -450,17 +450,17 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             b.a aVar = new b.a();
-            aVar.t(this.f19858d.width);
-            aVar.o(this.f19858d.height);
+            aVar.t(this.f19959d.width);
+            aVar.o(this.f19959d.height);
             aVar.p(true);
-            aVar.r(this.f19858d.videoRatio);
-            VlogEditManager vlogEditManager = this.f19860f;
+            aVar.r(this.f19959d.videoRatio);
+            VlogEditManager vlogEditManager = this.f19961f;
             aVar.q(vlogEditManager == null ? null : vlogEditManager.getMultiMediaData(vlogEditManager.getCurrentIndex()));
             aVar.s("manual");
-            c.a.t0.w0.a.g.b m = aVar.m();
-            this.f19859e.e(new b(this));
-            this.f19859e.d(false);
-            this.f19859e.b(m, "default");
+            c.a.t0.x0.a.g.b m = aVar.m();
+            this.f19960e.e(new b(this));
+            this.f19960e.d(false);
+            this.f19960e.b(m, "default");
         }
     }
 
@@ -480,8 +480,8 @@ public class a {
                 multiMediaData.x = ((int) d2) - (i2 >> 1);
                 multiMediaData.y = ((int) d3) - (i3 >> 1);
                 image.recycle();
-                this.f19860f.seek(j2);
-                this.f19860f.addStickerData(multiMediaData, FaceItem.DIR_STICKER);
+                this.f19961f.seek(j2);
+                this.f19961f.addStickerData(multiMediaData, FaceItem.DIR_STICKER);
             }
         }
     }
@@ -489,11 +489,11 @@ public class a {
     public final void j(c.a.t0.n4.i.d.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, aVar) == null) {
-            int i2 = aVar.f19869b;
+            int i2 = aVar.f19970b;
             if (i2 == 1) {
-                k(aVar.a, aVar.f19872e, aVar.f19873f, aVar.f19874g, aVar.f19875h, aVar.f19876i, aVar.f19877j, aVar.k);
+                k(aVar.a, aVar.f19973e, aVar.f19974f, aVar.f19975g, aVar.f19976h, aVar.f19977i, aVar.f19978j, aVar.k);
             } else if (i2 == 2) {
-                i(aVar.a, aVar.f19872e, aVar.f19873f, aVar.f19874g, aVar.f19875h, aVar.f19870c, aVar.f19871d);
+                i(aVar.a, aVar.f19973e, aVar.f19974f, aVar.f19975g, aVar.f19976h, aVar.f19971c, aVar.f19972d);
             }
         }
     }
@@ -510,7 +510,7 @@ public class a {
             textStyleEntity.mTextInfoList = new ArrayList();
             textStyleEntity.mStrokeInfoList = new ArrayList();
             TextWordsEntity.StyleTextInfoEntity styleTextInfoEntity = new TextWordsEntity.StyleTextInfoEntity();
-            if (!c.a.t0.w3.c.c(c.a.t0.w3.c.d(str2)) && str2 != null && str2.startsWith("#") && str2.length() >= 7) {
+            if (!c.a.t0.x3.c.c(c.a.t0.x3.c.d(str2)) && str2 != null && str2.startsWith("#") && str2.length() >= 7) {
                 styleTextInfoEntity.mTextAlpha = String.format(Locale.CHINA, "%.1f", Double.valueOf(((d6 >>> 24) * 1.0d) / 255.0d));
                 styleTextInfoEntity.mTextColor = str2.substring(str2.length() - 6, str2.length());
             } else {
@@ -545,8 +545,8 @@ public class a {
                 multiMediaData.y = (int) d3;
             }
             h2.recycle();
-            this.f19860f.seek(j2);
-            this.f19860f.addStickerData(multiMediaData, FaceItem.DIR_STICKER);
+            this.f19961f.seek(j2);
+            this.f19961f.addStickerData(multiMediaData, FaceItem.DIR_STICKER);
         }
     }
 
@@ -559,23 +559,23 @@ public class a {
             }
             VideoMuxerData videoMuxerData = new VideoMuxerData();
             videoMuxerData.setCompat(true);
-            videoMuxerData.setPhotoDataList(this.f19860f.getInputMultiMediaData());
-            videoMuxerData.setStickerDataList(this.f19860f.getStickerMultiMediaDataList(false));
+            videoMuxerData.setPhotoDataList(this.f19961f.getInputMultiMediaData());
+            videoMuxerData.setStickerDataList(this.f19961f.getStickerMultiMediaDataList(false));
             videoMuxerData.setUserNewAudioMixture(true);
             ArrayList arrayList = new ArrayList();
             AudioPlayTrackData audioPlayTrackData = new AudioPlayTrackData();
             audioPlayTrackData.mAudioPlayDataList = new ArrayList();
             arrayList.add(audioPlayTrackData);
             videoMuxerData.setAudioPlayTrackDataList(arrayList);
-            videoMuxerData.setPreviewWidth(this.f19860f.getMultiMediaData(0).width);
-            videoMuxerData.setPreviewHeight(this.f19860f.getMultiMediaData(0).height);
-            videoMuxerData.setOutWidth(this.f19860f.getMultiMediaData(0).width);
-            videoMuxerData.setOutHeight(this.f19860f.getMultiMediaData(0).height);
-            videoMuxerData.setOutBitRate(this.f19860f.getMultiMediaData(0).width * this.f19860f.getMultiMediaData(0).height * 6);
+            videoMuxerData.setPreviewWidth(this.f19961f.getMultiMediaData(0).width);
+            videoMuxerData.setPreviewHeight(this.f19961f.getMultiMediaData(0).height);
+            videoMuxerData.setOutWidth(this.f19961f.getMultiMediaData(0).width);
+            videoMuxerData.setOutHeight(this.f19961f.getMultiMediaData(0).height);
+            videoMuxerData.setOutBitRate(this.f19961f.getMultiMediaData(0).width * this.f19961f.getMultiMediaData(0).height * 6);
             videoMuxerData.setComposeNecessary(true);
-            videoMuxerData.setCurrThemeEffect((MediaTrackConfig) new Gson().fromJson(this.f19860f.exportConfigJson(MediaTrackConfig.AE_IMPORT_DRAFT), (Class<Object>) TbMediaTrackConfig.class));
+            videoMuxerData.setCurrThemeEffect((MediaTrackConfig) new Gson().fromJson(this.f19961f.exportConfigJson(MediaTrackConfig.AE_IMPORT_DRAFT), (Class<Object>) TbMediaTrackConfig.class));
             VideoMuxer videoMuxer = new VideoMuxer();
-            videoMuxer.setListener(this.f19857c);
+            videoMuxer.setListener(this.f19958c);
             videoMuxer.startMuxer(videoMuxerData);
             return videoMuxer;
         }

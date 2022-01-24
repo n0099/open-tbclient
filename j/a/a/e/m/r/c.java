@@ -22,22 +22,22 @@ public class c implements IYYPayAmountView.Callback {
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f62309b;
+    public int f62354b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Dialog f62310c;
+    public Dialog f62355c;
 
     /* renamed from: d  reason: collision with root package name */
-    public IYYPayAmountView.ViewParams f62311d;
+    public IYYPayAmountView.ViewParams f62356d;
 
     /* renamed from: e  reason: collision with root package name */
-    public Activity f62312e;
+    public Activity f62357e;
 
     /* renamed from: f  reason: collision with root package name */
-    public IPayCallback<CurrencyChargeMessage> f62313f;
+    public IPayCallback<CurrencyChargeMessage> f62358f;
 
     /* renamed from: g  reason: collision with root package name */
-    public j.a.a.e.m.f f62314g;
+    public j.a.a.e.m.f f62359g;
 
     public c(int i2, int i3, Dialog dialog, IYYPayAmountView.ViewParams viewParams, Activity activity, IPayCallback<CurrencyChargeMessage> iPayCallback, j.a.a.e.m.f fVar) {
         Interceptable interceptable = $ic;
@@ -56,12 +56,12 @@ public class c implements IYYPayAmountView.Callback {
         }
         RLog.info("PayAmountViewCallback", "create PayAmountViewCallback appId:" + i2 + " userChannel:" + i3);
         this.a = i2;
-        this.f62309b = i3;
-        this.f62310c = dialog;
-        this.f62311d = viewParams;
-        this.f62312e = activity;
-        this.f62313f = iPayCallback;
-        this.f62314g = fVar;
+        this.f62354b = i3;
+        this.f62355c = dialog;
+        this.f62356d = viewParams;
+        this.f62357e = activity;
+        this.f62358f = iPayCallback;
+        this.f62359g = fVar;
     }
 
     @Override // tv.athena.revenue.payui.view.IYYPayAmountView.Callback
@@ -69,7 +69,7 @@ public class c implements IYYPayAmountView.Callback {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(1048576, this, i2, str) == null) {
             RLog.error("PayAmountViewCallback", "showPayAmountDialog onFail code:" + i2 + " failReason:" + str, new Object[0]);
-            j.a.a.e.p.h.b(this.f62310c, PayDialogType.PAY_AMOUNT_DIALOG);
+            j.a.a.e.p.h.b(this.f62355c, PayDialogType.PAY_AMOUNT_DIALOG);
         }
     }
 
@@ -78,8 +78,8 @@ public class c implements IYYPayAmountView.Callback {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity, list) == null) {
             RLog.info("PayAmountViewCallback", "showInputNumberDialog");
-            j.a.a.e.p.h.a(this.f62310c, PayDialogType.PAY_AMOUNT_DIALOG);
-            this.f62314g.j(activity, list, this.f62311d, this.f62313f);
+            j.a.a.e.p.h.a(this.f62355c, PayDialogType.PAY_AMOUNT_DIALOG);
+            this.f62359g.j(activity, list, this.f62356d, this.f62358f);
         }
     }
 
@@ -88,9 +88,9 @@ public class c implements IYYPayAmountView.Callback {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, cVar, list) == null) {
             RLog.info("PayAmountViewCallback", "toPayWayDialog");
-            j.a.a.e.p.h.a(this.f62310c, PayDialogType.PAY_AMOUNT_DIALOG);
-            this.f62314g.g(this.f62312e, cVar, list, this.f62311d, this.f62313f);
-            j.a.a.e.o.b.b(this.a, this.f62309b, UiEventType.purchasegotopay);
+            j.a.a.e.p.h.a(this.f62355c, PayDialogType.PAY_AMOUNT_DIALOG);
+            this.f62359g.g(this.f62357e, cVar, list, this.f62356d, this.f62358f);
+            j.a.a.e.o.b.b(this.a, this.f62354b, UiEventType.purchasegotopay);
         }
     }
 }

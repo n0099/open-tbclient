@@ -26,24 +26,24 @@ public final class n {
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f27980b;
+    public int f28008b;
     @Nullable
 
     /* renamed from: c  reason: collision with root package name */
-    public Runnable f27981c;
+    public Runnable f28009c;
     @Nullable
 
     /* renamed from: d  reason: collision with root package name */
-    public ExecutorService f27982d;
+    public ExecutorService f28010d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final Deque<y.b> f27983e;
+    public final Deque<y.b> f28011e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final Deque<y.b> f27984f;
+    public final Deque<y.b> f28012f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final Deque<y> f27985g;
+    public final Deque<y> f28013g;
 
     static {
         InterceptResult invokeClinit;
@@ -76,18 +76,18 @@ public final class n {
             }
         }
         this.a = 64;
-        this.f27980b = 5;
-        this.f27983e = new ArrayDeque();
-        this.f27984f = new ArrayDeque();
-        this.f27985g = new ArrayDeque();
-        this.f27982d = executorService;
+        this.f28008b = 5;
+        this.f28011e = new ArrayDeque();
+        this.f28012f = new ArrayDeque();
+        this.f28013g = new ArrayDeque();
+        this.f28010d = executorService;
     }
 
     public void a(y.b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, bVar) == null) {
             synchronized (this) {
-                this.f27983e.add(bVar);
+                this.f28011e.add(bVar);
             }
             g();
         }
@@ -97,7 +97,7 @@ public final class n {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, yVar) == null) {
             synchronized (this) {
-                this.f27985g.add(yVar);
+                this.f28013g.add(yVar);
             }
         }
     }
@@ -108,10 +108,10 @@ public final class n {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             synchronized (this) {
-                if (this.f27982d == null) {
-                    this.f27982d = new ThreadPoolExecutor(0, Integer.MAX_VALUE, 60L, TimeUnit.SECONDS, new SynchronousQueue(), c.d.b.e0.e.F("OkHttp Dispatcher", false));
+                if (this.f28010d == null) {
+                    this.f28010d = new ThreadPoolExecutor(0, Integer.MAX_VALUE, 60L, TimeUnit.SECONDS, new SynchronousQueue(), c.d.b.e0.e.F("OkHttp Dispatcher", false));
                 }
-                executorService = this.f27982d;
+                executorService = this.f28010d;
             }
             return executorService;
         }
@@ -121,14 +121,14 @@ public final class n {
     public void d(y.b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, bVar) == null) {
-            f(this.f27984f, bVar);
+            f(this.f28012f, bVar);
         }
     }
 
     public void e(y yVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, yVar) == null) {
-            f(this.f27985g, yVar);
+            f(this.f28013g, yVar);
         }
     }
 
@@ -138,7 +138,7 @@ public final class n {
         if (interceptable == null || interceptable.invokeLL(1048581, this, deque, t) == null) {
             synchronized (this) {
                 if (deque.remove(t)) {
-                    runnable = this.f27981c;
+                    runnable = this.f28009c;
                 } else {
                     throw new AssertionError("Call wasn't in-flight!");
                 }
@@ -158,15 +158,15 @@ public final class n {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
             ArrayList arrayList = new ArrayList();
             synchronized (this) {
-                Iterator<y.b> it = this.f27983e.iterator();
+                Iterator<y.b> it = this.f28011e.iterator();
                 while (it.hasNext()) {
                     y.b next = it.next();
-                    if (this.f27984f.size() >= this.a) {
+                    if (this.f28012f.size() >= this.a) {
                         break;
-                    } else if (i(next) < this.f27980b) {
+                    } else if (i(next) < this.f28008b) {
                         it.remove();
                         arrayList.add(next);
-                        this.f27984f.add(next);
+                        this.f28012f.add(next);
                     }
                 }
                 z = h() > 0;
@@ -186,7 +186,7 @@ public final class n {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
             synchronized (this) {
-                size = this.f27984f.size() + this.f27985g.size();
+                size = this.f28012f.size() + this.f28013g.size();
             }
             return size;
         }
@@ -198,8 +198,8 @@ public final class n {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, bVar)) == null) {
             int i2 = 0;
-            for (y.b bVar2 : this.f27984f) {
-                if (!bVar2.f().f28028j && bVar2.g().equals(bVar.g())) {
+            for (y.b bVar2 : this.f28012f) {
+                if (!bVar2.f().f28056j && bVar2.g().equals(bVar.g())) {
                     i2++;
                 }
             }
@@ -222,9 +222,9 @@ public final class n {
             }
         }
         this.a = 64;
-        this.f27980b = 5;
-        this.f27983e = new ArrayDeque();
-        this.f27984f = new ArrayDeque();
-        this.f27985g = new ArrayDeque();
+        this.f28008b = 5;
+        this.f28011e = new ArrayDeque();
+        this.f28012f = new ArrayDeque();
+        this.f28013g = new ArrayDeque();
     }
 }

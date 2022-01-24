@@ -34,10 +34,10 @@ public class b extends c.a.t0.a0.f.f.a.a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c.a.t0.a0.f.f.b.b f14567e;
+        public final /* synthetic */ c.a.t0.a0.f.f.b.b f14707e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ b f14568f;
+        public final /* synthetic */ b f14708f;
 
         public a(b bVar, c.a.t0.a0.f.f.b.b bVar2) {
             Interceptable interceptable = $ic;
@@ -54,8 +54,8 @@ public class b extends c.a.t0.a0.f.f.a.a {
                     return;
                 }
             }
-            this.f14568f = bVar;
-            this.f14567e = bVar2;
+            this.f14708f = bVar;
+            this.f14707e = bVar2;
         }
 
         @Override // android.view.View.OnClickListener
@@ -63,37 +63,37 @@ public class b extends c.a.t0.a0.f.f.a.a {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
                 StatisticItem statisticItem = new StatisticItem("c12659");
-                statisticItem.param("tid", this.f14567e.a.v1());
+                statisticItem.param("tid", this.f14707e.a.w1());
                 TiebaStatic.log(statisticItem);
-                b bVar = this.f14568f;
-                bVar.b(bVar.f14563e, this.f14567e.a, AlaLiveRoomActivityConfig.FROM_TYPE_LIVE_RECENT_HISTORY_LIVING_TAB);
+                b bVar = this.f14708f;
+                bVar.b(bVar.f14703e, this.f14707e.a, AlaLiveRoomActivityConfig.FROM_TYPE_LIVE_RECENT_HISTORY_LIVING_TAB);
             }
         }
     }
 
     /* renamed from: c.a.t0.a0.f.f.a.b$b  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public static class C0928b {
+    public static class C0938b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public TbImageView a;
 
         /* renamed from: b  reason: collision with root package name */
-        public TextView f14569b;
+        public TextView f14709b;
 
         /* renamed from: c  reason: collision with root package name */
-        public TextView f14570c;
+        public TextView f14710c;
 
         /* renamed from: d  reason: collision with root package name */
-        public TextView f14571d;
+        public TextView f14711d;
 
         /* renamed from: e  reason: collision with root package name */
-        public TextView f14572e;
+        public TextView f14712e;
 
         /* renamed from: f  reason: collision with root package name */
-        public TextView f14573f;
+        public TextView f14713f;
 
-        public C0928b() {
+        public C0938b() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -107,7 +107,7 @@ public class b extends c.a.t0.a0.f.f.a.a {
             }
         }
 
-        public /* synthetic */ C0928b(a aVar) {
+        public /* synthetic */ C0938b(a aVar) {
             this();
         }
     }
@@ -136,69 +136,69 @@ public class b extends c.a.t0.a0.f.f.a.a {
     public View getView(int i2, View view, ViewGroup viewGroup) {
         InterceptResult invokeILL;
         View view2;
-        C0928b c0928b;
+        C0938b c0938b;
         e2 e2Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeILL = interceptable.invokeILL(1048576, this, i2, view, viewGroup)) == null) {
             if (view == null) {
-                c0928b = new C0928b(null);
-                view2 = LayoutInflater.from(this.f14564f).inflate(R.layout.square_recent_history_living_item, (ViewGroup) null);
+                c0938b = new C0938b(null);
+                view2 = LayoutInflater.from(this.f14704f).inflate(R.layout.square_recent_history_living_item, (ViewGroup) null);
                 TbImageView tbImageView = (TbImageView) view2.findViewById(R.id.recent_history_living_img);
-                c0928b.a = tbImageView;
+                c0938b.a = tbImageView;
                 tbImageView.setDefaultResource(R.drawable.ala_bitmap_default_color_bg);
-                c0928b.f14569b = (TextView) view2.findViewById(R.id.recent_history_living_title);
-                c0928b.f14570c = (TextView) view2.findViewById(R.id.recent_history_living_audience_count);
-                c0928b.f14571d = (TextView) view2.findViewById(R.id.recent_history_living_user_name);
-                c0928b.f14572e = (TextView) view2.findViewById(R.id.recent_history_living_living_tag);
-                c0928b.f14573f = (TextView) view2.findViewById(R.id.recent_history_living_send_gift_tag);
+                c0938b.f14709b = (TextView) view2.findViewById(R.id.recent_history_living_title);
+                c0938b.f14710c = (TextView) view2.findViewById(R.id.recent_history_living_audience_count);
+                c0938b.f14711d = (TextView) view2.findViewById(R.id.recent_history_living_user_name);
+                c0938b.f14712e = (TextView) view2.findViewById(R.id.recent_history_living_living_tag);
+                c0938b.f14713f = (TextView) view2.findViewById(R.id.recent_history_living_send_gift_tag);
                 SkinManager.setBackgroundColor(view2, R.color.CAM_X0201);
-                SkinManager.setViewTextColor(c0928b.f14569b, R.color.CAM_X0105);
-                SkinManager.setViewTextColor(c0928b.f14570c, R.color.CAM_X0109);
-                SkinManager.setViewTextColor(c0928b.f14571d, R.color.CAM_X0107);
-                SkinManager.setViewTextColor(c0928b.f14573f, R.color.CAM_X0301);
-                view2.setTag(c0928b);
+                SkinManager.setViewTextColor(c0938b.f14709b, R.color.CAM_X0105);
+                SkinManager.setViewTextColor(c0938b.f14710c, R.color.CAM_X0109);
+                SkinManager.setViewTextColor(c0938b.f14711d, R.color.CAM_X0107);
+                SkinManager.setViewTextColor(c0938b.f14713f, R.color.CAM_X0301);
+                view2.setTag(c0938b);
             } else {
                 view2 = view;
-                c0928b = (C0928b) view.getTag();
+                c0938b = (C0938b) view.getTag();
             }
             c.a.t0.a0.f.f.b.b item = getItem(i2);
-            if (item != null && (e2Var = item.a) != null && e2Var.J() != null && item.a.o1() != null) {
+            if (item != null && (e2Var = item.a) != null && e2Var.J() != null && item.a.p1() != null) {
                 MetaData J = item.a.J();
-                c0928b.a.startLoad(item.a.o1().cover, 10, false);
-                c0928b.f14569b.setText(item.a.getTitle());
-                this.f14566h = 0;
-                c0928b.f14572e.setVisibility(8);
-                c0928b.f14573f.setVisibility(8);
-                if (!ListUtils.isEmpty(item.f14590d)) {
-                    for (b.a aVar : item.f14590d) {
+                c0938b.a.startLoad(item.a.p1().cover, 10, false);
+                c0938b.f14709b.setText(item.a.getTitle());
+                this.f14706h = 0;
+                c0938b.f14712e.setVisibility(8);
+                c0938b.f14713f.setVisibility(8);
+                if (!ListUtils.isEmpty(item.f14730d)) {
+                    for (b.a aVar : item.f14730d) {
                         if (aVar != null) {
                             int i3 = aVar.a;
                             if (1 == i3) {
-                                c0928b.f14572e.setVisibility(0);
-                                if (!TextUtils.isEmpty(aVar.f14591b)) {
-                                    c0928b.f14572e.setText(aVar.f14591b);
+                                c0938b.f14712e.setVisibility(0);
+                                if (!TextUtils.isEmpty(aVar.f14731b)) {
+                                    c0938b.f14712e.setText(aVar.f14731b);
                                 }
-                                this.f14566h++;
+                                this.f14706h++;
                             } else if (2 == i3) {
-                                c0928b.f14573f.setVisibility(0);
-                                if (!TextUtils.isEmpty(aVar.f14591b)) {
-                                    c0928b.f14573f.setText(aVar.f14591b);
+                                c0938b.f14713f.setVisibility(0);
+                                if (!TextUtils.isEmpty(aVar.f14731b)) {
+                                    c0938b.f14713f.setText(aVar.f14731b);
                                 }
-                                this.f14566h++;
+                                this.f14706h++;
                             }
                         }
                     }
                 }
                 String name_show = J.getName_show();
-                int i4 = this.f14566h <= 1 ? 14 : 13;
+                int i4 = this.f14706h <= 1 ? 14 : 13;
                 if (m.byteLength(name_show) > i4) {
                     name_show = StringHelper.cutChineseAndEnglishWithSuffix(name_show, i4, "...");
                 }
-                c0928b.f14571d.setText(name_show);
-                c0928b.f14570c.setText(this.f14564f.getResources().getString(R.string.sqaure_recent_item_audience_count_tip, StringHelper.numberUniformFormatExtra(item.a.o1().audience_count)));
+                c0938b.f14711d.setText(name_show);
+                c0938b.f14710c.setText(this.f14704f.getResources().getString(R.string.sqaure_recent_item_audience_count_tip, StringHelper.numberUniformFormatExtra(item.a.p1().audience_count)));
                 view2.setOnClickListener(new a(this, item));
                 StatisticItem statisticItem = new StatisticItem("c12658");
-                statisticItem.param("tid", item.a.v1());
+                statisticItem.param("tid", item.a.w1());
                 c.a.t0.a0.f.e.a.c().a(statisticItem);
             }
             return view2;

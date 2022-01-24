@@ -24,16 +24,16 @@ public class a {
     public static boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static Handler f13646b;
+    public static Handler f13833b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c.a.s0.s.t.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public static class HandlerC0885a extends Handler {
+    public static class HandlerC0894a extends Handler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        public HandlerC0885a() {
+        public HandlerC0894a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -90,10 +90,10 @@ public class a {
                     if (a.a) {
                         return;
                     }
-                    a.f13646b.sendEmptyMessageDelayed(1, 10000L);
+                    a.f13833b.sendEmptyMessageDelayed(1, 10000L);
                     return;
                 }
-                a.f13646b.removeMessages(1);
+                a.f13833b.removeMessages(1);
                 a.stopService();
             }
         }
@@ -112,7 +112,7 @@ public class a {
                 return;
             }
         }
-        f13646b = new HandlerC0885a();
+        f13833b = new HandlerC0894a();
     }
 
     public static void d() {

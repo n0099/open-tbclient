@@ -745,10 +745,10 @@ public class EnvDrawText {
                 if (aVar == null) {
                     a aVar2 = new a();
                     aVar2.a = typeface;
-                    aVar2.f62440b++;
+                    aVar2.f62485b++;
                     fontCache.put(i2, aVar2);
                 } else {
-                    aVar.f62440b++;
+                    aVar.f62485b++;
                 }
             }
         }
@@ -762,8 +762,8 @@ public class EnvDrawText {
                 if (aVar == null) {
                     return;
                 }
-                int i3 = aVar.f62440b - 1;
-                aVar.f62440b = i3;
+                int i3 = aVar.f62485b - 1;
+                aVar.f62485b = i3;
                 if (i3 == 0) {
                     fontCache.remove(i2);
                 }

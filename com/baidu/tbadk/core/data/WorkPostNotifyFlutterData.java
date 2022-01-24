@@ -5,7 +5,7 @@ import androidx.annotation.Keep;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
-import c.a.t0.w3.s0.b;
+import c.a.t0.x3.s0.b;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.WriteActivityConfig;
@@ -29,26 +29,26 @@ public class WorkPostNotifyFlutterData {
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f40142b;
+    public String f40170b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f40143c;
+    public String f40171c;
     @Nullable
 
     /* renamed from: d  reason: collision with root package name */
-    public String f40144d;
+    public String f40172d;
     @Nullable
 
     /* renamed from: e  reason: collision with root package name */
-    public String f40145e;
+    public String f40173e;
     @NonNull
 
     /* renamed from: f  reason: collision with root package name */
-    public NewWriteThreadData4Flutter f40146f;
+    public NewWriteThreadData4Flutter f40174f;
     @NonNull
 
     /* renamed from: g  reason: collision with root package name */
-    public String f40147g;
+    public String f40175g;
 
     @Keep
     /* loaded from: classes11.dex */
@@ -190,8 +190,8 @@ public class WorkPostNotifyFlutterData {
             }
         }
         this.a = str;
-        this.f40142b = str2;
-        this.f40143c = str3;
+        this.f40170b = str2;
+        this.f40171c = str3;
     }
 
     public static WorkPostNotifyFlutterData e(String str) {
@@ -256,21 +256,21 @@ public class WorkPostNotifyFlutterData {
     public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f40147g : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f40175g : (String) invokeV.objValue;
     }
 
     @Nullable
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f40144d : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f40172d : (String) invokeV.objValue;
     }
 
     @Nullable
     public String c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f40145e : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f40173e : (String) invokeV.objValue;
     }
 
     @Nullable
@@ -278,7 +278,7 @@ public class WorkPostNotifyFlutterData {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            NewWriteThreadData4Flutter newWriteThreadData4Flutter = this.f40146f;
+            NewWriteThreadData4Flutter newWriteThreadData4Flutter = this.f40174f;
             if (newWriteThreadData4Flutter == null) {
                 return null;
             }
@@ -290,28 +290,28 @@ public class WorkPostNotifyFlutterData {
     public void i(@NonNull String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            this.f40147g = str;
+            this.f40175g = str;
         }
     }
 
     public void j(@Nullable String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
-            this.f40144d = str;
+            this.f40172d = str;
         }
     }
 
     public void k(@Nullable String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
-            this.f40145e = str;
+            this.f40173e = str;
         }
     }
 
     public void l(@NonNull WriteData writeData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, writeData) == null) {
-            this.f40146f = h(writeData);
+            this.f40174f = h(writeData);
         }
     }
 }

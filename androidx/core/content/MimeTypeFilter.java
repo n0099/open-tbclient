@@ -3,7 +3,6 @@ package androidx.core.content;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
-import androidx.webkit.ProxyConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -70,8 +69,8 @@ public final class MimeTypeFilter {
                     if (strArr.length != 2) {
                         return false;
                     }
-                    if (ProxyConfig.MATCH_ALL_SCHEMES.equals(strArr2[0]) || strArr2[0].equals(strArr[0])) {
-                        return ProxyConfig.MATCH_ALL_SCHEMES.equals(strArr2[1]) || strArr2[1].equals(strArr[1]);
+                    if ("*".equals(strArr2[0]) || strArr2[0].equals(strArr[0])) {
+                        return "*".equals(strArr2[1]) || strArr2[1].equals(strArr[1]);
                     }
                     return false;
                 }

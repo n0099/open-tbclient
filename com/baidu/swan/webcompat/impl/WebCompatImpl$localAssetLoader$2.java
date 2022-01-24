@@ -68,7 +68,7 @@ public final class WebCompatImpl$localAssetLoader$2 extends Lambda implements Fu
             WebViewAssetLoader.Builder builder = new WebViewAssetLoader.Builder();
             n = this.this$0.n();
             builder.setDomain(n).setHttpAllowed(true);
-            q = this.this$0.q(c.f34001g);
+            q = this.this$0.q(c.f34029g);
             m = this.this$0.m();
             builder.addPathHandler(q, m);
             q2 = this.this$0.q("internal_files");

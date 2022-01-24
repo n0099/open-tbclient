@@ -3,10 +3,10 @@ package c.a.t0.a0.k.c;
 import android.text.TextUtils;
 import c.a.d.n.e.n;
 import c.a.s0.s.q.e2;
-import c.a.t0.d1.m1;
-import c.a.t0.d1.p0;
-import c.a.t0.d1.t0;
-import c.a.t0.d1.z0;
+import c.a.t0.e1.m1;
+import c.a.t0.e1.p0;
+import c.a.t0.e1.t0;
+import c.a.t0.e1.z0;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.HttpMessageListener;
@@ -35,33 +35,33 @@ public class a implements p0 {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public BdUniqueId f14865e;
+    public BdUniqueId f15005e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f14866f;
+    public int f15006f;
 
     /* renamed from: g  reason: collision with root package name */
-    public m1 f14867g;
+    public m1 f15007g;
 
     /* renamed from: h  reason: collision with root package name */
-    public ArrayList<n> f14868h;
+    public ArrayList<n> f15008h;
 
     /* renamed from: i  reason: collision with root package name */
-    public t0 f14869i;
+    public t0 f15009i;
 
     /* renamed from: j  reason: collision with root package name */
-    public c.a.d.c.g.a f14870j;
+    public c.a.d.c.g.a f15010j;
     public HttpMessageListener k;
 
     /* renamed from: c.a.t0.a0.k.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public class C0942a extends c.a.d.c.g.a {
+    public class C0952a extends c.a.d.c.g.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ a a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public C0942a(a aVar, int i2, int i3) {
+        public C0952a(a aVar, int i2, int i3) {
             super(i2, i3);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -86,25 +86,25 @@ public class a implements p0 {
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             e2 e2Var;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) && responsedMessage != null && responsedMessage.getOrginalMessage().getTag() == this.a.f14865e) {
+            if ((interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) && responsedMessage != null && responsedMessage.getOrginalMessage().getTag() == this.a.f15005e) {
                 List<Long> closedIds = responsedMessage instanceof AlaMGetLiveStatusHttpResponseMessage ? ((AlaMGetLiveStatusHttpResponseMessage) responsedMessage).getClosedIds() : null;
                 if (responsedMessage instanceof AlaMGetLiveStatusSocketResponseMessage) {
                     closedIds = ((AlaMGetLiveStatusSocketResponseMessage) responsedMessage).getClosedIds();
                 }
-                if (ListUtils.isEmpty(this.a.f14868h) || ListUtils.isEmpty(closedIds)) {
+                if (ListUtils.isEmpty(this.a.f15008h) || ListUtils.isEmpty(closedIds)) {
                     return;
                 }
                 boolean z = false;
-                for (int size = this.a.f14868h.size() - 1; size >= 0; size--) {
-                    if (this.a.f14868h.get(size).getType() == e2.H3 && (e2Var = (e2) this.a.f14868h.get(size)) != null && e2Var.o1() != null && closedIds.contains(Long.valueOf(e2Var.o1().live_id))) {
-                        this.a.f14868h.remove(size);
+                for (int size = this.a.f15008h.size() - 1; size >= 0; size--) {
+                    if (this.a.f15008h.get(size).getType() == e2.I3 && (e2Var = (e2) this.a.f15008h.get(size)) != null && e2Var.p1() != null && closedIds.contains(Long.valueOf(e2Var.p1().live_id))) {
+                        this.a.f15008h.remove(size);
                         z = true;
                     }
                 }
-                if (!z || this.a.f14869i == null) {
+                if (!z || this.a.f15009i == null) {
                     return;
                 }
-                this.a.f14869i.a(49, this.a.f14866f, this.a.f14867g, this.a.f14868h);
+                this.a.f15009i.a(49, this.a.f15006f, this.a.f15007g, this.a.f15008h);
             }
         }
     }
@@ -142,13 +142,13 @@ public class a implements p0 {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) && httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1021038) {
                 if (httpResponsedMessage.getStatusCode() != 200 || !(httpResponsedMessage instanceof FrsPageAlaTabResponseMessage)) {
-                    this.a.f14869i.a(49, this.a.f14866f, null, null);
+                    this.a.f15009i.a(49, this.a.f15006f, null, null);
                     return;
                 }
                 FrsPageAlaTabResponseMessage frsPageAlaTabResponseMessage = (FrsPageAlaTabResponseMessage) httpResponsedMessage;
                 if (frsPageAlaTabResponseMessage.errCode != 0) {
-                    if (this.a.f14869i != null) {
-                        this.a.f14869i.a(49, this.a.f14866f, null, null);
+                    if (this.a.f15009i != null) {
+                        this.a.f15009i.a(49, this.a.f15006f, null, null);
                         return;
                     }
                     return;
@@ -157,30 +157,30 @@ public class a implements p0 {
                 ArrayList<n> arrayList2 = frsPageAlaTabResponseMessage.mAltList;
                 m1 m1Var = frsPageAlaTabResponseMessage.pageInfo;
                 int i2 = frsPageAlaTabResponseMessage.alaLiveCount;
-                this.a.f14867g = m1Var;
-                if (m1Var.f16899c == 1) {
-                    this.a.f14868h.clear();
+                this.a.f15007g = m1Var;
+                if (m1Var.f17231c == 1) {
+                    this.a.f15008h.clear();
                 }
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001606, Integer.valueOf(i2)));
-                if (this.a.f14869i != null) {
+                if (this.a.f15009i != null) {
                     if (arrayList != null && arrayList.size() > 0) {
-                        this.a.f14868h.addAll(arrayList);
-                        this.a.f14869i.a(49, this.a.f14866f, m1Var, this.a.f14868h);
+                        this.a.f15008h.addAll(arrayList);
+                        this.a.f15009i.a(49, this.a.f15006f, m1Var, this.a.f15008h);
                         return;
                     }
                     e2 e2Var = new e2();
-                    e2Var.D4(51);
-                    if (this.a.f14868h.size() == 0 || (this.a.f14868h.size() > 0 && ((e2) this.a.f14868h.get(0)).r1() != 51)) {
-                        this.a.f14868h.add(0, e2Var);
+                    e2Var.E4(51);
+                    if (this.a.f15008h.size() == 0 || (this.a.f15008h.size() > 0 && ((e2) this.a.f15008h.get(0)).s1() != 51)) {
+                        this.a.f15008h.add(0, e2Var);
                     }
                     if (arrayList2 != null && arrayList2.size() > 0) {
                         e2Var.j1 = true;
                         if (arrayList2.get(0) != null) {
                             ((e2) arrayList2.get(0)).i1 = true;
                         }
-                        this.a.f14868h.addAll(arrayList2);
+                        this.a.f15008h.addAll(arrayList2);
                     }
-                    this.a.f14869i.a(49, this.a.f14866f, m1Var, this.a.f14868h);
+                    this.a.f15009i.a(49, this.a.f15006f, m1Var, this.a.f15008h);
                 }
             }
         }
@@ -199,25 +199,25 @@ public class a implements p0 {
                 return;
             }
         }
-        this.f14868h = new ArrayList<>();
-        this.f14870j = new C0942a(this, AlaCmdConfigHttp.CMD_ALA_LIVE_GET_CLOSED_STATUS, AlaCmdConfigSocket.ALA_SOCKET_GET_LIVE_STATUS2);
+        this.f15008h = new ArrayList<>();
+        this.f15010j = new C0952a(this, AlaCmdConfigHttp.CMD_ALA_LIVE_GET_CLOSED_STATUS, AlaCmdConfigSocket.ALA_SOCKET_GET_LIVE_STATUS2);
         this.k = new b(this, AlaCmdConfigHttp.FRS_ALA_LIVE_TAB_CMD);
     }
 
     public final void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            BdUniqueId bdUniqueId = this.f14865e;
+            BdUniqueId bdUniqueId = this.f15005e;
             if (bdUniqueId != null) {
                 this.k.setTag(bdUniqueId);
-                this.f14870j.setTag(this.f14865e);
+                this.f15010j.setTag(this.f15005e);
             }
-            MessageManager.getInstance().registerListener(this.f14870j);
+            MessageManager.getInstance().registerListener(this.f15010j);
             MessageManager.getInstance().registerListener(this.k);
         }
     }
 
-    @Override // c.a.t0.d1.p0
+    @Override // c.a.t0.e1.p0
     public void g() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
@@ -231,18 +231,18 @@ public class a implements p0 {
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bdUniqueId) == null) || bdUniqueId == null) {
             return;
         }
-        this.f14865e = bdUniqueId;
+        this.f15005e = bdUniqueId;
     }
 
     public final void i() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            MessageManager.getInstance().unRegisterListener(this.f14870j);
+            MessageManager.getInstance().unRegisterListener(this.f15010j);
             MessageManager.getInstance().unRegisterListener(this.k);
         }
     }
 
-    @Override // c.a.t0.d1.p0
+    @Override // c.a.t0.e1.p0
     public void init() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
@@ -253,27 +253,27 @@ public class a implements p0 {
         }
     }
 
-    @Override // c.a.t0.d1.p0
+    @Override // c.a.t0.e1.p0
     public void q(int i2, int i3, z0 z0Var) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIIL(1048581, this, i2, i3, z0Var) == null) {
-            this.f14866f = i3;
-            if (z0Var != null && !TextUtils.isEmpty(z0Var.a) && !TextUtils.isEmpty(z0Var.f16898b)) {
-                if (z0Var.f16899c <= 0) {
-                    z0Var.f16899c = 1;
+            this.f15006f = i3;
+            if (z0Var != null && !TextUtils.isEmpty(z0Var.a) && !TextUtils.isEmpty(z0Var.f17230b)) {
+                if (z0Var.f17231c <= 0) {
+                    z0Var.f17231c = 1;
                 }
-                MessageManager.getInstance().sendMessage(new FrsPageAlaTabRequestMessage(AlaCmdConfigHttp.FRS_ALA_LIVE_TAB_CMD, z0Var.a, z0Var.f16898b, z0Var.f16899c));
+                MessageManager.getInstance().sendMessage(new FrsPageAlaTabRequestMessage(AlaCmdConfigHttp.FRS_ALA_LIVE_TAB_CMD, z0Var.a, z0Var.f17230b, z0Var.f17231c));
                 return;
             }
-            this.f14869i.a(49, this.f14866f, null, null);
+            this.f15009i.a(49, this.f15006f, null, null);
         }
     }
 
-    @Override // c.a.t0.d1.p0
+    @Override // c.a.t0.e1.p0
     public void t(t0 t0Var) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, t0Var) == null) {
-            this.f14869i = t0Var;
+            this.f15009i = t0Var;
         }
     }
 }

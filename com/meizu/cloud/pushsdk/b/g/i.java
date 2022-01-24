@@ -8,10 +8,10 @@ public final class i implements d {
     public final b a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final m f58611b;
+    public final m f58656b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f58612c;
+    public boolean f58657c;
 
     public i(m mVar) {
         this(mVar, new b());
@@ -22,7 +22,7 @@ public final class i implements d {
             throw new IllegalArgumentException("source == null");
         }
         this.a = bVar;
-        this.f58611b = mVar;
+        this.f58656b = mVar;
     }
 
     @Override // com.meizu.cloud.pushsdk.b.g.m
@@ -30,14 +30,14 @@ public final class i implements d {
         if (bVar != null) {
             if (j2 < 0) {
                 throw new IllegalArgumentException("byteCount < 0: " + j2);
-            } else if (this.f58612c) {
+            } else if (this.f58657c) {
                 throw new IllegalStateException("closed");
             } else {
                 b bVar2 = this.a;
-                if (bVar2.f58602b == 0 && this.f58611b.b(bVar2, 2048L) == -1) {
+                if (bVar2.f58647b == 0 && this.f58656b.b(bVar2, 2048L) == -1) {
                     return -1L;
                 }
-                return this.a.b(bVar, Math.min(j2, this.a.f58602b));
+                return this.a.b(bVar, Math.min(j2, this.a.f58647b));
             }
         }
         throw new IllegalArgumentException("sink == null");
@@ -45,11 +45,11 @@ public final class i implements d {
 
     @Override // com.meizu.cloud.pushsdk.b.g.m, java.lang.AutoCloseable
     public void close() throws IOException {
-        if (this.f58612c) {
+        if (this.f58657c) {
             return;
         }
-        this.f58612c = true;
-        this.f58611b.close();
+        this.f58657c = true;
+        this.f58656b.close();
         this.a.j();
     }
 
@@ -58,10 +58,10 @@ public final class i implements d {
         return new InputStream() { // from class: com.meizu.cloud.pushsdk.b.g.i.1
             @Override // java.io.InputStream
             public int available() throws IOException {
-                if (i.this.f58612c) {
+                if (i.this.f58657c) {
                     throw new IOException("closed");
                 }
-                return (int) Math.min(i.this.a.f58602b, 2147483647L);
+                return (int) Math.min(i.this.a.f58647b, 2147483647L);
             }
 
             @Override // java.io.InputStream, java.io.Closeable, java.lang.AutoCloseable
@@ -71,12 +71,12 @@ public final class i implements d {
 
             @Override // java.io.InputStream
             public int read() throws IOException {
-                if (i.this.f58612c) {
+                if (i.this.f58657c) {
                     throw new IOException("closed");
                 }
                 i iVar = i.this;
                 b bVar = iVar.a;
-                if (bVar.f58602b == 0 && iVar.f58611b.b(bVar, 2048L) == -1) {
+                if (bVar.f58647b == 0 && iVar.f58656b.b(bVar, 2048L) == -1) {
                     return -1;
                 }
                 return i.this.a.f() & 255;
@@ -84,13 +84,13 @@ public final class i implements d {
 
             @Override // java.io.InputStream
             public int read(byte[] bArr, int i2, int i3) throws IOException {
-                if (i.this.f58612c) {
+                if (i.this.f58657c) {
                     throw new IOException("closed");
                 }
                 o.a(bArr.length, i2, i3);
                 i iVar = i.this;
                 b bVar = iVar.a;
-                if (bVar.f58602b == 0 && iVar.f58611b.b(bVar, 2048L) == -1) {
+                if (bVar.f58647b == 0 && iVar.f58656b.b(bVar, 2048L) == -1) {
                     return -1;
                 }
                 return i.this.a.a(bArr, i2, i3);
@@ -104,17 +104,17 @@ public final class i implements d {
 
     @Override // com.meizu.cloud.pushsdk.b.g.d
     public String h() throws IOException {
-        this.a.a(this.f58611b);
+        this.a.a(this.f58656b);
         return this.a.h();
     }
 
     @Override // com.meizu.cloud.pushsdk.b.g.d
     public byte[] i() throws IOException {
-        this.a.a(this.f58611b);
+        this.a.a(this.f58656b);
         return this.a.i();
     }
 
     public String toString() {
-        return "buffer(" + this.f58611b + SmallTailInfo.EMOTION_SUFFIX;
+        return "buffer(" + this.f58656b + SmallTailInfo.EMOTION_SUFFIX;
     }
 }

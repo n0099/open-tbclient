@@ -17,10 +17,10 @@ public class g implements j {
     public d a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f3441b;
+    public boolean f3578b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final HttpMessageListener f3442c;
+    public final HttpMessageListener f3579c;
 
     /* loaded from: classes.dex */
     public class a extends HttpMessageListener {
@@ -56,10 +56,10 @@ public class g implements j {
             if ((interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) && httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1003397 && (httpResponsedMessage instanceof AfdSyncResponseMessage)) {
                 e eVar = ((AfdSyncResponseMessage) httpResponsedMessage).adModel;
                 this.a.a.t(eVar);
-                if (!eVar.a || eVar.f3440d == null) {
+                if (!eVar.a || eVar.f3577d == null) {
                     return;
                 }
-                c.a.t0.j3.l0.e.b().d(c.a.t0.j3.l0.g.o(this.a.a, eVar.f3440d));
+                c.a.t0.k3.l0.e.b().d(c.a.t0.k3.l0.g.o(this.a.a, eVar.f3577d));
             }
         }
     }
@@ -80,21 +80,21 @@ public class g implements j {
             }
         }
         a aVar = new a(this, CmdConfigHttp.CMD_AFD_REQUEST_ASYNC);
-        this.f3442c = aVar;
+        this.f3579c = aVar;
         this.a = dVar;
         aVar.setSelfListener(true);
-        this.f3442c.setTag(dVar.p());
-        MessageManager.getInstance().registerListener(this.f3442c);
+        this.f3579c.setTag(dVar.p());
+        MessageManager.getInstance().registerListener(this.f3579c);
     }
 
     @Override // c.a.e.j
     public void a() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f3441b) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f3578b) {
             return;
         }
-        this.f3441b = true;
-        AfdSyncRequestMessage afdSyncRequestMessage = new AfdSyncRequestMessage(this.a.f3434g);
+        this.f3578b = true;
+        AfdSyncRequestMessage afdSyncRequestMessage = new AfdSyncRequestMessage(this.a.f3571g);
         afdSyncRequestMessage.setTag(this.a.p());
         MessageManager.getInstance().sendMessage(afdSyncRequestMessage);
     }

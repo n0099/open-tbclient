@@ -23,7 +23,7 @@ public class AdFullTailFrameView extends AdBaseTailFrameView {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ AdFullTailFrameView f37071e;
+        public final /* synthetic */ AdFullTailFrameView f37099e;
 
         public a(AdFullTailFrameView adFullTailFrameView) {
             Interceptable interceptable = $ic;
@@ -40,7 +40,7 @@ public class AdFullTailFrameView extends AdBaseTailFrameView {
                     return;
                 }
             }
-            this.f37071e = adFullTailFrameView;
+            this.f37099e = adFullTailFrameView;
         }
 
         @Override // android.view.View.OnClickListener

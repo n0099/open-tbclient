@@ -95,7 +95,7 @@ public class EnterQrcodeScannerAction implements RouterAction {
                 public final /* synthetic */ RouterCallback a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ EnterQrcodeScannerAction f52687b;
+                public final /* synthetic */ EnterQrcodeScannerAction f52732b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -112,7 +112,7 @@ public class EnterQrcodeScannerAction implements RouterAction {
                             return;
                         }
                     }
-                    this.f52687b = this;
+                    this.f52732b = this;
                     this.a = routerCallback;
                 }
 

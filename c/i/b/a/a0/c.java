@@ -15,24 +15,24 @@ public final class c implements h {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final Constructor<? extends e> f28555g;
+    public static final Constructor<? extends e> f28583g;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f28556b;
+    public int f28584b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f28557c;
+    public int f28585c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f28558d;
+    public int f28586d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f28559e;
+    public int f28587e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f28560f;
+    public int f28588f;
 
     static {
         Constructor<? extends e> constructor;
@@ -53,7 +53,7 @@ public final class c implements h {
         } catch (ClassNotFoundException | NoSuchMethodException unused) {
             constructor = null;
         }
-        f28555g = constructor;
+        f28583g = constructor;
     }
 
     public c() {
@@ -69,7 +69,7 @@ public final class c implements h {
                 return;
             }
         }
-        this.f28559e = 1;
+        this.f28587e = 1;
     }
 
     @Override // c.i.b.a.a0.h
@@ -79,21 +79,21 @@ public final class c implements h {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             synchronized (this) {
-                eVarArr = new e[f28555g == null ? 11 : 12];
+                eVarArr = new e[f28583g == null ? 11 : 12];
                 eVarArr[0] = new c.i.b.a.a0.o.d(this.a);
-                eVarArr[1] = new c.i.b.a.a0.q.e(this.f28557c);
-                eVarArr[2] = new c.i.b.a.a0.q.g(this.f28556b);
-                eVarArr[3] = new c.i.b.a.a0.p.b(this.f28558d);
+                eVarArr[1] = new c.i.b.a.a0.q.e(this.f28585c);
+                eVarArr[2] = new c.i.b.a.a0.q.g(this.f28584b);
+                eVarArr[3] = new c.i.b.a.a0.p.b(this.f28586d);
                 eVarArr[4] = new c.i.b.a.a0.t.c();
                 eVarArr[5] = new c.i.b.a.a0.t.a();
-                eVarArr[6] = new v(this.f28559e, this.f28560f);
+                eVarArr[6] = new v(this.f28587e, this.f28588f);
                 eVarArr[7] = new c.i.b.a.a0.n.b();
                 eVarArr[8] = new c.i.b.a.a0.r.c();
                 eVarArr[9] = new q();
                 eVarArr[10] = new c.i.b.a.a0.u.a();
-                if (f28555g != null) {
+                if (f28583g != null) {
                     try {
-                        eVarArr[11] = f28555g.newInstance(new Object[0]);
+                        eVarArr[11] = f28583g.newInstance(new Object[0]);
                     } catch (Exception e2) {
                         throw new IllegalStateException("Unexpected error creating FLAC extractor", e2);
                     }

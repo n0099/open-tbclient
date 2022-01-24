@@ -39,22 +39,22 @@ public class TbBRTCPlayerView extends FrameLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public RTCVideoView f45813e;
+    public RTCVideoView f45841e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f45814f;
+    public String f45842f;
 
     /* renamed from: g  reason: collision with root package name */
-    public BRTCPlayerParameters f45815g;
+    public BRTCPlayerParameters f45843g;
 
     /* renamed from: h  reason: collision with root package name */
-    public BRTCPlayer f45816h;
+    public BRTCPlayer f45844h;
 
     /* renamed from: i  reason: collision with root package name */
-    public RTCVideoView.ScalingType f45817i;
+    public RTCVideoView.ScalingType f45845i;
 
     /* renamed from: j  reason: collision with root package name */
-    public int f45818j;
+    public int f45846j;
     public int k;
     public ViewGroup l;
     public BRTCPlayerEvents m;
@@ -72,20 +72,20 @@ public class TbBRTCPlayerView extends FrameLayout {
 
         /* renamed from: com.baidu.tieba.medialive.player.bdrtc.TbBRTCPlayerView$a$a  reason: collision with other inner class name */
         /* loaded from: classes12.dex */
-        public class RunnableC1928a implements Runnable {
+        public class RunnableC1934a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ int f45819e;
+            public final /* synthetic */ int f45847e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ String f45820f;
+            public final /* synthetic */ String f45848f;
 
             /* renamed from: g  reason: collision with root package name */
-            public final /* synthetic */ a f45821g;
+            public final /* synthetic */ a f45849g;
 
-            public RunnableC1928a(a aVar, int i2, String str) {
+            public RunnableC1934a(a aVar, int i2, String str) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -100,17 +100,17 @@ public class TbBRTCPlayerView extends FrameLayout {
                         return;
                     }
                 }
-                this.f45821g = aVar;
-                this.f45819e = i2;
-                this.f45820f = str;
+                this.f45849g = aVar;
+                this.f45847e = i2;
+                this.f45848f = str;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    Context context = this.f45821g.a.getContext();
-                    Toast.makeText(context, this.f45819e + ": " + this.f45820f, 1).show();
+                    Context context = this.f45849g.a.getContext();
+                    Toast.makeText(context, this.f45847e + ": " + this.f45848f, 1).show();
                 }
             }
         }
@@ -144,7 +144,7 @@ public class TbBRTCPlayerView extends FrameLayout {
                 }
                 if (this.a.m != null) {
                     if (TbBRTCPlayerView.s) {
-                        f.b(new RunnableC1928a(this, i2, str));
+                        f.b(new RunnableC1934a(this, i2, str));
                     }
                     this.a.m.onError(i2, str);
                 }
@@ -229,7 +229,7 @@ public class TbBRTCPlayerView extends FrameLayout {
                     tbBRTCPlayerView.f("onResolutionChanged  : " + i2 + " x " + i3);
                 }
                 TbBRTCPlayerView tbBRTCPlayerView2 = this.a;
-                tbBRTCPlayerView2.f45818j = i2;
+                tbBRTCPlayerView2.f45846j = i2;
                 tbBRTCPlayerView2.k = i3;
                 if (tbBRTCPlayerView2.m != null) {
                     this.a.m.onResolutionChanged(i2, i3);
@@ -282,7 +282,7 @@ public class TbBRTCPlayerView extends FrameLayout {
                 return;
             }
         }
-        this.f45817i = RTCVideoView.ScalingType.SCALE_ASPECT_FIT;
+        this.f45845i = RTCVideoView.ScalingType.SCALE_ASPECT_FIT;
         this.o = 0;
         this.q = 0L;
         this.r = new a(this);
@@ -292,7 +292,7 @@ public class TbBRTCPlayerView extends FrameLayout {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65545, this)) == null) {
-            BRTCPlayer bRTCPlayer = this.f45816h;
+            BRTCPlayer bRTCPlayer = this.f45844h;
             if (bRTCPlayer != null) {
                 return bRTCPlayer.getPlayerState();
             }
@@ -378,28 +378,28 @@ public class TbBRTCPlayerView extends FrameLayout {
     public String getVideoUrl() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f45814f : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f45842f : (String) invokeV.objValue;
     }
 
     public final void h(Context context) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048583, this, context) == null) && this.f45813e == null) {
+        if ((interceptable == null || interceptable.invokeL(1048583, this, context) == null) && this.f45841e == null) {
             if (s) {
                 f("prepare " + context);
             }
-            this.f45813e = new RTCVideoView(context);
-            this.f45816h = new BRTCPlayerImpl(context);
+            this.f45841e = new RTCVideoView(context);
+            this.f45844h = new BRTCPlayerImpl(context);
             BRTCPlayerParameters bRTCPlayerParameters = new BRTCPlayerParameters();
-            this.f45815g = bRTCPlayerParameters;
+            this.f45843g = bRTCPlayerParameters;
             bRTCPlayerParameters.enableSoLaterLoad(true);
-            this.f45815g.setCpuType("armeabi");
-            this.f45815g.setEnableDebug(AppConfig.isDebug());
-            this.f45815g.setPullUrl("https://rtc2.exp.bcelive.com/brtc/v3/pullstream");
-            setStreamTimeout(this.f45815g);
-            this.f45815g.setUserId(g());
-            this.f45816h.initPlayer(this.f45815g, this.r);
-            this.f45816h.setSurfaceView(this.f45813e);
-            addView(this.f45813e, -1, -1);
+            this.f45843g.setCpuType("armeabi");
+            this.f45843g.setEnableDebug(AppConfig.isDebug());
+            this.f45843g.setPullUrl("https://rtc2.exp.bcelive.com/brtc/v3/pullstream");
+            setStreamTimeout(this.f45843g);
+            this.f45843g.setUserId(g());
+            this.f45844h.initPlayer(this.f45843g, this.r);
+            this.f45844h.setSurfaceView(this.f45841e);
+            addView(this.f45841e, -1, -1);
         }
     }
 
@@ -409,24 +409,24 @@ public class TbBRTCPlayerView extends FrameLayout {
             if (s) {
                 f("restart");
             }
-            this.f45816h.releasePlayer();
+            this.f45844h.releasePlayer();
             Context context = getContext();
-            this.f45813e = new RTCVideoView(context);
-            this.f45816h = new BRTCPlayerImpl(context);
+            this.f45841e = new RTCVideoView(context);
+            this.f45844h = new BRTCPlayerImpl(context);
             BRTCPlayerParameters bRTCPlayerParameters = new BRTCPlayerParameters();
-            this.f45815g = bRTCPlayerParameters;
+            this.f45843g = bRTCPlayerParameters;
             bRTCPlayerParameters.enableSoLaterLoad(true);
-            this.f45815g.setCpuType("armeabi");
-            this.f45815g.setEnableDebug(AppConfig.isDebug());
-            this.f45815g.setPullUrl("https://rtc2.exp.bcelive.com/brtc/v3/pullstream");
-            setStreamTimeout(this.f45815g);
-            this.f45815g.setUserId(g());
-            this.f45816h.initPlayer(this.f45815g, this.r);
-            this.f45816h.setSurfaceView(this.f45813e);
-            this.f45816h.setScalingType(this.f45817i);
-            addView(this.f45813e, -1, -1);
+            this.f45843g.setCpuType("armeabi");
+            this.f45843g.setEnableDebug(AppConfig.isDebug());
+            this.f45843g.setPullUrl("https://rtc2.exp.bcelive.com/brtc/v3/pullstream");
+            setStreamTimeout(this.f45843g);
+            this.f45843g.setUserId(g());
+            this.f45844h.initPlayer(this.f45843g, this.r);
+            this.f45844h.setSurfaceView(this.f45841e);
+            this.f45844h.setScalingType(this.f45845i);
+            addView(this.f45841e, -1, -1);
             setVideoInfo(this.n);
-            this.f45816h.startPlay();
+            this.f45844h.startPlay();
         }
     }
 
@@ -434,7 +434,7 @@ public class TbBRTCPlayerView extends FrameLayout {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            BRTCPlayer bRTCPlayer = this.f45816h;
+            BRTCPlayer bRTCPlayer = this.f45844h;
             return bRTCPlayer != null && bRTCPlayer.getPlayerState() == BRTCPlayer.PlayerState.STATE_ERROR;
         }
         return invokeV.booleanValue;
@@ -444,7 +444,7 @@ public class TbBRTCPlayerView extends FrameLayout {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            BRTCPlayer bRTCPlayer = this.f45816h;
+            BRTCPlayer bRTCPlayer = this.f45844h;
             return bRTCPlayer != null && bRTCPlayer.getPlayerState() == BRTCPlayer.PlayerState.STATE_PAUSED;
         }
         return invokeV.booleanValue;
@@ -454,7 +454,7 @@ public class TbBRTCPlayerView extends FrameLayout {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            BRTCPlayer bRTCPlayer = this.f45816h;
+            BRTCPlayer bRTCPlayer = this.f45844h;
             return bRTCPlayer != null && bRTCPlayer.getPlayerState() == BRTCPlayer.PlayerState.STATE_PLAYING;
         }
         return invokeV.booleanValue;
@@ -464,9 +464,9 @@ public class TbBRTCPlayerView extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
             if (s) {
-                f("pause " + this.f45816h);
+                f("pause " + this.f45844h);
             }
-            BRTCPlayer bRTCPlayer = this.f45816h;
+            BRTCPlayer bRTCPlayer = this.f45844h;
             if (bRTCPlayer != null) {
                 bRTCPlayer.pausePlay();
             }
@@ -483,13 +483,13 @@ public class TbBRTCPlayerView extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
             if (s) {
-                f("release " + this.f45816h);
+                f("release " + this.f45844h);
             }
             this.m = null;
-            BRTCPlayer bRTCPlayer = this.f45816h;
+            BRTCPlayer bRTCPlayer = this.f45844h;
             if (bRTCPlayer != null) {
                 bRTCPlayer.setEventObserver(null);
-                this.f45816h.releasePlayer();
+                this.f45844h.releasePlayer();
             }
         }
     }
@@ -498,9 +498,9 @@ public class TbBRTCPlayerView extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
             if (s) {
-                f("resume " + this.f45816h);
+                f("resume " + this.f45844h);
             }
-            BRTCPlayer bRTCPlayer = this.f45816h;
+            BRTCPlayer bRTCPlayer = this.f45844h;
             if (bRTCPlayer != null) {
                 bRTCPlayer.resumePlay();
             }
@@ -540,9 +540,9 @@ public class TbBRTCPlayerView extends FrameLayout {
             if (s) {
                 f("setVideoInfo " + str);
             }
-            BRTCPlayer bRTCPlayer = this.f45816h;
+            BRTCPlayer bRTCPlayer = this.f45844h;
             if (bRTCPlayer != null) {
-                bRTCPlayer.setScalingType(this.f45817i);
+                bRTCPlayer.setScalingType(this.f45845i);
                 if (TextUtils.isEmpty(str)) {
                     return;
                 }
@@ -557,12 +557,12 @@ public class TbBRTCPlayerView extends FrameLayout {
             if (s) {
                 f("setVideoUrl " + str);
             }
-            if (this.f45816h == null || TextUtils.isEmpty(str)) {
+            if (this.f45844h == null || TextUtils.isEmpty(str)) {
                 return;
             }
-            this.f45814f = str;
+            this.f45842f = str;
             this.n.put(0, str);
-            this.f45816h.setStreamUri(str);
+            this.f45844h.setStreamUri(str);
         }
     }
 
@@ -572,18 +572,18 @@ public class TbBRTCPlayerView extends FrameLayout {
             if (s) {
                 StringBuilder sb = new StringBuilder();
                 sb.append("start  sate:");
-                BRTCPlayer bRTCPlayer = this.f45816h;
+                BRTCPlayer bRTCPlayer = this.f45844h;
                 sb.append(bRTCPlayer == null ? StringUtil.NULL_STRING : bRTCPlayer.getPlayerState());
                 f(sb.toString());
             }
-            BRTCPlayer bRTCPlayer2 = this.f45816h;
+            BRTCPlayer bRTCPlayer2 = this.f45844h;
             if (bRTCPlayer2 != null) {
                 if (bRTCPlayer2.getPlayerState() == BRTCPlayer.PlayerState.STATE_STOP) {
-                    this.f45816h.setStreamUri(this.f45814f);
+                    this.f45844h.setStreamUri(this.f45842f);
                     i();
                     return;
                 }
-                this.f45816h.startPlay();
+                this.f45844h.startPlay();
             }
         }
     }
@@ -592,9 +592,9 @@ public class TbBRTCPlayerView extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048598, this) == null) {
             if (s) {
-                f("stop " + this.f45816h);
+                f("stop " + this.f45844h);
             }
-            BRTCPlayer bRTCPlayer = this.f45816h;
+            BRTCPlayer bRTCPlayer = this.f45844h;
             if (bRTCPlayer != null) {
                 bRTCPlayer.stopPlay();
             }
@@ -604,10 +604,10 @@ public class TbBRTCPlayerView extends FrameLayout {
     public void stopStart() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048599, this) == null) {
-            if (this.f45816h.getPlayerState() != BRTCPlayer.PlayerState.STATE_IDLE && this.f45816h.getPlayerState() != BRTCPlayer.PlayerState.STATE_INITIALIZED && this.f45816h.getPlayerState() != BRTCPlayer.PlayerState.STATE_STOP) {
-                this.f45816h.stopPlay();
+            if (this.f45844h.getPlayerState() != BRTCPlayer.PlayerState.STATE_IDLE && this.f45844h.getPlayerState() != BRTCPlayer.PlayerState.STATE_INITIALIZED && this.f45844h.getPlayerState() != BRTCPlayer.PlayerState.STATE_STOP) {
+                this.f45844h.stopPlay();
             } else {
-                this.f45816h.startPlay();
+                this.f45844h.startPlay();
             }
         }
     }
@@ -618,28 +618,28 @@ public class TbBRTCPlayerView extends FrameLayout {
             if (s) {
                 f("swichScale " + view);
             }
-            RTCVideoView.ScalingType scalingType = this.f45817i;
+            RTCVideoView.ScalingType scalingType = this.f45845i;
             if (scalingType == RTCVideoView.ScalingType.SCALE_ASPECT_FIT) {
-                this.f45816h.setScalingType(RTCVideoView.ScalingType.SCALE_ASPECT_FILL);
-                this.f45817i = RTCVideoView.ScalingType.SCALE_ASPECT_FILL;
-                int measuredWidth = (int) ((this.k / this.f45818j) * this.f45813e.getMeasuredWidth());
-                ViewGroup.LayoutParams layoutParams = this.f45813e.getLayoutParams();
+                this.f45844h.setScalingType(RTCVideoView.ScalingType.SCALE_ASPECT_FILL);
+                this.f45845i = RTCVideoView.ScalingType.SCALE_ASPECT_FILL;
+                int measuredWidth = (int) ((this.k / this.f45846j) * this.f45841e.getMeasuredWidth());
+                ViewGroup.LayoutParams layoutParams = this.f45841e.getLayoutParams();
                 if (layoutParams == null) {
                     layoutParams = new ViewGroup.LayoutParams(-1, measuredWidth);
                 } else {
                     layoutParams.height = measuredWidth;
                 }
-                this.f45813e.setLayoutParams(layoutParams);
+                this.f45841e.setLayoutParams(layoutParams);
             } else if (scalingType == RTCVideoView.ScalingType.SCALE_ASPECT_FILL) {
-                this.f45816h.setScalingType(RTCVideoView.ScalingType.SCALE_ASPECT_FIT);
-                this.f45817i = RTCVideoView.ScalingType.SCALE_ASPECT_FIT;
-                ViewGroup.LayoutParams layoutParams2 = this.f45813e.getLayoutParams();
+                this.f45844h.setScalingType(RTCVideoView.ScalingType.SCALE_ASPECT_FIT);
+                this.f45845i = RTCVideoView.ScalingType.SCALE_ASPECT_FIT;
+                ViewGroup.LayoutParams layoutParams2 = this.f45841e.getLayoutParams();
                 if (layoutParams2 == null) {
                     layoutParams2 = new ViewGroup.LayoutParams(-1, -1);
                 } else {
                     layoutParams2.height = -1;
                 }
-                this.f45813e.setLayoutParams(layoutParams2);
+                this.f45841e.setLayoutParams(layoutParams2);
             }
         }
     }
@@ -663,7 +663,7 @@ public class TbBRTCPlayerView extends FrameLayout {
                 return;
             }
         }
-        this.f45817i = RTCVideoView.ScalingType.SCALE_ASPECT_FIT;
+        this.f45845i = RTCVideoView.ScalingType.SCALE_ASPECT_FIT;
         this.o = 0;
         this.q = 0L;
         this.r = new a(this);
@@ -688,7 +688,7 @@ public class TbBRTCPlayerView extends FrameLayout {
                 return;
             }
         }
-        this.f45817i = RTCVideoView.ScalingType.SCALE_ASPECT_FIT;
+        this.f45845i = RTCVideoView.ScalingType.SCALE_ASPECT_FIT;
         this.o = 0;
         this.q = 0L;
         this.r = new a(this);

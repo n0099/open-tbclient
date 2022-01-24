@@ -26,13 +26,13 @@ public class b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: b  reason: collision with root package name */
-        public final String f58270b;
+        public final String f58315b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final ThreadGroup f58271c;
+        public final ThreadGroup f58316c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final AtomicInteger f58272d;
+        public final AtomicInteger f58317d;
 
         static {
             InterceptResult invokeClinit;
@@ -65,9 +65,9 @@ public class b {
                     return;
                 }
             }
-            this.f58272d = new AtomicInteger(1);
-            this.f58271c = Thread.currentThread().getThreadGroup();
-            this.f58270b = f.i(str);
+            this.f58317d = new AtomicInteger(1);
+            this.f58316c = Thread.currentThread().getThreadGroup();
+            this.f58315b = f.i(str);
         }
 
         @Override // java.util.concurrent.ThreadFactory
@@ -75,8 +75,8 @@ public class b {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, runnable)) == null) {
-                ThreadGroup threadGroup = this.f58271c;
-                Thread thread = new Thread(threadGroup, runnable, DiskLruCache.KS_THREAD_PREFIX + this.f58270b + this.f58272d.getAndIncrement(), 0L);
+                ThreadGroup threadGroup = this.f58316c;
+                Thread thread = new Thread(threadGroup, runnable, DiskLruCache.KS_THREAD_PREFIX + this.f58315b + this.f58317d.getAndIncrement(), 0L);
                 if (thread.isDaemon()) {
                     thread.setDaemon(false);
                 }

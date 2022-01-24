@@ -19,7 +19,7 @@ public class b {
     public c.a.r0.h.i.m.b a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Context f10518b;
+    public Context f10660b;
 
     /* loaded from: classes6.dex */
     public class a implements Runnable {
@@ -27,39 +27,39 @@ public class b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c.a.r0.h.i.m.h f10519e;
+        public final /* synthetic */ c.a.r0.h.i.m.h f10661e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ JSONObject f10520f;
+        public final /* synthetic */ JSONObject f10662f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ b f10521g;
+        public final /* synthetic */ b f10663g;
 
         /* renamed from: c.a.r0.h.i.p.b$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class C0702a extends ResponseCallback<c.a.r0.h.i.l.a> {
+        public class C0711a extends ResponseCallback<c.a.r0.h.i.l.a> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
 
             /* renamed from: c.a.r0.h.i.p.b$a$a$a  reason: collision with other inner class name */
             /* loaded from: classes6.dex */
-            public class RunnableC0703a implements Runnable {
+            public class RunnableC0712a implements Runnable {
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: e  reason: collision with root package name */
-                public final /* synthetic */ c.a.r0.h.i.l.a f10522e;
+                public final /* synthetic */ c.a.r0.h.i.l.a f10664e;
 
                 /* renamed from: f  reason: collision with root package name */
-                public final /* synthetic */ C0702a f10523f;
+                public final /* synthetic */ C0711a f10665f;
 
-                public RunnableC0703a(C0702a c0702a, c.a.r0.h.i.l.a aVar) {
+                public RunnableC0712a(C0711a c0711a, c.a.r0.h.i.l.a aVar) {
                     Interceptable interceptable = $ic;
                     if (interceptable != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         newInitContext.initArgs = r2;
-                        Object[] objArr = {c0702a, aVar};
+                        Object[] objArr = {c0711a, aVar};
                         interceptable.invokeUnInit(65536, newInitContext);
                         int i2 = newInitContext.flag;
                         if ((i2 & 1) != 0) {
@@ -69,21 +69,21 @@ public class b {
                             return;
                         }
                     }
-                    this.f10523f = c0702a;
-                    this.f10522e = aVar;
+                    this.f10665f = c0711a;
+                    this.f10664e = aVar;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     Interceptable interceptable = $ic;
-                    if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f10523f.a.f10521g.a == null) {
+                    if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f10665f.a.f10663g.a == null) {
                         return;
                     }
-                    this.f10523f.a.f10521g.a.o(this.f10522e);
+                    this.f10665f.a.f10663g.a.o(this.f10664e);
                 }
             }
 
-            public C0702a(a aVar) {
+            public C0711a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -109,7 +109,7 @@ public class b {
                 if (!(interceptable == null || interceptable.invokeLI(1048576, this, aVar, i2) == null) || aVar == null) {
                     return;
                 }
-                c.a.r0.h.i.s.d.c(new RunnableC0703a(this, aVar));
+                c.a.r0.h.i.s.d.c(new RunnableC0712a(this, aVar));
             }
 
             /* JADX DEBUG: Method merged with bridge method */
@@ -158,18 +158,18 @@ public class b {
                     return;
                 }
             }
-            this.f10521g = bVar;
-            this.f10519e = hVar;
-            this.f10520f = jSONObject;
+            this.f10663g = bVar;
+            this.f10661e = hVar;
+            this.f10662f = jSONObject;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                C0702a c0702a = new C0702a(this);
-                if (NetworkUtils.f(this.f10521g.f10518b)) {
-                    this.f10519e.b("https://afdconf.baidu.com/afd/download", this.f10520f, c0702a);
+                C0711a c0711a = new C0711a(this);
+                if (NetworkUtils.f(this.f10663g.f10660b)) {
+                    this.f10661e.b("https://afdconf.baidu.com/afd/download", this.f10662f, c0711a);
                 }
             }
         }
@@ -190,7 +190,7 @@ public class b {
                 return;
             }
         }
-        this.f10518b = context;
+        this.f10660b = context;
     }
 
     public void c(c.a.r0.h.i.m.h hVar, JSONObject jSONObject) {

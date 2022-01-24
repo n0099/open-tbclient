@@ -106,7 +106,7 @@ public abstract class AdapterView<T extends Adapter> extends ViewGroup {
         public Parcelable a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ AdapterView f44611b;
+        public final /* synthetic */ AdapterView f44639b;
 
         public c(AdapterView adapterView) {
             Interceptable interceptable = $ic;
@@ -123,7 +123,7 @@ public abstract class AdapterView<T extends Adapter> extends ViewGroup {
                     return;
                 }
             }
-            this.f44611b = adapterView;
+            this.f44639b = adapterView;
             this.a = null;
         }
 
@@ -132,22 +132,22 @@ public abstract class AdapterView<T extends Adapter> extends ViewGroup {
             Parcelable parcelable;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                AdapterView adapterView = this.f44611b;
+                AdapterView adapterView = this.f44639b;
                 adapterView.mDataChanged = true;
                 adapterView.mOldItemCount = adapterView.mItemCount;
                 adapterView.mItemCount = adapterView.getAdapter().getCount();
-                if (this.f44611b.getAdapter().hasStableIds() && (parcelable = this.a) != null) {
-                    AdapterView adapterView2 = this.f44611b;
+                if (this.f44639b.getAdapter().hasStableIds() && (parcelable = this.a) != null) {
+                    AdapterView adapterView2 = this.f44639b;
                     if (adapterView2.mOldItemCount == 0 && adapterView2.mItemCount > 0) {
                         adapterView2.onRestoreInstanceState(parcelable);
                         this.a = null;
-                        this.f44611b.checkFocus();
-                        this.f44611b.requestLayout();
+                        this.f44639b.checkFocus();
+                        this.f44639b.requestLayout();
                     }
                 }
-                this.f44611b.rememberSyncState();
-                this.f44611b.checkFocus();
-                this.f44611b.requestLayout();
+                this.f44639b.rememberSyncState();
+                this.f44639b.checkFocus();
+                this.f44639b.requestLayout();
             }
         }
 
@@ -155,12 +155,12 @@ public abstract class AdapterView<T extends Adapter> extends ViewGroup {
         public void onInvalidated() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                AdapterView adapterView = this.f44611b;
+                AdapterView adapterView = this.f44639b;
                 adapterView.mDataChanged = true;
                 if (adapterView.getAdapter().hasStableIds()) {
-                    this.a = this.f44611b.onSaveInstanceState();
+                    this.a = this.f44639b.onSaveInstanceState();
                 }
-                AdapterView adapterView2 = this.f44611b;
+                AdapterView adapterView2 = this.f44639b;
                 adapterView2.mOldItemCount = adapterView2.mItemCount;
                 adapterView2.mItemCount = 0;
                 adapterView2.mSelectedPosition = -1;
@@ -169,7 +169,7 @@ public abstract class AdapterView<T extends Adapter> extends ViewGroup {
                 adapterView2.mNextSelectedColId = Long.MIN_VALUE;
                 adapterView2.mNeedSync = false;
                 adapterView2.checkFocus();
-                this.f44611b.requestLayout();
+                this.f44639b.requestLayout();
             }
         }
     }
@@ -197,7 +197,7 @@ public abstract class AdapterView<T extends Adapter> extends ViewGroup {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ AdapterView f44612e;
+        public final /* synthetic */ AdapterView f44640e;
 
         public g(AdapterView adapterView) {
             Interceptable interceptable = $ic;
@@ -214,19 +214,19 @@ public abstract class AdapterView<T extends Adapter> extends ViewGroup {
                     return;
                 }
             }
-            this.f44612e = adapterView;
+            this.f44640e = adapterView;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                AdapterView adapterView = this.f44612e;
+                AdapterView adapterView = this.f44640e;
                 if (!adapterView.mDataChanged) {
                     adapterView.fireOnSelected();
-                    this.f44612e.performAccessibilityActionsOnSelected();
+                    this.f44640e.performAccessibilityActionsOnSelected();
                 } else if (adapterView.getAdapter() != null) {
-                    this.f44612e.post(this);
+                    this.f44640e.post(this);
                 }
             }
         }
