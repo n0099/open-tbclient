@@ -37,7 +37,7 @@ public abstract class ReDouAndNetErrClickListener implements View.OnClickListene
                 public final /* synthetic */ View a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ ReDouAndNetErrClickListener f50834b;
+                public final /* synthetic */ ReDouAndNetErrClickListener f51001b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -54,7 +54,7 @@ public abstract class ReDouAndNetErrClickListener implements View.OnClickListene
                             return;
                         }
                     }
-                    this.f50834b = this;
+                    this.f51001b = this;
                     this.a = view;
                 }
 
@@ -89,7 +89,7 @@ public abstract class ReDouAndNetErrClickListener implements View.OnClickListene
                             public void doClick(View view3) {
                                 Interceptable interceptable3 = $ic;
                                 if (interceptable3 == null || interceptable3.invokeL(1048576, this, view3) == null) {
-                                    this.a.f50834b.doClick(view3);
+                                    this.a.f51001b.doClick(view3);
                                 }
                             }
                         }.onClick(this.a);

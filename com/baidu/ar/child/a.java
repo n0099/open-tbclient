@@ -18,7 +18,7 @@ public class a {
     public CropAlgo lL;
     public HandlerThread lM;
     public Handler lN;
-    public InterfaceC1768a lO;
+    public InterfaceC1778a lO;
     public boolean lP;
     public boolean lQ;
     public d lR;
@@ -27,7 +27,7 @@ public class a {
 
     /* renamed from: com.baidu.ar.child.a$a  reason: collision with other inner class name */
     /* loaded from: classes10.dex */
-    public interface InterfaceC1768a {
+    public interface InterfaceC1778a {
         void a(long j2, byte[] bArr, int i2);
     }
 
@@ -233,10 +233,10 @@ public class a {
         return invokeCommon.longValue;
     }
 
-    public void a(InterfaceC1768a interfaceC1768a) {
+    public void a(InterfaceC1778a interfaceC1778a) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, interfaceC1768a) == null) {
-            this.lO = interfaceC1768a;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, interfaceC1778a) == null) {
+            this.lO = interfaceC1778a;
         }
     }
 

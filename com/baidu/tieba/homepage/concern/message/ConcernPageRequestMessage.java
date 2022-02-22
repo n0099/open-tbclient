@@ -1,14 +1,15 @@
 package com.baidu.tieba.homepage.concern.message;
 
 import android.text.TextUtils;
-import c.a.s0.d1.b0;
-import c.a.s0.d1.g;
-import c.a.t0.k3.l0.b;
-import c.a.t0.p1.c.d;
+import c.a.t0.d1.c0;
+import c.a.t0.d1.g;
+import c.a.u0.l3.l0.b;
+import c.a.u0.p1.d.d;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tbadk.switchs.SocketAddCommonParamSwitch;
 import com.baidu.tbadk.util.AdExtParam;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -54,7 +55,7 @@ public class ConcernPageRequestMessage extends NetMessage {
             String d2 = isEmpty ? "" : b.f().d("CONCERN");
             g gVar = this.adInfo;
             if (gVar != null && !isEmpty) {
-                str = gVar.f12505b;
+                str = gVar.f12760b;
             }
             AdExtParam.a b2 = AdExtParam.a.b();
             b2.g(e2);
@@ -81,11 +82,11 @@ public class ConcernPageRequestMessage extends NetMessage {
                         builder.page_tag = d.u();
                     }
                 }
-                builder.last_req_unix = Long.valueOf(c.a.s0.s.i0.b.k().m(c.a.s0.s.i0.b.o("concern_data_res_request_time"), 0L));
+                builder.last_req_unix = Long.valueOf(c.a.t0.s.j0.b.k().m(c.a.t0.s.j0.b.o("concern_data_res_request_time"), 0L));
                 int i2 = 1;
-                builder.follow_type = Integer.valueOf(c.a.s0.b.d.i() ? c.a.s0.s.i0.b.k().l("key_home_concern_all_status", 0) : 1);
-                if (z) {
-                    b0.a(builder, true);
+                builder.follow_type = Integer.valueOf(c.a.t0.b.d.i() ? c.a.t0.s.j0.b.k().l("key_home_concern_all_status", 0) : 1);
+                if (z || SocketAddCommonParamSwitch.getIsOn()) {
+                    c0.a(builder, true);
                 }
                 if (!TextUtils.isEmpty(this.pageTag)) {
                     i2 = 2;

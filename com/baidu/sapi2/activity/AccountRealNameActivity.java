@@ -5,8 +5,8 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import android.widget.Toast;
 import androidx.core.view.InputDeviceCompat;
-import c.a.e0.a.f;
-import c.a.e0.a.g;
+import c.a.f0.a.f;
+import c.a.f0.a.g;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.sapi2.CoreViewRouter;
 import com.baidu.sapi2.SapiAccountManager;
@@ -23,7 +23,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class AccountRealNameActivity extends BaseActivity {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String EXTRA_BDUSS = "EXTRA_BDUSS";

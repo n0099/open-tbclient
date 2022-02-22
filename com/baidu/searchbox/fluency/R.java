@@ -12,14 +12,14 @@ public final class R {
     /* loaded from: classes11.dex */
     public static final class color {
         public static /* synthetic */ Interceptable $ic = null;
-        public static final int black = 0x7f06047f;
-        public static final int dark_text = 0x7f060753;
-        public static final int level_best_color = 0x7f0608aa;
-        public static final int level_frozen_color = 0x7f0608ab;
-        public static final int level_high_color = 0x7f0608ac;
-        public static final int level_middle_color = 0x7f0608ad;
-        public static final int level_normal_color = 0x7f0608ae;
-        public static final int white = 0x7f060d98;
+        public static final int black = 0x7f060481;
+        public static final int dark_text = 0x7f060755;
+        public static final int level_best_color = 0x7f0608ac;
+        public static final int level_frozen_color = 0x7f0608ad;
+        public static final int level_high_color = 0x7f0608ae;
+        public static final int level_middle_color = 0x7f0608af;
+        public static final int level_normal_color = 0x7f0608b0;
+        public static final int white = 0x7f060d9c;
         public transient /* synthetic */ FieldHolder $fh;
 
         public color() {
@@ -40,19 +40,19 @@ public final class R {
     /* loaded from: classes11.dex */
     public static final class id {
         public static /* synthetic */ Interceptable $ic = null;
-        public static final int chart = 0x7f090702;
-        public static final int drop_expect = 0x7f090999;
-        public static final int fps_view = 0x7f090c73;
-        public static final int level_frozen = 0x7f091468;
-        public static final int level_frozens = 0x7f091469;
-        public static final int level_high = 0x7f09146a;
-        public static final int level_highs = 0x7f09146b;
-        public static final int level_middle = 0x7f09146c;
-        public static final int level_middles = 0x7f09146d;
-        public static final int level_normal = 0x7f091471;
-        public static final int level_normals = 0x7f091472;
-        public static final int scene_view = 0x7f091ef6;
-        public static final int top_page = 0x7f09241a;
+        public static final int chart = 0x7f090705;
+        public static final int drop_expect = 0x7f0909a1;
+        public static final int fps_view = 0x7f090c81;
+        public static final int level_frozen = 0x7f091481;
+        public static final int level_frozens = 0x7f091482;
+        public static final int level_high = 0x7f091483;
+        public static final int level_highs = 0x7f091484;
+        public static final int level_middle = 0x7f091485;
+        public static final int level_middles = 0x7f091486;
+        public static final int level_normal = 0x7f09148a;
+        public static final int level_normals = 0x7f09148b;
+        public static final int scene_view = 0x7f091f1d;
+        public static final int top_page = 0x7f092445;
         public transient /* synthetic */ FieldHolder $fh;
 
         public id() {
@@ -73,7 +73,7 @@ public final class R {
     /* loaded from: classes11.dex */
     public static final class layout {
         public static /* synthetic */ Interceptable $ic = null;
-        public static final int fps_float_view = 0x7f0d02ee;
+        public static final int fps_float_view = 0x7f0d02ef;
         public transient /* synthetic */ FieldHolder $fh;
 
         public layout() {

@@ -15,7 +15,7 @@ import androidx.core.content.ContextCompat;
 import com.kwad.sdk.KsAdSDKImpl;
 import com.kwad.sdk.api.core.fragment.FileProvider;
 import java.io.File;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class ag {
     public static String a(String str) {
         PackageInfo packageArchiveInfo;
@@ -68,7 +68,7 @@ public class ag {
         if (context == null || str == null) {
             return -1;
         }
-        if ((context.getApplicationInfo().targetSdkVersion < 29 || Build.VERSION.SDK_INT < 29 || Environment.isExternalStorageLegacy()) && ContextCompat.checkSelfPermission(context, com.kuaishou.weapon.un.s.f55293i) == 0) {
+        if ((context.getApplicationInfo().targetSdkVersion < 29 || Build.VERSION.SDK_INT < 29 || Environment.isExternalStorageLegacy()) && ContextCompat.checkSelfPermission(context, com.kuaishou.weapon.un.s.f55460i) == 0) {
             String absolutePath = Environment.getExternalStorageDirectory().getAbsolutePath();
             File file = new File(absolutePath + "/Android/data/" + str);
             return (file.exists() && file.isDirectory()) ? 1 : 0;

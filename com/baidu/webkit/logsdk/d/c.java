@@ -20,7 +20,7 @@ import java.nio.channels.FileChannel;
 import java.nio.channels.FileLock;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class c {
     public static /* synthetic */ Interceptable $ic;
     public static String a;
@@ -187,7 +187,7 @@ public final class c {
     public static void a(String str, String str2, String str3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(65541, null, str, str2, str3) == null) {
-            if (!com.baidu.webkit.logsdk.a.f52840b || TextUtils.isEmpty(str3)) {
+            if (!com.baidu.webkit.logsdk.a.f53007b || TextUtils.isEmpty(str3)) {
                 boolean z = com.baidu.webkit.logsdk.a.a;
                 return;
             }
@@ -199,7 +199,7 @@ public final class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65542, null, th) == null) {
             th.printStackTrace();
-            if (com.baidu.webkit.logsdk.a.f52840b) {
+            if (com.baidu.webkit.logsdk.a.f53007b) {
                 System.exit(0);
             }
         }

@@ -4,10 +4,12 @@ import android.content.Context;
 import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
 import c.a.d.f.p.n;
+import c.a.u0.a4.d;
+import c.a.u0.a4.e;
+import c.a.u0.a4.f;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -42,7 +44,7 @@ public class CardUserLikeButton extends EntelechyUserLikeButton {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             super.init();
-            setTextSize(0, n.f(getContext(), R.dimen.fontsize26));
+            setTextSize(0, n.f(getContext(), e.fontsize26));
         }
     }
 
@@ -52,17 +54,17 @@ public class CardUserLikeButton extends EntelechyUserLikeButton {
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
             if (this.mCurrentIsLike) {
                 setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, (Drawable) null, (Drawable) null);
-                SkinManager.setViewTextColor(this, R.color.CAM_X0110, 1, i2);
+                SkinManager.setViewTextColor(this, d.CAM_X0110, 1, i2);
                 setBackgroundDrawable(null);
                 return;
             }
-            setCompoundDrawablesWithIntrinsicBounds(SkinManager.getDrawable(i2, R.drawable.pb_user_like_add_icon), (Drawable) null, (Drawable) null, (Drawable) null);
-            SkinManager.setViewTextColor(this, R.color.pb_like_user_select_color, 1, i2);
-            SkinManager.setBackgroundResource(this, R.drawable.btn_focus_border_bg, i2);
+            setCompoundDrawablesWithIntrinsicBounds(SkinManager.getDrawable(i2, f.pb_user_like_add_icon), (Drawable) null, (Drawable) null, (Drawable) null);
+            SkinManager.setViewTextColor(this, d.pb_like_user_select_color, 1, i2);
+            SkinManager.setBackgroundResource(this, f.btn_focus_border_bg, i2);
         }
     }
 
-    @Override // com.baidu.tbadk.core.view.userLike.EntelechyUserLikeButton, com.baidu.tbadk.core.view.userLike.CommonUserLikeButton, c.a.s0.s.k0.t.b
+    @Override // com.baidu.tbadk.core.view.userLike.EntelechyUserLikeButton, com.baidu.tbadk.core.view.userLike.CommonUserLikeButton, c.a.t0.s.l0.t.b
     public void updateLikeStatus(boolean z, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2)}) == null) {
@@ -75,7 +77,7 @@ public class CardUserLikeButton extends EntelechyUserLikeButton {
             } else {
                 setClickable(true);
                 setText(this.mStrFollow);
-                setPadding(TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.ds16), 0, TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.ds8), 0);
+                setPadding(TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(e.ds16), 0, TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(e.ds8), 0);
             }
             onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
         }

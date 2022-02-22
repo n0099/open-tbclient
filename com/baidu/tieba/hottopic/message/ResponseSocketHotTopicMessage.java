@@ -1,6 +1,6 @@
 package com.baidu.tieba.hottopic.message;
 
-import c.a.t0.r1.l.e;
+import c.a.u0.r1.i.e;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -68,8 +68,8 @@ public class ResponseSocketHotTopicMessage extends SocketResponsedMessage {
         e eVar = new e();
         this.topicData = eVar;
         if (num != null) {
-            eVar.s = num.intValue();
+            eVar.p = num.intValue();
         }
-        this.topicData.o(hottopicResIdl.data);
+        this.topicData.h(hottopicResIdl.data);
     }
 }

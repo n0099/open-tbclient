@@ -25,22 +25,22 @@ public class i implements c.b.b.q.h {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f27352e;
+    public String f27558e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f27353f;
+    public boolean f27559f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final v<String> f27354g;
+    public final v<String> f27560g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final v<String> f27355h;
+    public final v<String> f27561h;
 
     /* renamed from: i  reason: collision with root package name */
-    public final v<String> f27356i;
+    public final v<String> f27562i;
 
     /* renamed from: j  reason: collision with root package name */
-    public String[] f27357j;
+    public String[] f27563j;
     public final v<String> k;
     public final v<String> l;
     public final v<String> m;
@@ -86,10 +86,10 @@ public class i implements c.b.b.q.h {
                 return;
             }
         }
-        this.f27352e = "";
-        this.f27354g = new v<>();
-        this.f27355h = new v<>();
-        this.f27356i = new v<>();
+        this.f27558e = "";
+        this.f27560g = new v<>();
+        this.f27561h = new v<>();
+        this.f27562i = new v<>();
         this.k = new v<>();
         this.l = new v<>();
         this.m = new v<>();
@@ -138,7 +138,7 @@ public class i implements c.b.b.q.h {
             w.c<Application> f2 = y.f();
             f2.d();
             while (f2.hasNext()) {
-                sb.append(y.c(f2.next()).f27389f);
+                sb.append(y.c(f2.next()).f27595f);
                 sb.append(" ");
             }
             sb.append("}");
@@ -150,10 +150,10 @@ public class i implements c.b.b.q.h {
     public static void n(Application application) {
         c.b.b.q.a<i> c2;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, application) == null) || c.b.b.f.f26968f == null || (c2 = y.c(application)) == null) {
+        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, application) == null) || c.b.b.f.f27174f == null || (c2 = y.c(application)) == null) {
             return;
         }
-        for (int i2 = 0; i2 < c2.f27389f; i2++) {
+        for (int i2 = 0; i2 < c2.f27595f; i2++) {
             c2.get(i2).t = true;
             c2.get(i2).f();
         }
@@ -175,7 +175,7 @@ public class i implements c.b.b.q.h {
     public void dispose() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            c.b.b.n.c cVar = c.b.b.f.f26968f;
+            c.b.b.n.c cVar = c.b.b.f.f27174f;
             cVar.d(0);
             cVar.K(this.p);
             cVar.K(this.q);
@@ -204,14 +204,14 @@ public class i implements c.b.b.q.h {
                 int p = p(i());
                 this.o = p;
                 if (p == -1) {
-                    this.f27353f = false;
+                    this.f27559f = false;
                     return;
                 } else {
-                    this.f27353f = true;
+                    this.f27559f = true;
                     return;
                 }
             }
-            this.f27353f = false;
+            this.f27559f = false;
         }
     }
 
@@ -219,7 +219,7 @@ public class i implements c.b.b.q.h {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            int M = c.b.b.f.f26968f.M();
+            int M = c.b.b.f.f27174f.M();
             if (M != 0) {
                 return M;
             }
@@ -232,15 +232,15 @@ public class i implements c.b.b.q.h {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             this.u.clear();
-            c.b.b.f.f26968f.l(this.o, 35721, this.u);
+            c.b.b.f.f27174f.l(this.o, 35721, this.u);
             int i2 = this.u.get(0);
             this.n = new String[i2];
             for (int i3 = 0; i3 < i2; i3++) {
                 this.u.clear();
                 this.u.put(0, 1);
                 this.v.clear();
-                String D = c.b.b.f.f26968f.D(this.o, i3, this.u, this.v);
-                this.k.h(D, c.b.b.f.f26968f.R(this.o, D));
+                String D = c.b.b.f.f27174f.D(this.o, i3, this.u, this.v);
+                this.k.h(D, c.b.b.f.f27174f.R(this.o, D));
                 this.l.h(D, this.v.get(0));
                 this.m.h(D, this.u.get(0));
                 this.n[i3] = D;
@@ -252,18 +252,18 @@ public class i implements c.b.b.q.h {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             this.u.clear();
-            c.b.b.f.f26968f.l(this.o, 35718, this.u);
+            c.b.b.f.f27174f.l(this.o, 35718, this.u);
             int i2 = this.u.get(0);
-            this.f27357j = new String[i2];
+            this.f27563j = new String[i2];
             for (int i3 = 0; i3 < i2; i3++) {
                 this.u.clear();
                 this.u.put(0, 1);
                 this.v.clear();
-                String z = c.b.b.f.f26968f.z(this.o, i3, this.u, this.v);
-                this.f27354g.h(z, c.b.b.f.f26968f.w(this.o, z));
-                this.f27355h.h(z, this.v.get(0));
-                this.f27356i.h(z, this.u.get(0));
-                this.f27357j[i3] = z;
+                String z = c.b.b.f.f27174f.z(this.o, i3, this.u, this.v);
+                this.f27560g.h(z, c.b.b.f.f27174f.w(this.o, z));
+                this.f27561h.h(z, this.v.get(0));
+                this.f27562i.h(z, this.u.get(0));
+                this.f27563j[i3] = z;
             }
         }
     }
@@ -272,12 +272,12 @@ public class i implements c.b.b.q.h {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            if (this.f27353f) {
-                String J = c.b.b.f.f26968f.J(this.o);
-                this.f27352e = J;
+            if (this.f27559f) {
+                String J = c.b.b.f.f27174f.J(this.o);
+                this.f27558e = J;
                 return J;
             }
-            return this.f27352e;
+            return this.f27558e;
         }
         return (String) invokeV.objValue;
     }
@@ -285,14 +285,14 @@ public class i implements c.b.b.q.h {
     public boolean o() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f27353f : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f27559f : invokeV.booleanValue;
     }
 
     public final int p(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048585, this, i2)) == null) {
-            c.b.b.n.c cVar = c.b.b.f.f26968f;
+            c.b.b.n.c cVar = c.b.b.f.f27174f;
             if (i2 == -1) {
                 return -1;
             }
@@ -304,7 +304,7 @@ public class i implements c.b.b.q.h {
             IntBuffer asIntBuffer = allocateDirect.asIntBuffer();
             cVar.l(i2, 35714, asIntBuffer);
             if (asIntBuffer.get(0) == 0) {
-                this.f27352e = c.b.b.f.f26968f.J(i2);
+                this.f27558e = c.b.b.f.f27174f.J(i2);
                 return -1;
             }
             return i2;
@@ -316,7 +316,7 @@ public class i implements c.b.b.q.h {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeIL = interceptable.invokeIL(1048586, this, i2, str)) == null) {
-            c.b.b.n.c cVar = c.b.b.f.f26968f;
+            c.b.b.n.c cVar = c.b.b.f.f27174f;
             IntBuffer d2 = BufferUtils.d(1);
             int T = cVar.T(i2);
             if (T == 0) {
@@ -328,10 +328,10 @@ public class i implements c.b.b.q.h {
             if (d2.get(0) == 0) {
                 String x2 = cVar.x(T);
                 StringBuilder sb = new StringBuilder();
-                sb.append(this.f27352e);
+                sb.append(this.f27558e);
                 sb.append(i2 == 35633 ? "Vertex shader\n" : "Fragment shader:\n");
-                this.f27352e = sb.toString();
-                this.f27352e += x2;
+                this.f27558e = sb.toString();
+                this.f27558e += x2;
                 return -1;
             }
             return T;

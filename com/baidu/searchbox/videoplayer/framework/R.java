@@ -39,12 +39,12 @@ public final class R {
     /* loaded from: classes11.dex */
     public static final class color {
         public static /* synthetic */ Interceptable $ic = null;
-        public static final int bdvideoplayer_quick_share_item_text = 0x7f060475;
-        public static final int bdvideoplayer_quick_share_item_text_enable = 0x7f060476;
-        public static final int bdvideoplayer_seek_bar_bg_color = 0x7f060477;
-        public static final int bdvideoplayer_seek_bar_buffered_color = 0x7f060478;
-        public static final int bdvideoplayer_seek_bar_played_color = 0x7f060479;
-        public static final int bdvideoplayer_text_color_white = 0x7f06047a;
+        public static final int bdvideoplayer_quick_share_item_text = 0x7f060477;
+        public static final int bdvideoplayer_quick_share_item_text_enable = 0x7f060478;
+        public static final int bdvideoplayer_seek_bar_bg_color = 0x7f060479;
+        public static final int bdvideoplayer_seek_bar_buffered_color = 0x7f06047a;
+        public static final int bdvideoplayer_seek_bar_played_color = 0x7f06047b;
+        public static final int bdvideoplayer_text_color_white = 0x7f06047c;
         public transient /* synthetic */ FieldHolder $fh;
 
         public color() {
@@ -143,18 +143,18 @@ public final class R {
     /* loaded from: classes11.dex */
     public static final class id {
         public static /* synthetic */ Interceptable $ic = null;
-        public static final int bdvideoplayer_seekbar = 0x7f0903a9;
-        public static final int bt_retry = 0x7f090470;
-        public static final int center = 0x7f090681;
-        public static final int left = 0x7f091440;
-        public static final int main_duration_text = 0x7f0915c3;
-        public static final int main_progress_text = 0x7f0915c7;
-        public static final int main_view_seekbar = 0x7f0915d4;
-        public static final int play_error_layout_retry = 0x7f091b0a;
-        public static final int progress = 0x7f091bd7;
-        public static final int right = 0x7f091d72;
-        public static final int time = 0x7f09232b;
-        public static final int tv_error = 0x7f09250f;
+        public static final int bdvideoplayer_seekbar = 0x7f0903aa;
+        public static final int bt_retry = 0x7f090473;
+        public static final int center = 0x7f090684;
+        public static final int left = 0x7f091459;
+        public static final int main_duration_text = 0x7f0915df;
+        public static final int main_progress_text = 0x7f0915e3;
+        public static final int main_view_seekbar = 0x7f0915f0;
+        public static final int play_error_layout_retry = 0x7f091b2f;
+        public static final int progress = 0x7f091bfc;
+        public static final int right = 0x7f091d99;
+        public static final int time = 0x7f092355;
+        public static final int tv_error = 0x7f09253a;
         public transient /* synthetic */ FieldHolder $fh;
 
         public id() {
@@ -175,9 +175,9 @@ public final class R {
     /* loaded from: classes11.dex */
     public static final class layout {
         public static /* synthetic */ Interceptable $ic = null;
-        public static final int bdvideoplayer_layout_kernel_error = 0x7f0d0151;
-        public static final int bdvideoplayer_layout_net_error = 0x7f0d0152;
-        public static final int bdvideoplayer_seek_bar_view = 0x7f0d0153;
+        public static final int bdvideoplayer_layout_kernel_error = 0x7f0d0152;
+        public static final int bdvideoplayer_layout_net_error = 0x7f0d0153;
+        public static final int bdvideoplayer_seek_bar_view = 0x7f0d0154;
         public transient /* synthetic */ FieldHolder $fh;
 
         public layout() {
@@ -198,9 +198,9 @@ public final class R {
     /* loaded from: classes11.dex */
     public static final class string {
         public static /* synthetic */ Interceptable $ic = null;
-        public static final int bdvideoplayer_btn_net_error_retry = 0x7f0f0352;
-        public static final int bdvideoplayer_tip_kernel_error = 0x7f0f0353;
-        public static final int bdvideoplayer_tip_net_error = 0x7f0f0354;
+        public static final int bdvideoplayer_btn_net_error_retry = 0x7f0f0354;
+        public static final int bdvideoplayer_tip_kernel_error = 0x7f0f0355;
+        public static final int bdvideoplayer_tip_net_error = 0x7f0f0356;
         public transient /* synthetic */ FieldHolder $fh;
 
         public string() {

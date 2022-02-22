@@ -5,8 +5,8 @@ import android.os.Bundle;
 import androidx.core.view.InputDeviceCompat;
 import c.a.d.a.b;
 import c.a.d.f.p.m;
-import c.a.t0.z2.d;
-import c.a.t0.z2.e;
+import c.a.u0.a3.d;
+import c.a.u0.a3.e;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.ActivityPendingTransitionFactory;
@@ -22,7 +22,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public class PersonPolymericActivity extends BaseFragmentActivity implements VoiceManager.j {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -68,7 +68,7 @@ public class PersonPolymericActivity extends BaseFragmentActivity implements Voi
         }
     }
 
-    @Override // com.baidu.tbadk.core.BaseFragmentActivity, c.a.s0.q0.a
+    @Override // com.baidu.tbadk.core.BaseFragmentActivity, c.a.t0.q0.a
     public String getCurrentPageKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

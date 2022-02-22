@@ -34,24 +34,24 @@ public final class a extends c.i.b.a.e0.c {
     public static final Pattern p;
     public static final Pattern q;
     public static final Pattern r;
-    public static final C1666a s;
+    public static final C1676a s;
     public transient /* synthetic */ FieldHolder $fh;
     public final XmlPullParserFactory n;
 
     /* renamed from: c.i.b.a.e0.p.a$a  reason: collision with other inner class name */
     /* loaded from: classes9.dex */
-    public static final class C1666a {
+    public static final class C1676a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final float a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final int f29520b;
+        public final int f29726b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final int f29521c;
+        public final int f29727c;
 
-        public C1666a(float f2, int i2, int i3) {
+        public C1676a(float f2, int i2, int i3) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -67,8 +67,8 @@ public final class a extends c.i.b.a.e0.c {
                 }
             }
             this.a = f2;
-            this.f29520b = i2;
-            this.f29521c = i3;
+            this.f29726b = i2;
+            this.f29727c = i3;
         }
     }
 
@@ -89,7 +89,7 @@ public final class a extends c.i.b.a.e0.c {
         p = Pattern.compile("^([0-9]+(?:\\.[0-9]+)?)(h|m|s|ms|f|t)$");
         q = Pattern.compile("^(([0-9]*.)?[0-9]+)(px|em|%)$");
         r = Pattern.compile("^(\\d+\\.?\\d*?)% (\\d+\\.?\\d*?)%$");
-        s = new C1666a(30.0f, 1, 1);
+        s = new C1676a(30.0f, 1, 1);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -172,20 +172,20 @@ public final class a extends c.i.b.a.e0.c {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static long J(String str, C1666a c1666a) throws SubtitleDecoderException {
+    public static long J(String str, C1676a c1676a) throws SubtitleDecoderException {
         InterceptResult invokeLL;
         double d2;
         double d3;
         String group;
         String group2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, c1666a)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, c1676a)) == null) {
             Matcher matcher = o.matcher(str);
             char c2 = 2;
             if (matcher.matches()) {
                 double parseLong = (Long.parseLong(matcher.group(1)) * 3600) + (Long.parseLong(matcher.group(2)) * 60) + Long.parseLong(matcher.group(3));
                 String group3 = matcher.group(4);
-                return (long) ((parseLong + (group3 != null ? Double.parseDouble(group3) : 0.0d) + (matcher.group(5) != null ? ((float) Long.parseLong(group)) / c1666a.a : 0.0d) + (matcher.group(6) != null ? (Long.parseLong(group2) / c1666a.f29520b) / c1666a.a : 0.0d)) * 1000000.0d);
+                return (long) ((parseLong + (group3 != null ? Double.parseDouble(group3) : 0.0d) + (matcher.group(5) != null ? ((float) Long.parseLong(group)) / c1676a.a : 0.0d) + (matcher.group(6) != null ? (Long.parseLong(group2) / c1676a.f29726b) / c1676a.a : 0.0d)) * 1000000.0d);
             }
             Matcher matcher2 = p.matcher(str);
             if (matcher2.matches()) {
@@ -225,11 +225,11 @@ public final class a extends c.i.b.a.e0.c {
                         d3 = 1000.0d;
                     } else if (c2 != 4) {
                         if (c2 == 5) {
-                            d3 = c1666a.f29521c;
+                            d3 = c1676a.f29727c;
                         }
                         return (long) (parseDouble * 1000000.0d);
                     } else {
-                        d3 = c1666a.a;
+                        d3 = c1676a.a;
                     }
                     parseDouble /= d3;
                     return (long) (parseDouble * 1000000.0d);
@@ -260,14 +260,14 @@ public final class a extends c.i.b.a.e0.c {
                 int i3 = 0;
                 newPullParser.setInput(new ByteArrayInputStream(bArr, 0, i2), null);
                 LinkedList linkedList = new LinkedList();
-                C1666a c1666a = s;
+                C1676a c1676a = s;
                 for (int eventType = newPullParser.getEventType(); eventType != 1; eventType = newPullParser.getEventType()) {
                     b bVar = (b) linkedList.peekLast();
                     if (i3 == 0) {
                         String name = newPullParser.getName();
                         if (eventType == 2) {
                             if (PushConstants.PUSH_NOTIFICATION_CREATE_TIMES_TAMP.equals(name)) {
-                                c1666a = D(newPullParser);
+                                c1676a = D(newPullParser);
                             }
                             if (!B(name)) {
                                 String str = "Ignoring unsupported tag: " + newPullParser.getName();
@@ -275,7 +275,7 @@ public final class a extends c.i.b.a.e0.c {
                                 E(newPullParser, hashMap, hashMap2);
                             } else {
                                 try {
-                                    b F = F(newPullParser, bVar, hashMap2, c1666a);
+                                    b F = F(newPullParser, bVar, hashMap2, c1676a);
                                     linkedList.addLast(F);
                                     if (bVar != null) {
                                         bVar.a(F);
@@ -312,7 +312,7 @@ public final class a extends c.i.b.a.e0.c {
         return (f) invokeCommon.objValue;
     }
 
-    public final C1666a D(XmlPullParser xmlPullParser) throws SubtitleDecoderException {
+    public final C1676a D(XmlPullParser xmlPullParser) throws SubtitleDecoderException {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, xmlPullParser)) == null) {
@@ -328,19 +328,19 @@ public final class a extends c.i.b.a.e0.c {
                     throw new SubtitleDecoderException("frameRateMultiplier doesn't have 2 parts");
                 }
             }
-            int i2 = s.f29520b;
+            int i2 = s.f29726b;
             String attributeValue3 = xmlPullParser.getAttributeValue("http://www.w3.org/ns/ttml#parameter", "subFrameRate");
             if (attributeValue3 != null) {
                 i2 = Integer.parseInt(attributeValue3);
             }
-            int i3 = s.f29521c;
+            int i3 = s.f29727c;
             String attributeValue4 = xmlPullParser.getAttributeValue("http://www.w3.org/ns/ttml#parameter", "tickRate");
             if (attributeValue4 != null) {
                 i3 = Integer.parseInt(attributeValue4);
             }
-            return new C1666a(parseInt * f2, i2, i3);
+            return new C1676a(parseInt * f2, i2, i3);
         }
-        return (C1666a) invokeL.objValue;
+        return (C1676a) invokeL.objValue;
     }
 
     public final Map<String, e> E(XmlPullParser xmlPullParser, Map<String, e> map, Map<String, c> map2) throws IOException, XmlPullParserException {
@@ -371,13 +371,13 @@ public final class a extends c.i.b.a.e0.c {
     }
 
     /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
-    public final b F(XmlPullParser xmlPullParser, b bVar, Map<String, c> map, C1666a c1666a) throws SubtitleDecoderException {
+    public final b F(XmlPullParser xmlPullParser, b bVar, Map<String, c> map, C1676a c1676a) throws SubtitleDecoderException {
         InterceptResult invokeLLLL;
         long j2;
         long j3;
         char c2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048579, this, xmlPullParser, bVar, map, c1666a)) == null) {
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048579, this, xmlPullParser, bVar, map, c1676a)) == null) {
             int attributeCount = xmlPullParser.getAttributeCount();
             e H = H(xmlPullParser, null);
             String[] strArr = null;
@@ -429,11 +429,11 @@ public final class a extends c.i.b.a.e0.c {
                         break;
                 }
                 if (c2 == 0) {
-                    j4 = J(attributeValue, c1666a);
+                    j4 = J(attributeValue, c1676a);
                 } else if (c2 == 1) {
-                    j5 = J(attributeValue, c1666a);
+                    j5 = J(attributeValue, c1676a);
                 } else if (c2 == 2) {
-                    j6 = J(attributeValue, c1666a);
+                    j6 = J(attributeValue, c1676a);
                 } else if (c2 != 3) {
                     if (c2 == 4 && map.containsKey(attributeValue)) {
                         str = attributeValue;
@@ -446,14 +446,14 @@ public final class a extends c.i.b.a.e0.c {
                 }
             }
             if (bVar != null) {
-                long j7 = bVar.f29524d;
+                long j7 = bVar.f29730d;
                 j2 = -9223372036854775807L;
                 if (j7 != -9223372036854775807L) {
                     if (j4 != -9223372036854775807L) {
                         j4 += j7;
                     }
                     if (j5 != -9223372036854775807L) {
-                        j5 += bVar.f29524d;
+                        j5 += bVar.f29730d;
                     }
                 }
             } else {
@@ -464,7 +464,7 @@ public final class a extends c.i.b.a.e0.c {
                 if (j6 != j2) {
                     j3 = j8 + j6;
                 } else if (bVar != null) {
-                    long j9 = bVar.f29525e;
+                    long j9 = bVar.f29731e;
                     if (j9 != j2) {
                         j3 = j9;
                     }

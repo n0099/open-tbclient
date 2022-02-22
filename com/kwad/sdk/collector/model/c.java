@@ -16,7 +16,7 @@ import java.util.Map;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class c {
     public static AppRunningInfoNative a(InstalledAppInfoManager.AppPackageInfo appPackageInfo, @Nullable AppStatusRules.Strategy strategy) {
         return new AppRunningInfoNative(strategy == null ? -1L : strategy.getHistoryGranularity(), appPackageInfo.appName, appPackageInfo.packageName);

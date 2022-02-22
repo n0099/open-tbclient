@@ -18,10 +18,10 @@ public class TipDialogBinding extends BaseBinding<TipDialogModel> {
     public final TextView a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final Button f53962b;
+    public final Button f54129b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final TextView f53963c;
+    public final TextView f54130c;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public TipDialogBinding(View view) {
@@ -42,8 +42,8 @@ public class TipDialogBinding extends BaseBinding<TipDialogModel> {
             }
         }
         this.a = (TextView) view.findViewById(ResUtils.id(this.context, "dialog_title"));
-        this.f53962b = (Button) view.findViewById(ResUtils.id(this.context, "positive_btn"));
-        this.f53963c = (TextView) view.findViewById(ResUtils.id(this.context, "dialog_text_content"));
+        this.f54129b = (Button) view.findViewById(ResUtils.id(this.context, "positive_btn"));
+        this.f54130c = (TextView) view.findViewById(ResUtils.id(this.context, "dialog_text_content"));
     }
 
     @Override // com.dxmpay.wallet.base.widget.dialog.binding.BaseBinding
@@ -52,9 +52,9 @@ public class TipDialogBinding extends BaseBinding<TipDialogModel> {
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             T t = this.viewModel;
             if (((TipDialogModel) t).btnTextId != 0) {
-                this.f53962b.setText(((TipDialogModel) t).btnTextId);
+                this.f54129b.setText(((TipDialogModel) t).btnTextId);
             } else if (!TextUtils.isEmpty(((TipDialogModel) t).btnText)) {
-                this.f53962b.setText(((TipDialogModel) this.viewModel).btnText);
+                this.f54129b.setText(((TipDialogModel) this.viewModel).btnText);
             }
             T t2 = this.viewModel;
             if (((TipDialogModel) t2).titleId != 0) {
@@ -62,17 +62,17 @@ public class TipDialogBinding extends BaseBinding<TipDialogModel> {
             } else if (!TextUtils.isEmpty(((TipDialogModel) t2).titleText)) {
                 this.a.setText(((TipDialogModel) this.viewModel).titleText);
             }
-            TextPaint paint = this.f53962b.getPaint();
+            TextPaint paint = this.f54129b.getPaint();
             if (paint != null) {
                 paint.setFakeBoldText(true);
             }
-            this.f53962b.setOnClickListener(((TipDialogModel) this.viewModel).defaultClickListener);
+            this.f54129b.setOnClickListener(((TipDialogModel) this.viewModel).defaultClickListener);
             T t3 = this.viewModel;
             if (((TipDialogModel) t3).messageId != 0) {
-                this.f53963c.setText(((TipDialogModel) t3).messageId);
+                this.f54130c.setText(((TipDialogModel) t3).messageId);
             } else if (TextUtils.isEmpty(((TipDialogModel) t3).message)) {
             } else {
-                this.f53963c.setText(((TipDialogModel) this.viewModel).message);
+                this.f54130c.setText(((TipDialogModel) this.viewModel).message);
             }
         }
     }

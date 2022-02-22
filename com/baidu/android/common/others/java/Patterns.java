@@ -13,7 +13,7 @@ import java.io.PrintStream;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 @Deprecated
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class Patterns {
     public static /* synthetic */ Interceptable $ic = null;
     public static final Pattern COARSE_GRAINED_WEB_URL;

@@ -3,7 +3,7 @@ package com.kwad.sdk.plugin;
 import android.content.Context;
 import androidx.annotation.NonNull;
 import com.kwad.sdk.core.response.model.SdkConfigData;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public interface b extends d {
     void a(int i2);
 

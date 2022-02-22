@@ -34,7 +34,7 @@ public class PreLoadBaiduClass extends LaunchTask {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             try {
-                Class.forName("c.a.k0.b.b.c");
+                Class.forName("c.a.l0.b.b.c");
             } catch (ClassNotFoundException e2) {
                 String str = "preLoadClass exception " + e2.toString();
                 e2.printStackTrace();
@@ -58,7 +58,7 @@ public class PreLoadBaiduClass extends LaunchTask {
                 e5.printStackTrace();
             }
             try {
-                Class.forName("c.a.t0.z3.f");
+                Class.forName("c.a.u0.c4.f");
             } catch (ClassNotFoundException e6) {
                 String str5 = "preLoadClass exception " + e6.toString();
                 e6.printStackTrace();

@@ -32,7 +32,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public class PushThreadActivity extends BaseActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -45,7 +45,7 @@ public class PushThreadActivity extends BaseActivity {
     public HttpMessageListener mPushThreadMessageListener;
     public List<PushTypeData> mPushTypeDatas;
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes13.dex */
     public class a extends HttpMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -92,13 +92,13 @@ public class PushThreadActivity extends BaseActivity {
         }
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes13.dex */
     public class b extends BaseAdapter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PushThreadActivity f47045e;
+        public final /* synthetic */ PushThreadActivity f47187e;
 
         public b(PushThreadActivity pushThreadActivity) {
             Interceptable interceptable = $ic;
@@ -115,7 +115,7 @@ public class PushThreadActivity extends BaseActivity {
                     return;
                 }
             }
-            this.f47045e = pushThreadActivity;
+            this.f47187e = pushThreadActivity;
             pushThreadActivity.mCurrentPushType = 0;
         }
 
@@ -123,7 +123,7 @@ public class PushThreadActivity extends BaseActivity {
         public int getCount() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? ListUtils.getCount(this.f47045e.mPushTypeDatas) : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? ListUtils.getCount(this.f47187e.mPushTypeDatas) : invokeV.intValue;
         }
 
         @Override // android.widget.Adapter
@@ -151,15 +151,15 @@ public class PushThreadActivity extends BaseActivity {
             InterceptResult invokeILL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeILL = interceptable.invokeILL(1048579, this, i2, view, viewGroup)) == null) {
-                View inflate = LayoutInflater.from(this.f47045e.getPageContext().getPageActivity()).inflate(R.layout.push_thread_item, (ViewGroup) null);
+                View inflate = LayoutInflater.from(this.f47187e.getPageContext().getPageActivity()).inflate(R.layout.push_thread_item, (ViewGroup) null);
                 TbImageView tbImageView = (TbImageView) inflate.findViewById(R.id.iv_item_icon);
                 ImageView imageView = (ImageView) inflate.findViewById(R.id.iv_item_hint);
                 TextView textView = (TextView) inflate.findViewById(R.id.tv_item_title);
-                PushTypeData pushTypeData = (PushTypeData) ListUtils.getItem(this.f47045e.mPushTypeDatas, i2);
+                PushTypeData pushTypeData = (PushTypeData) ListUtils.getItem(this.f47187e.mPushTypeDatas, i2);
                 if (pushTypeData != null) {
                     tbImageView.startLoad(pushTypeData.getIcon(), 10, false);
                     textView.setText(pushTypeData.getName());
-                    if (pushTypeData.getType() == this.f47045e.mCurrentPushType) {
+                    if (pushTypeData.getType() == this.f47187e.mCurrentPushType) {
                         SkinManager.setImageResource(imageView, R.drawable.bg_choose_ok);
                         SkinManager.setViewTextColor(textView, R.color.CAM_X0308);
                     } else {

@@ -23,13 +23,13 @@ public class o extends b {
     public static final String a = "bduss";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f34300b = "certinfo";
+    public static final String f34506b = "certinfo";
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f34301c = "authtoken";
+    public static final String f34507c = "authtoken";
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f34302d = "outer";
+    public static final String f34508d = "outer";
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */

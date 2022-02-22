@@ -21,24 +21,24 @@ public class RestMultipartEntity {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final char[] f53624g;
+    public static final char[] f53791g;
     public transient /* synthetic */ FieldHolder $fh;
     public ByteArrayOutputStream a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f53625b;
+    public String f53792b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f53626c;
+    public boolean f53793c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f53627d;
+    public boolean f53794d;
 
     /* renamed from: e  reason: collision with root package name */
-    public byte[] f53628e;
+    public byte[] f53795e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ProgressListener f53629f;
+    public ProgressListener f53796f;
 
     /* loaded from: classes3.dex */
     public interface ProgressListener {
@@ -58,7 +58,7 @@ public class RestMultipartEntity {
                 return;
             }
         }
-        f53624g = "-_1234567890abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ".toCharArray();
+        f53791g = "-_1234567890abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ".toCharArray();
     }
 
     public RestMultipartEntity() {
@@ -75,22 +75,22 @@ public class RestMultipartEntity {
             }
         }
         this.a = new ByteArrayOutputStream();
-        this.f53626c = false;
-        this.f53627d = false;
+        this.f53793c = false;
+        this.f53794d = false;
         StringBuilder sb = new StringBuilder();
         Random random = new Random();
         for (int i4 = 0; i4 < 30; i4++) {
-            char[] cArr = f53624g;
+            char[] cArr = f53791g;
             sb.append(cArr[random.nextInt(cArr.length)]);
         }
-        this.f53625b = sb.toString();
-        this.f53628e = ("\r\n--" + this.f53625b + "\r\n").getBytes();
+        this.f53792b = sb.toString();
+        this.f53795e = ("\r\n--" + this.f53792b + "\r\n").getBytes();
     }
 
     public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f53625b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f53792b : (String) invokeV.objValue;
     }
 
     public void addPart(String str, String str2) {
@@ -104,7 +104,7 @@ public class RestMultipartEntity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, outputStream) == null) {
             f();
-            a aVar = new a(d(), outputStream, this.f53629f);
+            a aVar = new a(d(), outputStream, this.f53796f);
             aVar.write(this.a.toByteArray());
             aVar.close();
         }
@@ -152,34 +152,34 @@ public class RestMultipartEntity {
     public final void e() throws IOException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            if (!this.f53626c) {
-                this.f53626c = true;
+            if (!this.f53793c) {
+                this.f53793c = true;
                 ByteArrayOutputStream byteArrayOutputStream = this.a;
-                byteArrayOutputStream.write(("--" + this.f53625b + "\r\n").getBytes());
+                byteArrayOutputStream.write(("--" + this.f53792b + "\r\n").getBytes());
                 return;
             }
-            this.a.write(this.f53628e);
+            this.a.write(this.f53795e);
         }
     }
 
     public final void f() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) || this.f53627d) {
+        if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) || this.f53794d) {
             return;
         }
         try {
             ByteArrayOutputStream byteArrayOutputStream = this.a;
-            byteArrayOutputStream.write(("\r\n--" + this.f53625b + "--\r\n").getBytes());
+            byteArrayOutputStream.write(("\r\n--" + this.f53792b + "--\r\n").getBytes());
         } catch (IOException e2) {
             e2.printStackTrace();
         }
-        this.f53627d = true;
+        this.f53794d = true;
     }
 
     public void setProgressListener(ProgressListener progressListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, progressListener) == null) {
-            this.f53629f = progressListener;
+            this.f53796f = progressListener;
         }
     }
 
@@ -235,13 +235,13 @@ public class RestMultipartEntity {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final ProgressListener f53630e;
+        public final ProgressListener f53797e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final long f53631f;
+        public final long f53798f;
 
         /* renamed from: g  reason: collision with root package name */
-        public long f53632g;
+        public long f53799g;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(long j2, OutputStream outputStream, ProgressListener progressListener) {
@@ -261,9 +261,9 @@ public class RestMultipartEntity {
                     return;
                 }
             }
-            this.f53631f = j2;
-            this.f53632g = 0L;
-            this.f53630e = progressListener;
+            this.f53798f = j2;
+            this.f53799g = 0L;
+            this.f53797e = progressListener;
         }
 
         @Override // java.io.FilterOutputStream, java.io.OutputStream
@@ -271,11 +271,11 @@ public class RestMultipartEntity {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bArr, i2, i3) == null) {
                 ((FilterOutputStream) this).out.write(bArr, i2, i3);
-                long j2 = this.f53632g + i3;
-                this.f53632g = j2;
-                ProgressListener progressListener = this.f53630e;
+                long j2 = this.f53799g + i3;
+                this.f53799g = j2;
+                ProgressListener progressListener = this.f53797e;
                 if (progressListener != null) {
-                    progressListener.transferred(j2, this.f53631f);
+                    progressListener.transferred(j2, this.f53798f);
                 }
             }
         }
@@ -285,11 +285,11 @@ public class RestMultipartEntity {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
                 ((FilterOutputStream) this).out.write(i2);
-                long j2 = this.f53632g + 1;
-                this.f53632g = j2;
-                ProgressListener progressListener = this.f53630e;
+                long j2 = this.f53799g + 1;
+                this.f53799g = j2;
+                ProgressListener progressListener = this.f53797e;
                 if (progressListener != null) {
-                    progressListener.transferred(j2, this.f53631f);
+                    progressListener.transferred(j2, this.f53798f);
                 }
             }
         }

@@ -1,6 +1,6 @@
 package com.baidu.tieba.imMessageCenter.mention.agree.message;
 
-import c.a.t0.u1.b.p.a;
+import c.a.u0.u1.b.p.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
@@ -46,8 +46,8 @@ public class AgreeMeHTTPResponseMessage extends TbHttpResponsedMessage {
     public void afterDispatchInBackGround(int i2, byte[] bArr) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, bArr) == null) && !hasError() && (getOrginalMessage().getExtra() instanceof AgreeMeRequestMessage) && ((AgreeMeRequestMessage) getOrginalMessage().getExtra()).id == 0) {
-            c.a.s0.s.r.a.f();
-            c.a.s0.s.r.a.e("tb_user_agreeme", TbadkCoreApplication.getCurrentAccountName()).a("agree_me_cache_key", bArr);
+            c.a.t0.s.s.a.f();
+            c.a.t0.s.s.a.e("tb_user_agreeme", TbadkCoreApplication.getCurrentAccountName()).a("agree_me_cache_key", bArr);
         }
     }
 

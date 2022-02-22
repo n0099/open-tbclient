@@ -1,6 +1,6 @@
 package com.baidu.tieba.barselect.model;
 
-import c.a.t0.c0.b.a;
+import c.a.u0.c0.b.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.message.websockt.TbSocketReponsedMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;

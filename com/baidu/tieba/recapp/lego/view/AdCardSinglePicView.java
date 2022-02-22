@@ -4,8 +4,8 @@ import android.text.TextUtils;
 import android.view.View;
 import android.view.ViewGroup;
 import androidx.annotation.NonNull;
-import c.a.t0.k3.i0.b.d;
-import c.a.t0.y1.o.k.a;
+import c.a.u0.l3.i0.b.d;
+import c.a.u0.z1.o.k.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.widget.TbImageView;
@@ -16,7 +16,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public class AdCardSinglePicView extends AdCardBaseView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -48,8 +48,8 @@ public class AdCardSinglePicView extends AdCardBaseView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, adCard) == null) {
             d dVar = adCard.picInfo;
-            if (dVar != null && !a.e(dVar.f18877c)) {
-                String str = dVar.f18877c.get(0);
+            if (dVar != null && !a.e(dVar.f19311c)) {
+                String str = dVar.f19311c.get(0);
                 boolean resizeImage = resizeImage(this.y, adCard, dVar);
                 if (!TextUtils.isEmpty(str) && resizeImage) {
                     this.mCustomRoot.setVisibility(0);
@@ -106,13 +106,13 @@ public class AdCardSinglePicView extends AdCardBaseView {
             }
             int i2 = this.mMaxWidth;
             int i3 = (int) (i2 * d2);
-            int b2 = (int) (c.a.t0.k3.i0.c.a.b(i2) * d2);
+            int b2 = (int) (c.a.u0.l3.i0.c.a.b(i2) * d2);
             if (!adCard.isNeedResize()) {
                 setImageViewSize(tbImageView, b2, i3);
                 return true;
             }
-            int i4 = dVar.f18879e;
-            int i5 = dVar.f18878d;
+            int i4 = dVar.f19313e;
+            int i5 = dVar.f19312d;
             if (i3 > 0 && i4 > 0 && i5 > 0) {
                 int i6 = (i4 * i3) / i5;
                 if (i6 > i3) {

@@ -38,10 +38,10 @@ public final class SensorsDataUtils {
     public static String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final SimpleDateFormat f61623b;
+    public static final SimpleDateFormat f61790b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final List<String> f61624c;
+    public static final List<String> f61791c;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -57,7 +57,7 @@ public final class SensorsDataUtils {
                 return;
             }
         }
-        f61623b = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS", Locale.CHINA);
+        f61790b = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS", Locale.CHINA);
         new HashMap<String, String>() { // from class: dxm.sasdk.util.SensorsDataUtils.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -87,7 +87,7 @@ public final class SensorsDataUtils {
                 put("46011", "中国电信");
             }
         };
-        f61624c = new ArrayList<String>() { // from class: dxm.sasdk.util.SensorsDataUtils.2
+        f61791c = new ArrayList<String>() { // from class: dxm.sasdk.util.SensorsDataUtils.2
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -233,7 +233,7 @@ public final class SensorsDataUtils {
     public static boolean g(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65543, null, str)) == null) ? (TextUtils.isEmpty(str) || f61624c.contains(str.toLowerCase())) ? false : true : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65543, null, str)) == null) ? (TextUtils.isEmpty(str) || f61791c.contains(str.toLowerCase())) ? false : true : invokeL.booleanValue;
     }
 
     public static void h(JSONObject jSONObject, JSONObject jSONObject2) throws JSONException {
@@ -244,8 +244,8 @@ public final class SensorsDataUtils {
                 String next = keys.next();
                 Object obj = jSONObject.get(next);
                 if (obj instanceof Date) {
-                    synchronized (f61623b) {
-                        jSONObject2.put(next, f61623b.format((Date) obj));
+                    synchronized (f61790b) {
+                        jSONObject2.put(next, f61790b.format((Date) obj));
                     }
                 } else {
                     jSONObject2.put(next, obj);
@@ -262,7 +262,7 @@ public final class SensorsDataUtils {
             if (a(context, "android.permission.ACCESS_NETWORK_STATE")) {
                 ConnectivityManager connectivityManager = (ConnectivityManager) context.getSystemService("connectivity");
                 if (connectivityManager == null || (networkInfo = connectivityManager.getNetworkInfo(1)) == null || !networkInfo.isConnectedOrConnecting()) {
-                    if (Build.VERSION.SDK_INT < 30 || a(context, s.f55287c)) {
+                    if (Build.VERSION.SDK_INT < 30 || a(context, s.f55454c)) {
                         switch (((TelephonyManager) context.getSystemService("phone")).getNetworkType()) {
                             case 1:
                             case 2:

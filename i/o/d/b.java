@@ -12,10 +12,10 @@ public final class b<T> extends j<T> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: i  reason: collision with root package name */
-    public final i.n.b<? super T> f62057i;
+    public final i.n.b<? super T> f62224i;
 
     /* renamed from: j  reason: collision with root package name */
-    public final i.n.b<Throwable> f62058j;
+    public final i.n.b<Throwable> f62225j;
     public final i.n.a k;
 
     public b(i.n.b<? super T> bVar, i.n.b<Throwable> bVar2, i.n.a aVar) {
@@ -33,8 +33,8 @@ public final class b<T> extends j<T> {
                 return;
             }
         }
-        this.f62057i = bVar;
-        this.f62058j = bVar2;
+        this.f62224i = bVar;
+        this.f62225j = bVar2;
         this.k = aVar;
     }
 
@@ -50,7 +50,7 @@ public final class b<T> extends j<T> {
     public void onError(Throwable th) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, th) == null) {
-            this.f62058j.call(th);
+            this.f62225j.call(th);
         }
     }
 
@@ -58,7 +58,7 @@ public final class b<T> extends j<T> {
     public void onNext(T t) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, t) == null) {
-            this.f62057i.call(t);
+            this.f62224i.call(t);
         }
     }
 }

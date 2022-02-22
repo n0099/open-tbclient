@@ -16,13 +16,13 @@ public final class TurbonetContext {
     public TurbonetEngine a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Context f50287b;
+    public Context f50454b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f50288c;
+    public String f50455c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f50289d;
+    public String f50456d;
 
     public TurbonetContext(Context context, String str, String str2, TurbonetConfig turbonetConfig) {
         Interceptable interceptable = $ic;
@@ -39,19 +39,19 @@ public final class TurbonetContext {
                 return;
             }
         }
-        this.f50287b = context;
-        this.f50288c = str;
-        this.f50289d = str2;
+        this.f50454b = context;
+        this.f50455c = str;
+        this.f50456d = str2;
         a(turbonetConfig);
     }
 
     public final void a(TurbonetConfig turbonetConfig) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, turbonetConfig) == null) {
-            TurbonetEngine.Builder builder = new TurbonetEngine.Builder(this.f50287b);
+            TurbonetEngine.Builder builder = new TurbonetEngine.Builder(this.f50454b);
             if (turbonetConfig == null) {
-                builder.q(this.f50288c);
-                builder.p(this.f50289d);
+                builder.q(this.f50455c);
+                builder.p(this.f50456d);
                 this.a = builder.b();
                 return;
             }
@@ -65,8 +65,8 @@ public final class TurbonetContext {
             } catch (JSONException e2) {
                 String str = "JSON expcetion: " + e2;
             }
-            builder.q(this.f50288c);
-            builder.p(this.f50289d);
+            builder.q(this.f50455c);
+            builder.p(this.f50456d);
             builder.a(turbonetConfig.g().toString());
             this.a = builder.b();
         }

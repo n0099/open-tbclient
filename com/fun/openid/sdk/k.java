@@ -64,9 +64,9 @@ public class k implements f {
         if (Build.VERSION.SDK_INT >= 28) {
             if (packageInfo != null && packageInfo.getLongVersionCode() >= 1) {
                 z = true;
-                b.f54246b = z;
+                b.f54413b = z;
                 b.a = true;
-                if (!b.f54246b) {
+                if (!b.f54413b) {
                     FunOpenIDSdk.isLogEnabled();
                     aVar.a(false, null);
                     return;
@@ -79,10 +79,10 @@ public class k implements f {
                                 Intent intent = new Intent();
                                 intent.setComponent(new ComponentName("com.heytap.openid", "com.heytap.openid.IdentifyService"));
                                 intent.setAction("action.com.heytap.openid.OPEN_ID_SERVICE");
-                                if (applicationContext2.bindService(intent, cVar2.f54250e, 1)) {
-                                    synchronized (cVar2.f54249d) {
+                                if (applicationContext2.bindService(intent, cVar2.f54417e, 1)) {
+                                    synchronized (cVar2.f54416d) {
                                         try {
-                                            cVar2.f54249d.wait(3000L);
+                                            cVar2.f54416d.wait(3000L);
                                         } catch (InterruptedException e3) {
                                             e3.printStackTrace();
                                         }
@@ -108,17 +108,17 @@ public class k implements f {
                 }
             }
             z = false;
-            b.f54246b = z;
+            b.f54413b = z;
             b.a = true;
-            if (!b.f54246b) {
+            if (!b.f54413b) {
             }
         } else {
             if (packageInfo != null) {
             }
             z = false;
-            b.f54246b = z;
+            b.f54413b = z;
             b.a = true;
-            if (!b.f54246b) {
+            if (!b.f54413b) {
             }
         }
     }

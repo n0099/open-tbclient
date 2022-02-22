@@ -1,5 +1,5 @@
 package com.kwad.sdk.core.webview.kwai;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public interface c {
     void a(int i2, String str);
 

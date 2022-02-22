@@ -28,19 +28,19 @@ public class KSNativeAdVideoH5OpenView extends x {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public TextView f54192b;
+    public TextView f54359b;
 
     /* renamed from: c  reason: collision with root package name */
-    public FrameLayout f54193c;
+    public FrameLayout f54360c;
 
     /* renamed from: d  reason: collision with root package name */
-    public ImageView f54194d;
+    public ImageView f54361d;
 
     /* renamed from: e  reason: collision with root package name */
-    public TextView f54195e;
+    public TextView f54362e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Button f54196f;
+    public Button f54363f;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public KSNativeAdVideoH5OpenView(Context context) {
@@ -119,13 +119,13 @@ public class KSNativeAdVideoH5OpenView extends x {
                 ((ViewGroup) videoView.getParent()).removeView(videoView);
             }
             if (videoView != null) {
-                this.f54193c.removeAllViews();
-                this.f54193c.addView(videoView);
+                this.f54360c.removeAllViews();
+                this.f54360c.addView(videoView);
             }
-            this.f54194d.setImageBitmap(getSdkLogo());
-            this.f54192b.setText(ksNativeAd.getAdDescription());
-            this.f54195e.setText(ksNativeAd.getAdSource());
-            this.f54196f.setText(ksNativeAd.getActionDescription());
+            this.f54361d.setImageBitmap(getSdkLogo());
+            this.f54359b.setText(ksNativeAd.getAdDescription());
+            this.f54362e.setText(ksNativeAd.getAdSource());
+            this.f54363f.setText(ksNativeAd.getActionDescription());
         }
     }
 
@@ -134,11 +134,11 @@ public class KSNativeAdVideoH5OpenView extends x {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             super.onFinishInflate();
-            this.f54192b = (TextView) findViewById(R.id.ad_description);
-            this.f54193c = (FrameLayout) findViewById(R.id.ad_video);
-            this.f54194d = (ImageView) findViewById(R.id.ad_logo);
-            this.f54195e = (TextView) findViewById(R.id.ad_h5_description);
-            this.f54196f = (Button) findViewById(R.id.ad_h5_open);
+            this.f54359b = (TextView) findViewById(R.id.ad_description);
+            this.f54360c = (FrameLayout) findViewById(R.id.ad_video);
+            this.f54361d = (ImageView) findViewById(R.id.ad_logo);
+            this.f54362e = (TextView) findViewById(R.id.ad_h5_description);
+            this.f54363f = (Button) findViewById(R.id.ad_h5_open);
         }
     }
 
@@ -147,11 +147,11 @@ public class KSNativeAdVideoH5OpenView extends x {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIIII(Constants.METHOD_SEND_USER_MSG, this, i2, i3, i4, i5) == null) {
             super.onSizeChanged(i2, i3, i4, i5);
-            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.f54193c.getLayoutParams();
+            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.f54360c.getLayoutParams();
             int i6 = (i2 - layoutParams.leftMargin) - layoutParams.rightMargin;
             layoutParams.width = i6;
             layoutParams.height = (int) (i6 / 1.78f);
-            this.f54193c.setLayoutParams(layoutParams);
+            this.f54360c.setLayoutParams(layoutParams);
         }
     }
 }

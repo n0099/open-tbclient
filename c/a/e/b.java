@@ -12,7 +12,7 @@ public class b {
     public static final BdUniqueId a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final BdUniqueId f3565b;
+    public static final BdUniqueId f3561b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -29,6 +29,6 @@ public class b {
             }
         }
         a = BdUniqueId.gen();
-        f3565b = BdUniqueId.gen();
+        f3561b = BdUniqueId.gen();
     }
 }

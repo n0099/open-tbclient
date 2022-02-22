@@ -24,14 +24,14 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class DialogRecordDBManager extends DBBase {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "DialogRecordDBManager";
     public static DialogRecordDBManager mInstance;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public class Parse implements CursorParse {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -151,8 +151,8 @@ public class DialogRecordDBManager extends DBBase {
         return invokeL.longValue;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:77:0x0163  */
-    /* JADX WARN: Removed duplicated region for block: B:79:0x0168  */
+    /* JADX WARN: Removed duplicated region for block: B:77:0x0161  */
+    /* JADX WARN: Removed duplicated region for block: B:79:0x0166  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -323,10 +323,10 @@ public class DialogRecordDBManager extends DBBase {
     }
 
     /* JADX DEBUG: Another duplicated slice has different insns count: {[IF]}, finally: {[IF, INVOKE] complete} */
-    /* JADX WARN: Code restructure failed: missing block: B:20:0x004d, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:20:0x004c, code lost:
         if (0 == 0) goto L17;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:22:0x0050, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:22:0x004f, code lost:
         return r1;
      */
     /*
@@ -377,7 +377,7 @@ public class DialogRecordDBManager extends DBBase {
     }
 
     /* JADX DEBUG: Another duplicated slice has different insns count: {[IF]}, finally: {[IF, INVOKE] complete} */
-    /* JADX WARN: Removed duplicated region for block: B:28:0x006d A[DONT_GENERATE] */
+    /* JADX WARN: Removed duplicated region for block: B:28:0x006c A[DONT_GENERATE] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -453,10 +453,10 @@ public class DialogRecordDBManager extends DBBase {
         return (DialogRecord) invokeCommon.objValue;
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:25:0x0074, code lost:
-        if (r1 == null) goto L17;
+    /* JADX WARN: Code restructure failed: missing block: B:25:0x0073, code lost:
+        if (r1 == null) goto L16;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:27:0x0077, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:27:0x0076, code lost:
         return r0;
      */
     /*
@@ -493,14 +493,14 @@ public class DialogRecordDBManager extends DBBase {
                 }
                 String str = TAG;
                 LogUtils.i(str, "getUnCompleteItemCount : " + i2);
-            } catch (Exception e3) {
-                e = e3;
-                i2 = -1;
+            } finally {
+                if (0 != 0) {
+                    cursor.close();
+                }
             }
-        } finally {
-            if (0 != 0) {
-                cursor.close();
-            }
+        } catch (Exception e3) {
+            e = e3;
+            i2 = -1;
         }
     }
 }

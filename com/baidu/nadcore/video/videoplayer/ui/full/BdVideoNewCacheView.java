@@ -2,7 +2,7 @@ package com.baidu.nadcore.video.videoplayer.ui.full;
 
 import android.content.Context;
 import androidx.annotation.NonNull;
-import c.a.c0.v.v0.h;
+import c.a.d0.v.v0.h;
 import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;

@@ -29,7 +29,7 @@ public final class SecurePay {
     public static SecurePay a = null;
 
     /* renamed from: b  reason: collision with root package name */
-    public static boolean f53564b = true;
+    public static boolean f53731b = true;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -48,7 +48,7 @@ public final class SecurePay {
         try {
             System.loadLibrary("dxm_wsp_v1_1");
         } catch (UnsatisfiedLinkError e2) {
-            f53564b = false;
+            f53731b = false;
             String str = "load library failed, " + e2.getMessage();
         }
     }
@@ -239,7 +239,7 @@ public final class SecurePay {
     public boolean prepareCompleted() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) ? f53564b : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) ? f53731b : invokeV.booleanValue;
     }
 
     public native String rsaDecrypt(String str);

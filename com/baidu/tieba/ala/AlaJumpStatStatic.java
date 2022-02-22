@@ -1,6 +1,6 @@
 package com.baidu.tieba.ala;
 
-import c.a.s0.s0.l;
+import c.a.t0.s0.l;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.task.CustomMessageTask;

@@ -1,7 +1,7 @@
 package com.baidu.tieba.hottopicselect;
 
-import c.a.s0.s.r.a;
-import c.a.t0.s1.c;
+import c.a.t0.s.s.a;
+import c.a.u0.s1.c;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;

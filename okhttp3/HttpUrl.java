@@ -28,7 +28,7 @@ import kotlin.text.Typography;
 import okhttp3.internal.Util;
 import okhttp3.internal.publicsuffix.PublicSuffixDatabase;
 import okio.Buffer;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public final class HttpUrl {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String FORM_ENCODE_SET = " \"':;<=>@[]^`{}|/\\?#&!$(),~";
@@ -155,7 +155,7 @@ public final class HttpUrl {
                 }
                 sb.append(str);
                 if (str2 != null) {
-                    sb.append(a.f30893h);
+                    sb.append(a.f31099h);
                     sb.append(str2);
                 }
             }
@@ -579,7 +579,7 @@ public final class HttpUrl {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048607, this)) == null) ? this.username : (String) invokeV.objValue;
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static final class Builder {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String INVALID_HOST = "Invalid URL host";
@@ -929,8 +929,8 @@ public final class HttpUrl {
                     if (this.encodedQueryNamesAndValues == null) {
                         this.encodedQueryNamesAndValues = new ArrayList();
                     }
-                    this.encodedQueryNamesAndValues.add(HttpUrl.canonicalize(str, HttpUrl.QUERY_COMPONENT_ENCODE_SET, false, false, true, true));
-                    this.encodedQueryNamesAndValues.add(str2 != null ? HttpUrl.canonicalize(str2, HttpUrl.QUERY_COMPONENT_ENCODE_SET, false, false, true, true) : null);
+                    this.encodedQueryNamesAndValues.add(HttpUrl.canonicalize(str, " !\"#$&'(),/:;<=>?@[]\\^`{|}~", false, false, true, true));
+                    this.encodedQueryNamesAndValues.add(str2 != null ? HttpUrl.canonicalize(str2, " !\"#$&'(),/:;<=>?@[]\\^`{|}~", false, false, true, true) : null);
                     return this;
                 }
                 throw new NullPointerException("name == null");
@@ -1242,7 +1242,7 @@ public final class HttpUrl {
                     if (this.encodedQueryNamesAndValues == null) {
                         return this;
                     }
-                    removeAllCanonicalQueryParameters(HttpUrl.canonicalize(str, HttpUrl.QUERY_COMPONENT_ENCODE_SET, false, false, true, true));
+                    removeAllCanonicalQueryParameters(HttpUrl.canonicalize(str, " !\"#$&'(),/:;<=>?@[]\\^`{|}~", false, false, true, true));
                     return this;
                 }
                 throw new NullPointerException("name == null");

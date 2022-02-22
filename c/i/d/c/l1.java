@@ -19,16 +19,16 @@ public final class l1<T> {
     public final int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final Comparator<? super T> f30077b;
+    public final Comparator<? super T> f30283b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final T[] f30078c;
+    public final T[] f30284c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f30079d;
+    public int f30285d;
 
     /* renamed from: e  reason: collision with root package name */
-    public T f30080e;
+    public T f30286e;
 
     public l1(Comparator<? super T> comparator, int i2) {
         Interceptable interceptable = $ic;
@@ -46,12 +46,12 @@ public final class l1<T> {
             }
         }
         c.i.d.a.n.q(comparator, "comparator");
-        this.f30077b = comparator;
+        this.f30283b = comparator;
         this.a = i2;
         c.i.d.a.n.f(i2 >= 0, "k must be nonnegative, was %s", i2);
-        this.f30078c = (T[]) new Object[i2 * 2];
-        this.f30079d = 0;
-        this.f30080e = null;
+        this.f30284c = (T[]) new Object[i2 * 2];
+        this.f30285d = 0;
+        this.f30286e = null;
     }
 
     public static <T> l1<T> a(int i2, Comparator<? super T> comparator) {
@@ -68,23 +68,23 @@ public final class l1<T> {
         if (!(interceptable == null || interceptable.invokeL(1048576, this, t) == null) || (i2 = this.a) == 0) {
             return;
         }
-        int i3 = this.f30079d;
+        int i3 = this.f30285d;
         if (i3 == 0) {
-            this.f30078c[0] = t;
-            this.f30080e = t;
-            this.f30079d = 1;
+            this.f30284c[0] = t;
+            this.f30286e = t;
+            this.f30285d = 1;
         } else if (i3 < i2) {
-            T[] tArr = this.f30078c;
-            this.f30079d = i3 + 1;
+            T[] tArr = this.f30284c;
+            this.f30285d = i3 + 1;
             tArr[i3] = t;
-            if (this.f30077b.compare(t, (T) this.f30080e) > 0) {
-                this.f30080e = t;
+            if (this.f30283b.compare(t, (T) this.f30286e) > 0) {
+                this.f30286e = t;
             }
-        } else if (this.f30077b.compare(t, (T) this.f30080e) < 0) {
-            T[] tArr2 = this.f30078c;
-            int i4 = this.f30079d;
+        } else if (this.f30283b.compare(t, (T) this.f30286e) < 0) {
+            T[] tArr2 = this.f30284c;
+            int i4 = this.f30285d;
             int i5 = i4 + 1;
-            this.f30079d = i5;
+            this.f30285d = i5;
             tArr2[i4] = t;
             if (i5 == this.a * 2) {
                 g();
@@ -105,18 +105,18 @@ public final class l1<T> {
         InterceptResult invokeIII;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeIII = interceptable.invokeIII(Constants.METHOD_SEND_USER_MSG, this, i2, i3, i4)) == null) {
-            T[] tArr = this.f30078c;
+            T[] tArr = this.f30284c;
             T t = tArr[i4];
             tArr[i4] = tArr[i3];
             int i5 = i2;
             while (i2 < i3) {
-                if (this.f30077b.compare((Object) this.f30078c[i2], t) < 0) {
+                if (this.f30283b.compare((Object) this.f30284c[i2], t) < 0) {
                     e(i5, i2);
                     i5++;
                 }
                 i2++;
             }
-            T[] tArr2 = this.f30078c;
+            T[] tArr2 = this.f30284c;
             tArr2[i3] = tArr2[i5];
             tArr2[i5] = t;
             return i5;
@@ -127,7 +127,7 @@ public final class l1<T> {
     public final void e(int i2, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(1048579, this, i2, i3) == null) {
-            T[] tArr = this.f30078c;
+            T[] tArr = this.f30284c;
             T t = tArr[i2];
             tArr[i2] = tArr[i3];
             tArr[i3] = t;
@@ -138,17 +138,17 @@ public final class l1<T> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            Arrays.sort(this.f30078c, 0, this.f30079d, this.f30077b);
-            int i2 = this.f30079d;
+            Arrays.sort(this.f30284c, 0, this.f30285d, this.f30283b);
+            int i2 = this.f30285d;
             int i3 = this.a;
             if (i2 > i3) {
-                T[] tArr = this.f30078c;
+                T[] tArr = this.f30284c;
                 Arrays.fill(tArr, i3, tArr.length, (Object) null);
                 int i4 = this.a;
-                this.f30079d = i4;
-                this.f30080e = this.f30078c[i4 - 1];
+                this.f30285d = i4;
+                this.f30286e = this.f30284c[i4 - 1];
             }
-            return Collections.unmodifiableList(Arrays.asList(Arrays.copyOf(this.f30078c, this.f30079d)));
+            return Collections.unmodifiableList(Arrays.asList(Arrays.copyOf(this.f30284c, this.f30285d)));
         }
         return (List) invokeV.objValue;
     }
@@ -179,22 +179,22 @@ public final class l1<T> {
                 }
                 i4++;
                 if (i4 >= d2) {
-                    Arrays.sort(this.f30078c, i3, i2, this.f30077b);
+                    Arrays.sort(this.f30284c, i3, i2, this.f30283b);
                     break;
                 }
             } else {
                 break;
             }
         }
-        this.f30079d = this.a;
-        this.f30080e = this.f30078c[i5];
+        this.f30285d = this.a;
+        this.f30286e = this.f30284c[i5];
         while (true) {
             i5++;
             if (i5 >= this.a) {
                 return;
             }
-            if (this.f30077b.compare((Object) this.f30078c[i5], (T) this.f30080e) > 0) {
-                this.f30080e = this.f30078c[i5];
+            if (this.f30283b.compare((Object) this.f30284c[i5], (T) this.f30286e) > 0) {
+                this.f30286e = this.f30284c[i5];
             }
         }
     }

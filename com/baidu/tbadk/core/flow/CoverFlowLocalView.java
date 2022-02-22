@@ -9,8 +9,8 @@ import android.view.View;
 import android.widget.FrameLayout;
 import androidx.core.view.InputDeviceCompat;
 import androidx.viewpager.widget.ViewPager;
-import c.a.s0.s.w.b.a;
-import c.a.s0.s.w.b.e;
+import c.a.t0.s.x.b.a;
+import c.a.t0.s.x.b.e;
 import com.baidu.adp.widget.IndicatorView;
 import com.baidu.adp.widget.SwipeBackLayout;
 import com.baidu.android.imsdk.internal.Constants;
@@ -23,32 +23,32 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
 /* loaded from: classes11.dex */
-public class CoverFlowLocalView<T extends c.a.s0.s.w.b.a> extends FrameLayout {
+public class CoverFlowLocalView<T extends c.a.t0.s.x.b.a> extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public ListViewPager f40259e;
+    public ListViewPager f40488e;
 
     /* renamed from: f  reason: collision with root package name */
-    public IndicatorView f40260f;
+    public IndicatorView f40489f;
 
     /* renamed from: g  reason: collision with root package name */
-    public c.a.s0.s.w.b.c f40261g;
+    public c.a.t0.s.x.b.c f40490g;
 
     /* renamed from: h  reason: collision with root package name */
-    public View f40262h;
+    public View f40491h;
 
     /* renamed from: i  reason: collision with root package name */
-    public CoverFlowLocalAdapter<T> f40263i;
+    public CoverFlowLocalAdapter<T> f40492i;
 
     /* renamed from: j  reason: collision with root package name */
-    public c.a.s0.s.w.a f40264j;
+    public c.a.t0.s.x.a f40493j;
     public CoverFlowLocalView<T>.b k;
     public boolean l;
     public boolean m;
     public boolean n;
-    public c.a.s0.s.w.b.d<T> o;
+    public c.a.t0.s.x.b.d<T> o;
     public CoverFlowLocalView<T>.d p;
     public CoverFlowLocalView<T>.c q;
     public boolean r;
@@ -108,7 +108,7 @@ public class CoverFlowLocalView<T extends c.a.s0.s.w.b.a> extends FrameLayout {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ CoverFlowLocalView f40265e;
+        public final /* synthetic */ CoverFlowLocalView f40494e;
 
         public c(CoverFlowLocalView coverFlowLocalView) {
             Interceptable interceptable = $ic;
@@ -125,74 +125,74 @@ public class CoverFlowLocalView<T extends c.a.s0.s.w.b.a> extends FrameLayout {
                     return;
                 }
             }
-            this.f40265e = coverFlowLocalView;
+            this.f40494e = coverFlowLocalView;
         }
 
         @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
         public void onPageScrollStateChanged(int i2) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeI(1048576, this, i2) == null) || this.f40265e.f40259e == null || this.f40265e.f40263i == null) {
+            if (!(interceptable == null || interceptable.invokeI(1048576, this, i2) == null) || this.f40494e.f40488e == null || this.f40494e.f40492i == null) {
                 return;
             }
             if (i2 != 0) {
-                if (i2 == 1 && !this.f40265e.m) {
-                    this.f40265e.stopMarqueen();
-                    this.f40265e.m();
+                if (i2 == 1 && !this.f40494e.m) {
+                    this.f40494e.stopMarqueen();
+                    this.f40494e.m();
                 }
-            } else if (this.f40265e.n) {
-                this.f40265e.n();
+            } else if (this.f40494e.n) {
+                this.f40494e.n();
             }
         }
 
-        /* JADX DEBUG: Multi-variable search result rejected for r7v29, resolved type: c.a.s0.s.w.b.d */
+        /* JADX DEBUG: Multi-variable search result rejected for r7v29, resolved type: c.a.t0.s.x.b.d */
         /* JADX WARN: Multi-variable type inference failed */
         @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
         public void onPageScrolled(int i2, float f2, int i3) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i2), Float.valueOf(f2), Integer.valueOf(i3)}) == null) || this.f40265e.f40260f == null || this.f40265e.f40263i == null) {
+            if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i2), Float.valueOf(f2), Integer.valueOf(i3)}) == null) || this.f40494e.f40489f == null || this.f40494e.f40492i == null) {
                 return;
             }
-            if (this.f40265e.f40263i.getCount() == 1 && i2 == 0 && this.f40265e.o != null) {
-                this.f40265e.o.a(1, this.f40265e.f40263i.getItem(i2));
+            if (this.f40494e.f40492i.getCount() == 1 && i2 == 0 && this.f40494e.o != null) {
+                this.f40494e.o.a(1, this.f40494e.f40492i.getItem(i2));
             }
-            if (this.f40265e.f40260f.getVisibility() != 0 || this.f40265e.l) {
+            if (this.f40494e.f40489f.getVisibility() != 0 || this.f40494e.l) {
                 return;
             }
-            if (this.f40265e.r) {
-                int count = this.f40265e.f40263i.getCount();
+            if (this.f40494e.r) {
+                int count = this.f40494e.f40492i.getCount();
                 if (i2 == 0) {
-                    this.f40265e.f40260f.setPosition((count - 3) + f2);
+                    this.f40494e.f40489f.setPosition((count - 3) + f2);
                     return;
                 } else if (i2 == count - 1) {
-                    this.f40265e.f40260f.setPosition(f2);
+                    this.f40494e.f40489f.setPosition(f2);
                     return;
                 } else {
-                    this.f40265e.f40260f.setPosition((i2 - 1) + f2);
+                    this.f40494e.f40489f.setPosition((i2 - 1) + f2);
                     return;
                 }
             }
-            this.f40265e.f40260f.setPosition(i2 + f2);
+            this.f40494e.f40489f.setPosition(i2 + f2);
         }
 
-        /* JADX DEBUG: Multi-variable search result rejected for r0v12, resolved type: c.a.s0.s.w.b.d */
+        /* JADX DEBUG: Multi-variable search result rejected for r0v12, resolved type: c.a.t0.s.x.b.d */
         /* JADX WARN: Multi-variable type inference failed */
         @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
         public void onPageSelected(int i2) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) || this.f40265e.f40263i == null) {
+            if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) || this.f40494e.f40492i == null) {
                 return;
             }
-            int count = this.f40265e.f40263i.getCount();
+            int count = this.f40494e.f40492i.getCount();
             if (i2 < 0 || i2 >= count) {
                 return;
             }
-            if (this.f40265e.l) {
-                this.f40265e.setIndicatorSelected(i2);
+            if (this.f40494e.l) {
+                this.f40494e.setIndicatorSelected(i2);
             }
-            if (this.f40265e.o == null) {
+            if (this.f40494e.o == null) {
                 return;
             }
-            this.f40265e.o.a(i2, this.f40265e.f40263i.getItem(i2));
+            this.f40494e.o.a(i2, this.f40494e.f40492i.getItem(i2));
         }
 
         public /* synthetic */ c(CoverFlowLocalView coverFlowLocalView, a aVar) {
@@ -206,7 +206,7 @@ public class CoverFlowLocalView<T extends c.a.s0.s.w.b.a> extends FrameLayout {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ CoverFlowLocalView f40266e;
+        public final /* synthetic */ CoverFlowLocalView f40495e;
 
         public d(CoverFlowLocalView coverFlowLocalView) {
             Interceptable interceptable = $ic;
@@ -223,18 +223,18 @@ public class CoverFlowLocalView<T extends c.a.s0.s.w.b.a> extends FrameLayout {
                     return;
                 }
             }
-            this.f40266e = coverFlowLocalView;
+            this.f40495e = coverFlowLocalView;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             int intValue;
-            c.a.s0.s.w.b.a item;
+            c.a.t0.s.x.b.a item;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f40266e.o == null || !(view.getTag() instanceof Integer) || (item = this.f40266e.f40263i.getItem((intValue = ((Integer) view.getTag()).intValue()))) == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f40495e.o == null || !(view.getTag() instanceof Integer) || (item = this.f40495e.f40492i.getItem((intValue = ((Integer) view.getTag()).intValue()))) == null) {
                 return;
             }
-            this.f40266e.o.b(intValue, item.b());
+            this.f40495e.o.b(intValue, item.b());
         }
 
         public /* synthetic */ d(CoverFlowLocalView coverFlowLocalView, a aVar) {
@@ -260,7 +260,7 @@ public class CoverFlowLocalView<T extends c.a.s0.s.w.b.a> extends FrameLayout {
                 return;
             }
         }
-        this.f40262h = null;
+        this.f40491h = null;
         this.k = new b(this, null);
         this.l = false;
         this.m = true;
@@ -282,19 +282,19 @@ public class CoverFlowLocalView<T extends c.a.s0.s.w.b.a> extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(65552, this, i2) == null) {
             if (this.r) {
-                int count = this.f40263i.getCount();
+                int count = this.f40492i.getCount();
                 if (i2 == 0) {
-                    this.f40260f.setPosition(0.0f);
+                    this.f40489f.setPosition(0.0f);
                     return;
                 } else if (i2 == count - 1) {
-                    this.f40260f.setPosition(i2);
+                    this.f40489f.setPosition(i2);
                     return;
                 } else {
-                    this.f40260f.setPosition(i2 - 1);
+                    this.f40489f.setPosition(i2 - 1);
                     return;
                 }
             }
-            this.f40260f.setPosition(i2);
+            this.f40489f.setPosition(i2);
         }
     }
 
@@ -309,7 +309,7 @@ public class CoverFlowLocalView<T extends c.a.s0.s.w.b.a> extends FrameLayout {
     public void clearData() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f40263i.clear();
+            this.f40492i.clear();
         }
     }
 
@@ -317,7 +317,7 @@ public class CoverFlowLocalView<T extends c.a.s0.s.w.b.a> extends FrameLayout {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) {
-            CoverFlowLocalAdapter<T> coverFlowLocalAdapter = this.f40263i;
+            CoverFlowLocalAdapter<T> coverFlowLocalAdapter = this.f40492i;
             if (coverFlowLocalAdapter == null) {
                 return null;
             }
@@ -331,18 +331,18 @@ public class CoverFlowLocalView<T extends c.a.s0.s.w.b.a> extends FrameLayout {
         int count;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            CoverFlowLocalAdapter<T> coverFlowLocalAdapter = this.f40263i;
+            CoverFlowLocalAdapter<T> coverFlowLocalAdapter = this.f40492i;
             if (coverFlowLocalAdapter == null || !this.r || (count = coverFlowLocalAdapter.getCount()) <= 1) {
                 return false;
             }
-            int currentItem = this.f40259e.getCurrentItem();
+            int currentItem = this.f40488e.getCurrentItem();
             int i2 = count - 2;
             if (currentItem < 1) {
-                this.f40259e.setCurrentItem(i2, false);
-                this.f40259e.invalidate();
+                this.f40488e.setCurrentItem(i2, false);
+                this.f40488e.invalidate();
             } else if (currentItem > i2) {
-                this.f40259e.setCurrentItem(1, false);
-                this.f40259e.invalidate();
+                this.f40488e.setCurrentItem(1, false);
+                this.f40488e.invalidate();
             }
             return true;
         }
@@ -361,28 +361,28 @@ public class CoverFlowLocalView<T extends c.a.s0.s.w.b.a> extends FrameLayout {
         if (interceptable == null || interceptable.invokeL(1048581, this, context) == null) {
             q(context);
             p(context);
-            setCoverFlowFactory(new c.a.s0.s.w.b.b());
-            addView(this.f40259e);
-            addView(this.f40260f);
+            setCoverFlowFactory(new c.a.t0.s.x.b.b());
+            addView(this.f40488e);
+            addView(this.f40489f);
             CoverFlowLocalAdapter<T> coverFlowLocalAdapter = new CoverFlowLocalAdapter<>(context);
-            this.f40263i = coverFlowLocalAdapter;
+            this.f40492i = coverFlowLocalAdapter;
             coverFlowLocalAdapter.setOnClickListener(this.p);
-            this.f40259e.setAdapter(this.f40263i);
-            this.f40259e.setOnPageChangeListener(this.q);
+            this.f40488e.setAdapter(this.f40492i);
+            this.f40488e.setOnPageChangeListener(this.q);
         }
     }
 
     public void onChangeSkinType() {
-        c.a.s0.s.w.b.c cVar;
+        c.a.t0.s.x.b.c cVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            this.f40263i.onChangeSkinType();
-            IndicatorView indicatorView = this.f40260f;
-            if (indicatorView == null || (cVar = this.f40261g) == null) {
+            this.f40492i.onChangeSkinType();
+            IndicatorView indicatorView = this.f40489f;
+            if (indicatorView == null || (cVar = this.f40490g) == null) {
                 return;
             }
             indicatorView.setDrawable(SkinManager.getDrawable(cVar.a()));
-            this.f40260f.setSelector(SkinManager.getDrawable(this.f40261g.b()));
+            this.f40489f.setSelector(SkinManager.getDrawable(this.f40490g.b()));
         }
     }
 
@@ -390,7 +390,7 @@ public class CoverFlowLocalView<T extends c.a.s0.s.w.b.a> extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, context) == null) {
             IndicatorView indicatorView = new IndicatorView(context);
-            this.f40260f = indicatorView;
+            this.f40489f = indicatorView;
             indicatorView.setLayoutParams(new FrameLayout.LayoutParams(-2, -2));
         }
     }
@@ -398,7 +398,7 @@ public class CoverFlowLocalView<T extends c.a.s0.s.w.b.a> extends FrameLayout {
     public final void q(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, context) == null) {
-            this.f40259e = new ListViewPager(context);
+            this.f40488e = new ListViewPager(context);
         }
     }
 
@@ -406,19 +406,19 @@ public class CoverFlowLocalView<T extends c.a.s0.s.w.b.a> extends FrameLayout {
         CoverFlowLocalAdapter<T> coverFlowLocalAdapter;
         int count;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048585, this) == null) || this.f40259e == null || (coverFlowLocalAdapter = this.f40263i) == null || (count = coverFlowLocalAdapter.getCount()) <= 1) {
+        if (!(interceptable == null || interceptable.invokeV(1048585, this) == null) || this.f40488e == null || (coverFlowLocalAdapter = this.f40492i) == null || (count = coverFlowLocalAdapter.getCount()) <= 1) {
             return;
         }
-        int currentItem = this.f40259e.getCurrentItem();
+        int currentItem = this.f40488e.getCurrentItem();
         int i2 = count - 2;
         if (currentItem < 1) {
-            this.f40259e.setCurrentItem(i2, false);
+            this.f40488e.setCurrentItem(i2, false);
         } else if (currentItem > i2) {
-            this.f40259e.setCurrentItem(1, false);
+            this.f40488e.setCurrentItem(1, false);
         } else {
-            this.f40259e.setCurrentItem(currentItem + 1);
+            this.f40488e.setCurrentItem(currentItem + 1);
         }
-        this.f40259e.invalidate();
+        this.f40488e.invalidate();
     }
 
     public void resetMarqueen() {
@@ -436,7 +436,7 @@ public class CoverFlowLocalView<T extends c.a.s0.s.w.b.a> extends FrameLayout {
         }
     }
 
-    public void setCallback(c.a.s0.s.w.b.d<T> dVar) {
+    public void setCallback(c.a.t0.s.x.b.d<T> dVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048588, this, dVar) == null) {
             this.o = dVar;
@@ -447,30 +447,30 @@ public class CoverFlowLocalView<T extends c.a.s0.s.w.b.a> extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048589, this, z) == null) {
             this.r = z;
-            CoverFlowLocalAdapter<T> coverFlowLocalAdapter = this.f40263i;
+            CoverFlowLocalAdapter<T> coverFlowLocalAdapter = this.f40492i;
             if (coverFlowLocalAdapter != null) {
                 coverFlowLocalAdapter.setCanRepeat(z);
             }
         }
     }
 
-    public void setCoverFlowFactory(c.a.s0.s.w.a aVar) {
+    public void setCoverFlowFactory(c.a.t0.s.x.a aVar) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(1048590, this, aVar) == null) || aVar == null) {
             return;
         }
-        this.f40264j = aVar;
-        c.a.s0.s.w.b.c a2 = aVar.a();
-        this.f40261g = a2;
-        a2.i(this.f40260f);
-        aVar.c().b(this.f40259e);
+        this.f40493j = aVar;
+        c.a.t0.s.x.b.c a2 = aVar.a();
+        this.f40490g = a2;
+        a2.i(this.f40489f);
+        aVar.c().b(this.f40488e);
         View b2 = aVar.b();
-        this.f40262h = b2;
+        this.f40491h = b2;
         if (b2 != null) {
             removeAllViews();
-            addView(this.f40259e);
-            addView(this.f40262h);
-            addView(this.f40260f);
+            addView(this.f40488e);
+            addView(this.f40491h);
+            addView(this.f40489f);
         }
     }
 
@@ -479,30 +479,30 @@ public class CoverFlowLocalView<T extends c.a.s0.s.w.b.a> extends FrameLayout {
         if (!(interceptable == null || interceptable.invokeL(1048591, this, list) == null) || list == null || list.isEmpty()) {
             return;
         }
-        this.f40263i.setData(list, this.f40264j);
+        this.f40492i.setData(list, this.f40493j);
         int size = list.size();
         if (size > 1) {
-            this.f40260f.setVisibility(0);
-            this.f40260f.setCount(size);
-            this.f40259e.setCurrentItem(0, false);
-            this.f40260f.setPosition(0.0f);
+            this.f40489f.setVisibility(0);
+            this.f40489f.setCount(size);
+            this.f40488e.setCurrentItem(0, false);
+            this.f40489f.setPosition(0.0f);
             if (this.n) {
                 startMarqueen();
                 return;
             }
             return;
         }
-        this.f40260f.setVisibility(8);
-        this.f40260f.setCount(size);
-        this.f40259e.setCurrentItem(0, false);
-        this.f40260f.setPosition(0.0f);
+        this.f40489f.setVisibility(8);
+        this.f40489f.setCount(size);
+        this.f40488e.setCurrentItem(0, false);
+        this.f40489f.setPosition(0.0f);
         stopMarqueen();
     }
 
     public void setDisableParentEvent(boolean z) {
         ListViewPager listViewPager;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048592, this, z) == null) || (listViewPager = this.f40259e) == null) {
+        if (!(interceptable == null || interceptable.invokeZ(1048592, this, z) == null) || (listViewPager = this.f40488e) == null) {
             return;
         }
         listViewPager.setDisableParentEvent(z);
@@ -518,7 +518,7 @@ public class CoverFlowLocalView<T extends c.a.s0.s.w.b.a> extends FrameLayout {
     public void setIndicatorVisible(int i2) {
         IndicatorView indicatorView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048594, this, i2) == null) || (indicatorView = this.f40260f) == null) {
+        if (!(interceptable == null || interceptable.invokeI(1048594, this, i2) == null) || (indicatorView = this.f40489f) == null) {
             return;
         }
         indicatorView.setVisibility(i2);
@@ -542,7 +542,7 @@ public class CoverFlowLocalView<T extends c.a.s0.s.w.b.a> extends FrameLayout {
     public void setPageMargin(int i2) {
         ListViewPager listViewPager;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048597, this, i2) == null) || (listViewPager = this.f40259e) == null) {
+        if (!(interceptable == null || interceptable.invokeI(1048597, this, i2) == null) || (listViewPager = this.f40488e) == null) {
             return;
         }
         listViewPager.setPageMargin(i2);
@@ -551,7 +551,7 @@ public class CoverFlowLocalView<T extends c.a.s0.s.w.b.a> extends FrameLayout {
     public void setSwipeControlInterface(SwipeBackLayout.c cVar) {
         ListViewPager listViewPager;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048598, this, cVar) == null) || (listViewPager = this.f40259e) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048598, this, cVar) == null) || (listViewPager = this.f40488e) == null) {
             return;
         }
         listViewPager.setSwipeControlInterface(cVar);
@@ -574,7 +574,7 @@ public class CoverFlowLocalView<T extends c.a.s0.s.w.b.a> extends FrameLayout {
     public void updateViewPager(e eVar) {
         ListViewPager listViewPager;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048601, this, eVar) == null) || eVar == null || (listViewPager = this.f40259e) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048601, this, eVar) == null) || eVar == null || (listViewPager = this.f40488e) == null) {
             return;
         }
         eVar.b(listViewPager);
@@ -599,7 +599,7 @@ public class CoverFlowLocalView<T extends c.a.s0.s.w.b.a> extends FrameLayout {
                 return;
             }
         }
-        this.f40262h = null;
+        this.f40491h = null;
         this.k = new b(this, null);
         this.l = false;
         this.m = true;
@@ -629,7 +629,7 @@ public class CoverFlowLocalView<T extends c.a.s0.s.w.b.a> extends FrameLayout {
                 return;
             }
         }
-        this.f40262h = null;
+        this.f40491h = null;
         this.k = new b(this, null);
         this.l = false;
         this.m = true;

@@ -6,8 +6,8 @@ import android.graphics.Paint;
 import android.graphics.RectF;
 import android.util.AttributeSet;
 import android.view.View;
-import c.a.t0.p4.d;
-import c.a.t0.p4.e;
+import c.a.u0.s4.d;
+import c.a.u0.s4.e;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -19,22 +19,22 @@ public class AlbumCompressProgressView extends View {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f49698e;
+    public int f49865e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f49699f;
+    public int f49866f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f49700g;
+    public int f49867g;
 
     /* renamed from: h  reason: collision with root package name */
-    public Paint f49701h;
+    public Paint f49868h;
 
     /* renamed from: i  reason: collision with root package name */
-    public Paint f49702i;
+    public Paint f49869i;
 
     /* renamed from: j  reason: collision with root package name */
-    public RectF f49703j;
+    public RectF f49870j;
     public int k;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -63,24 +63,24 @@ public class AlbumCompressProgressView extends View {
     public void init() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f49698e = getResources().getDimensionPixelSize(e.ds100);
-            this.f49699f = getResources().getDimensionPixelSize(e.ds4);
-            this.f49700g = getResources().getDimensionPixelSize(e.ds2);
+            this.f49865e = getResources().getDimensionPixelSize(e.ds100);
+            this.f49866f = getResources().getDimensionPixelSize(e.ds4);
+            this.f49867g = getResources().getDimensionPixelSize(e.ds2);
             Paint paint = new Paint();
-            this.f49701h = paint;
-            paint.setStrokeWidth(this.f49699f);
-            this.f49701h.setColor(getResources().getColor(d.CAM_X0201));
-            this.f49701h.setStyle(Paint.Style.STROKE);
-            this.f49701h.setAntiAlias(true);
+            this.f49868h = paint;
+            paint.setStrokeWidth(this.f49866f);
+            this.f49868h.setColor(getResources().getColor(d.CAM_X0201));
+            this.f49868h.setStyle(Paint.Style.STROKE);
+            this.f49868h.setAntiAlias(true);
             Paint paint2 = new Paint();
-            this.f49702i = paint2;
-            paint2.setStrokeWidth(this.f49700g);
-            this.f49702i.setColor(getResources().getColor(d.CAM_X0101));
-            this.f49702i.setStyle(Paint.Style.STROKE);
-            this.f49702i.setAntiAlias(true);
-            int i2 = this.f49699f;
-            int i3 = this.f49698e;
-            this.f49703j = new RectF(i2, i2, i3 + i2, i3 + i2);
+            this.f49869i = paint2;
+            paint2.setStrokeWidth(this.f49867g);
+            this.f49869i.setColor(getResources().getColor(d.CAM_X0101));
+            this.f49869i.setStyle(Paint.Style.STROKE);
+            this.f49869i.setAntiAlias(true);
+            int i2 = this.f49866f;
+            int i3 = this.f49865e;
+            this.f49870j = new RectF(i2, i2, i3 + i2, i3 + i2);
         }
     }
 
@@ -88,8 +88,8 @@ public class AlbumCompressProgressView extends View {
     public void onDraw(Canvas canvas) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, canvas) == null) {
-            canvas.drawArc(this.f49703j, 270.0f, 360.0f, false, this.f49702i);
-            canvas.drawArc(this.f49703j, 270.0f, (this.k * 360) / 100, false, this.f49701h);
+            canvas.drawArc(this.f49870j, 270.0f, 360.0f, false, this.f49869i);
+            canvas.drawArc(this.f49870j, 270.0f, (this.k * 360) / 100, false, this.f49868h);
         }
     }
 

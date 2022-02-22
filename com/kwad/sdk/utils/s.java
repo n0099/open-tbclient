@@ -4,16 +4,16 @@ import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class s {
     public static final Map<Class<?>, Class<?>> a;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class a<T> {
         public final Class<? extends T> a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final T f58003b;
+        public final T f58170b;
     }
 
     static {
@@ -176,7 +176,7 @@ public class s {
             if (obj == null || !(obj instanceof a)) {
                 objArr2[i2] = obj;
             } else {
-                objArr2[i2] = ((a) obj).f58003b;
+                objArr2[i2] = ((a) obj).f58170b;
             }
         }
         return objArr2;

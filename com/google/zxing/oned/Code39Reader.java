@@ -2,6 +2,7 @@ package com.google.zxing.oned;
 
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.pass.face.platform.utils.FileUtils;
+import com.baidu.tieba.advert.sdk.stretagy.SplashNativePolicy;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -49,7 +50,7 @@ public final class Code39Reader extends OneDReader {
                 return;
             }
         }
-        int[] iArr = {52, QRScanCodeActivity.DIALOG_TXT_COPY, 97, 352, 49, 304, 112, 37, 292, 100, 265, 73, 328, 25, InstallActivity.BOX_SIZE_DP, 88, 13, w0.W, 76, 28, 259, 67, 322, 19, 274, 82, 7, 262, 70, 22, 385, 193, FileUtils.S_IRWXU, w0.n, 400, 208, 133, 388, 196, 148, w0.d0, 162, 138, 42};
+        int[] iArr = {52, QRScanCodeActivity.DIALOG_TXT_COPY, 97, 352, 49, 304, 112, 37, 292, 100, 265, 73, 328, 25, InstallActivity.BOX_SIZE_DP, 88, 13, w0.W, 76, 28, 259, 67, 322, 19, 274, 82, 7, 262, 70, 22, 385, 193, FileUtils.S_IRWXU, w0.n, 400, 208, SplashNativePolicy.SPLASH_CMD_ERROR, 388, 196, 148, w0.d0, 162, 138, 42};
         CHARACTER_ENCODINGS = iArr;
         ASTERISK_ENCODING = iArr[39];
     }

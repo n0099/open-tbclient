@@ -98,7 +98,7 @@ public class f0 extends k {
         if (interceptable == null || interceptable.invokeL(1048576, this, funAdSlot) == null) {
             AdSlot.Builder downloadType = new AdSlot.Builder().setCodeId(this.mPid.pid).setSupportDeepLink(true).setDownloadType(FunAdSdk.getFunAdConfig().downLoadType);
             Ssp.Pid pid = this.mPid;
-            this.f28245h.loadFeedAd(downloadType.setImageAcceptedSize(pid.width, pid.height).setAdCount(NumberUtils.adjustInt(funAdSlot.getAdCount(), 1, 3)).build(), new a(this));
+            this.f28451h.loadFeedAd(downloadType.setImageAcceptedSize(pid.width, pid.height).setAdCount(NumberUtils.adjustInt(funAdSlot.getAdCount(), 1, 3)).build(), new a(this));
         }
     }
 }

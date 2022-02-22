@@ -34,19 +34,19 @@ public class ResponseException {
     public static boolean isCancel(Exception exc) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, exc)) == null) ? (exc == null || TextUtils.isEmpty(exc.getMessage()) || !exc.getMessage().contains(CANCELED)) ? false : true : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, exc)) == null) ? (exc == null || TextUtils.isEmpty(exc.getMessage()) || !exc.getMessage().contains("Canceled")) ? false : true : invokeL.booleanValue;
     }
 
     public static boolean isNoNetwork(Exception exc) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, exc)) == null) ? (exc == null || TextUtils.isEmpty(exc.getMessage()) || !exc.getMessage().startsWith(NO_NETWORK)) ? false : true : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, exc)) == null) ? (exc == null || TextUtils.isEmpty(exc.getMessage()) || !exc.getMessage().startsWith(" no network connected")) ? false : true : invokeL.booleanValue;
     }
 
     public static boolean isOnlyWifiException(Exception exc) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, exc)) == null) ? exc != null && ONLY_WIFI_EXECUTE.equals(exc.getMessage()) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, exc)) == null) ? exc != null && " only allow wifi connected".equals(exc.getMessage()) : invokeL.booleanValue;
     }
 
     public static boolean isTimeoutException(Exception exc) {

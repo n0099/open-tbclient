@@ -10,9 +10,9 @@ import android.os.Process;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
-import c.a.r0.a.k;
-import c.a.r0.g.o.a.a;
-import c.a.r0.g.o.b.c;
+import c.a.s0.a.k;
+import c.a.s0.g.o.a.a;
+import c.a.s0.g.o.b.c;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.swan.facade.provider.processor.ProcessorInfo;
@@ -88,7 +88,7 @@ public class SwanContentProvider extends ContentProvider {
                 return true;
             }
             String a = c.a(callingPackage);
-            Set<String> a2 = c.a.r0.d.g.c.e().a();
+            Set<String> a2 = c.a.s0.d.g.c.e().a();
             z = (a2 == null || !a2.contains(a)) ? false : false;
             if (z) {
                 sAccreditedSet.add(callingPackage);

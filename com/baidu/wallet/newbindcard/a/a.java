@@ -5,7 +5,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.wallet.newbindcard.b.c;
 import com.baidu.wallet.newbindcard.ui.NewBindCardMainActivity;
-/* loaded from: classes13.dex */
+/* loaded from: classes2.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

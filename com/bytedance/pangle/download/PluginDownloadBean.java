@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
 import org.apache.commons.lang3.text.ExtendedMessageFormat;
 @Keep
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class PluginDownloadBean {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

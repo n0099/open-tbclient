@@ -16,10 +16,10 @@ public class CloseAdData extends OrmObject {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f40898e;
+    public int f41127e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f40899f;
+    public int f41128f;
 
     public CloseAdData() {
         Interceptable interceptable = $ic;
@@ -34,7 +34,7 @@ public class CloseAdData extends OrmObject {
                 return;
             }
         }
-        this.f40898e = 1;
+        this.f41127e = 1;
     }
 
     public void parseJson(JSONObject jSONObject) {
@@ -42,20 +42,20 @@ public class CloseAdData extends OrmObject {
         if (!(interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) || jSONObject == null) {
             return;
         }
-        this.f40898e = jSONObject.optInt("is_open");
-        this.f40899f = jSONObject.optInt("vip_close");
+        this.f41127e = jSONObject.optInt("is_open");
+        this.f41128f = jSONObject.optInt("vip_close");
     }
 
     public int w() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f40898e : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f41127e : invokeV.intValue;
     }
 
     public int x() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f40899f : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f41128f : invokeV.intValue;
     }
 
     public void y(VipCloseAd vipCloseAd) {
@@ -63,7 +63,7 @@ public class CloseAdData extends OrmObject {
         if (!(interceptable == null || interceptable.invokeL(1048579, this, vipCloseAd) == null) || vipCloseAd == null) {
             return;
         }
-        this.f40898e = vipCloseAd.is_open.intValue();
-        this.f40899f = vipCloseAd.vip_close.intValue();
+        this.f41127e = vipCloseAd.is_open.intValue();
+        this.f41128f = vipCloseAd.vip_close.intValue();
     }
 }

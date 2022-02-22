@@ -17,8 +17,8 @@ import c.a.d.a.g;
 import c.a.d.a.i;
 import c.a.d.f.l.d;
 import c.a.d.f.p.n;
-import c.a.d.g.a.h;
-import c.a.d.n.e.q;
+import c.a.d.h.a.h;
+import c.a.d.o.e.q;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.MessageListener;
@@ -30,7 +30,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public abstract class BdBaseActivity<T> extends Activity implements View.OnClickListener, g<T>, View.OnLongClickListener, AdapterView.OnItemClickListener, AdapterView.OnItemLongClickListener, DialogInterface.OnClickListener, i, Handler.Callback {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int PRELOAD_DELAY = 100;
@@ -40,13 +40,13 @@ public abstract class BdBaseActivity<T> extends Activity implements View.OnClick
     public boolean mIsScroll;
     public final Runnable preLoadRunnable;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ BdBaseActivity f31172e;
+        public final /* synthetic */ BdBaseActivity f31378e;
 
         public a(BdBaseActivity bdBaseActivity) {
             Interceptable interceptable = $ic;
@@ -63,14 +63,14 @@ public abstract class BdBaseActivity<T> extends Activity implements View.OnClick
                     return;
                 }
             }
-            this.f31172e = bdBaseActivity;
+            this.f31378e = bdBaseActivity;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                BdBaseActivity bdBaseActivity = this.f31172e;
+                BdBaseActivity bdBaseActivity = this.f31378e;
                 bdBaseActivity.onPreLoad(bdBaseActivity.onGetPreLoadListView());
             }
         }

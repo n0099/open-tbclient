@@ -1,9 +1,9 @@
 package com.baidu.searchbox.task.sync.appcreate;
 
 import androidx.lifecycle.ProcessLifecycleOwner;
-import c.a.s0.d1.k0;
-import c.a.s0.d1.n0;
-import c.a.s0.s.j;
+import c.a.t0.d1.l0;
+import c.a.t0.d1.o0;
+import c.a.t0.s.k;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.adp.lib.featureSwitch.SwitchManager;
@@ -14,6 +14,7 @@ import com.baidu.tbadk.core.growthFunnel.GrowthAppLifecycleObserver;
 import com.baidu.tbadk.core.util.FileHelper;
 import com.baidu.tbadk.core.util.InputMethodManagerLeaksFixer;
 import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.util.ForeBackLifecycleMonitorUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -42,7 +43,7 @@ public class InitLaunchSyncTask extends LaunchTask {
     private void cleanDirectoryNewStatIfNeed() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(65537, this) == null) && TbadkCoreApplication.getInst().isMainProcess(true) && TbadkCoreApplication.getInst().getIsFirstUse()) {
-            n0.b(new k0<Object>(this) { // from class: com.baidu.searchbox.task.sync.appcreate.InitLaunchSyncTask.2
+            o0.b(new l0<Object>(this) { // from class: com.baidu.searchbox.task.sync.appcreate.InitLaunchSyncTask.2
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ InitLaunchSyncTask this$0;
@@ -65,7 +66,7 @@ public class InitLaunchSyncTask extends LaunchTask {
                     this.this$0 = this;
                 }
 
-                @Override // c.a.s0.d1.k0
+                @Override // c.a.t0.d1.l0
                 public Object doInBackground() {
                     InterceptResult invokeV;
                     Interceptable interceptable2 = $ic;
@@ -88,6 +89,7 @@ public class InitLaunchSyncTask extends LaunchTask {
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             if (TbadkCoreApplication.getInst().isMainProcess(false)) {
                 ProcessLifecycleOwner.get().getLifecycle().addObserver(new GrowthAppLifecycleObserver());
+                ProcessLifecycleOwner.get().getLifecycle().addObserver(new ForeBackLifecycleMonitorUtil());
                 if (TbadkCoreApplication.getInst().getIsFirstUse()) {
                     SwitchManager.getInstance().clear();
                     if (!TbadkCoreApplication.getInst().getCapabilityOfWebp()) {
@@ -136,9 +138,9 @@ public class InitLaunchSyncTask extends LaunchTask {
                     return invokeL.booleanValue;
                 }
             });
-            j jVar = new j();
-            TbadkCoreApplication.getInst().setCoreActivityLifecycleCallbacks(jVar);
-            TbadkCoreApplication.getInst().registerActivityLifecycleCallbacks(jVar);
+            k kVar = new k();
+            TbadkCoreApplication.getInst().setCoreActivityLifecycleCallbacks(kVar);
+            TbadkCoreApplication.getInst().registerActivityLifecycleCallbacks(kVar);
             InputMethodManagerLeaksFixer.fixFocusedViewLeak(TbadkCoreApplication.getInst());
             cleanDirectoryNewStatIfNeed();
         }

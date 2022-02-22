@@ -2,7 +2,7 @@ package com.baidu.ugc.bean;
 
 import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
-import c.a.a1.j.b;
+import c.a.b1.j.b;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -259,7 +259,7 @@ public class LocalAlbumInfo extends LocalEntity implements Cloneable, Comparable
 
     /* JADX DEBUG: Method merged with bridge method */
     /* renamed from: clone */
-    public LocalAlbumInfo m99clone() {
+    public LocalAlbumInfo m98clone() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {

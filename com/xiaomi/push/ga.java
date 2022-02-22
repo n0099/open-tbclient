@@ -26,16 +26,16 @@ public class ga extends gc {
         public static final a a;
 
         /* renamed from: b  reason: collision with root package name */
-        public static final a f61146b;
+        public static final a f61313b;
 
         /* renamed from: c  reason: collision with root package name */
-        public static final a f61147c;
+        public static final a f61314c;
 
         /* renamed from: d  reason: collision with root package name */
-        public static final a f61148d;
+        public static final a f61315d;
 
         /* renamed from: e  reason: collision with root package name */
-        public static final a f61149e;
+        public static final a f61316e;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with other field name */
@@ -55,10 +55,10 @@ public class ga extends gc {
                 }
             }
             a = new a("get");
-            f61146b = new a("set");
-            f61147c = new a("result");
-            f61148d = new a("error");
-            f61149e = new a("command");
+            f61313b = new a("set");
+            f61314c = new a("result");
+            f61315d = new a("error");
+            f61316e = new a("command");
         }
 
         public a(String str) {
@@ -90,17 +90,17 @@ public class ga extends gc {
                 if (a.toString().equals(lowerCase)) {
                     return a;
                 }
-                if (f61146b.toString().equals(lowerCase)) {
-                    return f61146b;
+                if (f61313b.toString().equals(lowerCase)) {
+                    return f61313b;
                 }
-                if (f61148d.toString().equals(lowerCase)) {
-                    return f61148d;
+                if (f61315d.toString().equals(lowerCase)) {
+                    return f61315d;
                 }
-                if (f61147c.toString().equals(lowerCase)) {
-                    return f61147c;
+                if (f61314c.toString().equals(lowerCase)) {
+                    return f61314c;
                 }
-                if (f61149e.toString().equals(lowerCase)) {
-                    return f61149e;
+                if (f61316e.toString().equals(lowerCase)) {
+                    return f61316e;
                 }
                 return null;
             }
@@ -223,9 +223,9 @@ public class ga extends gc {
                 sb.append(b2);
             }
             sb.append(o());
-            gg m407a = m407a();
-            if (m407a != null) {
-                sb.append(m407a.m411a());
+            gg m406a = m406a();
+            if (m406a != null) {
+                sb.append(m406a.m410a());
             }
             sb.append("</iq>");
             return sb.toString();

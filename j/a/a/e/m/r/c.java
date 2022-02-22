@@ -15,29 +15,29 @@ import com.yy.mobile.framework.revenuesdk.statistics.hiido.eventtype.UiEventType
 import java.util.List;
 import tv.athena.revenue.payui.view.IYYPayAmountView;
 import tv.athena.revenue.payui.view.dialog.PayDialogType;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class c implements IYYPayAmountView.Callback {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f62354b;
+    public int f62521b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Dialog f62355c;
+    public Dialog f62522c;
 
     /* renamed from: d  reason: collision with root package name */
-    public IYYPayAmountView.ViewParams f62356d;
+    public IYYPayAmountView.ViewParams f62523d;
 
     /* renamed from: e  reason: collision with root package name */
-    public Activity f62357e;
+    public Activity f62524e;
 
     /* renamed from: f  reason: collision with root package name */
-    public IPayCallback<CurrencyChargeMessage> f62358f;
+    public IPayCallback<CurrencyChargeMessage> f62525f;
 
     /* renamed from: g  reason: collision with root package name */
-    public j.a.a.e.m.f f62359g;
+    public j.a.a.e.m.f f62526g;
 
     public c(int i2, int i3, Dialog dialog, IYYPayAmountView.ViewParams viewParams, Activity activity, IPayCallback<CurrencyChargeMessage> iPayCallback, j.a.a.e.m.f fVar) {
         Interceptable interceptable = $ic;
@@ -56,12 +56,12 @@ public class c implements IYYPayAmountView.Callback {
         }
         RLog.info("PayAmountViewCallback", "create PayAmountViewCallback appId:" + i2 + " userChannel:" + i3);
         this.a = i2;
-        this.f62354b = i3;
-        this.f62355c = dialog;
-        this.f62356d = viewParams;
-        this.f62357e = activity;
-        this.f62358f = iPayCallback;
-        this.f62359g = fVar;
+        this.f62521b = i3;
+        this.f62522c = dialog;
+        this.f62523d = viewParams;
+        this.f62524e = activity;
+        this.f62525f = iPayCallback;
+        this.f62526g = fVar;
     }
 
     @Override // tv.athena.revenue.payui.view.IYYPayAmountView.Callback
@@ -69,7 +69,7 @@ public class c implements IYYPayAmountView.Callback {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(1048576, this, i2, str) == null) {
             RLog.error("PayAmountViewCallback", "showPayAmountDialog onFail code:" + i2 + " failReason:" + str, new Object[0]);
-            j.a.a.e.p.h.b(this.f62355c, PayDialogType.PAY_AMOUNT_DIALOG);
+            j.a.a.e.p.h.b(this.f62522c, PayDialogType.PAY_AMOUNT_DIALOG);
         }
     }
 
@@ -78,8 +78,8 @@ public class c implements IYYPayAmountView.Callback {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity, list) == null) {
             RLog.info("PayAmountViewCallback", "showInputNumberDialog");
-            j.a.a.e.p.h.a(this.f62355c, PayDialogType.PAY_AMOUNT_DIALOG);
-            this.f62359g.j(activity, list, this.f62356d, this.f62358f);
+            j.a.a.e.p.h.a(this.f62522c, PayDialogType.PAY_AMOUNT_DIALOG);
+            this.f62526g.j(activity, list, this.f62523d, this.f62525f);
         }
     }
 
@@ -88,9 +88,9 @@ public class c implements IYYPayAmountView.Callback {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, cVar, list) == null) {
             RLog.info("PayAmountViewCallback", "toPayWayDialog");
-            j.a.a.e.p.h.a(this.f62355c, PayDialogType.PAY_AMOUNT_DIALOG);
-            this.f62359g.g(this.f62357e, cVar, list, this.f62356d, this.f62358f);
-            j.a.a.e.o.b.b(this.a, this.f62354b, UiEventType.purchasegotopay);
+            j.a.a.e.p.h.a(this.f62522c, PayDialogType.PAY_AMOUNT_DIALOG);
+            this.f62526g.g(this.f62524e, cVar, list, this.f62523d, this.f62525f);
+            j.a.a.e.o.b.b(this.a, this.f62521b, UiEventType.purchasegotopay);
         }
     }
 }

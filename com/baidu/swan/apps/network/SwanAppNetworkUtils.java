@@ -7,11 +7,11 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
-import c.a.r0.a.h0.u.g;
-import c.a.r0.a.k;
-import c.a.r0.a.p1.l;
-import c.a.r0.a.y1.b.e;
-import c.a.r0.a.z2.q0;
+import c.a.s0.a.h0.u.g;
+import c.a.s0.a.k;
+import c.a.s0.a.p1.l;
+import c.a.s0.a.y1.b.e;
+import c.a.s0.a.z2.q0;
 import com.baidu.poly.widget.PolyActivity;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
@@ -108,7 +108,7 @@ public class SwanAppNetworkUtils {
     }
 
     /* loaded from: classes11.dex */
-    public static class a implements c.a.r0.a.y1.b.a<Bundle> {
+    public static class a implements c.a.s0.a.y1.b.a<Bundle> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ b a;
@@ -132,7 +132,7 @@ public class SwanAppNetworkUtils {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // c.a.r0.a.y1.b.a
+        @Override // c.a.s0.a.y1.b.a
         /* renamed from: a */
         public void onResult(Bundle bundle) {
             b bVar;

@@ -2,7 +2,7 @@ package com.kwad.sdk.core.b.kwai;
 
 import com.kwad.sdk.core.webview.kwai.h;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class ba implements com.kwad.sdk.core.d<h.a> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.kwad.sdk.core.d
@@ -14,9 +14,9 @@ public class ba implements com.kwad.sdk.core.d<h.a> {
         if (jSONObject.opt("url") == JSONObject.NULL) {
             aVar.a = "";
         }
-        aVar.f56526b = jSONObject.optString("packageName");
+        aVar.f56693b = jSONObject.optString("packageName");
         if (jSONObject.opt("packageName") == JSONObject.NULL) {
-            aVar.f56526b = "";
+            aVar.f56693b = "";
         }
     }
 
@@ -27,7 +27,7 @@ public class ba implements com.kwad.sdk.core.d<h.a> {
             jSONObject = new JSONObject();
         }
         com.kwad.sdk.utils.t.a(jSONObject, "url", aVar.a);
-        com.kwad.sdk.utils.t.a(jSONObject, "packageName", aVar.f56526b);
+        com.kwad.sdk.utils.t.a(jSONObject, "packageName", aVar.f56693b);
         return jSONObject;
     }
 }

@@ -12,23 +12,23 @@ import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
 import tv.athena.revenue.payui.view.AbsViewEventHandler;
 import tv.athena.revenue.payui.view.IYYPayResultView;
 import tv.athena.revenue.payui.view.dialog.PayDialogType;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class j implements IYYPayResultView.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Activity a;
 
     /* renamed from: b  reason: collision with root package name */
-    public IYYPayResultView f62371b;
+    public IYYPayResultView f62538b;
 
     /* renamed from: c  reason: collision with root package name */
-    public AbsViewEventHandler f62372c;
+    public AbsViewEventHandler f62539c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Dialog f62373d;
+    public Dialog f62540d;
 
     /* renamed from: e  reason: collision with root package name */
-    public j.a.a.e.m.f f62374e;
+    public j.a.a.e.m.f f62541e;
 
     public j(Activity activity, IYYPayResultView iYYPayResultView, AbsViewEventHandler absViewEventHandler, Dialog dialog, j.a.a.e.m.f fVar) {
         Interceptable interceptable = $ic;
@@ -47,10 +47,10 @@ public class j implements IYYPayResultView.a {
         }
         RLog.info("PayResultViewCallback", "create PayResultViewCallback");
         this.a = activity;
-        this.f62371b = iYYPayResultView;
-        this.f62372c = absViewEventHandler;
-        this.f62373d = dialog;
-        this.f62374e = fVar;
+        this.f62538b = iYYPayResultView;
+        this.f62539c = absViewEventHandler;
+        this.f62540d = dialog;
+        this.f62541e = fVar;
     }
 
     @Override // tv.athena.revenue.payui.view.IYYPayResultView.a
@@ -58,7 +58,7 @@ public class j implements IYYPayResultView.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             RLog.info("PayResultViewCallback", "onBtnConfirm");
-            j.a.a.e.p.h.b(this.f62373d, PayDialogType.PAY_RESULT_DIALOG);
+            j.a.a.e.p.h.b(this.f62540d, PayDialogType.PAY_RESULT_DIALOG);
         }
     }
 
@@ -67,7 +67,7 @@ public class j implements IYYPayResultView.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             RLog.info("PayResultViewCallback", " onFinishPayFlow");
-            j.a.a.e.p.h.b(this.f62373d, PayDialogType.PAY_RESULT_DIALOG);
+            j.a.a.e.p.h.b(this.f62540d, PayDialogType.PAY_RESULT_DIALOG);
         }
     }
 
@@ -75,6 +75,6 @@ public class j implements IYYPayResultView.a {
     public boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f62374e.k(this.a, this.f62371b, this.f62372c) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f62541e.k(this.a, this.f62538b, this.f62539c) : invokeV.booleanValue;
     }
 }

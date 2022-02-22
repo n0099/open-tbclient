@@ -14,7 +14,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import javax.net.ssl.SSLPeerUnverifiedException;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public final class BasicCertificateChainCleaner extends CertificateChainCleaner {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int MAX_SIGNERS = 9;

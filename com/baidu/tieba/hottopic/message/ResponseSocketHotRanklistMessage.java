@@ -1,6 +1,6 @@
 package com.baidu.tieba.hottopic.message;
 
-import c.a.t0.r1.l.j;
+import c.a.u0.r1.i.j;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -64,6 +64,6 @@ public class ResponseSocketHotRanklistMessage extends SocketResponsedMessage {
         }
         j jVar = new j();
         this.ranklistData = jVar;
-        jVar.c(topicListResIdl.data);
+        jVar.b(topicListResIdl.data);
     }
 }

@@ -2,7 +2,7 @@ package com.baidu.tbadk.core.atomData;
 
 import android.content.Context;
 import androidx.core.view.InputDeviceCompat;
-import c.a.s0.s.c0.a;
+import c.a.t0.s.d0.a;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
@@ -29,7 +29,6 @@ public class LoginActivityConfig extends IntentConfig {
     public static final String LOGIN_DIALOG_LOGIN_LISTENER = "login_dialog_login_listener";
     public static final String SCHEME = "scheme";
     public static final String SOCIAL_TYPE = "social_type";
-    public static final String STATISTIC_LOCATE = "statistic_locate";
     public static final String URL = "url";
     public static final String USER_INFO_CHANGED = "user_info_changed";
     public static long lastStartActivityTime;
@@ -93,23 +92,37 @@ public class LoginActivityConfig extends IntentConfig {
         }
     }
 
+    public void setFrom(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
+            getIntent().putExtra("from", str);
+        }
+    }
+
+    public void setFromDialog(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
+            getIntent().putExtra("fromDialog", str);
+        }
+    }
+
     public void setIsFromAiapp(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
             getIntent().putExtra(IS_FROM_AIAPP, z);
         }
     }
 
     public void setJumpToAfterDestroy(int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048580, this, i2) == null) {
             getIntent().putExtra(JUMP_AFTER_DESTROY, i2);
         }
     }
 
     public void setLoginListener(ILoginListener iLoginListener) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, iLoginListener) == null) || iLoginListener == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048581, this, iLoginListener) == null) || iLoginListener == null) {
             return;
         }
         getIntent().putExtra("login_dialog_login_listener", iLoginListener);
@@ -117,22 +130,15 @@ public class LoginActivityConfig extends IntentConfig {
 
     public void setMinePageStatisticParams(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048580, this, str, str2) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048582, this, str, str2) == null) {
             getIntent().putExtra(LoginDialogActivityConfig.MINE_PAGE_LOGIN_DIALOG_DATA_KEY, str);
             getIntent().putExtra(LoginDialogActivityConfig.MINE_PAGE_LOGIN_DIALOG_DATA_LOCATE, str2);
         }
     }
 
-    public void setStatisticLocate(int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048581, this, i2) == null) {
-            getIntent().putExtra(STATISTIC_LOCATE, i2);
-        }
-    }
-
     public void setThirdPartyLoginForResult(int i2, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048582, this, i2, str) == null) {
+        if (interceptable == null || interceptable.invokeIL(1048583, this, i2, str) == null) {
             getIntent().putExtra("social_type", i2);
             getIntent().putExtra("activity_id", str);
             setRequestCode(11043);
@@ -142,7 +148,7 @@ public class LoginActivityConfig extends IntentConfig {
 
     public void setUrl(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
             getIntent().putExtra("url", str);
         }
     }

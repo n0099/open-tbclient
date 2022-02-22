@@ -9,7 +9,7 @@ import com.kwad.sdk.core.response.model.PhotoInfo;
 import com.kwad.sdk.internal.api.SceneImpl;
 import com.kwad.sdk.live.mode.LiveInfo;
 import com.kwad.sdk.utils.at;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class d {
     public static boolean a(@NonNull AdTemplate adTemplate) {
         return (adTemplate.realShowType != 6 || adTemplate.mLiveInfo == null || adTemplate.adInfoList.isEmpty() || adTemplate.adInfoList.get(0) == null) ? false : true;

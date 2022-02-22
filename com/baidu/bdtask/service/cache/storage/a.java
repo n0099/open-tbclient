@@ -21,23 +21,23 @@ public abstract class a implements c.a.j.j.g.b.a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final ReentrantLock f33002c;
+    public static final ReentrantLock f33208c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final C1788a f33003d;
+    public static final C1798a f33209d;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final Map<String, Object> f33004b;
+    public final Map<String, Object> f33210b;
 
     /* renamed from: com.baidu.bdtask.service.cache.storage.a$a  reason: collision with other inner class name */
     /* loaded from: classes10.dex */
-    public static final class C1788a {
+    public static final class C1798a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        public C1788a() {
+        public C1798a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -54,10 +54,10 @@ public abstract class a implements c.a.j.j.g.b.a {
         public final ReentrantLock a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? a.f33002c : (ReentrantLock) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? a.f33208c : (ReentrantLock) invokeV.objValue;
         }
 
-        public /* synthetic */ C1788a(DefaultConstructorMarker defaultConstructorMarker) {
+        public /* synthetic */ C1798a(DefaultConstructorMarker defaultConstructorMarker) {
             this();
         }
     }
@@ -75,8 +75,8 @@ public abstract class a implements c.a.j.j.g.b.a {
                 return;
             }
         }
-        f33003d = new C1788a(null);
-        f33002c = new ReentrantLock(true);
+        f33209d = new C1798a(null);
+        f33208c = new ReentrantLock(true);
     }
 
     public a() {
@@ -92,7 +92,7 @@ public abstract class a implements c.a.j.j.g.b.a {
                 return;
             }
         }
-        this.f33004b = new ConcurrentHashMap();
+        this.f33210b = new ConcurrentHashMap();
     }
 
     public static /* synthetic */ Object a(a aVar, Object obj, Function0 function0, int i2, Object obj2) {
@@ -109,19 +109,19 @@ public abstract class a implements c.a.j.j.g.b.a {
     public Object b(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) ? this.f33004b.get(str) : invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) ? this.f33210b.get(str) : invokeL.objValue;
     }
 
     public final Map<String, Object> c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f33004b : (Map) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f33210b : (Map) invokeV.objValue;
     }
 
     public <T> void d(String str, T t) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048579, this, str, t) == null) {
-            this.f33004b.put(str, t);
+            this.f33210b.put(str, t);
             a(this, null, new ConcurrentStorage$set$1(this), 1, null);
         }
     }
@@ -152,7 +152,7 @@ public abstract class a implements c.a.j.j.g.b.a {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, t, function0)) == null) {
-            ReentrantLock a = f33003d.a();
+            ReentrantLock a = f33209d.a();
             a.lock();
             try {
                 return this.a ? function0.invoke() : t;

@@ -1,45 +1,55 @@
 package c.a.d.i.f;
 
-import android.app.Service;
-import android.content.ComponentName;
-import android.content.Intent;
-import android.content.ServiceConnection;
-import android.content.SharedPreferences;
-import android.content.pm.PackageManager;
-import android.content.res.Configuration;
-import java.io.FileDescriptor;
-import java.io.PrintWriter;
+import android.content.res.Resources;
+import com.baidu.adp.base.BdBaseApplication;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.nps.interfa.IResourcesFetcher;
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.pyramid.annotation.Singleton;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+@Singleton
+@Service
 /* loaded from: classes.dex */
-public interface c {
-    Service getService();
+public class c implements IResourcesFetcher {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    boolean proxyBindService(Intent intent, ServiceConnection serviceConnection, int i2);
+    public c() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
 
-    void proxyDump(FileDescriptor fileDescriptor, PrintWriter printWriter, String[] strArr);
+    @Override // com.baidu.nps.interfa.IResourcesFetcher
+    public Resources getBaseContextResources() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? BdBaseApplication.getInst().getResources() : (Resources) invokeV.objValue;
+    }
 
-    void proxyFinalize() throws Throwable;
+    @Override // com.baidu.nps.interfa.IResourcesFetcher
+    public Resources getGlobalResources() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? BdBaseApplication.getInst().getResources() : (Resources) invokeV.objValue;
+    }
 
-    PackageManager proxyGetPackageManager();
-
-    SharedPreferences proxyGetSharedPreferences(String str, int i2);
-
-    void proxyOnConfigurationChanged(Configuration configuration);
-
-    void proxyOnDestroy();
-
-    void proxyOnLowMemory();
-
-    void proxyOnRebind(Intent intent);
-
-    void proxyOnStart(Intent intent, int i2);
-
-    int proxyOnStartCommand(Intent intent, int i2, int i3);
-
-    boolean proxyOnUnbind(Intent intent);
-
-    void proxyStartActivity(Intent intent);
-
-    ComponentName proxyStartService(Intent intent);
-
-    boolean proxyStopService(Intent intent);
+    @Override // com.baidu.nps.interfa.IResourcesFetcher
+    public Resources[] getWrapperResources() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? new Resources[]{BdBaseApplication.getInst().getResources()} : (Resources[]) invokeV.objValue;
+    }
 }

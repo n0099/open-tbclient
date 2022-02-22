@@ -9,11 +9,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public interface Files {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static final class FileType {
         public static final /* synthetic */ FileType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -41,7 +41,7 @@ public interface Files {
             Internal = new FileType("Internal", 1);
             External = new FileType("External", 2);
             Absolute = new FileType("Absolute", 3);
-            FileType fileType = new FileType(b.f32830i, 4);
+            FileType fileType = new FileType(b.f33036i, 4);
             Local = fileType;
             $VALUES = new FileType[]{Classpath, Internal, External, Absolute, fileType};
         }

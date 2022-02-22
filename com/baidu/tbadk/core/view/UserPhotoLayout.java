@@ -13,7 +13,6 @@ import androidx.core.view.InputDeviceCompat;
 import c.a.d.f.p.n;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.data.MetaData;
-import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -41,7 +40,7 @@ public class UserPhotoLayout extends LinearLayout implements AbsListView.Recycle
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ UserPhotoLayout f40607e;
+        public final /* synthetic */ UserPhotoLayout f40836e;
 
         public a(UserPhotoLayout userPhotoLayout) {
             Interceptable interceptable = $ic;
@@ -58,7 +57,7 @@ public class UserPhotoLayout extends LinearLayout implements AbsListView.Recycle
                     return;
                 }
             }
-            this.f40607e = userPhotoLayout;
+            this.f40836e = userPhotoLayout;
         }
 
         @Override // android.view.ViewGroup.OnHierarchyChangeListener
@@ -71,8 +70,8 @@ public class UserPhotoLayout extends LinearLayout implements AbsListView.Recycle
         @Override // android.view.ViewGroup.OnHierarchyChangeListener
         public void onChildViewRemoved(View view, View view2) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view, view2) == null) && (view2 instanceof HeadImageView) && this.f40607e.mUserPhotoPool != null) {
-                this.f40607e.mUserPhotoPool.e((HeadImageView) view2);
+            if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view, view2) == null) && (view2 instanceof HeadImageView) && this.f40836e.mUserPhotoPool != null) {
+                this.f40836e.mUserPhotoPool.e((HeadImageView) view2);
             }
         }
     }
@@ -167,10 +166,10 @@ public class UserPhotoLayout extends LinearLayout implements AbsListView.Recycle
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final int f40608e;
+        public final int f40837e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ UserPhotoLayout f40609f;
+        public final /* synthetic */ UserPhotoLayout f40838f;
 
         public /* synthetic */ c(UserPhotoLayout userPhotoLayout, int i2, a aVar) {
             this(userPhotoLayout, i2);
@@ -179,10 +178,10 @@ public class UserPhotoLayout extends LinearLayout implements AbsListView.Recycle
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f40609f.mChildClickListener == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f40838f.mChildClickListener == null) {
                 return;
             }
-            this.f40609f.mChildClickListener.a(this.f40608e);
+            this.f40838f.mChildClickListener.a(this.f40837e);
         }
 
         public c(UserPhotoLayout userPhotoLayout, int i2) {
@@ -200,8 +199,8 @@ public class UserPhotoLayout extends LinearLayout implements AbsListView.Recycle
                     return;
                 }
             }
-            this.f40609f = userPhotoLayout;
-            this.f40608e = i2;
+            this.f40838f = userPhotoLayout;
+            this.f40837e = i2;
         }
     }
 
@@ -216,7 +215,7 @@ public class UserPhotoLayout extends LinearLayout implements AbsListView.Recycle
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public int f40610e;
+        public int f40839e;
 
         public e(int i2) {
             Interceptable interceptable = $ic;
@@ -233,15 +232,15 @@ public class UserPhotoLayout extends LinearLayout implements AbsListView.Recycle
                     return;
                 }
             }
-            this.f40610e = 0;
-            this.f40610e = i2;
+            this.f40839e = 0;
+            this.f40839e = i2;
         }
 
         @Override // android.widget.AbsListView.RecyclerListener
         public void onMovedToScrapHeap(View view) {
             View findViewById;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, view) == null) && (findViewById = view.findViewById(this.f40610e)) != null && (findViewById instanceof UserPhotoLayout)) {
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view) == null) && (findViewById = view.findViewById(this.f40839e)) != null && (findViewById instanceof UserPhotoLayout)) {
                 ((UserPhotoLayout) findViewById).reset();
             }
         }
@@ -469,7 +468,7 @@ public class UserPhotoLayout extends LinearLayout implements AbsListView.Recycle
         this.mNormalShowCount = 6;
         this.mContext = context;
         this.mPadding = n.d(context, 5);
-        this.mItemSize = (int) this.mContext.getResources().getDimension(R.dimen.ds60);
+        this.mItemSize = (int) this.mContext.getResources().getDimension(c.a.u0.a4.e.ds60);
         Context context2 = this.mContext;
         if (context2 instanceof f) {
             f fVar = (f) context2;

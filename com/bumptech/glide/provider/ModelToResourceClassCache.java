@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bumptech.glide.util.MultiClassKey;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class ModelToResourceClassCache {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

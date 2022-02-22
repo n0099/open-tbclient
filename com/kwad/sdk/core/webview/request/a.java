@@ -5,19 +5,19 @@ import com.kwad.sdk.core.network.k;
 import com.kwad.sdk.utils.t;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class a extends d {
 
     /* renamed from: b  reason: collision with root package name */
-    public String f56530b;
+    public String f56697b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f56531c;
+    public String f56698c;
 
     public a(String str, String str2, String str3) {
         JSONObject jSONObject;
-        this.f56530b = str;
-        this.f56531c = str2;
+        this.f56697b = str;
+        this.f56698c = str2;
         try {
             jSONObject = new JSONObject(str3);
         } catch (JSONException e2) {
@@ -36,6 +36,6 @@ public class a extends d {
 
     @Override // com.kwad.sdk.core.network.b, com.kwad.sdk.core.network.g
     public String a() {
-        return com.kwad.sdk.d.a() + this.f56530b;
+        return com.kwad.sdk.d.a() + this.f56697b;
     }
 }

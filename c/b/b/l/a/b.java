@@ -11,31 +11,31 @@ public class b {
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f27040b;
+    public int f27246b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f27041c;
+    public int f27247c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f27042d;
+    public int f27248d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f27043e;
+    public int f27249e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f27044f;
+    public int f27250f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f27045g;
+    public int f27251g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f27046h;
+    public boolean f27252h;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f27047i;
+    public boolean f27253i;
 
     /* renamed from: j  reason: collision with root package name */
-    public boolean f27048j;
+    public boolean f27254j;
     public boolean k;
     public int l;
     public int m;
@@ -64,15 +64,15 @@ public class b {
             }
         }
         this.a = 8;
-        this.f27040b = 8;
-        this.f27041c = 8;
-        this.f27042d = 0;
-        this.f27043e = 16;
-        this.f27044f = 0;
-        this.f27045g = 0;
-        this.f27046h = true;
-        this.f27047i = false;
-        this.f27048j = true;
+        this.f27246b = 8;
+        this.f27247c = 8;
+        this.f27248d = 0;
+        this.f27249e = 16;
+        this.f27250f = 0;
+        this.f27251g = 0;
+        this.f27252h = true;
+        this.f27253i = false;
+        this.f27254j = true;
         this.k = false;
         this.l = 1;
         this.m = 0;

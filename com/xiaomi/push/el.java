@@ -83,7 +83,7 @@ public class el {
         if (!(interceptable == null || interceptable.invokeLLIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, intent, i2, str2) == null) || intent == null) {
             return;
         }
-        a(str, ek.m350a(intent.getIntExtra("eventMessageType", -1)), intent.getStringExtra(MiPushMessage.KEY_MESSAGE_ID), i2, System.currentTimeMillis(), str2);
+        a(str, ek.m349a(intent.getIntExtra("eventMessageType", -1)), intent.getStringExtra(MiPushMessage.KEY_MESSAGE_ID), i2, System.currentTimeMillis(), str2);
     }
 
     public void a(String str, Intent intent, String str2) {
@@ -91,7 +91,7 @@ public class el {
         if (!(interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, str, intent, str2) == null) || intent == null) {
             return;
         }
-        a(str, ek.m350a(intent.getIntExtra("eventMessageType", -1)), intent.getStringExtra(MiPushMessage.KEY_MESSAGE_ID), 5001, System.currentTimeMillis(), str2);
+        a(str, ek.m349a(intent.getIntExtra("eventMessageType", -1)), intent.getStringExtra(MiPushMessage.KEY_MESSAGE_ID), 5001, System.currentTimeMillis(), str2);
     }
 
     public void a(String str, String str2, String str3, int i2, long j2, String str4) {

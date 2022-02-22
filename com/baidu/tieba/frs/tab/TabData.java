@@ -1,6 +1,6 @@
 package com.baidu.tieba.frs.tab;
 
-import c.a.t0.e1.x2.e;
+import c.a.u0.e1.z2.e;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;

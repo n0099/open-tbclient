@@ -1,6 +1,6 @@
 package com.baidu.tieba.chosen.posts.request;
 
-import c.a.t0.h0.a.d.b;
+import c.a.u0.h0.a.d.b;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.mvc.model.CacheModel;

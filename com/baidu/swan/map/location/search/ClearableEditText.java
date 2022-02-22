@@ -7,8 +7,8 @@ import android.util.AttributeSet;
 import android.view.MotionEvent;
 import androidx.appcompat.widget.AppCompatEditText;
 import androidx.core.view.InputDeviceCompat;
-import c.a.r0.a.z2.n0;
-import c.a.r0.m.e;
+import c.a.s0.a.z2.n0;
+import c.a.s0.m.e;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -22,11 +22,11 @@ public class ClearableEditText extends AppCompatEditText {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final int f39922f;
+    public static final int f40150f;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Drawable f39923e;
+    public Drawable f40151e;
 
     static {
         InterceptResult invokeClinit;
@@ -41,7 +41,7 @@ public class ClearableEditText extends AppCompatEditText {
                 return;
             }
         }
-        f39922f = n0.g(10.0f);
+        f40150f = n0.g(10.0f);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -68,14 +68,14 @@ public class ClearableEditText extends AppCompatEditText {
     private void setClearIconVisible(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TRACKBALL, this, z) == null) {
-            setCompoundDrawablesWithIntrinsicBounds(getCompoundDrawables()[0], getCompoundDrawables()[1], z ? this.f39923e : null, getCompoundDrawables()[3]);
+            setCompoundDrawablesWithIntrinsicBounds(getCompoundDrawables()[0], getCompoundDrawables()[1], z ? this.f40151e : null, getCompoundDrawables()[3]);
         }
     }
 
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f39923e = getResources().getDrawable(e.aiapps_location_search_del);
+            this.f40151e = getResources().getDrawable(e.aiapps_location_search_del);
         }
     }
 
@@ -103,7 +103,7 @@ public class ClearableEditText extends AppCompatEditText {
         Drawable drawable;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, motionEvent)) == null) {
-            if (motionEvent.getAction() == 1 && (drawable = getCompoundDrawables()[2]) != null && motionEvent.getX() <= (getWidth() - getPaddingRight()) + f39922f && motionEvent.getX() >= ((getWidth() - getPaddingRight()) - drawable.getBounds().width()) - f39922f) {
+            if (motionEvent.getAction() == 1 && (drawable = getCompoundDrawables()[2]) != null && motionEvent.getX() <= (getWidth() - getPaddingRight()) + f40150f && motionEvent.getX() >= ((getWidth() - getPaddingRight()) - drawable.getBounds().width()) - f40150f) {
                 setText("");
             }
             return super.onTouchEvent(motionEvent);

@@ -20,10 +20,10 @@ public class BaseTitleView extends RelativeLayout implements View.OnClickListene
     public HomeCfgResponse.ConfigData a;
 
     /* renamed from: b  reason: collision with root package name */
-    public b f51161b;
+    public b f51328b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Context f51162c;
+    public Context f51329c;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public BaseTitleView(Context context) {
@@ -43,7 +43,7 @@ public class BaseTitleView extends RelativeLayout implements View.OnClickListene
                 return;
             }
         }
-        this.f51162c = context;
+        this.f51329c = context;
         a();
     }
 
@@ -113,7 +113,7 @@ public class BaseTitleView extends RelativeLayout implements View.OnClickListene
     public b getWalletInterface() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f51161b : (b) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f51328b : (b) invokeV.objValue;
     }
 
     @Override // android.view.View
@@ -149,7 +149,7 @@ public class BaseTitleView extends RelativeLayout implements View.OnClickListene
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048586, this, configData, bVar) == null) {
             this.a = configData;
-            this.f51161b = bVar;
+            this.f51328b = bVar;
             if (!isClickable()) {
                 setEnabled(false);
             } else {
@@ -177,7 +177,7 @@ public class BaseTitleView extends RelativeLayout implements View.OnClickListene
                 return;
             }
         }
-        this.f51162c = context;
+        this.f51329c = context;
         a();
     }
 }

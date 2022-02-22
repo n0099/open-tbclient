@@ -9,7 +9,7 @@ import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import androidx.recyclerview.widget.LinearSmoothScroller;
 import androidx.recyclerview.widget.RecyclerView;
-import c.a.t0.a0.f.i.h.d;
+import c.a.u0.a0.f.i.h.d;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -23,11 +23,11 @@ public class PagerSnapHelper extends SnapHelper {
     @Nullable
 
     /* renamed from: d  reason: collision with root package name */
-    public d f42061d;
+    public d f42294d;
     @Nullable
 
     /* renamed from: e  reason: collision with root package name */
-    public d f42062e;
+    public d f42295e;
 
     /* loaded from: classes12.dex */
     public class a extends LinearSmoothScroller {
@@ -210,11 +210,11 @@ public class PagerSnapHelper extends SnapHelper {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, layoutManager)) == null) {
-            d dVar = this.f42062e;
+            d dVar = this.f42295e;
             if (dVar == null || dVar.a != layoutManager) {
-                this.f42062e = d.a(layoutManager);
+                this.f42295e = d.a(layoutManager);
             }
-            return this.f42062e;
+            return this.f42295e;
         }
         return (d) invokeL.objValue;
     }
@@ -224,11 +224,11 @@ public class PagerSnapHelper extends SnapHelper {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, layoutManager)) == null) {
-            d dVar = this.f42061d;
+            d dVar = this.f42294d;
             if (dVar == null || dVar.a != layoutManager) {
-                this.f42061d = d.b(layoutManager);
+                this.f42294d = d.b(layoutManager);
             }
-            return this.f42061d;
+            return this.f42294d;
         }
         return (d) invokeL.objValue;
     }

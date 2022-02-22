@@ -7,37 +7,37 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class s {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String a = "android.permission.INTERNET";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f55286b = "android.permission.ACCESS_NETWORK_STATE";
+    public static final String f55453b = "android.permission.ACCESS_NETWORK_STATE";
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f55287c = "android.permission.READ_PHONE_STATE";
+    public static final String f55454c = "android.permission.READ_PHONE_STATE";
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f55288d = "android.permission.ACCESS_WIFI_STATE";
+    public static final String f55455d = "android.permission.ACCESS_WIFI_STATE";
 
     /* renamed from: e  reason: collision with root package name */
-    public static final String f55289e = "android.permission.GET_TASKS";
+    public static final String f55456e = "android.permission.GET_TASKS";
 
     /* renamed from: f  reason: collision with root package name */
-    public static final String f55290f = "android.permission.GET_ACCOUNTS";
+    public static final String f55457f = "android.permission.GET_ACCOUNTS";
 
     /* renamed from: g  reason: collision with root package name */
-    public static final String f55291g = "android.permission.ACCESS_FINE_LOCATION";
+    public static final String f55458g = "android.permission.ACCESS_FINE_LOCATION";
 
     /* renamed from: h  reason: collision with root package name */
-    public static final String f55292h = "android.permission.ACCESS_COARSE_LOCATION";
+    public static final String f55459h = "android.permission.ACCESS_COARSE_LOCATION";
 
     /* renamed from: i  reason: collision with root package name */
-    public static final String f55293i = "android.permission.READ_EXTERNAL_STORAGE";
+    public static final String f55460i = "android.permission.READ_EXTERNAL_STORAGE";
 
     /* renamed from: j  reason: collision with root package name */
-    public static final String f55294j = "android.permission.BIND_ACCESSIBILITY_SERVICE";
+    public static final String f55461j = "android.permission.BIND_ACCESSIBILITY_SERVICE";
     public transient /* synthetic */ FieldHolder $fh;
 
     public s() {

@@ -11,7 +11,7 @@ public class a {
     public static boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static boolean f54998b;
+    public static boolean f55165b;
     public transient /* synthetic */ FieldHolder $fh;
 
     public static Context a(Context context) {
@@ -23,6 +23,6 @@ public class a {
     public static boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? a && f54998b && Looper.myLooper() != Looper.getMainLooper() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? a && f55165b && Looper.myLooper() != Looper.getMainLooper() : invokeV.booleanValue;
     }
 }

@@ -26,7 +26,7 @@ import java.io.Serializable;
 import java.util.List;
 @KsAdSdkDynamicImpl(AdWebViewActivity.class)
 @Keep
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class AdWebViewVideoActivityProxy extends com.kwad.sdk.h.b {
     public static final String KEY_REPORTED = "key_reported";
     public static final String KEY_TEMPLATE = "key_template";
@@ -38,8 +38,8 @@ public class AdWebViewVideoActivityProxy extends com.kwad.sdk.h.b {
     public ViewGroup mWebDownloadContainer;
 
     /* JADX INFO: Access modifiers changed from: private */
-    public a.C2106a getAdClickConfig(boolean z) {
-        return new a.C2106a(getActivity()).a(z).b(false).a(this.mAdTemplate).d(false);
+    public a.C2116a getAdClickConfig(boolean z) {
+        return new a.C2116a(getActivity()).a(z).b(false).a(this.mAdTemplate).d(false);
     }
 
     private void initView() {

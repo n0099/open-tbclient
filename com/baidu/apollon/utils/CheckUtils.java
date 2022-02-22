@@ -21,16 +21,16 @@ public final class CheckUtils {
     public static final String a = "CheckUtils";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final int f32713b = 3;
+    public static final int f32919b = 3;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final int f32714c = 12;
+    public static final int f32920c = 12;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final int f32715d = 4;
+    public static final int f32921d = 4;
 
     /* renamed from: e  reason: collision with root package name */
-    public static long f32716e;
+    public static long f32922e;
     public transient /* synthetic */ FieldHolder $fh;
 
     public CheckUtils() {
@@ -263,13 +263,13 @@ public final class CheckUtils {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
             long currentTimeMillis = System.currentTimeMillis();
-            long j2 = currentTimeMillis - f32716e;
+            long j2 = currentTimeMillis - f32922e;
             LogUtil.logd("timeD=" + j2);
             if (0 < j2 && j2 < 800) {
                 LogUtil.logd("点的太快了 timeD=" + j2);
                 return true;
             }
-            f32716e = currentTimeMillis;
+            f32922e = currentTimeMillis;
             return false;
         }
         return invokeV.booleanValue;

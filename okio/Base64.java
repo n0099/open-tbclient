@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.internal.utils.UtilsBlink;
 import java.io.UnsupportedEncodingException;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public final class Base64 {
     public static /* synthetic */ Interceptable $ic;
     public static final byte[] MAP;

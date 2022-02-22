@@ -6,7 +6,7 @@ import android.view.View;
 import android.widget.HorizontalScrollView;
 import android.widget.LinearLayout;
 import androidx.annotation.NonNull;
-import c.a.t0.d4.b;
+import c.a.u0.g4.b;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -22,13 +22,13 @@ public class ShareScrollableLayout extends LinearLayout implements b {
     @NonNull
 
     /* renamed from: e  reason: collision with root package name */
-    public List<LinearLayout> f48502e;
+    public List<LinearLayout> f48669e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f48503f;
+    public int f48670f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f48504g;
+    public int f48671g;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ShareScrollableLayout(Context context) {
@@ -48,7 +48,7 @@ public class ShareScrollableLayout extends LinearLayout implements b {
                 return;
             }
         }
-        this.f48502e = new ArrayList();
+        this.f48669e = new ArrayList();
         b();
     }
 
@@ -58,21 +58,21 @@ public class ShareScrollableLayout extends LinearLayout implements b {
             HorizontalScrollView horizontalScrollView = new HorizontalScrollView(getContext());
             horizontalScrollView.setHorizontalScrollBarEnabled(false);
             LinearLayout linearLayout = new LinearLayout(getContext());
-            this.f48502e.add(linearLayout);
+            this.f48669e.add(linearLayout);
             horizontalScrollView.addView(linearLayout);
-            addView(horizontalScrollView, new LinearLayout.LayoutParams(-1, this.f48504g));
+            addView(horizontalScrollView, new LinearLayout.LayoutParams(-1, this.f48671g));
         }
     }
 
-    @Override // c.a.t0.d4.b
+    @Override // c.a.u0.g4.b
     public void addViewAtRow(int i2, @NonNull View view) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, view) == null) {
-            int size = this.f48502e.size() - 1;
+            int size = this.f48669e.size() - 1;
             for (int i3 = 0; i3 < i2 - size; i3++) {
                 a();
             }
-            this.f48502e.get(i2).addView(view, new LinearLayout.LayoutParams(this.f48503f, -1));
+            this.f48669e.get(i2).addView(view, new LinearLayout.LayoutParams(this.f48670f, -1));
         }
     }
 
@@ -83,7 +83,7 @@ public class ShareScrollableLayout extends LinearLayout implements b {
         }
     }
 
-    @Override // c.a.t0.d4.b
+    @Override // c.a.u0.g4.b
     @NonNull
     public View getView() {
         InterceptResult invokeV;
@@ -91,21 +91,21 @@ public class ShareScrollableLayout extends LinearLayout implements b {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this : (View) invokeV.objValue;
     }
 
-    @Override // android.view.ViewGroup, c.a.t0.d4.b
+    @Override // android.view.ViewGroup, c.a.u0.g4.b
     public void removeAllViews() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             super.removeAllViews();
-            this.f48502e.clear();
+            this.f48669e.clear();
         }
     }
 
-    @Override // c.a.t0.d4.b
+    @Override // c.a.u0.g4.b
     public void setItemParams(int i2, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(1048581, this, i2, i3) == null) {
-            this.f48503f = i2;
-            this.f48504g = i3;
+            this.f48670f = i2;
+            this.f48671g = i3;
         }
     }
 
@@ -128,7 +128,7 @@ public class ShareScrollableLayout extends LinearLayout implements b {
                 return;
             }
         }
-        this.f48502e = new ArrayList();
+        this.f48669e = new ArrayList();
         b();
     }
 
@@ -151,7 +151,7 @@ public class ShareScrollableLayout extends LinearLayout implements b {
                 return;
             }
         }
-        this.f48502e = new ArrayList();
+        this.f48669e = new ArrayList();
         b();
     }
 }

@@ -47,7 +47,7 @@ import okio.Buffer;
 import okio.BufferedSource;
 import okio.ByteString;
 import okio.Source;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public final class Util {
     public static /* synthetic */ Interceptable $ic;
     public static final byte[] EMPTY_BYTE_ARRAY;

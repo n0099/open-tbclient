@@ -3,7 +3,7 @@ package com.kwad.sdk.core.report;
 import com.kwad.sdk.utils.t;
 import java.util.List;
 import org.json.JSONArray;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class e extends com.kwad.sdk.core.network.d {
     public e(List<ReportAction> list) {
         if (list == null || list.size() <= 0) {

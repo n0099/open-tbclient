@@ -7,20 +7,20 @@ import android.content.res.Resources;
 import androidx.appcompat.view.ContextThemeWrapper;
 import com.kwad.sdk.api.core.ResContext;
 @SuppressLint({"RestrictedApi"})
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class m extends ContextThemeWrapper implements ResContext {
     public final ContextThemeWrapper a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Resources.Theme f55472b;
+    public Resources.Theme f55639b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f55473c;
+    public int f55640c;
 
     public m(ContextThemeWrapper contextThemeWrapper) {
         super(contextThemeWrapper, contextThemeWrapper.getThemeResId());
         this.a = contextThemeWrapper;
-        this.f55473c = ((Integer) Reflect.a(contextThemeWrapper).d("getThemeResId").a()).intValue();
+        this.f55640c = ((Integer) Reflect.a(contextThemeWrapper).d("getThemeResId").a()).intValue();
     }
 
     @Override // android.content.ContextWrapper, android.content.Context
@@ -62,11 +62,11 @@ public class m extends ContextThemeWrapper implements ResContext {
             e2.printStackTrace();
             theme = null;
         }
-        Resources.Theme theme2 = this.f55472b;
+        Resources.Theme theme2 = this.f55639b;
         if (theme2 == null || theme2 == theme) {
-            this.f55472b = Wrapper.replaceTheme(theme, this.f55472b, this.f55473c);
+            this.f55639b = Wrapper.replaceTheme(theme, this.f55639b, this.f55640c);
         }
-        return this.f55472b;
+        return this.f55639b;
     }
 
     @Override // android.content.Context
@@ -76,7 +76,7 @@ public class m extends ContextThemeWrapper implements ResContext {
 
     @Override // androidx.appcompat.view.ContextThemeWrapper, android.content.ContextWrapper, android.content.Context
     public void setTheme(int i2) {
-        this.f55473c = i2;
+        this.f55640c = i2;
         super.setTheme(i2);
     }
 

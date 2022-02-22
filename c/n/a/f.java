@@ -27,10 +27,10 @@ public final class f<M extends Message<M, B>, B extends Message.a<M, B>> extends
     public final Class<M> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final Class<B> f30223b;
+    public final Class<B> f30429b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final Map<Integer, a<M, B>> f30224c;
+    public final Map<Integer, a<M, B>> f30430c;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public f(Class<M> cls, Class<B> cls2, Map<Integer, a<M, B>> map) {
@@ -52,8 +52,8 @@ public final class f<M extends Message<M, B>, B extends Message.a<M, B>> extends
             }
         }
         this.a = cls;
-        this.f30223b = cls2;
-        this.f30224c = map;
+        this.f30429b = cls2;
+        this.f30430c = map;
     }
 
     public static <M extends Message<M, B>, B extends Message.a<M, B>> f<M, B> a(Class<M> cls) {
@@ -102,7 +102,7 @@ public final class f<M extends Message<M, B>, B extends Message.a<M, B>> extends
         while (true) {
             int f3 = cVar.f();
             if (f3 != -1) {
-                a<M, B> aVar = this.f30224c.get(Integer.valueOf(f3));
+                a<M, B> aVar = this.f30430c.get(Integer.valueOf(f3));
                 if (aVar != null) {
                     try {
                         if (aVar.f()) {
@@ -131,10 +131,10 @@ public final class f<M extends Message<M, B>, B extends Message.a<M, B>> extends
     public void encode(d dVar, M m) throws IOException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dVar, m) == null) {
-            for (a<M, B> aVar : this.f30224c.values()) {
+            for (a<M, B> aVar : this.f30430c.values()) {
                 Object b2 = aVar.b(m);
                 if (b2 != null) {
-                    aVar.a().encodeWithTag(dVar, aVar.f30207c, b2);
+                    aVar.a().encodeWithTag(dVar, aVar.f30413c, b2);
                 }
             }
             dVar.k(m.unknownFields());
@@ -153,10 +153,10 @@ public final class f<M extends Message<M, B>, B extends Message.a<M, B>> extends
                 return i2;
             }
             int i3 = 0;
-            for (a<M, B> aVar : this.f30224c.values()) {
+            for (a<M, B> aVar : this.f30430c.values()) {
                 Object b2 = aVar.b(m);
                 if (b2 != null) {
-                    i3 += aVar.a().encodedSizeWithTag(aVar.f30207c, b2);
+                    i3 += aVar.a().encodedSizeWithTag(aVar.f30413c, b2);
                 }
             }
             int size = i3 + m.unknownFields().size();
@@ -177,7 +177,7 @@ public final class f<M extends Message<M, B>, B extends Message.a<M, B>> extends
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
             try {
-                return this.f30223b.newInstance();
+                return this.f30429b.newInstance();
             } catch (IllegalAccessException | InstantiationException e2) {
                 throw new AssertionError(e2);
             }
@@ -193,12 +193,12 @@ public final class f<M extends Message<M, B>, B extends Message.a<M, B>> extends
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, m)) == null) {
             Message.a<M, B> newBuilder = m.newBuilder();
-            for (a<M, B> aVar : this.f30224c.values()) {
-                if (aVar.f30210f && aVar.a == WireField.Label.REQUIRED) {
-                    throw new UnsupportedOperationException(String.format("Field '%s' in %s is required and cannot be redacted.", aVar.f30206b, this.javaType.getName()));
+            for (a<M, B> aVar : this.f30430c.values()) {
+                if (aVar.f30416f && aVar.a == WireField.Label.REQUIRED) {
+                    throw new UnsupportedOperationException(String.format("Field '%s' in %s is required and cannot be redacted.", aVar.f30412b, this.javaType.getName()));
                 }
                 boolean isAssignableFrom = Message.class.isAssignableFrom(aVar.i().javaType);
-                if (!aVar.f30210f && (!isAssignableFrom || aVar.a.isRepeated())) {
+                if (!aVar.f30416f && (!isAssignableFrom || aVar.a.isRepeated())) {
                     if (isAssignableFrom && aVar.a.isRepeated()) {
                         c.n.a.h.a.k((List) aVar.e(newBuilder), aVar.i());
                     }
@@ -223,13 +223,13 @@ public final class f<M extends Message<M, B>, B extends Message.a<M, B>> extends
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, m)) == null) {
             StringBuilder sb = new StringBuilder();
-            for (a<M, B> aVar : this.f30224c.values()) {
+            for (a<M, B> aVar : this.f30430c.values()) {
                 Object b2 = aVar.b(m);
                 if (b2 != null) {
                     sb.append(StringUtil.ARRAY_ELEMENT_SEPARATOR);
-                    sb.append(aVar.f30206b);
-                    sb.append(com.alipay.sdk.encrypt.a.f30893h);
-                    if (aVar.f30210f) {
+                    sb.append(aVar.f30412b);
+                    sb.append(com.alipay.sdk.encrypt.a.f31099h);
+                    if (aVar.f30416f) {
                         b2 = "██";
                     }
                     sb.append(b2);

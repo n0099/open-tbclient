@@ -21,19 +21,19 @@ public final class d {
     public a a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f61564b;
+    public String f61731b;
 
     /* renamed from: c  reason: collision with root package name */
-    public com.yxcorp.kuaishou.addfp.a.b.b f61565c;
+    public com.yxcorp.kuaishou.addfp.a.b.b f61732c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Context f61566d;
+    public Context f61733d;
 
     /* renamed from: e  reason: collision with root package name */
-    public CountDownLatch f61567e;
+    public CountDownLatch f61734e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ServiceConnection f61568f;
+    public ServiceConnection f61735f;
 
     public d() {
         Interceptable interceptable = $ic;
@@ -49,9 +49,9 @@ public final class d {
             }
         }
         this.a = null;
-        this.f61564b = null;
-        this.f61567e = new CountDownLatch(1);
-        this.f61568f = new e(this);
+        this.f61731b = null;
+        this.f61734e = new CountDownLatch(1);
+        this.f61735f = new e(this);
     }
 
     private void a(boolean z) {
@@ -61,7 +61,7 @@ public final class d {
                 try {
                     String b2 = b();
                     if (!TextUtils.isEmpty(b2)) {
-                        this.f61565c.a(b2);
+                        this.f61732c.a(b2);
                         return;
                     }
                 } catch (Throwable th) {
@@ -69,7 +69,7 @@ public final class d {
                     return;
                 }
             }
-            this.f61565c.e();
+            this.f61732c.e();
         }
     }
 
@@ -92,7 +92,7 @@ public final class d {
     public final void a(Context context) {
         ServiceConnection serviceConnection;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, context) == null) || (serviceConnection = this.f61568f) == null || context == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, context) == null) || (serviceConnection = this.f61735f) == null || context == null) {
             return;
         }
         context.unbindService(serviceConnection);
@@ -102,15 +102,15 @@ public final class d {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, bVar) == null) {
             try {
-                this.f61565c = bVar;
-                this.f61566d = context;
+                this.f61732c = bVar;
+                this.f61733d = context;
                 Intent intent = new Intent();
                 intent.setClassName("com.samsung.android.deviceidservice", "com.samsung.android.deviceidservice.DeviceIdService");
-                if (!context.bindService(intent, this.f61568f, 1)) {
+                if (!context.bindService(intent, this.f61735f, 1)) {
                     a(false);
                     return;
                 }
-                this.f61567e.await(10L, TimeUnit.SECONDS);
+                this.f61734e.await(10L, TimeUnit.SECONDS);
                 if (this.a != null) {
                     a(true);
                 } else {

@@ -18,10 +18,10 @@ public class a {
     public static final Class<?>[] a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final Map<Class<?>, Class<?>> f28150b;
+    public static final Map<Class<?>, Class<?>> f28356b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final Map<Class<?>, Class<?>> f28151c;
+    public static final Map<Class<?>, Class<?>> f28357c;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -38,23 +38,23 @@ public class a {
             }
         }
         a = new Class[]{Byte.TYPE, Short.TYPE, Character.TYPE, Integer.TYPE, Long.TYPE, Float.TYPE, Double.TYPE};
-        f28150b = new HashMap();
-        f28151c = new HashMap();
-        f28150b.put(Boolean.TYPE, Boolean.class);
-        f28150b.put(Byte.TYPE, Byte.class);
-        f28150b.put(Character.TYPE, Character.class);
-        f28150b.put(Short.TYPE, Short.class);
-        f28150b.put(Integer.TYPE, Integer.class);
-        f28150b.put(Long.TYPE, Long.class);
-        f28150b.put(Double.TYPE, Double.class);
-        f28150b.put(Float.TYPE, Float.class);
-        Map<Class<?>, Class<?>> map = f28150b;
+        f28356b = new HashMap();
+        f28357c = new HashMap();
+        f28356b.put(Boolean.TYPE, Boolean.class);
+        f28356b.put(Byte.TYPE, Byte.class);
+        f28356b.put(Character.TYPE, Character.class);
+        f28356b.put(Short.TYPE, Short.class);
+        f28356b.put(Integer.TYPE, Integer.class);
+        f28356b.put(Long.TYPE, Long.class);
+        f28356b.put(Double.TYPE, Double.class);
+        f28356b.put(Float.TYPE, Float.class);
+        Map<Class<?>, Class<?>> map = f28356b;
         Class<?> cls = Void.TYPE;
         map.put(cls, cls);
-        for (Class<?> cls2 : f28150b.keySet()) {
-            Class<?> cls3 = f28150b.get(cls2);
+        for (Class<?> cls2 : f28356b.keySet()) {
+            Class<?> cls3 = f28356b.get(cls2);
             if (!cls2.equals(cls3)) {
-                f28151c.put(cls3, cls2);
+                f28357c.put(cls3, cls2);
             }
         }
     }
@@ -89,7 +89,7 @@ public class a {
     public static Class<?> c(Class<?> cls) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, cls)) == null) ? (cls == null || !cls.isPrimitive()) ? cls : f28150b.get(cls) : (Class) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, cls)) == null) ? (cls == null || !cls.isPrimitive()) ? cls : f28356b.get(cls) : (Class) invokeL.objValue;
     }
 
     public static boolean d(int i2) {
@@ -186,10 +186,10 @@ public class a {
         if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65545, null, clsArr, clsArr2, z)) == null) {
             if (Utils.b(clsArr, clsArr2)) {
                 if (clsArr == null) {
-                    clsArr = Utils.f53704b;
+                    clsArr = Utils.f53871b;
                 }
                 if (clsArr2 == null) {
-                    clsArr2 = Utils.f53704b;
+                    clsArr2 = Utils.f53871b;
                 }
                 for (int i2 = 0; i2 < clsArr.length; i2++) {
                     if (!f(clsArr[i2], clsArr2[i2], z)) {
@@ -231,7 +231,7 @@ public class a {
     public static Class<?> k(Class<?> cls) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65547, null, cls)) == null) ? f28151c.get(cls) : (Class) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65547, null, cls)) == null) ? f28357c.get(cls) : (Class) invokeL.objValue;
     }
 
     public static float l(Class<?> cls, Class<?> cls2) {

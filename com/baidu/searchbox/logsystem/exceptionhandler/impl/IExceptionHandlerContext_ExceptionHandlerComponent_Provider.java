@@ -1,6 +1,6 @@
 package com.baidu.searchbox.logsystem.exceptionhandler.impl;
 
-import c.a.k0.a.a;
+import c.a.l0.a.a;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -25,10 +25,10 @@ public class IExceptionHandlerContext_ExceptionHandlerComponent_Provider impleme
         }
     }
 
-    @Override // c.a.k0.a.a
+    @Override // c.a.l0.a.a
     public Object get() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new c.a.d.k.a() : invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new c.a.d.l.a() : invokeV.objValue;
     }
 }

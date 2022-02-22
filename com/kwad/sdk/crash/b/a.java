@@ -6,7 +6,7 @@ import com.kwad.sdk.crash.model.message.ExceptionMessage;
 import com.kwad.sdk.crash.utils.f;
 import java.util.ArrayList;
 import java.util.UUID;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public final class a {
     public static int a() {
         return 2;

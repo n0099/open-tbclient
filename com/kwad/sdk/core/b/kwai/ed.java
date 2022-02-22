@@ -3,7 +3,7 @@ package com.kwad.sdk.core.b.kwai;
 import com.baidu.searchbox.retrieve.inter.constants.StatConstants;
 import com.kwad.sdk.core.request.model.TaskStat;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class ed implements com.kwad.sdk.core.d<TaskStat> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.kwad.sdk.core.d

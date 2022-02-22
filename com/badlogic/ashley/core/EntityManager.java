@@ -13,38 +13,38 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.yy.hiidostatis.inner.util.log.ActLog;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class EntityManager {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public e a;
 
     /* renamed from: b  reason: collision with root package name */
-    public c.b.b.q.a<d> f31062b;
+    public c.b.b.q.a<d> f31268b;
 
     /* renamed from: c  reason: collision with root package name */
-    public x<d> f31063c;
+    public x<d> f31269c;
 
     /* renamed from: d  reason: collision with root package name */
-    public c.b.a.c.b<d> f31064d;
+    public c.b.a.c.b<d> f31270d;
 
     /* renamed from: e  reason: collision with root package name */
-    public c.b.b.q.a<EntityOperation> f31065e;
+    public c.b.b.q.a<EntityOperation> f31271e;
 
     /* renamed from: f  reason: collision with root package name */
-    public b f31066f;
+    public b f31272f;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class EntityOperation implements z.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public Type a;
 
         /* renamed from: b  reason: collision with root package name */
-        public d f31067b;
+        public d f31273b;
 
         /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-        /* loaded from: classes9.dex */
+        /* loaded from: classes10.dex */
         public static final class Type {
             public static final /* synthetic */ Type[] $VALUES;
             public static /* synthetic */ Interceptable $ic;
@@ -123,7 +123,7 @@ public class EntityManager {
         public void reset() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f31067b = null;
+                this.f31273b = null;
             }
         }
 
@@ -132,7 +132,7 @@ public class EntityManager {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public static final /* synthetic */ int[] a;
@@ -168,7 +168,7 @@ public class EntityManager {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class b extends z<EntityOperation> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -216,11 +216,11 @@ public class EntityManager {
                 return;
             }
         }
-        this.f31062b = new c.b.b.q.a<>(false, 16);
-        this.f31063c = new x<>();
-        this.f31064d = new c.b.a.c.b<>(this.f31062b);
-        this.f31065e = new c.b.b.q.a<>(false, 16);
-        this.f31066f = new b(null);
+        this.f31268b = new c.b.b.q.a<>(false, 16);
+        this.f31269c = new x<>();
+        this.f31270d = new c.b.a.c.b<>(this.f31268b);
+        this.f31271e = new c.b.b.q.a<>(false, 16);
+        this.f31272f = new b(null);
         this.a = eVar;
     }
 
@@ -228,10 +228,10 @@ public class EntityManager {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(1048576, this, dVar, z) == null) {
             if (z) {
-                EntityOperation e2 = this.f31066f.e();
-                e2.f31067b = dVar;
+                EntityOperation e2 = this.f31272f.e();
+                e2.f31273b = dVar;
                 e2.a = EntityOperation.Type.Add;
-                this.f31065e.a(e2);
+                this.f31271e.a(e2);
                 return;
             }
             b(dVar);
@@ -241,9 +241,9 @@ public class EntityManager {
     public void b(d dVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dVar) == null) {
-            if (!this.f31063c.contains(dVar)) {
-                this.f31062b.a(dVar);
-                this.f31063c.add(dVar);
+            if (!this.f31269c.contains(dVar)) {
+                this.f31268b.a(dVar);
+                this.f31269c.add(dVar);
                 this.a.b(dVar);
                 return;
             }
@@ -254,7 +254,7 @@ public class EntityManager {
     public c.b.a.c.b<d> c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f31064d : (c.b.a.c.b) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f31270d : (c.b.a.c.b) invokeV.objValue;
     }
 
     public void d() {
@@ -264,25 +264,25 @@ public class EntityManager {
         }
         int i2 = 0;
         while (true) {
-            c.b.b.q.a<EntityOperation> aVar = this.f31065e;
-            if (i2 < aVar.f27389f) {
+            c.b.b.q.a<EntityOperation> aVar = this.f31271e;
+            if (i2 < aVar.f27595f) {
                 EntityOperation entityOperation = aVar.get(i2);
                 int i3 = a.a[entityOperation.a.ordinal()];
                 if (i3 == 1) {
-                    b(entityOperation.f31067b);
+                    b(entityOperation.f31273b);
                 } else if (i3 == 2) {
-                    f(entityOperation.f31067b);
+                    f(entityOperation.f31273b);
                 } else if (i3 != 3) {
                     throw new AssertionError("Unexpected EntityOperation type");
                 } else {
                     while (true) {
-                        c.b.b.q.a<d> aVar2 = this.f31062b;
-                        if (aVar2.f27389f > 0) {
+                        c.b.b.q.a<d> aVar2 = this.f31268b;
+                        if (aVar2.f27595f > 0) {
                             f(aVar2.first());
                         }
                     }
                 }
-                this.f31066f.c(entityOperation);
+                this.f31272f.c(entityOperation);
                 i2++;
             } else {
                 aVar.clear();
@@ -295,14 +295,14 @@ public class EntityManager {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(1048580, this, dVar, z) == null) {
             if (z) {
-                if (dVar.f26921c) {
+                if (dVar.f27127c) {
                     return;
                 }
-                dVar.f26921c = true;
-                EntityOperation e2 = this.f31066f.e();
-                e2.f31067b = dVar;
+                dVar.f27127c = true;
+                EntityOperation e2 = this.f31272f.e();
+                e2.f31273b = dVar;
                 e2.a = EntityOperation.Type.Remove;
-                this.f31065e.a(e2);
+                this.f31271e.a(e2);
                 return;
             }
             f(dVar);
@@ -311,12 +311,12 @@ public class EntityManager {
 
     public void f(d dVar) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048581, this, dVar) == null) && this.f31063c.remove(dVar)) {
-            dVar.f26921c = false;
-            dVar.f26922d = true;
-            this.f31062b.i(dVar, true);
+        if ((interceptable == null || interceptable.invokeL(1048581, this, dVar) == null) && this.f31269c.remove(dVar)) {
+            dVar.f27127c = false;
+            dVar.f27128d = true;
+            this.f31268b.i(dVar, true);
             this.a.a(dVar);
-            dVar.f26922d = false;
+            dVar.f27128d = false;
         }
     }
 }

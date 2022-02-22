@@ -22,7 +22,7 @@ import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class IMQueryForwardUserList extends FansGroupBaseHttpRequest {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "IMQueryForwardUserList";
@@ -78,7 +78,7 @@ public class IMQueryForwardUserList extends FansGroupBaseHttpRequest {
         }
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:24:0x00b4  */
+    /* JADX WARN: Removed duplicated region for block: B:24:0x00b3  */
     /* JADX WARN: Removed duplicated region for block: B:34:? A[RETURN, SYNTHETIC] */
     @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.ResponseHandler
     /*

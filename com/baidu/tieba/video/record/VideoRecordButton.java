@@ -22,22 +22,22 @@ public class VideoRecordButton extends FrameLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public View f48713e;
+    public View f48880e;
 
     /* renamed from: f  reason: collision with root package name */
-    public View f48714f;
+    public View f48881f;
 
     /* renamed from: g  reason: collision with root package name */
-    public View f48715g;
+    public View f48882g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f48716h;
+    public TextView f48883h;
 
     /* renamed from: i  reason: collision with root package name */
-    public ObjectAnimator f48717i;
+    public ObjectAnimator f48884i;
 
     /* renamed from: j  reason: collision with root package name */
-    public ObjectAnimator f48718j;
+    public ObjectAnimator f48885j;
     public ObjectAnimator k;
     public ObjectAnimator l;
 
@@ -66,61 +66,61 @@ public class VideoRecordButton extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             FrameLayout.inflate(getContext(), R.layout.layout_record_button, this);
-            this.f48713e = findViewById(R.id.record_layer1);
-            this.f48714f = findViewById(R.id.record_layer2);
-            this.f48715g = findViewById(R.id.record_layer3);
-            this.f48716h = (TextView) findViewById(R.id.tv_tip);
-            this.f48715g.setScaleX(0.766f);
-            this.f48715g.setScaleY(0.766f);
+            this.f48880e = findViewById(R.id.record_layer1);
+            this.f48881f = findViewById(R.id.record_layer2);
+            this.f48882g = findViewById(R.id.record_layer3);
+            this.f48883h = (TextView) findViewById(R.id.tv_tip);
+            this.f48882g.setScaleX(0.766f);
+            this.f48882g.setScaleY(0.766f);
         }
     }
 
     public View getLayer1() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f48713e : (View) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f48880e : (View) invokeV.objValue;
     }
 
     public View getLayer2() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f48714f : (View) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f48881f : (View) invokeV.objValue;
     }
 
     public View getLayer3() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f48715g : (View) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f48882g : (View) invokeV.objValue;
     }
 
     public TextView getTvTip() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f48716h : (TextView) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f48883h : (TextView) invokeV.objValue;
     }
 
     public void startRecordAnimator(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
-            ObjectAnimator objectAnimator = this.f48718j;
+            ObjectAnimator objectAnimator = this.f48885j;
             if (objectAnimator != null && objectAnimator.isRunning()) {
-                this.f48718j.cancel();
+                this.f48885j.cancel();
             }
-            if (this.f48717i == null) {
-                ObjectAnimator ofPropertyValuesHolder = ObjectAnimator.ofPropertyValuesHolder(this.f48715g, PropertyValuesHolder.ofFloat(AnimationProperty.SCALE_X, 0.766f, 1.0f), PropertyValuesHolder.ofFloat(AnimationProperty.SCALE_Y, 0.766f, 1.0f));
-                this.f48717i = ofPropertyValuesHolder;
+            if (this.f48884i == null) {
+                ObjectAnimator ofPropertyValuesHolder = ObjectAnimator.ofPropertyValuesHolder(this.f48882g, PropertyValuesHolder.ofFloat(AnimationProperty.SCALE_X, 0.766f, 1.0f), PropertyValuesHolder.ofFloat(AnimationProperty.SCALE_Y, 0.766f, 1.0f));
+                this.f48884i = ofPropertyValuesHolder;
                 ofPropertyValuesHolder.setRepeatCount(-1);
-                this.f48717i.setRepeatMode(2);
-                this.f48717i.setDuration(1000L);
+                this.f48884i.setRepeatMode(2);
+                this.f48884i.setDuration(1000L);
             }
-            this.f48715g.setVisibility(0);
+            this.f48882g.setVisibility(0);
             if (z) {
-                this.f48713e.setVisibility(8);
+                this.f48880e.setVisibility(8);
             } else {
-                this.f48713e.setBackgroundResource(R.drawable.red_square_bg);
+                this.f48880e.setBackgroundResource(R.drawable.red_square_bg);
             }
-            this.f48716h.setVisibility(8);
-            this.f48717i.start();
+            this.f48883h.setVisibility(8);
+            this.f48884i.start();
         }
     }
 
@@ -132,7 +132,7 @@ public class VideoRecordButton extends FrameLayout {
                 this.k.cancel();
             }
             if (this.k == null) {
-                ObjectAnimator ofPropertyValuesHolder = ObjectAnimator.ofPropertyValuesHolder(this.f48714f, PropertyValuesHolder.ofFloat(AnimationProperty.SCALE_X, 1.0f, 0.9f), PropertyValuesHolder.ofFloat(AnimationProperty.SCALE_Y, 1.0f, 0.9f));
+                ObjectAnimator ofPropertyValuesHolder = ObjectAnimator.ofPropertyValuesHolder(this.f48881f, PropertyValuesHolder.ofFloat(AnimationProperty.SCALE_X, 1.0f, 0.9f), PropertyValuesHolder.ofFloat(AnimationProperty.SCALE_Y, 1.0f, 0.9f));
                 this.k = ofPropertyValuesHolder;
                 ofPropertyValuesHolder.setDuration(200L);
             }
@@ -143,18 +143,18 @@ public class VideoRecordButton extends FrameLayout {
     public void stopRecordAnimator() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            ObjectAnimator objectAnimator = this.f48717i;
+            ObjectAnimator objectAnimator = this.f48884i;
             if (objectAnimator != null && objectAnimator.isRunning()) {
-                this.f48717i.cancel();
+                this.f48884i.cancel();
             }
-            if (this.f48718j == null) {
-                ObjectAnimator ofPropertyValuesHolder = ObjectAnimator.ofPropertyValuesHolder(this.f48715g, PropertyValuesHolder.ofFloat(AnimationProperty.SCALE_X, this.f48715g.getScaleX(), 0.766f), PropertyValuesHolder.ofFloat(AnimationProperty.SCALE_Y, this.f48715g.getScaleY(), 0.766f));
-                this.f48718j = ofPropertyValuesHolder;
-                ofPropertyValuesHolder.setDuration((Math.abs(0.766f - this.f48715g.getScaleX()) * 500.0f) / 0.3f);
+            if (this.f48885j == null) {
+                ObjectAnimator ofPropertyValuesHolder = ObjectAnimator.ofPropertyValuesHolder(this.f48882g, PropertyValuesHolder.ofFloat(AnimationProperty.SCALE_X, this.f48882g.getScaleX(), 0.766f), PropertyValuesHolder.ofFloat(AnimationProperty.SCALE_Y, this.f48882g.getScaleY(), 0.766f));
+                this.f48885j = ofPropertyValuesHolder;
+                ofPropertyValuesHolder.setDuration((Math.abs(0.766f - this.f48882g.getScaleX()) * 500.0f) / 0.3f);
             }
-            this.f48713e.setVisibility(0);
-            this.f48713e.setBackgroundResource(R.drawable.red_circle_bg);
-            this.f48718j.start();
+            this.f48880e.setVisibility(0);
+            this.f48880e.setBackgroundResource(R.drawable.red_circle_bg);
+            this.f48885j.start();
         }
     }
 
@@ -165,11 +165,11 @@ public class VideoRecordButton extends FrameLayout {
             if (objectAnimator != null && objectAnimator.isRunning()) {
                 this.k.cancel();
             }
-            if (this.f48714f.getScaleX() == 1.0f) {
+            if (this.f48881f.getScaleX() == 1.0f) {
                 return;
             }
             if (this.l == null) {
-                ObjectAnimator ofPropertyValuesHolder = ObjectAnimator.ofPropertyValuesHolder(this.f48714f, PropertyValuesHolder.ofFloat(AnimationProperty.SCALE_X, 0.9f, 1.0f), PropertyValuesHolder.ofFloat(AnimationProperty.SCALE_Y, 0.9f, 1.0f));
+                ObjectAnimator ofPropertyValuesHolder = ObjectAnimator.ofPropertyValuesHolder(this.f48881f, PropertyValuesHolder.ofFloat(AnimationProperty.SCALE_X, 0.9f, 1.0f), PropertyValuesHolder.ofFloat(AnimationProperty.SCALE_Y, 0.9f, 1.0f));
                 this.l = ofPropertyValuesHolder;
                 ofPropertyValuesHolder.setDuration(200L);
             }

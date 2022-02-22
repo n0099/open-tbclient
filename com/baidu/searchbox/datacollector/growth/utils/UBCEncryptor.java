@@ -28,7 +28,7 @@ import kotlin.jvm.internal.ByteCompanionObject;
 import okhttp3.internal.publicsuffix.PublicSuffixDatabase;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class UBCEncryptor {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String RSA_ALGORITHM = "RSA/ECB/PKCS1Padding";
@@ -36,7 +36,7 @@ public class UBCEncryptor {
     public static byte[] mCertBytes;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public static class MixedEncryptedResult {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

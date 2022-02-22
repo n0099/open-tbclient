@@ -1,7 +1,7 @@
 package com.baidu.tieba.setting.model.imageWatermarkType;
 
 import c.a.d.a.f;
-import c.a.s0.s.k;
+import c.a.t0.s.l;
 import com.baidu.adp.base.BdBaseModel;
 import com.baidu.adp.framework.listener.HttpMessageListener;
 import com.baidu.adp.framework.message.HttpMessage;
@@ -15,15 +15,15 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public class GetImageWatermarkTypeModel extends BdBaseModel<MoreActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public HttpMessageListener f47832e;
+    public HttpMessageListener f47978e;
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes13.dex */
     public class a extends HttpMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -55,7 +55,7 @@ public class GetImageWatermarkTypeModel extends BdBaseModel<MoreActivity> {
             if ((interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) && (httpResponsedMessage instanceof GetImageWatermarkTypeResMsg)) {
                 GetImageWatermarkTypeResMsg getImageWatermarkTypeResMsg = (GetImageWatermarkTypeResMsg) httpResponsedMessage;
                 if (getImageWatermarkTypeResMsg.mMaskType > -1) {
-                    k.c().i(getImageWatermarkTypeResMsg.mMaskType);
+                    l.c().i(getImageWatermarkTypeResMsg.mMaskType);
                 }
             }
         }
@@ -80,7 +80,7 @@ public class GetImageWatermarkTypeModel extends BdBaseModel<MoreActivity> {
             }
         }
         a aVar = new a(this, CmdConfigHttp.CMD_GET_IMAGE_WATERMARK_TYPE);
-        this.f47832e = aVar;
+        this.f47978e = aVar;
         registerListener(aVar);
         loadData();
     }

@@ -4,11 +4,11 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.LinearLayout;
 import androidx.annotation.NonNull;
-import c.a.d.h.c;
-import c.a.s0.l0.f.b;
-import c.a.t0.c3.d;
-import c.a.t0.c3.e;
-import c.a.t0.c3.f;
+import c.a.d.i.c;
+import c.a.t0.l0.f.b;
+import c.a.u0.d3.d;
+import c.a.u0.d3.e;
+import c.a.u0.d3.f;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.nps.pm.BundleInfo;
 import com.baidu.pass.ecommerce.common.view.ToastUtil;
@@ -26,7 +26,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public class NpsPluginCenterActivity extends BaseActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -34,7 +34,7 @@ public class NpsPluginCenterActivity extends BaseActivity {
     public int mFromType;
     public NavigationBar mNavigationBar;
     public NoDataView mNoDataView;
-    public b<Object, c.a.s0.l0.d.b, c.a.s0.l0.f.a<Object, c.a.s0.l0.d.b>> mPluginCenterAdapter;
+    public b<Object, c.a.t0.l0.d.b, c.a.t0.l0.f.a<Object, c.a.t0.l0.d.b>> mPluginCenterAdapter;
     public View mRootView;
     public List<Object> mShowList;
     @NonNull
@@ -42,16 +42,16 @@ public class NpsPluginCenterActivity extends BaseActivity {
     @NonNull
     public final List<String> whiteList;
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes13.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ BundleInfo f47394e;
+        public final /* synthetic */ BundleInfo f47540e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ NpsPluginCenterActivity f47395f;
+        public final /* synthetic */ NpsPluginCenterActivity f47541f;
 
         public a(NpsPluginCenterActivity npsPluginCenterActivity, BundleInfo bundleInfo) {
             Interceptable interceptable = $ic;
@@ -68,15 +68,15 @@ public class NpsPluginCenterActivity extends BaseActivity {
                     return;
                 }
             }
-            this.f47395f = npsPluginCenterActivity;
-            this.f47394e = bundleInfo;
+            this.f47541f = npsPluginCenterActivity;
+            this.f47540e = bundleInfo;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                ToastUtil.show(this.f47394e.getPackageName());
+                ToastUtil.show(this.f47540e.getPackageName());
             }
         }
     }
@@ -116,6 +116,7 @@ public class NpsPluginCenterActivity extends BaseActivity {
         if (interceptable == null || interceptable.invokeV(65538, this) == null) {
             LinearLayout linearLayout = (LinearLayout) findViewById(d.scroll_content);
             this.whiteList.add("com.baidu.searchbox.bjhlivenps");
+            this.whiteList.add("com.baidu.live.media.business");
             this.whiteList.add(LiveNPSPluginManager.NPS_PLUGIN_PKG_NAME);
             this.whiteList.add("com.baidu.searchbox.yylive.extlib");
             for (BundleInfo bundleInfo : c.e().c()) {
@@ -150,7 +151,7 @@ public class NpsPluginCenterActivity extends BaseActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
             super.onChangeSkinType(i2);
-            SkinManager.setBackgroundColor(this.mRootView, c.a.t0.c3.a.CAM_X0204);
+            SkinManager.setBackgroundColor(this.mRootView, c.a.u0.d3.a.CAM_X0204);
             this.mNavigationBar.onChangeSkinType(getPageContext(), i2);
             getLayoutMode().j(findViewById(16908290));
             NoDataView noDataView = this.mNoDataView;

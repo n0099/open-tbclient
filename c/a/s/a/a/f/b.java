@@ -1,0 +1,8 @@
+package c.a.s.a.a.f;
+
+import com.baidu.searchbox.network.outback.core.Request;
+import okhttp3.Dns;
+/* loaded from: classes.dex */
+public interface b {
+    Dns a(Request request, a aVar);
+}

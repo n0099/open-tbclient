@@ -13,26 +13,26 @@ import j.a.a.e.m.n;
 import tv.athena.revenue.payui.view.AbsViewEventHandler;
 import tv.athena.revenue.payui.view.IYYPayWayView;
 import tv.athena.revenue.payui.view.dialog.CancelType;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class k implements j.a.a.e.q.g.c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f62375b;
+    public int f62542b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Activity f62376c;
+    public Activity f62543c;
 
     /* renamed from: d  reason: collision with root package name */
-    public IYYPayWayView f62377d;
+    public IYYPayWayView f62544d;
 
     /* renamed from: e  reason: collision with root package name */
-    public AbsViewEventHandler f62378e;
+    public AbsViewEventHandler f62545e;
 
     /* renamed from: f  reason: collision with root package name */
-    public j.a.a.e.m.f f62379f;
+    public j.a.a.e.m.f f62546f;
 
     public k(int i2, int i3, Activity activity, IYYPayWayView iYYPayWayView, AbsViewEventHandler absViewEventHandler, j.a.a.e.m.f fVar) {
         Interceptable interceptable = $ic;
@@ -51,11 +51,11 @@ public class k implements j.a.a.e.q.g.c {
         }
         RLog.info("PayWayDialogListener", "create PayWayDialogListener appId:" + i2 + " userChannel:" + i3);
         this.a = i2;
-        this.f62375b = i3;
-        this.f62376c = activity;
-        this.f62377d = iYYPayWayView;
-        this.f62378e = absViewEventHandler;
-        this.f62379f = fVar;
+        this.f62542b = i3;
+        this.f62543c = activity;
+        this.f62544d = iYYPayWayView;
+        this.f62545e = absViewEventHandler;
+        this.f62546f = fVar;
     }
 
     @Override // j.a.a.e.q.g.c
@@ -63,9 +63,9 @@ public class k implements j.a.a.e.q.g.c {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, cancelType) == null) {
             RLog.info("PayWayDialogListener", "PayWayDialog notifyCancelType clickArea:" + cancelType);
-            this.f62379f.i();
-            this.f62379f.c(cancelType, this.f62378e);
-            n.b(this.a, this.f62375b, cancelType);
+            this.f62546f.i();
+            this.f62546f.c(cancelType, this.f62545e);
+            n.b(this.a, this.f62542b, cancelType);
         }
     }
 
@@ -73,6 +73,6 @@ public class k implements j.a.a.e.q.g.c {
     public boolean b(DialogInterface dialogInterface) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dialogInterface)) == null) ? this.f62379f.m(this.f62376c, this.f62377d, this.f62378e) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dialogInterface)) == null) ? this.f62546f.m(this.f62543c, this.f62544d, this.f62545e) : invokeL.booleanValue;
     }
 }

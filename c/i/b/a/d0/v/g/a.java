@@ -13,16 +13,16 @@ public class a {
     public final int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final int f29252b;
+    public final int f29458b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final List<g> f29253c;
+    public final List<g> f29459c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final List<d> f29254d;
+    public final List<d> f29460d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final List<d> f29255e;
+    public final List<d> f29461e;
 
     public a(int i2, int i3, List<g> list, List<d> list2, List<d> list3) {
         List<d> unmodifiableList;
@@ -42,19 +42,19 @@ public class a {
             }
         }
         this.a = i2;
-        this.f29252b = i3;
-        this.f29253c = Collections.unmodifiableList(list);
+        this.f29458b = i3;
+        this.f29459c = Collections.unmodifiableList(list);
         if (list2 == null) {
             unmodifiableList = Collections.emptyList();
         } else {
             unmodifiableList = Collections.unmodifiableList(list2);
         }
-        this.f29254d = unmodifiableList;
+        this.f29460d = unmodifiableList;
         if (list3 == null) {
             unmodifiableList2 = Collections.emptyList();
         } else {
             unmodifiableList2 = Collections.unmodifiableList(list3);
         }
-        this.f29255e = unmodifiableList2;
+        this.f29461e = unmodifiableList2;
     }
 }

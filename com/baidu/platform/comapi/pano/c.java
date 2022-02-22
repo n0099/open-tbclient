@@ -6,17 +6,17 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public PanoStateError f37746b;
+    public PanoStateError f37975b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f37747c;
+    public int f37976c;
 
     public c() {
         Interceptable interceptable = $ic;
@@ -47,19 +47,19 @@ public class c {
                 return;
             }
         }
-        this.f37746b = panoStateError;
+        this.f37975b = panoStateError;
     }
 
     public PanoStateError a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f37746b : (PanoStateError) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f37975b : (PanoStateError) invokeV.objValue;
     }
 
     public void a(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
-            this.f37747c = i2;
+            this.f37976c = i2;
         }
     }
 
@@ -79,6 +79,6 @@ public class c {
     public int c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f37747c : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f37976c : invokeV.intValue;
     }
 }

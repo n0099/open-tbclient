@@ -7,13 +7,16 @@ import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
 import androidx.core.view.InputDeviceCompat;
 import c.a.d.f.p.n;
+import c.a.u0.a4.d;
+import c.a.u0.a4.e;
+import c.a.u0.a4.f;
+import c.a.u0.a4.j;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.AlaInfoData;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.widget.TbClipImageView;
-import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -72,14 +75,14 @@ public class HeadImageView extends TbClipImageView {
     private void init() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65539, this) == null) {
-            this.R = n.f(getContext(), R.dimen.tbds36);
+            this.R = n.f(getContext(), e.tbds36);
             setDrawerType(1);
             setGifIconSupport(false);
             setDrawBorder(true);
             setDefaultBgResource(this.e0);
             setDefaultResource(this.d0);
-            setBorderWidth(TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds1));
-            setBorderColor(SkinManager.getColor(R.color.black_alpha8));
+            setBorderWidth(TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(e.tbds1));
+            setBorderColor(SkinManager.getColor(d.black_alpha8));
             setBorderSurroundContent(true);
             setConrers(15);
         }
@@ -318,7 +321,7 @@ public class HeadImageView extends TbClipImageView {
     public void setUserName(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048606, this, str) == null) {
-            setUserName(str, str + getResources().getString(R.string.somebodys_portrait));
+            setUserName(str, str + getResources().getString(j.somebodys_portrait));
         }
     }
 
@@ -331,9 +334,9 @@ public class HeadImageView extends TbClipImageView {
             float f3 = (i2 - f2) / 2.0f;
             float f4 = f2 + f3;
             float f5 = (i3 * 0.77f) + f3;
-            this.t0.setColor(SkinManager.getColor(R.color.CAM_X0201));
+            this.t0.setColor(SkinManager.getColor(d.CAM_X0201));
             canvas.drawCircle(f4, f5, f3, this.t0);
-            this.t0.setColor(SkinManager.getColor(R.color.CAM_X0309));
+            this.t0.setColor(SkinManager.getColor(d.CAM_X0309));
             canvas.drawCircle(f4, f5, f3 - 4.0f, this.t0);
         }
     }
@@ -450,9 +453,9 @@ public class HeadImageView extends TbClipImageView {
         this.W = null;
         this.a0 = null;
         this.b0 = null;
-        this.d0 = R.drawable.transparent_bg;
-        this.e0 = R.color.CAM_X0209;
-        this.f0 = R.drawable.ic_icon_mask_shen20_n;
+        this.d0 = f.transparent_bg;
+        this.e0 = d.CAM_X0209;
+        this.f0 = f.ic_icon_mask_shen20_n;
         this.g0 = 0;
         this.s0 = -1;
         init();

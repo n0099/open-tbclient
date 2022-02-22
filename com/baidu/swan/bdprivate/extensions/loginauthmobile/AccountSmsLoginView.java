@@ -5,8 +5,8 @@ import android.os.Handler;
 import android.util.AttributeSet;
 import android.widget.EditText;
 import androidx.fragment.app.FragmentActivity;
-import c.a.r0.a.z2.x;
-import c.a.r0.b.f;
+import c.a.s0.a.z2.x;
+import c.a.s0.b.f;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.sapi2.views.SmsLoginView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -25,7 +25,7 @@ public class AccountSmsLoginView extends SmsLoginView {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ AccountSmsLoginView f39531e;
+        public final /* synthetic */ AccountSmsLoginView f39759e;
 
         public a(AccountSmsLoginView accountSmsLoginView) {
             Interceptable interceptable = $ic;
@@ -42,14 +42,14 @@ public class AccountSmsLoginView extends SmsLoginView {
                     return;
                 }
             }
-            this.f39531e = accountSmsLoginView;
+            this.f39759e = accountSmsLoginView;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                x.a(this.f39531e.w, ((FragmentActivity) this.f39531e.w).getWindow().getDecorView().getWindowToken());
+                x.a(this.f39759e.w, ((FragmentActivity) this.f39759e.w).getWindow().getDecorView().getWindowToken());
             }
         }
     }
@@ -60,7 +60,7 @@ public class AccountSmsLoginView extends SmsLoginView {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ AccountSmsLoginView f39532e;
+        public final /* synthetic */ AccountSmsLoginView f39760e;
 
         public b(AccountSmsLoginView accountSmsLoginView) {
             Interceptable interceptable = $ic;
@@ -77,14 +77,14 @@ public class AccountSmsLoginView extends SmsLoginView {
                     return;
                 }
             }
-            this.f39532e = accountSmsLoginView;
+            this.f39760e = accountSmsLoginView;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                x.b(this.f39532e.w, false);
+                x.b(this.f39760e.w, false);
             }
         }
     }

@@ -10,7 +10,7 @@ import java.util.zip.GZIPInputStream;
 import java.util.zip.GZIPOutputStream;
 import javax.crypto.Cipher;
 import javax.crypto.spec.SecretKeySpec;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public final class b {
     public static final Charset a = Charset.forName("UTF-8");
 

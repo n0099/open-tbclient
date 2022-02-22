@@ -13,12 +13,12 @@ import androidx.annotation.DrawableRes;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
-import c.a.c0.d.b;
-import c.a.c0.d.d;
-import c.a.c0.d.e;
-import c.a.c0.d.g;
-import c.a.c0.g0.f;
-import c.a.c0.j.f.i;
+import c.a.d0.d.b;
+import c.a.d0.d.d;
+import c.a.d0.d.e;
+import c.a.d0.d.g;
+import c.a.d0.h0.f;
+import c.a.d0.j.f.i;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.nadcore.download.consts.AdDownloadStatus;
 import com.baidu.nadcore.download.view.AdProgressButton;
@@ -120,7 +120,7 @@ public class NadMiniVideoDownloadView extends RoundCornerFrameLayout implements 
         return (interceptable == null || (invokeV = interceptable.invokeV(65539, this)) == null) ? g.nad_mini_video_download_view : invokeV.intValue;
     }
 
-    @Override // c.a.c0.j.f.i
+    @Override // c.a.d0.j.f.i
     public void bind(@NonNull ViewGroup viewGroup) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048576, this, viewGroup) == null) && (viewGroup instanceof RelativeLayout)) {
@@ -144,11 +144,11 @@ public class NadMiniVideoDownloadView extends RoundCornerFrameLayout implements 
     }
 
     @DrawableRes
-    public int getIconId(@NonNull c.a.c0.j.d.a aVar) {
+    public int getIconId(@NonNull c.a.d0.j.d.a aVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar)) == null) {
-            int i2 = a.a[aVar.f1951c.ordinal()];
+            int i2 = a.a[aVar.f2798c.ordinal()];
             if (i2 != 1) {
                 if (i2 != 3) {
                     if (i2 != 4) {
@@ -176,7 +176,7 @@ public class NadMiniVideoDownloadView extends RoundCornerFrameLayout implements 
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // c.a.c0.j.f.i
+    @Override // c.a.d0.j.f.i
     @Nullable
     public NadMiniVideoDownloadView getRealView() {
         InterceptResult invokeV;
@@ -331,14 +331,14 @@ public class NadMiniVideoDownloadView extends RoundCornerFrameLayout implements 
         textView.setTextSize(1, f2);
     }
 
-    @Override // c.a.c0.j.f.i
-    public void update(String str, @NonNull c.a.c0.j.d.a aVar) {
+    @Override // c.a.d0.j.f.i
+    public void update(String str, @NonNull c.a.d0.j.d.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048598, this, str, aVar) == null) {
             this.q = str;
-            if (aVar.f1951c == AdDownloadStatus.DOWNLOADING) {
+            if (aVar.f2798c == AdDownloadStatus.DOWNLOADING) {
                 this.q = "已下载 : " + this.q;
-                setProgress((int) (aVar.f1957i * 100.0f));
+                setProgress((int) (aVar.f2804i * 100.0f));
             } else {
                 setStateImageRes(getIconId(aVar));
             }

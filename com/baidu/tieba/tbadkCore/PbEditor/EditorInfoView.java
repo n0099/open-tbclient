@@ -3,9 +3,10 @@ package com.baidu.tieba.tbadkCore.PbEditor;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.widget.TextView;
+import c.a.u0.a4.d;
+import c.a.u0.a4.e;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -16,7 +17,7 @@ public class EditorInfoView extends TextView {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f48145e;
+    public int f48310e;
     public int paddingHor;
     public int paddingVer;
 
@@ -43,11 +44,11 @@ public class EditorInfoView extends TextView {
 
     public void onChangeSkinType(int i2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048576, this, i2) == null) || i2 == this.f48145e) {
+        if (!(interceptable == null || interceptable.invokeI(1048576, this, i2) == null) || i2 == this.f48310e) {
             return;
         }
-        SkinManager.setViewTextColor(this, R.color.CAM_X0106);
-        this.f48145e = i2;
+        SkinManager.setViewTextColor(this, d.CAM_X0106);
+        this.f48310e = i2;
     }
 
     @Override // android.widget.TextView, android.view.View
@@ -55,7 +56,7 @@ public class EditorInfoView extends TextView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, i3) == null) {
             super.onMeasure(i2, i3);
-            setMeasuredDimension(getMeasuredWidth(), (int) getContext().getResources().getDimension(R.dimen.ds48));
+            setMeasuredDimension(getMeasuredWidth(), (int) getContext().getResources().getDimension(e.ds48));
         }
     }
 
@@ -99,14 +100,14 @@ public class EditorInfoView extends TextView {
                 return;
             }
         }
-        this.f48145e = 3;
-        this.paddingHor = (int) context.getResources().getDimension(R.dimen.ds18);
-        int dimension = (int) context.getResources().getDimension(R.dimen.ds6);
+        this.f48310e = 3;
+        this.paddingHor = (int) context.getResources().getDimension(e.ds18);
+        int dimension = (int) context.getResources().getDimension(e.ds6);
         this.paddingVer = dimension;
         int i5 = this.paddingHor;
         setPadding(i5, dimension, i5, dimension);
         setGravity(16);
         setSingleLine(true);
-        setTextSize(0, context.getResources().getDimension(R.dimen.ds24));
+        setTextSize(0, context.getResources().getDimension(e.ds24));
     }
 }

@@ -12,13 +12,13 @@ public abstract class f {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f26928e;
+    public int f27134e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f26929f;
+    public boolean f27135f;
 
     /* renamed from: g  reason: collision with root package name */
-    public c f26930g;
+    public c f27136g;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public f() {
@@ -47,7 +47,7 @@ public abstract class f {
     public final void d(c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cVar) == null) {
-            this.f26930g = cVar;
+            this.f27136g = cVar;
             c(cVar);
         }
     }
@@ -55,13 +55,13 @@ public abstract class f {
     public boolean e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f26929f : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f27135f : invokeV.booleanValue;
     }
 
     public c f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f26930g : (c) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f27136g : (c) invokeV.objValue;
     }
 
     public void g(c cVar) {
@@ -73,7 +73,7 @@ public abstract class f {
     public final void h(c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, cVar) == null) {
-            this.f26930g = null;
+            this.f27136g = null;
             g(cVar);
         }
     }
@@ -99,7 +99,7 @@ public abstract class f {
                 return;
             }
         }
-        this.f26928e = i2;
-        this.f26929f = true;
+        this.f27134e = i2;
+        this.f27135f = true;
     }
 }

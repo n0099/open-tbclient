@@ -35,10 +35,10 @@ public final class TaskBusinessEventManager {
     public static final ReentrantLock a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final ConcurrentHashMap<String, e> f32991b;
+    public static final ConcurrentHashMap<String, e> f33197b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final TaskBusinessEventManager f32992c;
+    public static final TaskBusinessEventManager f33198c;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -54,9 +54,9 @@ public final class TaskBusinessEventManager {
                 return;
             }
         }
-        f32992c = new TaskBusinessEventManager();
+        f33198c = new TaskBusinessEventManager();
         a = new ReentrantLock(true);
-        f32991b = new ConcurrentHashMap<>();
+        f33197b = new ConcurrentHashMap<>();
     }
 
     public TaskBusinessEventManager() {
@@ -80,15 +80,15 @@ public final class TaskBusinessEventManager {
             reentrantLock.lock();
             try {
                 String singleKey = taskInfo.getSingleKey();
-                if (!f32991b.containsKey(singleKey)) {
-                    f32991b.put(singleKey, new e(taskInfo.deepCopy()));
+                if (!f33197b.containsKey(singleKey)) {
+                    f33197b.put(singleKey, new e(taskInfo.deepCopy()));
                 } else {
-                    e eVar = f32991b.get(singleKey);
+                    e eVar = f33197b.get(singleKey);
                     if (eVar != null) {
                         eVar.d(taskInfo.deepCopy());
                     }
                 }
-                e eVar2 = f32991b.get(singleKey);
+                e eVar2 = f33197b.get(singleKey);
                 if (eVar2 != null) {
                     eVar2.e(cls, bVar);
                     Unit unit = Unit.INSTANCE;
@@ -106,15 +106,15 @@ public final class TaskBusinessEventManager {
             reentrantLock.lock();
             try {
                 String singleKey = taskInfo.getSingleKey();
-                if (!f32991b.containsKey(singleKey)) {
-                    f32991b.put(singleKey, new e(taskInfo.deepCopy()));
+                if (!f33197b.containsKey(singleKey)) {
+                    f33197b.put(singleKey, new e(taskInfo.deepCopy()));
                 } else {
-                    e eVar = f32991b.get(singleKey);
+                    e eVar = f33197b.get(singleKey);
                     if (eVar != null) {
                         eVar.d(taskInfo.deepCopy());
                     }
                 }
-                e eVar2 = f32991b.get(singleKey);
+                e eVar2 = f33197b.get(singleKey);
                 if (eVar2 != null) {
                     eVar2.c(cVar);
                     Unit unit = Unit.INSTANCE;
@@ -134,8 +134,8 @@ public final class TaskBusinessEventManager {
                 a a2 = d.a.a(taskInfo, uniqueId);
                 if (a2 != null) {
                     DebugTrace.a.c(new TaskBusinessEventManager$dispatchBusinessEvent$1$1(a2));
-                    Set<Pair<Class<? extends a>, b<? extends a>>> e2 = f32992c.e(taskInfo.getSingleKey());
-                    Set<c> f2 = f32992c.f(taskInfo.getSingleKey());
+                    Set<Pair<Class<? extends a>, b<? extends a>>> e2 = f33198c.e(taskInfo.getSingleKey());
+                    Set<c> f2 = f33198c.f(taskInfo.getSingleKey());
                     if (f2 != null) {
                         for (c cVar : f2) {
                             if (cVar != null) {
@@ -171,7 +171,7 @@ public final class TaskBusinessEventManager {
         e eVar;
         TaskInfo h2;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048579, this, str, uniqueId) == null) || (eVar = f32991b.get(str)) == null || (h2 = eVar.h()) == null) {
+        if (!(interceptable == null || interceptable.invokeLL(1048579, this, str, uniqueId) == null) || (eVar = f33197b.get(str)) == null || (h2 = eVar.h()) == null) {
             return;
         }
         c(h2, uniqueId);
@@ -181,7 +181,7 @@ public final class TaskBusinessEventManager {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
-            e eVar = f32991b.get(str);
+            e eVar = f33197b.get(str);
             if (eVar == null || (!Intrinsics.areEqual(eVar.h().getSingleKey(), str))) {
                 return null;
             }
@@ -194,7 +194,7 @@ public final class TaskBusinessEventManager {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
-            e eVar = f32991b.get(str);
+            e eVar = f33197b.get(str);
             if (eVar == null || (!Intrinsics.areEqual(eVar.h().getSingleKey(), str))) {
                 return null;
             }
@@ -209,7 +209,7 @@ public final class TaskBusinessEventManager {
             ReentrantLock reentrantLock = a;
             reentrantLock.lock();
             try {
-                for (Map.Entry<String, e> entry : f32991b.entrySet()) {
+                for (Map.Entry<String, e> entry : f33197b.entrySet()) {
                     e value = entry.getValue();
                     if (Intrinsics.areEqual(value.h().getActionId(), str)) {
                         value.b(bVar);
@@ -228,7 +228,7 @@ public final class TaskBusinessEventManager {
             ReentrantLock reentrantLock = a;
             reentrantLock.lock();
             try {
-                for (Map.Entry<String, e> entry : f32991b.entrySet()) {
+                for (Map.Entry<String, e> entry : f33197b.entrySet()) {
                     e value = entry.getValue();
                     if (Intrinsics.areEqual(value.h().getActionId(), str)) {
                         value.g(cVar);

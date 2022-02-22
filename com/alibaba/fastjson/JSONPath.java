@@ -1756,7 +1756,7 @@ public class JSONPath implements JSONAware {
                     }
                 } else if (c2 == '!') {
                     next();
-                    accept(a.f30893h);
+                    accept(a.f31099h);
                     operator = Operator.NE;
                 } else if (c2 == '<') {
                     next();

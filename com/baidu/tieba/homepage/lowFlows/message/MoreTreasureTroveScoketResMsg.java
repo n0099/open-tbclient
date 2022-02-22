@@ -1,8 +1,8 @@
 package com.baidu.tieba.homepage.lowFlows.message;
 
-import c.a.d.n.e.n;
-import c.a.t0.p1.g.e.a;
-import c.a.t0.p1.g.h.c;
+import c.a.d.o.e.n;
+import c.a.u0.p1.h.e.a;
+import c.a.u0.p1.h.h.c;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -38,7 +38,7 @@ public class MoreTreasureTroveScoketResMsg extends SocketResponsedMessage implem
         }
     }
 
-    @Override // c.a.t0.p1.g.e.a
+    @Override // c.a.u0.p1.h.e.a
     public List<n> getDataList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

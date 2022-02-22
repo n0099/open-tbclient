@@ -30,7 +30,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class ScrollHorizontalTabView extends MyHorizontalScrollView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -53,7 +53,7 @@ public class ScrollHorizontalTabView extends MyHorizontalScrollView {
     public int mTextSize;
     public OnTabClickListener onTabClickListener;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public class InnerScrollTabPageListener implements ViewPager.OnPageChangeListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -134,12 +134,12 @@ public class ScrollHorizontalTabView extends MyHorizontalScrollView {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public interface OnTabClickListener {
         void onClick(int i2);
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public interface ScrollTabPageListener {
         void onPageScrolled(int i2, float f2, int i3);
 
@@ -148,7 +148,7 @@ public class ScrollHorizontalTabView extends MyHorizontalScrollView {
         boolean onPrePageSelect(int i2, TabData tabData);
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public class ViewHolder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

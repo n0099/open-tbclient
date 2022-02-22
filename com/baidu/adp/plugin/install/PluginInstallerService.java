@@ -9,7 +9,7 @@ import android.os.Looper;
 import android.os.Message;
 import android.os.Messenger;
 import android.os.RemoteException;
-import c.a.d.i.g.d;
+import c.a.d.j.g.d;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -19,7 +19,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class PluginInstallerService extends HighPriorityIntentService {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ACTION_INSTALL = "com.baidu.adp.plugin.action.install";
@@ -31,7 +31,7 @@ public class PluginInstallerService extends HighPriorityIntentService {
     public Handler handler;
     public Messenger messenger;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public class a extends Handler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

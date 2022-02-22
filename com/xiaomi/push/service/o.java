@@ -25,10 +25,10 @@ public class o extends XMPushService.i {
     public byte[] f972a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f61508b;
+    public String f61675b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f61509c;
+    public String f61676c;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public o(XMPushService xMPushService, String str, String str2, String str3, byte[] bArr) {
@@ -51,8 +51,8 @@ public class o extends XMPushService.i {
         this.a = xMPushService;
         this.f971a = str;
         this.f972a = bArr;
-        this.f61508b = str2;
-        this.f61509c = str3;
+        this.f61675b = str2;
+        this.f61676c = str3;
     }
 
     @Override // com.xiaomi.push.service.XMPushService.i
@@ -70,7 +70,7 @@ public class o extends XMPushService.i {
             l a = m.a((Context) this.a);
             if (a == null) {
                 try {
-                    a = m.a(this.a, this.f971a, this.f61508b, this.f61509c);
+                    a = m.a(this.a, this.f971a, this.f61675b, this.f61676c);
                 } catch (Exception e2) {
                     com.xiaomi.channel.commonutils.logger.b.d("fail to register push account. " + e2);
                 }
@@ -80,20 +80,20 @@ public class o extends XMPushService.i {
                 p.a(this.a, ErrorCode.ERROR_AUTHERICATION_ERROR, "no account.");
                 return;
             }
-            Collection<av.b> m665a = av.a().m665a("5");
-            if (m665a.isEmpty()) {
+            Collection<av.b> m664a = av.a().m664a("5");
+            if (m664a.isEmpty()) {
                 next = a.a(this.a);
                 y.a(this.a, next);
                 av.a().a(next);
             } else {
-                next = m665a.iterator().next();
+                next = m664a.iterator().next();
             }
-            if (!this.a.m631c()) {
+            if (!this.a.m630c()) {
                 this.a.a(true);
                 return;
             }
             try {
-                if (next.f914a == av.c.f61475c) {
+                if (next.f914a == av.c.f61642c) {
                     y.a(this.a, this.f971a, this.f972a);
                 } else if (next.f914a == av.c.a) {
                     XMPushService xMPushService = this.a;

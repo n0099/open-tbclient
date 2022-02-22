@@ -5,7 +5,7 @@ import com.kwad.sdk.core.diskcache.kwai.a;
 import java.io.Closeable;
 import java.io.InputStream;
 import java.io.OutputStream;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class e {
     public static Object a(@NonNull com.kwad.sdk.core.diskcache.kwai.a aVar, @NonNull String str) {
         InputStream inputStream;
@@ -49,7 +49,7 @@ public class e {
         OutputStream outputStream = null;
         try {
             try {
-                a.C2104a b2 = aVar.b(str);
+                a.C2114a b2 = aVar.b(str);
                 if (b2 != null) {
                     outputStream = b2.a(0);
                     if (d.a(outputStream, obj)) {

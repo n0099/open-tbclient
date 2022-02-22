@@ -19,14 +19,14 @@ public interface ae extends IInterface {
 
         /* renamed from: com.ss.android.socialbase.downloader.depend.ae$a$a  reason: collision with other inner class name */
         /* loaded from: classes4.dex */
-        public static class C2207a implements ae {
+        public static class C2217a implements ae {
             public static ae a;
 
             /* renamed from: b  reason: collision with root package name */
-            public IBinder f59972b;
+            public IBinder f60139b;
 
-            public C2207a(IBinder iBinder) {
-                this.f59972b = iBinder;
+            public C2217a(IBinder iBinder) {
+                this.f60139b = iBinder;
             }
 
             @Override // com.ss.android.socialbase.downloader.depend.ae
@@ -41,7 +41,7 @@ public interface ae extends IInterface {
                     } else {
                         obtain.writeInt(0);
                     }
-                    if (!this.f59972b.transact(1, obtain, obtain2, 0) && a.a() != null) {
+                    if (!this.f60139b.transact(1, obtain, obtain2, 0) && a.a() != null) {
                         return a.a().a(downloadInfo);
                     }
                     obtain2.readException();
@@ -54,7 +54,7 @@ public interface ae extends IInterface {
 
             @Override // android.os.IInterface
             public IBinder asBinder() {
-                return this.f59972b;
+                return this.f60139b;
             }
 
             @Override // com.ss.android.socialbase.downloader.depend.ae
@@ -69,7 +69,7 @@ public interface ae extends IInterface {
                     } else {
                         obtain.writeInt(0);
                     }
-                    if (!this.f59972b.transact(2, obtain, obtain2, 0) && a.a() != null) {
+                    if (!this.f60139b.transact(2, obtain, obtain2, 0) && a.a() != null) {
                         return a.a().b(downloadInfo);
                     }
                     obtain2.readException();
@@ -92,7 +92,7 @@ public interface ae extends IInterface {
                     } else {
                         obtain.writeInt(0);
                     }
-                    if (!this.f59972b.transact(3, obtain, obtain2, 0) && a.a() != null) {
+                    if (!this.f60139b.transact(3, obtain, obtain2, 0) && a.a() != null) {
                         return a.a().c(downloadInfo);
                     }
                     obtain2.readException();
@@ -116,7 +116,7 @@ public interface ae extends IInterface {
             if (queryLocalInterface != null && (queryLocalInterface instanceof ae)) {
                 return (ae) queryLocalInterface;
             }
-            return new C2207a(iBinder);
+            return new C2217a(iBinder);
         }
 
         @Override // android.os.IInterface
@@ -154,7 +154,7 @@ public interface ae extends IInterface {
         }
 
         public static ae a() {
-            return C2207a.a;
+            return C2217a.a;
         }
     }
 }

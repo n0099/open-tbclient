@@ -17,7 +17,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bumptech.glide.util.Preconditions;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class MemorySizeCalculator {
     public static /* synthetic */ Interceptable $ic = null;
     @VisibleForTesting
@@ -30,7 +30,7 @@ public final class MemorySizeCalculator {
     public final Context context;
     public final int memoryCacheSize;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class Builder {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int ARRAY_POOL_SIZE_BYTES = 4194304;
@@ -177,7 +177,7 @@ public final class MemorySizeCalculator {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class DisplayMetricsScreenDimensions implements ScreenDimensions {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -216,7 +216,7 @@ public final class MemorySizeCalculator {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface ScreenDimensions {
         int getHeightPixels();
 

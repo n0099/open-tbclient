@@ -5,12 +5,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-import c.a.t0.t2.f;
-import c.a.t0.t2.h;
-import c.a.t0.t2.i;
-import c.a.t0.t2.j;
-import c.a.t0.t2.u.f.o;
-import c.a.t0.t2.y.c;
+import c.a.u0.u2.f;
+import c.a.u0.u2.h;
+import c.a.u0.u2.i;
+import c.a.u0.u2.j;
+import c.a.u0.u2.u.f.o;
+import c.a.u0.u2.y.c;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.imsdk.internal.Constants;
@@ -21,13 +21,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public class PbReplyLoadMoreAdapter extends o<PostData, ReplyLoadMoreViewHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public View.OnClickListener s;
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes13.dex */
     public static class ReplyLoadMoreViewHolder extends TypeAdapter.ViewHolder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -100,13 +100,13 @@ public class PbReplyLoadMoreAdapter extends o<PostData, ReplyLoadMoreViewHolder>
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // c.a.d.n.e.a
+    @Override // c.a.d.o.e.a
     /* renamed from: b0 */
     public ReplyLoadMoreViewHolder M(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
-            View inflate = LayoutInflater.from(this.f3360e).inflate(j.pb_reply_load_more_item, viewGroup, false);
+            View inflate = LayoutInflater.from(this.f2447e).inflate(j.pb_reply_load_more_item, viewGroup, false);
             inflate.findViewById(i.tv_pb_reply_more).setOnClickListener(this.s);
             ReplyLoadMoreViewHolder replyLoadMoreViewHolder = new ReplyLoadMoreViewHolder(inflate);
             replyLoadMoreViewHolder.onChangeSkin();
@@ -116,7 +116,7 @@ public class PbReplyLoadMoreAdapter extends o<PostData, ReplyLoadMoreViewHolder>
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // c.a.t0.t2.u.f.o, c.a.d.n.e.a
+    @Override // c.a.u0.u2.u.f.o, c.a.d.o.e.a
     /* renamed from: c0 */
     public View S(int i2, View view, ViewGroup viewGroup, PostData postData, ReplyLoadMoreViewHolder replyLoadMoreViewHolder) {
         InterceptResult invokeCommon;

@@ -1,6 +1,6 @@
 package com.baidu.tieba.pb.pb.main.emotion.message;
 
-import c.a.t0.t2.u.f.d1.e.a;
+import c.a.u0.u2.u.f.d1.e.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.atomData.AlaLiveRoomActivityConfig;
 import com.baidu.tbadk.core.atomData.EmotionDetailActivityConfig;
@@ -18,7 +18,7 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public class SuggestEmotionResponseMessage extends JsonHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

@@ -1,6 +1,6 @@
 package com.baidu.tieba.lego.card.model;
 
-import c.a.t0.y1.o.j.b;
+import c.a.u0.z1.o.j.b;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.lego.card.exception.CardParseException;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -12,7 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public class OnePicInfoCard extends BaseCardInfo {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -44,8 +44,8 @@ public class OnePicInfoCard extends BaseCardInfo {
         this.desc = jSONObject.optString("desc", "");
         this.pic = jSONObject.optString("pic");
         this.tag = jSONObject.optString("tag", "");
-        this.tBgColor = c.a.t0.y1.o.k.b.b(jSONObject.optString("tBgColor", ""));
-        this.tBgColorN = c.a.t0.y1.o.k.b.b(jSONObject.optString("tBgColorN", ""));
+        this.tBgColor = c.a.u0.z1.o.k.b.b(jSONObject.optString("tBgColor", ""));
+        this.tBgColorN = c.a.u0.z1.o.k.b.b(jSONObject.optString("tBgColorN", ""));
         JSONArray optJSONArray = jSONObject.optJSONArray("icons");
         int length = optJSONArray == null ? 0 : optJSONArray.length();
         this.iconList = new ArrayList(length);
@@ -53,10 +53,10 @@ public class OnePicInfoCard extends BaseCardInfo {
             JSONObject optJSONObject = optJSONArray.optJSONObject(i4);
             if (optJSONObject != null) {
                 b bVar = new b();
-                bVar.f25456c = optJSONObject.optInt("type");
+                bVar.f25742c = optJSONObject.optInt("type");
                 bVar.a = optJSONObject.optString("url");
-                bVar.f25455b = optJSONObject.optString("urlNight");
-                bVar.f25457d = optJSONObject.optString("content", "");
+                bVar.f25741b = optJSONObject.optString("urlNight");
+                bVar.f25743d = optJSONObject.optString("content", "");
                 this.iconList.add(bVar);
             }
         }

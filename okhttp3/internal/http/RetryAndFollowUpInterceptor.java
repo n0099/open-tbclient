@@ -2,7 +2,6 @@ package okhttp3.internal.http;
 
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.http.response.ResponseException;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -33,7 +32,7 @@ import okhttp3.internal.Util;
 import okhttp3.internal.connection.RouteException;
 import okhttp3.internal.connection.StreamAllocation;
 import okhttp3.internal.http2.ConnectionShutdownException;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public final class RetryAndFollowUpInterceptor implements Interceptor {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int MAX_FOLLOW_UPS = 20;
@@ -301,7 +300,7 @@ public final class RetryAndFollowUpInterceptor implements Interceptor {
                 }
             }
             streamAllocation.release();
-            throw new IOException(ResponseException.CANCELED);
+            throw new IOException("Canceled");
         }
         return (Response) invokeL.objValue;
     }

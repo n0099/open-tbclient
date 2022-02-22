@@ -1,7 +1,7 @@
 package com.baidu.tbadk.core.bigday;
 
 import c.a.d.f.d.l;
-import c.a.s0.s.n.a;
+import c.a.t0.s.o.a;
 import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
@@ -48,8 +48,8 @@ public class GetBigdayInfoHttpResMessage extends HttpResponsedMessage {
             if (bArr == null) {
                 return;
             }
-            c.a.s0.s.r.a.f();
-            l<byte[]> d2 = c.a.s0.s.r.a.d("tb.bigday_datas");
+            c.a.t0.s.s.a.f();
+            l<byte[]> d2 = c.a.t0.s.s.a.d("tb.bigday_datas");
             d2.remove("tb.bigday_datas");
             d2.g("tb.bigday_datas", bArr);
         }

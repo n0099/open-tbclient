@@ -15,16 +15,16 @@ public final class a {
     public Context a;
 
     /* renamed from: b  reason: collision with root package name */
-    public c f38506b;
+    public c f38734b;
 
     /* renamed from: c  reason: collision with root package name */
-    public ServiceConnection f38507c;
+    public ServiceConnection f38735c;
 
     /* renamed from: d  reason: collision with root package name */
-    public com.baidu.sofire.k.c f38508d;
+    public com.baidu.sofire.k.c f38736d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f38509e;
+    public String f38737e;
 
     public a(Context context, com.baidu.sofire.k.c cVar) {
         Interceptable interceptable = $ic;
@@ -43,7 +43,7 @@ public final class a {
         }
         this.a = null;
         this.a = context;
-        this.f38508d = cVar;
+        this.f38736d = cVar;
     }
 
     public final String a() {
@@ -54,13 +54,13 @@ public final class a {
             } catch (Throwable th) {
                 th.printStackTrace();
             }
-            if (TextUtils.isEmpty(this.f38509e)) {
-                if (this.f38506b != null) {
-                    this.f38509e = this.f38506b.a();
+            if (TextUtils.isEmpty(this.f38737e)) {
+                if (this.f38734b != null) {
+                    this.f38737e = this.f38734b.a();
                 }
-                return this.f38509e;
+                return this.f38737e;
             }
-            return this.f38509e;
+            return this.f38737e;
         }
         return (String) invokeV.objValue;
     }

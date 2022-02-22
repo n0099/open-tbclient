@@ -14,7 +14,7 @@ import tbclient.Error;
 import tbclient.RecommendForumListForBottle.DataRes;
 import tbclient.RecommendForumListForBottle.ForumInfo;
 import tbclient.RecommendForumListForBottle.RecommendForumListForBottleResIdl;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public class GetBottleForumListHttpResMessage extends HttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

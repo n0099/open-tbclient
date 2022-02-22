@@ -21,7 +21,7 @@ public final class CSJNativeAdVerticalImgView extends e0 {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: f  reason: collision with root package name */
-    public ImageView f54135f;
+    public ImageView f54302f;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public CSJNativeAdVerticalImgView(Context context) {
@@ -95,7 +95,7 @@ public final class CSJNativeAdVerticalImgView extends e0 {
             if (imageList == null || imageList.isEmpty() || (tTImage = imageList.get(0)) == null || !tTImage.isValid()) {
                 return;
             }
-            GlideHelper.get().load(getContext(), tTImage.getImageUrl(), this.f54135f);
+            GlideHelper.get().load(getContext(), tTImage.getImageUrl(), this.f54302f);
         }
     }
 
@@ -104,7 +104,7 @@ public final class CSJNativeAdVerticalImgView extends e0 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             super.onFinishInflate();
-            this.f54135f = (ImageView) findViewById(R.id.ad_img);
+            this.f54302f = (ImageView) findViewById(R.id.ad_img);
         }
     }
 }

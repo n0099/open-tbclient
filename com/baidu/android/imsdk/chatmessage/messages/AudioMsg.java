@@ -17,7 +17,7 @@ import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class AudioMsg extends RichMediaMsg {
     public static /* synthetic */ Interceptable $ic;
     public static final Parcelable.Creator<AudioMsg> CREATOR;

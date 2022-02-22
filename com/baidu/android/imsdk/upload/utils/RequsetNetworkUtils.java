@@ -19,7 +19,7 @@ import java.net.Inet4Address;
 import java.net.InetAddress;
 import java.net.NetworkInterface;
 import java.util.Enumeration;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class RequsetNetworkUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "RequsetNetworkUtils";
@@ -184,7 +184,7 @@ public class RequsetNetworkUtils {
             if (context == null) {
                 return mTelephonyManager;
             }
-            if (context.checkCallingOrSelfPermission(s.f55287c) == 0 && mTelephonyManager == null) {
+            if (context.checkCallingOrSelfPermission(s.f55454c) == 0 && mTelephonyManager == null) {
                 mTelephonyManager = (TelephonyManager) context.getSystemService("phone");
             }
             return mTelephonyManager;
@@ -197,7 +197,7 @@ public class RequsetNetworkUtils {
         WifiInfo connectionInfo;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, context)) == null) {
-            if (context.checkCallingOrSelfPermission(s.f55288d) != 0 || (connectionInfo = ((WifiManager) context.getSystemService("wifi")).getConnectionInfo()) == null) {
+            if (context.checkCallingOrSelfPermission(s.f55455d) != 0 || (connectionInfo = ((WifiManager) context.getSystemService("wifi")).getConnectionInfo()) == null) {
                 return "nonWifiIp";
             }
             int ipAddress = connectionInfo.getIpAddress();

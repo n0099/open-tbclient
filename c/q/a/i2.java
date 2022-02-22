@@ -14,7 +14,7 @@ public final class i2 {
     public final /* synthetic */ Context a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ Info f30367b;
+    public final /* synthetic */ Info f30573b;
 
     public i2(Context context, Info info) {
         Interceptable interceptable = $ic;
@@ -32,7 +32,7 @@ public final class i2 {
             }
         }
         this.a = context;
-        this.f30367b = info;
+        this.f30573b = info;
     }
 
     public void a(int i2) {
@@ -40,7 +40,7 @@ public final class i2 {
         if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
             y2 a = c3.a(this.a);
             try {
-                a.f30557b = c3.d("hte", new g3(this.f30367b));
+                a.f30763b = c3.d("hte", new g3(this.f30573b));
                 a.k("co", i2);
             } catch (JSONException unused) {
             }

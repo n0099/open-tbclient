@@ -131,7 +131,7 @@ public class FlutterNetModel implements NetworkServicePlugin.NetModel {
                     HashMap<String, String> hashMap = new HashMap<>();
                     hashMap.put("server", this.flutterNetModel.getHttpUrl());
                     hashMap.put(RetrieveTaskManager.KEY, this.flutterNetModel.getHttpUrl());
-                    hashMap.put("state", this.httpNetContext.getStat().stat.f2901h);
+                    hashMap.put("state", this.httpNetContext.getStat().stat.f1984h);
                     if (this.httpNetContext.getPerformance() != null && this.flutterNetModel.getStartRequestTime() > 0 && this.httpNetContext.getPerformance().containsKey(FetchLog.START_TIME)) {
                         long g2 = b.g(this.httpNetContext.getPerformance().get(FetchLog.START_TIME), 0L) - this.flutterNetModel.getStartRequestTime();
                         if (g2 > 0) {

@@ -3,9 +3,9 @@ package com.baidu.tieba.wallet;
 import android.graphics.Bitmap;
 import android.graphics.drawable.Drawable;
 import androidx.core.view.InputDeviceCompat;
+import c.a.u0.a4.f;
 import com.baidu.tbadk.TbSingleton;
 import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -35,9 +35,9 @@ public class CurrencySwitchUtil {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i2)) == null) {
             if (isYyIsConvert(i2)) {
-                return R.drawable.icon_gift_my_ydou;
+                return f.icon_gift_my_ydou;
             }
-            return R.drawable.icon_gift_my_tdou;
+            return f.icon_gift_my_tdou;
         }
         return invokeI.intValue;
     }
@@ -47,9 +47,9 @@ public class CurrencySwitchUtil {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
             if (isYyIsConvert()) {
-                return SkinManager.getDrawable(R.drawable.icon_huobi_ydou);
+                return SkinManager.getDrawable(f.icon_huobi_ydou);
             }
-            return SkinManager.getDrawable(R.drawable.icon_huobi_tdou);
+            return SkinManager.getDrawable(f.icon_huobi_tdou);
         }
         return (Drawable) invokeV.objValue;
     }
@@ -59,9 +59,9 @@ public class CurrencySwitchUtil {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(65541, null, i2)) == null) {
             if (isYyIsConvert(i2)) {
-                return SkinManager.getBitmap(R.drawable.icon_huobi_ydou);
+                return SkinManager.getBitmap(f.icon_huobi_ydou);
             }
-            return SkinManager.getBitmap(R.drawable.icon_huobi_tdou);
+            return SkinManager.getBitmap(f.icon_huobi_tdou);
         }
         return (Bitmap) invokeI.objValue;
     }
@@ -71,9 +71,9 @@ public class CurrencySwitchUtil {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
             if (isYyIsConvert()) {
-                return SkinManager.getDrawable(0, R.drawable.icon_huobi_ydou);
+                return SkinManager.getDrawable(0, f.icon_huobi_ydou);
             }
-            return SkinManager.getDrawable(0, R.drawable.icon_huobi_tdou);
+            return SkinManager.getDrawable(0, f.icon_huobi_tdou);
         }
         return (Drawable) invokeV.objValue;
     }
@@ -113,9 +113,9 @@ public class CurrencySwitchUtil {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(65539, null, i2)) == null) {
             if (isYyIsConvert(i2)) {
-                return SkinManager.getDrawable(R.drawable.icon_huobi_ydou);
+                return SkinManager.getDrawable(f.icon_huobi_ydou);
             }
-            return SkinManager.getDrawable(R.drawable.icon_huobi_tdou);
+            return SkinManager.getDrawable(f.icon_huobi_tdou);
         }
         return (Drawable) invokeI.objValue;
     }
@@ -125,9 +125,9 @@ public class CurrencySwitchUtil {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
             if (isYyIsConvert()) {
-                return SkinManager.getBitmap(R.drawable.icon_huobi_ydou);
+                return SkinManager.getBitmap(f.icon_huobi_ydou);
             }
-            return SkinManager.getBitmap(R.drawable.icon_huobi_tdou);
+            return SkinManager.getBitmap(f.icon_huobi_tdou);
         }
         return (Bitmap) invokeV.objValue;
     }

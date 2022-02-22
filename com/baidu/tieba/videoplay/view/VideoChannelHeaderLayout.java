@@ -16,10 +16,10 @@ import androidx.core.view.InputDeviceCompat;
 import androidx.viewpager.widget.ViewPager;
 import c.a.d.f.p.l;
 import c.a.d.f.p.n;
-import c.a.t0.m4.f;
-import c.a.t0.m4.g;
-import c.a.t0.m4.h;
-import c.a.t0.m4.i;
+import c.a.u0.p4.f;
+import c.a.u0.p4.g;
+import c.a.u0.p4.h;
+import c.a.u0.p4.i;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
@@ -38,22 +38,22 @@ public class VideoChannelHeaderLayout extends RelativeLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public View f49001e;
+    public View f49168e;
 
     /* renamed from: f  reason: collision with root package name */
-    public NewPagerSlidingTabBaseStrip f49002f;
+    public NewPagerSlidingTabBaseStrip f49169f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f49003g;
+    public TextView f49170g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f49004h;
+    public TextView f49171h;
 
     /* renamed from: i  reason: collision with root package name */
-    public View f49005i;
+    public View f49172i;
 
     /* renamed from: j  reason: collision with root package name */
-    public ContinuousAnimationView f49006j;
+    public ContinuousAnimationView f49173j;
     public int k;
     public d l;
     public int m;
@@ -70,7 +70,7 @@ public class VideoChannelHeaderLayout extends RelativeLayout {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ VideoChannelHeaderLayout f49007e;
+        public final /* synthetic */ VideoChannelHeaderLayout f49174e;
 
         public a(VideoChannelHeaderLayout videoChannelHeaderLayout) {
             Interceptable interceptable = $ic;
@@ -87,7 +87,7 @@ public class VideoChannelHeaderLayout extends RelativeLayout {
                     return;
                 }
             }
-            this.f49007e = videoChannelHeaderLayout;
+            this.f49174e = videoChannelHeaderLayout;
         }
 
         @Override // android.animation.Animator.AnimatorListener
@@ -107,12 +107,12 @@ public class VideoChannelHeaderLayout extends RelativeLayout {
         @Override // android.animation.Animator.AnimatorListener
         public void onAnimationRepeat(Animator animator) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, animator) == null) || this.f49007e.q) {
+            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, animator) == null) || this.f49174e.q) {
                 return;
             }
-            this.f49007e.q = true;
-            this.f49007e.f49006j.setSpeed(1.0f);
-            this.f49007e.f49006j.setMinAndMaxFrame(45, 105);
+            this.f49174e.q = true;
+            this.f49174e.f49173j.setSpeed(1.0f);
+            this.f49174e.f49173j.setMinAndMaxFrame(45, 105);
         }
 
         @Override // android.animation.Animator.AnimatorListener
@@ -162,10 +162,10 @@ public class VideoChannelHeaderLayout extends RelativeLayout {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ int f49008e;
+        public final /* synthetic */ int f49175e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ VideoChannelHeaderLayout f49009f;
+        public final /* synthetic */ VideoChannelHeaderLayout f49176f;
 
         public c(VideoChannelHeaderLayout videoChannelHeaderLayout, int i2) {
             Interceptable interceptable = $ic;
@@ -182,15 +182,15 @@ public class VideoChannelHeaderLayout extends RelativeLayout {
                     return;
                 }
             }
-            this.f49009f = videoChannelHeaderLayout;
-            this.f49008e = i2;
+            this.f49176f = videoChannelHeaderLayout;
+            this.f49175e = i2;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f49009f.onFinish(this.f49008e);
+                this.f49176f.onFinish(this.f49175e);
             }
         }
     }
@@ -262,8 +262,8 @@ public class VideoChannelHeaderLayout extends RelativeLayout {
         } else if (f3 <= 0.8f) {
             f2 = 0.0f;
         }
-        this.f49005i.setAlpha(f2);
-        this.f49006j.setFrame((int) Math.min(27.0f, ((f2 * 27.0f) * 5.0f) / 3.0f));
+        this.f49172i.setAlpha(f2);
+        this.f49173j.setFrame((int) Math.min(27.0f, ((f2 * 27.0f) * 5.0f) / 3.0f));
     }
 
     public final void h(int i2) {
@@ -271,21 +271,21 @@ public class VideoChannelHeaderLayout extends RelativeLayout {
         if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
             float f2 = (i2 * 1.0f) / this.k;
             if (f2 > 0.6f) {
-                this.f49002f.setAlpha(0.0f);
-                this.f49003g.setAlpha(0.0f);
+                this.f49169f.setAlpha(0.0f);
+                this.f49170g.setAlpha(0.0f);
                 if (f2 > 0.8f) {
-                    this.f49004h.setAlpha(1.0f);
+                    this.f49171h.setAlpha(1.0f);
                 } else {
-                    this.f49004h.setAlpha((f2 - 0.6f) / 0.2f);
+                    this.f49171h.setAlpha((f2 - 0.6f) / 0.2f);
                 }
-                this.f49004h.setVisibility(0);
+                this.f49171h.setVisibility(0);
                 return;
             }
             float f3 = 1.0f - (f2 / 0.6f);
-            this.f49002f.setAlpha(f3);
-            this.f49003g.setAlpha(f3);
-            this.f49004h.setAlpha(0.0f);
-            this.f49004h.setVisibility(8);
+            this.f49169f.setAlpha(f3);
+            this.f49170g.setAlpha(f3);
+            this.f49171h.setAlpha(0.0f);
+            this.f49171h.setVisibility(8);
         }
     }
 
@@ -294,69 +294,69 @@ public class VideoChannelHeaderLayout extends RelativeLayout {
         if (interceptable == null || interceptable.invokeL(1048580, this, context) == null) {
             this.k = (int) (getResources().getDisplayMetrics().density * 86.0f * 0.6f);
             LayoutInflater.from(context).inflate(g.video_channel_header, (ViewGroup) this, true);
-            this.f49001e = findViewById(f.rootView);
+            this.f49168e = findViewById(f.rootView);
             NewPagerSlidingTabBaseStrip newPagerSlidingTabBaseStrip = (NewPagerSlidingTabBaseStrip) findViewById(f.tab_layout);
-            this.f49002f = newPagerSlidingTabBaseStrip;
-            newPagerSlidingTabBaseStrip.setTextViewShadowStringArrayId(c.a.t0.m4.b.S_O_X001);
-            this.f49002f.setDefaultSelectorColorResourceId(c.a.t0.m4.c.CAM_X0101);
-            this.f49002f.setNormalSelectorColorResId(c.a.t0.m4.c.CAM_X0103);
-            this.f49002f.setRectPaintColor(c.a.t0.m4.c.CAM_X0101);
-            this.f49002f.init(n.f(context, c.a.t0.m4.d.T_X06), n.f(context, c.a.t0.m4.d.T_X04), n.f(context, c.a.t0.m4.d.tbds10), n.f(context, c.a.t0.m4.d.T_X04), true);
-            this.f49002f.setIndicatorOffset(n.f(context, c.a.t0.m4.d.tbds64));
-            this.f49002f.setIndicatorOvershot(n.f(context, c.a.t0.m4.d.tbds8));
-            this.f49002f.setIndicatorRadius(n.f(context, c.a.t0.m4.d.tbds8));
-            this.f49002f.setIndicatorMarginBottom(n.f(context, c.a.t0.m4.d.tbds10));
-            this.f49002f.setmIndicatorWidth(n.f(context, c.a.t0.m4.d.tbds42));
-            this.f49002f.setExpandedTabLayoutParams(new LinearLayout.LayoutParams(n.f(context, c.a.t0.m4.d.tbds166), -1));
-            this.f49002f.onChangeSkinType();
-            this.f49002f.setOnTabItemClickListener(new b(this));
+            this.f49169f = newPagerSlidingTabBaseStrip;
+            newPagerSlidingTabBaseStrip.setTextViewShadowStringArrayId(c.a.u0.p4.b.S_O_X001);
+            this.f49169f.setDefaultSelectorColorResourceId(c.a.u0.p4.c.CAM_X0101);
+            this.f49169f.setNormalSelectorColorResId(c.a.u0.p4.c.CAM_X0103);
+            this.f49169f.setRectPaintColor(c.a.u0.p4.c.CAM_X0101);
+            this.f49169f.init(n.f(context, c.a.u0.p4.d.T_X06), n.f(context, c.a.u0.p4.d.T_X04), n.f(context, c.a.u0.p4.d.tbds10), n.f(context, c.a.u0.p4.d.T_X04), true);
+            this.f49169f.setIndicatorOffset(n.f(context, c.a.u0.p4.d.tbds64));
+            this.f49169f.setIndicatorOvershot(n.f(context, c.a.u0.p4.d.tbds8));
+            this.f49169f.setIndicatorRadius(n.f(context, c.a.u0.p4.d.tbds8));
+            this.f49169f.setIndicatorMarginBottom(n.f(context, c.a.u0.p4.d.tbds10));
+            this.f49169f.setmIndicatorWidth(n.f(context, c.a.u0.p4.d.tbds42));
+            this.f49169f.setExpandedTabLayoutParams(new LinearLayout.LayoutParams(n.f(context, c.a.u0.p4.d.tbds166), -1));
+            this.f49169f.onChangeSkinType();
+            this.f49169f.setOnTabItemClickListener(new b(this));
             TextView textView = (TextView) findViewById(f.attention_tag);
-            this.f49003g = textView;
-            c.a.s0.s.u.c d2 = c.a.s0.s.u.c.d(textView);
-            d2.v(c.a.t0.m4.c.CAM_X0101);
-            d2.z(c.a.t0.m4.d.T_X10);
+            this.f49170g = textView;
+            c.a.t0.s.v.c d2 = c.a.t0.s.v.c.d(textView);
+            d2.v(c.a.u0.p4.c.CAM_X0101);
+            d2.z(c.a.u0.p4.d.T_X10);
             d2.A(i.F_X01);
             d2.n(i.J_X01);
-            d2.f(c.a.t0.m4.c.CAM_X0301);
+            d2.f(c.a.u0.p4.c.CAM_X0301);
             TextView textView2 = (TextView) findViewById(f.pull_refresh_text);
-            this.f49004h = textView2;
-            c.a.s0.s.u.c d3 = c.a.s0.s.u.c.d(textView2);
-            d3.v(c.a.t0.m4.c.CAM_X0101);
-            d3.z(c.a.t0.m4.d.T_X07);
+            this.f49171h = textView2;
+            c.a.t0.s.v.c d3 = c.a.t0.s.v.c.d(textView2);
+            d3.v(c.a.u0.p4.c.CAM_X0101);
+            d3.z(c.a.u0.p4.d.T_X07);
             d3.A(i.F_X02);
             View findViewById = findViewById(f.pull_refresh_leading_layout);
-            this.f49005i = findViewById;
-            ((RelativeLayout.LayoutParams) findViewById.getLayoutParams()).setMargins(0, -n.f(context, c.a.t0.m4.d.tbds20), 0, 0);
+            this.f49172i = findViewById;
+            ((RelativeLayout.LayoutParams) findViewById.getLayoutParams()).setMargins(0, -n.f(context, c.a.u0.p4.d.tbds20), 0, 0);
             ContinuousAnimationView continuousAnimationView = (ContinuousAnimationView) findViewById(f.pull_refresh_leading_view);
-            this.f49006j = continuousAnimationView;
+            this.f49173j = continuousAnimationView;
             SkinManager.setLottieAnimation(continuousAnimationView, h.lottie_common_pull_refresh);
-            if (this.f49006j.isAnimating()) {
-                this.f49006j.cancelAnimation();
+            if (this.f49173j.isAnimating()) {
+                this.f49173j.cancelAnimation();
             }
-            this.f49006j.setMinAndMaxProgress(0.0f, 1.0f);
-            this.f49006j.setFrame(0);
-            this.f49006j.setSpeed(1.3f);
-            this.f49005i.setAlpha(0.0f);
+            this.f49173j.setMinAndMaxProgress(0.0f, 1.0f);
+            this.f49173j.setFrame(0);
+            this.f49173j.setSpeed(1.3f);
+            this.f49172i.setAlpha(0.0f);
         }
     }
 
     public final void j() {
         ContinuousAnimationView continuousAnimationView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || (continuousAnimationView = this.f49006j) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || (continuousAnimationView = this.f49173j) == null) {
             return;
         }
         if (continuousAnimationView.isAnimating()) {
-            this.f49006j.cancelAnimation();
+            this.f49173j.cancelAnimation();
         }
         this.q = false;
-        this.f49006j.loop(true);
-        this.f49006j.setMinFrame(27);
-        this.f49006j.setRepeatMode(1);
-        this.f49006j.removeAllAnimatorListeners();
-        this.f49006j.addAnimatorListener(this.r);
-        this.f49006j.playAnimation();
-        this.f49005i.setAlpha(1.0f);
+        this.f49173j.loop(true);
+        this.f49173j.setMinFrame(27);
+        this.f49173j.setRepeatMode(1);
+        this.f49173j.removeAllAnimatorListeners();
+        this.f49173j.addAnimatorListener(this.r);
+        this.f49173j.playAnimation();
+        this.f49172i.setAlpha(1.0f);
         this.mAlaEntranceBtn.setVisibility(8);
     }
 
@@ -373,11 +373,11 @@ public class VideoChannelHeaderLayout extends RelativeLayout {
             int i3 = this.m - 1;
             this.m = i3;
             if (i3 < 1) {
-                this.f49006j.cancelAnimation();
-                this.f49006j.setMinAndMaxProgress(0.0f, 1.0f);
-                this.f49006j.setFrame(0);
-                this.f49006j.setSpeed(1.3f);
-                this.f49005i.setAlpha(0.0f);
+                this.f49173j.cancelAnimation();
+                this.f49173j.setMinAndMaxProgress(0.0f, 1.0f);
+                this.f49173j.setFrame(0);
+                this.f49173j.setSpeed(1.3f);
+                this.f49172i.setAlpha(0.0f);
                 this.mAlaEntranceBtn.setVisibility(0);
                 this.m = 0;
             }
@@ -417,7 +417,7 @@ public class VideoChannelHeaderLayout extends RelativeLayout {
                 }
             }
             int i4 = i3 + i2;
-            this.f49001e.scrollTo(0, -i4);
+            this.f49168e.scrollTo(0, -i4);
             h(i4);
             g(i4);
             f(i4);
@@ -427,8 +427,8 @@ public class VideoChannelHeaderLayout extends RelativeLayout {
     public void refreshAttentionRedTip(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, str) == null) {
-            this.f49003g.setText(str);
-            this.f49003g.setVisibility(TextUtils.isEmpty(str) ? 8 : 0);
+            this.f49170g.setText(str);
+            this.f49170g.setVisibility(TextUtils.isEmpty(str) ? 8 : 0);
         }
     }
 
@@ -456,7 +456,7 @@ public class VideoChannelHeaderLayout extends RelativeLayout {
     public void setupWithViewPager(ViewPager viewPager) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048590, this, viewPager) == null) {
-            this.f49002f.setViewPager(viewPager);
+            this.f49169f.setViewPager(viewPager);
         }
     }
 

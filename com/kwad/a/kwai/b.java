@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.a.kwai.c;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class b extends c.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -31,6 +31,6 @@ public class b extends c.a {
         allocate.order(bVar.a ? ByteOrder.BIG_ENDIAN : ByteOrder.LITTLE_ENDIAN);
         long j3 = j2 + (i2 * 16);
         this.a = fVar.b(allocate, j3);
-        this.f55387b = fVar.b(allocate, j3 + 8);
+        this.f55554b = fVar.b(allocate, j3 + 8);
     }
 }

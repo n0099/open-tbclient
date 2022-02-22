@@ -33,7 +33,7 @@ import java.io.Serializable;
 import org.json.JSONObject;
 @KsAdSdkDynamicImpl(KsFullScreenVideoActivity.class)
 @Keep
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class KsFullScreenVideoActivityProxy extends com.kwad.sdk.core.e.a<com.kwad.sdk.reward.a> {
     public static final String KEY_TEMPLATE = "key_template_json";
     public static final String KEY_VIDEO_PLAY_CONFIG = "key_video_play_config";
@@ -224,16 +224,16 @@ public class KsFullScreenVideoActivityProxy extends com.kwad.sdk.core.e.a<com.kw
     @Override // com.kwad.sdk.core.e.a
     public com.kwad.sdk.reward.a onCreateCallerContext() {
         com.kwad.sdk.reward.a aVar = new com.kwad.sdk.reward.a();
-        aVar.f57253h = getActivity();
-        aVar.f57254i = this.mContext;
-        aVar.f57247b = this.mAdOpenInteractionListener;
-        aVar.f57251f = this.mScreenOrientation;
+        aVar.f57420h = getActivity();
+        aVar.f57421i = this.mContext;
+        aVar.f57414b = this.mAdOpenInteractionListener;
+        aVar.f57418f = this.mScreenOrientation;
         KsVideoPlayConfig ksVideoPlayConfig = this.mVideoPlayConfig;
-        aVar.f57249d = ksVideoPlayConfig;
-        aVar.f57250e = this.mReportExtData;
-        aVar.f57255j = this.mRootContainer;
+        aVar.f57416d = ksVideoPlayConfig;
+        aVar.f57417e = this.mReportExtData;
+        aVar.f57422j = this.mRootContainer;
         AdTemplate adTemplate = this.mAdTemplate;
-        aVar.f57252g = adTemplate;
+        aVar.f57419g = adTemplate;
         com.kwad.sdk.reward.c.a aVar2 = new com.kwad.sdk.reward.c.a(adTemplate, this.mDetailVideoView, ksVideoPlayConfig);
         aVar.k = aVar2;
         aVar.a.add(aVar2);

@@ -2,8 +2,8 @@ package com.baidu.tieba.write.accountAccess;
 
 import android.content.Intent;
 import android.os.Bundle;
-import c.a.t0.p4.t.a;
-import c.a.t0.p4.t.b;
+import c.a.u0.s4.t.a;
+import c.a.u0.s4.t.b;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.ActivityPendingTransitionFactory;
 import com.baidu.tbadk.BaseActivity;

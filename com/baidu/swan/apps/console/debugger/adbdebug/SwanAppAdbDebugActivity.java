@@ -5,10 +5,10 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
-import c.a.r0.a.c2.b.f.e;
-import c.a.r0.a.h;
-import c.a.r0.a.k;
-import c.a.r0.a.z2.v;
+import c.a.s0.a.c2.b.f.e;
+import c.a.s0.a.h;
+import c.a.s0.a.k;
+import c.a.s0.a.z2.v;
 import com.baidu.mytransformapp.util.LogUtil;
 import com.baidu.swan.apps.SwanAppLauncherActivity;
 import com.baidu.swan.apps.res.widget.dialog.SwanAppAlertDialog;
@@ -32,7 +32,7 @@ public class SwanAppAdbDebugActivity extends Activity {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ SwanAppAdbDebugActivity f38739e;
+        public final /* synthetic */ SwanAppAdbDebugActivity f38967e;
 
         public a(SwanAppAdbDebugActivity swanAppAdbDebugActivity) {
             Interceptable interceptable = $ic;
@@ -49,14 +49,14 @@ public class SwanAppAdbDebugActivity extends Activity {
                     return;
                 }
             }
-            this.f38739e = swanAppAdbDebugActivity;
+            this.f38967e = swanAppAdbDebugActivity;
         }
 
         @Override // android.content.DialogInterface.OnClickListener
         public void onClick(DialogInterface dialogInterface, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLI(1048576, this, dialogInterface, i2) == null) {
-                this.f38739e.finish();
+                this.f38967e.finish();
             }
         }
     }
@@ -67,10 +67,10 @@ public class SwanAppAdbDebugActivity extends Activity {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Intent f38740e;
+        public final /* synthetic */ Intent f38968e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ SwanAppAdbDebugActivity f38741f;
+        public final /* synthetic */ SwanAppAdbDebugActivity f38969f;
 
         public b(SwanAppAdbDebugActivity swanAppAdbDebugActivity, Intent intent) {
             Interceptable interceptable = $ic;
@@ -87,17 +87,17 @@ public class SwanAppAdbDebugActivity extends Activity {
                     return;
                 }
             }
-            this.f38741f = swanAppAdbDebugActivity;
-            this.f38740e = intent;
+            this.f38969f = swanAppAdbDebugActivity;
+            this.f38968e = intent;
         }
 
         @Override // android.content.DialogInterface.OnClickListener
         public void onClick(DialogInterface dialogInterface, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLI(1048576, this, dialogInterface, i2) == null) {
-                this.f38740e.setClass(this.f38741f, SwanAppLauncherActivity.class);
-                this.f38741f.startActivity(this.f38740e);
-                this.f38741f.finish();
+                this.f38968e.setClass(this.f38969f, SwanAppLauncherActivity.class);
+                this.f38969f.startActivity(this.f38968e);
+                this.f38969f.finish();
             }
         }
     }
@@ -151,7 +151,7 @@ public class SwanAppAdbDebugActivity extends Activity {
             SwanAppAlertDialog.a aVar = new SwanAppAlertDialog.a(this);
             aVar.V(getString(h.aiapps_adb_debug));
             aVar.x(getString(h.aiapps_adb_debug_alert));
-            aVar.n(new c.a.r0.a.a3.h.a());
+            aVar.n(new c.a.s0.a.a3.h.a());
             aVar.m(false);
             aVar.O(h.aiapps_confirm, new b(this, intent));
             aVar.B(h.swanapp_close, new a(this));

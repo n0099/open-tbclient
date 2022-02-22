@@ -29,7 +29,7 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, context)) == null) {
             try {
-                String[] strArr = {s.a, "android.permission.ACCESS_NETWORK_STATE", s.f55288d};
+                String[] strArr = {s.a, "android.permission.ACCESS_NETWORK_STATE", s.f55455d};
                 int i2 = 0;
                 while (true) {
                     if (i2 >= 3) {

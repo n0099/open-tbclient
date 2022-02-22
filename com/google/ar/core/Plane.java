@@ -137,7 +137,7 @@ public class Plane extends TrackableBase {
     public Type getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? Type.forNumber(nativeGetType(this.f54446b.a, this.a)) : (Type) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? Type.forNumber(nativeGetType(this.f54613b.a, this.a)) : (Type) invokeV.objValue;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */

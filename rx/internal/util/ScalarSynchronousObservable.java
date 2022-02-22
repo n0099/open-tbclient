@@ -21,11 +21,11 @@ public final class ScalarSynchronousObservable<T> extends i.d<T> {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final boolean f62598g;
+    public static final boolean f62765g;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: f  reason: collision with root package name */
-    public final T f62599f;
+    public final T f62766f;
 
     /* loaded from: classes5.dex */
     public static final class ScalarAsyncProducer<T> extends AtomicBoolean implements i.f, i.n.a {
@@ -110,7 +110,7 @@ public final class ScalarSynchronousObservable<T> extends i.d<T> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ i.o.c.b f62600e;
+        public final /* synthetic */ i.o.c.b f62767e;
 
         public a(ScalarSynchronousObservable scalarSynchronousObservable, i.o.c.b bVar) {
             Interceptable interceptable = $ic;
@@ -127,7 +127,7 @@ public final class ScalarSynchronousObservable<T> extends i.d<T> {
                     return;
                 }
             }
-            this.f62600e = bVar;
+            this.f62767e = bVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -135,7 +135,7 @@ public final class ScalarSynchronousObservable<T> extends i.d<T> {
         public k call(i.n.a aVar) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, aVar)) == null) ? this.f62600e.a(aVar) : (k) invokeL.objValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, aVar)) == null) ? this.f62767e.a(aVar) : (k) invokeL.objValue;
         }
     }
 
@@ -145,7 +145,7 @@ public final class ScalarSynchronousObservable<T> extends i.d<T> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ g f62601e;
+        public final /* synthetic */ g f62768e;
 
         /* loaded from: classes5.dex */
         public class a implements i.n.a {
@@ -153,10 +153,10 @@ public final class ScalarSynchronousObservable<T> extends i.d<T> {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ i.n.a f62602e;
+            public final /* synthetic */ i.n.a f62769e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ g.a f62603f;
+            public final /* synthetic */ g.a f62770f;
 
             public a(b bVar, i.n.a aVar, g.a aVar2) {
                 Interceptable interceptable = $ic;
@@ -173,8 +173,8 @@ public final class ScalarSynchronousObservable<T> extends i.d<T> {
                         return;
                     }
                 }
-                this.f62602e = aVar;
-                this.f62603f = aVar2;
+                this.f62769e = aVar;
+                this.f62770f = aVar2;
             }
 
             @Override // i.n.a
@@ -182,9 +182,9 @@ public final class ScalarSynchronousObservable<T> extends i.d<T> {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                     try {
-                        this.f62602e.call();
+                        this.f62769e.call();
                     } finally {
-                        this.f62603f.unsubscribe();
+                        this.f62770f.unsubscribe();
                     }
                 }
             }
@@ -205,7 +205,7 @@ public final class ScalarSynchronousObservable<T> extends i.d<T> {
                     return;
                 }
             }
-            this.f62601e = gVar;
+            this.f62768e = gVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -214,7 +214,7 @@ public final class ScalarSynchronousObservable<T> extends i.d<T> {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, aVar)) == null) {
-                g.a createWorker = this.f62601e.createWorker();
+                g.a createWorker = this.f62768e.createWorker();
                 createWorker.b(new a(this, aVar, createWorker));
                 return createWorker;
             }
@@ -228,10 +228,10 @@ public final class ScalarSynchronousObservable<T> extends i.d<T> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ i.n.f f62604e;
+        public final /* synthetic */ i.n.f f62771e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ ScalarSynchronousObservable f62605f;
+        public final /* synthetic */ ScalarSynchronousObservable f62772f;
 
         public c(ScalarSynchronousObservable scalarSynchronousObservable, i.n.f fVar) {
             Interceptable interceptable = $ic;
@@ -248,8 +248,8 @@ public final class ScalarSynchronousObservable<T> extends i.d<T> {
                     return;
                 }
             }
-            this.f62605f = scalarSynchronousObservable;
-            this.f62604e = fVar;
+            this.f62772f = scalarSynchronousObservable;
+            this.f62771e = fVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -257,9 +257,9 @@ public final class ScalarSynchronousObservable<T> extends i.d<T> {
         public void call(j<? super R> jVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, jVar) == null) {
-                i.d dVar = (i.d) this.f62604e.call(this.f62605f.f62599f);
+                i.d dVar = (i.d) this.f62771e.call(this.f62772f.f62766f);
                 if (dVar instanceof ScalarSynchronousObservable) {
-                    jVar.f(ScalarSynchronousObservable.F(jVar, ((ScalarSynchronousObservable) dVar).f62599f));
+                    jVar.f(ScalarSynchronousObservable.F(jVar, ((ScalarSynchronousObservable) dVar).f62766f));
                 } else {
                     dVar.D(i.q.f.c(jVar));
                 }
@@ -273,7 +273,7 @@ public final class ScalarSynchronousObservable<T> extends i.d<T> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final T f62606e;
+        public final T f62773e;
 
         public d(T t) {
             Interceptable interceptable = $ic;
@@ -290,7 +290,7 @@ public final class ScalarSynchronousObservable<T> extends i.d<T> {
                     return;
                 }
             }
-            this.f62606e = t;
+            this.f62773e = t;
         }
 
         @Override // i.d.a, i.n.b
@@ -301,7 +301,7 @@ public final class ScalarSynchronousObservable<T> extends i.d<T> {
         public void call(j<? super T> jVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, jVar) == null) {
-                jVar.f(ScalarSynchronousObservable.F(jVar, this.f62606e));
+                jVar.f(ScalarSynchronousObservable.F(jVar, this.f62773e));
             }
         }
     }
@@ -312,10 +312,10 @@ public final class ScalarSynchronousObservable<T> extends i.d<T> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final T f62607e;
+        public final T f62774e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final i.n.f<i.n.a, k> f62608f;
+        public final i.n.f<i.n.a, k> f62775f;
 
         public e(T t, i.n.f<i.n.a, k> fVar) {
             Interceptable interceptable = $ic;
@@ -332,8 +332,8 @@ public final class ScalarSynchronousObservable<T> extends i.d<T> {
                     return;
                 }
             }
-            this.f62607e = t;
-            this.f62608f = fVar;
+            this.f62774e = t;
+            this.f62775f = fVar;
         }
 
         @Override // i.d.a, i.n.b
@@ -344,7 +344,7 @@ public final class ScalarSynchronousObservable<T> extends i.d<T> {
         public void call(j<? super T> jVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, jVar) == null) {
-                jVar.f(new ScalarAsyncProducer(jVar, this.f62607e, this.f62608f));
+                jVar.f(new ScalarAsyncProducer(jVar, this.f62774e, this.f62775f));
             }
         }
     }
@@ -355,13 +355,13 @@ public final class ScalarSynchronousObservable<T> extends i.d<T> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final j<? super T> f62609e;
+        public final j<? super T> f62776e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final T f62610f;
+        public final T f62777f;
 
         /* renamed from: g  reason: collision with root package name */
-        public boolean f62611g;
+        public boolean f62778g;
 
         public f(j<? super T> jVar, T t) {
             Interceptable interceptable = $ic;
@@ -378,14 +378,14 @@ public final class ScalarSynchronousObservable<T> extends i.d<T> {
                     return;
                 }
             }
-            this.f62609e = jVar;
-            this.f62610f = t;
+            this.f62776e = jVar;
+            this.f62777f = t;
         }
 
         @Override // i.f
         public void request(long j2) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeJ(1048576, this, j2) == null) || this.f62611g) {
+            if (!(interceptable == null || interceptable.invokeJ(1048576, this, j2) == null) || this.f62778g) {
                 return;
             }
             int i2 = (j2 > 0L ? 1 : (j2 == 0L ? 0 : -1));
@@ -393,12 +393,12 @@ public final class ScalarSynchronousObservable<T> extends i.d<T> {
                 throw new IllegalStateException("n >= required but it was " + j2);
             } else if (i2 == 0) {
             } else {
-                this.f62611g = true;
-                j<? super T> jVar = this.f62609e;
+                this.f62778g = true;
+                j<? super T> jVar = this.f62776e;
                 if (jVar.isUnsubscribed()) {
                     return;
                 }
-                Object obj = (T) this.f62610f;
+                Object obj = (T) this.f62777f;
                 try {
                     jVar.onNext(obj);
                     if (jVar.isUnsubscribed()) {
@@ -425,7 +425,7 @@ public final class ScalarSynchronousObservable<T> extends i.d<T> {
                 return;
             }
         }
-        f62598g = Boolean.valueOf(System.getProperty("rx.just.strong-mode", "false")).booleanValue();
+        f62765g = Boolean.valueOf(System.getProperty("rx.just.strong-mode", "false")).booleanValue();
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -446,7 +446,7 @@ public final class ScalarSynchronousObservable<T> extends i.d<T> {
                 return;
             }
         }
-        this.f62599f = t;
+        this.f62766f = t;
     }
 
     public static <T> ScalarSynchronousObservable<T> E(T t) {
@@ -459,7 +459,7 @@ public final class ScalarSynchronousObservable<T> extends i.d<T> {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, jVar, t)) == null) {
-            if (f62598g) {
+            if (f62765g) {
                 return new SingleProducer(jVar, t);
             }
             return new f(jVar, t);
@@ -470,7 +470,7 @@ public final class ScalarSynchronousObservable<T> extends i.d<T> {
     public T G() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f62599f : (T) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f62766f : (T) invokeV.objValue;
     }
 
     public <R> i.d<R> H(i.n.f<? super T, ? extends i.d<? extends R>> fVar) {
@@ -489,7 +489,7 @@ public final class ScalarSynchronousObservable<T> extends i.d<T> {
             } else {
                 bVar = new b(this, gVar);
             }
-            return i.d.a(new e(this.f62599f, bVar));
+            return i.d.a(new e(this.f62766f, bVar));
         }
         return (i.d) invokeL.objValue;
     }

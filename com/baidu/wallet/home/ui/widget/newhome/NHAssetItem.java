@@ -24,19 +24,19 @@ public class NHAssetItem extends BaseItemView {
     public MaskTextView a;
 
     /* renamed from: b  reason: collision with root package name */
-    public MaskTextView f51271b;
+    public MaskTextView f51438b;
 
     /* renamed from: c  reason: collision with root package name */
-    public NetImageView f51272c;
+    public NetImageView f51439c;
 
     /* renamed from: d  reason: collision with root package name */
-    public LinearLayout f51273d;
+    public LinearLayout f51440d;
 
     /* renamed from: e  reason: collision with root package name */
-    public MaskTextView f51274e;
+    public MaskTextView f51441e;
 
     /* renamed from: f  reason: collision with root package name */
-    public MaskTextView f51275f;
+    public MaskTextView f51442f;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public NHAssetItem(Context context, AttributeSet attributeSet) {
@@ -65,8 +65,8 @@ public class NHAssetItem extends BaseItemView {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             boolean isShowRedDot = isShowRedDot();
-            this.f51272c.setVisibility(isShowRedDot ? 0 : 8);
-            this.f51272c.setImageDrawable(ResUtils.getDrawable(getContext(), "wallet_home_red_star"));
+            this.f51439c.setVisibility(isShowRedDot ? 0 : 8);
+            this.f51439c.setImageDrawable(ResUtils.getDrawable(getContext(), "wallet_home_red_star"));
             return isShowRedDot;
         }
         return invokeV.booleanValue;
@@ -77,11 +77,11 @@ public class NHAssetItem extends BaseItemView {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             LayoutInflater.from(getContext()).inflate(ResUtils.layout(getContext(), "wallet_home_nh_asset_item"), this);
             this.a = (MaskTextView) findViewById(ResUtils.id(getContext(), "asset_item_subtitle"));
-            this.f51271b = (MaskTextView) findViewById(ResUtils.id(getContext(), "asset_item_title"));
-            this.f51272c = (NetImageView) findViewById(ResUtils.id(getContext(), "asset_item_star"));
-            this.f51273d = (LinearLayout) findViewById(ResUtils.id(getContext(), "asset_item_desc_panel"));
-            this.f51274e = (MaskTextView) findViewById(ResUtils.id(getContext(), "asset_item_subdesc"));
-            this.f51275f = (MaskTextView) findViewById(ResUtils.id(getContext(), "asset_item_desc"));
+            this.f51438b = (MaskTextView) findViewById(ResUtils.id(getContext(), "asset_item_title"));
+            this.f51439c = (NetImageView) findViewById(ResUtils.id(getContext(), "asset_item_star"));
+            this.f51440d = (LinearLayout) findViewById(ResUtils.id(getContext(), "asset_item_desc_panel"));
+            this.f51441e = (MaskTextView) findViewById(ResUtils.id(getContext(), "asset_item_subdesc"));
+            this.f51442f = (MaskTextView) findViewById(ResUtils.id(getContext(), "asset_item_desc"));
         }
     }
 
@@ -91,9 +91,9 @@ public class NHAssetItem extends BaseItemView {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             super.onEyeMaskChanged();
             this.a.resetMaskText();
-            this.f51271b.resetMaskText();
-            this.f51274e.resetMaskText();
-            this.f51275f.resetMaskText();
+            this.f51438b.resetMaskText();
+            this.f51441e.resetMaskText();
+            this.f51442f.resetMaskText();
         }
     }
 
@@ -103,13 +103,13 @@ public class NHAssetItem extends BaseItemView {
             return;
         }
         this.a.setMaskText(getData().name);
-        this.f51271b.setMaskText(getData().value1);
+        this.f51438b.setMaskText(getData().value1);
         if (TextUtils.isEmpty(getData().value3)) {
-            this.f51273d.setVisibility(8);
+            this.f51440d.setVisibility(8);
         } else {
-            this.f51273d.setVisibility(0);
-            this.f51274e.setMaskText(getData().value2);
-            this.f51275f.setMaskText(getData().value3);
+            this.f51440d.setVisibility(0);
+            this.f51441e.setMaskText(getData().value2);
+            this.f51442f.setMaskText(getData().value3);
         }
         handlePoint();
     }

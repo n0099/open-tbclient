@@ -172,6 +172,7 @@ public class CmdConfigHttp {
     public static final int CMD_GET_SUBSCRIBE_CHANNEL_LIST = 1003304;
     public static final int CMD_GET_SUGGESTLOCSTION_BY_NAME = 1003002;
     public static final int CMD_GET_SUGGEST_EMOTION = 1003329;
+    public static final int CMD_GET_SYNC_ICON_TASK = 1003525;
     public static final int CMD_GET_TASK_SCORES = 1003101;
     public static final int CMD_GET_TCODE_INFO_CMD = 1003320;
     public static final int CMD_GET_TOKEN = 1003404;

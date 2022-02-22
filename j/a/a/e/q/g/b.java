@@ -32,31 +32,31 @@ import tv.athena.revenue.payui.view.IViewEventListener;
 import tv.athena.revenue.payui.view.dialog.CancelType;
 import tv.athena.revenue.payui.view.dialog.PayDialogType;
 import tv.athena.revenue.payui.view.dialog.SafeDismissDialog;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public final class b {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String a = "CenterDialogManager";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final b f62430b;
+    public static final b f62597b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static final class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PayDialogType f62431e;
+        public final /* synthetic */ PayDialogType f62598e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ Dialog f62432f;
+        public final /* synthetic */ Dialog f62599f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ IViewEventListener f62433g;
+        public final /* synthetic */ IViewEventListener f62600g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ j.a.a.e.q.g.c f62434h;
+        public final /* synthetic */ j.a.a.e.q.g.c f62601h;
 
         public a(PayDialogType payDialogType, Dialog dialog, IViewEventListener iViewEventListener, j.a.a.e.q.g.c cVar) {
             Interceptable interceptable = $ic;
@@ -73,54 +73,54 @@ public final class b {
                     return;
                 }
             }
-            this.f62431e = payDialogType;
-            this.f62432f = dialog;
-            this.f62433g = iViewEventListener;
-            this.f62434h = cVar;
+            this.f62598e = payDialogType;
+            this.f62599f = dialog;
+            this.f62600g = iViewEventListener;
+            this.f62601h = cVar;
         }
 
         @Override // android.view.View.OnClickListener
         public final void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                b bVar = b.f62430b;
+                b bVar = b.f62597b;
                 String str = b.a;
-                RLog.info(str, "empty click payDialogType:" + this.f62431e.name());
+                RLog.info(str, "empty click payDialogType:" + this.f62598e.name());
                 PayViewInfo payViewInfo = new PayViewInfo();
                 payViewInfo.clickArea = CancelType.EMPTY_AREA_CLICK;
-                payViewInfo.payDialogType = this.f62431e;
-                payViewInfo.viewDialog = this.f62432f;
-                IViewEventListener iViewEventListener = this.f62433g;
+                payViewInfo.payDialogType = this.f62598e;
+                payViewInfo.viewDialog = this.f62599f;
+                IViewEventListener iViewEventListener = this.f62600g;
                 if (iViewEventListener == null || !iViewEventListener.onInterceptView(payViewInfo)) {
-                    j.a.a.e.q.g.c cVar = this.f62434h;
+                    j.a.a.e.q.g.c cVar = this.f62601h;
                     if (cVar != null) {
                         cVar.a(CancelType.EMPTY_AREA_CLICK);
                     }
-                    this.f62432f.dismiss();
+                    this.f62599f.dismiss();
                 }
             }
         }
     }
 
     /* renamed from: j.a.a.e.q.g.b$b  reason: collision with other inner class name */
-    /* loaded from: classes4.dex */
-    public static final class View$OnClickListenerC2317b implements View.OnClickListener {
+    /* loaded from: classes5.dex */
+    public static final class View$OnClickListenerC2327b implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PayDialogType f62435e;
+        public final /* synthetic */ PayDialogType f62602e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ Dialog f62436f;
+        public final /* synthetic */ Dialog f62603f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ IViewEventListener f62437g;
+        public final /* synthetic */ IViewEventListener f62604g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ j.a.a.e.q.g.c f62438h;
+        public final /* synthetic */ j.a.a.e.q.g.c f62605h;
 
-        public View$OnClickListenerC2317b(PayDialogType payDialogType, Dialog dialog, IViewEventListener iViewEventListener, j.a.a.e.q.g.c cVar) {
+        public View$OnClickListenerC2327b(PayDialogType payDialogType, Dialog dialog, IViewEventListener iViewEventListener, j.a.a.e.q.g.c cVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -135,45 +135,45 @@ public final class b {
                     return;
                 }
             }
-            this.f62435e = payDialogType;
-            this.f62436f = dialog;
-            this.f62437g = iViewEventListener;
-            this.f62438h = cVar;
+            this.f62602e = payDialogType;
+            this.f62603f = dialog;
+            this.f62604g = iViewEventListener;
+            this.f62605h = cVar;
         }
 
         @Override // android.view.View.OnClickListener
         public final void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                b bVar = b.f62430b;
+                b bVar = b.f62597b;
                 String str = b.a;
-                RLog.info(str, "btn close payDialogType:" + this.f62435e.name());
+                RLog.info(str, "btn close payDialogType:" + this.f62602e.name());
                 PayViewInfo payViewInfo = new PayViewInfo();
                 payViewInfo.clickArea = CancelType.BUTTOM_AREA_CLICK;
-                payViewInfo.payDialogType = this.f62435e;
-                payViewInfo.viewDialog = this.f62436f;
-                IViewEventListener iViewEventListener = this.f62437g;
+                payViewInfo.payDialogType = this.f62602e;
+                payViewInfo.viewDialog = this.f62603f;
+                IViewEventListener iViewEventListener = this.f62604g;
                 if (iViewEventListener == null || !iViewEventListener.onInterceptView(payViewInfo)) {
-                    j.a.a.e.q.g.c cVar = this.f62438h;
+                    j.a.a.e.q.g.c cVar = this.f62605h;
                     if (cVar != null) {
                         cVar.a(CancelType.BUTTOM_AREA_CLICK);
                     }
-                    this.f62436f.dismiss();
+                    this.f62603f.dismiss();
                 }
             }
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static final class c implements DialogInterface.OnDismissListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ j.a.a.e.q.g.c f62439e;
+        public final /* synthetic */ j.a.a.e.q.g.c f62606e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ SafeDismissDialog f62440f;
+        public final /* synthetic */ SafeDismissDialog f62607f;
 
         public c(j.a.a.e.q.g.c cVar, SafeDismissDialog safeDismissDialog) {
             Interceptable interceptable = $ic;
@@ -190,33 +190,33 @@ public final class b {
                     return;
                 }
             }
-            this.f62439e = cVar;
-            this.f62440f = safeDismissDialog;
+            this.f62606e = cVar;
+            this.f62607f = safeDismissDialog;
         }
 
         @Override // android.content.DialogInterface.OnDismissListener
         public final void onDismiss(DialogInterface dialogInterface) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, dialogInterface) == null) {
-                j.a.a.e.q.g.c cVar = this.f62439e;
+                j.a.a.e.q.g.c cVar = this.f62606e;
                 if (cVar != null) {
                     cVar.a(CancelType.ON_DIALOG_DISMISS);
                 }
-                b.f62430b.c(this.f62440f);
+                b.f62597b.c(this.f62607f);
             }
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static final class d implements DialogInterface.OnCancelListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ j.a.a.e.q.g.c f62441e;
+        public final /* synthetic */ j.a.a.e.q.g.c f62608e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ SafeDismissDialog f62442f;
+        public final /* synthetic */ SafeDismissDialog f62609f;
 
         public d(j.a.a.e.q.g.c cVar, SafeDismissDialog safeDismissDialog) {
             Interceptable interceptable = $ic;
@@ -233,30 +233,30 @@ public final class b {
                     return;
                 }
             }
-            this.f62441e = cVar;
-            this.f62442f = safeDismissDialog;
+            this.f62608e = cVar;
+            this.f62609f = safeDismissDialog;
         }
 
         @Override // android.content.DialogInterface.OnCancelListener
         public final void onCancel(DialogInterface dialogInterface) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, dialogInterface) == null) {
-                j.a.a.e.q.g.c cVar = this.f62441e;
+                j.a.a.e.q.g.c cVar = this.f62608e;
                 if (cVar != null) {
                     cVar.a(CancelType.ON_DIALOG_CANCEL);
                 }
-                b.f62430b.c(this.f62442f);
+                b.f62597b.c(this.f62609f);
             }
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static final class e implements DialogInterface.OnKeyListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ j.a.a.e.q.g.c f62443e;
+        public final /* synthetic */ j.a.a.e.q.g.c f62610e;
 
         public e(j.a.a.e.q.g.c cVar) {
             Interceptable interceptable = $ic;
@@ -273,7 +273,7 @@ public final class b {
                     return;
                 }
             }
-            this.f62443e = cVar;
+            this.f62610e = cVar;
         }
 
         @Override // android.content.DialogInterface.OnKeyListener
@@ -282,10 +282,10 @@ public final class b {
             j.a.a.e.q.g.c cVar;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048576, this, dialogInterface, i2, keyEvent)) == null) {
-                b bVar = b.f62430b;
+                b bVar = b.f62597b;
                 String str = b.a;
                 RLog.info(str, "onKey keyCode:" + i2);
-                if (keyEvent.getAction() == 0 && i2 == 4 && (cVar = this.f62443e) != null) {
+                if (keyEvent.getAction() == 0 && i2 == 4 && (cVar = this.f62610e) != null) {
                     if (cVar == null) {
                         Intrinsics.throwNpe();
                     }
@@ -312,7 +312,7 @@ public final class b {
                 return;
             }
         }
-        f62430b = new b();
+        f62597b = new b();
     }
 
     public b() {
@@ -371,7 +371,7 @@ public final class b {
             Intrinsics.checkExpressionValueIsNotNull(findViewById, "window.findViewById<TextView>(R.id.tv_title)");
             ((TextView) findViewById).setText(str);
             window.findViewById(f.rl_root).setOnClickListener(new a(payDialogType, dialog, iViewEventListener, cVar));
-            ((Button) window.findViewById(f.btn_close)).setOnClickListener(new View$OnClickListenerC2317b(payDialogType, dialog, iViewEventListener, cVar));
+            ((Button) window.findViewById(f.btn_close)).setOnClickListener(new View$OnClickListenerC2327b(payDialogType, dialog, iViewEventListener, cVar));
             ((ViewGroup) window.findViewById(f.container)).addView(view);
         }
     }

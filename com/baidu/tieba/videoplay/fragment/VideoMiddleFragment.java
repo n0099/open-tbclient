@@ -6,7 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import androidx.fragment.app.Fragment;
-import c.a.s0.b.d;
+import c.a.t0.b.d;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.widget.refresh.BdSwipeRefreshLayout;
@@ -24,7 +24,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class VideoMiddleFragment extends AbsVideoChannelFragment {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public CustomMessageListener C;
+    public CustomMessageListener E;
 
     /* loaded from: classes13.dex */
     public class a implements BdSwipeRefreshLayout.k {
@@ -157,7 +157,7 @@ public class VideoMiddleFragment extends AbsVideoChannelFragment {
                 return;
             }
         }
-        this.C = new c(this, 2921665);
+        this.E = new c(this, 2921665);
     }
 
     @Override // com.baidu.tieba.videoplay.fragment.AbsVideoChannelFragment
@@ -190,7 +190,7 @@ public class VideoMiddleFragment extends AbsVideoChannelFragment {
         if (interceptable == null || interceptable.invokeL(1048579, this, bundle) == null) {
             super.onCreate(bundle);
             BdTracesManager.INSTANCE.getFpsTracer().endFpsCollect(VideoPlayActivityConfig.KEY_FPS_VIDEO_HOME_TAB);
-            registerListener(this.C);
+            registerListener(this.E);
         }
     }
 

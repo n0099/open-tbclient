@@ -3,64 +3,64 @@ package com.kwad.sdk.core.a;
 import java.nio.charset.Charset;
 import java.util.Arrays;
 import org.aspectj.runtime.reflect.SignatureImpl;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class c {
     public static final Charset a = Charset.forName("ISO-8859-1");
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class a {
 
         /* renamed from: c  reason: collision with root package name */
-        public static final int[] f55649c;
+        public static final int[] f55816c;
 
         /* renamed from: e  reason: collision with root package name */
-        public final boolean f55651e;
+        public final boolean f55818e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final boolean f55652f;
+        public final boolean f55819f;
         public static final a a = new a(false, false);
 
         /* renamed from: b  reason: collision with root package name */
-        public static final a f55648b = new a(true, false);
+        public static final a f55815b = new a(true, false);
 
         /* renamed from: d  reason: collision with root package name */
-        public static final int[] f55650d = new int[256];
+        public static final int[] f55817d = new int[256];
 
         static {
             int[] iArr = new int[256];
-            f55649c = iArr;
+            f55816c = iArr;
             Arrays.fill(iArr, -1);
-            for (int i2 = 0; i2 < b.f55655d.length; i2++) {
-                f55649c[b.f55655d[i2]] = i2;
+            for (int i2 = 0; i2 < b.f55822d.length; i2++) {
+                f55816c[b.f55822d[i2]] = i2;
             }
-            f55649c[61] = -2;
-            Arrays.fill(f55650d, -1);
-            for (int i3 = 0; i3 < b.f55656e.length; i3++) {
-                f55650d[b.f55656e[i3]] = i3;
+            f55816c[61] = -2;
+            Arrays.fill(f55817d, -1);
+            for (int i3 = 0; i3 < b.f55823e.length; i3++) {
+                f55817d[b.f55823e[i3]] = i3;
             }
-            f55650d[61] = -2;
+            f55817d[61] = -2;
         }
 
         public a(boolean z, boolean z2) {
-            this.f55651e = z;
-            this.f55652f = z2;
+            this.f55818e = z;
+            this.f55819f = z2;
         }
 
         private int a(byte[] bArr, int i2, int i3) {
             int i4;
-            int[] iArr = this.f55651e ? f55650d : f55649c;
+            int[] iArr = this.f55818e ? f55817d : f55816c;
             int i5 = i3 - i2;
             int i6 = 0;
             if (i5 == 0) {
                 return 0;
             }
             if (i5 < 2) {
-                if (this.f55652f && iArr[0] == -1) {
+                if (this.f55819f && iArr[0] == -1) {
                     return 0;
                 }
                 throw new IllegalArgumentException("Input byte[] should at least have 2 bytes for base64 bytes");
             }
-            if (this.f55652f) {
+            if (this.f55819f) {
                 int i7 = 0;
                 while (true) {
                     if (i2 >= i3) {
@@ -116,7 +116,7 @@ public class c {
             if (r12 >= r13) goto L39;
          */
         /* JADX WARN: Code restructure failed: missing block: B:41:0x00a3, code lost:
-            if (r10.f55652f == false) goto L38;
+            if (r10.f55819f == false) goto L38;
          */
         /* JADX WARN: Code restructure failed: missing block: B:42:0x00a5, code lost:
             r14 = r12 + 1;
@@ -143,7 +143,7 @@ public class c {
             Code decompiled incorrectly, please refer to instructions dump.
         */
         private int a(byte[] bArr, int i2, int i3, byte[] bArr2) {
-            int[] iArr = this.f55651e ? f55650d : f55649c;
+            int[] iArr = this.f55818e ? f55817d : f55816c;
             int i4 = 0;
             int i5 = 18;
             int i6 = 0;
@@ -176,7 +176,7 @@ public class c {
                         throw new IllegalArgumentException("Input byte array has wrong 4-byte ending unit");
                     }
                     i2 = i7;
-                } else if (!this.f55652f) {
+                } else if (!this.f55819f) {
                     throw new IllegalArgumentException("Illegal base64 character " + Integer.toString(bArr[i7 - 1], 16));
                 }
                 i2 = i7;
@@ -195,67 +195,67 @@ public class c {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class b {
 
         /* renamed from: c  reason: collision with root package name */
-        public static final b f55654c;
+        public static final b f55821c;
 
         /* renamed from: f  reason: collision with root package name */
-        public static final byte[] f55657f;
+        public static final byte[] f55824f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final byte[] f55658g;
+        public final byte[] f55825g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final int f55659h;
+        public final int f55826h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final boolean f55660i;
+        public final boolean f55827i;
 
         /* renamed from: j  reason: collision with root package name */
-        public final boolean f55661j;
+        public final boolean f55828j;
         public static final b a = new b(false, null, -1, true);
 
         /* renamed from: b  reason: collision with root package name */
-        public static final b f55653b = new b(true, null, -1, false);
+        public static final b f55820b = new b(true, null, -1, false);
 
         /* renamed from: d  reason: collision with root package name */
-        public static final char[] f55655d = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '+', '/'};
+        public static final char[] f55822d = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '+', '/'};
 
         /* renamed from: e  reason: collision with root package name */
-        public static final char[] f55656e = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', SignatureImpl.SEP, '_'};
+        public static final char[] f55823e = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', SignatureImpl.SEP, '_'};
 
         static {
             byte[] bArr = {13, 10};
-            f55657f = bArr;
-            f55654c = new b(false, bArr, 76, true);
+            f55824f = bArr;
+            f55821c = new b(false, bArr, 76, true);
         }
 
         public b(boolean z, byte[] bArr, int i2, boolean z2) {
-            this.f55660i = z;
-            this.f55658g = bArr;
-            this.f55659h = i2;
-            this.f55661j = z2;
+            this.f55827i = z;
+            this.f55825g = bArr;
+            this.f55826h = i2;
+            this.f55828j = z2;
         }
 
         private final int a(int i2) {
             int i3;
-            if (this.f55661j) {
+            if (this.f55828j) {
                 i3 = ((i2 + 2) / 3) * 4;
             } else {
                 int i4 = i2 % 3;
                 i3 = ((i2 / 3) * 4) + (i4 == 0 ? 0 : i4 + 1);
             }
-            int i5 = this.f55659h;
-            return i5 > 0 ? i3 + (((i3 - 1) / i5) * this.f55658g.length) : i3;
+            int i5 = this.f55826h;
+            return i5 > 0 ? i3 + (((i3 - 1) / i5) * this.f55825g.length) : i3;
         }
 
         private int a(byte[] bArr, int i2, int i3, byte[] bArr2) {
-            char[] cArr = this.f55660i ? f55656e : f55655d;
+            char[] cArr = this.f55827i ? f55823e : f55822d;
             int i4 = ((i3 - i2) / 3) * 3;
             int i5 = i2 + i4;
-            int i6 = this.f55659h;
+            int i6 = this.f55826h;
             if (i6 > 0 && i4 > (i6 / 4) * 3) {
                 i4 = (i6 / 4) * 3;
             }
@@ -282,8 +282,8 @@ public class c {
                 }
                 int i18 = ((min - i2) / 3) * 4;
                 i7 += i18;
-                if (i18 == this.f55659h && min < i3) {
-                    byte[] bArr3 = this.f55658g;
+                if (i18 == this.f55826h && min < i3) {
+                    byte[] bArr3 = this.f55825g;
                     int length = bArr3.length;
                     int i19 = 0;
                     while (i19 < length) {
@@ -302,7 +302,7 @@ public class c {
                 if (i20 == i3) {
                     int i23 = i22 + 1;
                     bArr2[i22] = (byte) cArr[(i21 << 4) & 63];
-                    if (this.f55661j) {
+                    if (this.f55828j) {
                         int i24 = i23 + 1;
                         bArr2[i23] = 61;
                         int i25 = i24 + 1;
@@ -316,7 +316,7 @@ public class c {
                 bArr2[i22] = (byte) cArr[((i21 << 4) & 63) | (i26 >> 4)];
                 int i28 = i27 + 1;
                 bArr2[i27] = (byte) cArr[(i26 << 2) & 63];
-                if (this.f55661j) {
+                if (this.f55828j) {
                     int i29 = i28 + 1;
                     bArr2[i28] = 61;
                     return i29;

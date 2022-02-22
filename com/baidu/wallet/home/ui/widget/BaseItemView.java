@@ -22,10 +22,10 @@ public abstract class BaseItemView extends RelativeLayout implements View.OnClic
     public HomeCfgResponse.DataItem a;
 
     /* renamed from: b  reason: collision with root package name */
-    public b f51159b;
+    public b f51326b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Context f51160c;
+    public Context f51327c;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public BaseItemView(Context context) {
@@ -45,7 +45,7 @@ public abstract class BaseItemView extends RelativeLayout implements View.OnClic
                 return;
             }
         }
-        this.f51160c = context;
+        this.f51327c = context;
         a();
     }
 
@@ -60,7 +60,7 @@ public abstract class BaseItemView extends RelativeLayout implements View.OnClic
     public void forceShowPoint(String str) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048576, this, str) == null) && !TextUtils.isEmpty(this.a.link_addr) && this.a.link_addr.equalsIgnoreCase(str)) {
-            com.baidu.wallet.home.storage.a.a(this.f51160c, this.a.link_addr, "-1");
+            com.baidu.wallet.home.storage.a.a(this.f51327c, this.a.link_addr, "-1");
             handlePoint();
             getWalletInterface().onPointShowChanged();
         }
@@ -75,7 +75,7 @@ public abstract class BaseItemView extends RelativeLayout implements View.OnClic
     public b getWalletInterface() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f51159b : (b) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f51326b : (b) invokeV.objValue;
     }
 
     public abstract boolean handlePoint();
@@ -138,7 +138,7 @@ public abstract class BaseItemView extends RelativeLayout implements View.OnClic
         }
         if (isShoudShowPoint()) {
             if (!TextUtils.isEmpty(this.a.link_addr)) {
-                Context context = this.f51160c;
+                Context context = this.f51327c;
                 HomeCfgResponse.DataItem dataItem = this.a;
                 com.baidu.wallet.home.storage.a.a(context, dataItem.link_addr, TextUtils.isEmpty(dataItem.timestamp) ? "0" : this.a.timestamp);
             }
@@ -161,7 +161,7 @@ public abstract class BaseItemView extends RelativeLayout implements View.OnClic
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048587, this, dataItem, bVar) == null) {
             this.a = dataItem;
-            this.f51159b = bVar;
+            this.f51326b = bVar;
         }
     }
 
@@ -192,7 +192,7 @@ public abstract class BaseItemView extends RelativeLayout implements View.OnClic
                 return;
             }
         }
-        this.f51160c = context;
+        this.f51327c = context;
         a();
     }
 }

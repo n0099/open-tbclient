@@ -4,7 +4,7 @@ import com.kwad.sdk.core.scene.URLPackage;
 import com.kwad.sdk.internal.api.SceneImpl;
 import org.json.JSONObject;
 /* renamed from: com.kwad.sdk.core.b.kwai.do  reason: invalid class name */
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class Cdo implements com.kwad.sdk.core.d<SceneImpl> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.kwad.sdk.core.d

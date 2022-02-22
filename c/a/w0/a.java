@@ -1,30 +1,38 @@
 package c.a.w0;
 
+import android.text.TextUtils;
+import android.util.Base64InputStream;
+import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
-import c.a.v0.j;
-import c.a.v0.m;
-import c.a.v0.w;
-import com.baidu.pyramid.runtime.service.ServiceManager;
-import com.baidu.searchbox.launch.utils.SpeedStatsUtils;
-import com.baidu.searchbox.updateprocessor.UpdateCloudControlProcessor;
-import com.baidu.tbadk.core.util.TbEnum;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.logsystem.basic.upload.BaseContentUploader;
+import com.baidu.searchbox.logsystem.basic.upload.ContentUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.ubc.Flow;
-import com.baidu.ubc.UBCManager;
-import io.flutter.plugin.common.MethodChannel;
-import java.util.ArrayList;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.BufferedInputStream;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.HashMap;
-import org.json.JSONException;
+import java.util.Map;
 import org.json.JSONObject;
 /* loaded from: classes9.dex */
-public class a {
+public abstract class a implements u {
     public static /* synthetic */ Interceptable $ic;
-    public static HashMap<String, Flow> a;
+
+    /* renamed from: c  reason: collision with root package name */
+    public static final boolean f26602c;
     public transient /* synthetic */ FieldHolder $fh;
+    public h0 a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public String f26603b;
 
     static {
         InterceptResult invokeClinit;
@@ -39,233 +47,233 @@ public class a {
                 return;
             }
         }
-        a = new HashMap<>();
+        f26602c = b0.m();
     }
 
-    public static void a(String str) {
+    public a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, null, str) == null) {
-            a.put(str, ((UBCManager) ServiceManager.getService(UBCManager.SERVICE_REFERENCE)).beginFlow(str));
-        }
-    }
-
-    public static void b(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65538, null, str) == null) {
-            Flow flow = a.get(str);
-            if (flow != null) {
-                ((UBCManager) ServiceManager.getService(UBCManager.SERVICE_REFERENCE)).flowCancel(flow);
-                a.remove(str);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
-            String str2 = "cancelFlow:" + str + "对应flow为空";
         }
+        this.a = new h0();
+        this.f26603b = "";
     }
 
-    public static void c(String str) {
+    @Override // c.a.w0.u
+    public boolean a(JSONObject jSONObject, boolean z, boolean z2) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65539, null, str) == null) {
-            Flow flow = a.get(str);
-            if (flow != null) {
-                ((UBCManager) ServiceManager.getService(UBCManager.SERVICE_REFERENCE)).flowEnd(flow);
-                a.remove(str);
-                return;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{jSONObject, Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) ? i(this.f26603b, jSONObject, z, z2) : invokeCommon.booleanValue;
+    }
+
+    @Override // c.a.w0.u
+    public boolean b(File file, long j2, boolean z, boolean z2) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{file, Long.valueOf(j2), Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) ? h(this.f26603b, file, j2, z, z2) : invokeCommon.booleanValue;
+    }
+
+    public final HashMap<String, String> c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            HashMap<String, String> hashMap = new HashMap<>(2);
+            hashMap.put("Content-type", "application/x-www-form-urlencoded");
+            hashMap.put(BaseContentUploader.NB, "1");
+            return hashMap;
+        }
+        return (HashMap) invokeV.objValue;
+    }
+
+    public final String d(boolean z) {
+        InterceptResult invokeZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048579, this, z)) == null) {
+            if (TextUtils.isEmpty(this.f26603b)) {
+                this.f26603b = b0.k(z);
             }
-            String str2 = "endFlow:" + str + "对应flow为空";
+            return this.f26603b;
         }
+        return (String) invokeZ.objValue;
     }
 
-    public static void d(HashMap<String, Object> hashMap) {
+    public final String e(String str, boolean z, boolean z2) {
+        InterceptResult invokeCommon;
+        String c2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, hashMap) == null) {
-            String str = (String) hashMap.get("flowId");
-            String str2 = (String) hashMap.get(TbEnum.SystemMessage.KEY_EVENT_ID);
-            String str3 = (String) hashMap.get("eventContent");
-            Flow flow = a.get(str);
-            if (flow != null) {
-                UBCManager uBCManager = (UBCManager) ServiceManager.getService(UBCManager.SERVICE_REFERENCE);
-                if (str3 == null) {
-                    uBCManager.flowAddEvent(flow, str2);
-                    return;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{str, Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
+            boolean isUBCDebug = this.a.isUBCDebug();
+            if (TextUtils.isEmpty(str)) {
+                str = d(isUBCDebug);
+            }
+            if (z2) {
+                c2 = b0.h(str);
+            } else {
+                c2 = b0.c(str);
+            }
+            if (isUBCDebug && !TextUtils.isEmpty(c2)) {
+                c2 = c.a.w0.q0.f.a(c2, "debug", "1");
+            }
+            if (z) {
+                c2 = c.a.w0.q0.f.a(c2, "reallog", "1");
+            }
+            return g.o().E() ? c.a.w0.q0.f.a(c2, "beta", "1") : c2;
+        }
+        return (String) invokeCommon.objValue;
+    }
+
+    public final boolean f(e0 e0Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, e0Var)) == null) {
+            if (e0Var == null) {
+                return false;
+            }
+            if (!e0Var.e()) {
+                if (f26602c) {
+                    String str = "postByteRequest, fail: " + e0Var.d();
                 } else {
-                    uBCManager.flowAddEvent(flow, str2, str3);
-                    return;
+                    d0.a().i(e0Var.d(), null);
                 }
-            }
-            String str4 = "flowAddEvent:" + str + "对应flow为空";
-        }
-    }
-
-    public static void e(HashMap<String, Object> hashMap) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65541, null, hashMap) == null) {
-            String str = (String) hashMap.get("flowId");
-            String str2 = (String) hashMap.get(TbEnum.SystemMessage.KEY_EVENT_ID);
-            String str3 = (String) hashMap.get("eventContent");
-            long longValue = ((Long) hashMap.get("eventDate")).longValue();
-            Flow flow = a.get(str);
-            if (flow != null) {
-                ((UBCManager) ServiceManager.getService(UBCManager.SERVICE_REFERENCE)).flowAddEventWithDate(flow, str2, str3, longValue);
-                return;
-            }
-            String str4 = "flowAddEventWithDate:" + str + "对应flow为空";
-        }
-    }
-
-    public static void f(HashMap<String, Object> hashMap) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65542, null, hashMap) == null) {
-            String str = (String) hashMap.get("flowId");
-            String str2 = (String) hashMap.get("category");
-            Flow flow = a.get(str);
-            if (flow != null) {
-                ((UBCManager) ServiceManager.getService(UBCManager.SERVICE_REFERENCE)).flowEndSlot(flow, str2);
-                return;
-            }
-            String str3 = "flowEndSlot:" + str + "对应flow为空";
-        }
-    }
-
-    public static void g(HashMap<String, Object> hashMap) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65543, null, hashMap) == null) {
-            String str = (String) hashMap.get("flowId");
-            String str2 = (String) hashMap.get("flowContent");
-            Flow flow = a.get(str);
-            if (flow != null) {
-                ((UBCManager) ServiceManager.getService(UBCManager.SERVICE_REFERENCE)).flowSetValue(flow, str2);
-                return;
-            }
-            String str3 = "flowSetValue:" + str + "对应flow为空";
-        }
-    }
-
-    public static void h(HashMap<String, Object> hashMap) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65544, null, hashMap) == null) {
-            String str = (String) hashMap.get("flowId");
-            String str2 = (String) hashMap.get("flowContent");
-            Flow flow = a.get(str);
-            if (flow != null) {
-                ((UBCManager) ServiceManager.getService(UBCManager.SERVICE_REFERENCE)).flowSetValueWithDuration(flow, str2);
-                return;
-            }
-            String str3 = "flowSetValueWithDuration:" + str + "对应flow为空";
-        }
-    }
-
-    public static void i(HashMap<String, Object> hashMap) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65545, null, hashMap) == null) {
-            String str = (String) hashMap.get("flowId");
-            String str2 = (String) hashMap.get("category");
-            String str3 = (String) hashMap.get(SpeedStatsUtils.UBC_KEY_OPTION);
-            Flow flow = a.get(str);
-            if (flow != null) {
-                try {
-                    ((UBCManager) ServiceManager.getService(UBCManager.SERVICE_REFERENCE)).flowStartSlot(flow, str2, new JSONObject(str3));
-                    return;
-                } catch (JSONException unused) {
-                    return;
+                if (g.o().M()) {
+                    g(e0Var.c());
                 }
+                e0Var.a();
+                return false;
             }
-            String str4 = "flowStartSlot:" + str + "对应flow为空";
-        }
-    }
-
-    public static int j(int i2) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65546, null, i2)) == null) {
-            if ((i2 & 1) > 0) {
-                return 1;
-            }
-            if ((i2 & 2) > 0) {
-                return 2;
-            }
-            if ((i2 & 4) > 0) {
-                return 4;
-            }
-            if ((i2 & 8) > 0) {
-                return 8;
-            }
-            if ((i2 & 16) > 0) {
-                return 16;
-            }
-            if ((i2 & 32) > 0) {
-                return 32;
-            }
-            return (i2 & 64) > 0 ? 64 : 0;
-        }
-        return invokeI.intValue;
-    }
-
-    public static void k(MethodChannel.Result result, HashMap<String, Object> hashMap) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65547, null, result, hashMap) == null) {
-            String str = (String) hashMap.get(TbEnum.SystemMessage.KEY_EVENT_ID);
-            String str2 = (String) hashMap.get("eventContent");
-            int intValue = ((Integer) hashMap.get(SpeedStatsUtils.UBC_KEY_OPTION)).intValue();
             try {
-                UBCManager uBCManager = (UBCManager) ServiceManager.getService(UBCManager.SERVICE_REFERENCE);
-                JSONObject jSONObject = new JSONObject(str2);
-                if (j(intValue) > 0) {
-                    uBCManager.onEvent(str, jSONObject, intValue);
-                } else {
-                    uBCManager.onEvent(str, jSONObject);
+                int i2 = new JSONObject(e0Var.b()).getInt("error");
+                if (i2 != 0) {
+                    boolean z = f26602c;
+                    if (!f26602c) {
+                        d0.a().k(i2);
+                    }
                 }
-            } catch (JSONException unused) {
-                String str3 = str + "eventContent json格式错误";
+            } catch (Exception e2) {
+                if (f26602c) {
+                    String str2 = "body tostring fail:" + e2.getMessage();
+                } else {
+                    d0.a().j(Log.getStackTraceString(e2));
+                }
             }
+            e0Var.a();
+            return true;
         }
+        return invokeL.booleanValue;
     }
 
-    public static void l(HashMap<String, Object> hashMap) {
+    /* JADX WARN: Removed duplicated region for block: B:20:0x002a  */
+    /* JADX WARN: Removed duplicated region for block: B:25:? A[RETURN, SYNTHETIC] */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public final void g(int i2) {
+        long j2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65548, null, hashMap) == null) {
-            String str = (String) hashMap.get("id");
-            boolean equals = "1".equals((String) hashMap.get(UpdateCloudControlProcessor.CLOUD_UPDATE_ACTION_NAME));
-            int parseInt = Integer.parseInt((String) hashMap.get("type"));
-            j.a aVar = new j.a();
-            aVar.c(str);
-            aVar.b(equals);
-            aVar.h(parseInt);
-            j a2 = aVar.a();
-            j.a aVar2 = new j.a();
-            aVar2.c(str);
-            aVar2.b(equals);
-            aVar2.h(parseInt);
-            j a3 = aVar2.a();
-            ArrayList arrayList = new ArrayList();
-            arrayList.add(a2);
-            arrayList.add(a3);
-            ((UBCManager) ServiceManager.getService(UBCManager.SERVICE_REFERENCE)).registerConfig(new w(arrayList));
+        if (interceptable != null && interceptable.invokeI(1048582, this, i2) != null) {
+            return;
         }
-    }
-
-    public static void m(HashMap<String, Object> hashMap) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65549, null, hashMap) == null) {
-            String str = (String) hashMap.get(TbEnum.SystemMessage.KEY_EVENT_ID);
-            boolean booleanValue = ((Boolean) hashMap.get("isReal")).booleanValue();
-            int intValue = ((Integer) hashMap.get("uploadPeriod")).intValue();
-            boolean booleanValue2 = ((Boolean) hashMap.get("isSend")).booleanValue();
-            UBCManager uBCManager = (UBCManager) ServiceManager.getService(UBCManager.SERVICE_REFERENCE);
-            m mVar = new m();
-            if (!str.isEmpty()) {
-                mVar = new m(str);
+        long currentTimeMillis = System.currentTimeMillis();
+        boolean z = true;
+        if (i2 == 403 || i2 == 408 || i2 == 499) {
+            j2 = 60000;
+        } else if (i2 < 500 || i2 >= 600) {
+            z = false;
+            if (z) {
+                return;
             }
-            mVar.f26510b = booleanValue;
-            mVar.f26511c = intValue;
-            mVar.f26512d = booleanValue2;
-            uBCManager.setDefaultConfig(mVar);
+            g.o().Z(currentTimeMillis);
+            return;
+        } else {
+            j2 = 300000;
+        }
+        currentTimeMillis += j2;
+        if (z) {
         }
     }
 
-    public static void n() {
+    public final boolean h(String str, File file, long j2, boolean z, boolean z2) {
+        InterceptResult invokeCommon;
+        InputStream inputStream;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65550, null) == null) {
-            ((UBCManager) ServiceManager.getService(UBCManager.SERVICE_REFERENCE)).uploadFailedData();
+        if (interceptable != null && (invokeCommon = interceptable.invokeCommon(1048583, this, new Object[]{str, file, Long.valueOf(j2), Boolean.valueOf(z), Boolean.valueOf(z2)})) != null) {
+            return invokeCommon.booleanValue;
+        }
+        if (file == null || !file.exists()) {
+            return false;
+        }
+        String e2 = e(str, z, z2);
+        HashMap<String, String> c2 = c();
+        if (i0.m().p() && j2 > 0) {
+            c2.put("Content-Length", String.valueOf(j2));
+        }
+        InputStream inputStream2 = null;
+        try {
+            inputStream = new BufferedInputStream(new Base64InputStream(new FileInputStream(file), 2));
+            try {
+                try {
+                    boolean f2 = f(j(e2, inputStream, c2));
+                    c.a.w0.q0.a.b(inputStream);
+                    return f2;
+                } catch (Exception e3) {
+                    e = e3;
+                    if (!f26602c) {
+                        d0.a().i(null, Log.getStackTraceString(e));
+                    }
+                    c.a.w0.q0.a.b(inputStream);
+                    return false;
+                }
+            } catch (Throwable th) {
+                th = th;
+                inputStream2 = inputStream;
+                c.a.w0.q0.a.b(inputStream2);
+                throw th;
+            }
+        } catch (Exception e4) {
+            e = e4;
+            inputStream = null;
+        } catch (Throwable th2) {
+            th = th2;
+            c.a.w0.q0.a.b(inputStream2);
+            throw th;
         }
     }
+
+    public boolean i(String str, JSONObject jSONObject, boolean z, boolean z2) {
+        InterceptResult invokeCommon;
+        byte[] a;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{str, jSONObject, Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
+            if (jSONObject != null && (a = c.a.w0.q0.c.a(jSONObject.toString().getBytes())) != null && a.length >= 2) {
+                a[0] = ContentUtil.GZIP_HEAD_1;
+                a[1] = ContentUtil.GZIP_HEAD_2;
+                String e2 = e(str, z, z2);
+                HashMap<String, String> c2 = c();
+                if (i0.m().p()) {
+                    c2.put("Content-Length", String.valueOf(a.length));
+                }
+                try {
+                    return f(k(e2, a, c2));
+                } catch (IOException e3) {
+                    if (!f26602c) {
+                        d0.a().i(null, Log.getStackTraceString(e3));
+                    }
+                }
+            }
+            return false;
+        }
+        return invokeCommon.booleanValue;
+    }
+
+    public abstract e0 j(String str, InputStream inputStream, Map<String, String> map) throws IOException;
+
+    public abstract e0 k(String str, byte[] bArr, Map<String, String> map) throws IOException;
 }

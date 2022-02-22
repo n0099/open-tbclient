@@ -6,7 +6,7 @@ import com.yy.mobile.framework.revenuesdk.payapi.bean.CurrencyChargeMessage;
 import tv.athena.revenue.payui.model.PayFlowType;
 import tv.athena.revenue.payui.view.IYYPayAmountView;
 import tv.athena.revenue.payui.view.IYYPayWayView;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public interface j extends c {
     void b(Activity activity);
 

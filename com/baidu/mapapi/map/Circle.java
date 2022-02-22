@@ -18,13 +18,13 @@ public final class Circle extends Overlay {
     public LatLng a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f35260b;
+    public int f35466b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f35261c;
+    public int f35467c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Stroke f35262d;
+    public Stroke f35468d;
 
     public Circle() {
         Interceptable interceptable = $ic;
@@ -39,7 +39,7 @@ public final class Circle extends Overlay {
                 return;
             }
         }
-        this.type = com.baidu.mapsdkplatform.comapi.map.h.f35905h;
+        this.type = com.baidu.mapsdkplatform.comapi.map.h.f36111h;
     }
 
     @Override // com.baidu.mapapi.map.Overlay
@@ -51,13 +51,13 @@ public final class Circle extends Overlay {
             GeoPoint ll2mc = CoordUtil.ll2mc(this.a);
             bundle.putDouble("location_x", ll2mc.getLongitudeE6());
             bundle.putDouble("location_y", ll2mc.getLatitudeE6());
-            bundle.putInt("radius", CoordUtil.getMCDistanceByOneLatLngAndRadius(this.a, this.f35261c));
-            Overlay.a(this.f35260b, bundle);
-            if (this.f35262d == null) {
+            bundle.putInt("radius", CoordUtil.getMCDistanceByOneLatLngAndRadius(this.a, this.f35467c));
+            Overlay.a(this.f35466b, bundle);
+            if (this.f35468d == null) {
                 bundle.putInt("has_stroke", 0);
             } else {
                 bundle.putInt("has_stroke", 1);
-                bundle.putBundle("stroke", this.f35262d.a(new Bundle()));
+                bundle.putBundle("stroke", this.f35468d.a(new Bundle()));
             }
             return bundle;
         }
@@ -73,19 +73,19 @@ public final class Circle extends Overlay {
     public int getFillColor() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f35260b : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f35466b : invokeV.intValue;
     }
 
     public int getRadius() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f35261c : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f35467c : invokeV.intValue;
     }
 
     public Stroke getStroke() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f35262d : (Stroke) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f35468d : (Stroke) invokeV.objValue;
     }
 
     public void setCenter(LatLng latLng) {
@@ -102,7 +102,7 @@ public final class Circle extends Overlay {
     public void setFillColor(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048582, this, i2) == null) {
-            this.f35260b = i2;
+            this.f35466b = i2;
             this.listener.b(this);
         }
     }
@@ -110,7 +110,7 @@ public final class Circle extends Overlay {
     public void setRadius(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048583, this, i2) == null) {
-            this.f35261c = i2;
+            this.f35467c = i2;
             this.listener.b(this);
         }
     }
@@ -118,7 +118,7 @@ public final class Circle extends Overlay {
     public void setStroke(Stroke stroke) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, stroke) == null) {
-            this.f35262d = stroke;
+            this.f35468d = stroke;
             this.listener.b(this);
         }
     }

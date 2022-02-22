@@ -11,7 +11,7 @@ import com.squareup.wire.Wire;
 import tbclient.AddTaskScores.AddTaskScoresResIdl;
 import tbclient.AddTaskScores.DataRes;
 import tbclient.Error;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public class GetTaskScoresSocketResponseMessage extends SocketResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

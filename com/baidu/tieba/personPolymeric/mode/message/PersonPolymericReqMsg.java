@@ -1,13 +1,14 @@
 package com.baidu.tieba.personPolymeric.mode.message;
 
 import c.a.d.f.p.n;
-import c.a.s0.d1.b0;
-import c.a.s0.s.k;
-import c.a.t0.v2.b;
+import c.a.t0.d1.c0;
+import c.a.t0.s.l;
+import c.a.u0.w2.b;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tbadk.switchs.SocketAddCommonParamSwitch;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -15,7 +16,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import tbclient.Personal.DataReq;
 import tbclient.Personal.PersonalReqIdl;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public class PersonPolymericReqMsg extends NetMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -51,10 +52,10 @@ public class PersonPolymericReqMsg extends NetMessage {
             builder.pn = Integer.valueOf(this.pn);
             builder.scr_w = Integer.valueOf(n.k(TbadkCoreApplication.getInst().getApp()));
             builder.scr_h = Integer.valueOf(n.i(TbadkCoreApplication.getInst().getApp()));
-            builder.q_type = Integer.valueOf(k.c().e());
+            builder.q_type = Integer.valueOf(l.c().e());
             builder.scr_dip = Double.valueOf(n.h(TbadkCoreApplication.getInst().getApp()));
-            if (z) {
-                b0.a(builder, true);
+            if (z || SocketAddCommonParamSwitch.getIsOn()) {
+                c0.a(builder, true);
             }
             PersonalReqIdl.Builder builder2 = new PersonalReqIdl.Builder();
             builder2.data = builder.build(false);

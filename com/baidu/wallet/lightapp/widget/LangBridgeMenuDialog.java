@@ -23,20 +23,20 @@ import com.baidu.wallet.base.widget.BdMenuItem;
 import com.baidu.wallet.base.widget.GridLayout;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes13.dex */
+/* loaded from: classes2.dex */
 public class LangBridgeMenuDialog extends Dialog {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public BdMenuItem.OnItemClickListener a;
 
     /* renamed from: b  reason: collision with root package name */
-    public GridLayout f51773b;
+    public GridLayout f51940b;
 
     /* renamed from: c  reason: collision with root package name */
-    public TextView f51774c;
+    public TextView f51941c;
 
     /* renamed from: d  reason: collision with root package name */
-    public List<BdMenuItem> f51775d;
+    public List<BdMenuItem> f51942d;
     public boolean mMenuLoaded;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -100,7 +100,7 @@ public class LangBridgeMenuDialog extends Dialog {
                     }
                 }
             });
-            this.f51775d.add(bdMenuItem);
+            this.f51942d.add(bdMenuItem);
         }
     }
 
@@ -120,12 +120,12 @@ public class LangBridgeMenuDialog extends Dialog {
         if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || this.mMenuLoaded) {
             return;
         }
-        this.f51773b.removeAllViews();
-        if (this.f51775d.size() <= 0) {
+        this.f51940b.removeAllViews();
+        if (this.f51942d.size() <= 0) {
             return;
         }
-        for (BdMenuItem bdMenuItem : this.f51775d) {
-            this.f51773b.addView(a(bdMenuItem));
+        for (BdMenuItem bdMenuItem : this.f51942d) {
+            this.f51940b.addView(a(bdMenuItem));
         }
         this.mMenuLoaded = true;
     }
@@ -151,7 +151,7 @@ public class LangBridgeMenuDialog extends Dialog {
     private void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65539, this) == null) {
-            this.f51775d = new ArrayList();
+            this.f51942d = new ArrayList();
             requestWindowFeature(1);
             setContentView(ResUtils.layout(getContext(), "wallet_langbridge_menu"));
             Window window = getWindow();
@@ -164,13 +164,13 @@ public class LangBridgeMenuDialog extends Dialog {
             onWindowAttributesChanged(attributes);
             setCanceledOnTouchOutside(true);
             setCancelable(true);
-            this.f51773b = (GridLayout) findViewById(ResUtils.id(getContext(), "menu_grid_layout"));
-            this.f51774c = (TextView) findViewById(ResUtils.id(getContext(), "menu_cancel"));
-            this.f51773b.setColumnCount(5);
-            this.f51773b.setHorizontalSpacing(0);
-            this.f51773b.setVerticalSpacing(DisplayUtils.dip2px(getContext(), 0.5f));
-            this.f51773b.setSeparateLine(ResUtils.getColor(getContext(), "wallet_base_color_D8D8D8"), DisplayUtils.dip2px(getContext(), 18.0f), 0);
-            this.f51774c.setOnClickListener(new View.OnClickListener(this) { // from class: com.baidu.wallet.lightapp.widget.LangBridgeMenuDialog.1
+            this.f51940b = (GridLayout) findViewById(ResUtils.id(getContext(), "menu_grid_layout"));
+            this.f51941c = (TextView) findViewById(ResUtils.id(getContext(), "menu_cancel"));
+            this.f51940b.setColumnCount(5);
+            this.f51940b.setHorizontalSpacing(0);
+            this.f51940b.setVerticalSpacing(DisplayUtils.dip2px(getContext(), 0.5f));
+            this.f51940b.setSeparateLine(ResUtils.getColor(getContext(), "wallet_base_color_D8D8D8"), DisplayUtils.dip2px(getContext(), 18.0f), 0);
+            this.f51941c.setOnClickListener(new View.OnClickListener(this) { // from class: com.baidu.wallet.lightapp.widget.LangBridgeMenuDialog.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ LangBridgeMenuDialog a;
@@ -243,7 +243,7 @@ public class LangBridgeMenuDialog extends Dialog {
                     }
                 }
             });
-            this.f51775d.add(bdMenuItem);
+            this.f51942d.add(bdMenuItem);
         }
     }
 
@@ -269,7 +269,7 @@ public class LangBridgeMenuDialog extends Dialog {
                 public final /* synthetic */ BdMenuItem a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ LangBridgeMenuDialog f51776b;
+                public final /* synthetic */ LangBridgeMenuDialog f51943b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -286,7 +286,7 @@ public class LangBridgeMenuDialog extends Dialog {
                             return;
                         }
                     }
-                    this.f51776b = this;
+                    this.f51943b = this;
                     this.a = bdMenuItem;
                 }
 

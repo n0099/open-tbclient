@@ -28,22 +28,22 @@ public class ExceptionAnalysis {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f36788b;
+    public boolean f36994b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Context f36789c;
+    public Context f36995c;
 
     /* renamed from: d  reason: collision with root package name */
-    public HeadObject f36790d;
+    public HeadObject f36996d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f36791e;
+    public String f36997e;
 
     /* renamed from: f  reason: collision with root package name */
-    public List<String> f36792f;
+    public List<String> f36998f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f36793g;
+    public boolean f36999g;
     public Callback mCallback;
 
     /* loaded from: classes10.dex */
@@ -80,9 +80,9 @@ public class ExceptionAnalysis {
                 return;
             }
         }
-        this.f36788b = false;
-        this.f36790d = new HeadObject();
-        this.f36793g = true;
+        this.f36994b = false;
+        this.f36996d = new HeadObject();
+        this.f36999g = true;
     }
 
     private JSONObject a() {
@@ -113,17 +113,17 @@ public class ExceptionAnalysis {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(1048576, this, context, z) == null) {
             if (context != null) {
-                this.f36789c = context.getApplicationContext();
+                this.f36995c = context.getApplicationContext();
             }
-            if (this.f36789c == null || this.f36788b) {
+            if (this.f36995c == null || this.f36994b) {
                 return;
             }
-            this.f36788b = true;
-            a.a().a(this.f36789c);
+            this.f36994b = true;
+            a.a().a(this.f36995c);
             if (z) {
                 return;
             }
-            NativeCrashHandler.init(this.f36789c);
+            NativeCrashHandler.init(this.f36995c);
         }
     }
 
@@ -133,9 +133,9 @@ public class ExceptionAnalysis {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLZ(Constants.METHOD_SEND_USER_MSG, this, context, th, z) == null) {
             if (context != null) {
-                this.f36789c = context.getApplicationContext();
+                this.f36995c = context.getApplicationContext();
             }
-            if (this.f36789c == null) {
+            if (this.f36995c == null) {
                 return;
             }
             String th2 = th.toString();
@@ -151,11 +151,11 @@ public class ExceptionAnalysis {
             StringWriter stringWriter = new StringWriter();
             th.printStackTrace(new PrintWriter(stringWriter));
             String obj = stringWriter.toString();
-            if (TextUtils.isEmpty(obj) || (list = this.f36792f) == null || list.size() <= 0) {
+            if (TextUtils.isEmpty(obj) || (list = this.f36998f) == null || list.size() <= 0) {
                 return;
             }
             boolean z2 = false;
-            for (String str3 : this.f36792f) {
+            for (String str3 : this.f36998f) {
                 if (!TextUtils.isEmpty(str3) && obj.contains(str3)) {
                     z2 = true;
                 }
@@ -168,7 +168,7 @@ public class ExceptionAnalysis {
                 } else {
                     i2 = th instanceof Error ? 12 : 13;
                 }
-                saveCrashInfo(this.f36789c, System.currentTimeMillis(), obj, str2, 0, i2);
+                saveCrashInfo(this.f36995c, System.currentTimeMillis(), obj, str2, 0, i2);
             }
         }
     }
@@ -181,13 +181,13 @@ public class ExceptionAnalysis {
         if (str.length() > 256) {
             str = str.substring(0, 256);
         }
-        this.f36791e = str;
+        this.f36997e = str;
     }
 
     public void setEnableSend(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
-            this.f36793g = z;
+            this.f36999g = z;
         }
     }
 
@@ -196,9 +196,9 @@ public class ExceptionAnalysis {
         if (!(interceptable == null || interceptable.invokeL(1048581, this, list) == null) || list == null || list.size() <= 0) {
             return;
         }
-        this.f36792f = list;
+        this.f36998f = list;
         PrintStream printStream = System.out;
-        printStream.println("BaiduMobStat setFilterPackageList size=" + this.f36792f.size());
+        printStream.println("BaiduMobStat setFilterPackageList size=" + this.f36998f.size());
     }
 
     @SuppressLint({"NewApi"})
@@ -241,9 +241,9 @@ public class ExceptionAnalysis {
                 return;
             }
         }
-        this.f36788b = false;
-        this.f36790d = new HeadObject();
-        this.f36793g = true;
+        this.f36994b = false;
+        this.f36996d = new HeadObject();
+        this.f36999g = true;
         this.mCallback = callback;
     }
 
@@ -254,10 +254,10 @@ public class ExceptionAnalysis {
             if (context != null && str != null && !str.trim().equals("")) {
                 try {
                     StringBuilder sb = new StringBuilder(str);
-                    if (!TextUtils.isEmpty(this.f36791e)) {
+                    if (!TextUtils.isEmpty(this.f36997e)) {
                         sb.append(StringUtils.LF);
                         sb.append("ExtraInfo:");
-                        sb.append(this.f36791e);
+                        sb.append(this.f36997e);
                     }
                     String appVersionName = CooperService.instance().getAppVersionName(context);
                     JSONObject jSONObject = new JSONObject();
@@ -271,7 +271,7 @@ public class ExceptionAnalysis {
                     JSONArray jSONArray = new JSONArray();
                     jSONArray.put(jSONObject);
                     JSONObject jSONObject2 = new JSONObject();
-                    this.f36790d.installHeader(context, jSONObject2);
+                    this.f36996d.installHeader(context, jSONObject2);
                     jSONObject2.put("ss", 0);
                     jSONObject2.put("sq", 0);
                     JSONObject jSONObject3 = new JSONObject();
@@ -285,7 +285,7 @@ public class ExceptionAnalysis {
                     }
                     o.a(context, Config.PREFIX_SEND_DATA + System.currentTimeMillis(), jSONObject3.toString(), false);
                     h.c().a("dump exception, exception: " + str);
-                    if (!this.f36793g) {
+                    if (!this.f36999g) {
                         return;
                     }
                     LogSender.instance().snedLogDataWithSyn(context);

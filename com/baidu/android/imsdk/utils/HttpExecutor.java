@@ -29,7 +29,7 @@ import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.RequestBody;
 import okhttp3.Response;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class HttpExecutor {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long CONNECTION_TIMEOUT = 15;
@@ -40,13 +40,13 @@ public class HttpExecutor {
     public OkHttpClient okHttpClient;
 
     /* renamed from: com.baidu.android.imsdk.utils.HttpExecutor$1  reason: invalid class name */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public class HttpExecutorLogger implements Interceptor {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -98,7 +98,7 @@ public class HttpExecutor {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class MyTrustManager implements X509TrustManager {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -141,7 +141,7 @@ public class HttpExecutor {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public class TrustAllHostnameVerifier implements HostnameVerifier {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

@@ -9,8 +9,8 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import c.a.d.f.p.l;
 import c.a.d.f.p.m;
-import c.a.s0.s.s.a;
-import c.a.t0.c3.f;
+import c.a.t0.s.t.a;
+import c.a.u0.d3.f;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
@@ -34,7 +34,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
 @SuppressLint({"ResourceAsColor"})
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public class PluginDetailActivity extends BaseActivity<PluginDetailActivity> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final float M_BYTE = 1048576.0f;
@@ -44,7 +44,7 @@ public class PluginDetailActivity extends BaseActivity<PluginDetailActivity> {
     public static final int STATUS_UPDATE = 1;
     public transient /* synthetic */ FieldHolder $fh;
     public TextView mChangelogText;
-    public c.a.d.i.j.c mDownLoadAndInstallCallback;
+    public c.a.d.j.j.c mDownLoadAndInstallCallback;
     public ProgressBar mDownloadProgressBar;
     public TextView mDownloadText;
     public TextView mEnableText;
@@ -60,13 +60,13 @@ public class PluginDetailActivity extends BaseActivity<PluginDetailActivity> {
     public ShadowLayout mStatusContainer;
     public TextView mStatusText;
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes13.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PluginDetailActivity f47399e;
+        public final /* synthetic */ PluginDetailActivity f47545e;
 
         public a(PluginDetailActivity pluginDetailActivity) {
             Interceptable interceptable = $ic;
@@ -83,25 +83,25 @@ public class PluginDetailActivity extends BaseActivity<PluginDetailActivity> {
                     return;
                 }
             }
-            this.f47399e = pluginDetailActivity;
+            this.f47545e = pluginDetailActivity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f47399e.closeActivity();
+                this.f47545e.closeActivity();
             }
         }
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes13.dex */
     public class b implements a.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PluginDetailActivity f47400e;
+        public final /* synthetic */ PluginDetailActivity f47546e;
 
         public b(PluginDetailActivity pluginDetailActivity) {
             Interceptable interceptable = $ic;
@@ -118,28 +118,28 @@ public class PluginDetailActivity extends BaseActivity<PluginDetailActivity> {
                     return;
                 }
             }
-            this.f47400e = pluginDetailActivity;
+            this.f47546e = pluginDetailActivity;
         }
 
-        @Override // c.a.s0.s.s.a.e
-        public void onClick(c.a.s0.s.s.a aVar) {
+        @Override // c.a.t0.s.t.a.e
+        public void onClick(c.a.t0.s.t.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
-                SkinManager.setViewTextColor(this.f47400e.mEnableText, c.a.t0.c3.a.CAM_X0109, 1);
-                this.f47400e.mEnableText.setEnabled(false);
-                PluginPackageManager.u().K(this.f47400e.mPluginConfig, this.f47400e.mDownLoadAndInstallCallback);
+                SkinManager.setViewTextColor(this.f47546e.mEnableText, c.a.u0.d3.a.CAM_X0109, 1);
+                this.f47546e.mEnableText.setEnabled(false);
+                PluginPackageManager.u().K(this.f47546e.mPluginConfig, this.f47546e.mDownLoadAndInstallCallback);
                 aVar.dismiss();
             }
         }
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes13.dex */
     public class c implements a.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PluginDetailActivity f47401e;
+        public final /* synthetic */ PluginDetailActivity f47547e;
 
         public c(PluginDetailActivity pluginDetailActivity) {
             Interceptable interceptable = $ic;
@@ -156,11 +156,11 @@ public class PluginDetailActivity extends BaseActivity<PluginDetailActivity> {
                     return;
                 }
             }
-            this.f47401e = pluginDetailActivity;
+            this.f47547e = pluginDetailActivity;
         }
 
-        @Override // c.a.s0.s.s.a.e
-        public void onClick(c.a.s0.s.s.a aVar) {
+        @Override // c.a.t0.s.t.a.e
+        public void onClick(c.a.t0.s.t.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
                 aVar.dismiss();
@@ -168,8 +168,8 @@ public class PluginDetailActivity extends BaseActivity<PluginDetailActivity> {
         }
     }
 
-    /* loaded from: classes12.dex */
-    public class d implements c.a.d.i.j.c {
+    /* loaded from: classes13.dex */
+    public class d implements c.a.d.j.j.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ PluginDetailActivity a;
@@ -192,7 +192,7 @@ public class PluginDetailActivity extends BaseActivity<PluginDetailActivity> {
             this.a = pluginDetailActivity;
         }
 
-        @Override // c.a.d.i.j.c
+        @Override // c.a.d.j.j.c
         public void a(BdFileDownloadData bdFileDownloadData) {
             Interceptable interceptable = $ic;
             if (!(interceptable == null || interceptable.invokeL(1048576, this, bdFileDownloadData) == null) || bdFileDownloadData == null || this.a.mPluginConfig == null || !bdFileDownloadData.getId().equals(this.a.mPluginConfig.package_name)) {
@@ -204,7 +204,7 @@ public class PluginDetailActivity extends BaseActivity<PluginDetailActivity> {
         }
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes13.dex */
     public class e extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -263,7 +263,7 @@ public class PluginDetailActivity extends BaseActivity<PluginDetailActivity> {
         PluginSetting h2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65546, this, pluginConfig)) == null) {
-            if (pluginConfig == null || (h2 = c.a.d.i.j.f.c.j().h(pluginConfig.package_name)) == null) {
+            if (pluginConfig == null || (h2 = c.a.d.j.j.f.c.j().h(pluginConfig.package_name)) == null) {
                 return 0;
             }
             String h3 = Util.h(h2);
@@ -293,23 +293,23 @@ public class PluginDetailActivity extends BaseActivity<PluginDetailActivity> {
                 this.mEnableText.setVisibility(0);
                 this.mEnableText.setText(f.download_update);
                 this.mEnableText.setEnabled(true);
-                SkinManager.setBackgroundResource(this.mEnableText, c.a.t0.c3.c.selector_blue_gradient_button);
-                this.mStatusContainer.setShadowColor(c.a.t0.c3.a.plugin_button_shadow_blue);
-                SkinManager.setViewTextColor(this.mEnableText, c.a.t0.c3.a.CAM_X0111, 1);
+                SkinManager.setBackgroundResource(this.mEnableText, c.a.u0.d3.c.selector_blue_gradient_button);
+                this.mStatusContainer.setShadowColor(c.a.u0.d3.a.plugin_button_shadow_blue);
+                SkinManager.setViewTextColor(this.mEnableText, c.a.u0.d3.a.CAM_X0111, 1);
                 this.mDownloadProgressBar.setVisibility(8);
                 this.mDownloadText.setVisibility(8);
                 this.mStatus = 1;
             } else if (PluginPackageManager.u().l(this.mPluginName)) {
                 this.mEnableText.setEnabled(true);
-                SkinManager.setViewTextColor(this.mEnableText, c.a.t0.c3.a.CAM_X0111, 1);
+                SkinManager.setViewTextColor(this.mEnableText, c.a.u0.d3.a.CAM_X0111, 1);
                 this.mEnableText.setVisibility(0);
                 this.mDownloadProgressBar.setVisibility(8);
                 this.mDownloadText.setVisibility(8);
                 if (PluginPackageManager.u().A(this.mPluginName)) {
                     this.mStatusText.setText(f.plugin_unenabled);
                     this.mEnableText.setText(f.plugin_enable);
-                    SkinManager.setBackgroundResource(this.mEnableText, c.a.t0.c3.c.selector_blue_gradient_button);
-                    this.mStatusContainer.setShadowColor(c.a.t0.c3.a.plugin_button_shadow_blue);
+                    SkinManager.setBackgroundResource(this.mEnableText, c.a.u0.d3.c.selector_blue_gradient_button);
+                    this.mStatusContainer.setShadowColor(c.a.u0.d3.a.plugin_button_shadow_blue);
                     this.mStatus = 2;
                     return;
                 }
@@ -325,16 +325,16 @@ public class PluginDetailActivity extends BaseActivity<PluginDetailActivity> {
                 }
                 this.mEnableText.setEnabled(true);
                 this.mEnableText.setVisibility(0);
-                SkinManager.setBackgroundResource(this.mEnableText, c.a.t0.c3.c.button_plugin_forbidden);
-                this.mStatusContainer.setShadowColor(c.a.t0.c3.a.plugin_button_shadow_red);
+                SkinManager.setBackgroundResource(this.mEnableText, c.a.u0.d3.c.button_plugin_forbidden);
+                this.mStatusContainer.setShadowColor(c.a.u0.d3.a.plugin_button_shadow_red);
             } else {
                 this.mEnableText.setVisibility(0);
                 this.mStatusText.setText(f.plugin_disabled);
                 this.mEnableText.setText(f.install_app);
                 this.mEnableText.setEnabled(true);
-                SkinManager.setBackgroundResource(this.mEnableText, c.a.t0.c3.c.selector_blue_gradient_button);
-                this.mStatusContainer.setShadowColor(c.a.t0.c3.a.plugin_button_shadow_blue);
-                SkinManager.setViewTextColor(this.mEnableText, c.a.t0.c3.a.CAM_X0111, 1);
+                SkinManager.setBackgroundResource(this.mEnableText, c.a.u0.d3.c.selector_blue_gradient_button);
+                this.mStatusContainer.setShadowColor(c.a.u0.d3.a.plugin_button_shadow_blue);
+                SkinManager.setViewTextColor(this.mEnableText, c.a.u0.d3.a.CAM_X0111, 1);
                 this.mStatus = 0;
                 this.mDownloadProgressBar.setVisibility(8);
                 this.mDownloadText.setVisibility(8);
@@ -350,7 +350,7 @@ public class PluginDetailActivity extends BaseActivity<PluginDetailActivity> {
         if (!(interceptable == null || interceptable.invokeV(65548, this) == null) || (pluginConfig = this.mPluginConfig) == null || pluginConfig.newest == null) {
             return;
         }
-        c.a.s0.s.s.a aVar = new c.a.s0.s.s.a(getPageContext().getPageActivity());
+        c.a.t0.s.t.a aVar = new c.a.t0.s.t.a(getPageContext().getPageActivity());
         boolean z = this.mStatus == 1;
         float f2 = this.mPluginConfig.newest.size / 1048576.0f;
         if (z) {
@@ -401,8 +401,8 @@ public class PluginDetailActivity extends BaseActivity<PluginDetailActivity> {
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
             super.onChangeSkinType(i2);
             this.mNavigationBar.onChangeSkinType(getPageContext(), i2);
-            this.mDownloadProgressBar.setProgressDrawable(SkinManager.getDrawable(c.a.t0.c3.c.download_progressbar));
-            this.mDownloadProgressBar.setIndeterminateDrawable(SkinManager.getDrawable(c.a.t0.c3.c.download_progressbar));
+            this.mDownloadProgressBar.setProgressDrawable(SkinManager.getDrawable(c.a.u0.d3.c.download_progressbar));
+            this.mDownloadProgressBar.setIndeterminateDrawable(SkinManager.getDrawable(c.a.u0.d3.c.download_progressbar));
             getLayoutMode().k(i2 == 1);
             getLayoutMode().j(findViewById(16908290));
         }
@@ -430,29 +430,29 @@ public class PluginDetailActivity extends BaseActivity<PluginDetailActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, bundle) == null) {
             super.onCreate(bundle);
-            setContentView(c.a.t0.c3.e.plugin_detail_activity);
-            NavigationBar navigationBar = (NavigationBar) findViewById(c.a.t0.c3.d.navigation_bar);
+            setContentView(c.a.u0.d3.e.plugin_detail_activity);
+            NavigationBar navigationBar = (NavigationBar) findViewById(c.a.u0.d3.d.navigation_bar);
             this.mNavigationBar = navigationBar;
             navigationBar.setCenterTextTitle(getString(f.plugin_center));
             this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new a(this));
-            this.mIcon = (HeadImageView) findViewById(c.a.t0.c3.d.icon);
-            this.mName = (TextView) findViewById(c.a.t0.c3.d.name);
-            this.mStatusText = (TextView) findViewById(c.a.t0.c3.d.status);
-            this.mDownloadProgressBar = (ProgressBar) findViewById(c.a.t0.c3.d.plugin_download_progress);
-            this.mDownloadText = (TextView) findViewById(c.a.t0.c3.d.plugin_download_text);
-            this.mChangelogText = (TextView) findViewById(c.a.t0.c3.d.changelog);
-            this.mSizeText = (TextView) findViewById(c.a.t0.c3.d.size);
-            TextView textView = (TextView) findViewById(c.a.t0.c3.d.enable);
+            this.mIcon = (HeadImageView) findViewById(c.a.u0.d3.d.icon);
+            this.mName = (TextView) findViewById(c.a.u0.d3.d.name);
+            this.mStatusText = (TextView) findViewById(c.a.u0.d3.d.status);
+            this.mDownloadProgressBar = (ProgressBar) findViewById(c.a.u0.d3.d.plugin_download_progress);
+            this.mDownloadText = (TextView) findViewById(c.a.u0.d3.d.plugin_download_text);
+            this.mChangelogText = (TextView) findViewById(c.a.u0.d3.d.changelog);
+            this.mSizeText = (TextView) findViewById(c.a.u0.d3.d.size);
+            TextView textView = (TextView) findViewById(c.a.u0.d3.d.enable);
             this.mEnableText = textView;
             textView.setOnClickListener(this);
-            this.mStatusContainer = (ShadowLayout) findViewById(c.a.t0.c3.d.plugin_status_container);
+            this.mStatusContainer = (ShadowLayout) findViewById(c.a.u0.d3.d.plugin_status_container);
             this.mPluginName = getIntent().getStringExtra("name");
-            if (c.a.d.i.j.e.d.a().b() != null) {
-                this.mPluginConfig = c.a.d.i.j.e.d.a().b().getPluginConfig(this.mPluginName);
+            if (c.a.d.j.j.e.d.a().b() != null) {
+                this.mPluginConfig = c.a.d.j.j.e.d.a().b().getPluginConfig(this.mPluginName);
             }
             if (PluginPackageManager.u().y(this.mPluginName)) {
                 PluginPackageManager.u().I(this.mDownLoadAndInstallCallback);
-                SkinManager.setViewTextColor(this.mEnableText, c.a.t0.c3.a.CAM_X0109, 1);
+                SkinManager.setViewTextColor(this.mEnableText, c.a.u0.d3.a.CAM_X0109, 1);
                 this.mEnableText.setEnabled(false);
             }
             registerListener(this.mNetworkChangedMessageListener);
@@ -489,7 +489,7 @@ public class PluginDetailActivity extends BaseActivity<PluginDetailActivity> {
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             super.onResume();
             if (this.mDownloadProgressBar != null && PluginPackageManager.u().y(this.mPluginName) && (downloadPercent = getDownloadPercent(this.mPluginConfig)) < 100) {
-                SkinManager.setViewTextColor(this.mEnableText, c.a.t0.c3.a.CAM_X0109, 1);
+                SkinManager.setViewTextColor(this.mEnableText, c.a.u0.d3.a.CAM_X0109, 1);
                 this.mStatusContainer.setShadowColor(0);
                 this.mEnableText.setEnabled(false);
                 this.mEnableText.setVisibility(8);

@@ -7,7 +7,7 @@ import androidx.annotation.WorkerThread;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class a {
     public static final Map<String, com.kwad.sdk.core.config.item.b> a = new ConcurrentHashMap();
 

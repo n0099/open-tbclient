@@ -5,10 +5,10 @@ import androidx.annotation.NonNull;
 import java.io.Serializable;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class AvatarGuiderConfigItem extends b<AvatarGuiderConfig> {
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class AvatarGuiderConfig extends com.kwad.sdk.core.response.kwai.a implements Serializable {
         public int showByPlayRate;
         public int showMaxTimes;

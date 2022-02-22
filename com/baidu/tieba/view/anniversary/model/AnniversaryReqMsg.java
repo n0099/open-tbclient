@@ -1,10 +1,11 @@
 package com.baidu.tieba.view.anniversary.model;
 
-import c.a.s0.d1.b0;
+import c.a.t0.d1.c0;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tbadk.switchs.SocketAddCommonParamSwitch;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -19,7 +20,7 @@ public class AnniversaryReqMsg extends NetMessage {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: common  reason: collision with root package name */
-    public CommonReq f49273common;
+    public CommonReq f49440common;
     public int mSource;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -54,10 +55,10 @@ public class AnniversaryReqMsg extends NetMessage {
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
             try {
                 DataReq.Builder builder = new DataReq.Builder();
-                builder.f62964common = this.f49273common;
+                builder.f63131common = this.f49440common;
                 builder.source = Integer.valueOf(this.mSource);
-                if (z) {
-                    b0.a(builder, true);
+                if (z || SocketAddCommonParamSwitch.getIsOn()) {
+                    c0.a(builder, true);
                 }
                 VideoTemplateReqIdl.Builder builder2 = new VideoTemplateReqIdl.Builder();
                 builder2.data = builder.build(false);
@@ -73,7 +74,7 @@ public class AnniversaryReqMsg extends NetMessage {
     public void setCommon(CommonReq commonReq) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, commonReq) == null) {
-            this.f49273common = commonReq;
+            this.f49440common = commonReq;
         }
     }
 

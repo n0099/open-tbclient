@@ -4,7 +4,7 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.webkit.WebView;
-import c.a.s0.m.e;
+import c.a.t0.m.g;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
@@ -24,14 +24,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public class YoungsterVerifyActivity extends TbWebViewActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int from;
     public YoungsterVerifyModel youngsterVerifyModel;
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes13.dex */
     public class a implements YoungsterVerifyModel.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -77,13 +77,13 @@ public class YoungsterVerifyActivity extends TbWebViewActivity {
         }
     }
 
-    /* loaded from: classes12.dex */
-    public class b extends TbWebViewActivity.u {
+    /* loaded from: classes13.dex */
+    public class b extends TbWebViewActivity.v {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ YoungsterVerifyActivity f47876c;
+        public final /* synthetic */ YoungsterVerifyActivity f48022c;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public b(YoungsterVerifyActivity youngsterVerifyActivity) {
@@ -103,10 +103,10 @@ public class YoungsterVerifyActivity extends TbWebViewActivity {
                     return;
                 }
             }
-            this.f47876c = youngsterVerifyActivity;
+            this.f48022c = youngsterVerifyActivity;
         }
 
-        @Override // com.baidu.tbadk.browser.TbWebViewActivity.u, android.webkit.WebViewClient
+        @Override // com.baidu.tbadk.browser.TbWebViewActivity.v, android.webkit.WebViewClient
         public void onPageFinished(WebView webView, String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048576, this, webView, str) == null) {
@@ -115,7 +115,7 @@ public class YoungsterVerifyActivity extends TbWebViewActivity {
             }
         }
 
-        @Override // com.baidu.tbadk.browser.TbWebViewActivity.u, android.webkit.WebViewClient
+        @Override // com.baidu.tbadk.browser.TbWebViewActivity.v, android.webkit.WebViewClient
         public void onPageStarted(WebView webView, String str, Bitmap bitmap) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webView, str, bitmap) == null) {
@@ -123,13 +123,13 @@ public class YoungsterVerifyActivity extends TbWebViewActivity {
             }
         }
 
-        @Override // com.baidu.tbadk.browser.TbWebViewActivity.u, android.webkit.WebViewClient
+        @Override // com.baidu.tbadk.browser.TbWebViewActivity.v, android.webkit.WebViewClient
         public boolean shouldOverrideUrlLoading(WebView webView, String str) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, webView, str)) == null) {
                 if (!StringUtils.isNull(str) && str.contains(TbConfig.URL_YOUNGSTER_VERIFY_AUTHID)) {
-                    this.f47876c.youngsterVerifyModel.B(UrlUtil.getUrlField(str, YoungsterVerifyActivityConfig.PARAMA_AUTH_ID));
+                    this.f48022c.youngsterVerifyModel.B(UrlUtil.getUrlField(str, YoungsterVerifyActivityConfig.PARAMA_AUTH_ID));
                     return true;
                 }
                 return super.shouldOverrideUrlLoading(webView, str);
@@ -157,9 +157,9 @@ public class YoungsterVerifyActivity extends TbWebViewActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
             super.onChangeSkinType(i2);
-            e eVar = this.mView;
-            if (eVar != null) {
-                eVar.F();
+            g gVar = this.mView;
+            if (gVar != null) {
+                gVar.H();
             }
         }
     }
@@ -169,9 +169,9 @@ public class YoungsterVerifyActivity extends TbWebViewActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
             super.onCreate(bundle);
-            e eVar = this.mView;
-            if (eVar != null) {
-                eVar.F();
+            g gVar = this.mView;
+            if (gVar != null) {
+                gVar.H();
             }
             BridgeWebView bridgeWebView = this.mWebView;
             if (bridgeWebView != null) {

@@ -61,31 +61,31 @@ public final class e extends c.i.b.a.e0.b {
         public long a;
 
         /* renamed from: b  reason: collision with root package name */
-        public long f29563b;
+        public long f29769b;
 
         /* renamed from: c  reason: collision with root package name */
-        public SpannableStringBuilder f29564c;
+        public SpannableStringBuilder f29770c;
 
         /* renamed from: d  reason: collision with root package name */
-        public Layout.Alignment f29565d;
+        public Layout.Alignment f29771d;
 
         /* renamed from: e  reason: collision with root package name */
-        public float f29566e;
+        public float f29772e;
 
         /* renamed from: f  reason: collision with root package name */
-        public int f29567f;
+        public int f29773f;
 
         /* renamed from: g  reason: collision with root package name */
-        public int f29568g;
+        public int f29774g;
 
         /* renamed from: h  reason: collision with root package name */
-        public float f29569h;
+        public float f29775h;
 
         /* renamed from: i  reason: collision with root package name */
-        public int f29570i;
+        public int f29776i;
 
         /* renamed from: j  reason: collision with root package name */
-        public float f29571j;
+        public float f29777j;
 
         public b() {
             Interceptable interceptable = $ic;
@@ -107,10 +107,10 @@ public final class e extends c.i.b.a.e0.b {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                if (this.f29569h != Float.MIN_VALUE && this.f29570i == Integer.MIN_VALUE) {
+                if (this.f29775h != Float.MIN_VALUE && this.f29776i == Integer.MIN_VALUE) {
                     b();
                 }
-                return new e(this.a, this.f29563b, this.f29564c, this.f29565d, this.f29566e, this.f29567f, this.f29568g, this.f29569h, this.f29570i, this.f29571j);
+                return new e(this.a, this.f29769b, this.f29770c, this.f29771d, this.f29772e, this.f29773f, this.f29774g, this.f29775h, this.f29776i, this.f29777j);
             }
             return (e) invokeV.objValue;
         }
@@ -119,20 +119,20 @@ public final class e extends c.i.b.a.e0.b {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                Layout.Alignment alignment = this.f29565d;
+                Layout.Alignment alignment = this.f29771d;
                 if (alignment == null) {
-                    this.f29570i = Integer.MIN_VALUE;
+                    this.f29776i = Integer.MIN_VALUE;
                 } else {
                     int i2 = a.a[alignment.ordinal()];
                     if (i2 == 1) {
-                        this.f29570i = 0;
+                        this.f29776i = 0;
                     } else if (i2 == 2) {
-                        this.f29570i = 1;
+                        this.f29776i = 1;
                     } else if (i2 != 3) {
-                        String str = "Unrecognized alignment: " + this.f29565d;
-                        this.f29570i = 0;
+                        String str = "Unrecognized alignment: " + this.f29771d;
+                        this.f29776i = 0;
                     } else {
-                        this.f29570i = 2;
+                        this.f29776i = 2;
                     }
                 }
                 return this;
@@ -144,15 +144,15 @@ public final class e extends c.i.b.a.e0.b {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
                 this.a = 0L;
-                this.f29563b = 0L;
-                this.f29564c = null;
-                this.f29565d = null;
-                this.f29566e = Float.MIN_VALUE;
-                this.f29567f = Integer.MIN_VALUE;
-                this.f29568g = Integer.MIN_VALUE;
-                this.f29569h = Float.MIN_VALUE;
-                this.f29570i = Integer.MIN_VALUE;
-                this.f29571j = Float.MIN_VALUE;
+                this.f29769b = 0L;
+                this.f29770c = null;
+                this.f29771d = null;
+                this.f29772e = Float.MIN_VALUE;
+                this.f29773f = Integer.MIN_VALUE;
+                this.f29774g = Integer.MIN_VALUE;
+                this.f29775h = Float.MIN_VALUE;
+                this.f29776i = Integer.MIN_VALUE;
+                this.f29777j = Float.MIN_VALUE;
             }
         }
 
@@ -160,7 +160,7 @@ public final class e extends c.i.b.a.e0.b {
             InterceptResult invokeJ;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeJ = interceptable.invokeJ(1048579, this, j2)) == null) {
-                this.f29563b = j2;
+                this.f29769b = j2;
                 return this;
             }
             return (b) invokeJ.objValue;
@@ -170,7 +170,7 @@ public final class e extends c.i.b.a.e0.b {
             InterceptResult invokeF;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeF = interceptable.invokeF(1048580, this, f2)) == null) {
-                this.f29566e = f2;
+                this.f29772e = f2;
                 return this;
             }
             return (b) invokeF.objValue;
@@ -180,7 +180,7 @@ public final class e extends c.i.b.a.e0.b {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i2)) == null) {
-                this.f29568g = i2;
+                this.f29774g = i2;
                 return this;
             }
             return (b) invokeI.objValue;
@@ -190,7 +190,7 @@ public final class e extends c.i.b.a.e0.b {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i2)) == null) {
-                this.f29567f = i2;
+                this.f29773f = i2;
                 return this;
             }
             return (b) invokeI.objValue;
@@ -200,7 +200,7 @@ public final class e extends c.i.b.a.e0.b {
             InterceptResult invokeF;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeF = interceptable.invokeF(1048583, this, f2)) == null) {
-                this.f29569h = f2;
+                this.f29775h = f2;
                 return this;
             }
             return (b) invokeF.objValue;
@@ -210,7 +210,7 @@ public final class e extends c.i.b.a.e0.b {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2)) == null) {
-                this.f29570i = i2;
+                this.f29776i = i2;
                 return this;
             }
             return (b) invokeI.objValue;
@@ -230,7 +230,7 @@ public final class e extends c.i.b.a.e0.b {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, spannableStringBuilder)) == null) {
-                this.f29564c = spannableStringBuilder;
+                this.f29770c = spannableStringBuilder;
                 return this;
             }
             return (b) invokeL.objValue;
@@ -240,7 +240,7 @@ public final class e extends c.i.b.a.e0.b {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, alignment)) == null) {
-                this.f29565d = alignment;
+                this.f29771d = alignment;
                 return this;
             }
             return (b) invokeL.objValue;
@@ -250,7 +250,7 @@ public final class e extends c.i.b.a.e0.b {
             InterceptResult invokeF;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeF = interceptable.invokeF(1048588, this, f2)) == null) {
-                this.f29571j = f2;
+                this.f29777j = f2;
                 return this;
             }
             return (b) invokeF.objValue;
@@ -281,7 +281,7 @@ public final class e extends c.i.b.a.e0.b {
     public boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f29428h == Float.MIN_VALUE && this.k == Float.MIN_VALUE : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f29634h == Float.MIN_VALUE && this.k == Float.MIN_VALUE : invokeV.booleanValue;
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */

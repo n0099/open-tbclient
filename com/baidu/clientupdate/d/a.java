@@ -32,28 +32,28 @@ public final class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public Context f33380b;
+    public Context f33586b;
 
     /* renamed from: c  reason: collision with root package name */
-    public ClientUpdateInfo f33381c;
+    public ClientUpdateInfo f33587c;
 
     /* renamed from: d  reason: collision with root package name */
-    public RuleInfo f33382d;
+    public RuleInfo f33588d;
 
     /* renamed from: e  reason: collision with root package name */
-    public BroadcastReceiver f33383e;
+    public BroadcastReceiver f33589e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f33384f;
+    public boolean f33590f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f33385g;
+    public String f33591g;
 
     /* renamed from: h  reason: collision with root package name */
-    public com.baidu.clientupdate.c.a f33386h;
+    public com.baidu.clientupdate.c.a f33592h;
 
     /* renamed from: i  reason: collision with root package name */
-    public com.baidu.clientupdate.a.d f33387i;
+    public com.baidu.clientupdate.a.d f33593i;
 
     static {
         InterceptResult invokeClinit;
@@ -85,13 +85,13 @@ public final class a {
                 return;
             }
         }
-        this.f33381c = null;
-        this.f33382d = null;
-        this.f33384f = false;
-        this.f33385g = null;
-        this.f33380b = context;
-        this.f33387i = com.baidu.clientupdate.a.d.a(context);
-        this.f33386h = com.baidu.clientupdate.c.a.a(context);
+        this.f33587c = null;
+        this.f33588d = null;
+        this.f33590f = false;
+        this.f33591g = null;
+        this.f33586b = context;
+        this.f33593i = com.baidu.clientupdate.a.d.a(context);
+        this.f33592h = com.baidu.clientupdate.c.a.a(context);
     }
 
     public static synchronized a a(Context context) {
@@ -134,7 +134,7 @@ public final class a {
             download.mUrl = appInfo.mDownurl;
             download.mMimeType = "application/vnd.android.package-archive";
             download.mSourceKey = appInfo.mPackageName + "@" + appInfo.mVercode;
-            DownloadManager.getInstance(this.f33380b).start(download);
+            DownloadManager.getInstance(this.f33586b).start(download);
         }
     }
 
@@ -161,7 +161,7 @@ public final class a {
             download.mUrl = appInfo.mDownurl;
             download.mMimeType = "application/vnd.android.package-archive";
             download.mSourceKey = appInfo.mPackageName + "@" + appInfo.mVercode;
-            DownloadManager.getInstance(this.f33380b).start(download, z);
+            DownloadManager.getInstance(this.f33586b).start(download, z);
         }
     }
 
@@ -188,7 +188,7 @@ public final class a {
             download.mUrl = appInfo.mPatchDownUrl;
             download.mMimeType = SchemeDescPatchListener.PATCH;
             download.mSourceKey = appInfo.mPackageName + "@" + appInfo.mVercode;
-            DownloadManager.getInstance(this.f33380b).start(download);
+            DownloadManager.getInstance(this.f33586b).start(download);
         }
     }
 
@@ -196,8 +196,8 @@ public final class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65542, null) == null) {
             synchronized (a.class) {
-                if (a != null && a.f33383e != null) {
-                    a.f33380b.unregisterReceiver(a.f33383e);
+                if (a != null && a.f33589e != null) {
+                    a.f33586b.unregisterReceiver(a.f33589e);
                 }
             }
         }
@@ -207,7 +207,7 @@ public final class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65543, this) == null) {
             try {
-                File file = new File(com.baidu.util.a.a(this.f33380b).a("lcsdk_xml", "path", ""));
+                File file = new File(com.baidu.util.a.a(this.f33586b).a("lcsdk_xml", "path", ""));
                 if (file.exists() && file.isDirectory()) {
                     for (File file2 : file.listFiles()) {
                         file2.delete();
@@ -222,7 +222,7 @@ public final class a {
     public ClientUpdateInfo a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f33381c : (ClientUpdateInfo) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f33587c : (ClientUpdateInfo) invokeV.objValue;
     }
 
     public synchronized ClientUpdateInfo a(JSONObject jSONObject) {
@@ -239,16 +239,16 @@ public final class a {
                 }
                 if (Integer.valueOf(optString).intValue() == 1) {
                     ClientUpdateInfo clientUpdateInfo = (ClientUpdateInfo) h.a(jSONObject.optJSONObject("clientupdate"), 0);
-                    this.f33381c = clientUpdateInfo;
+                    this.f33587c = clientUpdateInfo;
                     if (clientUpdateInfo != null) {
                         clientUpdateInfo.mStatus = jSONObject.optString("status");
-                        this.f33381c.mReverson = jSONObject.optString("re_version");
+                        this.f33587c.mReverson = jSONObject.optString("re_version");
                     }
-                    return this.f33381c;
+                    return this.f33587c;
                 } else if (Integer.valueOf(optString).intValue() == 0) {
                     f();
                     ClientUpdateInfo clientUpdateInfo2 = new ClientUpdateInfo();
-                    this.f33381c = clientUpdateInfo2;
+                    this.f33587c = clientUpdateInfo2;
                     clientUpdateInfo2.mStatus = optString;
                     return clientUpdateInfo2;
                 } else {
@@ -266,12 +266,12 @@ public final class a {
                 if (clientUpdateInfo == null) {
                     return;
                 }
-                this.f33385g = str;
+                this.f33591g = str;
                 if (!TextUtils.isEmpty(clientUpdateInfo.mStatus) && Integer.valueOf(clientUpdateInfo.mStatus).intValue() == 1) {
                     if (!TextUtils.isEmpty(clientUpdateInfo.mPatchDownUrl) && !TextUtils.isEmpty(clientUpdateInfo.mPatchSize) && Integer.valueOf(clientUpdateInfo.mPatchSize).intValue() > 0) {
                         b((AppInfo) clientUpdateInfo, str);
                     }
-                    this.f33384f = true;
+                    this.f33590f = true;
                 }
             }
         }
@@ -284,13 +284,13 @@ public final class a {
                 if (clientUpdateInfo == null) {
                     return;
                 }
-                if (this.f33381c == null) {
-                    this.f33381c = clientUpdateInfo;
+                if (this.f33587c == null) {
+                    this.f33587c = clientUpdateInfo;
                 }
-                this.f33385g = str;
+                this.f33591g = str;
                 if (!TextUtils.isEmpty(clientUpdateInfo.mStatus) && Integer.valueOf(clientUpdateInfo.mStatus).intValue() == 1 && !TextUtils.isEmpty(clientUpdateInfo.mDownurl) && !TextUtils.isEmpty(clientUpdateInfo.mSize) && Integer.valueOf(clientUpdateInfo.mSize).intValue() > 0) {
                     a((AppInfo) clientUpdateInfo, str, z);
-                    this.f33384f = false;
+                    this.f33590f = false;
                 }
             }
         }
@@ -301,19 +301,19 @@ public final class a {
         if (interceptable == null || interceptable.invokeLL(1048580, this, jSONObject, iClientUpdaterCallback) == null) {
             synchronized (this) {
                 try {
-                    this.f33384f = false;
+                    this.f33590f = false;
                 } catch (Exception e2) {
                     e2.printStackTrace();
-                    com.baidu.clientupdate.a.d dVar = this.f33387i;
-                    String c2 = this.f33386h.c();
-                    String b2 = this.f33386h.b();
+                    com.baidu.clientupdate.a.d dVar = this.f33593i;
+                    String c2 = this.f33592h.c();
+                    String b2 = this.f33592h.b();
                     dVar.a(c2, "0", b2, "a5", "1", (System.currentTimeMillis() / 1000) + "", "", "parseResult", e2.toString());
                 }
                 if (jSONObject == null) {
                     iClientUpdaterCallback.onCompleted(null, null);
-                    com.baidu.clientupdate.a.d dVar2 = this.f33387i;
-                    String c3 = this.f33386h.c();
-                    String b3 = this.f33386h.b();
+                    com.baidu.clientupdate.a.d dVar2 = this.f33593i;
+                    String c3 = this.f33592h.c();
+                    String b3 = this.f33592h.b();
                     dVar2.a(c3, "0", b3, "a5", "0", (System.currentTimeMillis() / 1000) + "", "", "parseResult", "");
                     return;
                 }
@@ -321,8 +321,8 @@ public final class a {
                 if (TextUtils.isEmpty(optString)) {
                     iClientUpdaterCallback.onCompleted(null, null);
                 } else if (Integer.valueOf(optString).intValue() == 1) {
-                    this.f33381c = (ClientUpdateInfo) h.a(jSONObject.optJSONObject("clientupdate"), 0);
-                    if (!new URI(this.f33381c.mDownurl).getHost().endsWith("baidu.com")) {
+                    this.f33587c = (ClientUpdateInfo) h.a(jSONObject.optJSONObject("clientupdate"), 0);
+                    if (!new URI(this.f33587c.mDownurl).getHost().endsWith("baidu.com")) {
                         JSONObject jSONObject2 = new JSONObject();
                         jSONObject2.put("msgId", "3");
                         jSONObject2.put("messageDetail", "下载地址有问题");
@@ -330,25 +330,25 @@ public final class a {
                             iClientUpdaterCallback.onError(jSONObject2);
                         }
                     }
-                    this.f33382d = (RuleInfo) h.a(jSONObject.optJSONObject("rule"), 3);
-                    if (this.f33381c != null) {
-                        this.f33381c.mStatus = jSONObject.optString("status");
-                        this.f33381c.mReverson = jSONObject.optString("re_version");
+                    this.f33588d = (RuleInfo) h.a(jSONObject.optJSONObject("rule"), 3);
+                    if (this.f33587c != null) {
+                        this.f33587c.mStatus = jSONObject.optString("status");
+                        this.f33587c.mReverson = jSONObject.optString("re_version");
                     }
-                    if (this.f33381c != null) {
-                        LogUtil.logD("ClientUpdateUtility", "mClientUpdateInfo: " + this.f33381c.toString());
+                    if (this.f33587c != null) {
+                        LogUtil.logD("ClientUpdateUtility", "mClientUpdateInfo: " + this.f33587c.toString());
                     }
-                    iClientUpdaterCallback.onCompleted(this.f33381c, this.f33382d);
+                    iClientUpdaterCallback.onCompleted(this.f33587c, this.f33588d);
                 } else if (Integer.valueOf(optString).intValue() == 0) {
                     f();
                     ClientUpdateInfo clientUpdateInfo = new ClientUpdateInfo();
-                    this.f33381c = clientUpdateInfo;
+                    this.f33587c = clientUpdateInfo;
                     clientUpdateInfo.mStatus = optString;
                     iClientUpdaterCallback.onCompleted(clientUpdateInfo, null);
                 }
-                com.baidu.clientupdate.a.d dVar3 = this.f33387i;
-                String c4 = this.f33386h.c();
-                String b4 = this.f33386h.b();
+                com.baidu.clientupdate.a.d dVar3 = this.f33593i;
+                String c4 = this.f33592h.c();
+                String b4 = this.f33592h.b();
                 dVar3.a(c4, "0", b4, "a5", "0", (System.currentTimeMillis() / 1000) + "", "", "parseResult", "");
                 LogUtil.logE("ClientUpdateUtility", "加入统计耗时：" + (System.currentTimeMillis() - ClientUpdater.stime));
             }
@@ -358,7 +358,7 @@ public final class a {
     public RuleInfo b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f33382d : (RuleInfo) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f33588d : (RuleInfo) invokeV.objValue;
     }
 
     public synchronized RuleInfo b(JSONObject jSONObject) {
@@ -375,7 +375,7 @@ public final class a {
                 }
                 if (Integer.valueOf(optString).intValue() == 1) {
                     RuleInfo ruleInfo = (RuleInfo) h.a(jSONObject.optJSONObject("rule"), 3);
-                    this.f33382d = ruleInfo;
+                    this.f33588d = ruleInfo;
                     return ruleInfo;
                 }
                 return null;
@@ -391,13 +391,13 @@ public final class a {
                 if (clientUpdateInfo == null) {
                     return;
                 }
-                if (this.f33381c == null) {
-                    this.f33381c = clientUpdateInfo;
+                if (this.f33587c == null) {
+                    this.f33587c = clientUpdateInfo;
                 }
-                this.f33385g = str;
+                this.f33591g = str;
                 if (!TextUtils.isEmpty(clientUpdateInfo.mStatus) && Integer.valueOf(clientUpdateInfo.mStatus).intValue() == 1 && !TextUtils.isEmpty(clientUpdateInfo.mDownurl) && !TextUtils.isEmpty(clientUpdateInfo.mSize) && Integer.valueOf(clientUpdateInfo.mSize).intValue() > 0) {
                     a((AppInfo) clientUpdateInfo, str);
-                    this.f33384f = false;
+                    this.f33590f = false;
                 }
             }
         }
@@ -407,13 +407,13 @@ public final class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
             synchronized (this) {
-                if (this.f33381c != null) {
-                    this.f33381c = null;
+                if (this.f33587c != null) {
+                    this.f33587c = null;
                 }
-                if (this.f33385g != null) {
-                    this.f33385g = null;
+                if (this.f33591g != null) {
+                    this.f33591g = null;
                 }
-                this.f33384f = false;
+                this.f33590f = false;
             }
         }
     }
@@ -421,6 +421,6 @@ public final class a {
     public boolean d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f33384f : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f33590f : invokeV.booleanValue;
     }
 }

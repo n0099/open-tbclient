@@ -3,7 +3,7 @@ package com.kwad.sdk.feed;
 import androidx.annotation.NonNull;
 import com.kwad.sdk.core.response.a.d;
 import com.kwad.sdk.core.response.model.AdTemplate;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public enum FeedType {
     FEED_TYPE_UNKNOWN(0),
     FEED_TYPE_TEXT_IMMERSE(1),

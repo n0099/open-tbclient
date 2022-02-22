@@ -15,7 +15,7 @@ public final class e {
     public static a a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static a f28536b;
+    public static a f28742b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes9.dex */
@@ -66,7 +66,7 @@ public final class e {
             }
         }
         a = new a("loop");
-        f28536b = new a("writer");
+        f28742b = new a("writer");
     }
 
     public static Handler a() {
@@ -78,6 +78,6 @@ public final class e {
     public static Handler b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f28536b.a() : (Handler) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f28742b.a() : (Handler) invokeV.objValue;
     }
 }

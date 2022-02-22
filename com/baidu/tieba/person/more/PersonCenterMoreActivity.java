@@ -6,11 +6,11 @@ import android.os.Bundle;
 import android.view.View;
 import androidx.annotation.NonNull;
 import c.a.d.f.p.n;
-import c.a.t0.g0.d0;
-import c.a.t0.v2.i.b;
-import c.a.t0.w2.d.h;
-import c.a.t0.z2.e;
-import c.a.t0.z2.g;
+import c.a.u0.a3.e;
+import c.a.u0.a3.g;
+import c.a.u0.g0.b0;
+import c.a.u0.w2.i.b;
+import c.a.u0.x2.d.h;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.lib.util.StringUtils;
@@ -27,22 +27,22 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public class PersonCenterMoreActivity extends BaseActivity<PersonCenterMoreActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public h mItemData;
     public b mMoreController;
-    public d0 mOnCardSubClickListenner;
+    public b0 mOnCardSubClickListenner;
     public Bundle mUrlBundle;
 
-    /* loaded from: classes12.dex */
-    public class a extends d0<h> {
+    /* loaded from: classes13.dex */
+    public class a extends b0<h> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ PersonCenterMoreActivity f47098b;
+        public final /* synthetic */ PersonCenterMoreActivity f47240b;
 
         public a(PersonCenterMoreActivity personCenterMoreActivity) {
             Interceptable interceptable = $ic;
@@ -59,20 +59,20 @@ public class PersonCenterMoreActivity extends BaseActivity<PersonCenterMoreActiv
                     return;
                 }
             }
-            this.f47098b = personCenterMoreActivity;
+            this.f47240b = personCenterMoreActivity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // c.a.t0.g0.d0
+        @Override // c.a.u0.g0.b0
         /* renamed from: d */
         public void a(View view, h hVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view, hVar) == null) {
-                this.f47098b.mItemData = hVar;
-                if (this.f47098b.mItemData == null || this.f47098b.requestPermission()) {
+                this.f47240b.mItemData = hVar;
+                if (this.f47240b.mItemData == null || this.f47240b.requestPermission()) {
                     return;
                 }
-                PersonCenterMoreActivity personCenterMoreActivity = this.f47098b;
+                PersonCenterMoreActivity personCenterMoreActivity = this.f47240b;
                 personCenterMoreActivity.dealUrlMapClick(personCenterMoreActivity.mItemData.k);
             }
         }
@@ -127,7 +127,7 @@ public class PersonCenterMoreActivity extends BaseActivity<PersonCenterMoreActiv
         } else if (!str.startsWith(UrlSchemaHelper.SCHEMA_TYPE_HTTP) && !str.startsWith(UrlSchemaHelper.SCHEMA_TYPE_HTTPS)) {
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001387, str));
         } else {
-            c.a.s0.m.a.v(getPageContext().getPageActivity(), true, str);
+            c.a.t0.m.a.v(getPageContext().getPageActivity(), true, str);
         }
     }
 

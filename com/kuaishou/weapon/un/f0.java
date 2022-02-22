@@ -34,7 +34,7 @@ public class f0 implements Runnable {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             try {
-                g1.a(new g0(this.a).a(q0.f55256c), this.a);
+                g1.a(new g0(this.a).a(q0.f55423c), this.a);
             } catch (Throwable th) {
                 x0.a(th);
             }

@@ -7,9 +7,9 @@ import androidx.core.view.InputDeviceCompat;
 import c.a.d.f.m.b;
 import c.a.d.f.p.l;
 import c.a.d.f.p.m;
-import c.a.d.n.e.n;
-import c.a.s0.a.g;
-import c.a.s0.a.w;
+import c.a.d.o.e.n;
+import c.a.t0.a.g;
+import c.a.t0.a.w;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.util.StringUtils;
@@ -40,7 +40,7 @@ import java.util.regex.Pattern;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes12.dex */
-public class TopicDetailActivity extends BaseActivity<TopicDetailActivity> implements c.a.t0.p1.k.b.a {
+public class TopicDetailActivity extends BaseActivity<TopicDetailActivity> implements c.a.u0.p1.l.b.a {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String SCHEME_TOPIC_DETAIL = "tbtopicdetail://";
     public static final String TOPIC_ID_PREFFIX = "topic_id=";
@@ -76,7 +76,7 @@ public class TopicDetailActivity extends BaseActivity<TopicDetailActivity> imple
             this.a = topicDetailActivity;
         }
 
-        @Override // c.a.s0.a.g.b
+        @Override // c.a.t0.a.g.b
         public void onCallBack(HashMap<String, Object> hashMap) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, hashMap) == null) && hashMap != null && (hashMap.get(g.A) instanceof String)) {
@@ -165,14 +165,14 @@ public class TopicDetailActivity extends BaseActivity<TopicDetailActivity> imple
         }
     }
 
-    @Override // com.baidu.tbadk.BaseActivity, c.a.s0.q0.a
+    @Override // com.baidu.tbadk.BaseActivity, c.a.t0.q0.a
     public String getCurrentPageKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? "a024" : (String) invokeV.objValue;
     }
 
-    @Override // c.a.t0.p1.k.b.a
+    @Override // c.a.u0.p1.l.b.a
     public void loadData() {
         int i2;
         String substring;
@@ -229,12 +229,12 @@ public class TopicDetailActivity extends BaseActivity<TopicDetailActivity> imple
         }
     }
 
-    @Override // c.a.t0.p1.k.b.a
-    public void netCallback(int i2, c.a.t0.p1.k.b.c.a aVar) {
+    @Override // c.a.u0.p1.l.b.a
+    public void netCallback(int i2, c.a.u0.p1.l.b.c.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(1048580, this, i2, aVar) == null) {
             this.mTopicDetailView.hideLoadingView();
-            if (i2 == 0 && aVar != null && !ListUtils.isEmpty(aVar.f20995f)) {
+            if (i2 == 0 && aVar != null && !ListUtils.isEmpty(aVar.f20881f)) {
                 this.mTopicDetailView.hideNetRefreshView();
                 this.mTopicDetailView.setData(aVar);
                 return;
@@ -243,7 +243,7 @@ public class TopicDetailActivity extends BaseActivity<TopicDetailActivity> imple
         }
     }
 
-    @Override // c.a.t0.p1.k.b.a
+    @Override // c.a.u0.p1.l.b.a
     public void netThreadCallback(int i2, boolean z, List<n> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{Integer.valueOf(i2), Boolean.valueOf(z), list}) == null) {

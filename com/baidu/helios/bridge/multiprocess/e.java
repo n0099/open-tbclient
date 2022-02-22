@@ -86,16 +86,16 @@ public interface e extends IInterface {
         public static final String a = "com.baidu.helios.bridge.multiprocess.IMultiProcessBridge";
 
         /* renamed from: b  reason: collision with root package name */
-        public static final int f34531b = 1;
+        public static final int f34737b = 1;
 
         /* renamed from: c  reason: collision with root package name */
-        public static final int f34532c = 2;
+        public static final int f34738c = 2;
 
         /* renamed from: d  reason: collision with root package name */
-        public static final int f34533d = 3;
+        public static final int f34739d = 3;
 
         /* renamed from: e  reason: collision with root package name */
-        public static final int f34534e = 4;
+        public static final int f34740e = 4;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* loaded from: classes10.dex */
@@ -103,7 +103,7 @@ public interface e extends IInterface {
             public static /* synthetic */ Interceptable $ic;
 
             /* renamed from: b  reason: collision with root package name */
-            public static e f34535b;
+            public static e f34741b;
             public transient /* synthetic */ FieldHolder $fh;
             public IBinder a;
 
@@ -275,10 +275,10 @@ public interface e extends IInterface {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, eVar)) == null) {
-                if (a.f34535b != null || eVar == null) {
+                if (a.f34741b != null || eVar == null) {
                     return false;
                 }
-                a.f34535b = eVar;
+                a.f34741b = eVar;
                 return true;
             }
             return invokeL.booleanValue;
@@ -287,7 +287,7 @@ public interface e extends IInterface {
         public static e b() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? a.f34535b : (e) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? a.f34741b : (e) invokeV.objValue;
         }
 
         @Override // android.os.IInterface

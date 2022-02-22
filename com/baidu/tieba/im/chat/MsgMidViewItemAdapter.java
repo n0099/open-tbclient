@@ -2,7 +2,7 @@ package com.baidu.tieba.im.chat;
 
 import android.view.View;
 import android.view.ViewGroup;
-import c.a.t0.t1.f.d;
+import c.a.u0.t1.f.d;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.imsdk.internal.Constants;
@@ -68,7 +68,7 @@ public class MsgMidViewItemAdapter extends MsgCommonItemAdapter<d> {
     }
 
     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [int, android.view.View, android.view.ViewGroup, java.lang.Object, com.baidu.adp.widget.ListView.TypeAdapter$ViewHolder] */
-    @Override // com.baidu.tieba.im.chat.MsgCommonItemAdapter, c.a.d.n.e.a
+    @Override // com.baidu.tieba.im.chat.MsgCommonItemAdapter, c.a.d.o.e.a
     public /* bridge */ /* synthetic */ View S(int i2, View view, ViewGroup viewGroup, ChatMessage chatMessage, TypeAdapter.ViewHolder viewHolder) {
         c0(i2, view, viewGroup, chatMessage, (MsgCommonItemAdapter.MsgViewHolder) viewHolder);
         return view;
@@ -89,8 +89,8 @@ public class MsgMidViewItemAdapter extends MsgCommonItemAdapter<d> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // c.a.d.n.e.a
-    /* renamed from: i0 */
+    @Override // c.a.d.o.e.a
+    /* renamed from: l0 */
     public MsgCommonItemAdapter.MsgViewHolder<d> M(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;

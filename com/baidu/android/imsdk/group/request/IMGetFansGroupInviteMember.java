@@ -23,7 +23,7 @@ import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class IMGetFansGroupInviteMember extends FansGroupBaseHttpRequest {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "IMGetFansGroupInviteMember";
@@ -81,7 +81,7 @@ public class IMGetFansGroupInviteMember extends FansGroupBaseHttpRequest {
         }
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:28:0x00cc  */
+    /* JADX WARN: Removed duplicated region for block: B:28:0x00cb  */
     /* JADX WARN: Removed duplicated region for block: B:38:? A[RETURN, SYNTHETIC] */
     @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.ResponseHandler
     /*

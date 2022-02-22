@@ -17,22 +17,22 @@ public class q implements View.OnClickListener, View.OnTouchListener {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f30436e;
+    public int f30642e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f30437f;
+    public int f30643f;
 
     /* renamed from: g  reason: collision with root package name */
-    public long f30438g;
+    public long f30644g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f30439h;
+    public int f30645h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f30440i;
+    public int f30646i;
 
     /* renamed from: j  reason: collision with root package name */
-    public long f30441j;
+    public long f30647j;
     public final /* synthetic */ u k;
 
     public q(u uVar) {
@@ -58,12 +58,12 @@ public class q implements View.OnClickListener, View.OnTouchListener {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             HashMap hashMap = new HashMap();
-            hashMap.put("dx", Integer.valueOf(this.f30436e));
-            hashMap.put("dy", Integer.valueOf(this.f30437f));
-            hashMap.put("dts", Long.valueOf(this.f30438g));
-            hashMap.put("ux", Integer.valueOf(this.f30439h));
-            hashMap.put("uy", Integer.valueOf(this.f30440i));
-            hashMap.put("uts", Long.valueOf(this.f30441j));
+            hashMap.put("dx", Integer.valueOf(this.f30642e));
+            hashMap.put("dy", Integer.valueOf(this.f30643f));
+            hashMap.put("dts", Long.valueOf(this.f30644g));
+            hashMap.put("ux", Integer.valueOf(this.f30645h));
+            hashMap.put("uy", Integer.valueOf(this.f30646i));
+            hashMap.put("uts", Long.valueOf(this.f30647j));
             u uVar = this.k;
             r0.j(hashMap, uVar.p, uVar.q, uVar.r, uVar.s, uVar.t, uVar.u);
             return hashMap;
@@ -85,9 +85,9 @@ public class q implements View.OnClickListener, View.OnTouchListener {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, view, motionEvent)) == null) {
             int action = motionEvent.getAction();
             if (action == 0) {
-                this.f30436e = (int) motionEvent.getRawX();
-                this.f30437f = (int) motionEvent.getRawY();
-                this.f30438g = System.currentTimeMillis();
+                this.f30642e = (int) motionEvent.getRawX();
+                this.f30643f = (int) motionEvent.getRawY();
+                this.f30644g = System.currentTimeMillis();
                 this.k.p = (int) motionEvent.getX();
                 this.k.q = (int) motionEvent.getY();
                 u.d(this.k, view);
@@ -95,28 +95,28 @@ public class q implements View.OnClickListener, View.OnTouchListener {
             } else if (action != 1) {
                 return false;
             } else {
-                this.f30439h = (int) motionEvent.getRawX();
-                this.f30440i = (int) motionEvent.getRawY();
-                this.f30441j = System.currentTimeMillis();
+                this.f30645h = (int) motionEvent.getRawX();
+                this.f30646i = (int) motionEvent.getRawY();
+                this.f30647j = System.currentTimeMillis();
                 this.k.r = (int) motionEvent.getX();
                 this.k.s = (int) motionEvent.getY();
                 u uVar = this.k;
-                Info info = uVar.f30497c;
-                if (info == null || !a2.d(info, uVar.f30502h)) {
+                Info info = uVar.f30703c;
+                if (info == null || !a2.d(info, uVar.f30708h)) {
                     return false;
                 }
-                this.k.f30502h = System.currentTimeMillis();
+                this.k.f30708h = System.currentTimeMillis();
                 u uVar2 = this.k;
                 Context context = uVar2.a;
-                String open = uVar2.f30497c.getOpen();
+                String open = uVar2.f30703c.getOpen();
                 u uVar3 = this.k;
-                a2.a(context, open, uVar3.f30497c, uVar3.f30501g, a().toString());
+                a2.a(context, open, uVar3.f30703c, uVar3.f30707g, a().toString());
                 y2 a = c3.a(this.k.a);
-                a.h(new g3(this.k.f30497c), null);
+                a.h(new g3(this.k.f30703c), null);
                 a.l("desc", a().toString());
                 a.m();
-                r0.p(this.k.f30497c, a().toString());
-                s sVar = this.k.f30500f;
+                r0.p(this.k.f30703c, a().toString());
+                s sVar = this.k.f30706f;
                 if (sVar != null) {
                     sVar.onClicked();
                     return false;

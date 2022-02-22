@@ -28,20 +28,20 @@ public final class a extends q {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static a f60775c;
+    public static a f60942c;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final List<Integer> f60776e;
+    public static final List<Integer> f60943e;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f60777d;
+    public String f60944d;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f60778f;
+    public String f60945f;
 
     /* renamed from: g  reason: collision with root package name */
-    public long f60779g;
+    public long f60946g;
 
     static {
         InterceptResult invokeClinit;
@@ -56,7 +56,7 @@ public final class a extends q {
                 return;
             }
         }
-        f60776e = Arrays.asList(3);
+        f60943e = Arrays.asList(3);
     }
 
     public a() {
@@ -72,7 +72,7 @@ public final class a extends q {
                 return;
             }
         }
-        this.f60778f = "";
+        this.f60945f = "";
     }
 
     public static synchronized a a() {
@@ -81,10 +81,10 @@ public final class a extends q {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
             synchronized (a.class) {
-                if (f60775c == null) {
-                    f60775c = new a();
+                if (f60942c == null) {
+                    f60942c = new a();
                 }
-                aVar = f60775c;
+                aVar = f60942c;
             }
             return aVar;
         }
@@ -94,7 +94,7 @@ public final class a extends q {
     public final void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.f60777d = null;
+            this.f60944d = null;
         }
     }
 
@@ -105,7 +105,7 @@ public final class a extends q {
         if (interceptable == null || interceptable.invokeL(1048579, this, message) == null) {
             Intent intent = (Intent) message.obj;
             if (intent != null && this.a != null) {
-                if (!TextUtils.isEmpty(this.f60778f) && this.f60778f.contains("CommandService") && !b(intent)) {
+                if (!TextUtils.isEmpty(this.f60945f) && this.f60945f.contains("CommandService") && !b(intent)) {
                     p.a("CommandWorker", " !checkIntentIsSecurity(intent)");
                     return;
                 }
@@ -120,14 +120,14 @@ public final class a extends q {
                     if (intExtra < 0) {
                         intExtra = intent.getIntExtra("method", -1);
                     }
-                    if (f60776e.contains(Integer.valueOf(intExtra)) && t.c(this.a, packageName) && !t.c(this.a)) {
+                    if (f60943e.contains(Integer.valueOf(intExtra)) && t.c(this.a, packageName) && !t.c(this.a)) {
                         p.a("CommandWorker", "METHOD_ON_MESSAGE is not support");
                         return;
                     }
                     String action = intent.getAction();
-                    if (TextUtils.isEmpty(this.f60777d)) {
+                    if (TextUtils.isEmpty(this.f60944d)) {
                         String a = a(this.a, packageName, action);
-                        this.f60777d = a;
+                        this.f60944d = a;
                         if (TextUtils.isEmpty(a)) {
                             p.d("CommandWorker", " reflectReceiver error: receiver for: " + action + " not found, package: " + packageName);
                             intent.setPackage(packageName);
@@ -136,10 +136,10 @@ public final class a extends q {
                         }
                     }
                     try {
-                        Class<?> cls = Class.forName(this.f60777d);
+                        Class<?> cls = Class.forName(this.f60944d);
                         Object newInstance = cls.getConstructor(new Class[0]).newInstance(new Object[0]);
                         Method method = cls.getMethod("onReceive", Context.class, Intent.class);
-                        intent.setClassName(packageName, this.f60777d);
+                        intent.setClassName(packageName, this.f60944d);
                         method.invoke(newInstance, ContextDelegate.getContext(this.a).getApplicationContext(), intent);
                         return;
                     } catch (Exception e3) {
@@ -157,7 +157,7 @@ public final class a extends q {
     public final void a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            this.f60778f = str;
+            this.f60945f = str;
         }
     }
 
@@ -206,18 +206,18 @@ public final class a extends q {
                 return false;
             }
             PackageManager packageManager = this.a.getPackageManager();
-            if (this.f60779g <= 0) {
+            if (this.f60946g <= 0) {
                 try {
                     PackageInfo packageInfo = packageManager.getPackageInfo("com.vivo.pushservice", 0);
                     if (packageInfo != null) {
-                        this.f60779g = packageInfo.versionCode;
-                        p.a("CommandWorker", "push service version:" + this.f60779g);
+                        this.f60946g = packageInfo.versionCode;
+                        p.a("CommandWorker", "push service version:" + this.f60946g);
                     }
                 } catch (Exception e2) {
                     p.a("CommandWorker", "getPackageInfo exception:" + e2.getMessage());
                 }
             }
-            if (this.f60779g >= 4040000) {
+            if (this.f60946g >= 4040000) {
                 String stringExtra = intent.getStringExtra("security_avoid_pull");
                 if (TextUtils.isEmpty(stringExtra)) {
                     p.a("CommandWorker", "checkIntentIsSecurityTextUtils.isEmpty");

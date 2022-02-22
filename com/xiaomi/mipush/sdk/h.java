@@ -31,15 +31,15 @@ public /* synthetic */ class h {
         } catch (NoSuchFieldError unused) {
         }
         try {
-            a[e.f60943b.ordinal()] = 2;
+            a[e.f61110b.ordinal()] = 2;
         } catch (NoSuchFieldError unused2) {
         }
         try {
-            a[e.f60944c.ordinal()] = 3;
+            a[e.f61111c.ordinal()] = 3;
         } catch (NoSuchFieldError unused3) {
         }
         try {
-            a[e.f60945d.ordinal()] = 4;
+            a[e.f61112d.ordinal()] = 4;
         } catch (NoSuchFieldError unused4) {
         }
     }

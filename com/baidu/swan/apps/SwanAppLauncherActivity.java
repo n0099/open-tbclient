@@ -4,11 +4,11 @@ import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
 import androidx.core.view.InputDeviceCompat;
-import c.a.r0.a.k;
-import c.a.r0.a.v1.d;
-import c.a.r0.a.z2.n0;
-import c.a.r0.a.z2.q0;
-import c.a.r0.a.z2.v;
+import c.a.s0.a.k;
+import c.a.s0.a.v1.d;
+import c.a.s0.a.z2.n0;
+import c.a.s0.a.z2.q0;
+import c.a.s0.a.z2.v;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mytransformapp.util.LogUtil;
 import com.baidu.pyramid.annotation.Autowired;
@@ -63,7 +63,7 @@ public class SwanAppLauncherActivity extends Activity {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ SwanAppLauncherActivity f38618e;
+        public final /* synthetic */ SwanAppLauncherActivity f38846e;
 
         public b(SwanAppLauncherActivity swanAppLauncherActivity) {
             Interceptable interceptable = $ic;
@@ -80,14 +80,14 @@ public class SwanAppLauncherActivity extends Activity {
                     return;
                 }
             }
-            this.f38618e = swanAppLauncherActivity;
+            this.f38846e = swanAppLauncherActivity;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f38618e.finish();
+                this.f38846e.finish();
             }
         }
     }
@@ -127,12 +127,12 @@ public class SwanAppLauncherActivity extends Activity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65539, this) == null) {
             SwanLauncher.j().m(getIntent().getExtras());
-            c.a.r0.a.d2.d.L().post(new b(this));
+            c.a.s0.a.d2.d.L().post(new b(this));
         }
     }
 
     @Deprecated
-    public static void startSwanApp(Context context, c.a.r0.a.f1.e.b bVar, String str) {
+    public static void startSwanApp(Context context, c.a.s0.a.f1.e.b bVar, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, bVar, str) == null) {
             SwanLauncher.j().n(bVar, null);

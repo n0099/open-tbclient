@@ -5,6 +5,7 @@ import android.os.Build;
 import android.os.Process;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
+import c.a.t0.s.e;
 import com.baidu.spswitch.emotion.resource.EmotionResourceInfo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -18,10 +19,10 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.HashMap;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class SoUtils {
     public static /* synthetic */ Interceptable $ic = null;
-    public static final boolean DEBUG = false;
+    public static final boolean DEBUG;
     public static final String EXT = ".so";
     public static final boolean LOGFLAG = true;
     public static final String PRE = "lib";
@@ -30,7 +31,7 @@ public final class SoUtils {
     public static String[] uris;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static final class SOLOG {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String SO_LOAD_LIBRARY = "SO_LOAD_LIBRARY";
@@ -55,7 +56,7 @@ public final class SoUtils {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public interface SoUbcLoggable {
         void onEvent(String str, String str2);
     }
@@ -73,6 +74,7 @@ public final class SoUtils {
                 return;
             }
         }
+        DEBUG = e.e();
         uris = new String[]{"lib/arm64", "lib/armeabi", "lib/x86", "lib/mips"};
     }
 
@@ -131,9 +133,19 @@ public final class SoUtils {
 
     public static String getSimpleName(String str) {
         InterceptResult invokeL;
-        String[] split;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) ? (!TextUtils.isEmpty(str) && str.startsWith("lib") && str.endsWith(".so") && (split = str.split(EmotionResourceInfo.VERSION_NAME_SEPARATOR_REGEX)) != null && split.length == 2) ? split[0].substring(3) : str : (String) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
+            if (!TextUtils.isEmpty(str) && str.startsWith("lib") && str.endsWith(".so")) {
+                String[] split = str.split(EmotionResourceInfo.VERSION_NAME_SEPARATOR_REGEX);
+                String substring = (split == null || split.length != 2) ? str : split[0].substring(3);
+                if (DEBUG) {
+                    String str2 = "SoUtils load but the param soName:" + str + ", name:" + substring;
+                }
+                return substring;
+            }
+            return str;
+        }
+        return (String) invokeL.objValue;
     }
 
     public static String getUriName(String str, int i2) {
@@ -165,28 +177,32 @@ public final class SoUtils {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
             int i2 = Build.VERSION.SDK_INT;
+            boolean z = false;
             if (i2 >= 23) {
-                return Process.is64Bit();
-            }
-            if (i2 >= 21) {
+                z = Process.is64Bit();
+            } else if (i2 >= 21) {
                 String[] strArr = Build.SUPPORTED_64_BIT_ABIS;
                 if (strArr.length > 0) {
-                    return Build.CPU_ABI.equals(strArr[0]);
+                    z = Build.CPU_ABI.equals(strArr[0]);
                 }
-                return false;
             }
-            return false;
+            boolean z2 = DEBUG;
+            return z;
         }
         return invokeV.booleanValue;
     }
 
     public static void onEvent(String str, String str2) {
-        SoUbcLoggable soUbcLoggable;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65545, null, str, str2) == null) || (soUbcLoggable = sUbcImpl) == null) {
-            return;
+        if (interceptable == null || interceptable.invokeLL(65545, null, str, str2) == null) {
+            SoUbcLoggable soUbcLoggable = sUbcImpl;
+            if (soUbcLoggable != null) {
+                soUbcLoggable.onEvent(str, str2);
+            }
+            if (DEBUG) {
+                String str3 = "onEvent:UbcImpl=" + soUbcLoggable + ";eventId=" + str + ";content=" + str2;
+            }
         }
-        soUbcLoggable.onEvent(str, str2);
     }
 
     public static void saveLog(HashMap<String, String> hashMap, String str, String str2) {

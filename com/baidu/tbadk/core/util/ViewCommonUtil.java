@@ -4,6 +4,9 @@ import android.app.Activity;
 import android.graphics.Rect;
 import android.os.Build;
 import android.view.View;
+import android.view.ViewGroup;
+import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
 import c.a.d.f.p.n;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -72,5 +75,59 @@ public class ViewCommonUtil {
             return rect;
         }
         return (Rect) invokeL.objValue;
+    }
+
+    public static void setViewMargin(@NonNull View view, int i2, int i3, int i4, int i5) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{view, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)}) == null) {
+            ViewGroup.LayoutParams layoutParams = view.getLayoutParams();
+            if (layoutParams instanceof ViewGroup.MarginLayoutParams) {
+                ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) layoutParams;
+                if (i2 != -1) {
+                    marginLayoutParams.leftMargin = i2;
+                }
+                if (i3 != -1) {
+                    marginLayoutParams.topMargin = i3;
+                }
+                if (i4 != -1) {
+                    marginLayoutParams.rightMargin = i4;
+                }
+                if (i5 != -1) {
+                    marginLayoutParams.bottomMargin = i5;
+                }
+            }
+        }
+    }
+
+    public static void setViewPadding(@NonNull View view, int i2, int i3, int i4, int i5) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{view, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)}) == null) {
+            if (i2 == -1) {
+                i2 = view.getPaddingLeft();
+            }
+            if (i3 == -1) {
+                i3 = view.getPaddingTop();
+            }
+            if (i4 == -1) {
+                i4 = view.getPaddingRight();
+            }
+            if (i5 == -1) {
+                i5 = view.getPaddingBottom();
+            }
+            view.setPadding(i2, i3, i4, i5);
+        }
+    }
+
+    public static void setViewWidthHeight(@NonNull View view, int i2, int i3) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLII(65541, null, view, i2, i3) == null) {
+            ViewGroup.LayoutParams layoutParams = view.getLayoutParams();
+            if (i2 != -3) {
+                layoutParams.width = i2;
+            }
+            if (i3 != -3) {
+                layoutParams.height = i3;
+            }
+        }
     }
 }

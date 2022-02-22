@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.apache.commons.codec.EncoderException;
 import org.apache.commons.codec.StringEncoder;
 @Deprecated
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class Soundex implements StringEncoder {
     public static /* synthetic */ Interceptable $ic = null;
     public static final Soundex US_ENGLISH = null;

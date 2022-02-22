@@ -23,7 +23,7 @@ import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class CommonUtils implements INoProGuard {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG = false;
@@ -102,7 +102,7 @@ public final class CommonUtils implements INoProGuard {
             return false;
         }
         try {
-            if (!checkPermissionGranted(context, "android.permission.CALL_PHONE") && !checkPermissionGranted(context, "android.permission.MODIFY_PHONE_STATE") && !checkPermissionGranted(context, s.f55287c) && !checkPermissionGranted(context, "android.permission.PROCESS_OUTGOING_CALLS")) {
+            if (!checkPermissionGranted(context, "android.permission.CALL_PHONE") && !checkPermissionGranted(context, "android.permission.MODIFY_PHONE_STATE") && !checkPermissionGranted(context, s.f55454c) && !checkPermissionGranted(context, "android.permission.PROCESS_OUTGOING_CALLS")) {
                 z = false;
                 if (Build.VERSION.SDK_INT < 16) {
                     if (!z) {

@@ -12,7 +12,7 @@ import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import androidx.webkit.WebResourceErrorCompat;
 import androidx.webkit.WebViewClientCompat;
-import c.a.s0.m.f;
+import c.a.t0.m.h;
 import com.alipay.sdk.data.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -214,7 +214,7 @@ public class FlutterWebViewClient {
                 InterceptResult invokeLL;
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || (invokeLL = interceptable2.invokeLL(1048580, this, webView, renderProcessGoneDetail)) == null) {
-                    f.a(FlutterWebViewClient.TAG, webView);
+                    h.a(FlutterWebViewClient.TAG, webView);
                     return true;
                 }
                 return invokeLL.booleanValue;
@@ -301,7 +301,7 @@ public class FlutterWebViewClient {
                 InterceptResult invokeLL;
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || (invokeLL = interceptable2.invokeLL(1048580, this, webView, renderProcessGoneDetail)) == null) {
-                    f.a(FlutterWebViewClient.TAG, webView);
+                    h.a(FlutterWebViewClient.TAG, webView);
                     return true;
                 }
                 return invokeLL.booleanValue;

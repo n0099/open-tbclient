@@ -14,7 +14,7 @@ public final class n implements ServiceConnection {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final /* synthetic */ l f30029e;
+    public final /* synthetic */ l f30235e;
 
     public n(l lVar) {
         Interceptable interceptable = $ic;
@@ -31,14 +31,14 @@ public final class n implements ServiceConnection {
                 return;
             }
         }
-        this.f30029e = lVar;
+        this.f30235e = lVar;
     }
 
     @Override // android.content.ServiceConnection
     public final void onServiceConnected(ComponentName componentName, IBinder iBinder) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, componentName, iBinder) == null) {
-            this.f30029e.f(iBinder);
+            this.f30235e.f(iBinder);
         }
     }
 
@@ -46,7 +46,7 @@ public final class n implements ServiceConnection {
     public final void onServiceDisconnected(ComponentName componentName) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, componentName) == null) {
-            this.f30029e.q();
+            this.f30235e.q();
         }
     }
 }

@@ -25,10 +25,10 @@ public class UploadingFileView extends FrameLayout {
     public UploadCircleView a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ImageView f34517b;
+    public ImageView f34723b;
 
     /* renamed from: c  reason: collision with root package name */
-    public ImageView f34518c;
+    public ImageView f34724c;
     public DynamicWaveView dynamicWaveView;
 
     /* loaded from: classes10.dex */
@@ -38,7 +38,7 @@ public class UploadingFileView extends FrameLayout {
         public final /* synthetic */ UploadingFileView a;
 
         /* renamed from: b  reason: collision with root package name */
-        public float f34519b;
+        public float f34725b;
 
         public a(UploadingFileView uploadingFileView) {
             Interceptable interceptable = $ic;
@@ -56,7 +56,7 @@ public class UploadingFileView extends FrameLayout {
                 }
             }
             this.a = uploadingFileView;
-            this.f34519b = 0.5f;
+            this.f34725b = 0.5f;
         }
 
         @Override // android.animation.TimeInterpolator
@@ -65,7 +65,7 @@ public class UploadingFileView extends FrameLayout {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeF = interceptable.invokeF(1048576, this, f2)) == null) {
                 double pow = Math.pow(2.0d, (-10.0f) * f2);
-                float f3 = this.f34519b;
+                float f3 = this.f34725b;
                 return (float) ((pow * Math.sin(((f2 - (f3 / 4.0f)) * 6.283185307179586d) / f3)) + 1.0d);
             }
             return invokeF.floatValue;
@@ -97,7 +97,7 @@ public class UploadingFileView extends FrameLayout {
     public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65541, this) == null) {
-            this.f34518c.setVisibility(0);
+            this.f34724c.setVisibility(0);
             AnimationSet animationSet = new AnimationSet(true);
             ScaleAnimation scaleAnimation = new ScaleAnimation(0.0f, 1.0f, 0.0f, 1.0f, 1, 0.5f, 1, 0.5f);
             AlphaAnimation alphaAnimation = new AlphaAnimation(0.0f, 1.0f);
@@ -105,7 +105,7 @@ public class UploadingFileView extends FrameLayout {
             animationSet.addAnimation(alphaAnimation);
             animationSet.setDuration(200L);
             animationSet.setFillAfter(true);
-            this.f34518c.startAnimation(animationSet);
+            this.f34724c.startAnimation(animationSet);
         }
     }
 
@@ -130,7 +130,7 @@ public class UploadingFileView extends FrameLayout {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             this.a.setVisibility(8);
             this.dynamicWaveView.setVisibility(8);
-            this.f34517b.setVisibility(0);
+            this.f34723b.setVisibility(0);
             a();
         }
     }
@@ -163,7 +163,7 @@ public class UploadingFileView extends FrameLayout {
             scaleAnimation.setInterpolator(new a(this));
             scaleAnimation.setDuration(1000L);
             scaleAnimation.setFillAfter(true);
-            this.f34517b.startAnimation(scaleAnimation);
+            this.f34723b.startAnimation(scaleAnimation);
             postDelayed(new Runnable(this) { // from class: com.baidu.fsg.face.liveness.view.UploadingFileView.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
@@ -220,7 +220,7 @@ public class UploadingFileView extends FrameLayout {
         View inflate = LayoutInflater.from(context).inflate(R.layout.layout_sapi_liveness_uploading_file_view, (ViewGroup) this, true);
         this.dynamicWaveView = (DynamicWaveView) findViewById(R.id.dynamic_wave);
         this.a = (UploadCircleView) inflate.findViewById(R.id.my_circle);
-        this.f34517b = (ImageView) inflate.findViewById(R.id.circle);
-        this.f34518c = (ImageView) inflate.findViewById(R.id.tick);
+        this.f34723b = (ImageView) inflate.findViewById(R.id.circle);
+        this.f34724c = (ImageView) inflate.findViewById(R.id.tick);
     }
 }

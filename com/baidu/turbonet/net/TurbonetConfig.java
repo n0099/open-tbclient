@@ -21,10 +21,10 @@ public class TurbonetConfig {
     public JSONObject a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f50285b;
+    public String f50452b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f50286c;
+    public boolean f50453c;
 
     @Retention(RetentionPolicy.SOURCE)
     /* loaded from: classes13.dex */
@@ -44,7 +44,7 @@ public class TurbonetConfig {
                 return;
             }
         }
-        this.f50286c = false;
+        this.f50453c = false;
         this.a = new JSONObject();
     }
 
@@ -77,7 +77,7 @@ public class TurbonetConfig {
                     throw new IllegalArgumentException("Storage path must not be set");
                 }
             } else if (l() != null) {
-                this.f50286c = true;
+                this.f50453c = true;
             } else {
                 throw new IllegalArgumentException("Storage path must be set");
             }
@@ -118,7 +118,7 @@ public class TurbonetConfig {
     public boolean h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f50286c : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f50453c : invokeV.booleanValue;
     }
 
     public void i(String str, String str2, Object obj) {
@@ -152,7 +152,7 @@ public class TurbonetConfig {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, str) == null) {
             if (new File(str).isDirectory()) {
-                this.f50285b = str;
+                this.f50452b = str;
                 return;
             }
             throw new IllegalArgumentException("Storage path must be set to existing directory");
@@ -162,6 +162,6 @@ public class TurbonetConfig {
     public String l() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.f50285b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.f50452b : (String) invokeV.objValue;
     }
 }

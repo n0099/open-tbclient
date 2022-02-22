@@ -3,10 +3,10 @@ package com.baidu.searchbox.task.sync.appcreate;
 import android.content.Context;
 import android.os.Build;
 import androidx.annotation.NonNull;
-import c.a.k0.b.a.a;
-import c.a.s0.s.d0.b;
-import c.a.s0.s.d0.c;
-import c.a.s0.s.d0.d;
+import c.a.l0.b.a.a;
+import c.a.t0.s.e0.b;
+import c.a.t0.s.e0.c;
+import c.a.t0.s.e0.d;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.android.common.others.java.Supplier;
 import com.baidu.android.imsdk.internal.Constants;
@@ -225,7 +225,7 @@ public class InitLokiTask extends LaunchTask {
                     if (interceptable2 == null || interceptable2.invokeLL(1048576, this, context2, jSONObject) == null) {
                         super.onAttachExtra(context2, jSONObject);
                         if (TbadkCoreApplication.getInst().isMainProcess(false)) {
-                            c.a.s0.s.g0.a.q().h();
+                            c.a.t0.s.h0.a.q().h();
                         }
                         b.a(jSONObject);
                     }
@@ -310,7 +310,7 @@ public class InitLokiTask extends LaunchTask {
                     if (interceptable2 == null || interceptable2.invokeLL(1048576, this, context2, jSONObject) == null) {
                         super.onAttachExtra(context2, jSONObject);
                         if (TbadkCoreApplication.getInst().isMainProcess(false)) {
-                            c.a.s0.s.g0.a.q().h();
+                            c.a.t0.s.h0.a.q().h();
                         }
                         b.a(jSONObject);
                     }
@@ -363,7 +363,7 @@ public class InitLokiTask extends LaunchTask {
             bdAsyncTask.setSelfExecute(true);
             bdAsyncTask.setPriority(4);
             bdAsyncTask.execute(new Void[0]);
-            Thread.setDefaultUncaughtExceptionHandler(new c.a.d.m.c(Thread.getDefaultUncaughtExceptionHandler()));
+            Thread.setDefaultUncaughtExceptionHandler(new c.a.d.n.c(Thread.getDefaultUncaughtExceptionHandler()));
         }
     }
 

@@ -15,7 +15,7 @@ public class SimpleExpressInflater extends ExpressInflater {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public ViewGroup f54124b;
+    public ViewGroup f54291b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public SimpleExpressInflater(FunNativeAd2 funNativeAd2) {
@@ -42,15 +42,15 @@ public class SimpleExpressInflater extends ExpressInflater {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (this.f54124b != null) {
+            if (this.f54291b != null) {
                 View expressView = getExpressView();
                 ViewParent parent = expressView.getParent();
                 if (parent != null) {
                     ((ViewGroup) parent).removeView(expressView);
                 }
-                this.f54124b.removeAllViews();
-                this.f54124b.addView(expressView);
-                return this.f54124b;
+                this.f54291b.removeAllViews();
+                this.f54291b.addView(expressView);
+                return this.f54291b;
             }
             throw new IllegalStateException("Call setContainer(ViewGroup) with a valid arg first");
         }
@@ -60,7 +60,7 @@ public class SimpleExpressInflater extends ExpressInflater {
     public void setContainer(ViewGroup viewGroup) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, viewGroup) == null) {
-            this.f54124b = viewGroup;
+            this.f54291b = viewGroup;
         }
     }
 }

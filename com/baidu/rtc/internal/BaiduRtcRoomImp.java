@@ -88,7 +88,7 @@ import org.webrtc.VideoFrame;
 import org.webrtc.VideoSink;
 import org.webrtc.VideoTrack;
 import org.webrtc.audio.JavaAudioDeviceModule;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class BaiduRtcRoomImp extends BaiduRtcRoom implements JanusRTCInterface, PeerConnectionClient.PeerConnectionEvents {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int COMMUNICATION_REPORT_INTERVAL = 2000;
@@ -178,7 +178,7 @@ public class BaiduRtcRoomImp extends BaiduRtcRoom implements JanusRTCInterface, 
     public VideoCapturer videoCapturer;
 
     /* renamed from: com.baidu.rtc.internal.BaiduRtcRoomImp$24  reason: invalid class name */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public static /* synthetic */ class AnonymousClass24 {
         public static final /* synthetic */ int[] $SwitchMap$com$baidu$rtc$RtcParameterSettings$RtcParamSettingType;
         public static /* synthetic */ Interceptable $ic;
@@ -214,7 +214,7 @@ public class BaiduRtcRoomImp extends BaiduRtcRoom implements JanusRTCInterface, 
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public class AudioStuckEvent implements SLIReportInterface {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -264,7 +264,7 @@ public class BaiduRtcRoomImp extends BaiduRtcRoom implements JanusRTCInterface, 
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public class HeadsetReceiver extends BroadcastReceiver {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -363,7 +363,7 @@ public class BaiduRtcRoomImp extends BaiduRtcRoom implements JanusRTCInterface, 
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public static class StreamStats {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -399,7 +399,7 @@ public class BaiduRtcRoomImp extends BaiduRtcRoom implements JanusRTCInterface, 
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public class VideoStuckEvent implements SLIReportInterface {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

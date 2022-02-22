@@ -36,7 +36,7 @@ import okio.BufferedSource;
 import okio.Okio;
 import okio.Sink;
 import okio.Source;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public final class DiskLruCache implements Closeable, Flushable {
     public static final /* synthetic */ boolean $assertionsDisabled = false;
     public static /* synthetic */ Interceptable $ic = null;
@@ -73,7 +73,7 @@ public final class DiskLruCache implements Closeable, Flushable {
     public long size;
     public final int valueCount;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public final class Editor {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -250,7 +250,7 @@ public final class DiskLruCache implements Closeable, Flushable {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public final class Entry {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -361,7 +361,7 @@ public final class DiskLruCache implements Closeable, Flushable {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public final class Snapshot implements Closeable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

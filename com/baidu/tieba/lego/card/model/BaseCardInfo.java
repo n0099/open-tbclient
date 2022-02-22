@@ -1,7 +1,7 @@
 package com.baidu.tieba.lego.card.model;
 
 import android.text.TextUtils;
-import c.a.t0.y1.m.b;
+import c.a.u0.z1.m.b;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.coreExtra.message.UpdateAttentionMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public class BaseCardInfo extends BaseLegoCardInfo {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -38,13 +38,13 @@ public class BaseCardInfo extends BaseLegoCardInfo {
     public String getFidFromPostUrl(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) ? !TextUtils.isEmpty(str) ? b.C1535b.a(str).d("fid") : "" : (String) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) ? !TextUtils.isEmpty(str) ? b.C1558b.a(str).d("fid") : "" : (String) invokeL.objValue;
     }
 
     public String getTouidFromPostUrl(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) ? !TextUtils.isEmpty(str) ? b.C1535b.a(str).d("touid") : "" : (String) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) ? !TextUtils.isEmpty(str) ? b.C1558b.a(str).d("touid") : "" : (String) invokeL.objValue;
     }
 
     @Override // com.baidu.tieba.lego.card.model.BaseLegoCardInfo, com.baidu.tieba.lego.card.model.ICardInfo
@@ -55,10 +55,10 @@ public class BaseCardInfo extends BaseLegoCardInfo {
             if (shouldResponseAttention()) {
                 if (obj instanceof UpdateAttentionMessage.a) {
                     UpdateAttentionMessage.a aVar = (UpdateAttentionMessage.a) obj;
-                    return responseAttentionUser(aVar.f40771c, aVar.f40772d);
-                } else if (obj instanceof c.a.t0.y1.p.b) {
-                    c.a.t0.y1.p.b bVar = (c.a.t0.y1.p.b) obj;
-                    return responseAttentionForum(bVar.a, bVar.f25517b);
+                    return responseAttentionUser(aVar.f41000c, aVar.f41001d);
+                } else if (obj instanceof c.a.u0.z1.p.b) {
+                    c.a.u0.z1.p.b bVar = (c.a.u0.z1.p.b) obj;
+                    return responseAttentionForum(bVar.a, bVar.f25803b);
                 } else {
                     return false;
                 }

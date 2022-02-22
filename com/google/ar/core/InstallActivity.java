@@ -58,7 +58,7 @@ public class InstallActivity extends Activity {
             }
         }
         this.themeWrapper = new ContextThemeWrapper(this, 16974394);
-        this.lastEvent = p.f54447b;
+        this.lastEvent = p.f54614b;
     }
 
     /* JADX DEBUG: Marked for inline */
@@ -181,7 +181,7 @@ public class InstallActivity extends Activity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65550, this) == null) {
             this.installStarted = true;
-            this.lastEvent = p.f54447b;
+            this.lastEvent = p.f54614b;
             c.i.c.a.f.d().e(this).c(this, new m(this));
         }
     }
@@ -274,7 +274,7 @@ public class InstallActivity extends Activity {
             } else if (this.finished) {
             } else {
                 synchronized (this) {
-                    if (this.lastEvent == p.f54447b) {
+                    if (this.lastEvent == p.f54614b) {
                         finish();
                     } else if (this.lastEvent == p.a) {
                         this.waitingForCompletion = true;

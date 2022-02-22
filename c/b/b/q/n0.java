@@ -187,7 +187,7 @@ public class n0 implements c {
                     jsonValue2.l = c2;
                     jsonValue.n++;
                 } else {
-                    jsonValue.f31165j = c2;
+                    jsonValue.f31371j = c2;
                     jsonValue.n = 1;
                 }
                 if (j2 > 0) {
@@ -220,7 +220,7 @@ public class n0 implements c {
                     jsonValue2.l = c2;
                     jsonValue.n++;
                 } else {
-                    jsonValue.f31165j = c2;
+                    jsonValue.f31371j = c2;
                     jsonValue.n = 1;
                 }
                 j2++;
@@ -268,7 +268,7 @@ public class n0 implements c {
                     jsonValue2.l = c2;
                     jsonValue.n++;
                 } else {
-                    jsonValue.f31165j = c2;
+                    jsonValue.f31371j = c2;
                     jsonValue.n = 1;
                 }
                 if (j2 > 0) {

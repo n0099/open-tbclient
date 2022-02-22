@@ -1,6 +1,6 @@
 package c.a.e.m;
 
-import c.a.s0.d1.h;
+import c.a.t0.d1.h;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.util.AdExtParam;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -17,19 +17,19 @@ public class c implements a {
     public final int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f3580b;
+    public int f3576b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final int f3581c;
+    public final int f3577c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final int f3582d;
+    public final int f3578d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final String f3583e;
+    public final String f3579e;
 
     /* renamed from: f  reason: collision with root package name */
-    public HashMap f3584f;
+    public HashMap f3580f;
 
     public c(int i2, int i3, String str, int i4, int i5, int i6) {
         Interceptable interceptable = $ic;
@@ -47,10 +47,10 @@ public class c implements a {
             }
         }
         this.a = i2;
-        this.f3583e = str;
-        this.f3580b = i4;
-        this.f3581c = i5;
-        this.f3582d = i6;
+        this.f3579e = str;
+        this.f3576b = i4;
+        this.f3577c = i5;
+        this.f3578d = i6;
     }
 
     public static a h(int i2, int i3, String str, int i4, int i5, int i6) {
@@ -63,7 +63,7 @@ public class c implements a {
     public void a(HashMap hashMap) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, hashMap) == null) {
-            this.f3584f = hashMap;
+            this.f3580f = hashMap;
             if (hashMap.containsKey(AdExtParam.KEY_IADEX)) {
                 return;
             }
@@ -75,7 +75,7 @@ public class c implements a {
     public int b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f3580b : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f3576b : invokeV.intValue;
     }
 
     @Override // c.a.e.m.a
@@ -89,27 +89,27 @@ public class c implements a {
     public Map<String, String> d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f3584f : (Map) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f3580f : (Map) invokeV.objValue;
     }
 
     @Override // c.a.e.m.a
     public int e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f3582d : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f3578d : invokeV.intValue;
     }
 
     @Override // c.a.e.m.a
     public int f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f3581c : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f3577c : invokeV.intValue;
     }
 
     @Override // c.a.e.m.a
     public String g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f3583e : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f3579e : (String) invokeV.objValue;
     }
 }

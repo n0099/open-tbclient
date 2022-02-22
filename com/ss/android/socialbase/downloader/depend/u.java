@@ -15,14 +15,14 @@ public interface u extends IInterface {
 
         /* renamed from: com.ss.android.socialbase.downloader.depend.u$a$a  reason: collision with other inner class name */
         /* loaded from: classes4.dex */
-        public static class C2220a implements u {
+        public static class C2230a implements u {
             public static u a;
 
             /* renamed from: b  reason: collision with root package name */
-            public IBinder f59985b;
+            public IBinder f60152b;
 
-            public C2220a(IBinder iBinder) {
-                this.f59985b = iBinder;
+            public C2230a(IBinder iBinder) {
+                this.f60152b = iBinder;
             }
 
             @Override // com.ss.android.socialbase.downloader.depend.u
@@ -32,7 +32,7 @@ public interface u extends IInterface {
                 try {
                     obtain.writeInterfaceToken("com.ss.android.socialbase.downloader.depend.IDownloadForbiddenAidlHandler");
                     obtain.writeStrongBinder(tVar != null ? tVar.asBinder() : null);
-                    if (!this.f59985b.transact(1, obtain, obtain2, 0) && a.a() != null) {
+                    if (!this.f60152b.transact(1, obtain, obtain2, 0) && a.a() != null) {
                         return a.a().a(tVar);
                     }
                     obtain2.readException();
@@ -45,7 +45,7 @@ public interface u extends IInterface {
 
             @Override // android.os.IInterface
             public IBinder asBinder() {
-                return this.f59985b;
+                return this.f60152b;
             }
         }
 
@@ -61,7 +61,7 @@ public interface u extends IInterface {
             if (queryLocalInterface != null && (queryLocalInterface instanceof u)) {
                 return (u) queryLocalInterface;
             }
-            return new C2220a(iBinder);
+            return new C2230a(iBinder);
         }
 
         @Override // android.os.IInterface
@@ -86,7 +86,7 @@ public interface u extends IInterface {
         }
 
         public static u a() {
-            return C2220a.a;
+            return C2230a.a;
         }
     }
 }

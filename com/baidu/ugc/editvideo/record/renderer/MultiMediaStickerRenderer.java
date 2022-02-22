@@ -3,8 +3,8 @@ package com.baidu.ugc.editvideo.record.renderer;
 import android.opengl.GLES20;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import c.a.a1.t.h;
-import c.a.b0.b.a.e;
+import c.a.b1.t.h;
+import c.a.c0.b.a.e;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.minivideo.effect.core.vlogedit.MediaSegment;
 import com.baidu.minivideo.effect.core.vlogedit.MediaTrack;
@@ -172,7 +172,7 @@ public class MultiMediaStickerRenderer extends MultiMediaEditBaseRenderer {
                             GLES20.glClear(16640);
                             aVar.a(this.mFullScreen2D, this.mFullScreenEXT);
                             GLES20.glBindFramebuffer(36160, 0);
-                            int h2 = eVar.h(mediaSegment, aVar.f50342b[0], null);
+                            int h2 = eVar.h(mediaSegment, aVar.f50509b[0], null);
                             GLES20.glViewport(i4, i6, i7, i8);
                             this.mFullScreen2D.drawFrame(h2, fArr);
                         }

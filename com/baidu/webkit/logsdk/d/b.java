@@ -6,20 +6,20 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public byte[] a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f52885b;
+    public int f53052b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f52886c;
+    public int f53053c;
 
     /* renamed from: d  reason: collision with root package name */
-    public byte[] f52887d;
+    public byte[] f53054d;
 
     public b(String str) {
         Interceptable interceptable = $ic;
@@ -36,7 +36,7 @@ public final class b {
                 return;
             }
         }
-        this.f52887d = str.getBytes();
+        this.f53054d = str.getBytes();
     }
 
     public static String a(String str, String str2) {
@@ -47,9 +47,9 @@ public final class b {
             try {
                 b bVar = new b(str2);
                 byte[] decode = Base64.decode(str.getBytes(), 0);
-                byte[] bArr = bVar.f52887d;
-                bVar.f52885b = 0;
-                bVar.f52886c = 0;
+                byte[] bArr = bVar.f53054d;
+                bVar.f53052b = 0;
+                bVar.f53053c = 0;
                 if (bVar.a == null) {
                     bVar.a = new byte[256];
                 }
@@ -77,10 +77,10 @@ public final class b {
                     sb.append(i6);
                 } else if (i6 <= length) {
                     for (int i7 = 0; i7 < length2; i7++) {
-                        int i8 = (bVar.f52885b + 1) & 255;
-                        bVar.f52885b = i8;
-                        int i9 = (bVar.a[i8] + bVar.f52886c) & 255;
-                        bVar.f52886c = i9;
+                        int i8 = (bVar.f53052b + 1) & 255;
+                        bVar.f53052b = i8;
+                        int i9 = (bVar.a[i8] + bVar.f53053c) & 255;
+                        bVar.f53053c = i9;
                         byte b3 = bVar.a[i8];
                         bVar.a[i8] = bVar.a[i9];
                         bVar.a[i9] = b3;

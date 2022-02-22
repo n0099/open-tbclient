@@ -17,31 +17,31 @@ public final class m {
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int[] f29134b;
+    public int[] f29340b;
 
     /* renamed from: c  reason: collision with root package name */
-    public long[] f29135c;
+    public long[] f29341c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int[] f29136d;
+    public int[] f29342d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int[] f29137e;
+    public int[] f29343e;
 
     /* renamed from: f  reason: collision with root package name */
-    public long[] f29138f;
+    public long[] f29344f;
 
     /* renamed from: g  reason: collision with root package name */
-    public m.a[] f29139g;
+    public m.a[] f29345g;
 
     /* renamed from: h  reason: collision with root package name */
-    public Format[] f29140h;
+    public Format[] f29346h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f29141i;
+    public int f29347i;
 
     /* renamed from: j  reason: collision with root package name */
-    public int f29142j;
+    public int f29348j;
     public int k;
     public int l;
     public long m;
@@ -58,10 +58,10 @@ public final class m {
         public int a;
 
         /* renamed from: b  reason: collision with root package name */
-        public long f29143b;
+        public long f29349b;
 
         /* renamed from: c  reason: collision with root package name */
-        public m.a f29144c;
+        public m.a f29350c;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -92,13 +92,13 @@ public final class m {
             }
         }
         this.a = 1000;
-        this.f29134b = new int[1000];
-        this.f29135c = new long[1000];
-        this.f29138f = new long[1000];
-        this.f29137e = new int[1000];
-        this.f29136d = new int[1000];
-        this.f29139g = new m.a[1000];
-        this.f29140h = new Format[1000];
+        this.f29340b = new int[1000];
+        this.f29341c = new long[1000];
+        this.f29344f = new long[1000];
+        this.f29343e = new int[1000];
+        this.f29342d = new int[1000];
+        this.f29345g = new m.a[1000];
+        this.f29346h = new Format[1000];
         this.m = Long.MIN_VALUE;
         this.n = Long.MIN_VALUE;
         this.p = true;
@@ -111,8 +111,8 @@ public final class m {
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j2), Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
             synchronized (this) {
                 int p = p(this.l);
-                if (s() && j2 >= this.f29138f[p] && (j2 <= this.n || z2)) {
-                    int k = k(p, this.f29141i - this.l, j2, z);
+                if (s() && j2 >= this.f29344f[p] && (j2 <= this.n || z2)) {
+                    int k = k(p, this.f29347i - this.l, j2, z);
                     if (k == -1) {
                         return -1;
                     }
@@ -131,8 +131,8 @@ public final class m {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             synchronized (this) {
-                i2 = this.f29141i - this.l;
-                this.l = this.f29141i;
+                i2 = this.f29347i - this.l;
+                this.l = this.f29347i;
             }
             return i2;
         }
@@ -144,21 +144,21 @@ public final class m {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j2)) == null) {
             synchronized (this) {
-                if (this.f29141i == 0) {
+                if (this.f29347i == 0) {
                     return j2 > this.m;
                 } else if (Math.max(this.m, n(this.l)) >= j2) {
                     return false;
                 } else {
-                    int i2 = this.f29141i;
-                    int p = p(this.f29141i - 1);
-                    while (i2 > this.l && this.f29138f[p] >= j2) {
+                    int i2 = this.f29347i;
+                    int p = p(this.f29347i - 1);
+                    while (i2 > this.l && this.f29344f[p] >= j2) {
                         i2--;
                         p--;
                         if (p == -1) {
                             p = this.a - 1;
                         }
                     }
-                    j(this.f29142j + i2);
+                    j(this.f29348j + i2);
                     return true;
                 }
             }
@@ -178,16 +178,16 @@ public final class m {
                 }
                 c.i.b.a.i0.a.f(!this.p);
                 e(j2);
-                int p = p(this.f29141i);
-                this.f29138f[p] = j2;
-                this.f29135c[p] = j3;
-                this.f29136d[p] = i3;
-                this.f29137e[p] = i2;
-                this.f29139g[p] = aVar;
-                this.f29140h[p] = this.q;
-                this.f29134b[p] = this.r;
-                int i4 = this.f29141i + 1;
-                this.f29141i = i4;
+                int p = p(this.f29347i);
+                this.f29344f[p] = j2;
+                this.f29341c[p] = j3;
+                this.f29342d[p] = i3;
+                this.f29343e[p] = i2;
+                this.f29345g[p] = aVar;
+                this.f29346h[p] = this.q;
+                this.f29340b[p] = this.r;
+                int i4 = this.f29347i + 1;
+                this.f29347i = i4;
                 if (i4 == this.a) {
                     int i5 = this.a + 1000;
                     int[] iArr = new int[i5];
@@ -198,30 +198,30 @@ public final class m {
                     m.a[] aVarArr = new m.a[i5];
                     Format[] formatArr = new Format[i5];
                     int i6 = this.a - this.k;
-                    System.arraycopy(this.f29135c, this.k, jArr, 0, i6);
-                    System.arraycopy(this.f29138f, this.k, jArr2, 0, i6);
-                    System.arraycopy(this.f29137e, this.k, iArr2, 0, i6);
-                    System.arraycopy(this.f29136d, this.k, iArr3, 0, i6);
-                    System.arraycopy(this.f29139g, this.k, aVarArr, 0, i6);
-                    System.arraycopy(this.f29140h, this.k, formatArr, 0, i6);
-                    System.arraycopy(this.f29134b, this.k, iArr, 0, i6);
+                    System.arraycopy(this.f29341c, this.k, jArr, 0, i6);
+                    System.arraycopy(this.f29344f, this.k, jArr2, 0, i6);
+                    System.arraycopy(this.f29343e, this.k, iArr2, 0, i6);
+                    System.arraycopy(this.f29342d, this.k, iArr3, 0, i6);
+                    System.arraycopy(this.f29345g, this.k, aVarArr, 0, i6);
+                    System.arraycopy(this.f29346h, this.k, formatArr, 0, i6);
+                    System.arraycopy(this.f29340b, this.k, iArr, 0, i6);
                     int i7 = this.k;
-                    System.arraycopy(this.f29135c, 0, jArr, i6, i7);
-                    System.arraycopy(this.f29138f, 0, jArr2, i6, i7);
-                    System.arraycopy(this.f29137e, 0, iArr2, i6, i7);
-                    System.arraycopy(this.f29136d, 0, iArr3, i6, i7);
-                    System.arraycopy(this.f29139g, 0, aVarArr, i6, i7);
-                    System.arraycopy(this.f29140h, 0, formatArr, i6, i7);
-                    System.arraycopy(this.f29134b, 0, iArr, i6, i7);
-                    this.f29135c = jArr;
-                    this.f29138f = jArr2;
-                    this.f29137e = iArr2;
-                    this.f29136d = iArr3;
-                    this.f29139g = aVarArr;
-                    this.f29140h = formatArr;
-                    this.f29134b = iArr;
+                    System.arraycopy(this.f29341c, 0, jArr, i6, i7);
+                    System.arraycopy(this.f29344f, 0, jArr2, i6, i7);
+                    System.arraycopy(this.f29343e, 0, iArr2, i6, i7);
+                    System.arraycopy(this.f29342d, 0, iArr3, i6, i7);
+                    System.arraycopy(this.f29345g, 0, aVarArr, i6, i7);
+                    System.arraycopy(this.f29346h, 0, formatArr, i6, i7);
+                    System.arraycopy(this.f29340b, 0, iArr, i6, i7);
+                    this.f29341c = jArr;
+                    this.f29344f = jArr2;
+                    this.f29343e = iArr2;
+                    this.f29342d = iArr3;
+                    this.f29345g = aVarArr;
+                    this.f29346h = formatArr;
+                    this.f29340b = iArr;
                     this.k = 0;
-                    this.f29141i = this.a;
+                    this.f29347i = this.a;
                     this.a = i5;
                 }
             }
@@ -243,8 +243,8 @@ public final class m {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i2)) == null) {
             this.m = Math.max(this.m, n(i2));
-            this.f29141i -= i2;
-            this.f29142j += i2;
+            this.f29347i -= i2;
+            this.f29348j += i2;
             int i4 = this.k + i2;
             this.k = i4;
             int i5 = this.a;
@@ -256,14 +256,14 @@ public final class m {
             if (i6 < 0) {
                 this.l = 0;
             }
-            if (this.f29141i == 0) {
+            if (this.f29347i == 0) {
                 int i7 = this.k;
                 if (i7 == 0) {
                     i7 = this.a;
                 }
-                return this.f29135c[i7 - 1] + this.f29136d[i3];
+                return this.f29341c[i7 - 1] + this.f29342d[i3];
             }
-            return this.f29135c[this.k];
+            return this.f29341c[this.k];
         }
         return invokeI.longValue;
     }
@@ -273,8 +273,8 @@ public final class m {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048582, this, new Object[]{Long.valueOf(j2), Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
             synchronized (this) {
-                if (this.f29141i != 0 && j2 >= this.f29138f[this.k]) {
-                    int k = k(this.k, (!z2 || this.l == this.f29141i) ? this.f29141i : this.l + 1, j2, z);
+                if (this.f29347i != 0 && j2 >= this.f29344f[this.k]) {
+                    int k = k(this.k, (!z2 || this.l == this.f29347i) ? this.f29347i : this.l + 1, j2, z);
                     if (k == -1) {
                         return -1L;
                     }
@@ -291,10 +291,10 @@ public final class m {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
             synchronized (this) {
-                if (this.f29141i == 0) {
+                if (this.f29347i == 0) {
                     return -1L;
                 }
-                return f(this.f29141i);
+                return f(this.f29347i);
             }
         }
         return invokeV.longValue;
@@ -319,16 +319,16 @@ public final class m {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048585, this, i2)) == null) {
             int r = r() - i2;
-            c.i.b.a.i0.a.a(r >= 0 && r <= this.f29141i - this.l);
-            int i3 = this.f29141i - r;
-            this.f29141i = i3;
+            c.i.b.a.i0.a.a(r >= 0 && r <= this.f29347i - this.l);
+            int i3 = this.f29347i - r;
+            this.f29347i = i3;
             this.n = Math.max(this.m, n(i3));
-            int i4 = this.f29141i;
+            int i4 = this.f29347i;
             if (i4 == 0) {
                 return 0L;
             }
             int p = p(i4 - 1);
-            return this.f29135c[p] + this.f29136d[p];
+            return this.f29341c[p] + this.f29342d[p];
         }
         return invokeI.longValue;
     }
@@ -338,8 +338,8 @@ public final class m {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048586, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Long.valueOf(j2), Boolean.valueOf(z)})) == null) {
             int i4 = -1;
-            for (int i5 = 0; i5 < i3 && this.f29138f[i2] <= j2; i5++) {
-                if (!z || (this.f29137e[i2] & 1) != 0) {
+            for (int i5 = 0; i5 < i3 && this.f29344f[i2] <= j2; i5++) {
+                if (!z || (this.f29343e[i2] & 1) != 0) {
                     i4 = i5;
                 }
                 i2++;
@@ -395,8 +395,8 @@ public final class m {
             }
             int p = p(i2 - 1);
             for (int i3 = 0; i3 < i2; i3++) {
-                j2 = Math.max(j2, this.f29138f[p]);
-                if ((this.f29137e[p] & 1) != 0) {
+                j2 = Math.max(j2, this.f29344f[p]);
+                if ((this.f29343e[p] & 1) != 0) {
                     break;
                 }
                 p--;
@@ -412,7 +412,7 @@ public final class m {
     public int o() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.f29142j + this.l : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.f29348j + this.l : invokeV.intValue;
     }
 
     public final int p(int i2) {
@@ -442,7 +442,7 @@ public final class m {
     public int r() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? this.f29142j + this.f29141i : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? this.f29348j + this.f29347i : invokeV.intValue;
     }
 
     public synchronized boolean s() {
@@ -451,7 +451,7 @@ public final class m {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
             synchronized (this) {
-                z = this.l != this.f29141i;
+                z = this.l != this.f29347i;
             }
             return z;
         }
@@ -462,7 +462,7 @@ public final class m {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
-            return s() ? this.f29134b[p(this.l)] : this.r;
+            return s() ? this.f29340b[p(this.l)] : this.r;
         }
         return invokeV.intValue;
     }
@@ -484,19 +484,19 @@ public final class m {
                     }
                 }
                 int p = p(this.l);
-                if (!z && this.f29140h[p] == format) {
+                if (!z && this.f29346h[p] == format) {
                     if (eVar.q()) {
                         return -3;
                     }
-                    eVar.f29985h = this.f29138f[p];
-                    eVar.l(this.f29137e[p]);
-                    aVar.a = this.f29136d[p];
-                    aVar.f29143b = this.f29135c[p];
-                    aVar.f29144c = this.f29139g[p];
+                    eVar.f30191h = this.f29344f[p];
+                    eVar.l(this.f29343e[p]);
+                    aVar.a = this.f29342d[p];
+                    aVar.f29349b = this.f29341c[p];
+                    aVar.f29350c = this.f29345g[p];
                     this.l++;
                     return -4;
                 }
-                lVar.a = this.f29140h[p];
+                lVar.a = this.f29346h[p];
                 return -5;
             }
         }
@@ -506,8 +506,8 @@ public final class m {
     public void v(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048597, this, z) == null) {
-            this.f29141i = 0;
-            this.f29142j = 0;
+            this.f29347i = 0;
+            this.f29348j = 0;
             this.k = 0;
             this.l = 0;
             this.o = true;

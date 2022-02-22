@@ -33,7 +33,7 @@ public class c extends a {
                 return;
             }
         }
-        this.f52140b = 3;
+        this.f52307b = 3;
     }
 
     @Override // com.baidu.wallet.paysdk.presenter.a, com.baidu.wallet.paysdk.presenter.e
@@ -42,9 +42,9 @@ public class c extends a {
         if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
             super.a(z);
             if (z) {
-                this.f52140b = 3;
+                this.f52307b = 3;
             } else {
-                this.f52140b = 4;
+                this.f52307b = 4;
             }
         }
     }

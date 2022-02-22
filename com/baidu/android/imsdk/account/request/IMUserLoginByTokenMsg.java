@@ -26,7 +26,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class IMUserLoginByTokenMsg extends Message {
     public static /* synthetic */ Interceptable $ic;
     public static int sRetrytimes;
@@ -199,7 +199,7 @@ public class IMUserLoginByTokenMsg extends Message {
                             }
                         }
                     }
-                    if (!c.a.t.a.f14442e) {
+                    if (!c.a.u.a.f14716e) {
                         ChatMsgManagerImpl.getInstance(this.mContext).fetchConfigMsg(this.mContext, 0L, 20L);
                     }
                 } catch (Exception e2) {

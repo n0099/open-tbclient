@@ -37,7 +37,7 @@ public class ap implements ar {
     public volatile String f127a;
 
     /* renamed from: b  reason: collision with root package name */
-    public volatile String f60955b;
+    public volatile String f61122b;
 
     /* renamed from: b  reason: collision with other field name */
     public volatile boolean f128b;
@@ -77,7 +77,7 @@ public class ap implements ar {
             if (interceptable == null || interceptable.invokeLL(1048576, this, componentName, iBinder) == null) {
                 try {
                     this.a.f127a = b.a(iBinder);
-                    this.a.f128b = b.m214a(iBinder);
+                    this.a.f128b = b.m213a(iBinder);
                     this.a.b();
                     this.a.f123a = 2;
                     synchronized (this.a.f126a) {
@@ -142,7 +142,7 @@ public class ap implements ar {
         }
 
         /* renamed from: a  reason: collision with other method in class */
-        public static boolean m214a(IBinder iBinder) {
+        public static boolean m213a(IBinder iBinder) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, iBinder)) == null) {
@@ -180,7 +180,7 @@ public class ap implements ar {
         this.f123a = 0;
         this.f127a = null;
         this.f128b = false;
-        this.f60955b = null;
+        this.f61122b = null;
         this.f126a = new Object();
         this.f124a = context;
         a();
@@ -243,7 +243,7 @@ public class ap implements ar {
         if ((interceptable == null || interceptable.invokeL(65543, this, str) == null) && this.f123a == 1 && Looper.myLooper() != Looper.getMainLooper()) {
             synchronized (this.f126a) {
                 try {
-                    com.xiaomi.channel.commonutils.logger.b.m134a("huawei's " + str + " wait...");
+                    com.xiaomi.channel.commonutils.logger.b.m133a("huawei's " + str + " wait...");
                     this.f126a.wait(3000L);
                 } catch (Exception unused) {
                 }
@@ -252,7 +252,7 @@ public class ap implements ar {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static boolean m212a(Context context) {
+    public static boolean m211a(Context context) {
         InterceptResult invokeL;
         boolean z;
         Interceptable interceptable = $ic;
@@ -300,7 +300,7 @@ public class ap implements ar {
 
     @Override // com.xiaomi.push.ar
     /* renamed from: b  reason: collision with other method in class */
-    public String mo213b() {
+    public String mo212b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
@@ -325,14 +325,14 @@ public class ap implements ar {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            if (this.f60955b == null) {
+            if (this.f61122b == null) {
                 synchronized (this) {
-                    if (this.f60955b == null) {
-                        this.f60955b = a(this.f124a);
+                    if (this.f61122b == null) {
+                        this.f61122b = a(this.f124a);
                     }
                 }
             }
-            return this.f60955b;
+            return this.f61122b;
         }
         return (String) invokeV.objValue;
     }

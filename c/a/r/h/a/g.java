@@ -14,16 +14,16 @@ public class g {
     public final int[] a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final byte[] f5078b;
+    public final byte[] f5148b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final int f5079c;
+    public final int f5149c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f5080d;
+    public int f5150d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f5081e;
+    public int f5151e;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public g() {
@@ -59,8 +59,8 @@ public class g {
             }
         }
         this.a = new int[4];
-        this.f5078b = new byte[16];
-        this.f5079c = i2;
+        this.f5148b = new byte[16];
+        this.f5149c = i2;
         f();
     }
 
@@ -91,18 +91,18 @@ public class g {
         if (!(interceptable == null || interceptable.invokeLII(1048576, this, bArr, i2, i3) == null) || i3 <= 0) {
             return;
         }
-        this.f5080d += i3;
+        this.f5150d += i3;
         int i4 = i2 + i3;
-        int i5 = this.f5081e;
+        int i5 = this.f5151e;
         if (i5 + i3 < 16) {
-            System.arraycopy(bArr, i2, this.f5078b, i5, i3);
-            this.f5081e += i3;
+            System.arraycopy(bArr, i2, this.f5148b, i5, i3);
+            this.f5151e += i3;
             return;
         }
         if (i5 > 0) {
             int i6 = 16 - i5;
-            System.arraycopy(bArr, i2, this.f5078b, i5, i6);
-            e(this.f5078b, 0);
+            System.arraycopy(bArr, i2, this.f5148b, i5, i6);
+            e(this.f5148b, 0);
             i2 += i6;
         }
         int i7 = i4 - 16;
@@ -112,8 +112,8 @@ public class g {
         }
         if (i2 < i4) {
             int i8 = i4 - i2;
-            this.f5081e = i8;
-            System.arraycopy(bArr, i2, this.f5078b, 0, i8);
+            this.f5151e = i8;
+            System.arraycopy(bArr, i2, this.f5148b, 0, i8);
         }
     }
 
@@ -122,14 +122,14 @@ public class g {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             int i2 = 0;
-            int rotateLeft = (this.f5080d > 16 ? Integer.rotateLeft(this.a[0], 1) + Integer.rotateLeft(this.a[1], 7) + Integer.rotateLeft(this.a[2], 12) + Integer.rotateLeft(this.a[3], 18) : this.a[2] + XXHash32.PRIME5) + this.f5080d;
-            int i3 = this.f5081e - 4;
+            int rotateLeft = (this.f5150d > 16 ? Integer.rotateLeft(this.a[0], 1) + Integer.rotateLeft(this.a[1], 7) + Integer.rotateLeft(this.a[2], 12) + Integer.rotateLeft(this.a[3], 18) : this.a[2] + XXHash32.PRIME5) + this.f5150d;
+            int i3 = this.f5151e - 4;
             while (i2 <= i3) {
-                rotateLeft = Integer.rotateLeft(rotateLeft + (a(this.f5078b, i2) * XXHash32.PRIME3), 17) * XXHash32.PRIME4;
+                rotateLeft = Integer.rotateLeft(rotateLeft + (a(this.f5148b, i2) * XXHash32.PRIME3), 17) * XXHash32.PRIME4;
                 i2 += 4;
             }
-            while (i2 < this.f5081e) {
-                rotateLeft = Integer.rotateLeft(rotateLeft + ((this.f5078b[i2] & 255) * XXHash32.PRIME5), 11) * XXHash32.PRIME1;
+            while (i2 < this.f5151e) {
+                rotateLeft = Integer.rotateLeft(rotateLeft + ((this.f5148b[i2] & 255) * XXHash32.PRIME5), 11) * XXHash32.PRIME1;
                 i2++;
             }
             int i4 = (rotateLeft ^ (rotateLeft >>> 15)) * XXHash32.PRIME2;
@@ -156,7 +156,7 @@ public class g {
             iArr2[1] = rotateLeft2;
             iArr2[2] = rotateLeft3;
             iArr2[3] = rotateLeft4;
-            this.f5081e = 0;
+            this.f5151e = 0;
         }
     }
 
@@ -164,7 +164,7 @@ public class g {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             int[] iArr = this.a;
-            int i2 = this.f5079c;
+            int i2 = this.f5149c;
             iArr[0] = i2 + XXHash32.PRIME1 + XXHash32.PRIME2;
             iArr[1] = XXHash32.PRIME2 + i2;
             iArr[2] = i2;

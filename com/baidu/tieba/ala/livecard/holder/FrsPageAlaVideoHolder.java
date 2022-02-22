@@ -1,7 +1,7 @@
 package com.baidu.tieba.ala.livecard.holder;
 
 import android.view.View;
-import c.a.t0.a0.k.e.e;
+import c.a.u0.a0.k.e.e;
 import com.baidu.card.AutoLiveViewHolder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;

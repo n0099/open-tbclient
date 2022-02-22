@@ -3,6 +3,7 @@ package com.baidu.browser.core;
 import android.content.Context;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.browser.core.util.BdLog;
+import com.baidu.searchbox.network.outback.EngineName;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -15,12 +16,12 @@ public final class BdCore {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static BdCore f33046c;
+    public static BdCore f33252c;
     public transient /* synthetic */ FieldHolder $fh;
     public Context a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f33047b;
+    public boolean f33253b;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes10.dex */
@@ -47,7 +48,7 @@ public final class BdCore {
                     return;
                 }
             }
-            DEFAULT = new EditTextType("DEFAULT", 0);
+            DEFAULT = new EditTextType(EngineName.DEFAULT_ENGINE, 0);
             WEB_EDIT = new EditTextType("WEB_EDIT", 1);
             ADD_BAR = new EditTextType("ADD_BAR", 2);
             BD_EDIT = new EditTextType("BD_EDIT", 3);
@@ -102,7 +103,7 @@ public final class BdCore {
             }
         }
         EditTextType editTextType = EditTextType.DEFAULT;
-        this.f33047b = false;
+        this.f33253b = false;
     }
 
     public static synchronized BdCore a() {
@@ -111,10 +112,10 @@ public final class BdCore {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
             synchronized (BdCore.class) {
-                if (f33046c == null) {
-                    f33046c = new BdCore();
+                if (f33252c == null) {
+                    f33252c = new BdCore();
                 }
-                bdCore = f33046c;
+                bdCore = f33252c;
             }
             return bdCore;
         }
@@ -123,12 +124,12 @@ public final class BdCore {
 
     public void b(Context context, boolean z) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLZ(1048576, this, context, z) == null) || this.f33047b) {
+        if (!(interceptable == null || interceptable.invokeLZ(1048576, this, context, z) == null) || this.f33253b) {
             return;
         }
         BdLog.f(z);
         this.a = context.getApplicationContext();
-        this.f33047b = true;
+        this.f33253b = true;
     }
 
     public Context getContext() {

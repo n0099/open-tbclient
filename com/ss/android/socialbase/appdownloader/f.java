@@ -44,25 +44,25 @@ public class f {
     public int[] af;
 
     /* renamed from: b  reason: collision with root package name */
-    public Context f59813b;
+    public Context f59980b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f59814c;
+    public String f59981c;
 
     /* renamed from: d  reason: collision with root package name */
-    public List<String> f59815d;
+    public List<String> f59982d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f59816e;
+    public String f59983e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f59817f;
+    public String f59984f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f59818g;
+    public String f59985g;
 
     /* renamed from: h  reason: collision with root package name */
-    public List<com.ss.android.socialbase.downloader.model.c> f59819h;
+    public List<com.ss.android.socialbase.downloader.model.c> f59986h;
     public IDownloadListener m;
     public IDownloadListener n;
     public String o;
@@ -78,10 +78,10 @@ public class f {
     public long z;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f59820i = true;
+    public boolean f59987i = true;
 
     /* renamed from: j  reason: collision with root package name */
-    public boolean f59821j = false;
+    public boolean f59988j = false;
     public boolean k = true;
     public boolean l = false;
     public String p = "application/vnd.android.package-archive";
@@ -95,8 +95,8 @@ public class f {
     public boolean ad = true;
 
     public f(@NonNull Context context, @NonNull String str) {
-        this.f59813b = context.getApplicationContext();
-        this.f59814c = str;
+        this.f59980b = context.getApplicationContext();
+        this.f59981c = str;
     }
 
     public boolean A() {
@@ -144,7 +144,7 @@ public class f {
     }
 
     public String L() {
-        return this.f59817f;
+        return this.f59984f;
     }
 
     public x M() {
@@ -204,7 +204,7 @@ public class f {
     }
 
     public String a() {
-        return this.f59814c;
+        return this.f59981c;
     }
 
     public String aa() {
@@ -212,7 +212,7 @@ public class f {
     }
 
     public List<String> ab() {
-        return this.f59815d;
+        return this.f59982d;
     }
 
     public r ac() {
@@ -224,23 +224,23 @@ public class f {
     }
 
     public String b() {
-        return this.f59816e;
+        return this.f59983e;
     }
 
     public String c() {
-        return this.f59818g;
+        return this.f59985g;
     }
 
     public List<com.ss.android.socialbase.downloader.model.c> d() {
-        return this.f59819h;
+        return this.f59986h;
     }
 
     public boolean e() {
-        return this.f59820i;
+        return this.f59987i;
     }
 
     public boolean f() {
-        return this.f59821j;
+        return this.f59988j;
     }
 
     public boolean g() {
@@ -252,7 +252,7 @@ public class f {
     }
 
     public Context getContext() {
-        return this.f59813b;
+        return this.f59980b;
     }
 
     public boolean h() {
@@ -336,12 +336,12 @@ public class f {
     }
 
     public f b(String str) {
-        this.f59817f = str;
+        this.f59984f = str;
         return this;
     }
 
     public f c(@NonNull String str) {
-        this.f59818g = str;
+        this.f59985g = str;
         return this;
     }
 
@@ -411,12 +411,12 @@ public class f {
     }
 
     public f a(String str) {
-        this.f59816e = str;
+        this.f59983e = str;
         return this;
     }
 
     public f b(boolean z) {
-        this.f59821j = z;
+        this.f59988j = z;
         return this;
     }
 
@@ -461,7 +461,7 @@ public class f {
     }
 
     public f a(List<com.ss.android.socialbase.downloader.model.c> list) {
-        this.f59819h = list;
+        this.f59986h = list;
         return this;
     }
 
@@ -491,12 +491,12 @@ public class f {
     }
 
     public f a(boolean z) {
-        this.f59820i = z;
+        this.f59987i = z;
         return this;
     }
 
     public f b(List<String> list) {
-        this.f59815d = list;
+        this.f59982d = list;
         return this;
     }
 

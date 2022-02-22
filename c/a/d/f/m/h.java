@@ -15,7 +15,7 @@ public class h {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static h f2987b;
+    public static h f2073b;
     public transient /* synthetic */ FieldHolder $fh;
     public final ThreadPoolExecutor a;
 
@@ -32,7 +32,7 @@ public class h {
                 return;
             }
         }
-        f2987b = new h();
+        f2073b = new h();
     }
 
     public h() {
@@ -54,7 +54,7 @@ public class h {
     public static h a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f2987b : (h) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f2073b : (h) invokeV.objValue;
     }
 
     public void b(Runnable runnable) {

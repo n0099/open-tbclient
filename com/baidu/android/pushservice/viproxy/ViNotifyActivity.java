@@ -58,16 +58,16 @@ public class ViNotifyActivity extends Activity {
                     public final /* synthetic */ String a;
 
                     /* renamed from: b  reason: collision with root package name */
-                    public final /* synthetic */ String f32358b;
+                    public final /* synthetic */ String f32564b;
 
                     /* renamed from: c  reason: collision with root package name */
-                    public final /* synthetic */ String f32359c;
+                    public final /* synthetic */ String f32565c;
 
                     /* renamed from: d  reason: collision with root package name */
-                    public final /* synthetic */ String f32360d;
+                    public final /* synthetic */ String f32566d;
 
                     /* renamed from: e  reason: collision with root package name */
-                    public final /* synthetic */ ViNotifyActivity f32361e;
+                    public final /* synthetic */ ViNotifyActivity f32567e;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -84,11 +84,11 @@ public class ViNotifyActivity extends Activity {
                                 return;
                             }
                         }
-                        this.f32361e = this;
+                        this.f32567e = this;
                         this.a = str5;
-                        this.f32358b = str3;
-                        this.f32359c = str2;
-                        this.f32360d = str4;
+                        this.f32564b = str3;
+                        this.f32565c = str2;
+                        this.f32566d = str4;
                     }
 
                     @Override // com.baidu.android.pushservice.g.c
@@ -99,11 +99,11 @@ public class ViNotifyActivity extends Activity {
                             if (!TextUtils.isEmpty(str6)) {
                                 str6 = m.a(Base64.decode(this.a.getBytes(), 2), "UTF-8");
                             }
-                            String str7 = this.f32358b;
+                            String str7 = this.f32564b;
                             if (!TextUtils.isEmpty(str7)) {
-                                str7 = m.a(Base64.decode(this.f32358b.getBytes(), 2), "UTF-8");
+                                str7 = m.a(Base64.decode(this.f32564b.getBytes(), 2), "UTF-8");
                             }
-                            this.f32361e.a(this.f32359c, str7, this.f32360d, str6);
+                            this.f32567e.a(this.f32565c, str7, this.f32566d, str6);
                         }
                     }
                 });

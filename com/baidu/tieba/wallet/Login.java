@@ -1,7 +1,7 @@
 package com.baidu.tieba.wallet;
 
 import android.content.Context;
-import c.a.s0.m.a;
+import c.a.t0.m.a;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomMessage;

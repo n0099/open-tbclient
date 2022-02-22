@@ -34,16 +34,16 @@ public class c implements FlutterPlugin, MethodChannel.MethodCallHandler {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final Map<String, Integer> f30230g;
+    public static final Map<String, Integer> f30436g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static boolean f30231h;
+    public static boolean f30437h;
 
     /* renamed from: i  reason: collision with root package name */
-    public static int f30232i;
+    public static int f30438i;
 
     /* renamed from: j  reason: collision with root package name */
-    public static int f30233j;
+    public static int f30439j;
     public static final Object k;
     public static final Object l;
     public static String m;
@@ -55,10 +55,10 @@ public class c implements FlutterPlugin, MethodChannel.MethodCallHandler {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f30234e;
+    public Context f30440e;
 
     /* renamed from: f  reason: collision with root package name */
-    public MethodChannel f30235f;
+    public MethodChannel f30441f;
 
     /* loaded from: classes9.dex */
     public class a implements Runnable {
@@ -66,16 +66,16 @@ public class c implements FlutterPlugin, MethodChannel.MethodCallHandler {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ MethodCall f30236e;
+        public final /* synthetic */ MethodCall f30442e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ i f30237f;
+        public final /* synthetic */ i f30443f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ c.o.a.a f30238g;
+        public final /* synthetic */ c.o.a.a f30444g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ c f30239h;
+        public final /* synthetic */ c f30445h;
 
         public a(c cVar, MethodCall methodCall, i iVar, c.o.a.a aVar) {
             Interceptable interceptable = $ic;
@@ -92,17 +92,17 @@ public class c implements FlutterPlugin, MethodChannel.MethodCallHandler {
                     return;
                 }
             }
-            this.f30239h = cVar;
-            this.f30236e = methodCall;
-            this.f30237f = iVar;
-            this.f30238g = aVar;
+            this.f30445h = cVar;
+            this.f30442e = methodCall;
+            this.f30443f = iVar;
+            this.f30444g = aVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f30239h.query(this.f30238g, new c.o.a.f.e(this.f30236e, this.f30237f));
+                this.f30445h.query(this.f30444g, new c.o.a.f.e(this.f30442e, this.f30443f));
             }
         }
     }
@@ -113,16 +113,16 @@ public class c implements FlutterPlugin, MethodChannel.MethodCallHandler {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ MethodCall f30240e;
+        public final /* synthetic */ MethodCall f30446e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ i f30241f;
+        public final /* synthetic */ i f30447f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ c.o.a.a f30242g;
+        public final /* synthetic */ c.o.a.a f30448g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ c f30243h;
+        public final /* synthetic */ c f30449h;
 
         public b(c cVar, MethodCall methodCall, i iVar, c.o.a.a aVar) {
             Interceptable interceptable = $ic;
@@ -139,21 +139,21 @@ public class c implements FlutterPlugin, MethodChannel.MethodCallHandler {
                     return;
                 }
             }
-            this.f30243h = cVar;
-            this.f30240e = methodCall;
-            this.f30241f = iVar;
-            this.f30242g = aVar;
+            this.f30449h = cVar;
+            this.f30446e = methodCall;
+            this.f30447f = iVar;
+            this.f30448g = aVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                c.o.a.f.e eVar = new c.o.a.f.e(this.f30240e, this.f30241f);
+                c.o.a.f.e eVar = new c.o.a.f.e(this.f30446e, this.f30447f);
                 boolean d2 = eVar.d();
                 boolean f2 = eVar.f();
                 ArrayList arrayList = new ArrayList();
-                for (Map map : (List) this.f30240e.argument("operations")) {
+                for (Map map : (List) this.f30446e.argument("operations")) {
                     c.o.a.f.c cVar = new c.o.a.f.c(map, d2);
                     String j2 = cVar.j();
                     char c2 = 65535;
@@ -187,48 +187,48 @@ public class c implements FlutterPlugin, MethodChannel.MethodCallHandler {
                         if (c2 != 1) {
                             if (c2 != 2) {
                                 if (c2 == 3) {
-                                    if (this.f30243h.update(this.f30242g, cVar)) {
+                                    if (this.f30449h.update(this.f30448g, cVar)) {
                                         cVar.o(arrayList);
                                     } else if (f2) {
                                         cVar.n(arrayList);
                                     } else {
-                                        cVar.m(this.f30241f);
+                                        cVar.m(this.f30447f);
                                         return;
                                     }
                                 } else {
-                                    i iVar = this.f30241f;
+                                    i iVar = this.f30447f;
                                     iVar.error("bad_param", "Batch method '" + j2 + "' not supported", null);
                                     return;
                                 }
-                            } else if (this.f30243h.query(this.f30242g, cVar)) {
+                            } else if (this.f30449h.query(this.f30448g, cVar)) {
                                 cVar.o(arrayList);
                             } else if (f2) {
                                 cVar.n(arrayList);
                             } else {
-                                cVar.m(this.f30241f);
+                                cVar.m(this.f30447f);
                                 return;
                             }
-                        } else if (this.f30243h.insert(this.f30242g, cVar)) {
+                        } else if (this.f30449h.insert(this.f30448g, cVar)) {
                             cVar.o(arrayList);
                         } else if (f2) {
                             cVar.n(arrayList);
                         } else {
-                            cVar.m(this.f30241f);
+                            cVar.m(this.f30447f);
                             return;
                         }
-                    } else if (this.f30243h.o(this.f30242g, cVar)) {
+                    } else if (this.f30449h.o(this.f30448g, cVar)) {
                         cVar.o(arrayList);
                     } else if (f2) {
                         cVar.n(arrayList);
                     } else {
-                        cVar.m(this.f30241f);
+                        cVar.m(this.f30447f);
                         return;
                     }
                 }
                 if (d2) {
-                    this.f30241f.success(null);
+                    this.f30447f.success(null);
                 } else {
-                    this.f30241f.success(arrayList);
+                    this.f30447f.success(arrayList);
                 }
             }
         }
@@ -236,23 +236,23 @@ public class c implements FlutterPlugin, MethodChannel.MethodCallHandler {
 
     /* renamed from: c.o.a.c$c  reason: collision with other inner class name */
     /* loaded from: classes9.dex */
-    public class RunnableC1691c implements Runnable {
+    public class RunnableC1701c implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ MethodCall f30244e;
+        public final /* synthetic */ MethodCall f30450e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ i f30245f;
+        public final /* synthetic */ i f30451f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ c.o.a.a f30246g;
+        public final /* synthetic */ c.o.a.a f30452g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ c f30247h;
+        public final /* synthetic */ c f30453h;
 
-        public RunnableC1691c(c cVar, MethodCall methodCall, i iVar, c.o.a.a aVar) {
+        public RunnableC1701c(c cVar, MethodCall methodCall, i iVar, c.o.a.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -267,17 +267,17 @@ public class c implements FlutterPlugin, MethodChannel.MethodCallHandler {
                     return;
                 }
             }
-            this.f30247h = cVar;
-            this.f30244e = methodCall;
-            this.f30245f = iVar;
-            this.f30246g = aVar;
+            this.f30453h = cVar;
+            this.f30450e = methodCall;
+            this.f30451f = iVar;
+            this.f30452g = aVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f30247h.insert(this.f30246g, new c.o.a.f.e(this.f30244e, this.f30245f));
+                this.f30453h.insert(this.f30452g, new c.o.a.f.e(this.f30450e, this.f30451f));
             }
         }
     }
@@ -288,16 +288,16 @@ public class c implements FlutterPlugin, MethodChannel.MethodCallHandler {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c.o.a.a f30248e;
+        public final /* synthetic */ c.o.a.a f30454e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ MethodCall f30249f;
+        public final /* synthetic */ MethodCall f30455f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ i f30250g;
+        public final /* synthetic */ i f30456g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ c f30251h;
+        public final /* synthetic */ c f30457h;
 
         public d(c cVar, c.o.a.a aVar, MethodCall methodCall, i iVar) {
             Interceptable interceptable = $ic;
@@ -314,19 +314,19 @@ public class c implements FlutterPlugin, MethodChannel.MethodCallHandler {
                     return;
                 }
             }
-            this.f30251h = cVar;
-            this.f30248e = aVar;
-            this.f30249f = methodCall;
-            this.f30250g = iVar;
+            this.f30457h = cVar;
+            this.f30454e = aVar;
+            this.f30455f = methodCall;
+            this.f30456g = iVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f30251h.p(this.f30248e, this.f30249f, this.f30250g) == null) {
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f30457h.p(this.f30454e, this.f30455f, this.f30456g) == null) {
                 return;
             }
-            this.f30250g.success(null);
+            this.f30456g.success(null);
         }
     }
 
@@ -336,16 +336,16 @@ public class c implements FlutterPlugin, MethodChannel.MethodCallHandler {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ MethodCall f30252e;
+        public final /* synthetic */ MethodCall f30458e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ i f30253f;
+        public final /* synthetic */ i f30459f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ c.o.a.a f30254g;
+        public final /* synthetic */ c.o.a.a f30460g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ c f30255h;
+        public final /* synthetic */ c f30461h;
 
         public e(c cVar, MethodCall methodCall, i iVar, c.o.a.a aVar) {
             Interceptable interceptable = $ic;
@@ -362,17 +362,17 @@ public class c implements FlutterPlugin, MethodChannel.MethodCallHandler {
                     return;
                 }
             }
-            this.f30255h = cVar;
-            this.f30252e = methodCall;
-            this.f30253f = iVar;
-            this.f30254g = aVar;
+            this.f30461h = cVar;
+            this.f30458e = methodCall;
+            this.f30459f = iVar;
+            this.f30460g = aVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f30255h.update(this.f30254g, new c.o.a.f.e(this.f30252e, this.f30253f));
+                this.f30461h.update(this.f30460g, new c.o.a.f.e(this.f30458e, this.f30459f));
             }
         }
     }
@@ -383,22 +383,22 @@ public class c implements FlutterPlugin, MethodChannel.MethodCallHandler {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ boolean f30256e;
+        public final /* synthetic */ boolean f30462e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f30257f;
+        public final /* synthetic */ String f30463f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ i f30258g;
+        public final /* synthetic */ i f30464g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ Boolean f30259h;
+        public final /* synthetic */ Boolean f30465h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final /* synthetic */ c.o.a.a f30260i;
+        public final /* synthetic */ c.o.a.a f30466i;
 
         /* renamed from: j  reason: collision with root package name */
-        public final /* synthetic */ MethodCall f30261j;
+        public final /* synthetic */ MethodCall f30467j;
         public final /* synthetic */ boolean k;
         public final /* synthetic */ int l;
         public final /* synthetic */ c m;
@@ -419,12 +419,12 @@ public class c implements FlutterPlugin, MethodChannel.MethodCallHandler {
                 }
             }
             this.m = cVar;
-            this.f30256e = z;
-            this.f30257f = str;
-            this.f30258g = iVar;
-            this.f30259h = bool;
-            this.f30260i = aVar;
-            this.f30261j = methodCall;
+            this.f30462e = z;
+            this.f30463f = str;
+            this.f30464g = iVar;
+            this.f30465h = bool;
+            this.f30466i = aVar;
+            this.f30467j = methodCall;
             this.k = z2;
             this.l = i2;
         }
@@ -434,31 +434,31 @@ public class c implements FlutterPlugin, MethodChannel.MethodCallHandler {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 synchronized (c.l) {
-                    if (!this.f30256e) {
-                        File file = new File(new File(this.f30257f).getParent());
+                    if (!this.f30462e) {
+                        File file = new File(new File(this.f30463f).getParent());
                         if (!file.exists() && !file.mkdirs() && !file.exists()) {
-                            this.f30258g.error("sqlite_error", "open_failed " + this.f30257f, null);
+                            this.f30464g.error("sqlite_error", "open_failed " + this.f30463f, null);
                             return;
                         }
                     }
                     try {
-                        if (Boolean.TRUE.equals(this.f30259h)) {
-                            this.f30260i.h();
+                        if (Boolean.TRUE.equals(this.f30465h)) {
+                            this.f30466i.h();
                         } else {
-                            this.f30260i.g();
+                            this.f30466i.g();
                         }
                         synchronized (c.k) {
                             if (this.k) {
-                                c.f30230g.put(this.f30257f, Integer.valueOf(this.l));
+                                c.f30436g.put(this.f30463f, Integer.valueOf(this.l));
                             }
-                            c.q.put(Integer.valueOf(this.l), this.f30260i);
+                            c.q.put(Integer.valueOf(this.l), this.f30466i);
                         }
-                        if (c.o.a.b.b(this.f30260i.f30227d)) {
-                            String str = this.f30260i.d() + "opened " + this.l + " " + this.f30257f;
+                        if (c.o.a.b.b(this.f30466i.f30433d)) {
+                            String str = this.f30466i.d() + "opened " + this.l + " " + this.f30463f;
                         }
-                        this.f30258g.success(c.x(this.l, false, false));
+                        this.f30464g.success(c.x(this.l, false, false));
                     } catch (Exception e2) {
-                        this.m.v(e2, new c.o.a.f.e(this.f30261j, this.f30258g), this.f30260i);
+                        this.m.v(e2, new c.o.a.f.e(this.f30467j, this.f30464g), this.f30466i);
                     }
                 }
             }
@@ -471,13 +471,13 @@ public class c implements FlutterPlugin, MethodChannel.MethodCallHandler {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c.o.a.a f30262e;
+        public final /* synthetic */ c.o.a.a f30468e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ i f30263f;
+        public final /* synthetic */ i f30469f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ c f30264g;
+        public final /* synthetic */ c f30470g;
 
         public g(c cVar, c.o.a.a aVar, i iVar) {
             Interceptable interceptable = $ic;
@@ -494,9 +494,9 @@ public class c implements FlutterPlugin, MethodChannel.MethodCallHandler {
                     return;
                 }
             }
-            this.f30264g = cVar;
-            this.f30262e = aVar;
-            this.f30263f = iVar;
+            this.f30470g = cVar;
+            this.f30468e = aVar;
+            this.f30469f = iVar;
         }
 
         @Override // java.lang.Runnable
@@ -504,9 +504,9 @@ public class c implements FlutterPlugin, MethodChannel.MethodCallHandler {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 synchronized (c.l) {
-                    this.f30264g.k(this.f30262e);
+                    this.f30470g.k(this.f30468e);
                 }
-                this.f30263f.success(null);
+                this.f30469f.success(null);
             }
         }
     }
@@ -517,16 +517,16 @@ public class c implements FlutterPlugin, MethodChannel.MethodCallHandler {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c.o.a.a f30265e;
+        public final /* synthetic */ c.o.a.a f30471e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f30266f;
+        public final /* synthetic */ String f30472f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ i f30267g;
+        public final /* synthetic */ i f30473g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ c f30268h;
+        public final /* synthetic */ c f30474h;
 
         public h(c cVar, c.o.a.a aVar, String str, i iVar) {
             Interceptable interceptable = $ic;
@@ -543,10 +543,10 @@ public class c implements FlutterPlugin, MethodChannel.MethodCallHandler {
                     return;
                 }
             }
-            this.f30268h = cVar;
-            this.f30265e = aVar;
-            this.f30266f = str;
-            this.f30267g = iVar;
+            this.f30474h = cVar;
+            this.f30471e = aVar;
+            this.f30472f = str;
+            this.f30473g = iVar;
         }
 
         @Override // java.lang.Runnable
@@ -554,19 +554,19 @@ public class c implements FlutterPlugin, MethodChannel.MethodCallHandler {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 synchronized (c.l) {
-                    if (this.f30265e != null) {
-                        this.f30268h.k(this.f30265e);
+                    if (this.f30471e != null) {
+                        this.f30474h.k(this.f30471e);
                     }
                     try {
-                        if (c.o.a.b.c(c.f30233j)) {
-                            String str = "delete database " + this.f30266f;
+                        if (c.o.a.b.c(c.f30439j)) {
+                            String str = "delete database " + this.f30472f;
                         }
-                        c.o.a.a.b(this.f30266f);
+                        c.o.a.a.b(this.f30472f);
                     } catch (Exception e2) {
                         String str2 = "error " + e2 + " while closing database " + c.n;
                     }
                 }
-                this.f30267g.success(null);
+                this.f30473g.success(null);
             }
         }
     }
@@ -578,7 +578,7 @@ public class c implements FlutterPlugin, MethodChannel.MethodCallHandler {
         public final Handler a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final MethodChannel.Result f30269b;
+        public final MethodChannel.Result f30475b;
 
         /* loaded from: classes9.dex */
         public class a implements Runnable {
@@ -586,10 +586,10 @@ public class c implements FlutterPlugin, MethodChannel.MethodCallHandler {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ Object f30270e;
+            public final /* synthetic */ Object f30476e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ i f30271f;
+            public final /* synthetic */ i f30477f;
 
             public a(i iVar, Object obj) {
                 Interceptable interceptable = $ic;
@@ -606,15 +606,15 @@ public class c implements FlutterPlugin, MethodChannel.MethodCallHandler {
                         return;
                     }
                 }
-                this.f30271f = iVar;
-                this.f30270e = obj;
+                this.f30477f = iVar;
+                this.f30476e = obj;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    this.f30271f.f30269b.success(this.f30270e);
+                    this.f30477f.f30475b.success(this.f30476e);
                 }
             }
         }
@@ -625,16 +625,16 @@ public class c implements FlutterPlugin, MethodChannel.MethodCallHandler {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ String f30272e;
+            public final /* synthetic */ String f30478e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ String f30273f;
+            public final /* synthetic */ String f30479f;
 
             /* renamed from: g  reason: collision with root package name */
-            public final /* synthetic */ Object f30274g;
+            public final /* synthetic */ Object f30480g;
 
             /* renamed from: h  reason: collision with root package name */
-            public final /* synthetic */ i f30275h;
+            public final /* synthetic */ i f30481h;
 
             public b(i iVar, String str, String str2, Object obj) {
                 Interceptable interceptable = $ic;
@@ -651,31 +651,31 @@ public class c implements FlutterPlugin, MethodChannel.MethodCallHandler {
                         return;
                     }
                 }
-                this.f30275h = iVar;
-                this.f30272e = str;
-                this.f30273f = str2;
-                this.f30274g = obj;
+                this.f30481h = iVar;
+                this.f30478e = str;
+                this.f30479f = str2;
+                this.f30480g = obj;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    this.f30275h.f30269b.error(this.f30272e, this.f30273f, this.f30274g);
+                    this.f30481h.f30475b.error(this.f30478e, this.f30479f, this.f30480g);
                 }
             }
         }
 
         /* renamed from: c.o.a.c$i$c  reason: collision with other inner class name */
         /* loaded from: classes9.dex */
-        public class RunnableC1692c implements Runnable {
+        public class RunnableC1702c implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ i f30276e;
+            public final /* synthetic */ i f30482e;
 
-            public RunnableC1692c(i iVar) {
+            public RunnableC1702c(i iVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -690,14 +690,14 @@ public class c implements FlutterPlugin, MethodChannel.MethodCallHandler {
                         return;
                     }
                 }
-                this.f30276e = iVar;
+                this.f30482e = iVar;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    this.f30276e.f30269b.notImplemented();
+                    this.f30482e.f30475b.notImplemented();
                 }
             }
         }
@@ -718,7 +718,7 @@ public class c implements FlutterPlugin, MethodChannel.MethodCallHandler {
         public void notImplemented() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                this.a.post(new RunnableC1692c(this));
+                this.a.post(new RunnableC1702c(this));
             }
         }
 
@@ -746,7 +746,7 @@ public class c implements FlutterPlugin, MethodChannel.MethodCallHandler {
                 }
             }
             this.a = new Handler(Looper.getMainLooper());
-            this.f30269b = result;
+            this.f30475b = result;
         }
     }
 
@@ -763,10 +763,10 @@ public class c implements FlutterPlugin, MethodChannel.MethodCallHandler {
                 return;
             }
         }
-        f30230g = new HashMap();
-        f30231h = false;
-        f30232i = 10;
-        f30233j = 0;
+        f30436g = new HashMap();
+        f30437h = false;
+        f30438i = 10;
+        f30439j = 0;
         k = new Object();
         l = new Object();
         n = 0;
@@ -812,7 +812,7 @@ public class c implements FlutterPlugin, MethodChannel.MethodCallHandler {
     private Context getContext() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65546, this)) == null) ? this.f30234e : (Context) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65546, this)) == null) ? this.f30440e : (Context) invokeV.objValue;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -843,7 +843,7 @@ public class c implements FlutterPlugin, MethodChannel.MethodCallHandler {
                     try {
                         if (cursor.getCount() > 0 && cursor.moveToFirst()) {
                             if (cursor.getInt(0) == 0) {
-                                if (c.o.a.b.b(aVar.f30227d)) {
+                                if (c.o.a.b.b(aVar.f30433d)) {
                                     String str = aVar.d() + "no changes (id was " + cursor.getLong(1) + SmallTailInfo.EMOTION_SUFFIX;
                                 }
                                 fVar.success(null);
@@ -853,7 +853,7 @@ public class c implements FlutterPlugin, MethodChannel.MethodCallHandler {
                                 return true;
                             }
                             long j2 = cursor.getLong(1);
-                            if (c.o.a.b.b(aVar.f30227d)) {
+                            if (c.o.a.b.b(aVar.f30433d)) {
                                 String str2 = aVar.d() + "inserted " + j2;
                             }
                             fVar.success(Long.valueOf(j2));
@@ -903,7 +903,7 @@ public class c implements FlutterPlugin, MethodChannel.MethodCallHandler {
             ArrayList arrayList = new ArrayList(i2);
             for (int i3 = 0; i3 < i2; i3++) {
                 Object n2 = n(cursor, i3);
-                if (c.o.a.e.a.f30279c) {
+                if (c.o.a.e.a.f30485c) {
                     String str = null;
                     if (n2 != null) {
                         str = n2.getClass().isArray() ? "array(" + n2.getClass().getComponentType().getName() + SmallTailInfo.EMOTION_SUFFIX : n2.getClass().getName();
@@ -933,7 +933,7 @@ public class c implements FlutterPlugin, MethodChannel.MethodCallHandler {
             String[] columnNames = cursor.getColumnNames();
             int length = columnNames.length;
             for (int i2 = 0; i2 < length; i2++) {
-                if (c.o.a.e.a.f30279c) {
+                if (c.o.a.e.a.f30485c) {
                     String str = "column " + i2 + " " + cursor.getType(i2);
                 }
                 int type = cursor.getType(i2);
@@ -997,10 +997,10 @@ public class c implements FlutterPlugin, MethodChannel.MethodCallHandler {
         }
         c.o.a.d b2 = fVar.b();
         ArrayList arrayList = new ArrayList();
-        if (c.o.a.b.b(aVar.f30227d)) {
+        if (c.o.a.b.b(aVar.f30433d)) {
             String str = aVar.d() + b2;
         }
-        boolean z = f30231h;
+        boolean z = f30437h;
         Cursor cursor = 0;
         try {
             try {
@@ -1012,7 +1012,7 @@ public class c implements FlutterPlugin, MethodChannel.MethodCallHandler {
                     try {
                         if (z) {
                             Map<String, Object> m2 = m(rawQuery);
-                            if (c.o.a.b.b(aVar.f30227d)) {
+                            if (c.o.a.b.b(aVar.f30433d)) {
                                 String str2 = aVar.d() + L(m2);
                             }
                             arrayList.add(m2);
@@ -1107,7 +1107,7 @@ public class c implements FlutterPlugin, MethodChannel.MethodCallHandler {
                     try {
                         if (rawQuery.getCount() > 0 && rawQuery.moveToFirst()) {
                             int i2 = rawQuery.getInt(0);
-                            if (c.o.a.b.b(aVar.f30227d)) {
+                            if (c.o.a.b.b(aVar.f30433d)) {
                                 String str = aVar.d() + "changed " + i2;
                             }
                             fVar.success(Integer.valueOf(i2));
@@ -1178,14 +1178,14 @@ public class c implements FlutterPlugin, MethodChannel.MethodCallHandler {
             if (t == null) {
                 return;
             }
-            if (c.o.a.b.b(t.f30227d)) {
-                String str = t.d() + "closing " + intValue + " " + t.f30225b;
+            if (c.o.a.b.b(t.f30433d)) {
+                String str = t.d() + "closing " + intValue + " " + t.f30431b;
             }
-            String str2 = t.f30225b;
+            String str2 = t.f30431b;
             synchronized (k) {
                 q.remove(Integer.valueOf(intValue));
                 if (t.a) {
-                    f30230g.remove(str2);
+                    f30436g.remove(str2);
                 }
             }
             p.post(new g(this, t, new i(this, result, null)));
@@ -1197,7 +1197,7 @@ public class c implements FlutterPlugin, MethodChannel.MethodCallHandler {
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, methodCall, result) == null) {
             HashMap hashMap = new HashMap();
             if ("get".equals((String) methodCall.argument("cmd"))) {
-                int i2 = f30233j;
+                int i2 = f30439j;
                 if (i2 > 0) {
                     hashMap.put("logLevel", Integer.valueOf(i2));
                 }
@@ -1206,9 +1206,9 @@ public class c implements FlutterPlugin, MethodChannel.MethodCallHandler {
                     for (Map.Entry<Integer, c.o.a.a> entry : q.entrySet()) {
                         c.o.a.a value = entry.getValue();
                         HashMap hashMap3 = new HashMap();
-                        hashMap3.put("path", value.f30225b);
+                        hashMap3.put("path", value.f30431b);
                         hashMap3.put("singleInstance", Boolean.valueOf(value.a));
-                        int i3 = value.f30227d;
+                        int i3 = value.f30433d;
                         if (i3 > 0) {
                             hashMap3.put("logLevel", Integer.valueOf(i3));
                         }
@@ -1225,15 +1225,15 @@ public class c implements FlutterPlugin, MethodChannel.MethodCallHandler {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, methodCall, result) == null) {
             c.o.a.e.a.a = Boolean.TRUE.equals(methodCall.arguments());
-            c.o.a.e.a.f30279c = c.o.a.e.a.f30278b && c.o.a.e.a.a;
+            c.o.a.e.a.f30485c = c.o.a.e.a.f30484b && c.o.a.e.a.a;
             if (c.o.a.e.a.a) {
-                if (c.o.a.e.a.f30279c) {
-                    f30233j = 2;
+                if (c.o.a.e.a.f30485c) {
+                    f30439j = 2;
                 } else if (c.o.a.e.a.a) {
-                    f30233j = 1;
+                    f30439j = 1;
                 }
             } else {
-                f30233j = 0;
+                f30439j = 0;
             }
             result.success(null);
         }
@@ -1245,25 +1245,25 @@ public class c implements FlutterPlugin, MethodChannel.MethodCallHandler {
         if (interceptable == null || interceptable.invokeLL(1048579, this, methodCall, result) == null) {
             String str = (String) methodCall.argument("path");
             synchronized (k) {
-                if (c.o.a.b.c(f30233j)) {
-                    String str2 = "Look for " + str + " in " + f30230g.keySet();
+                if (c.o.a.b.c(f30439j)) {
+                    String str2 = "Look for " + str + " in " + f30436g.keySet();
                 }
-                Integer num = f30230g.get(str);
-                if (num == null || (aVar = q.get(num)) == null || !aVar.f30228e.isOpen()) {
+                Integer num = f30436g.get(str);
+                if (num == null || (aVar = q.get(num)) == null || !aVar.f30434e.isOpen()) {
                     aVar = null;
                 } else {
-                    if (c.o.a.b.c(f30233j)) {
+                    if (c.o.a.b.c(f30439j)) {
                         StringBuilder sb = new StringBuilder();
                         sb.append(aVar.d());
                         sb.append("found single instance ");
-                        sb.append(aVar.f30229f ? "(in transaction) " : "");
+                        sb.append(aVar.f30435f ? "(in transaction) " : "");
                         sb.append(num);
                         sb.append(" ");
                         sb.append(str);
                         sb.toString();
                     }
                     q.remove(num);
-                    f30230g.remove(str);
+                    f30436g.remove(str);
                 }
             }
             h hVar = new h(this, aVar, str, new i(this, result, null));
@@ -1289,7 +1289,7 @@ public class c implements FlutterPlugin, MethodChannel.MethodCallHandler {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048581, this, methodCall, result) == null) {
             if (m == null) {
-                m = this.f30234e.getDatabasePath("tekartik_sqflite.db").getParent();
+                m = this.f30440e.getDatabasePath("tekartik_sqflite.db").getParent();
             }
             result.success(m);
         }
@@ -1301,7 +1301,7 @@ public class c implements FlutterPlugin, MethodChannel.MethodCallHandler {
         if (!(interceptable == null || interceptable.invokeLL(1048582, this, methodCall, result) == null) || (t = t(methodCall, result)) == null) {
             return;
         }
-        p.post(new RunnableC1691c(this, methodCall, new i(this, result, null), t));
+        p.post(new RunnableC1701c(this, methodCall, new i(this, result, null), t));
     }
 
     public final void H(MethodCall methodCall, MethodChannel.Result result) {
@@ -1315,27 +1315,27 @@ public class c implements FlutterPlugin, MethodChannel.MethodCallHandler {
             boolean z = (Boolean.FALSE.equals(methodCall.argument("singleInstance")) || w) ? false : true;
             if (z) {
                 synchronized (k) {
-                    if (c.o.a.b.c(f30233j)) {
-                        String str2 = "Look for " + str + " in " + f30230g.keySet();
+                    if (c.o.a.b.c(f30439j)) {
+                        String str2 = "Look for " + str + " in " + f30436g.keySet();
                     }
-                    Integer num = f30230g.get(str);
+                    Integer num = f30436g.get(str);
                     if (num != null && (aVar = q.get(num)) != null) {
-                        if (!aVar.f30228e.isOpen()) {
-                            if (c.o.a.b.c(f30233j)) {
+                        if (!aVar.f30434e.isOpen()) {
+                            if (c.o.a.b.c(f30439j)) {
                                 String str3 = aVar.d() + "single instance database of " + str + " not opened";
                             }
                         } else {
-                            if (c.o.a.b.c(f30233j)) {
+                            if (c.o.a.b.c(f30439j)) {
                                 StringBuilder sb = new StringBuilder();
                                 sb.append(aVar.d());
                                 sb.append("re-opened single instance ");
-                                sb.append(aVar.f30229f ? "(in transaction) " : "");
+                                sb.append(aVar.f30435f ? "(in transaction) " : "");
                                 sb.append(num);
                                 sb.append(" ");
                                 sb.append(str);
                                 sb.toString();
                             }
-                            result.success(x(num.intValue(), true, aVar.f30229f));
+                            result.success(x(num.intValue(), true, aVar.f30435f));
                             return;
                         }
                     }
@@ -1345,19 +1345,19 @@ public class c implements FlutterPlugin, MethodChannel.MethodCallHandler {
                 i2 = n + 1;
                 n = i2;
             }
-            c.o.a.a aVar2 = new c.o.a.a(str, i2, z, f30233j);
+            c.o.a.a aVar2 = new c.o.a.a(str, i2, z, f30439j);
             i iVar = new i(this, result, null);
             synchronized (k) {
                 if (p == null) {
-                    HandlerThread handlerThread = new HandlerThread("Sqflite", f30232i);
+                    HandlerThread handlerThread = new HandlerThread("Sqflite", f30438i);
                     o = handlerThread;
                     handlerThread.start();
                     p = new Handler(o.getLooper());
-                    if (c.o.a.b.b(aVar2.f30227d)) {
-                        String str4 = aVar2.d() + "starting thread" + o + " priority " + f30232i;
+                    if (c.o.a.b.b(aVar2.f30433d)) {
+                        String str4 = aVar2.d() + "starting thread" + o + " priority " + f30438i;
                     }
                 }
-                if (c.o.a.b.b(aVar2.f30227d)) {
+                if (c.o.a.b.b(aVar2.f30433d)) {
                     String str5 = aVar2.d() + "opened " + i2 + " " + str;
                 }
                 p.post(new f(this, w, str, iVar, bool, aVar2, methodCall, z, i2));
@@ -1370,15 +1370,15 @@ public class c implements FlutterPlugin, MethodChannel.MethodCallHandler {
         if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, methodCall, result) == null) {
             Object argument = methodCall.argument("queryAsMapList");
             if (argument != null) {
-                f30231h = Boolean.TRUE.equals(argument);
+                f30437h = Boolean.TRUE.equals(argument);
             }
             Object argument2 = methodCall.argument("androidThreadPriority");
             if (argument2 != null) {
-                f30232i = ((Integer) argument2).intValue();
+                f30438i = ((Integer) argument2).intValue();
             }
             Integer a2 = c.o.a.b.a(methodCall);
             if (a2 != null) {
-                f30233j = a2.intValue();
+                f30439j = a2.intValue();
             }
             result.success(null);
         }
@@ -1407,7 +1407,7 @@ public class c implements FlutterPlugin, MethodChannel.MethodCallHandler {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048587, this, aVar) == null) {
             try {
-                if (c.o.a.b.b(aVar.f30227d)) {
+                if (c.o.a.b.b(aVar.f30433d)) {
                     String str2 = aVar.d() + "closing database " + o;
                 }
                 aVar.a();
@@ -1416,7 +1416,7 @@ public class c implements FlutterPlugin, MethodChannel.MethodCallHandler {
             }
             synchronized (k) {
                 if (q.isEmpty() && p != null) {
-                    if (c.o.a.b.b(aVar.f30227d)) {
+                    if (c.o.a.b.b(aVar.f30433d)) {
                         r0 = aVar.d() + "stopping thread" + o;
                     }
                     o.quit();
@@ -1452,9 +1452,9 @@ public class c implements FlutterPlugin, MethodChannel.MethodCallHandler {
     public void onDetachedFromEngine(FlutterPlugin.FlutterPluginBinding flutterPluginBinding) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048590, this, flutterPluginBinding) == null) {
-            this.f30234e = null;
-            this.f30235f.setMethodCallHandler(null);
-            this.f30235f = null;
+            this.f30440e = null;
+            this.f30441f.setMethodCallHandler(null);
+            this.f30441f = null;
         }
     }
 
@@ -1626,7 +1626,7 @@ public class c implements FlutterPlugin, MethodChannel.MethodCallHandler {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048593, this, aVar, fVar)) == null) {
             c.o.a.d b2 = fVar.b();
-            if (c.o.a.b.b(aVar.f30227d)) {
+            if (c.o.a.b.b(aVar.f30433d)) {
                 String str = aVar.d() + b2;
             }
             Boolean c2 = fVar.c();
@@ -1634,22 +1634,22 @@ public class c implements FlutterPlugin, MethodChannel.MethodCallHandler {
                 try {
                     aVar.f().execSQL(b2.e(), b2.f());
                     if (Boolean.TRUE.equals(c2)) {
-                        aVar.f30229f = true;
+                        aVar.f30435f = true;
                     }
                     if (Boolean.FALSE.equals(c2)) {
-                        aVar.f30229f = false;
+                        aVar.f30435f = false;
                     }
                     return true;
                 } catch (Exception e2) {
                     v(e2, fVar, aVar);
                     if (Boolean.FALSE.equals(c2)) {
-                        aVar.f30229f = false;
+                        aVar.f30435f = false;
                     }
                     return false;
                 }
             } catch (Throwable th) {
                 if (Boolean.FALSE.equals(c2)) {
-                    aVar.f30229f = false;
+                    aVar.f30435f = false;
                 }
                 throw th;
             }
@@ -1688,7 +1688,7 @@ public class c implements FlutterPlugin, MethodChannel.MethodCallHandler {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048597, this, exc, fVar, aVar) == null) {
             if (exc instanceof SQLiteCantOpenDatabaseException) {
-                fVar.error("sqlite_error", "open_failed " + aVar.f30225b, null);
+                fVar.error("sqlite_error", "open_failed " + aVar.f30431b, null);
             } else if (exc instanceof SQLException) {
                 fVar.error("sqlite_error", exc.getMessage(), c.o.a.f.h.a(fVar));
             } else {
@@ -1700,9 +1700,9 @@ public class c implements FlutterPlugin, MethodChannel.MethodCallHandler {
     public final void y(Context context, BinaryMessenger binaryMessenger) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048598, this, context, binaryMessenger) == null) {
-            this.f30234e = context;
+            this.f30440e = context;
             MethodChannel methodChannel = new MethodChannel(binaryMessenger, "com.tekartik.sqflite");
-            this.f30235f = methodChannel;
+            this.f30441f = methodChannel;
             methodChannel.setMethodCallHandler(this);
         }
     }

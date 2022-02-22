@@ -9,8 +9,8 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import c.a.d.f.p.n;
-import c.a.t0.t1.i.a.b.b;
-import c.a.t0.t1.l.c.a;
+import c.a.u0.t1.i.a.b.b;
+import c.a.u0.t1.l.c.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.StringHelper;
@@ -29,22 +29,22 @@ public class OfficialFeedItemImage extends RelativeLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f44938e;
+    public Context f45080e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TbImageView f44939f;
+    public TbImageView f45081f;
 
     /* renamed from: g  reason: collision with root package name */
-    public ImageView f44940g;
+    public ImageView f45082g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f44941h;
+    public TextView f45083h;
 
     /* renamed from: i  reason: collision with root package name */
-    public TextView f44942i;
+    public TextView f45084i;
 
     /* renamed from: j  reason: collision with root package name */
-    public View f44943j;
+    public View f45085j;
     public View k;
     public View l;
     public boolean m;
@@ -74,14 +74,14 @@ public class OfficialFeedItemImage extends RelativeLayout {
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            LayoutInflater.from(this.f44938e).inflate(R.layout.official_feed_item_image, (ViewGroup) this, true);
-            this.f44939f = (TbImageView) findViewById(R.id.message_image);
-            this.f44940g = (ImageView) findViewById(R.id.message_read_icon);
-            this.f44941h = (TextView) findViewById(R.id.message_read_count);
-            this.f44942i = (TextView) findViewById(R.id.message_title);
-            this.f44943j = findViewById(R.id.black_mask);
-            this.f44939f.setConrers(15);
-            this.f44939f.setRadius(n.f(this.f44938e, R.dimen.tbds21));
+            LayoutInflater.from(this.f45080e).inflate(R.layout.official_feed_item_image, (ViewGroup) this, true);
+            this.f45081f = (TbImageView) findViewById(R.id.message_image);
+            this.f45082g = (ImageView) findViewById(R.id.message_read_icon);
+            this.f45083h = (TextView) findViewById(R.id.message_read_count);
+            this.f45084i = (TextView) findViewById(R.id.message_title);
+            this.f45085j = findViewById(R.id.black_mask);
+            this.f45081f.setConrers(15);
+            this.f45081f.setRadius(n.f(this.f45080e, R.dimen.tbds21));
             this.k = findViewById(R.id.image_container);
             this.l = findViewById(R.id.msg_read_container);
             onSkinTypeChange();
@@ -91,41 +91,41 @@ public class OfficialFeedItemImage extends RelativeLayout {
     public void adjustForSingleForum() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f44939f.setRadius(n.f(this.f44938e, R.dimen.tbds31));
-            this.f44939f.setConrers(3);
+            this.f45081f.setRadius(n.f(this.f45080e, R.dimen.tbds31));
+            this.f45081f.setConrers(3);
             ViewGroup.LayoutParams layoutParams = this.k.getLayoutParams();
-            layoutParams.height = n.f(this.f44938e, R.dimen.tbds579);
+            layoutParams.height = n.f(this.f45080e, R.dimen.tbds579);
             this.k.setLayoutParams(layoutParams);
             RelativeLayout.LayoutParams layoutParams2 = (RelativeLayout.LayoutParams) this.l.getLayoutParams();
-            layoutParams2.leftMargin = n.f(this.f44938e, R.dimen.tbds27);
+            layoutParams2.leftMargin = n.f(this.f45080e, R.dimen.tbds27);
             this.l.setLayoutParams(layoutParams2);
-            RelativeLayout.LayoutParams layoutParams3 = (RelativeLayout.LayoutParams) this.f44942i.getLayoutParams();
-            layoutParams3.leftMargin = n.f(this.f44938e, R.dimen.tbds30);
-            layoutParams3.bottomMargin = n.f(this.f44938e, R.dimen.tbds27);
-            this.f44942i.setLayoutParams(layoutParams3);
+            RelativeLayout.LayoutParams layoutParams3 = (RelativeLayout.LayoutParams) this.f45084i.getLayoutParams();
+            layoutParams3.leftMargin = n.f(this.f45080e, R.dimen.tbds30);
+            layoutParams3.bottomMargin = n.f(this.f45080e, R.dimen.tbds27);
+            this.f45084i.setLayoutParams(layoutParams3);
         }
     }
 
     public void onSkinTypeChange() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f44940g, R.drawable.icon_pure_broadcast_read16_svg, R.color.CAM_X0101, SvgManager.SvgResourceStateType.NORMAL);
+            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f45082g, R.drawable.icon_pure_broadcast_read16_svg, R.color.CAM_X0101, SvgManager.SvgResourceStateType.NORMAL);
             DrawableSelector gradientLinear = TBSelector.makeDrawableSelector().setShape(0).gradientLinear(R.color.CAM_X0601, R.color.CAM_X0606);
             if (this.m) {
-                gradientLinear.into(this.f44943j);
+                gradientLinear.into(this.f45085j);
             } else {
-                gradientLinear.blRadius(n.f(getContext(), R.dimen.tbds21)).brRadius(n.f(getContext(), R.dimen.tbds21)).into(this.f44943j);
+                gradientLinear.blRadius(n.f(getContext(), R.dimen.tbds21)).brRadius(n.f(getContext(), R.dimen.tbds21)).into(this.f45085j);
             }
-            SkinManager.setViewTextColor(this.f44941h, R.color.CAM_X0101);
-            SkinManager.setViewTextColor(this.f44942i, R.color.CAM_X0101);
+            SkinManager.setViewTextColor(this.f45083h, R.color.CAM_X0101);
+            SkinManager.setViewTextColor(this.f45084i, R.color.CAM_X0101);
         }
     }
 
-    public void setData(a.C1381a c1381a, int i2, b bVar) {
+    public void setData(a.C1387a c1387a, int i2, b bVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(1048579, this, c1381a, i2, bVar) == null) {
-            this.f44939f.startLoad(c1381a.f22433c, 10, false);
-            this.f44942i.setText(c1381a.a);
+        if (interceptable == null || interceptable.invokeLIL(1048579, this, c1387a, i2, bVar) == null) {
+            this.f45081f.startLoad(c1387a.f22646c, 10, false);
+            this.f45084i.setText(c1387a.a);
             if (bVar != null) {
                 i2 = bVar.i();
             }
@@ -137,13 +137,13 @@ public class OfficialFeedItemImage extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048580, this, i2) == null) {
             if (i2 > 0) {
-                this.f44941h.setText(this.f44938e.getString(R.string.person_view_num, StringHelper.numberUniformFormatExtraWithRound(i2)));
-                this.f44941h.setVisibility(0);
-                this.f44940g.setVisibility(0);
+                this.f45083h.setText(this.f45080e.getString(R.string.person_view_num, StringHelper.numberUniformFormatExtraWithRound(i2)));
+                this.f45083h.setVisibility(0);
+                this.f45082g.setVisibility(0);
                 return;
             }
-            this.f44941h.setVisibility(8);
-            this.f44940g.setVisibility(8);
+            this.f45083h.setVisibility(8);
+            this.f45082g.setVisibility(8);
         }
     }
 
@@ -166,7 +166,7 @@ public class OfficialFeedItemImage extends RelativeLayout {
                 return;
             }
         }
-        this.f44938e = context;
+        this.f45080e = context;
         a();
     }
 }

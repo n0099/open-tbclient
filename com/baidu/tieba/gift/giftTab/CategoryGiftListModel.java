@@ -1,7 +1,7 @@
 package com.baidu.tieba.gift.giftTab;
 
 import c.a.d.a.f;
-import c.a.s0.s.q.j0;
+import c.a.t0.s.r.j0;
 import com.baidu.adp.base.BdBaseModel;
 import com.baidu.adp.framework.message.ResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
@@ -19,13 +19,13 @@ public class CategoryGiftListModel extends BdBaseModel<GiftTabActivity> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public ArrayList<j0> f44018e;
+    public ArrayList<j0> f44263e;
 
     /* renamed from: f  reason: collision with root package name */
-    public b f44019f;
+    public b f44264f;
 
     /* renamed from: g  reason: collision with root package name */
-    public c.a.d.c.g.a f44020g;
+    public c.a.d.c.g.a f44265g;
 
     /* loaded from: classes12.dex */
     public class a extends c.a.d.c.g.a {
@@ -66,15 +66,15 @@ public class CategoryGiftListModel extends BdBaseModel<GiftTabActivity> {
                 int i2 = 0;
                 if (z) {
                     CategoryGiftListHttpResponseMessage categoryGiftListHttpResponseMessage = (CategoryGiftListHttpResponseMessage) responsedMessage;
-                    this.a.f44018e = categoryGiftListHttpResponseMessage.getGiftList();
+                    this.a.f44263e = categoryGiftListHttpResponseMessage.getGiftList();
                     i2 = categoryGiftListHttpResponseMessage.getCategoryId();
                 } else if (responsedMessage instanceof CategoryGiftListSocketResponseMessage) {
                     CategoryGiftListSocketResponseMessage categoryGiftListSocketResponseMessage = (CategoryGiftListSocketResponseMessage) responsedMessage;
-                    this.a.f44018e = categoryGiftListSocketResponseMessage.getGiftList();
+                    this.a.f44263e = categoryGiftListSocketResponseMessage.getGiftList();
                     i2 = categoryGiftListSocketResponseMessage.getCategoryId();
                 }
-                if (this.a.f44019f != null) {
-                    this.a.f44019f.a(responsedMessage.getError(), responsedMessage.getErrorString(), i2, this.a.f44018e);
+                if (this.a.f44264f != null) {
+                    this.a.f44264f.a(responsedMessage.getError(), responsedMessage.getErrorString(), i2, this.a.f44263e);
                 }
             }
         }
@@ -103,7 +103,7 @@ public class CategoryGiftListModel extends BdBaseModel<GiftTabActivity> {
                 return;
             }
         }
-        this.f44020g = new a(this, CmdConfigHttp.CMD_GIFT_LIST_BY_CATEGORY, 309055);
+        this.f44265g = new a(this, CmdConfigHttp.CMD_GIFT_LIST_BY_CATEGORY, 309055);
         registerTask();
         registerListener();
     }
@@ -111,7 +111,7 @@ public class CategoryGiftListModel extends BdBaseModel<GiftTabActivity> {
     public void A(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, bVar) == null) {
-            this.f44019f = bVar;
+            this.f44264f = bVar;
         }
     }
 
@@ -138,15 +138,15 @@ public class CategoryGiftListModel extends BdBaseModel<GiftTabActivity> {
     public final void registerListener() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            registerListener(this.f44020g);
+            registerListener(this.f44265g);
         }
     }
 
     public final void registerTask() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            c.a.t0.x3.f0.a.h(309055, CategoryGiftListSocketResponseMessage.class, false, false);
-            c.a.t0.x3.f0.a.c(309055, CmdConfigHttp.CMD_GIFT_LIST_BY_CATEGORY, TbConfig.GET_GIFT_LIST_BY_CATEGORY, CategoryGiftListHttpResponseMessage.class, false, false, false, false);
+            c.a.u0.z3.g0.a.h(309055, CategoryGiftListSocketResponseMessage.class, false, false);
+            c.a.u0.z3.g0.a.c(309055, CmdConfigHttp.CMD_GIFT_LIST_BY_CATEGORY, TbConfig.GET_GIFT_LIST_BY_CATEGORY, CategoryGiftListHttpResponseMessage.class, false, false, false, false);
         }
     }
 

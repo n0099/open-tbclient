@@ -12,17 +12,17 @@ import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
 import tv.athena.revenue.payui.view.AbsViewEventHandler;
 import tv.athena.revenue.payui.view.IYYPayResultView;
 import tv.athena.revenue.payui.view.dialog.CancelType;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class i implements j.a.a.e.q.g.c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public AbsViewEventHandler a;
 
     /* renamed from: b  reason: collision with root package name */
-    public j.a.a.e.m.f f62369b;
+    public j.a.a.e.m.f f62536b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Activity f62370c;
+    public Activity f62537c;
 
     public i(AbsViewEventHandler absViewEventHandler, j.a.a.e.m.f fVar, Activity activity, IYYPayResultView iYYPayResultView) {
         Interceptable interceptable = $ic;
@@ -41,8 +41,8 @@ public class i implements j.a.a.e.q.g.c {
         }
         RLog.info("PayResultDialogListener", "create PayResultDialogListener");
         this.a = absViewEventHandler;
-        this.f62369b = fVar;
-        this.f62370c = activity;
+        this.f62536b = fVar;
+        this.f62537c = activity;
     }
 
     @Override // j.a.a.e.q.g.c
@@ -50,7 +50,7 @@ public class i implements j.a.a.e.q.g.c {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, cancelType) == null) {
             RLog.info("PayResultDialogListener", "PayResultDialog notifyCancelType clickArea:" + cancelType);
-            this.f62369b.c(cancelType, this.a);
+            this.f62536b.c(cancelType, this.a);
         }
     }
 

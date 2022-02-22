@@ -24,31 +24,31 @@ public class j {
     public static final JSONObject a = new JSONObject();
 
     /* renamed from: b  reason: collision with root package name */
-    public static Context f59600b;
+    public static Context f59767b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static com.ss.android.download.api.config.f f59601c;
+    public static com.ss.android.download.api.config.f f59768c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static com.ss.android.download.api.config.c f59602d;
+    public static com.ss.android.download.api.config.c f59769d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static com.ss.android.download.api.config.k f59603e;
+    public static com.ss.android.download.api.config.k f59770e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static com.ss.android.download.api.config.g f59604f;
+    public static com.ss.android.download.api.config.g f59771f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static com.ss.android.download.api.config.h f59605g;
+    public static com.ss.android.download.api.config.h f59772g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static com.ss.android.download.api.config.i f59606h;
+    public static com.ss.android.download.api.config.i f59773h;
 
     /* renamed from: i  reason: collision with root package name */
-    public static com.ss.android.download.api.model.a f59607i;
+    public static com.ss.android.download.api.model.a f59774i;
 
     /* renamed from: j  reason: collision with root package name */
-    public static com.ss.android.download.api.config.b f59608j;
+    public static com.ss.android.download.api.config.b f59775j;
     public static com.ss.android.socialbase.appdownloader.c.h k;
     public static com.ss.android.download.api.config.d l;
     public static com.ss.android.download.api.config.e m;
@@ -64,37 +64,37 @@ public class j {
 
     public static void a(Context context) {
         if (context != null && context.getApplicationContext() != null) {
-            f59600b = context.getApplicationContext();
+            f59767b = context.getApplicationContext();
             return;
         }
         throw new IllegalArgumentException("Context is null");
     }
 
     public static void b(Context context) {
-        if (f59600b != null || context == null || context.getApplicationContext() == null) {
+        if (f59767b != null || context == null || context.getApplicationContext() == null) {
             return;
         }
-        f59600b = context.getApplicationContext();
+        f59767b = context.getApplicationContext();
     }
 
     @NonNull
     public static com.ss.android.download.api.config.k c() {
-        if (f59603e == null) {
-            f59603e = new com.ss.android.download.api.a.a();
+        if (f59770e == null) {
+            f59770e = new com.ss.android.download.api.a.a();
         }
-        return f59603e;
+        return f59770e;
     }
 
     public static com.ss.android.download.api.config.g d() {
-        return f59604f;
+        return f59771f;
     }
 
     @NonNull
     public static com.ss.android.download.api.config.h e() {
-        if (f59605g == null) {
-            f59605g = new com.ss.android.download.api.a.b();
+        if (f59772g == null) {
+            f59772g = new com.ss.android.download.api.a.b();
         }
-        return f59605g;
+        return f59772g;
     }
 
     public static com.ss.android.socialbase.appdownloader.c.h f() {
@@ -113,7 +113,7 @@ public class j {
     }
 
     public static Context getContext() {
-        Context context = f59600b;
+        Context context = f59767b;
         if (context != null) {
             return context;
         }
@@ -134,9 +134,9 @@ public class j {
 
     @NonNull
     public static JSONObject i() {
-        com.ss.android.download.api.config.i iVar = f59606h;
+        com.ss.android.download.api.config.i iVar = f59773h;
         if (iVar != null && iVar.a() != null) {
-            return f59606h.a();
+            return f59773h.a();
         }
         return a;
     }
@@ -147,7 +147,7 @@ public class j {
 
     @Nullable
     public static com.ss.android.download.api.config.b k() {
-        return f59608j;
+        return f59775j;
     }
 
     @Nullable
@@ -217,13 +217,13 @@ public class j {
     }
 
     public static boolean v() {
-        return (f59601c == null || f59604f == null || f59606h == null || f59608j == null || u == null) ? false : true;
+        return (f59768c == null || f59771f == null || f59773h == null || f59775j == null || u == null) ? false : true;
     }
 
     @NonNull
     public static com.ss.android.download.api.config.c b() {
-        if (f59602d == null) {
-            f59602d = new com.ss.android.download.api.config.c() { // from class: com.ss.android.downloadlib.addownload.j.1
+        if (f59769d == null) {
+            f59769d = new com.ss.android.download.api.config.c() { // from class: com.ss.android.downloadlib.addownload.j.1
                 @Override // com.ss.android.download.api.config.c
                 public void a(@Nullable Context context, @NonNull DownloadModel downloadModel, @Nullable DownloadController downloadController, @Nullable DownloadEventConfig downloadEventConfig) {
                 }
@@ -233,39 +233,39 @@ public class j {
                 }
             };
         }
-        return f59602d;
+        return f59769d;
     }
 
     public static void a(@NonNull com.ss.android.download.api.config.f fVar) {
-        f59601c = fVar;
+        f59768c = fVar;
     }
 
     public static void a(@NonNull com.ss.android.download.api.config.k kVar) {
-        f59603e = kVar;
+        f59770e = kVar;
     }
 
     public static void a(@NonNull com.ss.android.download.api.config.g gVar) {
-        f59604f = gVar;
+        f59771f = gVar;
     }
 
     public static void a(@NonNull com.ss.android.download.api.config.h hVar) {
-        f59605g = hVar;
+        f59772g = hVar;
     }
 
     public static void a(@NonNull com.ss.android.download.api.config.i iVar) {
-        f59606h = iVar;
+        f59773h = iVar;
     }
 
     public static void a(@NonNull com.ss.android.download.api.model.a aVar) {
-        f59607i = aVar;
+        f59774i = aVar;
     }
 
     public static void a(@NonNull com.ss.android.download.api.config.b bVar) {
-        f59608j = bVar;
+        f59775j = bVar;
     }
 
     public static com.ss.android.download.api.config.f a() {
-        return f59601c;
+        return f59768c;
     }
 
     public static void a(String str) {

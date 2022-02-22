@@ -84,7 +84,7 @@ public final class FuturesGetChecked {
                     }
 
                     /* renamed from: computeValue  reason: collision with other method in class */
-                    public /* bridge */ /* synthetic */ Object m117computeValue(Class cls) {
+                    public /* bridge */ /* synthetic */ Object m116computeValue(Class cls) {
                         return computeValue((Class<?>) cls);
                     }
 

@@ -22,23 +22,23 @@ import com.bumptech.glide.load.engine.GlideException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-/* loaded from: classes13.dex */
+/* loaded from: classes2.dex */
 public class e implements i.b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public JSONArray a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Long f51767b;
+    public Long f51934b;
 
     /* renamed from: com.baidu.wallet.lightapp.multipage.e$1  reason: invalid class name */
-    /* loaded from: classes13.dex */
+    /* loaded from: classes2.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes2.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public static e a;
@@ -140,7 +140,7 @@ public class e implements i.b {
             LogUtil.d("LangbridgeBehaviourMonitor", "coldDown");
             DXMSdkSAUtils.onEvent("#MW_BHM_ColdDown");
             Long valueOf = Long.valueOf(System.currentTimeMillis());
-            this.f51767b = valueOf;
+            this.f51934b = valueOf;
             SharedPreferencesUtils.setParam(context, BeanConstants.PREFERENCES_NAME, "langbridge_cold_point", valueOf);
             i.a().c(context);
         }
@@ -159,7 +159,7 @@ public class e implements i.b {
                 return;
             }
         }
-        this.f51767b = -1L;
+        this.f51934b = -1L;
     }
 
     public void a(@NonNull Context context, int i2, @NonNull String str, List<String> list) {
@@ -192,10 +192,10 @@ public class e implements i.b {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(65542, this, context, i2)) == null) {
-            if (this.f51767b.longValue() == -1) {
-                this.f51767b = (Long) SharedPreferencesUtils.getParam(context, BeanConstants.PREFERENCES_NAME, "langbridge_cold_point", 0L);
+            if (this.f51934b.longValue() == -1) {
+                this.f51934b = (Long) SharedPreferencesUtils.getParam(context, BeanConstants.PREFERENCES_NAME, "langbridge_cold_point", 0L);
             }
-            return System.currentTimeMillis() < this.f51767b.longValue() + ((long) (i2 * 1000));
+            return System.currentTimeMillis() < this.f51934b.longValue() + ((long) (i2 * 1000));
         }
         return invokeLI.booleanValue;
     }
@@ -206,11 +206,11 @@ public class e implements i.b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, context, langbridgeSettings)) == null) {
             if (langbridgeSettings.MW_BHM_ON && b(context, langbridgeSettings.MW_BHM_COLD_TIME)) {
-                LangbridgeSettings m104clone = langbridgeSettings.m104clone();
-                m104clone.MW_ON = false;
-                m104clone.MW_USE_OLD = true;
+                LangbridgeSettings m103clone = langbridgeSettings.m103clone();
+                m103clone.MW_ON = false;
+                m103clone.MW_USE_OLD = true;
                 LogUtil.d("LangbridgeSettings", "");
-                return m104clone;
+                return m103clone;
             }
             return langbridgeSettings;
         }

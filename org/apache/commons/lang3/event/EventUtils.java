@@ -13,12 +13,12 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 import org.apache.commons.lang3.reflect.MethodUtils;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class EventUtils {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static class EventBindingInvocationHandler implements InvocationHandler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

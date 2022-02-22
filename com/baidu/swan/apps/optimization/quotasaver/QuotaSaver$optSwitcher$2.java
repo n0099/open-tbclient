@@ -1,6 +1,6 @@
 package com.baidu.swan.apps.optimization.quotasaver;
 
-import c.a.r0.a.g1.j.f.b;
+import c.a.s0.a.g1.j.f.b;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -39,7 +39,7 @@ public final class QuotaSaver$optSwitcher$2 extends Lambda implements Function0<
             }
         }
 
-        @Override // c.a.r0.a.g1.j.f.b
+        @Override // c.a.s0.a.g1.j.f.b
         public int a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -52,28 +52,28 @@ public final class QuotaSaver$optSwitcher$2 extends Lambda implements Function0<
             return invokeV.intValue;
         }
 
-        @Override // c.a.r0.a.g1.j.f.b
+        @Override // c.a.s0.a.g1.j.f.b
         public boolean b() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? QuotaSaver.p.b() && QuotaSaver.p.g() && QuotaSaver.p.j() : invokeV.booleanValue;
         }
 
-        @Override // c.a.r0.a.g1.j.f.b
+        @Override // c.a.s0.a.g1.j.f.b
         public boolean c() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? QuotaSaver.p.b() && QuotaSaver.p.h() : invokeV.booleanValue;
         }
 
-        @Override // c.a.r0.a.g1.j.f.b
+        @Override // c.a.s0.a.g1.j.f.b
         public boolean d() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? QuotaSaver.p.b() && QuotaSaver.p.i() : invokeV.booleanValue;
         }
 
-        @Override // c.a.r0.a.g1.j.f.b
+        @Override // c.a.s0.a.g1.j.f.b
         public boolean e() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;

@@ -19,10 +19,10 @@ public class h {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ c.a.d.f.n.j.a f3075c;
+        public final /* synthetic */ c.a.d.f.n.j.a f2161c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ boolean f3076d;
+        public final /* synthetic */ boolean f2162d;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(String str, String str2, DiskFileOperate.Action action, c.a.d.f.n.j.a aVar, boolean z) {
@@ -43,8 +43,8 @@ public class h {
                     return;
                 }
             }
-            this.f3075c = aVar;
-            this.f3076d = z;
+            this.f2161c = aVar;
+            this.f2162d = z;
         }
 
         @Override // com.baidu.adp.lib.Disk.ops.DiskFileOperate
@@ -53,9 +53,9 @@ public class h {
             if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
                 super.callback(z);
                 if (z) {
-                    this.f3075c.F(getFileInfo().length());
-                    if (this.f3076d || this.f3075c.l() > 20480) {
-                        h.b(this.f3075c);
+                    this.f2161c.F(getFileInfo().length());
+                    if (this.f2162d || this.f2161c.l() > 20480) {
+                        h.b(this.f2161c);
                     }
                 }
             }
@@ -111,7 +111,7 @@ public class h {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ c.a.d.f.n.j.a f3077c;
+        public final /* synthetic */ c.a.d.f.n.j.a f2163c;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public c(String str, String str2, DiskFileOperate.Action action, c.a.d.f.n.j.a aVar) {
@@ -132,7 +132,7 @@ public class h {
                     return;
                 }
             }
-            this.f3077c = aVar;
+            this.f2163c = aVar;
         }
 
         @Override // com.baidu.adp.lib.Disk.ops.DiskFileOperate
@@ -141,7 +141,7 @@ public class h {
             if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
                 super.callback(z);
                 if (z) {
-                    this.f3077c.F(getFileInfo().length());
+                    this.f2163c.F(getFileInfo().length());
                 }
             }
         }

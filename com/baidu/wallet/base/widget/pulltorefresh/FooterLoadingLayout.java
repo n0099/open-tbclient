@@ -25,13 +25,13 @@ public class FooterLoadingLayout extends LoadingLayout {
     public ProgressBar a;
 
     /* renamed from: b  reason: collision with root package name */
-    public TextView f50861b;
+    public TextView f51028b;
 
     /* renamed from: c  reason: collision with root package name */
-    public CharSequence f50862c;
+    public CharSequence f51029c;
 
     /* renamed from: d  reason: collision with root package name */
-    public CharSequence f50863d;
+    public CharSequence f51030d;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public FooterLoadingLayout(Context context) {
@@ -58,7 +58,7 @@ public class FooterLoadingLayout extends LoadingLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65538, this, context) == null) {
             this.a = (ProgressBar) findViewById(ResUtils.id(getContext(), "bd_wallet_progress_footer"));
-            this.f50861b = (TextView) findViewById(ResUtils.id(getContext(), "bd_wallet_loadmore_text"));
+            this.f51028b = (TextView) findViewById(ResUtils.id(getContext(), "bd_wallet_loadmore_text"));
             setState(LoadingLayout.State.RESET);
         }
     }
@@ -82,11 +82,11 @@ public class FooterLoadingLayout extends LoadingLayout {
     public void onNoMoreData() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.f50861b.setVisibility(0);
-            if (TextUtils.isEmpty(this.f50863d)) {
-                this.f50861b.setText(ResUtils.getString(getContext(), "wallet_base_no_more"));
+            this.f51028b.setVisibility(0);
+            if (TextUtils.isEmpty(this.f51030d)) {
+                this.f51028b.setText(ResUtils.getString(getContext(), "wallet_base_no_more"));
             } else {
-                this.f50861b.setText(this.f50863d);
+                this.f51028b.setText(this.f51030d);
             }
         }
     }
@@ -96,11 +96,11 @@ public class FooterLoadingLayout extends LoadingLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             this.a.setVisibility(0);
-            this.f50861b.setVisibility(0);
-            if (TextUtils.isEmpty(this.f50862c)) {
-                this.f50861b.setText(ResUtils.string(getContext(), "wallet_base_refresh_loading"));
+            this.f51028b.setVisibility(0);
+            if (TextUtils.isEmpty(this.f51029c)) {
+                this.f51028b.setText(ResUtils.string(getContext(), "wallet_base_refresh_loading"));
             } else {
-                this.f50861b.setText(this.f50862c);
+                this.f51028b.setText(this.f51029c);
             }
         }
     }
@@ -109,10 +109,10 @@ public class FooterLoadingLayout extends LoadingLayout {
     public void onReset() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            if (TextUtils.isEmpty(this.f50862c)) {
-                this.f50861b.setText(ResUtils.string(getContext(), "wallet_base_refresh_loading"));
+            if (TextUtils.isEmpty(this.f51029c)) {
+                this.f51028b.setText(ResUtils.string(getContext(), "wallet_base_refresh_loading"));
             } else {
-                this.f50861b.setText(this.f50862c);
+                this.f51028b.setText(this.f51029c);
             }
         }
     }
@@ -122,7 +122,7 @@ public class FooterLoadingLayout extends LoadingLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048581, this, state, state2) == null) {
             this.a.setVisibility(8);
-            this.f50861b.setVisibility(4);
+            this.f51028b.setVisibility(4);
             super.onStateChanged(state, state2);
         }
     }
@@ -140,8 +140,8 @@ public class FooterLoadingLayout extends LoadingLayout {
         if (!(interceptable == null || interceptable.invokeL(1048583, this, charSequence) == null) || TextUtils.isEmpty(charSequence)) {
             return;
         }
-        this.f50863d = charSequence;
-        TextView textView = this.f50861b;
+        this.f51030d = charSequence;
+        TextView textView = this.f51028b;
         if (textView != null) {
             textView.setText(charSequence);
         }
@@ -153,8 +153,8 @@ public class FooterLoadingLayout extends LoadingLayout {
         if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, charSequence) == null) || TextUtils.isEmpty(charSequence)) {
             return;
         }
-        this.f50862c = charSequence;
-        TextView textView = this.f50861b;
+        this.f51029c = charSequence;
+        TextView textView = this.f51028b;
         if (textView != null) {
             textView.setText(charSequence);
         }

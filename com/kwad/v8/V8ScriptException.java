@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.apache.commons.lang3.StringUtils;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public abstract class V8ScriptException extends V8RuntimeException {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

@@ -1,7 +1,7 @@
 package com.baidu.tieba.setting.model.friendAndStrangerSwitch;
 
 import c.a.d.a.f;
-import c.a.s0.s.i0.b;
+import c.a.t0.s.j0.b;
 import com.baidu.adp.base.BdBaseModel;
 import com.baidu.adp.framework.listener.HttpMessageListener;
 import com.baidu.adp.framework.message.HttpMessage;
@@ -18,16 +18,16 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public class GetFriendAndStrangerSwitchModel extends BdBaseModel<MoreActivity> {
     public static /* synthetic */ Interceptable $ic = null;
     public static int FRIEND_AND_STRANGER_MASK_TYPE = -1;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public HttpMessageListener f47831e;
+    public HttpMessageListener f47977e;
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes13.dex */
     public class a extends HttpMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -100,7 +100,7 @@ public class GetFriendAndStrangerSwitchModel extends BdBaseModel<MoreActivity> {
             }
         }
         a aVar = new a(this, CmdConfigHttp.CMD_GET_FRIEND_AND_STRANGER_MSG_SWITCH);
-        this.f47831e = aVar;
+        this.f47977e = aVar;
         registerListener(aVar);
         loadData();
     }

@@ -17,7 +17,7 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class SwitchManager {
     public static /* synthetic */ Interceptable $ic;
     public static SwitchManager sSwitchManager;
@@ -91,8 +91,8 @@ public class SwitchManager {
         for (c cVar : this.mSwitchs.values()) {
             if (cVar != null) {
                 cVar.h(0);
-                edit.putInt(cVar.d() + c.f2854d, 0);
-                edit.putInt(cVar.d() + c.f2855e, cVar.c());
+                edit.putInt(cVar.d() + c.f1934d, 0);
+                edit.putInt(cVar.d() + c.f1935e, cVar.c());
             }
         }
         edit.commit();

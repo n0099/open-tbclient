@@ -25,14 +25,14 @@ public class IrregularImageView extends AppCompatImageView {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f49143e;
+    public int f49310e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f49144f;
-    public final c<c.a.d.n.d.a> mCallback;
+    public int f49311f;
+    public final c<c.a.d.o.d.a> mCallback;
 
     /* loaded from: classes13.dex */
-    public class a extends c<c.a.d.n.d.a> {
+    public class a extends c<c.a.d.o.d.a> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ IrregularImageView a;
@@ -57,27 +57,27 @@ public class IrregularImageView extends AppCompatImageView {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // c.a.d.f.l.c
-        public void onLoaded(c.a.d.n.d.a aVar, String str, int i2) {
+        public void onLoaded(c.a.d.o.d.a aVar, String str, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLLI(1048576, this, aVar, str, i2) == null) {
                 if (aVar == null) {
-                    if (this.a.f49144f != 0) {
+                    if (this.a.f49311f != 0) {
                         Bitmap bitmap = null;
                         try {
-                            bitmap = BitmapFactory.decodeResource(this.a.getResources(), this.a.f49144f);
+                            bitmap = BitmapFactory.decodeResource(this.a.getResources(), this.a.f49311f);
                         } catch (Throwable th) {
                             th.printStackTrace();
                         }
                         if (bitmap != null) {
                             IrregularImageView irregularImageView = this.a;
-                            irregularImageView.setImage(bitmap, irregularImageView.f49143e);
+                            irregularImageView.setImage(bitmap, irregularImageView.f49310e);
                             return;
                         }
                         return;
                     }
                     return;
                 }
-                this.a.setImage(aVar.p(), this.a.f49143e);
+                this.a.setImage(aVar.p(), this.a.f49310e);
             }
         }
     }
@@ -147,14 +147,14 @@ public class IrregularImageView extends AppCompatImageView {
     public void setErrorRes(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
-            this.f49144f = i2;
+            this.f49311f = i2;
         }
     }
 
     public void setImage(String str, BdUniqueId bdUniqueId, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLI(1048579, this, str, bdUniqueId, i2) == null) {
-            this.f49143e = i2;
+            this.f49310e = i2;
             d.h().k(str, 10, this.mCallback, 0, 0, bdUniqueId, new Object[0]);
         }
     }

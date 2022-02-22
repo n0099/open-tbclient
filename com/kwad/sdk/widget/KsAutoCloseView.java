@@ -9,29 +9,29 @@ import android.widget.TextView;
 import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 import com.kwad.sdk.R;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class KsAutoCloseView extends LinearLayout implements View.OnClickListener {
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f58080b = "%s秒后自动关闭";
+    public static String f58247b = "%s秒后自动关闭";
     public int a;
 
     /* renamed from: c  reason: collision with root package name */
-    public TextView f58081c;
+    public TextView f58248c;
 
     /* renamed from: d  reason: collision with root package name */
-    public ImageView f58082d;
+    public ImageView f58249d;
 
     /* renamed from: e  reason: collision with root package name */
-    public a f58083e;
+    public a f58250e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f58084f;
+    public boolean f58251f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f58085g;
+    public boolean f58252g;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public interface a {
         void a();
 
@@ -41,24 +41,24 @@ public class KsAutoCloseView extends LinearLayout implements View.OnClickListene
     public KsAutoCloseView(Context context) {
         super(context);
         this.a = 10;
-        this.f58084f = true;
-        this.f58085g = false;
+        this.f58251f = true;
+        this.f58252g = false;
         a(context, null, 0);
     }
 
     public KsAutoCloseView(Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
         this.a = 10;
-        this.f58084f = true;
-        this.f58085g = false;
+        this.f58251f = true;
+        this.f58252g = false;
         a(context, attributeSet, 0);
     }
 
     public KsAutoCloseView(Context context, @Nullable AttributeSet attributeSet, int i2) {
         super(context, attributeSet, i2);
         this.a = 10;
-        this.f58084f = true;
-        this.f58085g = false;
+        this.f58251f = true;
+        this.f58252g = false;
         a(context, attributeSet, i2);
     }
 
@@ -66,22 +66,22 @@ public class KsAutoCloseView extends LinearLayout implements View.OnClickListene
     public KsAutoCloseView(Context context, AttributeSet attributeSet, int i2, int i3) {
         super(context, attributeSet, i2, i3);
         this.a = 10;
-        this.f58084f = true;
-        this.f58085g = false;
+        this.f58251f = true;
+        this.f58252g = false;
         a(context, attributeSet, i2);
     }
 
     private void a(Context context, @Nullable AttributeSet attributeSet, int i2) {
         LinearLayout.inflate(context, R.layout.ksad_interstitial_auto_close, this);
-        this.f58081c = (TextView) findViewById(R.id.ksad_auto_close_text);
+        this.f58248c = (TextView) findViewById(R.id.ksad_auto_close_text);
         ImageView imageView = (ImageView) findViewById(R.id.ksad_auto_close_btn);
-        this.f58082d = imageView;
+        this.f58249d = imageView;
         imageView.setOnClickListener(this);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void b(int i2) {
-        this.f58081c.setText(String.format(f58080b, Integer.valueOf(i2)));
+        this.f58248c.setText(String.format(f58247b, Integer.valueOf(i2)));
     }
 
     public static /* synthetic */ int e(KsAutoCloseView ksAutoCloseView) {
@@ -98,11 +98,11 @@ public class KsAutoCloseView extends LinearLayout implements View.OnClickListene
         post(new Runnable() { // from class: com.kwad.sdk.widget.KsAutoCloseView.1
             @Override // java.lang.Runnable
             public void run() {
-                if (KsAutoCloseView.this.f58084f) {
-                    if (!KsAutoCloseView.this.f58085g) {
+                if (KsAutoCloseView.this.f58251f) {
+                    if (!KsAutoCloseView.this.f58252g) {
                         if (KsAutoCloseView.this.a == 0) {
-                            if (KsAutoCloseView.this.f58083e != null) {
-                                KsAutoCloseView.this.f58083e.a();
+                            if (KsAutoCloseView.this.f58250e != null) {
+                                KsAutoCloseView.this.f58250e.a();
                                 return;
                             }
                             return;
@@ -118,9 +118,9 @@ public class KsAutoCloseView extends LinearLayout implements View.OnClickListene
     }
 
     public void a(boolean z) {
-        this.f58084f = z;
+        this.f58251f = z;
         int i2 = z ? 0 : 8;
-        TextView textView = this.f58081c;
+        TextView textView = this.f58248c;
         if (textView != null) {
             textView.setVisibility(i2);
         }
@@ -128,16 +128,16 @@ public class KsAutoCloseView extends LinearLayout implements View.OnClickListene
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (this.f58083e != null && view.equals(this.f58082d)) {
-            this.f58083e.b();
+        if (this.f58250e != null && view.equals(this.f58249d)) {
+            this.f58250e.b();
         }
     }
 
     public void setCountDownPaused(boolean z) {
-        this.f58085g = z;
+        this.f58252g = z;
     }
 
     public void setViewListener(a aVar) {
-        this.f58083e = aVar;
+        this.f58250e = aVar;
     }
 }

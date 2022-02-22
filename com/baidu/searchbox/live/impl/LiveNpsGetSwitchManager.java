@@ -2,8 +2,8 @@ package com.baidu.searchbox.live.impl;
 
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import c.a.x.h.a;
-import c.a.x.l.c;
+import c.a.y.h.a;
+import c.a.y.l.c;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.common.param.CommonUrlParamManager;
 import com.baidu.live.net.LiveNetwork;
@@ -222,7 +222,7 @@ public final class LiveNpsGetSwitchManager {
                 }
 
                 /* JADX DEBUG: Method merged with bridge method */
-                @Override // c.a.x.h.a
+                @Override // c.a.y.h.a
                 public void onNetResponse(NetResponse netResponse, LiveMasterSwitchBean liveMasterSwitchBean) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeLL(1048576, this, netResponse, liveMasterSwitchBean) == null) {
@@ -238,7 +238,7 @@ public final class LiveNpsGetSwitchManager {
 
                 /* JADX DEBUG: Method merged with bridge method */
                 /* JADX WARN: Can't rename method to resolve collision */
-                @Override // c.a.x.h.a
+                @Override // c.a.y.h.a
                 public LiveMasterSwitchBean onParseResponseInBackground(NetResponse netResponse) {
                     InterceptResult invokeL;
                     Interceptable interceptable2 = $ic;

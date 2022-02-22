@@ -5,15 +5,15 @@ import android.view.WindowManager;
 import android.widget.LinearLayout;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.FragmentActivity;
-import c.a.r0.a.z2.q0;
-import c.a.r0.a.z2.x;
-import c.a.r0.b.b;
-import c.a.r0.b.c;
-import c.a.r0.b.f;
-import c.a.r0.b.g;
-import c.a.r0.b.h;
-import c.a.r0.b.p.b.d;
-import c.a.r0.b.p.b.e;
+import c.a.s0.a.z2.q0;
+import c.a.s0.a.z2.x;
+import c.a.s0.b.b;
+import c.a.s0.b.c;
+import c.a.s0.b.f;
+import c.a.s0.b.g;
+import c.a.s0.b.h;
+import c.a.s0.b.p.b.d;
+import c.a.s0.b.p.b.e;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mytransformapp.util.LogUtil;
 import com.baidu.swan.bdprivate.extensions.loginauthmobile.SwanAppLoginAndGetMobileDialog;
@@ -41,7 +41,7 @@ public class LoginAndGetMobileActivity extends FragmentActivity implements SwanA
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ LoginAndGetMobileActivity f39535e;
+        public final /* synthetic */ LoginAndGetMobileActivity f39763e;
 
         public a(LoginAndGetMobileActivity loginAndGetMobileActivity) {
             Interceptable interceptable = $ic;
@@ -58,14 +58,14 @@ public class LoginAndGetMobileActivity extends FragmentActivity implements SwanA
                     return;
                 }
             }
-            this.f39535e = loginAndGetMobileActivity;
+            this.f39763e = loginAndGetMobileActivity;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                LoginAndGetMobileActivity loginAndGetMobileActivity = this.f39535e;
+                LoginAndGetMobileActivity loginAndGetMobileActivity = this.f39763e;
                 x.a(loginAndGetMobileActivity, loginAndGetMobileActivity.getWindow().getDecorView().getWindowToken());
             }
         }
@@ -159,7 +159,7 @@ public class LoginAndGetMobileActivity extends FragmentActivity implements SwanA
                 this.mLaunchFrom = extras.getString("launch_from");
                 this.mAppId = extras.getString("appid");
             }
-            this.mIsNightMode = c.a.r0.a.c1.a.M().a();
+            this.mIsNightMode = c.a.s0.a.c1.a.M().a();
             init();
             LogUtil.logActivity(this, "onCreate");
         }
@@ -177,9 +177,9 @@ public class LoginAndGetMobileActivity extends FragmentActivity implements SwanA
     public void onLoginResult(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
-            c.a.r0.b.p.b.c.a().onResult(i2);
+            c.a.s0.b.p.b.c.a().onResult(i2);
             if (i2 != 0) {
-                c.a.r0.a.c2.b.f.e.f(this, h.swanapp_login_fail).H(true);
+                c.a.s0.a.c2.b.f.e.f(this, h.swanapp_login_fail).H(true);
             } else {
                 finish();
             }
@@ -201,7 +201,7 @@ public class LoginAndGetMobileActivity extends FragmentActivity implements SwanA
     public void onResume() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            boolean a2 = c.a.r0.a.c1.a.M().a();
+            boolean a2 = c.a.s0.a.c1.a.M().a();
             if (this.mIsNightMode != a2) {
                 SwanAppLoginAndGetMobileDialog swanAppLoginAndGetMobileDialog = this.mGetMobileDialog;
                 if (swanAppLoginAndGetMobileDialog != null) {

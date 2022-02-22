@@ -13,7 +13,7 @@ import java.io.IOException;
 import java.io.OutputStream;
 import java.nio.ByteBuffer;
 import java.nio.charset.Charset;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public final class RealBufferedSink implements BufferedSink {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

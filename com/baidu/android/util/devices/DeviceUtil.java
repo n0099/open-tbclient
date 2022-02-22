@@ -761,7 +761,7 @@ public class DeviceUtil implements IDevices {
                 return false;
             }
             String[] strArr = {"SM-F9000", "SM-F9160"};
-            if (g.f55107j.equalsIgnoreCase(Build.MANUFACTURER)) {
+            if (g.f55274j.equalsIgnoreCase(Build.MANUFACTURER)) {
                 for (int i2 = 0; i2 < 2; i2++) {
                     if (strArr[i2].equalsIgnoreCase(Build.MODEL)) {
                         return true;

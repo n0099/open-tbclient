@@ -39,13 +39,13 @@ public class ca extends cc {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65537, null, context, str, i2)) == null) {
             com.xiaomi.channel.commonutils.logger.b.b("delete  messages when db size is too bigger");
-            String m278a = cg.a(context).m278a(str);
-            if (TextUtils.isEmpty(m278a)) {
+            String m277a = cg.a(context).m277a(str);
+            if (TextUtils.isEmpty(m277a)) {
                 return null;
             }
             StringBuilder sb = new StringBuilder();
             sb.append("rowDataId in (select ");
-            sb.append("rowDataId from " + m278a);
+            sb.append("rowDataId from " + m277a);
             sb.append(" order by createTimeStamp asc");
             sb.append(" limit ?)");
             return new ca(str, sb.toString(), new String[]{String.valueOf(i2)}, "a job build to delete history message");
@@ -67,7 +67,7 @@ public class ca extends cc {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(1048576, this, context, obj) == null) && (obj instanceof Long)) {
             long longValue = ((Long) obj).longValue();
-            long a = cm.a(m280a());
+            long a = cm.a(m279a());
             long j2 = by.f172a;
             if (a <= j2) {
                 com.xiaomi.channel.commonutils.logger.b.b("db size is suitable");

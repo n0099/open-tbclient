@@ -24,28 +24,28 @@ public final class b {
     public final byte[] f151a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f60971b;
+    public int f61138b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f60972c;
+    public int f61139c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f60973d;
+    public int f61140d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f60974e;
+    public int f61141e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f60975f;
+    public int f61142f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f60976g;
+    public int f61143g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f60977h;
+    public int f61144h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f60978i;
+    public int f61145i;
 
     public b(InputStream inputStream) {
         Interceptable interceptable = $ic;
@@ -62,12 +62,12 @@ public final class b {
                 return;
             }
         }
-        this.f60975f = Integer.MAX_VALUE;
-        this.f60977h = 64;
-        this.f60978i = CodedInputStream.DEFAULT_SIZE_LIMIT;
+        this.f61142f = Integer.MAX_VALUE;
+        this.f61144h = 64;
+        this.f61145i = CodedInputStream.DEFAULT_SIZE_LIMIT;
         this.f151a = new byte[4096];
         this.a = 0;
-        this.f60972c = 0;
+        this.f61139c = 0;
         this.f150a = inputStream;
     }
 
@@ -86,12 +86,12 @@ public final class b {
                 return;
             }
         }
-        this.f60975f = Integer.MAX_VALUE;
-        this.f60977h = 64;
-        this.f60978i = CodedInputStream.DEFAULT_SIZE_LIMIT;
+        this.f61142f = Integer.MAX_VALUE;
+        this.f61144h = 64;
+        this.f61145i = CodedInputStream.DEFAULT_SIZE_LIMIT;
         this.f151a = bArr;
         this.a = i3 + i2;
-        this.f60972c = i2;
+        this.f61139c = i2;
         this.f150a = null;
     }
 
@@ -111,18 +111,18 @@ public final class b {
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(InputDeviceCompat.SOURCE_TRACKBALL, this, z)) == null) {
-            int i2 = this.f60972c;
+            int i2 = this.f61139c;
             int i3 = this.a;
             if (i2 >= i3) {
-                int i4 = this.f60974e;
-                if (i4 + i3 == this.f60975f) {
+                int i4 = this.f61141e;
+                if (i4 + i3 == this.f61142f) {
                     if (z) {
                         throw d.a();
                     }
                     return false;
                 }
-                this.f60974e = i4 + i3;
-                this.f60972c = 0;
+                this.f61141e = i4 + i3;
+                this.f61139c = 0;
                 InputStream inputStream = this.f150a;
                 int read = inputStream == null ? -1 : inputStream.read(this.f151a);
                 this.a = read;
@@ -136,8 +136,8 @@ public final class b {
                     return false;
                 } else {
                     b();
-                    int i5 = this.f60974e + this.a + this.f60971b;
-                    if (i5 > this.f60978i || i5 < 0) {
+                    int i5 = this.f61141e + this.a + this.f61138b;
+                    if (i5 > this.f61145i || i5 < 0) {
                         throw d.h();
                     }
                     return true;
@@ -151,16 +151,16 @@ public final class b {
     private void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65541, this) == null) {
-            int i2 = this.a + this.f60971b;
+            int i2 = this.a + this.f61138b;
             this.a = i2;
-            int i3 = this.f60974e + i2;
-            int i4 = this.f60975f;
+            int i3 = this.f61141e + i2;
+            int i4 = this.f61142f;
             if (i3 <= i4) {
-                this.f60971b = 0;
+                this.f61138b = 0;
                 return;
             }
             int i5 = i3 - i4;
-            this.f60971b = i5;
+            this.f61138b = i5;
             this.a = i2 - i5;
         }
     }
@@ -169,28 +169,28 @@ public final class b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (this.f60972c == this.a) {
+            if (this.f61139c == this.a) {
                 a(true);
             }
             byte[] bArr = this.f151a;
-            int i2 = this.f60972c;
-            this.f60972c = i2 + 1;
+            int i2 = this.f61139c;
+            this.f61139c = i2 + 1;
             return bArr[i2];
         }
         return invokeV.byteValue;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public int m221a() {
+    public int m220a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (m232b()) {
-                this.f60973d = 0;
+            if (m231b()) {
+                this.f61140d = 0;
                 return 0;
             }
             int d2 = d();
-            this.f60973d = d2;
+            this.f61140d = d2;
             if (d2 != 0) {
                 return d2;
             }
@@ -204,10 +204,10 @@ public final class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) {
             if (i2 >= 0) {
-                int i3 = i2 + this.f60974e + this.f60972c;
-                int i4 = this.f60975f;
+                int i3 = i2 + this.f61141e + this.f61139c;
+                int i4 = this.f61142f;
                 if (i3 <= i4) {
-                    this.f60975f = i3;
+                    this.f61142f = i3;
                     b();
                     return i4;
                 }
@@ -219,64 +219,64 @@ public final class b {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public long m222a() {
+    public long m221a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? m233c() : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? m232c() : invokeV.longValue;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public a m223a() {
+    public a m222a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             int d2 = d();
             int i2 = this.a;
-            int i3 = this.f60972c;
+            int i3 = this.f61139c;
             if (d2 > i2 - i3 || d2 <= 0) {
-                return a.a(m229a(d2));
+                return a.a(m228a(d2));
             }
             a a = a.a(this.f151a, i3, d2);
-            this.f60972c += d2;
+            this.f61139c += d2;
             return a;
         }
         return (a) invokeV.objValue;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public String m224a() {
+    public String m223a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
             int d2 = d();
-            if (d2 > this.a - this.f60972c || d2 <= 0) {
-                return new String(m229a(d2), "UTF-8");
+            if (d2 > this.a - this.f61139c || d2 <= 0) {
+                return new String(m228a(d2), "UTF-8");
             }
-            String str = new String(this.f151a, this.f60972c, d2, "UTF-8");
-            this.f60972c += d2;
+            String str = new String(this.f151a, this.f61139c, d2, "UTF-8");
+            this.f61139c += d2;
             return str;
         }
         return (String) invokeV.objValue;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public void m225a() {
-        int m221a;
+    public void m224a() {
+        int m220a;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             do {
-                m221a = m221a();
-                if (m221a == 0) {
+                m220a = m220a();
+                if (m220a == 0) {
                     return;
                 }
-            } while (m228a(m221a));
+            } while (m227a(m220a));
         }
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public void m226a(int i2) {
+    public void m225a(int i2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(1048583, this, i2) == null) && this.f60973d != i2) {
+        if ((interceptable == null || interceptable.invokeI(1048583, this, i2) == null) && this.f61140d != i2) {
             throw d.e();
         }
     }
@@ -285,43 +285,43 @@ public final class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, eVar) == null) {
             int d2 = d();
-            if (this.f60976g >= this.f60977h) {
+            if (this.f61143g >= this.f61144h) {
                 throw d.g();
             }
             int a = a(d2);
-            this.f60976g++;
+            this.f61143g++;
             eVar.a(this);
-            m226a(0);
-            this.f60976g--;
+            m225a(0);
+            this.f61143g--;
             b(a);
         }
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public boolean m227a() {
+    public boolean m226a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? d() != 0 : invokeV.booleanValue;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public boolean m228a(int i2) {
+    public boolean m227a(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048586, this, i2)) == null) {
             int a = f.a(i2);
             if (a == 0) {
-                m230b();
+                m229b();
                 return true;
             } else if (a == 1) {
-                m234d();
+                m233d();
                 return true;
             } else if (a == 2) {
                 c(d());
                 return true;
             } else if (a == 3) {
-                m225a();
-                m226a(f.a(f.b(i2), 4));
+                m224a();
+                m225a(f.a(f.b(i2), 4));
                 return true;
             } else if (a != 4) {
                 if (a == 5) {
@@ -337,7 +337,7 @@ public final class b {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public byte[] m229a(int i2) {
+    public byte[] m228a(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable != null && (invokeI = interceptable.invokeI(1048587, this, i2)) != null) {
@@ -346,10 +346,10 @@ public final class b {
         if (i2 < 0) {
             throw d.b();
         }
-        int i3 = this.f60974e;
-        int i4 = this.f60972c;
+        int i3 = this.f61141e;
+        int i4 = this.f61139c;
         int i5 = i3 + i4 + i2;
-        int i6 = this.f60975f;
+        int i6 = this.f61142f;
         if (i5 > i6) {
             c((i6 - i3) - i4);
             throw d.a();
@@ -358,11 +358,11 @@ public final class b {
         if (i2 <= i7 - i4) {
             byte[] bArr = new byte[i2];
             System.arraycopy(this.f151a, i4, bArr, 0, i2);
-            this.f60972c += i2;
+            this.f61139c += i2;
             return bArr;
         } else if (i2 >= 4096) {
-            this.f60974e = i3 + i7;
-            this.f60972c = 0;
+            this.f61141e = i3 + i7;
+            this.f61139c = 0;
             this.a = 0;
             int i8 = i7 - i4;
             int i9 = i2 - i8;
@@ -377,7 +377,7 @@ public final class b {
                     if (read == -1) {
                         throw d.a();
                     }
-                    this.f60974e += read;
+                    this.f61141e += read;
                     i10 += read;
                 }
                 i9 -= min;
@@ -395,51 +395,51 @@ public final class b {
             byte[] bArr5 = new byte[i2];
             int i12 = i7 - i4;
             System.arraycopy(this.f151a, i4, bArr5, 0, i12);
-            this.f60972c = this.a;
+            this.f61139c = this.a;
             while (true) {
                 a(true);
                 int i13 = i2 - i12;
                 int i14 = this.a;
                 if (i13 <= i14) {
                     System.arraycopy(this.f151a, 0, bArr5, i12, i13);
-                    this.f60972c = i13;
+                    this.f61139c = i13;
                     return bArr5;
                 }
                 System.arraycopy(this.f151a, 0, bArr5, i12, i14);
                 int i15 = this.a;
                 i12 += i15;
-                this.f60972c = i15;
+                this.f61139c = i15;
             }
         }
     }
 
     /* renamed from: b  reason: collision with other method in class */
-    public int m230b() {
+    public int m229b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? d() : invokeV.intValue;
     }
 
     /* renamed from: b  reason: collision with other method in class */
-    public long m231b() {
+    public long m230b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? m233c() : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? m232c() : invokeV.longValue;
     }
 
     public void b(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048590, this, i2) == null) {
-            this.f60975f = i2;
+            this.f61142f = i2;
             b();
         }
     }
 
     /* renamed from: b  reason: collision with other method in class */
-    public boolean m232b() {
+    public boolean m231b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? this.f60972c == this.a && !a(false) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? this.f61139c == this.a && !a(false) : invokeV.booleanValue;
     }
 
     public int c() {
@@ -449,7 +449,7 @@ public final class b {
     }
 
     /* renamed from: c  reason: collision with other method in class */
-    public long m233c() {
+    public long m232c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
@@ -472,22 +472,22 @@ public final class b {
             if (i2 < 0) {
                 throw d.b();
             }
-            int i3 = this.f60974e;
-            int i4 = this.f60972c;
+            int i3 = this.f61141e;
+            int i4 = this.f61139c;
             int i5 = i3 + i4 + i2;
-            int i6 = this.f60975f;
+            int i6 = this.f61142f;
             if (i5 > i6) {
                 c((i6 - i3) - i4);
                 throw d.a();
             }
             int i7 = this.a;
             if (i2 <= i7 - i4) {
-                this.f60972c = i4 + i2;
+                this.f61139c = i4 + i2;
                 return;
             }
             int i8 = i7 - i4;
-            this.f60974e = i3 + i7;
-            this.f60972c = 0;
+            this.f61141e = i3 + i7;
+            this.f61139c = 0;
             this.a = 0;
             while (i8 < i2) {
                 InputStream inputStream = this.f150a;
@@ -496,7 +496,7 @@ public final class b {
                     throw d.a();
                 }
                 i8 += skip;
-                this.f60974e += skip;
+                this.f61141e += skip;
             }
         }
     }
@@ -545,7 +545,7 @@ public final class b {
     }
 
     /* renamed from: d  reason: collision with other method in class */
-    public long m234d() {
+    public long m233d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) {

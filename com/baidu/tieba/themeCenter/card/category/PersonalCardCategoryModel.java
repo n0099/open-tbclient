@@ -1,6 +1,6 @@
 package com.baidu.tieba.themeCenter.card.category;
 
-import c.a.t0.c4.h.e;
+import c.a.u0.f4.h.e;
 import com.baidu.adp.base.BdBaseModel;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.ResponsedMessage;
@@ -20,22 +20,22 @@ public class PersonalCardCategoryModel extends BdBaseModel<PersonalCardCategoryM
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public e f48468e;
+    public e f48635e;
 
     /* renamed from: f  reason: collision with root package name */
-    public List<c.a.t0.c4.g.a.a> f48469f;
+    public List<c.a.u0.f4.g.a.a> f48636f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f48470g;
+    public int f48637g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f48471h;
+    public boolean f48638h;
 
     /* renamed from: i  reason: collision with root package name */
-    public b f48472i;
+    public b f48639i;
 
     /* renamed from: j  reason: collision with root package name */
-    public c.a.d.c.g.a f48473j;
+    public c.a.d.c.g.a f48640j;
 
     /* loaded from: classes13.dex */
     public class a extends c.a.d.c.g.a {
@@ -76,34 +76,34 @@ public class PersonalCardCategoryModel extends BdBaseModel<PersonalCardCategoryM
                 if (responsedMessage.getError() == 0) {
                     if (z) {
                         PersonalCardCategorySocktResponse personalCardCategorySocktResponse = (PersonalCardCategorySocktResponse) responsedMessage;
-                        if (this.a.f48469f == null) {
-                            this.a.f48469f = new ArrayList();
+                        if (this.a.f48636f == null) {
+                            this.a.f48636f = new ArrayList();
                         }
                         if (personalCardCategorySocktResponse.getCardCategoryList() != null) {
-                            this.a.f48469f.addAll(personalCardCategorySocktResponse.getCardCategoryList());
+                            this.a.f48636f.addAll(personalCardCategorySocktResponse.getCardCategoryList());
                         }
-                        this.a.f48468e = personalCardCategorySocktResponse.getRecommand();
-                        this.a.f48471h = personalCardCategorySocktResponse.isHasMore();
+                        this.a.f48635e = personalCardCategorySocktResponse.getRecommand();
+                        this.a.f48638h = personalCardCategorySocktResponse.isHasMore();
                     } else if (responsedMessage instanceof PersonalCardCategoryHttpResponse) {
                         PersonalCardCategoryHttpResponse personalCardCategoryHttpResponse = (PersonalCardCategoryHttpResponse) responsedMessage;
-                        if (this.a.f48469f == null) {
-                            this.a.f48469f = new ArrayList();
+                        if (this.a.f48636f == null) {
+                            this.a.f48636f = new ArrayList();
                         }
                         if (personalCardCategoryHttpResponse.getCardCategoryList() != null) {
-                            this.a.f48469f.addAll(personalCardCategoryHttpResponse.getCardCategoryList());
+                            this.a.f48636f.addAll(personalCardCategoryHttpResponse.getCardCategoryList());
                         }
-                        this.a.f48468e = personalCardCategoryHttpResponse.getRecommand();
-                        this.a.f48471h = personalCardCategoryHttpResponse.isHasMore();
+                        this.a.f48635e = personalCardCategoryHttpResponse.getRecommand();
+                        this.a.f48638h = personalCardCategoryHttpResponse.isHasMore();
                     }
-                    if (this.a.f48472i != null) {
-                        this.a.f48472i.a(responsedMessage.getError(), responsedMessage.getErrorString(), this.a.f48468e, this.a.f48469f, this.a.f48471h);
+                    if (this.a.f48639i != null) {
+                        this.a.f48639i.a(responsedMessage.getError(), responsedMessage.getErrorString(), this.a.f48635e, this.a.f48636f, this.a.f48638h);
                         return;
                     }
                     return;
                 }
                 PersonalCardCategoryModel.w(this.a);
-                if (this.a.f48472i != null) {
-                    this.a.f48472i.a(responsedMessage.getError(), responsedMessage.getErrorString(), this.a.f48468e, this.a.f48469f, this.a.f48471h);
+                if (this.a.f48639i != null) {
+                    this.a.f48639i.a(responsedMessage.getError(), responsedMessage.getErrorString(), this.a.f48635e, this.a.f48636f, this.a.f48638h);
                 }
             }
         }
@@ -111,7 +111,7 @@ public class PersonalCardCategoryModel extends BdBaseModel<PersonalCardCategoryM
 
     /* loaded from: classes13.dex */
     public interface b {
-        void a(int i2, String str, e eVar, List<c.a.t0.c4.g.a.a> list, boolean z);
+        void a(int i2, String str, e eVar, List<c.a.u0.f4.g.a.a> list, boolean z);
     }
 
     public PersonalCardCategoryModel(PersonalCardCategoryActivity personalCardCategoryActivity) {
@@ -129,26 +129,26 @@ public class PersonalCardCategoryModel extends BdBaseModel<PersonalCardCategoryM
                 return;
             }
         }
-        this.f48470g = 1;
-        this.f48471h = true;
-        this.f48473j = new a(this, CmdConfigHttp.CMD_GET_CARD_BY_CATEGORY, 309331);
-        c.a.t0.x3.f0.a.h(309331, PersonalCardCategorySocktResponse.class, false, false);
-        c.a.t0.x3.f0.a.c(309331, CmdConfigHttp.CMD_GET_CARD_BY_CATEGORY, TbConfig.GET_PERSONAL_CARD_BY_CATEGORY, PersonalCardCategoryHttpResponse.class, false, false, false, false);
-        registerListener(this.f48473j);
+        this.f48637g = 1;
+        this.f48638h = true;
+        this.f48640j = new a(this, CmdConfigHttp.CMD_GET_CARD_BY_CATEGORY, 309331);
+        c.a.u0.z3.g0.a.h(309331, PersonalCardCategorySocktResponse.class, false, false);
+        c.a.u0.z3.g0.a.c(309331, CmdConfigHttp.CMD_GET_CARD_BY_CATEGORY, TbConfig.GET_PERSONAL_CARD_BY_CATEGORY, PersonalCardCategoryHttpResponse.class, false, false, false, false);
+        registerListener(this.f48640j);
     }
 
     public static /* synthetic */ int w(PersonalCardCategoryModel personalCardCategoryModel) {
-        int i2 = personalCardCategoryModel.f48470g;
-        personalCardCategoryModel.f48470g = i2 - 1;
+        int i2 = personalCardCategoryModel.f48637g;
+        personalCardCategoryModel.f48637g = i2 - 1;
         return i2;
     }
 
     public void E() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.f48471h) {
-            this.f48470g++;
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.f48638h) {
+            this.f48637g++;
             PersonalCardCategoryRequest personalCardCategoryRequest = new PersonalCardCategoryRequest();
-            personalCardCategoryRequest.setPn(this.f48470g);
+            personalCardCategoryRequest.setPn(this.f48637g);
             sendMessage(personalCardCategoryRequest);
         }
     }
@@ -157,22 +157,22 @@ public class PersonalCardCategoryModel extends BdBaseModel<PersonalCardCategoryM
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Long.valueOf(j2), Integer.valueOf(i2)}) == null) {
             G(j2, i2);
-            b bVar = this.f48472i;
+            b bVar = this.f48639i;
             if (bVar != null) {
-                bVar.a(0, null, this.f48468e, this.f48469f, this.f48471h);
+                bVar.a(0, null, this.f48635e, this.f48636f, this.f48638h);
             }
         }
     }
 
     public void G(long j2, int i2) {
-        List<c.a.t0.c4.g.a.a> list;
+        List<c.a.u0.f4.g.a.a> list;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Long.valueOf(j2), Integer.valueOf(i2)}) == null) || (list = this.f48469f) == null || list.size() <= 0) {
+        if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Long.valueOf(j2), Integer.valueOf(i2)}) == null) || (list = this.f48636f) == null || list.size() <= 0) {
             return;
         }
-        for (c.a.t0.c4.g.a.a aVar : list) {
+        for (c.a.u0.f4.g.a.a aVar : list) {
             if (aVar != null && aVar.a() != null && aVar.a().size() > 0) {
-                for (c.a.t0.c4.a aVar2 : aVar.a()) {
+                for (c.a.u0.f4.a aVar2 : aVar.a()) {
                     if (aVar2 != null) {
                         if (aVar2.a() == j2) {
                             if (i2 == 1) {
@@ -182,7 +182,7 @@ public class PersonalCardCategoryModel extends BdBaseModel<PersonalCardCategoryM
                             }
                         } else if (i2 == 1) {
                             aVar2.s(0);
-                        } else if (aVar2.a() == c.a.t0.c4.a.k) {
+                        } else if (aVar2.a() == c.a.u0.f4.a.k) {
                             aVar2.s(1);
                         }
                     }
@@ -194,7 +194,7 @@ public class PersonalCardCategoryModel extends BdBaseModel<PersonalCardCategoryM
     public void H(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, bVar) == null) {
-            this.f48472i = bVar;
+            this.f48639i = bVar;
         }
     }
 
@@ -214,7 +214,7 @@ public class PersonalCardCategoryModel extends BdBaseModel<PersonalCardCategoryM
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
             PersonalCardCategoryRequest personalCardCategoryRequest = new PersonalCardCategoryRequest();
-            this.f48470g = 1;
+            this.f48637g = 1;
             personalCardCategoryRequest.setPn(1);
             sendMessage(personalCardCategoryRequest);
             return false;
@@ -225,7 +225,7 @@ public class PersonalCardCategoryModel extends BdBaseModel<PersonalCardCategoryM
     public void onDestroy() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            MessageManager.getInstance().unRegisterListener(this.f48473j);
+            MessageManager.getInstance().unRegisterListener(this.f48640j);
         }
     }
 }

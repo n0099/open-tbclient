@@ -14,14 +14,14 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes.dex */
-public class d extends c.a.l.a<c.a.s0.s.q.a> {
+public class d extends c.a.l.a<c.a.t0.s.r.a> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: j  reason: collision with root package name */
-    public CardUserInfoLayout f4298j;
+    public CardUserInfoLayout f4365j;
     public int k;
-    public c.a.s0.s.q.a l;
+    public c.a.t0.s.r.a l;
     public b m;
 
     /* loaded from: classes.dex */
@@ -30,7 +30,7 @@ public class d extends c.a.l.a<c.a.s0.s.q.a> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d f4299e;
+        public final /* synthetic */ d f4366e;
 
         public a(d dVar) {
             Interceptable interceptable = $ic;
@@ -47,18 +47,18 @@ public class d extends c.a.l.a<c.a.s0.s.q.a> {
                     return;
                 }
             }
-            this.f4299e = dVar;
+            this.f4366e = dVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                if (this.f4299e.m != null) {
-                    this.f4299e.m.a(this.f4299e.l, view);
+                if (this.f4366e.m != null) {
+                    this.f4366e.m.a(this.f4366e.l, view);
                 }
-                if (this.f4299e.c() != null) {
-                    this.f4299e.c().a(view, this.f4299e.l);
+                if (this.f4366e.c() != null) {
+                    this.f4366e.c().a(view, this.f4366e.l);
                 }
             }
         }
@@ -66,7 +66,7 @@ public class d extends c.a.l.a<c.a.s0.s.q.a> {
 
     /* loaded from: classes.dex */
     public interface b {
-        void a(c.a.s0.s.q.a aVar, View view);
+        void a(c.a.t0.s.r.a aVar, View view);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -88,13 +88,13 @@ public class d extends c.a.l.a<c.a.s0.s.q.a> {
             }
         }
         this.k = 34053;
-        if ((TbadkCoreApplication.getInst().getPersonalizeViewData().f13622d instanceof CardUserInfoLayout) && TbadkCoreApplication.getInst().getPersonalizeViewData().f13622d.getParent() == null) {
-            this.f4298j = (CardUserInfoLayout) TbadkCoreApplication.getInst().getPersonalizeViewData().f13622d;
+        if ((TbadkCoreApplication.getInst().getPersonalizeViewData().f13901d instanceof CardUserInfoLayout) && TbadkCoreApplication.getInst().getPersonalizeViewData().f13901d.getParent() == null) {
+            this.f4365j = (CardUserInfoLayout) TbadkCoreApplication.getInst().getPersonalizeViewData().f13901d;
         } else {
-            this.f4298j = new CardUserInfoLayout(context);
+            this.f4365j = new CardUserInfoLayout(context);
         }
-        this.f4298j.setShowFlag(this.k);
-        this.f4298j.setUserAfterClickListener(new a(this));
+        this.f4365j.setShowFlag(this.k);
+        this.f4365j.setUserAfterClickListener(new a(this));
     }
 
     @Override // c.a.l.a
@@ -121,35 +121,35 @@ public class d extends c.a.l.a<c.a.s0.s.q.a> {
     public View f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f4298j : (View) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f4365j : (View) invokeV.objValue;
     }
 
     @Override // c.a.l.q
     public void onChangeSkinType(TbPageContext tbPageContext, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048580, this, tbPageContext, i2) == null) {
-            this.f4298j.onChangeSkinType(tbPageContext, i2);
+            this.f4365j.onChangeSkinType(tbPageContext, i2);
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // c.a.l.p
     /* renamed from: p */
-    public void onBindDataToView(c.a.s0.s.q.a aVar) {
+    public void onBindDataToView(c.a.t0.s.r.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, aVar) == null) {
             this.l = aVar;
-            this.f4298j.setData(aVar.getThreadData());
+            this.f4365j.setData(aVar.getThreadData());
         }
     }
 
     public void q(boolean z) {
         CardUserInfoLayout cardUserInfoLayout;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048582, this, z) == null) || (cardUserInfoLayout = this.f4298j) == null || cardUserInfoLayout.getAvatar() == null) {
+        if (!(interceptable == null || interceptable.invokeZ(1048582, this, z) == null) || (cardUserInfoLayout = this.f4365j) == null || cardUserInfoLayout.getAvatar() == null) {
             return;
         }
-        this.f4298j.getAvatar().setClickable(z);
+        this.f4365j.getAvatar().setClickable(z);
     }
 
     public void r(b bVar) {
@@ -162,30 +162,30 @@ public class d extends c.a.l.a<c.a.s0.s.q.a> {
     public void s(BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, bdUniqueId) == null) {
-            this.f4298j.setPageUniqueId(bdUniqueId);
+            this.f4365j.setPageUniqueId(bdUniqueId);
         }
     }
 
     public void t(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048585, this, i2) == null) {
-            this.f4298j.setShowFlag(this.k);
+            this.f4365j.setShowFlag(this.k);
         }
     }
 
     public void u(TbPageContext tbPageContext) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, tbPageContext) == null) {
-            this.f4298j.setPageContext(tbPageContext);
+            this.f4365j.setPageContext(tbPageContext);
         }
     }
 
     public void v(boolean z) {
         CardUserInfoLayout cardUserInfoLayout;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048587, this, z) == null) || (cardUserInfoLayout = this.f4298j) == null || cardUserInfoLayout.getUserName() == null) {
+        if (!(interceptable == null || interceptable.invokeZ(1048587, this, z) == null) || (cardUserInfoLayout = this.f4365j) == null || cardUserInfoLayout.getUserName() == null) {
             return;
         }
-        this.f4298j.getUserName().setClickable(z);
+        this.f4365j.getUserName().setClickable(z);
     }
 }

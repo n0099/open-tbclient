@@ -12,7 +12,7 @@ public final class c {
     public long a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f59195b;
+    public long f59362b;
 
     public c(a aVar, long j2) {
         Interceptable interceptable = $ic;
@@ -31,12 +31,12 @@ public final class c {
         }
         this.a = 1500L;
         this.a = 2000L;
-        this.f59195b = System.currentTimeMillis();
+        this.f59362b = System.currentTimeMillis();
     }
 
     public final boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? System.currentTimeMillis() - this.f59195b > this.a : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? System.currentTimeMillis() - this.f59362b > this.a : invokeV.booleanValue;
     }
 }

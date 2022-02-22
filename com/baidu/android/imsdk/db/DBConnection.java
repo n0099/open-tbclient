@@ -16,14 +16,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class DBConnection extends SQLiteOpenHelper {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "DBConnection";
     public transient /* synthetic */ FieldHolder $fh;
     public Context mContext;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public class Version27And28Handler implements DBVersionManager.VersionHandler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -69,7 +69,7 @@ public class DBConnection extends SQLiteOpenHelper {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public class Version47And48Handler implements DBVersionManager.VersionHandler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -116,7 +116,7 @@ public class DBConnection extends SQLiteOpenHelper {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public class Version49And50Handler implements DBVersionManager.VersionHandler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

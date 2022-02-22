@@ -1,8 +1,8 @@
 package com.baidu.tbadk.mutiprocess;
 
-import c.a.s0.k0.h;
-import c.a.s0.k0.l.a;
-import c.a.s0.k0.w.b;
+import c.a.t0.k0.h;
+import c.a.t0.k0.l.a;
+import c.a.t0.k0.x.b;
 import com.baidu.tbadk.mutiprocess.agree.AgreeEvent;
 import com.baidu.tbadk.mutiprocess.backbaidubox.BackBaiduBoxViewEvent;
 import com.baidu.tbadk.mutiprocess.competetask.CompeteTaskEvent;
@@ -12,6 +12,7 @@ import com.baidu.tbadk.mutiprocess.history.HistoryEvent;
 import com.baidu.tbadk.mutiprocess.location.LocationEvent;
 import com.baidu.tbadk.mutiprocess.mission.MissionEvent;
 import com.baidu.tbadk.mutiprocess.prePageKey.PrePageKeyEvent;
+import com.baidu.tbadk.mutiprocess.replay.ReplayEvent;
 import com.baidu.tbadk.mutiprocess.share.ShareEvent;
 import com.baidu.tbadk.mutiprocess.showreplyinpb.ShowReplyInPbEvent;
 import com.baidu.tbadk.mutiprocess.soloader.SoLoaderEvent;
@@ -64,18 +65,19 @@ public class MutiProcessStatic {
             try {
                 h f2 = h.f();
                 f2.l(AgreeEvent.class, new a());
-                f2.l(MissionEvent.class, new c.a.s0.k0.s.a());
-                f2.l(CompeteTaskEvent.class, new c.a.s0.k0.n.a());
-                f2.l(ShareEvent.class, new c.a.s0.k0.u.a());
-                f2.l(HistoryEvent.class, new c.a.s0.k0.q.a());
-                f2.l(BackBaiduBoxViewEvent.class, new c.a.s0.k0.m.a());
-                f2.l(SyncDataEvent.class, new c.a.s0.k0.x.a());
-                f2.l(ShowReplyInPbEvent.class, new c.a.s0.k0.v.a());
-                f2.l(LocationEvent.class, new c.a.s0.k0.r.a());
-                f2.l(PrePageKeyEvent.class, new c.a.s0.k0.t.a());
-                f2.l(CurrentPageTypeEvent.class, new c.a.s0.k0.o.a());
-                f2.l(ImageFpsEvent.class, new c.a.s0.k0.p.a());
+                f2.l(MissionEvent.class, new c.a.t0.k0.s.a());
+                f2.l(CompeteTaskEvent.class, new c.a.t0.k0.n.a());
+                f2.l(ShareEvent.class, new c.a.t0.k0.v.a());
+                f2.l(HistoryEvent.class, new c.a.t0.k0.q.a());
+                f2.l(BackBaiduBoxViewEvent.class, new c.a.t0.k0.m.a());
+                f2.l(SyncDataEvent.class, new c.a.t0.k0.y.a());
+                f2.l(ShowReplyInPbEvent.class, new c.a.t0.k0.w.a());
+                f2.l(LocationEvent.class, new c.a.t0.k0.r.a());
+                f2.l(PrePageKeyEvent.class, new c.a.t0.k0.t.a());
+                f2.l(CurrentPageTypeEvent.class, new c.a.t0.k0.o.a());
+                f2.l(ImageFpsEvent.class, new c.a.t0.k0.p.a());
                 f2.l(SoLoaderEvent.class, new b());
+                f2.l(ReplayEvent.class, new c.a.t0.k0.u.a());
             } catch (Exception e2) {
                 e2.printStackTrace();
             }

@@ -41,7 +41,7 @@ public class EnterWalletGetPayMethodAction implements RouterAction {
                 public final /* synthetic */ RouterCallback a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ EnterWalletGetPayMethodAction f52034b;
+                public final /* synthetic */ EnterWalletGetPayMethodAction f52201b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -58,7 +58,7 @@ public class EnterWalletGetPayMethodAction implements RouterAction {
                             return;
                         }
                     }
-                    this.f52034b = this;
+                    this.f52201b = this;
                     this.a = routerCallback;
                 }
 

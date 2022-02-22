@@ -3,7 +3,7 @@ package com.baidu.live.framework.appbar;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.view.View;
-import c.a.x.g.a.b;
+import c.a.y.g.a.b;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.live.framework.coordinatorlayout.CoordinatorLayout;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -18,10 +18,10 @@ public class ViewOffsetBehavior<V extends View> extends CoordinatorLayout.Behavi
     public b a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f34896b;
+    public int f35102b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f34897c;
+    public int f35103c;
 
     public ViewOffsetBehavior() {
         Interceptable interceptable = $ic;
@@ -36,8 +36,8 @@ public class ViewOffsetBehavior<V extends View> extends CoordinatorLayout.Behavi
                 return;
             }
         }
-        this.f34896b = 0;
-        this.f34897c = 0;
+        this.f35102b = 0;
+        this.f35103c = 0;
     }
 
     public int E() {
@@ -68,7 +68,7 @@ public class ViewOffsetBehavior<V extends View> extends CoordinatorLayout.Behavi
             if (bVar != null) {
                 return bVar.d(i2);
             }
-            this.f34896b = i2;
+            this.f35102b = i2;
             return false;
         }
         return invokeI.booleanValue;
@@ -84,15 +84,15 @@ public class ViewOffsetBehavior<V extends View> extends CoordinatorLayout.Behavi
                 this.a = new b(v);
             }
             this.a.b();
-            int i3 = this.f34896b;
+            int i3 = this.f35102b;
             if (i3 != 0) {
                 this.a.d(i3);
-                this.f34896b = 0;
+                this.f35102b = 0;
             }
-            int i4 = this.f34897c;
+            int i4 = this.f35103c;
             if (i4 != 0) {
                 this.a.c(i4);
-                this.f34897c = 0;
+                this.f35103c = 0;
                 return true;
             }
             return true;
@@ -119,7 +119,7 @@ public class ViewOffsetBehavior<V extends View> extends CoordinatorLayout.Behavi
                 return;
             }
         }
-        this.f34896b = 0;
-        this.f34897c = 0;
+        this.f35102b = 0;
+        this.f35103c = 0;
     }
 }

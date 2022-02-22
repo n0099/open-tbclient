@@ -4,13 +4,13 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
-import c.a.t0.r2.b.a;
-import c.a.t0.r2.b.b;
-import c.a.t0.r2.b.c;
-import c.a.t0.r2.b.d;
-import c.a.t0.r2.b.e;
-import c.a.t0.r2.b.f;
-import c.a.t0.r2.b.g;
+import c.a.u0.s2.b.a;
+import c.a.u0.s2.b.b;
+import c.a.u0.s2.b.c;
+import c.a.u0.s2.b.d;
+import c.a.u0.s2.b.e;
+import c.a.u0.s2.b.f;
+import c.a.u0.s2.b.g;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.atomData.LoginDialogActivityConfig;
@@ -19,7 +19,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public class OneKeyLoginActivity extends BaseActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -49,9 +49,9 @@ public class OneKeyLoginActivity extends BaseActivity {
             c cVar = new c();
             this.oneKeyLoginData = cVar;
             cVar.a = getIntent().getStringExtra(LoginDialogActivityConfig.ONE_KEY_LOGIN_ENCRYPT_PHONE_NUM);
-            this.oneKeyLoginData.f21997b = getIntent().getStringExtra(LoginDialogActivityConfig.ONE_KEY_LOGIN_OPERATOR);
-            this.oneKeyLoginData.f21998c = getIntent().getStringExtra(LoginDialogActivityConfig.ONE_KEY_LOGIN_SIGN);
-            this.oneKeyLoginData.f21999d = this.shareModelJSONStr;
+            this.oneKeyLoginData.f21871b = getIntent().getStringExtra(LoginDialogActivityConfig.ONE_KEY_LOGIN_OPERATOR);
+            this.oneKeyLoginData.f21872c = getIntent().getStringExtra(LoginDialogActivityConfig.ONE_KEY_LOGIN_SIGN);
+            this.oneKeyLoginData.f21873d = this.shareModelJSONStr;
         }
     }
 
@@ -93,7 +93,7 @@ public class OneKeyLoginActivity extends BaseActivity {
             this.view.c(this.oneKeyLoginData);
             this.controller.j(this.oneKeyLoginData);
             this.controller.i(false);
-            this.controller.k(c.a.s0.b.d.o());
+            this.controller.k(c.a.t0.b.d.o());
         }
     }
 }

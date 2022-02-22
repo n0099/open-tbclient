@@ -49,7 +49,7 @@ public class l {
                         public final /* synthetic */ Context a;
 
                         /* renamed from: b  reason: collision with root package name */
-                        public final /* synthetic */ int f32289b;
+                        public final /* synthetic */ int f32495b;
 
                         {
                             Interceptable interceptable2 = $ic;
@@ -67,7 +67,7 @@ public class l {
                                 }
                             }
                             this.a = context;
-                            this.f32289b = i2;
+                            this.f32495b = i2;
                         }
 
                         @Override // java.lang.Runnable
@@ -75,7 +75,7 @@ public class l {
                             Interceptable interceptable2 = $ic;
                             if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                                 com.baidu.android.pushservice.job.a.a(this.a);
-                                com.baidu.android.pushservice.job.a.a(this.a, true, this.f32289b);
+                                com.baidu.android.pushservice.job.a.a(this.a, true, this.f32495b);
                             }
                         }
                     }, com.baidu.android.pushservice.b.d.h() * 1000);
@@ -86,7 +86,7 @@ public class l {
                     public final /* synthetic */ Context a;
 
                     /* renamed from: b  reason: collision with root package name */
-                    public final /* synthetic */ int f32290b;
+                    public final /* synthetic */ int f32496b;
 
                     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
                     {
@@ -108,14 +108,14 @@ public class l {
                             }
                         }
                         this.a = r10;
-                        this.f32290b = i2;
+                        this.f32496b = i2;
                     }
 
                     @Override // com.baidu.android.pushservice.g.c
                     public void a() {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                            l.a(this.a, new Intent(), this.f32290b);
+                            l.a(this.a, new Intent(), this.f32496b);
                         }
                     }
                 });
@@ -131,11 +131,11 @@ public class l {
                 intent = a(context);
             }
             if (!com.baidu.android.pushservice.b.d.q(context) || com.baidu.android.pushservice.b.d.c(context)) {
-                if (System.currentTimeMillis() - com.baidu.android.pushservice.e.f31919j < 30000) {
-                    i2 = com.baidu.android.pushservice.e.f31918i;
+                if (System.currentTimeMillis() - com.baidu.android.pushservice.e.f32125j < 30000) {
+                    i2 = com.baidu.android.pushservice.e.f32124i;
                 }
-                com.baidu.android.pushservice.e.f31918i = 0;
-                com.baidu.android.pushservice.e.f31919j = 0L;
+                com.baidu.android.pushservice.e.f32124i = 0;
+                com.baidu.android.pushservice.e.f32125j = 0L;
                 intent.putExtra("push_start_source", i2);
                 return a(context, intent, context.getPackageName());
             }

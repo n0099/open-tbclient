@@ -7,7 +7,7 @@ import android.util.Pair;
 import android.util.SparseArray;
 import android.view.View;
 import androidx.core.view.InputDeviceCompat;
-import c.a.s0.s.s.j;
+import c.a.t0.s.t.j;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.data.TransmitForumData;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
@@ -33,6 +33,7 @@ public class ShareDialogConfig extends IntentConfig {
     public j.d dialogRecognizePicListener;
     public j.d dialogSaveToDiskListener;
     public View.OnClickListener disLikeListener;
+    public String experimentId;
     public boolean hasSpecialItem;
     public View.OnClickListener heatingListener;
     public int hideMode;
@@ -50,6 +51,8 @@ public class ShareDialogConfig extends IntentConfig {
     public int isOriginManager;
     public boolean isSelfHeating;
     public boolean isSetCopyLink;
+    public boolean isShowMsg;
+    public boolean isShowPersonalLetter;
     public boolean isSupportNightMode;
     public boolean mAlaLiveRoomShare;
     public List<Integer> mCommandChannelArray;
@@ -59,9 +62,11 @@ public class ShareDialogConfig extends IntentConfig {
     public boolean mIsAlaLive;
     public boolean mIsShowTransmitShare;
     public boolean mIsVoiceRoom;
+    public View.OnClickListener mPersonalLetterListener;
     public String mPrePage;
     public int mPrivateThread;
     public boolean mShowMoreForumShare;
+    public int msgNum;
     public SparseArray<String> mtjStatistics;
     public DialogInterface.OnCancelListener onCancelListener;
     public DialogInterface.OnDismissListener onDismissListener;
@@ -184,6 +189,7 @@ public class ShareDialogConfig extends IntentConfig {
         this.mIsShowTransmitShare = false;
         this.mShowMoreForumShare = false;
         this.mFrom = From.Default;
+        this.isShowPersonalLetter = false;
         this.showNovelMask = false;
         this.shareItem = shareItem;
         this.showLocation = z;
@@ -211,82 +217,88 @@ public class ShareDialogConfig extends IntentConfig {
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mFrom : (From) invokeV.objValue;
     }
 
+    public View.OnClickListener getPersonalLetterListener() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mPersonalLetterListener : (View.OnClickListener) invokeV.objValue;
+    }
+
     public String getPrePage() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mPrePage : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.mPrePage : (String) invokeV.objValue;
     }
 
     public boolean isAlaLiveRoomShare() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.mAlaLiveRoomShare : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.mAlaLiveRoomShare : invokeV.booleanValue;
     }
 
     public boolean isPrePagePersonalPage() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? TextUtils.equals(this.mPrePage, VideoRecommentPlayActivityConfig.FROM_PERSONAL_PAGE) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? TextUtils.equals(this.mPrePage, VideoRecommentPlayActivityConfig.FROM_PERSONAL_PAGE) : invokeV.booleanValue;
     }
 
     public boolean isShowNovelMask() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.showNovelMask : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.showNovelMask : invokeV.booleanValue;
     }
 
     public void setAlaLiveRoomShare(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) {
             this.mAlaLiveRoomShare = z;
         }
     }
 
     public void setCopyLinkListener(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, onClickListener) == null) {
+        if (interceptable == null || interceptable.invokeL(1048585, this, onClickListener) == null) {
             this.copyLinkListener = onClickListener;
         }
     }
 
     public void setCustomCopyTitle(int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048585, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048586, this, i2) == null) {
             this.copyTitleId = i2;
         }
     }
 
     public void setFrom(From from) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, from) == null) {
+        if (interceptable == null || interceptable.invokeL(1048587, this, from) == null) {
             this.mFrom = from;
         }
     }
 
     public void setHasSpecialItem(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048587, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048588, this, z) == null) {
             this.hasSpecialItem = z;
         }
     }
 
     public void setHideMode(int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048588, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048589, this, i2) == null) {
             this.hideMode = i2;
         }
     }
 
     public void setIsAlaLive(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048589, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048590, this, z) == null) {
             this.mIsAlaLive = z;
         }
     }
 
     public void setIsCopyLink(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048590, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048591, this, z) == null) {
             this.isSetCopyLink = true;
             this.isCopyLink = z;
         }
@@ -294,56 +306,63 @@ public class ShareDialogConfig extends IntentConfig {
 
     public void setIsLandscape(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048591, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048592, this, z) == null) {
             this.isLandscape = z;
         }
     }
 
     public void setIsShowTransmitShare(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048592, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048593, this, z) == null) {
             this.mIsShowTransmitShare = z;
         }
     }
 
     public void setIsSupportNightMode(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048593, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048594, this, z) == null) {
             this.isSupportNightMode = z;
         }
     }
 
     public void setOnDismissListener(DialogInterface.OnDismissListener onDismissListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048594, this, onDismissListener) == null) {
+        if (interceptable == null || interceptable.invokeL(1048595, this, onDismissListener) == null) {
             this.onDismissListener = onDismissListener;
+        }
+    }
+
+    public void setPersonalLetterListener(View.OnClickListener onClickListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048596, this, onClickListener) == null) {
+            this.mPersonalLetterListener = onClickListener;
         }
     }
 
     public void setPrePage(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048595, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048597, this, str) == null) {
             this.mPrePage = str;
         }
     }
 
     public void setPrivateThread(int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048596, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048598, this, i2) == null) {
             this.mPrivateThread = i2;
         }
     }
 
     public void setShowNovelMask(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048597, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048599, this, z) == null) {
             this.showNovelMask = z;
         }
     }
 
     public void setSpecialShareItems(int i2, ShareItem shareItem) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048598, this, i2, shareItem) == null) {
+        if (interceptable == null || interceptable.invokeIL(1048600, this, i2, shareItem) == null) {
             if (this.specialShareItems == null) {
                 this.specialShareItems = new ShareItem[9];
             }
@@ -353,14 +372,14 @@ public class ShareDialogConfig extends IntentConfig {
 
     public void setTopicId(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048599, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048601, this, str) == null) {
             this.topicId = str;
         }
     }
 
     public void setTransmitForumList(ArrayList<TransmitForumData> arrayList) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048600, this, arrayList) == null) {
+        if (interceptable == null || interceptable.invokeL(1048602, this, arrayList) == null) {
             this.mForumList = arrayList;
         }
     }
@@ -394,6 +413,7 @@ public class ShareDialogConfig extends IntentConfig {
         this.mIsShowTransmitShare = false;
         this.mShowMoreForumShare = false;
         this.mFrom = From.Default;
+        this.isShowPersonalLetter = false;
         this.showNovelMask = false;
         this.shareItem = shareItem;
         this.showLocation = z;
@@ -429,6 +449,7 @@ public class ShareDialogConfig extends IntentConfig {
         this.mIsShowTransmitShare = false;
         this.mShowMoreForumShare = false;
         this.mFrom = From.Default;
+        this.isShowPersonalLetter = false;
         this.showNovelMask = false;
         this.shareItem = shareItem;
         this.showLocation = z;
@@ -469,6 +490,7 @@ public class ShareDialogConfig extends IntentConfig {
         this.mIsShowTransmitShare = false;
         this.mShowMoreForumShare = false;
         this.mFrom = From.Default;
+        this.isShowPersonalLetter = false;
         this.showNovelMask = false;
         this.shareItem = shareItem;
         this.showLocation = z;

@@ -24,10 +24,10 @@ public class a extends c.a.r.e.a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: g  reason: collision with root package name */
-    public c.a.r.e.a f4944g;
+    public c.a.r.e.a f5014g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f4945h;
+    public boolean f5015h;
 
     public a(boolean z) {
         Interceptable interceptable = $ic;
@@ -44,14 +44,14 @@ public class a extends c.a.r.e.a {
                 return;
             }
         }
-        this.f4945h = z;
+        this.f5015h = z;
     }
 
     @Override // c.a.r.e.a
     public void a(String str, Bundle bundle, a.c<String> cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048576, this, str, bundle, cVar) == null) {
-            this.f4944g.a(str, bundle, cVar);
+            this.f5014g.a(str, bundle, cVar);
         }
     }
 
@@ -59,7 +59,7 @@ public class a extends c.a.r.e.a {
     public void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f4944g.d();
+            this.f5014g.d();
         }
     }
 
@@ -67,7 +67,7 @@ public class a extends c.a.r.e.a {
     public boolean e(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) ? this.f4944g.e(str) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) ? this.f5014g.e(str) : invokeL.booleanValue;
     }
 
     @Override // c.a.r.e.a
@@ -75,14 +75,14 @@ public class a extends c.a.r.e.a {
         c.a.r.e.a bVar2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, bVar) == null) {
-            if (this.f4945h ? i() : j()) {
+            if (this.f5015h ? i() : j()) {
                 bVar2 = new c.a.r.e.c.a();
             } else {
-                bVar2 = new b(this.f4945h ? ".helios.ipc.default" : ".helios.ipc.isolate");
+                bVar2 = new b(this.f5015h ? ".helios.ipc.default" : ".helios.ipc.isolate");
             }
-            this.f4944g = bVar2;
-            bVar2.b(this.f4914e);
-            this.f4944g.c(bVar);
+            this.f5014g = bVar2;
+            bVar2.b(this.f4984e);
+            this.f5014g.c(bVar);
         }
     }
 
@@ -90,7 +90,7 @@ public class a extends c.a.r.e.a {
     public a.d g(String str, Bundle bundle) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, str, bundle)) == null) ? this.f4944g.g(str, bundle) : (a.d) invokeLL.objValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, str, bundle)) == null) ? this.f5014g.g(str, bundle) : (a.d) invokeLL.objValue;
     }
 
     public final String h() {
@@ -120,7 +120,7 @@ public class a extends c.a.r.e.a {
                 th = th2;
             }
             c.a.r.h.c.a.c.b(bufferedReader);
-            List<ActivityManager.RunningAppProcessInfo> runningAppProcesses = ((ActivityManager) this.f4914e.f4917c.getSystemService("activity")).getRunningAppProcesses();
+            List<ActivityManager.RunningAppProcessInfo> runningAppProcesses = ((ActivityManager) this.f4984e.f4987c.getSystemService("activity")).getRunningAppProcesses();
             if (runningAppProcesses != null) {
                 for (ActivityManager.RunningAppProcessInfo runningAppProcessInfo : runningAppProcesses) {
                     if (runningAppProcessInfo.pid == Process.myPid()) {
@@ -142,7 +142,7 @@ public class a extends c.a.r.e.a {
             if (h2 == null) {
                 return true;
             }
-            Context context = this.f4914e.f4917c;
+            Context context = this.f4984e.f4987c;
             String str = context.getApplicationInfo().processName;
             if (TextUtils.isEmpty(str)) {
                 str = context.getPackageName();

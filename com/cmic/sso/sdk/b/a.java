@@ -23,7 +23,7 @@ public class a {
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f53427b;
+    public String f53594b;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -55,7 +55,7 @@ public class a {
             }
             if (list2 != null && list2.size() > 0) {
                 String str = list2.get(0);
-                this.f53427b = str;
+                this.f53594b = str;
                 if (!TextUtils.isEmpty(str)) {
                     String b3 = aVar.b("operatortype", "0");
                     if ("2".equals(b3)) {
@@ -67,7 +67,7 @@ public class a {
                     }
                 }
             }
-            c a = a(this.f53427b, cVar.f(), "GET", new com.cmic.sso.sdk.b.b.c(cVar.k().a()));
+            c a = a(this.f53594b, cVar.f(), "GET", new com.cmic.sso.sdk.b.b.c(cVar.k().a()));
             a.a(cVar.h());
             return a;
         }

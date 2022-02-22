@@ -27,7 +27,7 @@ public class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public Pattern f50577b;
+    public Pattern f50744b;
 
     /* renamed from: com.baidu.wallet.base.statistics.a$1  reason: invalid class name */
     /* loaded from: classes13.dex */
@@ -38,7 +38,7 @@ public class a {
 
     /* renamed from: com.baidu.wallet.base.statistics.a$a  reason: collision with other inner class name */
     /* loaded from: classes13.dex */
-    public static class C1986a {
+    public static class C1996a {
         public static /* synthetic */ Interceptable $ic;
         public static a a;
         public transient /* synthetic */ FieldHolder $fh;
@@ -59,7 +59,7 @@ public class a {
             a = new a(null);
         }
 
-        public C1986a() {
+        public C1996a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -96,7 +96,7 @@ public class a {
     public static a a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? C1986a.a : (a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? C1996a.a : (a) invokeV.objValue;
     }
 
     public String b(Context context) {
@@ -108,7 +108,7 @@ public class a {
                 e = e2;
             }
             try {
-                return this.f50577b.matcher(PhoneUtils.getCUID2(context)).replaceAll("");
+                return this.f50744b.matcher(PhoneUtils.getCUID2(context)).replaceAll("");
             } catch (Exception e3) {
                 e = e3;
                 LogUtil.d(a, e.getMessage());
@@ -197,7 +197,7 @@ public class a {
                 return;
             }
         }
-        this.f50577b = Pattern.compile("\\s*|\t|\r|\n");
+        this.f50744b = Pattern.compile("\\s*|\t|\r|\n");
     }
 
     public String a(Context context) {
@@ -209,7 +209,7 @@ public class a {
                 e = e2;
             }
             try {
-                return this.f50577b.matcher(PhoneUtils.getCUID(context)).replaceAll("");
+                return this.f50744b.matcher(PhoneUtils.getCUID(context)).replaceAll("");
             } catch (Exception e3) {
                 e = e3;
                 LogUtil.d(a, e.getMessage());

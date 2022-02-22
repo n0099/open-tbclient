@@ -14,10 +14,10 @@ public final class b<VD extends TaskDialogData, VM extends c.a.j.h.c.b.a<VD>, Vi
     public final View a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final VM f3976b;
+    public final VM f3996b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final VD f3977c;
+    public final VD f3997c;
 
     public b(View view, VM vm, VD vd) {
         Interceptable interceptable = $ic;
@@ -35,15 +35,15 @@ public final class b<VD extends TaskDialogData, VM extends c.a.j.h.c.b.a<VD>, Vi
             }
         }
         this.a = view;
-        this.f3976b = vm;
-        this.f3977c = vd;
+        this.f3996b = vm;
+        this.f3997c = vd;
     }
 
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.a.a(this.f3976b);
-            this.f3976b.b(this.f3977c);
+            this.a.a(this.f3996b);
+            this.f3996b.b(this.f3997c);
         }
     }
 }

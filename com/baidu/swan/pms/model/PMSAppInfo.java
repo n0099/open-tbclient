@@ -4,8 +4,8 @@ import android.os.Parcel;
 import android.os.Parcelable;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import c.a.r0.q.i.g;
-import c.a.r0.q.i.h;
+import c.a.s0.q.i.g;
+import c.a.s0.q.i.h;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -171,9 +171,9 @@ public class PMSAppInfo implements Parcelable {
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, gVar) == null) || gVar == null) {
             return;
         }
-        this.appId = gVar.f11636g;
-        this.versionCode = gVar.f11638i;
-        this.versionName = gVar.f11639j;
+        this.appId = gVar.f11736g;
+        this.versionCode = gVar.f11738i;
+        this.versionName = gVar.f11739j;
         this.type = gVar.o;
         this.pkgSize = gVar.k;
     }
@@ -184,8 +184,8 @@ public class PMSAppInfo implements Parcelable {
             return;
         }
         this.appId = hVar.o;
-        this.versionCode = hVar.f11638i;
-        this.versionName = hVar.f11639j;
+        this.versionCode = hVar.f11738i;
+        this.versionName = hVar.f11739j;
         this.type = hVar.q;
         this.pkgSize = hVar.k;
     }

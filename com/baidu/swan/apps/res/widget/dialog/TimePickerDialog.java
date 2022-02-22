@@ -4,7 +4,7 @@ import android.content.Context;
 import android.os.Bundle;
 import android.widget.FrameLayout;
 import androidx.core.view.InputDeviceCompat;
-import c.a.r0.a.i;
+import c.a.s0.a.i;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.swan.apps.res.ui.BdTimePicker;
 import com.baidu.swan.apps.res.widget.dialog.SwanAppPickerDialog;
@@ -20,16 +20,16 @@ public class TimePickerDialog extends SwanAppPickerDialog {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: g  reason: collision with root package name */
-    public BdTimePicker f39356g;
+    public BdTimePicker f39584g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f39357h;
+    public int f39585h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f39358i;
+    public int f39586i;
 
     /* renamed from: j  reason: collision with root package name */
-    public boolean f39359j;
+    public boolean f39587j;
     public boolean k;
     public Date l;
     public Date m;
@@ -40,19 +40,19 @@ public class TimePickerDialog extends SwanAppPickerDialog {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public Date f39360e;
+        public Date f39588e;
 
         /* renamed from: f  reason: collision with root package name */
-        public Date f39361f;
+        public Date f39589f;
 
         /* renamed from: g  reason: collision with root package name */
-        public Date f39362g;
+        public Date f39590g;
 
         /* renamed from: h  reason: collision with root package name */
-        public String f39363h;
+        public String f39591h;
 
         /* renamed from: i  reason: collision with root package name */
-        public boolean f39364i;
+        public boolean f39592i;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(Context context) {
@@ -80,18 +80,18 @@ public class TimePickerDialog extends SwanAppPickerDialog {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
                 TimePickerDialog timePickerDialog = (TimePickerDialog) super.a();
-                timePickerDialog.setFields(this.f39363h);
-                timePickerDialog.setDisabled(this.f39364i);
-                Date date = this.f39362g;
+                timePickerDialog.setFields(this.f39591h);
+                timePickerDialog.setDisabled(this.f39592i);
+                Date date = this.f39590g;
                 if (date != null) {
                     timePickerDialog.setHour(date.getHours());
-                    timePickerDialog.setMinute(this.f39362g.getMinutes());
+                    timePickerDialog.setMinute(this.f39590g.getMinutes());
                 }
-                Date date2 = this.f39360e;
+                Date date2 = this.f39588e;
                 if (date2 != null) {
                     timePickerDialog.setStartDate(date2);
                 }
-                Date date3 = this.f39361f;
+                Date date3 = this.f39589f;
                 if (date3 != null) {
                     timePickerDialog.setEndDate(date3);
                 }
@@ -111,7 +111,7 @@ public class TimePickerDialog extends SwanAppPickerDialog {
             InterceptResult invokeZ;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z)) == null) {
-                this.f39364i = z;
+                this.f39592i = z;
                 return this;
             }
             return (a) invokeZ.objValue;
@@ -121,7 +121,7 @@ public class TimePickerDialog extends SwanAppPickerDialog {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, date)) == null) {
-                this.f39361f = date;
+                this.f39589f = date;
                 return this;
             }
             return (a) invokeL.objValue;
@@ -131,7 +131,7 @@ public class TimePickerDialog extends SwanAppPickerDialog {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
-                this.f39363h = str;
+                this.f39591h = str;
                 return this;
             }
             return (a) invokeL.objValue;
@@ -141,7 +141,7 @@ public class TimePickerDialog extends SwanAppPickerDialog {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, date)) == null) {
-                this.f39362g = date;
+                this.f39590g = date;
                 return this;
             }
             return (a) invokeL.objValue;
@@ -151,7 +151,7 @@ public class TimePickerDialog extends SwanAppPickerDialog {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, date)) == null) {
-                this.f39360e = date;
+                this.f39588e = date;
                 return this;
             }
             return (a) invokeL.objValue;
@@ -177,47 +177,47 @@ public class TimePickerDialog extends SwanAppPickerDialog {
                 return;
             }
         }
-        this.f39359j = false;
+        this.f39587j = false;
     }
 
     public final void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f39356g = new BdTimePicker(getContext());
+            this.f39584g = new BdTimePicker(getContext());
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, -1);
             layoutParams.gravity = 17;
-            this.f39356g.setLayoutParams(layoutParams);
-            this.f39356g.setScrollCycle(true);
-            this.f39356g.setStartDate(this.l);
-            this.f39356g.setmEndDate(this.m);
-            this.f39356g.setHour(this.f39357h);
-            this.f39356g.setMinute(this.f39358i);
-            this.f39356g.updateDatas();
-            this.f39356g.setDisabled(this.k);
+            this.f39584g.setLayoutParams(layoutParams);
+            this.f39584g.setScrollCycle(true);
+            this.f39584g.setStartDate(this.l);
+            this.f39584g.setmEndDate(this.m);
+            this.f39584g.setHour(this.f39585h);
+            this.f39584g.setMinute(this.f39586i);
+            this.f39584g.updateDatas();
+            this.f39584g.setDisabled(this.k);
         }
     }
 
     public int getHour() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f39356g.getHour() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f39584g.getHour() : invokeV.intValue;
     }
 
     public int getMinute() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f39356g.getMinute() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f39584g.getMinute() : invokeV.intValue;
     }
 
     @Override // android.app.Dialog
     public void onCreate(Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, bundle) == null) {
-            if (this.f39359j) {
+            if (this.f39587j) {
                 getWindow().addFlags(4718592);
             }
             b();
-            getBuilder().j(this.f39356g);
+            getBuilder().j(this.f39584g);
         }
     }
 
@@ -244,14 +244,14 @@ public class TimePickerDialog extends SwanAppPickerDialog {
     public void setHour(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048583, this, i2) == null) {
-            this.f39357h = i2;
+            this.f39585h = i2;
         }
     }
 
     public void setMinute(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2) == null) {
-            this.f39358i = i2;
+            this.f39586i = i2;
         }
     }
 
@@ -265,7 +265,7 @@ public class TimePickerDialog extends SwanAppPickerDialog {
     public void setViewShowFrontLockView(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048586, this, z) == null) {
-            this.f39359j = z;
+            this.f39587j = z;
         }
     }
 
@@ -273,13 +273,13 @@ public class TimePickerDialog extends SwanAppPickerDialog {
     public void show() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
-            BdTimePicker bdTimePicker = this.f39356g;
+            BdTimePicker bdTimePicker = this.f39584g;
             if (bdTimePicker != null) {
-                if (this.f39357h != bdTimePicker.getHour()) {
-                    this.f39356g.setHour(this.f39357h);
+                if (this.f39585h != bdTimePicker.getHour()) {
+                    this.f39584g.setHour(this.f39585h);
                 }
-                if (this.f39358i != this.f39356g.getMinute()) {
-                    this.f39356g.setMinute(this.f39358i);
+                if (this.f39586i != this.f39584g.getMinute()) {
+                    this.f39584g.setMinute(this.f39586i);
                 }
             }
             super.show();

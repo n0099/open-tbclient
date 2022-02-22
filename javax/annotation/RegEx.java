@@ -18,10 +18,10 @@ import javax.annotation.meta.When;
 @TypeQualifierNickname
 @Documented
 @Retention(RetentionPolicy.RUNTIME)
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public @interface RegEx {
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static class Checker implements TypeQualifierValidator<RegEx> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

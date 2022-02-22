@@ -6,11 +6,15 @@ import android.text.TextUtils;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
-import c.a.s0.a1.a;
-import c.a.s0.s.i0.b;
-import c.a.s0.s.s.m;
-import c.a.s0.s.u.c;
-import c.a.s0.t.c.l0;
+import c.a.t0.a1.a;
+import c.a.t0.s.j0.b;
+import c.a.t0.s.t.m;
+import c.a.t0.s.v.c;
+import c.a.t0.t.c.m0;
+import c.a.u0.a4.d;
+import c.a.u0.a4.e;
+import c.a.u0.a4.f;
+import c.a.u0.a4.j;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
@@ -19,7 +23,6 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.TbSingleton;
 import com.baidu.tbadk.core.dialog.TBAlertConfig;
 import com.baidu.tbadk.core.message.UpgradePopWindowMessage;
-import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -83,13 +86,13 @@ public class UpgradePopWindowHelper {
         return (interceptable == null || (invokeLL = interceptable.invokeLL(65543, null, date, date2)) == null) ? Math.abs((int) ((date.getTime() - date2.getTime()) / 86400000)) : invokeLL.intValue;
     }
 
-    public static boolean isDue(l0 l0Var) {
+    public static boolean isDue(m0 m0Var) {
         InterceptResult invokeL;
         Date string2Date;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, l0Var)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, m0Var)) == null) {
             String q = b.k().q(SP_UPGRADE_POP_WINDOW_SHOW_DATE, "");
-            return TextUtils.isEmpty(q) || (string2Date = string2Date(q)) == null || daysBetween(new Date(), string2Date) >= l0Var.b();
+            return TextUtils.isEmpty(q) || (string2Date = string2Date(q)) == null || daysBetween(new Date(), string2Date) >= m0Var.b();
         }
         return invokeL.booleanValue;
     }
@@ -122,7 +125,7 @@ public class UpgradePopWindowHelper {
                     if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, customMessage)) == null) {
                         if (!UpgradePopWindowHelper.isShowed && customMessage != null && customMessage.getData() != null && (customMessage instanceof UpgradePopWindowMessage)) {
                             UpgradePopWindowMessage upgradePopWindowMessage = (UpgradePopWindowMessage) customMessage;
-                            l0 upgradePopWindowConfig = TbSingleton.getInstance().getUpgradePopWindowConfig();
+                            m0 upgradePopWindowConfig = TbSingleton.getInstance().getUpgradePopWindowConfig();
                             if (upgradePopWindowConfig.i() && upgradePopWindowConfig.h().contains(upgradePopWindowMessage.getFromPage()) && UpgradePopWindowHelper.isDue(upgradePopWindowConfig) && (customMessage.getData() instanceof TbPageContext)) {
                                 UpgradePopWindowHelper.showPopWindow(customMessage.getData(), upgradePopWindowConfig);
                                 b.k().y(UpgradePopWindowHelper.SP_UPGRADE_POP_WINDOW_SHOW_DATE, UpgradePopWindowHelper.date2String());
@@ -138,32 +141,32 @@ public class UpgradePopWindowHelper {
         }
     }
 
-    public static void showPopWindow(TbPageContext tbPageContext, l0 l0Var) {
+    public static void showPopWindow(TbPageContext tbPageContext, m0 m0Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65546, null, tbPageContext, l0Var) == null) {
+        if (interceptable == null || interceptable.invokeLL(65546, null, tbPageContext, m0Var) == null) {
             Activity pageActivity = tbPageContext.getPageActivity();
             RelativeLayout relativeLayout = new RelativeLayout(pageActivity);
             View view = new View(pageActivity);
             c d2 = c.d(view);
             d2.m(1);
-            d2.n(R.string.J_X06);
-            d2.f(R.color.CAM_X0205);
-            RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, UtilHelper.getDimenPixelSize(R.dimen.tbds237));
-            layoutParams.setMargins(0, UtilHelper.getDimenPixelSize(R.dimen.tbds120), 0, 0);
+            d2.n(j.J_X06);
+            d2.f(d.CAM_X0205);
+            RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, UtilHelper.getDimenPixelSize(e.tbds237));
+            layoutParams.setMargins(0, UtilHelper.getDimenPixelSize(e.tbds120), 0, 0);
             relativeLayout.addView(view, layoutParams);
             ImageView imageView = new ImageView(pageActivity);
-            WebPManager.setMaskDrawable(imageView, R.drawable.icon_mask_popshengji, null);
+            WebPManager.setMaskDrawable(imageView, f.icon_mask_popshengji, null);
             imageView.setScaleType(ImageView.ScaleType.FIT_XY);
             RelativeLayout.LayoutParams layoutParams2 = new RelativeLayout.LayoutParams(-1, -2);
             layoutParams2.addRule(14);
             relativeLayout.addView(imageView, layoutParams2);
             m mVar = new m(pageActivity);
-            mVar.s(l0Var.d());
-            mVar.n(l0Var.g());
-            mVar.l(true);
-            mVar.i(relativeLayout);
-            if (TextUtils.isEmpty(l0Var.c())) {
-                mVar.p(new TBAlertConfig.a(l0Var.e(), TBAlertConfig.OperateBtnStyle.MAIN, new View.OnClickListener(mVar) { // from class: com.baidu.tbadk.core.util.UpgradePopWindowHelper.2
+            mVar.w(m0Var.d());
+            mVar.p(m0Var.g());
+            mVar.n(true);
+            mVar.k(relativeLayout);
+            if (TextUtils.isEmpty(m0Var.c())) {
+                mVar.r(new TBAlertConfig.a(m0Var.e(), TBAlertConfig.OperateBtnStyle.MAIN, new View.OnClickListener(mVar) { // from class: com.baidu.tbadk.core.util.UpgradePopWindowHelper.2
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ m val$builder;
@@ -195,7 +198,7 @@ public class UpgradePopWindowHelper {
                     }
                 }));
             } else {
-                mVar.p(new TBAlertConfig.a(l0Var.f(), TBAlertConfig.OperateBtnStyle.SECONDARY, new View.OnClickListener(mVar) { // from class: com.baidu.tbadk.core.util.UpgradePopWindowHelper.3
+                mVar.r(new TBAlertConfig.a(m0Var.f(), TBAlertConfig.OperateBtnStyle.SECONDARY, new View.OnClickListener(mVar) { // from class: com.baidu.tbadk.core.util.UpgradePopWindowHelper.3
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ m val$builder;
@@ -225,11 +228,11 @@ public class UpgradePopWindowHelper {
                             this.val$builder.c().dismiss();
                         }
                     }
-                }), new TBAlertConfig.a(l0Var.e(), TBAlertConfig.OperateBtnStyle.FORCE, new View.OnClickListener(tbPageContext, l0Var, mVar) { // from class: com.baidu.tbadk.core.util.UpgradePopWindowHelper.4
+                }), new TBAlertConfig.a(m0Var.e(), TBAlertConfig.OperateBtnStyle.FORCE, new View.OnClickListener(tbPageContext, m0Var, mVar) { // from class: com.baidu.tbadk.core.util.UpgradePopWindowHelper.4
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ m val$builder;
-                    public final /* synthetic */ l0 val$config;
+                    public final /* synthetic */ m0 val$config;
                     public final /* synthetic */ TbPageContext val$pageContext;
 
                     {
@@ -237,7 +240,7 @@ public class UpgradePopWindowHelper {
                         if (interceptable2 != null) {
                             InitContext newInitContext = TitanRuntime.newInitContext();
                             newInitContext.initArgs = r2;
-                            Object[] objArr = {tbPageContext, l0Var, mVar};
+                            Object[] objArr = {tbPageContext, m0Var, mVar};
                             interceptable2.invokeUnInit(65536, newInitContext);
                             int i2 = newInitContext.flag;
                             if ((i2 & 1) != 0) {
@@ -248,7 +251,7 @@ public class UpgradePopWindowHelper {
                             }
                         }
                         this.val$pageContext = tbPageContext;
-                        this.val$config = l0Var;
+                        this.val$config = m0Var;
                         this.val$builder = mVar;
                     }
 
@@ -263,8 +266,9 @@ public class UpgradePopWindowHelper {
                 }));
             }
             mVar.c().setCanceledOnTouchOutside(false);
-            mVar.u();
+            mVar.y();
             isShowed = true;
+            TbSingleton.getInstance().setExceptInsertAdDiaShow(true);
         }
     }
 

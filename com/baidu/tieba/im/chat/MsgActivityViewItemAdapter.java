@@ -67,7 +67,7 @@ public class MsgActivityViewItemAdapter extends MsgCommonItemAdapter<MsgActivity
     }
 
     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [int, android.view.View, android.view.ViewGroup, java.lang.Object, com.baidu.adp.widget.ListView.TypeAdapter$ViewHolder] */
-    @Override // com.baidu.tieba.im.chat.MsgCommonItemAdapter, c.a.d.n.e.a
+    @Override // com.baidu.tieba.im.chat.MsgCommonItemAdapter, c.a.d.o.e.a
     public /* bridge */ /* synthetic */ View S(int i2, View view, ViewGroup viewGroup, ChatMessage chatMessage, TypeAdapter.ViewHolder viewHolder) {
         c0(i2, view, viewGroup, chatMessage, (MsgCommonItemAdapter.MsgViewHolder) viewHolder);
         return view;
@@ -80,12 +80,12 @@ public class MsgActivityViewItemAdapter extends MsgCommonItemAdapter<MsgActivity
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i2), view, viewGroup, chatMessage, msgViewHolder})) == null) {
             super.S(i2, view, viewGroup, chatMessage, msgViewHolder);
             MsgActivityView msgItemView = msgViewHolder.getMsgItemView();
-            msgItemView.p(i2);
-            msgItemView.C(chatMessage);
-            msgItemView.n(this.n);
-            msgItemView.o(this.o);
-            msgItemView.h(this.p);
-            msgItemView.l(chatMessage.getCacheData().getLastMsgTime());
+            msgItemView.v(i2);
+            msgItemView.K(chatMessage);
+            msgItemView.t(this.n);
+            msgItemView.u(this.o);
+            msgItemView.m(this.p);
+            msgItemView.r(chatMessage.getCacheData().getLastMsgTime());
             this.m.getLayoutMode().k(false);
             this.m.getLayoutMode().j(view);
             return view;
@@ -94,8 +94,8 @@ public class MsgActivityViewItemAdapter extends MsgCommonItemAdapter<MsgActivity
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // c.a.d.n.e.a
-    /* renamed from: i0 */
+    @Override // c.a.d.o.e.a
+    /* renamed from: l0 */
     public MsgCommonItemAdapter.MsgViewHolder<MsgActivityView> M(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;

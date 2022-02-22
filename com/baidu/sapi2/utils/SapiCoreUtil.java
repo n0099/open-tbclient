@@ -41,7 +41,7 @@ import java.util.HashMap;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import org.xmlpull.v1.XmlPullParser;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class SapiCoreUtil {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String CUSTOM_THEME_SCHEMA = "file:///android_asset/";

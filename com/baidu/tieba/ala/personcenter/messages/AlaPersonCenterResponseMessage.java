@@ -1,6 +1,6 @@
 package com.baidu.tieba.ala.personcenter.messages;
 
-import c.a.t0.a0.l.d.c;
+import c.a.u0.a0.l.d.c;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;

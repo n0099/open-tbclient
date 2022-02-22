@@ -1,8 +1,8 @@
 package com.baidu.perf.signal.register;
 
 import androidx.core.view.InputDeviceCompat;
-import c.a.g0.a.a.a;
-import c.a.g0.a.a.b;
+import c.a.h0.a.a.a;
+import c.a.h0.a.a.b;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Iterator;
 import java.util.LinkedList;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class NativeSignalCapture {
     public static /* synthetic */ Interceptable $ic;
     public static final LinkedList<a> sANRListeners;

@@ -17,31 +17,31 @@ public class ao {
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f36436b;
+    public String f36642b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f36437c;
+    public String f36643c;
 
     /* renamed from: d  reason: collision with root package name */
-    public long f36438d;
+    public long f36644d;
 
     /* renamed from: e  reason: collision with root package name */
-    public long f36439e;
+    public long f36645e;
 
     /* renamed from: f  reason: collision with root package name */
-    public float f36440f;
+    public float f36646f;
 
     /* renamed from: g  reason: collision with root package name */
-    public float f36441g;
+    public float f36647g;
 
     /* renamed from: h  reason: collision with root package name */
-    public float f36442h;
+    public float f36648h;
 
     /* renamed from: i  reason: collision with root package name */
-    public float f36443i;
+    public float f36649i;
 
     /* renamed from: j  reason: collision with root package name */
-    public String f36444j;
+    public String f36650j;
     public boolean k;
     public String l;
 
@@ -61,15 +61,15 @@ public class ao {
             }
         }
         this.a = str;
-        this.f36436b = str2;
-        this.f36437c = str3;
-        this.f36438d = j2;
-        this.f36439e = j3;
-        this.f36440f = f2;
-        this.f36441g = f3;
-        this.f36442h = f4;
-        this.f36443i = f5;
-        this.f36444j = str4;
+        this.f36642b = str2;
+        this.f36643c = str3;
+        this.f36644d = j2;
+        this.f36645e = j3;
+        this.f36646f = f2;
+        this.f36647g = f3;
+        this.f36648h = f4;
+        this.f36649i = f5;
+        this.f36650j = str4;
         this.k = z;
         this.l = str5;
     }
@@ -83,7 +83,7 @@ public class ao {
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f36444j : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f36650j : (String) invokeV.objValue;
     }
 
     public JSONObject a(long j2, String str, String str2) {
@@ -96,9 +96,9 @@ public class ao {
             JSONObject jSONObject = new JSONObject();
             try {
                 jSONObject.put("n", str);
-                jSONObject.put("t", this.f36436b);
-                jSONObject.put("d", this.f36438d);
-                long j3 = this.f36439e - j2;
+                jSONObject.put("t", this.f36642b);
+                jSONObject.put("d", this.f36644d);
+                long j3 = this.f36645e - j2;
                 if (j3 <= 0) {
                     j3 = 0;
                 }
@@ -108,10 +108,10 @@ public class ao {
                 DecimalFormatSymbols decimalFormatSymbols = new DecimalFormatSymbols();
                 decimalFormatSymbols.setDecimalSeparator('.');
                 decimalFormat.setDecimalFormatSymbols(decimalFormatSymbols);
-                jSONObject.put("xc", decimalFormat.format(this.f36440f));
-                jSONObject.put("yc", decimalFormat.format(this.f36441g));
-                jSONObject.put("xt", decimalFormat.format(this.f36442h));
-                jSONObject.put("yt", decimalFormat.format(this.f36443i));
+                jSONObject.put("xc", decimalFormat.format(this.f36646f));
+                jSONObject.put("yc", decimalFormat.format(this.f36647g));
+                jSONObject.put("xt", decimalFormat.format(this.f36648h));
+                jSONObject.put("yt", decimalFormat.format(this.f36649i));
                 jSONObject.put("h5", 0);
                 jSONObject.put("sign", this.l);
                 return jSONObject;

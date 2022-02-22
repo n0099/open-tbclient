@@ -8,32 +8,32 @@ public abstract class a {
     public Notification a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f60346b;
+    public int f60513b;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f60347c;
+    public long f60514c;
 
     /* renamed from: d  reason: collision with root package name */
-    public long f60348d;
+    public long f60515d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f60349e;
+    public String f60516e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f60350f = 0;
+    public int f60517f = 0;
 
     /* renamed from: g  reason: collision with root package name */
-    public long f60351g;
+    public long f60518g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f60352h;
+    public int f60519h;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f60353i;
+    public boolean f60520i;
 
     public a(int i2, String str) {
-        this.f60346b = i2;
-        this.f60349e = str;
+        this.f60513b = i2;
+        this.f60516e = str;
     }
 
     public abstract void a(BaseException baseException, boolean z);
@@ -42,55 +42,55 @@ public abstract class a {
         if (downloadInfo == null) {
             return;
         }
-        this.f60346b = downloadInfo.getId();
-        this.f60349e = downloadInfo.getTitle();
+        this.f60513b = downloadInfo.getId();
+        this.f60516e = downloadInfo.getTitle();
     }
 
     public long b() {
-        return this.f60347c;
+        return this.f60514c;
     }
 
     public long c() {
-        return this.f60348d;
+        return this.f60515d;
     }
 
     public String d() {
-        return this.f60349e;
+        return this.f60516e;
     }
 
     public int e() {
-        return this.f60350f;
+        return this.f60517f;
     }
 
     public long f() {
-        if (this.f60351g == 0) {
-            this.f60351g = System.currentTimeMillis();
+        if (this.f60518g == 0) {
+            this.f60518g = System.currentTimeMillis();
         }
-        return this.f60351g;
+        return this.f60518g;
     }
 
     public synchronized void g() {
-        this.f60352h++;
+        this.f60519h++;
     }
 
     public int h() {
-        return this.f60352h;
+        return this.f60519h;
     }
 
     public boolean i() {
-        return this.f60353i;
+        return this.f60520i;
     }
 
     public void b(long j2) {
-        this.f60348d = j2;
+        this.f60515d = j2;
     }
 
     public int a() {
-        return this.f60346b;
+        return this.f60513b;
     }
 
     public void a(long j2) {
-        this.f60347c = j2;
+        this.f60514c = j2;
     }
 
     public void a(int i2, BaseException baseException, boolean z) {
@@ -98,27 +98,27 @@ public abstract class a {
     }
 
     public void a(int i2, BaseException baseException, boolean z, boolean z2) {
-        if (z2 || this.f60350f != i2) {
-            this.f60350f = i2;
+        if (z2 || this.f60517f != i2) {
+            this.f60517f = i2;
             a(baseException, z);
         }
     }
 
     public void a(long j2, long j3) {
-        this.f60347c = j2;
-        this.f60348d = j3;
-        this.f60350f = 4;
+        this.f60514c = j2;
+        this.f60515d = j3;
+        this.f60517f = 4;
         a((BaseException) null, false);
     }
 
     public void a(Notification notification) {
-        if (this.f60346b == 0 || notification == null) {
+        if (this.f60513b == 0 || notification == null) {
             return;
         }
-        b.a().a(this.f60346b, this.f60350f, notification);
+        b.a().a(this.f60513b, this.f60517f, notification);
     }
 
     public void a(boolean z) {
-        this.f60353i = z;
+        this.f60520i = z;
     }
 }

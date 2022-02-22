@@ -11,9 +11,9 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
 import c.a.d.f.p.n;
-import c.a.s0.s.q.e2;
-import c.a.s0.s.q.f;
-import c.a.s0.s.u.c;
+import c.a.t0.s.r.e2;
+import c.a.t0.s.r.f;
+import c.a.t0.s.v.c;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.AntiData;
@@ -70,9 +70,9 @@ public class PbThreadCommentAndPraiseInfoLayout extends ThreadCommentAndPraiseIn
             return;
         }
         f fVar = new f();
-        fVar.f13557b = 4;
-        fVar.f13559d = 2;
-        fVar.f13565j = str2;
+        fVar.f13841b = 4;
+        fVar.f13843d = 2;
+        fVar.f13849j = str2;
         this.mAgreeView.setStatisticData(fVar);
         this.mAgreeView.onAgreeClick();
     }

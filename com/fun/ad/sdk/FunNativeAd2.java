@@ -2,6 +2,7 @@ package com.fun.ad.sdk;
 
 import android.app.Activity;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.network.outback.EngineName;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -23,10 +24,10 @@ public interface FunNativeAd2 {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: b  reason: collision with root package name */
-        public final boolean f54120b;
+        public final boolean f54287b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final boolean f54121c;
+        public final boolean f54288c;
 
         static {
             InterceptResult invokeClinit;
@@ -41,7 +42,7 @@ public interface FunNativeAd2 {
                     return;
                 }
             }
-            NativeType nativeType = new NativeType("CUSTOM", 0, true, false);
+            NativeType nativeType = new NativeType(EngineName.CUSTOM_ENGINE, 0, true, false);
             CUSTOM = nativeType;
             NativeType nativeType2 = new NativeType("EXPRESS", 1, false, true);
             EXPRESS = nativeType2;
@@ -68,8 +69,8 @@ public interface FunNativeAd2 {
                     return;
                 }
             }
-            this.f54120b = z;
-            this.f54121c = z2;
+            this.f54287b = z;
+            this.f54288c = z2;
         }
 
         public static NativeType valueOf(String str) {
@@ -87,13 +88,13 @@ public interface FunNativeAd2 {
         public boolean supportCustom() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f54120b : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f54287b : invokeV.booleanValue;
         }
 
         public boolean supportExpress() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f54121c : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f54288c : invokeV.booleanValue;
         }
     }
 

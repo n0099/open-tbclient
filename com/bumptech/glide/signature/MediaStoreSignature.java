@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bumptech.glide.load.Key;
 import java.nio.ByteBuffer;
 import java.security.MessageDigest;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class MediaStoreSignature implements Key {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

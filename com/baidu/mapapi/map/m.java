@@ -37,9 +37,9 @@ public class m implements View.OnClickListener {
         com.baidu.mapsdkplatform.comapi.map.j jVar3;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-            jVar = this.a.f35351e;
-            float f2 = jVar.a().f35887b;
-            jVar2 = this.a.f35351e;
+            jVar = this.a.f35557e;
+            float f2 = jVar.a().f36093b;
+            jVar2 = this.a.f35557e;
             ab E = jVar2.a().E();
             float f3 = E.a - 1.0f;
             E.a = f3;
@@ -48,7 +48,7 @@ public class m implements View.OnClickListener {
             }
             E.a = f2;
             BaiduMap.mapStatusReason |= 16;
-            jVar3 = this.a.f35351e;
+            jVar3 = this.a.f35557e;
             jVar3.a().a(E, 300);
         }
     }

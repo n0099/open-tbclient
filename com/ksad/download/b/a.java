@@ -23,22 +23,22 @@ public class a extends c {
     public d a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final Map<String, Integer> f55053b;
+    public final Map<String, Integer> f55220b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Service f55054c;
+    public Service f55221c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final HandlerC2088a f55055d;
+    public final HandlerC2098a f55222d;
 
     /* renamed from: com.ksad.download.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public static class HandlerC2088a extends Handler {
+    public static class HandlerC2098a extends Handler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final WeakReference<a> a;
 
-        public HandlerC2088a(a aVar) {
+        public HandlerC2098a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -64,7 +64,7 @@ public class a extends c {
                 if (aVar.a == null || !aVar.a.d()) {
                     sendEmptyMessageDelayed(1, 30000L);
                 } else {
-                    aVar.f55054c.stopSelf();
+                    aVar.f55221c.stopSelf();
                 }
             }
         }
@@ -83,8 +83,8 @@ public class a extends c {
                 return;
             }
         }
-        this.f55053b = new ConcurrentHashMap();
-        this.f55055d = new HandlerC2088a(this);
+        this.f55220b = new ConcurrentHashMap();
+        this.f55222d = new HandlerC2098a(this);
     }
 
     private void a(Intent intent) {
@@ -96,9 +96,9 @@ public class a extends c {
             int intExtra = intent.getIntExtra("download_service_type_tag", 0);
             String stringExtra = intent.getStringExtra("download_service_id_tag");
             DownloadTask.DownloadRequest downloadRequest = (DownloadTask.DownloadRequest) intent.getSerializableExtra("download_service_args_tag");
-            Integer num = this.f55053b.get(stringExtra);
+            Integer num = this.f55220b.get(stringExtra);
             if (intExtra == 1) {
-                this.f55053b.put(stringExtra, Integer.valueOf(this.a.a(downloadRequest, (com.ksad.download.c) null)));
+                this.f55220b.put(stringExtra, Integer.valueOf(this.a.a(downloadRequest, (com.ksad.download.c) null)));
             } else if (intExtra == 2) {
                 this.a.d(num.intValue());
             } else if (intExtra == 3) {
@@ -116,9 +116,9 @@ public class a extends c {
         if (!(interceptable == null || interceptable.invokeL(1048576, this, service) == null) || service == null) {
             return;
         }
-        this.f55054c = service;
+        this.f55221c = service;
         this.a = d.a();
-        this.f55055d.sendEmptyMessageDelayed(1, 30000L);
+        this.f55222d.sendEmptyMessageDelayed(1, 30000L);
     }
 
     @Override // com.kwad.sdk.h.c, com.kwad.sdk.api.proxy.IServiceProxy

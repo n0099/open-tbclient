@@ -1,10 +1,10 @@
 package c.a.e.m.e;
 
-import c.a.t0.y1.o.h.b;
+import c.a.u0.a4.j;
+import c.a.u0.z1.o.h.b;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -12,27 +12,27 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
-public class a implements c.a.t0.y1.o.h.b {
+public class a implements c.a.u0.z1.o.h.b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f3594e;
+    public int f3590e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f3595f;
+    public String f3591f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f3596g;
+    public String f3592g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f3597h;
+    public String f3593h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f3598i;
+    public String f3594i;
 
     /* renamed from: j  reason: collision with root package name */
-    public int f3599j;
+    public int f3595j;
     public String k;
     public String l;
     public String m;
@@ -60,7 +60,7 @@ public class a implements c.a.t0.y1.o.h.b {
                 return;
             }
         }
-        this.f3594e = 3;
+        this.f3590e = 3;
         this.u = new ArrayList<>();
         this.v = new ArrayList<>();
     }
@@ -68,7 +68,7 @@ public class a implements c.a.t0.y1.o.h.b {
     public int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f3594e : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f3590e : invokeV.intValue;
     }
 
     public String b() {
@@ -76,7 +76,7 @@ public class a implements c.a.t0.y1.o.h.b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             if (StringUtils.isNull(this.o)) {
-                return TbadkCoreApplication.getInst().getResources().getString(R.string.check_detail);
+                return TbadkCoreApplication.getInst().getResources().getString(j.check_detail);
             }
             return this.o;
         }
@@ -86,7 +86,7 @@ public class a implements c.a.t0.y1.o.h.b {
     public boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f3594e == 2 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f3590e == 2 : invokeV.booleanValue;
     }
 
     public boolean d() {
@@ -106,11 +106,11 @@ public class a implements c.a.t0.y1.o.h.b {
     public void e(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048580, this, i2) == null) {
-            this.f3594e = i2;
+            this.f3590e = i2;
         }
     }
 
-    @Override // c.a.t0.y1.o.h.b
+    @Override // c.a.u0.z1.o.h.b
     public b.a getParallelCharge() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -118,8 +118,8 @@ public class a implements c.a.t0.y1.o.h.b {
             if (this.w == null) {
                 b.a aVar = new b.a();
                 this.w = aVar;
-                aVar.f25444c = this.u;
-                aVar.f25445d = this.v;
+                aVar.f25730c = this.u;
+                aVar.f25731d = this.v;
             }
             return this.w;
         }

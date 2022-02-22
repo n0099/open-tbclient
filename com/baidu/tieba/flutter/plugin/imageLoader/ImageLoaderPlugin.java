@@ -12,15 +12,14 @@ import c.a.d.f.l.c;
 import c.a.d.f.l.d;
 import c.a.d.f.p.l;
 import c.a.d.f.p.m;
-import c.a.d.n.d.a;
-import c.a.s0.s0.k;
+import c.a.d.o.d.a;
+import c.a.t0.s0.k;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.minivideo.effect.core.vlogedit.ShaderParams;
-import com.baidu.searchbox.http.response.ResponseException;
 import com.baidu.searchbox.retrieve.log.bean.FetchLog;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
@@ -74,7 +73,7 @@ public class ImageLoaderPlugin implements FlutterPlugin, ImageLoaderAuto.HostIma
             Succeed = new ImageLoadingError("Succeed", 1);
             NoSuchFile = new ImageLoadingError("NoSuchFile", 2);
             NetworkError = new ImageLoadingError("NetworkError", 3);
-            ImageLoadingError imageLoadingError = new ImageLoadingError(ResponseException.CANCELED, 4);
+            ImageLoadingError imageLoadingError = new ImageLoadingError("Canceled", 4);
             Canceled = imageLoadingError;
             $VALUES = new ImageLoadingError[]{Invalid, Succeed, NoSuchFile, NetworkError, imageLoadingError};
         }
@@ -429,7 +428,7 @@ public class ImageLoaderPlugin implements FlutterPlugin, ImageLoaderAuto.HostIma
     public void onAttachedToEngine(@NonNull FlutterPlugin.FlutterPluginBinding flutterPluginBinding) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, flutterPluginBinding) == null) {
-            c.a.t0.a1.a.c.d.d(flutterPluginBinding.getBinaryMessenger(), this);
+            c.a.u0.a1.a.c.d.d(flutterPluginBinding.getBinaryMessenger(), this);
         }
     }
 
@@ -437,7 +436,7 @@ public class ImageLoaderPlugin implements FlutterPlugin, ImageLoaderAuto.HostIma
     public void onDetachedFromEngine(@NonNull FlutterPlugin.FlutterPluginBinding flutterPluginBinding) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, flutterPluginBinding) == null) {
-            c.a.t0.a1.a.c.d.d(flutterPluginBinding.getBinaryMessenger(), null);
+            c.a.u0.a1.a.c.d.d(flutterPluginBinding.getBinaryMessenger(), null);
         }
     }
 }

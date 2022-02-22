@@ -16,11 +16,11 @@ import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
-import c.a.c0.g0.f;
-import c.a.c0.g0.o;
-import c.a.c0.h.k;
-import c.a.c0.k0.i;
-import c.a.c0.k0.r;
+import c.a.d0.h.k;
+import c.a.d0.h0.f;
+import c.a.d0.h0.p;
+import c.a.d0.l0.i;
+import c.a.d0.l0.r;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mytransformapp.util.LogUtil;
 import com.baidu.nadcore.widget.SlideHelper;
@@ -97,7 +97,7 @@ public class BaseActivity extends FragmentActivity {
             this.a = baseActivity;
         }
 
-        @Override // c.a.c0.k0.i
+        @Override // c.a.d0.l0.i
         public void onTranslucent(boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
@@ -112,10 +112,10 @@ public class BaseActivity extends FragmentActivity {
         public boolean a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ int f36950b;
+        public final /* synthetic */ int f37156b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ BaseActivity f36951c;
+        public final /* synthetic */ BaseActivity f37157c;
 
         public b(BaseActivity baseActivity, int i2) {
             Interceptable interceptable = $ic;
@@ -132,8 +132,8 @@ public class BaseActivity extends FragmentActivity {
                     return;
                 }
             }
-            this.f36951c = baseActivity;
-            this.f36950b = i2;
+            this.f37157c = baseActivity;
+            this.f37156b = i2;
             this.a = true;
         }
 
@@ -141,17 +141,17 @@ public class BaseActivity extends FragmentActivity {
         public void onPanelClosed(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                if (this.f36951c.mSuspensionBallSlideListener != null) {
-                    this.f36951c.mSuspensionBallSlideListener.onPanelClosed(view);
+                if (this.f37157c.mSuspensionBallSlideListener != null) {
+                    this.f37157c.mSuspensionBallSlideListener.onPanelClosed(view);
                 }
-                if (this.f36951c.mSlideListener != null) {
-                    this.f36951c.mSlideListener.onPanelClosed(view);
+                if (this.f37157c.mSlideListener != null) {
+                    this.f37157c.mSlideListener.onPanelClosed(view);
                 }
-                if (!this.f36951c.mSlideCancelActivityTransparent && !this.f36951c.mForceActivityTransparent && this.a) {
+                if (!this.f37157c.mSlideCancelActivityTransparent && !this.f37157c.mForceActivityTransparent && this.a) {
                     this.a = false;
-                    r.c(this.f36951c, null);
+                    r.c(this.f37157c, null);
                 }
-                this.f36951c.setPreDecorPosition(0.0f);
+                this.f37157c.setPreDecorPosition(0.0f);
             }
         }
 
@@ -159,16 +159,16 @@ public class BaseActivity extends FragmentActivity {
         public void onPanelOpened(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view) == null) {
-                if (this.f36951c.mSuspensionBallSlideListener != null) {
-                    this.f36951c.mSuspensionBallSlideListener.onPanelOpened(view);
+                if (this.f37157c.mSuspensionBallSlideListener != null) {
+                    this.f37157c.mSuspensionBallSlideListener.onPanelOpened(view);
                 }
-                if (this.f36951c.mSlideListener != null) {
-                    this.f36951c.mSlideListener.onPanelOpened(view);
+                if (this.f37157c.mSlideListener != null) {
+                    this.f37157c.mSlideListener.onPanelOpened(view);
                 }
-                this.f36951c.setPreDecorPosition(0.0f);
-                this.f36951c.mSlideHelper.setShadowDrawable(null);
-                this.f36951c.finish();
-                this.f36951c.overridePendingTransition(0, 0);
+                this.f37157c.setPreDecorPosition(0.0f);
+                this.f37157c.mSlideHelper.setShadowDrawable(null);
+                this.f37157c.finish();
+                this.f37157c.overridePendingTransition(0, 0);
             }
         }
 
@@ -176,7 +176,7 @@ public class BaseActivity extends FragmentActivity {
         public void onPanelSlide(View view, float f2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLF(Constants.METHOD_SEND_USER_MSG, this, view, f2) == null) {
-                View maskView = this.f36951c.mSlideHelper.getMaskView();
+                View maskView = this.f37157c.mSlideHelper.getMaskView();
                 if (maskView != null) {
                     float f3 = 1.0f - f2;
                     if (f3 < 0.0f) {
@@ -184,18 +184,18 @@ public class BaseActivity extends FragmentActivity {
                     }
                     maskView.setAlpha(f3);
                 }
-                if (this.f36951c.mSuspensionBallSlideListener != null) {
-                    this.f36951c.mSuspensionBallSlideListener.onPanelSlide(view, f2);
+                if (this.f37157c.mSuspensionBallSlideListener != null) {
+                    this.f37157c.mSuspensionBallSlideListener.onPanelSlide(view, f2);
                 }
-                if (this.f36951c.mSlideListener != null) {
-                    this.f36951c.mSlideListener.onPanelSlide(view, f2);
+                if (this.f37157c.mSlideListener != null) {
+                    this.f37157c.mSlideListener.onPanelSlide(view, f2);
                 }
-                if (!this.f36951c.mSlideCancelActivityTransparent && !this.f36951c.mForceActivityTransparent && !this.a) {
+                if (!this.f37157c.mSlideCancelActivityTransparent && !this.f37157c.mForceActivityTransparent && !this.a) {
                     this.a = true;
-                    r.d(this.f36951c, null);
+                    r.d(this.f37157c, null);
                 }
-                float f4 = this.f36950b >> 2;
-                this.f36951c.setPreDecorPosition((f2 * f4) - f4);
+                float f4 = this.f37156b >> 2;
+                this.f37157c.setPreDecorPosition((f2 * f4) - f4);
             }
         }
     }
@@ -206,7 +206,7 @@ public class BaseActivity extends FragmentActivity {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ BaseActivity f36952e;
+        public final /* synthetic */ BaseActivity f37158e;
 
         public c(BaseActivity baseActivity) {
             Interceptable interceptable = $ic;
@@ -223,14 +223,14 @@ public class BaseActivity extends FragmentActivity {
                     return;
                 }
             }
-            this.f36952e = baseActivity;
+            this.f37158e = baseActivity;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                BaseActivity baseActivity = this.f36952e;
+                BaseActivity baseActivity = this.f37158e;
                 baseActivity.setDrawDuringWindowsAnimating(baseActivity.getWindow().getDecorView());
             }
         }
@@ -295,7 +295,7 @@ public class BaseActivity extends FragmentActivity {
                     return;
                 }
             }
-            c.a.c0.x.a.b(onNewIntentCallbacks, dVar);
+            c.a.d0.x.a.b(onNewIntentCallbacks, dVar);
         }
     }
 
@@ -402,12 +402,12 @@ public class BaseActivity extends FragmentActivity {
         if (interceptable == null || interceptable.invokeF(65554, this, f2) == null) {
             try {
                 if (this.preActivity == null || this.preActivity.get() == null) {
-                    this.preActivity = new WeakReference<>(c.a.c0.q.a.c());
+                    this.preActivity = new WeakReference<>(c.a.d0.q.a.d());
                 }
                 if (this.preActivity.get() != null) {
-                    Activity d2 = c.a.c0.q.a.d();
+                    Activity e2 = c.a.d0.q.a.e();
                     Activity activity = this.preActivity.get();
-                    if (d2 != null && activity != null && d2.getLocalClassName().equals(activity.getLocalClassName())) {
+                    if (e2 != null && activity != null && e2.getLocalClassName().equals(activity.getLocalClassName())) {
                         setPreActivityPosition(activity, 0.0f);
                     } else {
                         setPreActivityPosition(activity, f2);
@@ -578,10 +578,10 @@ public class BaseActivity extends FragmentActivity {
     public void onCreate(Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048593, this, bundle) == null) {
-            int d2 = o.d(this);
+            int d2 = p.d(this);
             super.onCreate(bundle);
-            o.a(this, d2);
-            if (c.a.c0.b.b.a.a(this)) {
+            p.a(this, d2);
+            if (c.a.d0.b.b.a.a(this)) {
                 LogUtil.logActivity(this, "onCreate");
                 return;
             }
@@ -625,7 +625,7 @@ public class BaseActivity extends FragmentActivity {
         if (interceptable == null || interceptable.invokeZ(1048597, this, z) == null) {
             super.onMultiWindowModeChanged(z);
             if (z && !sHasMultiWindowShow) {
-                c.a.c0.e0.b.a().c(getApplicationContext(), c.a.c0.b.a.nad_androidn_multiwindow_user_toast, 1);
+                c.a.d0.e0.b.a().c(getApplicationContext(), c.a.d0.b.a.nad_androidn_multiwindow_user_toast, 1);
                 setHasMultiWindowShow(true);
             } else if (z || f.a()) {
             } else {

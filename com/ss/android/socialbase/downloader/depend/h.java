@@ -13,14 +13,14 @@ public interface h extends IInterface {
 
         /* renamed from: com.ss.android.socialbase.downloader.depend.h$a$a  reason: collision with other inner class name */
         /* loaded from: classes4.dex */
-        public static class C2213a implements h {
+        public static class C2223a implements h {
             public static h a;
 
             /* renamed from: b  reason: collision with root package name */
-            public IBinder f59978b;
+            public IBinder f60145b;
 
-            public C2213a(IBinder iBinder) {
-                this.f59978b = iBinder;
+            public C2223a(IBinder iBinder) {
+                this.f60145b = iBinder;
             }
 
             @Override // com.ss.android.socialbase.downloader.depend.h
@@ -29,7 +29,7 @@ public interface h extends IInterface {
                 Parcel obtain2 = Parcel.obtain();
                 try {
                     obtain.writeInterfaceToken("com.ss.android.socialbase.downloader.depend.IDownloadAidlInterceptor");
-                    if (!this.f59978b.transact(1, obtain, obtain2, 0) && a.b() != null) {
+                    if (!this.f60145b.transact(1, obtain, obtain2, 0) && a.b() != null) {
                         return a.b().a();
                     }
                     obtain2.readException();
@@ -42,7 +42,7 @@ public interface h extends IInterface {
 
             @Override // android.os.IInterface
             public IBinder asBinder() {
-                return this.f59978b;
+                return this.f60145b;
             }
         }
 
@@ -58,11 +58,11 @@ public interface h extends IInterface {
             if (queryLocalInterface != null && (queryLocalInterface instanceof h)) {
                 return (h) queryLocalInterface;
             }
-            return new C2213a(iBinder);
+            return new C2223a(iBinder);
         }
 
         public static h b() {
-            return C2213a.a;
+            return C2223a.a;
         }
 
         @Override // android.os.IInterface

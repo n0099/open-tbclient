@@ -14,25 +14,25 @@ import java.util.concurrent.ThreadFactory;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class a implements ThreadFactory {
         public static /* synthetic */ Interceptable $ic;
         public static final AtomicInteger a;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: b  reason: collision with root package name */
-        public final String f58315b;
+        public final String f58482b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final ThreadGroup f58316c;
+        public final ThreadGroup f58483c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final AtomicInteger f58317d;
+        public final AtomicInteger f58484d;
 
         static {
             InterceptResult invokeClinit;
@@ -65,9 +65,9 @@ public class b {
                     return;
                 }
             }
-            this.f58317d = new AtomicInteger(1);
-            this.f58316c = Thread.currentThread().getThreadGroup();
-            this.f58315b = f.i(str);
+            this.f58484d = new AtomicInteger(1);
+            this.f58483c = Thread.currentThread().getThreadGroup();
+            this.f58482b = f.i(str);
         }
 
         @Override // java.util.concurrent.ThreadFactory
@@ -75,8 +75,8 @@ public class b {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, runnable)) == null) {
-                ThreadGroup threadGroup = this.f58316c;
-                Thread thread = new Thread(threadGroup, runnable, DiskLruCache.KS_THREAD_PREFIX + this.f58315b + this.f58317d.getAndIncrement(), 0L);
+                ThreadGroup threadGroup = this.f58483c;
+                Thread thread = new Thread(threadGroup, runnable, DiskLruCache.KS_THREAD_PREFIX + this.f58482b + this.f58484d.getAndIncrement(), 0L);
                 if (thread.isDaemon()) {
                     thread.setDaemon(false);
                 }

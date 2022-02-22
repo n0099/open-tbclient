@@ -4,7 +4,7 @@ import java.nio.charset.CharsetDecoder;
 import kotlin.Metadata;
 import kotlin.jvm.internal.MutablePropertyReference0Impl;
 @Metadata(k = 3, mv = {1, 5, 1})
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public final /* synthetic */ class LineReader$readLine$1 extends MutablePropertyReference0Impl {
     public LineReader$readLine$1(LineReader lineReader) {
         super(lineReader, LineReader.class, "decoder", "getDecoder()Ljava/nio/charset/CharsetDecoder;", 0);

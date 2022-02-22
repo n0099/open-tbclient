@@ -24,16 +24,16 @@ public abstract class c<T> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public List<T> f60731b;
+    public List<T> f60898b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Context f60732c;
+    public Context f60899c;
 
     /* renamed from: d  reason: collision with root package name */
-    public byte[] f60733d;
+    public byte[] f60900d;
 
     /* renamed from: e  reason: collision with root package name */
-    public byte[] f60734e;
+    public byte[] f60901e;
 
     static {
         InterceptResult invokeClinit;
@@ -66,25 +66,25 @@ public abstract class c<T> {
                 return;
             }
         }
-        this.f60731b = new ArrayList();
-        this.f60732c = ContextDelegate.getContext(context);
+        this.f60898b = new ArrayList();
+        this.f60899c = ContextDelegate.getContext(context);
         x b2 = x.b();
-        b2.a(this.f60732c);
-        this.f60733d = b2.c();
-        this.f60734e = b2.d();
+        b2.a(this.f60899c);
+        this.f60900d = b2.c();
+        this.f60901e = b2.d();
         c();
     }
 
     private String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, this)) == null) ? z.b(this.f60732c).a(a(), null) : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, this)) == null) ? z.b(this.f60899c).a(a(), null) : (String) invokeV.objValue;
     }
 
     private void d(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, str) == null) {
-            z.b(this.f60732c).b(a(), str);
+            z.b(this.f60899c).b(a(), str);
         }
     }
 
@@ -99,7 +99,7 @@ public abstract class c<T> {
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             synchronized (a) {
                 g.a(a());
-                this.f60731b.clear();
+                this.f60898b.clear();
                 c(b());
             }
         }
@@ -109,7 +109,7 @@ public abstract class c<T> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            byte[] bArr = this.f60733d;
+            byte[] bArr = this.f60900d;
             return (bArr == null || bArr.length <= 0) ? x.b().c() : bArr;
         }
         return (byte[]) invokeV.objValue;
@@ -119,7 +119,7 @@ public abstract class c<T> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            byte[] bArr = this.f60734e;
+            byte[] bArr = this.f60901e;
             return (bArr == null || bArr.length <= 0) ? x.b().d() : bArr;
         }
         return (byte[]) invokeV.objValue;
@@ -129,7 +129,7 @@ public abstract class c<T> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             synchronized (a) {
-                this.f60731b.clear();
+                this.f60898b.clear();
                 d("");
                 p.d("CacheSettings", "clear " + a() + " strApps");
             }
@@ -149,7 +149,7 @@ public abstract class c<T> {
                     p.d("CacheSettings", "ClientManager init " + a() + " strApps : " + str);
                     List<T> a2 = a(b(str));
                     if (a2 != null) {
-                        this.f60731b.addAll(a2);
+                        this.f60898b.addAll(a2);
                     }
                 } catch (Exception e2) {
                     d();

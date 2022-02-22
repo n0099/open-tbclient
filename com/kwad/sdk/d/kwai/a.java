@@ -5,7 +5,7 @@ import android.view.ViewGroup;
 import com.kwad.sdk.R;
 import com.kwad.sdk.compliance.widget.ComplianceTextView;
 import com.kwad.sdk.utils.bb;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class a extends b {
     public ComplianceTextView a;
 
@@ -19,7 +19,7 @@ public class a extends b {
     public void a() {
         super.a();
         c cVar = (c) p();
-        if (cVar.f56663f) {
+        if (cVar.f56830f) {
             a((View) this.a);
         }
         this.a.setVisibility(0);

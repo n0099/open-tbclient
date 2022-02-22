@@ -14,14 +14,14 @@ public interface ah extends IInterface {
 
         /* renamed from: com.ss.android.socialbase.downloader.depend.ah$a$a  reason: collision with other inner class name */
         /* loaded from: classes4.dex */
-        public static class C2208a implements ah {
+        public static class C2218a implements ah {
             public static ah a;
 
             /* renamed from: b  reason: collision with root package name */
-            public IBinder f59973b;
+            public IBinder f60140b;
 
-            public C2208a(IBinder iBinder) {
-                this.f59973b = iBinder;
+            public C2218a(IBinder iBinder) {
+                this.f60140b = iBinder;
             }
 
             @Override // com.ss.android.socialbase.downloader.depend.ah
@@ -32,7 +32,7 @@ public interface ah extends IInterface {
                     obtain.writeInterfaceToken("com.ss.android.socialbase.downloader.depend.IRetryDelayTimeAidlCalculator");
                     obtain.writeInt(i2);
                     obtain.writeInt(i3);
-                    if (!this.f59973b.transact(1, obtain, obtain2, 0) && a.a() != null) {
+                    if (!this.f60140b.transact(1, obtain, obtain2, 0) && a.a() != null) {
                         return a.a().a(i2, i3);
                     }
                     obtain2.readException();
@@ -45,7 +45,7 @@ public interface ah extends IInterface {
 
             @Override // android.os.IInterface
             public IBinder asBinder() {
-                return this.f59973b;
+                return this.f60140b;
             }
         }
 
@@ -61,7 +61,7 @@ public interface ah extends IInterface {
             if (queryLocalInterface != null && (queryLocalInterface instanceof ah)) {
                 return (ah) queryLocalInterface;
             }
-            return new C2208a(iBinder);
+            return new C2218a(iBinder);
         }
 
         @Override // android.os.IInterface
@@ -86,7 +86,7 @@ public interface ah extends IInterface {
         }
 
         public static ah a() {
-            return C2208a.a;
+            return C2218a.a;
         }
     }
 }

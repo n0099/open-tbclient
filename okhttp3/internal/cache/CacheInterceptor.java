@@ -29,7 +29,7 @@ import okio.Source;
 import okio.Timeout;
 import org.apache.http.auth.AUTH;
 import org.apache.http.protocol.HTTP;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public final class CacheInterceptor implements Interceptor {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

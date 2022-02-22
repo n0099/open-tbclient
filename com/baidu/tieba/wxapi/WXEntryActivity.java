@@ -4,8 +4,8 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.text.TextUtils;
-import c.a.s0.a.g;
-import c.a.t0.r2.a;
+import c.a.t0.a.g;
+import c.a.u0.s2.a;
 import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
@@ -169,7 +169,7 @@ public class WXEntryActivity extends BaseActivity<WXEntryActivity> implements IW
         if (1 == type) {
             a aVar = new a();
             aVar.a = this;
-            aVar.f21976b = baseResp;
+            aVar.f21850b = baseResp;
             MessageManager.getInstance().runTask(2921351, null, aVar);
             closeActivity();
         } else if (2 == type && (baseResp instanceof SendMessageToWX.Resp)) {

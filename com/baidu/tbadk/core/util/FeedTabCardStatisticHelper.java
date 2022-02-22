@@ -1,8 +1,8 @@
 package com.baidu.tbadk.core.util;
 
 import androidx.core.view.InputDeviceCompat;
-import c.a.s0.s.q.e2;
-import c.a.s0.s.q.x0;
+import c.a.t0.s.r.e2;
+import c.a.t0.s.r.x0;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;

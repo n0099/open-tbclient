@@ -25,17 +25,17 @@ public class c {
 
         /* renamed from: c.a.j.h.b.b$f.c$a$a  reason: collision with other inner class name */
         /* loaded from: classes.dex */
-        public class RunnableC0183a implements Runnable {
+        public class RunnableC0185a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ byte[] f4086e;
+            public final /* synthetic */ byte[] f4106e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ a f4087f;
+            public final /* synthetic */ a f4107f;
 
-            public RunnableC0183a(a aVar, byte[] bArr) {
+            public RunnableC0185a(a aVar, byte[] bArr) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -50,18 +50,18 @@ public class c {
                         return;
                     }
                 }
-                this.f4087f = aVar;
-                this.f4086e = bArr;
+                this.f4107f = aVar;
+                this.f4106e = bArr;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 b bVar;
                 Interceptable interceptable = $ic;
-                if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (bVar = this.f4087f.a) == null) {
+                if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (bVar = this.f4107f.a) == null) {
                     return;
                 }
-                bVar.a(true, this.f4086e);
+                bVar.a(true, this.f4106e);
             }
         }
 
@@ -71,7 +71,7 @@ public class c {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ a f4088e;
+            public final /* synthetic */ a f4108e;
 
             public b(a aVar) {
                 Interceptable interceptable = $ic;
@@ -88,14 +88,14 @@ public class c {
                         return;
                     }
                 }
-                this.f4088e = aVar;
+                this.f4108e = aVar;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 b bVar;
                 Interceptable interceptable = $ic;
-                if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (bVar = this.f4088e.a) == null) {
+                if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (bVar = this.f4108e.a) == null) {
                     return;
                 }
                 bVar.a(false, null);
@@ -126,7 +126,7 @@ public class c {
         public void onSuccess(byte[] bArr, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLI(1048576, this, bArr, i2) == null) {
-                ExecutorUtilsExt.postOnSerial(new RunnableC0183a(this, bArr), "HandshakeRequest");
+                ExecutorUtilsExt.postOnSerial(new RunnableC0185a(this, bArr), "HandshakeRequest");
             }
         }
 
@@ -175,7 +175,7 @@ public class c {
             hashMap.put("Bdtls", "Bdtls");
             hashMap.put("Bdtls-Content-Type", "json");
             CookieManager cookieManager = CookieManager.WEBKIT_COOKIES;
-            HttpManager.getDefault(c.a.j.h.b.b.f4037c.h().getAppContext()).postByteRequest().url(c.a.j.h.b.b.f4037c.h().b().b() + "/bdtls").cookieManager(cookieManager).headers(hashMap).content(bArr).build().executeAsync(new a(this, bVar));
+            HttpManager.getDefault(c.a.j.h.b.b.f4057c.h().getAppContext()).postByteRequest().url(c.a.j.h.b.b.f4057c.h().b().b() + "/bdtls").cookieManager(cookieManager).headers(hashMap).content(bArr).build().executeAsync(new a(this, bVar));
         }
     }
 }

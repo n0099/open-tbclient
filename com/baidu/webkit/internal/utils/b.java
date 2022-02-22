@@ -9,13 +9,13 @@ import com.baidu.webkit.sdk.WebKitFactory;
 import com.baidu.webkit.sdk.WebViewFactory;
 import java.io.File;
 import java.io.IOException;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class b {
     public static /* synthetic */ Interceptable $ic = null;
     public static boolean a = false;
 
     /* renamed from: b  reason: collision with root package name */
-    public static int f52839b = -1;
+    public static int f53006b = -1;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -57,7 +57,7 @@ public final class b {
                     StringBuilder sb = new StringBuilder();
                     sb.append(WebKitFactory.getProcessTypeString());
                     sb.append("zeus_init_model_opt");
-                    f52839b = new File(filesDir, sb.toString()).exists() ? 1 : -1;
+                    f53006b = new File(filesDir, sb.toString()).exists() ? 1 : -1;
                     a = true;
                 }
             }

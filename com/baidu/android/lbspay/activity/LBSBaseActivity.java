@@ -120,13 +120,13 @@ public abstract class LBSBaseActivity extends DxmPayBaseActivity implements IBea
                 public final /* synthetic */ int a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ int f31594b;
+                public final /* synthetic */ int f31800b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ String f31595c;
+                public final /* synthetic */ String f31801c;
 
                 /* renamed from: d  reason: collision with root package name */
-                public final /* synthetic */ LBSBaseActivity f31596d;
+                public final /* synthetic */ LBSBaseActivity f31802d;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -143,17 +143,17 @@ public abstract class LBSBaseActivity extends DxmPayBaseActivity implements IBea
                             return;
                         }
                     }
-                    this.f31596d = this;
+                    this.f31802d = this;
                     this.a = i2;
-                    this.f31594b = i3;
-                    this.f31595c = str;
+                    this.f31800b = i3;
+                    this.f31801c = str;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        this.f31596d.handleFailure(this.a, this.f31594b, this.f31595c);
+                        this.f31802d.handleFailure(this.a, this.f31800b, this.f31801c);
                     }
                 }
             });
@@ -170,13 +170,13 @@ public abstract class LBSBaseActivity extends DxmPayBaseActivity implements IBea
                 public final /* synthetic */ int a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ Object f31591b;
+                public final /* synthetic */ Object f31797b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ String f31592c;
+                public final /* synthetic */ String f31798c;
 
                 /* renamed from: d  reason: collision with root package name */
-                public final /* synthetic */ LBSBaseActivity f31593d;
+                public final /* synthetic */ LBSBaseActivity f31799d;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -193,17 +193,17 @@ public abstract class LBSBaseActivity extends DxmPayBaseActivity implements IBea
                             return;
                         }
                     }
-                    this.f31593d = this;
+                    this.f31799d = this;
                     this.a = i2;
-                    this.f31591b = obj;
-                    this.f31592c = str;
+                    this.f31797b = obj;
+                    this.f31798c = str;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        this.f31593d.handleResponse(this.a, this.f31591b, this.f31592c);
+                        this.f31799d.handleResponse(this.a, this.f31797b, this.f31798c);
                     }
                 }
             });

@@ -4,7 +4,7 @@ import android.app.Activity;
 import tv.athena.revenue.payui.view.IYYPayAmountView;
 import tv.athena.revenue.payui.view.IYYPayResultView;
 import tv.athena.revenue.payui.view.IYYPayWayView;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public interface i {
     IYYPayAmountView a(Activity activity, IYYPayAmountView.ViewParams viewParams, d dVar);
 

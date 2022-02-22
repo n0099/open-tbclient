@@ -34,19 +34,19 @@ public final class OrderedRangeList<T> {
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f42427b;
+    public int f42660b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final int f42428c;
+    public final int f42661c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final Pools.SimplePool<a<T>> f42429d;
+    public final Pools.SimplePool<a<T>> f42662d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final List<a<T>> f42430e;
+    public final List<a<T>> f42663e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final Map<T, a<T>> f42431f;
+    public final Map<T, a<T>> f42664f;
 
     public OrderedRangeList(int i2, int i3, int i4) {
         Interceptable interceptable = $ic;
@@ -64,19 +64,19 @@ public final class OrderedRangeList<T> {
             }
         }
         this.a = i2;
-        this.f42427b = i3;
-        this.f42428c = i4;
+        this.f42660b = i3;
+        this.f42661c = i4;
         Pools.SimplePool<a<T>> simplePool = new Pools.SimplePool<>(100);
         for (int i7 = 0; i7 < 100; i7++) {
             simplePool.release(new a<>(0, 0, null, 7, null));
         }
         Unit unit = Unit.INSTANCE;
-        this.f42429d = simplePool;
+        this.f42662d = simplePool;
         ArrayList arrayList = new ArrayList();
         arrayList.add(new a(g(), f(), null, 4, null));
         Unit unit2 = Unit.INSTANCE;
-        this.f42430e = arrayList;
-        this.f42431f = new LinkedHashMap();
+        this.f42663e = arrayList;
+        this.f42664f = new LinkedHashMap();
     }
 
     /* JADX DEBUG: Multi-variable search result rejected for r0v0, resolved type: com.baidu.tieba.danmu.collection.OrderedRangeList */
@@ -110,7 +110,7 @@ public final class OrderedRangeList<T> {
                 }
                 int d2 = ((a) CollectionsKt___CollectionsKt.first((List<? extends Object>) place)).d();
                 int b2 = ((a) CollectionsKt___CollectionsKt.last((List<? extends Object>) place)).b();
-                List<a<T>> list = this.f42430e;
+                List<a<T>> list = this.f42663e;
                 int binarySearch = CollectionsKt__CollectionsKt.binarySearch(list, 0, list.size(), new OrderedRangeList$add$$inlined$binarySearchBy$default$1(Integer.valueOf(d2)));
                 if (binarySearch < 0) {
                     return false;
@@ -119,21 +119,21 @@ public final class OrderedRangeList<T> {
                 while (it2.hasNext()) {
                     Object a2 = ((a) it2.next()).a();
                     if (a2 != null) {
-                        this.f42431f.remove(a2);
+                        this.f42664f.remove(a2);
                     }
-                    this.f42430e.remove(binarySearch);
+                    this.f42663e.remove(binarySearch);
                 }
-                if (this.f42428c + i3 < b2) {
+                if (this.f42661c + i3 < b2) {
                     int i4 = b2;
-                    while (binarySearch + 1 < this.f42430e.size() && this.f42430e.get(binarySearch).a() == null) {
-                        i4 = this.f42430e.get(binarySearch).b();
-                        k(this.f42430e.remove(binarySearch));
+                    while (binarySearch + 1 < this.f42663e.size() && this.f42663e.get(binarySearch).a() == null) {
+                        i4 = this.f42663e.get(binarySearch).b();
+                        k(this.f42663e.remove(binarySearch));
                     }
-                    this.f42430e.add(binarySearch, j(this, i3 + this.f42428c, i4, null, 4, null));
+                    this.f42663e.add(binarySearch, j(this, i3 + this.f42661c, i4, null, 4, null));
                 }
                 a<T> i5 = i(i2, i3, t);
-                this.f42430e.add(binarySearch, i5);
-                this.f42431f.put(t, i5);
+                this.f42663e.add(binarySearch, i5);
+                this.f42664f.put(t, i5);
                 for (a<T> aVar : place) {
                     k(aVar);
                 }
@@ -177,16 +177,16 @@ public final class OrderedRangeList<T> {
     public final void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.f42430e.clear();
-            this.f42430e.add(new a<>(this.a, this.f42427b, null, 4, null));
-            this.f42431f.clear();
+            this.f42663e.clear();
+            this.f42663e.add(new a<>(this.a, this.f42660b, null, 4, null));
+            this.f42664f.clear();
         }
     }
 
     public final boolean d(T t) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, t)) == null) ? this.f42431f.containsKey(t) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, t)) == null) ? this.f42664f.containsKey(t) : invokeL.booleanValue;
     }
 
     /* JADX DEBUG: Type inference failed for r3v13. Raw type applied. Possible types: T, ? super T */
@@ -196,13 +196,13 @@ public final class OrderedRangeList<T> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeIL = interceptable.invokeIL(1048580, this, i2, predicate)) == null) {
             Intrinsics.checkNotNullParameter(predicate, "predicate");
-            if (this.f42430e.isEmpty()) {
+            if (this.f42663e.isEmpty()) {
                 List<a<T>> emptyList = Collections.emptyList();
                 Intrinsics.checkNotNullExpressionValue(emptyList, "emptyList()");
                 return emptyList;
             }
             int i3 = 0;
-            Iterator<a<T>> it = this.f42430e.iterator();
+            Iterator<a<T>> it = this.f42663e.iterator();
             while (true) {
                 if (!it.hasNext()) {
                     i3 = -1;
@@ -214,15 +214,15 @@ public final class OrderedRangeList<T> {
                 }
             }
             int i4 = i3;
-            while (i3 >= 0 && i3 < this.f42430e.size()) {
-                if (this.f42430e.get(i3).b() - this.f42430e.get(i4).d() < i2) {
+            while (i3 >= 0 && i3 < this.f42663e.size()) {
+                if (this.f42663e.get(i3).b() - this.f42663e.get(i4).d() < i2) {
                     i3++;
-                    while (i3 < this.f42430e.size() && !predicate.invoke((T) this.f42430e.get(i3).a()).booleanValue()) {
+                    while (i3 < this.f42663e.size() && !predicate.invoke((T) this.f42663e.get(i3).a()).booleanValue()) {
                         i3++;
                         i4 = i3;
                     }
                 } else {
-                    return CollectionsKt___CollectionsKt.toList(this.f42430e.subList(i4, i3 + 1));
+                    return CollectionsKt___CollectionsKt.toList(this.f42663e.subList(i4, i3 + 1));
                 }
             }
             List<a<T>> emptyList2 = Collections.emptyList();
@@ -235,7 +235,7 @@ public final class OrderedRangeList<T> {
     public final int f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f42427b : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f42660b : invokeV.intValue;
     }
 
     public final int g() {
@@ -250,7 +250,7 @@ public final class OrderedRangeList<T> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeIL = interceptable.invokeIL(1048583, this, i2, selector)) == null) {
             Intrinsics.checkNotNullParameter(selector, "selector");
-            if (this.f42430e.isEmpty()) {
+            if (this.f42663e.isEmpty()) {
                 List<a<T>> emptyList = Collections.emptyList();
                 Intrinsics.checkNotNullExpressionValue(emptyList, "emptyList()");
                 return emptyList;
@@ -262,13 +262,13 @@ public final class OrderedRangeList<T> {
             int i7 = 0;
             while (true) {
                 boolean z2 = true;
-                if (i4 < 0 || i4 >= this.f42430e.size()) {
+                if (i4 < 0 || i4 >= this.f42663e.size()) {
                     break;
-                } else if (this.f42430e.get(i4).b() - this.f42430e.get(i7).d() < i2) {
+                } else if (this.f42663e.get(i4).b() - this.f42663e.get(i7).d() < i2) {
                     i4++;
                 } else {
                     int i8 = i4 + 1;
-                    List<a<T>> subList = this.f42430e.subList(i7, i8);
+                    List<a<T>> subList = this.f42663e.subList(i7, i8);
                     if (!(subList instanceof Collection) || !subList.isEmpty()) {
                         Iterator<T> it = subList.iterator();
                         while (it.hasNext()) {
@@ -306,7 +306,7 @@ public final class OrderedRangeList<T> {
                 }
             }
             if (i6 >= i5) {
-                return CollectionsKt___CollectionsKt.toList(this.f42430e.subList(i5, i6 + 1));
+                return CollectionsKt___CollectionsKt.toList(this.f42663e.subList(i5, i6 + 1));
             }
             List<a<T>> emptyList2 = Collections.emptyList();
             Intrinsics.checkNotNullExpressionValue(emptyList2, "emptyList()");
@@ -319,7 +319,7 @@ public final class OrderedRangeList<T> {
         InterceptResult invokeIIL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeIIL = interceptable.invokeIIL(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2, i3, t)) == null) {
-            a<T> acquire = this.f42429d.acquire();
+            a<T> acquire = this.f42662d.acquire();
             if (acquire == null) {
                 acquire = null;
             } else {
@@ -334,7 +334,7 @@ public final class OrderedRangeList<T> {
 
     public final void k(a<T> aVar) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048585, this, aVar) == null) && this.f42429d.release(aVar)) {
+        if ((interceptable == null || interceptable.invokeL(1048585, this, aVar) == null) && this.f42662d.release(aVar)) {
             aVar.e(null);
             aVar.g(-1);
             aVar.f(-1);
@@ -345,7 +345,7 @@ public final class OrderedRangeList<T> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, holder) == null) {
             Intrinsics.checkNotNullParameter(holder, "holder");
-            List<a<T>> list = this.f42430e;
+            List<a<T>> list = this.f42663e;
             int binarySearch = CollectionsKt__CollectionsKt.binarySearch(list, 0, list.size(), new OrderedRangeList$remove$$inlined$binarySearchBy$default$1(Integer.valueOf(holder.d())));
             if (binarySearch < 0) {
                 return;
@@ -353,37 +353,37 @@ public final class OrderedRangeList<T> {
             int d2 = holder.d();
             int b2 = holder.b();
             if (binarySearch > 0) {
-                a<T> aVar = this.f42430e.get(binarySearch - 1);
+                a<T> aVar = this.f42663e.get(binarySearch - 1);
                 if (aVar.a() == null) {
                     d2 = aVar.d();
                     binarySearch--;
-                    this.f42430e.remove(binarySearch);
+                    this.f42663e.remove(binarySearch);
                     k(aVar);
                 }
             }
             int i2 = d2;
             T a2 = holder.a();
             if (a2 != null) {
-                this.f42431f.remove(a2);
+                this.f42664f.remove(a2);
             }
-            this.f42430e.remove(binarySearch);
+            this.f42663e.remove(binarySearch);
             k(holder);
-            if (binarySearch < this.f42430e.size()) {
-                a<T> aVar2 = this.f42430e.get(binarySearch);
+            if (binarySearch < this.f42663e.size()) {
+                a<T> aVar2 = this.f42663e.get(binarySearch);
                 if (aVar2.a() == null) {
                     b2 = aVar2.b();
-                    this.f42430e.remove(binarySearch);
+                    this.f42663e.remove(binarySearch);
                     k(aVar2);
                 }
             }
-            this.f42430e.add(binarySearch, j(this, i2, b2, null, 4, null));
+            this.f42663e.add(binarySearch, j(this, i2, b2, null, 4, null));
         }
     }
 
     public final void m(T t) {
         a<T> aVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048587, this, t) == null) || (aVar = this.f42431f.get(t)) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048587, this, t) == null) || (aVar = this.f42664f.get(t)) == null) {
             return;
         }
         l(aVar);
@@ -393,7 +393,7 @@ public final class OrderedRangeList<T> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(1048588, this, i2, i3) == null) {
             this.a = i2;
-            this.f42427b = i3;
+            this.f42660b = i3;
             c();
         }
     }
@@ -405,10 +405,10 @@ public final class OrderedRangeList<T> {
         public int a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f42432b;
+        public int f42665b;
 
         /* renamed from: c  reason: collision with root package name */
-        public T f42433c;
+        public T f42666c;
 
         /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
         public a() {
@@ -445,26 +445,26 @@ public final class OrderedRangeList<T> {
                 }
             }
             this.a = i2;
-            this.f42432b = i3;
-            this.f42433c = t;
+            this.f42665b = i3;
+            this.f42666c = t;
         }
 
         public final T a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f42433c : (T) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f42666c : (T) invokeV.objValue;
         }
 
         public final int b() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f42432b : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f42665b : invokeV.intValue;
         }
 
         public final boolean c() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? (this.a == -1 || this.f42432b == -1) ? false : true : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? (this.a == -1 || this.f42665b == -1) ? false : true : invokeV.booleanValue;
         }
 
         public final int d() {
@@ -476,14 +476,14 @@ public final class OrderedRangeList<T> {
         public final void e(T t) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048580, this, t) == null) {
-                this.f42433c = t;
+                this.f42666c = t;
             }
         }
 
         public final void f(int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(1048581, this, i2) == null) {
-                this.f42432b = i2;
+                this.f42665b = i2;
             }
         }
 
@@ -502,9 +502,9 @@ public final class OrderedRangeList<T> {
                 sb.append('[');
                 sb.append(this.a);
                 sb.append(IStringUtil.TOP_PATH);
-                sb.append(this.f42432b);
+                sb.append(this.f42665b);
                 sb.append(']');
-                String str = this.f42433c == null ? null : "-Data";
+                String str = this.f42666c == null ? null : "-Data";
                 if (str == null) {
                     str = "";
                 }

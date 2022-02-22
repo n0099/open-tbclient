@@ -12,10 +12,10 @@ public final class b {
     public static Context a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static File f55051b;
+    public static File f55218b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static a f55052c;
+    public static a f55219c;
     public transient /* synthetic */ FieldHolder $fh;
 
     public static Context a() {
@@ -34,27 +34,27 @@ public final class b {
     public static void a(a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65538, null, aVar) == null) {
-            f55052c = aVar;
+            f55219c = aVar;
         }
     }
 
     public static void a(File file) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65539, null, file) == null) {
-            f55051b = file;
+            f55218b = file;
         }
     }
 
     public static void a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str) == null) {
-            f55052c.installApp(a(), str);
+            f55219c.installApp(a(), str);
         }
     }
 
     public static File b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? f55051b : (File) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? f55218b : (File) invokeV.objValue;
     }
 }

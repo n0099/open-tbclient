@@ -3,9 +3,9 @@ package com.baidu.tieba.setting.more;
 import android.content.Context;
 import android.util.AttributeSet;
 import c.a.d.f.p.n;
-import c.a.s0.s.i0.b;
-import c.a.t0.n3.c;
-import c.a.t0.n3.d;
+import c.a.t0.s.j0.b;
+import c.a.u0.o3.c;
+import c.a.u0.o3.d;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.coreExtra.data.VersionData;
@@ -17,7 +17,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public class SettingTextFunctionIntroView extends TbSettingTextTipView {
     public static /* synthetic */ Interceptable $ic = null;
     public static String HAS_SHOWN_FUNCTION_INTRO = "has_shown_funtion_intro";

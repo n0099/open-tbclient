@@ -41,24 +41,24 @@ public final class OpenAuthTask {
     public static final int SYS_ERR = 4000;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final Map<String, Callback> f30779e;
+    public static final Map<String, Callback> f30985e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static long f30780f = 0;
+    public static long f30986f = 0;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final int f30781g = 122;
+    public static final int f30987g = 122;
     public transient /* synthetic */ FieldHolder $fh;
     public volatile boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final Activity f30782b;
+    public final Activity f30988b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Callback f30783c;
+    public Callback f30989c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final Handler f30784d;
+    public final Handler f30990d;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes9.dex */
@@ -173,13 +173,13 @@ public final class OpenAuthTask {
         public final int a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final String f30785b;
+        public final String f30991b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final Bundle f30786c;
+        public final Bundle f30992c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ OpenAuthTask f30787d;
+        public final /* synthetic */ OpenAuthTask f30993d;
 
         public /* synthetic */ b(OpenAuthTask openAuthTask, int i2, String str, Bundle bundle, a aVar) {
             this(openAuthTask, i2, str, bundle);
@@ -188,10 +188,10 @@ public final class OpenAuthTask {
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f30787d.f30783c == null) {
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f30993d.f30989c == null) {
                 return;
             }
-            this.f30787d.f30783c.onResult(this.a, this.f30785b, this.f30786c);
+            this.f30993d.f30989c.onResult(this.a, this.f30991b, this.f30992c);
         }
 
         public b(OpenAuthTask openAuthTask, int i2, String str, Bundle bundle) {
@@ -209,10 +209,10 @@ public final class OpenAuthTask {
                     return;
                 }
             }
-            this.f30787d = openAuthTask;
+            this.f30993d = openAuthTask;
             this.a = i2;
-            this.f30785b = str;
-            this.f30786c = bundle;
+            this.f30991b = str;
+            this.f30992c = bundle;
         }
     }
 
@@ -229,8 +229,8 @@ public final class OpenAuthTask {
                 return;
             }
         }
-        f30779e = new ConcurrentHashMap();
-        f30780f = -1L;
+        f30985e = new ConcurrentHashMap();
+        f30986f = -1L;
     }
 
     public OpenAuthTask(Activity activity) {
@@ -249,20 +249,20 @@ public final class OpenAuthTask {
             }
         }
         this.a = false;
-        this.f30784d = new Handler(Looper.getMainLooper());
-        this.f30782b = activity;
+        this.f30990d = new Handler(Looper.getMainLooper());
+        this.f30988b = activity;
         com.alipay.sdk.sys.b.d().a(activity);
     }
 
     public void execute(String str, BizType bizType, Map<String, String> map, Callback callback, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{str, bizType, map, callback, Boolean.valueOf(z)}) == null) {
-            Activity activity = this.f30782b;
+            Activity activity = this.f30988b;
             String valueOf = String.valueOf(map);
             com.alipay.sdk.sys.a aVar = new com.alipay.sdk.sys.a(activity, valueOf, "oa-" + bizType);
-            this.f30783c = callback;
+            this.f30989c = callback;
             if (a(aVar, str, bizType, map, z)) {
-                com.alipay.sdk.app.statistic.a.b(this.f30782b, aVar, "", aVar.f30926d);
+                com.alipay.sdk.app.statistic.a.b(this.f30988b, aVar, "", aVar.f31132d);
             }
         }
     }
@@ -273,39 +273,39 @@ public final class OpenAuthTask {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65542, this, new Object[]{aVar, str, bizType, map, Boolean.valueOf(z)})) == null) {
             if (this.a) {
-                this.f30784d.post(new b(this, 4000, "该 OpenAuthTask 已在执行", null, null));
+                this.f30990d.post(new b(this, 4000, "该 OpenAuthTask 已在执行", null, null));
                 return true;
             }
             this.a = true;
             long elapsedRealtime = SystemClock.elapsedRealtime();
-            if (elapsedRealtime - f30780f <= 3000) {
-                this.f30784d.post(new b(this, 5000, "3s 内重复支付", null, null));
+            if (elapsedRealtime - f30986f <= 3000) {
+                this.f30990d.post(new b(this, 5000, "3s 内重复支付", null, null));
                 return true;
             }
-            f30780f = elapsedRealtime;
+            f30986f = elapsedRealtime;
             com.alipay.sdk.app.a.a("");
             String a2 = l.a(32);
             HashMap hashMap = new HashMap(map);
-            hashMap.put("mqpPkgName", this.f30782b.getPackageName());
+            hashMap.put("mqpPkgName", this.f30988b.getPackageName());
             hashMap.put("mqpScene", "sdk");
             List<a.b> k = com.alipay.sdk.data.a.u().k();
-            if (!com.alipay.sdk.data.a.u().f30870g || k == null) {
-                k = com.alipay.sdk.app.a.f30815d;
+            if (!com.alipay.sdk.data.a.u().f31076g || k == null) {
+                k = com.alipay.sdk.app.a.f31021d;
             }
-            l.b a3 = l.a(aVar, this.f30782b, k);
+            l.b a3 = l.a(aVar, this.f30988b, k);
             if (a3 == null || a3.a(aVar) || a3.a() || (packageInfo = a3.a) == null || packageInfo.versionCode < 122) {
                 if (z) {
                     hashMap.put("mqpScheme", String.valueOf(str));
                     hashMap.put("mqpNotifyName", a2);
                     hashMap.put("mqpScene", "landing");
                     String a4 = a(bizType, hashMap);
-                    Intent intent = new Intent(this.f30782b, H5OpenAuthActivity.class);
+                    Intent intent = new Intent(this.f30988b, H5OpenAuthActivity.class);
                     intent.putExtra("url", String.format("https://render.alipay.com/p/s/i?scheme=%s", Uri.encode(a4)));
-                    a.C1703a.a(aVar, intent);
-                    this.f30782b.startActivity(intent);
+                    a.C1713a.a(aVar, intent);
+                    this.f30988b.startActivity(intent);
                     return false;
                 }
-                this.f30784d.post(new b(this, 4001, "支付宝未安装或签名错误", null, null));
+                this.f30990d.post(new b(this, 4001, "支付宝未安装或签名错误", null, null));
                 return true;
             }
             try {
@@ -313,7 +313,7 @@ public final class OpenAuthTask {
                 a5.put("ts_scheme", String.valueOf(SystemClock.elapsedRealtime()));
                 hashMap.put("mqpLoc", new JSONObject(a5).toString());
                 String a6 = a(bizType, hashMap);
-                f30779e.put(a2, this.f30783c);
+                f30985e.put(a2, this.f30989c);
                 String str2 = null;
                 try {
                     str2 = a(elapsedRealtime, a2, bizType, a6);
@@ -322,7 +322,7 @@ public final class OpenAuthTask {
                 }
                 String str3 = str2;
                 if (TextUtils.isEmpty(str3)) {
-                    this.f30784d.post(new b(this, 4000, PASSMethodCallTransfer.DynamicCallbak.ERROR_MSG_PARAMS_ERROR, null, null));
+                    this.f30990d.post(new b(this, 4000, PASSMethodCallTransfer.DynamicCallbak.ERROR_MSG_PARAMS_ERROR, null, null));
                     return true;
                 }
                 Intent intent2 = new Intent("android.intent.action.VIEW", new Uri.Builder().scheme("alipays").authority("platformapi").path("startapp").appendQueryParameter(BaseActivity.EXTRA_PARAM_THIRD_VERIFY_APP_ID, "20001129").appendQueryParameter("payload", str3).build());
@@ -330,8 +330,8 @@ public final class OpenAuthTask {
                 intent2.setPackage(a3.a.packageName);
                 try {
                     com.alipay.sdk.app.statistic.a.a(aVar, "biz", com.alipay.sdk.app.statistic.b.c0, "" + elapsedRealtime);
-                    a.C1703a.a(aVar, a2);
-                    this.f30782b.startActivity(intent2);
+                    a.C1713a.a(aVar, a2);
+                    this.f30988b.startActivity(intent2);
                 } catch (Throwable th) {
                     com.alipay.sdk.app.statistic.a.a(aVar, "biz", "StartWalletEx", th);
                 }
@@ -367,7 +367,7 @@ public final class OpenAuthTask {
             JSONObject jSONObject = new JSONObject();
             jSONObject.put(FetchLog.START_TIME, String.valueOf(j2));
             jSONObject.put("session", str);
-            jSONObject.put("package", this.f30782b.getPackageName());
+            jSONObject.put("package", this.f30988b.getPackageName());
             if (bizType != null) {
                 jSONObject.put(BaseActivity.EXTRA_PARAM_THIRD_VERIFY_APP_ID, bizType.appId);
             }
@@ -381,7 +381,7 @@ public final class OpenAuthTask {
     public static void a(String str, int i2, String str2, Bundle bundle) {
         Callback remove;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLILL(65541, null, str, i2, str2, bundle) == null) || (remove = f30779e.remove(str)) == null) {
+        if (!(interceptable == null || interceptable.invokeLILL(65541, null, str, i2, str2, bundle) == null) || (remove = f30985e.remove(str)) == null) {
             return;
         }
         try {

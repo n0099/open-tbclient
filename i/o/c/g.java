@@ -29,25 +29,25 @@ public class g extends g.a implements k {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final boolean f62036g;
+    public static final boolean f62203g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final int f62037h;
+    public static final int f62204h;
 
     /* renamed from: i  reason: collision with root package name */
-    public static final ConcurrentHashMap<ScheduledThreadPoolExecutor, ScheduledThreadPoolExecutor> f62038i;
+    public static final ConcurrentHashMap<ScheduledThreadPoolExecutor, ScheduledThreadPoolExecutor> f62205i;
 
     /* renamed from: j  reason: collision with root package name */
-    public static final AtomicReference<ScheduledExecutorService> f62039j;
+    public static final AtomicReference<ScheduledExecutorService> f62206j;
     public static volatile Object k;
     public static final Object l;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final ScheduledExecutorService f62040e;
+    public final ScheduledExecutorService f62207e;
 
     /* renamed from: f  reason: collision with root package name */
-    public volatile boolean f62041f;
+    public volatile boolean f62208f;
 
     /* loaded from: classes4.dex */
     public static class a implements Runnable {
@@ -91,12 +91,12 @@ public class g extends g.a implements k {
             }
         }
         l = new Object();
-        f62038i = new ConcurrentHashMap<>();
-        f62039j = new AtomicReference<>();
-        f62037h = Integer.getInteger("rx.scheduler.jdk6.purge-frequency-millis", 1000).intValue();
+        f62205i = new ConcurrentHashMap<>();
+        f62206j = new AtomicReference<>();
+        f62204h = Integer.getInteger("rx.scheduler.jdk6.purge-frequency-millis", 1000).intValue();
         boolean z = Boolean.getBoolean("rx.scheduler.jdk6.purge-force");
         int a2 = i.o.d.e.a();
-        f62036g = !z && (a2 == 0 || a2 >= 21);
+        f62203g = !z && (a2 == 0 || a2 >= 21);
     }
 
     public g(ThreadFactory threadFactory) {
@@ -118,13 +118,13 @@ public class g extends g.a implements k {
         if (!k(newScheduledThreadPool) && (newScheduledThreadPool instanceof ScheduledThreadPoolExecutor)) {
             g((ScheduledThreadPoolExecutor) newScheduledThreadPool);
         }
-        this.f62040e = newScheduledThreadPool;
+        this.f62207e = newScheduledThreadPool;
     }
 
     public static void d(ScheduledExecutorService scheduledExecutorService) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65538, null, scheduledExecutorService) == null) {
-            f62038i.remove(scheduledExecutorService);
+            f62205i.remove(scheduledExecutorService);
         }
     }
 
@@ -150,7 +150,7 @@ public class g extends g.a implements k {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) == null) {
             try {
-                Iterator<ScheduledThreadPoolExecutor> it = f62038i.keySet().iterator();
+                Iterator<ScheduledThreadPoolExecutor> it = f62205i.keySet().iterator();
                 while (it.hasNext()) {
                     ScheduledThreadPoolExecutor next = it.next();
                     if (!next.isShutdown()) {
@@ -170,19 +170,19 @@ public class g extends g.a implements k {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65541, null, scheduledThreadPoolExecutor) == null) {
             while (true) {
-                if (f62039j.get() != null) {
+                if (f62206j.get() != null) {
                     break;
                 }
                 ScheduledExecutorService newScheduledThreadPool = Executors.newScheduledThreadPool(1, new RxThreadFactory("RxSchedulerPurge-"));
-                if (f62039j.compareAndSet(null, newScheduledThreadPool)) {
+                if (f62206j.compareAndSet(null, newScheduledThreadPool)) {
                     a aVar = new a();
-                    int i2 = f62037h;
+                    int i2 = f62204h;
                     newScheduledThreadPool.scheduleAtFixedRate(aVar, i2, i2, TimeUnit.MILLISECONDS);
                     break;
                 }
                 newScheduledThreadPool.shutdownNow();
             }
-            f62038i.putIfAbsent(scheduledThreadPoolExecutor, scheduledThreadPoolExecutor);
+            f62205i.putIfAbsent(scheduledThreadPoolExecutor, scheduledThreadPoolExecutor);
         }
     }
 
@@ -191,7 +191,7 @@ public class g extends g.a implements k {
         Method e2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, scheduledExecutorService)) == null) {
-            if (f62036g) {
+            if (f62203g) {
                 if (scheduledExecutorService instanceof ScheduledThreadPoolExecutor) {
                     Object obj = k;
                     if (obj == l) {
@@ -236,7 +236,7 @@ public class g extends g.a implements k {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{aVar, Long.valueOf(j2), timeUnit})) == null) {
-            if (this.f62041f) {
+            if (this.f62208f) {
                 return i.u.e.c();
             }
             return h(aVar, j2, timeUnit);
@@ -251,9 +251,9 @@ public class g extends g.a implements k {
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{aVar, Long.valueOf(j2), timeUnit})) == null) {
             ScheduledAction scheduledAction = new ScheduledAction(i.r.c.q(aVar));
             if (j2 <= 0) {
-                schedule = this.f62040e.submit(scheduledAction);
+                schedule = this.f62207e.submit(scheduledAction);
             } else {
-                schedule = this.f62040e.schedule(scheduledAction, j2, timeUnit);
+                schedule = this.f62207e.schedule(scheduledAction, j2, timeUnit);
             }
             scheduledAction.add(schedule);
             return scheduledAction;
@@ -269,9 +269,9 @@ public class g extends g.a implements k {
             ScheduledAction scheduledAction = new ScheduledAction(i.r.c.q(aVar), hVar);
             hVar.a(scheduledAction);
             if (j2 <= 0) {
-                schedule = this.f62040e.submit(scheduledAction);
+                schedule = this.f62207e.submit(scheduledAction);
             } else {
-                schedule = this.f62040e.schedule(scheduledAction, j2, timeUnit);
+                schedule = this.f62207e.schedule(scheduledAction, j2, timeUnit);
             }
             scheduledAction.add(schedule);
             return scheduledAction;
@@ -283,7 +283,7 @@ public class g extends g.a implements k {
     public boolean isUnsubscribed() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f62041f : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f62208f : invokeV.booleanValue;
     }
 
     public ScheduledAction j(i.n.a aVar, long j2, TimeUnit timeUnit, i.u.b bVar) {
@@ -294,9 +294,9 @@ public class g extends g.a implements k {
             ScheduledAction scheduledAction = new ScheduledAction(i.r.c.q(aVar), bVar);
             bVar.a(scheduledAction);
             if (j2 <= 0) {
-                schedule = this.f62040e.submit(scheduledAction);
+                schedule = this.f62207e.submit(scheduledAction);
             } else {
-                schedule = this.f62040e.schedule(scheduledAction, j2, timeUnit);
+                schedule = this.f62207e.schedule(scheduledAction, j2, timeUnit);
             }
             scheduledAction.add(schedule);
             return scheduledAction;
@@ -308,9 +308,9 @@ public class g extends g.a implements k {
     public void unsubscribe() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            this.f62041f = true;
-            this.f62040e.shutdownNow();
-            d(this.f62040e);
+            this.f62208f = true;
+            this.f62207e.shutdownNow();
+            d(this.f62207e);
         }
     }
 }

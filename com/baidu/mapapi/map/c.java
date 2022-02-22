@@ -115,8 +115,8 @@ public class c implements com.baidu.mapsdkplatform.comapi.map.l {
             if (!map.values().isEmpty()) {
                 map2 = this.a.K;
                 for (InfoWindow infoWindow : map2.values()) {
-                    View view = infoWindow.f35312b;
-                    if (view != null && !infoWindow.f35319i) {
+                    View view = infoWindow.f35518b;
+                    if (view != null && !infoWindow.f35525i) {
                         view.setVisibility(4);
                     }
                 }
@@ -163,7 +163,7 @@ public class c implements com.baidu.mapsdkplatform.comapi.map.l {
             try {
                 JSONObject jSONObject = new JSONObject(str);
                 JSONObject optJSONObject = jSONObject.optJSONArray(ActionJsonData.TAG_DATASET).optJSONObject(0);
-                eVar = this.a.f35247i;
+                eVar = this.a.f35453i;
                 GeoPoint b2 = eVar.b(jSONObject.optInt("px"), jSONObject.optInt("py"));
                 int optInt = optJSONObject.optInt("ty");
                 if (optInt == 17) {
@@ -179,17 +179,17 @@ public class c implements com.baidu.mapsdkplatform.comapi.map.l {
                 }
                 if (optInt != 18) {
                     if (optInt == 19) {
-                        eVar2 = this.a.f35247i;
+                        eVar2 = this.a.f35453i;
                         if (eVar2 != null) {
-                            eVar3 = this.a.f35247i;
+                            eVar3 = this.a.f35453i;
                             ab E = eVar3.E();
                             if (E == null) {
                                 return;
                             }
-                            E.f35846c = 0;
-                            E.f35845b = 0;
+                            E.f36052c = 0;
+                            E.f36051b = 0;
                             BaiduMap.mapStatusReason |= 16;
-                            eVar4 = this.a.f35247i;
+                            eVar4 = this.a.f35453i;
                             eVar4.a(E, 300);
                             return;
                         }
@@ -224,8 +224,8 @@ public class c implements com.baidu.mapsdkplatform.comapi.map.l {
                                 if (str2 != null && str2.equals(optString2)) {
                                     map2 = this.a.K;
                                     InfoWindow infoWindow = (InfoWindow) map2.get(str2);
-                                    if (infoWindow != null && infoWindow.f35314d != null) {
-                                        infoWindow.f35314d.onInfoWindowClick();
+                                    if (infoWindow != null && infoWindow.f35520d != null) {
+                                        infoWindow.f35520d.onInfoWindowClick();
                                         return;
                                     }
                                 }
@@ -317,8 +317,8 @@ public class c implements com.baidu.mapsdkplatform.comapi.map.l {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
             BaiduMap baiduMap = this.a;
-            eVar = baiduMap.f35247i;
-            baiduMap.f35244f = new Projection(eVar);
+            eVar = baiduMap.f35453i;
+            baiduMap.f35450f = new Projection(eVar);
             this.a.S = true;
             onMapLoadedCallback = this.a.t;
             if (onMapLoadedCallback != null) {
@@ -383,13 +383,13 @@ public class c implements com.baidu.mapsdkplatform.comapi.map.l {
                         for (Overlay overlay : list) {
                             if ((overlay instanceof Marker) && overlay.y.equals(optString)) {
                                 Marker marker4 = (Marker) overlay;
-                                if (marker4.f35373f) {
+                                if (marker4.f35579f) {
                                     this.a.M = marker4;
-                                    projection = this.a.f35244f;
+                                    projection = this.a.f35450f;
                                     marker = this.a.M;
                                     Point screenLocation = projection.toScreenLocation(marker.a);
                                     Point point = new Point(screenLocation.x, screenLocation.y - 60);
-                                    projection2 = this.a.f35244f;
+                                    projection2 = this.a.f35450f;
                                     LatLng fromScreenLocation = projection2.fromScreenLocation(point);
                                     marker2 = this.a.M;
                                     marker2.setPosition(fromScreenLocation);
@@ -458,7 +458,7 @@ public class c implements com.baidu.mapsdkplatform.comapi.map.l {
             if (!map.values().isEmpty()) {
                 map2 = this.a.K;
                 for (InfoWindow infoWindow : map2.values()) {
-                    View view = infoWindow.f35312b;
+                    View view = infoWindow.f35518b;
                     if (view != null) {
                         view.setVisibility(0);
                     }
@@ -512,19 +512,19 @@ public class c implements com.baidu.mapsdkplatform.comapi.map.l {
             marker = this.a.M;
             if (marker != null) {
                 marker2 = this.a.M;
-                if (marker2.f35373f) {
+                if (marker2.f35579f) {
                     LatLng mc2ll = CoordUtil.mc2ll(geoPoint);
-                    projection = this.a.f35244f;
+                    projection = this.a.f35450f;
                     Point screenLocation = projection.toScreenLocation(mc2ll);
                     Point point = new Point(screenLocation.x, screenLocation.y - 60);
-                    projection2 = this.a.f35244f;
+                    projection2 = this.a.f35450f;
                     LatLng fromScreenLocation = projection2.fromScreenLocation(point);
                     marker3 = this.a.M;
                     marker3.setPosition(fromScreenLocation);
                     onMarkerDragListener = this.a.z;
                     if (onMarkerDragListener != null) {
                         marker4 = this.a.M;
-                        if (marker4.f35373f) {
+                        if (marker4.f35579f) {
                             onMarkerDragListener2 = this.a.z;
                             marker5 = this.a.M;
                             onMarkerDragListener2.onMarkerDrag(marker5);
@@ -551,7 +551,7 @@ public class c implements com.baidu.mapsdkplatform.comapi.map.l {
                 if (heatMap != null) {
                     heatMap2 = this.a.H;
                     heatMap2.a();
-                    eVar = this.a.f35247i;
+                    eVar = this.a.f35453i;
                     eVar.o();
                 }
             } finally {
@@ -577,19 +577,19 @@ public class c implements com.baidu.mapsdkplatform.comapi.map.l {
             marker = this.a.M;
             if (marker != null) {
                 marker2 = this.a.M;
-                if (marker2.f35373f) {
+                if (marker2.f35579f) {
                     LatLng mc2ll = CoordUtil.mc2ll(geoPoint);
-                    projection = this.a.f35244f;
+                    projection = this.a.f35450f;
                     Point screenLocation = projection.toScreenLocation(mc2ll);
                     Point point = new Point(screenLocation.x, screenLocation.y - 60);
-                    projection2 = this.a.f35244f;
+                    projection2 = this.a.f35450f;
                     LatLng fromScreenLocation = projection2.fromScreenLocation(point);
                     marker3 = this.a.M;
                     marker3.setPosition(fromScreenLocation);
                     onMarkerDragListener = this.a.z;
                     if (onMarkerDragListener != null) {
                         marker4 = this.a.M;
-                        if (marker4.f35373f) {
+                        if (marker4.f35579f) {
                             onMarkerDragListener2 = this.a.z;
                             marker5 = this.a.M;
                             onMarkerDragListener2.onMarkerDragEnd(marker5);
@@ -610,7 +610,7 @@ public class c implements com.baidu.mapsdkplatform.comapi.map.l {
         HeatMap heatMap2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048596, this) == null) {
-            eVar = this.a.f35247i;
+            eVar = this.a.f35453i;
             eVar.b(false);
             lock = this.a.I;
             lock.lock();

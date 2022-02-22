@@ -19,31 +19,31 @@ public class a {
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public StringBuffer f3021b;
+    public StringBuffer f2107b;
 
     /* renamed from: c  reason: collision with root package name */
-    public StringBuffer f3022c;
+    public StringBuffer f2108c;
 
     /* renamed from: d  reason: collision with root package name */
-    public StringBuffer f3023d;
+    public StringBuffer f2109d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f3024e;
+    public int f2110e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f3025f;
+    public int f2111f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f3026g;
+    public int f2112g;
 
     /* renamed from: h  reason: collision with root package name */
-    public long f3027h;
+    public long f2113h;
 
     /* renamed from: i  reason: collision with root package name */
-    public long f3028i;
+    public long f2114i;
 
     /* renamed from: j  reason: collision with root package name */
-    public long f3029j;
+    public long f2115j;
     public long k;
     public long l;
     public long m;
@@ -72,15 +72,15 @@ public class a {
                 return;
             }
         }
-        this.f3021b = new StringBuffer();
-        this.f3022c = new StringBuffer();
-        this.f3023d = new StringBuffer();
-        this.f3024e = 0;
-        this.f3025f = 0;
-        this.f3026g = 0;
-        this.f3027h = 0L;
-        this.f3028i = 0L;
-        this.f3029j = 0L;
+        this.f2107b = new StringBuffer();
+        this.f2108c = new StringBuffer();
+        this.f2109d = new StringBuffer();
+        this.f2110e = 0;
+        this.f2111f = 0;
+        this.f2112g = 0;
+        this.f2113h = 0L;
+        this.f2114i = 0L;
+        this.f2115j = 0L;
         this.k = 0L;
         this.l = 0L;
         this.m = 0L;
@@ -185,9 +185,9 @@ public class a {
             synchronized (this) {
                 if (aVar != null) {
                     try {
-                        this.f3021b.append(aVar.toString());
-                        this.f3021b.append("\r\n");
-                        this.f3024e++;
+                        this.f2107b.append(aVar.toString());
+                        this.f2107b.append("\r\n");
+                        this.f2110e++;
                     } catch (Exception e2) {
                         BdLog.e(e2);
                     } catch (OutOfMemoryError e3) {
@@ -197,7 +197,7 @@ public class a {
                 if (this.v != null) {
                     this.v.a(this);
                 }
-                this.f3027h = System.currentTimeMillis();
+                this.f2113h = System.currentTimeMillis();
             }
         }
     }
@@ -208,9 +208,9 @@ public class a {
             synchronized (this) {
                 if (aVar != null) {
                     try {
-                        this.f3022c.append(aVar.toString());
-                        this.f3022c.append("\r\n");
-                        this.f3025f++;
+                        this.f2108c.append(aVar.toString());
+                        this.f2108c.append("\r\n");
+                        this.f2111f++;
                     } catch (Exception e2) {
                         BdLog.e(e2);
                     } catch (OutOfMemoryError e3) {
@@ -220,7 +220,7 @@ public class a {
                 if (this.v != null) {
                     this.v.a(this);
                 }
-                this.f3028i = System.currentTimeMillis();
+                this.f2114i = System.currentTimeMillis();
             }
         }
     }
@@ -232,9 +232,9 @@ public class a {
                 if (aVar != null) {
                     try {
                         if (aVar.f() != null) {
-                            this.f3023d.append(aVar.f().c().toString());
-                            this.f3023d.append("\r\n");
-                            this.f3026g++;
+                            this.f2109d.append(aVar.f().c().toString());
+                            this.f2109d.append("\r\n");
+                            this.f2112g++;
                         }
                     } catch (Exception e2) {
                         BdLog.e(e2);
@@ -245,7 +245,7 @@ public class a {
                 if (this.v != null) {
                     this.v.a(this);
                 }
-                this.f3029j = System.currentTimeMillis();
+                this.f2115j = System.currentTimeMillis();
             }
         }
     }
@@ -254,8 +254,8 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
             synchronized (this) {
-                this.f3021b = new StringBuffer();
-                this.f3024e = 0;
+                this.f2107b = new StringBuffer();
+                this.f2110e = 0;
                 this.l = 0L;
             }
         }
@@ -265,8 +265,8 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
             synchronized (this) {
-                this.f3022c = new StringBuffer();
-                this.f3025f = 0;
+                this.f2108c = new StringBuffer();
+                this.f2111f = 0;
                 this.m = 0L;
             }
         }
@@ -276,8 +276,8 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
             synchronized (this) {
-                this.f3023d = new StringBuffer();
-                this.f3026g = 0;
+                this.f2109d = new StringBuffer();
+                this.f2112g = 0;
                 this.n = 0L;
             }
         }
@@ -292,37 +292,37 @@ public class a {
     public long i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) ? this.f3027h : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) ? this.f2113h : invokeV.longValue;
     }
 
     public long j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) ? this.f3028i : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) ? this.f2114i : invokeV.longValue;
     }
 
     public long k() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) ? this.f3029j : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) ? this.f2115j : invokeV.longValue;
     }
 
     public int l() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) ? this.f3026g : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) ? this.f2112g : invokeV.intValue;
     }
 
     public int m() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) ? this.f3024e : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) ? this.f2110e : invokeV.intValue;
     }
 
     public int n() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) ? this.f3025f : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) ? this.f2111f : invokeV.intValue;
     }
 
     public String o() {
@@ -402,18 +402,18 @@ public class a {
     public StringBuffer x() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048610, this)) == null) ? this.f3021b : (StringBuffer) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048610, this)) == null) ? this.f2107b : (StringBuffer) invokeV.objValue;
     }
 
     public StringBuffer y() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048611, this)) == null) ? this.f3022c : (StringBuffer) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048611, this)) == null) ? this.f2108c : (StringBuffer) invokeV.objValue;
     }
 
     public StringBuffer z() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048612, this)) == null) ? this.f3023d : (StringBuffer) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048612, this)) == null) ? this.f2109d : (StringBuffer) invokeV.objValue;
     }
 }

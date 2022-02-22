@@ -33,7 +33,7 @@ public class g {
     public static final g a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final Logger f27959b;
+    public static final Logger f28165b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -50,7 +50,7 @@ public class g {
             }
         }
         a = l();
-        f27959b = Logger.getLogger(w.class.getName());
+        f28165b = Logger.getLogger(w.class.getName());
     }
 
     public g() {
@@ -290,7 +290,7 @@ public class g {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, str)) == null) {
-            if (f27959b.isLoggable(Level.FINE)) {
+            if (f28165b.isLoggable(Level.FINE)) {
                 return new Throwable(str);
             }
             return null;
@@ -316,7 +316,7 @@ public class g {
     public void u(int i2, String str, @Nullable Throwable th) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeILL(1048589, this, i2, str, th) == null) {
-            f27959b.log(i2 == 5 ? Level.WARNING : Level.INFO, str, th);
+            f28165b.log(i2 == 5 ? Level.WARNING : Level.INFO, str, th);
         }
     }
 

@@ -1,7 +1,7 @@
 package com.baidu.tieba.funAd.strategy;
 
 import androidx.core.view.InputDeviceCompat;
-import c.a.s0.s.q.p;
+import c.a.t0.s.r.p;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -79,7 +79,7 @@ public class FunAdSidConfigData extends p implements Serializable {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.mThreshold : invokeV.intValue;
     }
 
-    @Override // c.a.s0.s.q.p
+    @Override // c.a.t0.s.r.p
     public void parserJson(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(1048582, this, jSONObject) == null) || jSONObject == null) {

@@ -5,8 +5,8 @@ import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.widget.FrameLayout;
 import android.widget.TextView;
-import c.a.t0.p4.g;
-import c.a.t0.p4.h;
+import c.a.u0.s4.g;
+import c.a.u0.s4.h;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -19,10 +19,10 @@ public class AlbumVideoCompressingDialogView extends FrameLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public AlbumCompressProgressView f49704e;
+    public AlbumCompressProgressView f49871e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f49705f;
+    public TextView f49872f;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public AlbumVideoCompressingDialogView(Context context) {
@@ -49,8 +49,8 @@ public class AlbumVideoCompressingDialogView extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
             LayoutInflater.from(context).inflate(h.dailog_album_video_compress, this);
-            this.f49704e = (AlbumCompressProgressView) findViewById(g.view_compress_progress);
-            this.f49705f = (TextView) findViewById(g.txt_compress_progress);
+            this.f49871e = (AlbumCompressProgressView) findViewById(g.view_compress_progress);
+            this.f49872f = (TextView) findViewById(g.txt_compress_progress);
         }
     }
 
@@ -65,8 +65,8 @@ public class AlbumVideoCompressingDialogView extends FrameLayout {
         if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) || i2 < 0 || i2 > 100) {
             return;
         }
-        this.f49704e.setProgress(i2);
-        TextView textView = this.f49705f;
+        this.f49871e.setProgress(i2);
+        TextView textView = this.f49872f;
         textView.setText(i2 + "%");
     }
 

@@ -3,7 +3,7 @@ package com.meizu.cloud.pushsdk.platform.message;
 import org.apache.commons.lang3.text.ExtendedMessageFormat;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class UnRegisterStatus extends BasicPushStatus {
     public boolean isUnRegisterSuccess;
 

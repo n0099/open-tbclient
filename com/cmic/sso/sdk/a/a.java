@@ -38,14 +38,14 @@ public class a {
                     return;
                 }
             }
-            int[] iArr = new int[EnumC2053a.values().length];
+            int[] iArr = new int[EnumC2063a.values().length];
             a = iArr;
             try {
-                iArr[EnumC2053a.f53384c.ordinal()] = 1;
+                iArr[EnumC2063a.f53551c.ordinal()] = 1;
             } catch (NoSuchFieldError unused) {
             }
             try {
-                a[EnumC2053a.f53383b.ordinal()] = 2;
+                a[EnumC2063a.f53550b.ordinal()] = 2;
             } catch (NoSuchFieldError unused2) {
             }
         }
@@ -54,18 +54,18 @@ public class a {
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* renamed from: com.cmic.sso.sdk.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public static final class EnumC2053a {
+    public static final class EnumC2063a {
         public static /* synthetic */ Interceptable $ic;
-        public static final EnumC2053a a;
+        public static final EnumC2063a a;
 
         /* renamed from: b  reason: collision with root package name */
-        public static final EnumC2053a f53383b;
+        public static final EnumC2063a f53550b;
 
         /* renamed from: c  reason: collision with root package name */
-        public static final EnumC2053a f53384c;
+        public static final EnumC2063a f53551c;
 
         /* renamed from: d  reason: collision with root package name */
-        public static final /* synthetic */ EnumC2053a[] f53385d;
+        public static final /* synthetic */ EnumC2063a[] f53552d;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -81,14 +81,14 @@ public class a {
                     return;
                 }
             }
-            a = new EnumC2053a(RomUtils.UNKNOWN, 0);
-            f53383b = new EnumC2053a(g.f55107j, 1);
-            EnumC2053a enumC2053a = new EnumC2053a("HUAWEI", 2);
-            f53384c = enumC2053a;
-            f53385d = new EnumC2053a[]{a, f53383b, enumC2053a};
+            a = new EnumC2063a(RomUtils.UNKNOWN, 0);
+            f53550b = new EnumC2063a(g.f55274j, 1);
+            EnumC2063a enumC2063a = new EnumC2063a("HUAWEI", 2);
+            f53551c = enumC2063a;
+            f53552d = new EnumC2063a[]{a, f53550b, enumC2063a};
         }
 
-        public EnumC2053a(String str, int i2) {
+        public EnumC2063a(String str, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -107,16 +107,16 @@ public class a {
             }
         }
 
-        public static EnumC2053a valueOf(String str) {
+        public static EnumC2063a valueOf(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (EnumC2053a) Enum.valueOf(EnumC2053a.class, str) : (EnumC2053a) invokeL.objValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (EnumC2063a) Enum.valueOf(EnumC2063a.class, str) : (EnumC2063a) invokeL.objValue;
         }
 
-        public static EnumC2053a[] values() {
+        public static EnumC2063a[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (EnumC2053a[]) f53385d.clone() : (EnumC2053a[]) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (EnumC2063a[]) f53552d.clone() : (EnumC2063a[]) invokeV.objValue;
         }
     }
 
@@ -126,27 +126,27 @@ public class a {
         return (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) ? a(b()) : invokeV.intValue;
     }
 
-    public static EnumC2053a b() {
+    public static EnumC2063a b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
             String str = Build.BRAND;
             if (str.equalsIgnoreCase(ManufacturerUtils.SAMSUNG)) {
-                return EnumC2053a.f53383b;
+                return EnumC2063a.f53550b;
             }
             if (str.equalsIgnoreCase("Huawei")) {
-                return EnumC2053a.f53384c;
+                return EnumC2063a.f53551c;
             }
-            return EnumC2053a.a;
+            return EnumC2063a.a;
         }
-        return (EnumC2053a) invokeV.objValue;
+        return (EnumC2063a) invokeV.objValue;
     }
 
-    public static int a(EnumC2053a enumC2053a) {
+    public static int a(EnumC2063a enumC2063a) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, enumC2053a)) == null) {
-            int i2 = AnonymousClass1.a[enumC2053a.ordinal()];
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, enumC2063a)) == null) {
+            int i2 = AnonymousClass1.a[enumC2063a.ordinal()];
             if (i2 != 1) {
                 return i2 != 2 ? -1 : 1;
             }

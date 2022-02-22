@@ -24,7 +24,7 @@ import com.baidu.wallet.base.datamodel.AccountManager;
 import com.baidu.wallet.core.NoProguard;
 import com.baidu.wallet.utils.JsonUtil;
 import java.util.Map;
-/* loaded from: classes13.dex */
+/* loaded from: classes2.dex */
 public class LoginImpl implements IWalletLoginListener, NoProguard {
     public static /* synthetic */ Interceptable $ic = null;
     public static String TAG = "LoginImpl";
@@ -82,7 +82,7 @@ public class LoginImpl implements IWalletLoginListener, NoProguard {
                 public final /* synthetic */ ILoginBackListener a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ LoginImpl f51859b;
+                public final /* synthetic */ LoginImpl f52026b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -99,7 +99,7 @@ public class LoginImpl implements IWalletLoginListener, NoProguard {
                             return;
                         }
                     }
-                    this.f51859b = this;
+                    this.f52026b = this;
                     this.a = iLoginBackListener;
                 }
 

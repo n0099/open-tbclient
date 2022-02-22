@@ -12,31 +12,31 @@ public class t {
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f35939b;
+    public String f36145b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f35940c;
+    public String f36146c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f35941d;
+    public String f36147d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f35942e;
+    public int f36148e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f35943f;
+    public int f36149f;
 
     /* renamed from: g  reason: collision with root package name */
-    public GeoPoint f35944g;
+    public GeoPoint f36150g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f35945h;
+    public int f36151h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f35946i;
+    public int f36152i;
 
     /* renamed from: j  reason: collision with root package name */
-    public boolean f35947j;
+    public boolean f36153j;
     public int k;
     public int l;
 

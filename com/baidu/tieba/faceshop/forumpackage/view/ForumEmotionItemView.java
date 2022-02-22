@@ -32,22 +32,22 @@ public class ForumEmotionItemView extends LinearLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public HListView f43003e;
+    public HListView f43236e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f43004f;
+    public TextView f43237f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f43005g;
+    public TextView f43238g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f43006h;
+    public TextView f43239h;
 
     /* renamed from: i  reason: collision with root package name */
-    public TextView f43007i;
+    public TextView f43240i;
 
     /* renamed from: j  reason: collision with root package name */
-    public TextView f43008j;
+    public TextView f43241j;
     public View k;
     public View l;
     public TextView m;
@@ -62,34 +62,34 @@ public class ForumEmotionItemView extends LinearLayout {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public List<EmotionPackageData.SingleEmotionData> f43009e;
+        public List<EmotionPackageData.SingleEmotionData> f43242e;
 
         /* renamed from: f  reason: collision with root package name */
-        public TbPageContext f43010f;
+        public TbPageContext f43243f;
 
         /* renamed from: g  reason: collision with root package name */
-        public boolean f43011g;
+        public boolean f43244g;
 
         /* renamed from: h  reason: collision with root package name */
-        public boolean f43012h;
+        public boolean f43245h;
 
         /* renamed from: com.baidu.tieba.faceshop.forumpackage.view.ForumEmotionItemView$a$a  reason: collision with other inner class name */
         /* loaded from: classes12.dex */
-        public static class C1914a {
+        public static class C1924a {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public View a;
 
             /* renamed from: b  reason: collision with root package name */
-            public TbImageView f43013b;
+            public TbImageView f43246b;
 
             /* renamed from: c  reason: collision with root package name */
-            public TextView f43014c;
+            public TextView f43247c;
 
             /* renamed from: d  reason: collision with root package name */
-            public View f43015d;
+            public View f43248d;
 
-            public C1914a(View view) {
+            public C1924a(View view) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -106,10 +106,10 @@ public class ForumEmotionItemView extends LinearLayout {
                 }
                 this.a = view;
                 view.setEnabled(false);
-                this.f43013b = (TbImageView) this.a.findViewById(R.id.emotion_img);
-                this.f43014c = (TextView) this.a.findViewById(R.id.emotion_single_bar_icon);
+                this.f43246b = (TbImageView) this.a.findViewById(R.id.emotion_img);
+                this.f43247c = (TextView) this.a.findViewById(R.id.emotion_single_bar_icon);
                 View findViewById = this.a.findViewById(R.id.emotion_cover_view);
-                this.f43015d = findViewById;
+                this.f43248d = findViewById;
                 findViewById.setVisibility(8);
             }
 
@@ -119,18 +119,18 @@ public class ForumEmotionItemView extends LinearLayout {
                     return;
                 }
                 if (!TextUtils.isEmpty(singleEmotionData.thumbnail)) {
-                    this.f43013b.setDefaultResource(R.drawable.img_default_100);
-                    this.f43013b.startLoad(singleEmotionData.thumbnail, 10, false);
+                    this.f43246b.setDefaultResource(R.drawable.img_default_100);
+                    this.f43246b.startLoad(singleEmotionData.thumbnail, 10, false);
                 }
                 if (z) {
-                    this.f43014c.setVisibility(0);
+                    this.f43247c.setVisibility(0);
                 } else {
-                    this.f43014c.setVisibility(8);
+                    this.f43247c.setVisibility(8);
                 }
                 if (i2 == 7 && z2) {
-                    this.f43015d.setVisibility(0);
+                    this.f43248d.setVisibility(0);
                 } else {
-                    this.f43015d.setVisibility(8);
+                    this.f43248d.setVisibility(8);
                 }
             }
         }
@@ -150,10 +150,10 @@ public class ForumEmotionItemView extends LinearLayout {
                     return;
                 }
             }
-            this.f43009e = new ArrayList();
-            this.f43011g = false;
-            this.f43012h = false;
-            this.f43010f = tbPageContext;
+            this.f43242e = new ArrayList();
+            this.f43244g = false;
+            this.f43245h = false;
+            this.f43243f = tbPageContext;
         }
 
         public void a(List<EmotionPackageData.SingleEmotionData> list, boolean z) {
@@ -161,13 +161,13 @@ public class ForumEmotionItemView extends LinearLayout {
             if (!(interceptable == null || interceptable.invokeLZ(1048576, this, list, z) == null) || ListUtils.isEmpty(list)) {
                 return;
             }
-            this.f43011g = z;
+            this.f43244g = z;
             if (list.size() > 8) {
-                this.f43009e = list.subList(0, 8);
-                this.f43012h = true;
+                this.f43242e = list.subList(0, 8);
+                this.f43245h = true;
             } else {
-                this.f43009e = list;
-                this.f43012h = false;
+                this.f43242e = list;
+                this.f43245h = false;
             }
             notifyDataSetChanged();
         }
@@ -177,7 +177,7 @@ public class ForumEmotionItemView extends LinearLayout {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                List<EmotionPackageData.SingleEmotionData> list = this.f43009e;
+                List<EmotionPackageData.SingleEmotionData> list = this.f43242e;
                 if (list == null) {
                     return 0;
                 }
@@ -191,7 +191,7 @@ public class ForumEmotionItemView extends LinearLayout {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) {
-                List<EmotionPackageData.SingleEmotionData> list = this.f43009e;
+                List<EmotionPackageData.SingleEmotionData> list = this.f43242e;
                 if (list == null) {
                     return null;
                 }
@@ -210,17 +210,17 @@ public class ForumEmotionItemView extends LinearLayout {
         @Override // android.widget.Adapter
         public View getView(int i2, View view, ViewGroup viewGroup) {
             InterceptResult invokeILL;
-            C1914a c1914a;
+            C1924a c1924a;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeILL = interceptable.invokeILL(1048580, this, i2, view, viewGroup)) == null) {
                 if (view == null) {
-                    view = LayoutInflater.from(this.f43010f.getPageActivity()).inflate(R.layout.emotion_item_layout, (ViewGroup) null);
-                    c1914a = new C1914a(view);
-                    view.setTag(c1914a);
+                    view = LayoutInflater.from(this.f43243f.getPageActivity()).inflate(R.layout.emotion_item_layout, (ViewGroup) null);
+                    c1924a = new C1924a(view);
+                    view.setTag(c1924a);
                 } else {
-                    c1914a = (C1914a) view.getTag();
+                    c1924a = (C1924a) view.getTag();
                 }
-                c1914a.a(this.f43009e.get(i2), i2 == 0 && this.f43011g, this.f43012h, i2);
+                c1924a.a(this.f43242e.get(i2), i2 == 0 && this.f43244g, this.f43245h, i2);
                 return view;
             }
             return (View) invokeILL.objValue;
@@ -253,22 +253,22 @@ public class ForumEmotionItemView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             LayoutInflater.from(getContext()).inflate(R.layout.forum_emotion_list_item_layout, this);
-            this.f43003e = (HListView) findViewById(R.id.forum_emotion_item_list);
+            this.f43236e = (HListView) findViewById(R.id.forum_emotion_item_list);
             this.l = findViewById(R.id.forum_emotion_list_head);
             this.m = (TextView) findViewById(R.id.forum_emotion_filter);
             this.n = (ViewGroup) findViewById(R.id.forum_emotion_filter_dropdown);
-            this.f43008j = (TextView) findViewById(R.id.forum_emotion_rank);
-            this.f43004f = (TextView) findViewById(R.id.forum_emotion_title_tv);
-            this.f43005g = (TextView) findViewById(R.id.forum_emotion_download_num_tv);
-            this.f43006h = (TextView) findViewById(R.id.forum_emotion_share_num_tv);
-            this.f43007i = (TextView) findViewById(R.id.forum_emotion_download_tv);
+            this.f43241j = (TextView) findViewById(R.id.forum_emotion_rank);
+            this.f43237f = (TextView) findViewById(R.id.forum_emotion_title_tv);
+            this.f43238g = (TextView) findViewById(R.id.forum_emotion_download_num_tv);
+            this.f43239h = (TextView) findViewById(R.id.forum_emotion_share_num_tv);
+            this.f43240i = (TextView) findViewById(R.id.forum_emotion_download_tv);
             this.k = findViewById(R.id.line);
             this.o = (TextView) findViewById(R.id.forum_emotion_board_title);
-            this.f43003e.setDividerWidth(getContext().getResources().getDimensionPixelSize(R.dimen.ds20));
-            this.f43003e.setSelector(this.q.getResources().getDrawable(R.drawable.transparent_bg));
+            this.f43236e.setDividerWidth(getContext().getResources().getDimensionPixelSize(R.dimen.ds20));
+            this.f43236e.setSelector(this.q.getResources().getDrawable(R.drawable.transparent_bg));
             a aVar = new a(this.q);
             this.p = aVar;
-            this.f43003e.setAdapter((ListAdapter) aVar);
+            this.f43236e.setAdapter((ListAdapter) aVar);
         }
     }
 
@@ -281,13 +281,13 @@ public class ForumEmotionItemView extends LinearLayout {
     public TextView getDownLoadView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f43007i : (TextView) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f43240i : (TextView) invokeV.objValue;
     }
 
     public TextView getDownloadNumView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f43005g : (TextView) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f43238g : (TextView) invokeV.objValue;
     }
 
     public ViewGroup getFilterDropDownView() {
@@ -317,35 +317,35 @@ public class ForumEmotionItemView extends LinearLayout {
     public HListView getListView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f43003e : (HListView) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f43236e : (HListView) invokeV.objValue;
     }
 
     public TextView getRankView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f43008j : (TextView) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f43241j : (TextView) invokeV.objValue;
     }
 
     public TextView getShareNumView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f43006h : (TextView) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f43239h : (TextView) invokeV.objValue;
     }
 
     public TextView getTitleView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.f43004f : (TextView) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.f43237f : (TextView) invokeV.objValue;
     }
 
     public void onChangeSkin(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048588, this, i2) == null) {
-            SkinManager.setViewTextColor(this.f43004f, R.color.CAM_X0105);
-            SkinManager.setViewTextColor(this.f43005g, R.color.CAM_X0109);
-            SkinManager.setViewTextColor(this.f43006h, R.color.CAM_X0109);
-            SkinManager.setViewTextColor(this.f43007i, R.color.CAM_X0109);
-            SkinManager.setViewTextColor(this.f43008j, R.color.CAM_X0105);
+            SkinManager.setViewTextColor(this.f43237f, R.color.CAM_X0105);
+            SkinManager.setViewTextColor(this.f43238g, R.color.CAM_X0109);
+            SkinManager.setViewTextColor(this.f43239h, R.color.CAM_X0109);
+            SkinManager.setViewTextColor(this.f43240i, R.color.CAM_X0109);
+            SkinManager.setViewTextColor(this.f43241j, R.color.CAM_X0105);
             SkinManager.setBackgroundColor(this.k, R.color.CAM_X0204);
             SkinManager.setViewTextColor(this.n.getChildAt(0), R.color.CAM_X0107);
             SkinManager.setBackgroundColor(this.n.getChildAt(0), R.color.CAM_X0201);

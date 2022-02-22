@@ -2,7 +2,7 @@ package com.baidu.sapi2.callback;
 
 import com.baidu.sapi2.share.ShareStorage;
 import java.util.List;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public interface ShareModelWithCheckCallback {
     void onReceiveShareModels(List<ShareStorage.StorageModel> list, String str);
 }

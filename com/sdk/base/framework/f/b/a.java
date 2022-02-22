@@ -21,7 +21,7 @@ public class a {
     public static final String a = "com.sdk.base.framework.f.b.a";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final Boolean f59298b;
+    public static final Boolean f59465b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -37,7 +37,7 @@ public class a {
                 return;
             }
         }
-        f59298b = Boolean.valueOf(f.f59281b);
+        f59465b = Boolean.valueOf(f.f59448b);
     }
 
     public a() {
@@ -63,7 +63,7 @@ public class a {
                 str2 = context.getSharedPreferences("ZzxCache", 0).getString(str, "");
                 return new String(c.a(str2), Charset.defaultCharset());
             } catch (Exception e2) {
-                com.sdk.base.framework.a.a.c.b(a, e2.getMessage(), f59298b);
+                com.sdk.base.framework.a.a.c.b(a, e2.getMessage(), f59465b);
                 return str2;
             }
         }
@@ -78,7 +78,7 @@ public class a {
                 edit.putLong(str, l.longValue());
                 edit.commit();
             } catch (Exception e2) {
-                com.sdk.base.framework.a.a.c.b(a, e2.getMessage(), f59298b);
+                com.sdk.base.framework.a.a.c.b(a, e2.getMessage(), f59465b);
             }
         }
     }
@@ -92,7 +92,7 @@ public class a {
                 edit.putString(str, c.a(str2.getBytes(Charset.defaultCharset())));
                 return edit.commit();
             } catch (Exception e2) {
-                com.sdk.base.framework.a.a.c.b(a, e2.getMessage(), f59298b);
+                com.sdk.base.framework.a.a.c.b(a, e2.getMessage(), f59465b);
                 return false;
             }
         }
@@ -106,7 +106,7 @@ public class a {
             try {
                 return context.getSharedPreferences("ZzxCache", 0).getString(str, "");
             } catch (Exception e2) {
-                com.sdk.base.framework.a.a.c.b(a, e2.getMessage(), f59298b);
+                com.sdk.base.framework.a.a.c.b(a, e2.getMessage(), f59465b);
                 return "";
             }
         }
@@ -122,7 +122,7 @@ public class a {
                 edit.putString(str, str2);
                 return edit.commit();
             } catch (Exception e2) {
-                com.sdk.base.framework.a.a.c.b(a, e2.getMessage(), f59298b);
+                com.sdk.base.framework.a.a.c.b(a, e2.getMessage(), f59465b);
                 return false;
             }
         }
@@ -137,7 +137,7 @@ public class a {
             try {
                 j2 = context.getSharedPreferences("ZzxCache", 0).getLong(str, 0L);
             } catch (Exception e2) {
-                com.sdk.base.framework.a.a.c.b(a, e2.getMessage(), f59298b);
+                com.sdk.base.framework.a.a.c.b(a, e2.getMessage(), f59465b);
             }
             return Long.valueOf(j2);
         }

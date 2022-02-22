@@ -27,7 +27,7 @@ public class al implements Window.Callback {
     public Window.Callback a;
 
     /* renamed from: b  reason: collision with root package name */
-    public a f36415b;
+    public a f36621b;
 
     /* loaded from: classes10.dex */
     public interface a {
@@ -52,7 +52,7 @@ public class al implements Window.Callback {
             }
         }
         this.a = callback;
-        this.f36415b = aVar;
+        this.f36621b = aVar;
     }
 
     public Window.Callback a() {
@@ -73,7 +73,7 @@ public class al implements Window.Callback {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, keyEvent)) == null) {
-            a aVar = this.f36415b;
+            a aVar = this.f36621b;
             if (aVar != null) {
                 aVar.a(keyEvent);
             }
@@ -101,7 +101,7 @@ public class al implements Window.Callback {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, motionEvent)) == null) {
-            a aVar = this.f36415b;
+            a aVar = this.f36621b;
             if (aVar != null) {
                 aVar.a(motionEvent);
             }

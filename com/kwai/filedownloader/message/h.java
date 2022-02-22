@@ -8,12 +8,12 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwai.filedownloader.message.MessageSnapshot;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public abstract class h extends MessageSnapshot {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class a extends b implements com.kwai.filedownloader.message.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -40,16 +40,16 @@ public abstract class h extends MessageSnapshot {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class b extends h {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: b  reason: collision with root package name */
-        public final boolean f58365b;
+        public final boolean f58532b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final int f58366c;
+        public final int f58533c;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public b(int i2, boolean z, int i3) {
@@ -69,8 +69,8 @@ public abstract class h extends MessageSnapshot {
                     return;
                 }
             }
-            this.f58365b = z;
-            this.f58366c = i3;
+            this.f58532b = z;
+            this.f58533c = i3;
         }
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -91,8 +91,8 @@ public abstract class h extends MessageSnapshot {
                     return;
                 }
             }
-            this.f58365b = parcel.readByte() != 0;
-            this.f58366c = parcel.readInt();
+            this.f58532b = parcel.readByte() != 0;
+            this.f58533c = parcel.readInt();
         }
 
         @Override // com.kwai.filedownloader.message.c
@@ -109,7 +109,7 @@ public abstract class h extends MessageSnapshot {
         public int c() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f58366c : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f58533c : invokeV.intValue;
         }
 
         @Override // com.kwai.filedownloader.message.MessageSnapshot, android.os.Parcelable
@@ -126,7 +126,7 @@ public abstract class h extends MessageSnapshot {
         public boolean e() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f58365b : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f58532b : invokeV.booleanValue;
         }
 
         @Override // com.kwai.filedownloader.message.MessageSnapshot, android.os.Parcelable
@@ -134,28 +134,28 @@ public abstract class h extends MessageSnapshot {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLI(1048580, this, parcel, i2) == null) {
                 super.writeToParcel(parcel, i2);
-                parcel.writeByte(this.f58365b ? (byte) 1 : (byte) 0);
-                parcel.writeInt(this.f58366c);
+                parcel.writeByte(this.f58532b ? (byte) 1 : (byte) 0);
+                parcel.writeInt(this.f58533c);
             }
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class c extends h {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: b  reason: collision with root package name */
-        public final boolean f58367b;
+        public final boolean f58534b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final int f58368c;
+        public final int f58535c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final String f58369d;
+        public final String f58536d;
 
         /* renamed from: e  reason: collision with root package name */
-        public final String f58370e;
+        public final String f58537e;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public c(int i2, boolean z, int i3, String str, String str2) {
@@ -175,10 +175,10 @@ public abstract class h extends MessageSnapshot {
                     return;
                 }
             }
-            this.f58367b = z;
-            this.f58368c = i3;
-            this.f58369d = str;
-            this.f58370e = str2;
+            this.f58534b = z;
+            this.f58535c = i3;
+            this.f58536d = str;
+            this.f58537e = str2;
         }
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -199,10 +199,10 @@ public abstract class h extends MessageSnapshot {
                     return;
                 }
             }
-            this.f58367b = parcel.readByte() != 0;
-            this.f58368c = parcel.readInt();
-            this.f58369d = parcel.readString();
-            this.f58370e = parcel.readString();
+            this.f58534b = parcel.readByte() != 0;
+            this.f58535c = parcel.readInt();
+            this.f58536d = parcel.readString();
+            this.f58537e = parcel.readString();
         }
 
         @Override // com.kwai.filedownloader.message.c
@@ -219,7 +219,7 @@ public abstract class h extends MessageSnapshot {
         public int c() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f58368c : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f58535c : invokeV.intValue;
         }
 
         @Override // com.kwai.filedownloader.message.MessageSnapshot, android.os.Parcelable
@@ -236,21 +236,21 @@ public abstract class h extends MessageSnapshot {
         public String f() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f58370e : (String) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f58537e : (String) invokeV.objValue;
         }
 
         @Override // com.kwai.filedownloader.message.MessageSnapshot
         public boolean g() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f58367b : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f58534b : invokeV.booleanValue;
         }
 
         @Override // com.kwai.filedownloader.message.MessageSnapshot
         public String h() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f58369d : (String) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f58536d : (String) invokeV.objValue;
         }
 
         @Override // com.kwai.filedownloader.message.MessageSnapshot, android.os.Parcelable
@@ -258,24 +258,24 @@ public abstract class h extends MessageSnapshot {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLI(1048582, this, parcel, i2) == null) {
                 super.writeToParcel(parcel, i2);
-                parcel.writeByte(this.f58367b ? (byte) 1 : (byte) 0);
-                parcel.writeInt(this.f58368c);
-                parcel.writeString(this.f58369d);
-                parcel.writeString(this.f58370e);
+                parcel.writeByte(this.f58534b ? (byte) 1 : (byte) 0);
+                parcel.writeInt(this.f58535c);
+                parcel.writeString(this.f58536d);
+                parcel.writeString(this.f58537e);
             }
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class d extends h {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: b  reason: collision with root package name */
-        public final int f58371b;
+        public final int f58538b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final Throwable f58372c;
+        public final Throwable f58539c;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public d(int i2, int i3, Throwable th) {
@@ -295,8 +295,8 @@ public abstract class h extends MessageSnapshot {
                     return;
                 }
             }
-            this.f58371b = i3;
-            this.f58372c = th;
+            this.f58538b = i3;
+            this.f58539c = th;
         }
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -317,15 +317,15 @@ public abstract class h extends MessageSnapshot {
                     return;
                 }
             }
-            this.f58371b = parcel.readInt();
-            this.f58372c = (Throwable) parcel.readSerializable();
+            this.f58538b = parcel.readInt();
+            this.f58539c = (Throwable) parcel.readSerializable();
         }
 
         @Override // com.kwai.filedownloader.message.MessageSnapshot
         public int a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f58371b : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f58538b : invokeV.intValue;
         }
 
         @Override // com.kwai.filedownloader.message.c
@@ -352,7 +352,7 @@ public abstract class h extends MessageSnapshot {
         public Throwable j() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f58372c : (Throwable) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f58539c : (Throwable) invokeV.objValue;
         }
 
         @Override // com.kwai.filedownloader.message.MessageSnapshot, android.os.Parcelable
@@ -360,13 +360,13 @@ public abstract class h extends MessageSnapshot {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLI(1048580, this, parcel, i2) == null) {
                 super.writeToParcel(parcel, i2);
-                parcel.writeInt(this.f58371b);
-                parcel.writeSerializable(this.f58372c);
+                parcel.writeInt(this.f58538b);
+                parcel.writeSerializable(this.f58539c);
             }
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class e extends f {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -403,16 +403,16 @@ public abstract class h extends MessageSnapshot {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class f extends h {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: b  reason: collision with root package name */
-        public final int f58373b;
+        public final int f58540b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final int f58374c;
+        public final int f58541c;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public f(int i2, int i3, int i4) {
@@ -432,8 +432,8 @@ public abstract class h extends MessageSnapshot {
                     return;
                 }
             }
-            this.f58373b = i3;
-            this.f58374c = i4;
+            this.f58540b = i3;
+            this.f58541c = i4;
         }
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -454,8 +454,8 @@ public abstract class h extends MessageSnapshot {
                     return;
                 }
             }
-            this.f58373b = parcel.readInt();
-            this.f58374c = parcel.readInt();
+            this.f58540b = parcel.readInt();
+            this.f58541c = parcel.readInt();
         }
 
         /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -483,7 +483,7 @@ public abstract class h extends MessageSnapshot {
         public int a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f58373b : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f58540b : invokeV.intValue;
         }
 
         public byte b() {
@@ -499,7 +499,7 @@ public abstract class h extends MessageSnapshot {
         public int c() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f58374c : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f58541c : invokeV.intValue;
         }
 
         @Override // com.kwai.filedownloader.message.MessageSnapshot, android.os.Parcelable
@@ -507,19 +507,19 @@ public abstract class h extends MessageSnapshot {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLI(1048579, this, parcel, i2) == null) {
                 super.writeToParcel(parcel, i2);
-                parcel.writeInt(this.f58373b);
-                parcel.writeInt(this.f58374c);
+                parcel.writeInt(this.f58540b);
+                parcel.writeInt(this.f58541c);
             }
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class g extends h {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: b  reason: collision with root package name */
-        public final int f58375b;
+        public final int f58542b;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public g(int i2, int i3) {
@@ -539,7 +539,7 @@ public abstract class h extends MessageSnapshot {
                     return;
                 }
             }
-            this.f58375b = i3;
+            this.f58542b = i3;
         }
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -560,14 +560,14 @@ public abstract class h extends MessageSnapshot {
                     return;
                 }
             }
-            this.f58375b = parcel.readInt();
+            this.f58542b = parcel.readInt();
         }
 
         @Override // com.kwai.filedownloader.message.MessageSnapshot
         public int a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f58375b : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f58542b : invokeV.intValue;
         }
 
         @Override // com.kwai.filedownloader.message.c
@@ -595,22 +595,22 @@ public abstract class h extends MessageSnapshot {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLI(1048579, this, parcel, i2) == null) {
                 super.writeToParcel(parcel, i2);
-                parcel.writeInt(this.f58375b);
+                parcel.writeInt(this.f58542b);
             }
         }
     }
 
     /* renamed from: com.kwai.filedownloader.message.h$h  reason: collision with other inner class name */
-    /* loaded from: classes3.dex */
-    public static class C2169h extends d {
+    /* loaded from: classes4.dex */
+    public static class C2179h extends d {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: b  reason: collision with root package name */
-        public final int f58376b;
+        public final int f58543b;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public C2169h(int i2, int i3, Throwable th, int i4) {
+        public C2179h(int i2, int i3, Throwable th, int i4) {
             super(i2, i3, th);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -628,11 +628,11 @@ public abstract class h extends MessageSnapshot {
                     return;
                 }
             }
-            this.f58376b = i4;
+            this.f58543b = i4;
         }
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public C2169h(Parcel parcel) {
+        public C2179h(Parcel parcel) {
             super(parcel);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -649,7 +649,7 @@ public abstract class h extends MessageSnapshot {
                     return;
                 }
             }
-            this.f58376b = parcel.readInt();
+            this.f58543b = parcel.readInt();
         }
 
         @Override // com.kwai.filedownloader.message.h.d, com.kwai.filedownloader.message.c
@@ -676,7 +676,7 @@ public abstract class h extends MessageSnapshot {
         public int k() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f58376b : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f58543b : invokeV.intValue;
         }
 
         @Override // com.kwai.filedownloader.message.h.d, com.kwai.filedownloader.message.MessageSnapshot, android.os.Parcelable
@@ -684,12 +684,12 @@ public abstract class h extends MessageSnapshot {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLI(1048579, this, parcel, i2) == null) {
                 super.writeToParcel(parcel, i2);
-                parcel.writeInt(this.f58376b);
+                parcel.writeInt(this.f58543b);
             }
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class i extends j implements com.kwai.filedownloader.message.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -716,7 +716,7 @@ public abstract class h extends MessageSnapshot {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class j extends f implements MessageSnapshot.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

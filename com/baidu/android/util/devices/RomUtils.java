@@ -331,7 +331,7 @@ public class RomUtils {
     public static boolean is360() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65548, null)) == null) ? check("QIKU") || check(g.f55105h) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65548, null)) == null) ? check("QIKU") || check(g.f55272h) : invokeV.booleanValue;
     }
 
     public static boolean isEmui() {

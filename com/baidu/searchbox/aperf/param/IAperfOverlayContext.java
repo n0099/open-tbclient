@@ -1,5 +1,5 @@
 package com.baidu.searchbox.aperf.param;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public interface IAperfOverlayContext {
     String getAppVersion();
 }

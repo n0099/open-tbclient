@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.nio.ByteBuffer;
 import java.util.UUID;
 import java.util.zip.CRC32;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class z1 {
     public static /* synthetic */ Interceptable $ic;
     public static z1 k;
@@ -22,33 +22,33 @@ public class z1 {
     public volatile boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Context f55367b;
+    public Context f55534b;
 
     /* renamed from: c  reason: collision with root package name */
-    public d f55368c;
+    public d f55535c;
 
     /* renamed from: d  reason: collision with root package name */
-    public volatile String f55369d;
+    public volatile String f55536d;
 
     /* renamed from: e  reason: collision with root package name */
-    public volatile int f55370e;
+    public volatile int f55537e;
 
     /* renamed from: f  reason: collision with root package name */
-    public volatile String f55371f;
+    public volatile String f55538f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f55372g;
+    public int f55539g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f55373h;
+    public int f55540h;
 
     /* renamed from: i  reason: collision with root package name */
-    public Handler f55374i;
+    public Handler f55541i;
 
     /* renamed from: j  reason: collision with root package name */
-    public HandlerThread f55375j;
+    public HandlerThread f55542j;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -76,14 +76,14 @@ public class z1 {
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                long h2 = this.a.f55368c.h();
+                long h2 = this.a.f55535c.h();
                 long currentTimeMillis = System.currentTimeMillis();
-                if (currentTimeMillis - h2 >= this.a.f55368c.b(d.e0, 10) * 1000) {
+                if (currentTimeMillis - h2 >= this.a.f55535c.b(d.e0, 10) * 1000) {
                     z1.c(this.a);
                     this.a.e();
-                    this.a.f55368c.e(currentTimeMillis);
-                    this.a.f55368c.b(d.f55080d, this.a.f55369d);
-                    this.a.f55368c.c(d.f55081e, this.a.f55370e);
+                    this.a.f55535c.e(currentTimeMillis);
+                    this.a.f55535c.b(d.f55247d, this.a.f55536d);
+                    this.a.f55535c.c(d.f55248e, this.a.f55537e);
                 }
             }
         }
@@ -105,12 +105,12 @@ public class z1 {
             }
         }
         this.a = false;
-        this.f55371f = "";
-        this.f55372g = -1;
-        this.f55373h = -1;
-        this.f55375j = new HandlerThread("tokenFKHandlerThread");
-        this.f55367b = context;
-        this.f55368c = new d(context);
+        this.f55538f = "";
+        this.f55539g = -1;
+        this.f55540h = -1;
+        this.f55542j = new HandlerThread("tokenFKHandlerThread");
+        this.f55534b = context;
+        this.f55535c = new d(context);
     }
 
     public static synchronized z1 a(Context context) {
@@ -134,8 +134,8 @@ public class z1 {
     }
 
     public static /* synthetic */ int c(z1 z1Var) {
-        int i2 = z1Var.f55370e;
-        z1Var.f55370e = i2 + 1;
+        int i2 = z1Var.f55537e;
+        z1Var.f55537e = i2 + 1;
         return i2;
     }
 
@@ -146,19 +146,19 @@ public class z1 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65541, this) == null) {
             try {
-                String e2 = this.f55368c.e(d.f55082f);
+                String e2 = this.f55535c.e(d.f55249f);
                 if (TextUtils.isEmpty(e2)) {
                     e2 = UUID.randomUUID().toString();
                 }
-                this.f55368c.b(d.f55082f, e2);
-                boolean b3 = this.f55368c.b(d.Z0);
-                boolean b4 = this.f55368c.b(d.a1);
+                this.f55535c.b(d.f55249f, e2);
+                boolean b3 = this.f55535c.b(d.Z0);
+                boolean b4 = this.f55535c.b(d.a1);
                 if (b3 || b4) {
-                    c2 = x0.c(this.f55367b);
+                    c2 = x0.c(this.f55534b);
                     if (!TextUtils.isEmpty(c2) && !c2.contains("RISK_")) {
                         b2 = 1;
-                        this.f55368c.b(d.f55083g, c2);
-                        this.f55368c.c(d.f55084h, b2);
+                        this.f55535c.b(d.f55250g, c2);
+                        this.f55535c.c(d.f55251h, b2);
                         byte[] d2 = s1.d((e2 + " " + l1.l() + " " + c2).getBytes());
                         byte[] array = ByteBuffer.allocate(2).putShort((short) 0).array();
                         byte[] array2 = ByteBuffer.allocate(4).putInt(0).array();
@@ -184,21 +184,21 @@ public class z1 {
                         System.arraycopy(array6, 0, bArr2, length, array6.length);
                         String str = new String(k1.a(r1.u.getBytes(), 2));
                         byte[] c3 = i1.c(str, str, bArr2);
-                        this.f55369d = k1.c(c3, 2);
+                        this.f55536d = k1.c(c3, 2);
                         byte[] array7 = ByteBuffer.allocate(4).putInt(1).array();
                         byte[] bArr3 = new byte[c3.length + array7.length];
                         System.arraycopy(c3, 0, bArr3, 0, c3.length);
                         System.arraycopy(array7, 0, bArr3, c3.length, array7.length);
-                        this.f55371f = k1.c(bArr3, 2);
+                        this.f55538f = k1.c(bArr3, 2);
                     }
-                    context = this.f55367b;
+                    context = this.f55534b;
                 } else {
-                    context = this.f55367b;
+                    context = this.f55534b;
                 }
                 c2 = l1.g(context).replace("ANDROID_", "");
                 b2 = 3;
-                this.f55368c.b(d.f55083g, c2);
-                this.f55368c.c(d.f55084h, b2);
+                this.f55535c.b(d.f55250g, c2);
+                this.f55535c.c(d.f55251h, b2);
                 byte[] d22 = s1.d((e2 + " " + l1.l() + " " + c2).getBytes());
                 byte[] array8 = ByteBuffer.allocate(2).putShort((short) 0).array();
                 byte[] array22 = ByteBuffer.allocate(4).putInt(0).array();
@@ -224,23 +224,23 @@ public class z1 {
                 System.arraycopy(array62, 0, bArr22, length2, array62.length);
                 String str2 = new String(k1.a(r1.u.getBytes(), 2));
                 byte[] c32 = i1.c(str2, str2, bArr22);
-                this.f55369d = k1.c(c32, 2);
+                this.f55536d = k1.c(c32, 2);
                 byte[] array72 = ByteBuffer.allocate(4).putInt(1).array();
                 byte[] bArr32 = new byte[c32.length + array72.length];
                 System.arraycopy(c32, 0, bArr32, 0, c32.length);
                 System.arraycopy(array72, 0, bArr32, c32.length, array72.length);
-                this.f55371f = k1.c(bArr32, 2);
+                this.f55538f = k1.c(bArr32, 2);
             } catch (Throwable th) {
-                this.f55369d = "k7uScHh359Yzm5EBZWL1FnUqbNQIQgoi62qnRh115RoBSMNbVVwfqDuJ62OPICG8";
+                this.f55536d = "k7uScHh359Yzm5EBZWL1FnUqbNQIQgoi62qnRh115RoBSMNbVVwfqDuJ62OPICG8";
                 try {
                     byte[] array9 = ByteBuffer.allocate(4).putInt(1).array();
-                    byte[] a2 = k1.a(this.f55369d, 2);
+                    byte[] a2 = k1.a(this.f55536d, 2);
                     byte[] bArr5 = new byte[a2.length + array9.length];
                     System.arraycopy(a2, 0, bArr5, 0, a2.length);
                     System.arraycopy(array9, 0, bArr5, a2.length, array9.length);
-                    this.f55371f = k1.c(bArr5, 2);
+                    this.f55538f = k1.c(bArr5, 2);
                 } catch (Exception unused) {
-                    this.f55371f = "k7uScHh359Yzm5EBZWL1FnUqbNQIQgoi62qnRh115RoBSMNbVVwfqDuJ62OPICG8AAAAAA==";
+                    this.f55538f = "k7uScHh359Yzm5EBZWL1FnUqbNQIQgoi62qnRh115RoBSMNbVVwfqDuJ62OPICG8AAAAAA==";
                 }
                 l1.a(th);
             }
@@ -258,15 +258,15 @@ public class z1 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65545, this) == null) {
             try {
-                byte[] a2 = k1.a(this.f55369d, 2);
+                byte[] a2 = k1.a(this.f55536d, 2);
                 byte[] bArr = new byte[a2.length + 4];
                 System.arraycopy(a2, 0, bArr, 0, a2.length);
-                byte[] array = ByteBuffer.allocate(4).putInt(this.f55370e).array();
+                byte[] array = ByteBuffer.allocate(4).putInt(this.f55537e).array();
                 System.arraycopy(array, 0, bArr, a2.length, array.length);
-                this.f55371f = k1.c(bArr, 2);
+                this.f55538f = k1.c(bArr, 2);
             } catch (Throwable unused) {
-                this.f55369d = "k7uScHh359Yzm5EBZWL1FnUqbNQIQgoi62qnRh115RoBSMNbVVwfqDuJ62OPICG8";
-                this.f55371f = "k7uScHh359Yzm5EBZWL1FnUqbNQIQgoi62qnRh115RoBSMNbVVwfqDuJ62OPICG8AAAAAA==";
+                this.f55536d = "k7uScHh359Yzm5EBZWL1FnUqbNQIQgoi62qnRh115RoBSMNbVVwfqDuJ62OPICG8";
+                this.f55538f = "k7uScHh359Yzm5EBZWL1FnUqbNQIQgoi62qnRh115RoBSMNbVVwfqDuJ62OPICG8AAAAAA==";
             }
         }
     }
@@ -275,28 +275,28 @@ public class z1 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (this.f55373h == -1) {
-                this.f55373h = this.f55368c.a(d.f0, 0);
+            if (this.f55540h == -1) {
+                this.f55540h = this.f55535c.a(d.f0, 0);
             }
-            if (this.f55373h == 0) {
+            if (this.f55540h == 0) {
                 return null;
             }
-            if (this.f55372g == -1) {
-                this.f55372g = this.f55368c.a(d.d0, 0);
+            if (this.f55539g == -1) {
+                this.f55539g = this.f55535c.a(d.d0, 0);
             }
-            if (this.f55372g == 0) {
+            if (this.f55539g == 0) {
                 return StringUtil.NULL_STRING;
             }
             try {
-                if (TextUtils.isEmpty(this.f55369d) || this.f55374i == null) {
+                if (TextUtils.isEmpty(this.f55536d) || this.f55541i == null) {
                     b();
                 } else {
-                    this.f55374i.removeCallbacksAndMessages(null);
-                    this.f55374i.postDelayed(new a(this), 1000L);
+                    this.f55541i.removeCallbacksAndMessages(null);
+                    this.f55541i.postDelayed(new a(this), 1000L);
                 }
             } catch (Exception unused) {
             }
-            return this.f55371f;
+            return this.f55538f;
         }
         return (String) invokeV.objValue;
     }
@@ -304,17 +304,17 @@ public class z1 {
     public void a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            if (TextUtils.isEmpty(str) || str.equals(this.f55369d)) {
+            if (TextUtils.isEmpty(str) || str.equals(this.f55536d)) {
                 if (!TextUtils.isEmpty(str)) {
                     return;
                 }
-                str = this.f55368c.a(d.f55080d, "");
-                if (TextUtils.isEmpty(str) || str.equals(this.f55369d)) {
+                str = this.f55535c.a(d.f55247d, "");
+                if (TextUtils.isEmpty(str) || str.equals(this.f55536d)) {
                     return;
                 }
             }
-            this.f55370e = 0;
-            this.f55369d = str;
+            this.f55537e = 0;
+            this.f55536d = str;
         }
     }
 
@@ -324,42 +324,42 @@ public class z1 {
             synchronized (this) {
                 try {
                 } catch (Exception unused) {
-                    this.f55369d = "k7uScHh359Yzm5EBZWL1FnUqbNQIQgoi62qnRh115RoBSMNbVVwfqDuJ62OPICG8";
-                    this.f55371f = "k7uScHh359Yzm5EBZWL1FnUqbNQIQgoi62qnRh115RoBSMNbVVwfqDuJ62OPICG8AAAAAA==";
+                    this.f55536d = "k7uScHh359Yzm5EBZWL1FnUqbNQIQgoi62qnRh115RoBSMNbVVwfqDuJ62OPICG8";
+                    this.f55538f = "k7uScHh359Yzm5EBZWL1FnUqbNQIQgoi62qnRh115RoBSMNbVVwfqDuJ62OPICG8AAAAAA==";
                 }
                 if (this.a) {
                     return;
                 }
                 this.a = true;
-                if (this.f55372g == -1) {
-                    this.f55372g = this.f55368c.a(d.d0, 0);
+                if (this.f55539g == -1) {
+                    this.f55539g = this.f55535c.a(d.d0, 0);
                 }
-                if (this.f55373h == -1) {
-                    this.f55373h = this.f55368c.a(d.f0, 0);
+                if (this.f55540h == -1) {
+                    this.f55540h = this.f55535c.a(d.f0, 0);
                 }
-                if (this.f55372g == 0) {
+                if (this.f55539g == 0) {
                     return;
                 }
-                this.f55369d = this.f55368c.a(d.f55080d, "");
-                this.f55370e = this.f55368c.b(d.f55081e, 0);
-                if (this.f55375j != null) {
-                    this.f55375j.start();
-                    this.f55374i = new Handler(this.f55375j.getLooper());
+                this.f55536d = this.f55535c.a(d.f55247d, "");
+                this.f55537e = this.f55535c.b(d.f55248e, 0);
+                if (this.f55542j != null) {
+                    this.f55542j.start();
+                    this.f55541i = new Handler(this.f55542j.getLooper());
                 }
-                if (TextUtils.isEmpty(this.f55369d)) {
-                    this.f55370e = 0;
+                if (TextUtils.isEmpty(this.f55536d)) {
+                    this.f55537e = 0;
                     c();
-                    this.f55368c.b(d.f55080d, this.f55369d);
-                    this.f55368c.c(d.f55081e, this.f55370e);
+                    this.f55535c.b(d.f55247d, this.f55536d);
+                    this.f55535c.c(d.f55248e, this.f55537e);
                 } else {
-                    this.f55370e++;
-                    this.f55368c.c(d.f55081e, this.f55370e);
-                    byte[] a2 = k1.a(this.f55369d, 2);
+                    this.f55537e++;
+                    this.f55535c.c(d.f55248e, this.f55537e);
+                    byte[] a2 = k1.a(this.f55536d, 2);
                     byte[] bArr = new byte[a2.length + 4];
                     System.arraycopy(a2, 0, bArr, 0, a2.length);
-                    byte[] array = ByteBuffer.allocate(4).putInt(this.f55370e).array();
+                    byte[] array = ByteBuffer.allocate(4).putInt(this.f55537e).array();
                     System.arraycopy(array, 0, bArr, a2.length, array.length);
-                    this.f55371f = k1.c(bArr, 2);
+                    this.f55538f = k1.c(bArr, 2);
                 }
             }
         }

@@ -9,11 +9,11 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
-import c.a.s0.s.u.c;
-import c.a.t0.p4.d;
-import c.a.t0.p4.g;
-import c.a.t0.p4.j;
-import c.a.t0.s1.f;
+import c.a.t0.s.v.c;
+import c.a.u0.s1.f;
+import c.a.u0.s4.d;
+import c.a.u0.s4.g;
+import c.a.u0.s4.j;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.atomData.HotSelectActivityConfig;
@@ -36,13 +36,13 @@ public class HotNormalViewHolder extends RecyclerView.ViewHolder {
     public EMTextView a;
 
     /* renamed from: b  reason: collision with root package name */
-    public EMTextView f50035b;
+    public EMTextView f50202b;
 
     /* renamed from: c  reason: collision with root package name */
-    public EMTextView f50036c;
+    public EMTextView f50203c;
 
     /* renamed from: d  reason: collision with root package name */
-    public RelativeLayout f50037d;
+    public RelativeLayout f50204d;
 
     /* loaded from: classes13.dex */
     public class a implements View.OnClickListener {
@@ -50,16 +50,16 @@ public class HotNormalViewHolder extends RecyclerView.ViewHolder {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ VideoHotTopicSearchAdapter.a f50038e;
+        public final /* synthetic */ VideoHotTopicSearchAdapter.a f50205e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ f f50039f;
+        public final /* synthetic */ f f50206f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ String f50040g;
+        public final /* synthetic */ String f50207g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ HotNormalViewHolder f50041h;
+        public final /* synthetic */ HotNormalViewHolder f50208h;
 
         public a(HotNormalViewHolder hotNormalViewHolder, VideoHotTopicSearchAdapter.a aVar, f fVar, String str) {
             Interceptable interceptable = $ic;
@@ -76,22 +76,22 @@ public class HotNormalViewHolder extends RecyclerView.ViewHolder {
                     return;
                 }
             }
-            this.f50041h = hotNormalViewHolder;
-            this.f50038e = aVar;
-            this.f50039f = fVar;
-            this.f50040g = str;
+            this.f50208h = hotNormalViewHolder;
+            this.f50205e = aVar;
+            this.f50206f = fVar;
+            this.f50207g = str;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             VideoHotTopicSearchAdapter.a aVar;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || (aVar = this.f50038e) == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || (aVar = this.f50205e) == null) {
                 return;
             }
-            aVar.a(this.f50039f);
-            if (this.f50039f.j() && this.f50041h.b(this.f50040g)) {
-                TiebaStatic.log(new StatisticItem("c14419").addParam("obj_locate", "3").addParam("is_video_topic", "1").addParam("topic_id", this.f50039f.d().longValue()));
+            aVar.a(this.f50206f);
+            if (this.f50206f.j() && this.f50208h.b(this.f50207g)) {
+                TiebaStatic.log(new StatisticItem("c14419").addParam("obj_locate", "3").addParam("is_video_topic", "1").addParam("topic_id", this.f50206f.d().longValue()));
             }
         }
     }
@@ -115,9 +115,9 @@ public class HotNormalViewHolder extends RecyclerView.ViewHolder {
             }
         }
         this.a = (EMTextView) view.findViewById(g.topic_title);
-        this.f50035b = (EMTextView) view.findViewById(g.topic_extra);
-        this.f50036c = (EMTextView) view.findViewById(g.hot_topic_tag);
-        this.f50037d = (RelativeLayout) view.findViewById(g.nromal_topic_main);
+        this.f50202b = (EMTextView) view.findViewById(g.topic_extra);
+        this.f50203c = (EMTextView) view.findViewById(g.hot_topic_tag);
+        this.f50204d = (RelativeLayout) view.findViewById(g.nromal_topic_main);
     }
 
     public final boolean b(String str) {
@@ -140,26 +140,26 @@ public class HotNormalViewHolder extends RecyclerView.ViewHolder {
             }
             if (fVar.j() && b(str)) {
                 spannableStringBuilder.insert(1, (CharSequence) "v");
-                EMRichTextAnyIconSpan eMRichTextAnyIconSpan = new EMRichTextAnyIconSpan(c.a.t0.p4.f.icon_pure_videotopic31, d.CAM_X0105, EMRichTextAnyIconSpan.IconType.WEBP);
+                EMRichTextAnyIconSpan eMRichTextAnyIconSpan = new EMRichTextAnyIconSpan(c.a.u0.s4.f.icon_pure_videotopic31, d.CAM_X0105, EMRichTextAnyIconSpan.IconType.WEBP);
                 eMRichTextAnyIconSpan.d(VideoHotTopicSearchAdapter.ICON_PADDING);
                 eMRichTextAnyIconSpan.b(VideoHotTopicSearchAdapter.ICON_PADDING);
                 spannableStringBuilder.setSpan(eMRichTextAnyIconSpan, 1, 2, 17);
             }
             hotNormalViewHolder.a.setText(spannableStringBuilder);
             if (fVar.a() > 0 && b(str) && fVar.j()) {
-                hotNormalViewHolder.f50035b.setVisibility(0);
-                hotNormalViewHolder.f50035b.setText(String.format(tbPageContext.getString(j.hot_topic_thread_item_number), StringHelper.numberUniformFormatExtra(fVar.a())));
+                hotNormalViewHolder.f50202b.setVisibility(0);
+                hotNormalViewHolder.f50202b.setText(String.format(tbPageContext.getString(j.hot_topic_thread_item_number), StringHelper.numberUniformFormatExtra(fVar.a())));
             } else if (fVar.a() == 0 && fVar.d().longValue() == 0 && b(str)) {
-                hotNormalViewHolder.f50035b.setVisibility(0);
-                hotNormalViewHolder.f50035b.setText(tbPageContext.getString(j.hot_topic_thread_create_new_topic));
+                hotNormalViewHolder.f50202b.setVisibility(0);
+                hotNormalViewHolder.f50202b.setText(tbPageContext.getString(j.hot_topic_thread_create_new_topic));
             } else {
-                hotNormalViewHolder.f50035b.setVisibility(8);
+                hotNormalViewHolder.f50202b.setVisibility(8);
             }
-            c(tbPageContext, hotNormalViewHolder.f50036c, fVar.c());
-            c.d(hotNormalViewHolder.f50035b).v(d.CAM_X0110);
-            SkinManager.setBackgroundResource(hotNormalViewHolder.f50036c, c.a.t0.p4.f.hot_select_tag_bg);
-            SkinManager.setViewTextColor(hotNormalViewHolder.f50036c, d.CAM_X0302, 1);
-            hotNormalViewHolder.f50037d.setOnClickListener(new a(this, aVar, fVar, str));
+            c(tbPageContext, hotNormalViewHolder.f50203c, fVar.c());
+            c.d(hotNormalViewHolder.f50202b).v(d.CAM_X0110);
+            SkinManager.setBackgroundResource(hotNormalViewHolder.f50203c, c.a.u0.s4.f.hot_select_tag_bg);
+            SkinManager.setViewTextColor(hotNormalViewHolder.f50203c, d.CAM_X0302, 1);
+            hotNormalViewHolder.f50204d.setOnClickListener(new a(this, aVar, fVar, str));
         }
     }
 

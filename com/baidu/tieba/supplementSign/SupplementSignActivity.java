@@ -3,7 +3,7 @@ package com.baidu.tieba.supplementSign;
 import android.content.Intent;
 import android.os.Bundle;
 import android.webkit.JsPromptResult;
-import c.a.t0.x3.n0.b;
+import c.a.u0.z3.o0.b;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.lib.util.BdLog;
@@ -110,7 +110,7 @@ public class SupplementSignActivity extends TbWebViewActivity {
                 this.this$0 = this;
             }
 
-            @Override // c.a.t0.x3.n0.b
+            @Override // c.a.u0.z3.o0.b
             public boolean dealJsInterface(String str, String str2, String str3, JsPromptResult jsPromptResult) {
                 InterceptResult invokeLLLL;
                 Interceptable interceptable2 = $ic;
@@ -154,7 +154,7 @@ public class SupplementSignActivity extends TbWebViewActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
             super.onChangeSkinType(i2);
-            this.mView.F();
+            this.mView.H();
         }
     }
 
@@ -168,7 +168,7 @@ public class SupplementSignActivity extends TbWebViewActivity {
                 this.forumId = intent.getIntExtra(SupplementSignActivityConfig.FORUM_ID, 0);
             }
             addJsPromptInterface(this.mSupplementSignInterface);
-            this.mView.t(false);
+            this.mView.v(false);
             registerListener(this.mBuyMemberListener);
         }
     }

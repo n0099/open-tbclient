@@ -17,16 +17,16 @@ public class d<K, V> implements Iterable<Map.Entry<K, V>> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public c<K, V> f4113e;
+    public c<K, V> f4133e;
 
     /* renamed from: f  reason: collision with root package name */
-    public c<K, V> f4114f;
+    public c<K, V> f4134f;
 
     /* renamed from: g  reason: collision with root package name */
-    public WeakHashMap<Object<K, V>, Boolean> f4115g;
+    public WeakHashMap<Object<K, V>, Boolean> f4135g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f4116h;
+    public int f4136h;
 
     /* loaded from: classes.dex */
     public static /* synthetic */ class a {
@@ -64,7 +64,7 @@ public class d<K, V> implements Iterable<Map.Entry<K, V>> {
         public c<K, V> a(c<K, V> cVar) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, cVar)) == null) ? cVar.f4119g : (c) invokeL.objValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, cVar)) == null) ? cVar.f4139g : (c) invokeL.objValue;
         }
     }
 
@@ -74,13 +74,13 @@ public class d<K, V> implements Iterable<Map.Entry<K, V>> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final K f4117e;
+        public final K f4137e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final V f4118f;
+        public final V f4138f;
 
         /* renamed from: g  reason: collision with root package name */
-        public c<K, V> f4119g;
+        public c<K, V> f4139g;
 
         public c(K k, V v) {
             Interceptable interceptable = $ic;
@@ -97,8 +97,8 @@ public class d<K, V> implements Iterable<Map.Entry<K, V>> {
                     return;
                 }
             }
-            this.f4117e = k;
-            this.f4118f = v;
+            this.f4137e = k;
+            this.f4138f = v;
         }
 
         @Override // java.util.Map.Entry
@@ -111,7 +111,7 @@ public class d<K, V> implements Iterable<Map.Entry<K, V>> {
                 }
                 if (obj instanceof c) {
                     c cVar = (c) obj;
-                    return this.f4117e.equals(cVar.f4117e) && this.f4118f.equals(cVar.f4118f);
+                    return this.f4137e.equals(cVar.f4137e) && this.f4138f.equals(cVar.f4138f);
                 }
                 return false;
             }
@@ -122,14 +122,14 @@ public class d<K, V> implements Iterable<Map.Entry<K, V>> {
         public K getKey() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f4117e : (K) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f4137e : (K) invokeV.objValue;
         }
 
         @Override // java.util.Map.Entry
         public V getValue() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f4118f : (V) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f4138f : (V) invokeV.objValue;
         }
 
         @Override // java.util.Map.Entry
@@ -146,7 +146,7 @@ public class d<K, V> implements Iterable<Map.Entry<K, V>> {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-                return this.f4117e + "=" + this.f4118f;
+                return this.f4137e + "=" + this.f4138f;
             }
             return (String) invokeV.objValue;
         }
@@ -158,10 +158,10 @@ public class d<K, V> implements Iterable<Map.Entry<K, V>> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public c<K, V> f4123e;
+        public c<K, V> f4143e;
 
         /* renamed from: f  reason: collision with root package name */
-        public c<K, V> f4124f;
+        public c<K, V> f4144f;
 
         public e(c<K, V> cVar, c<K, V> cVar2) {
             Interceptable interceptable = $ic;
@@ -178,8 +178,8 @@ public class d<K, V> implements Iterable<Map.Entry<K, V>> {
                     return;
                 }
             }
-            this.f4123e = cVar2;
-            this.f4124f = cVar;
+            this.f4143e = cVar2;
+            this.f4144f = cVar;
         }
 
         public abstract c<K, V> a(c<K, V> cVar);
@@ -190,8 +190,8 @@ public class d<K, V> implements Iterable<Map.Entry<K, V>> {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                c<K, V> cVar = this.f4124f;
-                this.f4124f = c();
+                c<K, V> cVar = this.f4144f;
+                this.f4144f = c();
                 return cVar;
             }
             return (Map.Entry) invokeV.objValue;
@@ -201,8 +201,8 @@ public class d<K, V> implements Iterable<Map.Entry<K, V>> {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-                c<K, V> cVar = this.f4124f;
-                c<K, V> cVar2 = this.f4123e;
+                c<K, V> cVar = this.f4144f;
+                c<K, V> cVar2 = this.f4143e;
                 if (cVar == cVar2 || cVar2 == null) {
                     return null;
                 }
@@ -214,7 +214,7 @@ public class d<K, V> implements Iterable<Map.Entry<K, V>> {
         public boolean hasNext() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f4124f != null : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f4144f != null : invokeV.booleanValue;
         }
     }
 
@@ -231,23 +231,23 @@ public class d<K, V> implements Iterable<Map.Entry<K, V>> {
                 return;
             }
         }
-        this.f4115g = new WeakHashMap<>();
-        this.f4116h = 0;
+        this.f4135g = new WeakHashMap<>();
+        this.f4136h = 0;
     }
 
     public int b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f4116h : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f4136h : invokeV.intValue;
     }
 
     public c<K, V> d(K k) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, k)) == null) {
-            c<K, V> cVar = this.f4113e;
-            while (cVar != null && !cVar.f4117e.equals(k)) {
-                cVar = cVar.f4119g;
+            c<K, V> cVar = this.f4133e;
+            while (cVar != null && !cVar.f4137e.equals(k)) {
+                cVar = cVar.f4139g;
             }
             return cVar;
         }
@@ -260,7 +260,7 @@ public class d<K, V> implements Iterable<Map.Entry<K, V>> {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, k, v)) == null) {
             c<K, V> d2 = d(k);
             if (d2 != null) {
-                return d2.f4118f;
+                return d2.f4138f;
             }
             f(k, v);
             return null;
@@ -301,29 +301,29 @@ public class d<K, V> implements Iterable<Map.Entry<K, V>> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, k, v)) == null) {
             c<K, V> cVar = new c<>(k, v);
-            this.f4116h++;
-            c<K, V> cVar2 = this.f4114f;
+            this.f4136h++;
+            c<K, V> cVar2 = this.f4134f;
             if (cVar2 == null) {
-                this.f4113e = cVar;
-                this.f4114f = cVar;
+                this.f4133e = cVar;
+                this.f4134f = cVar;
                 return cVar;
             }
-            cVar2.f4119g = cVar;
-            this.f4114f = cVar;
+            cVar2.f4139g = cVar;
+            this.f4134f = cVar;
             return cVar;
         }
         return (c) invokeLL.objValue;
     }
 
-    public d<K, V>.C0187d g() {
+    public d<K, V>.C0189d g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            d<K, V>.C0187d c0187d = new C0187d(this, null);
-            this.f4115g.put(c0187d, Boolean.FALSE);
-            return c0187d;
+            d<K, V>.C0189d c0189d = new C0189d(this, null);
+            this.f4135g.put(c0189d, Boolean.FALSE);
+            return c0189d;
         }
-        return (C0187d) invokeV.objValue;
+        return (C0189d) invokeV.objValue;
     }
 
     @Override // java.lang.Iterable
@@ -331,8 +331,8 @@ public class d<K, V> implements Iterable<Map.Entry<K, V>> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            b bVar = new b(this.f4113e, this.f4114f);
-            this.f4115g.put(bVar, Boolean.FALSE);
+            b bVar = new b(this.f4133e, this.f4134f);
+            this.f4135g.put(bVar, Boolean.FALSE);
             return bVar;
         }
         return (Iterator) invokeV.objValue;
@@ -359,20 +359,20 @@ public class d<K, V> implements Iterable<Map.Entry<K, V>> {
 
     /* renamed from: c.a.j.h.c.c.c.d$d  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public class C0187d implements Object<K, V> {
+    public class C0189d implements Object<K, V> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public c<K, V> f4120e;
+        public c<K, V> f4140e;
 
         /* renamed from: f  reason: collision with root package name */
-        public boolean f4121f;
+        public boolean f4141f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ d f4122g;
+        public final /* synthetic */ d f4142g;
 
-        public C0187d(d dVar) {
+        public C0189d(d dVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -387,8 +387,8 @@ public class d<K, V> implements Iterable<Map.Entry<K, V>> {
                     return;
                 }
             }
-            this.f4122g = dVar;
-            this.f4121f = true;
+            this.f4142g = dVar;
+            this.f4141f = true;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -397,14 +397,14 @@ public class d<K, V> implements Iterable<Map.Entry<K, V>> {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                if (this.f4121f) {
-                    this.f4121f = false;
-                    this.f4120e = this.f4122g.f4113e;
+                if (this.f4141f) {
+                    this.f4141f = false;
+                    this.f4140e = this.f4142g.f4133e;
                 } else {
-                    c<K, V> cVar = this.f4120e;
-                    this.f4120e = cVar != null ? cVar.f4119g : null;
+                    c<K, V> cVar = this.f4140e;
+                    this.f4140e = cVar != null ? cVar.f4139g : null;
                 }
-                return this.f4120e;
+                return this.f4140e;
             }
             return (Map.Entry) invokeV.objValue;
         }
@@ -413,16 +413,16 @@ public class d<K, V> implements Iterable<Map.Entry<K, V>> {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                if (this.f4121f) {
-                    return this.f4122g.f4113e != null;
+                if (this.f4141f) {
+                    return this.f4142g.f4133e != null;
                 }
-                c<K, V> cVar = this.f4120e;
-                return (cVar == null || cVar.f4119g == null) ? false : true;
+                c<K, V> cVar = this.f4140e;
+                return (cVar == null || cVar.f4139g == null) ? false : true;
             }
             return invokeV.booleanValue;
         }
 
-        public /* synthetic */ C0187d(d dVar, a aVar) {
+        public /* synthetic */ C0189d(d dVar, a aVar) {
             this(dVar);
         }
     }

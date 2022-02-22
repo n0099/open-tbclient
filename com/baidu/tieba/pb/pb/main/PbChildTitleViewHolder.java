@@ -3,11 +3,11 @@ package com.baidu.tieba.pb.pb.main;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-import c.a.s0.s.u.c;
-import c.a.t0.t2.f;
-import c.a.t0.t2.i;
-import c.a.t0.t2.l;
-import c.a.t0.t2.r.e;
+import c.a.t0.s.v.c;
+import c.a.u0.u2.f;
+import c.a.u0.u2.i;
+import c.a.u0.u2.l;
+import c.a.u0.u2.r.e;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
@@ -16,20 +16,20 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public class PbChildTitleViewHolder extends TypeAdapter.ViewHolder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public View a;
 
     /* renamed from: b  reason: collision with root package name */
-    public View f46476b;
+    public View f46618b;
 
     /* renamed from: c  reason: collision with root package name */
-    public ViewGroup f46477c;
+    public ViewGroup f46619c;
 
     /* renamed from: d  reason: collision with root package name */
-    public TextView f46478d;
+    public TextView f46620d;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public PbChildTitleViewHolder(View view) {
@@ -50,17 +50,17 @@ public class PbChildTitleViewHolder extends TypeAdapter.ViewHolder {
             }
         }
         this.a = view;
-        this.f46476b = view.findViewById(i.pb_child_title_top_line);
-        this.f46477c = (ViewGroup) view.findViewById(i.rl_pb_child_title_area);
+        this.f46618b = view.findViewById(i.pb_child_title_top_line);
+        this.f46619c = (ViewGroup) view.findViewById(i.rl_pb_child_title_area);
         TextView textView = (TextView) view.findViewById(i.tv_pb_child_title);
-        this.f46478d = textView;
+        this.f46620d = textView;
         c.d(textView).A(l.F_X02);
     }
 
     public void bindData(e eVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, eVar) == null) {
-            this.f46478d.setText(eVar.d());
+            this.f46620d.setText(eVar.d());
         }
     }
 
@@ -73,9 +73,9 @@ public class PbChildTitleViewHolder extends TypeAdapter.ViewHolder {
     public void onChangeSkinType() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            SkinManager.setBackgroundColor(this.f46476b, f.CAM_X0204);
-            SkinManager.setBackgroundColor(this.f46477c, f.CAM_X0205);
-            SkinManager.setViewTextColor(this.f46478d, f.CAM_X0105);
+            SkinManager.setBackgroundColor(this.f46618b, f.CAM_X0204);
+            SkinManager.setBackgroundColor(this.f46619c, f.CAM_X0205);
+            SkinManager.setViewTextColor(this.f46620d, f.CAM_X0105);
         }
     }
 

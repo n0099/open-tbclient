@@ -2,12 +2,12 @@ package com.baidu.tieba.frs;
 
 import android.view.View;
 import android.view.ViewGroup;
-import c.a.s0.s.q.t1;
-import c.a.s0.s.q.u1;
-import c.a.t0.e1.d3.d;
-import c.a.t0.e1.k;
-import c.a.t0.e1.k1;
-import c.a.t0.e1.x;
+import c.a.t0.s.r.t1;
+import c.a.t0.s.r.u1;
+import c.a.u0.e1.f3.d;
+import c.a.u0.e1.k;
+import c.a.u0.e1.k1;
+import c.a.u0.e1.x;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.imsdk.internal.Constants;
@@ -74,20 +74,20 @@ public class FrsSchoolRecommendAdapter extends k<t1, FrsSchoolRecommendViewHolde
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // c.a.d.n.e.a
+    @Override // c.a.d.o.e.a
     /* renamed from: m0 */
     public FrsSchoolRecommendViewHolder M(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
-            this.x = new d(this.o, this.f3364i);
+            this.x = new d(this.o, this.f2451i);
             return new FrsSchoolRecommendViewHolder(this, this.x);
         }
         return (FrsSchoolRecommendViewHolder) invokeL.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // c.a.t0.e1.k, c.a.d.n.e.a
+    @Override // c.a.u0.e1.k, c.a.d.o.e.a
     /* renamed from: n0 */
     public View S(int i2, View view, ViewGroup viewGroup, t1 t1Var, FrsSchoolRecommendViewHolder frsSchoolRecommendViewHolder) {
         InterceptResult invokeCommon;

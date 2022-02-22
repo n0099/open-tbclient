@@ -16,7 +16,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.webrtc.SurfaceViewRenderer;
 import org.webrtc.VideoFrame;
 import org.webrtc.VideoSink;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class RTCVideoView extends SurfaceViewRenderer {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -27,12 +27,12 @@ public class RTCVideoView extends SurfaceViewRenderer {
     public Runnable mOnFirstFrameEvent;
     public StuckDataCalculator stuckDataCalculator;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public interface ExtVideoSink extends VideoSink {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public static final class ScalingType {
         public static final /* synthetic */ ScalingType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;

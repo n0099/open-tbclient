@@ -1,7 +1,7 @@
 package com.baidu.searchbox.perfframe.ubc;
 
 import android.content.Context;
-import c.a.k0.b.a.a;
+import c.a.l0.b.a.a;
 import com.baidu.pyramid.annotation.Service;
 import com.baidu.pyramid.runtime.service.ServiceManager;
 import com.baidu.searchbox.aperf.param.CommonUtils;

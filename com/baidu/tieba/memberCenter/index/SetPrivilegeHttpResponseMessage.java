@@ -12,20 +12,20 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public class SetPrivilegeHttpResponseMessage extends JsonHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public a resultData;
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes13.dex */
     public class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public int a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f45919b;
+        public String f46061b;
 
         public a(SetPrivilegeHttpResponseMessage setPrivilegeHttpResponseMessage) {
             Interceptable interceptable = $ic;
@@ -42,7 +42,7 @@ public class SetPrivilegeHttpResponseMessage extends JsonHttpResponsedMessage {
                     return;
                 }
             }
-            this.f45919b = null;
+            this.f46061b = null;
         }
 
         public void a(JSONObject jSONObject) throws Exception {
@@ -52,11 +52,11 @@ public class SetPrivilegeHttpResponseMessage extends JsonHttpResponsedMessage {
             }
             this.a = jSONObject.optInt("error_code");
             jSONObject.optString(GameCodeGetResponseMsg.PARAM_ERROR_MSG);
-            this.f45919b = jSONObject.optString("field_text");
+            this.f46061b = jSONObject.optString("field_text");
             jSONObject.optString("left_button");
             jSONObject.optString("right_button");
             if (this.a == 0) {
-                StringUtils.isNull(this.f45919b);
+                StringUtils.isNull(this.f46061b);
             }
         }
     }

@@ -47,8 +47,8 @@ public final class VideoDanmuController$danmakuView$2 extends Lambda implements 
         int i2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            view = this.this$0.f48884c;
-            i2 = this.this$0.f48885d;
+            view = this.this$0.f49051c;
+            i2 = this.this$0.f49052d;
             return (DanmakuView) view.findViewById(i2);
         }
         return (DanmakuView) invokeV.objValue;

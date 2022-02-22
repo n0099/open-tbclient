@@ -1,6 +1,6 @@
 package com.baidu.tbadk.coreExtra.relationship;
 
-import c.a.s0.t.f.a;
+import c.a.t0.t.f.a;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;

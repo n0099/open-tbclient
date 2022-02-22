@@ -16,7 +16,7 @@ public final class b implements com.sdk.base.framework.b.a<T> {
     public /* synthetic */ int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public /* synthetic */ a f59329b;
+    public /* synthetic */ a f59496b;
 
     public b(a aVar, int i2) {
         Interceptable interceptable = $ic;
@@ -33,7 +33,7 @@ public final class b implements com.sdk.base.framework.b.a<T> {
                 return;
             }
         }
-        this.f59329b = aVar;
+        this.f59496b = aVar;
         this.a = i2;
     }
 
@@ -41,7 +41,7 @@ public final class b implements com.sdk.base.framework.b.a<T> {
     public final void a(int i2, int i3, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIIL(1048576, this, i2, i3, str) == null) {
-            this.f59329b.a(i2, i3, str);
+            this.f59496b.a(i2, i3, str);
         }
     }
 
@@ -54,17 +54,17 @@ public final class b implements com.sdk.base.framework.b.a<T> {
         Context context3;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i2), str, Integer.valueOf(i3), t, str2}) == null) {
-            context = this.f59329b.f59325d;
+            context = this.f59496b.f59492d;
             com.sdk.base.framework.f.i.b.b(context);
             Object obj = t;
             if (i2 == 0) {
                 try {
-                    context2 = this.f59329b.f59325d;
-                    com.sdk.base.framework.a.a.a.a(context2, this.a, com.sdk.base.framework.a.a.a.a(t, str2), g.f59305b.a());
-                    context3 = this.f59329b.f59325d;
+                    context2 = this.f59496b.f59492d;
+                    com.sdk.base.framework.a.a.a.a(context2, this.a, com.sdk.base.framework.a.a.a.a(t, str2), g.f59472b.a());
+                    context3 = this.f59496b.f59492d;
                     String a = com.sdk.base.framework.f.k.a.a(context3, String.valueOf(t));
                     if (a == null) {
-                        this.f59329b.a(1, "SDK解密异常", 302001, a, str2);
+                        this.f59496b.a(1, "SDK解密异常", 302001, a, str2);
                         return;
                     }
                     JSONObject jSONObject = new JSONObject(String.valueOf(a));
@@ -76,12 +76,12 @@ public final class b implements com.sdk.base.framework.b.a<T> {
                 } catch (Exception e2) {
                     str3 = a.a;
                     String exc = e2.toString();
-                    bool = a.f59323b;
+                    bool = a.f59490b;
                     com.sdk.base.framework.a.a.c.b(str3, exc, bool);
                     obj = t;
                 }
             }
-            this.f59329b.a(i2, str, i3, obj, str2);
+            this.f59496b.a(i2, str, i3, obj, str2);
         }
     }
 }

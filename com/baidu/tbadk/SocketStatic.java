@@ -95,7 +95,7 @@ public class SocketStatic {
                             Interceptable interceptable3 = $ic;
                             if ((interceptable3 == null || interceptable3.invokeV(1048576, this) == null) && l.z()) {
                                 if (BdSocketLinkService.isClose()) {
-                                    c.a.s0.f0.a.b(0, 0, 0, 1, 6);
+                                    c.a.t0.f0.a.b(0, 0, 0, 1, 6);
                                     BdSocketLinkService.setAvailable(true);
                                     BdSocketLinkService.startService(false, "net succ");
                                 }

@@ -1,6 +1,6 @@
 package com.baidu.tieba.chosen.posts.request;
 
-import c.a.t0.h0.a.d.b;
+import c.a.u0.h0.a.d.b;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.mvc.message.MvcProtobufHttpResponsedMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;

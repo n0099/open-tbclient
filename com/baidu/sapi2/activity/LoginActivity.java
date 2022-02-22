@@ -13,9 +13,9 @@ import android.view.View;
 import android.webkit.JsPromptResult;
 import android.widget.Toast;
 import androidx.core.view.InputDeviceCompat;
-import c.a.e0.a.e;
-import c.a.e0.a.f;
-import c.a.e0.a.g;
+import c.a.f0.a.e;
+import c.a.f0.a.f;
+import c.a.f0.a.g;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.sapi2.CoreViewRouter;
 import com.baidu.sapi2.SapiAccount;
@@ -58,7 +58,7 @@ import java.util.Iterator;
 import java.util.List;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class LoginActivity extends BaseActivity {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String E = "LoginActivity";

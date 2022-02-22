@@ -15,16 +15,16 @@ public class d extends g {
     public final String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final String f53454b;
+    public final String f53621b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final String f53455c;
+    public final String f53622c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f53456d;
+    public String f53623d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f53457e;
+    public String f53624e;
 
     public d(String str, String str2, String str3) {
         Interceptable interceptable = $ic;
@@ -41,10 +41,10 @@ public class d extends g {
                 return;
             }
         }
-        this.f53456d = "authz";
+        this.f53623d = "authz";
         this.a = str;
-        this.f53454b = str2;
-        this.f53455c = str3;
+        this.f53621b = str2;
+        this.f53622c = str3;
     }
 
     @Override // com.cmic.sso.sdk.b.b.g
@@ -67,14 +67,14 @@ public class d extends g {
     public void b(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            this.f53456d = str;
+            this.f53623d = str;
         }
     }
 
     public void c(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            this.f53457e = str;
+            this.f53624e = str;
         }
     }
 
@@ -85,10 +85,10 @@ public class d extends g {
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             JSONObject jSONObject = new JSONObject();
             try {
-                jSONObject.put("ver", this.f53454b);
-                jSONObject.put("data", this.f53455c);
-                jSONObject.put("userCapaid", this.f53457e);
-                jSONObject.put("funcType", this.f53456d);
+                jSONObject.put("ver", this.f53621b);
+                jSONObject.put("data", this.f53622c);
+                jSONObject.put("userCapaid", this.f53624e);
+                jSONObject.put("funcType", this.f53623d);
             } catch (JSONException e2) {
                 e2.printStackTrace();
             }

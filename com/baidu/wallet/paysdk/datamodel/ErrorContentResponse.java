@@ -372,7 +372,7 @@ public class ErrorContentResponse implements Serializable {
                                         public final /* synthetic */ Context a;
 
                                         /* renamed from: b  reason: collision with root package name */
-                                        public final /* synthetic */ AnonymousClass4 f51999b;
+                                        public final /* synthetic */ AnonymousClass4 f52166b;
 
                                         {
                                             Interceptable interceptable3 = $ic;
@@ -389,7 +389,7 @@ public class ErrorContentResponse implements Serializable {
                                                     return;
                                                 }
                                             }
-                                            this.f51999b = this;
+                                            this.f52166b = this;
                                             this.a = context;
                                         }
 

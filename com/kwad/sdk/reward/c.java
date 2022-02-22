@@ -4,11 +4,11 @@ import android.os.Looper;
 import com.kwad.sdk.utils.ax;
 import java.util.HashSet;
 import java.util.Set;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class c {
     public final Set<com.kwad.sdk.reward.a.g> a;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class a {
         public static final c a = new c();
     }

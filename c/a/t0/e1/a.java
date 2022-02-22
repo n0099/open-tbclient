@@ -1,297 +1,128 @@
 package c.a.t0.e1;
 
-import android.util.SparseArray;
-import androidx.core.view.InputDeviceCompat;
-import c.a.s0.s.q.e2;
+import android.app.Activity;
+import android.content.Intent;
+import android.text.TextUtils;
+import androidx.annotation.Nullable;
+import c.a.t0.t.c.o0;
+import c.a.u0.z3.t0.b;
 import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.HttpMessage;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.NewVcodeActivityConfig;
+import com.baidu.tbadk.core.atomData.VcodeActivityConfig;
+import com.baidu.tbadk.core.data.AntiData;
+import com.baidu.tbadk.core.data.SmallTailInfo;
+import com.baidu.tbadk.coreExtra.data.WriteData;
+import com.baidu.tieba.tbadkCore.writeModel.PostWriteCallBackData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-import tbclient.FrsTabInfo;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-    public final List<e2> a;
+    @Nullable
+    public static PostWriteCallBackData a;
+    @Nullable
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f15985b;
+    public static o0 f12845b;
+    @Nullable
 
     /* renamed from: c  reason: collision with root package name */
-    public String f15986c;
+    public static WriteData f12846c;
+    @Nullable
 
     /* renamed from: d  reason: collision with root package name */
-    public int f15987d;
+    public static AntiData f12847d;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    /* renamed from: e  reason: collision with root package name */
-    public List<FrsTabInfo> f15988e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public SparseArray<FrsTabInfo> f15989f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public x0 f15990g;
-
-    /* renamed from: c.a.t0.e1.a$a  reason: collision with other inner class name */
-    /* loaded from: classes7.dex */
-    public static /* synthetic */ class C1017a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-    }
-
-    /* loaded from: classes7.dex */
-    public static class b {
-        public static /* synthetic */ Interceptable $ic;
-        public static a a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-705932782, "Lc/a/t0/e1/a$b;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-705932782, "Lc/a/t0/e1/a$b;");
-                    return;
-                }
-            }
-            a = new a(null);
-        }
-    }
-
-    public /* synthetic */ a(C1017a c1017a) {
-        this();
-    }
-
-    public static a h() {
-        InterceptResult invokeV;
+    public static String a(String str) {
+        InterceptResult invokeL;
+        int i2;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? b.a : (a) invokeV.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
+            if (StringUtils.isNull(str)) {
+                return null;
+            }
+            int indexOf = str.indexOf("(");
+            int indexOf2 = str.indexOf(SmallTailInfo.EMOTION_SUFFIX);
+            if (indexOf == -1 || indexOf2 == -1 || (i2 = indexOf + 1) >= indexOf2) {
+                return null;
+            }
+            return str.substring(i2, indexOf2);
+        }
+        return (String) invokeL.objValue;
     }
 
-    public boolean a(e2 e2Var) {
+    public static boolean b(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, e2Var)) == null) {
-            if (e2Var == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            if (StringUtils.isNull(str)) {
                 return false;
             }
-            if (this.a.size() > 29) {
-                x0 x0Var = this.f15990g;
-                if (x0Var != null) {
-                    x0Var.b(2);
-                }
-                return false;
-            }
-            this.a.add(e2Var);
-            x0 x0Var2 = this.f15990g;
-            if (x0Var2 != null) {
-                x0Var2.c(this.a.size(), 2);
-                return true;
-            }
-            return true;
+            return str.equals("4") || str.equals("5");
         }
         return invokeL.booleanValue;
     }
 
-    public void b() {
+    public static boolean c(int i2, int i3, @Nullable Intent intent) {
+        InterceptResult invokeIIL;
+        PostWriteCallBackData postWriteCallBackData;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            for (e2 e2Var : this.a) {
-                if (e2Var != null) {
-                    e2Var.m4(false);
+        if (interceptable == null || (invokeIIL = interceptable.invokeIIL(65538, null, i2, i3, intent)) == null) {
+            if (i2 != 12006) {
+                return false;
+            }
+            boolean z = i3 == -1 && intent != null;
+            if (a != null && f12845b != null && f12846c != null && f12847d != null && z) {
+                try {
+                    postWriteCallBackData = (PostWriteCallBackData) intent.getSerializableExtra("post_write_callback_data");
+                } catch (Exception e2) {
+                    BdLog.e(e2);
+                    postWriteCallBackData = null;
+                }
+                if (postWriteCallBackData == null) {
+                    return false;
+                }
+                b.k().h(true, postWriteCallBackData, f12845b, f12846c, f12847d);
+            } else {
+                b.k().h(false, a, null, f12846c, f12847d);
+            }
+            a = null;
+            f12845b = null;
+            f12846c = null;
+            f12847d = null;
+            return true;
+        }
+        return invokeIIL.booleanValue;
+    }
+
+    public static boolean d(@Nullable PostWriteCallBackData postWriteCallBackData, @Nullable o0 o0Var, @Nullable WriteData writeData, @Nullable AntiData antiData) {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65539, null, postWriteCallBackData, o0Var, writeData, antiData)) == null) {
+            Activity currentActivity = TbadkCoreApplication.getInst().getCurrentActivity();
+            boolean z = (currentActivity == null || writeData == null || o0Var == null || TextUtils.isEmpty(o0Var.c())) ? false : true;
+            if (z) {
+                a = postWriteCallBackData;
+                f12845b = o0Var;
+                f12846c = writeData;
+                f12847d = antiData;
+                writeData.setVcodeMD5(o0Var.b());
+                writeData.setVcodeUrl(o0Var.c());
+                writeData.setVcodeExtra(o0Var.a());
+                if (b(o0Var.d())) {
+                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new NewVcodeActivityConfig(currentActivity, 12006, writeData, false, o0Var.d())));
+                } else {
+                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new VcodeActivityConfig(currentActivity, writeData, 12006)));
                 }
             }
-            this.a.clear();
-            x0 x0Var = this.f15990g;
-            if (x0Var != null) {
-                x0Var.c(0, 2);
-            }
+            return z;
         }
-    }
-
-    public void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.f15986c = null;
-            this.f15987d = -1;
-            List<FrsTabInfo> list = this.f15988e;
-            if (list != null) {
-                list.clear();
-            }
-            SparseArray<FrsTabInfo> sparseArray = this.f15989f;
-            if (sparseArray != null) {
-                sparseArray.clear();
-            }
-        }
-    }
-
-    public void d() {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || ListUtils.isEmpty(this.a)) {
-            return;
-        }
-        this.a.clear();
-        x0 x0Var = this.f15990g;
-        if (x0Var != null) {
-            x0Var.c(this.a.size(), 2);
-        }
-    }
-
-    public int e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f15987d : invokeV.intValue;
-    }
-
-    public String f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f15986c : (String) invokeV.objValue;
-    }
-
-    public List<FrsTabInfo> g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f15988e : (List) invokeV.objValue;
-    }
-
-    public List<e2> i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.a : (List) invokeV.objValue;
-    }
-
-    public boolean j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f15985b : invokeV.booleanValue;
-    }
-
-    public boolean k(int i2) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048585, this, i2)) == null) ? this.f15989f.get(i2) != null && this.f15989f.get(i2).is_general_tab.intValue() == 1 : invokeI.booleanValue;
-    }
-
-    public void l(e2 e2Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, e2Var) == null) {
-            this.a.remove(e2Var);
-            x0 x0Var = this.f15990g;
-            if (x0Var != null) {
-                x0Var.c(this.a.size(), 2);
-            }
-        }
-    }
-
-    public void m(int i2, int i3) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048587, this, i2, i3) == null) {
-            try {
-                HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_FRS_MOVE_AREA);
-                JSONArray jSONArray = new JSONArray();
-                for (e2 e2Var : h().i()) {
-                    if (e2Var != null) {
-                        JSONObject jSONObject = new JSONObject();
-                        jSONObject.put("thread_id", e2Var.h0());
-                        jSONObject.put("from_tab_id", e2Var.k1());
-                        jSONObject.put("to_tab_id", i3);
-                        jSONArray.put(jSONObject);
-                    }
-                }
-                httpMessage.addParam("threads", jSONArray.toString());
-                httpMessage.addParam("forum_id", h().f());
-                MessageManager.getInstance().sendMessage(httpMessage);
-            } catch (JSONException e2) {
-                e2.printStackTrace();
-            }
-        }
-    }
-
-    public void n() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
-            p(false, false);
-            b();
-        }
-    }
-
-    public void o(int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048589, this, i2) == null) {
-            this.f15987d = i2;
-        }
-    }
-
-    public void p(boolean z, boolean z2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048590, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
-            this.f15985b = z;
-            x0 x0Var = this.f15990g;
-            if (x0Var != null) {
-                x0Var.a(z, z2, 2);
-            }
-        }
-    }
-
-    public void q(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048591, this, str) == null) {
-            this.f15986c = str;
-        }
-    }
-
-    public void r(List<FrsTabInfo> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048592, this, list) == null) {
-            this.f15988e = new ArrayList(list);
-            this.f15989f = new SparseArray<>();
-            for (FrsTabInfo frsTabInfo : this.f15988e) {
-                if (frsTabInfo != null) {
-                    this.f15989f.append(frsTabInfo.tab_id.intValue(), frsTabInfo);
-                }
-            }
-        }
-    }
-
-    public void s(x0 x0Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048593, this, x0Var) == null) {
-            this.f15990g = x0Var;
-        }
-    }
-
-    public a() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.f15987d = -1;
-        this.a = new ArrayList();
+        return invokeLLLL.booleanValue;
     }
 }

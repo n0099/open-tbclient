@@ -18,10 +18,10 @@ public class n0 {
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final f0 f28472b;
+    public final f0 f28678b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Map<String, Object> f28473c;
+    public Map<String, Object> f28679c;
 
     public n0(String str, f0 f0Var) {
         Interceptable interceptable = $ic;
@@ -39,7 +39,7 @@ public class n0 {
             }
         }
         this.a = str;
-        this.f28472b = f0Var;
+        this.f28678b = f0Var;
     }
 
     public n0(Map<String, Object> map) {
@@ -57,9 +57,9 @@ public class n0 {
                 return;
             }
         }
-        this.f28472b = f0.f28429c;
+        this.f28678b = f0.f28635c;
         HashMap hashMap = new HashMap();
-        this.f28473c = hashMap;
+        this.f28679c = hashMap;
         hashMap.putAll(map);
     }
 
@@ -84,14 +84,14 @@ public class n0 {
             if (str != null) {
                 return str;
             }
-            if (this.f28473c != null) {
+            if (this.f28679c != null) {
                 StringBuilder sb = new StringBuilder();
-                for (String str2 : this.f28473c.keySet()) {
+                for (String str2 : this.f28679c.keySet()) {
                     if (sb.length() > 0) {
                         sb.append("&");
                     }
                     sb.append(str2);
-                    Object obj = this.f28473c.get(str2);
+                    Object obj = this.f28679c.get(str2);
                     if (obj != null) {
                         sb.append("=");
                         try {
@@ -110,6 +110,6 @@ public class n0 {
     public String c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f28472b.a : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f28678b.a : (String) invokeV.objValue;
     }
 }

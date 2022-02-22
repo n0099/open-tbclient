@@ -25,31 +25,31 @@ public class hz implements iq<hz, Object>, Serializable, Cloneable {
     public static final jg f609a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final iy f61308b;
+    public static final iy f61475b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final iy f61309c;
+    public static final iy f61476c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final iy f61310d;
+    public static final iy f61477d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final iy f61311e;
+    public static final iy f61478e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final iy f61312f;
+    public static final iy f61479f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final iy f61313g;
+    public static final iy f61480g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final iy f61314h;
+    public static final iy f61481h;
 
     /* renamed from: i  reason: collision with root package name */
-    public static final iy f61315i;
+    public static final iy f61482i;
 
     /* renamed from: j  reason: collision with root package name */
-    public static final iy f61316j;
+    public static final iy f61483j;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with other field name */
@@ -100,15 +100,15 @@ public class hz implements iq<hz, Object>, Serializable, Cloneable {
         }
         f609a = new jg("XmPushActionCommand");
         a = new iy("", StandardMessageCodec.LIST, (short) 2);
-        f61308b = new iy("", (byte) 11, (short) 3);
-        f61309c = new iy("", (byte) 11, (short) 4);
-        f61310d = new iy("", (byte) 11, (short) 5);
-        f61311e = new iy("", (byte) 15, (short) 6);
-        f61312f = new iy("", (byte) 11, (short) 7);
-        f61313g = new iy("", (byte) 11, (short) 9);
-        f61314h = new iy("", (byte) 2, (short) 10);
-        f61315i = new iy("", (byte) 2, (short) 11);
-        f61316j = new iy("", (byte) 10, (short) 12);
+        f61475b = new iy("", (byte) 11, (short) 3);
+        f61476c = new iy("", (byte) 11, (short) 4);
+        f61477d = new iy("", (byte) 11, (short) 5);
+        f61478e = new iy("", (byte) 15, (short) 6);
+        f61479f = new iy("", (byte) 11, (short) 7);
+        f61480g = new iy("", (byte) 11, (short) 9);
+        f61481h = new iy("", (byte) 2, (short) 10);
+        f61482i = new iy("", (byte) 2, (short) 11);
+        f61483j = new iy("", (byte) 10, (short) 12);
     }
 
     public hz() {
@@ -147,11 +147,11 @@ public class hz implements iq<hz, Object>, Serializable, Cloneable {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, hzVar)) == null) {
             if (hz.class.equals(hzVar.getClass())) {
-                int compareTo = Boolean.valueOf(m497a()).compareTo(Boolean.valueOf(hzVar.m497a()));
+                int compareTo = Boolean.valueOf(m496a()).compareTo(Boolean.valueOf(hzVar.m496a()));
                 if (compareTo != 0) {
                     return compareTo;
                 }
-                if (!m497a() || (a11 = ir.a(this.f611a, hzVar.f611a)) == 0) {
+                if (!m496a() || (a11 = ir.a(this.f611a, hzVar.f611a)) == 0) {
                     int compareTo2 = Boolean.valueOf(b()).compareTo(Boolean.valueOf(hzVar.b()));
                     if (compareTo2 != 0) {
                         return compareTo2;
@@ -251,7 +251,7 @@ public class hz implements iq<hz, Object>, Serializable, Cloneable {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public void m495a() {
+    public void m494a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             if (this.f612a == null) {
@@ -271,16 +271,16 @@ public class hz implements iq<hz, Object>, Serializable, Cloneable {
         if (interceptable != null && interceptable.invokeL(1048581, this, jbVar) != null) {
             return;
         }
-        jbVar.m588a();
+        jbVar.m587a();
         while (true) {
-            iy m584a = jbVar.m584a();
-            byte b2 = m584a.a;
+            iy m583a = jbVar.m583a();
+            byte b2 = m583a.a;
             if (b2 == 0) {
                 jbVar.f();
-                m495a();
+                m494a();
                 return;
             }
-            switch (m584a.f815a) {
+            switch (m583a.f815a) {
                 case 2:
                     if (b2 == 12) {
                         hu huVar = new hu();
@@ -292,31 +292,31 @@ public class hz implements iq<hz, Object>, Serializable, Cloneable {
                     break;
                 case 3:
                     if (b2 == 11) {
-                        this.f612a = jbVar.m589a();
+                        this.f612a = jbVar.m588a();
                         continue;
                         jbVar.g();
                     }
                     break;
                 case 4:
                     if (b2 == 11) {
-                        this.f616b = jbVar.m589a();
+                        this.f616b = jbVar.m588a();
                         continue;
                         jbVar.g();
                     }
                     break;
                 case 5:
                     if (b2 == 11) {
-                        this.f618c = jbVar.m589a();
+                        this.f618c = jbVar.m588a();
                         continue;
                         jbVar.g();
                     }
                     break;
                 case 6:
                     if (b2 == 15) {
-                        iz m585a = jbVar.m585a();
-                        this.f614a = new ArrayList(m585a.f816a);
-                        for (int i2 = 0; i2 < m585a.f816a; i2++) {
-                            this.f614a.add(jbVar.m589a());
+                        iz m584a = jbVar.m584a();
+                        this.f614a = new ArrayList(m584a.f816a);
+                        for (int i2 = 0; i2 < m584a.f816a; i2++) {
+                            this.f614a.add(jbVar.m588a());
                         }
                         jbVar.i();
                         continue;
@@ -325,21 +325,21 @@ public class hz implements iq<hz, Object>, Serializable, Cloneable {
                     break;
                 case 7:
                     if (b2 == 11) {
-                        this.f619d = jbVar.m589a();
+                        this.f619d = jbVar.m588a();
                         continue;
                         jbVar.g();
                     }
                     break;
                 case 9:
                     if (b2 == 11) {
-                        this.f620e = jbVar.m589a();
+                        this.f620e = jbVar.m588a();
                         continue;
                         jbVar.g();
                     }
                     break;
                 case 10:
                     if (b2 == 2) {
-                        this.f615a = jbVar.m593a();
+                        this.f615a = jbVar.m592a();
                         a(true);
                         continue;
                         jbVar.g();
@@ -347,7 +347,7 @@ public class hz implements iq<hz, Object>, Serializable, Cloneable {
                     break;
                 case 11:
                     if (b2 == 2) {
-                        this.f617b = jbVar.m593a();
+                        this.f617b = jbVar.m592a();
                         b(true);
                         continue;
                         jbVar.g();
@@ -355,7 +355,7 @@ public class hz implements iq<hz, Object>, Serializable, Cloneable {
                     break;
                 case 12:
                     if (b2 == 10) {
-                        this.f610a = jbVar.m583a();
+                        this.f610a = jbVar.m582a();
                         c(true);
                         continue;
                         jbVar.g();
@@ -368,7 +368,7 @@ public class hz implements iq<hz, Object>, Serializable, Cloneable {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public void m496a(String str) {
+    public void m495a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
             if (this.f614a == null) {
@@ -386,23 +386,23 @@ public class hz implements iq<hz, Object>, Serializable, Cloneable {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public boolean m497a() {
+    public boolean m496a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f611a != null : invokeV.booleanValue;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public boolean m498a(hz hzVar) {
+    public boolean m497a(hz hzVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, hzVar)) == null) {
             if (hzVar == null) {
                 return false;
             }
-            boolean m497a = m497a();
-            boolean m497a2 = hzVar.m497a();
-            if ((m497a || m497a2) && !(m497a && m497a2 && this.f611a.m483a(hzVar.f611a))) {
+            boolean m496a = m496a();
+            boolean m496a2 = hzVar.m496a();
+            if ((m496a || m496a2) && !(m496a && m496a2 && this.f611a.m482a(hzVar.f611a))) {
                 return false;
             }
             boolean b2 = b();
@@ -469,30 +469,30 @@ public class hz implements iq<hz, Object>, Serializable, Cloneable {
     public void b(jb jbVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048587, this, jbVar) == null) {
-            m495a();
+            m494a();
             jbVar.a(f609a);
-            if (this.f611a != null && m497a()) {
+            if (this.f611a != null && m496a()) {
                 jbVar.a(a);
                 this.f611a.b(jbVar);
                 jbVar.b();
             }
             if (this.f612a != null) {
-                jbVar.a(f61308b);
+                jbVar.a(f61475b);
                 jbVar.a(this.f612a);
                 jbVar.b();
             }
             if (this.f616b != null) {
-                jbVar.a(f61309c);
+                jbVar.a(f61476c);
                 jbVar.a(this.f616b);
                 jbVar.b();
             }
             if (this.f618c != null) {
-                jbVar.a(f61310d);
+                jbVar.a(f61477d);
                 jbVar.a(this.f618c);
                 jbVar.b();
             }
             if (this.f614a != null && e()) {
-                jbVar.a(f61311e);
+                jbVar.a(f61478e);
                 jbVar.a(new iz((byte) 11, this.f614a.size()));
                 for (String str : this.f614a) {
                     jbVar.a(str);
@@ -501,32 +501,32 @@ public class hz implements iq<hz, Object>, Serializable, Cloneable {
                 jbVar.b();
             }
             if (this.f619d != null && f()) {
-                jbVar.a(f61312f);
+                jbVar.a(f61479f);
                 jbVar.a(this.f619d);
                 jbVar.b();
             }
             if (this.f620e != null && g()) {
-                jbVar.a(f61313g);
+                jbVar.a(f61480g);
                 jbVar.a(this.f620e);
                 jbVar.b();
             }
             if (h()) {
-                jbVar.a(f61314h);
+                jbVar.a(f61481h);
                 jbVar.a(this.f615a);
                 jbVar.b();
             }
             if (i()) {
-                jbVar.a(f61315i);
+                jbVar.a(f61482i);
                 jbVar.a(this.f617b);
                 jbVar.b();
             }
             if (j()) {
-                jbVar.a(f61316j);
+                jbVar.a(f61483j);
                 jbVar.a(this.f610a);
                 jbVar.b();
             }
             jbVar.c();
-            jbVar.m592a();
+            jbVar.m591a();
         }
     }
 
@@ -603,7 +603,7 @@ public class hz implements iq<hz, Object>, Serializable, Cloneable {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048598, this, obj)) == null) {
             if (obj != null && (obj instanceof hz)) {
-                return m498a((hz) obj);
+                return m497a((hz) obj);
             }
             return false;
         }
@@ -655,7 +655,7 @@ public class hz implements iq<hz, Object>, Serializable, Cloneable {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048605, this)) == null) {
             StringBuilder sb = new StringBuilder("XmPushActionCommand(");
-            if (m497a()) {
+            if (m496a()) {
                 sb.append("target:");
                 hu huVar = this.f611a;
                 if (huVar == null) {

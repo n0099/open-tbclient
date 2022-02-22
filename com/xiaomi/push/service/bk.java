@@ -3,6 +3,7 @@ package com.xiaomi.push.service;
 import android.content.Context;
 import android.content.SharedPreferences;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.stampmission.message.StampMissionHttpRequestMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -97,7 +98,7 @@ public final class bk implements ai {
         this.f943a = false;
         this.f942a = new ConcurrentHashMap<>();
         this.f940a = context.getApplicationContext();
-        this.f941a = context.getSharedPreferences("sync", 0);
+        this.f941a = context.getSharedPreferences(StampMissionHttpRequestMessage.TYPE_SYNC, 0);
     }
 
     public static bk a(Context context) {
@@ -128,7 +129,7 @@ public final class bk implements ai {
 
     @Override // com.xiaomi.push.service.ai
     /* renamed from: a  reason: collision with other method in class */
-    public void mo683a() {
+    public void mo682a() {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.f943a) {
             return;

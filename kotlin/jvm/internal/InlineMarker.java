@@ -1,5 +1,5 @@
 package kotlin.jvm.internal;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class InlineMarker {
     public static void afterInlineCall() {
     }

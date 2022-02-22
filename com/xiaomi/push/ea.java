@@ -34,7 +34,7 @@ public final class ea {
     public HashMap<ec, ed> f320a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f61075b;
+    public String f61242b;
 
     public ea(Context context) {
         Interceptable interceptable = $ic;
@@ -54,10 +54,10 @@ public final class ea {
         HashMap<ec, ed> hashMap = new HashMap<>();
         this.f320a = hashMap;
         this.f317a = context;
-        hashMap.put(ec.f61078b, new eg());
-        this.f320a.put(ec.f61079c, new eh());
+        hashMap.put(ec.f61245b, new eg());
+        this.f320a.put(ec.f61246c, new eh());
         this.f320a.put(ec.a, new dy());
-        this.f320a.put(ec.f61080d, new ef());
+        this.f320a.put(ec.f61247d, new ef());
     }
 
     public static ea a(Context context) {
@@ -85,10 +85,10 @@ public final class ea {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static boolean m346a(Context context) {
+    public static boolean m345a(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) ? com.xiaomi.push.service.ac.m638a(context, context.getPackageName()) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) ? com.xiaomi.push.service.ac.m637a(context, context.getPackageName()) : invokeL.booleanValue;
     }
 
     public int a() {
@@ -98,14 +98,14 @@ public final class ea {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public ee m347a() {
+    public ee m346a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f318a : (ee) invokeV.objValue;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public String m348a() {
+    public String m347a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f319a : (String) invokeV.objValue;
@@ -168,13 +168,13 @@ public final class ea {
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f61075b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f61242b : (String) invokeV.objValue;
     }
 
     public void b(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, str) == null) {
-            this.f61075b = str;
+            this.f61242b = str;
         }
     }
 }

@@ -1,5 +1,5 @@
 package com.kwad.sdk.core.download;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public interface c {
     String a();
 

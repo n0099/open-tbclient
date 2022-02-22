@@ -123,7 +123,7 @@ public class GuideActivity extends BaseActivity<GuideActivity> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ GuideActivity f45468e;
+        public final /* synthetic */ GuideActivity f45610e;
 
         public b(GuideActivity guideActivity) {
             Interceptable interceptable = $ic;
@@ -140,15 +140,15 @@ public class GuideActivity extends BaseActivity<GuideActivity> {
                     return;
                 }
             }
-            this.f45468e = guideActivity;
+            this.f45610e = guideActivity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f45468e.endGuide();
-                if (view.getId() == this.f45468e.mBtnStartTieba.getId()) {
+                this.f45610e.endGuide();
+                if (view.getId() == this.f45610e.mBtnStartTieba.getId()) {
                     TiebaStatic.log(new StatisticItem("c13410").param("uid", TbadkCoreApplication.getCurrentAccount()));
                 }
             }
@@ -161,7 +161,7 @@ public class GuideActivity extends BaseActivity<GuideActivity> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ GuideActivity f45469e;
+        public final /* synthetic */ GuideActivity f45611e;
 
         public c(GuideActivity guideActivity) {
             Interceptable interceptable = $ic;
@@ -178,7 +178,7 @@ public class GuideActivity extends BaseActivity<GuideActivity> {
                     return;
                 }
             }
-            this.f45469e = guideActivity;
+            this.f45611e = guideActivity;
         }
 
         @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
@@ -199,19 +199,19 @@ public class GuideActivity extends BaseActivity<GuideActivity> {
         public void onPageSelected(int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
-                if (i2 == this.f45469e.guideListSize - 1) {
-                    this.f45469e.setStartButtonBottomMargin(R.dimen.tbds170);
-                    this.f45469e.mStartButton.setVisibility(0);
-                    this.f45469e.guide_page_indicator.setVisibility(0);
+                if (i2 == this.f45611e.guideListSize - 1) {
+                    this.f45611e.setStartButtonBottomMargin(R.dimen.tbds170);
+                    this.f45611e.mStartButton.setVisibility(0);
+                    this.f45611e.guide_page_indicator.setVisibility(0);
                 } else {
-                    this.f45469e.mStartButton.setVisibility(8);
-                    this.f45469e.setStartButtonBottomMargin(R.dimen.tbds170);
-                    this.f45469e.guide_page_indicator.setVisibility(0);
+                    this.f45611e.mStartButton.setVisibility(8);
+                    this.f45611e.setStartButtonBottomMargin(R.dimen.tbds170);
+                    this.f45611e.guide_page_indicator.setVisibility(0);
                 }
-                if (this.f45469e.mStartButton.getVisibility() == 0) {
-                    this.f45469e.mStartButton.requestFocus();
+                if (this.f45611e.mStartButton.getVisibility() == 0) {
+                    this.f45611e.mStartButton.requestFocus();
                 }
-                this.f45469e.guide_page_indicator.setPosition(i2);
+                this.f45611e.guide_page_indicator.setPosition(i2);
             }
         }
     }
@@ -255,7 +255,7 @@ public class GuideActivity extends BaseActivity<GuideActivity> {
                             return;
                         }
                         this.a.isJumpToNewGuide = false;
-                        c.a.s0.s.i0.b.k().u("jump_to_new_user_guide", false);
+                        c.a.t0.s.j0.b.k().u("jump_to_new_user_guide", false);
                         return;
                     }
                     this.a.isJumpToNewGuide = false;
@@ -272,7 +272,7 @@ public class GuideActivity extends BaseActivity<GuideActivity> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ GuideActivity f45470e;
+        public final /* synthetic */ GuideActivity f45612e;
 
         public e(GuideActivity guideActivity) {
             Interceptable interceptable = $ic;
@@ -289,15 +289,15 @@ public class GuideActivity extends BaseActivity<GuideActivity> {
                     return;
                 }
             }
-            this.f45470e = guideActivity;
+            this.f45612e = guideActivity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, view) == null) && view.getId() == this.f45470e.mBtnStartGame.getId()) {
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view) == null) && view.getId() == this.f45612e.mBtnStartGame.getId()) {
                 TbSingleton.getInstance().mStartGameClicked = true;
-                this.f45470e.endGuide();
+                this.f45612e.endGuide();
             }
         }
     }
@@ -540,7 +540,7 @@ public class GuideActivity extends BaseActivity<GuideActivity> {
             try {
                 setContentView(R.layout.guide_activity);
                 registerHttpTask();
-                boolean h2 = c.a.s0.s.i0.b.k().h("jump_to_new_user_guide", true);
+                boolean h2 = c.a.t0.s.j0.b.k().h("jump_to_new_user_guide", true);
                 this.isJumpToNewGuide = h2;
                 if (h2) {
                     getJumpInfoFromServer();

@@ -11,13 +11,13 @@ public class i implements i.n.a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final i.n.a f62042e;
+    public final i.n.a f62209e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final g.a f62043f;
+    public final g.a f62210f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final long f62044g;
+    public final long f62211g;
 
     public i(i.n.a aVar, g.a aVar2, long j2) {
         Interceptable interceptable = $ic;
@@ -34,18 +34,18 @@ public class i implements i.n.a {
                 return;
             }
         }
-        this.f62042e = aVar;
-        this.f62043f = aVar2;
-        this.f62044g = j2;
+        this.f62209e = aVar;
+        this.f62210f = aVar2;
+        this.f62211g = j2;
     }
 
     @Override // i.n.a
     public void call() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f62043f.isUnsubscribed()) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f62210f.isUnsubscribed()) {
             return;
         }
-        long a = this.f62044g - this.f62043f.a();
+        long a = this.f62211g - this.f62210f.a();
         if (a > 0) {
             try {
                 Thread.sleep(a);
@@ -55,9 +55,9 @@ public class i implements i.n.a {
                 throw null;
             }
         }
-        if (this.f62043f.isUnsubscribed()) {
+        if (this.f62210f.isUnsubscribed()) {
             return;
         }
-        this.f62042e.call();
+        this.f62209e.call();
     }
 }

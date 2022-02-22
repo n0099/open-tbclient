@@ -66,7 +66,7 @@ import java.io.PrintWriter;
 import java.util.List;
 import java.util.function.Consumer;
 @Keep
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public abstract class GenerateFragmentActivityWrapper extends FragmentActivity implements a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

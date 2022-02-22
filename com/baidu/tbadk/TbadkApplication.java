@@ -9,7 +9,7 @@ import android.net.Uri;
 import androidx.core.app.NotificationCompat;
 import androidx.core.view.InputDeviceCompat;
 import c.a.d.f.m.c;
-import c.a.s0.s.i0.b;
+import c.a.t0.s.j0.b;
 import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;

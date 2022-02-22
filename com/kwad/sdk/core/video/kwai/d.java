@@ -24,42 +24,42 @@ import java.util.Iterator;
 import java.util.Map;
 import java.util.Queue;
 import java.util.concurrent.ConcurrentLinkedQueue;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class d extends com.kwad.sdk.core.video.kwai.a {
     public static volatile boolean k;
     public static final Queue<d> l = new ConcurrentLinkedQueue();
     public final KSVodPlayerWrapper a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final a f56269b;
+    public final a f56436b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f56270c;
+    public String f56437c;
 
     /* renamed from: d  reason: collision with root package name */
-    public MediaDataSource f56271d;
+    public MediaDataSource f56438d;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f56273f;
+    public boolean f56440f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f56274g;
+    public boolean f56441g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f56275h;
+    public int f56442h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f56276i;
+    public int f56443i;
     public com.kwad.sdk.contentalliance.detail.video.c n;
 
     /* renamed from: e  reason: collision with root package name */
-    public final Object f56272e = new Object();
+    public final Object f56439e = new Object();
 
     /* renamed from: j  reason: collision with root package name */
-    public boolean f56277j = false;
+    public boolean f56444j = false;
     public boolean m = true;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class a implements CacheListener, IKSVodPlayer.OnBufferingUpdateListener, IKSVodPlayer.OnErrorListener, IKSVodPlayer.OnEventListener, IKSVodPlayer.OnPreparedListener, IKSVodPlayer.OnVideoSizeChangedListener, IKSVodPlayer.OnVodPlayerReleaseListener {
         public final WeakReference<d> a;
 
@@ -87,7 +87,7 @@ public class d extends com.kwad.sdk.core.video.kwai.a {
         public void onError(int i2, int i3) {
             d a = a();
             if (a != null) {
-                a.f56277j = false;
+                a.f56444j = false;
                 a.b(i2, i3);
             }
         }
@@ -144,19 +144,19 @@ public class d extends com.kwad.sdk.core.video.kwai.a {
             d a = a();
             if (a != null) {
                 a.a(i2, i3);
-                a.f56275h = i4;
-                a.f56276i = i5;
+                a.f56442h = i4;
+                a.f56443i = i5;
             }
         }
     }
 
     public d(@NonNull Context context) {
         Context applicationContext = context.getApplicationContext();
-        synchronized (this.f56272e) {
+        synchronized (this.f56439e) {
             this.a = new KSVodPlayerWrapper(applicationContext);
         }
         a(context);
-        this.f56269b = new a(this);
+        this.f56436b = new a(this);
         r();
         a(false);
     }
@@ -179,19 +179,19 @@ public class d extends com.kwad.sdk.core.video.kwai.a {
     }
 
     private void p() {
-        MediaDataSource mediaDataSource = this.f56271d;
+        MediaDataSource mediaDataSource = this.f56438d;
         if (mediaDataSource != null) {
             try {
                 mediaDataSource.close();
             } catch (IOException e2) {
                 e2.printStackTrace();
             }
-            this.f56271d = null;
+            this.f56438d = null;
         }
     }
 
     private void q() {
-        if (this.f56277j) {
+        if (this.f56444j) {
             return;
         }
         try {
@@ -200,17 +200,17 @@ public class d extends com.kwad.sdk.core.video.kwai.a {
         } catch (IllegalStateException e2) {
             com.kwad.sdk.core.d.a.a("KwaiMediaPlayer", "realPrepare failed", e2);
         }
-        this.f56277j = true;
+        this.f56444j = true;
     }
 
     private void r() {
-        this.a.setOnPreparedListener(this.f56269b);
-        this.a.setBufferingUpdateListener(this.f56269b);
-        this.a.setOnEventListener(this.f56269b);
-        this.a.setVideoSizeChangedListener(this.f56269b);
-        this.a.setOnErrorListener(this.f56269b);
+        this.a.setOnPreparedListener(this.f56436b);
+        this.a.setBufferingUpdateListener(this.f56436b);
+        this.a.setOnEventListener(this.f56436b);
+        this.a.setVideoSizeChangedListener(this.f56436b);
+        this.a.setOnErrorListener(this.f56436b);
         if (com.kwad.sdk.core.config.b.u()) {
-            this.a.setCacheSessionListener(this.f56269b);
+            this.a.setCacheSessionListener(this.f56436b);
         }
     }
 
@@ -286,7 +286,7 @@ public class d extends com.kwad.sdk.core.video.kwai.a {
         }
         KSVodVideoContext kSVodVideoContext = new KSVodVideoContext();
         kSVodVideoContext.mVideoId = String.valueOf(bVar.a);
-        kSVodVideoContext.mClickTime = bVar.f55622b;
+        kSVodVideoContext.mClickTime = bVar.f55789b;
         kSVodVideoContext.mExtra = bVar.a();
         this.a.updateVideoContext(kSVodVideoContext);
     }
@@ -294,18 +294,18 @@ public class d extends com.kwad.sdk.core.video.kwai.a {
     @Override // com.kwad.sdk.core.video.kwai.c
     public void a(@NonNull com.kwad.sdk.contentalliance.detail.video.c cVar) {
         this.n = cVar;
-        a(cVar.f55628e);
-        a((TextUtils.isEmpty(cVar.f55626c) || !com.kwad.sdk.core.config.b.A()) ? cVar.f55625b : cVar.f55626c, (Map<String, String>) null);
+        a(cVar.f55795e);
+        a((TextUtils.isEmpty(cVar.f55793c) || !com.kwad.sdk.core.config.b.A()) ? cVar.f55792b : cVar.f55793c, (Map<String, String>) null);
     }
 
     public void a(String str, Map<String, String> map) {
-        this.f56270c = str;
+        this.f56437c = str;
         this.a.setDataSource(str, map);
     }
 
     @Override // com.kwad.sdk.core.video.kwai.c
     public void a(boolean z) {
-        this.f56274g = z;
+        this.f56441g = z;
         this.a.setLooping(z);
     }
 
@@ -378,7 +378,7 @@ public class d extends com.kwad.sdk.core.video.kwai.a {
     public void l() {
         boolean remove = l.remove(this);
         com.kwad.sdk.core.d.a.c("KwaiMediaPlayer", "release remote player ret: " + remove + ", player list size: " + l.size());
-        this.f56273f = true;
+        this.f56440f = true;
         this.a.releaseAsync(new IKSVodPlayer.OnVodPlayerReleaseListener() { // from class: com.kwad.sdk.core.video.kwai.d.2
             public void onPlayerRelease() {
                 com.kwad.sdk.core.d.a.c("KwaiMediaPlayer", "onPlayerRelease");
@@ -391,7 +391,7 @@ public class d extends com.kwad.sdk.core.video.kwai.a {
 
     @Override // com.kwad.sdk.core.video.kwai.c
     public void m() {
-        this.f56277j = false;
+        this.f56444j = false;
         try {
             IKwaiMediaPlayer kwaiMediaPlayer = this.a.getKwaiMediaPlayer();
             if (kwaiMediaPlayer != null) {
@@ -406,7 +406,7 @@ public class d extends com.kwad.sdk.core.video.kwai.a {
 
     @Override // com.kwad.sdk.core.video.kwai.c
     public boolean n() {
-        return this.f56274g;
+        return this.f56441g;
     }
 
     @Override // com.kwad.sdk.core.video.kwai.c

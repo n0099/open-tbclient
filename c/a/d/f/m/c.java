@@ -24,12 +24,12 @@ public class c extends Resources {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final ColorStateList f2979c;
+    public static final ColorStateList f2065c;
     public transient /* synthetic */ FieldHolder $fh;
     public Resources a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f2980b;
+    public boolean f2066b;
 
     static {
         InterceptResult invokeClinit;
@@ -44,7 +44,7 @@ public class c extends Resources {
                 return;
             }
         }
-        f2979c = ColorStateList.valueOf(-16777216);
+        f2065c = ColorStateList.valueOf(-16777216);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -67,7 +67,7 @@ public class c extends Resources {
             }
         }
         this.a = resources;
-        this.f2980b = false;
+        this.f2066b = false;
     }
 
     public final void a(String str, int i2) {
@@ -99,12 +99,12 @@ public class c extends Resources {
                 try {
                     return this.a.getColor(i2);
                 } catch (OutOfMemoryError e2) {
-                    if (i3 == 2 && (BdBaseApplication.getInst().isDebugMode() || this.f2980b)) {
+                    if (i3 == 2 && (BdBaseApplication.getInst().isDebugMode() || this.f2066b)) {
                         throw e2;
                     }
                     BdBaseApplication.getInst().onAppMemoryLow();
                 } catch (RuntimeException e3) {
-                    if (i3 == 2 && (BdBaseApplication.getInst().isDebugMode() || this.f2980b)) {
+                    if (i3 == 2 && (BdBaseApplication.getInst().isDebugMode() || this.f2066b)) {
                         throw e3;
                     }
                     BdBaseApplication.getInst().onAppMemoryLow();
@@ -125,19 +125,19 @@ public class c extends Resources {
                 try {
                     return this.a.getColorStateList(i2);
                 } catch (OutOfMemoryError e2) {
-                    if (i3 == 2 && (BdBaseApplication.getInst().isDebugMode() || this.f2980b)) {
+                    if (i3 == 2 && (BdBaseApplication.getInst().isDebugMode() || this.f2066b)) {
                         throw e2;
                     }
                     BdBaseApplication.getInst().onAppMemoryLow();
                 } catch (RuntimeException e3) {
-                    if (i3 == 2 && (BdBaseApplication.getInst().isDebugMode() || this.f2980b)) {
+                    if (i3 == 2 && (BdBaseApplication.getInst().isDebugMode() || this.f2066b)) {
                         throw e3;
                     }
                     BdBaseApplication.getInst().onAppMemoryLow();
                 }
             }
             a("colorstatelist", i2);
-            return f2979c;
+            return f2065c;
         }
         return (ColorStateList) invokeI.objValue;
     }
@@ -151,12 +151,12 @@ public class c extends Resources {
                 try {
                     return this.a.getDrawable(i2);
                 } catch (OutOfMemoryError e2) {
-                    if (i3 == 2 && (BdBaseApplication.getInst().isDebugMode() || this.f2980b)) {
+                    if (i3 == 2 && (BdBaseApplication.getInst().isDebugMode() || this.f2066b)) {
                         throw e2;
                     }
                     BdBaseApplication.getInst().onAppMemoryLow();
                 } catch (RuntimeException e3) {
-                    if (i3 == 2 && (BdBaseApplication.getInst().isDebugMode() || this.f2980b)) {
+                    if (i3 == 2 && (BdBaseApplication.getInst().isDebugMode() || this.f2066b)) {
                         throw e3;
                     }
                     BdBaseApplication.getInst().onAppMemoryLow();
@@ -177,12 +177,12 @@ public class c extends Resources {
                 try {
                     return this.a.getString(i2);
                 } catch (OutOfMemoryError e2) {
-                    if (i3 == 2 && (BdBaseApplication.getInst().isDebugMode() || this.f2980b)) {
+                    if (i3 == 2 && (BdBaseApplication.getInst().isDebugMode() || this.f2066b)) {
                         throw e2;
                     }
                     BdBaseApplication.getInst().onAppMemoryLow();
                 } catch (RuntimeException e3) {
-                    if (i3 == 2 && (BdBaseApplication.getInst().isDebugMode() || this.f2980b)) {
+                    if (i3 == 2 && (BdBaseApplication.getInst().isDebugMode() || this.f2066b)) {
                         throw e3;
                     }
                     BdBaseApplication.getInst().onAppMemoryLow();

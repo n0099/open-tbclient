@@ -24,7 +24,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class AddressSelectorAdapter extends RecyclerView.Adapter<AddressSelectorHolder> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String VALUE_NOT_SELECTED_ID = "-1";
@@ -36,7 +36,7 @@ public class AddressSelectorAdapter extends RecyclerView.Adapter<AddressSelector
     public OnAddressSelectedListener mOnAddressSelectedListener;
     public OnHotCitySelectedListener mOnHotCitySelectedListener;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public static class AddressSelectorHolder extends RecyclerView.ViewHolder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -85,12 +85,12 @@ public class AddressSelectorAdapter extends RecyclerView.Adapter<AddressSelector
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public interface OnAddressSelectedListener {
         void onAddressSelected(int i2, AddressBean addressBean);
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public interface OnHotCitySelectedListener {
         void onHotCitySelected(AddressBean addressBean);
     }

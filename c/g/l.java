@@ -25,16 +25,16 @@ public final class l extends d0 {
     public final String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final long f28449b;
+    public final long f28655b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final long f28450c;
+    public final long f28656c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final int f28451d;
+    public final int f28657d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final Set<b> f28452e;
+    public final Set<b> f28658e;
 
     /* loaded from: classes9.dex */
     public static final class a extends d0 implements o {
@@ -43,13 +43,13 @@ public final class l extends d0 {
         public final long a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final int f28453b;
+        public final int f28659b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final Ssp.Pid f28454c;
+        public final Ssp.Pid f28660c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final b f28455d;
+        public final b f28661d;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(int i2, ObjectInput objectInput, Map<Long, Ssp.Pid> map, b bVar) {
@@ -69,11 +69,11 @@ public final class l extends d0 {
                     return;
                 }
             }
-            this.f28455d = bVar;
+            this.f28661d = bVar;
             long readLong = objectInput.readLong();
             this.a = readLong;
-            this.f28453b = objectInput.readInt();
-            this.f28454c = map.get(Long.valueOf(readLong));
+            this.f28659b = objectInput.readInt();
+            this.f28660c = map.get(Long.valueOf(readLong));
         }
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -94,11 +94,11 @@ public final class l extends d0 {
                     return;
                 }
             }
-            this.f28455d = bVar;
+            this.f28661d = bVar;
             long adjustLong = NumberUtils.adjustLong(jSONObject.getLong("id"), 0L);
             this.a = adjustLong;
-            this.f28453b = NumberUtils.adjustInt(jSONObject.getInt("weight"), 0);
-            this.f28454c = map.get(Long.valueOf(adjustLong));
+            this.f28659b = NumberUtils.adjustInt(jSONObject.getInt("weight"), 0);
+            this.f28660c = map.get(Long.valueOf(adjustLong));
         }
 
         @Override // c.g.o
@@ -115,7 +115,7 @@ public final class l extends d0 {
         public int b() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f28453b : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f28659b : invokeV.intValue;
         }
 
         public boolean equals(Object obj) {
@@ -129,7 +129,7 @@ public final class l extends d0 {
                     return false;
                 }
                 a aVar = (a) obj;
-                return this.a == aVar.a && this.f28453b == aVar.f28453b && Objects.equals(this.f28454c, aVar.f28454c);
+                return this.a == aVar.a && this.f28659b == aVar.f28659b && Objects.equals(this.f28660c, aVar.f28660c);
             }
             return invokeL.booleanValue;
         }
@@ -137,7 +137,7 @@ public final class l extends d0 {
         public int hashCode() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? Objects.hash(Long.valueOf(this.a), Integer.valueOf(this.f28453b), this.f28454c) : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? Objects.hash(Long.valueOf(this.a), Integer.valueOf(this.f28659b), this.f28660c) : invokeV.intValue;
         }
 
         @Override // c.g.d0
@@ -145,7 +145,7 @@ public final class l extends d0 {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048580, this, objectOutput) == null) {
                 objectOutput.writeLong(this.a);
-                objectOutput.writeInt(this.f28453b);
+                objectOutput.writeInt(this.f28659b);
             }
         }
     }
@@ -157,7 +157,7 @@ public final class l extends d0 {
         public final int a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final Set<a> f28456b;
+        public final Set<a> f28662b;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public b(int i2, ObjectInput objectInput, Map<Long, Ssp.Pid> map) {
@@ -183,7 +183,7 @@ public final class l extends d0 {
             for (int i5 = 0; i5 < readInt; i5++) {
                 hashSet.add(new a(objectInput.readInt(), objectInput, map, this));
             }
-            this.f28456b = Collections.unmodifiableSet(hashSet);
+            this.f28662b = Collections.unmodifiableSet(hashSet);
         }
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -210,7 +210,7 @@ public final class l extends d0 {
             for (int i4 = 0; i4 < jSONArray.length(); i4++) {
                 hashSet.add(new a(jSONArray.getJSONObject(i4), map, this));
             }
-            this.f28456b = Collections.unmodifiableSet(hashSet);
+            this.f28662b = Collections.unmodifiableSet(hashSet);
         }
 
         @Override // c.g.o
@@ -241,7 +241,7 @@ public final class l extends d0 {
                     return false;
                 }
                 b bVar = (b) obj;
-                return this.a == bVar.a && Objects.equals(this.f28456b, bVar.f28456b);
+                return this.a == bVar.a && Objects.equals(this.f28662b, bVar.f28662b);
             }
             return invokeL.booleanValue;
         }
@@ -249,7 +249,7 @@ public final class l extends d0 {
         public int hashCode() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? Objects.hash(Integer.valueOf(this.a), this.f28456b) : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? Objects.hash(Integer.valueOf(this.a), this.f28662b) : invokeV.intValue;
         }
 
         @Override // c.g.d0
@@ -257,8 +257,8 @@ public final class l extends d0 {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048580, this, objectOutput) == null) {
                 objectOutput.writeInt(this.a);
-                objectOutput.writeInt(this.f28456b.size());
-                for (a aVar : this.f28456b) {
+                objectOutput.writeInt(this.f28662b.size());
+                for (a aVar : this.f28662b) {
                     aVar.srzable(objectOutput);
                 }
             }
@@ -284,18 +284,18 @@ public final class l extends d0 {
             }
         }
         this.a = objectInput.readUTF();
-        this.f28449b = objectInput.readLong();
-        this.f28450c = objectInput.readLong();
+        this.f28655b = objectInput.readLong();
+        this.f28656c = objectInput.readLong();
         int readInt = objectInput.readInt();
         HashSet hashSet = new HashSet(readInt);
         for (int i5 = 0; i5 < readInt; i5++) {
             hashSet.add(new b(objectInput.readInt(), objectInput, map));
         }
-        this.f28452e = Collections.unmodifiableSet(hashSet);
+        this.f28658e = Collections.unmodifiableSet(hashSet);
         if (i2 >= 1) {
-            this.f28451d = objectInput.readInt();
+            this.f28657d = objectInput.readInt();
         } else {
-            this.f28451d = 0;
+            this.f28657d = 0;
         }
     }
 
@@ -318,15 +318,15 @@ public final class l extends d0 {
             }
         }
         this.a = jSONObject.getString("sid");
-        this.f28449b = NumberUtils.adjustLong(jSONObject.getLong("wt"), 0L);
-        this.f28450c = NumberUtils.adjustLong(jSONObject.getLong("tmout"), 0L);
+        this.f28655b = NumberUtils.adjustLong(jSONObject.getLong("wt"), 0L);
+        this.f28656c = NumberUtils.adjustLong(jSONObject.getLong("tmout"), 0L);
         JSONArray jSONArray = jSONObject.getJSONArray("pGroups");
         HashSet hashSet = new HashSet();
         for (int i4 = 0; i4 < jSONArray.length(); i4++) {
             hashSet.add(new b(jSONArray.getJSONObject(i4), map));
         }
-        this.f28452e = Collections.unmodifiableSet(hashSet);
-        this.f28451d = jSONObject.optInt("ver", 0);
+        this.f28658e = Collections.unmodifiableSet(hashSet);
+        this.f28657d = jSONObject.optInt("ver", 0);
     }
 
     public boolean equals(Object obj) {
@@ -340,7 +340,7 @@ public final class l extends d0 {
                 return false;
             }
             l lVar = (l) obj;
-            return this.f28449b == lVar.f28449b && this.f28450c == lVar.f28450c && Objects.equals(this.a, lVar.a) && Objects.equals(this.f28452e, lVar.f28452e) && this.f28451d == lVar.f28451d;
+            return this.f28655b == lVar.f28655b && this.f28656c == lVar.f28656c && Objects.equals(this.a, lVar.a) && Objects.equals(this.f28658e, lVar.f28658e) && this.f28657d == lVar.f28657d;
         }
         return invokeL.booleanValue;
     }
@@ -348,7 +348,7 @@ public final class l extends d0 {
     public int hashCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? Objects.hash(this.a, Long.valueOf(this.f28449b), Long.valueOf(this.f28450c), this.f28452e, Integer.valueOf(this.f28451d)) : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? Objects.hash(this.a, Long.valueOf(this.f28655b), Long.valueOf(this.f28656c), this.f28658e, Integer.valueOf(this.f28657d)) : invokeV.intValue;
     }
 
     @Override // c.g.d0
@@ -356,13 +356,13 @@ public final class l extends d0 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, objectOutput) == null) {
             objectOutput.writeUTF(this.a);
-            objectOutput.writeLong(this.f28449b);
-            objectOutput.writeLong(this.f28450c);
-            objectOutput.writeInt(this.f28452e.size());
-            for (b bVar : this.f28452e) {
+            objectOutput.writeLong(this.f28655b);
+            objectOutput.writeLong(this.f28656c);
+            objectOutput.writeInt(this.f28658e.size());
+            for (b bVar : this.f28658e) {
                 bVar.srzable(objectOutput);
             }
-            objectOutput.writeInt(this.f28451d);
+            objectOutput.writeInt(this.f28657d);
         }
     }
 }

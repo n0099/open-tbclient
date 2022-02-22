@@ -41,14 +41,14 @@ public class UserInfo extends BaseApi {
     public void getOpenId(IUiListener iUiListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, iUiListener) == null) {
-            HttpUtils.requestAsync(this.f60476c, f.a(), GRAPH_OPEN_ID, a(), "GET", new BaseApi.TempRequestListener(this, iUiListener));
+            HttpUtils.requestAsync(this.f60643c, f.a(), GRAPH_OPEN_ID, a(), "GET", new BaseApi.TempRequestListener(this, iUiListener));
         }
     }
 
     public void getUserInfo(IUiListener iUiListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, iUiListener) == null) {
-            HttpUtils.requestAsync(this.f60476c, f.a(), "user/get_simple_userinfo", a(), "GET", new BaseApi.TempRequestListener(this, iUiListener));
+            HttpUtils.requestAsync(this.f60643c, f.a(), "user/get_simple_userinfo", a(), "GET", new BaseApi.TempRequestListener(this, iUiListener));
         }
     }
 

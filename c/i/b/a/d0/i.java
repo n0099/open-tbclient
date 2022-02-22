@@ -18,22 +18,22 @@ public final class i implements l, h.f {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final Uri f29125e;
+    public final Uri f29331e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final e.a f29126f;
+    public final e.a f29332f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final c.i.b.a.a0.h f29127g;
+    public final c.i.b.a.a0.h f29333g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final int f29128h;
+    public final int f29334h;
 
     /* renamed from: i  reason: collision with root package name */
-    public final Handler f29129i;
+    public final Handler f29335i;
 
     /* renamed from: j  reason: collision with root package name */
-    public final a f29130j;
+    public final a f29336j;
     public final String k;
     public final int l;
     public l.a m;
@@ -102,7 +102,7 @@ public final class i implements l, h.f {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, bVar, bVar2)) == null) {
             c.i.b.a.i0.a.a(bVar.a == 0);
-            return new h(this.f29125e, this.f29126f.a(), this.f29127g.a(), this.f29128h, this.f29129i, this.f29130j, this, bVar2, this.k, this.l);
+            return new h(this.f29331e, this.f29332f.a(), this.f29333g.a(), this.f29334h, this.f29335i, this.f29336j, this, bVar2, this.k, this.l);
         }
         return (k) invokeLL.objValue;
     }
@@ -168,12 +168,12 @@ public final class i implements l, h.f {
                 return;
             }
         }
-        this.f29125e = uri;
-        this.f29126f = aVar;
-        this.f29127g = hVar;
-        this.f29128h = i2;
-        this.f29129i = handler;
-        this.f29130j = aVar2;
+        this.f29331e = uri;
+        this.f29332f = aVar;
+        this.f29333g = hVar;
+        this.f29334h = i2;
+        this.f29335i = handler;
+        this.f29336j = aVar2;
         this.k = str;
         this.l = i3;
     }

@@ -6,12 +6,12 @@ import androidx.annotation.WorkerThread;
 import com.kwad.sdk.core.network.g;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Future;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public abstract class a<R extends g> {
     public static final ExecutorService a = com.kwad.sdk.core.i.b.h();
 
     /* renamed from: b  reason: collision with root package name */
-    public Future<?> f55922b;
+    public Future<?> f56089b;
 
     public abstract void a(R r, c cVar);
 
@@ -20,7 +20,7 @@ public abstract class a<R extends g> {
 
     public void d() {
         try {
-            this.f55922b = a.submit(new Runnable() { // from class: com.kwad.sdk.core.network.a.1
+            this.f56089b = a.submit(new Runnable() { // from class: com.kwad.sdk.core.network.a.1
                 @Override // java.lang.Runnable
                 public void run() {
                     try {
@@ -37,7 +37,7 @@ public abstract class a<R extends g> {
 
     @CallSuper
     public void e() {
-        Future<?> future = this.f55922b;
+        Future<?> future = this.f56089b;
         if (future != null) {
             future.cancel(true);
         }

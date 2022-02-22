@@ -24,27 +24,27 @@ public final class n implements c.i.b.a.a0.e {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final Pattern f29340g;
+    public static final Pattern f29546g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final Pattern f29341h;
+    public static final Pattern f29547h;
     public transient /* synthetic */ FieldHolder $fh;
     public final String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final s f29342b;
+    public final s f29548b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final c.i.b.a.i0.l f29343c;
+    public final c.i.b.a.i0.l f29549c;
 
     /* renamed from: d  reason: collision with root package name */
-    public c.i.b.a.a0.g f29344d;
+    public c.i.b.a.a0.g f29550d;
 
     /* renamed from: e  reason: collision with root package name */
-    public byte[] f29345e;
+    public byte[] f29551e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f29346f;
+    public int f29552f;
 
     static {
         InterceptResult invokeClinit;
@@ -59,8 +59,8 @@ public final class n implements c.i.b.a.a0.e {
                 return;
             }
         }
-        f29340g = Pattern.compile("LOCAL:([^,]+)");
-        f29341h = Pattern.compile("MPEGTS:(\\d+)");
+        f29546g = Pattern.compile("LOCAL:([^,]+)");
+        f29547h = Pattern.compile("MPEGTS:(\\d+)");
     }
 
     public n(String str, s sVar) {
@@ -79,9 +79,9 @@ public final class n implements c.i.b.a.a0.e {
             }
         }
         this.a = str;
-        this.f29342b = sVar;
-        this.f29343c = new c.i.b.a.i0.l();
-        this.f29345e = new byte[1024];
+        this.f29548b = sVar;
+        this.f29549c = new c.i.b.a.i0.l();
+        this.f29551e = new byte[1024];
     }
 
     @Override // c.i.b.a.a0.e
@@ -96,9 +96,9 @@ public final class n implements c.i.b.a.a0.e {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j2)) == null) {
-            c.i.b.a.a0.m a = this.f29344d.a(0, 3);
+            c.i.b.a.a0.m a = this.f29550d.a(0, 3);
             a.b(Format.createTextSampleFormat((String) null, "text/vtt", (String) null, -1, 0, this.a, (DrmInitData) null, j2));
-            this.f29344d.j();
+            this.f29550d.j();
             return a;
         }
         return (c.i.b.a.a0.m) invokeJ.objValue;
@@ -109,7 +109,7 @@ public final class n implements c.i.b.a.a0.e {
         if (interceptable != null && interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) != null) {
             return;
         }
-        c.i.b.a.i0.l lVar = new c.i.b.a.i0.l(this.f29345e);
+        c.i.b.a.i0.l lVar = new c.i.b.a.i0.l(this.f29551e);
         try {
             c.i.b.a.e0.r.h.d(lVar);
             long j2 = 0;
@@ -118,9 +118,9 @@ public final class n implements c.i.b.a.a0.e {
                 String k = lVar.k();
                 if (!TextUtils.isEmpty(k)) {
                     if (k.startsWith("X-TIMESTAMP-MAP")) {
-                        Matcher matcher = f29340g.matcher(k);
+                        Matcher matcher = f29546g.matcher(k);
                         if (matcher.find()) {
-                            Matcher matcher2 = f29341h.matcher(k);
+                            Matcher matcher2 = f29547h.matcher(k);
                             if (matcher2.find()) {
                                 j3 = c.i.b.a.e0.r.h.c(matcher.group(1));
                                 j2 = s.f(Long.parseLong(matcher2.group(1)));
@@ -138,11 +138,11 @@ public final class n implements c.i.b.a.a0.e {
                         return;
                     }
                     long c2 = c.i.b.a.e0.r.h.c(a.group(1));
-                    long b2 = this.f29342b.b(s.i((j2 + c2) - j3));
+                    long b2 = this.f29548b.b(s.i((j2 + c2) - j3));
                     c.i.b.a.a0.m b3 = b(b2 - c2);
-                    this.f29343c.H(this.f29345e, this.f29346f);
-                    b3.a(this.f29343c, this.f29346f);
-                    b3.c(b2, 1, this.f29346f, 0, null);
+                    this.f29549c.H(this.f29551e, this.f29552f);
+                    b3.a(this.f29549c, this.f29552f);
+                    b3.c(b2, 1, this.f29552f, 0, null);
                     return;
                 }
             }
@@ -167,17 +167,17 @@ public final class n implements c.i.b.a.a0.e {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, fVar, kVar)) == null) {
             int length = (int) fVar.getLength();
-            int i2 = this.f29346f;
-            byte[] bArr = this.f29345e;
+            int i2 = this.f29552f;
+            byte[] bArr = this.f29551e;
             if (i2 == bArr.length) {
-                this.f29345e = Arrays.copyOf(bArr, ((length != -1 ? length : bArr.length) * 3) / 2);
+                this.f29551e = Arrays.copyOf(bArr, ((length != -1 ? length : bArr.length) * 3) / 2);
             }
-            byte[] bArr2 = this.f29345e;
-            int i3 = this.f29346f;
+            byte[] bArr2 = this.f29551e;
+            int i3 = this.f29552f;
             int read = fVar.read(bArr2, i3, bArr2.length - i3);
             if (read != -1) {
-                int i4 = this.f29346f + read;
-                this.f29346f = i4;
+                int i4 = this.f29552f + read;
+                this.f29552f = i4;
                 if (length == -1 || i4 != length) {
                     return 0;
                 }
@@ -192,7 +192,7 @@ public final class n implements c.i.b.a.a0.e {
     public void f(c.i.b.a.a0.g gVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, gVar) == null) {
-            this.f29344d = gVar;
+            this.f29550d = gVar;
             gVar.p(new l.a(-9223372036854775807L));
         }
     }

@@ -35,7 +35,7 @@ import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.util.List;
 import java.util.Queue;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class ByteBufferGifDecoder implements ResourceDecoder<ByteBuffer, GifDrawable> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final GifDecoderFactory GIF_DECODER_FACTORY;
@@ -49,7 +49,7 @@ public class ByteBufferGifDecoder implements ResourceDecoder<ByteBuffer, GifDraw
     public final GifBitmapProvider provider;
 
     @VisibleForTesting
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class GifDecoderFactory {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -76,7 +76,7 @@ public class ByteBufferGifDecoder implements ResourceDecoder<ByteBuffer, GifDraw
     }
 
     @VisibleForTesting
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class GifHeaderParserPool {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

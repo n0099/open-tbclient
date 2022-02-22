@@ -14,10 +14,10 @@ public class b<T> implements Iterable<T> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final c.b.b.q.a<T> f26957e;
+    public final c.b.b.q.a<T> f27163e;
 
     /* renamed from: f  reason: collision with root package name */
-    public a.C1620a<T> f26958f;
+    public a.C1630a<T> f27164f;
 
     public b(c.b.b.q.a<T> aVar) {
         Interceptable interceptable = $ic;
@@ -34,25 +34,25 @@ public class b<T> implements Iterable<T> {
                 return;
             }
         }
-        this.f26957e = aVar;
+        this.f27163e = aVar;
     }
 
     public boolean equals(Object obj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) ? this.f26957e.equals(obj) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) ? this.f27163e.equals(obj) : invokeL.booleanValue;
     }
 
     public T get(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) ? this.f26957e.get(i2) : (T) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) ? this.f27163e.get(i2) : (T) invokeI.objValue;
     }
 
     public int hashCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f26957e.hashCode() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f27163e.hashCode() : invokeV.intValue;
     }
 
     @Override // java.lang.Iterable
@@ -60,10 +60,10 @@ public class b<T> implements Iterable<T> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if (this.f26958f == null) {
-                this.f26958f = new a.C1620a<>(this.f26957e, false);
+            if (this.f27164f == null) {
+                this.f27164f = new a.C1630a<>(this.f27163e, false);
             }
-            return this.f26958f.iterator();
+            return this.f27164f.iterator();
         }
         return (Iterator) invokeV.objValue;
     }
@@ -71,12 +71,12 @@ public class b<T> implements Iterable<T> {
     public int size() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f26957e.f27389f : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f27163e.f27595f : invokeV.intValue;
     }
 
     public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f26957e.toString() : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f27163e.toString() : (String) invokeV.objValue;
     }
 }

@@ -25,22 +25,22 @@ public final class j implements c.i.b.a.d0.l, HlsPlaylistTracker.d {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final f f29325e;
+    public final f f29531e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final Uri f29326f;
+    public final Uri f29532f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final e f29327g;
+    public final e f29533g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final int f29328h;
+    public final int f29534h;
 
     /* renamed from: i  reason: collision with root package name */
-    public final b.a f29329i;
+    public final b.a f29535i;
 
     /* renamed from: j  reason: collision with root package name */
-    public final o.a<c.i.b.a.d0.w.o.c> f29330j;
+    public final o.a<c.i.b.a.d0.w.o.c> f29536j;
     public HlsPlaylistTracker k;
     public l.a l;
 
@@ -86,7 +86,7 @@ public final class j implements c.i.b.a.d0.l, HlsPlaylistTracker.d {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{gVar, Boolean.valueOf(z), aVar}) == null) {
             c.i.b.a.i0.a.f(this.k == null);
-            HlsPlaylistTracker hlsPlaylistTracker = new HlsPlaylistTracker(this.f29326f, this.f29327g, this.f29329i, this.f29328h, this, this.f29330j);
+            HlsPlaylistTracker hlsPlaylistTracker = new HlsPlaylistTracker(this.f29532f, this.f29533g, this.f29535i, this.f29534h, this, this.f29536j);
             this.k = hlsPlaylistTracker;
             this.l = aVar;
             hlsPlaylistTracker.K();
@@ -108,20 +108,20 @@ public final class j implements c.i.b.a.d0.l, HlsPlaylistTracker.d {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bVar) == null) {
             long j3 = bVar.m ? 0L : -9223372036854775807L;
-            long b2 = bVar.m ? c.i.b.a.b.b(bVar.f29355e) : -9223372036854775807L;
-            long j4 = bVar.f29354d;
+            long b2 = bVar.m ? c.i.b.a.b.b(bVar.f29561e) : -9223372036854775807L;
+            long j4 = bVar.f29560d;
             if (this.k.w()) {
-                long j5 = bVar.l ? bVar.f29355e + bVar.q : -9223372036854775807L;
+                long j5 = bVar.l ? bVar.f29561e + bVar.q : -9223372036854775807L;
                 List<b.a> list = bVar.p;
                 if (j4 == -9223372036854775807L) {
-                    j2 = list.isEmpty() ? 0L : list.get(Math.max(0, list.size() - 3)).f29364h;
+                    j2 = list.isEmpty() ? 0L : list.get(Math.max(0, list.size() - 3)).f29570h;
                 } else {
                     j2 = j4;
                 }
-                rVar = new r(j3, b2, j5, bVar.q, bVar.f29355e, j2, true, !bVar.l);
+                rVar = new r(j3, b2, j5, bVar.q, bVar.f29561e, j2, true, !bVar.l);
             } else {
                 long j6 = j4 == -9223372036854775807L ? 0L : j4;
-                long j7 = bVar.f29355e;
+                long j7 = bVar.f29561e;
                 long j8 = bVar.q;
                 rVar = new r(j3, b2, j7 + j8, j8, j7, j6, true, false);
             }
@@ -135,7 +135,7 @@ public final class j implements c.i.b.a.d0.l, HlsPlaylistTracker.d {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, bVar, bVar2)) == null) {
             c.i.b.a.i0.a.a(bVar.a == 0);
-            return new i(this.f29325e, this.k, this.f29327g, this.f29328h, this.f29329i, bVar2);
+            return new i(this.f29531e, this.k, this.f29533g, this.f29534h, this.f29535i, bVar2);
         }
         return (c.i.b.a.d0.k) invokeLL.objValue;
     }
@@ -197,11 +197,11 @@ public final class j implements c.i.b.a.d0.l, HlsPlaylistTracker.d {
                 return;
             }
         }
-        this.f29326f = uri;
-        this.f29327g = eVar;
-        this.f29325e = fVar;
-        this.f29328h = i2;
-        this.f29330j = aVar;
-        this.f29329i = new b.a(handler, bVar);
+        this.f29532f = uri;
+        this.f29533g = eVar;
+        this.f29531e = fVar;
+        this.f29534h = i2;
+        this.f29536j = aVar;
+        this.f29535i = new b.a(handler, bVar);
     }
 }

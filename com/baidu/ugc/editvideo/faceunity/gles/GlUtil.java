@@ -3,7 +3,7 @@ package com.baidu.ugc.editvideo.faceunity.gles;
 import android.opengl.GLES20;
 import android.opengl.Matrix;
 import androidx.core.view.InputDeviceCompat;
-import c.a.a1.t.c;
+import c.a.b1.t.c;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;

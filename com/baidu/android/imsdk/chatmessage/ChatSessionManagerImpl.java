@@ -5,7 +5,7 @@ import android.content.Intent;
 import android.text.TextUtils;
 import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
-import c.a.t.a;
+import c.a.u.a;
 import com.baidu.android.imsdk.BIMManager;
 import com.baidu.android.imsdk.ChatObject;
 import com.baidu.android.imsdk.IMConstants;
@@ -54,7 +54,7 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class ChatSessionManagerImpl {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "SessionManagerImpl";

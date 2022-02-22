@@ -14,7 +14,7 @@ public class ServerSideVerificationOptions {
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f59078b;
+    public String f59245b;
 
     /* renamed from: com.qq.e.ads.rewardvideo.ServerSideVerificationOptions$1  reason: invalid class name */
     /* loaded from: classes4.dex */
@@ -30,7 +30,7 @@ public class ServerSideVerificationOptions {
         public String a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f59079b;
+        public String f59246b;
 
         public Builder() {
             Interceptable interceptable = $ic;
@@ -66,7 +66,7 @@ public class ServerSideVerificationOptions {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-                this.f59079b = str;
+                this.f59246b = str;
                 return this;
             }
             return (Builder) invokeL.objValue;
@@ -89,7 +89,7 @@ public class ServerSideVerificationOptions {
             }
         }
         this.a = builder.a;
-        this.f59078b = builder.f59079b;
+        this.f59245b = builder.f59246b;
     }
 
     public /* synthetic */ ServerSideVerificationOptions(Builder builder, AnonymousClass1 anonymousClass1) {
@@ -105,6 +105,6 @@ public class ServerSideVerificationOptions {
     public String getUserId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f59078b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f59245b : (String) invokeV.objValue;
     }
 }

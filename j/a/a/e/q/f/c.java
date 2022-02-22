@@ -22,22 +22,22 @@ import j.a.a.e.g;
 import kotlin.TypeCastException;
 import kotlin.jvm.internal.Intrinsics;
 import tv.athena.revenue.payui.model.ImageLoaderSupplier;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public final class c extends j.a.a.e.q.f.a<BannerConfigItem.BannerInfo> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: g  reason: collision with root package name */
-    public ImageLoaderSupplier f62413g;
+    public ImageLoaderSupplier f62580g;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public final class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public ImageView a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ c f62414b;
+        public final /* synthetic */ c f62581b;
 
         /* JADX DEBUG: Incorrect args count in method signature: ()V */
         public a(c cVar) {
@@ -55,7 +55,7 @@ public final class c extends j.a.a.e.q.f.a<BannerConfigItem.BannerInfo> {
                     return;
                 }
             }
-            this.f62414b = cVar;
+            this.f62581b = cVar;
         }
 
         public final ImageView a() {
@@ -68,7 +68,7 @@ public final class c extends j.a.a.e.q.f.a<BannerConfigItem.BannerInfo> {
             ImageView imageView;
             ImageLoaderSupplier f2;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bannerInfo, i2, context) == null) || (imageView = this.a) == null || (f2 = this.f62414b.f()) == null) {
+            if (!(interceptable == null || interceptable.invokeLIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bannerInfo, i2, context) == null) || (imageView = this.a) == null || (f2 = this.f62581b.f()) == null) {
                 return;
             }
             f2.onLoad(context, imageView, new ImageLoaderSupplier.ImageParam(bannerInfo != null ? bannerInfo.imageUrl : null, -1, -1));
@@ -139,7 +139,7 @@ public final class c extends j.a.a.e.q.f.a<BannerConfigItem.BannerInfo> {
     public final ImageLoaderSupplier f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f62413g : (ImageLoaderSupplier) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f62580g : (ImageLoaderSupplier) invokeV.objValue;
     }
 
     public final void g(BannerConfigItem.BannerInfo bannerInfo, a aVar, int i2) {
@@ -147,7 +147,7 @@ public final class c extends j.a.a.e.q.f.a<BannerConfigItem.BannerInfo> {
         if (!(interceptable == null || interceptable.invokeLLI(Constants.METHOD_SEND_USER_MSG, this, bannerInfo, aVar, i2) == null) || bannerInfo == null) {
             return;
         }
-        Context mContext = this.f62412f;
+        Context mContext = this.f62579f;
         Intrinsics.checkExpressionValueIsNotNull(mContext, "mContext");
         aVar.b(bannerInfo, i2, mContext);
     }
@@ -159,7 +159,7 @@ public final class c extends j.a.a.e.q.f.a<BannerConfigItem.BannerInfo> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeILL = interceptable.invokeILL(1048579, this, i2, view, viewGroup)) == null) {
             if (view == null) {
-                view = LayoutInflater.from(this.f62412f).inflate(g.pay_ui_layout_plugincenter_banner_item, (ViewGroup) null);
+                view = LayoutInflater.from(this.f62579f).inflate(g.pay_ui_layout_plugincenter_banner_item, (ViewGroup) null);
                 if (view == null) {
                     Intrinsics.throwNpe();
                 }
@@ -183,7 +183,7 @@ public final class c extends j.a.a.e.q.f.a<BannerConfigItem.BannerInfo> {
     public final void h(ImageLoaderSupplier imageLoaderSupplier) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, imageLoaderSupplier) == null) {
-            this.f62413g = imageLoaderSupplier;
+            this.f62580g = imageLoaderSupplier;
         }
     }
 }

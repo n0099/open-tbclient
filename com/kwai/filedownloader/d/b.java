@@ -12,19 +12,19 @@ import java.io.File;
 import java.io.FileDescriptor;
 import java.io.FileOutputStream;
 import java.io.RandomAccessFile;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class b implements com.kwai.filedownloader.d.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final BufferedOutputStream a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final FileDescriptor f58241b;
+    public final FileDescriptor f58408b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final RandomAccessFile f58242c;
+    public final RandomAccessFile f58409c;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class a implements c.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -77,9 +77,9 @@ public class b implements com.kwai.filedownloader.d.a {
             }
         }
         RandomAccessFile randomAccessFile = new RandomAccessFile(file, "rw");
-        this.f58242c = randomAccessFile;
-        this.f58241b = randomAccessFile.getFD();
-        this.a = new BufferedOutputStream(new FileOutputStream(this.f58242c.getFD()));
+        this.f58409c = randomAccessFile;
+        this.f58408b = randomAccessFile.getFD();
+        this.a = new BufferedOutputStream(new FileOutputStream(this.f58409c.getFD()));
     }
 
     @Override // com.kwai.filedownloader.d.a
@@ -87,7 +87,7 @@ public class b implements com.kwai.filedownloader.d.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             this.a.flush();
-            this.f58241b.sync();
+            this.f58408b.sync();
         }
     }
 
@@ -95,7 +95,7 @@ public class b implements com.kwai.filedownloader.d.a {
     public void a(long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j2) == null) {
-            this.f58242c.seek(j2);
+            this.f58409c.seek(j2);
         }
     }
 
@@ -112,7 +112,7 @@ public class b implements com.kwai.filedownloader.d.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             this.a.close();
-            this.f58242c.close();
+            this.f58409c.close();
         }
     }
 
@@ -120,7 +120,7 @@ public class b implements com.kwai.filedownloader.d.a {
     public void b(long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048580, this, j2) == null) {
-            this.f58242c.setLength(j2);
+            this.f58409c.setLength(j2);
         }
     }
 }

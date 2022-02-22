@@ -1,5 +1,6 @@
 package com.baidu.tieba.homepage;
 
+import c.a.t0.d1.c0;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
@@ -60,6 +61,7 @@ public class RequestGetMyPostNetMessage extends NetMessage {
             builder.q_type = Integer.valueOf(this.mQType);
             builder.bfrom = this.bFrom;
             builder.call_from = Integer.valueOf(this.callFrom);
+            c0.a(builder, true);
             GetMyPostReqIdl.Builder builder2 = new GetMyPostReqIdl.Builder();
             builder2.data = builder.build(false);
             return builder2.build(false);

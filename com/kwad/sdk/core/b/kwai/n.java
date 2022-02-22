@@ -4,7 +4,7 @@ import com.kwad.sdk.core.response.model.AdInfo;
 import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class n implements com.kwad.sdk.core.d<AdInfo.AdMaterialInfo> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.kwad.sdk.core.d

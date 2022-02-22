@@ -69,31 +69,31 @@ public final class PhoneUtils {
     public static final Pattern a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final Pattern f32742b;
+    public static final Pattern f32948b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final Pattern f32743c;
+    public static final Pattern f32949c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final Pattern f32744d;
+    public static final Pattern f32950d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final String f32745e = "PhoneUtils";
+    public static final String f32951e = "PhoneUtils";
 
     /* renamed from: f  reason: collision with root package name */
-    public static final String f32746f = "_pay.preferences";
+    public static final String f32952f = "_pay.preferences";
 
     /* renamed from: g  reason: collision with root package name */
-    public static final String f32747g = "cuid_1";
+    public static final String f32953g = "cuid_1";
 
     /* renamed from: h  reason: collision with root package name */
-    public static final String f32748h = "cuid_2";
+    public static final String f32954h = "cuid_2";
 
     /* renamed from: i  reason: collision with root package name */
-    public static final String f32749i = "wime";
+    public static final String f32955i = "wime";
 
     /* renamed from: j  reason: collision with root package name */
-    public static final String f32750j = "identity_code";
+    public static final String f32956j = "identity_code";
     public static final String k = "phone_number";
     public static final String l = "card_no";
     public static final String m = "valid_date";
@@ -120,7 +120,7 @@ public final class PhoneUtils {
         public static final String a = "processor";
 
         /* renamed from: b  reason: collision with root package name */
-        public static final String f32751b = "features";
+        public static final String f32957b = "features";
         public transient /* synthetic */ FieldHolder $fh;
         public String features;
         public String processor;
@@ -191,9 +191,9 @@ public final class PhoneUtils {
         }
         q = new ArrayList<>();
         a = Pattern.compile("((\\d|[A-F]){32}).*");
-        f32742b = Pattern.compile("((\\d|[a-f]){32}).*");
-        f32743c = Pattern.compile("((\\d|[A-F]){32}).*(\\|.*)");
-        f32744d = Pattern.compile("((\\d|[a-f]){32}).*(\\|.*)");
+        f32948b = Pattern.compile("((\\d|[a-f]){32}).*");
+        f32949c = Pattern.compile("((\\d|[A-F]){32}).*(\\|.*)");
+        f32950d = Pattern.compile("((\\d|[a-f]){32}).*(\\|.*)");
         q.add("card_no");
         q.add("valid_date");
         q.add("cvv2");
@@ -347,11 +347,11 @@ public final class PhoneUtils {
             if (cuid == null) {
                 return null;
             }
-            if (f32743c.matcher(cuid).matches()) {
+            if (f32949c.matcher(cuid).matches()) {
                 str2 = matcher.group(1) + matcher.group(3);
             }
             if (str2 == null) {
-                if (f32744d.matcher(cuid).matches()) {
+                if (f32950d.matcher(cuid).matches()) {
                     str = matcher2.group(1) + matcher2.group(3);
                 } else {
                     str = "";
@@ -371,12 +371,12 @@ public final class PhoneUtils {
         if (interceptable != null && (invokeL = interceptable.invokeL(65549, null, context)) != null) {
             return (String) invokeL.objValue;
         }
-        if (Build.VERSION.SDK_INT >= 29 || !PermissionManager.checkCallingPermission(context, s.f55287c)) {
+        if (Build.VERSION.SDK_INT >= 29 || !PermissionManager.checkCallingPermission(context, s.f55454c)) {
             return "";
         }
         format = String.format("%s_%s_%s", 0, 0, 0);
         try {
-            if ((hasPermission(context, s.f55291g) || hasPermission(context, s.f55292h)) && (cellLocation = ((TelephonyManager) context.getSystemService("phone")).getCellLocation()) != null) {
+            if ((hasPermission(context, s.f55458g) || hasPermission(context, s.f55459h)) && (cellLocation = ((TelephonyManager) context.getSystemService("phone")).getCellLocation()) != null) {
                 if (cellLocation instanceof GsmCellLocation) {
                     GsmCellLocation gsmCellLocation = (GsmCellLocation) cellLocation;
                     return String.format("%s_%s_%s", String.format("%d", Integer.valueOf(gsmCellLocation.getCid())), String.format("%d", Integer.valueOf(gsmCellLocation.getLac())), 0);
@@ -396,7 +396,7 @@ public final class PhoneUtils {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65550, null, context)) == null) {
             try {
-                if (hasPermission(context, s.f55291g)) {
+                if (hasPermission(context, s.f55458g)) {
                     Location lastKnownLocation = ((LocationManager) context.getSystemService("location")).getLastKnownLocation("gps");
                     LogUtil.d("PhoneUtils", "location: " + lastKnownLocation);
                     return lastKnownLocation != null ? String.format("%s:%s", Double.valueOf(lastKnownLocation.getLongitude()), Double.valueOf(lastKnownLocation.getLatitude())) : "";
@@ -449,7 +449,7 @@ public final class PhoneUtils {
         LocationManager locationManager;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65552, null, context, comparator)) == null) {
-            if (hasPermission(context, s.f55291g) && (locationManager = (LocationManager) context.getApplicationContext().getSystemService("location")) != null) {
+            if (hasPermission(context, s.f55458g) && (locationManager = (LocationManager) context.getApplicationContext().getSystemService("location")) != null) {
                 List<String> allProviders = locationManager.getAllProviders();
                 Location[] locationArr = new Location[allProviders.size()];
                 for (int i2 = 0; i2 < allProviders.size(); i2++) {
@@ -764,7 +764,7 @@ public final class PhoneUtils {
         if (interceptable == null || (invokeL = interceptable.invokeL(65562, null, context)) == null) {
             String str = "";
             try {
-                if (hasPermission(context, s.f55288d)) {
+                if (hasPermission(context, s.f55455d)) {
                     WifiManager wifiManager = (WifiManager) context.getSystemService("wifi");
                     if (wifiManager.isWifiEnabled()) {
                         int i2 = Integer.MAX_VALUE;
@@ -891,7 +891,7 @@ public final class PhoneUtils {
             Matcher matcher = a.matcher(deviceID);
             String group = matcher.matches() ? matcher.group(1) : null;
             if (group == null) {
-                Matcher matcher2 = f32742b.matcher(deviceID);
+                Matcher matcher2 = f32948b.matcher(deviceID);
                 return matcher2.matches() ? matcher2.group(1) : "";
             }
             return group;

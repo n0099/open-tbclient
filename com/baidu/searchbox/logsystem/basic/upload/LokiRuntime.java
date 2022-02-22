@@ -1,8 +1,8 @@
 package com.baidu.searchbox.logsystem.basic.upload;
 
 import androidx.core.view.InputDeviceCompat;
-import c.a.t0.q3.f;
-import c.a.t0.q3.l;
+import c.a.u0.r3.f;
+import c.a.u0.r3.l;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pyramid.annotation.Autowired;
 import com.baidu.pyramid.annotation.Inject;

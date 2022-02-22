@@ -15,7 +15,7 @@ public class e3 {
     public u2 a;
 
     /* renamed from: b  reason: collision with root package name */
-    public i3 f30340b;
+    public i3 f30546b;
 
     public e3(Context context, String str) {
         Interceptable interceptable = $ic;
@@ -34,7 +34,7 @@ public class e3 {
         }
         u2 u2Var = new u2(context, str);
         this.a = u2Var;
-        u2Var.f30514f = new a3(this);
+        u2Var.f30720f = new a3(this);
     }
 
     public void a() {
@@ -45,8 +45,8 @@ public class e3 {
                     this.a.a();
                     this.a = null;
                 }
-                if (this.f30340b != null) {
-                    this.f30340b = null;
+                if (this.f30546b != null) {
+                    this.f30546b = null;
                 }
             } catch (Exception unused) {
             }
@@ -61,7 +61,7 @@ public class e3 {
             if (u2Var == null || !u2Var.e()) {
                 return null;
             }
-            return u2Var.f30511c;
+            return u2Var.f30717c;
         }
         return (Info) invokeV.objValue;
     }

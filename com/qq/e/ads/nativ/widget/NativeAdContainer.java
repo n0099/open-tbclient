@@ -21,7 +21,7 @@ public class NativeAdContainer extends FrameLayout {
     public ViewStatusListener a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ViewStatus f59072b;
+    public ViewStatus f59239b;
 
     /* renamed from: com.qq.e.ads.nativ.widget.NativeAdContainer$1  reason: invalid class name */
     /* loaded from: classes4.dex */
@@ -151,7 +151,7 @@ public class NativeAdContainer extends FrameLayout {
                 return;
             }
         }
-        this.f59072b = ViewStatus.INIT;
+        this.f59239b = ViewStatus.INIT;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -173,7 +173,7 @@ public class NativeAdContainer extends FrameLayout {
                 return;
             }
         }
-        this.f59072b = ViewStatus.INIT;
+        this.f59239b = ViewStatus.INIT;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -195,7 +195,7 @@ public class NativeAdContainer extends FrameLayout {
                 return;
             }
         }
-        this.f59072b = ViewStatus.INIT;
+        this.f59239b = ViewStatus.INIT;
     }
 
     @Override // android.view.ViewGroup, android.view.View
@@ -218,7 +218,7 @@ public class NativeAdContainer extends FrameLayout {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             super.onAttachedToWindow();
             GDTLogger.d("NativeAdContainer onAttachedToWindow");
-            this.f59072b = ViewStatus.ATTACHED;
+            this.f59239b = ViewStatus.ATTACHED;
             ViewStatusListener viewStatusListener = this.a;
             if (viewStatusListener != null) {
                 viewStatusListener.onAttachToWindow();
@@ -232,7 +232,7 @@ public class NativeAdContainer extends FrameLayout {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             super.onDetachedFromWindow();
             GDTLogger.d("NativeAdContainer onDetachedFromWindow");
-            this.f59072b = ViewStatus.DETACHED;
+            this.f59239b = ViewStatus.DETACHED;
             ViewStatusListener viewStatusListener = this.a;
             if (viewStatusListener != null) {
                 viewStatusListener.onDetachFromWindow();
@@ -271,7 +271,7 @@ public class NativeAdContainer extends FrameLayout {
         if (interceptable == null || interceptable.invokeL(1048581, this, viewStatusListener) == null) {
             this.a = viewStatusListener;
             if (viewStatusListener != null) {
-                int ordinal = this.f59072b.ordinal();
+                int ordinal = this.f59239b.ordinal();
                 if (ordinal == 1) {
                     this.a.onAttachToWindow();
                 } else if (ordinal != 2) {

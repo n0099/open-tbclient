@@ -29,7 +29,7 @@ public final class b implements t {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public long f27761e;
+        public long f27967e;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(Sink sink) {
@@ -56,7 +56,7 @@ public final class b implements t {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLJ(1048576, this, buffer, j2) == null) {
                 super.write(buffer, j2);
-                this.f27761e += j2;
+                this.f27967e += j2;
             }
         }
     }
@@ -107,7 +107,7 @@ public final class b implements t {
                     BufferedSink buffer = Okio.buffer(aVar3);
                     request.a().e(buffer);
                     buffer.close();
-                    gVar.b().requestBodyEnd(gVar.call(), aVar3.f27761e);
+                    gVar.b().requestBodyEnd(gVar.call(), aVar3.f27967e);
                 } else if (!cVar.m()) {
                     e2.o();
                 }
@@ -135,7 +135,7 @@ public final class b implements t {
             gVar.b().responseHeadersEnd(gVar.call(), c4);
             if (this.a && code == 101) {
                 b0.a n = c4.n();
-                n.b(c.d.b.e0.e.f27694c);
+                n.b(c.d.b.e0.e.f27900c);
                 c2 = n.c();
             } else {
                 b0.a n2 = c4.n();

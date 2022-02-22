@@ -15,31 +15,31 @@ public class g {
     public static g a = null;
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f35008b = "Temp_in.dat";
+    public static String f35214b = "Temp_in.dat";
 
     /* renamed from: c  reason: collision with root package name */
-    public static File f35009c;
+    public static File f35215c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static StringBuffer f35010d;
+    public static StringBuffer f35216d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static boolean f35011e;
+    public static boolean f35217e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static int f35012f;
+    public static int f35218f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static int f35013g;
+    public static int f35219g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static long f35014h;
+    public static long f35220h;
 
     /* renamed from: i  reason: collision with root package name */
-    public static long f35015i;
+    public static long f35221i;
 
     /* renamed from: j  reason: collision with root package name */
-    public static long f35016j;
+    public static long f35222j;
     public static double k;
     public static double l;
     public static int m;
@@ -60,14 +60,14 @@ public class g {
                 return;
             }
         }
-        f35009c = new File(com.baidu.location.e.j.a, f35008b);
-        f35010d = null;
-        f35011e = true;
-        f35012f = 0;
-        f35013g = 0;
-        f35014h = 0L;
-        f35015i = 0L;
-        f35016j = 0L;
+        f35215c = new File(com.baidu.location.e.j.a, f35214b);
+        f35216d = null;
+        f35217e = true;
+        f35218f = 0;
+        f35219g = 0;
+        f35220h = 0L;
+        f35221i = 0L;
+        f35222j = 0L;
         k = 0.0d;
         l = 0.0d;
         m = 0;
@@ -84,10 +84,10 @@ public class g {
         int i2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            File file = f35009c;
+            File file = f35215c;
             if (file != null && file.exists()) {
                 try {
-                    randomAccessFile = new RandomAccessFile(f35009c, "rw");
+                    randomAccessFile = new RandomAccessFile(f35215c, "rw");
                     randomAccessFile.seek(0L);
                     readInt = randomAccessFile.readInt();
                     readInt2 = randomAccessFile.readInt();
@@ -142,13 +142,13 @@ public class g {
     public static void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65539, null) == null) {
-            f35011e = true;
-            f35010d = null;
-            f35012f = 0;
-            f35013g = 0;
-            f35014h = 0L;
-            f35015i = 0L;
-            f35016j = 0L;
+            f35217e = true;
+            f35216d = null;
+            f35218f = 0;
+            f35219g = 0;
+            f35220h = 0L;
+            f35221i = 0L;
+            f35222j = 0L;
             k = 0.0d;
             l = 0.0d;
             m = 0;
@@ -161,22 +161,22 @@ public class g {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            if (f35009c.exists()) {
-                f35009c.delete();
+            if (f35215c.exists()) {
+                f35215c.delete();
             }
-            if (!f35009c.getParentFile().exists()) {
-                f35009c.getParentFile().mkdirs();
+            if (!f35215c.getParentFile().exists()) {
+                f35215c.getParentFile().mkdirs();
             }
             try {
-                f35009c.createNewFile();
-                RandomAccessFile randomAccessFile = new RandomAccessFile(f35009c, "rw");
+                f35215c.createNewFile();
+                RandomAccessFile randomAccessFile = new RandomAccessFile(f35215c, "rw");
                 randomAccessFile.seek(0L);
                 randomAccessFile.writeInt(0);
                 randomAccessFile.writeInt(0);
                 randomAccessFile.writeInt(1);
                 randomAccessFile.close();
                 b();
-                return f35009c.exists();
+                return f35215c.exists();
             } catch (IOException unused) {
                 return false;
             }

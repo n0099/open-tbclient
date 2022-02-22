@@ -8,8 +8,8 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.RelativeLayout;
 import c.a.d.f.p.n;
-import c.a.s0.s.s.a;
-import c.a.t0.k3.y;
+import c.a.t0.s.t.a;
+import c.a.u0.l3.y;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -23,36 +23,36 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public class ButtonCardView extends BaseCardView<ButtonCard> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: f  reason: collision with root package name */
-    public RelativeLayout f45563f;
+    public RelativeLayout f45705f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TbImageView f45564g;
+    public TbImageView f45706g;
 
     /* renamed from: h  reason: collision with root package name */
-    public Button f45565h;
+    public Button f45707h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f45566i;
+    public int f45708i;
 
     /* renamed from: j  reason: collision with root package name */
-    public final int f45567j;
+    public final int f45709j;
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes13.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ ButtonCard f45568e;
+        public final /* synthetic */ ButtonCard f45710e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ ButtonCardView f45569f;
+        public final /* synthetic */ ButtonCardView f45711f;
 
         public a(ButtonCardView buttonCardView, ButtonCard buttonCard) {
             Interceptable interceptable = $ic;
@@ -69,30 +69,30 @@ public class ButtonCardView extends BaseCardView<ButtonCard> {
                     return;
                 }
             }
-            this.f45569f = buttonCardView;
-            this.f45568e = buttonCard;
+            this.f45711f = buttonCardView;
+            this.f45710e = buttonCard;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f45569f.setDialog(this.f45568e);
-                y.q().l().c(this.f45568e.getsExtras(), this.f45569f.mFrom);
+                this.f45711f.setDialog(this.f45710e);
+                y.q().l().c(this.f45710e.getsExtras(), this.f45711f.mFrom);
             }
         }
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes13.dex */
     public class b implements a.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ ButtonCard f45570e;
+        public final /* synthetic */ ButtonCard f45712e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ ButtonCardView f45571f;
+        public final /* synthetic */ ButtonCardView f45713f;
 
         public b(ButtonCardView buttonCardView, ButtonCard buttonCard) {
             Interceptable interceptable = $ic;
@@ -109,31 +109,31 @@ public class ButtonCardView extends BaseCardView<ButtonCard> {
                     return;
                 }
             }
-            this.f45571f = buttonCardView;
-            this.f45570e = buttonCard;
+            this.f45713f = buttonCardView;
+            this.f45712e = buttonCard;
         }
 
-        @Override // c.a.s0.s.s.a.e
-        public void onClick(c.a.s0.s.s.a aVar) {
+        @Override // c.a.t0.s.t.a.e
+        public void onClick(c.a.t0.s.t.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
-                UrlManager.getInstance().dealOneLink(this.f45571f.mContext, new String[]{this.f45570e.getBtnScheme()});
-                y.q().l().e(this.f45571f.mFrom, "yes", this.f45570e.getsExtras());
+                UrlManager.getInstance().dealOneLink(this.f45713f.mContext, new String[]{this.f45712e.getBtnScheme()});
+                y.q().l().e(this.f45713f.mFrom, "yes", this.f45712e.getsExtras());
                 aVar.dismiss();
             }
         }
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes13.dex */
     public class c implements a.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ ButtonCard f45572e;
+        public final /* synthetic */ ButtonCard f45714e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ ButtonCardView f45573f;
+        public final /* synthetic */ ButtonCardView f45715f;
 
         public c(ButtonCardView buttonCardView, ButtonCard buttonCard) {
             Interceptable interceptable = $ic;
@@ -150,15 +150,15 @@ public class ButtonCardView extends BaseCardView<ButtonCard> {
                     return;
                 }
             }
-            this.f45573f = buttonCardView;
-            this.f45572e = buttonCard;
+            this.f45715f = buttonCardView;
+            this.f45714e = buttonCard;
         }
 
-        @Override // c.a.s0.s.s.a.e
-        public void onClick(c.a.s0.s.s.a aVar) {
+        @Override // c.a.t0.s.t.a.e
+        public void onClick(c.a.t0.s.t.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
-                y.q().l().e(this.f45573f.mFrom, "no", this.f45572e.getsExtras());
+                y.q().l().e(this.f45715f.mFrom, "no", this.f45714e.getsExtras());
                 aVar.dismiss();
             }
         }
@@ -182,15 +182,15 @@ public class ButtonCardView extends BaseCardView<ButtonCard> {
                 return;
             }
         }
-        this.f45566i = -1;
-        this.f45567j = n.k(getContext());
+        this.f45708i = -1;
+        this.f45709j = n.k(getContext());
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void setDialog(ButtonCard buttonCard) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65538, this, buttonCard) == null) {
-            c.a.s0.s.s.a aVar = new c.a.s0.s.s.a(this.mContext.getPageActivity());
+            c.a.t0.s.t.a aVar = new c.a.t0.s.t.a(this.mContext.getPageActivity());
             aVar.setMessage("是否拨打电话:" + buttonCard.getPhoneNumber());
             aVar.setPositiveButton(R.string.call, new b(this, buttonCard));
             aVar.setNegativeButton(R.string.cancel, new c(this, buttonCard));
@@ -204,10 +204,10 @@ public class ButtonCardView extends BaseCardView<ButtonCard> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             RelativeLayout relativeLayout = (RelativeLayout) LayoutInflater.from(this.mContext.getPageActivity().getApplicationContext()).inflate(R.layout.card_button, (ViewGroup) null);
-            this.f45563f = relativeLayout;
-            this.f45565h = (Button) relativeLayout.findViewById(R.id.bt_phone);
-            this.f45564g = (TbImageView) this.f45563f.findViewById(R.id.tb_phone_background);
-            return this.f45563f;
+            this.f45705f = relativeLayout;
+            this.f45707h = (Button) relativeLayout.findViewById(R.id.bt_phone);
+            this.f45706g = (TbImageView) this.f45705f.findViewById(R.id.tb_phone_background);
+            return this.f45705f;
         }
         return (View) invokeV.objValue;
     }
@@ -223,17 +223,17 @@ public class ButtonCardView extends BaseCardView<ButtonCard> {
     public void reset() {
         TbImageView tbImageView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || (tbImageView = this.f45564g) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || (tbImageView = this.f45706g) == null) {
             return;
         }
         tbImageView.setVisibility(0);
-        this.f45564g.setAlpha(1);
+        this.f45706g.setAlpha(1);
     }
 
     public void setBackgroundAlpha(float f2) {
         TbImageView tbImageView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeF(1048583, this, f2) == null) || (tbImageView = this.f45564g) == null) {
+        if (!(interceptable == null || interceptable.invokeF(1048583, this, f2) == null) || (tbImageView = this.f45706g) == null) {
             return;
         }
         tbImageView.setAlpha(f2);
@@ -247,48 +247,48 @@ public class ButtonCardView extends BaseCardView<ButtonCard> {
             return;
         }
         reset();
-        float cardWidth = (float) ((this.f45567j * 1.0d) / buttonCard.getCardWidth());
-        ViewGroup.LayoutParams layoutParams = this.f45563f.getLayoutParams();
-        layoutParams.width = this.f45567j;
+        float cardWidth = (float) ((this.f45709j * 1.0d) / buttonCard.getCardWidth());
+        ViewGroup.LayoutParams layoutParams = this.f45705f.getLayoutParams();
+        layoutParams.width = this.f45709j;
         layoutParams.height = (int) (buttonCard.getCardHeight() * cardWidth);
-        this.f45563f.setLayoutParams(layoutParams);
+        this.f45705f.setLayoutParams(layoutParams);
         int bgColor = buttonCard.getBgColor();
-        this.f45564g.setDefaultBgResource(R.color.transparent);
+        this.f45706g.setDefaultBgResource(R.color.transparent);
         if (!TextUtils.isEmpty(buttonCard.getPicUrl())) {
-            this.f45564g.startLoad(buttonCard.getPicUrl(), 17, false);
-        } else if (!c.a.t0.y1.o.k.b.a(bgColor)) {
-            this.f45564g.setBackgroundColor(bgColor);
+            this.f45706g.startLoad(buttonCard.getPicUrl(), 17, false);
+        } else if (!c.a.u0.z1.o.k.b.a(bgColor)) {
+            this.f45706g.setBackgroundColor(bgColor);
         } else {
-            this.f45564g.setDefaultBgResource(R.color.transparent);
+            this.f45706g.setDefaultBgResource(R.color.transparent);
         }
         int dimension = layoutParams.height - ((int) (TbadkCoreApplication.getInst().getResources().getDimension(R.dimen.button_card_padding40) * cardWidth));
-        RelativeLayout.LayoutParams layoutParams2 = (RelativeLayout.LayoutParams) this.f45565h.getLayoutParams();
+        RelativeLayout.LayoutParams layoutParams2 = (RelativeLayout.LayoutParams) this.f45707h.getLayoutParams();
         layoutParams2.height = dimension;
         layoutParams2.addRule(13);
-        this.f45565h.setText(buttonCard.getText());
-        this.f45565h.setTextSize(0, getResources().getDimensionPixelSize(R.dimen.fontsize28));
+        this.f45707h.setText(buttonCard.getText());
+        this.f45707h.setTextSize(0, getResources().getDimensionPixelSize(R.dimen.fontsize28));
         int textColor = buttonCard.getTextColor();
-        if (!c.a.t0.y1.o.k.b.a(textColor)) {
-            this.f45565h.setTextColor(textColor);
+        if (!c.a.u0.z1.o.k.b.a(textColor)) {
+            this.f45707h.setTextColor(textColor);
         }
-        this.f45565h.setOnClickListener(new a(this, buttonCard));
-        this.f45566i = buttonCard.getStyle();
+        this.f45707h.setOnClickListener(new a(this, buttonCard));
+        this.f45708i = buttonCard.getStyle();
         int buttonColor = buttonCard.getButtonColor();
-        int i2 = this.f45566i;
+        int i2 = this.f45708i;
         if (i2 == 1) {
             GradientDrawable gradientDrawable = new GradientDrawable();
             gradientDrawable.setShape(0);
-            if (!c.a.t0.y1.o.k.b.a(buttonColor)) {
+            if (!c.a.u0.z1.o.k.b.a(buttonColor)) {
                 gradientDrawable.setStroke(TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.ds3), buttonColor);
             }
             gradientDrawable.setColor(0);
-            this.f45565h.setBackgroundDrawable(gradientDrawable);
+            this.f45707h.setBackgroundDrawable(gradientDrawable);
         } else if (i2 != 2) {
-            this.f45565h.setBackgroundColor(0);
-        } else if (!c.a.t0.y1.o.k.b.a(buttonColor)) {
-            this.f45565h.setBackgroundColor(buttonColor);
+            this.f45707h.setBackgroundColor(0);
+        } else if (!c.a.u0.z1.o.k.b.a(buttonColor)) {
+            this.f45707h.setBackgroundColor(buttonColor);
         } else {
-            this.f45565h.setBackgroundColor(0);
+            this.f45707h.setBackgroundColor(0);
         }
         if (LegoListFragment.sHasShown.contains(buttonCard.toString())) {
             return;

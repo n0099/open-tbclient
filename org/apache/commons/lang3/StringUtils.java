@@ -14,7 +14,7 @@ import java.util.Arrays;
 import java.util.Iterator;
 import java.util.Locale;
 import java.util.regex.Pattern;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class StringUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String CR = "\r";

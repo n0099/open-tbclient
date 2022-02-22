@@ -9,13 +9,13 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bytedance.pangle.log.ZeusLogger;
 import com.bytedance.pangle.util.MethodUtils;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
     public static Class a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static Object f53128b;
+    public static Object f53295b;
     public transient /* synthetic */ FieldHolder $fh;
 
     public a() {
@@ -36,16 +36,16 @@ public class a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (f53128b == null) {
+            if (f53295b == null) {
                 try {
                     synchronized (a.class) {
-                        if (f53128b == null) {
+                        if (f53295b == null) {
                             if (a == null) {
                                 a = Class.forName("android.app.ActivityThread");
                             }
-                            f53128b = MethodUtils.invokeStaticMethod(a, "currentActivityThread", new Object[0]);
+                            f53295b = MethodUtils.invokeStaticMethod(a, "currentActivityThread", new Object[0]);
                         }
-                        if (f53128b == null && Looper.myLooper() != Looper.getMainLooper()) {
+                        if (f53295b == null && Looper.myLooper() != Looper.getMainLooper()) {
                             Object obj = new Object();
                             new Handler(Looper.getMainLooper()).post(new Runnable(obj) { // from class: com.bytedance.pangle.helper.a.1
                                 public static /* synthetic */ Interceptable $ic;
@@ -77,7 +77,7 @@ public class a {
                                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                                         try {
                                             try {
-                                                Object unused = a.f53128b = MethodUtils.invokeStaticMethod(a.a, "currentActivityThread", new Object[0]);
+                                                Object unused = a.f53295b = MethodUtils.invokeStaticMethod(a.a, "currentActivityThread", new Object[0]);
                                                 synchronized (this.a) {
                                                     this.a.notify();
                                                 }
@@ -96,7 +96,7 @@ public class a {
                                     }
                                 }
                             });
-                            if (f53128b == null) {
+                            if (f53295b == null) {
                                 synchronized (obj) {
                                     try {
                                         obj.wait(5000L);
@@ -111,7 +111,7 @@ public class a {
                     ZeusLogger.e(ZeusLogger.TAG, "ActivityThreadHelper currentActivityThread failed.", e3);
                 }
             }
-            return f53128b;
+            return f53295b;
         }
         return invokeV.objValue;
     }

@@ -1,7 +1,7 @@
 package com.baidu.adp.framework.message;
 
 import androidx.core.view.InputDeviceCompat;
-import c.a.d.f.j.a.e;
+import c.a.d.f.j.b.f;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Collections;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public abstract class HttpResponsedMessage extends ResponsedMessage<byte[]> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -104,9 +104,9 @@ public abstract class HttpResponsedMessage extends ResponsedMessage<byte[]> {
         return invokeV.booleanValue;
     }
 
-    public void logStatInBackground(int i2, e eVar) {
+    public void logStatInBackground(int i2, f fVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2, eVar) == null) {
+        if (interceptable == null || interceptable.invokeIL(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2, fVar) == null) {
         }
     }
 

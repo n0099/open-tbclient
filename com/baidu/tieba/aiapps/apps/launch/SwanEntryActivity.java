@@ -5,8 +5,8 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.text.TextUtils;
-import c.a.r0.a.z2.v;
-import c.a.r0.g.m.b;
+import c.a.s0.a.z2.v;
+import c.a.s0.g.m.b;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mytransformapp.util.LogUtil;
 import com.baidu.tbadk.core.util.PermissionUtil;
@@ -28,7 +28,7 @@ public class SwanEntryActivity extends Activity {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ SwanEntryActivity f41849e;
+        public final /* synthetic */ SwanEntryActivity f42082e;
 
         public a(SwanEntryActivity swanEntryActivity) {
             Interceptable interceptable = $ic;
@@ -45,14 +45,14 @@ public class SwanEntryActivity extends Activity {
                     return;
                 }
             }
-            this.f41849e = swanEntryActivity;
+            this.f42082e = swanEntryActivity;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f41849e.finish();
+                this.f42082e.finish();
             }
         }
     }
@@ -88,7 +88,7 @@ public class SwanEntryActivity extends Activity {
             return;
         }
         if (!PermissionUtil.isAgreePrivacyPolicy()) {
-            SwanAppAbTestStatic.f41846b = uri;
+            SwanAppAbTestStatic.f42079b = uri;
         } else {
             b.a(uri);
         }

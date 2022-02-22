@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.apache.http.HttpVersion;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public abstract class NetMessage {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String HTTP_DATA_KEY = "data";
@@ -31,7 +31,7 @@ public abstract class NetMessage {
     public BdUniqueId tag;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static final class NetType {
         public static final /* synthetic */ NetType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -92,7 +92,7 @@ public abstract class NetMessage {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public interface a {
         boolean checkToSwitchHttp(SocketResponsedMessage socketResponsedMessage);
     }

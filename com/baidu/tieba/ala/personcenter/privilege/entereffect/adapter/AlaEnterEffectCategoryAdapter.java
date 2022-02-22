@@ -5,7 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-import c.a.d.n.e.a;
+import c.a.d.o.e.a;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.imsdk.internal.Constants;
@@ -18,7 +18,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes12.dex */
-public class AlaEnterEffectCategoryAdapter extends a<c.a.t0.a0.l.g.d.d.a, ViewHolder> {
+public class AlaEnterEffectCategoryAdapter extends a<c.a.u0.a0.l.g.d.d.a, ViewHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -54,7 +54,7 @@ public class AlaEnterEffectCategoryAdapter extends a<c.a.t0.a0.l.g.d.d.a, ViewHo
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public AlaEnterEffectCategoryAdapter(Context context) {
-        super(context, c.a.t0.a0.l.g.d.d.a.f15149f);
+        super(context, c.a.u0.a0.l.g.d.d.a.f15423f);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -84,23 +84,23 @@ public class AlaEnterEffectCategoryAdapter extends a<c.a.t0.a0.l.g.d.d.a, ViewHo
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // c.a.d.n.e.a
+    @Override // c.a.d.o.e.a
     /* renamed from: a0 */
     public ViewHolder M(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, viewGroup)) == null) ? new ViewHolder(LayoutInflater.from(this.f3360e).inflate(R.layout.ala_enter_effect_category_layout, (ViewGroup) null)) : (ViewHolder) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, viewGroup)) == null) ? new ViewHolder(LayoutInflater.from(this.f2447e).inflate(R.layout.ala_enter_effect_category_layout, (ViewGroup) null)) : (ViewHolder) invokeL.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // c.a.d.n.e.a
+    @Override // c.a.d.o.e.a
     /* renamed from: b0 */
-    public View S(int i2, View view, ViewGroup viewGroup, c.a.t0.a0.l.g.d.d.a aVar, ViewHolder viewHolder) {
+    public View S(int i2, View view, ViewGroup viewGroup, c.a.u0.a0.l.g.d.d.a aVar, ViewHolder viewHolder) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i2), view, viewGroup, aVar, viewHolder})) == null) {
             if (aVar != null) {
-                viewHolder.mCategoryName.setText(aVar.f15150e);
+                viewHolder.mCategoryName.setText(aVar.f15424e);
             }
             if (i2 == 0) {
                 viewHolder.mDevide.setVisibility(8);

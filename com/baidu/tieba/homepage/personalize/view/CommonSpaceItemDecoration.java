@@ -15,10 +15,10 @@ public class CommonSpaceItemDecoration extends RecyclerView.ItemDecoration {
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f44375b;
+    public int f44633b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f44376c;
+    public int f44634c;
 
     public CommonSpaceItemDecoration(int i2, int i3, int i4) {
         Interceptable interceptable = $ic;
@@ -36,8 +36,8 @@ public class CommonSpaceItemDecoration extends RecyclerView.ItemDecoration {
             }
         }
         this.a = i2;
-        this.f44375b = i3;
-        this.f44376c = i4;
+        this.f44633b = i3;
+        this.f44634c = i4;
     }
 
     @Override // androidx.recyclerview.widget.RecyclerView.ItemDecoration
@@ -50,10 +50,10 @@ public class CommonSpaceItemDecoration extends RecyclerView.ItemDecoration {
                 if (recyclerView.getChildAdapterPosition(view) == 0) {
                     rect.top = this.a;
                 } else {
-                    rect.top = this.f44375b;
+                    rect.top = this.f44633b;
                 }
                 if (recyclerView.getChildAdapterPosition(view) == linearLayoutManager.getItemCount() - 1) {
-                    rect.bottom = this.f44376c;
+                    rect.bottom = this.f44634c;
                     return;
                 }
                 return;
@@ -61,10 +61,10 @@ public class CommonSpaceItemDecoration extends RecyclerView.ItemDecoration {
             if (recyclerView.getChildAdapterPosition(view) == 0) {
                 rect.left = this.a;
             } else {
-                rect.left = this.f44375b;
+                rect.left = this.f44633b;
             }
             if (recyclerView.getChildAdapterPosition(view) == linearLayoutManager.getItemCount() - 1) {
-                rect.right = this.f44376c;
+                rect.right = this.f44634c;
             }
         }
     }

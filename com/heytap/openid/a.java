@@ -16,18 +16,18 @@ public interface a extends IInterface {
 
     /* renamed from: com.heytap.openid.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public static abstract class AbstractBinderC2085a extends Binder implements a {
+    public static abstract class AbstractBinderC2095a extends Binder implements a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: com.heytap.openid.a$a$a  reason: collision with other inner class name */
         /* loaded from: classes3.dex */
-        public static class C2086a implements a {
+        public static class C2096a implements a {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public IBinder a;
 
-            public C2086a(IBinder iBinder) {
+            public C2096a(IBinder iBinder) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -84,7 +84,7 @@ public interface a extends IInterface {
                     return null;
                 }
                 IInterface queryLocalInterface = iBinder.queryLocalInterface(IOpenID.Stub.DESCRIPTOR);
-                return (queryLocalInterface == null || !(queryLocalInterface instanceof a)) ? new C2086a(iBinder) : (a) queryLocalInterface;
+                return (queryLocalInterface == null || !(queryLocalInterface instanceof a)) ? new C2096a(iBinder) : (a) queryLocalInterface;
             }
             return (a) invokeL.objValue;
         }

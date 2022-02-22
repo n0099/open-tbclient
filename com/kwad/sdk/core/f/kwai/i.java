@@ -1,7 +1,7 @@
 package com.kwad.sdk.core.f.kwai;
 
 import android.content.Context;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class i {
     public Context a;
 

@@ -16,7 +16,7 @@ public final class BrowserType {
     public static final BrowserType Sys;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final /* synthetic */ BrowserType[] f58992b;
+    public static final /* synthetic */ BrowserType[] f59159b;
     public transient /* synthetic */ FieldHolder $fh;
     public final int a;
 
@@ -37,7 +37,7 @@ public final class BrowserType {
         Inner = new BrowserType("Inner", 1, 1);
         BrowserType browserType = new BrowserType("Sys", 2, 2);
         Sys = browserType;
-        f58992b = new BrowserType[]{Default, Inner, browserType};
+        f59159b = new BrowserType[]{Default, Inner, browserType};
     }
 
     public BrowserType(String str, int i2, int i3) {
@@ -70,7 +70,7 @@ public final class BrowserType {
     public static BrowserType[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (BrowserType[]) f58992b.clone() : (BrowserType[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (BrowserType[]) f59159b.clone() : (BrowserType[]) invokeV.objValue;
     }
 
     public int value() {

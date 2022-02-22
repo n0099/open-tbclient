@@ -1,7 +1,7 @@
 package com.baidu.adp.plugin.proxy.activity;
 
 import android.content.Intent;
-import c.a.d.i.d;
+import c.a.d.j.d;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.plugin.Plugin;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class ThirdActivityProxy extends ActivityProxy {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -28,7 +28,7 @@ public class ThirdActivityProxy extends ActivityProxy {
         }
     }
 
-    @Override // com.baidu.adp.plugin.proxy.activity.ActivityProxy, c.a.d.i.f.a
+    @Override // com.baidu.adp.plugin.proxy.activity.ActivityProxy, c.a.d.j.f.a
     public boolean proxyStopService(Intent intent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;

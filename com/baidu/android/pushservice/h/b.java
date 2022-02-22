@@ -38,12 +38,12 @@ public class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static b f32200b;
+    public static b f32406b;
     public transient /* synthetic */ FieldHolder $fh;
     public OkHttpClient a;
 
     /* renamed from: c  reason: collision with root package name */
-    public Context f32201c;
+    public Context f32407c;
 
     /* loaded from: classes10.dex */
     public class a implements Interceptor {
@@ -78,7 +78,7 @@ public class b {
                 public final /* synthetic */ RequestBody a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ a f32203b;
+                public final /* synthetic */ a f32409b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -95,7 +95,7 @@ public class b {
                             return;
                         }
                     }
-                    this.f32203b = this;
+                    this.f32409b = this;
                     this.a = requestBody;
                 }
 
@@ -166,17 +166,17 @@ public class b {
             }
         }
         this.a = a();
-        this.f32201c = context;
+        this.f32407c = context;
     }
 
     public static b a(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
-            if (f32200b == null) {
-                f32200b = new b(context);
+            if (f32406b == null) {
+                f32406b = new b(context);
             }
-            return f32200b;
+            return f32406b;
         }
         return (b) invokeL.objValue;
     }
@@ -222,13 +222,13 @@ public class b {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65543, this, bArr, str)) == null) {
-            a.C1744a.C1745a.C1746a e2 = a.C1744a.C1745a.e();
+            a.C1754a.C1755a.C1756a e2 = a.C1754a.C1755a.e();
             if (TextUtils.isEmpty(str)) {
                 str = "";
             }
-            a.C1744a.C1745a build = e2.a(str).build();
+            a.C1754a.C1755a build = e2.a(str).build();
             long currentTimeMillis = System.currentTimeMillis();
-            return a.C1744a.o().a(1L).a(IMPushUploadConstants.Service.BAIDU_APP).a(build).b(currentTimeMillis).b(com.baidu.android.pushservice.h.a.a(this.f32201c, IMPushUploadConstants.Service.BAIDU_APP, currentTimeMillis)).a(ByteString.copyFrom(bArr)).build().toByteArray();
+            return a.C1754a.o().a(1L).a(IMPushUploadConstants.Service.BAIDU_APP).a(build).b(currentTimeMillis).b(com.baidu.android.pushservice.h.a.a(this.f32407c, IMPushUploadConstants.Service.BAIDU_APP, currentTimeMillis)).a(ByteString.copyFrom(bArr)).build().toByteArray();
         }
         return (byte[]) invokeLL.objValue;
     }
@@ -246,7 +246,7 @@ public class b {
                 public final /* synthetic */ c a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ b f32202b;
+                public final /* synthetic */ b f32408b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -263,7 +263,7 @@ public class b {
                             return;
                         }
                     }
-                    this.f32202b = this;
+                    this.f32408b = this;
                     this.a = cVar;
                 }
 
@@ -287,7 +287,7 @@ public class b {
                         int i2 = 0;
                         try {
                             if (response.body() != null) {
-                                String[] a3 = this.f32202b.a(response.body().bytes());
+                                String[] a3 = this.f32408b.a(response.body().bytes());
                                 i2 = Integer.valueOf(a3[0]).intValue();
                                 str2 = a3[1];
                             }

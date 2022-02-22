@@ -1,8 +1,8 @@
 package com.bytedance.sdk.openadsdk;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public interface TTFeedAd extends TTNativeAd {
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface CustomizeVideo {
         String getVideoUrl();
 
@@ -23,7 +23,7 @@ public interface TTFeedAd extends TTNativeAd {
         void reportVideoStartError(int i2, int i3);
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface VideoAdListener {
         void onProgressUpdate(long j2, long j3);
 

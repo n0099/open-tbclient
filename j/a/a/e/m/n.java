@@ -5,7 +5,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
 import com.yy.mobile.framework.revenuesdk.statistics.hiido.eventtype.UiEventType;
 import tv.athena.revenue.payui.view.dialog.CancelType;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class n {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

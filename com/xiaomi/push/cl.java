@@ -49,7 +49,7 @@ public class cl {
             hjVar.b(str);
             hjVar.a(true);
             hjVar.b(System.currentTimeMillis());
-            hjVar.g(bu.a(context).m256a());
+            hjVar.g(bu.a(context).m255a());
             hjVar.e("com.xiaomi.xmsf");
             hjVar.f("");
             hjVar.c("push_stat");

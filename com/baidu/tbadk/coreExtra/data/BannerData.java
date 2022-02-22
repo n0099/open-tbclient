@@ -1,6 +1,6 @@
 package com.baidu.tbadk.coreExtra.data;
 
-import c.a.s0.s.q.p;
+import c.a.t0.s.r.p;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -55,7 +55,7 @@ public class BannerData extends p implements Serializable {
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mUrl : (String) invokeV.objValue;
     }
 
-    @Override // c.a.s0.s.q.p
+    @Override // c.a.t0.s.r.p
     public void parserJson(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(1048579, this, jSONObject) == null) || jSONObject == null) {

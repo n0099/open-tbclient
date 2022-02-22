@@ -10,6 +10,11 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 import c.a.d.f.m.e;
+import c.a.u0.a4.d;
+import c.a.u0.a4.f;
+import c.a.u0.a4.g;
+import c.a.u0.a4.h;
+import c.a.u0.a4.j;
 import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.adp.plugin.packageManager.status.PluginStatus;
@@ -17,7 +22,6 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.view.NavigationBar;
-import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -25,7 +29,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class PluginErrorTipActivity extends BaseActivity<PluginErrorTipActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -39,13 +43,13 @@ public class PluginErrorTipActivity extends BaseActivity<PluginErrorTipActivity>
     public ShadowLayout shadowLayout;
     public PluginStatus status;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PluginErrorTipActivity f41104e;
+        public final /* synthetic */ PluginErrorTipActivity f41333e;
 
         public a(PluginErrorTipActivity pluginErrorTipActivity) {
             Interceptable interceptable = $ic;
@@ -62,7 +66,7 @@ public class PluginErrorTipActivity extends BaseActivity<PluginErrorTipActivity>
                     return;
                 }
             }
-            this.f41104e = pluginErrorTipActivity;
+            this.f41333e = pluginErrorTipActivity;
         }
 
         @Override // java.lang.Runnable
@@ -75,7 +79,7 @@ public class PluginErrorTipActivity extends BaseActivity<PluginErrorTipActivity>
                 List<ActivityManager.RunningAppProcessInfo> runningAppProcesses = ((ActivityManager) BdBaseApplication.getInst().getContext().getSystemService("activity")).getRunningAppProcesses();
                 if (runningAppProcesses != null) {
                     for (ActivityManager.RunningAppProcessInfo runningAppProcessInfo : runningAppProcesses) {
-                        if (runningAppProcessInfo != null && (str = runningAppProcessInfo.processName) != null && str.startsWith(this.f41104e.getApplication().getPackageName()) && runningAppProcessInfo.pid != Process.myPid() && hashSet.contains(runningAppProcessInfo.processName)) {
+                        if (runningAppProcessInfo != null && (str = runningAppProcessInfo.processName) != null && str.startsWith(this.f41333e.getApplication().getPackageName()) && runningAppProcessInfo.pid != Process.myPid() && hashSet.contains(runningAppProcessInfo.processName)) {
                             hashSet2.add(Integer.valueOf(runningAppProcessInfo.pid));
                         }
                     }
@@ -123,26 +127,26 @@ public class PluginErrorTipActivity extends BaseActivity<PluginErrorTipActivity>
     public void initUI() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.view_navigation_bar);
+            NavigationBar navigationBar = (NavigationBar) findViewById(g.view_navigation_bar);
             this.mNavigationBar = navigationBar;
             View addSystemImageButton = navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, null);
             this.mBack = addSystemImageButton;
             addSystemImageButton.setOnClickListener(this);
-            this.mNavigationBar.setTitleText(R.string.pluginstatus_tip_title);
-            this.errorImage = (ImageView) findViewById(R.id.plugin_error_tip_image);
-            this.errorInstallFail = (TextView) findViewById(R.id.plugin_error_install_fail);
-            this.resolveMsgView = (TextView) findViewById(R.id.plugin_error_tip_resolve);
-            this.parent = findViewById(R.id.plugin_error_parent);
-            this.shadowLayout = (ShadowLayout) findViewById(R.id.plugin_error_shadow_layout);
-            TextView textView = (TextView) findViewById(R.id.plugin_error_btn);
+            this.mNavigationBar.setTitleText(j.pluginstatus_tip_title);
+            this.errorImage = (ImageView) findViewById(g.plugin_error_tip_image);
+            this.errorInstallFail = (TextView) findViewById(g.plugin_error_install_fail);
+            this.resolveMsgView = (TextView) findViewById(g.plugin_error_tip_resolve);
+            this.parent = findViewById(g.plugin_error_parent);
+            this.shadowLayout = (ShadowLayout) findViewById(g.plugin_error_shadow_layout);
+            TextView textView = (TextView) findViewById(g.plugin_error_btn);
             this.btn = textView;
             textView.setOnClickListener(this);
-            this.resolveMsgView.setText(getString(R.string.plugin_error_tips, new Object[]{this.status.getErrorMsg(), this.status.w()}));
+            this.resolveMsgView.setText(getString(j.plugin_error_tips, new Object[]{this.status.getErrorMsg(), this.status.w()}));
             if (this.status.getErrorCode() != 5 && this.status.getErrorCode() != 1 && this.status.getErrorCode() != 100) {
                 this.btn.setVisibility(8);
                 return;
             }
-            this.btn.setText(R.string.pluginstatus_btn_restartapp);
+            this.btn.setText(j.pluginstatus_btn_restartapp);
             this.btn.setVisibility(0);
         }
     }
@@ -152,13 +156,13 @@ public class PluginErrorTipActivity extends BaseActivity<PluginErrorTipActivity>
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
             this.mNavigationBar.onChangeSkinType(getPageContext(), i2);
-            SkinManager.setImageResource(this.errorImage, R.drawable.new_pic_emotion_05);
-            SkinManager.setViewTextColor(this.errorInstallFail, R.color.CAM_X0108);
-            SkinManager.setBackgroundColor(this.parent, R.color.CAM_X0201);
-            SkinManager.setViewTextColor(this.resolveMsgView, R.color.CAM_X0105);
-            SkinManager.setViewTextColor(this.btn, R.color.CAM_X0111);
-            SkinManager.setBackgroundResource(this.btn, R.drawable.selector_blue_gradient_button);
-            this.shadowLayout.setShadowColor(R.color.plugin_button_shadow_blue);
+            SkinManager.setImageResource(this.errorImage, f.new_pic_emotion_05);
+            SkinManager.setViewTextColor(this.errorInstallFail, d.CAM_X0108);
+            SkinManager.setBackgroundColor(this.parent, d.CAM_X0201);
+            SkinManager.setViewTextColor(this.resolveMsgView, d.CAM_X0105);
+            SkinManager.setViewTextColor(this.btn, d.CAM_X0111);
+            SkinManager.setBackgroundResource(this.btn, f.selector_blue_gradient_button);
+            this.shadowLayout.setShadowColor(d.plugin_button_shadow_blue);
         }
     }
 
@@ -171,9 +175,9 @@ public class PluginErrorTipActivity extends BaseActivity<PluginErrorTipActivity>
             } else if (view == this.btn) {
                 PluginStatus pluginStatus = this.status;
                 if (pluginStatus != null && pluginStatus.getErrorCode() == 100) {
-                    c.a.d.i.h.a.b().s(true);
+                    c.a.d.j.h.a.b().s(true);
                 }
-                showLoadingDialog(getResources().getString(R.string.waiting));
+                showLoadingDialog(getResources().getString(j.waiting));
                 e.a().postDelayed(new a(this), 2000L);
             }
         }
@@ -193,7 +197,7 @@ public class PluginErrorTipActivity extends BaseActivity<PluginErrorTipActivity>
                 finish();
                 return;
             }
-            setContentView(R.layout.plugin_error_tip_activity);
+            setContentView(h.plugin_error_tip_activity);
             initUI();
         }
     }

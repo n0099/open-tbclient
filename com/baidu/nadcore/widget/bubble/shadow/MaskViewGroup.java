@@ -10,7 +10,7 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.view.ViewGroup;
 import androidx.core.view.InputDeviceCompat;
-import c.a.c0.k0.q;
+import c.a.d0.l0.q;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -23,22 +23,22 @@ public class MaskViewGroup extends ViewGroup {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public float f37291e;
+    public float f37523e;
 
     /* renamed from: f  reason: collision with root package name */
-    public float f37292f;
+    public float f37524f;
 
     /* renamed from: g  reason: collision with root package name */
-    public float f37293g;
+    public float f37525g;
 
     /* renamed from: h  reason: collision with root package name */
-    public Paint f37294h;
+    public Paint f37526h;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f37295i;
+    public boolean f37527i;
 
     /* renamed from: j  reason: collision with root package name */
-    public Context f37296j;
+    public Context f37528j;
     public int k;
     public float l;
     public float m;
@@ -139,27 +139,27 @@ public class MaskViewGroup extends ViewGroup {
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             c();
             Paint paint = new Paint();
-            this.f37294h = paint;
+            this.f37526h = paint;
             paint.setStyle(Paint.Style.FILL);
-            this.f37294h.setAntiAlias(true);
-            this.f37294h.setColor(this.k);
-            this.f37294h.setShadowLayer(this.l, this.m, this.n, this.k);
-            this.f37294h.setAlpha(this.o);
+            this.f37526h.setAntiAlias(true);
+            this.f37526h.setColor(this.k);
+            this.f37526h.setShadowLayer(this.l, this.m, this.n, this.k);
+            this.f37526h.setAlpha(this.o);
         }
     }
 
     public final void b(AttributeSet attributeSet) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, attributeSet) == null) {
-            TypedArray obtainStyledAttributes = this.f37296j.obtainStyledAttributes(attributeSet, q.NadShadowViewGroup);
+            TypedArray obtainStyledAttributes = this.f37528j.obtainStyledAttributes(attributeSet, q.NadShadowViewGroup);
             this.k = obtainStyledAttributes.getColor(q.NadShadowViewGroup_containerShadowColor, -16777216);
             this.l = obtainStyledAttributes.getDimension(q.NadShadowViewGroup_containerShadowRadius, 0.0f);
             this.m = obtainStyledAttributes.getDimension(q.NadShadowViewGroup_deltaX, 0.0f);
             this.n = obtainStyledAttributes.getDimension(q.NadShadowViewGroup_deltaY, 0.0f);
-            this.f37292f = obtainStyledAttributes.getDimension(q.NadShadowViewGroup_containerDeltaWidth, 0.0f);
-            this.f37291e = obtainStyledAttributes.getDimension(q.NadShadowViewGroup_containerDeltaHeight, 0.0f);
-            this.f37293g = obtainStyledAttributes.getDimension(q.NadShadowViewGroup_containerCornerRadius, 0.0f);
-            this.f37295i = obtainStyledAttributes.getBoolean(q.NadShadowViewGroup_enable, true);
+            this.f37524f = obtainStyledAttributes.getDimension(q.NadShadowViewGroup_containerDeltaWidth, 0.0f);
+            this.f37523e = obtainStyledAttributes.getDimension(q.NadShadowViewGroup_containerDeltaHeight, 0.0f);
+            this.f37525g = obtainStyledAttributes.getDimension(q.NadShadowViewGroup_containerCornerRadius, 0.0f);
+            this.f37527i = obtainStyledAttributes.getBoolean(q.NadShadowViewGroup_enable, true);
             this.o = obtainStyledAttributes.getInt(q.NadShadowViewGroup_shadowAlpha, 127);
             obtainStyledAttributes.recycle();
             a();
@@ -182,15 +182,15 @@ public class MaskViewGroup extends ViewGroup {
     public void dispatchDraw(Canvas canvas) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, canvas) == null) {
-            if (Build.VERSION.SDK_INT >= 21 && this.f37295i) {
+            if (Build.VERSION.SDK_INT >= 21 && this.f37527i) {
                 if (getLayerType() != 1) {
                     setLayerType(1, null);
                 }
                 View childAt = getChildAt(0);
                 RectF rectF = new RectF(childAt.getLeft(), childAt.getTop(), childAt.getRight(), childAt.getBottom());
-                this.f37294h.setAlpha(this.o);
-                float f2 = this.f37293g;
-                canvas.drawRoundRect(rectF, f2, f2, this.f37294h);
+                this.f37526h.setAlpha(this.o);
+                float f2 = this.f37525g;
+                canvas.drawRoundRect(rectF, f2, f2, this.f37526h);
             }
             super.dispatchDraw(canvas);
         }
@@ -213,13 +213,13 @@ public class MaskViewGroup extends ViewGroup {
     public float getDeltaHeight() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f37291e : invokeV.floatValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f37523e : invokeV.floatValue;
     }
 
     public float getDeltaWidth() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f37292f : invokeV.floatValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f37524f : invokeV.floatValue;
     }
 
     public int getShadowColorAlpha() {
@@ -264,10 +264,10 @@ public class MaskViewGroup extends ViewGroup {
             int i6 = 0;
             View childAt = getChildAt(0);
             LayoutParams layoutParams = (LayoutParams) childAt.getLayoutParams();
-            int max = (int) (Math.max(this.f37291e, ((ViewGroup.MarginLayoutParams) layoutParams).bottomMargin) + 1.0f);
-            int max2 = (int) (Math.max(this.f37292f, ((ViewGroup.MarginLayoutParams) layoutParams).leftMargin) + 1.0f);
-            int max3 = (int) (Math.max(this.f37292f, ((ViewGroup.MarginLayoutParams) layoutParams).rightMargin) + 1.0f);
-            int max4 = (int) (Math.max(this.f37291e, ((ViewGroup.MarginLayoutParams) layoutParams).topMargin) + 1.0f);
+            int max = (int) (Math.max(this.f37523e, ((ViewGroup.MarginLayoutParams) layoutParams).bottomMargin) + 1.0f);
+            int max2 = (int) (Math.max(this.f37524f, ((ViewGroup.MarginLayoutParams) layoutParams).leftMargin) + 1.0f);
+            int max3 = (int) (Math.max(this.f37524f, ((ViewGroup.MarginLayoutParams) layoutParams).rightMargin) + 1.0f);
+            int max4 = (int) (Math.max(this.f37523e, ((ViewGroup.MarginLayoutParams) layoutParams).topMargin) + 1.0f);
             int i7 = 1073741824;
             if (mode == 0) {
                 i4 = View.MeasureSpec.getSize(i2);
@@ -301,12 +301,12 @@ public class MaskViewGroup extends ViewGroup {
             int i8 = mode4 == Integer.MIN_VALUE ? max4 + measuredHeight2 + max : measuredHeight;
             int i9 = mode3 == Integer.MIN_VALUE ? max3 + measuredWidth2 + max2 : measuredWidth;
             float f2 = measuredWidth2;
-            float f3 = this.f37292f;
+            float f3 = this.f37524f;
             if (i9 < (f3 * 2.0f) + f2) {
                 i9 = (int) (f2 + (f3 * 2.0f));
             }
             float f4 = measuredHeight2;
-            float f5 = this.f37291e;
+            float f5 = this.f37523e;
             if (i8 < (f5 * 2.0f) + f4) {
                 i8 = (int) (f4 + (f5 * 2.0f));
             }
@@ -332,7 +332,7 @@ public class MaskViewGroup extends ViewGroup {
     public void setDrawShadow(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048589, this, z) == null) {
-            this.f37295i = z;
+            this.f37527i = z;
         }
     }
 
@@ -400,7 +400,7 @@ public class MaskViewGroup extends ViewGroup {
             }
         }
         this.o = 75;
-        this.f37296j = context;
+        this.f37528j = context;
         b(attributeSet);
     }
 }

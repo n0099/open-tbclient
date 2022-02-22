@@ -41,12 +41,12 @@ public class t4 implements z {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             this.a.o.removeMessages(11);
-            this.a.f30541g = true;
-            y2 a = c3.a(this.a.f30540f);
-            a.e(new g3(this.a.f30544j), 200, System.currentTimeMillis() - this.a.n);
+            this.a.f30747g = true;
+            y2 a = c3.a(this.a.f30746f);
+            a.e(new g3(this.a.f30750j), 200, System.currentTimeMillis() - this.a.n);
             a.m();
             x4 x4Var = this.a;
-            if (x4Var.f30543i) {
+            if (x4Var.f30749i) {
                 return;
             }
             x4Var.l.onLoaded();

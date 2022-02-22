@@ -2,8 +2,8 @@ package com.baidu.tieba.ala.alasquare.live.message;
 
 import androidx.core.view.InputDeviceCompat;
 import c.a.d.f.d.l;
-import c.a.t0.a0.f.a.d;
-import c.a.t0.a0.f.b.b.a;
+import c.a.u0.a0.f.a.d;
+import c.a.u0.a0.f.b.b.a;
 import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.adp.lib.cache.BdCacheService;
 import com.baidu.ala.AlaCmdConfigHttp;

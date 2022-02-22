@@ -4,8 +4,8 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.ImageView;
-import c.a.c0.d.e;
-import c.a.c0.d.g;
+import c.a.d0.d.e;
+import c.a.d0.d.g;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -23,7 +23,7 @@ public class AdFullTailFrameView extends AdBaseTailFrameView {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ AdFullTailFrameView f37099e;
+        public final /* synthetic */ AdFullTailFrameView f37311e;
 
         public a(AdFullTailFrameView adFullTailFrameView) {
             Interceptable interceptable = $ic;
@@ -40,7 +40,7 @@ public class AdFullTailFrameView extends AdBaseTailFrameView {
                     return;
                 }
             }
-            this.f37099e = adFullTailFrameView;
+            this.f37311e = adFullTailFrameView;
         }
 
         @Override // android.view.View.OnClickListener

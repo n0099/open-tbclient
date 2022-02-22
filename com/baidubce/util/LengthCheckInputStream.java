@@ -11,7 +11,7 @@ import com.baidubce.BceClientException;
 import java.io.FilterInputStream;
 import java.io.IOException;
 import java.io.InputStream;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class LengthCheckInputStream extends FilterInputStream {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean EXCLUDE_SKIPPED_BYTES = false;

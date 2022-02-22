@@ -56,7 +56,7 @@ import java.util.TimeZone;
 import org.json.JSONArray;
 import org.json.JSONObject;
 import org.webrtc.MediaStreamTrack;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class b {
     public static /* synthetic */ Interceptable $ic;
     public static b a;
@@ -105,7 +105,7 @@ public final class b {
         if (interceptable != null && (invokeL = interceptable.invokeL(65538, null, context)) != null) {
             return (String) invokeL.objValue;
         }
-        if (a(context, s.f55287c)) {
+        if (a(context, s.f55454c)) {
             return "";
         }
         if (context != null) {
@@ -151,7 +151,7 @@ public final class b {
         if (interceptable != null && (invokeL = interceptable.invokeL(65541, null, context)) != null) {
             return (String) invokeL.objValue;
         }
-        if (a(context, s.f55287c)) {
+        if (a(context, s.f55454c)) {
             return "";
         }
         if (context != null) {
@@ -345,7 +345,7 @@ public final class b {
         return (String) invokeV.objValue;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:19:0x0055 A[ORIG_RETURN, RETURN] */
+    /* JADX WARN: Removed duplicated region for block: B:19:0x0054 A[ORIG_RETURN, RETURN] */
     /* JADX WARN: Removed duplicated region for block: B:29:? A[RETURN, SYNTHETIC] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -615,7 +615,7 @@ public final class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65559, null, context)) == null) {
             String str = "";
-            if (a(context, s.f55288d)) {
+            if (a(context, s.f55455d)) {
                 return "";
             }
             try {
@@ -649,7 +649,7 @@ public final class b {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65561, null, context)) == null) {
-            if (a(context, s.f55287c)) {
+            if (a(context, s.f55454c)) {
                 return "";
             }
             try {
@@ -750,7 +750,7 @@ public final class b {
         return (String) invokeV.objValue;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:14:0x002b  */
+    /* JADX WARN: Removed duplicated region for block: B:14:0x002a  */
     /* JADX WARN: Removed duplicated region for block: B:23:? A[RETURN, SYNTHETIC] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -763,7 +763,7 @@ public final class b {
         if (interceptable != null && (invokeL = interceptable.invokeL(65567, null, context)) != null) {
             return (String) invokeL.objValue;
         }
-        if (a(context, s.f55288d)) {
+        if (a(context, s.f55455d)) {
             return "";
         }
         try {
@@ -961,8 +961,8 @@ public final class b {
         return (String) invokeV.objValue;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:13:0x002f  */
-    /* JADX WARN: Removed duplicated region for block: B:14:0x0032  */
+    /* JADX WARN: Removed duplicated region for block: B:13:0x002e  */
+    /* JADX WARN: Removed duplicated region for block: B:14:0x0031  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -1095,7 +1095,7 @@ public final class b {
         if (interceptable == null || (invokeV = interceptable.invokeV(65579, null)) == null) {
             BufferedReader bufferedReader2 = null;
             try {
-                fileReader = new FileReader(z.f55363b);
+                fileReader = new FileReader(z.f55530b);
                 try {
                     bufferedReader = new BufferedReader(fileReader, 8192);
                     try {

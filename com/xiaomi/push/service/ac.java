@@ -122,7 +122,7 @@ public class ac {
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
                 Bitmap bitmap = null;
                 if (TextUtils.isEmpty(this.f880a)) {
-                    com.xiaomi.channel.commonutils.logger.b.m134a("Failed get online picture/icon resource cause picUrl is empty");
+                    com.xiaomi.channel.commonutils.logger.b.m133a("Failed get online picture/icon resource cause picUrl is empty");
                     return null;
                 }
                 if (this.f880a.startsWith("http")) {
@@ -136,7 +136,7 @@ public class ac {
                         return bitmap;
                     }
                 }
-                com.xiaomi.channel.commonutils.logger.b.m134a("Failed get online picture/icon resource");
+                com.xiaomi.channel.commonutils.logger.b.m133a("Failed get online picture/icon resource");
                 return bitmap;
             }
             return (Bitmap) invokeV.objValue;
@@ -304,38 +304,38 @@ public class ac {
         Intent intent;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65544, null, new Object[]{context, ibVar, str, bArr, Integer.valueOf(i2), Integer.valueOf(i3), Boolean.valueOf(z)})) == null) {
-            int i4 = c(ibVar) ? 1000 : m639a(ibVar) ? 3000 : -1;
-            hs m514a = ibVar.m514a();
-            String m471a = m514a != null ? m514a.m471a() : "";
-            boolean m639a = m639a(ibVar);
-            if (m514a != null && !TextUtils.isEmpty(m514a.f558e)) {
+            int i4 = c(ibVar) ? 1000 : m638a(ibVar) ? 3000 : -1;
+            hs m513a = ibVar.m513a();
+            String m470a = m513a != null ? m513a.m470a() : "";
+            boolean m638a = m638a(ibVar);
+            if (m513a != null && !TextUtils.isEmpty(m513a.f558e)) {
                 Intent intent2 = new Intent("android.intent.action.VIEW");
-                intent2.setData(Uri.parse(m514a.f558e));
+                intent2.setData(Uri.parse(m513a.f558e));
                 intent2.addFlags(268435456);
-                intent2.putExtra(MiPushMessage.KEY_MESSAGE_ID, m471a);
+                intent2.putExtra(MiPushMessage.KEY_MESSAGE_ID, m470a);
                 intent2.putExtra("eventMessageType", i4);
                 return PendingIntent.getActivity(context, 0, intent2, 134217728);
             }
-            if (m639a) {
+            if (m638a) {
                 intent = new Intent();
                 intent.setComponent(new ComponentName("com.xiaomi.xmsf", "com.xiaomi.mipush.sdk.PushMessageHandler"));
                 intent.putExtra("mipush_payload", bArr);
                 intent.putExtra("mipush_notified", true);
                 intent.addCategory(String.valueOf(i2));
-                intent.addCategory(String.valueOf(m471a));
+                intent.addCategory(String.valueOf(m470a));
             } else {
                 intent = new Intent("com.xiaomi.mipush.RECEIVE_MESSAGE");
                 intent.setComponent(new ComponentName(str, "com.xiaomi.mipush.sdk.PushMessageHandler"));
                 intent.putExtra("mipush_payload", bArr);
                 intent.putExtra("mipush_notified", true);
                 intent.addCategory(String.valueOf(i2));
-                intent.addCategory(String.valueOf(m471a));
+                intent.addCategory(String.valueOf(m470a));
             }
             intent.putExtra("notification_click_button", i3);
-            intent.putExtra(MiPushMessage.KEY_MESSAGE_ID, m471a);
+            intent.putExtra(MiPushMessage.KEY_MESSAGE_ID, m470a);
             intent.putExtra("eventMessageType", i4);
-            if (m639a || !z) {
-                a(context, intent, ibVar, m514a);
+            if (m638a || !z) {
+                a(context, intent, ibVar, m513a);
                 return PendingIntent.getService(context, 0, intent, 134217728);
             }
             Intent intent3 = new Intent();
@@ -343,9 +343,9 @@ public class ac {
             intent3.addFlags(276824064);
             intent3.putExtra("mipush_serviceIntent", intent);
             intent3.addCategory(String.valueOf(i2));
-            intent3.addCategory(String.valueOf(m471a));
+            intent3.addCategory(String.valueOf(m470a));
             intent3.addCategory(String.valueOf(i3));
-            a(context, intent3, ibVar, m514a);
+            a(context, intent3, ibVar, m513a);
             a(intent3);
             return PendingIntent.getActivity(context, 0, intent3, 134217728);
         }
@@ -356,15 +356,15 @@ public class ac {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65545, null, new Object[]{context, str, ibVar, bArr, Integer.valueOf(i2), Integer.valueOf(i3)})) == null) {
-            Map<String, String> m472a = ibVar.m514a().m472a();
-            if (m472a == null) {
+            Map<String, String> m471a = ibVar.m513a().m471a();
+            if (m471a == null) {
                 return null;
             }
             boolean a2 = a(context, ibVar, str);
             if (a2) {
                 return a(context, ibVar, str, bArr, i2, i3, a2);
             }
-            Intent a3 = a(context, str, m472a, i3);
+            Intent a3 = a(context, str, m471a, i3);
             if (a3 != null) {
                 return PendingIntent.getActivity(context, 0, a3, 134217728);
             }
@@ -438,7 +438,7 @@ public class ac {
                 } catch (Exception e2) {
                     com.xiaomi.channel.commonutils.logger.b.d("Cause: " + e2.getMessage());
                 }
-            } else if (az.f61476b.equals(str6)) {
+            } else if (az.f61643b.equals(str6)) {
                 if (map.containsKey(str3)) {
                     String str7 = map.get(str3);
                     if (str7 != null) {
@@ -471,7 +471,7 @@ public class ac {
                 }
                 launchIntentForPackage = null;
             } else {
-                if (az.f61477c.equals(str6)) {
+                if (az.f61644c.equals(str6)) {
                     String str8 = map.get(str5);
                     if (!TextUtils.isEmpty(str8)) {
                         String trim = str8.trim();
@@ -574,12 +574,12 @@ public class ac {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65552, null, context, ibVar, bArr)) == null) {
-            hs m514a = ibVar.m514a();
+            hs m513a = ibVar.m513a();
             String a2 = a(ibVar);
-            if (m514a != null && m514a.m472a() != null) {
-                Map<String, String> m472a = m514a.m472a();
-                String str = m472a.get("layout_name");
-                String str2 = m472a.get("layout_value");
+            if (m513a != null && m513a.m471a() != null) {
+                Map<String, String> m471a = m513a.m471a();
+                String str = m471a.get("layout_name");
+                String str2 = m471a.get("layout_value");
                 if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
                     try {
                         Resources resourcesForApplication = context.getPackageManager().getResourcesForApplication(a2);
@@ -658,17 +658,17 @@ public class ac {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65554, null, new Object[]{context, ibVar, bArr, str, Integer.valueOf(i2)})) == null) {
             String a3 = a(ibVar);
-            Map<String, String> m472a = ibVar.m514a().m472a();
-            String str2 = m472a.get("notification_style_type");
-            en a4 = (!com.xiaomi.push.l.m600a(context) || f877a == null) ? null : f877a.a(context, i2, a3, m472a);
+            Map<String, String> m471a = ibVar.m513a().m471a();
+            String str2 = m471a.get("notification_style_type");
+            en a4 = (!com.xiaomi.push.l.m599a(context) || f877a == null) ? null : f877a.a(context, i2, a3, m471a);
             if (a4 != null) {
-                a4.a(m472a);
+                a4.a(m471a);
                 return a4;
             } else if (Build.VERSION.SDK_INT >= 16 && "2".equals(str2)) {
                 en enVar = new en(context);
-                Bitmap a5 = TextUtils.isEmpty(m472a.get("notification_bigPic_uri")) ? null : a(context, m472a.get("notification_bigPic_uri"), false);
+                Bitmap a5 = TextUtils.isEmpty(m471a.get("notification_bigPic_uri")) ? null : a(context, m471a.get("notification_bigPic_uri"), false);
                 if (a5 == null) {
-                    com.xiaomi.channel.commonutils.logger.b.m134a("can not get big picture.");
+                    com.xiaomi.channel.commonutils.logger.b.m133a("can not get big picture.");
                     return enVar;
                 }
                 Notification.BigPictureStyle bigPictureStyle = new Notification.BigPictureStyle(enVar);
@@ -681,27 +681,27 @@ public class ac {
                 en enVar2 = new en(context);
                 enVar2.setStyle(new Notification.BigTextStyle().bigText(str));
                 return enVar2;
-            } else if ("4".equals(str2) && com.xiaomi.push.l.m600a(context)) {
+            } else if ("4".equals(str2) && com.xiaomi.push.l.m599a(context)) {
                 em emVar = new em(context, a3);
-                if (!TextUtils.isEmpty(m472a.get("notification_banner_image_uri"))) {
-                    emVar.a(a(context, m472a.get("notification_banner_image_uri"), false));
+                if (!TextUtils.isEmpty(m471a.get("notification_banner_image_uri"))) {
+                    emVar.a(a(context, m471a.get("notification_banner_image_uri"), false));
                 }
-                if (!TextUtils.isEmpty(m472a.get("notification_banner_icon_uri"))) {
-                    emVar.b(a(context, m472a.get("notification_banner_icon_uri"), false));
+                if (!TextUtils.isEmpty(m471a.get("notification_banner_icon_uri"))) {
+                    emVar.b(a(context, m471a.get("notification_banner_icon_uri"), false));
                 }
-                emVar.a(m472a);
+                emVar.a(m471a);
                 return emVar;
-            } else if ("3".equals(str2) && com.xiaomi.push.l.m600a(context)) {
+            } else if ("3".equals(str2) && com.xiaomi.push.l.m599a(context)) {
                 eo eoVar = new eo(context, i2, a3);
-                if (!TextUtils.isEmpty(m472a.get("notification_colorful_button_text")) && (a2 = a(context, a3, ibVar, bArr, i2, 4)) != null) {
-                    eoVar.a(m472a.get("notification_colorful_button_text"), a2).a(m472a.get("notification_colorful_button_bg_color"));
+                if (!TextUtils.isEmpty(m471a.get("notification_colorful_button_text")) && (a2 = a(context, a3, ibVar, bArr, i2, 4)) != null) {
+                    eoVar.a(m471a.get("notification_colorful_button_text"), a2).a(m471a.get("notification_colorful_button_bg_color"));
                 }
-                if (!TextUtils.isEmpty(m472a.get("notification_colorful_bg_color"))) {
-                    eoVar.b(m472a.get("notification_colorful_bg_color"));
-                } else if (!TextUtils.isEmpty(m472a.get("notification_colorful_bg_image_uri"))) {
-                    eoVar.a(a(context, m472a.get("notification_colorful_bg_image_uri"), false));
+                if (!TextUtils.isEmpty(m471a.get("notification_colorful_bg_color"))) {
+                    eoVar.b(m471a.get("notification_colorful_bg_color"));
+                } else if (!TextUtils.isEmpty(m471a.get("notification_colorful_bg_image_uri"))) {
+                    eoVar.a(a(context, m471a.get("notification_colorful_bg_image_uri"), false));
                 }
-                eoVar.a(m472a);
+                eoVar.a(m471a);
                 return eoVar;
             } else {
                 return new en(context);
@@ -760,15 +760,15 @@ public class ac {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65555, null, new Object[]{context, ibVar, bArr, remoteViews, pendingIntent, Integer.valueOf(i2)})) == null) {
             b bVar2 = new b();
-            hs m514a = ibVar.m514a();
+            hs m513a = ibVar.m513a();
             String a9 = a(ibVar);
-            Map<String, String> m472a = m514a.m472a();
-            String[] a10 = a(context, m514a);
+            Map<String, String> m471a = m513a.m471a();
+            String[] a10 = a(context, m513a);
             if (remoteViews != null) {
                 enVar = new en(context);
                 enVar.setCustomContentView(remoteViews);
             } else {
-                enVar = (m472a == null || !m472a.containsKey("notification_style_type")) ? new en(context) : a(context, ibVar, bArr, a10[1], i2);
+                enVar = (m471a == null || !m471a.containsKey("notification_style_type")) ? new en(context) : a(context, ibVar, bArr, a10[1], i2);
             }
             en enVar2 = enVar;
             a(enVar2, context, ibVar.b(), ibVar, bArr, i2);
@@ -776,7 +776,7 @@ public class ac {
             enVar2.setContentText(a10[1]);
             long currentTimeMillis2 = System.currentTimeMillis();
             enVar2.setWhen(currentTimeMillis2);
-            String a11 = a(m472a, "notification_show_when");
+            String a11 = a(m471a, "notification_show_when");
             if (!TextUtils.isEmpty(a11)) {
                 enVar2.setShowWhen(Boolean.parseBoolean(a11));
             } else if (Build.VERSION.SDK_INT >= 24) {
@@ -794,12 +794,12 @@ public class ac {
                 enVar2.setSmallIcon(b(context, a9));
             }
             if (Build.VERSION.SDK_INT >= 23) {
-                if (m472a == null) {
+                if (m471a == null) {
                     a6 = null;
                     i5 = 1;
                 } else {
                     i5 = 1;
-                    a6 = a(context, m472a.get("notification_small_icon_uri"), true);
+                    a6 = a(context, m471a.get("notification_small_icon_uri"), true);
                 }
                 if (a6 != null) {
                     Object[] objArr = new Object[i5];
@@ -812,7 +812,7 @@ public class ac {
                         Bundle bundle2 = new Bundle();
                         bundle2.putBoolean("miui.isGrayscaleIcon", i5);
                         enVar2.addExtras(bundle2);
-                        a8 = a(m472a, "notification_small_icon_color");
+                        a8 = a(m471a, "notification_small_icon_color");
                         if (!TextUtils.isEmpty(a8)) {
                             try {
                                 com.xiaomi.push.bh.a((Object) enVar2, "setColor", Integer.valueOf(Color.parseColor(a8)));
@@ -823,21 +823,21 @@ public class ac {
                     } else {
                         sb = new StringBuilder();
                         sb.append("failed te get small icon with url:");
-                        a7 = m472a.get("notification_small_icon_uri");
+                        a7 = m471a.get("notification_small_icon_uri");
                     }
                 } else {
                     sb = new StringBuilder();
                     sb.append("failed to get small icon url:");
-                    a7 = a(m472a, "notification_small_icon_uri");
+                    a7 = a(m471a, "notification_small_icon_uri");
                 }
                 sb.append(a7);
-                com.xiaomi.channel.commonutils.logger.b.m134a(sb.toString());
-                a8 = a(m472a, "notification_small_icon_color");
+                com.xiaomi.channel.commonutils.logger.b.m133a(sb.toString());
+                a8 = a(m471a, "notification_small_icon_color");
                 if (!TextUtils.isEmpty(a8)) {
                 }
             }
-            String a15 = a(m472a, "__dynamic_icon_uri");
-            boolean z6 = Boolean.parseBoolean(a(m472a, "__adiom")) || !com.xiaomi.push.l.m599a();
+            String a15 = a(m471a, "__dynamic_icon_uri");
+            boolean z6 = Boolean.parseBoolean(a(m471a, "__adiom")) || !com.xiaomi.push.l.m598a();
             if (!TextUtils.isEmpty(a15) && z6) {
                 if (a15.startsWith("http")) {
                     an.b a16 = an.a(context, a15, true);
@@ -853,25 +853,25 @@ public class ac {
                 if (a5 != null) {
                     enVar2.setLargeIcon(a5);
                     z = true;
-                    a2 = m472a != null ? null : a(context, m472a.get("notification_large_icon_uri"), true);
+                    a2 = m471a != null ? null : a(context, m471a.get("notification_large_icon_uri"), true);
                     if (a2 != null) {
                         enVar2.setLargeIcon(a2);
                     }
-                    if (m472a != null || Build.VERSION.SDK_INT < 24) {
+                    if (m471a != null || Build.VERSION.SDK_INT < 24) {
                         z2 = false;
                         str = null;
                         z3 = false;
                         z4 = true;
                     } else {
-                        String str5 = m472a.get("notification_group");
-                        boolean parseBoolean = Boolean.parseBoolean(m472a.get("notification_is_summary"));
-                        boolean parseBoolean2 = Boolean.parseBoolean(m472a.get("notification_group_disable_default"));
-                        if (TextUtils.isEmpty(str5) && (com.xiaomi.push.l.m599a() || !parseBoolean2)) {
+                        String str5 = m471a.get("notification_group");
+                        boolean parseBoolean = Boolean.parseBoolean(m471a.get("notification_is_summary"));
+                        boolean parseBoolean2 = Boolean.parseBoolean(m471a.get("notification_group_disable_default"));
+                        if (TextUtils.isEmpty(str5) && (com.xiaomi.push.l.m598a() || !parseBoolean2)) {
                             str5 = a(ibVar);
                         }
                         String str6 = str5;
                         com.xiaomi.push.bh.a((Object) enVar2, "setGroupSummary", Boolean.valueOf(parseBoolean));
-                        String str7 = m472a.get("notification_style_type");
+                        String str7 = m471a.get("notification_style_type");
                         if ("com.xiaomi.xmsf".equals(context.getPackageName()) && ("4".equals(str7) || "3".equals(str7))) {
                             z3 = true;
                             z4 = true;
@@ -886,18 +886,18 @@ public class ac {
                     }
                     enVar2.setAutoCancel(z4);
                     currentTimeMillis = System.currentTimeMillis();
-                    if (m472a != null && m472a.containsKey(ALaKeepAliveService.KEY_TICKER)) {
-                        enVar2.setTicker(m472a.get(ALaKeepAliveService.KEY_TICKER));
+                    if (m471a != null && m471a.containsKey(ALaKeepAliveService.KEY_TICKER)) {
+                        enVar2.setTicker(m471a.get(ALaKeepAliveService.KEY_TICKER));
                     }
                     if (currentTimeMillis - a <= 10000) {
                         a = currentTimeMillis;
-                        i3 = m514a.f545a;
-                        if (m642b(context, a9)) {
+                        i3 = m513a.f545a;
+                        if (m641b(context, a9)) {
                             i3 = a(context, a9);
                         }
                         enVar2.setDefaults(i3);
-                        if (m472a != null && (i3 & 1) != 0) {
-                            String str8 = m472a.get("sound_uri");
+                        if (m471a != null && (i3 & 1) != 0) {
+                            String str8 = m471a.get("sound_uri");
                             if (!TextUtils.isEmpty(str8)) {
                                 bVar = bVar2;
                                 StringBuilder sb2 = new StringBuilder();
@@ -917,15 +917,15 @@ public class ac {
                         bVar = bVar2;
                         i3 = -100;
                     }
-                    if (m472a != null || Build.VERSION.SDK_INT < 26) {
+                    if (m471a != null || Build.VERSION.SDK_INT < 26) {
                         str2 = "com.xiaomi.xmsf";
                         str3 = str;
-                        if (m472a != null && (i4 = Build.VERSION.SDK_INT) >= 16 && i4 < 26) {
-                            com.xiaomi.push.bh.a((Object) enVar2, "setPriority", Integer.valueOf(c(m472a)));
+                        if (m471a != null && (i4 = Build.VERSION.SDK_INT) >= 16 && i4 < 26) {
+                            com.xiaomi.push.bh.a((Object) enVar2, "setPriority", Integer.valueOf(c(m471a)));
                         }
                     } else {
                         ao a17 = ao.a(context, a9);
-                        if (a(m472a) > 0) {
+                        if (a(m471a) > 0) {
                             str2 = "com.xiaomi.xmsf";
                             str3 = str;
                             com.xiaomi.push.bh.a((Object) enVar2, "setTimeoutAfter", Long.valueOf(a4 * 1000));
@@ -933,20 +933,20 @@ public class ac {
                             str2 = "com.xiaomi.xmsf";
                             str3 = str;
                         }
-                        String str9 = m472a.get("channel_id");
+                        String str9 = m471a.get("channel_id");
                         if (!TextUtils.isEmpty(str9) || context.getApplicationInfo().targetSdkVersion >= 26) {
-                            String m635a = m635a(context, a9, m472a);
-                            int b2 = b(m472a);
-                            int i6 = m514a.f545a;
-                            String str10 = m472a.get("channel_description");
-                            String str11 = m472a.get("sound_uri");
-                            if (b2 >= 4 && com.xiaomi.push.l.m600a(context) && m644b(m472a)) {
-                                int e3 = e(m472a);
+                            String m634a = m634a(context, a9, m471a);
+                            int b2 = b(m471a);
+                            int i6 = m513a.f545a;
+                            String str10 = m471a.get("channel_description");
+                            String str11 = m471a.get("sound_uri");
+                            if (b2 >= 4 && com.xiaomi.push.l.m599a(context) && m643b(m471a)) {
+                                int e3 = e(m471a);
                                 if (e3 == 0) {
                                     com.xiaomi.channel.commonutils.logger.b.d("meet prd of top notification is zero.");
                                     str4 = ak.a(a17);
                                     if (str4 == null) {
-                                        str4 = ak.a(a17, str9, m635a, str10, i6, b2, str11);
+                                        str4 = ak.a(a17, str9, m634a, str10, i6, b2, str11);
                                     }
                                     com.xiaomi.push.bh.a((Object) enVar2, "setChannelId", str4);
                                     if (i3 == -100) {
@@ -954,7 +954,7 @@ public class ac {
                                     }
                                 } else {
                                     enVar2.setPriority(2);
-                                    int d2 = d(m472a);
+                                    int d2 = d(m471a);
                                     Bundle bundle3 = new Bundle();
                                     bundle3.putLong("mipush_org_when", currentTimeMillis2);
                                     bundle3.putBoolean("mipush_n_top_flag", true);
@@ -974,7 +974,7 @@ public class ac {
                             if (i3 == -100) {
                             }
                         }
-                        String str12 = m472a.get("background_color");
+                        String str12 = m471a.get("background_color");
                         if (!TextUtils.isEmpty(str12)) {
                             try {
                                 int parseInt = Integer.parseInt(str12);
@@ -993,21 +993,21 @@ public class ac {
                         com.xiaomi.push.bh.a("miui.util.NotificationHelper", "setTargetPkg", context, enVar2, a(ibVar));
                     }
                     notification = enVar2.getNotification();
-                    if (z5 && com.xiaomi.push.l.m599a()) {
+                    if (z5 && com.xiaomi.push.l.m598a()) {
                         a(notification);
                     }
-                    if (m472a != null && (a3 = com.xiaomi.push.bh.a(notification, "extraNotification")) != null) {
+                    if (m471a != null && (a3 = com.xiaomi.push.bh.a(notification, "extraNotification")) != null) {
                         bundle = notification.extras;
                         if (bundle == null) {
                             bundle = new Bundle();
                         }
-                        if (!TextUtils.isEmpty(m472a.get("enable_keyguard"))) {
-                            com.xiaomi.push.bh.a(a3, "setEnableKeyguard", Boolean.valueOf(Boolean.parseBoolean(m472a.get("enable_keyguard"))));
-                            bundle.putBoolean("miui.enableKeyguard", Boolean.parseBoolean(m472a.get("enable_keyguard")));
+                        if (!TextUtils.isEmpty(m471a.get("enable_keyguard"))) {
+                            com.xiaomi.push.bh.a(a3, "setEnableKeyguard", Boolean.valueOf(Boolean.parseBoolean(m471a.get("enable_keyguard"))));
+                            bundle.putBoolean("miui.enableKeyguard", Boolean.parseBoolean(m471a.get("enable_keyguard")));
                         }
-                        if (!TextUtils.isEmpty(m472a.get("enable_float"))) {
-                            com.xiaomi.push.bh.a(a3, "setEnableFloat", Boolean.valueOf(Boolean.parseBoolean(m472a.get("enable_float"))));
-                            bundle.putBoolean("miui.enableFloat", Boolean.parseBoolean(m472a.get("enable_float")));
+                        if (!TextUtils.isEmpty(m471a.get("enable_float"))) {
+                            com.xiaomi.push.bh.a(a3, "setEnableFloat", Boolean.valueOf(Boolean.parseBoolean(m471a.get("enable_float"))));
+                            bundle.putBoolean("miui.enableFloat", Boolean.parseBoolean(m471a.get("enable_float")));
                         }
                         notification.extras = bundle;
                     }
@@ -1017,11 +1017,11 @@ public class ac {
                 }
             }
             z = false;
-            if (m472a != null) {
+            if (m471a != null) {
             }
             if (a2 != null) {
             }
-            if (m472a != null) {
+            if (m471a != null) {
             }
             z2 = false;
             str = null;
@@ -1029,17 +1029,17 @@ public class ac {
             z4 = true;
             enVar2.setAutoCancel(z4);
             currentTimeMillis = System.currentTimeMillis();
-            if (m472a != null) {
-                enVar2.setTicker(m472a.get(ALaKeepAliveService.KEY_TICKER));
+            if (m471a != null) {
+                enVar2.setTicker(m471a.get(ALaKeepAliveService.KEY_TICKER));
             }
             if (currentTimeMillis - a <= 10000) {
             }
-            if (m472a != null) {
+            if (m471a != null) {
             }
             str2 = "com.xiaomi.xmsf";
             str3 = str;
-            if (m472a != null) {
-                com.xiaomi.push.bh.a((Object) enVar2, "setPriority", Integer.valueOf(c(m472a)));
+            if (m471a != null) {
+                com.xiaomi.push.bh.a((Object) enVar2, "setPriority", Integer.valueOf(c(m471a)));
             }
             if (str3 != null) {
             }
@@ -1050,13 +1050,13 @@ public class ac {
             if (z5) {
                 a(notification);
             }
-            if (m472a != null) {
+            if (m471a != null) {
                 bundle = notification.extras;
                 if (bundle == null) {
                 }
-                if (!TextUtils.isEmpty(m472a.get("enable_keyguard"))) {
+                if (!TextUtils.isEmpty(m471a.get("enable_keyguard"))) {
                 }
-                if (!TextUtils.isEmpty(m472a.get("enable_float"))) {
+                if (!TextUtils.isEmpty(m471a.get("enable_float"))) {
                 }
                 notification.extras = bundle;
             }
@@ -1092,14 +1092,14 @@ public class ac {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static c m634a(Context context, ib ibVar, byte[] bArr) {
+    public static c m633a(Context context, ib ibVar, byte[] bArr) {
         InterceptResult invokeLLL;
         Map<String, String> map;
         int i2;
         Notification notification;
         StringBuilder sb;
         String str;
-        Map<String, String> m472a;
+        Map<String, String> m471a;
         long currentTimeMillis;
         String str2;
         String a2;
@@ -1110,23 +1110,23 @@ public class ac {
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65556, null, context, ibVar, bArr)) == null) {
             c cVar = new c();
             g.a a4 = com.xiaomi.push.g.a(context, a(ibVar), true);
-            hs m514a = ibVar.m514a();
-            if (m514a != null) {
-                i2 = m514a.c();
-                map = m514a.m472a();
+            hs m513a = ibVar.m513a();
+            if (m513a != null) {
+                i2 = m513a.c();
+                map = m513a.m471a();
             } else {
                 map = null;
                 i2 = 0;
             }
             int hashCode = ((a(ibVar).hashCode() / 10) * 10) + i2;
-            if (com.xiaomi.push.l.m600a(context) && a4 == g.a.f61145c) {
-                if (m514a != null) {
-                    el.a(context.getApplicationContext()).a(ibVar.b(), b(ibVar), m514a.m471a(), "10:" + a(ibVar));
+            if (com.xiaomi.push.l.m599a(context) && a4 == g.a.f61312c) {
+                if (m513a != null) {
+                    el.a(context.getApplicationContext()).a(ibVar.b(), b(ibVar), m513a.m470a(), "10:" + a(ibVar));
                 }
                 str4 = "Do not notify because user block " + a(ibVar) + "‘s notification";
-            } else if (com.xiaomi.push.l.m600a(context) && f877a != null && f877a.m646a(context, hashCode, a(ibVar), map)) {
-                if (m514a != null) {
-                    el.a(context.getApplicationContext()).a(ibVar.b(), b(ibVar), m514a.m471a(), "14:" + a(ibVar));
+            } else if (com.xiaomi.push.l.m599a(context) && f877a != null && f877a.m645a(context, hashCode, a(ibVar), map)) {
+                if (m513a != null) {
+                    el.a(context.getApplicationContext()).a(ibVar.b(), b(ibVar), m513a.m470a(), "14:" + a(ibVar));
                 }
                 str4 = "Do not notify because card notification is canceled or sequence incorrect";
             } else {
@@ -1140,22 +1140,22 @@ public class ac {
                         notification = a7.f882a;
                     } else {
                         notification = new Notification(b(context, a(ibVar)), null, System.currentTimeMillis());
-                        String[] a8 = a(context, m514a);
+                        String[] a8 = a(context, m513a);
                         try {
                             notification.getClass().getMethod("setLatestEventInfo", Context.class, CharSequence.class, CharSequence.class, PendingIntent.class).invoke(notification, context, a8[0], a8[1], a6);
                         } catch (IllegalAccessException e2) {
                             e = e2;
-                            if (m514a != null) {
-                                el.a(context.getApplicationContext()).b(ibVar.b(), b(ibVar), m514a.m471a(), "5");
+                            if (m513a != null) {
+                                el.a(context.getApplicationContext()).b(ibVar.b(), b(ibVar), m513a.m470a(), "5");
                             }
                             sb = new StringBuilder();
                             str = "meet illegal access error. ";
                             sb.append(str);
                             sb.append(e);
                             com.xiaomi.channel.commonutils.logger.b.d(sb.toString());
-                            m472a = m514a.m472a();
-                            if (m472a != null) {
-                                notification.tickerText = m472a.get(ALaKeepAliveService.KEY_TICKER);
+                            m471a = m513a.m471a();
+                            if (m471a != null) {
+                                notification.tickerText = m471a.get(ALaKeepAliveService.KEY_TICKER);
                             }
                             currentTimeMillis = System.currentTimeMillis();
                             if (currentTimeMillis - a > 10000) {
@@ -1163,29 +1163,29 @@ public class ac {
                             notification.flags |= 16;
                             if (a5 != null) {
                             }
-                            if (com.xiaomi.push.l.m599a()) {
-                                if (!TextUtils.isEmpty(m514a.m471a())) {
+                            if (com.xiaomi.push.l.m598a()) {
+                                if (!TextUtils.isEmpty(m513a.m470a())) {
                                 }
-                                notification.extras.putString("local_paid", ibVar.m515a());
-                                if (m514a.m477b() != null) {
+                                notification.extras.putString("local_paid", ibVar.m514a());
+                                if (m513a.m476b() != null) {
                                 }
                                 if (!TextUtils.isEmpty(str3)) {
                                 }
-                                notification.extras.putString("pushUid", a(m514a.f549a, "n_stats_expose"));
+                                notification.extras.putString("pushUid", a(m513a.f549a, "n_stats_expose"));
                                 int i3 = -1;
                                 if (!c(ibVar)) {
                                 }
                                 notification.extras.putString("eventMessageType", String.valueOf(i3));
                                 notification.extras.putString("target_package", a(ibVar));
                             }
-                            if (m514a.m472a() == null) {
+                            if (m513a.m471a() == null) {
                             }
-                            if (com.xiaomi.push.l.m599a()) {
+                            if (com.xiaomi.push.l.m598a()) {
                                 try {
                                     a(notification, Integer.parseInt(str2));
                                 } catch (NumberFormatException e3) {
-                                    if (m514a != null) {
-                                        el.a(context.getApplicationContext()).b(ibVar.b(), b(ibVar), m514a.m471a(), "8");
+                                    if (m513a != null) {
+                                        el.a(context.getApplicationContext()).b(ibVar.b(), b(ibVar), m513a.m470a(), "8");
                                     }
                                     com.xiaomi.channel.commonutils.logger.b.d("fail to set message count. " + e3);
                                 }
@@ -1195,19 +1195,19 @@ public class ac {
                             }
                             a2 = a(ibVar);
                             a3 = ao.a(context, a2);
-                            if (com.xiaomi.push.l.m600a(context)) {
-                                f877a.a(m514a.m472a(), hashCode, notification);
+                            if (com.xiaomi.push.l.m599a(context)) {
+                                f877a.a(m513a.m471a(), hashCode, notification);
                             }
-                            if (com.xiaomi.push.l.m600a(context)) {
+                            if (com.xiaomi.push.l.m599a(context)) {
                             }
                             a3.a(hashCode, notification);
-                            if (com.xiaomi.push.l.m599a()) {
+                            if (com.xiaomi.push.l.m598a()) {
                                 al.a().a(context, hashCode, notification);
                                 if (Build.VERSION.SDK_INT >= 26) {
-                                    b(context, a2, hashCode, m514a.m471a(), notification);
+                                    b(context, a2, hashCode, m513a.m470a(), notification);
                                 }
                             }
-                            if (m639a(ibVar)) {
+                            if (m638a(ibVar)) {
                             }
                             if (c(ibVar)) {
                             }
@@ -1218,16 +1218,16 @@ public class ac {
                             }
                         } catch (IllegalArgumentException e4) {
                             e = e4;
-                            if (m514a != null) {
-                                el.a(context.getApplicationContext()).b(ibVar.b(), b(ibVar), m514a.m471a(), "6");
+                            if (m513a != null) {
+                                el.a(context.getApplicationContext()).b(ibVar.b(), b(ibVar), m513a.m470a(), "6");
                             }
                             sb = new StringBuilder();
                             str = "meet illegal argument error. ";
                             sb.append(str);
                             sb.append(e);
                             com.xiaomi.channel.commonutils.logger.b.d(sb.toString());
-                            m472a = m514a.m472a();
-                            if (m472a != null) {
+                            m471a = m513a.m471a();
+                            if (m471a != null) {
                             }
                             currentTimeMillis = System.currentTimeMillis();
                             if (currentTimeMillis - a > 10000) {
@@ -1235,24 +1235,24 @@ public class ac {
                             notification.flags |= 16;
                             if (a5 != null) {
                             }
-                            if (com.xiaomi.push.l.m599a()) {
+                            if (com.xiaomi.push.l.m598a()) {
                             }
-                            if (m514a.m472a() == null) {
+                            if (m513a.m471a() == null) {
                             }
-                            if (com.xiaomi.push.l.m599a()) {
+                            if (com.xiaomi.push.l.m598a()) {
                             }
                             if (!com.xiaomi.push.l.c()) {
                             }
                             a2 = a(ibVar);
                             a3 = ao.a(context, a2);
-                            if (com.xiaomi.push.l.m600a(context)) {
+                            if (com.xiaomi.push.l.m599a(context)) {
                             }
-                            if (com.xiaomi.push.l.m600a(context)) {
+                            if (com.xiaomi.push.l.m599a(context)) {
                             }
                             a3.a(hashCode, notification);
-                            if (com.xiaomi.push.l.m599a()) {
+                            if (com.xiaomi.push.l.m598a()) {
                             }
-                            if (m639a(ibVar)) {
+                            if (m638a(ibVar)) {
                             }
                             if (c(ibVar)) {
                             }
@@ -1263,16 +1263,16 @@ public class ac {
                             }
                         } catch (NoSuchMethodException e5) {
                             e = e5;
-                            if (m514a != null) {
-                                el.a(context.getApplicationContext()).b(ibVar.b(), b(ibVar), m514a.m471a(), "4");
+                            if (m513a != null) {
+                                el.a(context.getApplicationContext()).b(ibVar.b(), b(ibVar), m513a.m470a(), "4");
                             }
                             sb = new StringBuilder();
                             str = "meet no such method error. ";
                             sb.append(str);
                             sb.append(e);
                             com.xiaomi.channel.commonutils.logger.b.d(sb.toString());
-                            m472a = m514a.m472a();
-                            if (m472a != null) {
+                            m471a = m513a.m471a();
+                            if (m471a != null) {
                             }
                             currentTimeMillis = System.currentTimeMillis();
                             if (currentTimeMillis - a > 10000) {
@@ -1280,24 +1280,24 @@ public class ac {
                             notification.flags |= 16;
                             if (a5 != null) {
                             }
-                            if (com.xiaomi.push.l.m599a()) {
+                            if (com.xiaomi.push.l.m598a()) {
                             }
-                            if (m514a.m472a() == null) {
+                            if (m513a.m471a() == null) {
                             }
-                            if (com.xiaomi.push.l.m599a()) {
+                            if (com.xiaomi.push.l.m598a()) {
                             }
                             if (!com.xiaomi.push.l.c()) {
                             }
                             a2 = a(ibVar);
                             a3 = ao.a(context, a2);
-                            if (com.xiaomi.push.l.m600a(context)) {
+                            if (com.xiaomi.push.l.m599a(context)) {
                             }
-                            if (com.xiaomi.push.l.m600a(context)) {
+                            if (com.xiaomi.push.l.m599a(context)) {
                             }
                             a3.a(hashCode, notification);
-                            if (com.xiaomi.push.l.m599a()) {
+                            if (com.xiaomi.push.l.m598a()) {
                             }
-                            if (m639a(ibVar)) {
+                            if (m638a(ibVar)) {
                             }
                             if (c(ibVar)) {
                             }
@@ -1308,16 +1308,16 @@ public class ac {
                             }
                         } catch (InvocationTargetException e6) {
                             e = e6;
-                            if (m514a != null) {
-                                el.a(context.getApplicationContext()).b(ibVar.b(), b(ibVar), m514a.m471a(), "7");
+                            if (m513a != null) {
+                                el.a(context.getApplicationContext()).b(ibVar.b(), b(ibVar), m513a.m470a(), "7");
                             }
                             sb = new StringBuilder();
                             str = "meet invocation target error. ";
                             sb.append(str);
                             sb.append(e);
                             com.xiaomi.channel.commonutils.logger.b.d(sb.toString());
-                            m472a = m514a.m472a();
-                            if (m472a != null) {
+                            m471a = m513a.m471a();
+                            if (m471a != null) {
                             }
                             currentTimeMillis = System.currentTimeMillis();
                             if (currentTimeMillis - a > 10000) {
@@ -1325,24 +1325,24 @@ public class ac {
                             notification.flags |= 16;
                             if (a5 != null) {
                             }
-                            if (com.xiaomi.push.l.m599a()) {
+                            if (com.xiaomi.push.l.m598a()) {
                             }
-                            if (m514a.m472a() == null) {
+                            if (m513a.m471a() == null) {
                             }
-                            if (com.xiaomi.push.l.m599a()) {
+                            if (com.xiaomi.push.l.m598a()) {
                             }
                             if (!com.xiaomi.push.l.c()) {
                             }
                             a2 = a(ibVar);
                             a3 = ao.a(context, a2);
-                            if (com.xiaomi.push.l.m600a(context)) {
+                            if (com.xiaomi.push.l.m599a(context)) {
                             }
-                            if (com.xiaomi.push.l.m600a(context)) {
+                            if (com.xiaomi.push.l.m599a(context)) {
                             }
                             a3.a(hashCode, notification);
-                            if (com.xiaomi.push.l.m599a()) {
+                            if (com.xiaomi.push.l.m598a()) {
                             }
-                            if (m639a(ibVar)) {
+                            if (m638a(ibVar)) {
                             }
                             if (c(ibVar)) {
                             }
@@ -1352,20 +1352,20 @@ public class ac {
                             synchronized (f878a) {
                             }
                         }
-                        m472a = m514a.m472a();
-                        if (m472a != null && m472a.containsKey(ALaKeepAliveService.KEY_TICKER)) {
-                            notification.tickerText = m472a.get(ALaKeepAliveService.KEY_TICKER);
+                        m471a = m513a.m471a();
+                        if (m471a != null && m471a.containsKey(ALaKeepAliveService.KEY_TICKER)) {
+                            notification.tickerText = m471a.get(ALaKeepAliveService.KEY_TICKER);
                         }
                         currentTimeMillis = System.currentTimeMillis();
                         if (currentTimeMillis - a > 10000) {
                             a = currentTimeMillis;
-                            int i4 = m514a.f545a;
-                            if (m642b(context, a(ibVar))) {
+                            int i4 = m513a.f545a;
+                            if (m641b(context, a(ibVar))) {
                                 i4 = a(context, a(ibVar));
                             }
                             notification.defaults = i4;
-                            if (m472a != null && (i4 & 1) != 0) {
-                                String str5 = m472a.get("sound_uri");
+                            if (m471a != null && (i4 & 1) != 0) {
+                                String str5 = m471a.get("sound_uri");
                                 if (!TextUtils.isEmpty(str5)) {
                                     if (str5.startsWith("android.resource://" + a(ibVar))) {
                                         notification.defaults = 1 ^ i4;
@@ -1379,61 +1379,61 @@ public class ac {
                             notification.contentView = a5;
                         }
                     }
-                    if (com.xiaomi.push.l.m599a() && Build.VERSION.SDK_INT >= 19) {
-                        if (!TextUtils.isEmpty(m514a.m471a())) {
-                            notification.extras.putString("message_id", m514a.m471a());
+                    if (com.xiaomi.push.l.m598a() && Build.VERSION.SDK_INT >= 19) {
+                        if (!TextUtils.isEmpty(m513a.m470a())) {
+                            notification.extras.putString("message_id", m513a.m470a());
                         }
-                        notification.extras.putString("local_paid", ibVar.m515a());
-                        str3 = m514a.m477b() != null ? null : m514a.m477b().get("score_info");
+                        notification.extras.putString("local_paid", ibVar.m514a());
+                        str3 = m513a.m476b() != null ? null : m513a.m476b().get("score_info");
                         if (!TextUtils.isEmpty(str3)) {
                             notification.extras.putString("score_info", str3);
                         }
-                        notification.extras.putString("pushUid", a(m514a.f549a, "n_stats_expose"));
+                        notification.extras.putString("pushUid", a(m513a.f549a, "n_stats_expose"));
                         int i32 = -1;
                         if (!c(ibVar)) {
                             i32 = 1000;
-                        } else if (m639a(ibVar)) {
+                        } else if (m638a(ibVar)) {
                             i32 = 3000;
                         }
                         notification.extras.putString("eventMessageType", String.valueOf(i32));
                         notification.extras.putString("target_package", a(ibVar));
                     }
-                    str2 = m514a.m472a() == null ? null : m514a.m472a().get("message_count");
-                    if (com.xiaomi.push.l.m599a() && str2 != null) {
+                    str2 = m513a.m471a() == null ? null : m513a.m471a().get("message_count");
+                    if (com.xiaomi.push.l.m598a() && str2 != null) {
                         a(notification, Integer.parseInt(str2));
                     }
-                    if (!com.xiaomi.push.l.c() && com.xiaomi.push.l.m600a(context)) {
+                    if (!com.xiaomi.push.l.c() && com.xiaomi.push.l.m599a(context)) {
                         a(notification, a(ibVar));
                     }
                     a2 = a(ibVar);
                     a3 = ao.a(context, a2);
-                    if (com.xiaomi.push.l.m600a(context) && f877a != null) {
-                        f877a.a(m514a.m472a(), hashCode, notification);
+                    if (com.xiaomi.push.l.m599a(context) && f877a != null) {
+                        f877a.a(m513a.m471a(), hashCode, notification);
                     }
-                    if (com.xiaomi.push.l.m600a(context) || f877a == null || !f877a.m647a(m514a.m472a(), hashCode, notification)) {
+                    if (com.xiaomi.push.l.m599a(context) || f877a == null || !f877a.m646a(m513a.m471a(), hashCode, notification)) {
                         a3.a(hashCode, notification);
                     } else {
                         com.xiaomi.channel.commonutils.logger.b.b("consume this notificaiton by agent");
                     }
-                    if (com.xiaomi.push.l.m599a() && com.xiaomi.push.l.m600a(context)) {
+                    if (com.xiaomi.push.l.m598a() && com.xiaomi.push.l.m599a(context)) {
                         al.a().a(context, hashCode, notification);
                         if (Build.VERSION.SDK_INT >= 26 && notification != null && notification.extras.getBoolean("mipush_n_top_flag", false)) {
-                            b(context, a2, hashCode, m514a.m471a(), notification);
+                            b(context, a2, hashCode, m513a.m470a(), notification);
                         }
                     }
-                    if (m639a(ibVar)) {
-                        el.a(context.getApplicationContext()).a(ibVar.b(), b(ibVar), m514a.m471a(), 3002, null);
+                    if (m638a(ibVar)) {
+                        el.a(context.getApplicationContext()).a(ibVar.b(), b(ibVar), m513a.m470a(), 3002, null);
                     }
                     if (c(ibVar)) {
-                        el.a(context.getApplicationContext()).a(ibVar.b(), b(ibVar), m514a.m471a(), 1002, null);
+                        el.a(context.getApplicationContext()).a(ibVar.b(), b(ibVar), m513a.m470a(), 1002, null);
                     }
                     if (Build.VERSION.SDK_INT < 26) {
-                        String m471a = m514a != null ? m514a.m471a() : null;
+                        String m470a = m513a != null ? m513a.m470a() : null;
                         com.xiaomi.push.ai a9 = com.xiaomi.push.ai.a(context);
-                        int a10 = a(m514a.m472a());
-                        if (a10 > 0 && !TextUtils.isEmpty(m471a)) {
-                            String str6 = "n_timeout_" + m471a;
-                            a9.m207a(str6);
+                        int a10 = a(m513a.m471a());
+                        if (a10 > 0 && !TextUtils.isEmpty(m470a)) {
+                            String str6 = "n_timeout_" + m470a;
+                            a9.m206a(str6);
                             a9.b(new ad(str6, a3, hashCode), a10);
                         }
                     }
@@ -1446,31 +1446,31 @@ public class ac {
                     }
                     return cVar;
                 }
-                if (m514a != null) {
-                    el.a(context.getApplicationContext()).a(ibVar.b(), b(ibVar), m514a.m471a(), "11");
+                if (m513a != null) {
+                    el.a(context.getApplicationContext()).a(ibVar.b(), b(ibVar), m513a.m470a(), "11");
                 }
                 str4 = "The click PendingIntent is null. ";
             }
-            com.xiaomi.channel.commonutils.logger.b.m134a(str4);
+            com.xiaomi.channel.commonutils.logger.b.m133a(str4);
             return cVar;
         }
         return (c) invokeLLL.objValue;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static String m635a(Context context, String str, Map<String, String> map) {
+    public static String m634a(Context context, String str, Map<String, String> map) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(65558, null, context, str, map)) == null) ? (map == null || TextUtils.isEmpty(map.get("channel_name"))) ? com.xiaomi.push.g.m405b(context, str) : map.get("channel_name") : (String) invokeLLL.objValue;
+        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(65558, null, context, str, map)) == null) ? (map == null || TextUtils.isEmpty(map.get("channel_name"))) ? com.xiaomi.push.g.m404b(context, str) : map.get("channel_name") : (String) invokeLLL.objValue;
     }
 
     public static String a(ib ibVar) {
         InterceptResult invokeL;
-        hs m514a;
+        hs m513a;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65559, null, ibVar)) == null) {
-            if ("com.xiaomi.xmsf".equals(ibVar.f643b) && (m514a = ibVar.m514a()) != null && m514a.m472a() != null) {
-                String str = m514a.m472a().get("miui_package_name");
+            if ("com.xiaomi.xmsf".equals(ibVar.f643b) && (m513a = ibVar.m513a()) != null && m513a.m471a() != null) {
+                String str = m513a.m471a().get("miui_package_name");
                 if (!TextUtils.isEmpty(str)) {
                     return str;
                 }
@@ -1506,22 +1506,22 @@ public class ac {
         if (!(interceptable == null || interceptable.invokeLLLL(65562, null, context, intent, ibVar, hsVar) == null) || ibVar == null || hsVar == null) {
             return;
         }
-        String a2 = a(hsVar.m472a(), "notify_effect");
+        String a2 = a(hsVar.m471a(), "notify_effect");
         if (TextUtils.isEmpty(a2)) {
             return;
         }
-        if (az.a.equals(a2) || az.f61476b.equals(a2) || az.f61477c.equals(a2)) {
+        if (az.a.equals(a2) || az.f61643b.equals(a2) || az.f61644c.equals(a2)) {
             intent.putExtra("local_paid", ibVar.f639a);
             if (!TextUtils.isEmpty(ibVar.f643b)) {
                 intent.putExtra("target_package", ibVar.f643b);
             }
-            intent.putExtra("job_key", a(hsVar.m472a(), "jobkey"));
-            intent.putExtra("target_component", a(context, ibVar.f643b, hsVar.m472a()));
+            intent.putExtra("job_key", a(hsVar.m471a(), "jobkey"));
+            intent.putExtra("target_component", a(context, ibVar.f643b, hsVar.m471a()));
         }
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static void m636a(Context context, String str) {
+    public static void m635a(Context context, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65563, null, context, str) == null) {
             a(context, str, -1);
@@ -1576,11 +1576,11 @@ public class ac {
                     ib ibVar = (ib) next.second;
                     if (ibVar != null) {
                         String a2 = a(ibVar);
-                        hs m514a = ibVar.m514a();
-                        if (m514a != null && TextUtils.equals(a2, str)) {
-                            String m479c = m514a.m479c();
-                            String d2 = m514a.d();
-                            if (!TextUtils.isEmpty(m479c) && !TextUtils.isEmpty(d2) && a(str2, m479c) && a(str3, d2)) {
+                        hs m513a = ibVar.m513a();
+                        if (m513a != null && TextUtils.equals(a2, str)) {
+                            String m478c = m513a.m478c();
+                            String d2 = m513a.d();
+                            if (!TextUtils.isEmpty(m478c) && !TextUtils.isEmpty(d2) && a(str2, m478c) && a(str3, d2)) {
                                 ao.a(context, str).a(((Integer) next.first).intValue());
                                 linkedList.add(next);
                             }
@@ -1623,20 +1623,20 @@ public class ac {
         PendingIntent a4;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65569, null, new Object[]{enVar, context, str, ibVar, bArr, Integer.valueOf(i2)}) == null) {
-            Map<String, String> m472a = ibVar.m514a().m472a();
-            if (TextUtils.equals("3", m472a.get("notification_style_type")) || TextUtils.equals("4", m472a.get("notification_style_type"))) {
+            Map<String, String> m471a = ibVar.m513a().m471a();
+            if (TextUtils.equals("3", m471a.get("notification_style_type")) || TextUtils.equals("4", m471a.get("notification_style_type"))) {
                 return;
             }
-            if (!TextUtils.isEmpty(m472a.get("notification_style_button_left_name")) && (a4 = a(context, str, ibVar, bArr, i2, 1)) != null) {
-                enVar.addAction(0, m472a.get("notification_style_button_left_name"), a4);
+            if (!TextUtils.isEmpty(m471a.get("notification_style_button_left_name")) && (a4 = a(context, str, ibVar, bArr, i2, 1)) != null) {
+                enVar.addAction(0, m471a.get("notification_style_button_left_name"), a4);
             }
-            if (!TextUtils.isEmpty(m472a.get("notification_style_button_mid_name")) && (a3 = a(context, str, ibVar, bArr, i2, 2)) != null) {
-                enVar.addAction(0, m472a.get("notification_style_button_mid_name"), a3);
+            if (!TextUtils.isEmpty(m471a.get("notification_style_button_mid_name")) && (a3 = a(context, str, ibVar, bArr, i2, 2)) != null) {
+                enVar.addAction(0, m471a.get("notification_style_button_mid_name"), a3);
             }
-            if (TextUtils.isEmpty(m472a.get("notification_style_button_right_name")) || (a2 = a(context, str, ibVar, bArr, i2, 3)) == null) {
+            if (TextUtils.isEmpty(m471a.get("notification_style_button_right_name")) || (a2 = a(context, str, ibVar, bArr, i2, 3)) == null) {
                 return;
             }
-            enVar.addAction(0, m472a.get("notification_style_button_right_name"), a2);
+            enVar.addAction(0, m471a.get("notification_style_button_right_name"), a2);
         }
     }
 
@@ -1644,17 +1644,17 @@ public class ac {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65570, null, context, ibVar, str)) == null) {
-            if (ibVar != null && ibVar.m514a() != null && ibVar.m514a().m472a() != null && !TextUtils.isEmpty(str)) {
-                return Boolean.parseBoolean(ibVar.m514a().m472a().get("use_clicked_activity")) && g.a(context, a(str));
+            if (ibVar != null && ibVar.m513a() != null && ibVar.m513a().m471a() != null && !TextUtils.isEmpty(str)) {
+                return Boolean.parseBoolean(ibVar.m513a().m471a().get("use_clicked_activity")) && g.a(context, a(str));
             }
-            com.xiaomi.channel.commonutils.logger.b.m134a("should clicked activity params are null.");
+            com.xiaomi.channel.commonutils.logger.b.m133a("should clicked activity params are null.");
             return false;
         }
         return invokeLLL.booleanValue;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static boolean m638a(Context context, String str) {
+    public static boolean m637a(Context context, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65571, null, context, str)) == null) {
@@ -1677,8 +1677,8 @@ public class ac {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65572, null, hsVar)) == null) {
             if (hsVar != null) {
-                String m471a = hsVar.m471a();
-                return !TextUtils.isEmpty(m471a) && m471a.length() == 22 && "satuigmo".indexOf(m471a.charAt(0)) >= 0;
+                String m470a = hsVar.m470a();
+                return !TextUtils.isEmpty(m470a) && m470a.length() == 22 && "satuigmo".indexOf(m470a.charAt(0)) >= 0;
             }
             return false;
         }
@@ -1686,12 +1686,12 @@ public class ac {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static boolean m639a(ib ibVar) {
+    public static boolean m638a(ib ibVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65573, null, ibVar)) == null) {
-            hs m514a = ibVar.m514a();
-            return a(m514a) && m514a.l();
+            hs m513a = ibVar.m513a();
+            return a(m513a) && m513a.l();
         }
         return invokeL.booleanValue;
     }
@@ -1703,7 +1703,7 @@ public class ac {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static boolean m640a(Map<String, String> map) {
+    public static boolean m639a(Map<String, String> map) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65575, null, map)) == null) {
@@ -1732,26 +1732,26 @@ public class ac {
         String str;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65576, null, context, hsVar)) == null) {
-            String m479c = hsVar.m479c();
+            String m478c = hsVar.m478c();
             String d2 = hsVar.d();
-            Map<String, String> m472a = hsVar.m472a();
-            if (m472a != null) {
+            Map<String, String> m471a = hsVar.m471a();
+            if (m471a != null) {
                 int intValue = Float.valueOf((context.getResources().getDisplayMetrics().widthPixels / context.getResources().getDisplayMetrics().density) + 0.5f).intValue();
                 if (intValue <= 320) {
-                    String str2 = m472a.get("title_short");
+                    String str2 = m471a.get("title_short");
                     if (!TextUtils.isEmpty(str2)) {
-                        m479c = str2;
+                        m478c = str2;
                     }
-                    str = m472a.get("description_short");
+                    str = m471a.get("description_short");
                 } else if (intValue > 360) {
-                    String str3 = m472a.get("title_long");
+                    String str3 = m471a.get("title_long");
                     if (!TextUtils.isEmpty(str3)) {
-                        m479c = str3;
+                        m478c = str3;
                     }
-                    str = m472a.get("description_long");
+                    str = m471a.get("description_long");
                 }
             }
-            return new String[]{m479c, d2};
+            return new String[]{m478c, d2};
         }
         return (String[]) invokeLL.objValue;
     }
@@ -1804,11 +1804,11 @@ public class ac {
     public static String b(ib ibVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65580, null, ibVar)) == null) ? m639a(ibVar) ? "E100002" : c(ibVar) ? "E100000" : m643b(ibVar) ? "E100001" : d(ibVar) ? "E100003" : "" : (String) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65580, null, ibVar)) == null) ? m638a(ibVar) ? "E100002" : c(ibVar) ? "E100000" : m642b(ibVar) ? "E100001" : d(ibVar) ? "E100003" : "" : (String) invokeL.objValue;
     }
 
     /* renamed from: b  reason: collision with other method in class */
-    public static void m641b(Context context, String str) {
+    public static void m640b(Context context, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65581, null, context, str) == null) {
             context.getSharedPreferences("pref_notify_type", 0).edit().remove(str).commit();
@@ -1833,11 +1833,11 @@ public class ac {
             }
             ao a2 = ao.a(context, str);
             if (notification2 == null) {
-                List<StatusBarNotification> m661b = a2.m661b();
-                if (m661b == null) {
+                List<StatusBarNotification> m660b = a2.m660b();
+                if (m660b == null) {
                     return;
                 }
-                Iterator<StatusBarNotification> it = m661b.iterator();
+                Iterator<StatusBarNotification> it = m660b.iterator();
                 while (true) {
                     if (!it.hasNext()) {
                         notification2 = null;
@@ -1873,12 +1873,12 @@ public class ac {
                     i4 = 0;
                 } else if (i3 > 0 && (i4 = (int) Math.min((j3 - currentTimeMillis) / 1000, i3)) > 0 && !z) {
                     notification2.when = currentTimeMillis;
-                    com.xiaomi.channel.commonutils.logger.b.m134a("update top notification: " + str2);
+                    com.xiaomi.channel.commonutils.logger.b.m133a("update top notification: " + str2);
                     a2.a(i2, notification2);
                 }
                 if (i4 > 0) {
-                    com.xiaomi.channel.commonutils.logger.b.m134a("schedule top notification next update delay: " + i4);
-                    com.xiaomi.push.ai.a(context).m207a(b(i2, str2));
+                    com.xiaomi.channel.commonutils.logger.b.m133a("schedule top notification next update delay: " + i4);
+                    com.xiaomi.push.ai.a(context).m206a(b(i2, str2));
                     com.xiaomi.push.ai.a(context).b(a(context, str, i2, str2, (Notification) null), i4);
                     return;
                 }
@@ -1886,32 +1886,32 @@ public class ac {
                 Notification.Builder recoverBuilder = Notification.Builder.recoverBuilder(context, notification2);
                 recoverBuilder.setChannelId(a3);
                 recoverBuilder.setPriority(0);
-                com.xiaomi.channel.commonutils.logger.b.m134a("update top notification to common: " + str2);
+                com.xiaomi.channel.commonutils.logger.b.m133a("update top notification to common: " + str2);
                 a2.a(i2, recoverBuilder.build());
             }
         }
     }
 
     /* renamed from: b  reason: collision with other method in class */
-    public static boolean m642b(Context context, String str) {
+    public static boolean m641b(Context context, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeLL = interceptable.invokeLL(65584, null, context, str)) == null) ? context.getSharedPreferences("pref_notify_type", 0).contains(str) : invokeLL.booleanValue;
     }
 
     /* renamed from: b  reason: collision with other method in class */
-    public static boolean m643b(ib ibVar) {
+    public static boolean m642b(ib ibVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65585, null, ibVar)) == null) {
-            hs m514a = ibVar.m514a();
-            return a(m514a) && m514a.f551b == 1 && !m639a(ibVar);
+            hs m513a = ibVar.m513a();
+            return a(m513a) && m513a.f551b == 1 && !m638a(ibVar);
         }
         return invokeL.booleanValue;
     }
 
     /* renamed from: b  reason: collision with other method in class */
-    public static boolean m644b(Map<String, String> map) {
+    public static boolean m643b(Map<String, String> map) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65586, null, map)) == null) {
@@ -1954,8 +1954,8 @@ public class ac {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65588, null, ibVar)) == null) {
-            hs m514a = ibVar.m514a();
-            return a(m514a) && m514a.f551b == 0 && !m639a(ibVar);
+            hs m513a = ibVar.m513a();
+            return a(m513a) && m513a.f551b == 0 && !m638a(ibVar);
         }
         return invokeL.booleanValue;
     }
@@ -2015,6 +2015,6 @@ public class ac {
     public static boolean e(ib ibVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65592, null, ibVar)) == null) ? m639a(ibVar) || c(ibVar) || m643b(ibVar) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65592, null, ibVar)) == null) ? m638a(ibVar) || c(ibVar) || m642b(ibVar) : invokeL.booleanValue;
     }
 }

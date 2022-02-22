@@ -9,6 +9,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONObject;
 /* loaded from: classes10.dex */
 public class AdOperator {
     public static /* synthetic */ Interceptable $ic;
@@ -16,13 +17,13 @@ public class AdOperator {
     public final TYPE a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final a f37051b;
+    public final a f37263b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final String f37052c;
+    public final String f37264c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final String f37053d;
+    public String f37265d;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes10.dex */
@@ -107,5 +108,71 @@ public class AdOperator {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String a;
+
+        public a(JSONObject jSONObject) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {jSONObject};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            if (jSONObject == null) {
+                return;
+            }
+            this.a = jSONObject.optString("text");
+        }
+
+        public static a a(JSONObject jSONObject) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) ? new a(jSONObject) : (a) invokeL.objValue;
+        }
+    }
+
+    public AdOperator(JSONObject jSONObject) throws ParseError {
+        TYPE type;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {jSONObject};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        try {
+            type = TYPE.from(jSONObject.optString("type"));
+        } catch (Throwable unused) {
+            type = null;
+        }
+        if (type != null) {
+            this.a = type;
+            this.f37263b = a.a(jSONObject.optJSONObject("desc"));
+            JSONObject optJSONObject = jSONObject.optJSONObject("button");
+            optJSONObject = optJSONObject == null ? new JSONObject() : optJSONObject;
+            this.f37264c = optJSONObject.optString("text");
+            this.f37265d = optJSONObject.optString("scheme");
+            return;
+        }
+        throw ParseError.contentError(12, "operator type:" + jSONObject.optString("type"));
+    }
+
+    public static AdOperator a(JSONObject jSONObject) throws ParseError {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) ? new AdOperator(jSONObject) : (AdOperator) invokeL.objValue;
     }
 }

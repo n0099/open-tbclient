@@ -17,7 +17,7 @@ public class f {
     public static final int a = 1032;
 
     /* renamed from: b  reason: collision with root package name */
-    public static Map<Class<?>, Method> f32464b;
+    public static Map<Class<?>, Method> f32670b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -33,7 +33,7 @@ public class f {
                 return;
             }
         }
-        f32464b = new HashMap();
+        f32670b = new HashMap();
     }
 
     public f() {
@@ -53,20 +53,20 @@ public class f {
     public static void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65538, null) == null) {
-            synchronized (f32464b) {
-                f32464b.clear();
+            synchronized (f32670b) {
+                f32670b.clear();
             }
         }
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:35:0x0070, code lost:
-        r1 = com.baidu.apollon.eventbus.f.f32464b;
+        r1 = com.baidu.apollon.eventbus.f.f32670b;
      */
     /* JADX WARN: Code restructure failed: missing block: B:36:0x0072, code lost:
         monitor-enter(r1);
      */
     /* JADX WARN: Code restructure failed: missing block: B:37:0x0073, code lost:
-        com.baidu.apollon.eventbus.f.f32464b.put(r12, r2);
+        com.baidu.apollon.eventbus.f.f32670b.put(r12, r2);
      */
     /* JADX WARN: Code restructure failed: missing block: B:38:0x0078, code lost:
         monitor-exit(r1);
@@ -82,8 +82,8 @@ public class f {
         Method method;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, cls)) == null) {
-            synchronized (f32464b) {
-                method = f32464b.get(cls);
+            synchronized (f32670b) {
+                method = f32670b.get(cls);
             }
             if (method != null) {
                 return method;

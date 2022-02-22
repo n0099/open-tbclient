@@ -13,18 +13,18 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final a f30000e;
+    public static final a f30206e;
     public transient /* synthetic */ FieldHolder $fh;
     public float a;
 
     /* renamed from: b  reason: collision with root package name */
-    public float f30001b;
+    public float f30207b;
 
     /* renamed from: c  reason: collision with root package name */
-    public float f30002c;
+    public float f30208c;
 
     /* renamed from: d  reason: collision with root package name */
-    public float f30003d;
+    public float f30209d;
 
     static {
         InterceptResult invokeClinit;
@@ -39,7 +39,7 @@ public class a {
                 return;
             }
         }
-        f30000e = new a();
+        f30206e = new a();
     }
 
     public a() {
@@ -56,9 +56,9 @@ public class a {
             }
         }
         this.a = 0.0f;
-        this.f30001b = 0.0f;
-        this.f30002c = 0.0f;
-        this.f30003d = 1.0f;
+        this.f30207b = 0.0f;
+        this.f30208c = 0.0f;
+        this.f30209d = 1.0f;
         b(0.0f, 0.0f, 0.0f, 1.0f);
     }
 
@@ -72,33 +72,33 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), Float.valueOf(f5)}) == null) {
             this.a = f2;
-            this.f30001b = f3;
-            this.f30002c = f4;
-            this.f30003d = f5;
+            this.f30207b = f3;
+            this.f30208c = f4;
+            this.f30209d = f5;
         }
     }
 
     public final float c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f30001b : invokeV.floatValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f30207b : invokeV.floatValue;
     }
 
     public final float d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f30002c : invokeV.floatValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f30208c : invokeV.floatValue;
     }
 
     public final float e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f30003d : invokeV.floatValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f30209d : invokeV.floatValue;
     }
 
     public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? String.format("[%.3f, %.3f, %.3f, %.3f]", Float.valueOf(this.a), Float.valueOf(this.f30001b), Float.valueOf(this.f30002c), Float.valueOf(this.f30003d)) : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? String.format("[%.3f, %.3f, %.3f, %.3f]", Float.valueOf(this.a), Float.valueOf(this.f30207b), Float.valueOf(this.f30208c), Float.valueOf(this.f30209d)) : (String) invokeV.objValue;
     }
 }

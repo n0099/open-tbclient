@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.nio.charset.Charset;
 import kotlin.UShort;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public final class Util {
     public static /* synthetic */ Interceptable $ic;
     public static final Charset UTF_8;

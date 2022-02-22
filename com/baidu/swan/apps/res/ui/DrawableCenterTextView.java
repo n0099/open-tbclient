@@ -17,7 +17,7 @@ import android.util.Pair;
 import android.view.MotionEvent;
 import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
-import c.a.r0.a.z2.n0;
+import c.a.s0.a.z2.n0;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -36,22 +36,22 @@ public class DrawableCenterTextView extends TextView {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public GradientDrawable f39107e;
+    public GradientDrawable f39335e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Paint f39108f;
+    public Paint f39336f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Pair<Object, Object> f39109g;
+    public Pair<Object, Object> f39337g;
 
     /* renamed from: h  reason: collision with root package name */
-    public Object f39110h;
+    public Object f39338h;
 
     /* renamed from: i  reason: collision with root package name */
-    public Object f39111i;
+    public Object f39339i;
 
     /* renamed from: j  reason: collision with root package name */
-    public int f39112j;
+    public int f39340j;
     public boolean k;
     public boolean l;
     public boolean m;
@@ -83,7 +83,7 @@ public class DrawableCenterTextView extends TextView {
 
     public final void a() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f39107e == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f39335e == null) {
             return;
         }
         int[] iArr = {getWidth(), getHeight()};
@@ -92,25 +92,25 @@ public class DrawableCenterTextView extends TextView {
             iArr[1] = getHeight();
         }
         int width = getWidth() / 2;
-        this.f39107e.setBounds(width - (iArr[0] / 2), 0, width + (iArr[0] / 2), getHeight());
+        this.f39335e.setBounds(width - (iArr[0] / 2), 0, width + (iArr[0] / 2), getHeight());
     }
 
     public final void b() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.f39108f == null) {
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.f39336f == null) {
             Paint paint = new Paint();
-            this.f39108f = paint;
+            this.f39336f = paint;
             paint.setColor(0);
-            this.f39108f.setStyle(Paint.Style.STROKE);
-            this.f39108f.setAntiAlias(true);
-            this.f39108f.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.SRC_IN));
+            this.f39336f.setStyle(Paint.Style.STROKE);
+            this.f39336f.setAntiAlias(true);
+            this.f39336f.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.SRC_IN));
         }
     }
 
     public final boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.k && this.f39109g != null : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.k && this.f39337g != null : invokeV.booleanValue;
     }
 
     public final void d(Canvas canvas) {
@@ -118,41 +118,41 @@ public class DrawableCenterTextView extends TextView {
         if ((interceptable == null || interceptable.invokeL(1048579, this, canvas) == null) && c()) {
             float f2 = this.o;
             if (f2 >= 0.0f) {
-                this.f39107e.setCornerRadius(f2);
+                this.f39335e.setCornerRadius(f2);
             } else {
-                this.f39107e.setCornerRadius(4.0f);
+                this.f39335e.setCornerRadius(4.0f);
             }
             if (this.l) {
                 int f3 = n0.f(getContext(), 0.5f);
-                Object obj = this.f39110h;
+                Object obj = this.f39338h;
                 if (obj instanceof String) {
-                    this.f39107e.setStroke(f3, Color.parseColor(obj.toString()));
+                    this.f39335e.setStroke(f3, Color.parseColor(obj.toString()));
                 } else if (obj instanceof Integer) {
-                    this.f39107e.setStroke(f3, getResources().getColor(Integer.valueOf(this.f39110h.toString()).intValue()));
+                    this.f39335e.setStroke(f3, getResources().getColor(Integer.valueOf(this.f39338h.toString()).intValue()));
                 }
             }
             if (this.n) {
-                Object obj2 = this.f39109g.second;
+                Object obj2 = this.f39337g.second;
                 if (obj2 instanceof String) {
-                    this.f39107e.setColor(Color.parseColor(obj2.toString()));
+                    this.f39335e.setColor(Color.parseColor(obj2.toString()));
                 } else if (obj2 instanceof Integer) {
-                    this.f39107e.setColor(getResources().getColor(Integer.valueOf(this.f39109g.second.toString()).intValue()));
+                    this.f39335e.setColor(getResources().getColor(Integer.valueOf(this.f39337g.second.toString()).intValue()));
                 }
             } else {
-                Object obj3 = this.f39109g.first;
+                Object obj3 = this.f39337g.first;
                 if (obj3 instanceof String) {
-                    this.f39107e.setColor(Color.parseColor(obj3.toString()));
+                    this.f39335e.setColor(Color.parseColor(obj3.toString()));
                 } else if (obj3 instanceof Integer) {
-                    this.f39107e.setColor(getResources().getColor(Integer.valueOf(this.f39109g.first.toString()).intValue()));
+                    this.f39335e.setColor(getResources().getColor(Integer.valueOf(this.f39337g.first.toString()).intValue()));
                 }
             }
             canvas.save();
             if (this.q) {
                 a();
             } else {
-                this.f39107e.setBounds(0, 0, getWidth(), getHeight());
+                this.f39335e.setBounds(0, 0, getWidth(), getHeight());
             }
-            this.f39107e.draw(canvas);
+            this.f39335e.draw(canvas);
             if (this.m) {
                 e(canvas);
             }
@@ -170,13 +170,13 @@ public class DrawableCenterTextView extends TextView {
             float height = getHeight();
             Paint paint = new Paint();
             paint.setStrokeWidth(n0.f(getContext(), 0.5f));
-            Object obj = this.f39111i;
+            Object obj = this.f39339i;
             if (obj instanceof String) {
                 paint.setColor(Color.parseColor(obj.toString()));
             } else if (obj instanceof Integer) {
-                paint.setColor(getResources().getColor(Integer.valueOf(this.f39111i.toString()).intValue()));
+                paint.setColor(getResources().getColor(Integer.valueOf(this.f39339i.toString()).intValue()));
             }
-            int i2 = this.f39112j;
+            int i2 = this.f39340j;
             float f5 = 0.0f;
             if (i2 == 0) {
                 f2 = height;
@@ -280,7 +280,7 @@ public class DrawableCenterTextView extends TextView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048582, this, obj, obj2) == null) {
             if (n0.D(obj) && n0.D(obj2)) {
-                this.f39109g = new Pair<>(obj, obj2);
+                this.f39337g = new Pair<>(obj, obj2);
                 this.k = true;
                 return;
             }
@@ -296,7 +296,7 @@ public class DrawableCenterTextView extends TextView {
                 return;
             }
             this.l = true;
-            this.f39110h = obj;
+            this.f39338h = obj;
         }
     }
 
@@ -336,8 +336,8 @@ public class DrawableCenterTextView extends TextView {
                 this.m = false;
             } else if (i2 >= 0 && i2 <= 3) {
                 this.m = true;
-                this.f39111i = obj;
-                this.f39112j = i2;
+                this.f39339i = obj;
+                this.f39340j = i2;
             } else {
                 this.m = false;
             }
@@ -410,7 +410,7 @@ public class DrawableCenterTextView extends TextView {
             int i5 = f7 < 0.0f ? 0 : (int) (f7 + 0.5f);
             float f8 = rectF.bottom;
             setPadding(i3, i5, i4, f8 >= 0.0f ? (int) (f8 + 0.5f) : 0);
-            this.f39108f.setShadowLayer(f2, f3, f4, i2);
+            this.f39336f.setShadowLayer(f2, f3, f4, i2);
         }
     }
 
@@ -433,10 +433,10 @@ public class DrawableCenterTextView extends TextView {
                 return;
             }
         }
-        this.f39107e = new GradientDrawable();
-        this.f39108f = null;
+        this.f39335e = new GradientDrawable();
+        this.f39336f = null;
         new Path();
-        this.f39109g = null;
+        this.f39337g = null;
         this.n = false;
         this.o = -1.0f;
         this.p = 0.0f;

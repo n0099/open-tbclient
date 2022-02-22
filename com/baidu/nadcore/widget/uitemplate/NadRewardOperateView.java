@@ -13,12 +13,11 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
-import c.a.c0.d.e;
-import c.a.c0.d.g;
-import c.a.c0.g0.q;
-import c.a.c0.j.f.i;
-import c.a.c0.j.f.j;
-import c.a.c0.s.p;
+import c.a.d0.d.e;
+import c.a.d0.d.g;
+import c.a.d0.h0.t;
+import c.a.d0.j.f.i;
+import c.a.d0.j.f.j;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.nadcore.download.consts.AdDownloadCode;
 import com.baidu.nadcore.download.view.IDownloadViewCreator;
@@ -32,40 +31,40 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class NadRewardOperateView extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public AdImageView f37398e;
+    public AdImageView f37630e;
 
     /* renamed from: f  reason: collision with root package name */
-    public SimpleFeedAdInfoView f37399f;
+    public SimpleFeedAdInfoView f37631f;
 
     /* renamed from: g  reason: collision with root package name */
-    public RelativeLayout f37400g;
+    public RelativeLayout f37632g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f37401h;
+    public TextView f37633h;
 
     /* renamed from: i  reason: collision with root package name */
-    public TextView f37402i;
+    public TextView f37634i;
 
     /* renamed from: j  reason: collision with root package name */
-    public TextView f37403j;
-    public c.a.c0.j.f.d k;
-    public c.a.c0.k0.x.b mFeedListener;
-    public c.a.c0.k0.x.a mNadDownloadListener;
+    public TextView f37635j;
+    public c.a.d0.j.f.d k;
+    public c.a.d0.l0.x.b mFeedListener;
+    public c.a.d0.l0.x.a mNadDownloadListener;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public class a implements SimpleAdInfoView.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ AdBaseModel a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ NadRewardOperateView f37404b;
+        public final /* synthetic */ NadRewardOperateView f37636b;
 
         public a(NadRewardOperateView nadRewardOperateView, AdBaseModel adBaseModel) {
             Interceptable interceptable = $ic;
@@ -82,7 +81,7 @@ public class NadRewardOperateView extends FrameLayout {
                     return;
                 }
             }
-            this.f37404b = nadRewardOperateView;
+            this.f37636b = nadRewardOperateView;
             this.a = adBaseModel;
         }
 
@@ -90,18 +89,18 @@ public class NadRewardOperateView extends FrameLayout {
         public void a(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-                this.f37404b.d(this.a, str);
+                this.f37636b.d(this.a, str);
             }
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public class b implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ NadRewardOperateView f37405e;
+        public final /* synthetic */ NadRewardOperateView f37637e;
 
         public b(NadRewardOperateView nadRewardOperateView) {
             Interceptable interceptable = $ic;
@@ -118,27 +117,27 @@ public class NadRewardOperateView extends FrameLayout {
                     return;
                 }
             }
-            this.f37405e = nadRewardOperateView;
+            this.f37637e = nadRewardOperateView;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f37405e.k == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f37637e.k == null) {
                 return;
             }
-            this.f37405e.k.o();
+            this.f37637e.k.o();
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public class c implements j {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ AdBaseModel a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ NadRewardOperateView f37406b;
+        public final /* synthetic */ NadRewardOperateView f37638b;
 
         public c(NadRewardOperateView nadRewardOperateView, AdBaseModel adBaseModel) {
             Interceptable interceptable = $ic;
@@ -155,117 +154,117 @@ public class NadRewardOperateView extends FrameLayout {
                     return;
                 }
             }
-            this.f37406b = nadRewardOperateView;
+            this.f37638b = nadRewardOperateView;
             this.a = adBaseModel;
         }
 
-        @Override // c.a.c0.j.f.j
-        public void a(c.a.c0.j.d.a aVar) {
+        @Override // c.a.d0.j.f.j
+        public void a(c.a.d0.j.d.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
-                NadRewardOperateView nadRewardOperateView = this.f37406b;
+                NadRewardOperateView nadRewardOperateView = this.f37638b;
                 if (nadRewardOperateView.mNadDownloadListener == null || !nadRewardOperateView.g(aVar, this.a)) {
                     return;
                 }
-                this.f37406b.mNadDownloadListener.e(this.a);
+                this.f37638b.mNadDownloadListener.e(this.a);
             }
         }
 
-        @Override // c.a.c0.j.f.j
-        public void b(c.a.c0.j.d.a aVar, AdDownloadCode adDownloadCode) {
+        @Override // c.a.d0.j.f.j
+        public void b(c.a.d0.j.d.a aVar, AdDownloadCode adDownloadCode) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar, adDownloadCode) == null) {
-                NadRewardOperateView nadRewardOperateView = this.f37406b;
+                NadRewardOperateView nadRewardOperateView = this.f37638b;
                 if (nadRewardOperateView.mNadDownloadListener == null || !nadRewardOperateView.g(aVar, this.a)) {
                     return;
                 }
-                this.f37406b.mNadDownloadListener.c(this.a);
+                this.f37638b.mNadDownloadListener.c(this.a);
             }
         }
 
-        @Override // c.a.c0.j.f.j
-        public void c(c.a.c0.j.d.a aVar) {
+        @Override // c.a.d0.j.f.j
+        public void c(c.a.d0.j.d.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar) == null) {
-                NadRewardOperateView nadRewardOperateView = this.f37406b;
+                NadRewardOperateView nadRewardOperateView = this.f37638b;
                 if (nadRewardOperateView.mNadDownloadListener == null || !nadRewardOperateView.g(aVar, this.a)) {
                     return;
                 }
-                this.f37406b.mNadDownloadListener.a(this.a);
+                this.f37638b.mNadDownloadListener.a(this.a);
             }
         }
 
-        @Override // c.a.c0.j.f.j
-        public void d(c.a.c0.j.d.a aVar) {
+        @Override // c.a.d0.j.f.j
+        public void d(c.a.d0.j.d.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048579, this, aVar) == null) {
-                NadRewardOperateView nadRewardOperateView = this.f37406b;
+                NadRewardOperateView nadRewardOperateView = this.f37638b;
                 if (nadRewardOperateView.mNadDownloadListener == null || !nadRewardOperateView.g(aVar, this.a)) {
                     return;
                 }
-                this.f37406b.mNadDownloadListener.c(this.a);
+                this.f37638b.mNadDownloadListener.c(this.a);
             }
         }
 
-        @Override // c.a.c0.j.f.j
-        public void e(c.a.c0.j.d.a aVar) {
+        @Override // c.a.d0.j.f.j
+        public void e(c.a.d0.j.d.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048580, this, aVar) == null) {
-                NadRewardOperateView nadRewardOperateView = this.f37406b;
+                NadRewardOperateView nadRewardOperateView = this.f37638b;
                 if (nadRewardOperateView.mNadDownloadListener == null || !nadRewardOperateView.g(aVar, this.a)) {
                     return;
                 }
-                this.f37406b.mNadDownloadListener.a(this.a);
+                this.f37638b.mNadDownloadListener.a(this.a);
             }
         }
 
-        @Override // c.a.c0.j.f.j
-        public void f(c.a.c0.j.d.a aVar, float f2) {
+        @Override // c.a.d0.j.f.j
+        public void f(c.a.d0.j.d.a aVar, float f2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLF(1048581, this, aVar, f2) == null) {
-                NadRewardOperateView nadRewardOperateView = this.f37406b;
+                NadRewardOperateView nadRewardOperateView = this.f37638b;
                 if (nadRewardOperateView.mNadDownloadListener == null || !nadRewardOperateView.g(aVar, this.a)) {
                     return;
                 }
-                this.f37406b.mNadDownloadListener.g(this.a, f2);
+                this.f37638b.mNadDownloadListener.g(this.a, f2);
             }
         }
 
-        @Override // c.a.c0.j.f.j
-        public void g(c.a.c0.j.d.a aVar) {
+        @Override // c.a.d0.j.f.j
+        public void g(c.a.d0.j.d.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048582, this, aVar) == null) {
-                NadRewardOperateView nadRewardOperateView = this.f37406b;
+                NadRewardOperateView nadRewardOperateView = this.f37638b;
                 if (nadRewardOperateView.mNadDownloadListener == null || !nadRewardOperateView.g(aVar, this.a)) {
                     return;
                 }
-                this.f37406b.mNadDownloadListener.b(this.a);
+                this.f37638b.mNadDownloadListener.b(this.a);
             }
         }
 
-        @Override // c.a.c0.j.f.j
-        public void h(c.a.c0.j.d.a aVar) {
+        @Override // c.a.d0.j.f.j
+        public void h(c.a.d0.j.d.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048583, this, aVar) == null) {
-                NadRewardOperateView nadRewardOperateView = this.f37406b;
+                NadRewardOperateView nadRewardOperateView = this.f37638b;
                 if (nadRewardOperateView.mNadDownloadListener == null || !nadRewardOperateView.g(aVar, this.a)) {
                     return;
                 }
-                this.f37406b.mNadDownloadListener.f(this.a);
+                this.f37638b.mNadDownloadListener.f(this.a);
             }
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public class d implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ AdBaseModel f37407e;
+        public final /* synthetic */ AdBaseModel f37639e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ NadRewardOperateView f37408f;
+        public final /* synthetic */ NadRewardOperateView f37640f;
 
         public d(NadRewardOperateView nadRewardOperateView, AdBaseModel adBaseModel) {
             Interceptable interceptable = $ic;
@@ -282,19 +281,19 @@ public class NadRewardOperateView extends FrameLayout {
                     return;
                 }
             }
-            this.f37408f = nadRewardOperateView;
-            this.f37407e = adBaseModel;
+            this.f37640f = nadRewardOperateView;
+            this.f37639e = adBaseModel;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                c.a.c0.f.d.c(this.f37407e.f37046f.f37053d, this.f37408f.getContext());
-                c.a.c0.a0.a.b(new ClogBuilder().r(ClogBuilder.LogType.CLICK).m(this.f37407e.f37044d.f2233b));
-                c.a.c0.k0.x.b bVar = this.f37408f.mFeedListener;
+                c.a.d0.f.d.c(this.f37639e.f37260h.f37265d, this.f37640f.getContext());
+                c.a.d0.a0.a.b(new ClogBuilder().s(ClogBuilder.LogType.CLICK).n(this.f37639e.f37258f.f3093d));
+                c.a.d0.l0.x.b bVar = this.f37640f.mFeedListener;
                 if (bVar != null) {
-                    bVar.b(this.f37407e);
+                    bVar.b(this.f37639e);
                 }
             }
         }
@@ -342,15 +341,15 @@ public class NadRewardOperateView extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, adBaseModel, str) == null) {
             ClogBuilder clogBuilder = new ClogBuilder();
-            clogBuilder.s(ClogBuilder.LogType.FREE_CLICK.type);
-            clogBuilder.p(ClogBuilder.Page.REWARD_VIDEO);
+            clogBuilder.t(ClogBuilder.LogType.FREE_CLICK.type);
+            clogBuilder.q(ClogBuilder.Page.REWARD_VIDEO);
             if (!TextUtils.isEmpty(str)) {
-                clogBuilder.g(str);
+                clogBuilder.h(str);
             }
-            if (adBaseModel != null && !TextUtils.isEmpty(adBaseModel.f37044d.f2233b)) {
-                clogBuilder.m(adBaseModel.f37044d.f2233b);
+            if (adBaseModel != null && !TextUtils.isEmpty(adBaseModel.f37258f.f3093d)) {
+                clogBuilder.n(adBaseModel.f37258f.f3093d);
             }
-            c.a.c0.a0.a.b(clogBuilder);
+            c.a.d0.a0.a.b(clogBuilder);
         }
     }
 
@@ -359,162 +358,162 @@ public class NadRewardOperateView extends FrameLayout {
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view) == null) || view == null) {
             return;
         }
-        q.a(view.getContext(), view, 6.0f);
+        t.a(view.getContext(), view, 6.0f);
     }
 
     public final void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             LayoutInflater.from(getContext()).inflate(g.nad_reward_operate_view, (ViewGroup) this, true);
-            this.f37398e = (AdImageView) findViewById(e.nad_reward_ad_app_icon);
-            this.f37399f = (SimpleFeedAdInfoView) findViewById(e.reward_ad_operate_app_info_view);
-            this.f37401h = (TextView) findViewById(e.reward_ad_operate_command_app_name);
-            this.f37402i = (TextView) findViewById(e.reward_ad_operate_command_app_title);
+            this.f37630e = (AdImageView) findViewById(e.nad_reward_ad_app_icon);
+            this.f37631f = (SimpleFeedAdInfoView) findViewById(e.reward_ad_operate_app_info_view);
+            this.f37633h = (TextView) findViewById(e.reward_ad_operate_command_app_name);
+            this.f37634i = (TextView) findViewById(e.reward_ad_operate_command_app_title);
             RelativeLayout relativeLayout = (RelativeLayout) findViewById(e.reward_ad_operate_progress_button);
-            this.f37400g = relativeLayout;
+            this.f37632g = relativeLayout;
             e(relativeLayout);
             TextView textView = (TextView) findViewById(e.reward_ad_operate_command_button);
-            this.f37403j = textView;
+            this.f37635j = textView;
             e(textView);
         }
     }
 
-    public final boolean g(c.a.c0.j.d.a aVar, AdBaseModel adBaseModel) {
+    public final boolean g(c.a.d0.j.d.a aVar, AdBaseModel adBaseModel) {
         InterceptResult invokeLL;
-        c.a.c0.s.c cVar;
+        c.a.d0.s.c cVar;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, aVar, adBaseModel)) == null) ? (aVar == null || adBaseModel == null || (cVar = adBaseModel.f37049i) == null || !TextUtils.equals(aVar.f1955g, cVar.f2221b) || !TextUtils.equals(aVar.d(), cVar.f2222c)) ? false : true : invokeLL.booleanValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, aVar, adBaseModel)) == null) ? (aVar == null || adBaseModel == null || (cVar = adBaseModel.l) == null || !TextUtils.equals(aVar.f2802g, cVar.f3076c) || !TextUtils.equals(aVar.d(), cVar.f3077d)) ? false : true : invokeLL.booleanValue;
     }
 
     public final boolean h() {
         InterceptResult invokeV;
         AdBaseModel adBaseModel;
-        c.a.c0.s.c cVar;
+        c.a.d0.s.c cVar;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? (getTag() instanceof AdBaseModel) && (adBaseModel = (AdBaseModel) getTag()) != null && (cVar = adBaseModel.f37049i) != null && cVar.f2223d : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? (getTag() instanceof AdBaseModel) && (adBaseModel = (AdBaseModel) getTag()) != null && (cVar = adBaseModel.l) != null && cVar.f3078e : invokeV.booleanValue;
     }
 
     public final boolean i() {
         InterceptResult invokeV;
         AdBaseModel adBaseModel;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? (!(getTag() instanceof AdBaseModel) || (adBaseModel = (AdBaseModel) getTag()) == null || adBaseModel.f37046f == null) ? false : true : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? (!(getTag() instanceof AdBaseModel) || (adBaseModel = (AdBaseModel) getTag()) == null || adBaseModel.f37260h == null) ? false : true : invokeV.booleanValue;
     }
 
     public final void j(AdBaseModel adBaseModel) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048583, this, adBaseModel) == null) || this.f37398e == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048583, this, adBaseModel) == null) || this.f37630e == null) {
             return;
         }
-        p pVar = adBaseModel.f37047g;
-        if (pVar != null && !TextUtils.isEmpty(pVar.f2266b)) {
-            this.f37398e.displayImage(adBaseModel.f37047g.f2266b);
-        } else if (TextUtils.isEmpty(adBaseModel.f37044d.f2235d)) {
+        c.a.d0.s.t tVar = adBaseModel.f37261i;
+        if (tVar != null && !TextUtils.isEmpty(tVar.f3137b)) {
+            this.f37630e.displayImage(adBaseModel.f37261i.f3137b);
+        } else if (TextUtils.isEmpty(adBaseModel.f37258f.f3095f)) {
         } else {
-            this.f37398e.displayImage(adBaseModel.f37044d.f2235d);
+            this.f37630e.displayImage(adBaseModel.f37258f.f3095f);
         }
     }
 
     public final void k(AdBaseModel adBaseModel) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, adBaseModel) == null) || this.f37399f == null) {
+        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, adBaseModel) == null) || this.f37631f == null) {
             return;
         }
         if (!h()) {
-            this.f37399f.setVisibility(8);
+            this.f37631f.setVisibility(8);
             return;
         }
-        this.f37399f.setVisibility(0);
-        this.f37399f.update(adBaseModel);
-        this.f37399f.setAfterListener(new a(this, adBaseModel));
+        this.f37631f.setVisibility(0);
+        this.f37631f.update(adBaseModel);
+        this.f37631f.setAfterListener(new a(this, adBaseModel));
     }
 
     public final void l(AdBaseModel adBaseModel) {
         AdOperator.a aVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048585, this, adBaseModel) == null) || this.f37401h == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048585, this, adBaseModel) == null) || this.f37633h == null) {
             return;
         }
-        if (h() && adBaseModel.f37047g != null) {
-            this.f37401h.setVisibility(8);
+        if (h() && adBaseModel.f37261i != null) {
+            this.f37633h.setVisibility(8);
             return;
         }
-        this.f37401h.setTextColor(getContext().getResources().getColor(adBaseModel.f37042b ? c.a.c0.d.b.NAD_FC4 : c.a.c0.d.b.NAD_FC1));
+        this.f37633h.setTextColor(getContext().getResources().getColor(adBaseModel.f37254b ? c.a.d0.d.b.NAD_FC4 : c.a.d0.d.b.NAD_FC1));
         String str = null;
-        AdOperator adOperator = adBaseModel.f37046f;
-        if (adOperator != null && (aVar = adOperator.f37051b) != null) {
+        AdOperator adOperator = adBaseModel.f37260h;
+        if (adOperator != null && (aVar = adOperator.f37263b) != null) {
             str = aVar.a;
         }
         if (!TextUtils.isEmpty(str)) {
-            this.f37401h.setVisibility(0);
-            this.f37401h.setText(str);
+            this.f37633h.setVisibility(0);
+            this.f37633h.setText(str);
         } else {
-            this.f37401h.setVisibility(8);
+            this.f37633h.setVisibility(8);
         }
-        String str2 = adBaseModel.f37044d.f2236e;
+        String str2 = adBaseModel.f37258f.f3096g;
         if (!TextUtils.isEmpty(str2)) {
-            this.f37402i.setVisibility(0);
-            this.f37402i.setText(str2);
+            this.f37634i.setVisibility(0);
+            this.f37634i.setText(str2);
             return;
         }
-        this.f37402i.setVisibility(8);
+        this.f37634i.setVisibility(8);
     }
 
     public final void m(AdBaseModel adBaseModel) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048586, this, adBaseModel) == null) || this.f37403j == null || adBaseModel.f37046f == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048586, this, adBaseModel) == null) || this.f37635j == null || adBaseModel.f37260h == null) {
             return;
         }
         if (h()) {
-            this.f37403j.setVisibility(8);
+            this.f37635j.setVisibility(8);
             return;
         }
-        this.f37403j.setTextColor(getContext().getResources().getColor(c.a.c0.d.b.NAD_FC13));
-        if (this.f37403j.getBackground() instanceof GradientDrawable) {
-            ((GradientDrawable) this.f37403j.getBackground()).setColor(getContext().getResources().getColor(c.a.c0.d.b.NAD_GC52));
-            ((GradientDrawable) this.f37403j.getBackground()).setStroke(2, getContext().getResources().getColor(c.a.c0.d.b.NAD_GC53));
+        this.f37635j.setTextColor(getContext().getResources().getColor(c.a.d0.d.b.NAD_FC13));
+        if (this.f37635j.getBackground() instanceof GradientDrawable) {
+            ((GradientDrawable) this.f37635j.getBackground()).setColor(getContext().getResources().getColor(c.a.d0.d.b.NAD_GC52));
+            ((GradientDrawable) this.f37635j.getBackground()).setStroke(2, getContext().getResources().getColor(c.a.d0.d.b.NAD_GC53));
         } else {
-            this.f37403j.setBackground(getContext().getResources().getDrawable(c.a.c0.d.d.nad_progress_button_bg));
+            this.f37635j.setBackground(getContext().getResources().getDrawable(c.a.d0.d.d.nad_progress_button_bg));
         }
-        if (!TextUtils.isEmpty(adBaseModel.f37046f.f37052c)) {
-            this.f37403j.setText(adBaseModel.f37046f.f37052c);
+        if (!TextUtils.isEmpty(adBaseModel.f37260h.f37264c)) {
+            this.f37635j.setText(adBaseModel.f37260h.f37264c);
         }
-        if (!TextUtils.isEmpty(adBaseModel.f37046f.f37053d)) {
-            this.f37403j.setVisibility(0);
-            this.f37403j.setOnClickListener(new d(this, adBaseModel));
+        if (!TextUtils.isEmpty(adBaseModel.f37260h.f37265d)) {
+            this.f37635j.setVisibility(0);
+            this.f37635j.setOnClickListener(new d(this, adBaseModel));
             return;
         }
-        this.f37403j.setVisibility(8);
+        this.f37635j.setVisibility(8);
     }
 
     public final void n(AdBaseModel adBaseModel) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048587, this, adBaseModel) == null) || this.f37400g == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048587, this, adBaseModel) == null) || this.f37632g == null) {
             return;
         }
         if (!h()) {
-            this.f37400g.setVisibility(8);
+            this.f37632g.setVisibility(8);
             return;
         }
-        i<?> a2 = c.a.c0.j.j.c.a(this.f37400g, IDownloadViewCreator.ViewType.REWARD_DOWNLOAD_VIEW);
-        this.f37400g.setVisibility(0);
-        this.k = new c.a.c0.j.f.d(c.a.c0.j.d.a.b(adBaseModel), a2);
-        this.f37400g.setOnClickListener(new b(this));
-        c.a.c0.k0.x.a aVar = this.mNadDownloadListener;
+        i<?> a2 = c.a.d0.j.j.c.a(this.f37632g, IDownloadViewCreator.ViewType.REWARD_DOWNLOAD_VIEW);
+        this.f37632g.setVisibility(0);
+        this.k = new c.a.d0.j.f.d(c.a.d0.j.d.a.b(adBaseModel), a2);
+        this.f37632g.setOnClickListener(new b(this));
+        c.a.d0.l0.x.a aVar = this.mNadDownloadListener;
         if (aVar != null) {
             aVar.d(adBaseModel);
         }
         this.k.q(new c(this, adBaseModel));
     }
 
-    public void setFeedListener(c.a.c0.k0.x.b bVar) {
+    public void setFeedListener(c.a.d0.l0.x.b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048588, this, bVar) == null) {
             this.mFeedListener = bVar;
         }
     }
 
-    public void setViewDownloadListener(c.a.c0.k0.x.a aVar) {
+    public void setViewDownloadListener(c.a.d0.l0.x.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048589, this, aVar) == null) {
             this.mNadDownloadListener = aVar;

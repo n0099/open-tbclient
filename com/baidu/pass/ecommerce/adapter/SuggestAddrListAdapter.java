@@ -16,14 +16,14 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class SuggestAddrListAdapter extends CommonAdapter<JSONObject> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean isDarkMode;
     public String queryContent;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public class AddrListItemViewHolder extends ViewHolder<JSONObject> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

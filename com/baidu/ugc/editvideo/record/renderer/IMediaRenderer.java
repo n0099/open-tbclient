@@ -1,6 +1,6 @@
 package com.baidu.ugc.editvideo.record.renderer;
 
-import c.a.b0.b.a.e;
+import c.a.c0.b.a.e;
 import com.baidu.ugc.editvideo.faceunity.gles.FullFrameRect;
 import com.baidu.ugc.editvideo.record.IMediaLifeCycleIncludeGlThread;
 import com.baidu.ugc.editvideo.record.entity.GLViewPortLocation;

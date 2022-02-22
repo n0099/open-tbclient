@@ -20,22 +20,22 @@ public class c {
     public final c.b.a.b.a<c.b.a.a.d> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final c.b.a.b.a<c.b.a.a.d> f26913b;
+    public final c.b.a.b.a<c.b.a.a.d> f27119b;
 
     /* renamed from: c  reason: collision with root package name */
-    public j f26914c;
+    public j f27120c;
 
     /* renamed from: d  reason: collision with root package name */
-    public EntityManager f26915d;
+    public EntityManager f27121d;
 
     /* renamed from: e  reason: collision with root package name */
-    public ComponentOperationHandler f26916e;
+    public ComponentOperationHandler f27122e;
 
     /* renamed from: f  reason: collision with root package name */
-    public h f26917f;
+    public h f27123f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f26918g;
+    public boolean f27124g;
 
     /* loaded from: classes9.dex */
     public static /* synthetic */ class a {
@@ -73,7 +73,7 @@ public class c {
         public void a(c.b.a.b.b<c.b.a.a.d> bVar, c.b.a.a.d dVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar, dVar) == null) {
-                this.a.f26917f.f(dVar);
+                this.a.f27123f.f(dVar);
             }
         }
 
@@ -84,12 +84,12 @@ public class c {
 
     /* renamed from: c.b.a.a.c$c  reason: collision with other inner class name */
     /* loaded from: classes9.dex */
-    public class C1611c implements ComponentOperationHandler.b {
+    public class C1621c implements ComponentOperationHandler.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ c a;
 
-        public C1611c(c cVar) {
+        public C1621c(c cVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -111,10 +111,10 @@ public class c {
         public boolean value() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a.f26918g : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a.f27124g : invokeV.booleanValue;
         }
 
-        public /* synthetic */ C1611c(c cVar, a aVar) {
+        public /* synthetic */ C1621c(c cVar, a aVar) {
             this(cVar);
         }
     }
@@ -125,7 +125,7 @@ public class c {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c f26919e;
+        public final /* synthetic */ c f27125e;
 
         public d(c cVar) {
             Interceptable interceptable = $ic;
@@ -142,14 +142,14 @@ public class c {
                     return;
                 }
             }
-            this.f26919e = cVar;
+            this.f27125e = cVar;
         }
 
         @Override // c.b.a.a.e
         public void a(c.b.a.a.d dVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, dVar) == null) {
-                this.f26919e.n(dVar);
+                this.f27125e.n(dVar);
             }
         }
 
@@ -157,7 +157,7 @@ public class c {
         public void b(c.b.a.a.d dVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dVar) == null) {
-                this.f26919e.d(dVar);
+                this.f27125e.d(dVar);
             }
         }
 
@@ -241,17 +241,17 @@ public class c {
             }
         }
         this.a = new b(this, null);
-        this.f26913b = new b(this, null);
-        this.f26914c = new j(new e(this, null));
-        this.f26915d = new EntityManager(new d(this, null));
-        this.f26916e = new ComponentOperationHandler(new C1611c(this, null));
-        this.f26917f = new h(this.f26915d.c());
+        this.f27119b = new b(this, null);
+        this.f27120c = new j(new e(this, null));
+        this.f27121d = new EntityManager(new d(this, null));
+        this.f27122e = new ComponentOperationHandler(new C1621c(this, null));
+        this.f27123f = new h(this.f27121d.c());
     }
 
     public void c(c.b.a.a.d dVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, dVar) == null) {
-            this.f26915d.a(dVar, this.f26918g || this.f26917f.c());
+            this.f27121d.a(dVar, this.f27124g || this.f27123f.c());
         }
     }
 
@@ -259,16 +259,16 @@ public class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dVar) == null) {
             dVar.a.a(this.a);
-            dVar.f26920b.a(this.f26913b);
-            dVar.f26923e = this.f26916e;
-            this.f26917f.f(dVar);
+            dVar.f27126b.a(this.f27119b);
+            dVar.f27129e = this.f27122e;
+            this.f27123f.f(dVar);
         }
     }
 
     public void e(g gVar, int i2, c.b.a.a.e eVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLIL(Constants.METHOD_SEND_USER_MSG, this, gVar, i2, eVar) == null) {
-            this.f26917f.a(gVar, i2, eVar);
+            this.f27123f.a(gVar, i2, eVar);
         }
     }
 
@@ -282,7 +282,7 @@ public class c {
     public void g(f fVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, fVar) == null) {
-            this.f26914c.a(fVar);
+            this.f27120c.a(fVar);
         }
     }
 
@@ -308,68 +308,68 @@ public class c {
     public c.b.a.c.b<c.b.a.a.d> j(g gVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, gVar)) == null) ? this.f26917f.b(gVar) : (c.b.a.c.b) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, gVar)) == null) ? this.f27123f.b(gVar) : (c.b.a.c.b) invokeL.objValue;
     }
 
     public <T extends f> T k(Class<T> cls) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, cls)) == null) ? (T) this.f26914c.b(cls) : (T) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, cls)) == null) ? (T) this.f27120c.b(cls) : (T) invokeL.objValue;
     }
 
     public c.b.a.c.b<f> l() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f26914c.c() : (c.b.a.c.b) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f27120c.c() : (c.b.a.c.b) invokeV.objValue;
     }
 
     public void m(c.b.a.a.d dVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, dVar) == null) {
-            this.f26915d.e(dVar, this.f26918g || this.f26917f.c());
+            this.f27121d.e(dVar, this.f27124g || this.f27123f.c());
         }
     }
 
     public void n(c.b.a.a.d dVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048587, this, dVar) == null) {
-            this.f26917f.f(dVar);
+            this.f27123f.f(dVar);
             dVar.a.c(this.a);
-            dVar.f26920b.c(this.f26913b);
-            dVar.f26923e = null;
+            dVar.f27126b.c(this.f27119b);
+            dVar.f27129e = null;
         }
     }
 
     public void o(c.b.a.a.e eVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048588, this, eVar) == null) {
-            this.f26917f.e(eVar);
+            this.f27123f.e(eVar);
         }
     }
 
     public void p(f fVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048589, this, fVar) == null) {
-            this.f26914c.d(fVar);
+            this.f27120c.d(fVar);
         }
     }
 
     public void update(float f2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeF(1048590, this, f2) == null) {
-            if (!this.f26918g) {
-                this.f26918g = true;
-                c.b.a.c.b<f> c2 = this.f26914c.c();
+            if (!this.f27124g) {
+                this.f27124g = true;
+                c.b.a.c.b<f> c2 = this.f27120c.c();
                 for (int i2 = 0; i2 < c2.size(); i2++) {
                     try {
                         f fVar = c2.get(i2);
                         if (fVar.e()) {
                             fVar.update(f2);
                         }
-                        this.f26916e.b();
-                        this.f26915d.d();
+                        this.f27122e.b();
+                        this.f27121d.d();
                     } finally {
-                        this.f26918g = false;
+                        this.f27124g = false;
                     }
                 }
                 return;

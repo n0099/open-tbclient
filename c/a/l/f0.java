@@ -38,7 +38,7 @@ public class f0 extends h {
             }
         }
         int f2 = c.a.d.f.p.n.f(context, R.dimen.M_H_X003);
-        int f3 = c.a.d.f.p.n.f(context, c.a.s0.b.g.b.e(R.dimen.tbds21, R.dimen.tbds0));
+        int f3 = c.a.d.f.p.n.f(context, c.a.t0.b.g.b.e(R.dimen.tbds21, R.dimen.tbds0));
         q(f2);
         p(f3);
         if ((TbadkCoreApplication.getInst().getPersonalizeViewData().t instanceof RecommendInfoLayout) && TbadkCoreApplication.getInst().getPersonalizeViewData().t.getParent() == null) {
@@ -66,14 +66,14 @@ public class f0 extends h {
     public void r() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            if (c.a.s0.b.d.A0()) {
-                int f2 = c.a.d.f.p.n.f(this.f4286f, R.dimen.M_H_X003);
-                int f3 = c.a.d.f.p.n.f(this.f4286f, c.a.s0.b.g.b.e(R.dimen.tbds21, R.dimen.tbds0));
+            if (c.a.t0.b.d.L0()) {
+                int f2 = c.a.d.f.p.n.f(this.f4353f, R.dimen.M_H_X003);
+                int f3 = c.a.d.f.p.n.f(this.f4353f, c.a.t0.b.g.b.e(R.dimen.tbds21, R.dimen.tbds0));
                 q(f2);
                 p(f3);
                 return;
             }
-            int f4 = c.a.d.f.p.n.f(this.f4286f, R.dimen.tbds10);
+            int f4 = c.a.d.f.p.n.f(this.f4353f, R.dimen.tbds10);
             q(f4);
             p(0);
             t(this.l, f4, 0);
@@ -83,7 +83,7 @@ public class f0 extends h {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // c.a.l.p
     /* renamed from: s */
-    public void onBindDataToView(c.a.s0.s.q.a aVar) {
+    public void onBindDataToView(c.a.t0.s.r.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, aVar) == null) {
             this.l.setData(aVar);

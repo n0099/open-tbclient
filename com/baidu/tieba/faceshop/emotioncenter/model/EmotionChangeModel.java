@@ -1,7 +1,7 @@
 package com.baidu.tieba.faceshop.emotioncenter.model;
 
 import c.a.d.a.f;
-import c.a.t0.z0.x.d.b;
+import c.a.u0.z0.x.d.b;
 import com.baidu.adp.base.BdBaseModel;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.HttpMessageListener;
@@ -25,7 +25,7 @@ public class EmotionChangeModel extends BdBaseModel {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final HttpMessageListener f42925e;
+    public final HttpMessageListener f43158e;
 
     /* loaded from: classes12.dex */
     public class a extends HttpMessageListener {
@@ -89,11 +89,11 @@ public class EmotionChangeModel extends BdBaseModel {
                 return;
             }
         }
-        this.f42925e = new a(this, CmdConfigHttp.CMD_GET_EMOTION_EMOTION_CHANGE);
+        this.f43158e = new a(this, CmdConfigHttp.CMD_GET_EMOTION_EMOTION_CHANGE);
         registerTask();
-        this.f42925e.setTag(getUniqueId());
-        this.f42925e.setSelfListener(true);
-        registerListener(this.f42925e);
+        this.f43158e.setTag(getUniqueId());
+        this.f43158e.setSelfListener(true);
+        registerListener(this.f43158e);
     }
 
     @Override // com.baidu.adp.base.BdBaseModel

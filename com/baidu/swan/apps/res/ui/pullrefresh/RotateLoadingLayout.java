@@ -14,11 +14,11 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
-import c.a.r0.a.e;
-import c.a.r0.a.f;
-import c.a.r0.a.g;
-import c.a.r0.a.h;
-import c.a.r0.a.z2.d;
+import c.a.s0.a.e;
+import c.a.s0.a.f;
+import c.a.s0.a.g;
+import c.a.s0.a.h;
+import c.a.s0.a.z2.d;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.livesdk.sdk.service.IMLikeRequest;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -35,10 +35,10 @@ public class RotateLoadingLayout extends LoadingLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: i  reason: collision with root package name */
-    public RelativeLayout f39247i;
+    public RelativeLayout f39475i;
 
     /* renamed from: j  reason: collision with root package name */
-    public ImageView f39248j;
+    public ImageView f39476j;
     public TextView k;
     public TextView l;
     public TextView m;
@@ -84,13 +84,13 @@ public class RotateLoadingLayout extends LoadingLayout {
     public final void a(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            this.f39247i = (RelativeLayout) findViewById(f.pull_to_refresh_header_content);
-            this.f39248j = (ImageView) findViewById(f.pull_to_refresh_header_arrow);
+            this.f39475i = (RelativeLayout) findViewById(f.pull_to_refresh_header_content);
+            this.f39476j = (ImageView) findViewById(f.pull_to_refresh_header_arrow);
             this.k = (TextView) findViewById(f.pull_to_refresh_header_hint_textview);
             this.l = (TextView) findViewById(f.pull_to_refresh_header_time);
             this.m = (TextView) findViewById(f.pull_to_refresh_last_update_time_text);
-            this.f39248j.setScaleType(ImageView.ScaleType.CENTER);
-            this.f39248j.setImageResource(e.aiapps_default_ptr_rotate);
+            this.f39476j.setScaleType(ImageView.ScaleType.CENTER);
+            this.f39476j.setImageResource(e.aiapps_default_ptr_rotate);
             RotateAnimation rotateAnimation = new RotateAnimation(0.0f, 720.0f, 1, 0.5f, 1, 0.5f);
             this.n = rotateAnimation;
             rotateAnimation.setFillAfter(true);
@@ -104,9 +104,9 @@ public class RotateLoadingLayout extends LoadingLayout {
     public final void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f39248j.clearAnimation();
+            this.f39476j.clearAnimation();
             if (d.c()) {
-                this.f39248j.setRotation(0.0f);
+                this.f39476j.setRotation(0.0f);
             }
         }
     }
@@ -123,11 +123,11 @@ public class RotateLoadingLayout extends LoadingLayout {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            RelativeLayout relativeLayout = this.f39247i;
+            RelativeLayout relativeLayout = this.f39475i;
             if (relativeLayout != null) {
                 return relativeLayout.getHeight();
             }
-            return (int) getResources().getDimension(c.a.r0.a.d.aiapps_picture_pull_to_refresh_height_height);
+            return (int) getResources().getDimension(c.a.s0.a.d.aiapps_picture_pull_to_refresh_height_height);
         }
         return invokeV.intValue;
     }
@@ -136,7 +136,7 @@ public class RotateLoadingLayout extends LoadingLayout {
     public void onPull(float f2) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeF(1048580, this, f2) == null) && d.c()) {
-            this.f39248j.setRotation(f2 * 180.0f);
+            this.f39476j.setRotation(f2 * 180.0f);
         }
     }
 
@@ -153,7 +153,7 @@ public class RotateLoadingLayout extends LoadingLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             b();
-            this.f39248j.startAnimation(this.n);
+            this.f39476j.startAnimation(this.n);
             this.k.setText(h.aiapps_pull_to_refresh_header_hint_loading);
         }
     }

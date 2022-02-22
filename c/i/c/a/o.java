@@ -15,13 +15,13 @@ public final class o implements Runnable {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final /* synthetic */ Context f30030e;
+    public final /* synthetic */ Context f30236e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final /* synthetic */ ArCoreApk.a f30031f;
+    public final /* synthetic */ ArCoreApk.a f30237f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final /* synthetic */ l f30032g;
+    public final /* synthetic */ l f30238g;
 
     public o(l lVar, Context context, ArCoreApk.a aVar) {
         Interceptable interceptable = $ic;
@@ -38,9 +38,9 @@ public final class o implements Runnable {
                 return;
             }
         }
-        this.f30032g = lVar;
-        this.f30030e = context;
-        this.f30031f = aVar;
+        this.f30238g = lVar;
+        this.f30236e = context;
+        this.f30237f = aVar;
     }
 
     @Override // java.lang.Runnable
@@ -50,13 +50,13 @@ public final class o implements Runnable {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             try {
-                aVar = this.f30032g.f30023d;
-                String str = this.f30030e.getApplicationInfo().packageName;
-                l lVar = this.f30032g;
+                aVar = this.f30238g.f30229d;
+                String str = this.f30236e.getApplicationInfo().packageName;
+                l lVar = this.f30238g;
                 l = l.l();
                 aVar.a(str, l, new u(this));
             } catch (RemoteException unused) {
-                this.f30031f.a(ArCoreApk.Availability.UNKNOWN_ERROR);
+                this.f30237f.a(ArCoreApk.Availability.UNKNOWN_ERROR);
             }
         }
     }

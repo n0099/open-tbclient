@@ -33,7 +33,7 @@ public class f {
     public Context a;
 
     /* renamed from: b  reason: collision with root package name */
-    public c f4394b;
+    public c f4461b;
 
     /* loaded from: classes.dex */
     public static class a {
@@ -75,7 +75,7 @@ public class f {
             }
         }
         this.a = context;
-        this.f4394b = cVar;
+        this.f4461b = cVar;
     }
 
     public static void d(String str, String str2) {
@@ -144,17 +144,17 @@ public class f {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
-            List<b> h2 = this.f4394b.h(context);
+            List<b> h2 = this.f4461b.h(context);
             e eVar = null;
             if (h2 != null) {
-                String str = com.baidu.fsg.face.base.b.c.f34029g;
+                String str = com.baidu.fsg.face.base.b.c.f34235g;
                 File filesDir = context.getFilesDir();
-                if (!com.baidu.fsg.face.base.b.c.f34029g.equals(filesDir.getName())) {
+                if (!com.baidu.fsg.face.base.b.c.f34235g.equals(filesDir.getName())) {
                     String str2 = "fetal error:: app files dir name is unexpectedly :: " + filesDir.getAbsolutePath();
                     str = filesDir.getName();
                 }
                 for (b bVar : h2) {
-                    if (!bVar.f4389d) {
+                    if (!bVar.f4456d) {
                         File file = new File(new File(bVar.a.dataDir, str), "libcuid.so");
                         if (file.exists() && (eVar = e.a(c.a.m.m.c.a(file))) != null) {
                             break;
@@ -235,7 +235,7 @@ public class f {
                 if (e2 || !new File(Environment.getExternalStorageDirectory(), "backups/.SystemConfig/.cuid").exists() || (k = k(i(""))) == null || !k.c()) {
                     return;
                 }
-                d(k.f4391b, k.a);
+                d(k.f4458b, k.a);
                 return;
             }
             n(j3);
@@ -279,7 +279,7 @@ public class f {
             if (b2 == null) {
                 b2 = e.a(l("com.baidu.deviceid.v2"));
             }
-            boolean e2 = e(s.f55293i);
+            boolean e2 = e(s.f55460i);
             if (b2 == null && e2) {
                 b2 = f();
             }

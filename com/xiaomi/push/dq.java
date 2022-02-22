@@ -48,8 +48,8 @@ public abstract class dq extends ai.a {
     public static void a(Context context, hn hnVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65537, null, context, hnVar) == null) {
-            di m310a = dj.a().m310a();
-            String a = m310a == null ? "" : m310a.a();
+            di m309a = dj.a().m309a();
+            String a = m309a == null ? "" : m309a.a();
             if (TextUtils.isEmpty(a) || TextUtils.isEmpty(hnVar.a())) {
                 return;
             }
@@ -71,7 +71,7 @@ public abstract class dq extends ai.a {
             try {
                 try {
                     File file = new File(context.getExternalFilesDir(null), "push_cdata.lock");
-                    y.m707a(file);
+                    y.m706a(file);
                     randomAccessFile = new RandomAccessFile(file, "rw");
                     try {
                         lock = randomAccessFile.getChannel().lock();
@@ -157,7 +157,7 @@ public abstract class dq extends ai.a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, this)) == null) {
-            return "dc_job_result_time_" + mo248a();
+            return "dc_job_result_time_" + mo247a();
         }
         return (String) invokeV.objValue;
     }
@@ -166,27 +166,27 @@ public abstract class dq extends ai.a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this)) == null) {
-            return "dc_job_result_" + mo248a();
+            return "dc_job_result_" + mo247a();
         }
         return (String) invokeV.objValue;
     }
 
     @Override // com.xiaomi.push.ai.a
     /* renamed from: a */
-    public abstract hh mo248a();
+    public abstract hh mo247a();
 
     @Override // com.xiaomi.push.ai.a
     /* renamed from: a */
-    public boolean mo248a() {
+    public boolean mo247a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? dl.a(this.f246a, String.valueOf(mo248a()), this.a) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? dl.a(this.f246a, String.valueOf(mo247a()), this.a) : invokeV.booleanValue;
     }
 
     public abstract String b();
 
     /* renamed from: b  reason: collision with other method in class */
-    public boolean m312b() {
+    public boolean m311b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
@@ -196,7 +196,7 @@ public abstract class dq extends ai.a {
     }
 
     /* renamed from: c  reason: collision with other method in class */
-    public boolean m313c() {
+    public boolean m312c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
@@ -213,14 +213,14 @@ public abstract class dq extends ai.a {
             if (TextUtils.isEmpty(b2)) {
                 return;
             }
-            if (mo248a()) {
-                com.xiaomi.channel.commonutils.logger.b.m134a("DC run job mutual: " + mo248a());
+            if (mo247a()) {
+                com.xiaomi.channel.commonutils.logger.b.m133a("DC run job mutual: " + mo247a());
                 return;
             }
-            di m310a = dj.a().m310a();
-            String a = m310a == null ? "" : m310a.a();
-            if (!TextUtils.isEmpty(a) && m312b()) {
-                if (m313c()) {
+            di m309a = dj.a().m309a();
+            String a = m309a == null ? "" : m309a.a();
+            if (!TextUtils.isEmpty(a) && m311b()) {
+                if (m312c()) {
                     SharedPreferences sharedPreferences = this.f246a.getSharedPreferences("mipush_extra", 0);
                     if (bm.a(b2).equals(sharedPreferences.getString(d(), null))) {
                         long j2 = sharedPreferences.getLong(c(), 0L);
@@ -236,7 +236,7 @@ public abstract class dq extends ai.a {
                 hn hnVar = new hn();
                 hnVar.a(b2);
                 hnVar.a(System.currentTimeMillis());
-                hnVar.a(mo248a());
+                hnVar.a(mo247a());
                 a(this.f246a, hnVar, a);
             }
         }

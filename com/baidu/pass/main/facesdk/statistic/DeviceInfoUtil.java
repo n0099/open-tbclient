@@ -22,7 +22,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class DeviceInfoUtil {
     public static /* synthetic */ Interceptable $ic = null;
     public static final FileFilter CPU_FILTER;

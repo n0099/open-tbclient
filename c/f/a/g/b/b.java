@@ -21,7 +21,7 @@ public class b extends AbstractHttpMessageConverter<Object> {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final Charset f28130b;
+    public static final Charset f28336b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -37,7 +37,7 @@ public class b extends AbstractHttpMessageConverter<Object> {
                 return;
             }
         }
-        f28130b = Charset.forName("UTF-8");
+        f28336b = Charset.forName("UTF-8");
     }
 
     public b() {
@@ -73,7 +73,7 @@ public class b extends AbstractHttpMessageConverter<Object> {
             if (aVar != null && !TextUtils.isEmpty(aVar.j())) {
                 return Charset.forName(aVar.j());
             }
-            return f28130b;
+            return f28336b;
         }
         return (Charset) invokeL.objValue;
     }

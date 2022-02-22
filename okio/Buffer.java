@@ -32,7 +32,7 @@ import javax.crypto.Mac;
 import javax.crypto.spec.SecretKeySpec;
 import kotlin.jvm.internal.ByteCompanionObject;
 import kotlin.text.Typography;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public final class Buffer implements BufferedSource, BufferedSink, Cloneable, ByteChannel {
     public static /* synthetic */ Interceptable $ic = null;
     public static final byte[] DIGITS;
@@ -42,7 +42,7 @@ public final class Buffer implements BufferedSource, BufferedSink, Cloneable, By
     public Segment head;
     public long size;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static final class UnsafeCursor implements Closeable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

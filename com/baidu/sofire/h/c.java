@@ -22,22 +22,22 @@ public final class c implements SharedPreferences {
     public SharedPreferences a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Context f38489b;
+    public Context f38717b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f38490c;
+    public int f38718c;
 
     /* renamed from: d  reason: collision with root package name */
-    public SharedPreferences.Editor f38491d;
+    public SharedPreferences.Editor f38719d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f38492e;
+    public boolean f38720e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f38493f;
+    public String f38721f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f38494g;
+    public String f38722g;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public c(Context context, SharedPreferences sharedPreferences, String str, int i2) {
@@ -67,16 +67,16 @@ public final class c implements SharedPreferences {
             try {
                 Bundle bundle = new Bundle();
                 bundle.putString(AppDownloadNetworkStateReceiver.KEY_OPERATION, str);
-                bundle.putString("pref_name", this.f38493f);
+                bundle.putString("pref_name", this.f38721f);
                 bundle.putString("key", str2);
                 bundle.putString("defult_value", str3);
-                if (this.f38492e) {
-                    if (TextUtils.isEmpty(this.f38494g)) {
-                        return w.a(this.f38489b, "CallPreferences", bundle);
+                if (this.f38720e) {
+                    if (TextUtils.isEmpty(this.f38722g)) {
+                        return w.a(this.f38717b, "CallPreferences", bundle);
                     }
-                    return w.b(this.f38489b, "CallPreferences", bundle, this.f38494g);
+                    return w.b(this.f38717b, "CallPreferences", bundle, this.f38722g);
                 }
-                return w.a(this.f38489b, "CallPreferences", bundle);
+                return w.a(this.f38717b, "CallPreferences", bundle);
             } catch (Throwable unused) {
                 com.baidu.sofire.utility.c.a();
                 return null;
@@ -100,7 +100,7 @@ public final class c implements SharedPreferences {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            SharedPreferences.Editor editor = this.f38491d;
+            SharedPreferences.Editor editor = this.f38719d;
             if (editor != null) {
                 return editor;
             }
@@ -132,7 +132,7 @@ public final class c implements SharedPreferences {
             } catch (Throwable unused) {
                 com.baidu.sofire.utility.c.a();
             }
-            if (this.f38490c == 1 && (!this.f38492e || TextUtils.isEmpty(this.f38494g))) {
+            if (this.f38718c == 1 && (!this.f38720e || TextUtils.isEmpty(this.f38722g))) {
                 return this.a == null ? z : this.a.getBoolean(str, z);
             }
             Bundle a = a("getBoolean", str, String.valueOf(z));
@@ -153,7 +153,7 @@ public final class c implements SharedPreferences {
             } catch (Throwable unused) {
                 com.baidu.sofire.utility.c.a();
             }
-            if (this.f38490c == 1 && (!this.f38492e || TextUtils.isEmpty(this.f38494g))) {
+            if (this.f38718c == 1 && (!this.f38720e || TextUtils.isEmpty(this.f38722g))) {
                 return this.a == null ? f2 : this.a.getFloat(str, f2);
             }
             Bundle a = a("getFloat", str, String.valueOf(f2));
@@ -174,7 +174,7 @@ public final class c implements SharedPreferences {
             } catch (Throwable unused) {
                 com.baidu.sofire.utility.c.a();
             }
-            if (this.f38490c == 1 && (!this.f38492e || TextUtils.isEmpty(this.f38494g))) {
+            if (this.f38718c == 1 && (!this.f38720e || TextUtils.isEmpty(this.f38722g))) {
                 return this.a == null ? i2 : this.a.getInt(str, i2);
             }
             Bundle a = a("getInt", str, String.valueOf(i2));
@@ -195,7 +195,7 @@ public final class c implements SharedPreferences {
             } catch (Throwable unused) {
                 com.baidu.sofire.utility.c.a();
             }
-            if (this.f38490c == 1 && (!this.f38492e || TextUtils.isEmpty(this.f38494g))) {
+            if (this.f38718c == 1 && (!this.f38720e || TextUtils.isEmpty(this.f38722g))) {
                 return this.a == null ? j2 : this.a.getLong(str, j2);
             }
             Bundle a = a("getLong", str, String.valueOf(j2));
@@ -216,7 +216,7 @@ public final class c implements SharedPreferences {
             } catch (Throwable unused) {
                 com.baidu.sofire.utility.c.a();
             }
-            if (this.f38490c == 1 && (!this.f38492e || TextUtils.isEmpty(this.f38494g))) {
+            if (this.f38718c == 1 && (!this.f38720e || TextUtils.isEmpty(this.f38722g))) {
                 return this.a == null ? str2 : this.a.getString(str, str2);
             }
             Bundle a = a("getString", str, str2);
@@ -281,12 +281,12 @@ public final class c implements SharedPreferences {
                 return;
             }
         }
-        this.f38489b = context;
-        this.f38490c = i2;
+        this.f38717b = context;
+        this.f38718c = i2;
         this.a = sharedPreferences;
-        this.f38491d = new b(context, sharedPreferences != null ? sharedPreferences.edit() : null, str, z, this.f38490c);
-        this.f38492e = z;
-        this.f38493f = str;
-        this.f38494g = str2;
+        this.f38719d = new b(context, sharedPreferences != null ? sharedPreferences.edit() : null, str, z, this.f38718c);
+        this.f38720e = z;
+        this.f38721f = str;
+        this.f38722g = str2;
     }
 }

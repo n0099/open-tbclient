@@ -14,7 +14,7 @@ public abstract class c implements Runnable {
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public short f31966b;
+    public short f32172b;
 
     public c() {
         Interceptable interceptable = $ic;
@@ -29,7 +29,7 @@ public abstract class c implements Runnable {
                 return;
             }
         }
-        this.f31966b = (short) 99;
+        this.f32172b = (short) 99;
     }
 
     public c(String str, short s) {
@@ -47,9 +47,9 @@ public abstract class c implements Runnable {
                 return;
             }
         }
-        this.f31966b = (short) 99;
+        this.f32172b = (short) 99;
         this.a = str;
-        this.f31966b = s;
+        this.f32172b = s;
     }
 
     public abstract void a();
@@ -57,7 +57,7 @@ public abstract class c implements Runnable {
     public void a(short s) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Short.valueOf(s)}) == null) {
-            this.f31966b = s;
+            this.f32172b = s;
         }
     }
 
@@ -71,7 +71,7 @@ public abstract class c implements Runnable {
     public short d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f31966b : invokeV.shortValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f32172b : invokeV.shortValue;
     }
 
     @Override // java.lang.Runnable

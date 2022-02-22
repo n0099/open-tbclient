@@ -24,29 +24,29 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.reflect.Method;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class VideoPasterOverlayView extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
     public static final int w;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public TextView f31537e;
+    public TextView f31743e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f31538f;
+    public TextView f31744f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f31539g;
+    public TextView f31745g;
 
     /* renamed from: h  reason: collision with root package name */
-    public View f31540h;
+    public View f31746h;
 
     /* renamed from: i  reason: collision with root package name */
-    public View f31541i;
+    public View f31747i;
 
     /* renamed from: j  reason: collision with root package name */
-    public ImageView f31542j;
+    public ImageView f31748j;
     public boolean k;
     public boolean l;
     public b m;
@@ -60,13 +60,13 @@ public class VideoPasterOverlayView extends FrameLayout {
     public c.a.e.m.e.a u;
     public View.OnClickListener v;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ VideoPasterOverlayView f31543e;
+        public final /* synthetic */ VideoPasterOverlayView f31749e;
 
         public a(VideoPasterOverlayView videoPasterOverlayView) {
             Interceptable interceptable = $ic;
@@ -83,7 +83,7 @@ public class VideoPasterOverlayView extends FrameLayout {
                     return;
                 }
             }
-            this.f31543e = videoPasterOverlayView;
+            this.f31749e = videoPasterOverlayView;
         }
 
         @Override // android.view.View.OnClickListener
@@ -91,32 +91,32 @@ public class VideoPasterOverlayView extends FrameLayout {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
                 if (view.getId() == R.id.video_paster_overlay_time_and_close) {
-                    if (this.f31543e.m != null) {
-                        this.f31543e.m.d();
+                    if (this.f31749e.m != null) {
+                        this.f31749e.m.d();
                     }
                 } else if (view.getId() == R.id.video_paster_overlay_title) {
-                    if (this.f31543e.m != null) {
-                        this.f31543e.m.c();
+                    if (this.f31749e.m != null) {
+                        this.f31749e.m.c();
                     }
                 } else if (view.getId() == R.id.video_paster_overlay_detail) {
-                    if (this.f31543e.m != null) {
-                        this.f31543e.m.e();
-                        this.f31543e.t = true;
+                    if (this.f31749e.m != null) {
+                        this.f31749e.m.e();
+                        this.f31749e.t = true;
                     }
                 } else if (view.getId() == R.id.video_paster_mask_wrapper) {
-                    if (this.f31543e.m != null) {
-                        this.f31543e.m.a();
-                        this.f31543e.t = true;
+                    if (this.f31749e.m != null) {
+                        this.f31749e.m.a();
+                        this.f31749e.t = true;
                     }
-                } else if (view.getId() != R.id.video_paster_mask_back || this.f31543e.m == null) {
+                } else if (view.getId() != R.id.video_paster_mask_back || this.f31749e.m == null) {
                 } else {
-                    this.f31543e.m.b();
+                    this.f31749e.m.b();
                 }
             }
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public interface b {
         void a();
 
@@ -172,17 +172,17 @@ public class VideoPasterOverlayView extends FrameLayout {
         this.n = context;
         this.o = e(context);
         View inflate = LayoutInflater.from(context).inflate(R.layout.video_paster_overlay_layout, (ViewGroup) null);
-        this.f31541i = inflate;
-        this.f31540h = inflate.findViewById(R.id.video_paster_mask_wrapper);
-        this.f31537e = (TextView) this.f31541i.findViewById(R.id.video_paster_overlay_title);
-        this.f31538f = (TextView) this.f31541i.findViewById(R.id.video_paster_overlay_time_and_close);
-        this.f31539g = (TextView) this.f31541i.findViewById(R.id.video_paster_overlay_detail);
-        this.f31542j = (ImageView) this.f31541i.findViewById(R.id.video_paster_mask_back);
-        this.f31539g.setOnClickListener(this.v);
-        this.f31538f.setOnClickListener(this.v);
-        this.f31540h.setOnClickListener(this.v);
-        this.f31542j.setOnClickListener(this.v);
-        this.f31537e.setOnClickListener(this.v);
+        this.f31747i = inflate;
+        this.f31746h = inflate.findViewById(R.id.video_paster_mask_wrapper);
+        this.f31743e = (TextView) this.f31747i.findViewById(R.id.video_paster_overlay_title);
+        this.f31744f = (TextView) this.f31747i.findViewById(R.id.video_paster_overlay_time_and_close);
+        this.f31745g = (TextView) this.f31747i.findViewById(R.id.video_paster_overlay_detail);
+        this.f31748j = (ImageView) this.f31747i.findViewById(R.id.video_paster_mask_back);
+        this.f31745g.setOnClickListener(this.v);
+        this.f31744f.setOnClickListener(this.v);
+        this.f31746h.setOnClickListener(this.v);
+        this.f31748j.setOnClickListener(this.v);
+        this.f31743e.setOnClickListener(this.v);
     }
 
     private String getNavBarOverride() {
@@ -203,10 +203,10 @@ public class VideoPasterOverlayView extends FrameLayout {
     public final void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f31542j.setVisibility(0);
-            this.f31538f.setPadding(w, 0, 0, 0);
-            this.f31539g.setPadding(0, 0, w, 0);
-            this.f31541i.setPadding(0, 0, 0, 0);
+            this.f31748j.setVisibility(0);
+            this.f31744f.setPadding(w, 0, 0, 0);
+            this.f31745g.setPadding(0, 0, w, 0);
+            this.f31747i.setPadding(0, 0, 0, 0);
             h();
         }
     }
@@ -214,14 +214,14 @@ public class VideoPasterOverlayView extends FrameLayout {
     public final void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f31542j.setVisibility(8);
-            this.f31538f.setPadding(0, 0, 0, 0);
-            this.f31539g.setPadding(0, 0, 0, 0);
+            this.f31748j.setVisibility(8);
+            this.f31744f.setPadding(0, 0, 0, 0);
+            this.f31745g.setPadding(0, 0, 0, 0);
             boolean f2 = f(this.n);
             if (this.k && this.l && f2) {
-                this.f31541i.setPadding(0, 0, 0, this.o);
+                this.f31747i.setPadding(0, 0, 0, this.o);
             } else {
-                this.f31541i.setPadding(0, 0, 0, 0);
+                this.f31747i.setPadding(0, 0, 0, 0);
             }
             h();
         }
@@ -288,26 +288,26 @@ public class VideoPasterOverlayView extends FrameLayout {
         if (i4 <= 0) {
             return;
         }
-        FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.f31541i.getLayoutParams();
+        FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.f31747i.getLayoutParams();
         layoutParams.width = -1;
         layoutParams.height = i4;
-        this.f31541i.setLayoutParams(layoutParams);
+        this.f31747i.setLayoutParams(layoutParams);
     }
 
     @Override // android.view.View
     public View getRootView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f31541i : (View) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f31747i : (View) invokeV.objValue;
     }
 
     public final void h() {
         Context context;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || (context = this.n) == null || this.f31540h == null || !f(context)) {
+        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || (context = this.n) == null || this.f31746h == null || !f(context)) {
             return;
         }
-        FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.f31540h.getLayoutParams();
+        FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.f31746h.getLayoutParams();
         if (this.k) {
             if (this.l) {
                 layoutParams.setMargins(0, 0, 0, this.o);
@@ -318,7 +318,7 @@ public class VideoPasterOverlayView extends FrameLayout {
         } else {
             layoutParams.setMargins(0, 0, 0, 0);
         }
-        this.f31540h.setLayoutParams(layoutParams);
+        this.f31746h.setLayoutParams(layoutParams);
     }
 
     public void onEnterFullScreen() {
@@ -371,7 +371,7 @@ public class VideoPasterOverlayView extends FrameLayout {
     public void setCountDownNum(int i2) {
         String str;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048588, this, i2) == null) || this.f31538f == null || i2 <= 0) {
+        if (!(interceptable == null || interceptable.invokeI(1048588, this, i2) == null) || this.f31744f == null || i2 <= 0) {
             return;
         }
         if (i2 < 10) {
@@ -379,7 +379,7 @@ public class VideoPasterOverlayView extends FrameLayout {
         } else {
             str = "" + i2;
         }
-        this.f31538f.setText(str + TbadkCoreApplication.getInst().getResources().getString(R.string.video_paster_close_ad));
+        this.f31744f.setText(str + TbadkCoreApplication.getInst().getResources().getString(R.string.video_paster_close_ad));
     }
 
     public void setOverlayViewCallback(b bVar) {
@@ -403,8 +403,8 @@ public class VideoPasterOverlayView extends FrameLayout {
         this.u = aVar;
         this.k = z;
         this.l = z2;
-        this.f31537e.setText(aVar.f3597h);
-        this.f31539g.setText(aVar.b());
+        this.f31743e.setText(aVar.f3593h);
+        this.f31745g.setText(aVar.b());
         if (z && !z2) {
             c();
         } else {
@@ -420,10 +420,10 @@ public class VideoPasterOverlayView extends FrameLayout {
             this.r = i3;
             this.s = str;
             if (this.k) {
-                FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.f31541i.getLayoutParams();
+                FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.f31747i.getLayoutParams();
                 layoutParams.width = -1;
                 layoutParams.height = -1;
-                this.f31541i.setLayoutParams(layoutParams);
+                this.f31747i.setLayoutParams(layoutParams);
                 return;
             }
             g(i2, i3, str);

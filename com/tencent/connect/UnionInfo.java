@@ -42,7 +42,7 @@ public class UnionInfo extends BaseApi {
         if (interceptable == null || interceptable.invokeL(1048576, this, iUiListener) == null) {
             Bundle a = a();
             a.putString("unionid", "1");
-            HttpUtils.requestAsync(this.f60476c, f.a(), URL_GET_UNION_ID, a, "GET", new BaseApi.TempRequestListener(this, iUiListener));
+            HttpUtils.requestAsync(this.f60643c, f.a(), URL_GET_UNION_ID, a, "GET", new BaseApi.TempRequestListener(this, iUiListener));
         }
     }
 }

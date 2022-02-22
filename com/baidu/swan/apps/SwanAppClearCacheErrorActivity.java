@@ -1,7 +1,7 @@
 package com.baidu.swan.apps;
 
-import c.a.r0.a.e0.d;
-import c.a.r0.a.f1.e.b;
+import c.a.s0.a.e0.d;
+import c.a.s0.a.f1.e.b;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.swan.apps.env.launch.SwanLauncher;
 import com.baidu.swan.apps.network.SwanAppNetworkUtils;

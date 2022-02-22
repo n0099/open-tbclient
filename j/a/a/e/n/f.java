@@ -6,17 +6,17 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.yy.mobile.framework.revenuesdk.payapi.PayType;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class f {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public PayType a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f62393b;
+    public String f62560b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f62394c;
+    public String f62561c;
 
     public f(PayType payType, String str, String str2) {
         Interceptable interceptable = $ic;
@@ -33,15 +33,15 @@ public class f {
                 return;
             }
         }
-        this.f62393b = "";
+        this.f62560b = "";
         this.a = payType;
-        this.f62393b = str;
-        this.f62394c = str2;
+        this.f62560b = str;
+        this.f62561c = str2;
     }
 
     public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f62393b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f62560b : (String) invokeV.objValue;
     }
 }

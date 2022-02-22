@@ -18,7 +18,7 @@ public class e implements Runnable {
     public final Context a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final OnGetOaidListener f54252b;
+    public final OnGetOaidListener f54419b;
 
     public e(Context context, OnGetOaidListener onGetOaidListener) {
         Interceptable interceptable = $ic;
@@ -36,7 +36,7 @@ public class e implements Runnable {
             }
         }
         this.a = context.getApplicationContext();
-        this.f54252b = onGetOaidListener;
+        this.f54419b = onGetOaidListener;
     }
 
     public final void a() {
@@ -62,11 +62,11 @@ public class e implements Runnable {
                 if (Looper.myLooper() == Looper.getMainLooper()) {
                     throw new IllegalStateException("Cannot be called from the main thread");
                 }
-                if (i.a == null && !i.f54253b) {
+                if (i.a == null && !i.f54420b) {
                     synchronized (i.class) {
-                        if (i.a == null && !i.f54253b) {
+                        if (i.a == null && !i.f54420b) {
                             i.a = b.a();
-                            i.f54253b = true;
+                            i.f54420b = true;
                         }
                     }
                 }
@@ -92,7 +92,7 @@ public class e implements Runnable {
             if (FunOpenIDSdk.isLogEnabled()) {
                 String str = "==========在缓存中查找到oaid，直接返回 oaid = " + string;
             }
-            OnGetOaidListener onGetOaidListener = this.f54252b;
+            OnGetOaidListener onGetOaidListener = this.f54419b;
             if (onGetOaidListener != null) {
                 onGetOaidListener.onGetOaid(string);
             }
@@ -125,20 +125,20 @@ public class e implements Runnable {
                         return;
                     } catch (InterruptedException e2) {
                         e2.printStackTrace();
-                        onGetOaidListener = this.f54252b;
+                        onGetOaidListener = this.f54419b;
                         if (onGetOaidListener == null) {
                             return;
                         }
                     }
                 } else {
-                    onGetOaidListener = this.f54252b;
+                    onGetOaidListener = this.f54419b;
                     if (onGetOaidListener == null) {
                         return;
                     }
                 }
                 str = null;
             } else {
-                onGetOaidListener = this.f54252b;
+                onGetOaidListener = this.f54419b;
                 if (onGetOaidListener == null) {
                     return;
                 }

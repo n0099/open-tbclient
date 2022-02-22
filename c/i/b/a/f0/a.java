@@ -17,16 +17,16 @@ public class a extends b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: g  reason: collision with root package name */
-    public final c.i.b.a.h0.c f29588g;
+    public final c.i.b.a.h0.c f29794g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final int f29589h;
+    public final int f29795h;
 
     /* renamed from: i  reason: collision with root package name */
-    public final long f29590i;
+    public final long f29796i;
 
     /* renamed from: j  reason: collision with root package name */
-    public final long f29591j;
+    public final long f29797j;
     public final float k;
     public final float l;
     public int m;
@@ -34,31 +34,31 @@ public class a extends b {
 
     /* renamed from: c.i.b.a.f0.a$a  reason: collision with other inner class name */
     /* loaded from: classes9.dex */
-    public static final class C1667a implements f.a {
+    public static final class C1677a implements f.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final c.i.b.a.h0.c a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final int f29592b;
+        public final int f29798b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final int f29593c;
+        public final int f29799c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final int f29594d;
+        public final int f29800d;
 
         /* renamed from: e  reason: collision with root package name */
-        public final int f29595e;
+        public final int f29801e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final float f29596f;
+        public final float f29802f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final float f29597g;
+        public final float f29803g;
 
         /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-        public C1667a(c.i.b.a.h0.c cVar) {
+        public C1677a(c.i.b.a.h0.c cVar) {
             this(cVar, 800000, 10000, BdNetTask.TIMEOUT_READ, BdNetTask.TIMEOUT_READ, 0.75f, 0.75f);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -84,10 +84,10 @@ public class a extends b {
         public a a(s sVar, int... iArr) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sVar, iArr)) == null) ? new a(sVar, iArr, this.a, this.f29592b, this.f29593c, this.f29594d, this.f29595e, this.f29596f, this.f29597g) : (a) invokeLL.objValue;
+            return (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sVar, iArr)) == null) ? new a(sVar, iArr, this.a, this.f29798b, this.f29799c, this.f29800d, this.f29801e, this.f29802f, this.f29803g) : (a) invokeLL.objValue;
         }
 
-        public C1667a(c.i.b.a.h0.c cVar, int i2, int i3, int i4, int i5, float f2, float f3) {
+        public C1677a(c.i.b.a.h0.c cVar, int i2, int i3, int i4, int i5, float f2, float f3) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -103,12 +103,12 @@ public class a extends b {
                 }
             }
             this.a = cVar;
-            this.f29592b = i2;
-            this.f29593c = i3;
-            this.f29594d = i4;
-            this.f29595e = i5;
-            this.f29596f = f2;
-            this.f29597g = f3;
+            this.f29798b = i2;
+            this.f29799c = i3;
+            this.f29800d = i4;
+            this.f29801e = i5;
+            this.f29802f = f2;
+            this.f29803g = f3;
         }
     }
 
@@ -131,10 +131,10 @@ public class a extends b {
                 return;
             }
         }
-        this.f29588g = cVar;
-        this.f29589h = i2;
-        this.f29590i = j2 * 1000;
-        this.f29591j = j3 * 1000;
+        this.f29794g = cVar;
+        this.f29795h = i2;
+        this.f29796i = j2 * 1000;
+        this.f29797j = j3 * 1000;
         this.k = f2;
         this.l = f3;
         this.m = n(Long.MIN_VALUE);
@@ -164,7 +164,7 @@ public class a extends b {
                 Format h3 = h(this.m);
                 if (h3.bitrate > h2.bitrate && j3 < o(j4)) {
                     this.m = i2;
-                } else if (h3.bitrate < h2.bitrate && j3 >= this.f29591j) {
+                } else if (h3.bitrate < h2.bitrate && j3 >= this.f29797j) {
                     this.m = i2;
                 }
             }
@@ -195,10 +195,10 @@ public class a extends b {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeJ = interceptable.invokeJ(1048580, this, j2)) == null) {
-            long c2 = this.f29588g.c();
-            long j3 = c2 == -1 ? this.f29589h : ((float) c2) * this.k;
+            long c2 = this.f29794g.c();
+            long j3 = c2 == -1 ? this.f29795h : ((float) c2) * this.k;
             int i2 = 0;
-            for (int i3 = 0; i3 < this.f29598b; i3++) {
+            for (int i3 = 0; i3 < this.f29804b; i3++) {
                 if (j2 == Long.MIN_VALUE || !m(i3, j2)) {
                     if (h(i3).bitrate <= j3) {
                         return i3;
@@ -215,7 +215,7 @@ public class a extends b {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeJ = interceptable.invokeJ(1048581, this, j2)) == null) {
-            return (j2 > (-9223372036854775807L) ? 1 : (j2 == (-9223372036854775807L) ? 0 : -1)) != 0 && (j2 > this.f29590i ? 1 : (j2 == this.f29590i ? 0 : -1)) <= 0 ? ((float) j2) * this.l : this.f29590i;
+            return (j2 > (-9223372036854775807L) ? 1 : (j2 == (-9223372036854775807L) ? 0 : -1)) != 0 && (j2 > this.f29796i ? 1 : (j2 == this.f29796i ? 0 : -1)) <= 0 ? ((float) j2) * this.l : this.f29796i;
         }
         return invokeJ.longValue;
     }

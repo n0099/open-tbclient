@@ -11,13 +11,13 @@ public class j implements Runnable {
     public final /* synthetic */ int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ int f35491b;
+    public final /* synthetic */ int f35697b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final /* synthetic */ int f35492c;
+    public final /* synthetic */ int f35698c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final /* synthetic */ HeatMap f35493d;
+    public final /* synthetic */ HeatMap f35699d;
 
     public j(HeatMap heatMap, int i2, int i3, int i4) {
         Interceptable interceptable = $ic;
@@ -34,17 +34,17 @@ public class j implements Runnable {
                 return;
             }
         }
-        this.f35493d = heatMap;
+        this.f35699d = heatMap;
         this.a = i2;
-        this.f35491b = i3;
-        this.f35492c = i4;
+        this.f35697b = i3;
+        this.f35698c = i4;
     }
 
     @Override // java.lang.Runnable
     public void run() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f35493d.b(this.a, this.f35491b, this.f35492c);
+            this.f35699d.b(this.a, this.f35697b, this.f35698c);
         }
     }
 }

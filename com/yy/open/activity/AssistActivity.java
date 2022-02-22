@@ -54,7 +54,7 @@ public final class AssistActivity extends Activity {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ AssistActivity f61598e;
+        public final /* synthetic */ AssistActivity f61765e;
 
         public a(AssistActivity assistActivity) {
             Interceptable interceptable = $ic;
@@ -71,14 +71,14 @@ public final class AssistActivity extends Activity {
                     return;
                 }
             }
-            this.f61598e = assistActivity;
+            this.f61765e = assistActivity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                AssistActivity assistActivity = this.f61598e;
+                AssistActivity assistActivity = this.f61765e;
                 assistActivity.mWebView.loadUrl(assistActivity.mURL);
             }
         }
@@ -90,7 +90,7 @@ public final class AssistActivity extends Activity {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ AssistActivity f61599e;
+        public final /* synthetic */ AssistActivity f61766e;
 
         public b(AssistActivity assistActivity) {
             Interceptable interceptable = $ic;
@@ -107,14 +107,14 @@ public final class AssistActivity extends Activity {
                     return;
                 }
             }
-            this.f61599e = assistActivity;
+            this.f61766e = assistActivity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f61599e.finish();
+                this.f61766e.finish();
             }
         }
     }
@@ -376,13 +376,13 @@ public final class AssistActivity extends Activity {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public int f61600e;
+        public int f61767e;
 
         /* renamed from: f  reason: collision with root package name */
-        public Paint f61601f;
+        public Paint f61768f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ AssistActivity f61602g;
+        public final /* synthetic */ AssistActivity f61769g;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public f(AssistActivity assistActivity, Context context) {
@@ -402,12 +402,12 @@ public final class AssistActivity extends Activity {
                     return;
                 }
             }
-            this.f61602g = assistActivity;
+            this.f61769g = assistActivity;
             Paint paint = new Paint();
-            this.f61601f = paint;
+            this.f61768f = paint;
             paint.setColor(-731575);
-            this.f61601f.setAntiAlias(true);
-            this.f61601f.setStyle(Paint.Style.FILL);
+            this.f61768f.setAntiAlias(true);
+            this.f61768f.setStyle(Paint.Style.FILL);
         }
 
         public void a(int i2) {
@@ -418,7 +418,7 @@ public final class AssistActivity extends Activity {
                 } else if (i2 < 0) {
                     i2 = 0;
                 }
-                this.f61600e = i2;
+                this.f61767e = i2;
                 invalidate();
             }
         }
@@ -428,7 +428,7 @@ public final class AssistActivity extends Activity {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, canvas) == null) {
                 canvas.drawColor(-5657689);
-                canvas.drawRect(0.0f, 0.0f, (this.f61600e / 100.0f) * getWidth(), getHeight(), this.f61601f);
+                canvas.drawRect(0.0f, 0.0f, (this.f61767e / 100.0f) * getWidth(), getHeight(), this.f61768f);
                 super.onDraw(canvas);
             }
         }

@@ -1,6 +1,6 @@
 package com.baidu.tieba.frs.movearea;
 
-import c.a.t0.e1.i1;
+import c.a.u0.e1.i1;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;

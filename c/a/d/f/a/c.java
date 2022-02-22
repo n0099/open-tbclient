@@ -16,10 +16,10 @@ public class c extends BdAsyncTask<DiskFileOperate, Integer, DiskFileOperate> {
     public b a;
 
     /* renamed from: b  reason: collision with root package name */
-    public volatile e f2769b;
+    public volatile e f1849b;
 
     /* renamed from: c  reason: collision with root package name */
-    public DiskFileOperate f2770c;
+    public DiskFileOperate f1850c;
 
     public c(b bVar, DiskFileOperate diskFileOperate) {
         Interceptable interceptable = $ic;
@@ -37,11 +37,11 @@ public class c extends BdAsyncTask<DiskFileOperate, Integer, DiskFileOperate> {
             }
         }
         this.a = null;
-        this.f2769b = null;
-        this.f2770c = null;
+        this.f1849b = null;
+        this.f1850c = null;
         if (bVar != null && diskFileOperate != null) {
             this.a = bVar;
-            this.f2770c = diskFileOperate;
+            this.f1850c = diskFileOperate;
             return;
         }
         throw new InvalidParameterException("DiskFileTask parameter null");
@@ -54,9 +54,9 @@ public class c extends BdAsyncTask<DiskFileOperate, Integer, DiskFileOperate> {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, diskFileOperateArr)) == null) {
-            this.f2769b = new e(this.a, this.f2770c);
-            this.f2769b.call();
-            return this.f2770c;
+            this.f1849b = new e(this.a, this.f1850c);
+            this.f1849b.call();
+            return this.f1850c;
         }
         return (DiskFileOperate) invokeL.objValue;
     }
@@ -69,9 +69,9 @@ public class c extends BdAsyncTask<DiskFileOperate, Integer, DiskFileOperate> {
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, diskFileOperate) == null) {
             super.onPostExecute(diskFileOperate);
             if (diskFileOperate != null) {
-                this.f2770c.callback(diskFileOperate.isSuccess());
+                this.f1850c.callback(diskFileOperate.isSuccess());
             } else {
-                this.f2770c.callback(false);
+                this.f1850c.callback(false);
             }
         }
     }
@@ -81,8 +81,8 @@ public class c extends BdAsyncTask<DiskFileOperate, Integer, DiskFileOperate> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             super.cancel();
-            if (this.f2769b != null) {
-                this.f2769b.b();
+            if (this.f1849b != null) {
+                this.f1849b.b();
             }
         }
     }
@@ -92,7 +92,7 @@ public class c extends BdAsyncTask<DiskFileOperate, Integer, DiskFileOperate> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             super.onPreCancel();
-            this.f2770c.callback(false);
+            this.f1850c.callback(false);
         }
     }
 }

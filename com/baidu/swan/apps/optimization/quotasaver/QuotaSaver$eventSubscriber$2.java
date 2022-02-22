@@ -1,6 +1,6 @@
 package com.baidu.swan.apps.optimization.quotasaver;
 
-import c.a.r0.a.d2.b;
+import c.a.s0.a.d2.b;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;

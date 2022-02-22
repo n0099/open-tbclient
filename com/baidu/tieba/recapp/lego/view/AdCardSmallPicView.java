@@ -2,8 +2,8 @@ package com.baidu.tieba.recapp.lego.view;
 
 import android.text.TextUtils;
 import android.view.View;
-import c.a.t0.k3.i0.b.d;
-import c.a.t0.y1.o.k.a;
+import c.a.u0.l3.i0.b.d;
+import c.a.u0.z1.o.k.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.widget.TbImageView;
@@ -14,16 +14,16 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public class AdCardSmallPicView extends AdSimpleCardBaseView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: i  reason: collision with root package name */
-    public XfremodeRoundLayout f47576i;
+    public XfremodeRoundLayout f47722i;
 
     /* renamed from: j  reason: collision with root package name */
-    public TbImageView f47577j;
+    public TbImageView f47723j;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public AdCardSmallPicView(TbPageContext tbPageContext) {
@@ -50,11 +50,11 @@ public class AdCardSmallPicView extends AdSimpleCardBaseView {
         d dVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, adCard) == null) {
-            if (adCard != null && (dVar = adCard.picInfo) != null && a.k(dVar.f18877c) >= 1) {
-                String str = (String) a.d(adCard.picInfo.f18877c, 0);
+            if (adCard != null && (dVar = adCard.picInfo) != null && a.k(dVar.f19311c) >= 1) {
+                String str = (String) a.d(adCard.picInfo.f19311c, 0);
                 if (!TextUtils.isEmpty(str)) {
                     this.mCustomRoot.setVisibility(0);
-                    this.f47577j.startLoad(str, 17, false);
+                    this.f47723j.startLoad(str, 17, false);
                     return;
                 }
                 this.mCustomRoot.setVisibility(8);
@@ -83,11 +83,11 @@ public class AdCardSmallPicView extends AdSimpleCardBaseView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, view) == null) {
             float dimensionPixelSize = this.mContext.getResources().getDimensionPixelSize(R.dimen.tbds10);
-            this.f47576i = (XfremodeRoundLayout) view.findViewById(R.id.rl_ad_image);
+            this.f47722i = (XfremodeRoundLayout) view.findViewById(R.id.rl_ad_image);
             TbImageView tbImageView = (TbImageView) view.findViewById(R.id.ad_img);
-            this.f47577j = tbImageView;
+            this.f47723j = tbImageView;
             tbImageView.setPlaceHolder(3);
-            this.f47576i.setRoundLayoutRadius(new float[]{dimensionPixelSize, dimensionPixelSize, dimensionPixelSize, dimensionPixelSize, dimensionPixelSize, dimensionPixelSize, dimensionPixelSize, dimensionPixelSize});
+            this.f47722i.setRoundLayoutRadius(new float[]{dimensionPixelSize, dimensionPixelSize, dimensionPixelSize, dimensionPixelSize, dimensionPixelSize, dimensionPixelSize, dimensionPixelSize, dimensionPixelSize});
         }
     }
 }

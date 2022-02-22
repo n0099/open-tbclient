@@ -2,7 +2,7 @@ package com.baidu.swan.apps.core.prefetch.resource.task;
 
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import c.a.r0.a.k;
+import c.a.s0.a.k;
 import com.baidu.poly.widget.PolyActivity;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;

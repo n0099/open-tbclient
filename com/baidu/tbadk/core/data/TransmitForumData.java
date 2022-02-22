@@ -2,7 +2,7 @@ package com.baidu.tbadk.core.data;
 
 import android.os.Parcel;
 import android.os.Parcelable;
-import c.a.d.n.e.n;
+import c.a.d.o.e.n;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.frs.FrsTabItemData;
@@ -116,7 +116,7 @@ public class TransmitForumData implements n, Parcelable {
         return invokeV.intValue;
     }
 
-    @Override // c.a.d.n.e.n
+    @Override // c.a.d.o.e.n
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

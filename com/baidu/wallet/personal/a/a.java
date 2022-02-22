@@ -21,17 +21,17 @@ public abstract class a<T> extends BaseAdapter {
     public List<T> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f52591b;
+    public boolean f52758b;
 
     /* renamed from: c  reason: collision with root package name */
-    public LayoutInflater f52592c;
+    public LayoutInflater f52759c;
 
     /* renamed from: d  reason: collision with root package name */
-    public InterfaceC2026a f52593d;
+    public InterfaceC2036a f52760d;
 
     /* renamed from: com.baidu.wallet.personal.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public interface InterfaceC2026a {
+    public interface InterfaceC2036a {
         void a(boolean z);
     }
 
@@ -64,14 +64,14 @@ public abstract class a<T> extends BaseAdapter {
             }
         }
         this.a = new ArrayList();
-        this.f52592c = LayoutInflater.from(context);
+        this.f52759c = LayoutInflater.from(context);
     }
 
     private View a(ViewGroup viewGroup, int i2) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(65537, this, viewGroup, i2)) == null) {
-            View inflate = this.f52591b ? this.f52592c.inflate(a(i2), viewGroup, false) : this.f52592c.inflate(a(i2), (ViewGroup) null);
+            View inflate = this.f52758b ? this.f52759c.inflate(a(i2), viewGroup, false) : this.f52759c.inflate(a(i2), (ViewGroup) null);
             inflate.setTag(a(i2, inflate));
             if (inflate != null) {
                 a(inflate, i2);
@@ -168,24 +168,24 @@ public abstract class a<T> extends BaseAdapter {
 
     @Override // android.widget.BaseAdapter
     public void notifyDataSetChanged() {
-        InterfaceC2026a interfaceC2026a;
+        InterfaceC2036a interfaceC2036a;
         boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
             super.notifyDataSetChanged();
-            if (this.f52593d == null) {
+            if (this.f52760d == null) {
                 return;
             }
             if (this.a.size() == 0) {
-                interfaceC2026a = this.f52593d;
+                interfaceC2036a = this.f52760d;
                 z = true;
             } else if (this.a.size() <= 0) {
                 return;
             } else {
-                interfaceC2026a = this.f52593d;
+                interfaceC2036a = this.f52760d;
                 z = false;
             }
-            interfaceC2026a.a(z);
+            interfaceC2036a.a(z);
         }
     }
 }

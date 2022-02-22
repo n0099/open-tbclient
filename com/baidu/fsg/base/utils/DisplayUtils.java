@@ -14,7 +14,7 @@ public final class DisplayUtils {
     public static final float a = 0.5f;
 
     /* renamed from: b  reason: collision with root package name */
-    public static DisplayMetrics f33870b;
+    public static DisplayMetrics f34076b;
     public transient /* synthetic */ FieldHolder $fh;
 
     public DisplayUtils() {
@@ -33,8 +33,8 @@ public final class DisplayUtils {
 
     public static void a(Context context) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65537, null, context) == null) && f33870b == null) {
-            f33870b = context.getResources().getDisplayMetrics();
+        if ((interceptable == null || interceptable.invokeL(65537, null, context) == null) && f34076b == null) {
+            f34076b = context.getResources().getDisplayMetrics();
         }
     }
 
@@ -49,7 +49,7 @@ public final class DisplayUtils {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
             a(context);
-            return f33870b.heightPixels;
+            return f34076b.heightPixels;
         }
         return invokeL.intValue;
     }
@@ -59,7 +59,7 @@ public final class DisplayUtils {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
             a(context);
-            return f33870b.widthPixels;
+            return f34076b.widthPixels;
         }
         return invokeL.intValue;
     }

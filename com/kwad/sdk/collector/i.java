@@ -30,18 +30,18 @@ import java.util.List;
 import java.util.Map;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class i {
     public static Context a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static Map<String, com.kwad.sdk.collector.e> f55540b = new HashMap();
+    public static Map<String, com.kwad.sdk.collector.e> f55707b = new HashMap();
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class a extends com.kwad.sdk.collector.e<com.kwad.sdk.core.request.model.c> {
 
         /* renamed from: c  reason: collision with root package name */
-        public static com.kwad.sdk.core.request.model.c f55541c;
+        public static com.kwad.sdk.core.request.model.c f55708c;
 
         public a(boolean z) {
             super(z);
@@ -69,9 +69,9 @@ public class i {
             int i2;
             int i3;
             if (ao.a() || com.kwad.sdk.core.config.b.a(64L)) {
-                return f55541c;
+                return f55708c;
             }
-            com.kwad.sdk.core.request.model.c cVar = f55541c;
+            com.kwad.sdk.core.request.model.c cVar = f55708c;
             if (cVar != null) {
                 return cVar;
             }
@@ -80,8 +80,8 @@ public class i {
                 return null;
             }
             int i4 = -1;
-            if (Build.VERSION.SDK_INT < 23 || ContextCompat.checkSelfPermission(context, s.f55291g) != -1) {
-                if (av.a(context, s.f55291g) == 0) {
+            if (Build.VERSION.SDK_INT < 23 || ContextCompat.checkSelfPermission(context, s.f55458g) != -1) {
+                if (av.a(context, s.f55458g) == 0) {
                     TelephonyManager telephonyManager = (TelephonyManager) context.getSystemService("phone");
                     CellLocation cellLocation = telephonyManager.getCellLocation();
                     if (cellLocation instanceof CdmaCellLocation) {
@@ -112,32 +112,32 @@ public class i {
                             i4 = a(cellInfo);
                         }
                     }
-                    f55541c = new com.kwad.sdk.core.request.model.c(i3, i2, i4);
+                    f55708c = new com.kwad.sdk.core.request.model.c(i3, i2, i4);
                 }
-                return f55541c;
+                return f55708c;
             }
             return null;
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class b extends com.kwad.sdk.collector.e<List<com.kwad.sdk.collector.kwai.e>> implements SensorEventListener {
 
         /* renamed from: c  reason: collision with root package name */
-        public d f55542c;
+        public d f55709c;
 
         /* renamed from: d  reason: collision with root package name */
-        public d f55543d;
+        public d f55710d;
 
         /* renamed from: e  reason: collision with root package name */
-        public d f55544e;
+        public d f55711e;
 
         /* renamed from: f  reason: collision with root package name */
-        public boolean f55545f;
+        public boolean f55712f;
 
         public b(Context context, boolean z) {
             super(z);
-            this.f55545f = false;
+            this.f55712f = false;
             if (z && 0 == 0) {
                 d(context);
             }
@@ -145,17 +145,17 @@ public class i {
 
         private List<com.kwad.sdk.collector.kwai.e> a() {
             ArrayList arrayList = new ArrayList();
-            d dVar = this.f55542c;
+            d dVar = this.f55709c;
             if (dVar != null) {
-                arrayList.add(com.kwad.sdk.collector.kwai.e.a(dVar.a(), this.f55542c.b()));
+                arrayList.add(com.kwad.sdk.collector.kwai.e.a(dVar.a(), this.f55709c.b()));
             }
-            d dVar2 = this.f55543d;
+            d dVar2 = this.f55710d;
             if (dVar2 != null) {
-                arrayList.add(com.kwad.sdk.collector.kwai.e.a(dVar2.a(), this.f55543d.b()));
+                arrayList.add(com.kwad.sdk.collector.kwai.e.a(dVar2.a(), this.f55710d.b()));
             }
-            d dVar3 = this.f55544e;
+            d dVar3 = this.f55711e;
             if (dVar3 != null) {
-                arrayList.add(com.kwad.sdk.collector.kwai.e.a(dVar3.a(), this.f55544e.b()));
+                arrayList.add(com.kwad.sdk.collector.kwai.e.a(dVar3.a(), this.f55711e.b()));
             }
             return arrayList;
         }
@@ -234,7 +234,7 @@ public class i {
                 return null;
             }
             long currentTimeMillis = System.currentTimeMillis();
-            if (this.f55545f) {
+            if (this.f55712f) {
                 return e(context);
             }
             List<com.kwad.sdk.collector.kwai.e> a = a();
@@ -254,29 +254,29 @@ public class i {
             }
             int type = sensorEvent.sensor.getType();
             if (type == 1) {
-                this.f55542c = new d(sensorEvent);
+                this.f55709c = new d(sensorEvent);
             } else if (type == 4) {
-                this.f55543d = new d(sensorEvent);
+                this.f55710d = new d(sensorEvent);
             } else if (type != 9) {
             } else {
-                this.f55544e = new d(sensorEvent);
+                this.f55711e = new d(sensorEvent);
             }
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static abstract class c implements SensorEventListener {
         @Override // android.hardware.SensorEventListener
         public void onAccuracyChanged(Sensor sensor, int i2) {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class d {
         public SensorEvent a;
 
         /* renamed from: b  reason: collision with root package name */
-        public long f55555b = System.currentTimeMillis();
+        public long f55722b = System.currentTimeMillis();
 
         public d(SensorEvent sensorEvent) {
             this.a = sensorEvent;
@@ -287,11 +287,11 @@ public class i {
         }
 
         public long b() {
-            return this.f55555b;
+            return this.f55722b;
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class e extends com.kwad.sdk.collector.e<com.kwad.sdk.collector.kwai.f> {
         public e(boolean z) {
             super(z);
@@ -303,12 +303,12 @@ public class i {
         @SuppressLint({"MissingPermission"})
         /* renamed from: c */
         public com.kwad.sdk.collector.kwai.f b(Context context) {
-            if (av.a(context, s.f55287c) != 0) {
+            if (av.a(context, s.f55454c) != 0) {
                 return null;
             }
             com.kwad.sdk.collector.kwai.f fVar = new com.kwad.sdk.collector.kwai.f();
             if (Build.VERSION.SDK_INT >= 22) {
-                fVar.f55575b = ((SubscriptionManager) context.getSystemService("telephony_subscription_service")).getActiveSubscriptionInfoCount();
+                fVar.f55742b = ((SubscriptionManager) context.getSystemService("telephony_subscription_service")).getActiveSubscriptionInfoCount();
             }
             fVar.a = av.a(context, (TelephonyManager) null);
             return fVar;
@@ -325,7 +325,7 @@ public class i {
 
     @Nullable
     public static <T> T a(String str) {
-        com.kwad.sdk.collector.e eVar = f55540b.get(str);
+        com.kwad.sdk.collector.e eVar = f55707b.get(str);
         if (eVar != null) {
             return (T) eVar.a(a);
         }
@@ -339,35 +339,35 @@ public class i {
         boolean O = com.kwad.sdk.core.config.b.O();
         com.kwad.sdk.core.d.a.a("SensitiveInfoCollectors", "sensorEnable2: " + O);
         if (d()) {
-            if (f55540b.containsKey("baseStationEnable")) {
+            if (f55707b.containsKey("baseStationEnable")) {
                 boolean W = com.kwad.sdk.core.config.b.W();
-                com.kwad.sdk.collector.e eVar = f55540b.get("baseStationEnable");
+                com.kwad.sdk.collector.e eVar = f55707b.get("baseStationEnable");
                 if (eVar != null) {
                     eVar.a(W);
                 }
             }
-            if (f55540b.containsKey("sensorEventEnable")) {
+            if (f55707b.containsKey("sensorEventEnable")) {
                 boolean O2 = com.kwad.sdk.core.config.b.O();
-                com.kwad.sdk.collector.e eVar2 = f55540b.get("sensorEventEnable");
+                com.kwad.sdk.collector.e eVar2 = f55707b.get("sensorEventEnable");
                 if (eVar2 != null) {
                     eVar2.a(O2);
                 }
             }
-            if (f55540b.containsKey("simCardInfoEnable")) {
+            if (f55707b.containsKey("simCardInfoEnable")) {
                 boolean N = com.kwad.sdk.core.config.b.N();
-                com.kwad.sdk.collector.e eVar3 = f55540b.get("simCardInfoEnable");
+                com.kwad.sdk.collector.e eVar3 = f55707b.get("simCardInfoEnable");
                 if (eVar3 != null) {
                     eVar3.a(N);
                 }
             }
         } else {
             a = context.getApplicationContext();
-            f55540b.put("baseStationEnable", new a(com.kwad.sdk.core.config.b.W()));
-            f55540b.put("sensorEventEnable", new b(a, com.kwad.sdk.core.config.b.O()));
-            f55540b.put("simCardInfoEnable", new e(com.kwad.sdk.core.config.b.N()));
+            f55707b.put("baseStationEnable", new a(com.kwad.sdk.core.config.b.W()));
+            f55707b.put("sensorEventEnable", new b(a, com.kwad.sdk.core.config.b.O()));
+            f55707b.put("simCardInfoEnable", new e(com.kwad.sdk.core.config.b.N()));
             com.kwad.sdk.collector.kwai.c.a(context);
         }
-        for (com.kwad.sdk.collector.e eVar4 : f55540b.values()) {
+        for (com.kwad.sdk.collector.e eVar4 : f55707b.values()) {
             com.kwad.sdk.core.d.a.a("SensitiveInfoCollectors", "collector: " + eVar4.a + StringUtil.ARRAY_ELEMENT_SEPARATOR + eVar4.getClass().getSimpleName());
         }
     }

@@ -35,7 +35,7 @@ public final class d {
     public static String a = "";
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f61586b = "";
+    public static String f61753b = "";
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -72,7 +72,7 @@ public final class d {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
             try {
-                if (com.yxcorp.kuaishou.addfp.android.b.e.a(context, new String[]{s.f55287c})) {
+                if (com.yxcorp.kuaishou.addfp.android.b.e.a(context, new String[]{s.f55454c})) {
                     String str = "";
                     if (Build.VERSION.SDK_INT < 29) {
                         try {
@@ -182,7 +182,7 @@ public final class d {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, context)) == null) {
             try {
-                if (!com.yxcorp.kuaishou.addfp.android.b.e.a(context, new String[]{s.f55287c}) || Build.VERSION.SDK_INT >= 29) {
+                if (!com.yxcorp.kuaishou.addfp.android.b.e.a(context, new String[]{s.f55454c}) || Build.VERSION.SDK_INT >= 29) {
                     return "";
                 }
                 try {
@@ -279,7 +279,7 @@ public final class d {
         if (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) {
             synchronized (d.class) {
                 try {
-                    if (TextUtils.isEmpty(f61586b)) {
+                    if (TextUtils.isEmpty(f61753b)) {
                         String gMas = Orange.getInstance().gMas();
                         new StringBuilder("user dis :").append(gMas);
                         if (!TextUtils.isEmpty(gMas)) {
@@ -287,15 +287,15 @@ public final class d {
                             for (int i2 = 0; i2 < bytes.length; i2++) {
                                 bytes[i2] = (byte) (bytes[i2] ^ 165);
                             }
-                            f61586b = "fuels:" + Base64.encodeToString(bytes, 0).replace(StringUtils.LF, "").replace(StringUtils.CR, "");
+                            f61753b = "fuels:" + Base64.encodeToString(bytes, 0).replace(StringUtils.LF, "").replace(StringUtils.CR, "");
                         }
-                        if (TextUtils.isEmpty(f61586b)) {
-                            f61586b = "KWE_N";
+                        if (TextUtils.isEmpty(f61753b)) {
+                            f61753b = "KWE_N";
                             return "KWE_N";
                         }
-                        return f61586b;
+                        return f61753b;
                     }
-                    return f61586b;
+                    return f61753b;
                 }
             }
         }
@@ -336,7 +336,7 @@ public final class d {
                 String a3 = a(context, "k_w_o_d_out_dtt");
                 String str2 = "";
                 if (TextUtils.isEmpty(a3)) {
-                    boolean b2 = com.yxcorp.kuaishou.addfp.android.b.e.b(context, new String[]{s.f55293i, "android.permission.WRITE_EXTERNAL_STORAGE"});
+                    boolean b2 = com.yxcorp.kuaishou.addfp.android.b.e.b(context, new String[]{s.f55460i, "android.permission.WRITE_EXTERNAL_STORAGE"});
                     com.yxcorp.kuaishou.addfp.android.b.b.a();
                     if (!b2) {
                         str = "KWE_PN";
@@ -372,7 +372,7 @@ public final class d {
                         a(context, "k_w_o_d_out_dtt", str2);
                     }
                 } else {
-                    boolean b3 = com.yxcorp.kuaishou.addfp.android.b.e.b(context, new String[]{s.f55293i, "android.permission.WRITE_EXTERNAL_STORAGE"});
+                    boolean b3 = com.yxcorp.kuaishou.addfp.android.b.e.b(context, new String[]{s.f55460i, "android.permission.WRITE_EXTERNAL_STORAGE"});
                     com.yxcorp.kuaishou.addfp.android.b.b.a();
                     if (b3) {
                         str2 = c.a(context).b("Lm91a2R0ZnQ=");

@@ -44,7 +44,7 @@ import javax.net.ssl.SSLHandshakeException;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public abstract class IMessageHandler {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int MAX_BODY_LENGTH = 1048576;

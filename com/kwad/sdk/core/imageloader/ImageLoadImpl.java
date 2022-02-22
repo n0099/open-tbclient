@@ -27,7 +27,7 @@ import com.kwad.sdk.core.network.m;
 import com.kwad.sdk.utils.aq;
 import java.net.HttpURLConnection;
 import java.net.URL;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class ImageLoadImpl implements IImageLoader {
     private DisplayImageOptions adapter(DisplayImageOptionsCompat displayImageOptionsCompat) {
         BitmapDisplayer roundedBitmapDisplayer;

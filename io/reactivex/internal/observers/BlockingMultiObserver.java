@@ -23,7 +23,7 @@ public final class BlockingMultiObserver<T> extends CountDownLatch implements Si
     public volatile boolean cancelled;
 
     /* renamed from: d  reason: collision with root package name */
-    public Disposable f62161d;
+    public Disposable f62328d;
     public Throwable error;
     public T value;
 
@@ -114,7 +114,7 @@ public final class BlockingMultiObserver<T> extends CountDownLatch implements Si
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             this.cancelled = true;
-            Disposable disposable = this.f62161d;
+            Disposable disposable = this.f62328d;
             if (disposable != null) {
                 disposable.dispose();
             }
@@ -142,7 +142,7 @@ public final class BlockingMultiObserver<T> extends CountDownLatch implements Si
     public void onSubscribe(Disposable disposable) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, disposable) == null) {
-            this.f62161d = disposable;
+            this.f62328d = disposable;
             if (this.cancelled) {
                 disposable.dispose();
             }

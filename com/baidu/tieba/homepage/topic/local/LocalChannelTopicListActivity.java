@@ -3,7 +3,7 @@ package com.baidu.tieba.homepage.topic.local;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.LinearLayout;
-import c.a.t0.p1.k.a.c.c;
+import c.a.u0.p1.l.a.c.c;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.suspended.SuspendedActivity;
@@ -18,7 +18,7 @@ public class LocalChannelTopicListActivity extends SuspendedActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public LocalChannelTopicListModel mModel;
-    public c.a.t0.p1.k.a.b mView;
+    public c.a.u0.p1.l.a.b mView;
 
     /* loaded from: classes12.dex */
     public class a implements LocalChannelTopicListModel.b {
@@ -69,7 +69,7 @@ public class LocalChannelTopicListActivity extends SuspendedActivity {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ LocalChannelTopicListActivity f44517e;
+        public final /* synthetic */ LocalChannelTopicListActivity f44775e;
 
         public b(LocalChannelTopicListActivity localChannelTopicListActivity) {
             Interceptable interceptable = $ic;
@@ -86,16 +86,16 @@ public class LocalChannelTopicListActivity extends SuspendedActivity {
                     return;
                 }
             }
-            this.f44517e = localChannelTopicListActivity;
+            this.f44775e = localChannelTopicListActivity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f44517e.mModel == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f44775e.mModel == null) {
                 return;
             }
-            this.f44517e.mModel.loadData();
+            this.f44775e.mModel.loadData();
         }
     }
 
@@ -114,15 +114,15 @@ public class LocalChannelTopicListActivity extends SuspendedActivity {
     }
 
     @Override // com.baidu.tbadk.suspended.SuspendedActivity
-    public c.a.s0.y0.b getSuspendedContentView(LinearLayout linearLayout, NavigationBar navigationBar) {
+    public c.a.t0.y0.b getSuspendedContentView(LinearLayout linearLayout, NavigationBar navigationBar) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, linearLayout, navigationBar)) == null) {
-            c.a.t0.p1.k.a.b bVar = new c.a.t0.p1.k.a.b(getPageContext(), linearLayout, navigationBar, new b(this));
+            c.a.u0.p1.l.a.b bVar = new c.a.u0.p1.l.a.b(getPageContext(), linearLayout, navigationBar, new b(this));
             this.mView = bVar;
             return bVar;
         }
-        return (c.a.s0.y0.b) invokeLL.objValue;
+        return (c.a.t0.y0.b) invokeLL.objValue;
     }
 
     @Override // com.baidu.tbadk.suspended.SuspendedActivity, com.baidu.tbadk.core.BaseFragmentActivity
@@ -130,7 +130,7 @@ public class LocalChannelTopicListActivity extends SuspendedActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
             super.onChangeSkinType(i2);
-            c.a.t0.p1.k.a.b bVar = this.mView;
+            c.a.u0.p1.l.a.b bVar = this.mView;
             if (bVar != null) {
                 bVar.onViewChangeSkinType(i2);
             }
@@ -155,7 +155,7 @@ public class LocalChannelTopicListActivity extends SuspendedActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             super.onDestroy();
-            c.a.t0.p1.k.a.b bVar = this.mView;
+            c.a.u0.p1.l.a.b bVar = this.mView;
             if (bVar != null) {
                 bVar.onDestroy();
             }

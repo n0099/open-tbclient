@@ -57,12 +57,12 @@ public final class cq {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static InetSocketAddress m290a(String str, int i2) {
+    public static InetSocketAddress m289a(String str, int i2) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(65538, null, str, i2)) == null) {
             cq a = a(str, i2);
-            return new InetSocketAddress(a.m291a(), a.a());
+            return new InetSocketAddress(a.m290a(), a.a());
         }
         return (InetSocketAddress) invokeLI.objValue;
     }
@@ -74,7 +74,7 @@ public final class cq {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public String m291a() {
+    public String m290a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f201a : (String) invokeV.objValue;

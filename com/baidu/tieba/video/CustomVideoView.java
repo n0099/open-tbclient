@@ -14,10 +14,10 @@ public class CustomVideoView extends VideoView {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f48514e;
+    public int f48681e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f48515f;
+    public int f48682f;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public CustomVideoView(Context context) {
@@ -43,10 +43,10 @@ public class CustomVideoView extends VideoView {
     public void onMeasure(int i2, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(1048576, this, i2, i3) == null) {
-            if (this.f48515f == 0 && this.f48514e == 0) {
+            if (this.f48682f == 0 && this.f48681e == 0) {
                 super.onMeasure(i2, i3);
             } else {
-                setMeasuredDimension(this.f48514e, this.f48515f);
+                setMeasuredDimension(this.f48681e, this.f48682f);
             }
         }
     }
@@ -54,14 +54,14 @@ public class CustomVideoView extends VideoView {
     public void setVideoHeight(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
-            this.f48515f = i2;
+            this.f48682f = i2;
         }
     }
 
     public void setVideoWidth(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
-            this.f48514e = i2;
+            this.f48681e = i2;
         }
     }
 

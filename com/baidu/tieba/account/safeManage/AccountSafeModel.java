@@ -2,7 +2,7 @@ package com.baidu.tieba.account.safeManage;
 
 import androidx.core.view.InputDeviceCompat;
 import c.a.d.a.f;
-import c.a.t0.n3.k.a.a;
+import c.a.u0.o3.k.a.a;
 import com.baidu.adp.base.BdBaseModel;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.BaseActivity;
@@ -19,13 +19,13 @@ public class AccountSafeModel extends BdBaseModel {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f41700e;
+    public boolean f41931e;
 
     /* renamed from: f  reason: collision with root package name */
-    public a f41701f;
+    public a f41932f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f41702g;
+    public String f41933g;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public AccountSafeModel(BaseActivity baseActivity) {
@@ -45,13 +45,13 @@ public class AccountSafeModel extends BdBaseModel {
                 return;
             }
         }
-        this.f41700e = false;
+        this.f41931e = false;
     }
 
     public boolean A() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f41700e : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f41931e : invokeV.booleanValue;
     }
 
     public final void B() {
@@ -62,17 +62,17 @@ public class AccountSafeModel extends BdBaseModel {
         }
         String str = z.secureemail;
         String str2 = z.securemobil;
-        this.f41702g = z.ahead_url;
+        this.f41933g = z.ahead_url;
     }
 
     public boolean C() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (this.f41700e) {
+            if (this.f41931e) {
                 return false;
             }
-            this.f41700e = true;
+            this.f41931e = true;
             sendMessage(w());
             return true;
         }
@@ -82,7 +82,7 @@ public class AccountSafeModel extends BdBaseModel {
     public void D(a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, aVar) == null) {
-            this.f41701f = aVar;
+            this.f41932f = aVar;
             B();
         }
     }
@@ -90,7 +90,7 @@ public class AccountSafeModel extends BdBaseModel {
     public void E(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
-            this.f41700e = z;
+            this.f41931e = z;
         }
     }
 
@@ -99,7 +99,7 @@ public class AccountSafeModel extends BdBaseModel {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            this.f41700e = false;
+            this.f41931e = false;
             return false;
         }
         return invokeV.booleanValue;
@@ -124,24 +124,24 @@ public class AccountSafeModel extends BdBaseModel {
     public a x() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f41701f : (a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f41932f : (a) invokeV.objValue;
     }
 
     public String y() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f41702g : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f41933g : (String) invokeV.objValue;
     }
 
     public final SimpleUser z() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            a aVar = this.f41701f;
+            a aVar = this.f41932f;
             if (aVar == null || aVar.f() == null) {
                 return null;
             }
-            return this.f41701f.f();
+            return this.f41932f.f();
         }
         return (SimpleUser) invokeV.objValue;
     }

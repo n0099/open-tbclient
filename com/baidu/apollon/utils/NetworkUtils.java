@@ -95,7 +95,7 @@ public final class NetworkUtils {
             if (isWifiNetworkAvailable(context)) {
                 return 1;
             }
-            if ((Build.VERSION.SDK_INT < 30 || PermissionManager.checkCallingPermission(context, s.f55287c)) && (telephonyManager = (TelephonyManager) context.getSystemService("phone")) != null) {
+            if ((Build.VERSION.SDK_INT < 30 || PermissionManager.checkCallingPermission(context, s.f55454c)) && (telephonyManager = (TelephonyManager) context.getSystemService("phone")) != null) {
                 switch (telephonyManager.getNetworkType()) {
                     case 1:
                     case 2:

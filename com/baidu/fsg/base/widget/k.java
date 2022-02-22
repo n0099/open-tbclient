@@ -36,7 +36,7 @@ public class k implements Runnable {
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             SafeKeyBoardPopupWindow safeKeyBoardPopupWindow = this.a.mPopupWindow;
             if (safeKeyBoardPopupWindow != null && safeKeyBoardPopupWindow.isShowing()) {
-                safeScrollView = this.a.f33985e;
+                safeScrollView = this.a.f34191e;
                 if (safeScrollView.hasWindowFocus()) {
                     this.a.b();
                     return;

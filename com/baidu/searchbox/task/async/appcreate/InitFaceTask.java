@@ -1,6 +1,6 @@
 package com.baidu.searchbox.task.async.appcreate;
 
-import c.a.s0.x.p.b;
+import c.a.t0.x.p.c;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.performance.speed.task.LaunchTask;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -33,7 +33,8 @@ public class InitFaceTask extends LaunchTask {
     public void execute() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            TbFaceManager.e().i(TbadkCoreApplication.getInst(), new b());
+            c.g();
+            TbFaceManager.e().i(TbadkCoreApplication.getInst(), new c());
         }
     }
 

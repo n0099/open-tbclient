@@ -7,7 +7,7 @@ import android.content.IntentFilter;
 import android.net.Uri;
 import android.text.TextUtils;
 import androidx.annotation.NonNull;
-import c.a.c0.x.c;
+import c.a.d0.x.c;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.nadcore.download.consts.AdDownloadAction;
 import com.baidu.nadcore.download.consts.AdDownloadStatus;
@@ -25,7 +25,7 @@ public class AdAppStateManager extends BroadcastReceiver {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "AdAppStateManager";
     public transient /* synthetic */ FieldHolder $fh;
-    public HashMap<String, c.a.c0.j.d.a> mDatas;
+    public HashMap<String, c.a.d0.j.d.a> mDatas;
 
     /* loaded from: classes10.dex */
     public static /* synthetic */ class a {
@@ -67,7 +67,7 @@ public class AdAppStateManager extends BroadcastReceiver {
             intentFilter.addAction(PackageChangedReceiver.ACTION_INSTALL);
             intentFilter.addAction(PackageChangedReceiver.ACTION_UNINSTALL);
             intentFilter.addDataScheme("package");
-            c.a.c0.h.a.b().registerReceiver(this, intentFilter);
+            c.a.d0.h.a.b().registerReceiver(this, intentFilter);
         }
     }
 
@@ -84,26 +84,26 @@ public class AdAppStateManager extends BroadcastReceiver {
             return;
         }
         Uri data = intent.getData();
-        c.a.c0.j.d.a aVar = (c.a.c0.j.d.a) c.b(this.mDatas, data != null ? data.getEncodedSchemeSpecificPart() : "");
+        c.a.d0.j.d.a aVar = (c.a.d0.j.d.a) c.b(this.mDatas, data != null ? data.getEncodedSchemeSpecificPart() : "");
         if (aVar == null) {
             return;
         }
         if (TextUtils.equals(PackageChangedReceiver.ACTION_INSTALL, intent.getAction())) {
-            aVar.f1951c = AdDownloadStatus.INSTALLED;
-            c.a.c0.j.a.a.b().d(AdDownloadAction.INSTALL_FINISH, aVar);
-            c.a.c0.j.i.a.e(aVar);
+            aVar.f2798c = AdDownloadStatus.INSTALLED;
+            c.a.d0.j.a.a.b().d(AdDownloadAction.INSTALL_FINISH, aVar);
+            c.a.d0.j.i.a.e(aVar);
         } else if (PackageChangedReceiver.ACTION_UNINSTALL.equals(intent.getAction())) {
-            c.a.c0.j.a.a.b().d(AdDownloadAction.REMOVE, aVar);
+            c.a.d0.j.a.a.b().d(AdDownloadAction.REMOVE, aVar);
         }
-        c.a.c0.j.b.a.a().b();
+        c.a.d0.j.b.a.a().b();
     }
 
-    public void register(@NonNull c.a.c0.j.d.a aVar) {
+    public void register(@NonNull c.a.d0.j.d.a aVar) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) || TextUtils.isEmpty(aVar.f1952d)) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) || TextUtils.isEmpty(aVar.f2799d)) {
             return;
         }
-        c.e(this.mDatas, aVar.f1952d, aVar);
+        c.e(this.mDatas, aVar.f2799d, aVar);
     }
 
     public AdAppStateManager() {

@@ -13,10 +13,10 @@ public class e {
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f31693b;
+    public String f31899b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f31694c;
+    public int f31900c;
 
     public e() {
         Interceptable interceptable = $ic;
@@ -35,13 +35,13 @@ public class e {
     public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f31693b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f31899b : (String) invokeV.objValue;
     }
 
     public void a(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
-            this.f31694c = i2;
+            this.f31900c = i2;
         }
     }
 
@@ -55,13 +55,13 @@ public class e {
     public int b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f31694c : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f31900c : invokeV.intValue;
     }
 
     public void b(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            this.f31693b = str;
+            this.f31899b = str;
         }
     }
 }

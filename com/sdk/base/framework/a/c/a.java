@@ -13,10 +13,10 @@ public final class a<T> {
     public a<T> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f59196b;
+    public boolean f59363b;
 
     /* renamed from: c  reason: collision with root package name */
-    public k<?> f59197c;
+    public k<?> f59364c;
 
     public a(T t) {
         Interceptable interceptable = $ic;
@@ -33,26 +33,26 @@ public final class a<T> {
                 return;
             }
         }
-        this.f59196b = false;
+        this.f59363b = false;
         a(t);
     }
 
     public final int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f59197c.a : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f59364c.a : invokeV.intValue;
     }
 
     public final void a(T t) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, t) == null) {
             if (t == null) {
-                this.f59197c = null;
+                this.f59364c = null;
             } else if (!(t instanceof k)) {
-                this.f59197c = new k<>(b.a, t);
+                this.f59364c = new k<>(b.a, t);
             } else {
-                this.f59197c = (k) t;
-                this.f59196b = true;
+                this.f59364c = (k) t;
+                this.f59363b = true;
             }
         }
     }
@@ -62,11 +62,11 @@ public final class a<T> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            ?? r0 = (T) this.f59197c;
+            ?? r0 = (T) this.f59364c;
             if (r0 == 0) {
                 return null;
             }
-            return this.f59196b ? r0 : (T) r0.f59215b;
+            return this.f59363b ? r0 : (T) r0.f59382b;
         }
         return (T) invokeV.objValue;
     }

@@ -14,31 +14,31 @@ public class Jni {
     public static int a = 0;
 
     /* renamed from: b  reason: collision with root package name */
-    public static int f34943b = 1;
+    public static int f35149b = 1;
 
     /* renamed from: c  reason: collision with root package name */
-    public static int f34944c = 2;
+    public static int f35150c = 2;
 
     /* renamed from: d  reason: collision with root package name */
-    public static int f34945d = 11;
+    public static int f35151d = 11;
 
     /* renamed from: e  reason: collision with root package name */
-    public static int f34946e = 12;
+    public static int f35152e = 12;
 
     /* renamed from: f  reason: collision with root package name */
-    public static int f34947f = 13;
+    public static int f35153f = 13;
 
     /* renamed from: g  reason: collision with root package name */
-    public static int f34948g = 14;
+    public static int f35154g = 14;
 
     /* renamed from: h  reason: collision with root package name */
-    public static int f34949h = 15;
+    public static int f35155h = 15;
 
     /* renamed from: i  reason: collision with root package name */
-    public static int f34950i = 1024;
+    public static int f35156i = 1024;
 
     /* renamed from: j  reason: collision with root package name */
-    public static boolean f34951j;
+    public static boolean f35157j;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -58,7 +58,7 @@ public class Jni {
             System.loadLibrary("locSDK7d");
         } catch (UnsatisfiedLinkError e2) {
             e2.printStackTrace();
-            f34951j = true;
+            f35157j = true;
         }
     }
 
@@ -87,24 +87,24 @@ public class Jni {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65541, null, new Object[]{Double.valueOf(d2), Double.valueOf(d3), str})) == null) {
             double[] dArr = {0.0d, 0.0d};
-            if (f34951j) {
+            if (f35157j) {
                 return dArr;
             }
             int i2 = -1;
             if (str.equals(BDLocation.BDLOCATION_GCJ02_TO_BD09)) {
                 i2 = a;
             } else if (str.equals("bd09ll")) {
-                i2 = f34943b;
+                i2 = f35149b;
             } else if (str.equals("gcj02")) {
-                i2 = f34944c;
+                i2 = f35150c;
             } else if (str.equals(BDLocation.BDLOCATION_WGS84_TO_GCJ02)) {
-                i2 = f34945d;
+                i2 = f35151d;
             } else if (str.equals(BDLocation.BDLOCATION_BD09_TO_GCJ02)) {
-                i2 = f34946e;
+                i2 = f35152e;
             } else if (str.equals(BDLocation.BDLOCATION_BD09LL_TO_GCJ02)) {
-                i2 = f34947f;
+                i2 = f35153f;
             } else if (str.equals("wgs842mc")) {
-                i2 = f34949h;
+                i2 = f35155h;
             }
             try {
                 String[] split = b(d2, d3, str.equals("gcj2wgs") ? 16 : i2, 132456).split(":");
@@ -123,14 +123,14 @@ public class Jni {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, str)) == null) {
-            if (f34951j) {
+            if (f35157j) {
                 return "err!";
             }
             if (str == null) {
                 return StringUtil.NULL_STRING;
             }
             byte[] bytes = str.getBytes();
-            byte[] bArr = new byte[f34950i];
+            byte[] bArr = new byte[f35156i];
             int length = bytes.length;
             if (length > 740) {
                 length = 740;
@@ -156,7 +156,7 @@ public class Jni {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, str)) == null) {
-            if (f34951j) {
+            if (f35157j) {
                 return "err!";
             }
             return en1(str) + "|tp=3";
@@ -168,7 +168,7 @@ public class Jni {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, str)) == null) {
-            if (f34951j) {
+            if (f35157j) {
                 return "err!";
             }
             if (str == null) {
@@ -189,7 +189,7 @@ public class Jni {
         String str2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, str)) == null) {
-            if (f34951j) {
+            if (f35157j) {
                 return null;
             }
             try {
@@ -215,7 +215,7 @@ public class Jni {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65548, null, str)) == null) {
             String str3 = "err!";
-            if (f34951j) {
+            if (f35157j) {
                 return "err!";
             }
             try {
@@ -239,7 +239,7 @@ public class Jni {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65549, null, str)) == null) {
             String str3 = "err!";
-            if (f34951j) {
+            if (f35157j) {
                 return "err!";
             }
             try {
@@ -261,7 +261,7 @@ public class Jni {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65550, null, new Object[]{Float.valueOf(f2), Double.valueOf(d2), Double.valueOf(d3)})) == null) {
-            if (f34951j) {
+            if (f35157j) {
                 return 0.0d;
             }
             try {
@@ -277,7 +277,7 @@ public class Jni {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65551, null)) == null) {
-            if (f34951j) {
+            if (f35157j) {
                 return null;
             }
             try {

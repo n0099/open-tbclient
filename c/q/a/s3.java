@@ -10,7 +10,7 @@ public class s3 implements Runnable {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final /* synthetic */ h4 f30473e;
+    public final /* synthetic */ h4 f30679e;
 
     public s3(h4 h4Var) {
         Interceptable interceptable = $ic;
@@ -27,14 +27,14 @@ public class s3 implements Runnable {
                 return;
             }
         }
-        this.f30473e = h4Var;
+        this.f30679e = h4Var;
     }
 
     @Override // java.lang.Runnable
     public void run() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f30473e.a();
+            this.f30679e.a();
         }
     }
 }

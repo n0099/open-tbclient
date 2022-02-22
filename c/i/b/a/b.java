@@ -12,16 +12,16 @@ public final class b {
     public static final int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final UUID f29020b;
+    public static final UUID f29226b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final UUID f29021c;
+    public static final UUID f29227c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final UUID f29022d;
+    public static final UUID f29228d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final UUID f29023e;
+    public static final UUID f29229e;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -38,11 +38,11 @@ public final class b {
             }
         }
         a = c.i.b.a.i0.v.a < 23 ? 1020 : 6396;
-        f29020b = new UUID(0L, 0L);
-        f29021c = new UUID(1186680826959645954L, -5988876978535335093L);
+        f29226b = new UUID(0L, 0L);
+        f29227c = new UUID(1186680826959645954L, -5988876978535335093L);
         new UUID(-2129748144642739255L, 8654423357094679310L);
-        f29022d = new UUID(-1301668207276963122L, -6645017420763422227L);
-        f29023e = new UUID(-7348484286925749626L, -6083546864340672619L);
+        f29228d = new UUID(-1301668207276963122L, -6645017420763422227L);
+        f29229e = new UUID(-7348484286925749626L, -6083546864340672619L);
     }
 
     public static long a(long j2) {

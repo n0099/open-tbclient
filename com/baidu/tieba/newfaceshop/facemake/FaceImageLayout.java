@@ -10,15 +10,15 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public class FaceImageLayout extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public a f46211e;
+    public a f46353e;
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes13.dex */
     public interface a {
         void a();
     }
@@ -48,7 +48,7 @@ public class FaceImageLayout extends FrameLayout {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, motionEvent)) == null) {
-            a aVar = this.f46211e;
+            a aVar = this.f46353e;
             if (aVar != null) {
                 aVar.a();
             }
@@ -60,7 +60,7 @@ public class FaceImageLayout extends FrameLayout {
     public void setListener(a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
-            this.f46211e = aVar;
+            this.f46353e = aVar;
         }
     }
 

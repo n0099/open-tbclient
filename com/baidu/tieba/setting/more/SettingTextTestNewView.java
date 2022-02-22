@@ -4,9 +4,9 @@ import android.content.Context;
 import android.util.AttributeSet;
 import c.a.d.f.p.m;
 import c.a.d.f.p.n;
-import c.a.t0.n3.c;
-import c.a.t0.n3.d;
-import c.a.t0.n3.h;
+import c.a.u0.o3.c;
+import c.a.u0.o3.d;
+import c.a.u0.o3.h;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
@@ -16,7 +16,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public final class SettingTextTestNewView extends TbSettingTextTipView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

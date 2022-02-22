@@ -3,11 +3,11 @@ package com.baidu.tbadk.core.util.httpNet;
 import android.os.Build;
 import android.text.TextUtils;
 import c.a.d.f.p.l;
-import c.a.s0.k0.f;
-import c.a.s0.s.i0.b;
-import c.a.s0.s.l.c;
-import c.a.s0.s.l.e;
-import c.a.s0.t.b.a;
+import c.a.t0.k0.f;
+import c.a.t0.s.j0.b;
+import c.a.t0.s.m.c;
+import c.a.t0.s.m.e;
+import c.a.t0.t.b.a;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.db.TableDefine;
 import com.baidu.android.imsdk.internal.Constants;
@@ -24,6 +24,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
 /* loaded from: classes11.dex */
 public class HttpRequest {
     public static /* synthetic */ Interceptable $ic = null;
@@ -163,8 +165,8 @@ public class HttpRequest {
                 }
                 z = false;
             }
-            c.a.d.f.j.b.a.s(z);
-            c.a.d.f.j.b.a.n(a + "BAIDUID=" + TbSingleton.getInstance().getBaiduIdForAnti());
+            c.a.d.f.j.c.a.s(z);
+            c.a.d.f.j.c.a.n(a + "BAIDUID=" + TbSingleton.getInstance().getBaiduIdForAnti());
             if (this.mIsNeedTbs) {
                 if (!TbadkCoreApplication.getInst().isMainProcess(false)) {
                     iNetWorkCore.addPostData(TBS, f.f());
@@ -194,12 +196,28 @@ public class HttpRequest {
                 iNetWorkCore.addPostData("mac", PermissionUtil.getLocalMacAddress(TbadkCoreApplication.getInst()));
                 iNetWorkCore.addPostData(ANDROID_ID, TbadkCoreApplication.getInst().getAndroidId());
             }
+            if (!TextUtils.isEmpty(TbSingleton.getInstance().getSampleId())) {
+                iNetWorkCore.addPostData(TiebaStatic.Params.SAMPLE_ID, TbSingleton.getInstance().getSampleId());
+            }
             iNetWorkCore.addPostData("active_timestamp", String.valueOf(TbSingleton.getInstance().getActiveTimeStamp()));
             iNetWorkCore.addPostData("first_install_time", String.valueOf(TbSingleton.getInstance().getAppFirstInstallTime()));
             iNetWorkCore.addPostData(TableDefine.UserInfoColumns.COLUMN_UPDATE_TIME, String.valueOf(TbSingleton.getInstance().getAppLastUpdateTime()));
             iNetWorkCore.addPostData("event_day", TbSingleton.getInstance().getData());
             iNetWorkCore.addPostData(CommonUrlParamManager.PARAM_CMODE, PermissionUtil.isAgreePrivacyPolicy() ? "1" : "2");
-            iNetWorkCore.addPostData("is_teenager", c.a.s0.g1.b.c.d() ? "1" : "0");
+            iNetWorkCore.addPostData("is_teenager", c.a.t0.g1.b.c.d() ? "1" : "0");
+            StringBuilder sb = new StringBuilder();
+            sb.append(c.a.t0.s.a0.a.f13402f);
+            String str = "";
+            sb.append("");
+            iNetWorkCore.addPostData("start_type", sb.toString());
+            try {
+                if (!StringUtils.isNull(c.a.t0.s.a0.a.f13401e)) {
+                    str = URLEncoder.encode(c.a.t0.s.a0.a.f13401e, "utf-8");
+                }
+                iNetWorkCore.addPostData("start_scheme", str);
+            } catch (UnsupportedEncodingException e2) {
+                e2.printStackTrace();
+            }
         }
     }
 

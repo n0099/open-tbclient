@@ -17,13 +17,13 @@ public class d0 implements TTAdDislike.DislikeInteractionCallback {
     public final /* synthetic */ View a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ FunAdInteractionListener f28202b;
+    public final /* synthetic */ FunAdInteractionListener f28408b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final /* synthetic */ String f28203c;
+    public final /* synthetic */ String f28409c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final /* synthetic */ b0 f28204d;
+    public final /* synthetic */ b0 f28410d;
 
     public d0(b0 b0Var, View view, FunAdInteractionListener funAdInteractionListener, String str) {
         Interceptable interceptable = $ic;
@@ -40,10 +40,10 @@ public class d0 implements TTAdDislike.DislikeInteractionCallback {
                 return;
             }
         }
-        this.f28204d = b0Var;
+        this.f28410d = b0Var;
         this.a = view;
-        this.f28202b = funAdInteractionListener;
-        this.f28203c = str;
+        this.f28408b = funAdInteractionListener;
+        this.f28409c = str;
     }
 
     @Override // com.bytedance.sdk.openadsdk.TTAdDislike.DislikeInteractionCallback
@@ -63,10 +63,10 @@ public class d0 implements TTAdDislike.DislikeInteractionCallback {
             if (view != null && view.getParent() != null) {
                 ((ViewGroup) this.a.getParent()).removeView(this.a);
             }
-            this.f28204d.onAdClose();
-            FunAdInteractionListener funAdInteractionListener = this.f28202b;
+            this.f28410d.onAdClose();
+            FunAdInteractionListener funAdInteractionListener = this.f28408b;
             if (funAdInteractionListener != null) {
-                funAdInteractionListener.onAdClose(this.f28203c);
+                funAdInteractionListener.onAdClose(this.f28409c);
             }
         }
     }

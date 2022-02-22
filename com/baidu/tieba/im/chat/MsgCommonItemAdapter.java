@@ -5,11 +5,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import androidx.core.view.InputDeviceCompat;
 import c.a.d.f.h.b;
-import c.a.d.n.e.a;
+import c.a.d.o.e.a;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
+import com.baidu.tieba.im.chat.AbsMsglistView;
 import com.baidu.tieba.im.data.MsgCacheData;
 import com.baidu.tieba.im.message.chat.ChatMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -17,6 +18,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Map;
 /* loaded from: classes12.dex */
 public abstract class MsgCommonItemAdapter<T> extends a<ChatMessage, MsgViewHolder<T>> {
     public static /* synthetic */ Interceptable $ic;
@@ -28,6 +30,9 @@ public abstract class MsgCommonItemAdapter<T> extends a<ChatMessage, MsgViewHold
     public boolean q;
     public boolean r;
     public int s;
+    public boolean t;
+    public Map<String, String> u;
+    public AbsMsglistView.g v;
 
     /* loaded from: classes12.dex */
     public static class MsgViewHolder<T> extends TypeAdapter.ViewHolder {
@@ -87,6 +92,7 @@ public abstract class MsgCommonItemAdapter<T> extends a<ChatMessage, MsgViewHold
         this.p = 0L;
         this.q = false;
         this.r = false;
+        this.t = false;
         this.m = tbPageContext;
     }
 
@@ -110,7 +116,7 @@ public abstract class MsgCommonItemAdapter<T> extends a<ChatMessage, MsgViewHold
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // c.a.d.n.e.a
+    @Override // c.a.d.o.e.a
     /* renamed from: c0 */
     public View S(int i2, View view, ViewGroup viewGroup, ChatMessage chatMessage, MsgViewHolder<T> msgViewHolder) {
         InterceptResult invokeCommon;
@@ -128,35 +134,56 @@ public abstract class MsgCommonItemAdapter<T> extends a<ChatMessage, MsgViewHold
     public void d0(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
-            this.r = z;
+            this.t = z;
         }
     }
 
     public void e0(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
+            this.r = z;
+        }
+    }
+
+    public void f0(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
             this.q = z;
         }
     }
 
-    public void f0(c.a.d.f.h.a aVar) {
+    public void g0(c.a.d.f.h.a aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, aVar) == null) {
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, aVar) == null) {
             this.n = aVar;
         }
     }
 
-    public void g0(b bVar) {
+    public void h0(b bVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, bVar) == null) {
+        if (interceptable == null || interceptable.invokeL(1048585, this, bVar) == null) {
             this.o = bVar;
         }
     }
 
-    public void h0(int i2) {
+    public void i0(Map<String, String> map) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048585, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeL(1048586, this, map) == null) {
+            this.u = map;
+        }
+    }
+
+    public void j0(int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048587, this, i2) == null) {
             this.s = i2;
+        }
+    }
+
+    public void k0(AbsMsglistView.g gVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048588, this, gVar) == null) {
+            this.v = gVar;
         }
     }
 }

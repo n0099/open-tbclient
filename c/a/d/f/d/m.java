@@ -18,10 +18,10 @@ public class m<T> implements l.c<T> {
     public boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final k<T> f2832b;
+    public final k<T> f1912b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final String f2833c;
+    public final String f1913c;
 
     /* loaded from: classes.dex */
     public class a implements Runnable {
@@ -29,13 +29,13 @@ public class m<T> implements l.c<T> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f2834e;
+        public final /* synthetic */ String f1914e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ l.a f2835f;
+        public final /* synthetic */ l.a f1915f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ m f2836g;
+        public final /* synthetic */ m f1916g;
 
         public a(m mVar, String str, l.a aVar) {
             Interceptable interceptable = $ic;
@@ -52,9 +52,9 @@ public class m<T> implements l.c<T> {
                     return;
                 }
             }
-            this.f2836g = mVar;
-            this.f2834e = str;
-            this.f2835f = aVar;
+            this.f1916g = mVar;
+            this.f1914e = str;
+            this.f1915f = aVar;
         }
 
         /* JADX DEBUG: Multi-variable search result rejected for r1v1, resolved type: c.a.d.f.d.l$a */
@@ -63,7 +63,7 @@ public class m<T> implements l.c<T> {
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f2835f.a(this.f2834e, this.f2836g.get(this.f2834e));
+                this.f1915f.a(this.f1914e, this.f1916g.get(this.f1914e));
             }
         }
     }
@@ -74,16 +74,16 @@ public class m<T> implements l.c<T> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f2837e;
+        public final /* synthetic */ String f1917e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ Object f2838f;
+        public final /* synthetic */ Object f1918f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ long f2839g;
+        public final /* synthetic */ long f1919g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ m f2840h;
+        public final /* synthetic */ m f1920h;
 
         public b(m mVar, String str, Object obj, long j2) {
             Interceptable interceptable = $ic;
@@ -100,10 +100,10 @@ public class m<T> implements l.c<T> {
                     return;
                 }
             }
-            this.f2840h = mVar;
-            this.f2837e = str;
-            this.f2838f = obj;
-            this.f2839g = j2;
+            this.f1920h = mVar;
+            this.f1917e = str;
+            this.f1918f = obj;
+            this.f1919g = j2;
         }
 
         /* JADX DEBUG: Multi-variable search result rejected for r0v2, resolved type: c.a.d.f.d.m */
@@ -112,7 +112,7 @@ public class m<T> implements l.c<T> {
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f2840h.e(this.f2837e, this.f2838f, this.f2839g);
+                this.f1920h.e(this.f1917e, this.f1918f, this.f1919g);
             }
         }
     }
@@ -123,10 +123,10 @@ public class m<T> implements l.c<T> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f2841e;
+        public final /* synthetic */ String f1921e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ m f2842f;
+        public final /* synthetic */ m f1922f;
 
         public c(m mVar, String str) {
             Interceptable interceptable = $ic;
@@ -143,15 +143,15 @@ public class m<T> implements l.c<T> {
                     return;
                 }
             }
-            this.f2842f = mVar;
-            this.f2841e = str;
+            this.f1922f = mVar;
+            this.f1921e = str;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f2842f.remove(this.f2841e);
+                this.f1922f.remove(this.f1921e);
             }
         }
     }
@@ -172,8 +172,8 @@ public class m<T> implements l.c<T> {
             }
         }
         this.a = false;
-        this.f2833c = str;
-        this.f2832b = kVar;
+        this.f1913c = str;
+        this.f1912b = kVar;
     }
 
     @Override // c.a.d.f.d.l
@@ -188,7 +188,7 @@ public class m<T> implements l.c<T> {
     public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f2832b.g(this.f2833c);
+            this.f1912b.g(this.f1913c);
             l();
         }
     }
@@ -197,7 +197,7 @@ public class m<T> implements l.c<T> {
     public k<T> c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f2832b : (k) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f1912b : (k) invokeV.objValue;
     }
 
     @Override // c.a.d.f.d.l
@@ -221,7 +221,7 @@ public class m<T> implements l.c<T> {
                     remove(str);
                     return;
                 } else {
-                    this.f2832b.f(this.f2833c, str, t, j3);
+                    this.f1912b.f(this.f1913c, str, t, j3);
                     return;
                 }
             }
@@ -257,7 +257,7 @@ public class m<T> implements l.c<T> {
                     throw new RuntimeException("access db in main thread!");
                 }
             }
-            return this.f2832b.a(this.f2833c, str);
+            return this.f1912b.a(this.f1913c, str);
         }
         return (T) invokeL.objValue;
     }
@@ -274,7 +274,7 @@ public class m<T> implements l.c<T> {
                     throw new RuntimeException("access db in main thread!");
                 }
             }
-            return this.f2832b.e(this.f2833c, str);
+            return this.f1912b.e(this.f1913c, str);
         }
         return (l.b) invokeL.objValue;
     }
@@ -291,13 +291,13 @@ public class m<T> implements l.c<T> {
     public String j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f2833c : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f1913c : (String) invokeV.objValue;
     }
 
     public void k() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
-            this.f2832b.b(this.f2833c);
+            this.f1912b.b(this.f1913c);
         }
     }
 
@@ -315,7 +315,7 @@ public class m<T> implements l.c<T> {
     public void remove(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048589, this, str) == null) {
-            this.f2832b.d(this.f2833c, str);
+            this.f1912b.d(this.f1913c, str);
         }
     }
 }

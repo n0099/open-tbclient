@@ -49,7 +49,7 @@ public class BindingBenchmark {
             this.mDouble = 123.456789d;
             this.mString = "123.456789ABCDEF";
             this.mObject = new Object();
-            this.mJSEvent = new JSEvent(a.f33670g);
+            this.mJSEvent = new JSEvent(a.f33876g);
             this.mInt = i2;
         }
 

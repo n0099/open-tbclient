@@ -14,7 +14,7 @@ import com.baidu.webkit.sdk.WebViewFactory;
 import com.baidu.webkit.sdk.WebViewFactoryProvider;
 import java.util.ArrayList;
 import java.util.Iterator;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public abstract class ApisInteractWithMario implements INoProGuard {
     public static final /* synthetic */ boolean $assertionsDisabled = false;
     public static /* synthetic */ Interceptable $ic = null;
@@ -189,7 +189,7 @@ public abstract class ApisInteractWithMario implements INoProGuard {
                         public final /* synthetic */ String a;
 
                         /* renamed from: b  reason: collision with root package name */
-                        public final /* synthetic */ String f52783b;
+                        public final /* synthetic */ String f52950b;
 
                         {
                             Interceptable interceptable2 = $ic;
@@ -207,14 +207,14 @@ public abstract class ApisInteractWithMario implements INoProGuard {
                                 }
                             }
                             this.a = str;
-                            this.f52783b = str2;
+                            this.f52950b = str2;
                         }
 
                         @Override // java.lang.Runnable
                         public final void run() {
                             Interceptable interceptable2 = $ic;
                             if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                                ApisInteractWithMario.setCrashKeyValue(this.a, this.f52783b);
+                                ApisInteractWithMario.setCrashKeyValue(this.a, this.f52950b);
                             }
                         }
                     });

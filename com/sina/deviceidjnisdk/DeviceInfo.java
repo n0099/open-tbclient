@@ -40,7 +40,7 @@ public class DeviceInfo {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
             String str = null;
-            if (isPermissionGranted(context, s.f55287c)) {
+            if (isPermissionGranted(context, s.f55454c)) {
                 try {
                     telephonyManager = (TelephonyManager) context.getSystemService("phone");
                 } catch (Exception unused) {
@@ -75,7 +75,7 @@ public class DeviceInfo {
         String str;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
-            if (isPermissionGranted(context, s.f55287c)) {
+            if (isPermissionGranted(context, s.f55454c)) {
                 TelephonyManager telephonyManager = (TelephonyManager) context.getSystemService("phone");
                 if (telephonyManager == null) {
                     return null;
@@ -95,7 +95,7 @@ public class DeviceInfo {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
             String str = null;
-            if (isPermissionGranted(context, s.f55288d)) {
+            if (isPermissionGranted(context, s.f55455d)) {
                 try {
                     WifiManager wifiManager = (WifiManager) context.getApplicationContext().getSystemService("wifi");
                     if (wifiManager == null || (connectionInfo = wifiManager.getConnectionInfo()) == null) {

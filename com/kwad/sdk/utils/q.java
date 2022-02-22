@@ -16,7 +16,7 @@ import java.io.Reader;
 import java.io.StringWriter;
 import java.io.Writer;
 import java.nio.charset.Charset;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class q {
     public static int a(Reader reader, Writer writer) {
         long b2 = b(reader, writer);

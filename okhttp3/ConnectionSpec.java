@@ -16,7 +16,7 @@ import java.util.List;
 import javax.annotation.Nullable;
 import javax.net.ssl.SSLSocket;
 import okhttp3.internal.Util;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public final class ConnectionSpec {
     public static /* synthetic */ Interceptable $ic;
     public static final CipherSuite[] APPROVED_CIPHER_SUITES;
@@ -220,7 +220,7 @@ public final class ConnectionSpec {
         return (String) invokeV.objValue;
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static final class Builder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

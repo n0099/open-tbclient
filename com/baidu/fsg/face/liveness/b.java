@@ -16,31 +16,31 @@ public class b {
     public long a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f34230b;
+    public int f34436b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f34231c;
+    public int f34437c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f34232d;
+    public String f34438d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f34233e;
+    public String f34439e;
 
     /* renamed from: f  reason: collision with root package name */
-    public long f34234f;
+    public long f34440f;
 
     /* renamed from: g  reason: collision with root package name */
-    public long f34235g;
+    public long f34441g;
 
     /* renamed from: h  reason: collision with root package name */
-    public long f34236h;
+    public long f34442h;
 
     /* renamed from: i  reason: collision with root package name */
-    public long f34237i;
+    public long f34443i;
 
     /* renamed from: j  reason: collision with root package name */
-    public long f34238j;
+    public long f34444j;
     public long k;
     public long l;
     public long m;
@@ -64,13 +64,13 @@ public class b {
                 return;
             }
         }
-        this.f34234f = 0L;
-        this.f34235g = 0L;
-        this.f34236h = 0L;
+        this.f34440f = 0L;
+        this.f34441g = 0L;
+        this.f34442h = 0L;
         this.p = new ArrayList<>();
         this.q = new StringBuilder();
-        this.f34232d = "";
-        this.f34233e = "";
+        this.f34438d = "";
+        this.f34439e = "";
     }
 
     private ArrayList<String> c() {
@@ -78,8 +78,8 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, this)) == null) {
             ArrayList<String> arrayList = new ArrayList<>();
-            arrayList.add(String.valueOf(this.f34237i));
-            arrayList.add(String.valueOf(this.f34238j));
+            arrayList.add(String.valueOf(this.f34443i));
+            arrayList.add(String.valueOf(this.f34444j));
             arrayList.add(String.valueOf(this.k));
             arrayList.add(String.valueOf(this.l));
             arrayList.add(String.valueOf(this.m));
@@ -99,8 +99,8 @@ public class b {
             ArrayList arrayList = new ArrayList();
             if (d.t.equals(str)) {
                 ArrayList arrayList2 = new ArrayList();
-                arrayList2.add(this.f34230b + "");
-                arrayList2.add(this.f34231c + "");
+                arrayList2.add(this.f34436b + "");
+                arrayList2.add(this.f34437c + "");
                 arrayList2.add(spno);
                 RimStatisticsUtil.onEventWithValues(d.t, arrayList2);
             } else if (d.r.equals(str)) {
@@ -109,10 +109,10 @@ public class b {
                 arrayList.add(b() + "");
                 arrayList.add(spno);
                 RimStatisticsUtil.onEventWithValues(d.s, arrayList);
-            } else if (d.f34342f.equals(str)) {
+            } else if (d.f34548f.equals(str)) {
                 arrayList.add(((System.currentTimeMillis() - this.a) / 1000) + "");
                 arrayList.add(spno);
-                RimStatisticsUtil.onEventWithValues(d.f34342f, arrayList);
+                RimStatisticsUtil.onEventWithValues(d.f34548f, arrayList);
             } else if (d.u.equals(str)) {
                 if (this.o > 0) {
                     str2 = (this.n / this.o) + "";
@@ -132,13 +132,13 @@ public class b {
                     } else {
                         this.p.add("");
                     }
-                    this.p.add(this.f34230b + "*" + this.f34231c);
+                    this.p.add(this.f34436b + "*" + this.f34437c);
                     this.p.add(spno);
                     RimStatisticsUtil.onEventWithValues(str, this.p);
                 }
             } else if (d.l.equals(str)) {
-                arrayList.add(this.f34233e);
-                arrayList.add(this.f34232d);
+                arrayList.add(this.f34439e);
+                arrayList.add(this.f34438d);
                 arrayList.add(spno);
                 RimStatisticsUtil.onEventWithValues(str, arrayList);
             } else if (d.o.equals(str)) {
@@ -165,9 +165,9 @@ public class b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, this)) == null) {
-            long j2 = this.f34236h;
+            long j2 = this.f34442h;
             if (j2 >= 2) {
-                return (this.f34235g - this.f34234f) / j2;
+                return (this.f34441g - this.f34440f) / j2;
             }
             return 0L;
         }
@@ -177,7 +177,7 @@ public class b {
     public void b(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            this.f34232d += str;
+            this.f34438d += str;
         }
     }
 
@@ -196,24 +196,24 @@ public class b {
                 return;
             }
         }
-        this.f34234f = 0L;
-        this.f34235g = 0L;
-        this.f34236h = 0L;
+        this.f34440f = 0L;
+        this.f34441g = 0L;
+        this.f34442h = 0L;
         this.p = new ArrayList<>();
         this.q = new StringBuilder();
-        this.f34232d = "";
-        this.f34233e = "";
+        this.f34438d = "";
+        this.f34439e = "";
         this.s = livenessRecogDTO;
     }
 
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            if (this.f34234f == 0) {
-                this.f34234f = System.currentTimeMillis();
+            if (this.f34440f == 0) {
+                this.f34440f = System.currentTimeMillis();
             }
-            this.f34235g = System.currentTimeMillis();
-            this.f34236h++;
+            this.f34441g = System.currentTimeMillis();
+            this.f34442h++;
         }
     }
 

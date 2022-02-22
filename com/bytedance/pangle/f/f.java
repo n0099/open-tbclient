@@ -24,12 +24,12 @@ import java.security.spec.MGF1ParameterSpec;
 import java.security.spec.PSSParameterSpec;
 import java.util.Arrays;
 import java.util.Map;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class f {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class a implements j {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -352,12 +352,12 @@ public final class f {
     public static void a(Map<Integer, byte[]> map, FileDescriptor fileDescriptor, m mVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(65545, null, map, fileDescriptor, mVar) == null) {
-            l lVar = new l(fileDescriptor, 0L, mVar.f53115b);
-            long j2 = mVar.f53116c;
-            l lVar2 = new l(fileDescriptor, j2, mVar.f53117d - j2);
-            ByteBuffer duplicate = mVar.f53118e.duplicate();
+            l lVar = new l(fileDescriptor, 0L, mVar.f53282b);
+            long j2 = mVar.f53283c;
+            l lVar2 = new l(fileDescriptor, j2, mVar.f53284d - j2);
+            ByteBuffer duplicate = mVar.f53285e.duplicate();
             duplicate.order(ByteOrder.LITTLE_ENDIAN);
-            long j3 = mVar.f53115b;
+            long j3 = mVar.f53282b;
             s.c(duplicate);
             int position = duplicate.position() + 16;
             if (j3 >= 0 && j3 <= 4294967295L) {
@@ -512,7 +512,7 @@ public final class f {
             if (bArr.length == 40) {
                 ByteBuffer order = ByteBuffer.wrap(bArr).order(ByteOrder.LITTLE_ENDIAN);
                 order.position(32);
-                if (order.getLong() == j2 - (mVar.f53116c - mVar.f53115b)) {
+                if (order.getLong() == j2 - (mVar.f53283c - mVar.f53282b)) {
                     return Arrays.copyOfRange(bArr, 0, 32);
                 }
                 throw new SecurityException("APK content size did not verify");
@@ -550,7 +550,7 @@ public final class f {
                         Interceptable interceptable2 = $ic;
                         return (interceptable2 == null || (invokeI = interceptable2.invokeI(1048576, this, i2)) == null) ? ByteBuffer.allocate(i2) : (ByteBuffer) invokeI.objValue;
                     }
-                }).f53107b)) {
+                }).f53274b)) {
                     return;
                 }
                 throw new SecurityException("APK verity digest of contents did not verify");

@@ -16,13 +16,13 @@ public class v2 implements Runnable {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final /* synthetic */ boolean f30524e;
+    public final /* synthetic */ boolean f30730e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final /* synthetic */ String f30525f;
+    public final /* synthetic */ String f30731f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final /* synthetic */ y2 f30526g;
+    public final /* synthetic */ y2 f30732g;
 
     public v2(y2 y2Var, boolean z, String str) {
         Interceptable interceptable = $ic;
@@ -39,9 +39,9 @@ public class v2 implements Runnable {
                 return;
             }
         }
-        this.f30526g = y2Var;
-        this.f30524e = z;
-        this.f30525f = str;
+        this.f30732g = y2Var;
+        this.f30730e = z;
+        this.f30731f = str;
     }
 
     @Override // java.lang.Runnable
@@ -49,18 +49,18 @@ public class v2 implements Runnable {
         String x;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            String str = this.f30524e ? x5.f30545b : x5.f30546c;
-            HashMap b2 = h5.b(this.f30526g.a);
+            String str = this.f30730e ? x5.f30751b : x5.f30752c;
+            HashMap b2 = h5.b(this.f30732g.a);
             try {
                 str = str + h5.a(b2);
             } catch (UnsupportedEncodingException unused) {
             }
-            String str2 = this.f30525f;
+            String str2 = this.f30731f;
             try {
                 t1 t1Var = new t1(str, "POST", r0.k(null));
-                t1Var.f30480b = r0.L(str2);
+                t1Var.f30686b = r0.L(str2);
                 w1 a = t1Var.a();
-                byte[] bArr = a.f30532b;
+                byte[] bArr = a.f30738b;
                 if (a.a == 200) {
                     JSONObject jSONObject = new JSONObject(new String(bArr, "UTF-8"));
                     jSONObject.optInt(Constants.KEYS.RET);

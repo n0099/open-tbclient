@@ -13,10 +13,10 @@ public abstract class f {
     public final b a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final int f4478b;
+    public final int f4545b;
 
     /* renamed from: c  reason: collision with root package name */
-    public byte[] f4479c;
+    public byte[] f4546c;
 
     public f(b bVar) {
         Interceptable interceptable = $ic;
@@ -34,7 +34,7 @@ public abstract class f {
             }
         }
         this.a = bVar;
-        this.f4478b = bVar.a();
+        this.f4545b = bVar.a();
     }
 
     public abstract void a(boolean z, String str, byte[] bArr, byte[] bArr2) throws InvalidKeyException;

@@ -57,7 +57,7 @@ public class WebViewActivity extends BaseActivity {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ WebViewActivity f54074e;
+        public final /* synthetic */ WebViewActivity f54241e;
 
         public a(WebViewActivity webViewActivity) {
             Interceptable interceptable = $ic;
@@ -74,15 +74,15 @@ public class WebViewActivity extends BaseActivity {
                     return;
                 }
             }
-            this.f54074e = webViewActivity;
+            this.f54241e = webViewActivity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                GlobalUtils.hideKeyboard(this.f54074e.getActivity());
-                this.f54074e.onBackPressed();
+                GlobalUtils.hideKeyboard(this.f54241e.getActivity());
+                this.f54241e.onBackPressed();
             }
         }
     }
@@ -93,7 +93,7 @@ public class WebViewActivity extends BaseActivity {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ WebViewActivity f54075e;
+        public final /* synthetic */ WebViewActivity f54242e;
 
         public b(WebViewActivity webViewActivity) {
             Interceptable interceptable = $ic;
@@ -110,7 +110,7 @@ public class WebViewActivity extends BaseActivity {
                     return;
                 }
             }
-            this.f54075e = webViewActivity;
+            this.f54242e = webViewActivity;
         }
 
         @Override // com.dxmpay.apollon.webmanager.SafeWebView.SafeChromeClient, android.webkit.WebChromeClient
@@ -118,9 +118,9 @@ public class WebViewActivity extends BaseActivity {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048576, this, webView, str) == null) {
                 super.onReceivedTitle(webView, str);
-                WebViewActivity webViewActivity = this.f54075e;
+                WebViewActivity webViewActivity = this.f54242e;
                 if (TextUtils.isEmpty(str)) {
-                    str = ResUtils.getString(this.f54075e.getActivity(), "dxm_ebpay_wallet");
+                    str = ResUtils.getString(this.f54242e.getActivity(), "dxm_ebpay_wallet");
                 }
                 webViewActivity.initActionBar(str);
             }
@@ -137,7 +137,7 @@ public class WebViewActivity extends BaseActivity {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ WebViewActivity f54076e;
+        public final /* synthetic */ WebViewActivity f54243e;
 
         public c(WebViewActivity webViewActivity) {
             Interceptable interceptable = $ic;
@@ -154,7 +154,7 @@ public class WebViewActivity extends BaseActivity {
                     return;
                 }
             }
-            this.f54076e = webViewActivity;
+            this.f54243e = webViewActivity;
         }
 
         @Override // com.dxmpay.apollon.webmanager.SafeWebView.SafeWebViewClient, android.webkit.WebViewClient
@@ -162,7 +162,7 @@ public class WebViewActivity extends BaseActivity {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048576, this, webView, str) == null) {
                 super.onPageFinished(webView, str);
-                WalletGlobalUtils.safeDismissDialog(this.f54076e, -1);
+                WalletGlobalUtils.safeDismissDialog(this.f54243e, -1);
             }
         }
 
@@ -188,7 +188,7 @@ public class WebViewActivity extends BaseActivity {
             if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, webView, str)) == null) {
                 if (str.startsWith("tel:")) {
                     try {
-                        this.f54076e.startActivity(new Intent("android.intent.action.DIAL", Uri.parse(str)));
+                        this.f54243e.startActivity(new Intent("android.intent.action.DIAL", Uri.parse(str)));
                     } catch (Exception e2) {
                         e2.printStackTrace();
                     }
@@ -197,10 +197,10 @@ public class WebViewActivity extends BaseActivity {
                     try {
                         Intent intent = new Intent("android.intent.action.SENDTO", Uri.parse(str.substring(0, str.indexOf("?"))));
                         intent.putExtra("android.intent.extra.SUBJECT", Uri.parse(str.replace(com.baidu.webkit.sdk.WebView.SCHEME_MAILTO, "mailto://")).getQueryParameter("subject"));
-                        this.f54076e.startActivity(intent);
+                        this.f54243e.startActivity(intent);
                     } catch (Exception e3) {
                         e3.printStackTrace();
-                        GlobalUtils.toast(this.f54076e.getActivity(), "请先配置邮箱");
+                        GlobalUtils.toast(this.f54243e.getActivity(), "请先配置邮箱");
                     }
                     return true;
                 } else {

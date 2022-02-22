@@ -51,7 +51,7 @@ public class a {
 
     /* renamed from: com.baidu.wallet.home.ui.widget.a$a  reason: collision with other inner class name */
     /* loaded from: classes13.dex */
-    public static class C1995a {
+    public static class C2005a {
         public static /* synthetic */ Interceptable $ic;
         public static a a;
         public transient /* synthetic */ FieldHolder $fh;
@@ -80,7 +80,7 @@ public class a {
     public static a a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? C1995a.a : (a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? C2005a.a : (a) invokeV.objValue;
     }
 
     public a() {

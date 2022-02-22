@@ -16,7 +16,7 @@ public abstract class z extends com.vivo.push.l {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public PushMessageCallback f60729b;
+    public PushMessageCallback f60896b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public z(com.vivo.push.o oVar) {
@@ -41,7 +41,7 @@ public abstract class z extends com.vivo.push.l {
     public final void a(PushMessageCallback pushMessageCallback) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, pushMessageCallback) == null) {
-            this.f60729b = pushMessageCallback;
+            this.f60896b = pushMessageCallback;
         }
     }
 

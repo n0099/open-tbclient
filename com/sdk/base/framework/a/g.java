@@ -15,19 +15,19 @@ public final class g {
     public static final g a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final g f59238b;
+    public static final g f59405b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final g f59239c;
+    public static final g f59406c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final g f59240d;
+    public static final g f59407d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final g f59241e;
+    public static final g f59408e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final g f59242f;
+    public static final g f59409f;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -44,11 +44,11 @@ public final class g {
             }
         }
         a = new g("WAITING", 0, 0);
-        f59238b = new g("STARTED", 1, 1);
-        f59239c = new g("LOADING", 2, 2);
-        f59240d = new g("FAILURE", 3, 3);
-        f59241e = new g("CANCELLED", 4, 4);
-        f59242f = new g(com.alipay.security.mobile.module.http.model.c.p, 5, 5);
+        f59405b = new g("STARTED", 1, 1);
+        f59406c = new g("LOADING", 2, 2);
+        f59407d = new g("FAILURE", 3, 3);
+        f59408e = new g("CANCELLED", 4, 4);
+        f59409f = new g(com.alipay.security.mobile.module.http.model.c.p, 5, 5);
     }
 
     public g(String str, int i2, int i3) {

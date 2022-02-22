@@ -9,13 +9,13 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.zui.opendeviceidlibrary.OpenDeviceId;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class p extends l implements OpenDeviceId.CallBack<String> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: j  reason: collision with root package name */
-    public Context f52972j;
+    public Context f53139j;
     public OpenDeviceId k;
 
     public p(Context context) {
@@ -33,7 +33,7 @@ public class p extends l implements OpenDeviceId.CallBack<String> {
                 return;
             }
         }
-        this.f52972j = context;
+        this.f53139j = context;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -47,21 +47,21 @@ public class p extends l implements OpenDeviceId.CallBack<String> {
                 return;
             }
             if (str.equals("Deviceid Service Connected")) {
-                this.f52955f = true;
+                this.f53122f = true;
                 try {
-                    this.f52952c = openDeviceId.getOAID();
-                    this.f52954e = openDeviceId.getAAID();
-                    this.f52953d = openDeviceId.getVAID();
+                    this.f53119c = openDeviceId.getOAID();
+                    this.f53121e = openDeviceId.getAAID();
+                    this.f53120d = openDeviceId.getVAID();
                 } catch (Exception e2) {
                     e0.b("LenovoProvider", "serviceConnected: Exception: " + e2.getMessage());
                 }
-                this.f52956g = false;
-                a(this.f52952c, this.f52953d, this.f52954e, this.f52955f, this.f52956g);
+                this.f53123g = false;
+                a(this.f53119c, this.f53120d, this.f53121e, this.f53122f, this.f53123g);
             }
             e0.d("LenovoProvider", "serviceConnected error: " + str);
             a();
-            this.f52956g = false;
-            a(this.f52952c, this.f52953d, this.f52954e, this.f52955f, this.f52956g);
+            this.f53123g = false;
+            a(this.f53119c, this.f53120d, this.f53121e, this.f53122f, this.f53123g);
         }
     }
 
@@ -71,25 +71,25 @@ public class p extends l implements OpenDeviceId.CallBack<String> {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             if (isSync()) {
                 e0.c("LenovoProvider", "doStart: sync, unsupported");
-                this.f52952c = "";
-                this.f52953d = "";
-                this.f52954e = "";
-                this.f52955f = false;
-                this.f52956g = false;
+                this.f53119c = "";
+                this.f53120d = "";
+                this.f53121e = "";
+                this.f53122f = false;
+                this.f53123g = false;
                 a("", "", "", false, false);
                 return;
             }
             e0.c("LenovoProvider", "doStart: async");
             this.k = new OpenDeviceId();
-            this.f52972j = a(this.f52972j);
+            this.f53139j = a(this.f53139j);
             try {
                 c();
-                this.k.init(this.f52972j, this);
+                this.k.init(this.f53139j, this);
                 b();
             } catch (Exception e2) {
                 e0.b("LenovoProvider", "doStart: Exception: " + e2.getMessage());
                 a();
-                a(this.f52952c, this.f52953d, this.f52954e, this.f52955f, this.f52956g);
+                a(this.f53119c, this.f53120d, this.f53121e, this.f53122f, this.f53123g);
             }
         }
     }

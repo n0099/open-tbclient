@@ -2,7 +2,7 @@ package com.kwad.sdk.utils;
 
 import androidx.annotation.NonNull;
 import java.security.MessageDigest;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class aa {
     public static final char[] a = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
 

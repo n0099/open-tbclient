@@ -46,22 +46,22 @@ public class Base64 {
     public static final byte[] a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final byte[] f53712b;
+    public static final byte[] f53879b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final byte[] f53713c;
+    public static final byte[] f53880c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final byte[] f53714d;
+    public static final byte[] f53881d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final byte[] f53715e;
+    public static final byte[] f53882e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final byte[] f53716f;
+    public static final byte[] f53883f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final /* synthetic */ boolean f53717g;
+    public static final /* synthetic */ boolean f53884g;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes3.dex */
@@ -70,22 +70,22 @@ public class Base64 {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final boolean f53718e;
+        public final boolean f53885e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final byte[] f53719f;
+        public final byte[] f53886f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final int f53720g;
+        public final int f53887g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final boolean f53721h;
+        public final boolean f53888h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final int f53722i;
+        public final int f53889i;
 
         /* renamed from: j  reason: collision with root package name */
-        public final byte[] f53723j;
+        public final byte[] f53890j;
         public int k;
         public int l;
         public int m;
@@ -118,7 +118,7 @@ public class Base64 {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
                 if (this.k < 0) {
-                    if (this.f53718e) {
+                    if (this.f53885e) {
                         byte[] bArr = new byte[3];
                         int i2 = 0;
                         for (int i3 = 0; i3 < 3; i3++) {
@@ -132,7 +132,7 @@ public class Base64 {
                         if (i2 <= 0) {
                             return -1;
                         }
-                        Base64.g(bArr, 0, i2, this.f53719f, 0, this.f53722i);
+                        Base64.g(bArr, 0, i2, this.f53886f, 0, this.f53889i);
                         this.k = 0;
                         this.l = 4;
                     } else {
@@ -144,7 +144,7 @@ public class Base64 {
                                 if (read < 0) {
                                     break;
                                 }
-                            } while (this.f53723j[read & 127] <= -5);
+                            } while (this.f53890j[read & 127] <= -5);
                             if (read < 0) {
                                 break;
                             }
@@ -157,7 +157,7 @@ public class Base64 {
                             }
                             throw new IOException("Improperly padded Base64 input.");
                         }
-                        this.l = Base64.e(bArr2, 0, this.f53719f, 0, this.f53722i);
+                        this.l = Base64.e(bArr2, 0, this.f53886f, 0, this.f53889i);
                         this.k = 0;
                     }
                 }
@@ -166,17 +166,17 @@ public class Base64 {
                     if (i5 >= this.l) {
                         return -1;
                     }
-                    if (this.f53718e && this.f53721h && this.m >= 76) {
+                    if (this.f53885e && this.f53888h && this.m >= 76) {
                         this.m = 0;
                         return 10;
                     }
                     this.m++;
-                    byte[] bArr3 = this.f53719f;
+                    byte[] bArr3 = this.f53886f;
                     int i6 = this.k;
                     int i7 = i6 + 1;
                     this.k = i7;
                     byte b2 = bArr3[i6];
-                    if (i7 >= this.f53720g) {
+                    if (i7 >= this.f53887g) {
                         this.k = -1;
                     }
                     return b2 & 255;
@@ -204,16 +204,16 @@ public class Base64 {
                     return;
                 }
             }
-            this.f53722i = i2;
-            this.f53721h = (i2 & 8) > 0;
+            this.f53889i = i2;
+            this.f53888h = (i2 & 8) > 0;
             boolean z = (i2 & 1) > 0;
-            this.f53718e = z;
+            this.f53885e = z;
             int i5 = z ? 4 : 3;
-            this.f53720g = i5;
-            this.f53719f = new byte[i5];
+            this.f53887g = i5;
+            this.f53886f = new byte[i5];
             this.k = -1;
             this.m = 0;
-            this.f53723j = Base64.i(i2);
+            this.f53890j = Base64.i(i2);
         }
 
         @Override // java.io.FilterInputStream, java.io.InputStream
@@ -246,22 +246,22 @@ public class Base64 {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final boolean f53724e;
+        public final boolean f53891e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final int f53725f;
+        public final int f53892f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final boolean f53726g;
+        public final boolean f53893g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final byte[] f53727h;
+        public final byte[] f53894h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final int f53728i;
+        public final int f53895i;
 
         /* renamed from: j  reason: collision with root package name */
-        public final byte[] f53729j;
+        public final byte[] f53896j;
         public int k;
         public byte[] l;
         public int m;
@@ -305,10 +305,10 @@ public class Base64 {
             if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (i2 = this.k) <= 0) {
                 return;
             }
-            if (this.f53724e) {
+            if (this.f53891e) {
                 java.io.OutputStream outputStream = ((FilterOutputStream) this).out;
-                byte[] bArr = this.f53727h;
-                Base64.h(bArr, this.l, i2, this.f53728i);
+                byte[] bArr = this.f53894h;
+                Base64.h(bArr, this.l, i2, this.f53895i);
                 outputStream.write(bArr);
                 this.k = 0;
                 return;
@@ -337,28 +337,28 @@ public class Base64 {
             if (interceptable == null || interceptable.invokeI(1048580, this, i2) == null) {
                 if (this.n) {
                     ((FilterOutputStream) this).out.write(i2);
-                } else if (this.f53724e) {
+                } else if (this.f53891e) {
                     byte[] bArr = this.l;
                     int i3 = this.k;
                     int i4 = i3 + 1;
                     this.k = i4;
                     bArr[i3] = (byte) i2;
-                    int i5 = this.f53725f;
+                    int i5 = this.f53892f;
                     if (i4 >= i5) {
                         java.io.OutputStream outputStream = ((FilterOutputStream) this).out;
-                        byte[] bArr2 = this.f53727h;
-                        Base64.h(bArr2, bArr, i5, this.f53728i);
+                        byte[] bArr2 = this.f53894h;
+                        Base64.h(bArr2, bArr, i5, this.f53895i);
                         outputStream.write(bArr2);
                         int i6 = this.m + 4;
                         this.m = i6;
-                        if (this.f53726g && i6 >= 76) {
+                        if (this.f53893g && i6 >= 76) {
                             ((FilterOutputStream) this).out.write(10);
                             this.m = 0;
                         }
                         this.k = 0;
                     }
                 } else {
-                    byte[] bArr3 = this.f53729j;
+                    byte[] bArr3 = this.f53896j;
                     int i7 = i2 & 127;
                     if (bArr3[i7] > -5) {
                         byte[] bArr4 = this.l;
@@ -366,8 +366,8 @@ public class Base64 {
                         int i9 = i8 + 1;
                         this.k = i9;
                         bArr4[i8] = (byte) i2;
-                        if (i9 >= this.f53725f) {
-                            ((FilterOutputStream) this).out.write(this.f53727h, 0, Base64.e(bArr4, 0, this.f53727h, 0, this.f53728i));
+                        if (i9 >= this.f53892f) {
+                            ((FilterOutputStream) this).out.write(this.f53894h, 0, Base64.e(bArr4, 0, this.f53894h, 0, this.f53895i));
                             this.k = 0;
                         }
                     } else if (bArr3[i7] != -5) {
@@ -395,18 +395,18 @@ public class Base64 {
                     return;
                 }
             }
-            this.f53726g = (i2 & 8) != 0;
+            this.f53893g = (i2 & 8) != 0;
             boolean z = (i2 & 1) != 0;
-            this.f53724e = z;
+            this.f53891e = z;
             int i5 = z ? 3 : 4;
-            this.f53725f = i5;
+            this.f53892f = i5;
             this.l = new byte[i5];
             this.k = 0;
             this.m = 0;
             this.n = false;
-            this.f53727h = new byte[4];
-            this.f53728i = i2;
-            this.f53729j = Base64.i(i2);
+            this.f53894h = new byte[4];
+            this.f53895i = i2;
+            this.f53896j = Base64.i(i2);
         }
 
         @Override // java.io.FilterOutputStream, java.io.OutputStream
@@ -430,7 +430,7 @@ public class Base64 {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ ClassLoader f53730e;
+        public final /* synthetic */ ClassLoader f53897e;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(java.io.InputStream inputStream, ClassLoader classLoader) {
@@ -450,7 +450,7 @@ public class Base64 {
                     return;
                 }
             }
-            this.f53730e = classLoader;
+            this.f53897e = classLoader;
         }
 
         @Override // java.io.ObjectInputStream
@@ -458,7 +458,7 @@ public class Base64 {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, objectStreamClass)) == null) {
-                Class<?> cls = Class.forName(objectStreamClass.getName(), false, this.f53730e);
+                Class<?> cls = Class.forName(objectStreamClass.getName(), false, this.f53897e);
                 return cls == null ? super.resolveClass(objectStreamClass) : cls;
             }
             return (Class) invokeL.objValue;
@@ -478,13 +478,13 @@ public class Base64 {
                 return;
             }
         }
-        f53717g = !Base64.class.desiredAssertionStatus();
+        f53884g = !Base64.class.desiredAssertionStatus();
         a = new byte[]{65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 97, 98, 99, 100, Constants.SHORT_PING_CMD_TYPE, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115, 116, ContentUtil.GZIP_HEAD_1, 118, 119, 120, 121, 122, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 43, 47};
-        f53712b = new byte[]{-9, -9, -9, -9, -9, -9, -9, -9, -9, -5, -5, -9, -9, -5, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -5, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, 62, -9, -9, -9, 63, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, -9, -9, -9, -1, -9, -9, -9, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, StandardMessageCodec.LIST, 13, 14, 15, YogaNodeJNIBase.HAS_NEW_LAYOUT, 17, 18, 19, 20, 21, 22, 23, 24, 25, -9, -9, -9, -9, -9, -9, 26, 27, 28, 29, 30, 31, 32, PublicSuffixDatabase.EXCEPTION_MARKER, 34, com.baidu.webkit.internal.Base64.INTERNAL_PADDING, 36, 37, 38, 39, 40, 41, 42, 43, 44, UtilsBlink.VER_TYPE_SEPARATOR, 46, 47, 48, 49, 50, 51, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9};
-        f53713c = new byte[]{65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 97, 98, 99, 100, Constants.SHORT_PING_CMD_TYPE, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115, 116, ContentUtil.GZIP_HEAD_1, 118, 119, 120, 121, 122, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, UtilsBlink.VER_TYPE_SEPARATOR, 95};
-        f53714d = new byte[]{-9, -9, -9, -9, -9, -9, -9, -9, -9, -5, -5, -9, -9, -5, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -5, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, 62, -9, -9, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, -9, -9, -9, -1, -9, -9, -9, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, StandardMessageCodec.LIST, 13, 14, 15, YogaNodeJNIBase.HAS_NEW_LAYOUT, 17, 18, 19, 20, 21, 22, 23, 24, 25, -9, -9, -9, -9, 63, -9, 26, 27, 28, 29, 30, 31, 32, PublicSuffixDatabase.EXCEPTION_MARKER, 34, com.baidu.webkit.internal.Base64.INTERNAL_PADDING, 36, 37, 38, 39, 40, 41, 42, 43, 44, UtilsBlink.VER_TYPE_SEPARATOR, 46, 47, 48, 49, 50, 51, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9};
-        f53715e = new byte[]{UtilsBlink.VER_TYPE_SEPARATOR, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 95, 97, 98, 99, 100, Constants.SHORT_PING_CMD_TYPE, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115, 116, ContentUtil.GZIP_HEAD_1, 118, 119, 120, 121, 122};
-        f53716f = new byte[]{-9, -9, -9, -9, -9, -9, -9, -9, -9, -5, -5, -9, -9, -5, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -5, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, 0, -9, -9, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, -9, -9, -9, -1, -9, -9, -9, 11, StandardMessageCodec.LIST, 13, 14, 15, YogaNodeJNIBase.HAS_NEW_LAYOUT, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, PublicSuffixDatabase.EXCEPTION_MARKER, 34, com.baidu.webkit.internal.Base64.INTERNAL_PADDING, 36, -9, -9, -9, -9, 37, -9, 38, 39, 40, 41, 42, 43, 44, UtilsBlink.VER_TYPE_SEPARATOR, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9};
+        f53879b = new byte[]{-9, -9, -9, -9, -9, -9, -9, -9, -9, -5, -5, -9, -9, -5, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -5, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, 62, -9, -9, -9, 63, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, -9, -9, -9, -1, -9, -9, -9, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, StandardMessageCodec.LIST, 13, 14, 15, YogaNodeJNIBase.HAS_NEW_LAYOUT, 17, 18, 19, 20, 21, 22, 23, 24, 25, -9, -9, -9, -9, -9, -9, 26, 27, 28, 29, 30, 31, 32, PublicSuffixDatabase.EXCEPTION_MARKER, 34, com.baidu.webkit.internal.Base64.INTERNAL_PADDING, 36, 37, 38, 39, 40, 41, 42, 43, 44, UtilsBlink.VER_TYPE_SEPARATOR, 46, 47, 48, 49, 50, 51, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9};
+        f53880c = new byte[]{65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 97, 98, 99, 100, Constants.SHORT_PING_CMD_TYPE, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115, 116, ContentUtil.GZIP_HEAD_1, 118, 119, 120, 121, 122, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, UtilsBlink.VER_TYPE_SEPARATOR, 95};
+        f53881d = new byte[]{-9, -9, -9, -9, -9, -9, -9, -9, -9, -5, -5, -9, -9, -5, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -5, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, 62, -9, -9, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, -9, -9, -9, -1, -9, -9, -9, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, StandardMessageCodec.LIST, 13, 14, 15, YogaNodeJNIBase.HAS_NEW_LAYOUT, 17, 18, 19, 20, 21, 22, 23, 24, 25, -9, -9, -9, -9, 63, -9, 26, 27, 28, 29, 30, 31, 32, PublicSuffixDatabase.EXCEPTION_MARKER, 34, com.baidu.webkit.internal.Base64.INTERNAL_PADDING, 36, 37, 38, 39, 40, 41, 42, 43, 44, UtilsBlink.VER_TYPE_SEPARATOR, 46, 47, 48, 49, 50, 51, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9};
+        f53882e = new byte[]{UtilsBlink.VER_TYPE_SEPARATOR, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 95, 97, 98, 99, 100, Constants.SHORT_PING_CMD_TYPE, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115, 116, ContentUtil.GZIP_HEAD_1, 118, 119, 120, 121, 122};
+        f53883f = new byte[]{-9, -9, -9, -9, -9, -9, -9, -9, -9, -5, -5, -9, -9, -5, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -5, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, 0, -9, -9, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, -9, -9, -9, -1, -9, -9, -9, 11, StandardMessageCodec.LIST, 13, 14, 15, YogaNodeJNIBase.HAS_NEW_LAYOUT, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, PublicSuffixDatabase.EXCEPTION_MARKER, 34, com.baidu.webkit.internal.Base64.INTERNAL_PADDING, 36, -9, -9, -9, -9, 37, -9, 38, 39, 40, 41, 42, 43, 44, UtilsBlink.VER_TYPE_SEPARATOR, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9, -9};
     }
 
     public Base64() {
@@ -691,12 +691,12 @@ public class Base64 {
             try {
                 str = encodeBytes(bArr, 0, bArr.length, 0);
             } catch (IOException e2) {
-                if (!f53717g) {
+                if (!f53884g) {
                     throw new AssertionError(e2.getMessage());
                 }
                 str = null;
             }
-            if (f53717g || str != null) {
+            if (f53884g || str != null) {
                 return str;
             }
             throw new AssertionError();
@@ -711,7 +711,7 @@ public class Base64 {
             try {
                 return encodeBytesToBytes(bArr, 0, bArr.length, 0);
             } catch (IOException e2) {
-                if (f53717g) {
+                if (f53884g) {
                     return null;
                 }
                 throw new AssertionError("IOExceptions only come from GZipping, which is turned off: " + e2.getMessage());
@@ -850,10 +850,10 @@ public class Base64 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(65565, null, i2)) == null) {
             if ((i2 & 16) == 16) {
-                return f53713c;
+                return f53880c;
             }
             if ((i2 & 32) == 32) {
-                return f53715e;
+                return f53882e;
             }
             return a;
         }
@@ -906,12 +906,12 @@ public class Base64 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(65568, null, i2)) == null) {
             if ((i2 & 16) == 16) {
-                return f53714d;
+                return f53881d;
             }
             if ((i2 & 32) == 32) {
-                return f53716f;
+                return f53883f;
             }
-            return f53712b;
+            return f53879b;
         }
         return (byte[]) invokeI.objValue;
     }
@@ -1365,12 +1365,12 @@ public class Base64 {
             try {
                 str = encodeBytes(bArr, i2, i3, 0);
             } catch (IOException e2) {
-                if (!f53717g) {
+                if (!f53884g) {
                     throw new AssertionError(e2.getMessage());
                 }
                 str = null;
             }
-            if (f53717g || str != null) {
+            if (f53884g || str != null) {
                 return str;
             }
             throw new AssertionError();

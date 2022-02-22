@@ -3,7 +3,7 @@ package com.kwad.sdk.crash.utils;
 import android.content.Context;
 import android.content.SharedPreferences;
 import androidx.annotation.WorkerThread;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class d {
     public static Context a;
 

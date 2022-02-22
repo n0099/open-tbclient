@@ -3,7 +3,7 @@ package com.baidu.swan.apps.adlanding.customer;
 import android.content.Context;
 import android.view.MotionEvent;
 import android.widget.ScrollView;
-import c.a.r0.a.q.f.a;
+import c.a.s0.a.q.f.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -16,16 +16,16 @@ public class CustomerAdScrollView extends ScrollView {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f38648e;
+    public boolean f38876e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f38649f;
+    public boolean f38877f;
 
     /* renamed from: g  reason: collision with root package name */
-    public float f38650g;
+    public float f38878g;
 
     /* renamed from: h  reason: collision with root package name */
-    public a f38651h;
+    public a f38879h;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public CustomerAdScrollView(Context context) {
@@ -45,9 +45,9 @@ public class CustomerAdScrollView extends ScrollView {
                 return;
             }
         }
-        this.f38648e = false;
-        this.f38649f = false;
-        this.f38651h = null;
+        this.f38876e = false;
+        this.f38877f = false;
+        this.f38879h = null;
         setVerticalScrollBarEnabled(false);
     }
 
@@ -59,13 +59,13 @@ public class CustomerAdScrollView extends ScrollView {
             float y = motionEvent.getY();
             int action = motionEvent.getAction();
             if (action == 0) {
-                this.f38650g = y;
+                this.f38878g = y;
             } else if (action == 2) {
-                if (y - this.f38650g < 0.0f) {
-                    if (!this.f38648e || this.f38649f) {
+                if (y - this.f38878g < 0.0f) {
+                    if (!this.f38876e || this.f38877f) {
                         return false;
                     }
-                } else if (!this.f38649f) {
+                } else if (!this.f38877f) {
                     return false;
                 }
             }
@@ -79,7 +79,7 @@ public class CustomerAdScrollView extends ScrollView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIIII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, i3, i4, i5) == null) {
             super.onScrollChanged(i2, i3, i4, i5);
-            a aVar = this.f38651h;
+            a aVar = this.f38879h;
             if (aVar != null) {
                 aVar.onScrollChanged(i2, i3, i4, i5);
             }
@@ -89,21 +89,21 @@ public class CustomerAdScrollView extends ScrollView {
     public void setIsFooterLayoutShow(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
-            this.f38649f = z;
+            this.f38877f = z;
         }
     }
 
     public void setIsWebViewOnBottom(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
-            this.f38648e = z;
+            this.f38876e = z;
         }
     }
 
     public void setScrollViewListener(a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, aVar) == null) {
-            this.f38651h = aVar;
+            this.f38879h = aVar;
         }
     }
 }

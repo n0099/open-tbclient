@@ -7,19 +7,19 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class DownloadServiceConnectChangedEvent extends b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c  reason: collision with root package name */
-    public final ConnectStatus f58329c;
+    public final ConnectStatus f58496c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final Class<?> f58330d;
+    public final Class<?> f58497d;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static final class ConnectStatus {
         public static final /* synthetic */ ConnectStatus[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -98,13 +98,13 @@ public class DownloadServiceConnectChangedEvent extends b {
                 return;
             }
         }
-        this.f58329c = connectStatus;
-        this.f58330d = cls;
+        this.f58496c = connectStatus;
+        this.f58497d = cls;
     }
 
     public ConnectStatus a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f58329c : (ConnectStatus) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f58496c : (ConnectStatus) invokeV.objValue;
     }
 }

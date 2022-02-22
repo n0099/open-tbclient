@@ -100,7 +100,7 @@ public abstract class CameraBaseActivity extends BaseActivity implements Surface
         public final /* synthetic */ CameraBaseActivity a;
 
         /* renamed from: b  reason: collision with root package name */
-        public boolean f50531b;
+        public boolean f50698b;
 
         public b(CameraBaseActivity cameraBaseActivity) {
             Interceptable interceptable = $ic;
@@ -123,7 +123,7 @@ public abstract class CameraBaseActivity extends BaseActivity implements Surface
         public void a(boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-                this.f50531b = z;
+                this.f50698b = z;
             }
         }
 
@@ -131,7 +131,7 @@ public abstract class CameraBaseActivity extends BaseActivity implements Surface
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                this.a.updateFlashLightUi(this.f50531b);
+                this.a.updateFlashLightUi(this.f50698b);
             }
         }
     }
@@ -306,7 +306,7 @@ public abstract class CameraBaseActivity extends BaseActivity implements Surface
             public final /* synthetic */ CameraBaseActivity a;
 
             /* renamed from: b  reason: collision with root package name */
-            public int f50523b;
+            public int f50690b;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -338,12 +338,12 @@ public abstract class CameraBaseActivity extends BaseActivity implements Surface
                 }
                 com.baidu.wallet.base.camera.internal.b d2 = cameraBaseActivity.mPreviewCb.d();
                 if (z) {
-                    this.f50523b = 0;
+                    this.f50690b = 0;
                     this.a.takePictureWithoutAutoFocus(d2);
                     return;
                 }
-                int i4 = this.f50523b + 1;
-                this.f50523b = i4;
+                int i4 = this.f50690b + 1;
+                this.f50690b = i4;
                 if (i4 <= 1) {
                     d2.a(this.a.autoFocusCallback, "continuous-picture");
                 } else {
@@ -1189,25 +1189,25 @@ public abstract class CameraBaseActivity extends BaseActivity implements Surface
         public final /* synthetic */ CameraBaseActivity a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final String f50524b;
+        public final String f50691b;
 
         /* renamed from: c  reason: collision with root package name */
-        public byte[] f50525c;
+        public byte[] f50692c;
 
         /* renamed from: d  reason: collision with root package name */
-        public byte[] f50526d;
+        public byte[] f50693d;
 
         /* renamed from: e  reason: collision with root package name */
-        public int f50527e;
+        public int f50694e;
 
         /* renamed from: f  reason: collision with root package name */
-        public int f50528f;
+        public int f50695f;
 
         /* renamed from: g  reason: collision with root package name */
-        public Rect f50529g;
+        public Rect f50696g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final AtomicBoolean f50530h;
+        public final AtomicBoolean f50697h;
 
         public a(CameraBaseActivity cameraBaseActivity) {
             Interceptable interceptable = $ic;
@@ -1225,22 +1225,22 @@ public abstract class CameraBaseActivity extends BaseActivity implements Surface
                 }
             }
             this.a = cameraBaseActivity;
-            this.f50524b = a.class.getSimpleName();
-            this.f50526d = null;
-            this.f50530h = new AtomicBoolean(false);
+            this.f50691b = a.class.getSimpleName();
+            this.f50693d = null;
+            this.f50697h = new AtomicBoolean(false);
         }
 
         public void a(byte[] bArr, int i2, int i3, Rect rect) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{bArr, Integer.valueOf(i2), Integer.valueOf(i3), rect}) == null) {
-                this.f50525c = bArr;
-                this.f50527e = i2;
-                this.f50528f = i3;
-                this.f50529g = rect;
+                this.f50692c = bArr;
+                this.f50694e = i2;
+                this.f50695f = i3;
+                this.f50696g = rect;
                 int recycledBufSize = this.a.mImageProcessor.getRecycledBufSize(rect.width(), rect.height());
-                byte[] bArr2 = this.f50526d;
+                byte[] bArr2 = this.f50693d;
                 if (bArr2 == null || bArr2.length != recycledBufSize) {
-                    this.f50526d = new byte[recycledBufSize];
+                    this.f50693d = new byte[recycledBufSize];
                 }
             }
         }
@@ -1250,16 +1250,16 @@ public abstract class CameraBaseActivity extends BaseActivity implements Surface
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
                 if (this.a.mDone.get()) {
-                    this.f50530h.set(false);
-                } else if (!this.f50530h.compareAndSet(false, true)) {
-                    LogUtil.e(this.f50524b, "internal error", null);
+                    this.f50697h.set(false);
+                } else if (!this.f50697h.compareAndSet(false, true)) {
+                    LogUtil.e(this.f50691b, "internal error", null);
                 } else {
-                    Object[] processImage = this.a.mImageProcessor.processImage(this.f50525c, this.f50527e, this.f50528f, this.f50529g, this.f50526d);
+                    Object[] processImage = this.a.mImageProcessor.processImage(this.f50692c, this.f50694e, this.f50695f, this.f50696g, this.f50693d);
                     if (processImage != null && this.a.mDone.compareAndSet(false, true)) {
                         this.a.pauseCamera();
                         this.a.onProcessImageOk(processImage);
                     }
-                    this.f50530h.set(false);
+                    this.f50697h.set(false);
                 }
             }
         }
@@ -1267,7 +1267,7 @@ public abstract class CameraBaseActivity extends BaseActivity implements Surface
         public boolean a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f50530h.get() : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f50697h.get() : invokeV.booleanValue;
         }
     }
 }

@@ -17,7 +17,7 @@ import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class NotificationMsgData {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "NotificationMsgData";

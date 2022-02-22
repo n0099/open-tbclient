@@ -21,7 +21,7 @@ import io.reactivex.internal.queue.SpscLinkedArrayQueue;
 import io.reactivex.plugins.RxJavaPlugins;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public final class UnicastSubject<T> extends Subject<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -36,7 +36,7 @@ public final class UnicastSubject<T> extends Subject<T> {
     public final SpscLinkedArrayQueue<T> queue;
     public final BasicIntQueueDisposable<T> wip;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public final class UnicastQueueDisposable extends BasicIntQueueDisposable<T> {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 7926949470189395511L;

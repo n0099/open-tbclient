@@ -21,10 +21,10 @@ public final class a implements ServiceConnection {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f55003b;
+    public boolean f55170b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final LinkedBlockingQueue<IBinder> f55004c;
+    public final LinkedBlockingQueue<IBinder> f55171c;
 
     static {
         InterceptResult invokeClinit;
@@ -55,19 +55,19 @@ public final class a implements ServiceConnection {
                 return;
             }
         }
-        this.f55003b = false;
-        this.f55004c = new LinkedBlockingQueue<>(1);
+        this.f55170b = false;
+        this.f55171c = new LinkedBlockingQueue<>(1);
     }
 
     public IBinder a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (this.f55003b) {
+            if (this.f55170b) {
                 throw new IllegalStateException();
             }
-            this.f55003b = true;
-            return this.f55004c.take();
+            this.f55170b = true;
+            return this.f55171c.take();
         }
         return (IBinder) invokeV.objValue;
     }
@@ -82,7 +82,7 @@ public final class a implements ServiceConnection {
                 public final /* synthetic */ IBinder a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ a f55005b;
+                public final /* synthetic */ a f55172b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -99,7 +99,7 @@ public final class a implements ServiceConnection {
                             return;
                         }
                     }
-                    this.f55005b = this;
+                    this.f55172b = this;
                     this.a = iBinder;
                 }
 
@@ -110,7 +110,7 @@ public final class a implements ServiceConnection {
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                         try {
                             r0 = "onServiceConnected " + System.currentTimeMillis();
-                            this.f55005b.f55004c.offer(this.a);
+                            this.f55172b.f55171c.offer(this.a);
                         } catch (Throwable th) {
                             str = "onServiceConnected  " + th.getClass().getSimpleName();
                         }

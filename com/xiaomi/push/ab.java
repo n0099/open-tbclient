@@ -18,22 +18,22 @@ public class ab {
     public static final boolean f109a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final boolean f60948b;
+    public static final boolean f61115b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final boolean f60949c;
+    public static final boolean f61116c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final boolean f60950d;
+    public static final boolean f61117d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static boolean f60951e;
+    public static boolean f61118e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final boolean f60952f;
+    public static final boolean f61119f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final boolean f60953g;
+    public static final boolean f61120g;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -55,16 +55,16 @@ public class ab {
         boolean contains = str.contains("2A2FE0D7");
         f109a = contains;
         boolean z = false;
-        f60948b = contains || "DEBUG".equalsIgnoreCase(f108a);
-        f60949c = "LOGABLE".equalsIgnoreCase(f108a);
-        f60950d = f108a.contains("YY");
-        f60951e = f108a.equalsIgnoreCase("TEST");
-        f60952f = "BETA".equalsIgnoreCase(f108a);
+        f61115b = contains || "DEBUG".equalsIgnoreCase(f108a);
+        f61116c = "LOGABLE".equalsIgnoreCase(f108a);
+        f61117d = f108a.contains("YY");
+        f61118e = f108a.equalsIgnoreCase("TEST");
+        f61119f = "BETA".equalsIgnoreCase(f108a);
         String str2 = f108a;
         if (str2 != null && str2.startsWith("RC")) {
             z = true;
         }
-        f60953g = z;
+        f61120g = z;
         a = 1;
         if (f108a.equalsIgnoreCase("SANDBOX")) {
             i2 = 2;
@@ -91,7 +91,7 @@ public class ab {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static boolean m203a() {
+    public static boolean m202a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? a == 2 : invokeV.booleanValue;

@@ -14,7 +14,7 @@ public class a0 {
     public static final Object a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final SharedPreferences f28190b;
+    public static final SharedPreferences f28396b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -31,20 +31,20 @@ public class a0 {
             }
         }
         a = new Object();
-        f28190b = FunAdSdk.getAppContext().getSharedPreferences("fun_ad_sdk", 0);
+        f28396b = FunAdSdk.getAppContext().getSharedPreferences("fun_ad_sdk", 0);
     }
 
     public static int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? f28190b.getInt("key_rpt_fai_c", 0) : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? f28396b.getInt("key_rpt_fai_c", 0) : invokeV.intValue;
     }
 
     public static int b(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            return f28190b.getInt("key_sid_c_pre_" + str, 0);
+            return f28396b.getInt("key_sid_c_pre_" + str, 0);
         }
         return invokeL.intValue;
     }
@@ -52,7 +52,7 @@ public class a0 {
     public static void c(double d2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{Double.valueOf(d2)}) == null) {
-            f28190b.edit().putLong("key_price_total", Double.doubleToRawLongBits(d2)).apply();
+            f28396b.edit().putLong("key_price_total", Double.doubleToRawLongBits(d2)).apply();
         }
     }
 
@@ -63,7 +63,7 @@ public class a0 {
                 int g2 = g();
                 int h2 = h();
                 int f2 = f();
-                f28190b.edit().putInt("key_rpt_req_c", ((g2 - i2) - i3) - i4).putInt("key_rpt_fai_c", a() - i2).putInt("key_rpt_suc_c", h2 - i3).putInt("key_rpt_mis_c", f2 - i4).apply();
+                f28396b.edit().putInt("key_rpt_req_c", ((g2 - i2) - i3) - i4).putInt("key_rpt_fai_c", a() - i2).putInt("key_rpt_suc_c", h2 - i3).putInt("key_rpt_mis_c", f2 - i4).apply();
             }
         }
     }
@@ -71,32 +71,32 @@ public class a0 {
     public static void e(String str, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(65541, null, str, i2) == null) {
-            f28190b.edit().putInt(str, i2).apply();
+            f28396b.edit().putInt(str, i2).apply();
         }
     }
 
     public static int f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) ? f28190b.getInt("key_rpt_mis_c", 0) : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) ? f28396b.getInt("key_rpt_mis_c", 0) : invokeV.intValue;
     }
 
     public static int g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) ? f28190b.getInt("key_rpt_req_c", 0) : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) ? f28396b.getInt("key_rpt_req_c", 0) : invokeV.intValue;
     }
 
     public static int h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) ? f28190b.getInt("key_rpt_suc_c", 0) : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) ? f28396b.getInt("key_rpt_suc_c", 0) : invokeV.intValue;
     }
 
     public static double i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) ? Double.longBitsToDouble(f28190b.getLong("key_price_total", 0L)) : invokeV.doubleValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) ? Double.longBitsToDouble(f28396b.getLong("key_price_total", 0L)) : invokeV.doubleValue;
     }
 
     public static void j() {

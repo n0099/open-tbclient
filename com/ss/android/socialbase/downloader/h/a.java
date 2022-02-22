@@ -7,10 +7,10 @@ public class a implements ThreadFactory {
     public final String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final AtomicInteger f60115b;
+    public final AtomicInteger f60282b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final boolean f60116c;
+    public final boolean f60283c;
 
     public a(String str) {
         this(str, false);
@@ -18,9 +18,9 @@ public class a implements ThreadFactory {
 
     @Override // java.util.concurrent.ThreadFactory
     public Thread newThread(Runnable runnable) {
-        int incrementAndGet = this.f60115b.incrementAndGet();
+        int incrementAndGet = this.f60282b.incrementAndGet();
         Thread thread = new Thread(runnable, this.a + "-" + incrementAndGet);
-        if (!this.f60116c) {
+        if (!this.f60283c) {
             if (thread.isDaemon()) {
                 thread.setDaemon(false);
             }
@@ -32,8 +32,8 @@ public class a implements ThreadFactory {
     }
 
     public a(String str, boolean z) {
-        this.f60115b = new AtomicInteger();
+        this.f60282b = new AtomicInteger();
         this.a = str;
-        this.f60116c = z;
+        this.f60283c = z;
     }
 }

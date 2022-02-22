@@ -17,17 +17,17 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public abstract class e {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public com.baidu.platform.util.a a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f37739b;
+    public boolean f37968b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f37740c;
+    public boolean f37969c;
 
     public e() {
         Interceptable interceptable = $ic;
@@ -42,8 +42,8 @@ public abstract class e {
                 return;
             }
         }
-        this.f37739b = true;
-        this.f37740c = true;
+        this.f37968b = true;
+        this.f37969c = true;
         this.a = new com.baidu.platform.util.a();
     }
 
@@ -54,7 +54,7 @@ public abstract class e {
             if (TextUtils.isEmpty(str)) {
                 return null;
             }
-            return SearchType.f37726h == searchType ? a(str) : str;
+            return SearchType.f37955h == searchType ? a(str) : str;
         }
         return (String) invokeLL.objValue;
     }
@@ -80,7 +80,7 @@ public abstract class e {
     private boolean b(SearchType searchType) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65539, this, searchType)) == null) ? SearchType.f37726h == searchType : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65539, this, searchType)) == null) ? SearchType.f37955h == searchType : invokeL.booleanValue;
     }
 
     public final String a(PlanNode planNode) {
@@ -130,7 +130,7 @@ public abstract class e {
                 }
                 authToken = HttpClient.getAuthToken();
             }
-            if (this.f37739b) {
+            if (this.f37968b) {
                 this.a.a("token", authToken);
             }
             String a2 = this.a.a();
@@ -138,7 +138,7 @@ public abstract class e {
                 a2 = a(searchType, a2);
             }
             String str2 = a2 + HttpClient.getPhoneInfo();
-            if (this.f37740c) {
+            if (this.f37969c) {
                 str2 = str2 + "&sign=" + AppMD5.getSignMD5String(str2);
             }
             return a + "?" + str2;
@@ -151,14 +151,14 @@ public abstract class e {
     public void a(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
-            this.f37740c = z;
+            this.f37969c = z;
         }
     }
 
     public void b(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
-            this.f37739b = z;
+            this.f37968b = z;
         }
     }
 }

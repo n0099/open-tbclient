@@ -1,19 +1,18 @@
 package c.a.d.i;
 
+import android.app.Application;
+import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.lib.util.BdLog;
-import com.baidu.adp.plugin.pluginBase.PluginBaseActivity;
-import com.baidu.adp.plugin.pluginBase.PluginBaseFragmentActivity;
-import com.baidu.adp.plugin.pluginBase.PluginBaseRemoteActivity;
-import com.baidu.adp.plugin.pluginBase.PluginBaseRemoteSingleTaskActivity;
-import com.baidu.adp.plugin.pluginBase.PluginBaseSingleTaskActivity;
-import com.baidu.adp.plugin.pluginBase.PluginBaseThirdActivity;
-import com.baidu.adp.plugin.pluginBase.PluginBaseThirdFragmentActivity;
-import com.baidu.adp.plugin.pluginBase.PluginBaseThirdSingleTaskActivity;
-import com.baidu.adp.plugin.proxy.activity.ActivityProxy;
-import com.baidu.adp.plugin.proxy.activity.FragmentActivityProxy;
-import com.baidu.adp.plugin.proxy.activity.RemoteActivityProxy;
-import com.baidu.adp.plugin.proxy.activity.ThirdActivityProxy;
-import com.baidu.adp.plugin.proxy.activity.ThirdFragmentActivityProxy;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.nps.main.manager.Configurations;
+import com.baidu.nps.main.manager.NPSManager;
+import com.baidu.nps.pm.BundleInfo;
+import com.baidu.nps.pm.BundleInfoGroup;
+import com.baidu.nps.pm.manager.NPSPackageManager;
+import com.baidu.nps.utils.SourceData;
+import com.baidu.searchbox.pms.init.RequestParams;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -21,45 +20,73 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 /* loaded from: classes.dex */
 public class c {
     public static /* synthetic */ Interceptable $ic;
 
-    /* renamed from: g  reason: collision with root package name */
-    public static volatile c f3242g;
-    public transient /* synthetic */ FieldHolder $fh;
-    public Map<Class<?>, Class<?>> a;
-
     /* renamed from: b  reason: collision with root package name */
-    public Map<Class<?>, Class<?>> f3243b;
+    public static boolean f2313b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Map<Class<?>, Class<?>> f3244c;
+    public static boolean f2314c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f3245d;
+    public static c f2315d;
+    public transient /* synthetic */ FieldHolder $fh;
+    public volatile c.a.d.k.a a;
 
-    /* renamed from: e  reason: collision with root package name */
-    public int f3246e;
+    /* loaded from: classes.dex */
+    public static class a implements c.a.e0.d.a.a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
-    /* renamed from: f  reason: collision with root package name */
-    public int f3247f;
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // c.a.e0.d.a.a
+        public void onProgress(long j2, long j3) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3)}) == null) {
+            }
+        }
+
+        @Override // c.a.e0.d.a.a
+        public void onResult(int i2, String str) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, str) == null) && BdBaseApplication.getInst().isDebugMode()) {
+                BdLog.e("Plug-in predownload status{\"code\": " + i2 + ", \"msg\": " + str + "}");
+            }
+        }
+    }
 
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-1528923825, "Lc/a/d/i/c;")) == null) {
-            return;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1528923825, "Lc/a/d/i/c;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-1528923825, "Lc/a/d/i/c;");
+                return;
+            }
         }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(-1528923825, "Lc/a/d/i/c;");
-        }
+        f2315d = new c();
     }
 
     public c() {
@@ -72,119 +99,112 @@ public class c {
                 int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
-                return;
             }
         }
-        this.a = null;
-        this.f3243b = null;
-        this.f3244c = null;
-        this.f3245d = 0;
-        this.f3246e = 0;
-        this.f3247f = 0;
-        this.a = new HashMap();
-        this.f3243b = new HashMap();
-        this.f3244c = new HashMap();
     }
 
-    public static c a() {
+    public static void a() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(65538, null) == null) && !f2314c && c.a.d.k.a.m()) {
+            f2314c = true;
+            NPSPackageManager.getInstance().downloadAllBundles();
+        }
+    }
+
+    public static void b() {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(65539, null) == null) || f2313b) {
+            return;
+        }
+        f2313b = true;
+        NPSPackageManager.getInstance().fetchBundleInfo();
+    }
+
+    public static c e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (f3242g == null) {
-                synchronized (c.class) {
-                    if (f3242g == null) {
-                        f3242g = new c();
-                    }
-                }
-            }
-            return f3242g;
-        }
-        return (c) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? f2315d : (c) invokeV.objValue;
     }
 
-    public Class<?> b(Class<?> cls) {
-        InterceptResult invokeL;
+    public static void i() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, cls)) == null) {
-            if (cls == null) {
-                return null;
+        if (interceptable == null || interceptable.invokeV(65541, null) == null) {
+            a();
+        }
+    }
+
+    public static void j(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65542, null, str) == null) {
+            if (str != null && str.trim().length() != 0) {
+                SourceData sourceData = new SourceData();
+                sourceData.source = "";
+                NPSPackageManager.getInstance().preDownload(str, new a(), 1, sourceData);
+            } else if (BdBaseApplication.getInst().isDebugMode()) {
+                BdLog.e("PackageName of Plug-in is null.");
             }
-            if (PluginBaseSingleTaskActivity.class.isAssignableFrom(cls)) {
-                Class<?> cls2 = this.a.get(cls);
-                if (cls2 != null) {
-                    return cls2;
+        }
+    }
+
+    @NonNull
+    public List<BundleInfo> c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            ArrayList arrayList = new ArrayList();
+            for (Map.Entry<String, BundleInfoGroup> entry : NPSPackageManager.getInstance().getAllBundleGroup().entrySet()) {
+                BundleInfoGroup value = entry.getValue();
+                BundleInfo bundleByType = value.getBundleByType(3);
+                if (bundleByType == null) {
+                    bundleByType = value.getBundleByType(2);
                 }
-                int i2 = this.f3246e;
-                if (i2 == 20) {
-                    BdLog.e("can not find singletaskactivity,Has started 20 singletaskactivity");
-                    return null;
+                if (bundleByType != null) {
+                    arrayList.add(bundleByType);
                 }
-                this.f3246e = i2 + 1;
-                try {
-                    cls2 = Class.forName("com.baidu.adp.plugin.proxy.activity.SingleTaskActivityProxy" + this.f3246e);
-                    this.a.put(cls, cls2);
-                    return cls2;
-                } catch (Exception e2) {
-                    BdLog.e(e2);
-                    return cls2;
-                }
-            } else if (PluginBaseRemoteSingleTaskActivity.class.isAssignableFrom(cls)) {
-                Class<?> cls3 = this.f3243b.get(cls);
-                if (cls3 != null) {
-                    return cls3;
-                }
-                int i3 = this.f3247f;
-                if (i3 == 10) {
-                    BdLog.e("can not find singletaskactivity,Has started 10 remote singletaskactivity");
-                    return null;
-                }
-                this.f3247f = i3 + 1;
-                try {
-                    cls3 = Class.forName("com.baidu.adp.plugin.proxy.activity.RemoteSingleTaskActivityProxy" + this.f3247f);
-                    this.f3243b.put(cls, cls3);
-                    return cls3;
-                } catch (Exception e3) {
-                    BdLog.e(e3);
-                    return cls3;
-                }
-            } else if (PluginBaseRemoteActivity.class.isAssignableFrom(cls)) {
-                return RemoteActivityProxy.class;
-            } else {
-                if (PluginBaseThirdSingleTaskActivity.class.isAssignableFrom(cls)) {
-                    Class<?> cls4 = this.f3244c.get(cls);
-                    if (cls4 != null) {
-                        return cls4;
-                    }
-                    int i4 = this.f3245d;
-                    if (i4 == 10) {
-                        BdLog.e("can not find singletaskactivity,Has started 10 remote singletaskactivity");
-                        return null;
-                    }
-                    this.f3245d = i4 + 1;
-                    try {
-                        cls4 = Class.forName("com.baidu.adp.plugin.proxy.activity.ThirdSingleTaskActivityProxy" + this.f3245d);
-                        this.f3244c.put(cls, cls4);
-                        return cls4;
-                    } catch (Exception e4) {
-                        BdLog.e(e4);
-                        return cls4;
-                    }
-                } else if (PluginBaseThirdActivity.class.isAssignableFrom(cls)) {
-                    return ThirdActivityProxy.class;
-                } else {
-                    if (PluginBaseThirdFragmentActivity.class.isAssignableFrom(cls)) {
-                        return ThirdFragmentActivityProxy.class;
-                    }
-                    if (PluginBaseFragmentActivity.class.isAssignableFrom(cls)) {
-                        return FragmentActivityProxy.class;
-                    }
-                    if (PluginBaseActivity.class.isAssignableFrom(cls)) {
-                        return ActivityProxy.class;
-                    }
-                    return null;
+            }
+            return arrayList;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public RequestParams.Channel d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            h();
+            return this.a.l();
+        }
+        return (RequestParams.Channel) invokeV.objValue;
+    }
+
+    public c.a.d.k.a f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            h();
+            return this.a;
+        }
+        return (c.a.d.k.a) invokeV.objValue;
+    }
+
+    public void g(Application application) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, application) == null) {
+            h();
+            Configurations.Builder builder = new Configurations.Builder();
+            builder.debug(false);
+            NPSManager.getInstance().init(application, builder.build(), false);
+        }
+    }
+
+    public final synchronized void h() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            synchronized (this) {
+                if (this.a == null) {
+                    this.a = new c.a.d.k.a();
                 }
             }
         }
-        return (Class) invokeL.objValue;
     }
 }

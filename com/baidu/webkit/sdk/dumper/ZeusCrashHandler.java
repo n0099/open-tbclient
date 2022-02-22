@@ -40,7 +40,7 @@ import java.util.EnumSet;
 import java.util.Iterator;
 import java.util.Locale;
 import org.apache.commons.lang3.StringUtils;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class ZeusCrashHandler implements Thread.UncaughtExceptionHandler {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long APPROXIMATE_START_TIME;
@@ -60,7 +60,7 @@ public class ZeusCrashHandler implements Thread.UncaughtExceptionHandler {
     public final Thread.UncaughtExceptionHandler mPreviousHandler;
 
     /* renamed from: com.baidu.webkit.sdk.dumper.ZeusCrashHandler$5  reason: invalid class name */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static /* synthetic */ class AnonymousClass5 {
         public static final /* synthetic */ int[] $SwitchMap$com$baidu$webkit$sdk$dumper$ZeusCrashHandler$ExtraInfo;
         public static /* synthetic */ Interceptable $ic;
@@ -132,13 +132,13 @@ public class ZeusCrashHandler implements Thread.UncaughtExceptionHandler {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface CrashFilter {
         boolean filt(Thread thread, Throwable th);
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class ExtraInfo {
         public static final /* synthetic */ ExtraInfo[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -229,7 +229,7 @@ public class ZeusCrashHandler implements Thread.UncaughtExceptionHandler {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class ZeusCrashHandlerClient {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String TAG = "CrashHandlerClientImpl";

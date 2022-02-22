@@ -5,38 +5,38 @@ import com.kwad.sdk.KsAdSDKImpl;
 import com.kwad.sdk.utils.InstalledAppInfoManager;
 import com.kwad.sdk.utils.av;
 import org.json.JSONArray;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class d extends com.kwad.sdk.core.response.kwai.a {
     public String A;
     public String B;
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f56195b;
+    public String f56362b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f56196c;
+    public String f56363c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f56197d;
+    public String f56364d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f56198e;
+    public String f56365e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f56199f;
+    public String f56366f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f56200g;
+    public String f56367g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f56201h;
+    public int f56368h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f56202i;
+    public int f56369i;
 
     /* renamed from: j  reason: collision with root package name */
-    public String f56203j;
+    public String f56370j;
     public String k;
     public int l;
     public int m;
@@ -57,12 +57,12 @@ public class d extends com.kwad.sdk.core.response.kwai.a {
 
     public static d a() {
         d dVar = new d();
-        dVar.f56198e = com.kwad.sdk.core.f.a.a();
+        dVar.f56365e = com.kwad.sdk.core.f.a.a();
         dVar.q = av.u();
         dVar.t = av.e();
-        dVar.f56201h = 1;
-        dVar.f56202i = av.r();
-        dVar.f56203j = av.q();
+        dVar.f56368h = 1;
+        dVar.f56369i = av.r();
+        dVar.f56370j = av.q();
         dVar.w = com.kwad.sdk.core.a.e.a();
         dVar.v = com.kwad.sdk.core.a.e.b();
         return dVar;
@@ -76,15 +76,15 @@ public class d extends com.kwad.sdk.core.response.kwai.a {
         d dVar = new d();
         dVar.a = av.d(KsAdSDKImpl.get().getContext());
         String[] g2 = av.g(KsAdSDKImpl.get().getContext());
-        dVar.f56195b = g2[0];
-        dVar.f56196c = g2[1];
-        dVar.f56197d = av.f(KsAdSDKImpl.get().getContext());
-        dVar.f56198e = com.kwad.sdk.core.f.a.a();
+        dVar.f56362b = g2[0];
+        dVar.f56363c = g2[1];
+        dVar.f56364d = av.f(KsAdSDKImpl.get().getContext());
+        dVar.f56365e = com.kwad.sdk.core.f.a.a();
         dVar.t = av.e();
         dVar.u = av.g();
-        dVar.f56201h = 1;
-        dVar.f56202i = av.r();
-        dVar.f56203j = av.q();
+        dVar.f56368h = 1;
+        dVar.f56369i = av.r();
+        dVar.f56370j = av.q();
         dVar.k = av.s();
         dVar.m = av.o(KsAdSDKImpl.get().getContext());
         dVar.l = av.n(KsAdSDKImpl.get().getContext());
@@ -117,7 +117,7 @@ public class d extends com.kwad.sdk.core.response.kwai.a {
         String str = dVar.q;
         sb.append(str != null ? Integer.valueOf(str.hashCode()) : "");
         sb.append(",o:");
-        sb.append(dVar.f56198e);
+        sb.append(dVar.f56365e);
         com.kwad.sdk.core.d.a.a(sb.toString());
         dVar.y = av.p();
         dVar.z = i2;
@@ -125,8 +125,8 @@ public class d extends com.kwad.sdk.core.response.kwai.a {
             dVar.A = av.b(KsAdSDKImpl.get().getContext(), "com.smile.gifmaker");
             dVar.B = av.b(KsAdSDKImpl.get().getContext(), "com.kuaishou.nebula");
         }
-        dVar.f56199f = Build.BRAND;
-        dVar.f56200g = com.kwad.sdk.core.download.a.g.a(KsAdSDKImpl.get().getContext());
+        dVar.f56366f = Build.BRAND;
+        dVar.f56367g = com.kwad.sdk.core.download.a.g.a(KsAdSDKImpl.get().getContext());
         return dVar;
     }
 }

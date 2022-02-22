@@ -134,7 +134,7 @@ public class TTIStats {
                         this.val$jsonObject = jSONObject;
                     }
 
-                    /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:26:0x0095 -> B:40:0x0098). Please submit an issue!!! */
+                    /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:26:0x0096 -> B:39:0x0099). Please submit an issue!!! */
                     @Override // java.lang.Runnable
                     public void run() {
                         BufferedWriter bufferedWriter;

@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.core.NoProguard;
 import java.io.Serializable;
-/* loaded from: classes13.dex */
+/* loaded from: classes2.dex */
 public class LangbridgeSettings implements NoProguard, Cloneable {
     public static /* synthetic */ Interceptable $ic = null;
     public static String MW_JSHOOK_HISTORY_NAME = "mw_history.js";
@@ -41,7 +41,7 @@ public class LangbridgeSettings implements NoProguard, Cloneable {
     public boolean MW_USE_OLD;
     public int MW_WEBVIEW_POOL_SIZE;
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes2.dex */
     public static class ConsoleMsgBehaviour implements NoProguard, Serializable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -136,7 +136,7 @@ public class LangbridgeSettings implements NoProguard, Cloneable {
 
     /* JADX DEBUG: Method merged with bridge method */
     /* renamed from: clone */
-    public LangbridgeSettings m104clone() {
+    public LangbridgeSettings m103clone() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {

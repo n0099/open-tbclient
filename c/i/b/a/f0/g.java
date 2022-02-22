@@ -15,10 +15,10 @@ public final class g {
     public final int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final f[] f29629b;
+    public final f[] f29835b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f29630c;
+    public int f29836c;
 
     public g(f... fVarArr) {
         Interceptable interceptable = $ic;
@@ -35,20 +35,20 @@ public final class g {
                 return;
             }
         }
-        this.f29629b = fVarArr;
+        this.f29835b = fVarArr;
         this.a = fVarArr.length;
     }
 
     public f a(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) ? this.f29629b[i2] : (f) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) ? this.f29835b[i2] : (f) invokeI.objValue;
     }
 
     public f[] b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? (f[]) this.f29629b.clone() : (f[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? (f[]) this.f29835b.clone() : (f[]) invokeV.objValue;
     }
 
     public boolean equals(Object obj) {
@@ -61,7 +61,7 @@ public final class g {
             if (obj == null || g.class != obj.getClass()) {
                 return false;
             }
-            return Arrays.equals(this.f29629b, ((g) obj).f29629b);
+            return Arrays.equals(this.f29835b, ((g) obj).f29835b);
         }
         return invokeL.booleanValue;
     }
@@ -70,10 +70,10 @@ public final class g {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if (this.f29630c == 0) {
-                this.f29630c = PayBeanFactory.BEAN_ID_WIDTHDRAW + Arrays.hashCode(this.f29629b);
+            if (this.f29836c == 0) {
+                this.f29836c = PayBeanFactory.BEAN_ID_WIDTHDRAW + Arrays.hashCode(this.f29835b);
             }
-            return this.f29630c;
+            return this.f29836c;
         }
         return invokeV.intValue;
     }

@@ -2,7 +2,7 @@ package com.baidu.tieba.barselect;
 
 import android.view.View;
 import androidx.recyclerview.widget.RecyclerView;
-import c.a.t0.c0.b.f;
+import c.a.u0.c0.b.f;
 import com.baidu.tieba.barselect.view.VoteCandidateCard;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;

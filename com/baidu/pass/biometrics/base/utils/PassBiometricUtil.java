@@ -19,7 +19,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.UUID;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class PassBiometricUtil {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String CPU_TYPE_ARM64_V8A = "arm64-v8a";
@@ -29,31 +29,31 @@ public class PassBiometricUtil {
     public static final String a = "PassBiometricUtil";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final int f37532b = 480;
+    public static final int f37761b = 480;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final int f37533c = 480;
+    public static final int f37762c = 480;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final int f37534d = 192;
+    public static final int f37763d = 192;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final int f37535e = 480;
+    public static final int f37764e = 480;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final int f37536f = 620;
+    public static final int f37765f = 620;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final int f37537g = 250;
+    public static final int f37766g = 250;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final int f37538h = 250;
+    public static final int f37767h = 250;
 
     /* renamed from: i  reason: collision with root package name */
-    public static final int f37539i = 728;
+    public static final int f37768i = 728;
 
     /* renamed from: j  reason: collision with root package name */
-    public static final int f37540j = 194;
+    public static final int f37769j = 194;
     public static final int k = 750;
     public static final int l = 1335;
     public transient /* synthetic */ FieldHolder $fh;

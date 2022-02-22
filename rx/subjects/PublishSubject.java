@@ -25,7 +25,7 @@ public final class PublishSubject<T> extends d<T, T> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: f  reason: collision with root package name */
-    public final PublishSubjectState<T> f62626f;
+    public final PublishSubjectState<T> f62793f;
 
     /* loaded from: classes5.dex */
     public static final class PublishSubjectProducer<T> extends AtomicLong implements f, k, e<T> {
@@ -309,7 +309,7 @@ public final class PublishSubject<T> extends d<T, T> {
                 return;
             }
         }
-        this.f62626f = publishSubjectState;
+        this.f62793f = publishSubjectState;
     }
 
     public static <T> PublishSubject<T> F() {
@@ -322,7 +322,7 @@ public final class PublishSubject<T> extends d<T, T> {
     public void onCompleted() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f62626f.onCompleted();
+            this.f62793f.onCompleted();
         }
     }
 
@@ -330,7 +330,7 @@ public final class PublishSubject<T> extends d<T, T> {
     public void onError(Throwable th) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, th) == null) {
-            this.f62626f.onError(th);
+            this.f62793f.onError(th);
         }
     }
 
@@ -338,7 +338,7 @@ public final class PublishSubject<T> extends d<T, T> {
     public void onNext(T t) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, t) == null) {
-            this.f62626f.onNext(t);
+            this.f62793f.onNext(t);
         }
     }
 }

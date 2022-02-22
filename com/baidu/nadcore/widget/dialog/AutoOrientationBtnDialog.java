@@ -9,11 +9,11 @@ import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import c.a.c0.k0.j;
-import c.a.c0.k0.l;
-import c.a.c0.k0.m;
-import c.a.c0.k0.n;
-import c.a.c0.k0.p;
+import c.a.d0.l0.j;
+import c.a.d0.l0.l;
+import c.a.d0.l0.m;
+import c.a.d0.l0.n;
+import c.a.d0.l0.p;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.nadcore.widget.dialog.BoxAlertDialog;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -29,19 +29,19 @@ public class AutoOrientationBtnDialog extends BoxAlertDialog {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: f  reason: collision with root package name */
-    public ViewGroup f37297f;
+    public ViewGroup f37529f;
 
     /* renamed from: g  reason: collision with root package name */
-    public FrameLayout f37298g;
+    public FrameLayout f37530g;
 
     /* renamed from: h  reason: collision with root package name */
-    public FrameLayout f37299h;
+    public FrameLayout f37531h;
 
     /* renamed from: i  reason: collision with root package name */
-    public View f37300i;
+    public View f37532i;
 
     /* renamed from: j  reason: collision with root package name */
-    public List<a> f37301j;
+    public List<a> f37533j;
     public int k;
     public Context mContext;
 
@@ -52,16 +52,16 @@ public class AutoOrientationBtnDialog extends BoxAlertDialog {
         public CharSequence a;
 
         /* renamed from: b  reason: collision with root package name */
-        public CharSequence f37302b;
+        public CharSequence f37534b;
 
         /* renamed from: c  reason: collision with root package name */
-        public int f37303c;
+        public int f37535c;
 
         /* renamed from: d  reason: collision with root package name */
-        public int f37304d;
+        public int f37536d;
 
         /* renamed from: e  reason: collision with root package name */
-        public c f37305e;
+        public c f37537e;
 
         public a(CharSequence charSequence, int i2, c cVar) {
             Interceptable interceptable = $ic;
@@ -78,11 +78,11 @@ public class AutoOrientationBtnDialog extends BoxAlertDialog {
                     return;
                 }
             }
-            this.f37303c = -1;
-            this.f37304d = -1;
+            this.f37535c = -1;
+            this.f37536d = -1;
             this.a = charSequence;
-            this.f37303c = i2;
-            this.f37305e = cVar;
+            this.f37535c = i2;
+            this.f37537e = cVar;
         }
     }
 
@@ -92,7 +92,7 @@ public class AutoOrientationBtnDialog extends BoxAlertDialog {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: f  reason: collision with root package name */
-        public List<a> f37306f;
+        public List<a> f37538f;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public b(Context context) {
@@ -112,7 +112,7 @@ public class AutoOrientationBtnDialog extends BoxAlertDialog {
                     return;
                 }
             }
-            this.f37306f = new ArrayList();
+            this.f37538f = new ArrayList();
             g(false);
             h(false);
         }
@@ -123,7 +123,7 @@ public class AutoOrientationBtnDialog extends BoxAlertDialog {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
                 AutoOrientationBtnDialog autoOrientationBtnDialog = (AutoOrientationBtnDialog) super.a();
-                autoOrientationBtnDialog.h(this.f37306f);
+                autoOrientationBtnDialog.h(this.f37538f);
                 return autoOrientationBtnDialog;
             }
             return (BoxAlertDialog) invokeV.objValue;
@@ -134,7 +134,7 @@ public class AutoOrientationBtnDialog extends BoxAlertDialog {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar)) == null) {
                 if (aVar != null) {
-                    c.a.c0.x.a.b(this.f37306f, aVar);
+                    c.a.d0.x.a.b(this.f37538f, aVar);
                 }
                 return this;
             }
@@ -154,16 +154,16 @@ public class AutoOrientationBtnDialog extends BoxAlertDialog {
         public TextView a;
 
         /* renamed from: b  reason: collision with root package name */
-        public TextView f37307b;
+        public TextView f37539b;
 
         /* renamed from: c  reason: collision with root package name */
-        public LinearLayout f37308c;
+        public LinearLayout f37540c;
 
         /* renamed from: d  reason: collision with root package name */
-        public AutoOrientationBtnDialog f37309d;
+        public AutoOrientationBtnDialog f37541d;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ AutoOrientationBtnDialog f37310e;
+        public final /* synthetic */ AutoOrientationBtnDialog f37542e;
 
         /* loaded from: classes10.dex */
         public class a implements View.OnClickListener {
@@ -171,10 +171,10 @@ public class AutoOrientationBtnDialog extends BoxAlertDialog {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ a f37311e;
+            public final /* synthetic */ a f37543e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ d f37312f;
+            public final /* synthetic */ d f37544f;
 
             public a(d dVar, a aVar) {
                 Interceptable interceptable = $ic;
@@ -191,16 +191,16 @@ public class AutoOrientationBtnDialog extends BoxAlertDialog {
                         return;
                     }
                 }
-                this.f37312f = dVar;
-                this.f37311e = aVar;
+                this.f37544f = dVar;
+                this.f37543e = aVar;
             }
 
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                    this.f37312f.f37309d.dismiss();
-                    c cVar = this.f37311e.f37305e;
+                    this.f37544f.f37541d.dismiss();
+                    c cVar = this.f37543e.f37537e;
                     if (cVar != null) {
                         cVar.a(view);
                     }
@@ -223,12 +223,12 @@ public class AutoOrientationBtnDialog extends BoxAlertDialog {
                     return;
                 }
             }
-            this.f37310e = autoOrientationBtnDialog;
+            this.f37542e = autoOrientationBtnDialog;
             if (view != null) {
                 this.a = (TextView) view.findViewById(m.hv_btn_text);
-                this.f37307b = (TextView) view.findViewById(m.hv_btn_subtext);
-                this.f37308c = (LinearLayout) view;
-                this.f37309d = autoOrientationBtnDialog2;
+                this.f37539b = (TextView) view.findViewById(m.hv_btn_subtext);
+                this.f37540c = (LinearLayout) view;
+                this.f37541d = autoOrientationBtnDialog2;
             }
         }
 
@@ -238,19 +238,19 @@ public class AutoOrientationBtnDialog extends BoxAlertDialog {
                 return;
             }
             this.a.setText(aVar.a);
-            if (aVar.f37303c > 0) {
-                this.a.setTextColor(this.f37310e.f37298g.getResources().getColor(aVar.f37303c));
+            if (aVar.f37535c > 0) {
+                this.a.setTextColor(this.f37542e.f37530g.getResources().getColor(aVar.f37535c));
             }
-            if (!TextUtils.isEmpty(aVar.f37302b)) {
-                this.f37307b.setVisibility(0);
-                this.f37307b.setText(aVar.f37302b);
+            if (!TextUtils.isEmpty(aVar.f37534b)) {
+                this.f37539b.setVisibility(0);
+                this.f37539b.setText(aVar.f37534b);
             } else {
-                this.f37307b.setVisibility(8);
+                this.f37539b.setVisibility(8);
             }
-            if (aVar.f37304d > 0) {
-                this.f37307b.setTextColor(this.f37310e.f37298g.getResources().getColor(aVar.f37304d));
+            if (aVar.f37536d > 0) {
+                this.f37539b.setTextColor(this.f37542e.f37530g.getResources().getColor(aVar.f37536d));
             }
-            this.f37308c.setOnClickListener(new a(this, aVar));
+            this.f37540c.setOnClickListener(new a(this, aVar));
         }
     }
 
@@ -273,7 +273,7 @@ public class AutoOrientationBtnDialog extends BoxAlertDialog {
                 return;
             }
         }
-        this.f37301j = new ArrayList();
+        this.f37533j = new ArrayList();
         this.k = 2;
     }
 
@@ -328,8 +328,8 @@ public class AutoOrientationBtnDialog extends BoxAlertDialog {
                 }
             }
         }
-        this.f37299h.removeAllViews();
-        this.f37299h.addView(linearLayout);
+        this.f37531h.removeAllViews();
+        this.f37531h.addView(linearLayout);
     }
 
     public final View f(int i2) {
@@ -337,7 +337,7 @@ public class AutoOrientationBtnDialog extends BoxAlertDialog {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i2)) == null) {
             View view = new View(this.mContext);
-            view.setBackgroundColor(this.f37298g.getResources().getColor(j.nad_dialog_gray));
+            view.setBackgroundColor(this.f37530g.getResources().getColor(j.nad_dialog_gray));
             if (i2 == 1) {
                 view.setLayoutParams(new LinearLayout.LayoutParams(-1, 1));
             } else {
@@ -354,25 +354,25 @@ public class AutoOrientationBtnDialog extends BoxAlertDialog {
             Context context = getContext();
             this.mContext = context;
             ViewGroup viewGroup = (ViewGroup) LayoutInflater.from(context).inflate(n.nad_view_hv_dialog, getBuilder().c(), false);
-            this.f37297f = viewGroup;
-            this.f37298g = (FrameLayout) viewGroup.findViewById(m.hv_content);
-            this.f37300i = this.f37297f.findViewById(m.hv_divider);
-            this.f37299h = (FrameLayout) this.f37297f.findViewById(m.hv_btn_content);
-            View createContentView = createContentView(this.f37298g);
+            this.f37529f = viewGroup;
+            this.f37530g = (FrameLayout) viewGroup.findViewById(m.hv_content);
+            this.f37532i = this.f37529f.findViewById(m.hv_divider);
+            this.f37531h = (FrameLayout) this.f37529f.findViewById(m.hv_btn_content);
+            View createContentView = createContentView(this.f37530g);
             if (createContentView != null) {
-                this.f37298g.addView(createContentView);
+                this.f37530g.addView(createContentView);
             }
             i();
-            e(this.f37301j);
+            e(this.f37533j);
         }
     }
 
     public final void h(List<a> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, list) == null) {
-            this.f37301j.clear();
+            this.f37533j.clear();
             if (list != null) {
-                c.a.c0.x.a.c(this.f37301j, list);
+                c.a.d0.x.a.c(this.f37533j, list);
             }
         }
     }
@@ -380,7 +380,7 @@ public class AutoOrientationBtnDialog extends BoxAlertDialog {
     public final void i() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            this.f37300i.setBackgroundColor(getContext().getResources().getColor(j.nad_dialog_gray));
+            this.f37532i.setBackgroundColor(getContext().getResources().getColor(j.nad_dialog_gray));
         }
     }
 
@@ -390,7 +390,7 @@ public class AutoOrientationBtnDialog extends BoxAlertDialog {
         if (interceptable == null || interceptable.invokeL(1048583, this, bundle) == null) {
             super.onCreate(bundle);
             g();
-            getBuilder().s(this.f37297f);
+            getBuilder().s(this.f37529f);
         }
     }
 }

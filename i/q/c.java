@@ -18,10 +18,10 @@ public class c<T> extends j<T> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: i  reason: collision with root package name */
-    public final j<? super T> f62115i;
+    public final j<? super T> f62282i;
 
     /* renamed from: j  reason: collision with root package name */
-    public boolean f62116j;
+    public boolean f62283j;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public c(j<? super T> jVar) {
@@ -41,7 +41,7 @@ public class c<T> extends j<T> {
                 return;
             }
         }
-        this.f62115i = jVar;
+        this.f62282i = jVar;
     }
 
     /* JADX DEBUG: Finally have unexpected throw blocks count: 2, expect 1 */
@@ -50,7 +50,7 @@ public class c<T> extends j<T> {
         if (interceptable == null || interceptable.invokeL(1048576, this, th) == null) {
             i.r.f.c().b().a(th);
             try {
-                this.f62115i.onError(th);
+                this.f62282i.onError(th);
                 try {
                     unsubscribe();
                 } catch (Throwable th2) {
@@ -84,12 +84,12 @@ public class c<T> extends j<T> {
     public void onCompleted() {
         UnsubscribeFailedException unsubscribeFailedException;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.f62116j) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.f62283j) {
             return;
         }
-        this.f62116j = true;
+        this.f62283j = true;
         try {
-            this.f62115i.onCompleted();
+            this.f62282i.onCompleted();
             try {
                 unsubscribe();
             } finally {
@@ -114,10 +114,10 @@ public class c<T> extends j<T> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, th) == null) {
             i.m.a.e(th);
-            if (this.f62116j) {
+            if (this.f62283j) {
                 return;
             }
-            this.f62116j = true;
+            this.f62283j = true;
             g(th);
         }
     }
@@ -127,10 +127,10 @@ public class c<T> extends j<T> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, t) == null) {
             try {
-                if (this.f62116j) {
+                if (this.f62283j) {
                     return;
                 }
-                this.f62115i.onNext(t);
+                this.f62282i.onNext(t);
             } catch (Throwable th) {
                 i.m.a.f(th, this);
             }

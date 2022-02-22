@@ -12,7 +12,7 @@ import com.meizu.cloud.pushsdk.notification.c.e;
 import com.meizu.cloud.pushsdk.util.MinSdkChecker;
 import java.io.File;
 import org.apache.commons.lang3.StringUtils;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class d extends c {
     public d(Context context, PushNotificationBuilder pushNotificationBuilder) {
         super(context, pushNotificationBuilder);

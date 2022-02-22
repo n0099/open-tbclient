@@ -5,8 +5,8 @@ import android.view.View;
 import android.widget.TextView;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import c.a.l.q;
-import c.a.s0.s.u.c;
-import c.a.t0.p1.k.a.c.b;
+import c.a.t0.s.v.c;
+import c.a.u0.p1.l.a.c.b;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
@@ -24,16 +24,16 @@ public class LocalChannelTopicHolder extends TypeAdapter.ViewHolder implements q
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public ConstraintLayout f44513e;
+    public ConstraintLayout f44771e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TbImageView f44514f;
+    public TbImageView f44772f;
 
     /* renamed from: g  reason: collision with root package name */
-    public EllipsizeTagTitleView f44515g;
+    public EllipsizeTagTitleView f44773g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f44516h;
+    public TextView f44774h;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public LocalChannelTopicHolder(View view) {
@@ -53,25 +53,25 @@ public class LocalChannelTopicHolder extends TypeAdapter.ViewHolder implements q
                 return;
             }
         }
-        this.f44513e = (ConstraintLayout) view.findViewById(R.id.topic_root);
-        this.f44514f = (TbImageView) view.findViewById(R.id.topic_image_iv);
-        this.f44515g = (EllipsizeTagTitleView) view.findViewById(R.id.topic_title_tv);
-        this.f44516h = (TextView) view.findViewById(R.id.topic_desc_tv);
+        this.f44771e = (ConstraintLayout) view.findViewById(R.id.topic_root);
+        this.f44772f = (TbImageView) view.findViewById(R.id.topic_image_iv);
+        this.f44773g = (EllipsizeTagTitleView) view.findViewById(R.id.topic_title_tv);
+        this.f44774h = (TextView) view.findViewById(R.id.topic_desc_tv);
     }
 
     public void bindData(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, bVar) == null) {
-            this.f44514f.setConrers(15);
-            this.f44514f.setPlaceHolder(1);
-            this.f44514f.startLoad(bVar.f20984h, 10, false);
-            this.f44515g.setTitleAndTag(this.itemView.getContext().getString(R.string.local_channel_topic_wrap, bVar.f20981e), bVar.f20983g);
-            if (!TextUtils.isEmpty(bVar.f20982f)) {
-                this.f44516h.setText(bVar.f20982f);
-                this.f44516h.setVisibility(0);
+            this.f44772f.setConrers(15);
+            this.f44772f.setPlaceHolder(1);
+            this.f44772f.startLoad(bVar.f20870h, 10, false);
+            this.f44773g.setTitleAndTag(this.itemView.getContext().getString(R.string.local_channel_topic_wrap, bVar.f20867e), bVar.f20869g);
+            if (!TextUtils.isEmpty(bVar.f20868f)) {
+                this.f44774h.setText(bVar.f20868f);
+                this.f44774h.setVisibility(0);
                 return;
             }
-            this.f44516h.setVisibility(8);
+            this.f44774h.setVisibility(8);
         }
     }
 
@@ -79,12 +79,12 @@ public class LocalChannelTopicHolder extends TypeAdapter.ViewHolder implements q
     public void onChangeSkinType(TbPageContext tbPageContext, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tbPageContext, i2) == null) {
-            EllipsizeTagTitleView ellipsizeTagTitleView = this.f44515g;
+            EllipsizeTagTitleView ellipsizeTagTitleView = this.f44773g;
             if (ellipsizeTagTitleView != null) {
                 ellipsizeTagTitleView.onChangeSkinType(tbPageContext, i2);
             }
-            SkinManager.setViewTextColor(this.f44516h, R.color.CAM_X0109);
-            c.d(this.f44513e).i(R.color.CAM_X0201, R.color.CAM_X0202);
+            SkinManager.setViewTextColor(this.f44774h, R.color.CAM_X0109);
+            c.d(this.f44771e).i(R.color.CAM_X0201, R.color.CAM_X0202);
         }
     }
 }

@@ -14,12 +14,12 @@ import com.yy.mobile.framework.revenuesdk.payapi.callbackresult.MyBalanceResult;
 import com.yy.mobile.framework.revenuesdk.payapi.callbackresult.ProductListResult;
 import com.yy.mobile.framework.revenuesdk.payapi.request.GetBannerConfigReqParams;
 import com.yy.mobile.framework.revenuesdk.payapi.request.QueryCurrencyReqParams;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class d {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static class a implements IResult<ProductListResult> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -66,7 +66,7 @@ public class d {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static class b implements IResult<MyBalanceResult> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -113,7 +113,7 @@ public class d {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static class c implements IResult<BannerConfigResult> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

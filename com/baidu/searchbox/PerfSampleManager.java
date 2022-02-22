@@ -1,10 +1,10 @@
 package com.baidu.searchbox;
 
 import android.text.TextUtils;
-import c.a.k0.a.a;
-import c.a.k0.a.b.d;
+import c.a.l0.a.a;
+import c.a.l0.a.b.d;
 import c.a.p.b.b;
-import c.a.t0.q3.n;
+import c.a.u0.r3.n;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pyramid.annotation.Inject;
 import com.baidu.searchbox.anr.ubc.ANRPerfSampleCallback;
@@ -19,19 +19,19 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class PerfSampleManager {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     @Inject(force = false)
     public d<IPerfSampleCallback> mCallbackList;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public interface IPerfSampleCallback {
         String getSampleFlag();
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public class IPerfSampleCallback_PerfSampleManager_ListProvider implements a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -50,7 +50,7 @@ public class PerfSampleManager {
             }
         }
 
-        @Override // c.a.k0.a.a
+        @Override // c.a.l0.a.a
         public Object get() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -112,7 +112,7 @@ public class PerfSampleManager {
     public void initmCallbackList() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            c.a.k0.a.b.b b2 = c.a.k0.a.b.b.b();
+            c.a.l0.a.b.b b2 = c.a.l0.a.b.b.b();
             this.mCallbackList = b2;
             b2.a(new IPerfSampleCallback_PerfSampleManager_ListProvider());
         }

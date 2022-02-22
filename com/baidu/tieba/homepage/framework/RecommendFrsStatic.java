@@ -1,7 +1,7 @@
 package com.baidu.tieba.homepage.framework;
 
-import c.a.t0.p1.h.k.g;
-import c.a.t0.p1.h.k.h;
+import c.a.u0.p1.i.k.g;
+import c.a.u0.p1.i.k.h;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;

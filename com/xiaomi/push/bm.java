@@ -41,7 +41,7 @@ public class bm {
             }
             try {
                 MessageDigest messageDigest = MessageDigest.getInstance("MD5");
-                messageDigest.update(m246a(str));
+                messageDigest.update(m245a(str));
                 return String.format("%1$032X", new BigInteger(1, messageDigest.digest()));
             } catch (NoSuchAlgorithmException unused) {
                 return str;
@@ -185,7 +185,7 @@ public class bm {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static boolean m245a(String str) {
+    public static boolean m244a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, str)) == null) {
@@ -204,7 +204,7 @@ public class bm {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static byte[] m246a(String str) {
+    public static byte[] m245a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, str)) == null) {
@@ -224,7 +224,7 @@ public class bm {
             if (str != null) {
                 try {
                     MessageDigest messageDigest = MessageDigest.getInstance("SHA1");
-                    messageDigest.update(m246a(str));
+                    messageDigest.update(m245a(str));
                     return String.format("%1$032X", new BigInteger(1, messageDigest.digest()));
                 } catch (NoSuchAlgorithmException unused) {
                     return str;
@@ -236,7 +236,7 @@ public class bm {
     }
 
     /* renamed from: b  reason: collision with other method in class */
-    public static boolean m247b(String str) {
+    public static boolean m246b(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, str)) == null) {

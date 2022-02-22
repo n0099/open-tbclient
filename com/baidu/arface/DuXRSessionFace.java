@@ -102,7 +102,7 @@ public class DuXRSessionFace {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ DuXRSessionFace f32868e;
+        public final /* synthetic */ DuXRSessionFace f33074e;
 
         public b(DuXRSessionFace duXRSessionFace) {
             Interceptable interceptable = $ic;
@@ -119,14 +119,14 @@ public class DuXRSessionFace {
                     return;
                 }
             }
-            this.f32868e = duXRSessionFace;
+            this.f33074e = duXRSessionFace;
         }
 
         @Override // android.graphics.SurfaceTexture.OnFrameAvailableListener
         public void onFrameAvailable(SurfaceTexture surfaceTexture) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, surfaceTexture) == null) {
-                DuXRSessionFace duXRSessionFace = this.f32868e;
+                DuXRSessionFace duXRSessionFace = this.f33074e;
                 duXRSessionFace.onCameraFrameAvailable(duXRSessionFace.mNativeSessionHandle);
             }
         }
@@ -138,7 +138,7 @@ public class DuXRSessionFace {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ DuXRSessionFace f32869e;
+        public final /* synthetic */ DuXRSessionFace f33075e;
 
         public c(DuXRSessionFace duXRSessionFace) {
             Interceptable interceptable = $ic;
@@ -155,17 +155,17 @@ public class DuXRSessionFace {
                     return;
                 }
             }
-            this.f32869e = duXRSessionFace;
+            this.f33075e = duXRSessionFace;
         }
 
         @Override // android.hardware.Camera.PreviewCallback
         public void onPreviewFrame(byte[] bArr, Camera camera) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLL(1048576, this, bArr, camera) == null) && this.f32869e.mAlgoInited) {
+            if ((interceptable == null || interceptable.invokeLL(1048576, this, bArr, camera) == null) && this.f33075e.mAlgoInited) {
                 Message message = new Message();
                 message.what = 114;
                 message.obj = bArr;
-                this.f32869e.mSessionHandler.sendMessage(message);
+                this.f33075e.mSessionHandler.sendMessage(message);
             }
         }
     }
@@ -468,7 +468,7 @@ public class DuXRSessionFace {
                 return;
             }
             this.mTextureId = i4;
-            PermissionProxy permissionProxy = c.a.n0.a.a.o;
+            PermissionProxy permissionProxy = c.a.o0.a.a.o;
             if (permissionProxy != null) {
                 permissionProxy.requestPermission(PermissionProxy.SCOPE_ID_CAMERA, new a(this));
             } else {

@@ -5,11 +5,11 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.widget.TextView;
 import c.a.d.f.p.l;
-import c.a.s0.m.a;
-import c.a.t0.k4.h;
-import c.a.t0.m4.f;
-import c.a.t0.m4.g;
-import c.a.t0.m4.i;
+import c.a.t0.m.a;
+import c.a.u0.n4.h;
+import c.a.u0.p4.f;
+import c.a.u0.p4.g;
+import c.a.u0.p4.i;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -26,7 +26,7 @@ public class VideoNetworkStateTipView extends OperableVideoNetworkStateTipView {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f48989h;
+    public TextView f49156h;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public VideoNetworkStateTipView(Context context) {
@@ -52,7 +52,7 @@ public class VideoNetworkStateTipView extends OperableVideoNetworkStateTipView {
     private void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65539, this) == null) {
-            this.f48989h = (TextView) findViewById(f.video_net_tip_duration);
+            this.f49156h = (TextView) findViewById(f.video_net_tip_duration);
         }
     }
 
@@ -98,7 +98,7 @@ public class VideoNetworkStateTipView extends OperableVideoNetworkStateTipView {
         if (!(interceptable == null || interceptable.invokeI(1048580, this, i2) == null) || i2 <= 0) {
             return;
         }
-        this.f48989h.setText(String.format(getResources().getString(i.pb_video_duration), StringHelper.stringForVideoTime(i2 * 1000)));
+        this.f49156h.setText(String.format(getResources().getString(i.pb_video_duration), StringHelper.stringForVideoTime(i2 * 1000)));
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */

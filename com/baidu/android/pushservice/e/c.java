@@ -35,7 +35,7 @@ public class c {
     public static b a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile c f31925b;
+    public static volatile c f32131b;
     public transient /* synthetic */ FieldHolder $fh;
 
     public c() {
@@ -72,14 +72,14 @@ public class c {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (f31925b == null) {
+            if (f32131b == null) {
                 synchronized (c.class) {
-                    if (f31925b == null) {
-                        f31925b = new c();
+                    if (f32131b == null) {
+                        f32131b = new c();
                     }
                 }
             }
-            return f31925b;
+            return f32131b;
         }
         return (c) invokeV.objValue;
     }
@@ -163,10 +163,10 @@ public class c {
                 public final /* synthetic */ Context a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ String f31926b;
+                public final /* synthetic */ String f32132b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ c f31927c;
+                public final /* synthetic */ c f32133c;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -183,23 +183,23 @@ public class c {
                             return;
                         }
                     }
-                    this.f31927c = this;
+                    this.f32133c = this;
                     this.a = context;
-                    this.f31926b = r8;
+                    this.f32132b = r8;
                 }
 
                 @Override // com.baidu.android.pushservice.g.c
                 public void a() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        HashMap a3 = this.f31927c.a(this.a, "POST", this.f31926b);
+                        HashMap a3 = this.f32133c.a(this.a, "POST", this.f32132b);
                         int i2 = 2;
                         do {
-                            com.baidu.android.pushservice.d.b b2 = com.baidu.android.pushservice.d.c.b(this.a, this.f31926b, "POST", a3, "BCCS_SDK/3.0", g.c());
+                            com.baidu.android.pushservice.d.b b2 = com.baidu.android.pushservice.d.c.b(this.a, this.f32132b, "POST", a3, "BCCS_SDK/3.0", g.c());
                             if (b2 != null) {
                                 int b3 = b2.b();
                                 String a4 = m.a(this.a, b2.a());
-                                if (b3 == 200 && this.f31927c.a(a4) == 0) {
+                                if (b3 == 200 && this.f32133c.a(a4) == 0) {
                                     return;
                                 }
                             }

@@ -37,7 +37,9 @@ public final class AdSpeedStats extends AbstractSpeedStats {
     public long mSdkAdDoShowTimeStamp;
     public long mSdkAdWillShowTimeStamp;
     public long mSecondDrawDispatchedTimeStamp;
+    public long mXiaoxiongAdWillShowTimeStamp;
     public long mXiaoxiongAdloadEndTimeStamp;
+    public long mXuzhangAdWillShowTimeStamp;
     public long mXuzhangAdloadEndTimeStamp;
 
     public AdSpeedStats() {
@@ -63,6 +65,8 @@ public final class AdSpeedStats extends AbstractSpeedStats {
         this.mSecondDrawDispatchedTimeStamp = -1L;
         this.mXuzhangAdloadEndTimeStamp = -1L;
         this.mXiaoxiongAdloadEndTimeStamp = -1L;
+        this.mXuzhangAdWillShowTimeStamp = -1L;
+        this.mXiaoxiongAdWillShowTimeStamp = -1L;
     }
 
     @Override // com.baidu.searchbox.launch.stats.AbstractSpeedStats
@@ -94,6 +98,12 @@ public final class AdSpeedStats extends AbstractSpeedStats {
                         return;
                     case SpeedStatsStampTable.AD_XIAOXIONG_LOAD_END_STAMP_KEY /* 3309 */:
                         this.mXiaoxiongAdloadEndTimeStamp = j2;
+                        return;
+                    case SpeedStatsStampTable.AD_XUZHANG_WILL_SHOW_STAMP_KEY /* 3310 */:
+                        this.mXuzhangAdWillShowTimeStamp = j2;
+                        return;
+                    case SpeedStatsStampTable.AD_XIAOXIONG_WILL_SHOW_STAMP_KEY /* 3311 */:
+                        this.mXiaoxiongAdWillShowTimeStamp = j2;
                         return;
                     default:
                         return;
@@ -195,12 +205,12 @@ public final class AdSpeedStats extends AbstractSpeedStats {
         long j24 = this.mXuzhangAdloadEndTimeStamp;
         long j25 = j17;
         if (j24 > 0) {
-            long j26 = this.mSdkAdWillShowTimeStamp;
+            long j26 = this.mXuzhangAdWillShowTimeStamp;
             if (j26 >= j24) {
                 j2 = j26 - j24;
                 j3 = this.mXiaoxiongAdloadEndTimeStamp;
                 if (j3 > 0) {
-                    long j27 = this.mSdkAdWillShowTimeStamp;
+                    long j27 = this.mXiaoxiongAdWillShowTimeStamp;
                     if (j27 >= j3) {
                         j4 = j27 - j3;
                         j5 = this.mAdShowStartTimeStamp;
@@ -309,6 +319,10 @@ public final class AdSpeedStats extends AbstractSpeedStats {
             this.mAdShowEndTimeStamp = -1L;
             this.mAdViewEndTimeStamp = -1L;
             this.mSecondDrawDispatchedTimeStamp = -1L;
+            this.mXuzhangAdloadEndTimeStamp = -1L;
+            this.mXiaoxiongAdloadEndTimeStamp = -1L;
+            this.mXuzhangAdWillShowTimeStamp = -1L;
+            this.mXiaoxiongAdWillShowTimeStamp = -1L;
         }
     }
 

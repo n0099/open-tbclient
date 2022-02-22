@@ -16,7 +16,7 @@ public class dm {
     @Deprecated
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f61022b;
+    public static final String f61189b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -34,6 +34,6 @@ public class dm {
         }
         a = new Object();
         f244a = String.valueOf(hh.o.a());
-        f61022b = String.valueOf(hh.p.a());
+        f61189b = String.valueOf(hh.p.a());
     }
 }

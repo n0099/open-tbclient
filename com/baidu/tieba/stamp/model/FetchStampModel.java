@@ -1,7 +1,7 @@
 package com.baidu.tieba.stamp.model;
 
 import c.a.d.f.l.c;
-import c.a.t0.u3.d;
+import c.a.u0.v3.d;
 import com.baidu.adp.base.BdBaseModel;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.HttpMessageListener;
@@ -26,22 +26,22 @@ public class FetchStampModel extends BdBaseModel {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public TbPageContext f48090e;
+    public TbPageContext f48236e;
 
     /* renamed from: f  reason: collision with root package name */
-    public c.a.t0.u3.h.a f48091f;
+    public c.a.u0.v3.h.a f48237f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f48092g;
+    public int f48238g;
 
     /* renamed from: h  reason: collision with root package name */
-    public c<c.a.d.n.d.a> f48093h;
+    public c<c.a.d.o.d.a> f48239h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f48094i;
+    public String f48240i;
 
     /* renamed from: j  reason: collision with root package name */
-    public HttpMessageListener f48095j;
+    public HttpMessageListener f48241j;
 
     /* loaded from: classes13.dex */
     public class a extends HttpMessageListener {
@@ -85,13 +85,13 @@ public class FetchStampModel extends BdBaseModel {
     }
 
     /* loaded from: classes13.dex */
-    public class b extends c<c.a.d.n.d.a> {
+    public class b extends c<c.a.d.o.d.a> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ d a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ FetchStampModel f48096b;
+        public final /* synthetic */ FetchStampModel f48242b;
 
         public b(FetchStampModel fetchStampModel, d dVar) {
             Interceptable interceptable = $ic;
@@ -108,25 +108,25 @@ public class FetchStampModel extends BdBaseModel {
                     return;
                 }
             }
-            this.f48096b = fetchStampModel;
+            this.f48242b = fetchStampModel;
             this.a = dVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // c.a.d.f.l.c
-        public void onLoaded(c.a.d.n.d.a aVar, String str, int i2) {
+        public void onLoaded(c.a.d.o.d.a aVar, String str, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLLI(1048576, this, aVar, str, i2) == null) {
                 super.onLoaded((b) aVar, str, i2);
                 if (aVar == null || !aVar.w()) {
                     return;
                 }
-                this.f48096b.f48091f.a(this.a);
+                this.f48242b.f48237f.a(this.a);
             }
         }
     }
 
-    public FetchStampModel(TbPageContext tbPageContext, c.a.t0.u3.h.a aVar) {
+    public FetchStampModel(TbPageContext tbPageContext, c.a.u0.v3.h.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -141,10 +141,10 @@ public class FetchStampModel extends BdBaseModel {
                 return;
             }
         }
-        this.f48092g = 10;
-        this.f48095j = new a(this, CmdConfigHttp.CMD_FETCH_STAMP, true);
-        this.f48090e = tbPageContext;
-        this.f48091f = aVar;
+        this.f48238g = 10;
+        this.f48241j = new a(this, CmdConfigHttp.CMD_FETCH_STAMP, true);
+        this.f48236e = tbPageContext;
+        this.f48237f = aVar;
         y();
         registerListener();
     }
@@ -154,11 +154,11 @@ public class FetchStampModel extends BdBaseModel {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (!StringUtils.isNull(this.f48094i) && this.f48093h != null) {
-                c.a.d.f.l.d.h().d(this.f48094i, this.f48092g, this.f48093h);
+            if (!StringUtils.isNull(this.f48240i) && this.f48239h != null) {
+                c.a.d.f.l.d.h().d(this.f48240i, this.f48238g, this.f48239h);
             }
             MessageManager.getInstance().unRegisterTask(CmdConfigHttp.CMD_FETCH_STAMP);
-            MessageManager.getInstance().unRegisterListener(this.f48095j);
+            MessageManager.getInstance().unRegisterListener(this.f48241j);
             return true;
         }
         return invokeV.booleanValue;
@@ -178,7 +178,7 @@ public class FetchStampModel extends BdBaseModel {
     public final void registerListener() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            MessageManager.getInstance().registerListener(this.f48095j);
+            MessageManager.getInstance().registerListener(this.f48241j);
         }
     }
 
@@ -198,18 +198,18 @@ public class FetchStampModel extends BdBaseModel {
             return;
         }
         String a2 = dVar.a();
-        this.f48094i = a2;
+        this.f48240i = a2;
         if (StringUtils.isNull(a2)) {
             return;
         }
-        if (this.f48093h == null) {
-            this.f48093h = new b(this, dVar);
+        if (this.f48239h == null) {
+            this.f48239h = new b(this, dVar);
         }
-        c.a.d.n.d.a aVar = (c.a.d.n.d.a) c.a.d.f.l.d.h().n(this.f48094i, this.f48092g, new Object[0]);
+        c.a.d.o.d.a aVar = (c.a.d.o.d.a) c.a.d.f.l.d.h().n(this.f48240i, this.f48238g, new Object[0]);
         if (aVar != null && aVar.w()) {
-            this.f48091f.a(dVar);
-        } else if (this.f48090e != null) {
-            c.a.d.f.l.d.h().m(this.f48094i, this.f48092g, this.f48093h, this.f48090e.getUniqueId());
+            this.f48237f.a(dVar);
+        } else if (this.f48236e != null) {
+            c.a.d.f.l.d.h().m(this.f48240i, this.f48238g, this.f48239h, this.f48236e.getUniqueId());
         }
     }
 }

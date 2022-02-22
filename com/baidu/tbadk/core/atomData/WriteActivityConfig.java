@@ -7,9 +7,9 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import c.a.d.f.p.n;
-import c.a.t0.x3.s0.b;
-import c.a.t0.x3.s0.c;
-import c.a.t0.x3.s0.d;
+import c.a.u0.z3.t0.b;
+import c.a.u0.z3.t0.c;
+import c.a.u0.z3.t0.d;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.lib.util.StringUtils;
@@ -124,7 +124,7 @@ public class WriteActivityConfig extends IntentConfig {
     public void send() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            d.f25281g = new Intent(getIntent());
+            d.f26395g = new Intent(getIntent());
             MessageManager.getInstance().sendMessage(new CustomMessage(2002001, this));
         }
     }

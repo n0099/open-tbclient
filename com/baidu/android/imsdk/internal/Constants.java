@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kuaishou.weapon.un.s;
 import java.util.Random;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class Constants {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int ACK_MAX_SIZE = 20;
@@ -322,7 +322,7 @@ public final class Constants {
         URL_SOCKET_SERVER = "pimc.baidu.com";
         URL_SOCKET_PORT = 8100;
         IM_ENV = 0;
-        mSdkPermissions = new String[]{s.a, s.f55287c, "android.permission.ACCESS_NETWORK_STATE", "android.permission.RECEIVE_BOOT_COMPLETED", "android.permission.VIBRATE", s.f55292h, s.f55288d};
+        mSdkPermissions = new String[]{s.a, s.f55454c, "android.permission.ACCESS_NETWORK_STATE", "android.permission.RECEIVE_BOOT_COMPLETED", "android.permission.VIBRATE", s.f55459h, s.f55455d};
     }
 
     public Constants() {

@@ -1,0 +1,16 @@
+package c.a.d0.l0;
+
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.Interceptable;
+/* loaded from: classes.dex */
+public final class p {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static final int NadCallActionLoadingDialog = 2131755340;
+    public static final int NadNoTitleDialog = 2131755342;
+    public static final int nad_BottomInAndOutStyle = 2131756041;
+    public static final int nad_feed_ad_download_app_rating_star = 2131756045;
+    public static final int nad_halfscreen_panel_animation = 2131756046;
+    public static final int nad_mini_video_detail_rating_bar = 2131756047;
+    public static final int nad_simpleDialogStyle = 2131756048;
+    public transient /* synthetic */ FieldHolder $fh;
+}

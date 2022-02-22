@@ -22,7 +22,7 @@ public class SpannableClickTextView extends TextView {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f49334e;
+    public boolean f49501e;
 
     /* loaded from: classes13.dex */
     public static class a extends LinkMovementMethod {
@@ -79,7 +79,7 @@ public class SpannableClickTextView extends TextView {
                         Selection.setSelection(spannable, spannable.getSpanStart(objArr[0]), spannable.getSpanEnd(objArr[0]));
                     }
                     if (textView instanceof SpannableClickTextView) {
-                        ((SpannableClickTextView) textView).f49334e = true;
+                        ((SpannableClickTextView) textView).f49501e = true;
                     }
                     return true;
                 }
@@ -116,7 +116,7 @@ public class SpannableClickTextView extends TextView {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, motionEvent)) == null) {
-            this.f49334e = false;
+            this.f49501e = false;
             return super.onTouchEvent(motionEvent);
         }
         return invokeL.booleanValue;
@@ -127,7 +127,7 @@ public class SpannableClickTextView extends TextView {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (this.f49334e) {
+            if (this.f49501e) {
                 return true;
             }
             return super.performClick();

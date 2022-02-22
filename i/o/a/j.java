@@ -14,10 +14,10 @@ public final class j<T> implements d.b<Boolean, T> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final i.n.f<? super T, Boolean> f61912e;
+    public final i.n.f<? super T, Boolean> f62079e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final boolean f61913f;
+    public final boolean f62080f;
 
     /* loaded from: classes4.dex */
     public class a extends i.j<T> {
@@ -25,10 +25,10 @@ public final class j<T> implements d.b<Boolean, T> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: i  reason: collision with root package name */
-        public boolean f61914i;
+        public boolean f62081i;
 
         /* renamed from: j  reason: collision with root package name */
-        public boolean f61915j;
+        public boolean f62082j;
         public final /* synthetic */ SingleDelayedProducer k;
         public final /* synthetic */ i.j l;
         public final /* synthetic */ j m;
@@ -56,14 +56,14 @@ public final class j<T> implements d.b<Boolean, T> {
         @Override // i.e
         public void onCompleted() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f61915j) {
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f62082j) {
                 return;
             }
-            this.f61915j = true;
-            if (this.f61914i) {
+            this.f62082j = true;
+            if (this.f62081i) {
                 this.k.setValue(Boolean.FALSE);
             } else {
-                this.k.setValue(Boolean.valueOf(this.m.f61913f));
+                this.k.setValue(Boolean.valueOf(this.m.f62080f));
             }
         }
 
@@ -71,8 +71,8 @@ public final class j<T> implements d.b<Boolean, T> {
         public void onError(Throwable th) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, th) == null) {
-                if (!this.f61915j) {
-                    this.f61915j = true;
+                if (!this.f62082j) {
+                    this.f62082j = true;
                     this.l.onError(th);
                     return;
                 }
@@ -83,14 +83,14 @@ public final class j<T> implements d.b<Boolean, T> {
         @Override // i.e
         public void onNext(T t) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, t) == null) || this.f61915j) {
+            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, t) == null) || this.f62082j) {
                 return;
             }
-            this.f61914i = true;
+            this.f62081i = true;
             try {
-                if (this.m.f61912e.call(t).booleanValue()) {
-                    this.f61915j = true;
-                    this.k.setValue(Boolean.valueOf(true ^ this.m.f61913f));
+                if (this.m.f62079e.call(t).booleanValue()) {
+                    this.f62082j = true;
+                    this.k.setValue(Boolean.valueOf(true ^ this.m.f62080f));
                     unsubscribe();
                 }
             } catch (Throwable th) {
@@ -114,8 +114,8 @@ public final class j<T> implements d.b<Boolean, T> {
                 return;
             }
         }
-        this.f61912e = fVar;
-        this.f61913f = z;
+        this.f62079e = fVar;
+        this.f62080f = z;
     }
 
     /* JADX DEBUG: Method merged with bridge method */

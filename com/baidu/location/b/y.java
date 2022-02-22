@@ -78,9 +78,9 @@ public class y extends Handler {
                         if (i3) {
                             h.a().d();
                         }
-                        handler = this.a.f35095d;
+                        handler = this.a.f35301d;
                         if (handler != null) {
-                            handler2 = this.a.f35095d;
+                            handler2 = this.a.f35301d;
                             handler2.sendEmptyMessageDelayed(4, com.baidu.location.e.k.R);
                         }
                     }

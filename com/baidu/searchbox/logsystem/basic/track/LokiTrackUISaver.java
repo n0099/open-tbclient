@@ -3,7 +3,7 @@ package com.baidu.searchbox.logsystem.basic.track;
 import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
-import c.a.k0.b.a.a;
+import c.a.l0.b.a.a;
 import com.baidu.android.util.io.FileUtils;
 import com.baidu.searchbox.config.AppConfig;
 import com.baidu.searchbox.logsystem.logsys.LogPipelineSingleton;

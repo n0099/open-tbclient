@@ -22,8 +22,8 @@ public class c extends d {
                 return;
             }
         }
-        this.f35884c = 4;
-        this.f35883b = "poiindoormarklayer";
-        this.f35885d = 100;
+        this.f36090c = 4;
+        this.f36089b = "poiindoormarklayer";
+        this.f36091d = 100;
     }
 }

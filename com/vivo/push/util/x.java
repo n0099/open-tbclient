@@ -14,7 +14,7 @@ public final class x extends b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static x f60821b;
+    public static x f60988b;
     public transient /* synthetic */ FieldHolder $fh;
 
     public x() {
@@ -37,10 +37,10 @@ public final class x extends b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
             synchronized (x.class) {
-                if (f60821b == null) {
-                    f60821b = new x();
+                if (f60988b == null) {
+                    f60988b = new x();
                 }
-                xVar = f60821b;
+                xVar = f60988b;
             }
             return xVar;
         }

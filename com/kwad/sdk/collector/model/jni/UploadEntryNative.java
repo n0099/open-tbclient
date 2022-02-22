@@ -8,7 +8,7 @@ import com.kwad.sdk.utils.q;
 import com.kwad.sdk.utils.t;
 import org.apache.commons.lang3.text.ExtendedMessageFormat;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class UploadEntryNative extends NativeObject implements e {
     public UploadEntryNative() {
         this.mPtr = AppStatusNative.nativeCreateUploadEntry();

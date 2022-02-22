@@ -23,22 +23,22 @@ public final class JYNativeAdView extends LinearLayout {
     public TextView a;
 
     /* renamed from: b  reason: collision with root package name */
-    public FrameLayout f54150b;
+    public FrameLayout f54317b;
 
     /* renamed from: c  reason: collision with root package name */
-    public View f54151c;
+    public View f54318c;
 
     /* renamed from: d  reason: collision with root package name */
-    public TextView f54152d;
+    public TextView f54319d;
 
     /* renamed from: e  reason: collision with root package name */
-    public ImageView f54153e;
+    public ImageView f54320e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Button f54154f;
+    public Button f54321f;
 
     /* renamed from: g  reason: collision with root package name */
-    public float f54155g;
+    public float f54322g;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public JYNativeAdView(Context context) {
@@ -58,7 +58,7 @@ public final class JYNativeAdView extends LinearLayout {
                 return;
             }
         }
-        this.f54155g = 1.78f;
+        this.f54322g = 1.78f;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -80,7 +80,7 @@ public final class JYNativeAdView extends LinearLayout {
                 return;
             }
         }
-        this.f54155g = 1.78f;
+        this.f54322g = 1.78f;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -102,7 +102,7 @@ public final class JYNativeAdView extends LinearLayout {
                 return;
             }
         }
-        this.f54155g = 1.78f;
+        this.f54322g = 1.78f;
     }
 
     @Override // android.view.View
@@ -111,14 +111,14 @@ public final class JYNativeAdView extends LinearLayout {
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             super.onFinishInflate();
             this.a = (TextView) findViewById(R.id.ad_description);
-            this.f54150b = (FrameLayout) findViewById(R.id.ad_img_container);
+            this.f54317b = (FrameLayout) findViewById(R.id.ad_img_container);
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, -1);
             PBMediaView pBMediaView = new PBMediaView(getContext());
-            this.f54151c = pBMediaView;
-            this.f54150b.addView(pBMediaView, layoutParams);
-            this.f54152d = (TextView) findViewById(R.id.ad_title);
-            this.f54153e = (ImageView) findViewById(R.id.ad_icon);
-            this.f54154f = (Button) findViewById(R.id.ad_creative);
+            this.f54318c = pBMediaView;
+            this.f54317b.addView(pBMediaView, layoutParams);
+            this.f54319d = (TextView) findViewById(R.id.ad_title);
+            this.f54320e = (ImageView) findViewById(R.id.ad_icon);
+            this.f54321f = (Button) findViewById(R.id.ad_creative);
         }
     }
 
@@ -127,11 +127,11 @@ public final class JYNativeAdView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIIII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, i3, i4, i5) == null) {
             super.onSizeChanged(i2, i3, i4, i5);
-            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.f54150b.getLayoutParams();
+            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.f54317b.getLayoutParams();
             int i6 = (i2 - layoutParams.leftMargin) - layoutParams.rightMargin;
             layoutParams.width = i6;
-            layoutParams.height = (int) (i6 / this.f54155g);
-            this.f54150b.setLayoutParams(layoutParams);
+            layoutParams.height = (int) (i6 / this.f54322g);
+            this.f54317b.setLayoutParams(layoutParams);
         }
     }
 }

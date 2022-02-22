@@ -5,8 +5,8 @@ import android.os.Handler;
 import android.os.Looper;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import c.a.a1.t.c;
-import c.a.a1.t.g;
+import c.a.b1.t.c;
+import c.a.b1.t.g;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -1008,7 +1008,7 @@ public class VLogAudioPlayer {
                     for (int i2 = 0; i2 < this.val$playDataList.size(); i2++) {
                         AudioPlayData audioPlayData = (AudioPlayData) this.val$playDataList.get(i2);
                         if (audioPlayData != null) {
-                            this.this$0.handledAudioList.add(audioPlayData.m102clone());
+                            this.this$0.handledAudioList.add(audioPlayData.m101clone());
                         }
                     }
                     VLogAudioPlayer vLogAudioPlayer = this.this$0;

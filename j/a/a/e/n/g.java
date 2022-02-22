@@ -13,7 +13,7 @@ import java.util.HashMap;
 import tv.athena.revenue.api.MiddleReportConfig;
 import tv.athena.revenue.api.MiddleRevenueConfig;
 import tv.athena.revenue.payui.model.PayFlowType;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class g implements b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

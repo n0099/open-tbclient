@@ -50,7 +50,7 @@ public final class TaskBuoyView$onViewModelBind$1$$special$$inlined$let$lambda$6
     public final void invoke2() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            ProgressBar progressBar = this.this$0.a.f33024h;
+            ProgressBar progressBar = this.this$0.a.f33230h;
             if (progressBar != null) {
                 progressBar.setVisibility(8);
             }

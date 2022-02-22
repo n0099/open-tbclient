@@ -47,7 +47,7 @@ public class bb implements ar {
 
     @Override // com.xiaomi.push.ar
     /* renamed from: b */
-    public String mo213b() {
+    public String mo212b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {

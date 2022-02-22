@@ -12,22 +12,22 @@ public final class g {
         public String a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f59846b;
+        public String f60013b;
 
         /* renamed from: c  reason: collision with root package name */
-        public Drawable f59847c;
+        public Drawable f60014c;
 
         /* renamed from: d  reason: collision with root package name */
-        public String f59848d;
+        public String f60015d;
 
         /* renamed from: e  reason: collision with root package name */
-        public String f59849e;
+        public String f60016e;
 
         /* renamed from: f  reason: collision with root package name */
-        public int f59850f;
+        public int f60017f;
 
         /* renamed from: g  reason: collision with root package name */
-        public boolean f59851g;
+        public boolean f60018g;
 
         public a(String str, String str2, Drawable drawable, String str3, String str4, int i2, boolean z) {
             b(str2);
@@ -40,11 +40,11 @@ public final class g {
         }
 
         public Drawable a() {
-            return this.f59847c;
+            return this.f60014c;
         }
 
         public boolean b() {
-            return this.f59851g;
+            return this.f60018g;
         }
 
         public String c() {
@@ -52,19 +52,19 @@ public final class g {
         }
 
         public String d() {
-            return this.f59846b;
+            return this.f60013b;
         }
 
         public String e() {
-            return this.f59848d;
+            return this.f60015d;
         }
 
         public int f() {
-            return this.f59850f;
+            return this.f60017f;
         }
 
         public String g() {
-            return this.f59849e;
+            return this.f60016e;
         }
 
         public String toString() {
@@ -72,23 +72,23 @@ public final class g {
         }
 
         public void a(Drawable drawable) {
-            this.f59847c = drawable;
+            this.f60014c = drawable;
         }
 
         public void b(String str) {
-            this.f59846b = str;
+            this.f60013b = str;
         }
 
         public void c(String str) {
-            this.f59848d = str;
+            this.f60015d = str;
         }
 
         public void d(String str) {
-            this.f59849e = str;
+            this.f60016e = str;
         }
 
         public void a(boolean z) {
-            this.f59851g = z;
+            this.f60018g = z;
         }
 
         public void a(String str) {
@@ -96,7 +96,7 @@ public final class g {
         }
 
         public void a(int i2) {
-            this.f59850f = i2;
+            this.f60017f = i2;
         }
     }
 

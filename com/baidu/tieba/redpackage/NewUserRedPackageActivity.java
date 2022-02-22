@@ -7,7 +7,7 @@ import android.widget.ImageView;
 import androidx.core.view.InputDeviceCompat;
 import c.a.d.f.l.d;
 import c.a.d.f.p.n;
-import c.a.s0.a.t;
+import c.a.t0.a.t;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.ActivityPendingTransitionFactory;
@@ -25,7 +25,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public class NewUserRedPackageActivity extends BaseActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -36,13 +36,13 @@ public class NewUserRedPackageActivity extends BaseActivity {
     public View.OnClickListener mOnClickListener;
     public RoundRelativeLayout mRoundCornerLayout;
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes13.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ NewUserRedPackageActivity f47766e;
+        public final /* synthetic */ NewUserRedPackageActivity f47912e;
 
         public a(NewUserRedPackageActivity newUserRedPackageActivity) {
             Interceptable interceptable = $ic;
@@ -59,31 +59,31 @@ public class NewUserRedPackageActivity extends BaseActivity {
                     return;
                 }
             }
-            this.f47766e = newUserRedPackageActivity;
+            this.f47912e = newUserRedPackageActivity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                if (view.getId() != this.f47766e.mCloseBtnImage.getId()) {
-                    if (view.getId() == this.f47766e.mBgImage.getId()) {
+                if (view.getId() != this.f47912e.mCloseBtnImage.getId()) {
+                    if (view.getId() == this.f47912e.mBgImage.getId()) {
                         TiebaStatic.log(new StatisticItem("c13684").param("obj_type", 2));
                         if (TbadkCoreApplication.isLogin()) {
-                            if (this.f47766e.mData != null) {
-                                UrlManager.getInstance().dealOneLink(this.f47766e.getPageContext(), new String[]{this.f47766e.mData.clickUrl});
-                                this.f47766e.finish();
+                            if (this.f47912e.mData != null) {
+                                UrlManager.getInstance().dealOneLink(this.f47912e.getPageContext(), new String[]{this.f47912e.mData.clickUrl});
+                                this.f47912e.finish();
                                 return;
                             }
                             return;
                         }
-                        this.f47766e.sendMessage(new CustomMessage(2002001, new LoginActivityConfig(this.f47766e.getActivity(), true, 25046)));
+                        this.f47912e.sendMessage(new CustomMessage(2002001, new LoginActivityConfig(this.f47912e.getActivity(), true, 25046)));
                         return;
                     }
                     return;
                 }
                 TiebaStatic.log(new StatisticItem("c13684").param("obj_type", 3));
-                this.f47766e.finish();
+                this.f47912e.finish();
             }
         }
     }
@@ -105,14 +105,14 @@ public class NewUserRedPackageActivity extends BaseActivity {
     }
 
     private void setData() {
-        c.a.d.n.d.a aVar;
+        c.a.d.o.d.a aVar;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) || getIntent() == null) {
             return;
         }
         NewUserRedPackageData newUserRedPackageData = (NewUserRedPackageData) getIntent().getSerializableExtra("key_data");
         this.mData = newUserRedPackageData;
-        if (newUserRedPackageData == null || (aVar = (c.a.d.n.d.a) d.h().n(this.mData.topPicUrl, 10, new Object[0])) == null) {
+        if (newUserRedPackageData == null || (aVar = (c.a.d.o.d.a) d.h().n(this.mData.topPicUrl, 10, new Object[0])) == null) {
             return;
         }
         this.mBgImage.setImageBitmap(aVar.p());

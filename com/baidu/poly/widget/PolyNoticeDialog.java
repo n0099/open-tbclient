@@ -8,16 +8,16 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
-import c.a.h0.c;
-import c.a.h0.g;
-import c.a.h0.h;
+import c.a.i0.c;
+import c.a.i0.g;
+import c.a.i0.h;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class PolyNoticeDialog extends BaseDialogFragment implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -30,7 +30,7 @@ public class PolyNoticeDialog extends BaseDialogFragment implements View.OnClick
     public TextView tipsTv;
     public TextView titleTv;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public interface a {
         void a();
 

@@ -58,7 +58,7 @@ import java.util.List;
 import java.util.Map;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class ChatMessageDBManager extends DBBase {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long CAST_RELIABLE_MSG_EXPIRED_TIME = 172800;
@@ -68,7 +68,7 @@ public class ChatMessageDBManager extends DBBase {
     public transient /* synthetic */ FieldHolder $fh;
     public List<ChatMessageDbOberser> mObservers;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public interface ChatMessageDbOberser {
         void notifyDbChange(int i2, ChatSession chatSession);
     }
@@ -150,8 +150,8 @@ public class ChatMessageDBManager extends DBBase {
         return invokeL.longValue;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:72:0x02d0 A[RETURN] */
-    /* JADX WARN: Removed duplicated region for block: B:74:0x02d2  */
+    /* JADX WARN: Removed duplicated region for block: B:72:0x02c5 A[RETURN] */
+    /* JADX WARN: Removed duplicated region for block: B:74:0x02c7  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -163,7 +163,9 @@ public class ChatMessageDBManager extends DBBase {
         int i3;
         String str2;
         int i4;
-        String jSONObject;
+        JSONObject optJSONObject;
+        JSONObject jSONObject;
+        String jSONObject2;
         ChatMsg newChatMsg;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65541, this, cursor)) == null) {
@@ -196,49 +198,49 @@ public class ChatMessageDBManager extends DBBase {
                     int i14 = i6;
                     try {
                         try {
-                            JSONObject jSONObject2 = new JSONObject(new JSONObject(new JSONObject(new JSONObject(string).optString("text")).optString("msg")).optString("ext"));
-                            int optInt = jSONObject2.optInt("type", -1);
+                            JSONObject jSONObject3 = new JSONObject(new JSONObject(new JSONObject(new JSONObject(string).optString("text")).optString("msg")).optString("ext"));
+                            int optInt = jSONObject3.optInt("type", -1);
                             try {
                                 if (optInt == 1) {
-                                    JSONObject jSONObject3 = new JSONObject();
-                                    jSONObject3.put("text", jSONObject2.optString("body"));
-                                    jSONObject = jSONObject3.toString();
+                                    JSONObject jSONObject4 = new JSONObject();
+                                    jSONObject4.put("text", jSONObject3.optString("body"));
+                                    jSONObject2 = jSONObject4.toString();
                                 } else if (optInt == 0) {
-                                    if (jSONObject2.has("content") && !jSONObject2.has("body")) {
-                                        JSONObject jSONObject4 = new JSONObject();
-                                        jSONObject4.put("text", new JSONObject(jSONObject2.optString("content")).optString("text"));
-                                        jSONObject = jSONObject4.toString();
+                                    if (jSONObject3.has("content") && !jSONObject3.has("body")) {
+                                        JSONObject jSONObject5 = new JSONObject();
+                                        jSONObject5.put("text", new JSONObject(jSONObject3.optString("content")).optString("text"));
+                                        jSONObject2 = jSONObject5.toString();
                                     } else {
-                                        JSONArray jSONArray = new JSONArray(jSONObject2.optString("body"));
+                                        JSONArray jSONArray = new JSONArray(jSONObject3.optString("body"));
                                         int length = jSONArray.length();
                                         i3 = i13;
                                         str = string6;
                                         if (length == 1) {
                                             i2 = i5;
                                             try {
-                                                JSONObject optJSONObject = jSONArray.optJSONObject(0);
-                                                JSONObject jSONObject5 = new JSONObject();
+                                                optJSONObject = jSONArray.optJSONObject(0);
+                                                jSONObject = new JSONObject();
                                                 j2 = j3;
-                                                try {
-                                                    jSONObject5.put("title", optJSONObject.optString("title"));
-                                                    jSONObject5.put("article_url", optJSONObject.optString("url"));
-                                                    jSONObject5.put(AlaLiveRoomActivityConfig.SDK_LIVE_COVER_KEY, optJSONObject.optString("headImage"));
-                                                    str2 = jSONObject5.toString();
-                                                    i4 = 1;
-                                                    i14 = 8;
-                                                } catch (Exception e2) {
-                                                    e = e2;
-                                                    string = string;
-                                                    i6 = 8;
-                                                    new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
-                                                    LogUtils.e(TAG, "du construChatMsg:", e);
-                                                    newChatMsg = ChatMsgFactory.getInstance().newChatMsg(this.mContext, i9, i6, i10);
-                                                    if (newChatMsg != null) {
-                                                    }
-                                                }
+                                            } catch (Exception e2) {
+                                                e = e2;
+                                                j2 = j3;
+                                            }
+                                            try {
+                                                jSONObject.put("title", optJSONObject.optString("title"));
+                                                jSONObject.put("article_url", optJSONObject.optString("url"));
+                                                jSONObject.put(AlaLiveRoomActivityConfig.SDK_LIVE_COVER_KEY, optJSONObject.optString("headImage"));
+                                                str2 = jSONObject.toString();
+                                                i4 = 1;
+                                                i14 = 8;
                                             } catch (Exception e3) {
                                                 e = e3;
-                                                j2 = j3;
+                                                string = string;
+                                                i6 = 8;
+                                                new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
+                                                LogUtils.e(TAG, "du construChatMsg:", e);
+                                                newChatMsg = ChatMsgFactory.getInstance().newChatMsg(this.mContext, i9, i6, i10);
+                                                if (newChatMsg != null) {
+                                                }
                                             }
                                         } else {
                                             i2 = i5;
@@ -286,7 +288,7 @@ public class ChatMessageDBManager extends DBBase {
                                     str = string6;
                                     i3 = i13;
                                     try {
-                                        string = jSONObject2.optString("content");
+                                        string = jSONObject3.optString("content");
                                         i6 = optInt;
                                     } catch (Exception e5) {
                                         e = e5;
@@ -299,7 +301,7 @@ public class ChatMessageDBManager extends DBBase {
                                         }
                                     }
                                 }
-                                string = jSONObject;
+                                string = jSONObject2;
                                 i2 = i5;
                                 j2 = j3;
                                 str = string6;
@@ -2277,16 +2279,16 @@ public class ChatMessageDBManager extends DBBase {
         return (ArrayList) invokeCommon.objValue;
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:31:0x00bb, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:31:0x00ba, code lost:
         if (r8 != null) goto L39;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:32:0x00bd, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:32:0x00bc, code lost:
         r8.close();
      */
-    /* JADX WARN: Code restructure failed: missing block: B:38:0x00dd, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:38:0x00dc, code lost:
         if (r8 == null) goto L40;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:41:0x00e1, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:41:0x00e0, code lost:
         return r0;
      */
     /*
@@ -2365,8 +2367,8 @@ public class ChatMessageDBManager extends DBBase {
         return (ArrayList) invokeCommon.objValue;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:19:0x005e  */
-    /* JADX WARN: Removed duplicated region for block: B:20:0x0061  */
+    /* JADX WARN: Removed duplicated region for block: B:19:0x005d  */
+    /* JADX WARN: Removed duplicated region for block: B:20:0x0060  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -2406,16 +2408,16 @@ public class ChatMessageDBManager extends DBBase {
         return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048603, this, new Object[]{chatObject, Long.valueOf(j2), Long.valueOf(j3), Long.valueOf(j4), Boolean.valueOf(z)})) == null) ? fetchMsg(chatObject, j2, j3, j4, z, "type != 101") : (ArrayList) invokeCommon.objValue;
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:28:0x00c9, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:28:0x00c7, code lost:
         if (r1 != null) goto L36;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:29:0x00cb, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:29:0x00c9, code lost:
         r1.close();
      */
-    /* JADX WARN: Code restructure failed: missing block: B:35:0x00eb, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:35:0x00e9, code lost:
         if (r1 == null) goto L37;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:38:0x00ef, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:38:0x00ed, code lost:
         return r0;
      */
     /*
@@ -2461,16 +2463,16 @@ public class ChatMessageDBManager extends DBBase {
         }
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:31:0x00bb, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:31:0x00ba, code lost:
         if (r8 != null) goto L39;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:32:0x00bd, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:32:0x00bc, code lost:
         r8.close();
      */
-    /* JADX WARN: Code restructure failed: missing block: B:38:0x00dd, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:38:0x00dc, code lost:
         if (r8 == null) goto L40;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:41:0x00e1, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:41:0x00e0, code lost:
         return r0;
      */
     /*
@@ -3062,16 +3064,16 @@ public class ChatMessageDBManager extends DBBase {
         return (ArrayList) invokeCommon.objValue;
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:21:0x0064, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:21:0x0063, code lost:
         if (r2 != null) goto L25;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:22:0x0066, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:22:0x0065, code lost:
         r2.close();
      */
-    /* JADX WARN: Code restructure failed: missing block: B:28:0x0074, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:28:0x0073, code lost:
         if (r2 == null) goto L26;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:32:0x007a, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:32:0x0079, code lost:
         return 0;
      */
     /*
@@ -3106,24 +3108,24 @@ public class ChatMessageDBManager extends DBBase {
         }
     }
 
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:17:0x0052 */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:25:0x005e */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:17:0x0051 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:25:0x005d */
     /* JADX DEBUG: Multi-variable search result rejected for r0v2, resolved type: android.database.sqlite.SQLiteDatabase */
     /* JADX DEBUG: Multi-variable search result rejected for r7v0, resolved type: long */
     /* JADX DEBUG: Multi-variable search result rejected for r7v1, resolved type: java.lang.String */
     /* JADX DEBUG: Multi-variable search result rejected for r7v2, resolved type: android.database.Cursor */
     /* JADX DEBUG: Multi-variable search result rejected for r7v3, resolved type: android.database.Cursor */
     /* JADX DEBUG: Multi-variable search result rejected for r7v8, resolved type: android.database.Cursor */
-    /* JADX WARN: Code restructure failed: missing block: B:17:0x0052, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:17:0x0051, code lost:
         if (r7 != null) goto L22;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:18:0x0054, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:18:0x0053, code lost:
         r7.close();
      */
-    /* JADX WARN: Code restructure failed: missing block: B:32:0x007d, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:32:0x007c, code lost:
         if (r7 == 0) goto L23;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:34:0x0080, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:34:0x007f, code lost:
         return r1;
      */
     /* JADX WARN: Multi-variable type inference failed */
@@ -3189,16 +3191,16 @@ public class ChatMessageDBManager extends DBBase {
         }
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:34:0x00ac, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:34:0x00ab, code lost:
         if (r4 != null) goto L33;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:35:0x00ae, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:35:0x00ad, code lost:
         r4.close();
      */
-    /* JADX WARN: Code restructure failed: missing block: B:41:0x00ce, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:41:0x00cd, code lost:
         if (r4 == null) goto L31;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:44:0x00d2, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:44:0x00d1, code lost:
         return r2;
      */
     /*
@@ -3242,16 +3244,16 @@ public class ChatMessageDBManager extends DBBase {
         }
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:20:0x0050, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:20:0x004f, code lost:
         if (r3 != null) goto L24;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:21:0x0052, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:21:0x0051, code lost:
         r3.close();
      */
-    /* JADX WARN: Code restructure failed: missing block: B:27:0x0072, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:27:0x0071, code lost:
         if (r3 == null) goto L25;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:30:0x0076, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:30:0x0075, code lost:
         return r1;
      */
     /*
@@ -4090,8 +4092,8 @@ public class ChatMessageDBManager extends DBBase {
         return invokeCommon.intValue;
     }
 
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:33:0x00ad */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:35:0x00af */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:33:0x00ac */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:35:0x00ae */
     /* JADX WARN: Multi-variable type inference failed */
     /* JADX WARN: Type inference failed for: r2v0 */
     /* JADX WARN: Type inference failed for: r2v1 */
@@ -4455,16 +4457,16 @@ public class ChatMessageDBManager extends DBBase {
         updateChatSession(1, chatRecord);
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:23:0x0058, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:23:0x0057, code lost:
         if (r3 != null) goto L29;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:24:0x005a, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:24:0x0059, code lost:
         r3.close();
      */
-    /* JADX WARN: Code restructure failed: missing block: B:30:0x007a, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:30:0x0079, code lost:
         if (r3 == null) goto L27;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:33:0x007e, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:33:0x007d, code lost:
         return r1;
      */
     /*
@@ -4590,14 +4592,14 @@ public class ChatMessageDBManager extends DBBase {
         }
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:114:0x0255  */
-    /* JADX WARN: Removed duplicated region for block: B:124:0x01ae A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:114:0x0253  */
+    /* JADX WARN: Removed duplicated region for block: B:127:0x01ac A[EXC_TOP_SPLITTER, SYNTHETIC] */
     /* JADX WARN: Removed duplicated region for block: B:140:? A[RETURN, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:50:0x0111 A[Catch: all -> 0x0235, Exception -> 0x0238, TryCatch #6 {Exception -> 0x0238, all -> 0x0235, blocks: (B:42:0x007d, B:44:0x008e, B:47:0x0099, B:50:0x0111, B:52:0x0122, B:53:0x0136, B:55:0x014f, B:57:0x0157, B:66:0x0173, B:67:0x01ad, B:48:0x00d6), top: B:129:0x007d }] */
-    /* JADX WARN: Removed duplicated region for block: B:52:0x0122 A[Catch: all -> 0x0235, Exception -> 0x0238, TryCatch #6 {Exception -> 0x0238, all -> 0x0235, blocks: (B:42:0x007d, B:44:0x008e, B:47:0x0099, B:50:0x0111, B:52:0x0122, B:53:0x0136, B:55:0x014f, B:57:0x0157, B:66:0x0173, B:67:0x01ad, B:48:0x00d6), top: B:129:0x007d }] */
-    /* JADX WARN: Removed duplicated region for block: B:55:0x014f A[Catch: all -> 0x0235, Exception -> 0x0238, TryCatch #6 {Exception -> 0x0238, all -> 0x0235, blocks: (B:42:0x007d, B:44:0x008e, B:47:0x0099, B:50:0x0111, B:52:0x0122, B:53:0x0136, B:55:0x014f, B:57:0x0157, B:66:0x0173, B:67:0x01ad, B:48:0x00d6), top: B:129:0x007d }] */
-    /* JADX WARN: Removed duplicated region for block: B:60:0x0165  */
-    /* JADX WARN: Removed duplicated region for block: B:63:0x016c A[ADDED_TO_REGION] */
+    /* JADX WARN: Removed duplicated region for block: B:50:0x0110 A[Catch: all -> 0x0233, Exception -> 0x0236, TryCatch #6 {Exception -> 0x0236, all -> 0x0233, blocks: (B:42:0x007d, B:44:0x008e, B:47:0x0099, B:50:0x0110, B:52:0x0121, B:53:0x0135, B:55:0x014e, B:57:0x0156, B:66:0x0172, B:67:0x01ab, B:48:0x00d6), top: B:129:0x007d }] */
+    /* JADX WARN: Removed duplicated region for block: B:52:0x0121 A[Catch: all -> 0x0233, Exception -> 0x0236, TryCatch #6 {Exception -> 0x0236, all -> 0x0233, blocks: (B:42:0x007d, B:44:0x008e, B:47:0x0099, B:50:0x0110, B:52:0x0121, B:53:0x0135, B:55:0x014e, B:57:0x0156, B:66:0x0172, B:67:0x01ab, B:48:0x00d6), top: B:129:0x007d }] */
+    /* JADX WARN: Removed duplicated region for block: B:55:0x014e A[Catch: all -> 0x0233, Exception -> 0x0236, TryCatch #6 {Exception -> 0x0236, all -> 0x0233, blocks: (B:42:0x007d, B:44:0x008e, B:47:0x0099, B:50:0x0110, B:52:0x0121, B:53:0x0135, B:55:0x014e, B:57:0x0156, B:66:0x0172, B:67:0x01ab, B:48:0x00d6), top: B:129:0x007d }] */
+    /* JADX WARN: Removed duplicated region for block: B:60:0x0164  */
+    /* JADX WARN: Removed duplicated region for block: B:63:0x016b A[ADDED_TO_REGION] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */

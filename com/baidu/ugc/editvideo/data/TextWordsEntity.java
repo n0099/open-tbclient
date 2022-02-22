@@ -1,8 +1,8 @@
 package com.baidu.ugc.editvideo.data;
 
-import c.a.a1.t.e;
-import c.a.a1.t.l;
-import c.a.a1.t.w;
+import c.a.b1.t.e;
+import c.a.b1.t.l;
+import c.a.b1.t.w;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pass.ecommerce.bean.AddressField;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;

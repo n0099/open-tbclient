@@ -1,8 +1,8 @@
 package com.baidu.tbadk.pay;
 
 import c.a.d.a.f;
-import c.a.s0.r0.b;
-import c.a.s0.r0.e;
+import c.a.t0.r0.b;
+import c.a.t0.r0.e;
 import com.baidu.adp.base.BdBaseModel;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.ResponsedMessage;
@@ -23,18 +23,18 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import tbclient.GetClientConfig.CPayType;
 import tbclient.GetClientConfig.DataRes;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class PayConfigModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public b f41102e;
+    public b f41331e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final c.a.d.c.g.a f41103f;
+    public final c.a.d.c.g.a f41332f;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public class a extends c.a.d.c.g.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -82,8 +82,8 @@ public class PayConfigModel extends BdBaseModel {
                 if (StringUtils.isNull(errorString)) {
                     errorString = string;
                 }
-                if (this.a.f41102e != null) {
-                    this.a.f41102e.onError(errorString);
+                if (this.a.f41331e != null) {
+                    this.a.f41331e.onError(errorString);
                 }
             }
         }
@@ -108,8 +108,8 @@ public class PayConfigModel extends BdBaseModel {
             }
         }
         a aVar = new a(this, CmdConfigHttp.CMD_CLIENT_CONFIG, 303039);
-        this.f41103f = aVar;
-        this.f41102e = bVar;
+        this.f41332f = aVar;
+        this.f41331e = bVar;
         registerListener(aVar);
     }
 
@@ -119,23 +119,23 @@ public class PayConfigModel extends BdBaseModel {
         if (interceptable == null || interceptable.invokeL(1048576, this, dataRes) == null) {
             if (dataRes != null && (cPayType = dataRes.payType) != null) {
                 if (cPayType.pay_type.intValue() == 1) {
-                    b bVar = this.f41102e;
+                    b bVar = this.f41331e;
                     if (bVar != null) {
                         bVar.b();
                     }
                 } else if (dataRes.payType.pay_type.intValue() == 2) {
-                    b bVar2 = this.f41102e;
+                    b bVar2 = this.f41331e;
                     if (bVar2 != null) {
                         bVar2.a();
                     }
                 } else {
-                    b bVar3 = this.f41102e;
+                    b bVar3 = this.f41331e;
                     if (bVar3 != null) {
                         bVar3.onError("");
                     }
                 }
-            } else if (this.f41102e != null) {
-                this.f41102e.onError(TbadkCoreApplication.getInst().getString(R.string.data_load_error));
+            } else if (this.f41331e != null) {
+                this.f41331e.onError(TbadkCoreApplication.getInst().getString(R.string.data_load_error));
             }
         }
     }
@@ -144,12 +144,12 @@ public class PayConfigModel extends BdBaseModel {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             if (!e.c().g()) {
-                b bVar = this.f41102e;
+                b bVar = this.f41331e;
                 if (bVar != null) {
                     bVar.a();
                 }
             } else if (TbadkCoreApplication.getInst().checkInterrupt()) {
-                b bVar2 = this.f41102e;
+                b bVar2 = this.f41331e;
                 if (bVar2 != null) {
                     bVar2.b();
                 }
@@ -184,7 +184,7 @@ public class PayConfigModel extends BdBaseModel {
     public void onDestroy() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            MessageManager.getInstance().unRegisterListener(this.f41103f);
+            MessageManager.getInstance().unRegisterListener(this.f41332f);
         }
     }
 
@@ -213,8 +213,8 @@ public class PayConfigModel extends BdBaseModel {
             }
         }
         a aVar = new a(this, CmdConfigHttp.CMD_CLIENT_CONFIG, 303039);
-        this.f41103f = aVar;
-        this.f41102e = bVar;
+        this.f41332f = aVar;
+        this.f41331e = bVar;
         registerListener(aVar);
     }
 }

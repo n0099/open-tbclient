@@ -6,17 +6,17 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class a implements Comparable<a> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f58411b;
+    public String f58578b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f58412c;
+    public boolean f58579c;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -38,6 +38,6 @@ public class a implements Comparable<a> {
     public int compareTo(@NonNull a aVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, aVar)) == null) ? aVar.f58411b.compareTo(this.f58411b) : invokeL.intValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, aVar)) == null) ? aVar.f58578b.compareTo(this.f58578b) : invokeL.intValue;
     }
 }

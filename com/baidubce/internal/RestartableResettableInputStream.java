@@ -10,7 +10,7 @@ import com.baidubce.BceClientException;
 import com.baidubce.util.CheckUtils;
 import java.io.IOException;
 import java.io.InputStream;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class RestartableResettableInputStream extends RestartableInputStream {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

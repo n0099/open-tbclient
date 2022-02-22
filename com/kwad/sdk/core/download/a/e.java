@@ -1,7 +1,7 @@
 package com.kwad.sdk.core.download.a;
 
 import com.kwad.sdk.api.KsAppDownloadListener;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class e implements KsAppDownloadListener {
     @Override // com.kwad.sdk.api.KsAppDownloadListener
     public void onDownloadFailed() {

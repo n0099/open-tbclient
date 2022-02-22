@@ -15,16 +15,16 @@ public class j {
     public b a;
 
     /* renamed from: b  reason: collision with root package name */
-    public c.b.b.q.a<f> f26953b;
+    public c.b.b.q.a<f> f27159b;
 
     /* renamed from: c  reason: collision with root package name */
-    public c.b.a.c.b<f> f26954c;
+    public c.b.a.c.b<f> f27160c;
 
     /* renamed from: d  reason: collision with root package name */
-    public w<Class<?>, f> f26955d;
+    public w<Class<?>, f> f27161d;
 
     /* renamed from: e  reason: collision with root package name */
-    public c f26956e;
+    public c f27162e;
 
     /* loaded from: classes9.dex */
     public static /* synthetic */ class a {
@@ -58,8 +58,8 @@ public class j {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, fVar, fVar2)) == null) {
-                int i2 = fVar.f26928e;
-                int i3 = fVar2.f26928e;
+                int i2 = fVar.f27134e;
+                int i3 = fVar2.f27134e;
                 if (i2 > i3) {
                     return 1;
                 }
@@ -97,10 +97,10 @@ public class j {
         }
         this.a = new b(null);
         c.b.b.q.a<f> aVar = new c.b.b.q.a<>(true, 16);
-        this.f26953b = aVar;
-        this.f26954c = new c.b.a.c.b<>(aVar);
-        this.f26955d = new w<>();
-        this.f26956e = cVar;
+        this.f27159b = aVar;
+        this.f27160c = new c.b.a.c.b<>(aVar);
+        this.f27161d = new w<>();
+        this.f27162e = cVar;
     }
 
     public void a(f fVar) {
@@ -111,30 +111,30 @@ public class j {
             if (b2 != null) {
                 d(b2);
             }
-            this.f26953b.a(fVar);
-            this.f26955d.i(cls, fVar);
-            this.f26953b.sort(this.a);
-            this.f26956e.b(fVar);
+            this.f27159b.a(fVar);
+            this.f27161d.i(cls, fVar);
+            this.f27159b.sort(this.a);
+            this.f27162e.b(fVar);
         }
     }
 
     public <T extends f> T b(Class<T> cls) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cls)) == null) ? (T) this.f26955d.c(cls) : (T) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cls)) == null) ? (T) this.f27161d.c(cls) : (T) invokeL.objValue;
     }
 
     public c.b.a.c.b<f> c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f26954c : (c.b.a.c.b) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f27160c : (c.b.a.c.b) invokeV.objValue;
     }
 
     public void d(f fVar) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048579, this, fVar) == null) && this.f26953b.i(fVar, true)) {
-            this.f26955d.k(fVar.getClass());
-            this.f26956e.a(fVar);
+        if ((interceptable == null || interceptable.invokeL(1048579, this, fVar) == null) && this.f27159b.i(fVar, true)) {
+            this.f27161d.k(fVar.getClass());
+            this.f27162e.a(fVar);
         }
     }
 }

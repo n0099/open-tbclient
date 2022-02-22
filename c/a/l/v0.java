@@ -27,12 +27,12 @@ public class v0 extends h {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c.a.s0.s.q.a f4367e;
+        public final /* synthetic */ c.a.t0.s.r.a f4434e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ v0 f4368f;
+        public final /* synthetic */ v0 f4435f;
 
-        public a(v0 v0Var, c.a.s0.s.q.a aVar) {
+        public a(v0 v0Var, c.a.t0.s.r.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -47,15 +47,15 @@ public class v0 extends h {
                     return;
                 }
             }
-            this.f4368f = v0Var;
-            this.f4367e = aVar;
+            this.f4435f = v0Var;
+            this.f4434e = aVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                ThreadCardUtils.jumpToPB(this.f4367e, (Context) this.f4368f.l.getPageActivity(), this.f4368f.m, false);
+                ThreadCardUtils.jumpToPB(this.f4434e, (Context) this.f4435f.l.getPageActivity(), this.f4435f.m, false);
             }
         }
     }
@@ -97,7 +97,7 @@ public class v0 extends h {
         }
     }
 
-    public final boolean t(c.a.s0.s.q.a aVar) {
+    public final boolean t(c.a.t0.s.r.a aVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, aVar)) == null) ? (aVar == null || aVar.getThreadData() == null || aVar.getThreadData().K0() == null || aVar.getThreadData().K0().getOptions() == null || aVar.getThreadData().K0().getOptions().size() <= 0 || aVar.getThreadData().I2()) ? false : true : invokeL.booleanValue;
@@ -106,7 +106,7 @@ public class v0 extends h {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // c.a.l.p
     /* renamed from: u */
-    public void onBindDataToView(c.a.s0.s.q.a aVar) {
+    public void onBindDataToView(c.a.t0.s.r.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, aVar) == null) {
             if (t(aVar)) {

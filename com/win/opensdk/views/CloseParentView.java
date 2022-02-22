@@ -30,28 +30,28 @@ public class CloseParentView extends LinearLayout {
     public TextView a;
 
     /* renamed from: b  reason: collision with root package name */
-    public LinearLayout f60903b;
+    public LinearLayout f61070b;
 
     /* renamed from: c  reason: collision with root package name */
-    public RelativeLayout f60904c;
+    public RelativeLayout f61071c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Context f60905d;
+    public Context f61072d;
 
     /* renamed from: e  reason: collision with root package name */
-    public View f60906e;
+    public View f61073e;
 
     /* renamed from: f  reason: collision with root package name */
-    public View f60907f;
+    public View f61074f;
 
     /* renamed from: g  reason: collision with root package name */
-    public u5 f60908g;
+    public u5 f61075g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f60909h;
+    public int f61076h;
 
     /* renamed from: i  reason: collision with root package name */
-    public Handler f60910i;
+    public Handler f61077i;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public CloseParentView(Context context) {
@@ -93,16 +93,16 @@ public class CloseParentView extends LinearLayout {
                 return;
             }
         }
-        this.f60910i = new i5(this, Looper.getMainLooper());
-        this.f60905d = context;
+        this.f61077i = new i5(this, Looper.getMainLooper());
+        this.f61072d = context;
         LinearLayout.inflate(context, l1.win_layout_close, this);
-        this.f60903b = (LinearLayout) findViewById(k1.win_parent);
-        this.f60906e = findViewById(k1.win_iv_clct);
-        this.f60904c = (RelativeLayout) findViewById(k1.win_parent_close);
-        this.f60907f = findViewById(k1.win_tv_area);
+        this.f61070b = (LinearLayout) findViewById(k1.win_parent);
+        this.f61073e = findViewById(k1.win_iv_clct);
+        this.f61071c = (RelativeLayout) findViewById(k1.win_parent_close);
+        this.f61074f = findViewById(k1.win_tv_area);
         this.a = (TextView) findViewById(k1.wn_tv_cdt);
-        this.f60903b.setOnClickListener(new m5(this));
-        this.f60907f.setOnClickListener(new q5(this));
+        this.f61070b.setOnClickListener(new m5(this));
+        this.f61074f.setOnClickListener(new q5(this));
         setAreaLevel(1);
     }
 
@@ -115,7 +115,7 @@ public class CloseParentView extends LinearLayout {
     public void b() {
         Handler handler;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (handler = this.f60910i) == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (handler = this.f61077i) == null) {
             return;
         }
         handler.removeCallbacksAndMessages(null);
@@ -124,10 +124,10 @@ public class CloseParentView extends LinearLayout {
     public final void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.f60903b.removeView(this.f60904c);
-            this.f60903b.addView(this.f60904c, 1);
-            ((LinearLayout.LayoutParams) this.f60906e.getLayoutParams()).rightMargin = r0.b(this.f60905d, 12);
-            ((LinearLayout.LayoutParams) this.f60904c.getLayoutParams()).rightMargin = 0;
+            this.f61070b.removeView(this.f61071c);
+            this.f61070b.addView(this.f61071c, 1);
+            ((LinearLayout.LayoutParams) this.f61073e.getLayoutParams()).rightMargin = r0.b(this.f61072d, 12);
+            ((LinearLayout.LayoutParams) this.f61071c.getLayoutParams()).rightMargin = 0;
         }
     }
 
@@ -135,8 +135,8 @@ public class CloseParentView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
             int i3 = i2 != 0 ? i2 != 1 ? i2 != 2 ? 0 : 30 : 22 : 10;
-            ViewGroup.LayoutParams layoutParams = this.f60907f.getLayoutParams();
-            int b2 = r0.b(this.f60905d, i3);
+            ViewGroup.LayoutParams layoutParams = this.f61074f.getLayoutParams();
+            int b2 = r0.b(this.f61072d, i3);
             layoutParams.width = b2;
             layoutParams.height = b2;
         }
@@ -145,16 +145,16 @@ public class CloseParentView extends LinearLayout {
     public void setCollectVisible(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
-            this.f60906e.setVisibility(z ? 0 : 8);
-            this.f60903b.setClickable(z);
+            this.f61073e.setVisibility(z ? 0 : 8);
+            this.f61070b.setClickable(z);
         }
     }
 
     public void setCountDown(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048581, this, i2) == null) {
-            this.f60909h = i2;
-            this.f60910i.sendEmptyMessage(10);
+            this.f61076h = i2;
+            this.f61077i.sendEmptyMessage(10);
         }
     }
 
@@ -165,17 +165,17 @@ public class CloseParentView extends LinearLayout {
                 c();
                 return;
             }
-            this.f60903b.removeView(this.f60904c);
-            this.f60903b.addView(this.f60904c, 0);
-            ((LinearLayout.LayoutParams) this.f60906e.getLayoutParams()).rightMargin = 0;
-            ((LinearLayout.LayoutParams) this.f60904c.getLayoutParams()).rightMargin = r0.b(this.f60905d, 12);
+            this.f61070b.removeView(this.f61071c);
+            this.f61070b.addView(this.f61071c, 0);
+            ((LinearLayout.LayoutParams) this.f61073e.getLayoutParams()).rightMargin = 0;
+            ((LinearLayout.LayoutParams) this.f61071c.getLayoutParams()).rightMargin = r0.b(this.f61072d, 12);
         }
     }
 
     public void setOnCloseListener(u5 u5Var) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, u5Var) == null) {
-            this.f60908g = u5Var;
+            this.f61075g = u5Var;
         }
     }
 

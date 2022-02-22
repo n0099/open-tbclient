@@ -1,7 +1,7 @@
 package com.baidu.tieba.personPolymeric.tab.model;
 
 import androidx.core.view.InputDeviceCompat;
-import c.a.s0.s.q.e2;
+import c.a.t0.s.r.e2;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.base.BdBaseModel;
 import com.baidu.adp.framework.MessageManager;
@@ -22,33 +22,33 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
 import tbclient.User;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public class PersonCenterDynamicTabModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public long f47284e;
+    public long f47430e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f47285f;
+    public boolean f47431f;
 
     /* renamed from: g  reason: collision with root package name */
-    public b f47286g;
+    public b f47432g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final List<e2> f47287h;
+    public final List<e2> f47433h;
 
     /* renamed from: i  reason: collision with root package name */
-    public long f47288i;
+    public long f47434i;
 
     /* renamed from: j  reason: collision with root package name */
-    public User f47289j;
+    public User f47435j;
     public MetaData k;
     public BdUniqueId l;
     public final c.a.d.c.g.a m;
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes13.dex */
     public class a extends c.a.d.c.g.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -100,25 +100,25 @@ public class PersonCenterDynamicTabModel extends BdBaseModel {
                 z = false;
             }
             if (responsedMessage.getError() != 0) {
-                if (this.a.f47286g != null) {
-                    this.a.f47286g.b(this.a.f47284e == 0);
+                if (this.a.f47432g != null) {
+                    this.a.f47432g.b(this.a.f47430e == 0);
                     return;
                 }
                 return;
             }
             if (!ListUtils.isEmpty(list)) {
                 this.a.H(list);
-                this.a.f47287h.addAll(list);
+                this.a.f47433h.addAll(list);
             }
-            this.a.f47285f = z;
-            if (this.a.f47286g != null) {
-                this.a.f47286g.a(this.a.f47287h, this.a.f47285f, this.a.f47284e == 0);
+            this.a.f47431f = z;
+            if (this.a.f47432g != null) {
+                this.a.f47432g.a(this.a.f47433h, this.a.f47431f, this.a.f47430e == 0);
             }
-            this.a.f47284e = j2;
+            this.a.f47430e = j2;
         }
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes13.dex */
     public interface b {
         void a(List<e2> list, boolean z, boolean z2);
 
@@ -140,13 +140,13 @@ public class PersonCenterDynamicTabModel extends BdBaseModel {
                 return;
             }
         }
-        this.f47284e = 0L;
-        this.f47285f = false;
-        this.f47287h = new ArrayList();
+        this.f47430e = 0L;
+        this.f47431f = false;
+        this.f47433h = new ArrayList();
         this.l = BdUniqueId.gen();
         a aVar = new a(this, CmdConfigHttp.CMD_PERSON_CENTER_DYNAMIC_TAB, 309647);
         this.m = aVar;
-        this.f47288i = j2;
+        this.f47434i = j2;
         aVar.setTag(this.l);
         MessageManager.getInstance().registerListener(this.m);
     }
@@ -154,13 +154,13 @@ public class PersonCenterDynamicTabModel extends BdBaseModel {
     public boolean E() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f47285f : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f47431f : invokeV.booleanValue;
     }
 
     public final void F(long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j2) == null) {
-            PersonCenterDynamicTabRequestMessage personCenterDynamicTabRequestMessage = new PersonCenterDynamicTabRequestMessage(this.f47288i, j2, 10);
+            PersonCenterDynamicTabRequestMessage personCenterDynamicTabRequestMessage = new PersonCenterDynamicTabRequestMessage(this.f47434i, j2, 10);
             personCenterDynamicTabRequestMessage.setTag(this.l);
             MessageManager.getInstance().sendMessage(personCenterDynamicTabRequestMessage);
         }
@@ -169,20 +169,20 @@ public class PersonCenterDynamicTabModel extends BdBaseModel {
     public void G() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            F(this.f47284e);
+            F(this.f47430e);
         }
     }
 
     public final void H(List<e2> list) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, list) == null) || this.f47289j == null || ListUtils.isEmpty(list)) {
+        if (!(interceptable == null || interceptable.invokeL(1048579, this, list) == null) || this.f47435j == null || ListUtils.isEmpty(list)) {
             return;
         }
         for (e2 e2Var : list) {
             if (e2Var.J() != null) {
-                e2Var.J().getNewGodData().parserProtobuf(this.f47289j.new_god_data);
-                e2Var.J().getBazhuGradeData().parserProtobuf(this.f47289j.bazhu_grade);
-                e2Var.J().setBaijiahaoInfo(this.f47289j.baijiahao_info);
+                e2Var.J().getNewGodData().parserProtobuf(this.f47435j.new_god_data);
+                e2Var.J().getBazhuGradeData().parserProtobuf(this.f47435j.bazhu_grade);
+                e2Var.J().setBaijiahaoInfo(this.f47435j.baijiahao_info);
                 if (this.k != null) {
                     e2Var.J().setPrivSetsData(this.k.getPrivSetsData());
                 }
@@ -194,9 +194,9 @@ public class PersonCenterDynamicTabModel extends BdBaseModel {
     public void I() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.f47284e = 0L;
-            this.f47287h.clear();
-            F(this.f47284e);
+            this.f47430e = 0L;
+            this.f47433h.clear();
+            F(this.f47430e);
         }
     }
 
@@ -210,14 +210,14 @@ public class PersonCenterDynamicTabModel extends BdBaseModel {
     public void K(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, bVar) == null) {
-            this.f47286g = bVar;
+            this.f47432g = bVar;
         }
     }
 
     public void L(User user) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, user) == null) {
-            this.f47289j = user;
+            this.f47435j = user;
             I();
         }
     }
@@ -245,9 +245,9 @@ public class PersonCenterDynamicTabModel extends BdBaseModel {
     public void onDestroy() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            this.f47284e = 0L;
-            this.f47285f = false;
-            this.f47287h.clear();
+            this.f47430e = 0L;
+            this.f47431f = false;
+            this.f47433h.clear();
             if (this.m != null) {
                 MessageManager.getInstance().unRegisterListener(this.m);
             }

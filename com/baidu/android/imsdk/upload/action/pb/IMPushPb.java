@@ -26,19 +26,19 @@ import java.io.ObjectStreamException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class IMPushPb {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: com.baidu.android.imsdk.upload.action.pb.IMPushPb$1  reason: invalid class name */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static final class Ack extends GeneratedMessageLite implements AckOrBuilder {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int ALIAS_ID_FIELD_NUMBER = 5;
@@ -59,7 +59,7 @@ public final class IMPushPb {
         public Object type_;
         public Object value_;
 
-        /* loaded from: classes9.dex */
+        /* loaded from: classes10.dex */
         public static final class Builder extends GeneratedMessageLite.Builder<Ack, Builder> implements AckOrBuilder {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -1077,7 +1077,7 @@ public final class IMPushPb {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public interface AckOrBuilder extends MessageLiteOrBuilder {
         long getAliasId();
 
@@ -1106,7 +1106,7 @@ public final class IMPushPb {
         boolean hasValue();
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static final class Action extends GeneratedMessageLite implements ActionOrBuilder {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int ACK_FIELD_NUMBER = 7;
@@ -1135,7 +1135,7 @@ public final class IMPushPb {
         public Request request_;
         public Ui ui_;
 
-        /* loaded from: classes9.dex */
+        /* loaded from: classes10.dex */
         public static final class Builder extends GeneratedMessageLite.Builder<Action, Builder> implements ActionOrBuilder {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -2511,7 +2511,7 @@ public final class IMPushPb {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public interface ActionOrBuilder extends MessageLiteOrBuilder {
         Ack getAck();
 
@@ -2551,7 +2551,7 @@ public final class IMPushPb {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static final class ActionType implements Internal.EnumLite {
         public static final /* synthetic */ ActionType[] $VALUES;
         public static /* synthetic */ Interceptable $ic = null;
@@ -2707,7 +2707,7 @@ public final class IMPushPb {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static final class AppInfo extends GeneratedMessageLite implements AppInfoOrBuilder {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int APP_CHANNEL_FIELD_NUMBER = 3;
@@ -2724,7 +2724,7 @@ public final class IMPushPb {
         public byte memoizedIsInitialized;
         public int memoizedSerializedSize;
 
-        /* loaded from: classes9.dex */
+        /* loaded from: classes10.dex */
         public static final class Builder extends GeneratedMessageLite.Builder<AppInfo, Builder> implements AppInfoOrBuilder {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -3600,7 +3600,7 @@ public final class IMPushPb {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public interface AppInfoOrBuilder extends MessageLiteOrBuilder {
         String getAppChannel();
 
@@ -3621,7 +3621,7 @@ public final class IMPushPb {
         boolean hasAppVersion();
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static final class Common extends GeneratedMessageLite implements CommonOrBuilder {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int APP_INFO_FIELD_NUMBER = 21;
@@ -3648,7 +3648,7 @@ public final class IMPushPb {
         public long timestamp_;
         public long userTimestamp_;
 
-        /* loaded from: classes9.dex */
+        /* loaded from: classes10.dex */
         public static final class Builder extends GeneratedMessageLite.Builder<Common, Builder> implements CommonOrBuilder {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -4960,7 +4960,7 @@ public final class IMPushPb {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public interface CommonOrBuilder extends MessageLiteOrBuilder {
         AppInfo getAppInfo();
 
@@ -4999,7 +4999,7 @@ public final class IMPushPb {
         boolean hasUserTimestamp();
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static final class Connection extends GeneratedMessageLite implements ConnectionOrBuilder {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int ALIAS_ID_FIELD_NUMBER = 7;
@@ -5024,7 +5024,7 @@ public final class IMPushPb {
         public long startTime_;
         public long stopTime_;
 
-        /* loaded from: classes9.dex */
+        /* loaded from: classes10.dex */
         public static final class Builder extends GeneratedMessageLite.Builder<Connection, Builder> implements ConnectionOrBuilder {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -6112,7 +6112,7 @@ public final class IMPushPb {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public interface ConnectionOrBuilder extends MessageLiteOrBuilder {
         long getAliasId();
 
@@ -6147,7 +6147,7 @@ public final class IMPushPb {
         boolean hasStopTime();
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static final class Crash extends GeneratedMessageLite implements CrashOrBuilder {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int ALIAS_ID_FIELD_NUMBER = 4;
@@ -6166,7 +6166,7 @@ public final class IMPushPb {
         public int memoizedSerializedSize;
         public long timestamp_;
 
-        /* loaded from: classes9.dex */
+        /* loaded from: classes10.dex */
         public static final class Builder extends GeneratedMessageLite.Builder<Crash, Builder> implements CrashOrBuilder {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -7041,7 +7041,7 @@ public final class IMPushPb {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public interface CrashOrBuilder extends MessageLiteOrBuilder {
         long getAliasId();
 
@@ -7064,7 +7064,7 @@ public final class IMPushPb {
         boolean hasTimestamp();
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static final class Db extends GeneratedMessageLite implements DbOrBuilder {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int ACTION_FIELD_NUMBER = 4;
@@ -7093,7 +7093,7 @@ public final class IMPushPb {
         public long startTime_;
         public Object table_;
 
-        /* loaded from: classes9.dex */
+        /* loaded from: classes10.dex */
         public static final class Builder extends GeneratedMessageLite.Builder<Db, Builder> implements DbOrBuilder {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -8541,7 +8541,7 @@ public final class IMPushPb {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public interface DbOrBuilder extends MessageLiteOrBuilder {
         String getAction();
 
@@ -8590,7 +8590,7 @@ public final class IMPushPb {
         boolean hasTable();
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static final class DeviceID extends GeneratedMessageLite implements DeviceIDOrBuilder {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int CUID_FIELD_NUMBER = 4;
@@ -8603,7 +8603,7 @@ public final class IMPushPb {
         public byte memoizedIsInitialized;
         public int memoizedSerializedSize;
 
-        /* loaded from: classes9.dex */
+        /* loaded from: classes10.dex */
         public static final class Builder extends GeneratedMessageLite.Builder<DeviceID, Builder> implements DeviceIDOrBuilder {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -9192,7 +9192,7 @@ public final class IMPushPb {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public interface DeviceIDOrBuilder extends MessageLiteOrBuilder {
         String getCuid();
 
@@ -9201,7 +9201,7 @@ public final class IMPushPb {
         boolean hasCuid();
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static final class LcpNetInfo extends GeneratedMessageLite implements LcpNetInfoOrBuilder {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int DOMAIN_FIELD_NUMBER = 4;
@@ -9220,7 +9220,7 @@ public final class IMPushPb {
         public Object port_;
         public Object protocol_;
 
-        /* loaded from: classes9.dex */
+        /* loaded from: classes10.dex */
         public static final class Builder extends GeneratedMessageLite.Builder<LcpNetInfo, Builder> implements LcpNetInfoOrBuilder {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -10239,7 +10239,7 @@ public final class IMPushPb {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public interface LcpNetInfoOrBuilder extends MessageLiteOrBuilder {
         String getDomain();
 
@@ -10266,7 +10266,7 @@ public final class IMPushPb {
         boolean hasProtocol();
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static final class MetaData extends GeneratedMessageLite implements MetaDataOrBuilder {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int LOG_MODULE_ID_FIELD_NUMBER = 1;
@@ -10283,7 +10283,7 @@ public final class IMPushPb {
         public int memoizedSerializedSize;
         public Object productName_;
 
-        /* loaded from: classes9.dex */
+        /* loaded from: classes10.dex */
         public static final class Builder extends GeneratedMessageLite.Builder<MetaData, Builder> implements MetaDataOrBuilder {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -11088,7 +11088,7 @@ public final class IMPushPb {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public interface MetaDataOrBuilder extends MessageLiteOrBuilder {
         int getLogModuleId();
 
@@ -11107,7 +11107,7 @@ public final class IMPushPb {
         boolean hasProductName();
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static final class Msg extends GeneratedMessageLite implements MsgOrBuilder {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int ALIAS_ID_FIELD_NUMBER = 6;
@@ -11132,7 +11132,7 @@ public final class IMPushPb {
         public Object roomId_;
         public long startMsgid_;
 
-        /* loaded from: classes9.dex */
+        /* loaded from: classes10.dex */
         public static final class Builder extends GeneratedMessageLite.Builder<Msg, Builder> implements MsgOrBuilder {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -12220,7 +12220,7 @@ public final class IMPushPb {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public interface MsgOrBuilder extends MessageLiteOrBuilder {
         long getAliasId();
 
@@ -12255,7 +12255,7 @@ public final class IMPushPb {
         boolean hasStartMsgid();
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static final class NetInfo extends GeneratedMessageLite implements NetInfoOrBuilder {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int NET_APN_FIELD_NUMBER = 2;
@@ -12270,7 +12270,7 @@ public final class IMPushPb {
         public Object netApn_;
         public Object netType_;
 
-        /* loaded from: classes9.dex */
+        /* loaded from: classes10.dex */
         public static final class Builder extends GeneratedMessageLite.Builder<NetInfo, Builder> implements NetInfoOrBuilder {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -13005,7 +13005,7 @@ public final class IMPushPb {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public interface NetInfoOrBuilder extends MessageLiteOrBuilder {
         String getNetApn();
 
@@ -13020,7 +13020,7 @@ public final class IMPushPb {
         boolean hasNetType();
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static final class NewConnection extends GeneratedMessageLite implements NewConnectionOrBuilder {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int ALIAS_ID_FIELD_NUMBER = 16;
@@ -13065,7 +13065,7 @@ public final class IMPushPb {
         public long tokenBegin_;
         public long tokenEnd_;
 
-        /* loaded from: classes9.dex */
+        /* loaded from: classes10.dex */
         public static final class Builder extends GeneratedMessageLite.Builder<NewConnection, Builder> implements NewConnectionOrBuilder {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -14991,7 +14991,7 @@ public final class IMPushPb {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public interface NewConnectionOrBuilder extends MessageLiteOrBuilder {
         long getAliasId();
 
@@ -15069,7 +15069,7 @@ public final class IMPushPb {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static final class OSType implements Internal.EnumLite {
         public static final /* synthetic */ OSType[] $VALUES;
         public static /* synthetic */ Interceptable $ic = null;
@@ -15201,7 +15201,7 @@ public final class IMPushPb {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static final class PushImClient extends GeneratedMessageLite implements PushImClientOrBuilder {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int ACTIONS_FIELD_NUMBER = 132;
@@ -15222,7 +15222,7 @@ public final class IMPushPb {
         public Object sdkName_;
         public long sdkVersion_;
 
-        /* loaded from: classes9.dex */
+        /* loaded from: classes10.dex */
         public static final class Builder extends GeneratedMessageLite.Builder<PushImClient, Builder> implements PushImClientOrBuilder {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -16016,7 +16016,7 @@ public final class IMPushPb {
                     computeMessageSize += CodedOutputStream.computeBytesSize(130, getSdkNameBytes());
                 }
                 if ((this.bitField0_ & 8) == 8) {
-                    computeMessageSize += CodedOutputStream.computeInt64Size(SDK_VERSION_FIELD_NUMBER, this.sdkVersion_);
+                    computeMessageSize += CodedOutputStream.computeInt64Size(131, this.sdkVersion_);
                 }
                 for (int i3 = 0; i3 < this.actions_.size(); i3++) {
                     computeMessageSize += CodedOutputStream.computeMessageSize(132, this.actions_.get(i3));
@@ -16099,7 +16099,7 @@ public final class IMPushPb {
                     codedOutputStream.writeBytes(130, getSdkNameBytes());
                 }
                 if ((this.bitField0_ & 8) == 8) {
-                    codedOutputStream.writeInt64(SDK_VERSION_FIELD_NUMBER, this.sdkVersion_);
+                    codedOutputStream.writeInt64(131, this.sdkVersion_);
                 }
                 for (int i2 = 0; i2 < this.actions_.size(); i2++) {
                     codedOutputStream.writeMessage(132, this.actions_.get(i2));
@@ -16312,7 +16312,7 @@ public final class IMPushPb {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public interface PushImClientOrBuilder extends MessageLiteOrBuilder {
         Action getActions(int i2);
 
@@ -16339,7 +16339,7 @@ public final class IMPushPb {
         boolean hasSdkVersion();
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static final class Request extends GeneratedMessageLite implements RequestOrBuilder {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int ALIAS_ID_FIELD_NUMBER = 7;
@@ -16364,7 +16364,7 @@ public final class IMPushPb {
         public long responseTime_;
         public long timestamp_;
 
-        /* loaded from: classes9.dex */
+        /* loaded from: classes10.dex */
         public static final class Builder extends GeneratedMessageLite.Builder<Request, Builder> implements RequestOrBuilder {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -17526,7 +17526,7 @@ public final class IMPushPb {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public interface RequestOrBuilder extends MessageLiteOrBuilder {
         long getAliasId();
 
@@ -17563,7 +17563,7 @@ public final class IMPushPb {
         boolean hasTimestamp();
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static final class TerminalInfo extends GeneratedMessageLite implements TerminalInfoOrBuilder {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int MANUFACTURER_FIELD_NUMBER = 3;
@@ -17588,7 +17588,7 @@ public final class IMPushPb {
         public int resolutionV_;
         public Object terminalType_;
 
-        /* loaded from: classes9.dex */
+        /* loaded from: classes10.dex */
         public static final class Builder extends GeneratedMessageLite.Builder<TerminalInfo, Builder> implements TerminalInfoOrBuilder {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -18755,7 +18755,7 @@ public final class IMPushPb {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public interface TerminalInfoOrBuilder extends MessageLiteOrBuilder {
         String getManufacturer();
 
@@ -18792,7 +18792,7 @@ public final class IMPushPb {
         boolean hasTerminalType();
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static final class Ui extends GeneratedMessageLite implements UiOrBuilder {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int ALIAS_ID_FIELD_NUMBER = 7;
@@ -18817,7 +18817,7 @@ public final class IMPushPb {
         public Object page_;
         public long startTime_;
 
-        /* loaded from: classes9.dex */
+        /* loaded from: classes10.dex */
         public static final class Builder extends GeneratedMessageLite.Builder<Ui, Builder> implements UiOrBuilder {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -19979,7 +19979,7 @@ public final class IMPushPb {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public interface UiOrBuilder extends MessageLiteOrBuilder {
         long getAliasId();
 

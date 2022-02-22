@@ -8,8 +8,8 @@ import android.graphics.Typeface;
 import android.text.TextUtils;
 import android.view.animation.LinearInterpolator;
 import androidx.core.view.InputDeviceCompat;
-import c.a.a1.t.g;
-import c.a.a1.t.h;
+import c.a.b1.t.g;
+import c.a.b1.t.h;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.retrieve.log.bean.FetchLog;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -317,7 +317,7 @@ public class SubTitleUnit extends RichStickerBaseUnit implements Serializable, C
 
     /* JADX DEBUG: Method merged with bridge method */
     /* renamed from: clone */
-    public SubTitleUnit m103clone() throws CloneNotSupportedException {
+    public SubTitleUnit m102clone() throws CloneNotSupportedException {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? (SubTitleUnit) super.clone() : (SubTitleUnit) invokeV.objValue;

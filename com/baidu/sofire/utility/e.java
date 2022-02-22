@@ -118,7 +118,7 @@ public final class e {
         if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, context)) == null) {
             try {
                 com.baidu.sofire.h.a a2 = com.baidu.sofire.h.a.a(context);
-                String string = a2.f38477c.getString("sgud", "");
+                String string = a2.f38705c.getString("sgud", "");
                 if (TextUtils.isEmpty(string)) {
                     if (Build.VERSION.SDK_INT > 25) {
                         return "";
@@ -136,8 +136,8 @@ public final class e {
                     if (TextUtils.isEmpty(a3)) {
                         return "";
                     }
-                    a2.f38478d.putString("sgud", a3);
-                    a2.f38478d.commit();
+                    a2.f38706d.putString("sgud", a3);
+                    a2.f38706d.commit();
                     return a3;
                 }
                 return string;

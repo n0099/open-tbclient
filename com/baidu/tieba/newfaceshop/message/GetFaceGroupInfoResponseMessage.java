@@ -2,8 +2,8 @@ package com.baidu.tieba.newfaceshop.message;
 
 import android.text.TextUtils;
 import androidx.core.app.NotificationCompat;
-import c.a.t0.o2.f.a;
-import c.a.t0.o2.f.b;
+import c.a.u0.p2.f.a;
+import c.a.u0.p2.f.b;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.atomData.AlaLiveRoomActivityConfig;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
@@ -18,7 +18,7 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public class GetFaceGroupInfoResponseMessage extends JsonHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -75,15 +75,15 @@ public class GetFaceGroupInfoResponseMessage extends JsonHttpResponsedMessage {
             if (TextUtils.isEmpty(optString)) {
                 return null;
             }
-            aVar.f20181b = jSONObject.optString("name");
+            aVar.f21018b = jSONObject.optString("name");
             jSONObject.optInt("type");
             jSONObject.optString("owner");
             jSONObject.optString(NotificationCompat.CarExtender.KEY_AUTHOR);
             jSONObject.optString("timestamp");
             jSONObject.optString(AlaLiveRoomActivityConfig.SDK_LIVE_COVER_KEY);
-            aVar.f20182c = jSONObject.optString("covername");
-            aVar.f20183d = jSONObject.optString("url");
-            aVar.f20184e = parsePicsData(jSONObject.optJSONArray(SocialConstants.PARAM_IMAGE));
+            aVar.f21019c = jSONObject.optString("covername");
+            aVar.f21020d = jSONObject.optString("url");
+            aVar.f21021e = parsePicsData(jSONObject.optJSONArray(SocialConstants.PARAM_IMAGE));
             return aVar;
         }
         return (a) invokeL.objValue;
@@ -101,13 +101,13 @@ public class GetFaceGroupInfoResponseMessage extends JsonHttpResponsedMessage {
                 try {
                     JSONObject jSONObject = jSONArray.getJSONObject(i2);
                     b bVar = new b();
-                    bVar.f20186f = jSONObject.optString("id");
+                    bVar.f21023f = jSONObject.optString("id");
                     jSONObject.optString("url");
                     jSONObject.optString("thumbnail");
-                    bVar.f20187g = jSONObject.optString("name");
-                    bVar.f20188h = jSONObject.optString("thumbname");
-                    bVar.f20190j = jSONObject.optInt("width");
-                    bVar.f20189i = jSONObject.optInt("height");
+                    bVar.f21024g = jSONObject.optString("name");
+                    bVar.f21025h = jSONObject.optString("thumbname");
+                    bVar.f21027j = jSONObject.optInt("width");
+                    bVar.f21026i = jSONObject.optInt("height");
                     arrayList.add(bVar);
                 } catch (JSONException e2) {
                     e2.printStackTrace();

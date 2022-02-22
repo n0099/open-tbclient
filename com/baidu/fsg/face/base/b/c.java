@@ -17,31 +17,31 @@ public class c {
     public static final String a = "SdkConfigOptions";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f34024b = "global-config";
+    public static final String f34230b = "global-config";
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f34025c = "host_version";
+    public static final String f34231c = "host_version";
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f34026d = "zip_version";
+    public static final String f34232d = "zip_version";
 
     /* renamed from: e  reason: collision with root package name */
-    public static final String f34027e = "updateFail";
+    public static final String f34233e = "updateFail";
 
     /* renamed from: f  reason: collision with root package name */
-    public static final String f34028f = "distributedSdk";
+    public static final String f34234f = "distributedSdk";
 
     /* renamed from: g  reason: collision with root package name */
-    public static final String f34029g = "files";
+    public static final String f34235g = "files";
 
     /* renamed from: h  reason: collision with root package name */
-    public static final String f34030h = "list";
+    public static final String f34236h = "list";
 
     /* renamed from: i  reason: collision with root package name */
-    public static final String f34031i = "cpu";
+    public static final String f34237i = "cpu";
 
     /* renamed from: j  reason: collision with root package name */
-    public static final String f34032j = "extra_params";
+    public static final String f34238j = "extra_params";
     public static final String k = "extra_global_enable";
     public static final String l = "enable";
     public static final String m = "gray";
@@ -67,7 +67,7 @@ public class c {
         }
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:18:0x005b, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:18:0x005a, code lost:
         r5.o = com.baidu.fsg.face.base.b.c.a.a(r2);
      */
     /*
@@ -81,7 +81,7 @@ public class c {
             c cVar = new c();
             cVar.q = jSONObject.optBoolean(k, true);
             try {
-                cVar.n = jSONObject.optString(f34026d);
+                cVar.n = jSONObject.optString(f34232d);
                 cVar.r = jSONObject.optBoolean(l, true);
                 cVar.s = jSONObject.optInt("gray");
                 jSONArray = jSONObject.getJSONArray("list");
@@ -117,21 +117,21 @@ public class c {
         public static /* synthetic */ Interceptable $ic = null;
 
         /* renamed from: d  reason: collision with root package name */
-        public static final String f34033d = "name";
+        public static final String f34239d = "name";
 
         /* renamed from: e  reason: collision with root package name */
-        public static final String f34034e = "url";
+        public static final String f34240e = "url";
 
         /* renamed from: f  reason: collision with root package name */
-        public static final String f34035f = "hash";
+        public static final String f34241f = "hash";
         public transient /* synthetic */ FieldHolder $fh;
         public String a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f34036b;
+        public String f34242b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f34037c;
+        public String f34243c;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -147,8 +147,8 @@ public class c {
                 }
             }
             this.a = null;
-            this.f34036b = null;
-            this.f34037c = null;
+            this.f34242b = null;
+            this.f34243c = null;
         }
 
         public static a a(JSONObject jSONObject) {
@@ -160,8 +160,8 @@ public class c {
                     return aVar;
                 }
                 aVar.a = jSONObject.optString("name");
-                aVar.f34036b = jSONObject.optString("url");
-                aVar.f34037c = jSONObject.optString("hash");
+                aVar.f34242b = jSONObject.optString("url");
+                aVar.f34243c = jSONObject.optString("hash");
                 return aVar;
             }
             return (a) invokeL.objValue;
@@ -174,8 +174,8 @@ public class c {
                 JSONObject jSONObject = new JSONObject();
                 try {
                     jSONObject.put("name", this.a);
-                    jSONObject.put("url", this.f34036b);
-                    jSONObject.put("hash", this.f34037c);
+                    jSONObject.put("url", this.f34242b);
+                    jSONObject.put("hash", this.f34243c);
                     return jSONObject;
                 } catch (JSONException e2) {
                     com.baidu.fsg.face.base.d.d.a(e2);
@@ -191,12 +191,12 @@ public class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
             c cVar = new c();
-            cVar.n = jSONObject.optString(f34026d);
-            cVar.p = jSONObject.optBoolean(f34027e);
+            cVar.n = jSONObject.optString(f34232d);
+            cVar.p = jSONObject.optBoolean(f34233e);
             cVar.q = jSONObject.optBoolean(k);
             cVar.r = jSONObject.optBoolean(l);
             cVar.s = jSONObject.optInt("gray");
-            cVar.o = a.a(jSONObject.optJSONObject(f34028f));
+            cVar.o = a.a(jSONObject.optJSONObject(f34234f));
             return cVar;
         }
         return (c) invokeL.objValue;
@@ -208,12 +208,12 @@ public class c {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             JSONObject jSONObject = new JSONObject();
             try {
-                jSONObject.put(f34026d, this.n);
-                jSONObject.put(f34027e, this.p);
+                jSONObject.put(f34232d, this.n);
+                jSONObject.put(f34233e, this.p);
                 jSONObject.put(k, this.q);
                 jSONObject.put(l, this.r);
                 jSONObject.put("gray", this.s);
-                jSONObject.put(f34028f, this.o == null ? "" : this.o.a());
+                jSONObject.put(f34234f, this.o == null ? "" : this.o.a());
                 return jSONObject;
             } catch (JSONException unused) {
                 return null;

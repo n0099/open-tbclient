@@ -28,7 +28,7 @@ public class b0 extends q<TTNativeExpressAd> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: i  reason: collision with root package name */
-    public final HashMap<TTNativeExpressAd, ExpressAdListenerWrapper<TTNativeExpressAd.ExpressAdInteractionListener>> f28191i;
+    public final HashMap<TTNativeExpressAd, ExpressAdListenerWrapper<TTNativeExpressAd.ExpressAdInteractionListener>> f28397i;
 
     /* loaded from: classes9.dex */
     public class a implements TTAdNative.NativeExpressAdListener {
@@ -37,7 +37,7 @@ public class b0 extends q<TTNativeExpressAd> {
         public final /* synthetic */ FunAdSlot a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ b0 f28192b;
+        public final /* synthetic */ b0 f28398b;
 
         public a(b0 b0Var, FunAdSlot funAdSlot) {
             Interceptable interceptable = $ic;
@@ -54,7 +54,7 @@ public class b0 extends q<TTNativeExpressAd> {
                     return;
                 }
             }
-            this.f28192b = b0Var;
+            this.f28398b = b0Var;
             this.a = funAdSlot;
         }
 
@@ -63,7 +63,7 @@ public class b0 extends q<TTNativeExpressAd> {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeIL(1048576, this, i2, str) == null) {
                 LogPrinter.e("CSJNativeExpressAd onError code: " + i2 + ", message: " + str, new Object[0]);
-                this.f28192b.onError(i2, str);
+                this.f28398b.onError(i2, str);
             }
         }
 
@@ -77,7 +77,7 @@ public class b0 extends q<TTNativeExpressAd> {
                 LogPrinter.e("CSJNativeExpressAd onNativeExpressAdLoad", new Object[0]);
                 if (list != null && !list.isEmpty()) {
                     TTNativeExpressAd tTNativeExpressAd = list.get(0);
-                    b0 b0Var = this.f28192b;
+                    b0 b0Var = this.f28398b;
                     String sid = this.a.getSid();
                     b0Var.getClass();
                     ExpressAdListenerWrapper expressAdListenerWrapper = new ExpressAdListenerWrapper();
@@ -89,7 +89,7 @@ public class b0 extends q<TTNativeExpressAd> {
                     return;
                 }
                 LogPrinter.e("CSJNativeExpressAd onNativeExpressAdLoad error: adList is null or empty", new Object[0]);
-                this.f28192b.onError(0, "NoFill");
+                this.f28398b.onError(0, "NoFill");
             }
         }
     }
@@ -112,7 +112,7 @@ public class b0 extends q<TTNativeExpressAd> {
                 return;
             }
         }
-        this.f28191i = new HashMap<>();
+        this.f28397i = new HashMap<>();
     }
 
     @Override // com.fun.ad.sdk.internal.api.BasePidLoader
@@ -120,7 +120,7 @@ public class b0 extends q<TTNativeExpressAd> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, obj) == null) {
             TTNativeExpressAd tTNativeExpressAd = (TTNativeExpressAd) obj;
-            this.f28191i.remove(tTNativeExpressAd);
+            this.f28397i.remove(tTNativeExpressAd);
             if (tTNativeExpressAd != null) {
                 tTNativeExpressAd.destroy();
             }
@@ -146,7 +146,7 @@ public class b0 extends q<TTNativeExpressAd> {
             }
             AdSlot build = new AdSlot.Builder().setCodeId(this.mPid.pid).setSupportDeepLink(true).setDownloadType(FunAdSdk.getFunAdConfig().downLoadType).setAdCount(1).setExpressViewAcceptedSize(expressWidth, expressHeight).build();
             onLoadStart(funAdSlot);
-            this.f28245h.loadNativeExpressAd(build, new a(this, funAdSlot));
+            this.f28451h.loadNativeExpressAd(build, new a(this, funAdSlot));
         }
     }
 

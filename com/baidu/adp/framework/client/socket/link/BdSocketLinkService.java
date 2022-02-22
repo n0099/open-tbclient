@@ -34,7 +34,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Map;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class BdSocketLinkService extends BdBaseService {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int ALLREADY;
@@ -61,7 +61,7 @@ public class BdSocketLinkService extends BdBaseService {
     public ScreenOnBroadcastReciver mScreenOnBroadcastReciver;
     public d myBinder;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public class ScreenOnBroadcastReciver extends BroadcastReceiver {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -96,7 +96,7 @@ public class BdSocketLinkService extends BdBaseService {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class a extends Handler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -132,7 +132,7 @@ public class BdSocketLinkService extends BdBaseService {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class b extends j {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -209,13 +209,13 @@ public class BdSocketLinkService extends BdBaseService {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public class c implements ServiceConnection {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ BdSocketLinkService f31179e;
+        public final /* synthetic */ BdSocketLinkService f31385e;
 
         public c(BdSocketLinkService bdSocketLinkService) {
             Interceptable interceptable = $ic;
@@ -232,7 +232,7 @@ public class BdSocketLinkService extends BdBaseService {
                     return;
                 }
             }
-            this.f31179e = bdSocketLinkService;
+            this.f31385e = bdSocketLinkService;
         }
 
         @Override // android.content.ServiceConnection
@@ -251,13 +251,13 @@ public class BdSocketLinkService extends BdBaseService {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public class d extends Binder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ BdSocketLinkService f31180e;
+        public final /* synthetic */ BdSocketLinkService f31386e;
 
         public d(BdSocketLinkService bdSocketLinkService) {
             Interceptable interceptable = $ic;
@@ -274,7 +274,7 @@ public class BdSocketLinkService extends BdBaseService {
                     return;
                 }
             }
-            this.f31180e = bdSocketLinkService;
+            this.f31386e = bdSocketLinkService;
         }
     }
 

@@ -30,7 +30,7 @@ public final class LiveNetwork {
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public INetWork f34930b;
+    public INetWork f35136b;
 
     /* loaded from: classes10.dex */
     public static final class a<T> {
@@ -39,7 +39,7 @@ public final class LiveNetwork {
         public final NetResponse a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final T f34931b;
+        public final T f35137b;
 
         public a(NetResponse netResponse, T t) {
             Interceptable interceptable = $ic;
@@ -57,13 +57,13 @@ public final class LiveNetwork {
                 }
             }
             this.a = netResponse;
-            this.f34931b = t;
+            this.f35137b = t;
         }
 
         public final T a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f34931b : (T) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f35137b : (T) invokeV.objValue;
         }
 
         public final NetResponse b() {
@@ -79,7 +79,7 @@ public final class LiveNetwork {
                 if (this != obj) {
                     if (obj instanceof a) {
                         a aVar = (a) obj;
-                        return Intrinsics.areEqual(this.a, aVar.a) && Intrinsics.areEqual(this.f34931b, aVar.f34931b);
+                        return Intrinsics.areEqual(this.a, aVar.a) && Intrinsics.areEqual(this.f35137b, aVar.f35137b);
                     }
                     return false;
                 }
@@ -94,7 +94,7 @@ public final class LiveNetwork {
             if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
                 NetResponse netResponse = this.a;
                 int hashCode = (netResponse != null ? netResponse.hashCode() : 0) * 31;
-                T t = this.f34931b;
+                T t = this.f35137b;
                 return hashCode + (t != null ? t.hashCode() : 0);
             }
             return invokeV.intValue;
@@ -104,25 +104,25 @@ public final class LiveNetwork {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-                return "Response(response=" + this.a + ", data=" + this.f34931b + SmallTailInfo.EMOTION_SUFFIX;
+                return "Response(response=" + this.a + ", data=" + this.f35137b + SmallTailInfo.EMOTION_SUFFIX;
             }
             return (String) invokeV.objValue;
         }
     }
 
     /* loaded from: classes10.dex */
-    public static final class b<T> implements c.a.x.j.b<a<ResponseDataT>> {
+    public static final class b<T> implements c.a.y.j.b<a<ResponseDataT>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ LiveNetwork a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ Map f34932b;
+        public final /* synthetic */ Map f35138b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ c.a.x.h.a f34933c;
+        public final /* synthetic */ c.a.y.h.a f35139c;
 
-        public b(LiveNetwork liveNetwork, Map map, c.a.x.h.a aVar) {
+        public b(LiveNetwork liveNetwork, Map map, c.a.y.h.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -138,30 +138,30 @@ public final class LiveNetwork {
                 }
             }
             this.a = liveNetwork;
-            this.f34932b = map;
-            this.f34933c = aVar;
+            this.f35138b = map;
+            this.f35139c = aVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // c.a.x.j.b
+        @Override // c.a.y.j.b
         /* renamed from: b */
         public final a<ResponseDataT> a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                INetWork iNetWork = this.a.f34930b;
+                INetWork iNetWork = this.a.f35136b;
                 if (iNetWork == null) {
                     Intrinsics.throwNpe();
                 }
-                NetResponse res = iNetWork.postSync(this.f34932b);
+                NetResponse res = iNetWork.postSync(this.f35138b);
                 Object obj = null;
                 try {
-                    c.a.x.h.a aVar = this.f34933c;
+                    c.a.y.h.a aVar = this.f35139c;
                     if (aVar != null) {
                         obj = aVar.onParseResponseInBackground(res);
                     }
                 } catch (Exception e2) {
-                    c.a.x.l.a.e(e2);
+                    c.a.y.l.a.e(e2);
                 }
                 Intrinsics.checkExpressionValueIsNotNull(res, "res");
                 return new a<>(res, obj);
@@ -171,12 +171,12 @@ public final class LiveNetwork {
     }
 
     /* loaded from: classes10.dex */
-    public static final class c<T> implements c.a.x.j.c<a<ResponseDataT>> {
+    public static final class c<T> implements c.a.y.j.c<a<ResponseDataT>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ c.a.x.h.a a;
+        public final /* synthetic */ c.a.y.h.a a;
 
-        public c(c.a.x.h.a aVar) {
+        public c(c.a.y.h.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -195,12 +195,12 @@ public final class LiveNetwork {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        /* JADX DEBUG: Multi-variable search result rejected for r0v2, resolved type: c.a.x.h.a */
+        /* JADX DEBUG: Multi-variable search result rejected for r0v2, resolved type: c.a.y.h.a */
         /* JADX WARN: Multi-variable type inference failed */
-        @Override // c.a.x.j.c
+        @Override // c.a.y.j.c
         /* renamed from: a */
         public final void onReturnDataInUI(a<ResponseDataT> aVar) {
-            c.a.x.h.a aVar2;
+            c.a.y.h.a aVar2;
             Interceptable interceptable = $ic;
             if (!(interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) || (aVar2 = this.a) == 0) {
                 return;
@@ -240,22 +240,22 @@ public final class LiveNetwork {
         }
         LazyKt__LazyJVMKt.lazy(LiveNetwork$handler$2.INSTANCE);
         NetworkAgentService networkAgentService = (NetworkAgentService) ServiceManager.getService(NetworkAgentService.SERVICE_REFERENCE);
-        this.f34930b = networkAgentService != null ? networkAgentService.buildNetworkInstance() : null;
+        this.f35136b = networkAgentService != null ? networkAgentService.buildNetworkInstance() : null;
     }
 
-    public final <ResponseDataT> void b(Map<String, ? extends Object> map, c.a.x.h.a<ResponseDataT> aVar) {
+    public final <ResponseDataT> void b(Map<String, ? extends Object> map, c.a.y.h.a<ResponseDataT> aVar) {
         String str;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048576, this, map, aVar) == null) || (str = this.a) == null || !(!StringsKt__StringsJVMKt.isBlank(str)) || this.f34930b == null) {
+        if (!(interceptable == null || interceptable.invokeLL(1048576, this, map, aVar) == null) || (str = this.a) == null || !(!StringsKt__StringsJVMKt.isBlank(str)) || this.f35136b == null) {
             return;
         }
-        c.a.x.j.a.a(new b(this, map, aVar), new c(aVar));
+        c.a.y.j.a.a(new b(this, map, aVar), new c(aVar));
     }
 
     public final void c(Map<String, ? extends Object> map) {
         INetWork iNetWork;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, map) == null) || (iNetWork = this.f34930b) == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, map) == null) || (iNetWork = this.f35136b) == null) {
             return;
         }
         iNetWork.setExtra(map);
@@ -264,7 +264,7 @@ public final class LiveNetwork {
     public final void d(int i2) {
         INetWork iNetWork;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) || (iNetWork = this.f34930b) == null) {
+        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) || (iNetWork = this.f35136b) == null) {
             return;
         }
         iNetWork.setRetryCount(i2);
@@ -274,7 +274,7 @@ public final class LiveNetwork {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
             this.a = str;
-            INetWork iNetWork = this.f34930b;
+            INetWork iNetWork = this.f35136b;
             if (iNetWork != null) {
                 iNetWork.setUrl(str);
             }

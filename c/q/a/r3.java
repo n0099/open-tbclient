@@ -40,12 +40,12 @@ public class r3 implements q1 {
     public void a(int i2, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, str) == null) {
-            y3 y3Var = this.a.f30527e;
+            y3 y3Var = this.a.f30733e;
             long currentTimeMillis = System.currentTimeMillis();
-            y3 y3Var2 = this.a.f30527e;
-            y3Var.f30562c = currentTimeMillis - y3Var2.f30561b;
+            y3 y3Var2 = this.a.f30733e;
+            y3Var.f30768c = currentTimeMillis - y3Var2.f30767b;
             y2 a = c3.a(y3Var2.a);
-            a.a(i2, this.a.f30527e.f30562c);
+            a.a(i2, this.a.f30733e.f30768c);
             a.m();
         }
     }
@@ -55,11 +55,11 @@ public class r3 implements q1 {
         long j2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj) == null) {
-            y3 y3Var = this.a.f30527e;
+            y3 y3Var = this.a.f30733e;
             long currentTimeMillis = System.currentTimeMillis();
-            j2 = this.a.f30527e.f30561b;
-            y3Var.f30562c = currentTimeMillis - j2;
-            this.a.f30527e.e((b6) obj);
+            j2 = this.a.f30733e.f30767b;
+            y3Var.f30768c = currentTimeMillis - j2;
+            this.a.f30733e.e((b6) obj);
         }
     }
 }

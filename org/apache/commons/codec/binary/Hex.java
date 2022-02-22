@@ -11,7 +11,7 @@ import org.apache.commons.codec.BinaryEncoder;
 import org.apache.commons.codec.DecoderException;
 import org.apache.commons.codec.EncoderException;
 @Deprecated
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class Hex implements BinaryEncoder, BinaryDecoder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

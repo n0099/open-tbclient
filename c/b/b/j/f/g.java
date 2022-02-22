@@ -19,10 +19,10 @@ public abstract class g<P extends a> extends b<c.b.b.n.l.d, P> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public c.b.b.q.a<w.b<String, c.b.b.n.l.g.g.b>> f27009b;
+    public c.b.b.q.a<w.b<String, c.b.b.n.l.g.g.b>> f27215b;
 
     /* renamed from: c  reason: collision with root package name */
-    public a f27010c;
+    public a f27216c;
 
     /* loaded from: classes9.dex */
     public static class a extends c.b.b.j.c<c.b.b.n.l.d> {
@@ -30,7 +30,7 @@ public abstract class g<P extends a> extends b<c.b.b.n.l.d, P> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: b  reason: collision with root package name */
-        public p.b f27011b;
+        public p.b f27217b;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -46,13 +46,13 @@ public abstract class g<P extends a> extends b<c.b.b.n.l.d, P> {
                 }
             }
             p.b bVar = new p.b();
-            this.f27011b = bVar;
+            this.f27217b = bVar;
             Texture.TextureFilter textureFilter = Texture.TextureFilter.Linear;
-            bVar.f27037g = textureFilter;
-            bVar.f27036f = textureFilter;
+            bVar.f27243g = textureFilter;
+            bVar.f27242f = textureFilter;
             Texture.TextureWrap textureWrap = Texture.TextureWrap.Repeat;
-            bVar.f27039i = textureWrap;
-            bVar.f27038h = textureWrap;
+            bVar.f27245i = textureWrap;
+            bVar.f27244h = textureWrap;
         }
     }
 
@@ -74,8 +74,8 @@ public abstract class g<P extends a> extends b<c.b.b.n.l.d, P> {
                 return;
             }
         }
-        this.f27009b = new c.b.b.q.a<>();
-        this.f27010c = new a();
+        this.f27215b = new c.b.b.q.a<>();
+        this.f27216c = new a();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -95,14 +95,14 @@ public abstract class g<P extends a> extends b<c.b.b.n.l.d, P> {
             }
             w.b<String, c.b.b.n.l.g.g.b> bVar = new w.b<>();
             bVar.a = str;
-            bVar.f27552b = h2;
-            synchronized (this.f27009b) {
-                this.f27009b.a(bVar);
+            bVar.f27758b = h2;
+            synchronized (this.f27215b) {
+                this.f27215b.a(bVar);
             }
-            p.b bVar2 = p != null ? p.f27011b : this.f27010c.f27011b;
-            a.b<ModelMaterial> it = h2.f27268c.iterator();
+            p.b bVar2 = p != null ? p.f27217b : this.f27216c.f27217b;
+            a.b<ModelMaterial> it = h2.f27474c.iterator();
             while (it.hasNext()) {
-                c.b.b.q.a<c.b.b.n.l.g.g.i> aVar3 = it.next().f31145i;
+                c.b.b.q.a<c.b.b.n.l.g.g.i> aVar3 = it.next().f31351i;
                 if (aVar3 != null) {
                     a.b<c.b.b.n.l.g.g.i> it2 = aVar3.iterator();
                     while (it2.hasNext()) {
@@ -134,12 +134,12 @@ public abstract class g<P extends a> extends b<c.b.b.n.l.d, P> {
         c.b.b.n.l.g.g.b bVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048582, this, eVar, str, aVar, p)) == null) {
-            synchronized (this.f27009b) {
+            synchronized (this.f27215b) {
                 bVar = null;
-                for (int i2 = 0; i2 < this.f27009b.f27389f; i2++) {
-                    if (this.f27009b.get(i2).a.equals(str)) {
-                        bVar = this.f27009b.get(i2).f27552b;
-                        this.f27009b.h(i2);
+                for (int i2 = 0; i2 < this.f27215b.f27595f; i2++) {
+                    if (this.f27215b.get(i2).a.equals(str)) {
+                        bVar = this.f27215b.get(i2).f27758b;
+                        this.f27215b.h(i2);
                     }
                 }
             }

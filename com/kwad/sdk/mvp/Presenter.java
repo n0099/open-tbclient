@@ -12,20 +12,20 @@ import com.kwad.sdk.core.kwai.a;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class Presenter {
 
     /* renamed from: b  reason: collision with root package name */
-    public View f57047b;
+    public View f57214b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Object f57048c;
+    public Object f57215c;
     public final List<Presenter> a = new ArrayList();
 
     /* renamed from: d  reason: collision with root package name */
-    public PresenterState f57049d = PresenterState.INIT;
+    public PresenterState f57216d = PresenterState.INIT;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public enum PresenterState {
         INIT(0) { // from class: com.kwad.sdk.mvp.Presenter.PresenterState.1
             @Override // com.kwad.sdk.mvp.Presenter.PresenterState
@@ -37,7 +37,7 @@ public class Presenter {
             public void performCallState(Presenter presenter) {
                 for (Presenter presenter2 : presenter.a) {
                     try {
-                        presenter2.c(presenter.f57047b);
+                        presenter2.c(presenter.f57214b);
                     } catch (Exception e2) {
                         a.a(e2);
                         com.kwad.sdk.core.d.a.a(e2);
@@ -50,7 +50,7 @@ public class Presenter {
             public void performCallState(Presenter presenter) {
                 for (Presenter presenter2 : presenter.a) {
                     try {
-                        presenter2.a(presenter.f57048c);
+                        presenter2.a(presenter.f57215c);
                     } catch (Exception e2) {
                         a.a(e2);
                         com.kwad.sdk.core.d.a.a(e2);
@@ -99,7 +99,7 @@ public class Presenter {
     }
 
     public final <T extends View> T a(int i2) {
-        return (T) this.f57047b.findViewById(i2);
+        return (T) this.f57214b.findViewById(i2);
     }
 
     public void a() {
@@ -110,21 +110,21 @@ public class Presenter {
         if (!l() || presenter.l()) {
             return;
         }
-        c(this.f57047b);
+        c(this.f57214b);
     }
 
     @UiThread
     public final void a(@NonNull Object obj) {
-        if (this.f57049d != PresenterState.INIT) {
+        if (this.f57216d != PresenterState.INIT) {
             PresenterState presenterState = PresenterState.DESTROY;
         }
-        if (this.f57049d == PresenterState.BIND) {
+        if (this.f57216d == PresenterState.BIND) {
             j();
         }
-        this.f57049d = PresenterState.BIND;
-        this.f57048c = obj;
+        this.f57216d = PresenterState.BIND;
+        this.f57215c = obj;
         a();
-        this.f57049d.performCallState(this);
+        this.f57216d.performCallState(this);
     }
 
     public void c() {
@@ -132,10 +132,10 @@ public class Presenter {
 
     @UiThread
     public final void c(View view) {
-        this.f57049d = PresenterState.CREATE;
-        this.f57047b = view;
+        this.f57216d = PresenterState.CREATE;
+        this.f57214b = view;
         c_();
-        this.f57049d.performCallState(this);
+        this.f57216d.performCallState(this);
     }
 
     public void c_() {
@@ -146,27 +146,27 @@ public class Presenter {
 
     @UiThread
     public final void j() {
-        this.f57049d = PresenterState.UNBIND;
+        this.f57216d = PresenterState.UNBIND;
         c();
-        this.f57049d.performCallState(this);
+        this.f57216d.performCallState(this);
     }
 
     @UiThread
     public final void k() {
-        if (this.f57049d == PresenterState.BIND) {
+        if (this.f57216d == PresenterState.BIND) {
             j();
         }
-        this.f57049d = PresenterState.DESTROY;
+        this.f57216d = PresenterState.DESTROY;
         d_();
-        this.f57049d.performCallState(this);
+        this.f57216d.performCallState(this);
     }
 
     public final boolean l() {
-        return this.f57049d.index() >= PresenterState.CREATE.index();
+        return this.f57216d.index() >= PresenterState.CREATE.index();
     }
 
     public View m() {
-        return this.f57047b;
+        return this.f57214b;
     }
 
     public List<Presenter> n() {
@@ -198,11 +198,11 @@ public class Presenter {
     }
 
     public Object p() {
-        return this.f57048c;
+        return this.f57215c;
     }
 
     public final Context q() {
-        View view = this.f57047b;
+        View view = this.f57214b;
         if (view == null) {
             return null;
         }

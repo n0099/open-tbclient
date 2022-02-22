@@ -34,31 +34,31 @@ public class a implements b<String, String> {
     public static final String a = "Host";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f33754b = "Accept";
+    public static final String f33960b = "Accept";
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f33755c = "Accept-Charset";
+    public static final String f33961c = "Accept-Charset";
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f33756d = "Accept-Encoding";
+    public static final String f33962d = "Accept-Encoding";
 
     /* renamed from: e  reason: collision with root package name */
-    public static final String f33757e = "Accept-Language";
+    public static final String f33963e = "Accept-Language";
 
     /* renamed from: f  reason: collision with root package name */
-    public static final String f33758f = "Allow";
+    public static final String f33964f = "Allow";
 
     /* renamed from: g  reason: collision with root package name */
-    public static final String f33759g = "Cache-Control";
+    public static final String f33965g = "Cache-Control";
 
     /* renamed from: h  reason: collision with root package name */
-    public static final String f33760h = "Content-Disposition";
+    public static final String f33966h = "Content-Disposition";
 
     /* renamed from: i  reason: collision with root package name */
-    public static final String f33761i = "Content-Encoding";
+    public static final String f33967i = "Content-Encoding";
 
     /* renamed from: j  reason: collision with root package name */
-    public static final String f33762j = "Content-Length";
+    public static final String f33968j = "Content-Length";
     public static final String k = "Content-Type";
     public static final String l = "Date";
     public static final String m = "ETag";

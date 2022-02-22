@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
 import org.apache.commons.lang3.text.ExtendedMessageFormat;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class AddressSelectedBean implements Serializable, NoProguard {
     public static /* synthetic */ Interceptable $ic = null;
     public static String CITY_TYPE = "city";

@@ -11,14 +11,14 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Collections;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public File a;
 
     /* renamed from: b  reason: collision with root package name */
-    public com.alipay.security.mobile.module.http.v2.a f31031b;
+    public com.alipay.security.mobile.module.http.v2.a f31237b;
 
     public b(String str, com.alipay.security.mobile.module.http.v2.a aVar) {
         Interceptable interceptable = $ic;
@@ -36,9 +36,9 @@ public final class b {
             }
         }
         this.a = null;
-        this.f31031b = null;
+        this.f31237b = null;
         this.a = new File(str);
-        this.f31031b = aVar;
+        this.f31237b = aVar;
     }
 
     public static String a(String str) {
@@ -81,7 +81,7 @@ public final class b {
                         str2 = (String) arrayList.get(arrayList.size() - 2);
                         size--;
                     }
-                    if (!this.f31031b.logCollect(a(com.alipay.security.mobile.module.a.b.a(this.a.getAbsolutePath(), str2)))) {
+                    if (!this.f31237b.logCollect(a(com.alipay.security.mobile.module.a.b.a(this.a.getAbsolutePath(), str2)))) {
                         size--;
                     }
                     for (int i2 = 0; i2 < size; i2++) {

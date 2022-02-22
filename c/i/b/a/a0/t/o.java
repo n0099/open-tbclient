@@ -14,16 +14,16 @@ public final class o {
     public final int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f28952b;
+    public boolean f29158b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f28953c;
+    public boolean f29159c;
 
     /* renamed from: d  reason: collision with root package name */
-    public byte[] f28954d;
+    public byte[] f29160d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f28955e;
+    public int f29161e;
 
     public o(int i2, int i3) {
         Interceptable interceptable = $ic;
@@ -42,22 +42,22 @@ public final class o {
         }
         this.a = i2;
         byte[] bArr = new byte[i3 + 3];
-        this.f28954d = bArr;
+        this.f29160d = bArr;
         bArr[2] = 1;
     }
 
     public void a(byte[] bArr, int i2, int i3) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLII(1048576, this, bArr, i2, i3) == null) && this.f28952b) {
+        if ((interceptable == null || interceptable.invokeLII(1048576, this, bArr, i2, i3) == null) && this.f29158b) {
             int i4 = i3 - i2;
-            byte[] bArr2 = this.f28954d;
+            byte[] bArr2 = this.f29160d;
             int length = bArr2.length;
-            int i5 = this.f28955e;
+            int i5 = this.f29161e;
             if (length < i5 + i4) {
-                this.f28954d = Arrays.copyOf(bArr2, (i5 + i4) * 2);
+                this.f29160d = Arrays.copyOf(bArr2, (i5 + i4) * 2);
             }
-            System.arraycopy(bArr, i2, this.f28954d, this.f28955e, i4);
-            this.f28955e += i4;
+            System.arraycopy(bArr, i2, this.f29160d, this.f29161e, i4);
+            this.f29161e += i4;
         }
     }
 
@@ -65,10 +65,10 @@ public final class o {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) {
-            if (this.f28952b) {
-                this.f28955e -= i2;
-                this.f28952b = false;
-                this.f28953c = true;
+            if (this.f29158b) {
+                this.f29161e -= i2;
+                this.f29158b = false;
+                this.f29159c = true;
                 return true;
             }
             return false;
@@ -79,26 +79,26 @@ public final class o {
     public boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f28953c : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f29159c : invokeV.booleanValue;
     }
 
     public void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.f28952b = false;
-            this.f28953c = false;
+            this.f29158b = false;
+            this.f29159c = false;
         }
     }
 
     public void e(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048580, this, i2) == null) {
-            c.i.b.a.i0.a.f(!this.f28952b);
+            c.i.b.a.i0.a.f(!this.f29158b);
             boolean z = i2 == this.a;
-            this.f28952b = z;
+            this.f29158b = z;
             if (z) {
-                this.f28955e = 3;
-                this.f28953c = false;
+                this.f29161e = 3;
+                this.f29159c = false;
             }
         }
     }

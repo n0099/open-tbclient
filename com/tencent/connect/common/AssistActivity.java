@@ -35,19 +35,19 @@ public class AssistActivity extends Activity {
     public boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Handler f60470b;
+    public Handler f60637b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f60471c;
+    public boolean f60638c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f60472d;
+    public String f60639d;
 
     /* renamed from: e  reason: collision with root package name */
-    public QQStayReceiver f60473e;
+    public QQStayReceiver f60640e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f60474f;
+    public boolean f60641f;
 
     /* loaded from: classes4.dex */
     public class QQStayReceiver extends BroadcastReceiver {
@@ -112,9 +112,9 @@ public class AssistActivity extends Activity {
                 return;
             }
         }
-        this.f60471c = false;
+        this.f60638c = false;
         this.a = false;
-        this.f60470b = new Handler(this) { // from class: com.tencent.connect.common.AssistActivity.1
+        this.f60637b = new Handler(this) { // from class: com.tencent.connect.common.AssistActivity.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ AssistActivity a;
@@ -219,7 +219,7 @@ public class AssistActivity extends Activity {
                 intent.putExtra(Constants.KEY_ACTION, "action_login");
             }
             setResultData(i2, intent);
-            if (!this.f60474f) {
+            if (!this.f60641f) {
                 SLog.i("openSDK_LOG.AssistActivity", "onActivityResult finish immediate");
                 finish();
                 return;
@@ -266,21 +266,21 @@ public class AssistActivity extends Activity {
             getWindow().addFlags(CodedInputStream.DEFAULT_SIZE_LIMIT);
             requestWindowFeature(1);
             super.onCreate(bundle);
-            this.f60474f = getIntent().getBooleanExtra(Constants.KEY_RESTORE_LANDSCAPE, false);
-            SLog.i("openSDK_LOG.AssistActivity", "--onCreate-- mRestoreLandscape=" + this.f60474f);
+            this.f60641f = getIntent().getBooleanExtra(Constants.KEY_RESTORE_LANDSCAPE, false);
+            SLog.i("openSDK_LOG.AssistActivity", "--onCreate-- mRestoreLandscape=" + this.f60641f);
             if (getIntent() == null) {
                 SLog.e("openSDK_LOG.AssistActivity", "-->onCreate--getIntent() returns null");
                 finish();
             }
             Intent intent = (Intent) getIntent().getParcelableExtra(EXTRA_INTENT);
             int intExtra = intent == null ? 0 : intent.getIntExtra(Constants.KEY_REQUEST_CODE, 0);
-            this.f60472d = intent == null ? "" : intent.getStringExtra("appid");
+            this.f60639d = intent == null ? "" : intent.getStringExtra("appid");
             Bundle bundleExtra = getIntent().getBundleExtra("h5_share_data");
             if (bundle != null) {
-                this.f60471c = bundle.getBoolean("RESTART_FLAG");
+                this.f60638c = bundle.getBoolean("RESTART_FLAG");
                 this.a = bundle.getBoolean("RESUME_FLAG", false);
             }
-            if (this.f60471c) {
+            if (this.f60638c) {
                 SLog.d("openSDK_LOG.AssistActivity", "is restart");
             } else if (bundleExtra != null) {
                 SLog.w("openSDK_LOG.AssistActivity", "--onCreate--h5 bundle not null, will open browser");
@@ -290,10 +290,10 @@ public class AssistActivity extends Activity {
                 try {
                     String queryParameter = intent.getData().getQueryParameter("share_id");
                     IntentFilter intentFilter = new IntentFilter(Constants.SHARE_QQ_AND_STAY + queryParameter);
-                    if (this.f60473e == null) {
-                        this.f60473e = new QQStayReceiver();
+                    if (this.f60640e == null) {
+                        this.f60640e = new QQStayReceiver();
                     }
-                    registerReceiver(this.f60473e, intentFilter);
+                    registerReceiver(this.f60640e, intentFilter);
                 } catch (Exception e2) {
                     SLog.i("openSDK_LOG.AssistActivity", "registerReceiver exception : " + e2.getMessage());
                 }
@@ -312,7 +312,7 @@ public class AssistActivity extends Activity {
         if (interceptable == null || interceptable.invokeV(com.baidu.android.imsdk.internal.Constants.METHOD_SEND_USER_MSG, this) == null) {
             SLog.i("openSDK_LOG.AssistActivity", "-->onDestroy");
             super.onDestroy();
-            QQStayReceiver qQStayReceiver = this.f60473e;
+            QQStayReceiver qQStayReceiver = this.f60640e;
             if (qQStayReceiver != null) {
                 unregisterReceiver(qQStayReceiver);
             }
@@ -393,7 +393,7 @@ public class AssistActivity extends Activity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             SLog.i("openSDK_LOG.AssistActivity", "-->onPause");
-            this.f60470b.removeMessages(0);
+            this.f60637b.removeMessages(0);
             super.onPause();
         }
     }
@@ -408,11 +408,11 @@ public class AssistActivity extends Activity {
             if (intent.getBooleanExtra(ImageViewerConfig.IS_LOGIN, false)) {
                 return;
             }
-            if (!intent.getBooleanExtra("is_qq_mobile_share", false) && this.f60471c && !isFinishing()) {
+            if (!intent.getBooleanExtra("is_qq_mobile_share", false) && this.f60638c && !isFinishing()) {
                 finish();
             }
             if (this.a) {
-                this.f60470b.sendMessage(this.f60470b.obtainMessage(0));
+                this.f60637b.sendMessage(this.f60637b.obtainMessage(0));
                 return;
             }
             this.a = true;
@@ -455,7 +455,7 @@ public class AssistActivity extends Activity {
                 SLog.w("openSDK_LOG.AssistActivity", "--setResultData--intent is null, setResult ACTIVITY_CANCEL");
                 setResult(0);
                 if (i2 == 11101) {
-                    d.a().a("", this.f60472d, "2", "1", "7", "2");
+                    d.a().a("", this.f60639d, "2", "1", "7", "2");
                     return;
                 }
                 return;
@@ -472,14 +472,14 @@ public class AssistActivity extends Activity {
                     if (!TextUtils.isEmpty(optString) && !TextUtils.isEmpty(optString2)) {
                         SLog.i("openSDK_LOG.AssistActivity", "--setResultData--openid and token not empty, setResult ACTIVITY_OK");
                         setResult(-1, intent);
-                        d.a().a(optString, this.f60472d, "2", "1", "7", "0");
+                        d.a().a(optString, this.f60639d, "2", "1", "7", "0");
                     } else if (!TextUtils.isEmpty(optString3) && optLong != 0) {
                         SLog.i("openSDK_LOG.AssistActivity", "--setResultData--proxy_code and proxy_expires_in are valid");
                         setResult(-1, intent);
                     } else {
                         SLog.w("openSDK_LOG.AssistActivity", "--setResultData--openid or token is empty, setResult ACTIVITY_CANCEL");
                         setResult(0, intent);
-                        d.a().a("", this.f60472d, "2", "1", "7", "1");
+                        d.a().a("", this.f60639d, "2", "1", "7", "1");
                     }
                 } else {
                     SLog.w("openSDK_LOG.AssistActivity", "--setResultData--response is empty, setResult ACTIVITY_OK");

@@ -34,22 +34,22 @@ public class GodHeadImageView extends FrameLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public a f43046e;
+    public a f43279e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ImageView f43047f;
+    public ImageView f43280f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f43048g;
+    public int f43281g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f43049h;
+    public int f43282h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f43050i;
+    public int f43283i;
 
     /* renamed from: j  reason: collision with root package name */
-    public int f43051j;
+    public int f43284j;
     public int k;
     public int l;
 
@@ -84,7 +84,7 @@ public class GodHeadImageView extends FrameLayout {
         public void onMeasure(int i2, int i3) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeII(1048576, this, i2, i3) == null) {
-                if (this.v0.f43049h == 1) {
+                if (this.v0.f43282h == 1) {
                     int size = View.MeasureSpec.getSize(i2);
                     int size2 = View.MeasureSpec.getSize(i3);
                     i2 = View.MeasureSpec.makeMeasureSpec(size - this.v0.k, 1073741824);
@@ -131,10 +131,10 @@ public class GodHeadImageView extends FrameLayout {
                 return;
             }
         }
-        this.f43048g = 0;
-        this.f43049h = 0;
-        this.f43050i = 1;
-        this.f43051j = 1;
+        this.f43281g = 0;
+        this.f43282h = 0;
+        this.f43283i = 1;
+        this.f43284j = 1;
         this.k = m;
         this.l = 7;
         c(null);
@@ -146,17 +146,17 @@ public class GodHeadImageView extends FrameLayout {
             if (attributeSet != null) {
                 TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, R$styleable.GodHeadImageView);
                 this.k = obtainStyledAttributes.getDimensionPixelSize(R$styleable.GodHeadImageView_extra_padding, m);
-                this.f43051j = obtainStyledAttributes.getInteger(R$styleable.GodHeadImageView_shape_type, this.f43050i);
-                this.f43049h = obtainStyledAttributes.getInteger(R$styleable.GodHeadImageView_show_type, this.f43048g);
+                this.f43284j = obtainStyledAttributes.getInteger(R$styleable.GodHeadImageView_shape_type, this.f43283i);
+                this.f43282h = obtainStyledAttributes.getInteger(R$styleable.GodHeadImageView_show_type, this.f43281g);
                 this.l = obtainStyledAttributes.getInteger(R$styleable.GodHeadImageView_extra_radius, o);
                 obtainStyledAttributes.recycle();
             }
-            this.f43046e = new a(this, getContext());
-            this.f43047f = new ImageView(getContext());
+            this.f43279e = new a(this, getContext());
+            this.f43280f = new ImageView(getContext());
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, -1);
-            this.f43046e.setScaleType(ImageView.ScaleType.CENTER_CROP);
-            addView(this.f43046e, layoutParams);
-            addView(this.f43047f, new FrameLayout.LayoutParams(-1, -1));
+            this.f43279e.setScaleType(ImageView.ScaleType.CENTER_CROP);
+            addView(this.f43279e, layoutParams);
+            addView(this.f43280f, new FrameLayout.LayoutParams(-1, -1));
             d();
         }
     }
@@ -164,33 +164,33 @@ public class GodHeadImageView extends FrameLayout {
     public final void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            int i2 = this.f43049h;
+            int i2 = this.f43282h;
             if (i2 == 0) {
-                this.f43046e.setPadding(0, 0, 0, 0);
+                this.f43279e.setPadding(0, 0, 0, 0);
             } else if (i2 == 1) {
-                a aVar = this.f43046e;
+                a aVar = this.f43279e;
                 int i3 = n;
                 aVar.setPadding(i3, i3, 0, 0);
             }
-            int i4 = this.f43051j;
+            int i4 = this.f43284j;
             if (i4 == 1) {
-                this.f43046e.setIsRound(true);
-                if (this.f43049h == 0) {
-                    SkinManager.setImageResource(this.f43047f, R.drawable.pic_shen_avatar_big);
+                this.f43279e.setIsRound(true);
+                if (this.f43282h == 0) {
+                    SkinManager.setImageResource(this.f43280f, R.drawable.pic_shen_avatar_big);
                 } else {
-                    SkinManager.setImageResource(this.f43047f, R.drawable.pic_shen_avatar);
+                    SkinManager.setImageResource(this.f43280f, R.drawable.pic_shen_avatar);
                 }
             } else if (i4 == 2) {
-                this.f43046e.setIsRound(false);
-                this.f43046e.setRadius(this.l);
-                SkinManager.setImageResource(this.f43047f, R.drawable.pic_frs_shen_avatar);
+                this.f43279e.setIsRound(false);
+                this.f43279e.setRadius(this.l);
+                SkinManager.setImageResource(this.f43280f, R.drawable.pic_frs_shen_avatar);
             } else if (i4 != 3) {
-                this.f43046e.setIsRound(false);
-                this.f43046e.setRadius(this.l);
-                SkinManager.setImageResource(this.f43047f, R.drawable.pic_shen_avatar_square);
+                this.f43279e.setIsRound(false);
+                this.f43279e.setRadius(this.l);
+                SkinManager.setImageResource(this.f43280f, R.drawable.pic_shen_avatar_square);
             } else {
-                this.f43046e.setIsRound(true);
-                SkinManager.setImageResource(this.f43047f, R.drawable.browser_null_drawable);
+                this.f43279e.setIsRound(true);
+                SkinManager.setImageResource(this.f43280f, R.drawable.browser_null_drawable);
             }
         }
     }
@@ -208,7 +208,7 @@ public class GodHeadImageView extends FrameLayout {
             return;
         }
         this.k = i2;
-        this.f43046e.invalidate();
+        this.f43279e.invalidate();
     }
 
     public void setRadius(int i2) {
@@ -222,7 +222,7 @@ public class GodHeadImageView extends FrameLayout {
     public void setShapeType(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048581, this, i2) == null) {
-            this.f43051j = i2;
+            this.f43284j = i2;
             d();
         }
     }
@@ -230,7 +230,7 @@ public class GodHeadImageView extends FrameLayout {
     public void setShowType(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048582, this, i2) == null) {
-            this.f43049h = i2;
+            this.f43282h = i2;
             d();
         }
     }
@@ -238,7 +238,7 @@ public class GodHeadImageView extends FrameLayout {
     public void startLoad(String str, int i2, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{str, Integer.valueOf(i2), Boolean.valueOf(z)}) == null) {
-            this.f43046e.startLoad(str, i2, z);
+            this.f43279e.startLoad(str, i2, z);
         }
     }
 
@@ -261,10 +261,10 @@ public class GodHeadImageView extends FrameLayout {
                 return;
             }
         }
-        this.f43048g = 0;
-        this.f43049h = 0;
-        this.f43050i = 1;
-        this.f43051j = 1;
+        this.f43281g = 0;
+        this.f43282h = 0;
+        this.f43283i = 1;
+        this.f43284j = 1;
         this.k = m;
         this.l = 7;
         c(attributeSet);
@@ -289,10 +289,10 @@ public class GodHeadImageView extends FrameLayout {
                 return;
             }
         }
-        this.f43048g = 0;
-        this.f43049h = 0;
-        this.f43050i = 1;
-        this.f43051j = 1;
+        this.f43281g = 0;
+        this.f43282h = 0;
+        this.f43283i = 1;
+        this.f43284j = 1;
         this.k = m;
         this.l = 7;
         c(attributeSet);

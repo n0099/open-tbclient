@@ -3,8 +3,8 @@ package com.baidu.tieba.themeCenter.background;
 import android.content.Intent;
 import android.os.Bundle;
 import androidx.core.view.InputDeviceCompat;
-import c.a.s0.q0.d;
-import c.a.t0.c4.e.j;
+import c.a.t0.q0.d;
+import c.a.u0.f4.e.j;
 import com.baidu.adp.widget.ListView.BdExpandListView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.BaseActivity;
@@ -129,7 +129,7 @@ public class BackgroundPreviewActivity extends BaseActivity<BackgroundPreviewAct
         this.mCallback = new a(this);
     }
 
-    @Override // com.baidu.tbadk.BaseActivity, c.a.s0.q0.a
+    @Override // com.baidu.tbadk.BaseActivity, c.a.t0.q0.a
     public String getCurrentPageKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -150,7 +150,7 @@ public class BackgroundPreviewActivity extends BaseActivity<BackgroundPreviewAct
             d pageStayDurationItem = super.getPageStayDurationItem();
             if (pageStayDurationItem != null) {
                 pageStayDurationItem.a = true;
-                pageStayDurationItem.f13104i = String.valueOf(this.mPropId);
+                pageStayDurationItem.f13371i = String.valueOf(this.mPropId);
             }
             return pageStayDurationItem;
         }
@@ -238,7 +238,7 @@ public class BackgroundPreviewActivity extends BaseActivity<BackgroundPreviewAct
         if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) {
             super.onUserChanged(z);
             if (z) {
-                c.a.s0.a0.b.d().h();
+                c.a.t0.a0.b.d().h();
             }
         }
     }

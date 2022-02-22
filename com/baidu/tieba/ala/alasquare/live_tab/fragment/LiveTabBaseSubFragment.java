@@ -4,7 +4,7 @@ import android.content.Context;
 import android.widget.LinearLayout;
 import androidx.core.view.InputDeviceCompat;
 import c.a.d.f.p.m;
-import c.a.s0.g0.h;
+import c.a.t0.g0.h;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
@@ -25,7 +25,7 @@ public abstract class LiveTabBaseSubFragment extends BaseFragment {
     public final String FRS_DYNAMIC_FRAGMENT_SHOW;
 
     /* renamed from: e  reason: collision with root package name */
-    public h f41898e;
+    public h f42131e;
     public boolean isAfterLazyLoaded;
     public boolean isHideTopHeader;
     public Context mContext;
@@ -122,7 +122,7 @@ public abstract class LiveTabBaseSubFragment extends BaseFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048581, this, i2) == null) {
             super.onChangeSkinType(i2);
-            h hVar = this.f41898e;
+            h hVar = this.f42131e;
             if (hVar != null) {
                 hVar.onChangeSkinType();
             }
@@ -143,18 +143,18 @@ public abstract class LiveTabBaseSubFragment extends BaseFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
             this.mTopContainer.setVisibility(0);
-            if (this.f41898e == null) {
-                this.f41898e = new h(this.mContext, null);
+            if (this.f42131e == null) {
+                this.f42131e = new h(this.mContext, null);
             }
-            this.f41898e.e();
-            this.f41898e.i(R.drawable.new_pic_emotion_03);
-            this.f41898e.o(this.mContext.getResources().getString(R.string.no_data_common_txt));
-            this.f41898e.onChangeSkinType();
+            this.f42131e.e();
+            this.f42131e.i(R.drawable.new_pic_emotion_03);
+            this.f42131e.o(this.mContext.getResources().getString(R.string.no_data_common_txt));
+            this.f42131e.onChangeSkinType();
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, -1);
-            if (this.f41898e.b() == null || this.f41898e.b().getParent() != null) {
+            if (this.f42131e.b() == null || this.f42131e.b().getParent() != null) {
                 return;
             }
-            this.mTopContainer.addView(this.f41898e.b(), layoutParams);
+            this.mTopContainer.addView(this.f42131e.b(), layoutParams);
         }
     }
 }

@@ -6,15 +6,15 @@ import com.kwad.sdk.utils.t;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class e extends com.kwad.sdk.core.response.kwai.a implements com.kwad.sdk.core.b {
     public int a = -1;
 
     /* renamed from: b  reason: collision with root package name */
-    public List<Float> f55573b = new ArrayList();
+    public List<Float> f55740b = new ArrayList();
 
     /* renamed from: c  reason: collision with root package name */
-    public long f55574c = 0;
+    public long f55741c = 0;
 
     public static e a(SensorEvent sensorEvent, long j2) {
         if (sensorEvent == null) {
@@ -22,9 +22,9 @@ public class e extends com.kwad.sdk.core.response.kwai.a implements com.kwad.sdk
         }
         e eVar = new e();
         eVar.a = sensorEvent.sensor.getType();
-        eVar.f55574c = j2 / 1000;
+        eVar.f55741c = j2 / 1000;
         for (float f2 : sensorEvent.values) {
-            eVar.f55573b.add(Float.valueOf(f2));
+            eVar.f55740b.add(Float.valueOf(f2));
         }
         return eVar;
     }
@@ -32,6 +32,6 @@ public class e extends com.kwad.sdk.core.response.kwai.a implements com.kwad.sdk
     @Override // com.kwad.sdk.core.response.kwai.a
     public void afterToJson(JSONObject jSONObject) {
         super.afterToJson(jSONObject);
-        t.a(jSONObject, SavedStateHandle.VALUES, this.f55573b);
+        t.a(jSONObject, SavedStateHandle.VALUES, this.f55740b);
     }
 }

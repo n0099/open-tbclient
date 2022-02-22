@@ -4,7 +4,7 @@ import android.app.Dialog;
 import android.content.Context;
 import androidx.annotation.NonNull;
 import com.kwad.sdk.api.loader.Wrapper;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class a extends Dialog {
     public a(@NonNull Context context) {
         super(Wrapper.wrapContextIfNeed(context));

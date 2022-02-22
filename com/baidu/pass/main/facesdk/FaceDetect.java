@@ -18,7 +18,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.concurrent.locks.ReentrantLock;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class FaceDetect {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "FaceDetect";

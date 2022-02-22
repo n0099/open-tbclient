@@ -32,28 +32,28 @@ public class HeaderLoadingLayout extends LoadingLayout {
     public ImageView a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ProgressBar f50864b;
+    public ProgressBar f51031b;
 
     /* renamed from: c  reason: collision with root package name */
-    public TextView f50865c;
+    public TextView f51032c;
 
     /* renamed from: d  reason: collision with root package name */
-    public TextView f50866d;
+    public TextView f51033d;
 
     /* renamed from: e  reason: collision with root package name */
-    public Animation f50867e;
+    public Animation f51034e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Animation f50868f;
+    public Animation f51035f;
 
     /* renamed from: g  reason: collision with root package name */
-    public CharSequence f50869g;
+    public CharSequence f51036g;
 
     /* renamed from: h  reason: collision with root package name */
-    public LoadingLayout.AnimationStyle f50870h;
+    public LoadingLayout.AnimationStyle f51037h;
 
     /* renamed from: i  reason: collision with root package name */
-    public ObjectAnimator f50871i;
+    public ObjectAnimator f51038i;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public HeaderLoadingLayout(Context context) {
@@ -73,7 +73,7 @@ public class HeaderLoadingLayout extends LoadingLayout {
                 return;
             }
         }
-        this.f50870h = LoadingLayout.AnimationStyle.FLIP;
+        this.f51037h = LoadingLayout.AnimationStyle.FLIP;
         a(context);
     }
 
@@ -82,17 +82,17 @@ public class HeaderLoadingLayout extends LoadingLayout {
         if (interceptable == null || interceptable.invokeL(65538, this, context) == null) {
             setLayerType(1, null);
             this.a = (ImageView) findViewById(ResUtils.id(context, "bd_wallet_tip_img"));
-            this.f50865c = (TextView) findViewById(ResUtils.id(context, "bd_wallet_tip_title"));
-            this.f50864b = (ProgressBar) findViewById(ResUtils.id(context, "bd_wallet_progress_bar"));
-            this.f50866d = (TextView) findViewById(ResUtils.id(context, "bd_wallet_tip_time"));
+            this.f51032c = (TextView) findViewById(ResUtils.id(context, "bd_wallet_tip_title"));
+            this.f51031b = (ProgressBar) findViewById(ResUtils.id(context, "bd_wallet_progress_bar"));
+            this.f51033d = (TextView) findViewById(ResUtils.id(context, "bd_wallet_tip_time"));
             Animation loadAnimation = AnimationUtils.loadAnimation(getContext(), ResUtils.anim(context, "wallet_base_rotate_up"));
-            this.f50867e = loadAnimation;
+            this.f51034e = loadAnimation;
             loadAnimation.setFillAfter(true);
             Animation loadAnimation2 = AnimationUtils.loadAnimation(getContext(), ResUtils.anim(context, "wallet_base_rotate_down"));
-            this.f50868f = loadAnimation2;
+            this.f51035f = loadAnimation2;
             loadAnimation2.setFillAfter(true);
-            this.f50871i = RotateLoadingLayout.getRotateYAnim(this.a);
-            if (this.f50870h == LoadingLayout.AnimationStyle.ROTATE) {
+            this.f51038i = RotateLoadingLayout.getRotateYAnim(this.a);
+            if (this.f51037h == LoadingLayout.AnimationStyle.ROTATE) {
                 this.a.setImageDrawable(RefreshLoadingDrawable.newInstanceRed(context));
             }
         }
@@ -116,7 +116,7 @@ public class HeaderLoadingLayout extends LoadingLayout {
     @Override // com.baidu.wallet.base.widget.pulltorefresh.LoadingLayout
     public void onPull(float f2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeF(1048579, this, f2) == null) && this.f50870h == LoadingLayout.AnimationStyle.ROTATE) {
+        if ((interceptable == null || interceptable.invokeF(1048579, this, f2) == null) && this.f51037h == LoadingLayout.AnimationStyle.ROTATE) {
             Drawable drawable = this.a.getDrawable();
             if (drawable instanceof RefreshLoadingDrawable) {
                 ((RefreshLoadingDrawable) drawable).setProgress(RotateLoadingLayout.getProgress(f2));
@@ -129,11 +129,11 @@ public class HeaderLoadingLayout extends LoadingLayout {
     public void onPullToRefresh() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            if (this.f50870h == LoadingLayout.AnimationStyle.FLIP && LoadingLayout.State.RELEASE_TO_REFRESH == getPreState()) {
+            if (this.f51037h == LoadingLayout.AnimationStyle.FLIP && LoadingLayout.State.RELEASE_TO_REFRESH == getPreState()) {
                 this.a.clearAnimation();
-                this.a.startAnimation(this.f50868f);
+                this.a.startAnimation(this.f51035f);
             }
-            this.f50865c.setText(ResUtils.getString(getContext(), "wallet_refresh_pull_down"));
+            this.f51032c.setText(ResUtils.getString(getContext(), "wallet_refresh_pull_down"));
         }
     }
 
@@ -141,19 +141,19 @@ public class HeaderLoadingLayout extends LoadingLayout {
     public void onRefreshing() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            if (this.f50870h == LoadingLayout.AnimationStyle.FLIP) {
+            if (this.f51037h == LoadingLayout.AnimationStyle.FLIP) {
                 this.a.clearAnimation();
                 this.a.setVisibility(4);
-                this.f50864b.setVisibility(0);
+                this.f51031b.setVisibility(0);
             } else {
-                this.f50871i.start();
+                this.f51038i.start();
                 this.a.setVisibility(0);
-                this.f50864b.setVisibility(8);
+                this.f51031b.setVisibility(8);
             }
-            if (TextUtils.isEmpty(this.f50869g)) {
-                this.f50865c.setText(ResUtils.getString(getContext(), "wallet_refresh_loading"));
+            if (TextUtils.isEmpty(this.f51036g)) {
+                this.f51032c.setText(ResUtils.getString(getContext(), "wallet_refresh_loading"));
             } else {
-                this.f50865c.setText(this.f50869g);
+                this.f51032c.setText(this.f51036g);
             }
         }
     }
@@ -162,11 +162,11 @@ public class HeaderLoadingLayout extends LoadingLayout {
     public void onReleaseToRefresh() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            if (this.f50870h == LoadingLayout.AnimationStyle.FLIP) {
+            if (this.f51037h == LoadingLayout.AnimationStyle.FLIP) {
                 this.a.clearAnimation();
-                this.a.startAnimation(this.f50867e);
+                this.a.startAnimation(this.f51034e);
             }
-            this.f50865c.setText(ResUtils.getString(getContext(), "wallet_refresh_release"));
+            this.f51032c.setText(ResUtils.getString(getContext(), "wallet_refresh_release"));
         }
     }
 
@@ -174,13 +174,13 @@ public class HeaderLoadingLayout extends LoadingLayout {
     public void onReset() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            if (this.f50870h == LoadingLayout.AnimationStyle.FLIP) {
+            if (this.f51037h == LoadingLayout.AnimationStyle.FLIP) {
                 this.a.clearAnimation();
             } else {
-                this.f50871i.cancel();
+                this.f51038i.cancel();
                 this.a.setRotationY(0.0f);
             }
-            this.f50865c.setText(ResUtils.getString(getContext(), "wallet_refresh_pull_down"));
+            this.f51032c.setText(ResUtils.getString(getContext(), "wallet_refresh_pull_down"));
         }
     }
 
@@ -188,12 +188,12 @@ public class HeaderLoadingLayout extends LoadingLayout {
     public void onStateChanged(LoadingLayout.State state, LoadingLayout.State state2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, state, state2) == null) {
-            if (this.f50870h == LoadingLayout.AnimationStyle.FLIP) {
+            if (this.f51037h == LoadingLayout.AnimationStyle.FLIP) {
                 this.a.setVisibility(0);
-                this.f50864b.setVisibility(4);
+                this.f51031b.setVisibility(4);
             } else {
                 this.a.setVisibility(0);
-                this.f50864b.setVisibility(8);
+                this.f51031b.setVisibility(8);
             }
             super.onStateChanged(state, state2);
         }
@@ -203,7 +203,7 @@ public class HeaderLoadingLayout extends LoadingLayout {
     public void setLastUpdatedLabel(CharSequence charSequence) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, charSequence) == null) {
-            this.f50866d.setText(charSequence);
+            this.f51033d.setText(charSequence);
         }
     }
 
@@ -213,8 +213,8 @@ public class HeaderLoadingLayout extends LoadingLayout {
         if (!(interceptable == null || interceptable.invokeL(1048586, this, charSequence) == null) || TextUtils.isEmpty(charSequence)) {
             return;
         }
-        this.f50869g = charSequence;
-        TextView textView = this.f50865c;
+        this.f51036g = charSequence;
+        TextView textView = this.f51032c;
         if (textView != null) {
             textView.setText(charSequence);
         }
@@ -239,14 +239,14 @@ public class HeaderLoadingLayout extends LoadingLayout {
                 return;
             }
         }
-        this.f50870h = LoadingLayout.AnimationStyle.FLIP;
+        this.f51037h = LoadingLayout.AnimationStyle.FLIP;
         a(context);
     }
 
     public void a(LoadingLayout.AnimationStyle animationStyle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, animationStyle) == null) {
-            this.f50870h = animationStyle;
+            this.f51037h = animationStyle;
             if (animationStyle == LoadingLayout.AnimationStyle.ROTATE) {
                 this.a.setImageDrawable(RefreshLoadingDrawable.newInstanceRed(getContext()));
             } else {

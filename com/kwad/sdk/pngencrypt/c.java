@@ -5,26 +5,26 @@ import com.kwad.sdk.pngencrypt.chunk.ChunkLoadBehaviour;
 import com.kwad.sdk.pngencrypt.chunk.q;
 import java.util.HashSet;
 import java.util.Set;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class c extends b {
 
     /* renamed from: e  reason: collision with root package name */
-    public k f57083e;
+    public k f57250e;
 
     /* renamed from: f  reason: collision with root package name */
-    public k f57084f;
+    public k f57251f;
 
     /* renamed from: g  reason: collision with root package name */
-    public e f57085g;
+    public e f57252g;
 
     /* renamed from: j  reason: collision with root package name */
-    public final boolean f57088j;
+    public final boolean f57255j;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f57086h = -1;
+    public int f57253h = -1;
 
     /* renamed from: i  reason: collision with root package name */
-    public com.kwad.sdk.pngencrypt.chunk.e f57087i = null;
+    public com.kwad.sdk.pngencrypt.chunk.e f57254i = null;
     public long k = 0;
     public boolean l = true;
     public boolean m = false;
@@ -36,7 +36,7 @@ public class c extends b {
     public g r = new com.kwad.sdk.pngencrypt.chunk.a();
 
     /* renamed from: com.kwad.sdk.pngencrypt.c$1  reason: invalid class name */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] a;
 
@@ -55,25 +55,25 @@ public class c extends b {
     }
 
     public c(boolean z) {
-        this.f57088j = z;
+        this.f57255j = z;
     }
 
     private void e(String str) {
         int i2;
         PngjException pngjException;
         if (str.equals("IHDR")) {
-            if (this.f57086h < 0) {
+            if (this.f57253h < 0) {
                 i2 = 0;
-                this.f57086h = i2;
+                this.f57253h = i2;
                 return;
             }
             pngjException = new PngjException("unexpected chunk " + str);
             com.kwad.sdk.core.d.a.a(pngjException);
         } else if (str.equals("PLTE")) {
-            int i3 = this.f57086h;
+            int i3 = this.f57253h;
             if (i3 == 0 || i3 == 1) {
                 i2 = 2;
-                this.f57086h = i2;
+                this.f57253h = i2;
                 return;
             }
             pngjException = new PngjException("unexpected chunk here " + str);
@@ -81,27 +81,27 @@ public class c extends b {
         } else {
             if (!str.equals("IDAT")) {
                 if (!str.equals("IEND")) {
-                    int i4 = this.f57086h;
+                    int i4 = this.f57253h;
                     if (i4 <= 1) {
-                        this.f57086h = 1;
+                        this.f57253h = 1;
                         return;
                     } else if (i4 <= 3) {
-                        this.f57086h = 3;
+                        this.f57253h = 3;
                         return;
                     } else {
                         i2 = 5;
                     }
-                } else if (this.f57086h >= 4) {
+                } else if (this.f57253h >= 4) {
                     i2 = 6;
                 } else {
                     pngjException = new PngjException("unexpected chunk " + str);
                 }
-                this.f57086h = i2;
+                this.f57253h = i2;
                 return;
             }
-            int i5 = this.f57086h;
+            int i5 = this.f57253h;
             if (i5 >= 0 && i5 <= 4) {
-                this.f57086h = 4;
+                this.f57253h = 4;
                 return;
             }
             pngjException = new PngjException("unexpected chunk " + str);
@@ -116,7 +116,7 @@ public class c extends b {
 
     @Override // com.kwad.sdk.pngencrypt.b
     public DeflatedChunksSet a(String str) {
-        return new j(str, this.f57088j, l(), this.f57085g);
+        return new j(str, this.f57255j, l(), this.f57252g);
     }
 
     @Override // com.kwad.sdk.pngencrypt.b
@@ -132,23 +132,23 @@ public class c extends b {
     @Override // com.kwad.sdk.pngencrypt.b
     public void a(ChunkReader chunkReader) {
         super.a(chunkReader);
-        if (chunkReader.a().f57111c.equals("IHDR")) {
+        if (chunkReader.a().f57278c.equals("IHDR")) {
             q qVar = new q(null);
             qVar.a(chunkReader.a());
             k i2 = qVar.i();
-            this.f57083e = i2;
-            this.f57084f = i2;
+            this.f57250e = i2;
+            this.f57251f = i2;
             if (qVar.h()) {
-                this.f57085g = new e(this.f57084f);
+                this.f57252g = new e(this.f57251f);
             }
-            this.f57087i = new com.kwad.sdk.pngencrypt.chunk.e(this.f57083e);
+            this.f57254i = new com.kwad.sdk.pngencrypt.chunk.e(this.f57250e);
         }
-        if (chunkReader.a == ChunkReader.ChunkReaderMode.BUFFER && d(chunkReader.a().f57111c)) {
+        if (chunkReader.a == ChunkReader.ChunkReaderMode.BUFFER && d(chunkReader.a().f57278c)) {
             this.k += chunkReader.a().a;
         }
         if (chunkReader.a == ChunkReader.ChunkReaderMode.BUFFER || this.m) {
             try {
-                this.f57087i.a(this.r.a(chunkReader.a(), j()), this.f57086h);
+                this.f57254i.a(this.r.a(chunkReader.a(), j()), this.f57253h);
             } catch (PngjException e2) {
                 throw e2;
             }
@@ -219,8 +219,8 @@ public class c extends b {
 
     @Override // com.kwad.sdk.pngencrypt.b, java.io.Closeable, java.lang.AutoCloseable
     public void close() {
-        if (this.f57086h != 6) {
-            this.f57086h = 6;
+        if (this.f57253h != 6) {
+            this.f57253h = 6;
         }
         super.close();
     }
@@ -230,7 +230,7 @@ public class c extends b {
     }
 
     public int f() {
-        return this.f57086h;
+        return this.f57253h;
     }
 
     public boolean g() {
@@ -249,14 +249,14 @@ public class c extends b {
     }
 
     public k j() {
-        return this.f57083e;
+        return this.f57250e;
     }
 
     public e k() {
-        return this.f57085g;
+        return this.f57252g;
     }
 
     public k l() {
-        return this.f57084f;
+        return this.f57251f;
     }
 }

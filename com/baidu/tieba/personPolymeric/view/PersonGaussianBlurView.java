@@ -3,7 +3,7 @@ package com.baidu.tieba.personPolymeric.view;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.util.AttributeSet;
-import c.a.s0.d1.n;
+import c.a.t0.d1.n;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -11,15 +11,15 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public class PersonGaussianBlurView extends PersonExpandImageView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: i  reason: collision with root package name */
-    public a f47315i;
+    public a f47461i;
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes13.dex */
     public class a extends BdAsyncTask<Bitmap, String, Bitmap> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -126,12 +126,12 @@ public class PersonGaussianBlurView extends PersonExpandImageView {
         if (!(interceptable == null || interceptable.invokeL(1048576, this, bitmap) == null) || bitmap == null || bitmap.isRecycled()) {
             return;
         }
-        a aVar = this.f47315i;
+        a aVar = this.f47461i;
         if (aVar != null) {
             aVar.cancel();
         }
         a aVar2 = new a(this);
-        this.f47315i = aVar2;
+        this.f47461i = aVar2;
         aVar2.execute(bitmap);
     }
 }

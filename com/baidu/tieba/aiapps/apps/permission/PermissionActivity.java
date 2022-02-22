@@ -2,7 +2,7 @@ package com.baidu.tieba.aiapps.apps.permission;
 
 import android.app.Activity;
 import android.os.Bundle;
-import c.a.t0.z.b.g.a;
+import c.a.u0.z.b.g.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mytransformapp.util.LogUtil;
 import com.baidu.tieba.R;

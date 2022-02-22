@@ -15,10 +15,10 @@ public class i implements ThreadFactory {
     public final ThreadFactory a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final String f33388b;
+    public final String f33594b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final AtomicInteger f33389c;
+    public final AtomicInteger f33595c;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public i(String str) {
@@ -56,15 +56,15 @@ public class i implements ThreadFactory {
                 return;
             }
         }
-        this.f33389c = new AtomicInteger(0);
-        this.f33388b = str;
+        this.f33595c = new AtomicInteger(0);
+        this.f33594b = str;
         this.a = threadFactory;
     }
 
     private String a(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65538, this, i2)) == null) ? String.format("%s-%d", this.f33388b, Integer.valueOf(i2)) : (String) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65538, this, i2)) == null) ? String.format("%s-%d", this.f33594b, Integer.valueOf(i2)) : (String) invokeI.objValue;
     }
 
     @Override // java.util.concurrent.ThreadFactory
@@ -73,7 +73,7 @@ public class i implements ThreadFactory {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, runnable)) == null) {
             Thread newThread = this.a.newThread(runnable);
-            newThread.setName(a(this.f33389c.getAndIncrement()));
+            newThread.setName(a(this.f33595c.getAndIncrement()));
             return newThread;
         }
         return (Thread) invokeL.objValue;

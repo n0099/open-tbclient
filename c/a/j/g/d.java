@@ -50,13 +50,13 @@ public final class d {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, taskInfo, uniqueId)) == null) {
-            if (Intrinsics.areEqual(uniqueId, c.a.j.g.f.a.f4031c.a())) {
+            if (Intrinsics.areEqual(uniqueId, c.a.j.g.f.a.f4051c.a())) {
                 return new c.a.j.g.f.a(taskInfo);
             }
-            if (Intrinsics.areEqual(uniqueId, c.a.j.g.f.b.f4033c.a())) {
+            if (Intrinsics.areEqual(uniqueId, c.a.j.g.f.b.f4053c.a())) {
                 return new c.a.j.g.f.b(taskInfo);
             }
-            if (Intrinsics.areEqual(uniqueId, c.a.j.g.f.c.f4035c.a())) {
+            if (Intrinsics.areEqual(uniqueId, c.a.j.g.f.c.f4055c.a())) {
                 return new c.a.j.g.f.c(taskInfo);
             }
             return null;

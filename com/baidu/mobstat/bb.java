@@ -13,11 +13,11 @@ public class bb extends ba {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static bb f36532c;
+    public static bb f36738c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f36533b;
+    public boolean f36739b;
 
     static {
         InterceptResult invokeClinit;
@@ -32,7 +32,7 @@ public class bb extends ba {
                 return;
             }
         }
-        f36532c = new bb();
+        f36738c = new bb();
     }
 
     public bb() {
@@ -52,7 +52,7 @@ public class bb extends ba {
     public static bb c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f36532c : (bb) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f36738c : (bb) invokeV.objValue;
     }
 
     @Override // com.baidu.mobstat.ba
@@ -66,6 +66,6 @@ public class bb extends ba {
     public boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f36533b : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f36739b : invokeV.booleanValue;
     }
 }

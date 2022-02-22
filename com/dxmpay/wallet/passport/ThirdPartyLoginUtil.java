@@ -37,10 +37,10 @@ public class ThirdPartyLoginUtil implements NoProguard {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ WalletApiExtListener.ThirdPartyLoginListener f54060e;
+        public final /* synthetic */ WalletApiExtListener.ThirdPartyLoginListener f54227e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ ThirdPartyLoginUtil f54061f;
+        public final /* synthetic */ ThirdPartyLoginUtil f54228f;
 
         public a(ThirdPartyLoginUtil thirdPartyLoginUtil, WalletApiExtListener.ThirdPartyLoginListener thirdPartyLoginListener) {
             Interceptable interceptable = $ic;
@@ -57,8 +57,8 @@ public class ThirdPartyLoginUtil implements NoProguard {
                     return;
                 }
             }
-            this.f54061f = thirdPartyLoginUtil;
-            this.f54060e = thirdPartyLoginListener;
+            this.f54228f = thirdPartyLoginUtil;
+            this.f54227e = thirdPartyLoginListener;
         }
 
         @Override // com.baidu.wallet.api.ILoginBackListener
@@ -66,10 +66,10 @@ public class ThirdPartyLoginUtil implements NoProguard {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeIL(1048576, this, i2, str) == null) {
                 if (i2 == 603) {
-                    WalletLoginHelper.getInstance().onlyLogin(this.f54061f.loginBackListener);
+                    WalletLoginHelper.getInstance().onlyLogin(this.f54228f.loginBackListener);
                     return;
                 }
-                WalletApiExtListener.ThirdPartyLoginListener thirdPartyLoginListener = this.f54060e;
+                WalletApiExtListener.ThirdPartyLoginListener thirdPartyLoginListener = this.f54227e;
                 if (thirdPartyLoginListener != null) {
                     thirdPartyLoginListener.onCallFail(0, null);
                 }
@@ -80,7 +80,7 @@ public class ThirdPartyLoginUtil implements NoProguard {
         public void onSuccess(int i2, String str) {
             WalletApiExtListener.ThirdPartyLoginListener thirdPartyLoginListener;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, str) == null) || (thirdPartyLoginListener = this.f54060e) == null) {
+            if (!(interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, str) == null) || (thirdPartyLoginListener = this.f54227e) == null) {
                 return;
             }
             thirdPartyLoginListener.onCallSuccess(0, null);
@@ -93,19 +93,19 @@ public class ThirdPartyLoginUtil implements NoProguard {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ int f54062e;
+        public final /* synthetic */ int f54229e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ Activity f54063f;
+        public final /* synthetic */ Activity f54230f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ WalletApiExtListener.ThirdPartyLoginListener f54064g;
+        public final /* synthetic */ WalletApiExtListener.ThirdPartyLoginListener f54231g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ PromptDialog f54065h;
+        public final /* synthetic */ PromptDialog f54232h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final /* synthetic */ ThirdPartyLoginUtil f54066i;
+        public final /* synthetic */ ThirdPartyLoginUtil f54233i;
 
         public b(ThirdPartyLoginUtil thirdPartyLoginUtil, int i2, Activity activity, WalletApiExtListener.ThirdPartyLoginListener thirdPartyLoginListener, PromptDialog promptDialog) {
             Interceptable interceptable = $ic;
@@ -122,29 +122,29 @@ public class ThirdPartyLoginUtil implements NoProguard {
                     return;
                 }
             }
-            this.f54066i = thirdPartyLoginUtil;
-            this.f54062e = i2;
-            this.f54063f = activity;
-            this.f54064g = thirdPartyLoginListener;
-            this.f54065h = promptDialog;
+            this.f54233i = thirdPartyLoginUtil;
+            this.f54229e = i2;
+            this.f54230f = activity;
+            this.f54231g = thirdPartyLoginListener;
+            this.f54232h = promptDialog;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                int i2 = this.f54062e;
+                int i2 = this.f54229e;
                 if (i2 == 0) {
-                    this.f54066i.startLogin(this.f54063f, this.f54064g);
+                    this.f54233i.startLogin(this.f54230f, this.f54231g);
                 } else if (i2 == 1) {
-                    this.f54066i.startTuristNormalize(this.f54063f, this.f54064g);
+                    this.f54233i.startTuristNormalize(this.f54230f, this.f54231g);
                 } else if (i2 == 2) {
-                    this.f54066i.startBindPhone(this.f54063f, this.f54064g);
+                    this.f54233i.startBindPhone(this.f54230f, this.f54231g);
                 } else if (i2 == 3) {
-                    this.f54066i.startPassSMSAuth(this.f54063f, this.f54064g);
+                    this.f54233i.startPassSMSAuth(this.f54230f, this.f54231g);
                 }
                 try {
-                    this.f54065h.dismiss();
+                    this.f54232h.dismiss();
                 } catch (Throwable unused) {
                 }
             }
@@ -157,13 +157,13 @@ public class ThirdPartyLoginUtil implements NoProguard {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PromptDialog f54067e;
+        public final /* synthetic */ PromptDialog f54234e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ WalletApiExtListener.ThirdPartyLoginListener f54068f;
+        public final /* synthetic */ WalletApiExtListener.ThirdPartyLoginListener f54235f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ Activity f54069g;
+        public final /* synthetic */ Activity f54236g;
 
         public c(ThirdPartyLoginUtil thirdPartyLoginUtil, PromptDialog promptDialog, WalletApiExtListener.ThirdPartyLoginListener thirdPartyLoginListener, Activity activity) {
             Interceptable interceptable = $ic;
@@ -180,9 +180,9 @@ public class ThirdPartyLoginUtil implements NoProguard {
                     return;
                 }
             }
-            this.f54067e = promptDialog;
-            this.f54068f = thirdPartyLoginListener;
-            this.f54069g = activity;
+            this.f54234e = promptDialog;
+            this.f54235f = thirdPartyLoginListener;
+            this.f54236g = activity;
         }
 
         @Override // android.view.View.OnClickListener
@@ -190,14 +190,14 @@ public class ThirdPartyLoginUtil implements NoProguard {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
                 try {
-                    this.f54067e.dismiss();
+                    this.f54234e.dismiss();
                 } catch (Throwable unused) {
                 }
-                WalletApiExtListener.ThirdPartyLoginListener thirdPartyLoginListener = this.f54068f;
+                WalletApiExtListener.ThirdPartyLoginListener thirdPartyLoginListener = this.f54235f;
                 if (thirdPartyLoginListener != null) {
                     thirdPartyLoginListener.onCallFail(0, null);
                 }
-                this.f54069g.finish();
+                this.f54236g.finish();
             }
         }
     }

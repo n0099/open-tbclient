@@ -23,7 +23,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import org.apache.commons.lang3.mutable.MutableObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class ClassUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String INNER_CLASS_SEPARATOR;
@@ -38,7 +38,7 @@ public class ClassUtils {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static final class Interfaces {
         public static final /* synthetic */ Interfaces[] $VALUES;
         public static /* synthetic */ Interceptable $ic;

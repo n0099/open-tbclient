@@ -6,10 +6,10 @@ import android.content.Intent;
 import android.os.IBinder;
 import androidx.core.view.InputDeviceCompat;
 import androidx.localbroadcastmanager.content.LocalBroadcastManager;
-import c.a.a1.k.b;
-import c.a.a1.k.c;
-import c.a.a1.k.d;
-import c.a.a1.t.e;
+import c.a.b1.k.b;
+import c.a.b1.k.c;
+import c.a.b1.k.d;
+import c.a.b1.t.e;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -34,22 +34,22 @@ public class CaptureDownloadService extends Service {
     public b mDownloadManager;
 
     /* loaded from: classes13.dex */
-    public static class a extends c.a.a1.k.e.a {
+    public static class a extends c.a.b1.k.e.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public int a;
 
         /* renamed from: b  reason: collision with root package name */
-        public d f50330b;
+        public d f50497b;
 
         /* renamed from: c  reason: collision with root package name */
-        public LocalBroadcastManager f50331c;
+        public LocalBroadcastManager f50498c;
 
         /* renamed from: d  reason: collision with root package name */
-        public long f50332d;
+        public long f50499d;
 
         /* renamed from: e  reason: collision with root package name */
-        public int f50333e;
+        public int f50500e;
 
         public a(int i2, d dVar, Context context) {
             Interceptable interceptable = $ic;
@@ -67,63 +67,63 @@ public class CaptureDownloadService extends Service {
                 }
             }
             this.a = i2;
-            this.f50330b = dVar;
-            this.f50331c = LocalBroadcastManager.getInstance(context);
+            this.f50497b = dVar;
+            this.f50498c = LocalBroadcastManager.getInstance(context);
         }
 
-        @Override // c.a.a1.k.e.a
+        @Override // c.a.b1.k.e.a
         public void a(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-                this.f50330b.f(6);
-                this.f50330b.d(100);
-                this.f50330b.e(str);
-                j(this.f50330b);
+                this.f50497b.f(6);
+                this.f50497b.d(100);
+                this.f50497b.e(str);
+                j(this.f50497b);
             }
         }
 
-        @Override // c.a.a1.k.e.a
+        @Override // c.a.b1.k.e.a
         public void d() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                this.f50330b.f(0);
-                this.f50330b.d(0);
-                this.f50330b.c("");
-                j(this.f50330b);
+                this.f50497b.f(0);
+                this.f50497b.d(0);
+                this.f50497b.c("");
+                j(this.f50497b);
             }
         }
 
-        @Override // c.a.a1.k.e.a
+        @Override // c.a.b1.k.e.a
         public void e() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                this.f50330b.f(4);
-                j(this.f50330b);
+                this.f50497b.f(4);
+                j(this.f50497b);
             }
         }
 
-        @Override // c.a.a1.k.e.a
+        @Override // c.a.b1.k.e.a
         public void f(DownloadException downloadException) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048579, this, downloadException) == null) {
                 downloadException.printStackTrace();
-                this.f50330b.f(5);
-                j(this.f50330b);
+                this.f50497b.f(5);
+                j(this.f50497b);
             }
         }
 
-        @Override // c.a.a1.k.e.a
+        @Override // c.a.b1.k.e.a
         public void g(long j2, long j3, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3), Integer.valueOf(i2)}) == null) {
-                if (this.f50332d == 0) {
-                    this.f50332d = System.currentTimeMillis();
+                if (this.f50499d == 0) {
+                    this.f50499d = System.currentTimeMillis();
                 }
-                this.f50330b.f(3);
-                this.f50330b.d(i2);
-                this.f50330b.c(e.a(j2, j3));
+                this.f50497b.f(3);
+                this.f50497b.d(i2);
+                this.f50497b.c(e.a(j2, j3));
                 if (i(i2)) {
-                    j(this.f50330b);
+                    j(this.f50497b);
                 }
             }
         }
@@ -133,11 +133,11 @@ public class CaptureDownloadService extends Service {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i2)) == null) {
                 long currentTimeMillis = System.currentTimeMillis();
-                if (currentTimeMillis - this.f50332d <= 300 || i2 == this.f50333e) {
+                if (currentTimeMillis - this.f50499d <= 300 || i2 == this.f50500e) {
                     return false;
                 }
-                this.f50332d = currentTimeMillis;
-                this.f50333e = i2;
+                this.f50499d = currentTimeMillis;
+                this.f50500e = i2;
                 return true;
             }
             return invokeI.booleanValue;
@@ -150,7 +150,7 @@ public class CaptureDownloadService extends Service {
                 intent.setAction("com.baidu.ugc.download.ACTION_BROAD_CAST");
                 intent.putExtra("extra_position", this.a);
                 intent.putExtra("extra_file_info", dVar.g().toString());
-                this.f50331c.sendBroadcast(intent);
+                this.f50498c.sendBroadcast(intent);
             }
         }
     }

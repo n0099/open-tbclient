@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.lightapp.base.utils.LightappUtils;
-/* loaded from: classes13.dex */
+/* loaded from: classes2.dex */
 public final class c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -23,7 +23,7 @@ public final class c {
             public final /* synthetic */ Activity a;
 
             /* renamed from: b  reason: collision with root package name */
-            public final /* synthetic */ float f51462b;
+            public final /* synthetic */ float f51629b;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -41,7 +41,7 @@ public final class c {
                     }
                 }
                 this.a = activity;
-                this.f51462b = f2;
+                this.f51629b = f2;
             }
 
             @Override // java.lang.Runnable
@@ -50,7 +50,7 @@ public final class c {
                 if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                     WindowManager.LayoutParams attributes = this.a.getWindow().getAttributes();
                     float f3 = attributes.screenBrightness;
-                    float f4 = this.f51462b;
+                    float f4 = this.f51629b;
                     if (f3 == f4) {
                         return;
                     }

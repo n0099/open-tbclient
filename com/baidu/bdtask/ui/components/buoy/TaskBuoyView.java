@@ -54,28 +54,28 @@ public class TaskBuoyView extends c.a.j.e.a.a implements c.a.j.l.h.a.a {
     public final Context B;
 
     /* renamed from: c  reason: collision with root package name */
-    public final BuoyContainer f33019c;
+    public final BuoyContainer f33225c;
 
     /* renamed from: d  reason: collision with root package name */
-    public View f33020d;
+    public View f33226d;
 
     /* renamed from: e  reason: collision with root package name */
-    public RelativeLayout f33021e;
+    public RelativeLayout f33227e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ImageView f33022f;
+    public ImageView f33228f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final TextView f33023g;
+    public final TextView f33229g;
 
     /* renamed from: h  reason: collision with root package name */
-    public ProgressBar f33024h;
+    public ProgressBar f33230h;
 
     /* renamed from: i  reason: collision with root package name */
-    public c.a.j.l.h.a.c f33025i;
+    public c.a.j.l.h.a.c f33231i;
 
     /* renamed from: j  reason: collision with root package name */
-    public View.OnClickListener f33026j;
+    public View.OnClickListener f33232j;
     public final Queue<Runnable> k;
     public final int l;
     public final int m;
@@ -99,24 +99,24 @@ public class TaskBuoyView extends c.a.j.e.a.a implements c.a.j.l.h.a.a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ TaskBuoyView f33027e;
+        public final /* synthetic */ TaskBuoyView f33233e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ int f33028f;
+        public final /* synthetic */ int f33234f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ int f33029g;
+        public final /* synthetic */ int f33235g;
 
         /* renamed from: com.baidu.bdtask.ui.components.buoy.TaskBuoyView$a$a  reason: collision with other inner class name */
         /* loaded from: classes10.dex */
-        public static final class C1791a implements ValueAnimator.AnimatorUpdateListener {
+        public static final class C1801a implements ValueAnimator.AnimatorUpdateListener {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ a f33030e;
+            public final /* synthetic */ a f33236e;
 
-            public C1791a(a aVar) {
+            public C1801a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -131,7 +131,7 @@ public class TaskBuoyView extends c.a.j.e.a.a implements c.a.j.l.h.a.a {
                         return;
                     }
                 }
-                this.f33030e = aVar;
+                this.f33236e = aVar;
             }
 
             @Override // android.animation.ValueAnimator.AnimatorUpdateListener
@@ -142,8 +142,8 @@ public class TaskBuoyView extends c.a.j.e.a.a implements c.a.j.l.h.a.a {
                     Object animatedValue = animation.getAnimatedValue();
                     if (animatedValue != null) {
                         int intValue = ((Integer) animatedValue).intValue();
-                        if (this.f33030e.f33027e.S()) {
-                            ProgressBar progressBar = this.f33030e.f33027e.f33024h;
+                        if (this.f33236e.f33233e.S()) {
+                            ProgressBar progressBar = this.f33236e.f33233e.f33230h;
                             if (progressBar != null) {
                                 progressBar.setProgress(intValue);
                                 return;
@@ -164,7 +164,7 @@ public class TaskBuoyView extends c.a.j.e.a.a implements c.a.j.l.h.a.a {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ a f33031e;
+            public final /* synthetic */ a f33237e;
 
             /* JADX DEBUG: Incorrect args count in method signature: ()V */
             public b(a aVar) {
@@ -182,14 +182,14 @@ public class TaskBuoyView extends c.a.j.e.a.a implements c.a.j.l.h.a.a {
                         return;
                     }
                 }
-                this.f33031e = aVar;
+                this.f33237e = aVar;
             }
 
             @Override // android.animation.Animator.AnimatorListener
             public void onAnimationCancel(Animator animator) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(1048576, this, animator) == null) {
-                    this.f33031e.f33027e.v = false;
+                    this.f33237e.f33233e.v = false;
                 }
             }
 
@@ -197,8 +197,8 @@ public class TaskBuoyView extends c.a.j.e.a.a implements c.a.j.l.h.a.a {
             public void onAnimationEnd(Animator animator) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animator) == null) {
-                    this.f33031e.f33027e.v = false;
-                    this.f33031e.f33027e.T(-1, -1);
+                    this.f33237e.f33233e.v = false;
+                    this.f33237e.f33233e.T(-1, -1);
                 }
             }
 
@@ -232,9 +232,9 @@ public class TaskBuoyView extends c.a.j.e.a.a implements c.a.j.l.h.a.a {
                     return;
                 }
             }
-            this.f33027e = taskBuoyView;
-            this.f33028f = i2;
-            this.f33029g = i3;
+            this.f33233e = taskBuoyView;
+            this.f33234f = i2;
+            this.f33235g = i3;
         }
 
         @Override // java.lang.Runnable
@@ -242,28 +242,28 @@ public class TaskBuoyView extends c.a.j.e.a.a implements c.a.j.l.h.a.a {
             ValueAnimator valueAnimator;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f33027e.v = true;
-                if (this.f33027e.w != null && (valueAnimator = this.f33027e.w) != null) {
+                this.f33233e.v = true;
+                if (this.f33233e.w != null && (valueAnimator = this.f33233e.w) != null) {
                     valueAnimator.cancel();
                 }
-                this.f33027e.w = ValueAnimator.ofInt(this.f33028f, this.f33029g);
-                ValueAnimator valueAnimator2 = this.f33027e.w;
+                this.f33233e.w = ValueAnimator.ofInt(this.f33234f, this.f33235g);
+                ValueAnimator valueAnimator2 = this.f33233e.w;
                 if (valueAnimator2 != null) {
                     valueAnimator2.setInterpolator(new LinearInterpolator());
                 }
-                ValueAnimator valueAnimator3 = this.f33027e.w;
+                ValueAnimator valueAnimator3 = this.f33233e.w;
                 if (valueAnimator3 != null) {
-                    valueAnimator3.addUpdateListener(new C1791a(this));
+                    valueAnimator3.addUpdateListener(new C1801a(this));
                 }
-                ValueAnimator valueAnimator4 = this.f33027e.w;
+                ValueAnimator valueAnimator4 = this.f33233e.w;
                 if (valueAnimator4 != null) {
                     valueAnimator4.addListener(new b(this));
                 }
-                ValueAnimator valueAnimator5 = this.f33027e.w;
+                ValueAnimator valueAnimator5 = this.f33233e.w;
                 if (valueAnimator5 != null) {
-                    valueAnimator5.setDuration(this.f33027e.G());
+                    valueAnimator5.setDuration(this.f33233e.G());
                 }
-                ValueAnimator valueAnimator6 = this.f33027e.w;
+                ValueAnimator valueAnimator6 = this.f33233e.w;
                 if (valueAnimator6 != null) {
                     valueAnimator6.start();
                 }
@@ -277,7 +277,7 @@ public class TaskBuoyView extends c.a.j.e.a.a implements c.a.j.l.h.a.a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ TaskBuoyView f33032e;
+        public final /* synthetic */ TaskBuoyView f33238e;
 
         public b(TaskBuoyView taskBuoyView) {
             Interceptable interceptable = $ic;
@@ -294,7 +294,7 @@ public class TaskBuoyView extends c.a.j.e.a.a implements c.a.j.l.h.a.a {
                     return;
                 }
             }
-            this.f33032e = taskBuoyView;
+            this.f33238e = taskBuoyView;
         }
 
         @Override // android.view.View.OnClickListener
@@ -304,18 +304,18 @@ public class TaskBuoyView extends c.a.j.e.a.a implements c.a.j.l.h.a.a {
             c.a.j.j.e.a.a d2;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f33032e.u = true;
-                if (this.f33032e.S()) {
-                    this.f33032e.getContentView().setVisibility(4);
+                this.f33238e.u = true;
+                if (this.f33238e.S()) {
+                    this.f33238e.getContentView().setVisibility(4);
                 }
-                TaskBuoyViewModel taskBuoyViewModel = this.f33032e.A;
+                TaskBuoyViewModel taskBuoyViewModel = this.f33238e.A;
                 if (taskBuoyViewModel != null && (c2 = taskBuoyViewModel.c()) != null && (v = BDPTask.m.v()) != null && (d2 = v.d()) != null) {
-                    d2.b(c2.getSingleKey(), c.a.j.g.f.c.f4035c.a());
+                    d2.b(c2.getSingleKey(), c.a.j.g.f.c.f4055c.a());
                 }
-                this.f33032e.c().a();
-                View.OnClickListener I = this.f33032e.I();
+                this.f33238e.c().a();
+                View.OnClickListener I = this.f33238e.I();
                 if (I != null) {
-                    I.onClick(this.f33032e.f33022f);
+                    I.onClick(this.f33238e.f33228f);
                 }
             }
         }
@@ -327,7 +327,7 @@ public class TaskBuoyView extends c.a.j.e.a.a implements c.a.j.l.h.a.a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ TaskBuoyView f33033e;
+        public final /* synthetic */ TaskBuoyView f33239e;
 
         public c(TaskBuoyView taskBuoyView) {
             Interceptable interceptable = $ic;
@@ -344,21 +344,21 @@ public class TaskBuoyView extends c.a.j.e.a.a implements c.a.j.l.h.a.a {
                     return;
                 }
             }
-            this.f33033e = taskBuoyView;
+            this.f33239e = taskBuoyView;
         }
 
         @Override // android.view.View.OnClickListener
         public final void onClick(View view) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f33033e.A == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f33239e.A == null) {
                 return;
             }
-            TaskBuoyViewModel taskBuoyViewModel = this.f33033e.A;
+            TaskBuoyViewModel taskBuoyViewModel = this.f33239e.A;
             if (taskBuoyViewModel == null) {
                 Intrinsics.throwNpe();
             }
             TaskInfo c2 = taskBuoyViewModel.c();
-            TaskBuoyViewModel taskBuoyViewModel2 = this.f33033e.A;
+            TaskBuoyViewModel taskBuoyViewModel2 = this.f33239e.A;
             if (taskBuoyViewModel2 == null) {
                 Intrinsics.throwNpe();
             }
@@ -366,9 +366,9 @@ public class TaskBuoyView extends c.a.j.e.a.a implements c.a.j.l.h.a.a {
             if (viewData == null || !viewData.getTaskStatus().isFinished()) {
                 return;
             }
-            this.f33033e.c().b();
-            c.a.j.l.h.a.c H = this.f33033e.H();
-            BuoyContainer buoyContainer = this.f33033e.f33019c;
+            this.f33239e.c().b();
+            c.a.j.l.h.a.c H = this.f33239e.H();
+            BuoyContainer buoyContainer = this.f33239e.f33225c;
             Intrinsics.checkExpressionValueIsNotNull(viewData, "viewData");
             H.a(buoyContainer, c2, viewData);
         }
@@ -392,17 +392,17 @@ public class TaskBuoyView extends c.a.j.e.a.a implements c.a.j.l.h.a.a {
         this.B = context;
         Context applicationContext = this.B.getApplicationContext();
         Intrinsics.checkExpressionValueIsNotNull(applicationContext, "context.applicationContext");
-        this.f33019c = new BuoyContainer(applicationContext, this);
-        View inflate = LayoutInflater.from(this.B.getApplicationContext()).inflate(K(), this.f33019c);
-        this.f33020d = inflate;
-        this.f33021e = inflate != null ? (RelativeLayout) inflate.findViewById(e.buoy_container) : null;
-        View view = this.f33020d;
-        this.f33022f = view != null ? (ImageView) view.findViewById(e.buoy_close) : null;
-        View view2 = this.f33020d;
-        this.f33023g = view2 != null ? (TextView) view2.findViewById(e.task_buoy_message) : null;
-        View view3 = this.f33020d;
-        this.f33024h = view3 != null ? (ProgressBar) view3.findViewById(e.task_tip_process) : null;
-        this.f33025i = new c.a.j.l.h.a.b();
+        this.f33225c = new BuoyContainer(applicationContext, this);
+        View inflate = LayoutInflater.from(this.B.getApplicationContext()).inflate(K(), this.f33225c);
+        this.f33226d = inflate;
+        this.f33227e = inflate != null ? (RelativeLayout) inflate.findViewById(e.buoy_container) : null;
+        View view = this.f33226d;
+        this.f33228f = view != null ? (ImageView) view.findViewById(e.buoy_close) : null;
+        View view2 = this.f33226d;
+        this.f33229g = view2 != null ? (TextView) view2.findViewById(e.task_buoy_message) : null;
+        View view3 = this.f33226d;
+        this.f33230h = view3 != null ? (ProgressBar) view3.findViewById(e.task_tip_process) : null;
+        this.f33231i = new c.a.j.l.h.a.b();
         this.k = new ConcurrentLinkedQueue();
         this.l = 1000;
         this.m = 500;
@@ -462,13 +462,13 @@ public class TaskBuoyView extends c.a.j.e.a.a implements c.a.j.l.h.a.a {
     public final c.a.j.l.h.a.c H() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f33025i : (c.a.j.l.h.a.c) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f33231i : (c.a.j.l.h.a.c) invokeV.objValue;
     }
 
     public final View.OnClickListener I() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f33026j : (View.OnClickListener) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f33232j : (View.OnClickListener) invokeV.objValue;
     }
 
     public final String J(float f2, String str, long j2) {
@@ -514,23 +514,23 @@ public class TaskBuoyView extends c.a.j.e.a.a implements c.a.j.l.h.a.a {
         Resources resources;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            ProgressBar progressBar = this.f33024h;
+            ProgressBar progressBar = this.f33230h;
             if (progressBar != null) {
                 progressBar.setMax(L());
             }
-            ProgressBar progressBar2 = this.f33024h;
+            ProgressBar progressBar2 = this.f33230h;
             if (progressBar2 != null) {
                 progressBar2.setProgress(0);
             }
-            ImageView imageView = this.f33022f;
+            ImageView imageView = this.f33228f;
             if (imageView != null) {
                 imageView.setOnClickListener(new b(this));
             }
-            View view = this.f33020d;
+            View view = this.f33226d;
             if (view != null) {
                 view.setOnClickListener(new c(this));
             }
-            View view2 = this.f33020d;
+            View view2 = this.f33226d;
             if (view2 != null) {
                 view2.setClickable(true);
             }
@@ -538,7 +538,7 @@ public class TaskBuoyView extends c.a.j.e.a.a implements c.a.j.l.h.a.a {
             if (v == null || (h2 = v.h()) == null || (appContext = h2.getAppContext()) == null || (resources = appContext.getResources()) == null) {
                 return;
             }
-            c.a.j.l.i.c.a(this.f33020d, this.f33022f, resources.getDimensionPixelSize(c.a.j.l.c.sdk_buoy_close_expend_size));
+            c.a.j.l.i.c.a(this.f33226d, this.f33228f, resources.getDimensionPixelSize(c.a.j.l.c.sdk_buoy_close_expend_size));
             getContentView().setVisibility(4);
         }
     }
@@ -581,7 +581,7 @@ public class TaskBuoyView extends c.a.j.e.a.a implements c.a.j.l.h.a.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
             if (O(this.B)) {
-                View view = this.f33020d;
+                View view = this.f33226d;
                 return ((view != null ? view.getParent() : null) == null || !Q() || this.p) ? false : true;
             }
             return false;
@@ -615,7 +615,7 @@ public class TaskBuoyView extends c.a.j.e.a.a implements c.a.j.l.h.a.a {
     public final void U(c.a.j.l.h.a.c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048592, this, cVar) == null) {
-            this.f33025i = cVar;
+            this.f33231i = cVar;
         }
     }
 
@@ -623,7 +623,7 @@ public class TaskBuoyView extends c.a.j.e.a.a implements c.a.j.l.h.a.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048593, this, str, function0) == null) {
             if (!Intrinsics.areEqual(this.q, str) && !TextUtils.isEmpty(str)) {
-                d.a.b(str, this.f33021e, new TaskBuoyView$updateBg$2(this, str, function0), function0);
+                d.a.b(str, this.f33227e, new TaskBuoyView$updateBg$2(this, str, function0), function0);
             } else {
                 function0.invoke();
             }
@@ -635,14 +635,14 @@ public class TaskBuoyView extends c.a.j.e.a.a implements c.a.j.l.h.a.a {
         if (!(interceptable == null || interceptable.invokeL(1048594, this, str) == null) || Intrinsics.areEqual(this.r, str) || TextUtils.isEmpty(str)) {
             return;
         }
-        d.a.a(str, this.f33022f);
+        d.a.a(str, this.f33228f);
         this.r = str;
     }
 
     public final void Y(String str) {
         TextView textView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048595, this, str) == null) || (textView = this.f33023g) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048595, this, str) == null) || (textView = this.f33229g) == null) {
             return;
         }
         textView.setText(str);
@@ -655,7 +655,7 @@ public class TaskBuoyView extends c.a.j.e.a.a implements c.a.j.l.h.a.a {
         Resources resources;
         TextView textView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048596, this, str) == null) || (v = BDPTask.m.v()) == null || (h2 = v.h()) == null || (appContext = h2.getAppContext()) == null || (resources = appContext.getResources()) == null || (textView = this.f33023g) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048596, this, str) == null) || (v = BDPTask.m.v()) == null || (h2 = v.h()) == null || (appContext = h2.getAppContext()) == null || (resources = appContext.getResources()) == null || (textView = this.f33229g) == null) {
             return;
         }
         textView.setTextColor(c.a.j.l.i.b.a.a(str, resources.getColor(c.a.j.l.b.task_sdk_text_color_default)));
@@ -668,13 +668,13 @@ public class TaskBuoyView extends c.a.j.e.a.a implements c.a.j.l.h.a.a {
         Resources resources;
         Drawable progressDrawable;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048598, this, str, str2) == null) || this.f33024h == null) {
+        if (!(interceptable == null || interceptable.invokeLL(1048598, this, str, str2) == null) || this.f33230h == null) {
             return;
         }
         if ((TextUtils.equals(str, this.t) && TextUtils.equals(str2, this.s)) || (v = BDPTask.m.v()) == null || (h2 = v.h()) == null || (appContext = h2.getAppContext()) == null || (resources = appContext.getResources()) == null) {
             return;
         }
-        ProgressBar progressBar = this.f33024h;
+        ProgressBar progressBar = this.f33230h;
         Drawable mutate = (progressBar == null || (progressDrawable = progressBar.getProgressDrawable()) == null) ? null : progressDrawable.mutate();
         if (mutate != null) {
             LayerDrawable layerDrawable = (LayerDrawable) mutate;
@@ -688,7 +688,7 @@ public class TaskBuoyView extends c.a.j.e.a.a implements c.a.j.l.h.a.a {
                 Drawable drawable3 = ((ScaleDrawable) drawable2).getDrawable();
                 if (drawable3 != null) {
                     ((GradientDrawable) drawable3).setColor(c.a.j.l.i.b.a.a(str2, resources.getColor(c.a.j.l.b.task_sdk_process_force_color_default)));
-                    ProgressBar progressBar2 = this.f33024h;
+                    ProgressBar progressBar2 = this.f33230h;
                     if (progressBar2 != null) {
                         progressBar2.setProgressDrawable(layerDrawable);
                     }
@@ -708,7 +708,7 @@ public class TaskBuoyView extends c.a.j.e.a.a implements c.a.j.l.h.a.a {
         if (interceptable == null || interceptable.invokeCommon(1048599, this, new Object[]{Float.valueOf(f2), Long.valueOf(j2), str}) == null) {
             int L = (int) (L() * f2);
             if (R()) {
-                ProgressBar progressBar = this.f33024h;
+                ProgressBar progressBar = this.f33230h;
                 if ((progressBar != null ? progressBar.getProgress() : 0) < L) {
                     if (this.v) {
                         ValueAnimator valueAnimator = this.w;
@@ -718,7 +718,7 @@ public class TaskBuoyView extends c.a.j.e.a.a implements c.a.j.l.h.a.a {
                         this.k.clear();
                     }
                     Y(J(f2, str, j2));
-                    ProgressBar progressBar2 = this.f33024h;
+                    ProgressBar progressBar2 = this.f33230h;
                     if (progressBar2 != null) {
                         T(progressBar2.getProgress(), L);
                         return;
@@ -726,7 +726,7 @@ public class TaskBuoyView extends c.a.j.e.a.a implements c.a.j.l.h.a.a {
                     return;
                 }
             }
-            ProgressBar progressBar3 = this.f33024h;
+            ProgressBar progressBar3 = this.f33230h;
             if (progressBar3 != null) {
                 progressBar3.setProgress(L);
             }
@@ -779,7 +779,7 @@ public class TaskBuoyView extends c.a.j.e.a.a implements c.a.j.l.h.a.a {
     public View getContentView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) ? this.f33019c : (View) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) ? this.f33225c : (View) invokeV.objValue;
     }
 
     @Override // c.a.j.l.h.a.a

@@ -16,7 +16,7 @@ public class j implements TTAdDislike.DislikeInteractionCallback {
     public final /* synthetic */ View a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ f f28219b;
+    public final /* synthetic */ f f28425b;
 
     public j(f fVar, View view) {
         Interceptable interceptable = $ic;
@@ -33,7 +33,7 @@ public class j implements TTAdDislike.DislikeInteractionCallback {
                 return;
             }
         }
-        this.f28219b = fVar;
+        this.f28425b = fVar;
         this.a = view;
     }
 
@@ -53,7 +53,7 @@ public class j implements TTAdDislike.DislikeInteractionCallback {
             if (this.a.getParent() != null) {
                 ((ViewGroup) this.a.getParent()).removeView(this.a);
             }
-            this.f28219b.onAdClose();
+            this.f28425b.onAdClose();
         }
     }
 

@@ -11,7 +11,7 @@ public class j {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static j f30368b;
+    public static j f30574b;
     public transient /* synthetic */ FieldHolder $fh;
     public AdvancedWebView a;
 
@@ -33,14 +33,14 @@ public class j {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (f30368b == null) {
+            if (f30574b == null) {
                 synchronized (j.class) {
-                    if (f30368b == null) {
-                        f30368b = new j();
+                    if (f30574b == null) {
+                        f30574b = new j();
                     }
                 }
             }
-            return f30368b;
+            return f30574b;
         }
         return (j) invokeV.objValue;
     }

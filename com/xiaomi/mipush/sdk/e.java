@@ -17,13 +17,13 @@ public final class e {
     public static final /* synthetic */ e[] f92a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final e f60943b;
+    public static final e f61110b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final e f60944c;
+    public static final e f61111c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final e f60945d;
+    public static final e f61112d;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with other field name */
@@ -43,11 +43,11 @@ public final class e {
             }
         }
         a = new e("ASSEMBLE_PUSH_HUAWEI", 0, 1);
-        f60943b = new e("ASSEMBLE_PUSH_FCM", 1, 2);
-        f60944c = new e("ASSEMBLE_PUSH_COS", 2, 3);
+        f61110b = new e("ASSEMBLE_PUSH_FCM", 1, 2);
+        f61111c = new e("ASSEMBLE_PUSH_COS", 2, 3);
         e eVar = new e("ASSEMBLE_PUSH_FTOS", 3, 4);
-        f60945d = eVar;
-        f92a = new e[]{a, f60943b, f60944c, eVar};
+        f61112d = eVar;
+        f92a = new e[]{a, f61110b, f61111c, eVar};
     }
 
     public e(String str, int i2, int i3) {

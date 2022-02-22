@@ -15,15 +15,15 @@ public class a implements b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final int[] f28170d;
+    public static final int[] f28376d;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f28171b;
+    public long f28377b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f28172c;
+    public int f28378c;
 
     static {
         InterceptResult invokeClinit;
@@ -38,7 +38,7 @@ public class a implements b {
                 return;
             }
         }
-        f28170d = new int[]{1, 10, 100, 1000, 10000, 100000, 1000000, 10000000, 100000000};
+        f28376d = new int[]{1, 10, 100, 1000, 10000, 100000, 1000000, 10000000, 100000000};
     }
 
     public a(String str, long j2, int i2) {
@@ -57,8 +57,8 @@ public class a implements b {
             }
         }
         this.a = str;
-        this.f28171b = j2;
-        this.f28172c = i2;
+        this.f28377b = j2;
+        this.f28378c = i2;
     }
 
     public static byte[] c(String str) {
@@ -82,15 +82,15 @@ public class a implements b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
             byte[] bArr = new byte[8];
-            long j2 = this.f28171b;
+            long j2 = this.f28377b;
             for (int i2 = 7; i2 >= 0; i2--) {
                 bArr[i2] = (byte) (255 & j2);
                 j2 >>= 8;
             }
             SecurePay securePay = SecurePay.getInstance();
             byte[] c2 = c(this.a);
-            int[] iArr = f28170d;
-            int i3 = this.f28172c;
+            int[] iArr = f28376d;
+            int i3 = this.f28378c;
             return securePay.getDyKey(c2, bArr, iArr[i3], i3);
         }
         return (String) invokeL.objValue;
@@ -99,8 +99,8 @@ public class a implements b {
     public void b(long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j2) == null) {
-            this.f28171b = j2;
-            String str = "+++++++++HotpToken movingFactor is " + this.f28171b;
+            this.f28377b = j2;
+            String str = "+++++++++HotpToken movingFactor is " + this.f28377b;
         }
     }
 }

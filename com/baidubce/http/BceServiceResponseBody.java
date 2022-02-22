@@ -17,7 +17,7 @@ import okio.BufferedSource;
 import okio.ForwardingSource;
 import okio.Okio;
 import okio.Source;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class BceServiceResponseBody<T extends AbstractBceRequest> extends ResponseBody {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

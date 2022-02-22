@@ -105,10 +105,10 @@ public final class UnsignedLongs {
         public static final long[] a;
 
         /* renamed from: b  reason: collision with root package name */
-        public static final int[] f54969b;
+        public static final int[] f55136b;
 
         /* renamed from: c  reason: collision with root package name */
-        public static final int[] f54970c;
+        public static final int[] f55137c;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -125,14 +125,14 @@ public final class UnsignedLongs {
                 }
             }
             a = new long[37];
-            f54969b = new int[37];
-            f54970c = new int[37];
+            f55136b = new int[37];
+            f55137c = new int[37];
             BigInteger bigInteger = new BigInteger("10000000000000000", 16);
             for (int i2 = 2; i2 <= 36; i2++) {
                 long j2 = i2;
                 a[i2] = UnsignedLongs.b(-1L, j2);
-                f54969b[i2] = (int) UnsignedLongs.e(-1L, j2);
-                f54970c[i2] = bigInteger.toString(i2).length() - 1;
+                f55136b[i2] = (int) UnsignedLongs.e(-1L, j2);
+                f55137c[i2] = bigInteger.toString(i2).length() - 1;
             }
         }
 
@@ -145,7 +145,7 @@ public final class UnsignedLongs {
                     if (j2 < jArr[i3]) {
                         return false;
                     }
-                    return j2 > jArr[i3] || i2 > f54969b[i3];
+                    return j2 > jArr[i3] || i2 > f55136b[i3];
                 }
                 return true;
             }
@@ -188,7 +188,7 @@ public final class UnsignedLongs {
             n.p(str);
             if (str.length() != 0) {
                 if (i2 >= 2 && i2 <= 36) {
-                    int i3 = a.f54970c[i2] - 1;
+                    int i3 = a.f55137c[i2] - 1;
                     long j2 = 0;
                     for (int i4 = 0; i4 < str.length(); i4++) {
                         int digit = Character.digit(str.charAt(i4), i2);

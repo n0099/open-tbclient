@@ -4,7 +4,7 @@ import android.content.Context;
 import com.baidu.sapi2.SapiAccount;
 import com.baidu.sapi2.SapiConfiguration;
 import com.baidu.sapi2.callback.UbcUploadImplCallback;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public interface ISAccountManager {
     SapiConfiguration getConfignation();
 

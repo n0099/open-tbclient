@@ -7,7 +7,7 @@ import com.kwad.sdk.core.a.i;
 import com.kwad.sdk.utils.as;
 import com.yxcorp.kuaishou.addfp.KWEGIDDFP;
 import com.yxcorp.kuaishou.addfp.ResponseDfpCallback;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class a implements com.kwad.sdk.plugin.a {
     private void a(final Context context) {
         com.kwad.sdk.core.d.a.c("AdPluginImpl", "初次获取Gid: initGId");

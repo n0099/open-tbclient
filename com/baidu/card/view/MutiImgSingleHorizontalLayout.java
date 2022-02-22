@@ -13,11 +13,11 @@ import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import c.a.d.f.p.n;
 import c.a.l.p;
-import c.a.s0.b.g.b;
-import c.a.s0.s.k;
-import c.a.s0.s.q.a;
-import c.a.s0.s.q.e2;
-import c.a.t0.g0.d0;
+import c.a.t0.b.g.b;
+import c.a.t0.s.l;
+import c.a.t0.s.r.a;
+import c.a.t0.s.r.e2;
+import c.a.u0.g0.b0;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.MediaData;
@@ -41,23 +41,23 @@ public class MutiImgSingleHorizontalLayout extends LinearLayout implements p<a> 
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final int f33250g;
+    public static final int f33456g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final int f33251h;
+    public static final int f33457h;
 
     /* renamed from: i  reason: collision with root package name */
-    public static final int f33252i;
+    public static final int f33458i;
 
     /* renamed from: j  reason: collision with root package name */
-    public static final int f33253j;
+    public static final int f33459j;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f33254e;
+    public boolean f33460e;
 
     /* renamed from: f  reason: collision with root package name */
-    public d0<a> f33255f;
+    public b0<a> f33461f;
     public ImageView mPlayIcon;
     public TextView mTitle;
     public TbImageView singalImg;
@@ -75,12 +75,12 @@ public class MutiImgSingleHorizontalLayout extends LinearLayout implements p<a> 
                 return;
             }
         }
-        f33250g = n.f(TbadkCoreApplication.getInst(), R.dimen.tbds88);
+        f33456g = n.f(TbadkCoreApplication.getInst(), R.dimen.tbds88);
         int k = n.k(TbadkCoreApplication.getInst());
-        f33251h = k;
-        int i2 = k - f33250g;
-        f33252i = i2;
-        f33253j = i2 / 2;
+        f33457h = k;
+        int i2 = k - f33456g;
+        f33458i = i2;
+        f33459j = i2 / 2;
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -108,7 +108,7 @@ public class MutiImgSingleHorizontalLayout extends LinearLayout implements p<a> 
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65539, this, e2Var) == null) {
             ArrayList<MediaData> G0 = e2Var.G0();
-            if (k.c().g() && ListUtils.getCount(G0) != 0) {
+            if (l.c().g() && ListUtils.getCount(G0) != 0) {
                 LinkedList linkedList = new LinkedList();
                 for (int i2 = 0; i2 < G0.size(); i2++) {
                     MediaData mediaData = (MediaData) ListUtils.getItem(G0, i2);
@@ -158,7 +158,7 @@ public class MutiImgSingleHorizontalLayout extends LinearLayout implements p<a> 
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             LayoutInflater.from(getContext()).inflate(R.layout.multi_image_single_h_layout, (ViewGroup) this, true);
             setOrientation(1);
-            setLayoutParams(new ViewGroup.LayoutParams(-1, f33253j));
+            setLayoutParams(new ViewGroup.LayoutParams(-1, f33459j));
             TextView textView = (TextView) findViewById(R.id.thread_card_title);
             this.mTitle = textView;
             b.m(textView, R.dimen.tbds7, R.dimen.tbds10);
@@ -173,7 +173,7 @@ public class MutiImgSingleHorizontalLayout extends LinearLayout implements p<a> 
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{mediaData, tbImageView, Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3), Integer.valueOf(i2)}) == null) {
             String a = a(mediaData);
-            int i3 = this.f33254e ? 46 : 47;
+            int i3 = this.f33460e ? 46 : 47;
             if (!StringHelper.equals(a, tbImageView.getUrl())) {
                 tbImageView.reset();
             }
@@ -189,10 +189,10 @@ public class MutiImgSingleHorizontalLayout extends LinearLayout implements p<a> 
         }
     }
 
-    public d0<a> getSubClickListener() {
+    public b0<a> getSubClickListener() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f33255f : (d0) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f33461f : (b0) invokeV.objValue;
     }
 
     @Override // android.widget.LinearLayout, android.view.View
@@ -206,7 +206,7 @@ public class MutiImgSingleHorizontalLayout extends LinearLayout implements p<a> 
     public void setFromCDN(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
-            this.f33254e = z;
+            this.f33460e = z;
         }
     }
 
@@ -221,16 +221,16 @@ public class MutiImgSingleHorizontalLayout extends LinearLayout implements p<a> 
         }
     }
 
-    public void setPreloadSizeReadyCallback(c.a.d.n.c.b bVar) {
+    public void setPreloadSizeReadyCallback(c.a.d.o.c.b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, bVar) == null) {
         }
     }
 
-    public void setSubClickListener(d0<a> d0Var) {
+    public void setSubClickListener(b0<a> b0Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, d0Var) == null) {
-            this.f33255f = d0Var;
+        if (interceptable == null || interceptable.invokeL(1048586, this, b0Var) == null) {
+            this.f33461f = b0Var;
         }
     }
 
@@ -253,7 +253,7 @@ public class MutiImgSingleHorizontalLayout extends LinearLayout implements p<a> 
                 return;
             }
         }
-        this.f33254e = true;
+        this.f33460e = true;
         b();
     }
 

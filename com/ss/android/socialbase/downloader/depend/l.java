@@ -17,14 +17,14 @@ public interface l extends IInterface {
 
         /* renamed from: com.ss.android.socialbase.downloader.depend.l$a$a  reason: collision with other inner class name */
         /* loaded from: classes4.dex */
-        public static class C2216a implements l {
+        public static class C2226a implements l {
             public static l a;
 
             /* renamed from: b  reason: collision with root package name */
-            public IBinder f59981b;
+            public IBinder f60148b;
 
-            public C2216a(IBinder iBinder) {
-                this.f59981b = iBinder;
+            public C2226a(IBinder iBinder) {
+                this.f60148b = iBinder;
             }
 
             @Override // com.ss.android.socialbase.downloader.depend.l
@@ -39,7 +39,7 @@ public interface l extends IInterface {
                     } else {
                         obtain.writeInt(0);
                     }
-                    if (!this.f59981b.transact(1, obtain, obtain2, 0) && a.a() != null) {
+                    if (!this.f60148b.transact(1, obtain, obtain2, 0) && a.a() != null) {
                         a.a().a(downloadInfo);
                     } else {
                         obtain2.readException();
@@ -52,7 +52,7 @@ public interface l extends IInterface {
 
             @Override // android.os.IInterface
             public IBinder asBinder() {
-                return this.f59981b;
+                return this.f60148b;
             }
 
             @Override // com.ss.android.socialbase.downloader.depend.l
@@ -67,7 +67,7 @@ public interface l extends IInterface {
                     } else {
                         obtain.writeInt(0);
                     }
-                    if (!this.f59981b.transact(2, obtain, obtain2, 0) && a.a() != null) {
+                    if (!this.f60148b.transact(2, obtain, obtain2, 0) && a.a() != null) {
                         return a.a().b(downloadInfo);
                     }
                     obtain2.readException();
@@ -91,7 +91,7 @@ public interface l extends IInterface {
             if (queryLocalInterface != null && (queryLocalInterface instanceof l)) {
                 return (l) queryLocalInterface;
             }
-            return new C2216a(iBinder);
+            return new C2226a(iBinder);
         }
 
         @Override // android.os.IInterface
@@ -122,7 +122,7 @@ public interface l extends IInterface {
         }
 
         public static l a() {
-            return C2216a.a;
+            return C2226a.a;
         }
     }
 }

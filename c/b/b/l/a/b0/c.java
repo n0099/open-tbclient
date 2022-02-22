@@ -14,7 +14,7 @@ public interface c {
         public final int a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final int f27057b;
+        public final int f27263b;
 
         public a(int i2, int i3) {
             Interceptable interceptable = $ic;
@@ -32,7 +32,7 @@ public interface c {
                 }
             }
             this.a = i2;
-            this.f27057b = i3;
+            this.f27263b = i3;
         }
     }
 

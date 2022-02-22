@@ -24,13 +24,13 @@ public class av implements ar {
     public Method f141a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Method f60965b;
+    public Method f61132b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Method f60966c;
+    public Method f61133c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Method f60967d;
+    public Method f61134d;
 
     public av(Context context) {
         Interceptable interceptable = $ic;
@@ -48,9 +48,9 @@ public class av implements ar {
             }
         }
         this.f141a = null;
-        this.f60965b = null;
-        this.f60966c = null;
-        this.f60967d = null;
+        this.f61132b = null;
+        this.f61133c = null;
+        this.f61134d = null;
         this.a = context;
         a(context);
     }
@@ -85,9 +85,9 @@ public class av implements ar {
                 this.f139a = a;
                 this.f140a = a.newInstance();
                 this.f141a = this.f139a.getMethod("getUDID", Context.class);
-                this.f60965b = this.f139a.getMethod("getOAID", Context.class);
-                this.f60966c = this.f139a.getMethod("getVAID", Context.class);
-                this.f60967d = this.f139a.getMethod("getAAID", Context.class);
+                this.f61132b = this.f139a.getMethod("getOAID", Context.class);
+                this.f61133c = this.f139a.getMethod("getVAID", Context.class);
+                this.f61134d = this.f139a.getMethod("getAAID", Context.class);
             } catch (Exception e2) {
                 com.xiaomi.channel.commonutils.logger.b.a("miui load class error", e2);
             }
@@ -95,7 +95,7 @@ public class av implements ar {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static boolean m216a(Context context) {
+    public static boolean m215a(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) ? "com.xiaomi.xmsf".equals(context.getPackageName()) : invokeL.booleanValue;
@@ -120,23 +120,23 @@ public class av implements ar {
 
     @Override // com.xiaomi.push.ar
     /* renamed from: b */
-    public String mo213b() {
+    public String mo212b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? a(this.a, this.f60965b) : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? a(this.a, this.f61132b) : (String) invokeV.objValue;
     }
 
     @Override // com.xiaomi.push.ar
     public String c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? a(this.a, this.f60966c) : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? a(this.a, this.f61133c) : (String) invokeV.objValue;
     }
 
     @Override // com.xiaomi.push.ar
     public String d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? a(this.a, this.f60967d) : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? a(this.a, this.f61134d) : (String) invokeV.objValue;
     }
 }

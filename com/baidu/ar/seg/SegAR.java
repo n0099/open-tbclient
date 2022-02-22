@@ -42,7 +42,7 @@ public class SegAR extends c {
     public LuaMsgListener cc;
 
     /* renamed from: io  reason: collision with root package name */
-    public byte[] f32867io;
+    public byte[] f33073io;
     public e mv;
     public int oU;
     public boolean pH;
@@ -179,7 +179,7 @@ public class SegAR extends c {
         this.vn = 1.0f;
         this.vw = 0;
         this.vx = 0;
-        this.f32867io = null;
+        this.f33073io = null;
         this.vy = 0L;
         this.cb = null;
         this.vz = -1;
@@ -658,9 +658,9 @@ public class SegAR extends c {
                                 if (r != null) {
                                     this.vA.vw = gd.getWidth();
                                     this.vA.vx = gd.getHeight();
-                                    this.vA.f32867io = gd.gc();
+                                    this.vA.f33073io = gd.gc();
                                     this.vA.vy = bVar.getTimestamp();
-                                    if (this.vA.vw <= 0 || this.vA.vx <= 0 || this.vA.f32867io == null) {
+                                    if (this.vA.vw <= 0 || this.vA.vx <= 0 || this.vA.f33073io == null) {
                                         return;
                                     }
                                     j jVar = new j();

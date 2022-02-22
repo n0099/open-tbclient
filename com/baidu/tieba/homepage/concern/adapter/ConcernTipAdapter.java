@@ -6,8 +6,8 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import c.a.d.f.p.n;
-import c.a.d.n.e.a;
-import c.a.t0.p1.c.f.b;
+import c.a.d.o.e.a;
+import c.a.u0.p1.d.f.b;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.imsdk.internal.Constants;
@@ -70,7 +70,7 @@ public class ConcernTipAdapter extends a<b, ConcernTipViewHolder> {
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ConcernTipAdapter(Context context) {
-        super(context, b.f20533j);
+        super(context, b.f20419j);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -92,7 +92,7 @@ public class ConcernTipAdapter extends a<b, ConcernTipViewHolder> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // c.a.d.n.e.a
+    @Override // c.a.d.o.e.a
     /* renamed from: Z */
     public ConcernTipViewHolder M(ViewGroup viewGroup) {
         InterceptResult invokeL;
@@ -111,18 +111,18 @@ public class ConcernTipAdapter extends a<b, ConcernTipViewHolder> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // c.a.d.n.e.a
+    @Override // c.a.d.o.e.a
     /* renamed from: a0 */
     public View S(int i2, View view, ViewGroup viewGroup, b bVar, ConcernTipViewHolder concernTipViewHolder) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i2), view, viewGroup, bVar, concernTipViewHolder})) == null) {
-            concernTipViewHolder.tip.setText(bVar.f20535f);
+            concernTipViewHolder.tip.setText(bVar.f20421f);
             LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) concernTipViewHolder.tip.getLayoutParams();
-            if (bVar.f20536g) {
+            if (bVar.f20422g) {
                 layoutParams.height = n;
                 concernTipViewHolder.topDivider.setVisibility(0);
-            } else if (bVar.f20537h) {
+            } else if (bVar.f20423h) {
                 layoutParams.height = m;
             }
             concernTipViewHolder.tip.setLayoutParams(layoutParams);

@@ -10,7 +10,7 @@ import com.baidu.wallet.lightapp.business.offlinecache.LangbridgeCacheManager;
 import com.baidu.wallet.router.RouterAction;
 import com.baidu.wallet.router.RouterCallback;
 import java.util.HashMap;
-/* loaded from: classes13.dex */
+/* loaded from: classes2.dex */
 public class OfflineCacheConfigAction implements RouterAction {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

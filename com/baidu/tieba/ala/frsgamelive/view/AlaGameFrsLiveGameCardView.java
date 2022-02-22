@@ -2,11 +2,11 @@ package com.baidu.tieba.ala.frsgamelive.view;
 
 import android.view.View;
 import android.view.ViewGroup;
-import c.a.s0.s.q.e2;
-import c.a.t0.a0.e;
-import c.a.t0.a0.g.b.c;
-import c.a.t0.a0.g.d.a;
-import c.a.t0.g0.b;
+import c.a.t0.s.r.e2;
+import c.a.u0.a0.e;
+import c.a.u0.a0.g.b.c;
+import c.a.u0.a0.g.d.a;
+import c.a.u0.g0.b;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
@@ -73,14 +73,14 @@ public class AlaGameFrsLiveGameCardView extends b<c> {
         p();
     }
 
-    @Override // c.a.t0.g0.b
+    @Override // c.a.u0.g0.b
     public int f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.ala_sub_list_game_live : invokeV.intValue;
     }
 
-    @Override // c.a.t0.g0.b
+    @Override // c.a.u0.g0.b
     public void l(TbPageContext<?> tbPageContext, int i2) {
         a aVar;
         Interceptable interceptable = $ic;
@@ -106,13 +106,13 @@ public class AlaGameFrsLiveGameCardView extends b<c> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // c.a.t0.g0.b
+    @Override // c.a.u0.g0.b
     /* renamed from: q */
     public void k(c cVar) {
         e2 e2Var;
         a aVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048581, this, cVar) == null) || cVar == null || (e2Var = cVar.f14896e) == null || (aVar = this.n) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048581, this, cVar) == null) || cVar == null || (e2Var = cVar.f15170e) == null || (aVar = this.n) == null) {
             return;
         }
         aVar.d(e2Var);

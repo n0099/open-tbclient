@@ -18,13 +18,13 @@ public final class j {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final String[] f28592h;
+    public static final String[] f28798h;
 
     /* renamed from: i  reason: collision with root package name */
-    public static final int[] f28593i;
+    public static final int[] f28799i;
 
     /* renamed from: j  reason: collision with root package name */
-    public static final int[] f28594j;
+    public static final int[] f28800j;
     public static final int[] k;
     public static final int[] l;
     public static final int[] m;
@@ -33,22 +33,22 @@ public final class j {
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f28595b;
+    public String f28801b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f28596c;
+    public int f28802c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f28597d;
+    public int f28803d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f28598e;
+    public int f28804e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f28599f;
+    public int f28805f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f28600g;
+    public int f28806g;
 
     static {
         InterceptResult invokeClinit;
@@ -63,9 +63,9 @@ public final class j {
                 return;
             }
         }
-        f28592h = new String[]{"audio/mpeg-L1", "audio/mpeg-L2", "audio/mpeg"};
-        f28593i = new int[]{44100, MediaEncodeParams.AUDIO_SAMPLE_RATE, 32000};
-        f28594j = new int[]{32, 64, 96, 128, 160, 192, w0.Q, 256, 288, MediaSessionCompat.MAX_BITMAP_SIZE_IN_DP, 352, 384, 416, FileUtils.S_IRWXU};
+        f28798h = new String[]{"audio/mpeg-L1", "audio/mpeg-L2", "audio/mpeg"};
+        f28799i = new int[]{44100, MediaEncodeParams.AUDIO_SAMPLE_RATE, 32000};
+        f28800j = new int[]{32, 64, 96, 128, 160, 192, w0.Q, 256, 288, MediaSessionCompat.MAX_BITMAP_SIZE_IN_DP, 352, 384, 416, FileUtils.S_IRWXU};
         k = new int[]{32, 48, 56, 64, 80, 96, 112, 128, 144, 160, Opcodes.ARETURN, 192, w0.Q, 256};
         l = new int[]{32, 48, 56, 64, 80, 96, 112, 128, 160, 192, w0.Q, 256, MediaSessionCompat.MAX_BITMAP_SIZE_IN_DP, 384};
         m = new int[]{32, 40, 48, 56, 64, 80, 96, 112, 128, 160, 192, w0.Q, 256, MediaSessionCompat.MAX_BITMAP_SIZE_IN_DP};
@@ -98,7 +98,7 @@ public final class j {
             if ((i2 & (-2097152)) != -2097152 || (i3 = (i2 >>> 19) & 3) == 1 || (i4 = (i2 >>> 17) & 3) == 0 || (i5 = (i2 >>> 12) & 15) == 0 || i5 == 15 || (i6 = (i2 >>> 10) & 3) == 3) {
                 return -1;
             }
-            int i8 = f28593i[i6];
+            int i8 = f28799i[i6];
             if (i3 == 2) {
                 i8 /= 2;
             } else if (i3 == 0) {
@@ -106,7 +106,7 @@ public final class j {
             }
             int i9 = (i2 >>> 9) & 1;
             if (i4 == 3) {
-                return ((((i3 == 3 ? f28594j[i5 - 1] : k[i5 - 1]) * w0.X3) / i8) + i9) * 4;
+                return ((((i3 == 3 ? f28800j[i5 - 1] : k[i5 - 1]) * w0.X3) / i8) + i9) * 4;
             }
             if (i3 == 3) {
                 i7 = i4 == 2 ? l[i5 - 1] : m[i5 - 1];
@@ -135,7 +135,7 @@ public final class j {
             if ((i2 & (-2097152)) != -2097152 || (i3 = (i2 >>> 19) & 3) == 1 || (i4 = (i2 >>> 17) & 3) == 0 || (i5 = (i2 >>> 12) & 15) == 0 || i5 == 15 || (i6 = (i2 >>> 10) & 3) == 3) {
                 return false;
             }
-            int i10 = f28593i[i6];
+            int i10 = f28799i[i6];
             if (i3 == 2) {
                 i10 /= 2;
             } else if (i3 == 0) {
@@ -145,7 +145,7 @@ public final class j {
             int i12 = (i2 >>> 9) & 1;
             int i13 = MP3TrackImpl.SAMPLES_PER_FRAME;
             if (i4 == 3) {
-                i7 = i3 == 3 ? f28594j[i5 - 1] : k[i5 - 1];
+                i7 = i3 == 3 ? f28800j[i5 - 1] : k[i5 - 1];
                 i8 = (((i7 * w0.X3) / i11) + i12) * 4;
                 i9 = 384;
             } else {
@@ -162,7 +162,7 @@ public final class j {
                     i9 = i13;
                 }
             }
-            jVar.c(i3, f28592h[3 - i4], i8, i11, ((i2 >> 6) & 3) == 3 ? 1 : 2, i7 * 1000, i9);
+            jVar.c(i3, f28798h[3 - i4], i8, i11, ((i2 >> 6) & 3) == 3 ? 1 : 2, i7 * 1000, i9);
             return true;
         }
         return invokeIL.booleanValue;
@@ -172,12 +172,12 @@ public final class j {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i2), str, Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6), Integer.valueOf(i7)}) == null) {
             this.a = i2;
-            this.f28595b = str;
-            this.f28596c = i3;
-            this.f28597d = i4;
-            this.f28598e = i5;
-            this.f28599f = i6;
-            this.f28600g = i7;
+            this.f28801b = str;
+            this.f28802c = i3;
+            this.f28803d = i4;
+            this.f28804e = i5;
+            this.f28805f = i6;
+            this.f28806g = i7;
         }
     }
 }

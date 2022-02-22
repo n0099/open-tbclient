@@ -1,6 +1,6 @@
 package com.baidu.tieba.gift.send;
 
-import c.a.t0.i1.d.a;
+import c.a.u0.i1.d.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.message.websockt.TbSocketReponsedMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;

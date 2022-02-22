@@ -1,7 +1,7 @@
 package com.baidu.tieba.im.message;
 
 import androidx.core.view.InputDeviceCompat;
-import c.a.s0.s.r.a;
+import c.a.t0.s.s.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.message.websockt.TbSocketReponsedMessage;

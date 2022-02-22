@@ -26,11 +26,11 @@ public class APSecuritySdk {
     public static APSecuritySdk a;
 
     /* renamed from: c  reason: collision with root package name */
-    public static Object f30746c;
+    public static Object f30952c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public Context f30747b;
+    public Context f30953b;
 
     /* loaded from: classes9.dex */
     public interface InitResultListener {
@@ -79,7 +79,7 @@ public class APSecuritySdk {
                 return;
             }
         }
-        f30746c = new Object();
+        f30952c = new Object();
     }
 
     public APSecuritySdk(Context context) {
@@ -97,7 +97,7 @@ public class APSecuritySdk {
                 return;
             }
         }
-        this.f30747b = context;
+        this.f30953b = context;
     }
 
     public static APSecuritySdk getInstance(Context context) {
@@ -105,7 +105,7 @@ public class APSecuritySdk {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
             if (a == null) {
-                synchronized (f30746c) {
+                synchronized (f30952c) {
                     if (a == null) {
                         a = new APSecuritySdk(context);
                     }
@@ -126,7 +126,7 @@ public class APSecuritySdk {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            String a2 = a.a(this.f30747b, "");
+            String a2 = a.a(this.f30953b, "");
             if (com.alipay.security.mobile.module.a.a.a(a2)) {
                 initToken(0, new HashMap(), null);
             }
@@ -155,10 +155,10 @@ public class APSecuritySdk {
             synchronized (this) {
                 tokenResult = new TokenResult(this);
                 try {
-                    tokenResult.apdidToken = a.a(this.f30747b, "");
-                    tokenResult.clientKey = h.f(this.f30747b);
-                    tokenResult.apdid = a.a(this.f30747b);
-                    tokenResult.umidToken = UmidSdkWrapper.getSecurityToken(this.f30747b);
+                    tokenResult.apdidToken = a.a(this.f30953b, "");
+                    tokenResult.clientKey = h.f(this.f30953b);
+                    tokenResult.apdid = a.a(this.f30953b);
+                    tokenResult.umidToken = UmidSdkWrapper.getSecurityToken(this.f30953b);
                     if (com.alipay.security.mobile.module.a.a.a(tokenResult.apdid) || com.alipay.security.mobile.module.a.a.a(tokenResult.apdidToken) || com.alipay.security.mobile.module.a.a.a(tokenResult.clientKey)) {
                         initToken(0, new HashMap(), null);
                     }
@@ -174,25 +174,25 @@ public class APSecuritySdk {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeILL(1048580, this, i2, map, initResultListener) == null) {
             com.alipay.apmobilesecuritysdk.b.a.a().a(i2);
-            String b2 = h.b(this.f30747b);
+            String b2 = h.b(this.f30953b);
             String c2 = com.alipay.apmobilesecuritysdk.b.a.a().c();
             if (com.alipay.security.mobile.module.a.a.b(b2) && !com.alipay.security.mobile.module.a.a.a(b2, c2)) {
-                com.alipay.apmobilesecuritysdk.e.a.a(this.f30747b);
-                d.a(this.f30747b);
-                g.a(this.f30747b);
+                com.alipay.apmobilesecuritysdk.e.a.a(this.f30953b);
+                d.a(this.f30953b);
+                g.a(this.f30953b);
                 i.h();
             }
             if (!com.alipay.security.mobile.module.a.a.a(b2, c2)) {
-                h.c(this.f30747b, c2);
+                h.c(this.f30953b, c2);
             }
-            String a2 = com.alipay.security.mobile.module.a.a.a(map, b.f30852g, "");
+            String a2 = com.alipay.security.mobile.module.a.a.a(map, b.f31058g, "");
             String a3 = com.alipay.security.mobile.module.a.a.a(map, "tid", "");
             String a4 = com.alipay.security.mobile.module.a.a.a(map, "userId", "");
             if (com.alipay.security.mobile.module.a.a.a(a2)) {
-                a2 = UtdidWrapper.getUtdid(this.f30747b);
+                a2 = UtdidWrapper.getUtdid(this.f30953b);
             }
             HashMap hashMap = new HashMap();
-            hashMap.put(b.f30852g, a2);
+            hashMap.put(b.f31058g, a2);
             hashMap.put("tid", a3);
             hashMap.put("userId", a4);
             hashMap.put("appName", "");
@@ -205,10 +205,10 @@ public class APSecuritySdk {
                 public final /* synthetic */ Map a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ InitResultListener f30748b;
+                public final /* synthetic */ InitResultListener f30954b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ APSecuritySdk f30749c;
+                public final /* synthetic */ APSecuritySdk f30955c;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -225,19 +225,19 @@ public class APSecuritySdk {
                             return;
                         }
                     }
-                    this.f30749c = this;
+                    this.f30955c = this;
                     this.a = hashMap;
-                    this.f30748b = initResultListener;
+                    this.f30954b = initResultListener;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        new a(this.f30749c.f30747b).a(this.a);
-                        InitResultListener initResultListener2 = this.f30748b;
+                        new a(this.f30955c.f30953b).a(this.a);
+                        InitResultListener initResultListener2 = this.f30954b;
                         if (initResultListener2 != null) {
-                            initResultListener2.onResult(this.f30749c.getTokenResult());
+                            initResultListener2.onResult(this.f30955c.getTokenResult());
                         }
                     }
                 }

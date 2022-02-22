@@ -51,8 +51,8 @@ public class ar {
                     if (z && hqVar.f520a) {
                         arrayList.add(new Pair(Integer.valueOf(a), null));
                     } else {
-                        int i2 = as.f61462b[a2.ordinal()];
-                        arrayList.add(i2 != 1 ? i2 != 2 ? i2 != 3 ? i2 != 4 ? null : new Pair(Integer.valueOf(a), Boolean.valueOf(hqVar.g())) : new Pair(Integer.valueOf(a), hqVar.m457a()) : new Pair(Integer.valueOf(a), Long.valueOf(hqVar.m456a())) : new Pair(Integer.valueOf(a), Integer.valueOf(hqVar.c())));
+                        int i2 = as.f61629b[a2.ordinal()];
+                        arrayList.add(i2 != 1 ? i2 != 2 ? i2 != 3 ? i2 != 4 ? null : new Pair(Integer.valueOf(a), Boolean.valueOf(hqVar.g())) : new Pair(Integer.valueOf(a), hqVar.m456a()) : new Pair(Integer.valueOf(a), Long.valueOf(hqVar.m455a())) : new Pair(Integer.valueOf(a), Integer.valueOf(hqVar.c())));
                     }
                 }
             }
@@ -80,8 +80,8 @@ public class ar {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65541, null, aqVar, idVar) == null) {
             for (ho hoVar : idVar.a()) {
-                if (hoVar.a() > a(aqVar, hoVar.m452a())) {
-                    a(aqVar, hoVar.m452a(), hoVar.a());
+                if (hoVar.a() > a(aqVar, hoVar.m451a())) {
+                    a(aqVar, hoVar.m451a(), hoVar.a());
                     aqVar.a(a(hoVar.f512a, false));
                 }
             }

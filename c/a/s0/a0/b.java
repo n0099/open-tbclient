@@ -1,28 +1,9 @@
 package c.a.s0.a0;
 
 import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
-import c.a.d.f.m.h;
-import c.a.d.f.p.n;
-import c.a.s0.s.l.c;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.client.HttpClient;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.framework.message.HttpMessage;
-import com.baidu.adp.framework.message.NetMessage;
-import com.baidu.adp.lib.util.StringUtils;
+import c.a.s0.q.m.b;
+import c.a.s0.w.d;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.AccountData;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.data.CloseAdData;
-import com.baidu.tbadk.data.PayMemberInfoData;
-import com.baidu.tbadk.data.UserData;
-import com.baidu.tbadk.getUserInfo.GetUserInfoHttpResponseMessage;
-import com.baidu.tbadk.getUserInfo.GetUserInfoRequstData;
-import com.baidu.tbadk.getUserInfo.GetUserInfoSocketResponseMessage;
-import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -30,35 +11,80 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.webkit.sdk.WebKitFactory;
+import java.io.File;
+import java.util.HashSet;
+import java.util.Set;
 /* loaded from: classes6.dex */
-public class b {
-    public static /* synthetic */ Interceptable $ic = null;
+public final class b implements c.a.s0.q.m.b {
+    public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static b f12335c = null;
+    public static boolean f10303c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static boolean f12336d = true;
+    public static final Set<b.a> f10304d;
     public transient /* synthetic */ FieldHolder $fh;
-    public UserData a;
+    public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public TbHttpMessageTask f12337b;
+    public String f10305b;
 
     /* loaded from: classes6.dex */
-    public class a implements Runnable {
+    public class a implements WebKitFactory.WebkitInstallListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ String a;
 
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ b f12338e;
+        /* renamed from: b  reason: collision with root package name */
+        public final /* synthetic */ File f10306b;
 
-        public a(b bVar) {
+        /* renamed from: c  reason: collision with root package name */
+        public final /* synthetic */ b f10307c;
+
+        /* renamed from: c.a.s0.a0.b$a$a  reason: collision with other inner class name */
+        /* loaded from: classes6.dex */
+        public class RunnableC0677a implements Runnable {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+
+            /* renamed from: e  reason: collision with root package name */
+            public final /* synthetic */ a f10308e;
+
+            public RunnableC0677a(a aVar) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {aVar};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i2 = newInitContext.flag;
+                    if ((i2 & 1) != 0) {
+                        int i3 = i2 & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.f10308e = aVar;
+            }
+
+            @Override // java.lang.Runnable
+            public void run() {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                    b bVar = this.f10308e.f10307c;
+                    bVar.j(bVar.f10305b);
+                }
+            }
+        }
+
+        public a(b bVar, String str, File file) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {bVar};
+                Object[] objArr = {bVar, str, file};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i2 = newInitContext.flag;
                 if ((i2 & 1) != 0) {
@@ -68,54 +94,49 @@ public class b {
                     return;
                 }
             }
-            this.f12338e = bVar;
+            this.f10307c = bVar;
+            this.a = str;
+            this.f10306b = file;
         }
 
-        @Override // java.lang.Runnable
-        public void run() {
+        @Override // com.baidu.webkit.sdk.WebKitFactory.WebkitInstallListener
+        public void onInstallFinish(int i2, String str) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                GetUserInfoRequstData c2 = this.f12338e.c();
-                c2.setNetType(NetMessage.NetType.HTTP);
-                if (this.f12338e.f12337b != null) {
-                    new HttpClient.a(c2.getHttpMessage(), this.f12338e.f12337b).execute(new HttpMessage[0]);
-                }
-            }
-        }
-    }
-
-    /* renamed from: c.a.s0.a0.b$b  reason: collision with other inner class name */
-    /* loaded from: classes6.dex */
-    public class RunnableC0833b implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ AccountData f12339e;
-
-        public RunnableC0833b(b bVar, AccountData accountData) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {bVar, accountData};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
+            if (interceptable == null || interceptable.invokeIL(1048576, this, i2, str) == null) {
+                boolean z = true;
+                if (d.B(this.a, str)) {
+                    synchronized (b.f10304d) {
+                        this.f10307c.i(true);
+                    }
                     return;
                 }
+                if (b.e(this.f10307c) <= 2) {
+                    if (8 == i2) {
+                        this.f10307c.f10305b = this.a;
+                    } else {
+                        b bVar = this.f10307c;
+                        bVar.f10305b = this.a + File.pathSeparator + this.f10307c.a;
+                        if (d.f(this.f10306b, new File(this.f10307c.f10305b)) != this.f10306b.length()) {
+                            z = false;
+                        }
+                    }
+                    if (z && c.a.s0.a.d2.d.L().postDelayed(new RunnableC0677a(this), 1000L)) {
+                        return;
+                    }
+                }
+                if (8 == i2) {
+                    d.k(this.a);
+                }
+                synchronized (b.f10304d) {
+                    this.f10307c.i(false);
+                }
             }
-            this.f12339e = accountData;
         }
 
-        @Override // java.lang.Runnable
-        public void run() {
+        @Override // com.baidu.webkit.sdk.WebKitFactory.WebkitInstallListener
+        public void onInstallStart() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                c.g(this.f12339e);
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             }
         }
     }
@@ -123,16 +144,17 @@ public class b {
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-772968147, "Lc/a/s0/a0/b;")) == null) {
-            return;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-772968147, "Lc/a/s0/a0/b;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-772968147, "Lc/a/s0/a0/b;");
+                return;
+            }
         }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(-772968147, "Lc/a/s0/a0/b;");
-        }
+        f10304d = new HashSet();
     }
 
     public b() {
@@ -145,126 +167,66 @@ public class b {
                 int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.a = 0;
+    }
+
+    public static /* synthetic */ int e(b bVar) {
+        int i2 = bVar.a + 1;
+        bVar.a = i2;
+        return i2;
+    }
+
+    @Override // c.a.s0.q.m.b
+    public void a(String str, b.a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, str, aVar) == null) {
+            synchronized (f10304d) {
+                f10304d.add(aVar);
+                if (f10303c) {
+                    return;
+                }
+                f10303c = true;
+                j(str);
             }
         }
     }
 
-    public static b d() {
-        InterceptResult invokeV;
+    public final void i(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            if (f12335c == null) {
-                synchronized (b.class) {
-                    if (f12335c == null) {
-                        f12335c = new b();
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
+            synchronized (f10304d) {
+                for (b.a aVar : f10304d) {
+                    if (aVar != null) {
+                        aVar.a(z);
                     }
                 }
+                f10304d.clear();
+                f10303c = false;
+                this.a = 0;
             }
-            return f12335c;
-        }
-        return (b) invokeV.objValue;
-    }
-
-    public final GetUserInfoRequstData c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            GetUserInfoRequstData getUserInfoRequstData = new GetUserInfoRequstData(CmdConfigHttp.CMD_GET_USER_INFO, 303024);
-            AccountData currentAccountObj = TbadkCoreApplication.getCurrentAccountObj();
-            if (currentAccountObj != null) {
-                getUserInfoRequstData.setUid(c.a.d.f.m.b.g(currentAccountObj.getID(), 0L));
-            }
-            getUserInfoRequstData.setScreenWidth(n.k(TbadkCoreApplication.getInst().getApp()));
-            return getUserInfoRequstData;
-        }
-        return (GetUserInfoRequstData) invokeV.objValue;
-    }
-
-    public UserData e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : (UserData) invokeV.objValue;
-    }
-
-    public void f() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            c.a.t0.x3.f0.a.h(303024, GetUserInfoSocketResponseMessage.class, false, false);
-            TbHttpMessageTask c2 = c.a.t0.x3.f0.a.c(303024, CmdConfigHttp.CMD_GET_USER_INFO, TbConfig.GET_USER_INFO, GetUserInfoHttpResponseMessage.class, false, false, false, false);
-            this.f12337b = c2;
-            c2.setTimeOut(c.a.d.c.j.b.d().b());
-            this.f12337b.setRetry(c.a.d.c.j.b.d().a());
-            this.f12337b.setConnectTimeOut(c.a.d.c.j.b.d().c());
         }
     }
 
-    public final void g() {
+    public final void j(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            new Thread(new a(this)).start();
-        }
-    }
-
-    public void h() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            if (f12336d) {
-                g();
-                f12336d = false;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
+            if (TextUtils.isEmpty(str)) {
+                synchronized (f10304d) {
+                    i(false);
+                }
                 return;
             }
-            MessageManager.getInstance().sendMessage(c());
-        }
-    }
-
-    public void i(UserData userData) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, userData) == null) {
-            this.a = userData;
-            if (userData == null) {
+            File file = new File(str);
+            if (!file.isFile()) {
+                synchronized (f10304d) {
+                    i(false);
+                }
                 return;
             }
-            AccountData currentAccountObj = TbadkCoreApplication.getCurrentAccountObj();
-            if (currentAccountObj == null) {
-                currentAccountObj = new AccountData();
-            }
-            if (!StringUtils.isNull(userData.getUserName())) {
-                currentAccountObj.setAccount(userData.getUserName());
-            }
-            if (!StringUtils.isNull(userData.getPortrait())) {
-                currentAccountObj.setPortrait(userData.getPortrait());
-            }
-            currentAccountObj.setSex(userData.getSex());
-            currentAccountObj.setMemberType(userData.getIsMem());
-            currentAccountObj.setVipInfo(userData.getUserVipInfo());
-            currentAccountObj.setPersonalBgUrl(userData.getBg_pic());
-            if (userData.getGodUserData() != null) {
-                currentAccountObj.setGodType(userData.getGodUserData().getType());
-            }
-            if (userData.getNewGodData() != null) {
-                currentAccountObj.setNewGodStatus(userData.getNewGodData().getStatus());
-            }
-            if (!TextUtils.isEmpty(userData.getUk())) {
-                currentAccountObj.setUk(userData.getUk());
-            }
-            currentAccountObj.setIsBigV(userData.isBigV());
-            currentAccountObj.setNameShow(userData.getName_show());
-            TbadkCoreApplication.getInst().setDefaultBubble(userData.getBimg_url());
-            PayMemberInfoData payMemberInfoData = userData.getPayMemberInfoData();
-            if (currentAccountObj.getVipInfo() != null) {
-                currentAccountObj.setMemberIconUrl(currentAccountObj.getVipInfo().getVipIconUrl());
-            } else {
-                currentAccountObj.setMemberIconUrl(null);
-            }
-            CloseAdData closeAdData = userData.getCloseAdData();
-            if (closeAdData != null) {
-                currentAccountObj.setMemberCloseAdIsOpen(closeAdData.w());
-                currentAccountObj.setMemberCloseAdVipClose(closeAdData.x());
-            }
-            currentAccountObj.setUserIcons(userData.getIconInfo());
-            currentAccountObj.setIsSelectTail(userData.getIsSelectTail());
-            h.a().c(new RunnableC0833b(this, currentAccountObj));
-            MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(2001247, payMemberInfoData));
+            WebKitFactory.installAsync("file://" + str, new a(this, str, file));
         }
     }
 }

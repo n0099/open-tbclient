@@ -3,15 +3,15 @@ package com.baidu.swan.apps.res.ui;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.view.View;
-import c.a.r0.a.d2.e;
-import c.a.r0.a.g1.f;
-import c.a.r0.a.h;
-import c.a.r0.a.n2.n;
-import c.a.r0.a.n2.s.d;
-import c.a.r0.a.q2.b;
-import c.a.r0.a.z2.n0;
-import c.a.r0.a.z2.o0;
-import c.a.r0.a.z2.q0;
+import c.a.s0.a.d2.e;
+import c.a.s0.a.g1.f;
+import c.a.s0.a.h;
+import c.a.s0.a.n2.n;
+import c.a.s0.a.n2.s.d;
+import c.a.s0.a.q2.b;
+import c.a.s0.a.z2.n0;
+import c.a.s0.a.z2.o0;
+import c.a.s0.a.z2.q0;
 import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -28,16 +28,16 @@ public class DomainErrorView extends CommonEmptyView {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f39103e;
+        public final /* synthetic */ String f39331e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f39104f;
+        public final /* synthetic */ String f39332f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ e f39105g;
+        public final /* synthetic */ e f39333g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ DomainErrorView f39106h;
+        public final /* synthetic */ DomainErrorView f39334h;
 
         public a(DomainErrorView domainErrorView, String str, String str2, e eVar) {
             Interceptable interceptable = $ic;
@@ -54,17 +54,17 @@ public class DomainErrorView extends CommonEmptyView {
                     return;
                 }
             }
-            this.f39106h = domainErrorView;
-            this.f39103e = str;
-            this.f39104f = str2;
-            this.f39105g = eVar;
+            this.f39334h = domainErrorView;
+            this.f39331e = str;
+            this.f39332f = str2;
+            this.f39333g = eVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                c.a.r0.a.c1.a.u().b(this.f39105g.x(), this.f39105g.N(), this.f39105g.Y(), o0.u(this.f39103e, this.f39104f));
+                c.a.s0.a.c1.a.u().b(this.f39333g.x(), this.f39333g.N(), this.f39333g.Y(), o0.u(this.f39331e, this.f39332f));
             }
         }
     }
@@ -95,9 +95,9 @@ public class DomainErrorView extends CommonEmptyView {
             StringBuffer stringBuffer = new StringBuffer();
             boolean d2 = o0.d(str, stringBuffer);
             String stringBuffer2 = stringBuffer.toString();
-            setIcon(c.a.r0.a.e.swanapp_error_page_general_tips);
+            setIcon(c.a.s0.a.e.swanapp_error_page_general_tips);
             setTitle(h.aiapps_emptyview_domain_error_title);
-            c.a.r0.a.u2.a aVar = new c.a.r0.a.u2.a();
+            c.a.s0.a.u2.a aVar = new c.a.s0.a.u2.a();
             aVar.k(5L);
             aVar.i(41L);
             aVar.f("domain not in white list--" + stringBuffer2);

@@ -22,7 +22,7 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class IMQueryMemberPauidRequest extends FansGroupBaseHttpRequest {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "IMQueryMemberPauidRequest";
@@ -30,7 +30,7 @@ public class IMQueryMemberPauidRequest extends FansGroupBaseHttpRequest {
     public String mKey;
     public List<Long> mUids;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class UserId {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

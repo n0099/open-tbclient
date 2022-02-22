@@ -5,20 +5,20 @@ import android.util.AttributeSet;
 import com.kwad.sdk.core.page.widget.RoundAngleImageView;
 import com.kwad.sdk.glide.framesequence.FrameSequence;
 import com.kwad.sdk.glide.framesequence.FrameSequenceDrawable;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class WebpAnimationImageView extends RoundAngleImageView {
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public FrameSequenceDrawable f58112b;
+    public FrameSequenceDrawable f58279b;
 
     /* renamed from: c  reason: collision with root package name */
-    public a f58113c;
+    public a f58280c;
 
     /* renamed from: d  reason: collision with root package name */
-    public FrameSequenceDrawable.b f58114d;
+    public FrameSequenceDrawable.b f58281d;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public interface a {
         void a();
     }
@@ -41,11 +41,11 @@ public class WebpAnimationImageView extends RoundAngleImageView {
     }
 
     private void a(Context context, AttributeSet attributeSet) {
-        this.f58114d = new FrameSequenceDrawable.b() { // from class: com.kwad.sdk.widget.WebpAnimationImageView.1
+        this.f58281d = new FrameSequenceDrawable.b() { // from class: com.kwad.sdk.widget.WebpAnimationImageView.1
             @Override // com.kwad.sdk.glide.framesequence.FrameSequenceDrawable.b
             public void a(FrameSequenceDrawable frameSequenceDrawable) {
-                if (WebpAnimationImageView.this.f58113c != null) {
-                    WebpAnimationImageView.this.f58113c.a();
+                if (WebpAnimationImageView.this.f58280c != null) {
+                    WebpAnimationImageView.this.f58280c.a();
                 }
             }
         };
@@ -53,21 +53,21 @@ public class WebpAnimationImageView extends RoundAngleImageView {
     }
 
     public void a() {
-        FrameSequenceDrawable frameSequenceDrawable = this.f58112b;
+        FrameSequenceDrawable frameSequenceDrawable = this.f58279b;
         if (frameSequenceDrawable != null) {
             frameSequenceDrawable.start();
         }
     }
 
     public void b() {
-        FrameSequenceDrawable frameSequenceDrawable = this.f58112b;
+        FrameSequenceDrawable frameSequenceDrawable = this.f58279b;
         if (frameSequenceDrawable != null) {
             frameSequenceDrawable.stop();
         }
     }
 
     public void setOnFinishedListener(a aVar) {
-        this.f58113c = aVar;
+        this.f58280c = aVar;
     }
 
     public void setWebpStream(FrameSequence frameSequence) {
@@ -77,12 +77,12 @@ public class WebpAnimationImageView extends RoundAngleImageView {
         try {
             FrameSequenceDrawable frameSequenceDrawable = new FrameSequenceDrawable(frameSequence);
             frameSequenceDrawable.setLoopCount(this.a);
-            frameSequenceDrawable.setOnFinishedListener(this.f58114d);
+            frameSequenceDrawable.setOnFinishedListener(this.f58281d);
             setImageDrawable(frameSequenceDrawable);
-            if (this.f58112b != null) {
-                this.f58112b.destroy();
+            if (this.f58279b != null) {
+                this.f58279b.destroy();
             }
-            this.f58112b = frameSequenceDrawable;
+            this.f58279b = frameSequenceDrawable;
         } catch (Exception e2) {
             e2.printStackTrace();
         }

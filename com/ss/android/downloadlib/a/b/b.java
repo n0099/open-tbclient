@@ -22,24 +22,24 @@ public class b implements Parcelable {
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f59440b;
+    public int f59607b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f59441c;
+    public String f59608c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f59442d;
+    public int f59609d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f59443e;
+    public String f59610e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f59444f;
+    public String f59611f;
 
     public b() {
-        this.f59441c = "";
-        this.f59443e = "";
-        this.f59444f = "";
+        this.f59608c = "";
+        this.f59610e = "";
+        this.f59611f = "";
     }
 
     @Override // android.os.Parcelable
@@ -53,12 +53,12 @@ public class b implements Parcelable {
         }
         if (obj != null && b.class == obj.getClass()) {
             b bVar = (b) obj;
-            if (this.a == bVar.a && this.f59440b == bVar.f59440b) {
-                String str = this.f59441c;
+            if (this.a == bVar.a && this.f59607b == bVar.f59607b) {
+                String str = this.f59608c;
                 if (str != null) {
-                    return str.equals(bVar.f59441c);
+                    return str.equals(bVar.f59608c);
                 }
-                if (bVar.f59441c == null) {
+                if (bVar.f59608c == null) {
                     return true;
                 }
             }
@@ -67,8 +67,8 @@ public class b implements Parcelable {
     }
 
     public int hashCode() {
-        int i2 = ((this.a * 31) + this.f59440b) * 31;
-        String str = this.f59441c;
+        int i2 = ((this.a * 31) + this.f59607b) * 31;
+        String str = this.f59608c;
         return i2 + (str != null ? str.hashCode() : 0);
     }
 
@@ -79,22 +79,22 @@ public class b implements Parcelable {
     @Override // android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i2) {
         parcel.writeInt(this.a);
-        parcel.writeInt(this.f59440b);
-        parcel.writeString(this.f59441c);
-        parcel.writeString(this.f59443e);
-        parcel.writeString(this.f59444f);
-        parcel.writeInt(this.f59442d);
+        parcel.writeInt(this.f59607b);
+        parcel.writeString(this.f59608c);
+        parcel.writeString(this.f59610e);
+        parcel.writeString(this.f59611f);
+        parcel.writeInt(this.f59609d);
     }
 
     public b(Parcel parcel) {
-        this.f59441c = "";
-        this.f59443e = "";
-        this.f59444f = "";
+        this.f59608c = "";
+        this.f59610e = "";
+        this.f59611f = "";
         this.a = parcel.readInt();
-        this.f59440b = parcel.readInt();
-        this.f59441c = parcel.readString();
-        this.f59443e = parcel.readString();
-        this.f59444f = parcel.readString();
-        this.f59442d = parcel.readInt();
+        this.f59607b = parcel.readInt();
+        this.f59608c = parcel.readString();
+        this.f59610e = parcel.readString();
+        this.f59611f = parcel.readString();
+        this.f59609d = parcel.readInt();
     }
 }

@@ -14,16 +14,16 @@ public class q {
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f35931b;
+    public String f36137b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f35932c;
+    public int f36138c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f35933d;
+    public int f36139d;
 
     /* renamed from: e  reason: collision with root package name */
-    public ArrayList<q> f35934e;
+    public ArrayList<q> f36140e;
 
     public q() {
         Interceptable interceptable = $ic;
@@ -42,13 +42,13 @@ public class q {
     public ArrayList<q> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f35934e : (ArrayList) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f36140e : (ArrayList) invokeV.objValue;
     }
 
     public void a(ArrayList<q> arrayList) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, arrayList) == null) {
-            this.f35934e = arrayList;
+            this.f36140e = arrayList;
         }
     }
 }

@@ -19,9 +19,9 @@ import android.widget.ImageView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
-import c.a.a1.t.t;
-import c.a.a1.t.v;
-import c.a.s0.s.u.c;
+import c.a.b1.t.t;
+import c.a.b1.t.v;
+import c.a.t0.s.v.c;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
 import com.baidu.tieba.R;
@@ -36,23 +36,23 @@ public class TextEditToolView extends FrameLayout implements View.OnClickListene
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f49533e;
+    public Context f49700e;
 
     /* renamed from: f  reason: collision with root package name */
-    public EditText f49534f;
+    public EditText f49701f;
 
     /* renamed from: g  reason: collision with root package name */
-    public ImageView f49535g;
+    public ImageView f49702g;
 
     /* renamed from: h  reason: collision with root package name */
-    public View f49536h;
+    public View f49703h;
 
     /* renamed from: i  reason: collision with root package name */
-    public View f49537i;
+    public View f49704i;
 
     /* renamed from: j  reason: collision with root package name */
-    public TBSpecificationBtn f49538j;
-    public c.a.t0.n4.m.d.a k;
+    public TBSpecificationBtn f49705j;
+    public c.a.u0.q4.m.d.a k;
     public TextPaint l;
     public int m;
     public boolean n;
@@ -67,7 +67,7 @@ public class TextEditToolView extends FrameLayout implements View.OnClickListene
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ TextEditToolView f49539e;
+        public final /* synthetic */ TextEditToolView f49706e;
 
         public a(TextEditToolView textEditToolView) {
             Interceptable interceptable = $ic;
@@ -84,40 +84,40 @@ public class TextEditToolView extends FrameLayout implements View.OnClickListene
                     return;
                 }
             }
-            this.f49539e = textEditToolView;
+            this.f49706e = textEditToolView;
         }
 
         @Override // android.view.ViewTreeObserver.OnGlobalLayoutListener
         public void onGlobalLayout() {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (this.f49539e.getContext() instanceof Activity)) {
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (this.f49706e.getContext() instanceof Activity)) {
                 Rect rect = new Rect();
-                ((Activity) this.f49539e.getContext()).getWindow().getDecorView().getWindowVisibleDisplayFrame(rect);
+                ((Activity) this.f49706e.getContext()).getWindow().getDecorView().getWindowVisibleDisplayFrame(rect);
                 int height = rect.height();
-                if (this.f49539e.m == 0) {
-                    this.f49539e.m = height;
+                if (this.f49706e.m == 0) {
+                    this.f49706e.m = height;
                     return;
                 }
-                int i2 = this.f49539e.m - height;
-                boolean z = i2 > this.f49539e.m / 4;
-                if (!z || this.f49539e.n) {
-                    if (!this.f49539e.n || z) {
+                int i2 = this.f49706e.m - height;
+                boolean z = i2 > this.f49706e.m / 4;
+                if (!z || this.f49706e.n) {
+                    if (!this.f49706e.n || z) {
                         return;
                     }
-                    this.f49539e.n = false;
-                    this.f49539e.setVisibility(8);
-                    if (this.f49539e.k != null) {
-                        this.f49539e.k.l();
+                    this.f49706e.n = false;
+                    this.f49706e.setVisibility(8);
+                    if (this.f49706e.k != null) {
+                        this.f49706e.k.l();
                         return;
                     }
                     return;
                 }
-                this.f49539e.n = true;
-                this.f49539e.o = i2;
-                if (this.f49539e.getLayoutParams() instanceof FrameLayout.LayoutParams) {
-                    FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.f49539e.getLayoutParams();
-                    layoutParams.bottomMargin = this.f49539e.o;
-                    this.f49539e.setLayoutParams(layoutParams);
+                this.f49706e.n = true;
+                this.f49706e.o = i2;
+                if (this.f49706e.getLayoutParams() instanceof FrameLayout.LayoutParams) {
+                    FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.f49706e.getLayoutParams();
+                    layoutParams.bottomMargin = this.f49706e.o;
+                    this.f49706e.setLayoutParams(layoutParams);
                 }
             }
         }
@@ -129,7 +129,7 @@ public class TextEditToolView extends FrameLayout implements View.OnClickListene
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ TextEditToolView f49540e;
+        public final /* synthetic */ TextEditToolView f49707e;
 
         public b(TextEditToolView textEditToolView) {
             Interceptable interceptable = $ic;
@@ -146,14 +146,14 @@ public class TextEditToolView extends FrameLayout implements View.OnClickListene
                     return;
                 }
             }
-            this.f49540e = textEditToolView;
+            this.f49707e = textEditToolView;
         }
 
         @Override // android.text.TextWatcher
         public void afterTextChanged(Editable editable) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, editable) == null) {
-                this.f49540e.k(editable.toString());
+                this.f49707e.k(editable.toString());
             }
         }
 
@@ -201,7 +201,7 @@ public class TextEditToolView extends FrameLayout implements View.OnClickListene
             if (i2 == 0) {
                 return 0;
             }
-            return i2 + this.f49537i.getHeight();
+            return i2 + this.f49704i.getHeight();
         }
         return invokeV.intValue;
     }
@@ -212,8 +212,8 @@ public class TextEditToolView extends FrameLayout implements View.OnClickListene
             return;
         }
         this.q = false;
-        this.f49534f.setText("");
-        i(getContext(), this.f49534f);
+        this.f49701f.setText("");
+        i(getContext(), this.f49701f);
     }
 
     public final void i(Context context, View view) {
@@ -251,10 +251,10 @@ public class TextEditToolView extends FrameLayout implements View.OnClickListene
             StaticLayout staticLayout = new StaticLayout(str, this.l, v.c(), Layout.Alignment.ALIGN_CENTER, 1.0f, 0.0f, false);
             if (staticLayout.getLineCount() > i2) {
                 str = str.substring(0, staticLayout.getLineStart(i2) - 1);
-                this.f49534f.setText(str);
+                this.f49701f.setText(str);
             }
-            this.f49534f.setSelection(this.f49534f.getText() != null ? this.f49534f.getText().length() : 0);
-            c.a.t0.n4.m.d.a aVar = this.k;
+            this.f49701f.setSelection(this.f49701f.getText() != null ? this.f49701f.getText().length() : 0);
+            c.a.u0.q4.m.d.a aVar = this.k;
             if (aVar == null || !this.q) {
                 return;
             }
@@ -266,15 +266,15 @@ public class TextEditToolView extends FrameLayout implements View.OnClickListene
     public void onClick(View view) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, view) == null) {
-            if (view == this.f49538j) {
-                String obj = this.f49534f.getText().toString();
+            if (view == this.f49705j) {
+                String obj = this.f49701f.getText().toString();
                 hideToolView();
-                c.a.t0.n4.m.d.a aVar = this.k;
+                c.a.u0.q4.m.d.a aVar = this.k;
                 if (aVar != null) {
                     aVar.e(obj);
                 }
-            } else if (view == this.f49535g) {
-                this.f49534f.setText("");
+            } else if (view == this.f49702g) {
+                this.f49701f.setText("");
             }
         }
     }
@@ -297,7 +297,7 @@ public class TextEditToolView extends FrameLayout implements View.OnClickListene
         }
     }
 
-    public void setOnTextWordsEditListener(c.a.t0.n4.m.d.a aVar) {
+    public void setOnTextWordsEditListener(c.a.u0.q4.m.d.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, aVar) == null) {
             this.k = aVar;
@@ -319,10 +319,10 @@ public class TextEditToolView extends FrameLayout implements View.OnClickListene
         }
         this.q = false;
         if (!TextUtils.equals(str, t.l(R.string.ugc_capture_text_words_hint))) {
-            this.f49534f.setText(str);
+            this.f49701f.setText(str);
         }
         setVisibility(0);
-        j(getContext(), this.f49534f);
+        j(getContext(), this.f49701f);
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -368,27 +368,27 @@ public class TextEditToolView extends FrameLayout implements View.OnClickListene
         this.p = 3;
         this.q = true;
         this.r = new a(this);
-        this.f49533e = context;
+        this.f49700e = context;
         FrameLayout.inflate(context, R.layout.layout_text_edit_tool_view, this);
-        this.f49537i = findViewById(R.id.layout_edit_tool_edit);
+        this.f49704i = findViewById(R.id.layout_edit_tool_edit);
         View findViewById = findViewById(R.id.layout_input_box);
-        this.f49536h = findViewById;
+        this.f49703h = findViewById;
         c d2 = c.d(findViewById);
         d2.n(R.string.J_X01);
         d2.f(R.color.CAM_X0106);
-        this.f49538j = (TBSpecificationBtn) findViewById(R.id.text_ok);
-        c.a.s0.s.k0.n.b bVar = new c.a.s0.s.k0.n.b();
+        this.f49705j = (TBSpecificationBtn) findViewById(R.id.text_ok);
+        c.a.t0.s.l0.n.b bVar = new c.a.t0.s.l0.n.b();
         bVar.p(R.color.CAM_X0302, R.color.CAM_X0101);
-        this.f49538j.setConfig(bVar);
-        this.f49538j.setTextSize(R.dimen.T_X08);
-        this.f49538j.setText(this.f49533e.getResources().getString(R.string.pb_send_post));
-        this.f49534f = (EditText) findViewById(R.id.edit_text_input);
-        this.f49535g = (ImageView) findViewById(R.id.img_clear_text);
-        this.f49538j.setOnClickListener(this);
+        this.f49705j.setConfig(bVar);
+        this.f49705j.setTextSize(R.dimen.T_X08);
+        this.f49705j.setText(this.f49700e.getResources().getString(R.string.pb_send_post));
+        this.f49701f = (EditText) findViewById(R.id.edit_text_input);
+        this.f49702g = (ImageView) findViewById(R.id.img_clear_text);
+        this.f49705j.setOnClickListener(this);
         if (getContext() instanceof Activity) {
             ((Activity) getContext()).getWindow().getDecorView().getViewTreeObserver().addOnGlobalLayoutListener(this.r);
         }
-        this.f49534f.addTextChangedListener(new b(this));
-        this.f49535g.setOnClickListener(this);
+        this.f49701f.addTextChangedListener(new b(this));
+        this.f49702g.setOnClickListener(this);
     }
 }

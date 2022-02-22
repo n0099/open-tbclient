@@ -9,20 +9,20 @@ import android.os.IBinder;
 import com.kwad.sdk.core.f.a.d;
 import java.security.MessageDigest;
 import java.util.concurrent.LinkedBlockingQueue;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class f {
     public Context a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final LinkedBlockingQueue<IBinder> f55880b = new LinkedBlockingQueue<>(1);
+    public final LinkedBlockingQueue<IBinder> f56047b = new LinkedBlockingQueue<>(1);
 
     /* renamed from: c  reason: collision with root package name */
-    public ServiceConnection f55881c = new ServiceConnection() { // from class: com.kwad.sdk.core.f.kwai.f.1
+    public ServiceConnection f56048c = new ServiceConnection() { // from class: com.kwad.sdk.core.f.kwai.f.1
         @Override // android.content.ServiceConnection
         public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
             com.kwad.sdk.core.d.a.c("OppoDeviceIDHelper", "onServiceConnected");
             try {
-                f.this.f55880b.put(iBinder);
+                f.this.f56047b.put(iBinder);
             } catch (InterruptedException e2) {
                 com.kwad.sdk.core.d.a.a(e2);
             }
@@ -63,18 +63,18 @@ public class f {
             Intent intent = new Intent();
             intent.setComponent(new ComponentName("com.heytap.openid", "com.heytap.openid.IdentifyService"));
             intent.setAction("action.com.heytap.openid.OPEN_ID_SERVICE");
-            boolean bindService = this.a.bindService(intent, this.f55881c, 1);
+            boolean bindService = this.a.bindService(intent, this.f56048c, 1);
             com.kwad.sdk.core.d.a.c("OppoDeviceIDHelper", "getOAID isBin=" + bindService);
             if (bindService) {
                 try {
-                    str = new d.a(this.f55880b.take()).a(this.a.getPackageName(), b(), "OUID");
+                    str = new d.a(this.f56047b.take()).a(this.a.getPackageName(), b(), "OUID");
                     com.kwad.sdk.core.d.a.c("OppoDeviceIDHelper", "getOAID oaid" + str);
                     context = this.a;
-                    serviceConnection = this.f55881c;
+                    serviceConnection = this.f56048c;
                 } catch (Exception e2) {
                     com.kwad.sdk.core.d.a.a(e2);
                     context = this.a;
-                    serviceConnection = this.f55881c;
+                    serviceConnection = this.f56048c;
                 }
                 context.unbindService(serviceConnection);
             }

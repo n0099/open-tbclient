@@ -40,7 +40,7 @@ public class a {
 
     /* renamed from: c.p.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes9.dex */
-    public static /* synthetic */ class C1693a {
+    public static /* synthetic */ class C1703a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
@@ -51,7 +51,7 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
         public Intent a;
 
-        public /* synthetic */ b(Context context, C1693a c1693a) {
+        public /* synthetic */ b(Context context, C1703a c1703a) {
             this(context);
         }
 

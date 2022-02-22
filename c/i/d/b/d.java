@@ -17,19 +17,19 @@ public final class d {
     public final long a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final long f30059b;
+    public final long f30265b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final long f30060c;
+    public final long f30266c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final long f30061d;
+    public final long f30267d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final long f30062e;
+    public final long f30268e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final long f30063f;
+    public final long f30269f;
 
     public d(long j2, long j3, long j4, long j5, long j6, long j7) {
         Interceptable interceptable = $ic;
@@ -53,17 +53,17 @@ public final class d {
         n.d(j6 >= 0);
         n.d(j7 >= 0);
         this.a = j2;
-        this.f30059b = j3;
-        this.f30060c = j4;
-        this.f30061d = j5;
-        this.f30062e = j6;
-        this.f30063f = j7;
+        this.f30265b = j3;
+        this.f30266c = j4;
+        this.f30267d = j5;
+        this.f30268e = j6;
+        this.f30269f = j7;
     }
 
     public long a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f30063f : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f30269f : invokeV.longValue;
     }
 
     public long b() {
@@ -75,19 +75,19 @@ public final class d {
     public long c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f30061d : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f30267d : invokeV.longValue;
     }
 
     public long d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f30060c : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f30266c : invokeV.longValue;
     }
 
     public long e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f30059b : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f30265b : invokeV.longValue;
     }
 
     public boolean equals(Object obj) {
@@ -96,7 +96,7 @@ public final class d {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, obj)) == null) {
             if (obj instanceof d) {
                 d dVar = (d) obj;
-                return this.a == dVar.a && this.f30059b == dVar.f30059b && this.f30060c == dVar.f30060c && this.f30061d == dVar.f30061d && this.f30062e == dVar.f30062e && this.f30063f == dVar.f30063f;
+                return this.a == dVar.a && this.f30265b == dVar.f30265b && this.f30266c == dVar.f30266c && this.f30267d == dVar.f30267d && this.f30268e == dVar.f30268e && this.f30269f == dVar.f30269f;
             }
             return false;
         }
@@ -106,13 +106,13 @@ public final class d {
     public long f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f30062e : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f30268e : invokeV.longValue;
     }
 
     public int hashCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? k.b(Long.valueOf(this.a), Long.valueOf(this.f30059b), Long.valueOf(this.f30060c), Long.valueOf(this.f30061d), Long.valueOf(this.f30062e), Long.valueOf(this.f30063f)) : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? k.b(Long.valueOf(this.a), Long.valueOf(this.f30265b), Long.valueOf(this.f30266c), Long.valueOf(this.f30267d), Long.valueOf(this.f30268e), Long.valueOf(this.f30269f)) : invokeV.intValue;
     }
 
     public String toString() {
@@ -121,11 +121,11 @@ public final class d {
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
             j.b c2 = c.i.d.a.j.c(this);
             c2.c("hitCount", this.a);
-            c2.c("missCount", this.f30059b);
-            c2.c("loadSuccessCount", this.f30060c);
-            c2.c("loadExceptionCount", this.f30061d);
-            c2.c("totalLoadTime", this.f30062e);
-            c2.c("evictionCount", this.f30063f);
+            c2.c("missCount", this.f30265b);
+            c2.c("loadSuccessCount", this.f30266c);
+            c2.c("loadExceptionCount", this.f30267d);
+            c2.c("totalLoadTime", this.f30268e);
+            c2.c("evictionCount", this.f30269f);
             return c2.toString();
         }
         return (String) invokeV.objValue;

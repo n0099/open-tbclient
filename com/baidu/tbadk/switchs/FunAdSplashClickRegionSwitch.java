@@ -1,7 +1,7 @@
 package com.baidu.tbadk.switchs;
 
 import c.a.d.f.f.a;
-import c.a.s0.s.i0.b;
+import c.a.t0.s.j0.b;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.debugtool.annotation.Modify;
 import com.baidu.tieba.debugtool.annotation.ModifyClass;
@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 @ModifyClass
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class FunAdSplashClickRegionSwitch extends a {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String KEY_SWITCH = "bear_screen_is_display";
@@ -33,7 +33,7 @@ public class FunAdSplashClickRegionSwitch extends a {
         }
     }
 
-    @Modify(description = "小熊广告开屏是否展示模拟的可点击区域")
+    @Modify(description = "小熊广告开屏是否展示模拟的可点击区域", type = 100)
     public static boolean isOpen() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

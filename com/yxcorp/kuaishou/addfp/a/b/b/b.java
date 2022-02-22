@@ -41,17 +41,17 @@ public final class b implements ServiceConnection {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, componentName, iBinder) == null) {
             try {
-                this.a.f61531c = e.a(iBinder);
+                this.a.f61698c = e.a(iBinder);
             } catch (Throwable th) {
                 try {
                     th.printStackTrace();
-                    countDownLatch3 = this.a.f61532d;
+                    countDownLatch3 = this.a.f61699d;
                     if (countDownLatch3 == null) {
                     }
                 } finally {
-                    countDownLatch = this.a.f61532d;
+                    countDownLatch = this.a.f61699d;
                     if (countDownLatch != null) {
-                        countDownLatch2 = this.a.f61532d;
+                        countDownLatch2 = this.a.f61699d;
                         countDownLatch2.countDown();
                     }
                 }
@@ -63,7 +63,7 @@ public final class b implements ServiceConnection {
     public final void onServiceDisconnected(ComponentName componentName) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, componentName) == null) {
-            this.a.f61531c = null;
+            this.a.f61698c = null;
         }
     }
 }

@@ -40,6 +40,6 @@ public final class a extends ContentObserver {
         if (!(interceptable == null || interceptable.invokeZ(1048576, this, z) == null) || (cVar = this.a) == null) {
             return;
         }
-        cVar.f38522b = cVar.a.a();
+        cVar.f38750b = cVar.a.a();
     }
 }

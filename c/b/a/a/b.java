@@ -15,10 +15,10 @@ public final class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static w<Class<? extends a>, b> f26911b;
+    public static w<Class<? extends a>, b> f27117b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static int f26912c;
+    public static int f27118c;
     public transient /* synthetic */ FieldHolder $fh;
     public final int a;
 
@@ -35,8 +35,8 @@ public final class b {
                 return;
             }
         }
-        f26911b = new w<>();
-        f26912c = 0;
+        f27117b = new w<>();
+        f27118c = 0;
     }
 
     public b() {
@@ -52,8 +52,8 @@ public final class b {
                 return;
             }
         }
-        int i4 = f26912c;
-        f26912c = i4 + 1;
+        int i4 = f27118c;
+        f27118c = i4 + 1;
         this.a = i4;
     }
 
@@ -74,10 +74,10 @@ public final class b {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, cls)) == null) {
-            b c2 = f26911b.c(cls);
+            b c2 = f27117b.c(cls);
             if (c2 == null) {
                 b bVar = new b();
-                f26911b.i(cls, bVar);
+                f27117b.i(cls, bVar);
                 return bVar;
             }
             return c2;

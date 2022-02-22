@@ -16,10 +16,10 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import c.a.d.f.p.m;
 import c.a.d.f.p.n;
-import c.a.s0.t.c.n0;
-import c.a.t0.p4.g;
-import c.a.t0.p4.j;
-import c.a.t0.x3.s0.h;
+import c.a.t0.t.c.o0;
+import c.a.u0.s4.g;
+import c.a.u0.s4.j;
+import c.a.u0.z3.t0.h;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
@@ -29,6 +29,7 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.ActivityPendingTransitionFactory;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.TbSingleton;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.AccountAccessActivityConfig;
 import com.baidu.tbadk.core.atomData.EditVideoActivityConfig;
@@ -48,6 +49,7 @@ import com.baidu.tbadk.coreExtra.data.WriteData;
 import com.baidu.tbadk.img.ImageFileInfo;
 import com.baidu.tieba.frs.commontab.FrsCommonTabFragment;
 import com.baidu.tieba.pb.interactionpopupwindow.CustomDialogData;
+import com.baidu.tieba.stampmission.mission.StampMission;
 import com.baidu.tieba.tbadkCore.writeModel.PostWriteCallBackData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -88,7 +90,7 @@ public class VcodeActivity extends BaseActivity<VcodeActivity> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ VcodeActivity f49686e;
+        public final /* synthetic */ VcodeActivity f49853e;
 
         public a(VcodeActivity vcodeActivity) {
             Interceptable interceptable = $ic;
@@ -105,16 +107,16 @@ public class VcodeActivity extends BaseActivity<VcodeActivity> {
                     return;
                 }
             }
-            this.f49686e = vcodeActivity;
+            this.f49853e = vcodeActivity;
         }
 
         @Override // android.content.DialogInterface.OnCancelListener
         public void onCancel(DialogInterface dialogInterface) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, dialogInterface) == null) {
-                this.f49686e.destroyWaitingDialog();
-                if (this.f49686e.mPostThreadTask != null) {
-                    this.f49686e.mPostThreadTask.cancel();
+                this.f49853e.destroyWaitingDialog();
+                if (this.f49853e.mPostThreadTask != null) {
+                    this.f49853e.mPostThreadTask.cancel();
                 }
             }
         }
@@ -126,7 +128,7 @@ public class VcodeActivity extends BaseActivity<VcodeActivity> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ VcodeActivity f49687e;
+        public final /* synthetic */ VcodeActivity f49854e;
 
         public b(VcodeActivity vcodeActivity) {
             Interceptable interceptable = $ic;
@@ -143,14 +145,14 @@ public class VcodeActivity extends BaseActivity<VcodeActivity> {
                     return;
                 }
             }
-            this.f49687e = vcodeActivity;
+            this.f49854e = vcodeActivity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f49687e.finish();
+                this.f49854e.finish();
             }
         }
     }
@@ -161,7 +163,7 @@ public class VcodeActivity extends BaseActivity<VcodeActivity> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ VcodeActivity f49688e;
+        public final /* synthetic */ VcodeActivity f49855e;
 
         public c(VcodeActivity vcodeActivity) {
             Interceptable interceptable = $ic;
@@ -178,25 +180,25 @@ public class VcodeActivity extends BaseActivity<VcodeActivity> {
                     return;
                 }
             }
-            this.f49688e = vcodeActivity;
+            this.f49855e = vcodeActivity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                VcodeActivity vcodeActivity = this.f49688e;
-                vcodeActivity.HidenSoftKeyPad(vcodeActivity.mInputManager, this.f49688e.mEdit);
-                this.f49688e.showDialog();
-                if (this.f49688e.mPostThreadTask != null) {
-                    this.f49688e.mPostThreadTask.cancel();
+                VcodeActivity vcodeActivity = this.f49855e;
+                vcodeActivity.HidenSoftKeyPad(vcodeActivity.mInputManager, this.f49855e.mEdit);
+                this.f49855e.showDialog();
+                if (this.f49855e.mPostThreadTask != null) {
+                    this.f49855e.mPostThreadTask.cancel();
                 }
-                this.f49688e.isVcodeCheckSuccess = false;
-                VcodeActivity vcodeActivity2 = this.f49688e;
-                VcodeActivity vcodeActivity3 = this.f49688e;
+                this.f49855e.isVcodeCheckSuccess = false;
+                VcodeActivity vcodeActivity2 = this.f49855e;
+                VcodeActivity vcodeActivity3 = this.f49855e;
                 vcodeActivity2.mPostThreadTask = new f(vcodeActivity3, vcodeActivity3.mModel);
-                this.f49688e.mPostThreadTask.setPriority(3);
-                this.f49688e.mPostThreadTask.execute(0);
+                this.f49855e.mPostThreadTask.setPriority(3);
+                this.f49855e.mPostThreadTask.execute(0);
             }
         }
     }
@@ -207,7 +209,7 @@ public class VcodeActivity extends BaseActivity<VcodeActivity> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ VcodeActivity f49689e;
+        public final /* synthetic */ VcodeActivity f49856e;
 
         public d(VcodeActivity vcodeActivity) {
             Interceptable interceptable = $ic;
@@ -224,14 +226,14 @@ public class VcodeActivity extends BaseActivity<VcodeActivity> {
                     return;
                 }
             }
-            this.f49689e = vcodeActivity;
+            this.f49856e = vcodeActivity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f49689e.refreshImage((String) null);
+                this.f49856e.refreshImage((String) null);
             }
         }
     }
@@ -243,13 +245,13 @@ public class VcodeActivity extends BaseActivity<VcodeActivity> {
         public volatile NetWork a;
 
         /* renamed from: b  reason: collision with root package name */
-        public n0 f49690b;
+        public o0 f49857b;
 
         /* renamed from: c  reason: collision with root package name */
-        public volatile boolean f49691c;
+        public volatile boolean f49858c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ VcodeActivity f49692d;
+        public final /* synthetic */ VcodeActivity f49859d;
 
         public e(VcodeActivity vcodeActivity) {
             Interceptable interceptable = $ic;
@@ -266,10 +268,10 @@ public class VcodeActivity extends BaseActivity<VcodeActivity> {
                     return;
                 }
             }
-            this.f49692d = vcodeActivity;
+            this.f49859d = vcodeActivity;
             this.a = null;
-            this.f49690b = null;
-            this.f49691c = false;
+            this.f49857b = null;
+            this.f49858c = false;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -279,39 +281,39 @@ public class VcodeActivity extends BaseActivity<VcodeActivity> {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, strArr)) == null) {
-                if (this.f49692d.mModel == null) {
+                if (this.f49859d.mModel == null) {
                     return null;
                 }
                 String str = strArr[0];
                 if (str == null || str.length() <= 0) {
                     this.a = new NetWork(TbConfig.SERVER_ADDRESS + "c/f/anti/vcode");
-                    this.a.addPostData("fid", this.f49692d.mModel.getForumId());
-                    this.a.addPostData(TiebaStatic.Params.H5_FORUM_NAME, this.f49692d.mModel.getForumName());
+                    this.a.addPostData("fid", this.f49859d.mModel.getForumId());
+                    this.a.addPostData(TiebaStatic.Params.H5_FORUM_NAME, this.f49859d.mModel.getForumName());
                     this.a.addPostData("new_vcode", "1");
-                    this.a.addPostData("title", this.f49692d.mModel.getTitle());
-                    this.a.addPostData("content", this.f49692d.mModel.getContent());
-                    if (this.f49692d.mModel.getType() == 0) {
+                    this.a.addPostData("title", this.f49859d.mModel.getTitle());
+                    this.a.addPostData("content", this.f49859d.mModel.getContent());
+                    if (this.f49859d.mModel.getType() == 0) {
                         this.a.addPostData("pub_type", "1");
-                        if (this.f49692d.mModel.getCategoryFrom() >= 0) {
-                            this.a.addPostData("fromCategoryId", String.valueOf(this.f49692d.mModel.getCategoryFrom()));
+                        if (this.f49859d.mModel.getCategoryFrom() >= 0) {
+                            this.a.addPostData("fromCategoryId", String.valueOf(this.f49859d.mModel.getCategoryFrom()));
                         }
-                        if (this.f49692d.mModel.getCategoryTo() >= 0) {
-                            this.a.addPostData("toCategoryId", String.valueOf(this.f49692d.mModel.getCategoryTo()));
+                        if (this.f49859d.mModel.getCategoryTo() >= 0) {
+                            this.a.addPostData("toCategoryId", String.valueOf(this.f49859d.mModel.getCategoryTo()));
                         }
                     } else {
                         this.a.addPostData("pub_type", "2");
-                        this.a.addPostData("tid", this.f49692d.mModel.getThreadId());
+                        this.a.addPostData("tid", this.f49859d.mModel.getThreadId());
                     }
                     String postNetData = this.a.postNetData();
                     if (!this.a.getNetContext().getResponse().isRequestSuccess()) {
                         return null;
                     }
-                    n0 n0Var = new n0();
-                    this.f49690b = n0Var;
-                    n0Var.e(postNetData);
-                    str = this.f49690b.c();
+                    o0 o0Var = new o0();
+                    this.f49857b = o0Var;
+                    o0Var.e(postNetData);
+                    str = this.f49857b.c();
                 }
-                if (this.f49691c) {
+                if (this.f49858c) {
                     return null;
                 }
                 this.a = new NetWork(str);
@@ -324,12 +326,12 @@ public class VcodeActivity extends BaseActivity<VcodeActivity> {
         public void cancel() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                this.f49692d.mGetImageTask = null;
+                this.f49859d.mGetImageTask = null;
                 if (this.a != null) {
                     this.a.cancelNetConnect();
                 }
-                this.f49691c = true;
-                this.f49692d.mProgressBar.setVisibility(8);
+                this.f49858c = true;
+                this.f49859d.mProgressBar.setVisibility(8);
                 super.cancel(true);
             }
         }
@@ -339,14 +341,14 @@ public class VcodeActivity extends BaseActivity<VcodeActivity> {
         public void onPostExecute(Bitmap bitmap) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048579, this, bitmap) == null) {
-                this.f49692d.mGetImageTask = null;
+                this.f49859d.mGetImageTask = null;
                 if (bitmap != null) {
-                    this.f49692d.mImage.setImageBitmap(bitmap);
+                    this.f49859d.mImage.setImageBitmap(bitmap);
                 }
-                this.f49692d.mProgressBar.setVisibility(8);
-                if (this.f49690b != null && this.f49692d.mModel != null) {
-                    this.f49692d.mModel.setVcodeMD5(this.f49690b.b());
-                    this.f49692d.mModel.setVcodeUrl(this.f49690b.c());
+                this.f49859d.mProgressBar.setVisibility(8);
+                if (this.f49857b != null && this.f49859d.mModel != null) {
+                    this.f49859d.mModel.setVcodeMD5(this.f49857b.b());
+                    this.f49859d.mModel.setVcodeUrl(this.f49857b.c());
                 }
                 super.onPostExecute((e) bitmap);
             }
@@ -358,19 +360,19 @@ public class VcodeActivity extends BaseActivity<VcodeActivity> {
     }
 
     /* loaded from: classes13.dex */
-    public class f extends BdAsyncTask<Integer, Integer, n0> {
+    public class f extends BdAsyncTask<Integer, Integer, o0> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public WriteData a;
 
         /* renamed from: b  reason: collision with root package name */
-        public NetWork f49693b;
+        public NetWork f49860b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f49694c;
+        public String f49861c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ VcodeActivity f49695d;
+        public final /* synthetic */ VcodeActivity f49862d;
 
         /* loaded from: classes13.dex */
         public class a implements Runnable {
@@ -378,10 +380,10 @@ public class VcodeActivity extends BaseActivity<VcodeActivity> {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ CustomDialogData f49696e;
+            public final /* synthetic */ CustomDialogData f49863e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ f f49697f;
+            public final /* synthetic */ f f49864f;
 
             public a(f fVar, CustomDialogData customDialogData) {
                 Interceptable interceptable = $ic;
@@ -398,15 +400,15 @@ public class VcodeActivity extends BaseActivity<VcodeActivity> {
                         return;
                     }
                 }
-                this.f49697f = fVar;
-                this.f49696e = customDialogData;
+                this.f49864f = fVar;
+                this.f49863e = customDialogData;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    c.a.t0.t2.t.c.a(this.f49697f.f49695d.getPageContext(), this.f49696e).show();
+                    c.a.u0.u2.t.c.a(this.f49864f.f49862d.getPageContext(), this.f49863e).show();
                 }
             }
         }
@@ -426,17 +428,17 @@ public class VcodeActivity extends BaseActivity<VcodeActivity> {
                     return;
                 }
             }
-            this.f49695d = vcodeActivity;
+            this.f49862d = vcodeActivity;
             this.a = null;
-            this.f49693b = null;
-            this.f49694c = null;
+            this.f49860b = null;
+            this.f49861c = null;
             this.a = writeData;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: b */
-        public n0 doInBackground(Integer... numArr) {
+        public o0 doInBackground(Integer... numArr) {
             InterceptResult invokeL;
             String str;
             Address j2;
@@ -445,45 +447,45 @@ public class VcodeActivity extends BaseActivity<VcodeActivity> {
                 if (this.a == null) {
                     return null;
                 }
-                this.f49693b = new NetWork();
-                String obj = this.f49695d.mEdit.getText().toString();
+                this.f49860b = new NetWork();
+                String obj = this.f49862d.mEdit.getText().toString();
                 String imagesCodeForPost = this.a.getImagesCodeForPost();
                 if (TbadkCoreApplication.getCurrentAccountInfo() != null) {
-                    this.f49693b.addPostData("name_show", TbadkCoreApplication.getCurrentAccountNameShow());
+                    this.f49860b.addPostData("name_show", TbadkCoreApplication.getCurrentAccountNameShow());
                 }
                 if (this.a.getType() == 3) {
-                    this.f49693b.addPostData("newVcode", "1");
-                    this.f49693b.addPostData("content", this.a.getContent() + imagesCodeForPost);
-                    this.f49693b.addPostData(PayVcodeActivityConfig.VCODE_MD5, this.a.getVcodeMD5());
+                    this.f49860b.addPostData("newVcode", "1");
+                    this.f49860b.addPostData("content", this.a.getContent() + imagesCodeForPost);
+                    this.f49860b.addPostData(PayVcodeActivityConfig.VCODE_MD5, this.a.getVcodeMD5());
                     if (obj.length() > 0) {
-                        this.f49693b.addPostData("vcode", obj);
+                        this.f49860b.addPostData("vcode", obj);
                     }
-                    this.f49693b.addPostData("tag", "11");
-                    this.f49693b.getNetContext().getRequest().mIsNeedTbs = true;
-                    this.f49693b.addPostData("content", this.a.getContent() + imagesCodeForPost);
-                    this.f49693b.setUrl(c.a.t0.x3.k0.a.m);
-                    this.f49693b.addPostData("fname", this.a.getForumName());
-                    this.f49693b.addPostData("title", this.a.getTitle());
-                    this.f49693b.addPostData("apiKey", this.a.getShareApiKey());
-                    this.f49693b.addPostData("appName", this.a.getShareAppName());
-                    this.f49693b.addPostData("signKey", this.a.getShareSignKey());
-                    this.f49693b.addPostData("summary_title", this.a.getShareSummaryTitle());
-                    this.f49693b.addPostData("summary_content", this.a.getShareSummaryContent());
-                    this.f49693b.addPostData("summary_img", this.a.getShareSummaryImg());
-                    this.f49693b.addPostData(WriteShareActivityConfig.SHARE_SUMMARY_IMG_WIDTH, String.valueOf(this.a.getShareSummaryImgWidth()));
-                    this.f49693b.addPostData(WriteShareActivityConfig.SHARE_SUMMARY_IMG_HEIGHT, String.valueOf(this.a.getShareSummaryImgHeight()));
-                    this.f49693b.addPostData(WriteShareActivityConfig.SHARE_SUMMARY_IMG_TYPE, this.a.getShareSummaryImgType());
-                    this.f49693b.addPostData("referUrl", this.a.getShareReferUrl());
+                    this.f49860b.addPostData("tag", "11");
+                    this.f49860b.getNetContext().getRequest().mIsNeedTbs = true;
+                    this.f49860b.addPostData("content", this.a.getContent() + imagesCodeForPost);
+                    this.f49860b.setUrl(c.a.u0.z3.l0.a.m);
+                    this.f49860b.addPostData("fname", this.a.getForumName());
+                    this.f49860b.addPostData("title", this.a.getTitle());
+                    this.f49860b.addPostData("apiKey", this.a.getShareApiKey());
+                    this.f49860b.addPostData("appName", this.a.getShareAppName());
+                    this.f49860b.addPostData("signKey", this.a.getShareSignKey());
+                    this.f49860b.addPostData("summary_title", this.a.getShareSummaryTitle());
+                    this.f49860b.addPostData("summary_content", this.a.getShareSummaryContent());
+                    this.f49860b.addPostData("summary_img", this.a.getShareSummaryImg());
+                    this.f49860b.addPostData(WriteShareActivityConfig.SHARE_SUMMARY_IMG_WIDTH, String.valueOf(this.a.getShareSummaryImgWidth()));
+                    this.f49860b.addPostData(WriteShareActivityConfig.SHARE_SUMMARY_IMG_HEIGHT, String.valueOf(this.a.getShareSummaryImgHeight()));
+                    this.f49860b.addPostData(WriteShareActivityConfig.SHARE_SUMMARY_IMG_TYPE, this.a.getShareSummaryImgType());
+                    this.f49860b.addPostData("referUrl", this.a.getShareReferUrl());
                 } else {
-                    this.f49693b.addPostData("anonymous", "0");
-                    this.f49693b.addPostData("fid", this.a.getForumId());
-                    this.f49693b.addPostData(TiebaStatic.Params.H5_FORUM_NAME, this.a.getForumName());
+                    this.f49860b.addPostData("anonymous", "0");
+                    this.f49860b.addPostData("fid", this.a.getForumId());
+                    this.f49860b.addPostData(TiebaStatic.Params.H5_FORUM_NAME, this.a.getForumName());
                     if (this.a.getProZone() >= 0) {
-                        this.f49693b.addPostData(EditVideoActivityConfig.KEY_PRO_ZONE, String.valueOf(this.a.getProZone()));
+                        this.f49860b.addPostData(EditVideoActivityConfig.KEY_PRO_ZONE, String.valueOf(this.a.getProZone()));
                     }
-                    this.f49693b.addPostData("can_no_forum", this.a.isCanNoForum() ? "1" : "0");
-                    this.f49693b.addPostData("is_feedback", this.a.isUserFeedback() ? "1" : "0");
-                    this.f49693b.addPostData("new_vcode", "1");
+                    this.f49860b.addPostData("can_no_forum", this.a.isCanNoForum() ? "1" : "0");
+                    this.f49860b.addPostData("is_feedback", this.a.isUserFeedback() ? "1" : "0");
+                    this.f49860b.addPostData("new_vcode", "1");
                     String content = TextUtils.isEmpty(this.a.getSpanGroupString()) ? this.a.getContent() : this.a.getSpanGroupString();
                     VideoInfo videoInfo = this.a.getVideoInfo();
                     if (videoInfo != null && videoInfo.hasUpload()) {
@@ -505,138 +507,138 @@ public class VcodeActivity extends BaseActivity<VcodeActivity> {
                     } else {
                         str = content + imagesCodeForPost;
                     }
-                    this.f49693b.addPostData("content", c.a.t0.y0.a.c(str));
-                    h.a(this.f49693b, this.a);
-                    this.f49693b.addPostData("vcode_md5", this.a.getVcodeMD5());
+                    this.f49860b.addPostData("content", c.a.u0.y0.a.c(str));
+                    h.a(this.f49860b, this.a);
+                    this.f49860b.addPostData("vcode_md5", this.a.getVcodeMD5());
                     if (obj.length() > 0) {
-                        this.f49693b.addPostData("vcode", obj);
+                        this.f49860b.addPostData("vcode", obj);
                     }
-                    this.f49693b.getNetContext().getRequest().mIsNeedTbs = true;
+                    this.f49860b.getNetContext().getRequest().mIsNeedTbs = true;
                     if (this.a.getVoice() != null) {
-                        this.f49693b.addPostData("voice_md5", this.a.getVoice());
-                        this.f49693b.addPostData("during_time", String.valueOf(this.a.getVoiceDuringTime()));
+                        this.f49860b.addPostData("voice_md5", this.a.getVoice());
+                        this.f49860b.addPostData("during_time", String.valueOf(this.a.getVoiceDuringTime()));
                     }
                     if (!TextUtils.isEmpty(this.a.getTopicId())) {
-                        this.f49693b.addPostData("topic_id", this.a.getTopicId());
+                        this.f49860b.addPostData("topic_id", this.a.getTopicId());
                     }
-                    this.f49693b.addPostData("is_pictxt", this.a.isRichTextEditorMode() ? "1" : "0");
+                    this.f49860b.addPostData("is_pictxt", this.a.isRichTextEditorMode() ? "1" : "0");
                     if (this.a.getType() != 0 && this.a.getType() != 9 && this.a.getType() != 7) {
                         if (this.a.getType() == 6) {
-                            this.f49693b.setUrl(TbConfig.SERVER_ADDRESS + TbConfig.POST_THREAD_ADDRESS);
-                            this.f49693b.addPostData("title", this.a.getTitle());
-                            this.f49693b.addPostData("is_ntitle", this.a.isNoTitle() ? "1" : "0");
-                            this.f49693b.addPostData("thread_type", String.valueOf(36));
+                            this.f49860b.setUrl(TbConfig.SERVER_ADDRESS + TbConfig.POST_THREAD_ADDRESS);
+                            this.f49860b.addPostData("title", this.a.getTitle());
+                            this.f49860b.addPostData("is_ntitle", this.a.isNoTitle() ? "1" : "0");
+                            this.f49860b.addPostData("thread_type", String.valueOf(36));
                         } else if (this.a.getType() == 4) {
-                            this.f49693b.setUrl(TbConfig.SERVER_ADDRESS + TbConfig.POST_THREAD_ADDRESS);
-                            this.f49693b.addPostData("title", this.a.getTitle());
-                            this.f49693b.addPostData("is_ntitle", "0");
-                            this.f49693b.addPostData("thread_type", String.valueOf(33));
-                            this.f49693b.addPostData("is_twzhibo_thread", String.valueOf(1));
+                            this.f49860b.setUrl(TbConfig.SERVER_ADDRESS + TbConfig.POST_THREAD_ADDRESS);
+                            this.f49860b.addPostData("title", this.a.getTitle());
+                            this.f49860b.addPostData("is_ntitle", "0");
+                            this.f49860b.addPostData("thread_type", String.valueOf(33));
+                            this.f49860b.addPostData("is_twzhibo_thread", String.valueOf(1));
                         } else {
-                            this.f49693b.setUrl(TbConfig.SERVER_ADDRESS + TbConfig.REPLY_THREAD_ADDRESS);
-                            this.f49693b.addPostData("tid", this.a.getThreadId());
-                            this.f49693b.addPostData("is_ad", this.f49695d.getIntent().getBooleanExtra("is_ad", false) ? "1" : "0");
+                            this.f49860b.setUrl(TbConfig.SERVER_ADDRESS + TbConfig.REPLY_THREAD_ADDRESS);
+                            this.f49860b.addPostData("tid", this.a.getThreadId());
+                            this.f49860b.addPostData("is_ad", this.f49862d.getIntent().getBooleanExtra("is_ad", false) ? "1" : "0");
                             if (this.a.getBaijiahaoData() != null) {
-                                this.f49693b.addPostData("ori_ugc_nid", this.a.getBaijiahaoData().oriUgcNid);
-                                this.f49693b.addPostData("ori_ugc_tid", this.a.getBaijiahaoData().oriUgcTid);
-                                this.f49693b.addPostData(TiebaStatic.Params.UGC_TYPE, String.valueOf(this.a.getBaijiahaoData().oriUgcType));
-                                this.f49693b.addPostData("ori_ugc_vid", this.a.getBaijiahaoData().oriUgcVid);
+                                this.f49860b.addPostData("ori_ugc_nid", this.a.getBaijiahaoData().oriUgcNid);
+                                this.f49860b.addPostData("ori_ugc_tid", this.a.getBaijiahaoData().oriUgcTid);
+                                this.f49860b.addPostData(TiebaStatic.Params.UGC_TYPE, String.valueOf(this.a.getBaijiahaoData().oriUgcType));
+                                this.f49860b.addPostData("ori_ugc_vid", this.a.getBaijiahaoData().oriUgcVid);
                             }
                             if (this.a.getType() == 2) {
-                                this.f49693b.addPostData("quote_id", String.valueOf(this.a.getFloor()));
-                                this.f49693b.addPostData("floor_num", String.valueOf(this.a.getFloorNum()));
-                                this.f49693b.addPostData("is_addition", this.a.isAddition() ? "1" : "0");
+                                this.f49860b.addPostData("quote_id", String.valueOf(this.a.getFloor()));
+                                this.f49860b.addPostData("floor_num", String.valueOf(this.a.getFloorNum()));
+                                this.f49860b.addPostData("is_addition", this.a.isAddition() ? "1" : "0");
                                 if (this.a.getRepostId() != null) {
-                                    this.f49693b.addPostData("repostid", this.a.getRepostId());
+                                    this.f49860b.addPostData("repostid", this.a.getRepostId());
                                 }
-                                this.f49693b.addPostData("v_fid", this.a.getVForumId());
-                                this.f49693b.addPostData("v_fname", this.a.getVForumName());
+                                this.f49860b.addPostData("v_fid", this.a.getVForumId());
+                                this.f49860b.addPostData("v_fname", this.a.getVForumName());
                             } else if (this.a.getType() == 5) {
-                                this.f49693b.addPostData("is_twzhibo_thread", String.valueOf(1));
+                                this.f49860b.addPostData("is_twzhibo_thread", String.valueOf(1));
                             } else if (this.a.getType() == 1) {
-                                this.f49693b.addPostData("is_barrage", !this.a.isBarrage() ? "0" : "1");
-                                this.f49693b.addPostData("barrage_time", String.valueOf(this.a.getBarrageTime()));
-                                if (c.a.s0.x.y.a.a().b() == 1) {
-                                    this.f49693b.addPostData("ptype", "4");
+                                this.f49860b.addPostData("is_barrage", !this.a.isBarrage() ? "0" : "1");
+                                this.f49860b.addPostData("barrage_time", String.valueOf(this.a.getBarrageTime()));
+                                if (c.a.t0.x.y.a.a().b() == 1) {
+                                    this.f49860b.addPostData("ptype", "4");
                                 }
-                                this.f49693b.addPostData("v_fid", this.a.getVForumId());
-                                this.f49693b.addPostData("v_fname", this.a.getVForumName());
+                                this.f49860b.addPostData("v_fid", this.a.getVForumId());
+                                this.f49860b.addPostData("v_fname", this.a.getVForumName());
                             }
                         }
                     } else {
-                        this.f49693b.setUrl(TbConfig.SERVER_ADDRESS + TbConfig.POST_THREAD_ADDRESS);
+                        this.f49860b.setUrl(TbConfig.SERVER_ADDRESS + TbConfig.POST_THREAD_ADDRESS);
                         if (this.a.getType() == 0 || this.a.getType() == 9) {
-                            this.f49693b.addPostData("transform_forums", this.a.getTransmitForumData());
-                            this.f49693b.addPostData(IntentConfig.CALL_FROM, this.a.getStatisticFrom() + "");
+                            this.f49860b.addPostData("transform_forums", this.a.getTransmitForumData());
+                            this.f49860b.addPostData(IntentConfig.CALL_FROM, this.a.getStatisticFrom() + "");
                             if (this.a.getRecommendExt() != null) {
-                                this.f49693b.addPostData("recommend_ext", this.a.getRecommendExt());
+                                this.f49860b.addPostData("recommend_ext", this.a.getRecommendExt());
                             }
                         }
-                        this.f49693b.addPostData("title", this.a.getTitle());
-                        this.f49693b.addPostData("is_ntitle", this.a.isNoTitle() ? "1" : "0");
+                        this.f49860b.addPostData("title", this.a.getTitle());
+                        this.f49860b.addPostData("is_ntitle", this.a.isNoTitle() ? "1" : "0");
                         if (this.a.getType() == 7) {
-                            this.f49693b.addPostData("is_bottle", String.valueOf(1));
+                            this.f49860b.addPostData("is_bottle", String.valueOf(1));
                         }
                         if (this.a.getCategoryFrom() >= 0) {
-                            this.f49693b.addPostData("fromCategoryId", String.valueOf(this.a.getCategoryFrom()));
+                            this.f49860b.addPostData("fromCategoryId", String.valueOf(this.a.getCategoryFrom()));
                         }
                         if (this.a.getCategoryTo() >= 0) {
-                            this.f49693b.addPostData("toCategoryId", String.valueOf(this.a.getCategoryTo()));
+                            this.f49860b.addPostData("toCategoryId", String.valueOf(this.a.getCategoryTo()));
                         }
-                        if (!TbConfig.getPositionPagerId().equals(this.f49695d.getIntent().getStringExtra("forum_id")) && TbadkCoreApplication.getInst().getIsLocationOn() && (j2 = c.a.d.f.i.a.n().j(false)) != null) {
-                            this.f49693b.addPostData("lbs", String.valueOf(j2.getLatitude()) + "," + String.valueOf(j2.getLongitude()));
+                        if (!TbConfig.getPositionPagerId().equals(this.f49862d.getIntent().getStringExtra("forum_id")) && TbadkCoreApplication.getInst().getIsLocationOn() && (j2 = c.a.d.f.i.a.n().j(false)) != null) {
+                            this.f49860b.addPostData("lbs", String.valueOf(j2.getLatitude()) + "," + String.valueOf(j2.getLongitude()));
                         }
                         if (this.a.isShareThread()) {
-                            this.f49693b.addPostData("is_share", "1");
-                            this.f49693b.addPostData("from_tid", this.a.getOriginalThreadId());
+                            this.f49860b.addPostData("is_share", "1");
+                            this.f49860b.addPostData("from_tid", this.a.getOriginalThreadId());
                         }
                         if (this.a.isShareThread()) {
                             if (this.a.getOriBaijiahaoData() != null) {
-                                this.f49693b.addPostData("ori_ugc_nid", this.a.getOriBaijiahaoData().oriUgcNid);
-                                this.f49693b.addPostData("ori_ugc_vid", this.a.getOriBaijiahaoData().oriUgcVid);
-                                this.f49693b.addPostData("ori_ugc_tid", this.a.getOriBaijiahaoData().oriUgcTid);
-                                this.f49693b.addPostData(TiebaStatic.Params.UGC_TYPE, String.valueOf(this.a.getOriBaijiahaoData().oriUgcType));
+                                this.f49860b.addPostData("ori_ugc_nid", this.a.getOriBaijiahaoData().oriUgcNid);
+                                this.f49860b.addPostData("ori_ugc_vid", this.a.getOriBaijiahaoData().oriUgcVid);
+                                this.f49860b.addPostData("ori_ugc_tid", this.a.getOriBaijiahaoData().oriUgcTid);
+                                this.f49860b.addPostData(TiebaStatic.Params.UGC_TYPE, String.valueOf(this.a.getOriBaijiahaoData().oriUgcType));
                             }
                         } else if (this.a.getBaijiahaoData() != null) {
-                            this.f49693b.addPostData("ori_ugc_nid", this.a.getBaijiahaoData().oriUgcNid);
-                            this.f49693b.addPostData("ori_ugc_vid", this.a.getBaijiahaoData().oriUgcVid);
-                            this.f49693b.addPostData("ori_ugc_tid", this.a.getBaijiahaoData().oriUgcTid);
-                            this.f49693b.addPostData(TiebaStatic.Params.UGC_TYPE, String.valueOf(this.a.getBaijiahaoData().oriUgcType));
+                            this.f49860b.addPostData("ori_ugc_nid", this.a.getBaijiahaoData().oriUgcNid);
+                            this.f49860b.addPostData("ori_ugc_vid", this.a.getBaijiahaoData().oriUgcVid);
+                            this.f49860b.addPostData("ori_ugc_tid", this.a.getBaijiahaoData().oriUgcTid);
+                            this.f49860b.addPostData(TiebaStatic.Params.UGC_TYPE, String.valueOf(this.a.getBaijiahaoData().oriUgcType));
                         }
                         if (this.a.getTabId() > 0) {
-                            this.f49693b.addPostData("tab_name", this.a.getTabName());
-                            this.f49693b.addPostData("tab_id", String.valueOf(this.a.getTabId()));
-                            this.f49693b.addPostData(FrsCommonTabFragment.IS_GENERAL_TAB, String.valueOf(this.a.getIsGeneralTab()));
+                            this.f49860b.addPostData("tab_name", this.a.getTabName());
+                            this.f49860b.addPostData("tab_id", String.valueOf(this.a.getTabId()));
+                            this.f49860b.addPostData(FrsCommonTabFragment.IS_GENERAL_TAB, String.valueOf(this.a.getIsGeneralTab()));
                         }
                     }
                 }
-                if (this.f49693b.getNetContext() != null && this.f49693b.getNetContext().getRequest() != null) {
-                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921344, this.f49693b.getNetContext().getRequest().getNetWorkParam()));
+                if (this.f49860b.getNetContext() != null && this.f49860b.getNetContext().getRequest() != null) {
+                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921344, this.f49860b.getNetContext().getRequest().getNetWorkParam()));
                 }
-                this.f49694c = this.f49693b.postNetData();
+                this.f49861c = this.f49860b.postNetData();
                 return null;
             }
-            return (n0) invokeL.objValue;
+            return (o0) invokeL.objValue;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX WARN: Code restructure failed: missing block: B:19:0x0070, code lost:
             if (com.baidu.adp.lib.util.StringUtils.isNull(r0) == false) goto L22;
          */
-        /* JADX WARN: Code restructure failed: missing block: B:81:0x0180, code lost:
-            if (r0 != 7) goto L64;
+        /* JADX WARN: Code restructure failed: missing block: B:96:0x01bd, code lost:
+            if (r0 != 7) goto L79;
          */
+        /* JADX WARN: Removed duplicated region for block: B:103:0x01ed  */
         /* JADX WARN: Removed duplicated region for block: B:32:0x0088  */
-        /* JADX WARN: Removed duplicated region for block: B:53:0x0125 A[Catch: JSONException -> 0x012d, TRY_LEAVE, TryCatch #5 {JSONException -> 0x012d, blocks: (B:51:0x0113, B:53:0x0125), top: B:159:0x0113 }] */
-        /* JADX WARN: Removed duplicated region for block: B:67:0x015c  */
-        /* JADX WARN: Removed duplicated region for block: B:70:0x0168  */
-        /* JADX WARN: Removed duplicated region for block: B:88:0x01b0  */
+        /* JADX WARN: Removed duplicated region for block: B:67:0x0162 A[Catch: JSONException -> 0x016a, TRY_LEAVE, TryCatch #4 {JSONException -> 0x016a, blocks: (B:65:0x0150, B:67:0x0162), top: B:172:0x0150 }] */
+        /* JADX WARN: Removed duplicated region for block: B:81:0x0199  */
+        /* JADX WARN: Removed duplicated region for block: B:84:0x01a5  */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: c */
         /*
             Code decompiled incorrectly, please refer to instructions dump.
         */
-        public void onPostExecute(n0 n0Var) {
+        public void onPostExecute(o0 o0Var) {
             JSONArray jSONArray;
             PostWriteCallBackData postWriteCallBackData;
             JSONException jSONException;
@@ -648,22 +650,23 @@ public class VcodeActivity extends BaseActivity<VcodeActivity> {
             String str4;
             String str5;
             String str6;
+            WriteData writeData2;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, n0Var) == null) {
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, o0Var) == null) {
                 String str7 = "";
-                this.f49695d.closeLoadingDialog();
+                this.f49862d.closeLoadingDialog();
                 CustomDialogData customDialogData = null;
-                this.f49695d.mPostThreadTask = null;
-                NetWork netWork = this.f49693b;
+                this.f49862d.mPostThreadTask = null;
+                NetWork netWork = this.f49860b;
                 if (netWork != null) {
                     int i2 = 0;
                     if (netWork.getNetContext().getResponse().isRequestSuccess()) {
                         ErrorData errorData = new ErrorData();
-                        errorData.parserJson(this.f49694c);
+                        errorData.parserJson(this.f49861c);
                         if (errorData.error_code == 0) {
-                            this.f49695d.isVcodeCheckSuccess = true;
+                            this.f49862d.isVcodeCheckSuccess = true;
                             try {
-                                JSONObject jSONObject = new JSONObject(this.f49694c);
+                                JSONObject jSONObject = new JSONObject(this.f49861c);
                                 str4 = jSONObject.optString("msg");
                                 try {
                                     JSONObject optJSONObject2 = jSONObject.optJSONObject("exp");
@@ -681,11 +684,19 @@ public class VcodeActivity extends BaseActivity<VcodeActivity> {
                                             if (com.baidu.adp.lib.util.StringUtils.isNull(str4)) {
                                             }
                                             if (this.a.getType() != 3) {
-                                                h.b(this.f49695d.getActivity(), str4, str5, str6);
+                                                h.b(this.f49862d.getActivity(), str4, str5, str6);
+                                            }
+                                            writeData2 = this.a;
+                                            if (writeData2 != null) {
+                                                if (TbSingleton.getInstance().showStampMissionDialog) {
+                                                    c.a.u0.w3.b.r().A(0, 3);
+                                                    c.a.u0.w3.b.r().G();
+                                                }
+                                                c.a.u0.w3.b.r().z(StampMission.Type.REPLAY_THREAD);
                                             }
                                             this.a.deleteUploadedTempImages();
                                             postWriteCallBackData = new PostWriteCallBackData(0, null, null, null);
-                                            JSONObject jSONObject2 = new JSONObject(this.f49694c);
+                                            JSONObject jSONObject2 = new JSONObject(this.f49861c);
                                             String str8 = jSONObject2.optString("tid");
                                             try {
                                                 str2 = jSONObject2.optString("pid");
@@ -715,11 +726,19 @@ public class VcodeActivity extends BaseActivity<VcodeActivity> {
                                                     Bundle bundle = new Bundle();
                                                     bundle.putSerializable("post_write_callback_data", postWriteCallBackData);
                                                     intent.putExtras(bundle);
-                                                    this.f49695d.setResult(-1, intent);
+                                                    this.f49862d.setResult(-1, intent);
                                                     if (this.a != null) {
+                                                        c.a.u0.z3.t0.b.k().C(this.a.getForumId());
+                                                        c.a.u0.z3.t0.b.k().D(this.a.getForumName());
+                                                        if (!m.isEmpty(postWriteCallBackData.getVideoid())) {
+                                                            postWriteCallBackData.writeDataForVideo = this.a;
+                                                        }
+                                                        CustomResponsedMessage customResponsedMessage = new CustomResponsedMessage(2001383, postWriteCallBackData);
+                                                        customResponsedMessage.setOrginalMessage(new CustomMessage(2001383, c.a.u0.z3.t0.b.k().i()));
+                                                        MessageManager.getInstance().dispatchResponsedMessage(customResponsedMessage);
                                                     }
-                                                    this.f49695d.finish();
-                                                    super.onPostExecute(n0Var);
+                                                    this.f49862d.finish();
+                                                    super.onPostExecute(o0Var);
                                                 }
                                             } catch (JSONException e4) {
                                                 e = e4;
@@ -728,7 +747,7 @@ public class VcodeActivity extends BaseActivity<VcodeActivity> {
                                             }
                                             try {
                                                 str7 = jSONObject2.optString("video_id");
-                                                customDialogData = c.a.t0.t2.b.a(jSONObject2);
+                                                customDialogData = c.a.u0.u2.b.a(jSONObject2);
                                                 optJSONObject = jSONObject2.optJSONObject("twzhibo_info");
                                                 if (optJSONObject != null) {
                                                 }
@@ -754,11 +773,11 @@ public class VcodeActivity extends BaseActivity<VcodeActivity> {
                                                 Bundle bundle2 = new Bundle();
                                                 bundle2.putSerializable("post_write_callback_data", postWriteCallBackData);
                                                 intent2.putExtras(bundle2);
-                                                this.f49695d.setResult(-1, intent2);
+                                                this.f49862d.setResult(-1, intent2);
                                                 if (this.a != null) {
                                                 }
-                                                this.f49695d.finish();
-                                                super.onPostExecute(n0Var);
+                                                this.f49862d.finish();
+                                                super.onPostExecute(o0Var);
                                             }
                                             postWriteCallBackData.setThreadId(str8);
                                             postWriteCallBackData.setPostId(str2);
@@ -775,19 +794,11 @@ public class VcodeActivity extends BaseActivity<VcodeActivity> {
                                             Bundle bundle22 = new Bundle();
                                             bundle22.putSerializable("post_write_callback_data", postWriteCallBackData);
                                             intent22.putExtras(bundle22);
-                                            this.f49695d.setResult(-1, intent22);
+                                            this.f49862d.setResult(-1, intent22);
                                             if (this.a != null) {
-                                                c.a.t0.x3.s0.b.k().C(this.a.getForumId());
-                                                c.a.t0.x3.s0.b.k().D(this.a.getForumName());
-                                                if (!m.isEmpty(postWriteCallBackData.getVideoid())) {
-                                                    postWriteCallBackData.writeDataForVideo = this.a;
-                                                }
-                                                CustomResponsedMessage customResponsedMessage = new CustomResponsedMessage(2001383, postWriteCallBackData);
-                                                customResponsedMessage.setOrginalMessage(new CustomMessage(2001383, c.a.t0.x3.s0.b.k().i()));
-                                                MessageManager.getInstance().dispatchResponsedMessage(customResponsedMessage);
                                             }
-                                            this.f49695d.finish();
-                                            super.onPostExecute(n0Var);
+                                            this.f49862d.finish();
+                                            super.onPostExecute(o0Var);
                                         }
                                     } else {
                                         str6 = null;
@@ -806,27 +817,35 @@ public class VcodeActivity extends BaseActivity<VcodeActivity> {
                                 str4 = TbadkCoreApplication.getInst().getString(j.send_success);
                             }
                             if (this.a.getType() != 3 && this.a.getType() != 7) {
-                                h.b(this.f49695d.getActivity(), str4, str5, str6);
+                                h.b(this.f49862d.getActivity(), str4, str5, str6);
+                            }
+                            writeData2 = this.a;
+                            if (writeData2 != null && ((writeData2.getType() == 1 || this.a.getType() == 2) && TbadkCoreApplication.isLogin())) {
+                                if (TbSingleton.getInstance().showStampMissionDialog && c.a.t0.b.d.t0()) {
+                                    c.a.u0.w3.b.r().A(0, 3);
+                                    c.a.u0.w3.b.r().G();
+                                }
+                                c.a.u0.w3.b.r().z(StampMission.Type.REPLAY_THREAD);
                             }
                             this.a.deleteUploadedTempImages();
                         } else {
                             if (this.a.isHasImages()) {
                                 if (m.isEmpty(this.a.getContent() + this.a.getImagesCodeForPost())) {
-                                    this.f49695d.showToast(TbadkCoreApplication.getInst().getString(j.img_upload_error));
+                                    this.f49862d.showToast(TbadkCoreApplication.getInst().getString(j.img_upload_error));
                                 }
                             }
                             if (this.a.getType() != 3) {
-                                this.f49695d.showToast(errorData.getError_msg());
+                                this.f49862d.showToast(errorData.getError_msg());
                             }
                         }
                         postWriteCallBackData = new PostWriteCallBackData(0, null, null, null);
                         try {
-                            JSONObject jSONObject22 = new JSONObject(this.f49694c);
+                            JSONObject jSONObject22 = new JSONObject(this.f49861c);
                             String str82 = jSONObject22.optString("tid");
                             str2 = jSONObject22.optString("pid");
                             str3 = jSONObject22.optString("msg");
                             str7 = jSONObject22.optString("video_id");
-                            customDialogData = c.a.t0.t2.b.a(jSONObject22);
+                            customDialogData = c.a.u0.u2.b.a(jSONObject22);
                             optJSONObject = jSONObject22.optJSONObject("twzhibo_info");
                             if (optJSONObject != null) {
                                 i2 = optJSONObject.optInt("is_copytwzhibo", 0);
@@ -848,9 +867,9 @@ public class VcodeActivity extends BaseActivity<VcodeActivity> {
                         }
                         postWriteCallBackData.setActivityDialog(customDialogData);
                         if (customDialogData != null) {
-                            WriteData writeData2 = this.a;
-                            if (writeData2 != null) {
-                                int type = writeData2.getType();
+                            WriteData writeData3 = this.a;
+                            if (writeData3 != null) {
+                                int type = writeData3.getType();
                                 if (type != 0) {
                                     if (type == 1 || type == 2) {
                                         customDialogData.type = 1;
@@ -869,40 +888,40 @@ public class VcodeActivity extends BaseActivity<VcodeActivity> {
                         Bundle bundle222 = new Bundle();
                         bundle222.putSerializable("post_write_callback_data", postWriteCallBackData);
                         intent222.putExtras(bundle222);
-                        this.f49695d.setResult(-1, intent222);
-                        if (this.a != null && c.a.t0.x3.s0.b.k().i() != null) {
-                            c.a.t0.x3.s0.b.k().C(this.a.getForumId());
-                            c.a.t0.x3.s0.b.k().D(this.a.getForumName());
+                        this.f49862d.setResult(-1, intent222);
+                        if (this.a != null && c.a.u0.z3.t0.b.k().i() != null) {
+                            c.a.u0.z3.t0.b.k().C(this.a.getForumId());
+                            c.a.u0.z3.t0.b.k().D(this.a.getForumName());
                             if (!m.isEmpty(postWriteCallBackData.getVideoid()) && this.a.getVideoInfo() != null) {
                                 postWriteCallBackData.writeDataForVideo = this.a;
                             }
                             CustomResponsedMessage customResponsedMessage2 = new CustomResponsedMessage(2001383, postWriteCallBackData);
-                            customResponsedMessage2.setOrginalMessage(new CustomMessage(2001383, c.a.t0.x3.s0.b.k().i()));
+                            customResponsedMessage2.setOrginalMessage(new CustomMessage(2001383, c.a.u0.z3.t0.b.k().i()));
                             MessageManager.getInstance().dispatchResponsedMessage(customResponsedMessage2);
                         }
-                        this.f49695d.finish();
+                        this.f49862d.finish();
                     } else {
                         if (this.a.isHasImages()) {
                             if (m.isEmpty(this.a.getContent() + this.a.getImagesCodeForPost())) {
-                                this.f49695d.showToast(TbadkCoreApplication.getInst().getString(j.img_upload_error));
+                                this.f49862d.showToast(TbadkCoreApplication.getInst().getString(j.img_upload_error));
                             }
                         }
-                        if (this.f49693b.getServerErrorCode() != 5 && this.f49693b.getServerErrorCode() != 6) {
-                            if (this.a != null && this.f49693b.getServerErrorCode() == 227001) {
+                        if (this.f49860b.getServerErrorCode() != 5 && this.f49860b.getServerErrorCode() != 6) {
+                            if (this.a != null && this.f49860b.getServerErrorCode() == 227001) {
                                 AccessState accessState = new AccessState();
-                                accessState.parserJson(this.f49694c);
-                                PostWriteCallBackData postWriteCallBackData2 = new PostWriteCallBackData(this.f49693b.getServerErrorCode(), this.f49693b.getErrorString(), null, null);
+                                accessState.parserJson(this.f49861c);
+                                PostWriteCallBackData postWriteCallBackData2 = new PostWriteCallBackData(this.f49860b.getServerErrorCode(), this.f49860b.getErrorString(), null, null);
                                 postWriteCallBackData2.setAccessState(accessState);
-                                this.f49695d.getActivity().setVisible(false);
-                                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AccountAccessActivityConfig(this.f49695d.getActivity(), 12006, this.a, postWriteCallBackData2.getAccessState())));
-                            } else if (this.f49693b.getServerErrorCode() == 220009) {
-                                MessageManager.getInstance().sendMessage(new CustomMessage(2016554, this.f49693b.getErrorString()));
-                                this.f49695d.finish();
-                            } else if (this.f49693b.getServerErrorCode() == 220015) {
+                                this.f49862d.getActivity().setVisible(false);
+                                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AccountAccessActivityConfig(this.f49862d.getActivity(), 12006, this.a, postWriteCallBackData2.getAccessState())));
+                            } else if (this.f49860b.getServerErrorCode() == 220009) {
+                                MessageManager.getInstance().sendMessage(new CustomMessage(2016554, this.f49860b.getErrorString()));
+                                this.f49862d.finish();
+                            } else if (this.f49860b.getServerErrorCode() == 220015) {
                                 PostWriteCallBackData postWriteCallBackData3 = new PostWriteCallBackData(NetWorkErr.ERROR_CONTENT_WITH_SENSITIVE_WORD, null, null, null);
-                                if (this.f49694c != null) {
+                                if (this.f49861c != null) {
                                     try {
-                                        JSONObject jSONObject3 = new JSONObject(this.f49694c);
+                                        JSONObject jSONObject3 = new JSONObject(this.f49861c);
                                         postWriteCallBackData3.setErrorString(jSONObject3.optString("msg"));
                                         postWriteCallBackData3.setThreadId(jSONObject3.optString("tid"));
                                         postWriteCallBackData3.setPostId(jSONObject3.optString("pid"));
@@ -923,26 +942,26 @@ public class VcodeActivity extends BaseActivity<VcodeActivity> {
                                 Bundle bundle3 = new Bundle();
                                 bundle3.putSerializable("post_write_callback_data", postWriteCallBackData3);
                                 intent3.putExtras(bundle3);
-                                this.f49695d.setResult(0, intent3);
-                                this.f49695d.finish();
+                                this.f49862d.setResult(0, intent3);
+                                this.f49862d.finish();
                             }
                         } else {
-                            n0 n0Var2 = new n0();
-                            n0Var2.e(this.f49694c);
-                            if (n0Var2.c() != null && this.f49695d.mModel != null) {
-                                this.f49695d.mModel.setVcodeMD5(n0Var2.b());
-                                this.f49695d.mModel.setVcodeUrl(n0Var2.c());
-                                VcodeActivity vcodeActivity = this.f49695d;
+                            o0 o0Var2 = new o0();
+                            o0Var2.e(this.f49861c);
+                            if (o0Var2.c() != null && this.f49862d.mModel != null) {
+                                this.f49862d.mModel.setVcodeMD5(o0Var2.b());
+                                this.f49862d.mModel.setVcodeUrl(o0Var2.c());
+                                VcodeActivity vcodeActivity = this.f49862d;
                                 vcodeActivity.refreshImage(vcodeActivity.mModel.getVcodeUrl());
                             }
-                            this.f49695d.mEdit.setText((CharSequence) null);
+                            this.f49862d.mEdit.setText((CharSequence) null);
                         }
-                        if (this.f49693b.getServerErrorCode() != 227001 && this.f49693b.getServerErrorCode() == 220015) {
-                            this.f49695d.showToast(this.f49693b.getErrorString());
+                        if (this.f49860b.getServerErrorCode() != 227001 && this.f49860b.getServerErrorCode() == 220015) {
+                            this.f49862d.showToast(this.f49860b.getErrorString());
                         }
                     }
                 }
-                super.onPostExecute(n0Var);
+                super.onPostExecute(o0Var);
             }
         }
 
@@ -950,9 +969,9 @@ public class VcodeActivity extends BaseActivity<VcodeActivity> {
         public void cancel() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                this.f49695d.mPostThreadTask = null;
-                this.f49695d.closeLoadingDialog();
-                NetWork netWork = this.f49693b;
+                this.f49862d.mPostThreadTask = null;
+                this.f49862d.closeLoadingDialog();
+                NetWork netWork = this.f49860b;
                 if (netWork != null) {
                     netWork.cancelNetConnect();
                 }
@@ -1017,7 +1036,7 @@ public class VcodeActivity extends BaseActivity<VcodeActivity> {
             TextView addTextButton = this.mNavigationBar.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, getResources().getString(j.send), this.onPostListener);
             this.mPost = addTextButton;
             LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) addTextButton.getLayoutParams();
-            layoutParams.rightMargin = n.f(getPageContext().getPageActivity(), c.a.t0.p4.e.ds16);
+            layoutParams.rightMargin = n.f(getPageContext().getPageActivity(), c.a.u0.s4.e.ds16);
             this.mPost.setLayoutParams(layoutParams);
             this.mEdit = (EditText) findViewById(g.input);
             ImageView imageView = (ImageView) findViewById(g.vcode_image);
@@ -1049,7 +1068,7 @@ public class VcodeActivity extends BaseActivity<VcodeActivity> {
     public void showDialog() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65551, this) == null) {
-            c.a.s0.s.k0.a aVar = new c.a.s0.s.k0.a(getPageContext());
+            c.a.t0.s.l0.a aVar = new c.a.t0.s.l0.a(getPageContext());
             this.mWaitingDialog = aVar;
             aVar.i(j.sending);
             this.mWaitingDialog.e(this.mDialogCancelListener);
@@ -1098,8 +1117,8 @@ public class VcodeActivity extends BaseActivity<VcodeActivity> {
             super.onChangeSkinType(i2);
             SkinManager.setBgColor(this.mParent, i2);
             this.mNavigationBar.onChangeSkinType(getPageContext(), i2);
-            SkinManager.setBackgroundResource(this.mPost, c.a.t0.p4.f.s_navbar_button_bg);
-            SkinManager.setViewTextColor(this.mPost, c.a.t0.p4.d.CAM_X0111);
+            SkinManager.setBackgroundResource(this.mPost, c.a.u0.s4.f.s_navbar_button_bg);
+            SkinManager.setViewTextColor(this.mPost, c.a.u0.s4.d.CAM_X0111);
             this.mInfo.setTextColor((i2 == 1 || i2 == 4) ? SkinManager.getCommentTextColor(i2) : -12895429);
         }
     }
@@ -1109,7 +1128,7 @@ public class VcodeActivity extends BaseActivity<VcodeActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, bundle) == null) {
             super.onCreate(bundle);
-            setContentView(c.a.t0.p4.h.vcode_activity);
+            setContentView(c.a.u0.s4.h.vcode_activity);
             initUI();
             initData(bundle);
             WriteData writeData = this.mModel;
@@ -1169,7 +1188,7 @@ public class VcodeActivity extends BaseActivity<VcodeActivity> {
             if (progressBar != null) {
                 progressBar.setVisibility(8);
             }
-            c.a.s0.s.e0.b.g(getPageContext().getPageActivity(), 200, false);
+            c.a.t0.s.f0.b.g(getPageContext().getPageActivity(), 200, false);
             finish();
         }
     }

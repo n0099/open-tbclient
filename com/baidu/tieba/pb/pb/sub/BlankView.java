@@ -11,18 +11,18 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public class BlankView extends View {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Scroller f46763e;
+    public Scroller f46905e;
 
     /* renamed from: f  reason: collision with root package name */
-    public a f46764f;
+    public a f46906f;
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes13.dex */
     public interface a {
         void a();
     }
@@ -52,12 +52,12 @@ public class BlankView extends View {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             super.computeScroll();
-            Scroller scroller = this.f46763e;
+            Scroller scroller = this.f46905e;
             if (scroller == null) {
                 return;
             }
             if (scroller.computeScrollOffset()) {
-                int currY = this.f46763e.getCurrY();
+                int currY = this.f46905e.getCurrY();
                 ViewGroup.LayoutParams layoutParams = getLayoutParams();
                 if (layoutParams != null) {
                     layoutParams.height = currY;
@@ -66,7 +66,7 @@ public class BlankView extends View {
                 }
                 return;
             }
-            a aVar = this.f46764f;
+            a aVar = this.f46906f;
             if (aVar != null) {
                 aVar.a();
             }
@@ -84,19 +84,19 @@ public class BlankView extends View {
     public void setScrollCallBack(a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar) == null) {
-            this.f46764f = aVar;
+            this.f46906f = aVar;
         }
     }
 
     public void startScrollDissmiss() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            if (this.f46763e == null) {
-                this.f46763e = new Scroller(getContext());
+            if (this.f46905e == null) {
+                this.f46905e = new Scroller(getContext());
             }
             ViewGroup.LayoutParams layoutParams = getLayoutParams();
             if (layoutParams != null) {
-                Scroller scroller = this.f46763e;
+                Scroller scroller = this.f46905e;
                 int i2 = layoutParams.height;
                 scroller.startScroll(0, i2, 0, 0 - i2);
                 invalidate();

@@ -23,15 +23,15 @@ public class h {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: d  reason: collision with root package name */
-    public static h f2674d;
+    public static h f1754d;
     public transient /* synthetic */ FieldHolder $fh;
     public Resources a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ArrayList<String> f2675b;
+    public ArrayList<String> f1755b;
 
     /* renamed from: c  reason: collision with root package name */
-    public HashSet<String> f2676c;
+    public HashSet<String> f1756c;
 
     static {
         InterceptResult invokeClinit;
@@ -62,22 +62,22 @@ public class h {
             }
         }
         this.a = null;
-        this.f2675b = null;
-        this.f2676c = null;
+        this.f1755b = null;
+        this.f1756c = null;
     }
 
     public static h a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (f2674d == null) {
+            if (f1754d == null) {
                 synchronized (h.class) {
-                    if (f2674d == null) {
-                        f2674d = new h();
+                    if (f1754d == null) {
+                        f1754d = new h();
                     }
                 }
             }
-            return f2674d;
+            return f1754d;
         }
         return (h) invokeV.objValue;
     }
@@ -89,35 +89,35 @@ public class h {
                 if (!TextUtils.isEmpty(str2)) {
                     if (this.a != null) {
                         if (!TextUtils.isEmpty(str)) {
-                            if (this.f2676c == null) {
-                                this.f2676c = new HashSet<>();
+                            if (this.f1756c == null) {
+                                this.f1756c = new HashSet<>();
                             }
-                            if (this.f2676c.contains(str)) {
-                                c.a.d.i.h.a.b().m("plugin_load", "repeat_inject_res", str, str2);
+                            if (this.f1756c.contains(str)) {
+                                c.a.d.j.h.a.b().m("plugin_load", "repeat_inject_res", str, str2);
                             }
-                            this.f2676c.add(str);
+                            this.f1756c.add(str);
                         }
-                        if (this.f2675b == null) {
-                            this.f2675b = new ArrayList<>();
+                        if (this.f1755b == null) {
+                            this.f1755b = new ArrayList<>();
                         }
-                        if (this.f2675b.contains(str2)) {
+                        if (this.f1755b.contains(str2)) {
                             return;
                         }
                         if (Build.VERSION.SDK_INT >= 20) {
-                            c.a.d.i.k.d.a(this.a.getAssets(), V8Engine.ALTERNATIVE_ADD_ASSET_PATH_METHOD, new Object[]{str2});
+                            c.a.d.j.k.d.a(this.a.getAssets(), V8Engine.ALTERNATIVE_ADD_ASSET_PATH_METHOD, new Object[]{str2});
                         } else {
                             AssetManager assetManager = (AssetManager) AssetManager.class.newInstance();
-                            if (this.f2675b.size() > 0) {
-                                Iterator<String> it = this.f2675b.iterator();
+                            if (this.f1755b.size() > 0) {
+                                Iterator<String> it = this.f1755b.iterator();
                                 while (it.hasNext()) {
-                                    c.a.d.i.k.d.a(assetManager, V8Engine.ALTERNATIVE_ADD_ASSET_PATH_METHOD, new Object[]{it.next()});
+                                    c.a.d.j.k.d.a(assetManager, V8Engine.ALTERNATIVE_ADD_ASSET_PATH_METHOD, new Object[]{it.next()});
                                 }
                             }
-                            c.a.d.i.k.d.a(assetManager, V8Engine.ALTERNATIVE_ADD_ASSET_PATH_METHOD, new Object[]{str2});
-                            c.a.d.i.k.d.a(assetManager, V8Engine.ALTERNATIVE_ADD_ASSET_PATH_METHOD, new Object[]{BdBaseApplication.getInst().getApp().getPackageCodePath()});
+                            c.a.d.j.k.d.a(assetManager, V8Engine.ALTERNATIVE_ADD_ASSET_PATH_METHOD, new Object[]{str2});
+                            c.a.d.j.k.d.a(assetManager, V8Engine.ALTERNATIVE_ADD_ASSET_PATH_METHOD, new Object[]{BdBaseApplication.getInst().getApp().getPackageCodePath()});
                             this.a = new Resources(assetManager, this.a.getDisplayMetrics(), this.a.getConfiguration());
                         }
-                        this.f2675b.add(str2);
+                        this.f1755b.add(str2);
                         return;
                     }
                     throw new RuntimeException("hostResources is null");

@@ -1,7 +1,7 @@
 package com.baidu.searchbox.aideviceperformance.dynamic;
 
 import android.content.Context;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public interface ILaunchSpeedScoreManager {
     float getLaunchSpeedScore();
 

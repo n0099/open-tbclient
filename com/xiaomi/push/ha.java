@@ -25,7 +25,7 @@ public class ha implements XMPushService.l {
     public Context f472a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f61203b;
+    public boolean f61370b;
 
     static {
         InterceptResult invokeClinit;
@@ -69,7 +69,7 @@ public class ha implements XMPushService.l {
     private void a(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65539, this, context) == null) {
-            this.f61203b = com.xiaomi.push.service.aq.a(context).a(hk.ak.a(), true);
+            this.f61370b = com.xiaomi.push.service.aq.a(context).a(hk.ak.a(), true);
             int a2 = com.xiaomi.push.service.aq.a(context).a(hk.al.a(), 7200);
             this.f471a = a2;
             this.f471a = Math.max(60, a2);
@@ -96,26 +96,26 @@ public class ha implements XMPushService.l {
             if (!bg.b(this.f472a) || heVar == null || TextUtils.isEmpty(a(this.f472a.getPackageName())) || !new File(this.f472a.getFilesDir(), "tiny_data.data").exists() || a) {
                 return false;
             }
-            return !com.xiaomi.push.service.aq.a(this.f472a).a(hk.aV.a(), false) || i.m501a(this.f472a) || i.m504b(this.f472a);
+            return !com.xiaomi.push.service.aq.a(this.f472a).a(hk.aV.a(), false) || i.m500a(this.f472a) || i.m503b(this.f472a);
         }
         return invokeL.booleanValue;
     }
 
     @Override // com.xiaomi.push.service.XMPushService.l
     /* renamed from: a  reason: collision with other method in class */
-    public void mo434a() {
+    public void mo433a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             a(this.f472a);
-            if (this.f61203b && a()) {
-                com.xiaomi.channel.commonutils.logger.b.m134a("TinyData TinyDataCacheProcessor.pingFollowUpAction ts:" + System.currentTimeMillis());
+            if (this.f61370b && a()) {
+                com.xiaomi.channel.commonutils.logger.b.m133a("TinyData TinyDataCacheProcessor.pingFollowUpAction ts:" + System.currentTimeMillis());
                 he a2 = hd.a(this.f472a).a();
                 if (a(a2)) {
                     a = true;
                     hb.a(this.f472a, a2);
                     return;
                 }
-                com.xiaomi.channel.commonutils.logger.b.m134a("TinyData TinyDataCacheProcessor.pingFollowUpAction !canUpload(uploader) ts:" + System.currentTimeMillis());
+                com.xiaomi.channel.commonutils.logger.b.m133a("TinyData TinyDataCacheProcessor.pingFollowUpAction !canUpload(uploader) ts:" + System.currentTimeMillis());
             }
         }
     }

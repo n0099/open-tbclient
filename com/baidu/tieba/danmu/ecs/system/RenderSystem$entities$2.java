@@ -44,6 +44,6 @@ public final class RenderSystem$entities$2 extends Lambda implements Function0<b
     public final b<d> invoke() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.this$0.f().j(c.a.t0.m0.k.d.a.c()) : (b) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.this$0.f().j(c.a.u0.m0.k.d.a.c()) : (b) invokeV.objValue;
     }
 }

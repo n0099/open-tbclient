@@ -1,5 +1,5 @@
 package com.meizu.cloud.pushsdk.c.f;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public enum b {
     OFF(0),
     ERROR(1),
@@ -8,13 +8,13 @@ public enum b {
     
 
     /* renamed from: e  reason: collision with root package name */
-    public int f58809e;
+    public int f58976e;
 
     b(int i2) {
-        this.f58809e = i2;
+        this.f58976e = i2;
     }
 
     public int a() {
-        return this.f58809e;
+        return this.f58976e;
     }
 }

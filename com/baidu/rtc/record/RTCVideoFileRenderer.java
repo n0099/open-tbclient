@@ -24,7 +24,7 @@ import org.webrtc.GlRectDrawer;
 import org.webrtc.VideoFrame;
 import org.webrtc.VideoFrameDrawer;
 import org.webrtc.VideoSink;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class RTCVideoFileRenderer implements VideoSink, RTCAudioSamples.RTCRemoteSamplesReadyCallback {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int PRE_PREIOD_AUDIO_BUFFER_SIZE = 3840;
@@ -114,7 +114,7 @@ public class RTCVideoFileRenderer implements VideoSink, RTCAudioSamples.RTCRemot
         if (!(interceptable == null || interceptable.invokeL(65537, this, rTCAudioSamples) == null) || rTCAudioSamples == null) {
             return;
         }
-        this.audioThreadHandler.post(new Runnable() { // from class: c.a.l0.e.c
+        this.audioThreadHandler.post(new Runnable() { // from class: c.a.m0.e.c
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -282,7 +282,7 @@ public class RTCVideoFileRenderer implements VideoSink, RTCAudioSamples.RTCRemot
                 MediaCodec createEncoderByType = MediaCodec.createEncoderByType(this.encodeParams.getVideoCodec());
                 this.videoEncoder = createEncoderByType;
                 createEncoderByType.configure(createVideoFormat, (Surface) null, (MediaCrypto) null, 1);
-                this.renderThreadHandler.post(new Runnable() { // from class: c.a.l0.e.b
+                this.renderThreadHandler.post(new Runnable() { // from class: c.a.m0.e.b
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
@@ -392,7 +392,7 @@ public class RTCVideoFileRenderer implements VideoSink, RTCAudioSamples.RTCRemot
             if (this.videoEncoder == null) {
                 initVideoEncoder();
             }
-            this.renderThreadHandler.post(new Runnable() { // from class: c.a.l0.e.e
+            this.renderThreadHandler.post(new Runnable() { // from class: c.a.m0.e.e
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -427,7 +427,7 @@ public class RTCVideoFileRenderer implements VideoSink, RTCAudioSamples.RTCRemot
             this.isRunning = false;
             Handler handler = this.audioThreadHandler;
             if (handler != null) {
-                handler.post(new Runnable() { // from class: c.a.l0.e.a
+                handler.post(new Runnable() { // from class: c.a.m0.e.a
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
@@ -442,7 +442,7 @@ public class RTCVideoFileRenderer implements VideoSink, RTCAudioSamples.RTCRemot
             }
             Handler handler2 = this.renderThreadHandler;
             if (handler2 != null) {
-                handler2.post(new Runnable() { // from class: c.a.l0.e.d
+                handler2.post(new Runnable() { // from class: c.a.m0.e.d
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 

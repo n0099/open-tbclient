@@ -18,7 +18,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.IOException;
 import java.net.SocketException;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class DownloadCache {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -32,7 +32,7 @@ public class DownloadCache {
     public volatile boolean unknownError;
     public volatile boolean userCanceled;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public static class PreError extends DownloadCache {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

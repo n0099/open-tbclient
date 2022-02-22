@@ -14,7 +14,7 @@ public final class d {
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f59280b;
+    public long f59447b;
 
     public d() {
         Interceptable interceptable = $ic;
@@ -41,7 +41,7 @@ public final class d {
     public final void a(long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j2) == null) {
-            this.f59280b = j2;
+            this.f59447b = j2;
         }
     }
 
@@ -55,14 +55,14 @@ public final class d {
     public final long b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f59280b : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f59447b : invokeV.longValue;
     }
 
     public final String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return "_$101005Bean{url='" + this.a + ExtendedMessageFormat.QUOTE + ", time=" + this.f59280b + ExtendedMessageFormat.END_FE;
+            return "_$101005Bean{url='" + this.a + ExtendedMessageFormat.QUOTE + ", time=" + this.f59447b + ExtendedMessageFormat.END_FE;
         }
         return (String) invokeV.objValue;
     }

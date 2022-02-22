@@ -9,7 +9,7 @@ import android.view.ViewGroup;
 import androidx.core.view.InputDeviceCompat;
 import androidx.lifecycle.Lifecycle;
 import androidx.lifecycle.OnLifecycleEvent;
-import c.a.c0.g.a.a;
+import c.a.d0.g.a.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.nadcore.component.api.IComponentPlugin;
 import com.baidu.tbadk.mutiprocess.mission.MissionEvent;

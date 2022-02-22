@@ -6,26 +6,26 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.InputStream;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class MultipartHashMap extends HttpHashMap implements com.baidu.pass.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public a fileWrapper;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f37673b;
+        public String f37902b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f37674c;
+        public String f37903c;
 
         /* renamed from: d  reason: collision with root package name */
-        public InputStream f37675d;
+        public InputStream f37904d;
 
         public a(String str, InputStream inputStream, String str2, String str3) {
             Interceptable interceptable = $ic;
@@ -43,16 +43,16 @@ public class MultipartHashMap extends HttpHashMap implements com.baidu.pass.a {
                 }
             }
             this.a = str;
-            this.f37675d = inputStream;
-            this.f37673b = str2;
-            this.f37674c = str3;
+            this.f37904d = inputStream;
+            this.f37902b = str2;
+            this.f37903c = str3;
         }
 
         public String a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                String str = this.f37673b;
+                String str = this.f37902b;
                 return str != null ? str : "nofilename";
             }
             return (String) invokeV.objValue;

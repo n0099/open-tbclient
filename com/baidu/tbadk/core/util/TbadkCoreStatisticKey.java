@@ -115,6 +115,7 @@ public class TbadkCoreStatisticKey {
     public static final String KEY_MULTI_TASK_DIALOG_SHOW_AND_CLICK = "c13742";
     public static final String KEY_PAY_PUT_TIE = "c13998";
     public static final String KEY_PB_VOTE_SOURCE = "c13445";
+    public static final String KEY_PERSONALIZE_LOAD_MORE = "c14569";
     public static final String KEY_PERSON_CENTER_LITE_GAME_CENTER_CLICK = "c13431";
     public static final String KEY_PERSON_TALK_REPORT_CLICK = "c13063";
     public static final String KEY_QUICK_WEBVIEW_LOCAL_URL = "c13835";
@@ -174,7 +175,6 @@ public class TbadkCoreStatisticKey {
     public static final String KEY_VIDEO_FROM_OUTSIDE = "c14304";
     public static final String KEY_VIDEO_HORIZONTAL_PLAY = "c14499";
     public static final String KEY_VIDEO_SHARE_SUCCESS = "c14181";
-    public static final String KEY_VIDEO_SPLASH_SKIP = "c12946";
     public static final String KEY_VIDEO_TAB_COMMENT_FLOAT_CLICK = "c14302";
     public static final String KEY_VIDEO_TAB_SHOW_PB_FLOAT_NUM = "c14300";
     public static final String KEY_VIDEO_TIME = "c11244";

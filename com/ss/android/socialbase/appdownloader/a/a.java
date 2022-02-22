@@ -6,15 +6,15 @@ public abstract class a implements e {
     public final Context a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final com.ss.android.socialbase.downloader.g.a f59749b;
+    public final com.ss.android.socialbase.downloader.g.a f59916b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final String f59750c;
+    public final String f59917c;
 
     public a(Context context, com.ss.android.socialbase.downloader.g.a aVar, String str) {
         this.a = context;
-        this.f59749b = aVar;
-        this.f59750c = str;
+        this.f59916b = aVar;
+        this.f59917c = str;
     }
 
     public boolean a() {

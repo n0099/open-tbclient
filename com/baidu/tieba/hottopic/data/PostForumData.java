@@ -1,8 +1,8 @@
 package com.baidu.tieba.hottopic.data;
 
-import c.a.d.n.e.n;
-import c.a.t0.g0.f0.a;
-import c.a.t0.r1.h;
+import c.a.d.o.e.n;
+import c.a.u0.g0.d0.a;
+import c.a.u0.r1.g;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
@@ -71,7 +71,7 @@ public class PostForumData extends a implements Serializable {
         return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) ? (n) ListUtils.getItem(this.mRelateForumDataList, i2) : (n) invokeI.objValue;
     }
 
-    @Override // com.baidu.tieba.card.data.BaseCardInfo, c.a.d.n.e.n
+    @Override // com.baidu.tieba.card.data.BaseCardInfo, c.a.d.o.e.n
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -84,7 +84,7 @@ public class PostForumData extends a implements Serializable {
             return;
         }
         this.showTopDivider = true;
-        this.mGroupTitle = TbadkCoreApplication.getInst().getString(h.recommend_relative_forum);
+        this.mGroupTitle = TbadkCoreApplication.getInst().getString(g.recommend_relative_forum);
         this.mRelateForumDataList = new ArrayList();
         for (RelateForum relateForum : list) {
             if (relateForum != null && !StringUtils.isNull(relateForum.forum_name)) {

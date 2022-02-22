@@ -2,10 +2,10 @@ package com.baidu.ugc.editvideo.muxer;
 
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import c.a.a1.i.c;
-import c.a.a1.l.a;
-import c.a.a1.t.h;
-import c.a.a1.t.n;
+import c.a.b1.i.c;
+import c.a.b1.l.a;
+import c.a.b1.t.h;
+import c.a.b1.t.n;
 import com.baidu.minivideo.effect.core.vlogedit.MediaTrack;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;

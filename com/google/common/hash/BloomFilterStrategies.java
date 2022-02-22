@@ -228,7 +228,7 @@ public abstract class BloomFilterStrategies implements BloomFilter.Strategy {
         public final AtomicLongArray a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final i f54942b;
+        public final i f55109b;
 
         public a(long j2) {
             Interceptable interceptable = $ic;
@@ -247,7 +247,7 @@ public abstract class BloomFilterStrategies implements BloomFilter.Strategy {
             }
             n.e(j2 > 0, "data length is zero!");
             this.a = new AtomicLongArray(Ints.c(LongMath.a(j2, 64L, RoundingMode.CEILING)));
-            this.f54942b = LongAddables.a();
+            this.f55109b = LongAddables.a();
         }
 
         public static long[] g(AtomicLongArray atomicLongArray) {
@@ -267,7 +267,7 @@ public abstract class BloomFilterStrategies implements BloomFilter.Strategy {
         public long a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f54942b.sum() : invokeV.longValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f55109b.sum() : invokeV.longValue;
         }
 
         public long b() {
@@ -309,7 +309,7 @@ public abstract class BloomFilterStrategies implements BloomFilter.Strategy {
                         }
                     }
                     if (z) {
-                        this.f54942b.add(Long.bitCount(j3) - Long.bitCount(j2));
+                        this.f55109b.add(Long.bitCount(j3) - Long.bitCount(j2));
                     }
                 }
             }
@@ -345,7 +345,7 @@ public abstract class BloomFilterStrategies implements BloomFilter.Strategy {
                         return false;
                     }
                 } while (!this.a.compareAndSet(i2, j3, j4));
-                this.f54942b.increment();
+                this.f55109b.increment();
                 return true;
             }
             return invokeJ.booleanValue;
@@ -374,12 +374,12 @@ public abstract class BloomFilterStrategies implements BloomFilter.Strategy {
             }
             n.e(jArr.length > 0, "data length is zero!");
             this.a = new AtomicLongArray(jArr);
-            this.f54942b = LongAddables.a();
+            this.f55109b = LongAddables.a();
             long j2 = 0;
             for (long j3 : jArr) {
                 j2 += Long.bitCount(j3);
             }
-            this.f54942b.add(j2);
+            this.f55109b.add(j2);
         }
     }
 }

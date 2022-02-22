@@ -1,7 +1,7 @@
 package com.kwad.sdk.core.videocache.kwai;
 
 import java.io.File;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class g extends e {
     public final long a;
 

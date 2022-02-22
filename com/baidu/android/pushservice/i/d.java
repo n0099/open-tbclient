@@ -17,7 +17,7 @@ public class d {
     public byte[] a;
 
     /* renamed from: b  reason: collision with root package name */
-    public DataInputStream f32286b;
+    public DataInputStream f32492b;
 
     public d(InputStream inputStream) {
         Interceptable interceptable = $ic;
@@ -34,7 +34,7 @@ public class d {
                 return;
             }
         }
-        this.f32286b = new DataInputStream(inputStream);
+        this.f32492b = new DataInputStream(inputStream);
         this.a = new byte[8];
     }
 
@@ -44,7 +44,7 @@ public class d {
         if (interceptable == null || (invokeI = interceptable.invokeI(65537, this, i2)) == null) {
             int i3 = 0;
             while (i3 < i2) {
-                int read = this.f32286b.read(this.a, i3, i2 - i3);
+                int read = this.f32492b.read(this.a, i3, i2 - i3);
                 if (read == -1) {
                     return read;
                 }
@@ -58,14 +58,14 @@ public class d {
     public void a() throws IOException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f32286b.close();
+            this.f32492b.close();
         }
     }
 
     public final void a(byte[] bArr) throws IOException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bArr) == null) {
-            this.f32286b.readFully(bArr, 0, bArr.length);
+            this.f32492b.readFully(bArr, 0, bArr.length);
         }
     }
 

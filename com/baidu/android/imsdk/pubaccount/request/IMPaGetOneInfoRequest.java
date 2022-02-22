@@ -29,7 +29,7 @@ import java.util.Iterator;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class IMPaGetOneInfoRequest extends PaBaseHttpRequest {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "IMPaGetOneInfoRequest";
@@ -156,7 +156,7 @@ public class IMPaGetOneInfoRequest extends PaBaseHttpRequest {
         }
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:41:0x01e5  */
+    /* JADX WARN: Removed duplicated region for block: B:41:0x01df  */
     /* JADX WARN: Removed duplicated region for block: B:61:? A[RETURN, SYNTHETIC] */
     @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.ResponseHandler
     /*

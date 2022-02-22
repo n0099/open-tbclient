@@ -4,12 +4,12 @@ import androidx.annotation.Nullable;
 import com.kwad.sdk.core.scene.URLPackage;
 import com.kwad.sdk.utils.t;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class k implements com.kwad.sdk.core.b {
     public long a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f56227b;
+    public long f56394b;
 
     @Override // com.kwad.sdk.core.b
     public void parseJson(@Nullable JSONObject jSONObject) {
@@ -19,7 +19,7 @@ public class k implements com.kwad.sdk.core.b {
     public JSONObject toJson() {
         JSONObject jSONObject = new JSONObject();
         t.a(jSONObject, "photoId", this.a);
-        t.a(jSONObject, URLPackage.KEY_AUTHOR_ID, this.f56227b);
+        t.a(jSONObject, URLPackage.KEY_AUTHOR_ID, this.f56394b);
         return jSONObject;
     }
 }

@@ -3,10 +3,10 @@ package com.baidu.tieba.ala.alasquare.adapter;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.AnimationUtils;
-import c.a.d.n.e.a;
-import c.a.t0.a0.f.a.b;
-import c.a.t0.a0.f.i.c;
-import c.a.t0.a0.f.i.d;
+import c.a.d.o.e.a;
+import c.a.u0.a0.f.a.b;
+import c.a.u0.a0.f.i.c;
+import c.a.u0.a0.f.i.d;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
@@ -53,7 +53,7 @@ public class AlaSquareActiveAdapter extends a<b, SquareActiveViewHolder> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // c.a.d.n.e.a
+    @Override // c.a.d.o.e.a
     /* renamed from: Z */
     public SquareActiveViewHolder M(ViewGroup viewGroup) {
         InterceptResult invokeL;
@@ -67,7 +67,7 @@ public class AlaSquareActiveAdapter extends a<b, SquareActiveViewHolder> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // c.a.d.n.e.a
+    @Override // c.a.d.o.e.a
     /* renamed from: a0 */
     public View S(int i2, View view, ViewGroup viewGroup, b bVar, SquareActiveViewHolder squareActiveViewHolder) {
         InterceptResult invokeCommon;
@@ -78,9 +78,9 @@ public class AlaSquareActiveAdapter extends a<b, SquareActiveViewHolder> {
                 return null;
             }
             cVar.k(bVar);
-            c.a.t0.a0.f.e.a.c().a(bVar.g("c12249", false));
+            c.a.u0.a0.f.e.a.c().a(bVar.g("c12249", false));
             if (i2 == this.n) {
-                cVar.j().setAnimation(AnimationUtils.loadAnimation(this.f3360e, R.anim.list_anim));
+                cVar.j().setAnimation(AnimationUtils.loadAnimation(this.f2447e, R.anim.list_anim));
             }
             return squareActiveViewHolder.getView();
         }

@@ -8,23 +8,23 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.yy.mobile.framework.revenuesdk.payapi.bean.ProductInfo;
 import org.apache.commons.lang3.text.ExtendedMessageFormat;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public ProductInfo a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f62386b;
+    public int f62553b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f62387c;
+    public boolean f62554c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f62388d;
+    public boolean f62555d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f62389e;
+    public int f62556e;
 
     public c(boolean z) {
         Interceptable interceptable = $ic;
@@ -41,9 +41,9 @@ public class c {
                 return;
             }
         }
-        this.f62386b = Integer.MIN_VALUE;
-        this.f62389e = -1;
-        this.f62387c = z;
+        this.f62553b = Integer.MIN_VALUE;
+        this.f62556e = -1;
+        this.f62554c = z;
     }
 
     public double a() {
@@ -78,7 +78,7 @@ public class c {
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             StringBuilder sb = new StringBuilder();
             sb.append("PayAmount{currencyType=");
-            sb.append(this.f62386b);
+            sb.append(this.f62553b);
             sb.append(", srcAmount=");
             ProductInfo productInfo = this.a;
             sb.append(productInfo != null ? productInfo.srcAmount : 0.0d);
@@ -106,8 +106,8 @@ public class c {
                 return;
             }
         }
-        this.f62386b = Integer.MIN_VALUE;
-        this.f62389e = -1;
+        this.f62553b = Integer.MIN_VALUE;
+        this.f62556e = -1;
         this.a = productInfo;
     }
 
@@ -126,9 +126,9 @@ public class c {
                 return;
             }
         }
-        this.f62386b = Integer.MIN_VALUE;
-        this.f62389e = -1;
+        this.f62553b = Integer.MIN_VALUE;
+        this.f62556e = -1;
         this.a = productInfo;
-        this.f62386b = i2;
+        this.f62553b = i2;
     }
 }

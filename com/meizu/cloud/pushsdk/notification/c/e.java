@@ -12,23 +12,23 @@ import java.util.Enumeration;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipException;
 import java.util.zip.ZipFile;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class e {
     public final File a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final File f58855b;
+    public final File f59022b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f58856c;
+    public String f59023c;
 
     public e(String str, String str2) {
         this.a = new File(str);
         File file = new File(str2);
-        this.f58855b = file;
-        this.f58856c = file.getAbsolutePath();
+        this.f59022b = file;
+        this.f59023c = file.getAbsolutePath();
         c.k.a.a.a.d("ZipExtractTask", "Extract mInput file = " + this.a.toString());
-        c.k.a.a.a.d("ZipExtractTask", "Extract mOutput file = " + this.f58855b.toString());
+        c.k.a.a.a.d("ZipExtractTask", "Extract mOutput file = " + this.f59022b.toString());
     }
 
     private int a(InputStream inputStream, OutputStream outputStream) {
@@ -122,7 +122,7 @@ public class e {
      */
     /* JADX WARN: Code restructure failed: missing block: B:19:0x0049, code lost:
         r7 = r13.split("/")[0];
-        c.k.a.a.a.d("ZipExtractTask", "Extract temp directory=" + r18.f58855b + "/" + r7);
+        c.k.a.a.a.d("ZipExtractTask", "Extract temp directory=" + r18.f59022b + "/" + r7);
      */
     /* JADX WARN: Removed duplicated region for block: B:74:0x01e8  */
     /*
@@ -173,7 +173,7 @@ public class e {
                     if (name != null && name.contains("../")) {
                         throw new Exception("unsecurity zip file");
                     }
-                    File file = new File(this.f58855b, name);
+                    File file = new File(this.f59022b, name);
                     if (!file.getParentFile().exists()) {
                         if (file.getParentFile().mkdirs()) {
                             str2 = "Make Destination directory=" + file.getParentFile().getAbsolutePath();
@@ -186,9 +186,9 @@ public class e {
                     new FileOutputStream(file).close();
                 }
             }
-            String str4 = this.f58855b + "/" + str3;
-            if (!this.f58856c.equals(str4)) {
-                a.a(str4, this.f58856c);
+            String str4 = this.f59022b + "/" + str3;
+            if (!this.f59023c.equals(str4)) {
+                a.a(str4, this.f59023c);
                 z = true;
             }
             try {
@@ -310,7 +310,7 @@ public class e {
         long currentThreadTimeMillis2222222 = SystemClock.currentThreadTimeMillis();
         c.k.a.a.a.d("ZipExtractTask", "Extract file " + this.a + ", UseTime =" + String.valueOf(currentThreadTimeMillis2222222 - currentThreadTimeMillis));
         if (z) {
-            a.b(this.f58855b + "/" + str3);
+            a.b(this.f59022b + "/" + str3);
         }
         b();
         return j3;

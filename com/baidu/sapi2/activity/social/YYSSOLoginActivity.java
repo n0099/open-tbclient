@@ -18,7 +18,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class YYSSOLoginActivity extends BaseSSOLoginActivity {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String q = "YYSSOLoginActivity";
@@ -27,7 +27,7 @@ public class YYSSOLoginActivity extends BaseSSOLoginActivity {
     public String o;
     public b p;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public class a implements b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -57,7 +57,7 @@ public class YYSSOLoginActivity extends BaseSSOLoginActivity {
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 Log.d(YYSSOLoginActivity.q, "YY授权登录 已取消");
                 YYSSOLoginActivity yYSSOLoginActivity = this.a;
-                yYSSOLoginActivity.a(((BaseSSOLoginActivity) yYSSOLoginActivity).f38077g, -1000, AbstractThirdPartyService.RESULT_AUTH_CANCEL_MSG);
+                yYSSOLoginActivity.a(((BaseSSOLoginActivity) yYSSOLoginActivity).f38306g, -1000, AbstractThirdPartyService.RESULT_AUTH_CANCEL_MSG);
             }
         }
 
@@ -79,7 +79,7 @@ public class YYSSOLoginActivity extends BaseSSOLoginActivity {
                     return;
                 }
                 YYSSOLoginActivity yYSSOLoginActivity = this.a;
-                yYSSOLoginActivity.a(((BaseSSOLoginActivity) yYSSOLoginActivity).f38077g, -1, "未知错误");
+                yYSSOLoginActivity.a(((BaseSSOLoginActivity) yYSSOLoginActivity).f38306g, -1, "未知错误");
             }
         }
 
@@ -87,9 +87,9 @@ public class YYSSOLoginActivity extends BaseSSOLoginActivity {
         public void onError(d dVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, dVar) == null) {
-                Log.d(YYSSOLoginActivity.q, "onError " + dVar.a + " " + dVar.f30581b);
+                Log.d(YYSSOLoginActivity.q, "onError " + dVar.a + " " + dVar.f30787b);
                 YYSSOLoginActivity yYSSOLoginActivity = this.a;
-                yYSSOLoginActivity.a(((BaseSSOLoginActivity) yYSSOLoginActivity).f38077g, dVar.a, dVar.f30581b);
+                yYSSOLoginActivity.a(((BaseSSOLoginActivity) yYSSOLoginActivity).f38306g, dVar.a, dVar.f30787b);
             }
         }
     }
@@ -145,7 +145,7 @@ public class YYSSOLoginActivity extends BaseSSOLoginActivity {
                     return;
                 }
             }
-            a(((BaseSSOLoginActivity) this).f38077g, -10, AbstractThirdPartyService.RESULT_AUTH_UNSUPPORT_MSG);
+            a(((BaseSSOLoginActivity) this).f38306g, -10, AbstractThirdPartyService.RESULT_AUTH_UNSUPPORT_MSG);
         }
     }
 

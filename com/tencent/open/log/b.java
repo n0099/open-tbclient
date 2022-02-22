@@ -22,31 +22,31 @@ public class b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f60601b;
+    public String f60768b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f60602c;
+    public int f60769c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f60603d;
+    public int f60770d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f60604e;
+    public int f60771e;
 
     /* renamed from: f  reason: collision with root package name */
-    public long f60605f;
+    public long f60772f;
 
     /* renamed from: g  reason: collision with root package name */
-    public File f60606g;
+    public File f60773g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f60607h;
+    public int f60774h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f60608i;
+    public String f60775i;
 
     /* renamed from: j  reason: collision with root package name */
-    public long f60609j;
+    public long f60776j;
 
     static {
         InterceptResult invokeClinit;
@@ -61,7 +61,7 @@ public class b {
                 return;
             }
         }
-        a = d.C2263d.a("yy.MM.dd.HH");
+        a = d.C2273d.a("yy.MM.dd.HH");
     }
 
     public b(File file, int i2, int i3, int i4, String str, long j2, int i5, String str2, long j3) {
@@ -79,14 +79,14 @@ public class b {
                 return;
             }
         }
-        this.f60601b = "Tracer.File";
-        this.f60602c = Integer.MAX_VALUE;
-        this.f60603d = Integer.MAX_VALUE;
-        this.f60604e = 4096;
-        this.f60605f = 10000L;
-        this.f60607h = 10;
-        this.f60608i = ".log";
-        this.f60609j = Long.MAX_VALUE;
+        this.f60768b = "Tracer.File";
+        this.f60769c = Integer.MAX_VALUE;
+        this.f60770d = Integer.MAX_VALUE;
+        this.f60771e = 4096;
+        this.f60772f = 10000L;
+        this.f60774h = 10;
+        this.f60775i = ".log";
+        this.f60776j = Long.MAX_VALUE;
         a(file);
         b(i2);
         a(i3);
@@ -160,74 +160,74 @@ public class b {
     public File e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.f60606g : (File) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.f60773g : (File) invokeV.objValue;
     }
 
     public int f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.f60607h : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.f60774h : invokeV.intValue;
     }
 
     public void a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            this.f60601b = str;
+            this.f60768b = str;
         }
     }
 
     public void a(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
-            this.f60602c = i2;
+            this.f60769c = i2;
         }
     }
 
     public void b(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048582, this, i2) == null) {
-            this.f60603d = i2;
+            this.f60770d = i2;
         }
     }
 
     public void a(long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j2) == null) {
-            this.f60605f = j2;
+            this.f60772f = j2;
         }
     }
 
     public void b(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
-            this.f60608i = str;
+            this.f60775i = str;
         }
     }
 
     public void a(File file) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, file) == null) {
-            this.f60606g = file;
+            this.f60773g = file;
         }
     }
 
     public void b(long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048583, this, j2) == null) {
-            this.f60609j = j2;
+            this.f60776j = j2;
         }
     }
 
     public int d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.f60604e : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.f60771e : invokeV.intValue;
     }
 
     public void d(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048588, this, i2) == null) {
-            this.f60607h = i2;
+            this.f60774h = i2;
         }
     }
 
@@ -243,13 +243,13 @@ public class b {
     public String c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f60601b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f60768b : (String) invokeV.objValue;
     }
 
     public void c(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048586, this, i2) == null) {
-            this.f60604e = i2;
+            this.f60771e = i2;
         }
     }
 }

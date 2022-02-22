@@ -14,7 +14,7 @@ public class d {
     public e a;
 
     /* renamed from: b  reason: collision with root package name */
-    public c f31666b;
+    public c f31872b;
 
     public d(c cVar) {
         Interceptable interceptable = $ic;
@@ -31,7 +31,7 @@ public class d {
                 return;
             }
         }
-        this.f31666b = cVar;
+        this.f31872b = cVar;
     }
 
     public static d a(Context context, String str) {
@@ -40,8 +40,8 @@ public class d {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, context, str)) == null) {
             b.a(context).b(context);
             e b2 = b.a(context).b(str);
-            if (b2 == null || TextUtils.isEmpty(b2.f31659b)) {
-                return new d(c.f31664b);
+            if (b2 == null || TextUtils.isEmpty(b2.f31865b)) {
+                return new d(c.f31870b);
             }
             d dVar = new d(c.a);
             dVar.a = b2;
@@ -53,6 +53,6 @@ public class d {
     public c a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f31666b : (c) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f31872b : (c) invokeV.objValue;
     }
 }

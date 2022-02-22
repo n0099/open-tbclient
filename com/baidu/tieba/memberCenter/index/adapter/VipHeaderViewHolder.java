@@ -2,7 +2,7 @@ package com.baidu.tieba.memberCenter.index.adapter;
 
 import android.view.View;
 import android.widget.TextView;
-import c.a.t0.g2.c.j.h;
+import c.a.u0.h2.c.j.h;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.view.HeadImageView;
@@ -12,26 +12,26 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public class VipHeaderViewHolder extends TypeAdapter.ViewHolder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public View a;
 
     /* renamed from: b  reason: collision with root package name */
-    public HeadImageView f45936b;
+    public HeadImageView f46078b;
 
     /* renamed from: c  reason: collision with root package name */
-    public TextView f45937c;
+    public TextView f46079c;
 
     /* renamed from: d  reason: collision with root package name */
-    public TextView f45938d;
+    public TextView f46080d;
 
     /* renamed from: e  reason: collision with root package name */
-    public TbImageView f45939e;
+    public TbImageView f46081e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TbImageView f45940f;
+    public TbImageView f46082f;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public VipHeaderViewHolder(View view, BaseFragmentActivity baseFragmentActivity) {
@@ -55,14 +55,14 @@ public class VipHeaderViewHolder extends TypeAdapter.ViewHolder {
             return;
         }
         this.a = view;
-        this.f45937c = (TextView) view.findViewById(R.id.textview_user_name);
-        this.f45938d = (TextView) view.findViewById(R.id.textview_vip_end_time);
-        this.f45936b = (HeadImageView) view.findViewById(R.id.user_photo);
-        this.f45939e = (TbImageView) view.findViewById(R.id.user_vip_icon_image);
-        this.f45940f = (TbImageView) view.findViewById(R.id.user_vip_level_image);
-        this.f45936b.setIsRound(true);
-        this.f45936b.setDefaultBgResource(0);
-        this.f45936b.setDefaultResource(R.drawable.icon_default_avatar100);
+        this.f46079c = (TextView) view.findViewById(R.id.textview_user_name);
+        this.f46080d = (TextView) view.findViewById(R.id.textview_vip_end_time);
+        this.f46078b = (HeadImageView) view.findViewById(R.id.user_photo);
+        this.f46081e = (TbImageView) view.findViewById(R.id.user_vip_icon_image);
+        this.f46082f = (TbImageView) view.findViewById(R.id.user_vip_level_image);
+        this.f46078b.setIsRound(true);
+        this.f46078b.setDefaultBgResource(0);
+        this.f46078b.setDefaultResource(R.drawable.icon_default_avatar100);
     }
 
     public void fillView(h hVar) {

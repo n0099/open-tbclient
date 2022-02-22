@@ -21,12 +21,12 @@ public final class c {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final c f29902c;
+    public static final c f30108c;
     public transient /* synthetic */ FieldHolder $fh;
     public final int[] a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final int f29903b;
+    public final int f30109b;
 
     static {
         InterceptResult invokeClinit;
@@ -41,7 +41,7 @@ public final class c {
                 return;
             }
         }
-        f29902c = new c(new int[]{2}, 2);
+        f30108c = new c(new int[]{2}, 2);
     }
 
     public c(int[] iArr, int i2) {
@@ -66,7 +66,7 @@ public final class c {
         } else {
             this.a = new int[0];
         }
-        this.f29903b = i2;
+        this.f30109b = i2;
     }
 
     public static c a(Context context) {
@@ -83,7 +83,7 @@ public final class c {
             if (intent != null && intent.getIntExtra("android.media.extra.AUDIO_PLUG_STATE", 0) != 0) {
                 return new c(intent.getIntArrayExtra("android.media.extra.ENCODINGS"), intent.getIntExtra("android.media.extra.MAX_CHANNEL_COUNT", 0));
             }
-            return f29902c;
+            return f30108c;
         }
         return (c) invokeL.objValue;
     }
@@ -103,7 +103,7 @@ public final class c {
             }
             if (obj instanceof c) {
                 c cVar = (c) obj;
-                return Arrays.equals(this.a, cVar.a) && this.f29903b == cVar.f29903b;
+                return Arrays.equals(this.a, cVar.a) && this.f30109b == cVar.f30109b;
             }
             return false;
         }
@@ -113,14 +113,14 @@ public final class c {
     public int hashCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f29903b + (Arrays.hashCode(this.a) * 31) : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f30109b + (Arrays.hashCode(this.a) * 31) : invokeV.intValue;
     }
 
     public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return "AudioCapabilities[maxChannelCount=" + this.f29903b + ", supportedEncodings=" + Arrays.toString(this.a) + PreferencesUtil.RIGHT_MOUNT;
+            return "AudioCapabilities[maxChannelCount=" + this.f30109b + ", supportedEncodings=" + Arrays.toString(this.a) + PreferencesUtil.RIGHT_MOUNT;
         }
         return (String) invokeV.objValue;
     }

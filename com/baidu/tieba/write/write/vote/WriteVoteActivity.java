@@ -1,7 +1,7 @@
 package com.baidu.tieba.write.write.vote;
 
 import android.widget.LinearLayout;
-import c.a.s0.y0.b;
+import c.a.t0.y0.b;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.suspended.SuspendedActivity;
@@ -33,7 +33,7 @@ public class WriteVoteActivity extends SuspendedActivity {
     public b getSuspendedContentView(LinearLayout linearLayout, NavigationBar navigationBar) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, linearLayout, navigationBar)) == null) ? new c.a.t0.p4.e0.o.b(getPageContext(), linearLayout, navigationBar) : (b) invokeLL.objValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, linearLayout, navigationBar)) == null) ? new c.a.u0.s4.e0.o.b(getPageContext(), linearLayout, navigationBar) : (b) invokeLL.objValue;
     }
 
     @Override // com.baidu.tbadk.suspended.SuspendedActivity

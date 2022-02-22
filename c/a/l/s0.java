@@ -31,7 +31,7 @@ public class s0 extends h {
     public int m;
     public int n;
     public Context o;
-    public c.a.s0.s.q.a p;
+    public c.a.t0.s.r.a p;
     public VideoImageNoPlayerLayout q;
     public int r;
     public String s;
@@ -44,7 +44,7 @@ public class s0 extends h {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ s0 f4354e;
+        public final /* synthetic */ s0 f4421e;
 
         public a(s0 s0Var) {
             Interceptable interceptable = $ic;
@@ -61,18 +61,18 @@ public class s0 extends h {
                     return;
                 }
             }
-            this.f4354e = s0Var;
+            this.f4421e = s0Var;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             s0 s0Var;
-            a.InterfaceC0202a interfaceC0202a;
+            a.InterfaceC0208a interfaceC0208a;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || (interfaceC0202a = (s0Var = this.f4354e).f4289i) == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || (interfaceC0208a = (s0Var = this.f4421e).f4356i) == null) {
                 return;
             }
-            interfaceC0202a.a(s0Var.p);
+            interfaceC0208a.a(s0Var.p);
         }
     }
 
@@ -101,7 +101,7 @@ public class s0 extends h {
         }
 
         @Override // c.a.l.x0.a
-        public void a(c.a.s0.s.q.a aVar) {
+        public void a(c.a.t0.s.r.a aVar) {
             Interceptable interceptable = $ic;
             if (!(interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) || this.a.u == null) {
                 return;
@@ -164,11 +164,11 @@ public class s0 extends h {
     }
 
     @Override // c.a.l.a
-    public void k(c.a.t0.g0.d0<c.a.s0.s.q.a> d0Var) {
+    public void k(c.a.u0.g0.b0<c.a.t0.s.r.a> b0Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, d0Var) == null) {
-            super.k(d0Var);
-            this.q.setOnCardSubClickListener(d0Var);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, b0Var) == null) {
+            super.k(b0Var);
+            this.q.setOnCardSubClickListener(b0Var);
         }
     }
 
@@ -200,14 +200,14 @@ public class s0 extends h {
         r5 = r1;
      */
     /* JADX WARN: Code restructure failed: missing block: B:46:0x00f5, code lost:
-        r1 = c.a.s0.b.g.b.n(r11, r0, r2, r3, r5);
+        r1 = c.a.t0.b.g.b.n(r11, r0, r2, r3, r5);
      */
     @Override // c.a.l.p
     /* renamed from: u */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public void onBindDataToView(c.a.s0.s.q.a aVar) {
+    public void onBindDataToView(c.a.t0.s.r.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, aVar) == null) {
             int k = c.a.d.f.p.n.k(TbadkCoreApplication.getInst());
@@ -287,10 +287,10 @@ public class s0 extends h {
         }
     }
 
-    public void w(a.InterfaceC0202a interfaceC0202a) {
+    public void w(a.InterfaceC0208a interfaceC0208a) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, interfaceC0202a) == null) {
-            this.f4289i = interfaceC0202a;
+        if (interceptable == null || interceptable.invokeL(1048583, this, interfaceC0208a) == null) {
+            this.f4356i = interfaceC0208a;
         }
     }
 

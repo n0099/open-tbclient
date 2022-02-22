@@ -21,7 +21,7 @@ import kotlin.jvm.functions.Function0;
 import kotlin.jvm.internal.Intrinsics;
 import kotlin.ranges.RangesKt___RangesKt;
 @Metadata(d1 = {"\u0000H\n\u0000\n\u0002\u0010\u000b\n\u0000\n\u0002\u0010\u0011\n\u0002\b\u0004\n\u0002\u0010\u000e\n\u0002\b\u0003\n\u0002\u0010\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010!\n\u0002\b\u0003\n\u0002\u0010 \n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b\u0002\u001a5\u0010\u0000\u001a\u00020\u0001\"\u0004\b\u0000\u0010\u0002*\f\u0012\u0006\b\u0001\u0012\u0002H\u0002\u0018\u00010\u00032\u0010\u0010\u0004\u001a\f\u0012\u0006\b\u0001\u0012\u0002H\u0002\u0018\u00010\u0003H\u0001¢\u0006\u0004\b\u0005\u0010\u0006\u001a#\u0010\u0007\u001a\u00020\b\"\u0004\b\u0000\u0010\u0002*\f\u0012\u0006\b\u0001\u0012\u0002H\u0002\u0018\u00010\u0003H\u0001¢\u0006\u0004\b\t\u0010\n\u001a?\u0010\u000b\u001a\u00020\f\"\u0004\b\u0000\u0010\u0002*\n\u0012\u0006\b\u0001\u0012\u0002H\u00020\u00032\n\u0010\r\u001a\u00060\u000ej\u0002`\u000f2\u0010\u0010\u0010\u001a\f\u0012\b\u0012\u0006\u0012\u0002\b\u00030\u00030\u0011H\u0002¢\u0006\u0004\b\u0012\u0010\u0013\u001a+\u0010\u0014\u001a\b\u0012\u0004\u0012\u0002H\u00020\u0015\"\u0004\b\u0000\u0010\u0002*\u0012\u0012\u000e\b\u0001\u0012\n\u0012\u0006\b\u0001\u0012\u0002H\u00020\u00030\u0003¢\u0006\u0002\u0010\u0016\u001a;\u0010\u0017\u001a\u0002H\u0018\"\u0010\b\u0000\u0010\u0019*\u0006\u0012\u0002\b\u00030\u0003*\u0002H\u0018\"\u0004\b\u0001\u0010\u0018*\u0002H\u00192\f\u0010\u001a\u001a\b\u0012\u0004\u0012\u0002H\u00180\u001bH\u0087\bø\u0001\u0000¢\u0006\u0002\u0010\u001c\u001a)\u0010\u001d\u001a\u00020\u0001*\b\u0012\u0002\b\u0003\u0018\u00010\u0003H\u0087\b\u0082\u0002\u000e\n\f\b\u0000\u0012\u0002\u0018\u0001\u001a\u0004\b\u0003\u0010\u0000¢\u0006\u0002\u0010\u001e\u001aG\u0010\u001f\u001a\u001a\u0012\n\u0012\b\u0012\u0004\u0012\u0002H\u00020\u0015\u0012\n\u0012\b\u0012\u0004\u0012\u0002H\u00180\u00150 \"\u0004\b\u0000\u0010\u0002\"\u0004\b\u0001\u0010\u0018*\u0016\u0012\u0012\b\u0001\u0012\u000e\u0012\u0004\u0012\u0002H\u0002\u0012\u0004\u0012\u0002H\u00180 0\u0003¢\u0006\u0002\u0010!\u0082\u0002\u0007\n\u0005\b\u009920\u0001¨\u0006\""}, d2 = {"contentDeepEqualsImpl", "", "T", "", "other", "contentDeepEquals", "([Ljava/lang/Object;[Ljava/lang/Object;)Z", "contentDeepToStringImpl", "", "contentDeepToString", "([Ljava/lang/Object;)Ljava/lang/String;", "contentDeepToStringInternal", "", "result", "Ljava/lang/StringBuilder;", "Lkotlin/text/StringBuilder;", "processed", "", "contentDeepToStringInternal$ArraysKt__ArraysKt", "([Ljava/lang/Object;Ljava/lang/StringBuilder;Ljava/util/List;)V", "flatten", "", "([[Ljava/lang/Object;)Ljava/util/List;", "ifEmpty", "R", "C", "defaultValue", "Lkotlin/Function0;", "([Ljava/lang/Object;Lkotlin/jvm/functions/Function0;)Ljava/lang/Object;", "isNullOrEmpty", "([Ljava/lang/Object;)Z", ZeusPerformanceTiming.KEY_UNZIP, "Lkotlin/Pair;", "([Lkotlin/Pair;)Lkotlin/Pair;", "kotlin-stdlib"}, k = 5, mv = {1, 5, 1}, xi = 1, xs = "kotlin/collections/ArraysKt")
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class ArraysKt__ArraysKt extends ArraysKt__ArraysJVMKt {
     @SinceKotlin(version = "1.3")
     @PublishedApi
@@ -78,19 +78,19 @@ public class ArraysKt__ArraysKt extends ArraysKt__ArraysJVMKt {
                         return false;
                     }
                 } else if ((t instanceof UByteArray) && (t2 instanceof UByteArray)) {
-                    if (!UArraysKt___UArraysKt.m1256contentEqualskV0jMPg(((UByteArray) t).m798unboximpl(), ((UByteArray) t2).m798unboximpl())) {
+                    if (!UArraysKt___UArraysKt.m1255contentEqualskV0jMPg(((UByteArray) t).m797unboximpl(), ((UByteArray) t2).m797unboximpl())) {
                         return false;
                     }
                 } else if ((t instanceof UShortArray) && (t2 instanceof UShortArray)) {
-                    if (!UArraysKt___UArraysKt.m1253contentEqualsFGO6Aew(((UShortArray) t).m1058unboximpl(), ((UShortArray) t2).m1058unboximpl())) {
+                    if (!UArraysKt___UArraysKt.m1252contentEqualsFGO6Aew(((UShortArray) t).m1057unboximpl(), ((UShortArray) t2).m1057unboximpl())) {
                         return false;
                     }
                 } else if ((t instanceof UIntArray) && (t2 instanceof UIntArray)) {
-                    if (!UArraysKt___UArraysKt.m1254contentEqualsKJPZfPQ(((UIntArray) t).m876unboximpl(), ((UIntArray) t2).m876unboximpl())) {
+                    if (!UArraysKt___UArraysKt.m1253contentEqualsKJPZfPQ(((UIntArray) t).m875unboximpl(), ((UIntArray) t2).m875unboximpl())) {
                         return false;
                     }
                 } else if ((t instanceof ULongArray) && (t2 instanceof ULongArray)) {
-                    if (!UArraysKt___UArraysKt.m1258contentEqualslec5QzE(((ULongArray) t).m954unboximpl(), ((ULongArray) t2).m954unboximpl())) {
+                    if (!UArraysKt___UArraysKt.m1257contentEqualslec5QzE(((ULongArray) t).m953unboximpl(), ((ULongArray) t2).m953unboximpl())) {
                         return false;
                     }
                 } else if (!Intrinsics.areEqual(t, t2)) {
@@ -166,16 +166,16 @@ public class ArraysKt__ArraysKt extends ArraysKt__ArraysJVMKt {
                 sb.append(arrays8);
             } else if (t instanceof UByteArray) {
                 UByteArray uByteArray = (UByteArray) t;
-                sb.append(UArraysKt___UArraysKt.m1270contentToString2csIQuQ(uByteArray != null ? uByteArray.m798unboximpl() : null));
+                sb.append(UArraysKt___UArraysKt.m1269contentToString2csIQuQ(uByteArray != null ? uByteArray.m797unboximpl() : null));
             } else if (t instanceof UShortArray) {
                 UShortArray uShortArray = (UShortArray) t;
-                sb.append(UArraysKt___UArraysKt.m1274contentToStringd6D3K8(uShortArray != null ? uShortArray.m1058unboximpl() : null));
+                sb.append(UArraysKt___UArraysKt.m1273contentToStringd6D3K8(uShortArray != null ? uShortArray.m1057unboximpl() : null));
             } else if (t instanceof UIntArray) {
                 UIntArray uIntArray = (UIntArray) t;
-                sb.append(UArraysKt___UArraysKt.m1273contentToStringXUkPCBk(uIntArray != null ? uIntArray.m876unboximpl() : null));
+                sb.append(UArraysKt___UArraysKt.m1272contentToStringXUkPCBk(uIntArray != null ? uIntArray.m875unboximpl() : null));
             } else if (t instanceof ULongArray) {
                 ULongArray uLongArray = (ULongArray) t;
-                sb.append(UArraysKt___UArraysKt.m1276contentToStringuLth9ew(uLongArray != null ? uLongArray.m954unboximpl() : null));
+                sb.append(UArraysKt___UArraysKt.m1275contentToStringuLth9ew(uLongArray != null ? uLongArray.m953unboximpl() : null));
             } else {
                 sb.append(t.toString());
             }

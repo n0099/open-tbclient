@@ -32,10 +32,10 @@ public final class ChecksumHashFunction extends c.i.d.d.b implements Serializabl
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: b  reason: collision with root package name */
-        public final Checksum f54943b;
+        public final Checksum f55110b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ ChecksumHashFunction f54944c;
+        public final /* synthetic */ ChecksumHashFunction f55111c;
 
         public /* synthetic */ b(ChecksumHashFunction checksumHashFunction, Checksum checksum, a aVar) {
             this(checksumHashFunction, checksum);
@@ -46,8 +46,8 @@ public final class ChecksumHashFunction extends c.i.d.d.b implements Serializabl
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                long value = this.f54943b.getValue();
-                if (this.f54944c.bits == 32) {
+                long value = this.f55110b.getValue();
+                if (this.f55111c.bits == 32) {
                     return HashCode.fromInt((int) value);
                 }
                 return HashCode.fromLong(value);
@@ -59,7 +59,7 @@ public final class ChecksumHashFunction extends c.i.d.d.b implements Serializabl
         public void update(byte b2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeB(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, b2) == null) {
-                this.f54943b.update(b2);
+                this.f55110b.update(b2);
             }
         }
 
@@ -78,16 +78,16 @@ public final class ChecksumHashFunction extends c.i.d.d.b implements Serializabl
                     return;
                 }
             }
-            this.f54944c = checksumHashFunction;
+            this.f55111c = checksumHashFunction;
             n.p(checksum);
-            this.f54943b = checksum;
+            this.f55110b = checksum;
         }
 
         @Override // c.i.d.d.a
         public void update(byte[] bArr, int i2, int i3) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLII(Constants.METHOD_SEND_USER_MSG, this, bArr, i2, i3) == null) {
-                this.f54943b.update(bArr, i2, i3);
+                this.f55110b.update(bArr, i2, i3);
             }
         }
     }

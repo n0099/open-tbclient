@@ -7,15 +7,15 @@ import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import java.io.File;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class a {
     public static Context a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f56585b;
+    public static String f56752b;
 
     public static File a() {
-        File file = !TextUtils.isEmpty(f56585b) ? new File(f56585b) : new File(a(a), "kwad_ex");
+        File file = !TextUtils.isEmpty(f56752b) ? new File(f56752b) : new File(a(a), "kwad_ex");
         if (!file.exists()) {
             file.mkdir();
         }
@@ -36,7 +36,7 @@ public class a {
 
     public static void a(@NonNull Context context, @Nullable String str) {
         a = context;
-        f56585b = str;
+        f56752b = str;
     }
 
     public static File b() {

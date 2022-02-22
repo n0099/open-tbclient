@@ -18,7 +18,7 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class DuPaEvaluationMsg extends ChatMsg {
     public static /* synthetic */ Interceptable $ic = null;
     public static final Parcelable.Creator<DuPaEvaluationMsg> CREATOR;
@@ -28,7 +28,7 @@ public class DuPaEvaluationMsg extends ChatMsg {
     public List<EvaluationItem> mItems;
     public String mText;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class EvaluationItem implements Parcelable {
         public static /* synthetic */ Interceptable $ic;
         public static final Parcelable.Creator<EvaluationItem> CREATOR;

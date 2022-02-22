@@ -2,7 +2,7 @@ package com.kwad.sdk.reward.d;
 
 import android.view.ViewGroup;
 import com.kwad.sdk.core.response.model.AdTemplate;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public abstract class d {
     public abstract ViewGroup a();
 

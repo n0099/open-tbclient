@@ -7,13 +7,13 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.heytap.openid.sdk.OpenIDSDK;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class s extends m {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: i  reason: collision with root package name */
-    public Context f52976i;
+    public Context f53143i;
 
     public s(Context context) {
         Interceptable interceptable = $ic;
@@ -30,9 +30,9 @@ public class s extends m {
                 return;
             }
         }
-        this.f52976i = context;
+        this.f53143i = context;
         Context a = a(context);
-        this.f52976i = a;
+        this.f53143i = a;
         OpenIDSDK.init(a);
     }
 
@@ -42,14 +42,14 @@ public class s extends m {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             g gVar = new g();
-            Context a = a(this.f52976i);
-            this.f52976i = a;
+            Context a = a(this.f53143i);
+            this.f53143i = a;
             OpenIDSDK.init(a);
             gVar.e(new h(OpenIDSDK.class, null, "isSupported", null, null));
-            gVar.d(new h((Class<?>) OpenIDSDK.class, (Object) null, "getOAIDStatus", (Class<?>[]) new Class[]{Context.class}, new Object[]{this.f52976i}, true));
-            gVar.b(new h(OpenIDSDK.class, null, "getOAID", new Class[]{Context.class}, new Object[]{this.f52976i}));
-            gVar.c(new h(OpenIDSDK.class, null, "getVAID", new Class[]{Context.class}, new Object[]{this.f52976i}));
-            gVar.a(new h(OpenIDSDK.class, null, "getAAID", new Class[]{Context.class}, new Object[]{this.f52976i}));
+            gVar.d(new h((Class<?>) OpenIDSDK.class, (Object) null, "getOAIDStatus", (Class<?>[]) new Class[]{Context.class}, new Object[]{this.f53143i}, true));
+            gVar.b(new h(OpenIDSDK.class, null, "getOAID", new Class[]{Context.class}, new Object[]{this.f53143i}));
+            gVar.c(new h(OpenIDSDK.class, null, "getVAID", new Class[]{Context.class}, new Object[]{this.f53143i}));
+            gVar.a(new h(OpenIDSDK.class, null, "getAAID", new Class[]{Context.class}, new Object[]{this.f53143i}));
             return gVar;
         }
         return (g) invokeV.objValue;

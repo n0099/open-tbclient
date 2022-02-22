@@ -90,7 +90,7 @@ public final class GeneratedPluginRegistrant {
                 Log.e(TAG, "Error registering plugin sqflite, com.tekartik.sqflite.SqflitePlugin", e11);
             }
             try {
-                flutterEngine.getPlugins().add(new c.a.w0.b());
+                flutterEngine.getPlugins().add(new c.a.x0.b());
             } catch (Exception e12) {
                 Log.e(TAG, "Error registering plugin ubcflutter, com.baidu.ubcflutter.UbcflutterPlugin", e12);
             }

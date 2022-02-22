@@ -57,11 +57,11 @@ public class fh extends fs {
             if (z) {
                 fgVar.a("1");
             }
-            byte[] m433a = gz.m433a();
-            if (m433a != null) {
+            byte[] m432a = gz.m432a();
+            if (m432a != null) {
                 du.j jVar = new du.j();
-                jVar.a(a.a(m433a));
-                fgVar.a(jVar.m345a(), (String) null);
+                jVar.a(a.a(m432a));
+                fgVar.a(jVar.m344a(), (String) null);
             }
             return fgVar;
         }
@@ -74,7 +74,7 @@ public class fh extends fs {
             try {
                 this.a = new fc(((fs) this).f416a.getInputStream(), this);
                 this.f386a = new fd(((fs) this).f416a.getOutputStream(), this);
-                fi fiVar = new fi(this, "Blob Reader (" + ((fl) this).f61123b + SmallTailInfo.EMOTION_SUFFIX);
+                fi fiVar = new fi(this, "Blob Reader (" + ((fl) this).f61290b + SmallTailInfo.EMOTION_SUFFIX);
                 this.f387a = fiVar;
                 fiVar.start();
             } catch (Exception e2) {
@@ -122,14 +122,14 @@ public class fh extends fs {
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, faVar) == null) || faVar == null) {
             return;
         }
-        if (faVar.m369a()) {
-            com.xiaomi.channel.commonutils.logger.b.m134a("[Slim] RCV blob chid=" + faVar.a() + "; id=" + faVar.e() + "; errCode=" + faVar.b() + "; err=" + faVar.m373c());
+        if (faVar.m368a()) {
+            com.xiaomi.channel.commonutils.logger.b.m133a("[Slim] RCV blob chid=" + faVar.a() + "; id=" + faVar.e() + "; errCode=" + faVar.b() + "; err=" + faVar.m372c());
         }
         if (faVar.a() == 0) {
-            if ("PING".equals(faVar.m366a())) {
-                com.xiaomi.channel.commonutils.logger.b.m134a("[Slim] RCV ping id=" + faVar.e());
+            if ("PING".equals(faVar.m365a())) {
+                com.xiaomi.channel.commonutils.logger.b.m133a("[Slim] RCV ping id=" + faVar.e());
                 g();
-            } else if ("CLOSE".equals(faVar.m366a())) {
+            } else if ("CLOSE".equals(faVar.m365a())) {
                 c(13, null);
             }
         }
@@ -169,14 +169,14 @@ public class fh extends fs {
 
     @Override // com.xiaomi.push.fs
     /* renamed from: a  reason: collision with other method in class */
-    public void mo379a(boolean z) {
+    public void mo378a(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
             if (this.f386a == null) {
                 throw new fw("The BlobWriter is null.");
             }
             fa a = a(z);
-            com.xiaomi.channel.commonutils.logger.b.m134a("[Slim] SND ping id=" + a.e());
+            com.xiaomi.channel.commonutils.logger.b.m133a("[Slim] SND ping id=" + a.e());
             b(a);
             f();
         }
@@ -210,8 +210,8 @@ public class fh extends fs {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
             synchronized (this) {
                 if (this.f388a == null && !TextUtils.isEmpty(((fl) this).f402a)) {
-                    String m676a = com.xiaomi.push.service.bi.m676a();
-                    this.f388a = com.xiaomi.push.service.be.a(((fl) this).f402a.getBytes(), (((fl) this).f402a.substring(((fl) this).f402a.length() / 2) + m676a.substring(m676a.length() / 2)).getBytes());
+                    String m675a = com.xiaomi.push.service.bi.m675a();
+                    this.f388a = com.xiaomi.push.service.be.a(((fl) this).f402a.getBytes(), (((fl) this).f402a.substring(((fl) this).f402a.length() / 2) + m675a.substring(m675a.length() / 2)).getBytes());
                 }
                 bArr = this.f388a;
             }
@@ -230,7 +230,7 @@ public class fh extends fs {
             }
             try {
                 int a = fdVar.a(faVar);
-                ((fl) this).f61125d = System.currentTimeMillis();
+                ((fl) this).f61292d = System.currentTimeMillis();
                 String f2 = faVar.f();
                 if (!TextUtils.isEmpty(f2)) {
                     gq.a(((fl) this).f401a, f2, a, false, true, System.currentTimeMillis());

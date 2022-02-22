@@ -11,7 +11,7 @@ import androidx.annotation.RequiresApi;
 import com.kwad.sdk.R;
 import com.kwad.sdk.widget.i;
 @SuppressLint({"AppCompatCustomView"})
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class KSCornerImageView extends ImageView {
     public i a;
 

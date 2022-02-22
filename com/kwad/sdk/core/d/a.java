@@ -1,12 +1,12 @@
 package com.kwad.sdk.core.d;
 
 import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class a {
     public static boolean a = true;
 
     /* renamed from: b  reason: collision with root package name */
-    public static boolean f55697b;
+    public static boolean f55864b;
 
     public static String a() {
         return "KSAdSDK";
@@ -48,7 +48,7 @@ public class a {
     public static String b() {
         String str;
         int i2;
-        if (f55697b) {
+        if (f55864b) {
             StackTraceElement[] stackTrace = new Throwable().getStackTrace();
             if (stackTrace.length > 3) {
                 str = stackTrace[3].getFileName();

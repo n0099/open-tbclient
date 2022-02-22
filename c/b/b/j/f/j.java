@@ -12,7 +12,7 @@ public class j extends b<Pixmap, a> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public Pixmap f27016b;
+    public Pixmap f27222b;
 
     /* loaded from: classes9.dex */
     public static class a extends c.b.b.j.c<Pixmap> {
@@ -72,8 +72,8 @@ public class j extends b<Pixmap, a> {
     public void c(c.b.b.j.e eVar, String str, c.b.b.m.a aVar, a aVar2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLL(1048580, this, eVar, str, aVar, aVar2) == null) {
-            this.f27016b = null;
-            this.f27016b = new Pixmap(aVar);
+            this.f27222b = null;
+            this.f27222b = new Pixmap(aVar);
         }
     }
 
@@ -84,8 +84,8 @@ public class j extends b<Pixmap, a> {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048581, this, eVar, str, aVar, aVar2)) == null) {
-            Pixmap pixmap = this.f27016b;
-            this.f27016b = null;
+            Pixmap pixmap = this.f27222b;
+            this.f27222b = null;
             return pixmap;
         }
         return (Pixmap) invokeLLLL.objValue;

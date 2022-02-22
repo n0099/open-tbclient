@@ -1,5 +1,5 @@
 package com.bumptech.glide.load.engine.bitmap_recycle;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public interface Poolable {
     void offer();
 }

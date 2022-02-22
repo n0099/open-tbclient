@@ -9,8 +9,8 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import c.a.d.f.p.n;
 import c.a.l.p;
-import c.a.s0.s.q.e2;
-import c.a.s0.s.u.c;
+import c.a.t0.s.r.e2;
+import c.a.t0.s.v.c;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.OriginalThreadInfo;
@@ -23,24 +23,24 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes10.dex */
-public class RichTextLayout extends LinearLayout implements p<c.a.s0.s.q.a>, View.OnClickListener {
+public class RichTextLayout extends LinearLayout implements p<c.a.t0.s.r.a>, View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final int f33292e;
+    public final int f33498e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Context f33293f;
+    public Context f33499f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f33294g;
+    public boolean f33500g;
 
     /* renamed from: h  reason: collision with root package name */
-    public View.OnClickListener f33295h;
+    public View.OnClickListener f33501h;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f33296i;
+    public boolean f33502i;
     public TextView mAbstract;
     public TextView mTitle;
 
@@ -50,7 +50,7 @@ public class RichTextLayout extends LinearLayout implements p<c.a.s0.s.q.a>, Vie
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ RichTextLayout f33297e;
+        public final /* synthetic */ RichTextLayout f33503e;
 
         public a(RichTextLayout richTextLayout) {
             Interceptable interceptable = $ic;
@@ -67,16 +67,16 @@ public class RichTextLayout extends LinearLayout implements p<c.a.s0.s.q.a>, Vie
                     return;
                 }
             }
-            this.f33297e = richTextLayout;
+            this.f33503e = richTextLayout;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f33297e.f33295h == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f33503e.f33501h == null) {
                 return;
             }
-            this.f33297e.f33295h.onClick(view);
+            this.f33503e.f33501h.onClick(view);
         }
     }
 
@@ -86,7 +86,7 @@ public class RichTextLayout extends LinearLayout implements p<c.a.s0.s.q.a>, Vie
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ RichTextLayout f33298e;
+        public final /* synthetic */ RichTextLayout f33504e;
 
         public b(RichTextLayout richTextLayout) {
             Interceptable interceptable = $ic;
@@ -103,16 +103,16 @@ public class RichTextLayout extends LinearLayout implements p<c.a.s0.s.q.a>, Vie
                     return;
                 }
             }
-            this.f33298e = richTextLayout;
+            this.f33504e = richTextLayout;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f33298e.f33295h == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f33504e.f33501h == null) {
                 return;
             }
-            this.f33298e.f33295h.onClick(view);
+            this.f33504e.f33501h.onClick(view);
         }
     }
 
@@ -134,10 +134,10 @@ public class RichTextLayout extends LinearLayout implements p<c.a.s0.s.q.a>, Vie
                 return;
             }
         }
-        this.f33292e = n.k(TbadkCoreApplication.getInst()) - ((n.f(TbadkCoreApplication.getInst(), R.dimen.M_W_X005) + n.f(TbadkCoreApplication.getInst(), R.dimen.M_W_X004)) * 2);
-        this.f33294g = false;
-        this.f33296i = false;
-        this.f33293f = context;
+        this.f33498e = n.k(TbadkCoreApplication.getInst()) - ((n.f(TbadkCoreApplication.getInst(), R.dimen.M_W_X005) + n.f(TbadkCoreApplication.getInst(), R.dimen.M_W_X004)) * 2);
+        this.f33500g = false;
+        this.f33502i = false;
+        this.f33499f = context;
         b();
     }
 
@@ -158,7 +158,7 @@ public class RichTextLayout extends LinearLayout implements p<c.a.s0.s.q.a>, Vie
     public void onClick(View view) {
         View.OnClickListener onClickListener;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, view) == null) || (onClickListener = this.f33295h) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048579, this, view) == null) || (onClickListener = this.f33501h) == null) {
             return;
         }
         onClickListener.onClick(view);
@@ -173,57 +173,57 @@ public class RichTextLayout extends LinearLayout implements p<c.a.s0.s.q.a>, Vie
     public void setJumpToPbListener(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, onClickListener) == null) {
-            this.f33295h = onClickListener;
+            this.f33501h = onClickListener;
         }
     }
 
     public void setNeedFrsTabName(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
-            this.f33296i = z;
+            this.f33502i = z;
         }
     }
 
     public void setTransmit(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
-            this.f33294g = z;
+            this.f33500g = z;
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // c.a.l.p
-    public void onBindDataToView(c.a.s0.s.q.a aVar) {
+    public void onBindDataToView(c.a.t0.s.r.a aVar) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) || aVar == null || aVar.getThreadData() == null) {
             return;
         }
         e2 threadData = aVar.getThreadData();
         OriginalThreadInfo originalThreadInfo = threadData.z1;
-        if (originalThreadInfo != null && this.f33294g) {
+        if (originalThreadInfo != null && this.f33500g) {
             this.mTitle.setVisibility(8);
             c d2 = c.d(this.mAbstract);
             d2.A(R.string.F_X01);
             d2.z(R.dimen.T_X07);
             if (!originalThreadInfo.m && !aVar.getThreadData().Q4()) {
                 SpannableString b2 = originalThreadInfo.b();
-                ThreadCardUtils.setAbstract(this.mAbstract, this.mTitle, b2, threadData, this.f33292e, this.f33294g, this.f33296i);
+                ThreadCardUtils.setAbstract(this.mAbstract, this.mTitle, b2, threadData, this.f33498e, this.f33500g, this.f33502i);
                 if (b2 != null) {
                     TiePlusEventController.tryExposeTiePlusLinkEvent(originalThreadInfo.f());
                 }
             } else {
-                ThreadCardUtils.setAbstract(this.mAbstract, this.mTitle, new SpannableString(this.f33293f.getString(R.string.origin_thread_deleted_title)), threadData, this.f33292e, this.f33294g, this.f33296i);
+                ThreadCardUtils.setAbstract(this.mAbstract, this.mTitle, new SpannableString(this.f33499f.getString(R.string.origin_thread_deleted_title)), threadData, this.f33498e, this.f33500g, this.f33502i);
                 SkinManager.setViewTextColor(this.mAbstract, R.color.CAM_X0108);
             }
         } else {
-            ThreadCardUtils.setTitle(this.mTitle, threadData, this.f33296i);
+            ThreadCardUtils.setTitle(this.mTitle, threadData, this.f33502i);
             SpannableString p = threadData.p();
-            ThreadCardUtils.setAbstract(this.mAbstract, this.mTitle, p, threadData, this.f33292e, this.f33294g, this.f33296i);
+            ThreadCardUtils.setAbstract(this.mAbstract, this.mTitle, p, threadData, this.f33498e, this.f33500g, this.f33502i);
             if (p != null) {
                 TiePlusEventController.tryExposeTiePlusLinkEvent(threadData.x1());
             }
         }
-        if (!this.f33294g) {
+        if (!this.f33500g) {
             this.mAbstract.setClickable(false);
             this.mTitle.setClickable(false);
         } else if (originalThreadInfo != null && (originalThreadInfo.m || threadData.Q4())) {

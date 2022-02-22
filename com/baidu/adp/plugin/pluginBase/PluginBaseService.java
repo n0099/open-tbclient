@@ -12,7 +12,7 @@ import android.content.pm.PackageManager;
 import android.content.res.Configuration;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.IBinder;
-import c.a.d.i.f.c;
+import c.a.d.j.f.c;
 import com.baidu.adp.plugin.PluginCenter;
 import com.baidu.adp.plugin.packageManager.pluginSettings.PluginSetting;
 import com.baidu.android.imsdk.internal.Constants;
@@ -27,7 +27,7 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.PrintWriter;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public abstract class PluginBaseService extends PluginContextWrapper {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int START_CONTINUATION_MASK = 15;
@@ -94,7 +94,7 @@ public abstract class PluginBaseService extends PluginContextWrapper {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
             String pluginPackageName = getPluginPackageName();
-            PluginSetting h2 = c.a.d.i.j.f.c.j().h(pluginPackageName);
+            PluginSetting h2 = c.a.d.j.j.f.c.j().h(pluginPackageName);
             if (h2 != null && h2.isThird) {
                 Service service = this.mService;
                 return service.getFileStreamPath(pluginPackageName + str);
@@ -123,7 +123,7 @@ public abstract class PluginBaseService extends PluginContextWrapper {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(1048583, this, str, i2)) == null) {
             String pluginPackageName = getPluginPackageName();
-            PluginSetting h2 = c.a.d.i.j.f.c.j().h(pluginPackageName);
+            PluginSetting h2 = c.a.d.j.j.f.c.j().h(pluginPackageName);
             if (h2 != null && h2.isThird) {
                 c cVar = this.mServiceProxy;
                 return cVar.proxyGetSharedPreferences(pluginPackageName + str, i2);
@@ -194,7 +194,7 @@ public abstract class PluginBaseService extends PluginContextWrapper {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048593, this, str)) == null) {
             String pluginPackageName = getPluginPackageName();
-            PluginSetting h2 = c.a.d.i.j.f.c.j().h(pluginPackageName);
+            PluginSetting h2 = c.a.d.j.j.f.c.j().h(pluginPackageName);
             if (h2 != null && h2.isThird) {
                 Service service = this.mService;
                 return service.openFileInput(pluginPackageName + str);
@@ -210,7 +210,7 @@ public abstract class PluginBaseService extends PluginContextWrapper {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(1048594, this, str, i2)) == null) {
             String pluginPackageName = getPluginPackageName();
-            PluginSetting h2 = c.a.d.i.j.f.c.j().h(pluginPackageName);
+            PluginSetting h2 = c.a.d.j.j.f.c.j().h(pluginPackageName);
             if (h2 != null && h2.isThird) {
                 Service service = this.mService;
                 return service.openFileOutput(pluginPackageName + str, i2);
@@ -226,7 +226,7 @@ public abstract class PluginBaseService extends PluginContextWrapper {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048595, this, str, i2, cursorFactory)) == null) {
             String pluginPackageName = getPluginPackageName();
-            PluginSetting h2 = c.a.d.i.j.f.c.j().h(pluginPackageName);
+            PluginSetting h2 = c.a.d.j.j.f.c.j().h(pluginPackageName);
             if (h2 != null && h2.isThird) {
                 Service service = this.mService;
                 return service.openOrCreateDatabase(pluginPackageName + str, i2, cursorFactory);

@@ -1,8 +1,8 @@
 package com.baidu.tieba.flutter.plugin.tiebautility.android;
 
 import android.text.TextUtils;
-import c.a.s0.d1.v0;
-import c.a.s0.t.c.o;
+import c.a.t0.d1.w0;
+import c.a.t0.t.c.o;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbSingleton;
@@ -64,7 +64,7 @@ public class UtilityAppInfo implements TiebaUtilityAppInfoAuto.HostUtilityAppInf
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, result) == null) {
             TiebaUtilityAppInfoAuto.AppInfoStringResult appInfoStringResult = new TiebaUtilityAppInfoAuto.AppInfoStringResult();
-            appInfoStringResult.setResult(v0.b());
+            appInfoStringResult.setResult(w0.b());
             result.success(appInfoStringResult);
         }
     }

@@ -52,7 +52,7 @@ public final class SVGAParser$decodeFromInputStream$1$$special$$inlined$let$lamb
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             SVGAParser$decodeFromInputStream$1 sVGAParser$decodeFromInputStream$1 = this.this$0;
-            sVGAParser$decodeFromInputStream$1.f58935e.s(this.$videoItem, sVGAParser$decodeFromInputStream$1.f58938h);
+            sVGAParser$decodeFromInputStream$1.f59102e.s(this.$videoItem, sVGAParser$decodeFromInputStream$1.f59105h);
         }
     }
 }

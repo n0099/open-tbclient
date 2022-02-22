@@ -15,11 +15,11 @@ public class a {
     public final SparseArray<ArrayList<b>> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f28092b;
+    public int f28298b;
 
     /* renamed from: c.f.a.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes9.dex */
-    public interface InterfaceC1634a {
+    public interface InterfaceC1644a {
         void a();
     }
 
@@ -30,20 +30,20 @@ public class a {
         public int a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f28093b;
+        public int f28299b;
 
         /* renamed from: c  reason: collision with root package name */
-        public int f28094c;
+        public int f28300c;
 
         /* renamed from: d  reason: collision with root package name */
-        public InterfaceC1634a f28095d;
+        public InterfaceC1644a f28301d;
 
-        public b(a aVar, int i2, int i3, int i4, InterfaceC1634a interfaceC1634a) {
+        public b(a aVar, int i2, int i3, int i4, InterfaceC1644a interfaceC1644a) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {aVar, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), interfaceC1634a};
+                Object[] objArr = {aVar, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), interfaceC1644a};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i5 = newInitContext.flag;
                 if ((i5 & 1) != 0) {
@@ -54,9 +54,9 @@ public class a {
                 }
             }
             this.a = i2;
-            this.f28093b = i3;
-            this.f28094c = i4;
-            this.f28095d = interfaceC1634a;
+            this.f28299b = i3;
+            this.f28300c = i4;
+            this.f28301d = interfaceC1644a;
         }
     }
 
@@ -76,22 +76,22 @@ public class a {
             }
         }
         this.a = new SparseArray<>();
-        this.f28092b = 0;
-        this.f28092b = i2;
+        this.f28298b = 0;
+        this.f28298b = i2;
     }
 
     public void a(int i2) {
         ArrayList<b> arrayList;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048576, this, i2) == null) || (arrayList = this.a.get(this.f28092b)) == null || arrayList.size() == 0) {
+        if (!(interceptable == null || interceptable.invokeI(1048576, this, i2) == null) || (arrayList = this.a.get(this.f28298b)) == null || arrayList.size() == 0) {
             return;
         }
         Iterator<b> it = arrayList.iterator();
         while (it.hasNext()) {
             b next = it.next();
-            if (next.f28094c == i2) {
-                this.f28092b = next.f28093b;
-                next.f28095d.a();
+            if (next.f28300c == i2) {
+                this.f28298b = next.f28299b;
+                next.f28301d.a();
                 return;
             }
         }

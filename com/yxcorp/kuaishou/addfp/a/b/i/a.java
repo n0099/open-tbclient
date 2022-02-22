@@ -13,7 +13,7 @@ public final class a {
     public static Object a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static Class f61574b;
+    public static Class f61741b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -31,7 +31,7 @@ public final class a {
         }
         try {
             Class<?> cls = Class.forName("com.android.id.impl.IdProviderImpl");
-            f61574b = cls;
+            f61741b = cls;
             a = cls.newInstance();
         } catch (Throwable th) {
             th.printStackTrace();
@@ -52,7 +52,7 @@ public final class a {
                 return null;
             }
             try {
-                Object invoke = f61574b.getMethod(str, Context.class).invoke(a, context);
+                Object invoke = f61741b.getMethod(str, Context.class).invoke(a, context);
                 if (invoke != null) {
                     return (String) invoke;
                 }
@@ -68,6 +68,6 @@ public final class a {
     public static boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (f61574b == null || a == null) ? false : true : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (f61741b == null || a == null) ? false : true : invokeV.booleanValue;
     }
 }

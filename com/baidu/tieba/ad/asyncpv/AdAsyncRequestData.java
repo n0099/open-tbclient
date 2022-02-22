@@ -4,9 +4,9 @@ import android.os.Build;
 import android.text.TextUtils;
 import android.webkit.CookieManager;
 import c.a.d.f.p.l;
-import c.a.s0.d1.h;
-import c.a.s0.d1.i;
-import c.a.t0.l.a;
+import c.a.t0.d1.h;
+import c.a.t0.d1.i;
+import c.a.u0.l.a;
 import com.baidu.adp.framework.message.HttpMessage;
 import com.baidu.common.param.CommonUrlParamManager;
 import com.baidu.tbadk.TbConfig;
@@ -126,10 +126,10 @@ public class AdAsyncRequestData extends HttpMessage {
                 jSONArray.put(create("oaid_v", PermissionUtil.getLastCachedOid(TbadkCoreApplication.getInst())));
                 jSONArray.put(create("mac", PermissionUtil.getLocalMacAddress(TbadkCoreApplication.getInst())));
             }
-            if (c.a.t0.a.h().y()) {
-                jSONArray.put(create(AdExtParam.KEY_NAD_CORE_VERSION, "4.4.3.3"));
+            if (c.a.u0.a.h().y()) {
+                jSONArray.put(create(AdExtParam.KEY_NAD_CORE_VERSION, "4.5.0.13"));
             }
-            if (!c.a.t0.y1.o.k.a.f(map)) {
+            if (!c.a.u0.z1.o.k.a.f(map)) {
                 for (Map.Entry<String, String> entry : map.entrySet()) {
                     jSONArray.put(create(entry.getKey(), entry.getValue()));
                 }

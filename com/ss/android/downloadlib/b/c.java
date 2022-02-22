@@ -20,8 +20,8 @@ public class c {
         if (b3) {
             return;
         }
-        com.ss.android.socialbase.downloader.a.a.a().a(new a.InterfaceC2203a() { // from class: com.ss.android.downloadlib.b.c.1
-            @Override // com.ss.android.socialbase.downloader.a.a.InterfaceC2203a
+        com.ss.android.socialbase.downloader.a.a.a().a(new a.InterfaceC2213a() { // from class: com.ss.android.downloadlib.b.c.1
+            @Override // com.ss.android.socialbase.downloader.a.a.InterfaceC2213a
             public void b() {
                 com.ss.android.socialbase.downloader.c.a.b("AppInstallOptimiseHelper", "AppInstallOptimiseHelper-->onAppForeground");
                 com.ss.android.socialbase.downloader.a.a.a().b(this);
@@ -33,7 +33,7 @@ public class c {
                 aVar.a();
             }
 
-            @Override // com.ss.android.socialbase.downloader.a.a.InterfaceC2203a
+            @Override // com.ss.android.socialbase.downloader.a.a.InterfaceC2213a
             public void c() {
             }
         });

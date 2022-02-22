@@ -1,7 +1,7 @@
 package com.baidu.tbadk;
 
 import android.app.Activity;
-import com.baidu.tieba.R;
+import c.a.u0.a4.a;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -45,14 +45,14 @@ public class ActivityPendingTransitionFactory {
                 return;
             }
         }
-        RES_NFADE_IN = R.anim.fade_in;
-        RES_FADE_OUT = R.anim.fade_out;
-        RES_NORMAL_IN_FROM_RIGHT = R.anim.in_from_right;
-        RES_NORMAL_IN_FROM_BOTTOM = R.anim.in_from_bottom;
-        RES_NORMAL_OUT_TO_RIGHT = R.anim.out_to_right;
-        RES_NORMAL_OUT_TO_BOTTOM = R.anim.out_to_bottom;
-        RES_BIG_IMAGE_IN_FROM_RIGHT = R.anim.anim_alpha_0_to_1_duration_300;
-        RES_BIG_IMAGE_OUT_TO_RIGHT = R.anim.anim_alpha_1_to_0_duration_300;
+        RES_NFADE_IN = a.fade_in;
+        RES_FADE_OUT = a.fade_out;
+        RES_NORMAL_IN_FROM_RIGHT = a.in_from_right;
+        RES_NORMAL_IN_FROM_BOTTOM = a.in_from_bottom;
+        RES_NORMAL_OUT_TO_RIGHT = a.out_to_right;
+        RES_NORMAL_OUT_TO_BOTTOM = a.out_to_bottom;
+        RES_BIG_IMAGE_IN_FROM_RIGHT = a.anim_alpha_0_to_1_duration_300;
+        RES_BIG_IMAGE_OUT_TO_RIGHT = a.anim_alpha_1_to_0_duration_300;
     }
 
     public ActivityPendingTransitionFactory() {

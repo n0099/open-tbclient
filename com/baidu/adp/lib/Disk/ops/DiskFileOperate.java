@@ -6,6 +6,7 @@ import c.a.d.f.a.e;
 import c.a.d.f.m.a;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.network.outback.EngineName;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -16,7 +17,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
 import java.io.OutputStream;
 import org.apache.http.client.methods.HttpDelete;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class DiskFileOperate {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -39,7 +40,7 @@ public class DiskFileOperate {
     public int mTrySuccessWeight;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static final class Action {
         public static final /* synthetic */ Action[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -77,7 +78,7 @@ public class DiskFileOperate {
             DELETE_FILES = new Action("DELETE_FILES", 6);
             INFO = new Action("INFO", 7);
             RENAME = new Action("RENAME", 8);
-            Action action = new Action("CUSTOM", 9);
+            Action action = new Action(EngineName.CUSTOM_ENGINE, 9);
             CUSTOM = action;
             $VALUES = new Action[]{READ, WRITE, WRITE_FORCE, APPEND, APPEND_MORE, DELETE, DELETE_FILES, INFO, RENAME, action};
         }
@@ -115,7 +116,7 @@ public class DiskFileOperate {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static final class OperateType {
         public static final /* synthetic */ OperateType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;

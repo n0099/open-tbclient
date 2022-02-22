@@ -18,22 +18,22 @@ public interface cq {
         public static final a a;
 
         /* renamed from: b  reason: collision with root package name */
-        public static final a f36629b;
+        public static final a f36835b;
 
         /* renamed from: c  reason: collision with root package name */
-        public static final a f36630c;
+        public static final a f36836c;
 
         /* renamed from: d  reason: collision with root package name */
-        public static final a f36631d;
+        public static final a f36837d;
 
         /* renamed from: e  reason: collision with root package name */
-        public static final a f36632e;
+        public static final a f36838e;
 
         /* renamed from: f  reason: collision with root package name */
-        public static final a f36633f;
+        public static final a f36839f;
 
         /* renamed from: g  reason: collision with root package name */
-        public static final /* synthetic */ a[] f36634g;
+        public static final /* synthetic */ a[] f36840g;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -50,13 +50,13 @@ public interface cq {
                 }
             }
             a = new a("CONTINUOUS", 0);
-            f36629b = new a("TEXT", 1);
-            f36630c = new a("BINARY", 2);
-            f36631d = new a("PING", 3);
-            f36632e = new a("PONG", 4);
+            f36835b = new a("TEXT", 1);
+            f36836c = new a("BINARY", 2);
+            f36837d = new a("PING", 3);
+            f36838e = new a("PONG", 4);
             a aVar = new a("CLOSING", 5);
-            f36633f = aVar;
-            f36634g = new a[]{a, f36629b, f36630c, f36631d, f36632e, aVar};
+            f36839f = aVar;
+            f36840g = new a[]{a, f36835b, f36836c, f36837d, f36838e, aVar};
         }
 
         public a(String str, int i2) {
@@ -87,7 +87,7 @@ public interface cq {
         public static a[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (a[]) f36634g.clone() : (a[]) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (a[]) f36840g.clone() : (a[]) invokeV.objValue;
         }
     }
 

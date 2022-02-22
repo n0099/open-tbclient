@@ -24,10 +24,10 @@ public class s<K, V> extends c.i.d.c.c<K, V> implements u<K, V> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final q0<K, V> f30112e;
+    public final q0<K, V> f30318e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final c.i.d.a.o<? super K> f30113f;
+    public final c.i.d.a.o<? super K> f30319f;
 
     /* loaded from: classes9.dex */
     public static class a<K, V> extends c0<V> {
@@ -35,7 +35,7 @@ public class s<K, V> extends c.i.d.c.c<K, V> implements u<K, V> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final K f30114e;
+        public final K f30320e;
 
         public a(K k) {
             Interceptable interceptable = $ic;
@@ -52,7 +52,7 @@ public class s<K, V> extends c.i.d.c.c<K, V> implements u<K, V> {
                     return;
                 }
             }
-            this.f30114e = k;
+            this.f30320e = k;
         }
 
         @Override // c.i.d.c.y, java.util.Collection, java.util.List
@@ -91,7 +91,7 @@ public class s<K, V> extends c.i.d.c.c<K, V> implements u<K, V> {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeIL(1048576, this, i2, v) == null) {
                 c.i.d.a.n.t(i2, 0);
-                throw new IllegalArgumentException("Key does not satisfy predicate: " + this.f30114e);
+                throw new IllegalArgumentException("Key does not satisfy predicate: " + this.f30320e);
             }
         }
 
@@ -102,7 +102,7 @@ public class s<K, V> extends c.i.d.c.c<K, V> implements u<K, V> {
             if (interceptable == null || (invokeIL = interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i2, collection)) == null) {
                 c.i.d.a.n.p(collection);
                 c.i.d.a.n.t(i2, 0);
-                throw new IllegalArgumentException("Key does not satisfy predicate: " + this.f30114e);
+                throw new IllegalArgumentException("Key does not satisfy predicate: " + this.f30320e);
             }
             return invokeIL.booleanValue;
         }
@@ -114,7 +114,7 @@ public class s<K, V> extends c.i.d.c.c<K, V> implements u<K, V> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ s f30116e;
+        public final /* synthetic */ s f30322e;
 
         public c(s sVar) {
             Interceptable interceptable = $ic;
@@ -131,7 +131,7 @@ public class s<K, V> extends c.i.d.c.c<K, V> implements u<K, V> {
                     return;
                 }
             }
-            this.f30116e = sVar;
+            this.f30322e = sVar;
         }
 
         @Override // c.i.d.c.y, java.util.Collection
@@ -141,8 +141,8 @@ public class s<K, V> extends c.i.d.c.c<K, V> implements u<K, V> {
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj)) == null) {
                 if (obj instanceof Map.Entry) {
                     Map.Entry entry = (Map.Entry) obj;
-                    if (this.f30116e.f30112e.containsKey(entry.getKey()) && this.f30116e.f30113f.apply((Object) entry.getKey())) {
-                        return this.f30116e.f30112e.remove(entry.getKey(), entry.getValue());
+                    if (this.f30322e.f30318e.containsKey(entry.getKey()) && this.f30322e.f30319f.apply((Object) entry.getKey())) {
+                        return this.f30322e.f30318e.remove(entry.getKey(), entry.getValue());
                     }
                     return false;
                 }
@@ -156,7 +156,7 @@ public class s<K, V> extends c.i.d.c.c<K, V> implements u<K, V> {
         public Collection<Map.Entry<K, V>> delegate() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? n.c(this.f30116e.f30112e.entries(), this.f30116e.c()) : (Collection) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? n.c(this.f30322e.f30318e.entries(), this.f30322e.c()) : (Collection) invokeV.objValue;
         }
     }
 
@@ -176,16 +176,16 @@ public class s<K, V> extends c.i.d.c.c<K, V> implements u<K, V> {
             }
         }
         c.i.d.a.n.p(q0Var);
-        this.f30112e = q0Var;
+        this.f30318e = q0Var;
         c.i.d.a.n.p(oVar);
-        this.f30113f = oVar;
+        this.f30319f = oVar;
     }
 
     public Collection<V> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (this.f30112e instanceof e1) {
+            if (this.f30318e instanceof e1) {
                 return ImmutableSet.of();
             }
             return ImmutableList.of();
@@ -197,7 +197,7 @@ public class s<K, V> extends c.i.d.c.c<K, V> implements u<K, V> {
     public c.i.d.a.o<? super Map.Entry<K, V>> c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? Maps.q(this.f30113f) : (c.i.d.a.o) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? Maps.q(this.f30319f) : (c.i.d.a.o) invokeV.objValue;
     }
 
     @Override // c.i.d.c.q0
@@ -213,8 +213,8 @@ public class s<K, V> extends c.i.d.c.c<K, V> implements u<K, V> {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, obj)) == null) {
-            if (this.f30112e.containsKey(obj)) {
-                return this.f30113f.apply(obj);
+            if (this.f30318e.containsKey(obj)) {
+                return this.f30319f.apply(obj);
             }
             return false;
         }
@@ -225,21 +225,21 @@ public class s<K, V> extends c.i.d.c.c<K, V> implements u<K, V> {
     public Map<K, Collection<V>> createAsMap() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? Maps.k(this.f30112e.asMap(), this.f30113f) : (Map) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? Maps.k(this.f30318e.asMap(), this.f30319f) : (Map) invokeV.objValue;
     }
 
     @Override // c.i.d.c.c
     public Set<K> createKeySet() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? Sets.b(this.f30112e.keySet(), this.f30113f) : (Set) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? Sets.b(this.f30318e.keySet(), this.f30319f) : (Set) invokeV.objValue;
     }
 
     @Override // c.i.d.c.c
     public s0<K> createKeys() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? Multisets.g(this.f30112e.keys(), this.f30113f) : (s0) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? Multisets.g(this.f30318e.keys(), this.f30319f) : (s0) invokeV.objValue;
     }
 
     @Override // c.i.d.c.c
@@ -264,10 +264,10 @@ public class s<K, V> extends c.i.d.c.c<K, V> implements u<K, V> {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, k)) == null) {
-            if (this.f30113f.apply(k)) {
-                return this.f30112e.get(k);
+            if (this.f30319f.apply(k)) {
+                return this.f30318e.get(k);
             }
-            if (this.f30112e instanceof e1) {
+            if (this.f30318e instanceof e1) {
                 return new b(k);
             }
             return new a(k);
@@ -279,7 +279,7 @@ public class s<K, V> extends c.i.d.c.c<K, V> implements u<K, V> {
     public Collection<V> removeAll(Object obj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, obj)) == null) ? containsKey(obj) ? this.f30112e.removeAll(obj) : a() : (Collection) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, obj)) == null) ? containsKey(obj) ? this.f30318e.removeAll(obj) : a() : (Collection) invokeL.objValue;
     }
 
     @Override // c.i.d.c.q0
@@ -302,7 +302,7 @@ public class s<K, V> extends c.i.d.c.c<K, V> implements u<K, V> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final K f30115e;
+        public final K f30321e;
 
         public b(K k) {
             Interceptable interceptable = $ic;
@@ -319,7 +319,7 @@ public class s<K, V> extends c.i.d.c.c<K, V> implements u<K, V> {
                     return;
                 }
             }
-            this.f30115e = k;
+            this.f30321e = k;
         }
 
         @Override // c.i.d.c.y, java.util.Collection, java.util.List
@@ -327,7 +327,7 @@ public class s<K, V> extends c.i.d.c.c<K, V> implements u<K, V> {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, v)) == null) {
-                throw new IllegalArgumentException("Key does not satisfy predicate: " + this.f30115e);
+                throw new IllegalArgumentException("Key does not satisfy predicate: " + this.f30321e);
             }
             return invokeL.booleanValue;
         }
@@ -338,7 +338,7 @@ public class s<K, V> extends c.i.d.c.c<K, V> implements u<K, V> {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, collection)) == null) {
                 c.i.d.a.n.p(collection);
-                throw new IllegalArgumentException("Key does not satisfy predicate: " + this.f30115e);
+                throw new IllegalArgumentException("Key does not satisfy predicate: " + this.f30321e);
             }
             return invokeL.booleanValue;
         }

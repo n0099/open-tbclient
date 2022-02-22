@@ -41,31 +41,31 @@ public class DxmOcrBankCardDetectionActivity extends CameraBaseActivity implemen
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public MistView f50483b;
+    public MistView f50650b;
 
     /* renamed from: c  reason: collision with root package name */
-    public View f50484c;
+    public View f50651c;
 
     /* renamed from: d  reason: collision with root package name */
-    public View f50485d;
+    public View f50652d;
 
     /* renamed from: e  reason: collision with root package name */
-    public byte[] f50486e;
+    public byte[] f50653e;
 
     /* renamed from: f  reason: collision with root package name */
-    public byte[] f50487f;
+    public byte[] f50654f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Bitmap f50488g;
+    public Bitmap f50655g;
 
     /* renamed from: h  reason: collision with root package name */
-    public DxmOcrBankCardDetect f50489h;
+    public DxmOcrBankCardDetect f50656h;
 
     /* renamed from: i  reason: collision with root package name */
-    public AtomicBoolean f50490i;
+    public AtomicBoolean f50657i;
 
     /* renamed from: j  reason: collision with root package name */
-    public int f50491j;
+    public int f50658j;
     public int k;
     public int l;
     public int m;
@@ -102,9 +102,9 @@ public class DxmOcrBankCardDetectionActivity extends CameraBaseActivity implemen
                 return;
             }
         }
-        this.f50484c = null;
-        this.f50485d = null;
-        this.f50490i = new AtomicBoolean(true);
+        this.f50651c = null;
+        this.f50652d = null;
+        this.f50657i = new AtomicBoolean(true);
         this.p = true;
     }
 
@@ -113,9 +113,9 @@ public class DxmOcrBankCardDetectionActivity extends CameraBaseActivity implemen
         if (interceptable == null || interceptable.invokeL(65539, this, iArr) == null) {
             this.l = iArr[0];
             this.m = iArr[1];
-            this.n = iArr[0] + this.f50484c.getWidth();
-            this.o = iArr[1] + this.f50484c.getHeight();
-            this.f50491j = getResources().getDisplayMetrics().widthPixels;
+            this.n = iArr[0] + this.f50651c.getWidth();
+            this.o = iArr[1] + this.f50651c.getHeight();
+            this.f50658j = getResources().getDisplayMetrics().widthPixels;
             this.k = getResources().getDisplayMetrics().heightPixels;
         }
     }
@@ -123,17 +123,17 @@ public class DxmOcrBankCardDetectionActivity extends CameraBaseActivity implemen
     private void b() {
         Bitmap bitmap;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65541, this) == null) || (bitmap = this.f50488g) == null || bitmap.isRecycled()) {
+        if (!(interceptable == null || interceptable.invokeV(65541, this) == null) || (bitmap = this.f50655g) == null || bitmap.isRecycled()) {
             return;
         }
-        this.f50488g.recycle();
-        this.f50488g = null;
+        this.f50655g.recycle();
+        this.f50655g = null;
     }
 
     @Override // com.dxmpay.wallet.base.camera.IImageProcess
     public void destroyProcessor() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f50489h == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f50656h == null) {
             return;
         }
         try {
@@ -141,7 +141,7 @@ public class DxmOcrBankCardDetectionActivity extends CameraBaseActivity implemen
         } catch (InterruptedException e2) {
             e2.printStackTrace();
         }
-        this.f50489h.close();
+        this.f50656h.close();
     }
 
     @Override // com.dxmpay.wallet.base.camera.CameraBaseActivity
@@ -150,7 +150,7 @@ public class DxmOcrBankCardDetectionActivity extends CameraBaseActivity implemen
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             MistView mistView = (MistView) View.inflate(this, ResUtils.layout(getActivity(), "wallet_bankcard_detection_activity"), null);
-            this.f50483b = mistView;
+            this.f50650b = mistView;
             return mistView;
         }
         return (View) invokeV.objValue;
@@ -195,10 +195,10 @@ public class DxmOcrBankCardDetectionActivity extends CameraBaseActivity implemen
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            if (this.f50489h == null) {
-                this.f50489h = new DxmOcrBankCardDetect();
+            if (this.f50656h == null) {
+                this.f50656h = new DxmOcrBankCardDetect();
             }
-            this.f50489h.setContext(this);
+            this.f50656h.setContext(this);
             DxmOcrBankCardDetect.Options options = new DxmOcrBankCardDetect.Options();
             options.minLength = 14;
             options.maxLength = 19;
@@ -211,7 +211,7 @@ public class DxmOcrBankCardDetectionActivity extends CameraBaseActivity implemen
             int staticInitModel = DxmOcrBankCardDetect.staticInitModel(getAssets(), "bankcard_det.param.bin", "bankcard_det.bin", "bankcard_rec.param.bin", "bankcard_rec.bin", CameraBaseActivity.getToken(), false);
             String str = "initStatus:" + staticInitModel;
             StatisticManager.onEvent(PayStatServiceEvent.BANKCARD_INITOCRMODEL_STATUS, staticInitModel + "");
-            this.f50489h.setOptions(options);
+            this.f50656h.setOptions(options);
             boolean z = staticInitModel == 0;
             this.p = z;
             return z;
@@ -241,7 +241,7 @@ public class DxmOcrBankCardDetectionActivity extends CameraBaseActivity implemen
     public void onBackPressed() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            this.f50490i.compareAndSet(true, false);
+            this.f50657i.compareAndSet(true, false);
             pauseCamera();
             StatHelper.bankCardDetction(PayStatServiceEvent.BANKCARD_DETCTION_CANCEL, "");
             BankcardDetectionController.getInstance().updateFail(-2, "");
@@ -257,7 +257,7 @@ public class DxmOcrBankCardDetectionActivity extends CameraBaseActivity implemen
             if (ResUtils.id(getActivity(), "flash_light_switch") == id) {
                 triggerFlash();
             } else if (ResUtils.id(getActivity(), "manal_input_prompt") == id) {
-                this.f50490i.compareAndSet(true, false);
+                this.f50657i.compareAndSet(true, false);
                 pauseCamera();
                 StatisticManager.onEvent("manualInputBankCard");
                 BankcardDetectionController.getInstance().updateFail(-2, "");
@@ -276,14 +276,14 @@ public class DxmOcrBankCardDetectionActivity extends CameraBaseActivity implemen
             this.mThreadPool = ThreadPool.create(1, ImageProcessor.a);
             super.onCreate(bundle);
             String str = "onCreate(" + bundle + SmallTailInfo.EMOTION_SUFFIX;
-            this.f50484c = findViewById(ResUtils.id(getActivity(), "focus_view"));
-            this.f50485d = findViewById(ResUtils.id(getActivity(), "flash_light_switch"));
+            this.f50651c = findViewById(ResUtils.id(getActivity(), "focus_view"));
+            this.f50652d = findViewById(ResUtils.id(getActivity(), "flash_light_switch"));
             if (CameraCtrl.isSupprtFlashLight(getPackageManager())) {
-                this.f50485d.setOnClickListener(this);
-                this.f50485d.setVisibility(0);
-                AccessibilityUtils.setContentDescription(this.f50485d, "打开闪光灯");
+                this.f50652d.setOnClickListener(this);
+                this.f50652d.setVisibility(0);
+                AccessibilityUtils.setContentDescription(this.f50652d, "打开闪光灯");
             } else {
-                this.f50485d.setVisibility(4);
+                this.f50652d.setVisibility(4);
             }
             findViewById(ResUtils.id(getActivity(), "title_back")).setOnClickListener(this);
             findViewById(ResUtils.id(getActivity(), "manal_input_prompt")).setOnClickListener(this);
@@ -296,8 +296,8 @@ public class DxmOcrBankCardDetectionActivity extends CameraBaseActivity implemen
         if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
             super.onDestroy();
             b();
-            this.f50486e = null;
-            this.f50487f = null;
+            this.f50653e = null;
+            this.f50654f = null;
         }
     }
 
@@ -314,15 +314,15 @@ public class DxmOcrBankCardDetectionActivity extends CameraBaseActivity implemen
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048590, this, objArr) == null) {
             if (objArr != null && objArr.length > 1) {
-                this.f50488g = (Bitmap) objArr[0];
+                this.f50655g = (Bitmap) objArr[0];
                 String valueOf = String.valueOf(objArr[1]);
-                a.a().a(this.f50488g);
+                a.a().a(this.f50655g);
                 a.a().a(valueOf);
                 String str = "cardNum: " + valueOf;
                 startActivityForResult(new Intent(getActivity(), DxmOcrBankCardResultActivity.class), 132);
                 overridePendingTransition(0, 0);
-                this.f50487f = a(this.f50488g);
-                new com.baidu.wallet.bankdetection.a.a(getActivity(), valueOf, this.f50487f, this.f50486e).execBean();
+                this.f50654f = a(this.f50655g);
+                new com.baidu.wallet.bankdetection.a.a(getActivity(), valueOf, this.f50654f, this.f50653e).execBean();
                 return;
             }
             a();
@@ -348,15 +348,15 @@ public class DxmOcrBankCardDetectionActivity extends CameraBaseActivity implemen
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048592, this, new Object[]{bArr, Integer.valueOf(i2), Integer.valueOf(i3), rect, bArr2})) == null) {
-            String str = "processImage11: " + this.f50490i.get();
-            if (this.f50490i.get()) {
-                this.f50490i.compareAndSet(true, false);
+            String str = "processImage11: " + this.f50657i.get();
+            if (this.f50657i.get()) {
+                this.f50657i.compareAndSet(true, false);
                 Bitmap createBitmap = Bitmap.createBitmap(i2, i3, Bitmap.Config.ARGB_8888);
                 float f2 = i3 * 1.0f;
-                int round = Math.round((f2 / (this.f50491j * 1.0f)) * this.l);
+                int round = Math.round((f2 / (this.f50658j * 1.0f)) * this.l);
                 float f3 = i2 * 1.0f;
                 int round2 = Math.round((f3 / (this.k * 1.0f)) * this.m);
-                int round3 = Math.round((f2 / (this.f50491j * 1.0f)) * this.n);
+                int round3 = Math.round((f2 / (this.f50658j * 1.0f)) * this.n);
                 int round4 = Math.round((f3 / (this.k * 1.0f)) * this.o);
                 int[] iArr = {round, round2, round3, round4};
                 String str2 = "width: " + i2;
@@ -367,7 +367,7 @@ public class DxmOcrBankCardDetectionActivity extends CameraBaseActivity implemen
                 String str7 = "rightY: " + round4;
                 long currentTimeMillis = System.currentTimeMillis();
                 Object[] objArr = {createBitmap, "", ""};
-                int detect = this.f50489h.detect(bArr, iArr, objArr);
+                int detect = this.f50656h.detect(bArr, iArr, objArr);
                 long currentTimeMillis2 = System.currentTimeMillis() - currentTimeMillis;
                 String str8 = "detectStatus: " + detect;
                 if (detect == 0) {
@@ -380,18 +380,18 @@ public class DxmOcrBankCardDetectionActivity extends CameraBaseActivity implemen
                         String str11 = "score: " + valueOf2;
                         Bitmap createBitmap2 = Bitmap.createBitmap(rect.height(), rect.width(), Bitmap.Config.ARGB_8888);
                         Yuv.rotateCropBmp(bArr, i2, i3, rect.left, rect.top, 270, createBitmap2);
-                        this.f50486e = a(createBitmap2);
+                        this.f50653e = a(createBitmap2);
                         if (createBitmap2 != null && !createBitmap2.isRecycled()) {
                             createBitmap2.recycle();
                         }
                         return objArr;
                     }
                     b();
-                    this.f50490i.compareAndSet(false, true);
+                    this.f50657i.compareAndSet(false, true);
                     return null;
                 }
                 b();
-                this.f50490i.compareAndSet(false, true);
+                this.f50657i.compareAndSet(false, true);
                 return null;
             }
             return null;
@@ -413,16 +413,16 @@ public class DxmOcrBankCardDetectionActivity extends CameraBaseActivity implemen
     public void relayoutUi() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048594, this) == null) {
-            ViewGroup.LayoutParams layoutParams = this.f50484c.getLayoutParams();
-            int width = this.f50484c.getWidth();
+            ViewGroup.LayoutParams layoutParams = this.f50651c.getLayoutParams();
+            int width = this.f50651c.getWidth();
             layoutParams.width = width;
             layoutParams.height = Math.round(width * getFocusDataYXRatioal() * this.mScaleCoefficient);
-            this.f50484c.setLayoutParams(layoutParams);
-            this.f50484c.requestLayout();
+            this.f50651c.setLayoutParams(layoutParams);
+            this.f50651c.requestLayout();
             int[] iArr = new int[2];
             int[] iArr2 = new int[2];
             this.mPreviewView.getLocationOnScreen(iArr2);
-            this.f50484c.getLocationOnScreen(iArr);
+            this.f50651c.getLocationOnScreen(iArr);
             Rect rect = this.mFocusViewRect;
             int i2 = iArr[0] - iArr2[0];
             rect.left = i2;
@@ -430,7 +430,7 @@ public class DxmOcrBankCardDetectionActivity extends CameraBaseActivity implemen
             int i3 = iArr[1] - iArr2[1];
             rect.top = i3;
             rect.bottom = i3 + layoutParams.height;
-            this.f50483b.getFocusFrame().set(this.mFocusViewRect);
+            this.f50650b.getFocusFrame().set(this.mFocusViewRect);
             a(iArr);
         }
     }
@@ -445,11 +445,11 @@ public class DxmOcrBankCardDetectionActivity extends CameraBaseActivity implemen
     @Override // com.dxmpay.wallet.base.camera.CameraBaseActivity
     public void updateFlashLightUi(boolean z) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048596, this, z) == null) || this.f50485d == null) {
+        if (!(interceptable == null || interceptable.invokeZ(1048596, this, z) == null) || this.f50652d == null) {
             return;
         }
-        this.f50485d.setBackgroundResource(ResUtils.drawable(getActivity(), z ? "dxm_wallet_base_camera_flashlight_on_btn" : "dxm_wallet_base_camera_flashlight_off_btn"));
-        AccessibilityUtils.setContentDescription(this.f50485d, z ? "关闭闪光灯" : "打开闪光灯");
+        this.f50652d.setBackgroundResource(ResUtils.drawable(getActivity(), z ? "dxm_wallet_base_camera_flashlight_on_btn" : "dxm_wallet_base_camera_flashlight_off_btn"));
+        AccessibilityUtils.setContentDescription(this.f50652d, z ? "关闭闪光灯" : "打开闪光灯");
     }
 
     private void a() {
@@ -457,7 +457,7 @@ public class DxmOcrBankCardDetectionActivity extends CameraBaseActivity implemen
         if (interceptable == null || interceptable.invokeV(65538, this) == null) {
             restartScan();
             b();
-            this.f50490i.compareAndSet(false, true);
+            this.f50657i.compareAndSet(false, true);
         }
     }
 

@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public class CommonEmotionManagerActivity extends BaseFragmentActivity {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String FACE_SHOP_URL = "http://tieba.baidu.com/n/interact/emoticoncenter";

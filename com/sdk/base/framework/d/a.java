@@ -34,33 +34,33 @@ public class a<T> {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f59286d = "com.sdk.base.framework.d.a";
+    public static final String f59453d = "com.sdk.base.framework.d.a";
 
     /* renamed from: e  reason: collision with root package name */
-    public static final boolean f59287e;
+    public static final boolean f59454e;
     public transient /* synthetic */ FieldHolder $fh;
     public Context a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f59288b;
+    public String f59455b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f59289c;
+    public String f59456c;
 
     /* renamed from: f  reason: collision with root package name */
-    public PInfo f59290f;
+    public PInfo f59457f;
 
     /* renamed from: g  reason: collision with root package name */
-    public AInfo f59291g;
+    public AInfo f59458g;
 
     /* renamed from: h  reason: collision with root package name */
-    public SInfo f59292h;
+    public SInfo f59459h;
 
     /* renamed from: i  reason: collision with root package name */
-    public ArrayList<KInfo> f59293i;
+    public ArrayList<KInfo> f59460i;
 
     /* renamed from: j  reason: collision with root package name */
-    public com.sdk.base.framework.b.a<T> f59294j;
+    public com.sdk.base.framework.b.a<T> f59461j;
     public e k;
 
     static {
@@ -76,7 +76,7 @@ public class a<T> {
                 return;
             }
         }
-        f59287e = f.f59281b;
+        f59454e = f.f59448b;
     }
 
     public a() {
@@ -109,7 +109,7 @@ public class a<T> {
             }
         }
         this.a = context;
-        this.f59294j = aVar;
+        this.f59461j = aVar;
         this.k = eVar;
     }
 
@@ -126,7 +126,7 @@ public class a<T> {
                     e = e2;
                     com.sdk.base.framework.f.f.a.b(e.toString());
                     a(1, 302002, "网络访问异常");
-                    c.b(f59286d, e.toString(), Boolean.valueOf(f59287e));
+                    c.b(f59453d, e.toString(), Boolean.valueOf(f59454e));
                     return fVar;
                 }
             } else {
@@ -169,7 +169,7 @@ public class a<T> {
                 if ("/dro/netm/v1.0/qc".equals(str2)) {
                     g gVar = g.a;
                 } else if ("/dro/netm/v1.0/gctcbs".equals(str2)) {
-                    g gVar2 = g.f59305b;
+                    g gVar2 = g.f59472b;
                 }
                 h hVar = new h(this.a, kVar);
                 com.sdk.base.framework.a.f<T> fVar2 = new com.sdk.base.framework.a.f<>(hVar);
@@ -181,13 +181,13 @@ public class a<T> {
                     fVar = fVar2;
                     com.sdk.base.framework.f.f.a.b(e.toString());
                     a(1, 302002, "网络访问异常");
-                    c.b(f59286d, e.toString(), Boolean.valueOf(f59287e));
+                    c.b(f59453d, e.toString(), Boolean.valueOf(f59454e));
                     return fVar;
                 }
             } catch (Exception e4) {
                 a(1, 101006, "公钥出错");
-                String str3 = f59286d;
-                c.b(str3, "公钥出错：" + e4, Boolean.valueOf(f59287e));
+                String str3 = f59453d;
+                c.b(str3, "公钥出错：" + e4, Boolean.valueOf(f59454e));
                 return null;
             }
         }
@@ -200,17 +200,17 @@ public class a<T> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, this, dataInfo, str)) == null) {
             try {
-                if (this.f59291g == null) {
-                    this.f59291g = com.sdk.base.framework.c.a.a(this.a);
+                if (this.f59458g == null) {
+                    this.f59458g = com.sdk.base.framework.c.a.a(this.a);
                 }
-                if (this.f59292h == null) {
-                    this.f59292h = com.sdk.base.framework.c.a.b();
+                if (this.f59459h == null) {
+                    this.f59459h = com.sdk.base.framework.c.a.b();
                 }
-                if (this.f59293i == null) {
-                    this.f59293i = com.sdk.base.framework.c.a.a();
+                if (this.f59460i == null) {
+                    this.f59460i = com.sdk.base.framework.c.a.a();
                 }
                 ArrayList arrayList = new ArrayList();
-                Iterator<KInfo> it = this.f59293i.iterator();
+                Iterator<KInfo> it = this.f59460i.iterator();
                 while (it.hasNext()) {
                     KInfo next = it.next();
                     MobileKInfo mobileKInfo = new MobileKInfo();
@@ -220,15 +220,15 @@ public class a<T> {
                     mobileKInfo.setIdfd(next.isIdfd());
                     arrayList.add(mobileKInfo);
                 }
-                if (this.f59290f == null) {
-                    this.f59290f = com.sdk.base.framework.c.a.c();
+                if (this.f59457f == null) {
+                    this.f59457f = com.sdk.base.framework.c.a.c();
                 }
                 StringBuilder sb = new StringBuilder("{app:");
-                sb.append(this.f59291g);
+                sb.append(this.f59458g);
                 sb.append(",sdk:");
-                sb.append(this.f59292h);
+                sb.append(this.f59459h);
                 sb.append(",device:");
-                sb.append(this.f59290f);
+                sb.append(this.f59457f);
                 sb.append(",sim:");
                 sb.append(arrayList);
                 sb.append(",data:");
@@ -236,7 +236,7 @@ public class a<T> {
                 sb.append("}");
                 str2 = sb.toString();
             } catch (Exception e2) {
-                c.b(f59286d, e2.toString(), Boolean.valueOf(f59287e));
+                c.b(f59453d, e2.toString(), Boolean.valueOf(f59454e));
                 str2 = null;
             }
             return com.sdk.base.framework.f.i.a.a(str2, com.sdk.base.framework.f.b.a.b(this.a, f.a), str);
@@ -266,20 +266,20 @@ public class a<T> {
     public final void a(int i2, int i3, String str) {
         com.sdk.base.framework.b.a<T> aVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIIL(Constants.METHOD_SEND_USER_MSG, this, i2, i3, str) == null) || (aVar = this.f59294j) == null) {
+        if (!(interceptable == null || interceptable.invokeIIL(Constants.METHOD_SEND_USER_MSG, this, i2, i3, str) == null) || (aVar = this.f59461j) == null) {
             return;
         }
         aVar.a(i2, i3, str);
-        this.f59294j = null;
+        this.f59461j = null;
     }
 
     public final void a(int i2, String str, int i3, T t, String str2) {
         com.sdk.base.framework.b.a<T> aVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i2), str, Integer.valueOf(i3), t, str2}) == null) || (aVar = this.f59294j) == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i2), str, Integer.valueOf(i3), t, str2}) == null) || (aVar = this.f59461j) == null) {
             return;
         }
         aVar.a(i2, str, i3, t, str2);
-        this.f59294j = null;
+        this.f59461j = null;
     }
 }

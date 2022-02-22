@@ -15,7 +15,7 @@ import java.nio.ByteBuffer;
 import java.nio.charset.Charset;
 import javax.annotation.Nullable;
 import kotlin.text.Typography;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public final class RealBufferedSource implements BufferedSource {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

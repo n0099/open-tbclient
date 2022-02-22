@@ -29,7 +29,7 @@ public class AdImageVIew extends AppCompatImageView {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ AdImageVIew f39676e;
+        public final /* synthetic */ AdImageVIew f39904e;
 
         public a(AdImageVIew adImageVIew) {
             Interceptable interceptable = $ic;
@@ -46,7 +46,7 @@ public class AdImageVIew extends AppCompatImageView {
                     return;
                 }
             }
-            this.f39676e = adImageVIew;
+            this.f39904e = adImageVIew;
         }
 
         @Override // com.facebook.datasource.BaseDataSubscriber
@@ -62,7 +62,7 @@ public class AdImageVIew extends AppCompatImageView {
             if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bitmap) == null) || bitmap == null) {
                 return;
             }
-            this.f39676e.setImageBitmap(bitmap);
+            this.f39904e.setImageBitmap(bitmap);
         }
     }
 

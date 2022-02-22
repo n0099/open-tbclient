@@ -27,17 +27,17 @@ public abstract class a extends b {
 
     /* renamed from: h.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public class C2278a extends TimerTask {
+    public class C2288a extends TimerTask {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public ArrayList<WebSocket> f61737e;
+        public ArrayList<WebSocket> f61904e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ a f61738f;
+        public final /* synthetic */ a f61905f;
 
-        public C2278a(a aVar) {
+        public C2288a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -52,19 +52,19 @@ public abstract class a extends b {
                     return;
                 }
             }
-            this.f61738f = aVar;
-            this.f61737e = new ArrayList<>();
+            this.f61905f = aVar;
+            this.f61904e = new ArrayList<>();
         }
 
         @Override // java.util.TimerTask, java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f61737e.clear();
+                this.f61904e.clear();
                 try {
-                    this.f61737e.addAll(this.f61738f.getConnections());
-                    long currentTimeMillis = System.currentTimeMillis() - (this.f61738f.connectionLostTimeout * 1500);
-                    Iterator<WebSocket> it = this.f61737e.iterator();
+                    this.f61904e.addAll(this.f61905f.getConnections());
+                    long currentTimeMillis = System.currentTimeMillis() - (this.f61905f.connectionLostTimeout * 1500);
+                    Iterator<WebSocket> it = this.f61904e.iterator();
                     while (it.hasNext()) {
                         WebSocket next = it.next();
                         if (next instanceof c) {
@@ -89,7 +89,7 @@ public abstract class a extends b {
                         printStream3.println("Exception during connection lost ping: " + e2.getMessage());
                     }
                 }
-                this.f61737e.clear();
+                this.f61904e.clear();
             }
         }
     }
@@ -132,11 +132,11 @@ public abstract class a extends b {
         if (interceptable == null || interceptable.invokeV(65539, this) == null) {
             cancelConnectionLostTimer();
             this.connectionLostTimer = new Timer("WebSocketTimer");
-            C2278a c2278a = new C2278a(this);
-            this.connectionLostTimerTask = c2278a;
+            C2288a c2288a = new C2288a(this);
+            this.connectionLostTimerTask = c2288a;
             Timer timer = this.connectionLostTimer;
             int i2 = this.connectionLostTimeout;
-            timer.scheduleAtFixedRate(c2278a, i2 * 1000, i2 * 1000);
+            timer.scheduleAtFixedRate(c2288a, i2 * 1000, i2 * 1000);
         }
     }
 

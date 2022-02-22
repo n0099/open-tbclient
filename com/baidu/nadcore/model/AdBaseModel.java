@@ -1,17 +1,24 @@
 package com.baidu.nadcore.model;
 
+import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
-import c.a.c0.s.b;
-import c.a.c0.s.c;
-import c.a.c0.s.e;
-import c.a.c0.s.g;
-import c.a.c0.s.i;
-import c.a.c0.s.l;
-import c.a.c0.s.o;
-import c.a.c0.s.p;
+import c.a.d0.s.b;
+import c.a.d0.s.c;
+import c.a.d0.s.e;
+import c.a.d0.s.g;
+import c.a.d0.s.i;
+import c.a.d0.s.k;
+import c.a.d0.s.p;
+import c.a.d0.s.s;
+import c.a.d0.s.t;
+import c.a.d0.x.a;
 import com.baidu.minivideo.effect.core.vlogedit.ShaderParams;
+import com.baidu.swan.game.guide.GameGuideConfigInfo;
+import com.baidu.tbadk.browser.newshare.ThreadAchievementShareDialogView;
+import com.baidu.tbadk.core.atomData.WriteActivityConfig;
+import com.baidu.tbadk.core.util.TiebaMainDatabaseHelper;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -19,6 +26,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
+import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes10.dex */
 public class AdBaseModel {
     public static /* synthetic */ Interceptable $ic;
@@ -26,41 +37,50 @@ public class AdBaseModel {
     public boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f37042b;
+    public boolean f37254b;
+    @Nullable
 
     /* renamed from: c  reason: collision with root package name */
-    public final boolean f37043c;
-    @NonNull
+    public final ParseError f37255c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final i f37044d;
-    @Nullable
+    public final boolean f37256d;
+    @NonNull
 
     /* renamed from: e  reason: collision with root package name */
-    public final b f37045e;
-    @Nullable
+    public final List<MonitorUrl> f37257e;
+    @NonNull
 
     /* renamed from: f  reason: collision with root package name */
-    public final AdOperator f37046f;
+    public final i f37258f;
     @Nullable
 
     /* renamed from: g  reason: collision with root package name */
-    public final p f37047g;
+    public final b f37259g;
     @Nullable
 
     /* renamed from: h  reason: collision with root package name */
-    public final l f37048h;
+    public final AdOperator f37260h;
     @Nullable
 
     /* renamed from: i  reason: collision with root package name */
-    public final c f37049i;
+    public final t f37261i;
     @Nullable
 
     /* renamed from: j  reason: collision with root package name */
-    public g f37050j;
+    public final p f37262j;
     @Nullable
-    public e k;
-    public o l;
+    public final List<k> k;
+    @Nullable
+    public final c l;
+    @Nullable
+    public g m;
+    @Nullable
+    public e n;
+    public int o;
+    @NonNull
+    public List<String> p;
+    public s q;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes10.dex */
@@ -157,6 +177,85 @@ public class AdBaseModel {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? (STYLE[]) $VALUES.clone() : (STYLE[]) invokeV.objValue;
+        }
+    }
+
+    public AdBaseModel(@NonNull i iVar, @NonNull JSONObject jSONObject) throws ParseError {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {iVar, jSONObject};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.f37257e = new ArrayList();
+        this.p = new ArrayList();
+        String str = iVar.f3091b;
+        JSONObject optJSONObject = jSONObject.optJSONObject(GameGuideConfigInfo.KEY_CLOSE_INFO);
+        this.f37259g = optJSONObject == null ? null : b.a(optJSONObject);
+        this.f37258f = iVar;
+        this.f37262j = p.a(jSONObject.optJSONObject(WriteActivityConfig.VIDEO_INFO));
+        this.k = k.a(jSONObject.optJSONArray("prefetch_video"));
+        this.l = c.b(jSONObject.optJSONObject(TiebaMainDatabaseHelper.TABLE_NAME_DOWNLOAD_INFO));
+        this.m = g.a(jSONObject.optJSONObject("enhance"));
+        this.n = e.a(jSONObject.optJSONObject(ThreadAchievementShareDialogView.THREAD_INTERACTION_VIEW_TYPE));
+        JSONObject optJSONObject2 = jSONObject.optJSONObject("operate");
+        AdOperator a = optJSONObject2 == null ? null : AdOperator.a(optJSONObject2);
+        this.f37260h = a;
+        this.f37256d = a != null;
+        JSONObject optJSONObject3 = jSONObject.optJSONObject("app_info");
+        t c2 = optJSONObject3 == null ? null : t.c(optJSONObject3);
+        this.f37261i = (c2 == null || !c2.k) ? null : c2;
+        JSONArray optJSONArray = jSONObject.optJSONArray("ad_monitor_url");
+        int length = optJSONArray == null ? 0 : optJSONArray.length();
+        for (int i4 = 0; i4 < length; i4++) {
+            JSONObject optJSONObject4 = optJSONArray.optJSONObject(i4);
+            if (optJSONObject4 != null) {
+                String optString = optJSONObject4.optString("show_url");
+                String optString2 = optJSONObject4.optString("click_url");
+                if (!TextUtils.isEmpty(optString) || !TextUtils.isEmpty(optString2)) {
+                    a.b(this.f37257e, new MonitorUrl(optString, optString2));
+                }
+            }
+        }
+        JSONArray optJSONArray2 = jSONObject.optJSONArray("tag_list");
+        int length2 = optJSONArray2 == null ? 0 : optJSONArray2.length();
+        for (int i5 = 0; i5 < length2; i5++) {
+            JSONObject optJSONObject5 = optJSONArray2.optJSONObject(i5);
+            if (optJSONObject5 != null) {
+                String optString3 = optJSONObject5.optString("word");
+                if (!TextUtils.isEmpty(optString3)) {
+                    a.b(this.p, optString3);
+                }
+            }
+        }
+        p pVar = this.f37262j;
+        if (pVar != null) {
+            pVar.b(this);
+        }
+        this.f37255c = null;
+    }
+
+    public void a(@Nullable s sVar) {
+        List<k> list;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, sVar) == null) {
+            this.q = sVar;
+            if (sVar == null || sVar.f3119c) {
+                this.f37258f.b();
+            }
+            if ((sVar == null || sVar.f3120d) && (list = this.k) != null && list.size() > 0) {
+                for (k kVar : this.k) {
+                    kVar.b();
+                }
+            }
         }
     }
 }

@@ -16,10 +16,10 @@ public abstract class c {
     public static final c a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final c f59303b;
+    public static final c f59470b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final c f59304c;
+    public static final c f59471c;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -70,7 +70,7 @@ public abstract class c {
                 return invokeV.intValue;
             }
         };
-        f59303b = new c("NET", 1) { // from class: com.sdk.base.framework.f.g.e
+        f59470b = new c("NET", 1) { // from class: com.sdk.base.framework.f.g.e
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -105,7 +105,7 @@ public abstract class c {
                 return invokeV.intValue;
             }
         };
-        f59304c = new c("UNKNOW", 2) { // from class: com.sdk.base.framework.f.g.f
+        f59471c = new c("UNKNOW", 2) { // from class: com.sdk.base.framework.f.g.f
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 

@@ -13,7 +13,7 @@ public class TrackableBase implements c.i.c.a.b {
     public final long a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final Session f54446b;
+    public final Session f54613b;
 
     public TrackableBase(long j2, Session session) {
         Interceptable interceptable = $ic;
@@ -30,7 +30,7 @@ public class TrackableBase implements c.i.c.a.b {
                 return;
             }
         }
-        this.f54446b = session;
+        this.f54613b = session;
         this.a = j2;
     }
 

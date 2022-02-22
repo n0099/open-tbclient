@@ -14,7 +14,7 @@ public class RoutePlanSearch extends com.baidu.mapapi.search.core.l {
     public com.baidu.platform.core.d.e a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f35657b;
+    public boolean f35863b;
 
     public RoutePlanSearch() {
         Interceptable interceptable = $ic;
@@ -29,7 +29,7 @@ public class RoutePlanSearch extends com.baidu.mapapi.search.core.l {
                 return;
             }
         }
-        this.f35657b = false;
+        this.f35863b = false;
         this.a = new com.baidu.platform.core.d.j();
     }
 
@@ -67,10 +67,10 @@ public class RoutePlanSearch extends com.baidu.mapapi.search.core.l {
 
     public void destroy() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.f35657b) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.f35863b) {
             return;
         }
-        this.f35657b = true;
+        this.f35863b = true;
         this.a.a();
         BMapManager.destroy();
     }

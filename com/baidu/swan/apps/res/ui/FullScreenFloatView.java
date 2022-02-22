@@ -11,10 +11,10 @@ import android.view.animation.AccelerateInterpolator;
 import android.widget.Button;
 import android.widget.FrameLayout;
 import androidx.core.view.InputDeviceCompat;
-import c.a.r0.a.d;
-import c.a.r0.a.f;
-import c.a.r0.a.k;
-import c.a.r0.a.z2.n0;
+import c.a.s0.a.d;
+import c.a.s0.a.f;
+import c.a.s0.a.k;
+import c.a.s0.a.z2.n0;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -34,7 +34,7 @@ public class FullScreenFloatView extends FrameLayout {
     public static final int TOP = 3;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final boolean f39120e;
+    public static final boolean f39348e;
     public transient /* synthetic */ FieldHolder $fh;
     public b mCheckClick;
     public c mDragImageListener;
@@ -62,7 +62,7 @@ public class FullScreenFloatView extends FrameLayout {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ FullScreenFloatView f39121e;
+        public final /* synthetic */ FullScreenFloatView f39349e;
 
         public b(FullScreenFloatView fullScreenFloatView) {
             Interceptable interceptable = $ic;
@@ -79,15 +79,15 @@ public class FullScreenFloatView extends FrameLayout {
                     return;
                 }
             }
-            this.f39121e = fullScreenFloatView;
+            this.f39349e = fullScreenFloatView;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f39121e.mIsClickDrag = false;
-                boolean unused = FullScreenFloatView.f39120e;
+                this.f39349e.mIsClickDrag = false;
+                boolean unused = FullScreenFloatView.f39348e;
             }
         }
 
@@ -116,7 +116,7 @@ public class FullScreenFloatView extends FrameLayout {
                 return;
             }
         }
-        f39120e = k.a;
+        f39348e = k.a;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -151,7 +151,7 @@ public class FullScreenFloatView extends FrameLayout {
         if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3)}) == null) || this.mFloatImgView == null) {
             return;
         }
-        if (f39120e) {
+        if (f39348e) {
             String str = "move--> x = " + f2 + ", y = " + f3;
         }
         int i2 = (int) (f2 - (this.mFloatViewWidth / 2));
@@ -174,7 +174,7 @@ public class FullScreenFloatView extends FrameLayout {
         }
         int i8 = (this.mParentWidth - i2) - this.mFloatViewWidth;
         int i9 = (this.mParentHeight - i3) - this.mFloatViewHeight;
-        if (f39120e) {
+        if (f39348e) {
             String str2 = "move--> left = " + i2 + ", top = " + i3 + ", right = " + i8 + ",bottom = " + i9 + ", mStatusBarHeight = " + this.mStatusBarHeight;
         }
         this.mFloatImgView.setX(i2);
@@ -193,7 +193,7 @@ public class FullScreenFloatView extends FrameLayout {
             }
             this.mFloatViewWidth = view.getWidth();
             this.mFloatViewHeight = view.getHeight();
-            if (f39120e) {
+            if (f39348e) {
                 String str = "dragInit-> mScreenWidth = " + this.mParentWidth + ", mScreenHeight = " + this.mParentHeight + ",mFloatViewWidth = " + this.mFloatViewWidth + ", mFloatViewHeight = " + this.mFloatViewHeight;
             }
         }
@@ -209,7 +209,7 @@ public class FullScreenFloatView extends FrameLayout {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3)})) == null) {
-            if (f39120e) {
+            if (f39348e) {
                 r0 = "minDIstance---> x = " + f2 + ", y = " + f3;
             }
             boolean z = f2 <= ((float) this.mParentWidth) - f2;
@@ -246,7 +246,7 @@ public class FullScreenFloatView extends FrameLayout {
             super.onConfigurationChanged(configuration);
             this.mParentWidth = getHeight() + this.mStatusBarHeight;
             this.mParentHeight = getWidth() - this.mStatusBarHeight;
-            if (f39120e) {
+            if (f39348e) {
                 String str = "onConfigurationChanged--> newConfig " + configuration.orientation + ", mScreenWidth = " + this.mParentWidth + ", mScreenHeight = " + this.mParentHeight;
             }
             moveToDefaultPosition();
@@ -320,7 +320,7 @@ public class FullScreenFloatView extends FrameLayout {
                 } else if (this.mIsTouchDrag && (cVar = this.mDragImageListener) != null) {
                     cVar.a();
                 }
-                if (f39120e) {
+                if (f39348e) {
                     String str = "ACTION_UP--> x = " + x + ", y = " + y + ",mIsClickDrag = " + this.mIsClickDrag;
                 }
                 if (this.mIsAutoAttachEnable && !this.mIsClickDrag) {
@@ -329,7 +329,7 @@ public class FullScreenFloatView extends FrameLayout {
                         int i3 = this.mFloatViewHeight;
                         if (y > i3 / 2 && y < this.mParentHeight - (i3 / 2)) {
                             int minDistance = minDistance(x, y);
-                            if (f39120e) {
+                            if (f39348e) {
                                 String str2 = "mScreenHeight = " + this.mParentHeight + ", mintype = " + minDistance;
                             }
                             if (minDistance == 1) {

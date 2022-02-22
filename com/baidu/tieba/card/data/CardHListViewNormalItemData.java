@@ -1,6 +1,6 @@
 package com.baidu.tieba.card.data;
 
-import c.a.d.n.e.n;
+import c.a.d.o.e.n;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -56,7 +56,7 @@ public class CardHListViewNormalItemData implements n, Serializable {
         }
     }
 
-    @Override // c.a.d.n.e.n
+    @Override // c.a.d.o.e.n
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

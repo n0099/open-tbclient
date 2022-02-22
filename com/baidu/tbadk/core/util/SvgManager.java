@@ -17,11 +17,11 @@ import androidx.core.graphics.drawable.DrawableCompat;
 import androidx.core.view.InputDeviceCompat;
 import androidx.vectordrawable.graphics.drawable.AnimatedVectorDrawableCompat;
 import androidx.vectordrawable.graphics.drawable.VectorDrawableCompat;
-import c.a.t0.x3.c;
+import c.a.u0.a4.d;
+import c.a.u0.z3.c;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -374,9 +374,9 @@ public class SvgManager {
             Drawable mutate = drawable.mutate();
             int skinType = TbadkCoreApplication.getInst().getSkinType();
             if (skinType == 1) {
-                mutate.setColorFilter(SkinManager.getColor(R.color.CAM_X0501), PorterDuff.Mode.SRC_ATOP);
+                mutate.setColorFilter(SkinManager.getColor(d.CAM_X0501), PorterDuff.Mode.SRC_ATOP);
             } else if (skinType == 4) {
-                mutate.setColorFilter(SkinManager.getColor(R.color.CAM_X0501), PorterDuff.Mode.SRC_ATOP);
+                mutate.setColorFilter(SkinManager.getColor(d.CAM_X0501), PorterDuff.Mode.SRC_ATOP);
             }
             return mutate;
         }
@@ -550,7 +550,7 @@ public class SvgManager {
         return (Drawable) invokeIIL.objValue;
     }
 
-    public Drawable getPureDrawableWithColorValue(int i2, @ColorInt int i3, SvgResourceStateType svgResourceStateType) {
+    public Drawable getPureDrawableWithColorInt(int i2, @ColorInt int i3, SvgResourceStateType svgResourceStateType) {
         InterceptResult invokeIIL;
         ColorStateList colorListByResourceType;
         Interceptable interceptable = $ic;
@@ -572,15 +572,37 @@ public class SvgManager {
         return (Drawable) invokeIIL.objValue;
     }
 
+    public Drawable getPureDrawableWithColorValue(int i2, @ColorInt int i3, SvgResourceStateType svgResourceStateType) {
+        InterceptResult invokeIIL;
+        ColorStateList colorListByResourceType;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeIIL = interceptable.invokeIIL(1048583, this, i2, i3, svgResourceStateType)) == null) {
+            if (i2 == 0 || i3 == 0) {
+                return null;
+            }
+            if (svgResourceStateType == null) {
+                svgResourceStateType = SvgResourceStateType.NORMAL;
+            }
+            Drawable drawable = getDrawable(i2, 1, false);
+            if (drawable == null || (colorListByResourceType = svgResourceStateType.getColorListByResourceType(i3)) == null) {
+                return null;
+            }
+            Drawable mutate = drawable.mutate();
+            DrawableCompat.setTintList(mutate, colorListByResourceType);
+            return mutate;
+        }
+        return (Drawable) invokeIIL.objValue;
+    }
+
     public Drawable getSeletableDrawableForEditorTools(int i2, int i3, int i4) {
         InterceptResult invokeIII;
         Drawable drawableWithDayNightMask;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIII = interceptable.invokeIII(1048583, this, i2, i3, i4)) == null) {
+        if (interceptable == null || (invokeIII = interceptable.invokeIII(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2, i3, i4)) == null) {
             if (i2 <= 0) {
                 return null;
             }
-            int i5 = R.color.CAM_X0105;
+            int i5 = d.CAM_X0105;
             StateListDrawable stateListDrawable = new StateListDrawable();
             Drawable drawable = getDrawable(i2, 1, false);
             if (drawable == null) {
@@ -609,7 +631,7 @@ public class SvgManager {
         Drawable drawable;
         ColorStateList colorList;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLII(InputDeviceCompat.SOURCE_TOUCHPAD, this, imageView, i2, i3) == null) || imageView == null || i2 == 0 || i3 == 0 || (drawable = getDrawable(i2, 1, true)) == null || (colorList = SkinManager.getColorList(i3)) == null) {
+        if (!(interceptable == null || interceptable.invokeLII(1048585, this, imageView, i2, i3) == null) || imageView == null || i2 == 0 || i3 == 0 || (drawable = getDrawable(i2, 1, true)) == null || (colorList = SkinManager.getColorList(i3)) == null) {
             return;
         }
         DrawableCompat.setTintList(drawable, colorList);
@@ -618,7 +640,7 @@ public class SvgManager {
 
     public void setMaskDrawableWithDayNightModeAutoChange(@NonNull ImageView imageView, int i2, SvgResourceStateType svgResourceStateType) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLIL(1048585, this, imageView, i2, svgResourceStateType) == null) || i2 == 0 || imageView == null) {
+        if (!(interceptable == null || interceptable.invokeLIL(1048586, this, imageView, i2, svgResourceStateType) == null) || i2 == 0 || imageView == null) {
             return;
         }
         if (svgResourceStateType == null) {
@@ -629,7 +651,7 @@ public class SvgManager {
 
     public void setPureDrawableWithDayNightModeAutoChange(@NonNull ImageView imageView, int i2, @ColorRes int i3, SvgResourceStateType svgResourceStateType) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048586, this, new Object[]{imageView, Integer.valueOf(i2), Integer.valueOf(i3), svgResourceStateType}) == null) || i2 == 0 || i3 == 0 || imageView == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(1048587, this, new Object[]{imageView, Integer.valueOf(i2), Integer.valueOf(i3), svgResourceStateType}) == null) || i2 == 0 || i3 == 0 || imageView == null) {
             return;
         }
         if (svgResourceStateType == null) {

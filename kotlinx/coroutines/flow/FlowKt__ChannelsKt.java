@@ -15,7 +15,7 @@ import kotlinx.coroutines.channels.ReceiveChannel;
 import kotlinx.coroutines.channels.ValueOrClosed;
 import kotlinx.coroutines.flow.internal.ChannelFlowKt;
 @Metadata(bv = {1, 0, 3}, d1 = {"\u0000:\n\u0000\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\u0010\u000b\n\u0002\b\b\u001a%\u0010\u0003\u001a\b\u0012\u0004\u0012\u00028\u00000\u0002\"\u0004\b\u0000\u0010\u0000*\b\u0012\u0004\u0012\u00028\u00000\u0001H\u0007¢\u0006\u0004\b\u0003\u0010\u0004\u001a7\u0010\t\u001a\b\u0012\u0004\u0012\u00028\u00000\u0001\"\u0004\b\u0000\u0010\u0000*\b\u0012\u0004\u0012\u00028\u00000\u00022\u0006\u0010\u0006\u001a\u00020\u00052\b\b\u0002\u0010\b\u001a\u00020\u0007H\u0007¢\u0006\u0004\b\t\u0010\n\u001a%\u0010\f\u001a\b\u0012\u0004\u0012\u00028\u00000\u0002\"\u0004\b\u0000\u0010\u0000*\b\u0012\u0004\u0012\u00028\u00000\u000bH\u0007¢\u0006\u0004\b\f\u0010\r\u001a1\u0010\u0011\u001a\u00020\u0010\"\u0004\b\u0000\u0010\u0000*\b\u0012\u0004\u0012\u00028\u00000\u000e2\f\u0010\u000f\u001a\b\u0012\u0004\u0012\u00028\u00000\u000bH\u0087@ø\u0001\u0000¢\u0006\u0004\b\u0011\u0010\u0012\u001a9\u0010\u0017\u001a\u00020\u0010\"\u0004\b\u0000\u0010\u0000*\b\u0012\u0004\u0012\u00028\u00000\u000e2\f\u0010\u000f\u001a\b\u0012\u0004\u0012\u00028\u00000\u000b2\u0006\u0010\u0014\u001a\u00020\u0013H\u0082@ø\u0001\u0000¢\u0006\u0004\b\u0015\u0010\u0016\u001a-\u0010\u0018\u001a\b\u0012\u0004\u0012\u00028\u00000\u000b\"\u0004\b\u0000\u0010\u0000*\b\u0012\u0004\u0012\u00028\u00000\u00022\u0006\u0010\u0006\u001a\u00020\u0005H\u0007¢\u0006\u0004\b\u0018\u0010\u0019\u001a%\u0010\u001a\u001a\b\u0012\u0004\u0012\u00028\u00000\u0002\"\u0004\b\u0000\u0010\u0000*\b\u0012\u0004\u0012\u00028\u00000\u000bH\u0007¢\u0006\u0004\b\u001a\u0010\r\u0082\u0002\u0004\n\u0002\b\u0019¨\u0006\u001b"}, d2 = {"T", "Lkotlinx/coroutines/channels/BroadcastChannel;", "Lkotlinx/coroutines/flow/Flow;", "asFlow", "(Lkotlinx/coroutines/channels/BroadcastChannel;)Lkotlinx/coroutines/flow/Flow;", "Lkotlinx/coroutines/CoroutineScope;", "scope", "Lkotlinx/coroutines/CoroutineStart;", "start", "broadcastIn", "(Lkotlinx/coroutines/flow/Flow;Lkotlinx/coroutines/CoroutineScope;Lkotlinx/coroutines/CoroutineStart;)Lkotlinx/coroutines/channels/BroadcastChannel;", "Lkotlinx/coroutines/channels/ReceiveChannel;", "consumeAsFlow", "(Lkotlinx/coroutines/channels/ReceiveChannel;)Lkotlinx/coroutines/flow/Flow;", "Lkotlinx/coroutines/flow/FlowCollector;", "channel", "", "emitAll", "(Lkotlinx/coroutines/flow/FlowCollector;Lkotlinx/coroutines/channels/ReceiveChannel;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;", "", "consume", "emitAllImpl$FlowKt__ChannelsKt", "(Lkotlinx/coroutines/flow/FlowCollector;Lkotlinx/coroutines/channels/ReceiveChannel;ZLkotlin/coroutines/Continuation;)Ljava/lang/Object;", "emitAllImpl", "produceIn", "(Lkotlinx/coroutines/flow/Flow;Lkotlinx/coroutines/CoroutineScope;)Lkotlinx/coroutines/channels/ReceiveChannel;", "receiveAsFlow", "kotlinx-coroutines-core"}, k = 5, mv = {1, 1, 15}, pn = "", xi = 0, xs = "kotlinx/coroutines/flow/FlowKt")
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public final /* synthetic */ class FlowKt__ChannelsKt {
     @FlowPreview
     public static final <T> Flow<T> asFlow(final BroadcastChannel<T> broadcastChannel) {
@@ -80,7 +80,7 @@ public final /* synthetic */ class FlowKt__ChannelsKt {
         Throwable th;
         Throwable th2;
         FlowCollector flowCollector2;
-        Object m2113unboximpl;
+        Object m2112unboximpl;
         ?? r10;
         Object receiveOrClosed;
         try {
@@ -114,8 +114,8 @@ public final /* synthetic */ class FlowKt__ChannelsKt {
                         ResultKt.throwOnFailure(obj);
                         flowCollector2 = flowCollector4;
                         z = receiveChannel2;
-                        m2113unboximpl = ((ValueOrClosed) obj).m2113unboximpl();
-                        if (!ValueOrClosed.m2111isClosedimpl(m2113unboximpl)) {
+                        m2112unboximpl = ((ValueOrClosed) obj).m2112unboximpl();
+                        if (!ValueOrClosed.m2110isClosedimpl(m2112unboximpl)) {
                         }
                     } else if (i2 != 2) {
                         throw new IllegalStateException("call to 'resume' before 'invoke' with coroutine");
@@ -150,21 +150,21 @@ public final /* synthetic */ class FlowKt__ChannelsKt {
                             ReceiveChannel<? extends T> receiveChannel6 = r10;
                             z = receiveChannel;
                             receiveChannel = receiveChannel6;
-                            m2113unboximpl = ((ValueOrClosed) obj).m2113unboximpl();
-                            if (!ValueOrClosed.m2111isClosedimpl(m2113unboximpl)) {
-                                Throwable m2107getCloseCauseimpl = ValueOrClosed.m2107getCloseCauseimpl(m2113unboximpl);
-                                if (m2107getCloseCauseimpl == null) {
+                            m2112unboximpl = ((ValueOrClosed) obj).m2112unboximpl();
+                            if (!ValueOrClosed.m2110isClosedimpl(m2112unboximpl)) {
+                                Throwable m2106getCloseCauseimpl = ValueOrClosed.m2106getCloseCauseimpl(m2112unboximpl);
+                                if (m2106getCloseCauseimpl == null) {
                                     return Unit.INSTANCE;
                                 }
-                                throw m2107getCloseCauseimpl;
+                                throw m2106getCloseCauseimpl;
                             }
                             flowKt__ChannelsKt$emitAllImpl$1.L$0 = flowCollector2;
                             flowKt__ChannelsKt$emitAllImpl$1.L$1 = z;
                             flowKt__ChannelsKt$emitAllImpl$1.Z$0 = (boolean) receiveChannel;
                             flowKt__ChannelsKt$emitAllImpl$1.L$2 = th2;
-                            flowKt__ChannelsKt$emitAllImpl$1.L$3 = m2113unboximpl;
+                            flowKt__ChannelsKt$emitAllImpl$1.L$3 = m2112unboximpl;
                             flowKt__ChannelsKt$emitAllImpl$1.label = 2;
-                            Object emit = flowCollector2.emit((Object) ValueOrClosed.m2108getValueimpl(m2113unboximpl), flowKt__ChannelsKt$emitAllImpl$1);
+                            Object emit = flowCollector2.emit((Object) ValueOrClosed.m2107getValueimpl(m2112unboximpl), flowKt__ChannelsKt$emitAllImpl$1);
                             flowCollector6 = flowCollector2;
                             receiveChannel4 = z;
                             if (emit == coroutine_suspended) {

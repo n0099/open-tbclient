@@ -19,13 +19,13 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.tachikoma.core.component.input.InputType;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public class PaymentConfirmModel<T> extends BdBaseModel<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public f<T> f46402e;
+    public f<T> f46544e;
 
     public PaymentConfirmModel(f<T> fVar) {
         Interceptable interceptable = $ic;
@@ -42,7 +42,7 @@ public class PaymentConfirmModel<T> extends BdBaseModel<T> {
                 return;
             }
         }
-        this.f46402e = fVar;
+        this.f46544e = fVar;
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -80,7 +80,7 @@ public class PaymentConfirmModel<T> extends BdBaseModel<T> {
         httpMessage.addParam(InputType.PASSWORD, payRequestData.getPassword());
         httpMessage.addParam("bindid", payRequestData.getBindId());
         httpMessage.addParam("mobile_check", payRequestData.getMobileCheck());
-        this.f46402e.sendMessage(httpMessage);
+        this.f46544e.sendMessage(httpMessage);
     }
 
     public void x() {
@@ -122,6 +122,6 @@ public class PaymentConfirmModel<T> extends BdBaseModel<T> {
         httpMessage.addParam("goods_user_level", String.valueOf(paymentConfirmRequestData.getGoods_user_level()));
         httpMessage.addParam("pay_type", String.valueOf(paymentConfirmRequestData.getPay_type()));
         httpMessage.addParam("currency", paymentConfirmRequestData.getCurrency());
-        this.f46402e.sendMessage(httpMessage);
+        this.f46544e.sendMessage(httpMessage);
     }
 }

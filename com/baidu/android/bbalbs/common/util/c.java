@@ -10,18 +10,18 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class c {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: b  reason: collision with root package name */
-    public static b f31553b = null;
+    public static b f31759b = null;
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f31554c = "";
+    public static String f31760c = "";
 
     /* renamed from: d  reason: collision with root package name */
-    public static volatile String f31555d = "";
+    public static volatile String f31761d = "";
     public transient /* synthetic */ FieldHolder $fh;
     public final Context a;
 
@@ -62,10 +62,10 @@ public final class c {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (TextUtils.isEmpty(f31554c)) {
-                f31554c = "0newiqr3mini0";
+            if (TextUtils.isEmpty(f31760c)) {
+                f31760c = "0newiqr3mini0";
             }
-            return f31554c;
+            return f31760c;
         }
         return (String) invokeV.objValue;
     }
@@ -83,8 +83,8 @@ public final class c {
                 throw new IllegalArgumentException("expect src only letter or number , less than 6");
             }
             synchronized (b.class) {
-                if (TextUtils.isEmpty(f31555d)) {
-                    f31555d = str;
+                if (TextUtils.isEmpty(f31761d)) {
+                    f31761d = str;
                     int length = 5 - str.length();
                     StringBuffer stringBuffer = new StringBuffer();
                     stringBuffer.append("0newiqr3");
@@ -92,7 +92,7 @@ public final class c {
                     for (int i2 = 0; i2 < length; i2++) {
                         stringBuffer.append("0");
                     }
-                    f31554c = stringBuffer.toString().trim();
+                    f31760c = stringBuffer.toString().trim();
                 }
             }
         }
@@ -126,14 +126,14 @@ public final class c {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, context)) == null) {
-            if (f31553b == null) {
+            if (f31759b == null) {
                 synchronized (b.class) {
-                    if (f31553b == null) {
-                        f31553b = new c(context).b();
+                    if (f31759b == null) {
+                        f31759b = new c(context).b();
                     }
                 }
             }
-            return f31553b;
+            return f31759b;
         }
         return (b) invokeL.objValue;
     }

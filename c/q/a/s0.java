@@ -20,16 +20,16 @@ public class s0 {
     public View a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f30462b;
+    public boolean f30668b;
 
     /* renamed from: c  reason: collision with root package name */
-    public p0 f30463c;
+    public p0 f30669c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Info f30464d;
+    public Info f30670d;
 
     /* renamed from: e  reason: collision with root package name */
-    public Handler f30465e;
+    public Handler f30671e;
 
     public s0() {
         Interceptable interceptable = $ic;
@@ -44,19 +44,19 @@ public class s0 {
                 return;
             }
         }
-        this.f30465e = new p(this, Looper.getMainLooper());
+        this.f30671e = new p(this, Looper.getMainLooper());
     }
 
     public void a(View view, Info info, p0 p0Var) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048576, this, view, info, p0Var) == null) {
             this.a = view;
-            this.f30463c = p0Var;
-            this.f30464d = info;
+            this.f30669c = p0Var;
+            this.f30670d = info;
             try {
-                String str = "b111:" + this.f30462b;
-                if (!this.f30462b) {
-                    this.f30465e.sendEmptyMessage(1101);
+                String str = "b111:" + this.f30668b;
+                if (!this.f30668b) {
+                    this.f30671e.sendEmptyMessage(1101);
                 }
                 ViewTreeObserver viewTreeObserver = this.a.getViewTreeObserver();
                 viewTreeObserver.addOnScrollChangedListener(new t(this, p0Var));
@@ -94,9 +94,9 @@ public class s0 {
             return false;
         }
         Rect rect = new Rect();
-        if (view.getGlobalVisibleRect(rect) && this.f30464d != null) {
-            if (rect.width() >= this.f30464d.getSper() * view.getMeasuredWidth()) {
-                if (rect.height() >= this.f30464d.getSper() * view.getMeasuredHeight()) {
+        if (view.getGlobalVisibleRect(rect) && this.f30670d != null) {
+            if (rect.width() >= this.f30670d.getSper() * view.getMeasuredWidth()) {
+                if (rect.height() >= this.f30670d.getSper() * view.getMeasuredHeight()) {
                     z = false;
                     return z;
                 }

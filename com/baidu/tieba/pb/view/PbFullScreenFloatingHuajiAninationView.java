@@ -14,11 +14,11 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import c.a.d.f.m.e;
 import c.a.d.f.p.n;
-import c.a.t0.t2.f;
-import c.a.t0.t2.g;
-import c.a.t0.t2.h;
-import c.a.t0.t2.i;
-import c.a.t0.t2.j;
+import c.a.u0.u2.f;
+import c.a.u0.u2.g;
+import c.a.u0.u2.h;
+import c.a.u0.u2.i;
+import c.a.u0.u2.j;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.livesdk.sdk.service.IMLikeRequest;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -32,7 +32,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.tachikoma.core.component.anim.AnimationProperty;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public class PbFullScreenFloatingHuajiAninationView extends RelativeLayout {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int ANIMATION_DURATION = 2000;
@@ -41,22 +41,22 @@ public class PbFullScreenFloatingHuajiAninationView extends RelativeLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public ImageView f47003e;
+    public ImageView f47145e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ImageView f47004f;
+    public ImageView f47146f;
 
     /* renamed from: g  reason: collision with root package name */
-    public ImageView f47005g;
+    public ImageView f47147g;
 
     /* renamed from: h  reason: collision with root package name */
-    public ImageView f47006h;
+    public ImageView f47148h;
 
     /* renamed from: i  reason: collision with root package name */
-    public ImageView f47007i;
+    public ImageView f47149i;
 
     /* renamed from: j  reason: collision with root package name */
-    public ImageView f47008j;
+    public ImageView f47150j;
     public TextView k;
     public AnimatorSet l;
     public AnimatorSet m;
@@ -70,13 +70,13 @@ public class PbFullScreenFloatingHuajiAninationView extends RelativeLayout {
     public Runnable u;
     public Runnable v;
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes13.dex */
     public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PbFullScreenFloatingHuajiAninationView f47009e;
+        public final /* synthetic */ PbFullScreenFloatingHuajiAninationView f47151e;
 
         public a(PbFullScreenFloatingHuajiAninationView pbFullScreenFloatingHuajiAninationView) {
             Interceptable interceptable = $ic;
@@ -93,25 +93,25 @@ public class PbFullScreenFloatingHuajiAninationView extends RelativeLayout {
                     return;
                 }
             }
-            this.f47009e = pbFullScreenFloatingHuajiAninationView;
+            this.f47151e = pbFullScreenFloatingHuajiAninationView;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f47009e.b();
+                this.f47151e.b();
             }
         }
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes13.dex */
     public class b implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PbFullScreenFloatingHuajiAninationView f47010e;
+        public final /* synthetic */ PbFullScreenFloatingHuajiAninationView f47152e;
 
         public b(PbFullScreenFloatingHuajiAninationView pbFullScreenFloatingHuajiAninationView) {
             Interceptable interceptable = $ic;
@@ -128,23 +128,23 @@ public class PbFullScreenFloatingHuajiAninationView extends RelativeLayout {
                     return;
                 }
             }
-            this.f47010e = pbFullScreenFloatingHuajiAninationView;
+            this.f47152e = pbFullScreenFloatingHuajiAninationView;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                ViewGroup viewGroup = (ViewGroup) ((Activity) this.f47010e.getContext()).getWindow().getDecorView();
-                if (this.f47010e.getParent() == null || this.f47010e.getParent() != viewGroup) {
+                ViewGroup viewGroup = (ViewGroup) ((Activity) this.f47152e.getContext()).getWindow().getDecorView();
+                if (this.f47152e.getParent() == null || this.f47152e.getParent() != viewGroup) {
                     return;
                 }
-                viewGroup.removeView(this.f47010e);
+                viewGroup.removeView(this.f47152e);
             }
         }
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes13.dex */
     public interface c {
         void onAnimationEnd();
     }
@@ -207,12 +207,12 @@ public class PbFullScreenFloatingHuajiAninationView extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             LayoutInflater.from(getContext()).inflate(j.pb_full_screen_floating_huaji_view, this);
-            this.f47003e = (ImageView) findViewById(i.pb_video_floating_big_huaji);
-            this.f47004f = (ImageView) findViewById(i.pb_video_floating_small_huaji1);
-            this.f47005g = (ImageView) findViewById(i.pb_video_floating_small_huaji2);
-            this.f47006h = (ImageView) findViewById(i.pb_video_floating_small_huaji3);
-            this.f47007i = (ImageView) findViewById(i.pb_video_floating_small_huaji4);
-            this.f47008j = (ImageView) findViewById(i.pb_video_floating_small_huaji5);
+            this.f47145e = (ImageView) findViewById(i.pb_video_floating_big_huaji);
+            this.f47146f = (ImageView) findViewById(i.pb_video_floating_small_huaji1);
+            this.f47147g = (ImageView) findViewById(i.pb_video_floating_small_huaji2);
+            this.f47148h = (ImageView) findViewById(i.pb_video_floating_small_huaji3);
+            this.f47149i = (ImageView) findViewById(i.pb_video_floating_small_huaji4);
+            this.f47150j = (ImageView) findViewById(i.pb_video_floating_small_huaji5);
             TextView textView = (TextView) findViewById(i.pb_video_floating_huaji_tip);
             this.k = textView;
             textView.setX((x - w) / 2);
@@ -226,38 +226,38 @@ public class PbFullScreenFloatingHuajiAninationView extends RelativeLayout {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             this.l = new AnimatorSet();
             Drawable drawable = SkinManager.getDrawable(h.icon_floor_bigpraised_floating);
-            ImageView imageView = this.f47003e;
+            ImageView imageView = this.f47145e;
             float intrinsicWidth = (x - drawable.getIntrinsicWidth()) / 2;
             ObjectAnimator ofFloat = ObjectAnimator.ofFloat(imageView, "X", x, intrinsicWidth);
             ofFloat.setDuration(400L);
-            ImageView imageView2 = this.f47003e;
+            ImageView imageView2 = this.f47145e;
             float intrinsicWidth2 = 0 - drawable.getIntrinsicWidth();
             ObjectAnimator ofFloat2 = ObjectAnimator.ofFloat(imageView2, "X", intrinsicWidth, intrinsicWidth2);
             ofFloat2.setDuration(500L);
             ofFloat2.setStartDelay(1000L);
             this.l.playTogether(ofFloat, ofFloat2);
             this.m = new AnimatorSet();
-            ObjectAnimator ofFloat3 = ObjectAnimator.ofFloat(this.f47004f, "X", x, intrinsicWidth2);
+            ObjectAnimator ofFloat3 = ObjectAnimator.ofFloat(this.f47146f, "X", x, intrinsicWidth2);
             ofFloat3.setDuration(600L);
             ofFloat3.setStartDelay(800L);
             this.m.play(ofFloat3);
             this.n = new AnimatorSet();
-            ObjectAnimator ofFloat4 = ObjectAnimator.ofFloat(this.f47005g, "X", x, intrinsicWidth2);
+            ObjectAnimator ofFloat4 = ObjectAnimator.ofFloat(this.f47147g, "X", x, intrinsicWidth2);
             ofFloat4.setDuration(600L);
             ofFloat4.setStartDelay(800L);
             this.n.play(ofFloat4);
             this.o = new AnimatorSet();
-            ObjectAnimator ofFloat5 = ObjectAnimator.ofFloat(this.f47006h, "X", x, intrinsicWidth2);
+            ObjectAnimator ofFloat5 = ObjectAnimator.ofFloat(this.f47148h, "X", x, intrinsicWidth2);
             ofFloat5.setDuration(300L);
             ofFloat5.setStartDelay(1100L);
             this.o.play(ofFloat5);
             this.p = new AnimatorSet();
-            ObjectAnimator ofFloat6 = ObjectAnimator.ofFloat(this.f47007i, "X", x, intrinsicWidth2);
+            ObjectAnimator ofFloat6 = ObjectAnimator.ofFloat(this.f47149i, "X", x, intrinsicWidth2);
             ofFloat6.setDuration(200L);
             ofFloat6.setStartDelay(IMLikeRequest.TIME_INTERVAL);
             this.p.play(ofFloat6);
             this.q = new AnimatorSet();
-            ObjectAnimator ofFloat7 = ObjectAnimator.ofFloat(this.f47008j, "X", x, intrinsicWidth2);
+            ObjectAnimator ofFloat7 = ObjectAnimator.ofFloat(this.f47150j, "X", x, intrinsicWidth2);
             ofFloat7.setDuration(150L);
             ofFloat7.setStartDelay(1400L);
             this.q.play(ofFloat7);
@@ -281,17 +281,17 @@ public class PbFullScreenFloatingHuajiAninationView extends RelativeLayout {
             SkinManager.setBackgroundColor(this, f.black_alpha60);
             int i3 = h.icon_floor_praised_floating;
             int i4 = h.icon_floor_bigpraised_floating;
-            c.a.s0.t.c.c activitySwitch = TbadkCoreApplication.getInst().getActivitySwitch();
+            c.a.t0.t.c.c activitySwitch = TbadkCoreApplication.getInst().getActivitySwitch();
             if (activitySwitch != null && activitySwitch.a()) {
                 i3 = h.icon_floor_praised_floating_xmas;
                 i4 = h.icon_floor_bigpraised_floating_xmas;
             }
-            SkinManager.setImageResource(this.f47003e, i4);
-            SkinManager.setImageResource(this.f47004f, i3);
-            SkinManager.setImageResource(this.f47005g, i3);
-            SkinManager.setImageResource(this.f47006h, i3);
-            SkinManager.setImageResource(this.f47007i, i3);
-            SkinManager.setImageResource(this.f47008j, i3);
+            SkinManager.setImageResource(this.f47145e, i4);
+            SkinManager.setImageResource(this.f47146f, i3);
+            SkinManager.setImageResource(this.f47147g, i3);
+            SkinManager.setImageResource(this.f47148h, i3);
+            SkinManager.setImageResource(this.f47149i, i3);
+            SkinManager.setImageResource(this.f47150j, i3);
             SkinManager.setViewTextColor(this.k, f.CAM_X0101);
         }
     }

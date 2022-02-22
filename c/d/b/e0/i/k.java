@@ -16,10 +16,10 @@ public final class k {
     public final Protocol a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final int f27778b;
+    public final int f27984b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final String f27779c;
+    public final String f27985c;
 
     public k(Protocol protocol, int i2, String str) {
         Interceptable interceptable = $ic;
@@ -37,8 +37,8 @@ public final class k {
             }
         }
         this.a = protocol;
-        this.f27778b = i2;
-        this.f27779c = str;
+        this.f27984b = i2;
+        this.f27985c = str;
     }
 
     public static k a(b0 b0Var) {
@@ -101,10 +101,10 @@ public final class k {
             StringBuilder sb = new StringBuilder();
             sb.append(this.a == Protocol.HTTP_1_0 ? "HTTP/1.0" : "HTTP/1.1");
             sb.append(' ');
-            sb.append(this.f27778b);
-            if (this.f27779c != null) {
+            sb.append(this.f27984b);
+            if (this.f27985c != null) {
                 sb.append(' ');
-                sb.append(this.f27779c);
+                sb.append(this.f27985c);
             }
             return sb.toString();
         }

@@ -1,10 +1,10 @@
 package com.baidu.tieba.pb.pb.main;
 
 import androidx.core.view.InputDeviceCompat;
-import c.a.s0.d1.b0;
-import c.a.s0.d1.i;
-import c.a.t0.k3.j0.a;
-import c.a.t0.k3.l0.b;
+import c.a.t0.d1.c0;
+import c.a.t0.d1.i;
+import c.a.u0.l3.j0.a;
+import c.a.u0.l3.l0.b;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
@@ -20,7 +20,7 @@ import com.squareup.wire.Wire;
 import tbclient.PbPage.AdParam;
 import tbclient.PbPage.DataReq;
 import tbclient.PbPage.PbPageReqIdl;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public class PbPageRequestMessage extends NetMessage {
     public static /* synthetic */ Interceptable $ic;
     public static final Wire WIRE;
@@ -193,7 +193,7 @@ public class PbPageRequestMessage extends NetMessage {
                 b2.h(this.updateType);
                 builder.ad_ext_params = b2.a();
                 builder.source_type = Integer.valueOf(this.sourceType);
-                b0.c(builder, true, false, true);
+                c0.c(builder, true, false, true);
                 builder.immersion_video_comment_source = Integer.valueOf(this.immersionVideoCommentSource);
                 builder.app_transmit_data = i.b();
                 if (!this.isReqFoldComment) {

@@ -13,7 +13,7 @@ public abstract class p<E> extends l<E> {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: j  reason: collision with root package name */
-    public static final long f62110j;
+    public static final long f62277j;
     public transient /* synthetic */ FieldHolder $fh;
     public volatile long producerIndex;
 
@@ -30,7 +30,7 @@ public abstract class p<E> extends l<E> {
                 return;
             }
         }
-        f62110j = f0.a(p.class, "producerIndex");
+        f62277j = f0.a(p.class, "producerIndex");
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -62,7 +62,7 @@ public abstract class p<E> extends l<E> {
     public final void i(long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j2) == null) {
-            f0.a.i(this, f62110j, j2);
+            f0.a.i(this, f62277j, j2);
         }
     }
 }

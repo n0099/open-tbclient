@@ -49,7 +49,7 @@ public class b {
             }
             ModelMaterial modelMaterial = new ModelMaterial();
             modelMaterial.a = str;
-            modelMaterial.f31139c = new c.b.b.n.a(c.b.b.n.a.f27109e);
+            modelMaterial.f31345c = new c.b.b.n.a(c.b.b.n.a.f27315e);
             this.a.a(modelMaterial);
             return modelMaterial;
         }
@@ -59,7 +59,7 @@ public class b {
     public void b(c.b.b.m.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
-            c.b.b.n.a aVar2 = c.b.b.n.a.f27109e;
+            c.b.b.n.a aVar2 = c.b.b.n.a.f27315e;
             if (aVar == null || !aVar.c()) {
                 return;
             }
@@ -84,23 +84,23 @@ public class b {
                         if (lowerCase.equals("newmtl")) {
                             ModelMaterial modelMaterial = new ModelMaterial();
                             modelMaterial.a = str;
-                            modelMaterial.f31139c = new c.b.b.n.a(aVar2);
-                            modelMaterial.f31140d = new c.b.b.n.a(aVar3);
-                            modelMaterial.f31144h = f2;
-                            modelMaterial.f31143g = f3;
+                            modelMaterial.f31345c = new c.b.b.n.a(aVar2);
+                            modelMaterial.f31346d = new c.b.b.n.a(aVar3);
+                            modelMaterial.f31350h = f2;
+                            modelMaterial.f31349g = f3;
                             if (str2 != null) {
                                 i iVar = new i();
-                                iVar.f27288d = 2;
+                                iVar.f27494d = 2;
                                 iVar.a = new String(str2);
-                                if (modelMaterial.f31145i == null) {
-                                    modelMaterial.f31145i = new c.b.b.q.a<>(1);
+                                if (modelMaterial.f31351i == null) {
+                                    modelMaterial.f31351i = new c.b.b.q.a<>(1);
                                 }
-                                modelMaterial.f31145i.a(iVar);
+                                modelMaterial.f31351i.a(iVar);
                             }
                             this.a.a(modelMaterial);
                             str = split.length > 1 ? split[1].replace('.', '_') : "default";
-                            aVar2 = c.b.b.n.a.f27109e;
-                            aVar3 = c.b.b.n.a.f27109e;
+                            aVar2 = c.b.b.n.a.f27315e;
+                            aVar3 = c.b.b.n.a.f27315e;
                             f2 = 1.0f;
                             f3 = 0.0f;
                         } else {
@@ -134,18 +134,18 @@ public class b {
             bufferedReader.close();
             ModelMaterial modelMaterial2 = new ModelMaterial();
             modelMaterial2.a = str;
-            modelMaterial2.f31139c = new c.b.b.n.a(aVar2);
-            modelMaterial2.f31140d = new c.b.b.n.a(aVar3);
-            modelMaterial2.f31144h = f2;
-            modelMaterial2.f31143g = f3;
+            modelMaterial2.f31345c = new c.b.b.n.a(aVar2);
+            modelMaterial2.f31346d = new c.b.b.n.a(aVar3);
+            modelMaterial2.f31350h = f2;
+            modelMaterial2.f31349g = f3;
             if (str2 != null) {
                 i iVar2 = new i();
-                iVar2.f27288d = 2;
+                iVar2.f27494d = 2;
                 iVar2.a = new String(str2);
-                if (modelMaterial2.f31145i == null) {
-                    modelMaterial2.f31145i = new c.b.b.q.a<>(1);
+                if (modelMaterial2.f31351i == null) {
+                    modelMaterial2.f31351i = new c.b.b.q.a<>(1);
                 }
-                modelMaterial2.f31145i.a(iVar2);
+                modelMaterial2.f31351i.a(iVar2);
             }
             this.a.a(modelMaterial2);
         }

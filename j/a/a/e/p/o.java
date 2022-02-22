@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import kotlin.jvm.internal.Intrinsics;
 import tv.athena.revenue.payui.model.PayUIKitConfig;
 import tv.athena.revenue.payui.model.ThemeColorConfig;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public final class o {
     public static /* synthetic */ Interceptable $ic;
     public static final o a;

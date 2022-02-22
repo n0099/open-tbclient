@@ -4,10 +4,13 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.SeekBar;
+import c.a.u0.a4.e;
+import c.a.u0.a4.f;
+import c.a.u0.a4.g;
+import c.a.u0.a4.h;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -15,7 +18,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public class VideoMiddleNiaiControllerView extends VideoControllerView {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int BOTTOM_HEIGHT;
@@ -42,11 +45,11 @@ public class VideoMiddleNiaiControllerView extends VideoControllerView {
                 return;
             }
         }
-        BOTTOM_HEIGHT = UtilHelper.getDimenPixelSize(R.dimen.tbds52);
-        VERTICLE_CENTER_HEIGHT = UtilHelper.getDimenPixelSize(R.dimen.tbds117);
-        THREE_WIDTH_PADDING_TOP = UtilHelper.getDimenPixelSize(R.dimen.tbds49);
-        EIGHT_WIDTH_PADDING_TOP = UtilHelper.getDimenPixelSize(R.dimen.tbds44);
-        VERTICLE_CENTER_PADDING_BOTTOM = UtilHelper.getDimenPixelSize(R.dimen.tbds37);
+        BOTTOM_HEIGHT = UtilHelper.getDimenPixelSize(e.tbds52);
+        VERTICLE_CENTER_HEIGHT = UtilHelper.getDimenPixelSize(e.tbds117);
+        THREE_WIDTH_PADDING_TOP = UtilHelper.getDimenPixelSize(e.tbds49);
+        EIGHT_WIDTH_PADDING_TOP = UtilHelper.getDimenPixelSize(e.tbds44);
+        VERTICLE_CENTER_PADDING_BOTTOM = UtilHelper.getDimenPixelSize(e.tbds37);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -84,9 +87,9 @@ public class VideoMiddleNiaiControllerView extends VideoControllerView {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
-            View inflate = View.inflate(context, R.layout.video_middle_naivi_controller, null);
+            View inflate = View.inflate(context, h.video_middle_naivi_controller, null);
             this.o = inflate;
-            this.p = (LinearVideoLoadingSeekBar) inflate.findViewById(R.id.pb_video_controller_seekBar);
+            this.p = (LinearVideoLoadingSeekBar) inflate.findViewById(g.pb_video_controller_seekBar);
             return this.o;
         }
         return (View) invokeL.objValue;
@@ -142,7 +145,7 @@ public class VideoMiddleNiaiControllerView extends VideoControllerView {
             } else {
                 g();
             }
-            this.mProgress.setProgressDrawable(SkinManager.getDrawable(R.drawable.video_navi_video_three_width_seekbar));
+            this.mProgress.setProgressDrawable(SkinManager.getDrawable(f.video_navi_video_three_width_seekbar));
             return;
         }
         seekBar.setThumb(null);
@@ -151,7 +154,7 @@ public class VideoMiddleNiaiControllerView extends VideoControllerView {
         } else {
             g();
         }
-        this.mProgress.setProgressDrawable(SkinManager.getDrawable(R.drawable.video_navi_video_eight_width_seekbar));
+        this.mProgress.setProgressDrawable(SkinManager.getDrawable(f.video_navi_video_eight_width_seekbar));
     }
 
     public void setLoading(boolean z) {

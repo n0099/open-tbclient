@@ -1,7 +1,7 @@
 package com.baidu.ugc.editvideo.record.renderer;
 
 import android.opengl.GLES20;
-import c.a.b0.b.a.e;
+import c.a.c0.b.a.e;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;

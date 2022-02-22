@@ -1,9 +1,9 @@
 package com.baidu.tieba.newinterest.activity;
 
 import android.os.Bundle;
-import c.a.s0.b.d;
-import c.a.s0.s.i0.b;
-import c.a.t0.p2.h.a;
+import c.a.t0.b.d;
+import c.a.t0.s.j0.b;
+import c.a.u0.q2.h.a;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbSingleton;
@@ -16,7 +16,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public class InterestGuideActivity extends BaseFragmentActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -72,7 +72,7 @@ public class InterestGuideActivity extends BaseFragmentActivity {
     public void onChangeSkinType(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
-            if (d.H()) {
+            if (d.J()) {
                 UtilHelper.setNavigationBarBg(getActivity(), SkinManager.getColor(R.color.CAM_X0206));
             } else {
                 UtilHelper.setNavigationBarBg(getActivity(), SkinManager.getColor(R.color.CAM_X0201));

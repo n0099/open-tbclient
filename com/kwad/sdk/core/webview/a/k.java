@@ -1,7 +1,7 @@
 package com.kwad.sdk.core.webview.a;
 
 import androidx.annotation.NonNull;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class k extends i {
     public boolean a = true;
 

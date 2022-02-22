@@ -4,11 +4,11 @@ import android.text.TextUtils;
 import com.baidu.nps.utils.Constant;
 import com.kwad.sdk.api.loader.a;
 import java.io.File;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class SecurityChecker {
     public static volatile State a;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public enum State {
         INIT,
         DATA_VALID,
@@ -16,20 +16,20 @@ public class SecurityChecker {
         SUCCESS
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public interface a {
         void a(Exception exc);
 
         void a(boolean z, State state);
     }
 
-    public static void a(final File file, final a.C2094a c2094a, final a aVar) {
+    public static void a(final File file, final a.C2104a c2104a, final a aVar) {
         i.a(new Runnable() { // from class: com.kwad.sdk.api.loader.SecurityChecker.1
             @Override // java.lang.Runnable
             public void run() {
                 State unused = SecurityChecker.a = State.INIT;
                 try {
-                    boolean z = a.C2094a.this != null && SecurityChecker.b(file) && SecurityChecker.b(file, a.C2094a.this.f55430c);
+                    boolean z = a.C2104a.this != null && SecurityChecker.b(file) && SecurityChecker.b(file, a.C2104a.this.f55597c);
                     if (z) {
                         State unused2 = SecurityChecker.a = State.SUCCESS;
                     }

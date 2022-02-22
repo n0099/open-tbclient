@@ -11,7 +11,7 @@ import androidx.core.view.InputDeviceCompat;
 import c.a.d.f.p.h;
 import c.a.d.f.p.o;
 import c.a.d.f.p.t;
-import c.a.d.i.k.f;
+import c.a.d.j.k.f;
 import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.plugin.packageManager.PluginPackageManager;
@@ -32,13 +32,13 @@ import java.io.InputStream;
 import java.security.MessageDigest;
 import java.util.HashSet;
 import kotlin.UShort;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class Util {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static final class VersionCompare {
         public static final /* synthetic */ VersionCompare[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -99,17 +99,17 @@ public final class Util {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public boolean a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f31275b;
+        public String f31481b;
 
         /* renamed from: c  reason: collision with root package name */
-        public int f31276c;
+        public int f31482c;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -125,8 +125,8 @@ public final class Util {
                 }
             }
             this.a = false;
-            this.f31275b = null;
-            this.f31276c = 0;
+            this.f31481b = null;
+            this.f31482c = 0;
         }
     }
 
@@ -189,7 +189,7 @@ public final class Util {
                     e = e3;
                     fileOutputStream2 = fileOutputStream;
                     aVar.a = false;
-                    aVar.f31275b = e.toString();
+                    aVar.f31481b = e.toString();
                     c.a.d.f.m.a.d(fileOutputStream2);
                     return aVar;
                 } catch (Throwable th2) {
@@ -201,7 +201,7 @@ public final class Util {
                 c.a.d.f.m.a.d(fileOutputStream2);
                 return aVar;
             }
-            aVar.f31275b = "illegal_param";
+            aVar.f31481b = "illegal_param";
             return aVar;
         }
         return (a) invokeLL.objValue;

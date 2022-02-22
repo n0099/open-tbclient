@@ -1,7 +1,7 @@
 package com.baidu.tbadk.switchs;
 
-import c.a.s0.b.d;
-import c.a.s0.s.i0.b;
+import c.a.t0.b.d;
+import c.a.t0.s.j0.b;
 import com.baidu.tieba.debugtool.annotation.Modify;
 import com.baidu.tieba.debugtool.annotation.ModifyClass;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 @ModifyClass
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class AdToMainTabActivitySwitch extends BaseNormalSwitch {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String AD_TO_MAINATABACTIVITY_ENABLE = "ad_to_maintabactivity_grey";
@@ -53,19 +53,19 @@ public class AdToMainTabActivitySwitch extends BaseNormalSwitch {
         }
     }
 
-    @Modify(description = "开屏广告优化的开关")
+    @Modify(description = "开屏广告优化的开关", type = 100)
     public static boolean getIsOn() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
             if (type > 1) {
-                if (d.K()) {
+                if (d.M()) {
                     type = 0;
                 } else {
                     int l = b.k().l("key_ad_to_maintabactivity", 1);
                     type = l;
                     if (l == 1) {
-                        if (d.N()) {
+                        if (d.Q()) {
                             type = 1;
                         } else {
                             type = 0;

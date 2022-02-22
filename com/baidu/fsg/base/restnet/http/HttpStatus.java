@@ -3,7 +3,6 @@ package com.baidu.fsg.base.restnet.http;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
-import com.baidu.searchbox.http.response.StatusCodeException;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -239,7 +238,7 @@ public final class HttpStatus {
         FAILED_DEPENDENCY = new HttpStatus("FAILED_DEPENDENCY", 47, org.apache.http.HttpStatus.SC_FAILED_DEPENDENCY, "Failed Dependency");
         UPGRADE_REQUIRED = new HttpStatus("UPGRADE_REQUIRED", 48, 426, "Upgrade Required");
         PRECONDITION_REQUIRED = new HttpStatus("PRECONDITION_REQUIRED", 49, 428, "Precondition Required");
-        TOO_MANY_REQUESTS = new HttpStatus("TOO_MANY_REQUESTS", 50, StatusCodeException.IGNORE_429_CODE, "Too Many Requests");
+        TOO_MANY_REQUESTS = new HttpStatus("TOO_MANY_REQUESTS", 50, 429, "Too Many Requests");
         REQUEST_HEADER_FIELDS_TOO_LARGE = new HttpStatus("REQUEST_HEADER_FIELDS_TOO_LARGE", 51, 431, "Request Header Fields Too Large");
         INTERNAL_SERVER_ERROR = new HttpStatus("INTERNAL_SERVER_ERROR", 52, 500, "Internal Server Error");
         NOT_IMPLEMENTED = new HttpStatus("NOT_IMPLEMENTED", 53, 501, "Not Implemented");

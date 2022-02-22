@@ -7,7 +7,7 @@ import android.text.TextUtils;
 import android.util.LongSparseArray;
 import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
-import c.a.t.a;
+import c.a.u.a;
 import com.baidu.android.imsdk.Filter;
 import com.baidu.android.imsdk.IMListener;
 import com.baidu.android.imsdk.account.AccountManager;
@@ -39,7 +39,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class ChatUserManagerImpl {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "ChatUserManagerImpl";

@@ -328,7 +328,7 @@ public class ImmutableRangeMap<K extends Comparable<?>, V> implements a1<K, V>, 
 
     /* JADX DEBUG: Method merged with bridge method */
     /* renamed from: asDescendingMapOfRanges */
-    public ImmutableMap<Range<K>, V> m113asDescendingMapOfRanges() {
+    public ImmutableMap<Range<K>, V> m112asDescendingMapOfRanges() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -462,7 +462,7 @@ public class ImmutableRangeMap<K extends Comparable<?>, V> implements a1<K, V>, 
 
                 @Override // com.google.common.collect.ImmutableRangeMap
                 public /* bridge */ /* synthetic */ Map asDescendingMapOfRanges() {
-                    return super.m113asDescendingMapOfRanges();
+                    return super.m112asDescendingMapOfRanges();
                 }
 
                 @Override // com.google.common.collect.ImmutableRangeMap, c.i.d.c.a1

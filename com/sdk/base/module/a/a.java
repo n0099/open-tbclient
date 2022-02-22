@@ -19,7 +19,7 @@ public class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public Context f59315b;
+    public Context f59482b;
 
     static {
         InterceptResult invokeClinit;
@@ -34,7 +34,7 @@ public class a {
                 return;
             }
         }
-        boolean z = f.f59281b;
+        boolean z = f.f59448b;
     }
 
     public a(Context context) {
@@ -52,7 +52,7 @@ public class a {
                 return;
             }
         }
-        this.f59315b = context;
+        this.f59482b = context;
     }
 
     public static a a(Context context) {
@@ -72,9 +72,9 @@ public class a {
     public final void a(String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, str, str2) == null) {
-            com.sdk.base.framework.f.b.a.a(this.f59315b, e.o, str2);
+            com.sdk.base.framework.f.b.a.a(this.f59482b, e.o, str2);
             if (c.b(str).booleanValue()) {
-                com.sdk.base.framework.f.b.a.a(this.f59315b, Constants.API_KEY, str);
+                com.sdk.base.framework.f.b.a.a(this.f59482b, Constants.API_KEY, str);
             }
         }
     }

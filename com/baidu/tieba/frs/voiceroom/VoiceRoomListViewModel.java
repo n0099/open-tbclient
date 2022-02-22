@@ -3,7 +3,7 @@ package com.baidu.tieba.frs.voiceroom;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
-import c.a.t0.e1.e3.g.d;
+import c.a.u0.e1.g3.g.d;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.frs.voiceroom.data.VoiceRoomWrapper;
@@ -23,10 +23,10 @@ public final class VoiceRoomListViewModel extends ViewModel {
     public final d a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final MutableLiveData<c.a.s0.h.b.b.a<List<VoiceRoomWrapper>>> f43946b;
+    public final MutableLiveData<c.a.t0.h.b.b.a<List<VoiceRoomWrapper>>> f44191b;
 
     /* loaded from: classes12.dex */
-    public static final class a implements c.a.s0.h.b.a.a<List<? extends VoiceRoomWrapper>> {
+    public static final class a implements c.a.t0.h.b.a.a<List<? extends VoiceRoomWrapper>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ VoiceRoomListViewModel a;
@@ -49,13 +49,13 @@ public final class VoiceRoomListViewModel extends ViewModel {
             this.a = voiceRoomListViewModel;
         }
 
-        /* JADX DEBUG: Method arguments types fixed to match base method, original types: [c.a.s0.h.b.b.a<? extends java.util.List<com.baidu.tieba.frs.voiceroom.data.VoiceRoomWrapper>>] */
-        @Override // c.a.s0.h.b.a.a
-        public void a(c.a.s0.h.b.b.a<? extends List<? extends VoiceRoomWrapper>> result) {
+        /* JADX DEBUG: Method arguments types fixed to match base method, original types: [c.a.t0.h.b.b.a<? extends java.util.List<com.baidu.tieba.frs.voiceroom.data.VoiceRoomWrapper>>] */
+        @Override // c.a.t0.h.b.a.a
+        public void a(c.a.t0.h.b.b.a<? extends List<? extends VoiceRoomWrapper>> result) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, result) == null) {
                 Intrinsics.checkNotNullParameter(result, "result");
-                this.a.f43946b.setValue(result);
+                this.a.f44191b.setValue(result);
             }
         }
     }
@@ -74,13 +74,13 @@ public final class VoiceRoomListViewModel extends ViewModel {
             }
         }
         this.a = new d();
-        this.f43946b = new MutableLiveData<>();
+        this.f44191b = new MutableLiveData<>();
     }
 
-    public final LiveData<c.a.s0.h.b.b.a<List<VoiceRoomWrapper>>> getRoomList() {
+    public final LiveData<c.a.t0.h.b.b.a<List<VoiceRoomWrapper>>> getRoomList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f43946b : (LiveData) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f44191b : (LiveData) invokeV.objValue;
     }
 
     public final void requestRoomList(TbPageContext<?> tbPageContext, long j2, long j3) {

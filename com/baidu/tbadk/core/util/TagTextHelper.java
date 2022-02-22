@@ -5,7 +5,8 @@ import androidx.annotation.ColorRes;
 import androidx.annotation.NonNull;
 import androidx.annotation.StringRes;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.tieba.R;
+import c.a.u0.a4.d;
+import c.a.u0.a4.j;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -47,11 +48,11 @@ public final class TagTextHelper {
                     return;
                 }
             }
-            NEW = new HotTopicTag("NEW", 0, R.string.tag_str_new, R.color.CAM_X0305);
-            HOT = new HotTopicTag("HOT", 1, R.string.tag_str_hot, R.color.CAM_X0301);
-            REC = new HotTopicTag("REC", 2, R.string.tag_str_rec, R.color.CAM_X0306);
-            BAO = new HotTopicTag("BAO", 3, R.string.tag_str_bao, R.color.CAM_X0308);
-            HotTopicTag hotTopicTag = new HotTopicTag("FEI", 4, R.string.tag_str_fei, R.color.CAM_X0317);
+            NEW = new HotTopicTag("NEW", 0, j.tag_str_new, d.CAM_X0305);
+            HOT = new HotTopicTag("HOT", 1, j.tag_str_hot, d.CAM_X0301);
+            REC = new HotTopicTag("REC", 2, j.tag_str_rec, d.CAM_X0306);
+            BAO = new HotTopicTag("BAO", 3, j.tag_str_bao, d.CAM_X0308);
+            HotTopicTag hotTopicTag = new HotTopicTag("FEI", 4, j.tag_str_fei, d.CAM_X0317);
             FEI = hotTopicTag;
             $VALUES = new HotTopicTag[]{NEW, HOT, REC, BAO, hotTopicTag};
         }
@@ -138,7 +139,7 @@ public final class TagTextHelper {
             if (hotTopicTag != null) {
                 return hotTopicTag.tagColorRes;
             }
-            return R.color.transparent;
+            return d.transparent;
         }
         return invokeI.intValue;
     }
@@ -161,13 +162,13 @@ public final class TagTextHelper {
             if (i2 != 1) {
                 if (i2 != 2) {
                     if (i2 != 3) {
-                        return R.color.CAM_X0315;
+                        return d.CAM_X0315;
                     }
-                    return R.color.CAM_X0305;
+                    return d.CAM_X0305;
                 }
-                return R.color.CAM_X0319;
+                return d.CAM_X0319;
             }
-            return R.color.CAM_X0301;
+            return d.CAM_X0301;
         }
         return invokeI.intValue;
     }

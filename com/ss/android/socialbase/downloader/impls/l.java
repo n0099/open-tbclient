@@ -4,18 +4,18 @@ public class l {
     public static volatile com.ss.android.socialbase.downloader.downloader.m a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile com.ss.android.socialbase.downloader.downloader.m f60214b;
+    public static volatile com.ss.android.socialbase.downloader.downloader.m f60381b;
 
     public static com.ss.android.socialbase.downloader.downloader.m a(boolean z) {
         if (z && com.ss.android.socialbase.downloader.downloader.c.S()) {
-            if (f60214b == null) {
+            if (f60381b == null) {
                 synchronized (l.class) {
-                    if (f60214b == null) {
-                        f60214b = com.ss.android.socialbase.downloader.downloader.c.T().b();
+                    if (f60381b == null) {
+                        f60381b = com.ss.android.socialbase.downloader.downloader.c.T().b();
                     }
                 }
             }
-            return f60214b;
+            return f60381b;
         }
         if (a == null) {
             synchronized (l.class) {

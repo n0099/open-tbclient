@@ -1,4 +1,4 @@
 package com.kwad.sdk.pngencrypt;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public interface h<T> {
 }

@@ -22,7 +22,7 @@ public final class RectEvaluator implements TypeEvaluator<ViewRect> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: h  reason: collision with root package name */
-        public final int f38316h;
+        public final int f38544h;
         public final int w;
         public final int x;
         public final int y;
@@ -45,13 +45,13 @@ public final class RectEvaluator implements TypeEvaluator<ViewRect> {
             this.x = i2;
             this.y = i3;
             this.w = i4;
-            this.f38316h = i5;
+            this.f38544h = i5;
         }
 
         public final int getH() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f38316h : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f38544h : invokeV.intValue;
         }
 
         public final int getW() {

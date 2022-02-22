@@ -21,16 +21,16 @@ public class FinanceItemView extends BaseItemView {
     public RelativeLayout a;
 
     /* renamed from: b  reason: collision with root package name */
-    public NetImageView f51166b;
+    public NetImageView f51333b;
 
     /* renamed from: c  reason: collision with root package name */
-    public MaskTextView f51167c;
+    public MaskTextView f51334c;
 
     /* renamed from: d  reason: collision with root package name */
-    public MaskTextView f51168d;
+    public MaskTextView f51335d;
 
     /* renamed from: e  reason: collision with root package name */
-    public NetImageView f51169e;
+    public NetImageView f51336e;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public FinanceItemView(Context context) {
@@ -58,10 +58,10 @@ public class FinanceItemView extends BaseItemView {
             removeAllViews();
             LayoutInflater.from(getContext()).inflate(ResUtils.layout(getContext(), "wallet_home_item_view_layout_type_8"), this);
             this.a = (RelativeLayout) findViewById(ResUtils.id(getContext(), "item_view"));
-            this.f51166b = (NetImageView) findViewById(ResUtils.id(getContext(), "home_type_8_item_icon"));
-            this.f51167c = (MaskTextView) findViewById(ResUtils.id(getContext(), "home_type_8_item_title"));
-            this.f51169e = (NetImageView) findViewById(ResUtils.id(getContext(), "corner_flag_im"));
-            this.f51168d = (MaskTextView) findViewById(ResUtils.id(getContext(), "home_type_8_item_des_1"));
+            this.f51333b = (NetImageView) findViewById(ResUtils.id(getContext(), "home_type_8_item_icon"));
+            this.f51334c = (MaskTextView) findViewById(ResUtils.id(getContext(), "home_type_8_item_title"));
+            this.f51336e = (NetImageView) findViewById(ResUtils.id(getContext(), "corner_flag_im"));
+            this.f51335d = (MaskTextView) findViewById(ResUtils.id(getContext(), "home_type_8_item_des_1"));
         }
     }
 
@@ -80,22 +80,22 @@ public class FinanceItemView extends BaseItemView {
         if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || getData() == null) {
             return;
         }
-        this.f51167c.setMaskText(getData().name);
-        NetImageView netImageView = this.f51166b;
+        this.f51334c.setMaskText(getData().name);
+        NetImageView netImageView = this.f51333b;
         netImageView.setImageUrl(getWalletInterface().getAndroidPrefix() + getData().logo);
         if (!TextUtils.isEmpty(getData().value1)) {
-            this.f51168d.setMaskText(getData().value1);
-            this.f51168d.setVisibility(0);
+            this.f51335d.setMaskText(getData().value1);
+            this.f51335d.setVisibility(0);
         } else {
-            this.f51168d.setVisibility(8);
+            this.f51335d.setVisibility(8);
         }
         if (!handlePoint() && hasCornor()) {
-            this.f51169e.setVisibility(0);
-            NetImageView netImageView2 = this.f51169e;
+            this.f51336e.setVisibility(0);
+            NetImageView netImageView2 = this.f51336e;
             netImageView2.setImageUrl(getWalletInterface().getAndroidPrefix() + getData().corner_addr);
             return;
         }
-        this.f51169e.setVisibility(8);
+        this.f51336e.setVisibility(8);
     }
 
     @Override // com.baidu.wallet.home.ui.widget.BaseItemView
@@ -111,9 +111,9 @@ public class FinanceItemView extends BaseItemView {
     public void setIconMarginTop(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
-            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.f51166b.getLayoutParams();
+            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.f51333b.getLayoutParams();
             layoutParams.topMargin = i2;
-            this.f51166b.setLayoutParams(layoutParams);
+            this.f51333b.setLayoutParams(layoutParams);
         }
     }
 
@@ -128,9 +128,9 @@ public class FinanceItemView extends BaseItemView {
     public void setTitleMarginTop(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048581, this, i2) == null) {
-            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.f51167c.getLayoutParams();
+            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.f51334c.getLayoutParams();
             layoutParams.topMargin = i2;
-            this.f51167c.setLayoutParams(layoutParams);
+            this.f51334c.setLayoutParams(layoutParams);
         }
     }
 

@@ -22,16 +22,16 @@ public class e implements Thread.UncaughtExceptionHandler {
     public Thread.UncaughtExceptionHandler a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Context f33809b;
+    public Context f34015b;
 
     /* renamed from: c  reason: collision with root package name */
-    public JSONObject f33810c;
+    public JSONObject f34016c;
 
     /* renamed from: d  reason: collision with root package name */
-    public ConcurrentHashMap<Thread, Throwable> f33811d;
+    public ConcurrentHashMap<Thread, Throwable> f34017d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f33812e;
+    public String f34018e;
 
     /* loaded from: classes10.dex */
     public static class a {
@@ -84,9 +84,9 @@ public class e implements Thread.UncaughtExceptionHandler {
             }
         }
         this.a = null;
-        this.f33809b = null;
-        this.f33810c = null;
-        this.f33811d = new ConcurrentHashMap<>();
+        this.f34015b = null;
+        this.f34016c = null;
+        this.f34017d = new ConcurrentHashMap<>();
     }
 
     public /* synthetic */ e(d dVar) {
@@ -101,7 +101,7 @@ public class e implements Thread.UncaughtExceptionHandler {
 
     private void a(long j2, String str, String str2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(65539, this, new Object[]{Long.valueOf(j2), str, str2}) == null) && this.f33809b != null && str != null && !str.trim().equals("")) {
+        if ((interceptable == null || interceptable.invokeCommon(65539, this, new Object[]{Long.valueOf(j2), str, str2}) == null) && this.f34015b != null && str != null && !str.trim().equals("")) {
             try {
                 JSONObject jSONObject = new JSONObject();
                 jSONObject.put("dim_excep_time", j2);
@@ -117,15 +117,15 @@ public class e implements Thread.UncaughtExceptionHandler {
                 } catch (Exception unused) {
                 }
                 try {
-                    jSONObject.put("dim_excep_free_mem", com.baidu.fsg.base.statistics.a.a(this.f33809b));
+                    jSONObject.put("dim_excep_free_mem", com.baidu.fsg.base.statistics.a.a(this.f34015b));
                 } catch (Exception unused2) {
                 }
                 try {
-                    jSONObject.put("dim_excep_total_mem", com.baidu.fsg.base.statistics.a.b(this.f33809b));
+                    jSONObject.put("dim_excep_total_mem", com.baidu.fsg.base.statistics.a.b(this.f34015b));
                 } catch (Exception unused3) {
                 }
                 g.b().a(jSONObject);
-                com.baidu.fsg.base.statistics.a.a(this.f33809b, b.n, g.b().a().toString(), false);
+                com.baidu.fsg.base.statistics.a.a(this.f34015b, b.n, g.b().a().toString(), false);
             } catch (Exception unused4) {
             }
         }
@@ -134,11 +134,11 @@ public class e implements Thread.UncaughtExceptionHandler {
     public void a(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            if (this.f33809b == null) {
+            if (this.f34015b == null) {
                 if (context == null) {
                     return;
                 }
-                this.f33809b = context.getApplicationContext();
+                this.f34015b = context.getApplicationContext();
             }
             Thread.UncaughtExceptionHandler defaultUncaughtExceptionHandler = Thread.getDefaultUncaughtExceptionHandler();
             if (this != defaultUncaughtExceptionHandler) {
@@ -172,10 +172,10 @@ public class e implements Thread.UncaughtExceptionHandler {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (this.f33812e == null) {
-                this.f33812e = "com.baidu.fsg.rimdemo," + com.baidu.fsg.base.a.f33665b + ",";
+            if (this.f34018e == null) {
+                this.f34018e = "com.baidu.fsg.rimdemo," + com.baidu.fsg.base.a.f33871b + ",";
             }
-            return this.f33812e;
+            return this.f34018e;
         }
         return (String) invokeV.objValue;
     }
@@ -191,14 +191,14 @@ public class e implements Thread.UncaughtExceptionHandler {
         Thread.UncaughtExceptionHandler uncaughtExceptionHandler;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048579, this, thread, th) == null) {
-            if (th == this.f33811d.get(thread)) {
+            if (th == this.f34017d.get(thread)) {
                 if (thread.isAlive()) {
                     thread.stop(th);
                 }
-                this.f33811d.remove(thread);
+                this.f34017d.remove(thread);
                 return;
             }
-            this.f33811d.put(thread, th);
+            this.f34017d.put(thread, th);
             String th2 = th.toString();
             if (th2 != null && !th2.equals("")) {
                 try {
@@ -213,7 +213,7 @@ public class e implements Thread.UncaughtExceptionHandler {
                 th.printStackTrace(printWriter);
                 printWriter.close();
                 stringWriter = stringWriter2.toString();
-                if (a(this.f33809b, stringWriter)) {
+                if (a(this.f34015b, stringWriter)) {
                     a(System.currentTimeMillis(), stringWriter, th2);
                     new Thread(new d(this)).start();
                 }
@@ -232,7 +232,7 @@ public class e implements Thread.UncaughtExceptionHandler {
             th.printStackTrace(printWriter2);
             printWriter2.close();
             stringWriter = stringWriter22.toString();
-            if (a(this.f33809b, stringWriter)) {
+            if (a(this.f34015b, stringWriter)) {
             }
             uncaughtExceptionHandler = this.a;
             if (this != uncaughtExceptionHandler) {

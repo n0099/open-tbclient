@@ -26,16 +26,16 @@ public class NativeUnifiedAD extends NativeAbstractAD<NUADI> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: g  reason: collision with root package name */
-    public AdListenerAdapter f59049g;
+    public AdListenerAdapter f59216g;
 
     /* renamed from: h  reason: collision with root package name */
-    public NativeADUnifiedListener f59050h;
+    public NativeADUnifiedListener f59217h;
 
     /* renamed from: i  reason: collision with root package name */
-    public List<Integer> f59051i;
+    public List<Integer> f59218i;
 
     /* renamed from: j  reason: collision with root package name */
-    public List<String> f59052j;
+    public List<String> f59219j;
     public volatile int k;
     public volatile int l;
     public String m;
@@ -112,9 +112,9 @@ public class NativeUnifiedAD extends NativeAbstractAD<NUADI> {
                 return;
             }
         }
-        this.f59051i = new ArrayList();
-        this.f59050h = nativeADUnifiedListener;
-        this.f59049g = new AdListenerAdapter(nativeADUnifiedListener);
+        this.f59218i = new ArrayList();
+        this.f59217h = nativeADUnifiedListener;
+        this.f59216g = new AdListenerAdapter(nativeADUnifiedListener);
         a(context, str);
     }
 
@@ -133,9 +133,9 @@ public class NativeUnifiedAD extends NativeAbstractAD<NUADI> {
                 return;
             }
         }
-        this.f59051i = new ArrayList();
-        this.f59050h = nativeADUnifiedListener;
-        this.f59049g = new AdListenerAdapter(nativeADUnifiedListener);
+        this.f59218i = new ArrayList();
+        this.f59217h = nativeADUnifiedListener;
+        this.f59216g = new AdListenerAdapter(nativeADUnifiedListener);
         a(context, str, str2);
     }
 
@@ -167,7 +167,7 @@ public class NativeUnifiedAD extends NativeAbstractAD<NUADI> {
         if ((interceptable == null || interceptable.invokeCommon(65539, this, new Object[]{Integer.valueOf(i2), Boolean.valueOf(z)}) == null) && a()) {
             if (!b()) {
                 if (z) {
-                    this.f59051i.add(Integer.valueOf(i2));
+                    this.f59218i.add(Integer.valueOf(i2));
                     return;
                 }
                 return;
@@ -189,7 +189,7 @@ public class NativeUnifiedAD extends NativeAbstractAD<NUADI> {
     public Object a(Context context, POFactory pOFactory, String str, String str2, String str3) {
         InterceptResult invokeLLLLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048576, this, context, pOFactory, str, str2, str3)) == null) ? pOFactory.getNativeAdManagerDelegate(context, str, str2, str3, this.f59049g) : invokeLLLLL.objValue;
+        return (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048576, this, context, pOFactory, str, str2, str3)) == null) ? pOFactory.getNativeAdManagerDelegate(context, str, str2, str3, this.f59216g) : invokeLLLLL.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -201,11 +201,11 @@ public class NativeUnifiedAD extends NativeAbstractAD<NUADI> {
             nuadi.setMinVideoDuration(this.k);
             nuadi.setMaxVideoDuration(this.l);
             nuadi.setVastClassName(this.m);
-            List<String> list = this.f59052j;
+            List<String> list = this.f59219j;
             if (list != null) {
                 setCategories(list);
             }
-            for (Integer num : this.f59051i) {
+            for (Integer num : this.f59218i) {
                 a(num.intValue(), false);
             }
         }
@@ -215,7 +215,7 @@ public class NativeUnifiedAD extends NativeAbstractAD<NUADI> {
     public void b(int i2) {
         NativeADUnifiedListener nativeADUnifiedListener;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048580, this, i2) == null) || (nativeADUnifiedListener = this.f59050h) == null) {
+        if (!(interceptable == null || interceptable.invokeI(1048580, this, i2) == null) || (nativeADUnifiedListener = this.f59217h) == null) {
             return;
         }
         nativeADUnifiedListener.onNoAD(AdErrorConvertor.formatErrorCode(i2));
@@ -253,7 +253,7 @@ public class NativeUnifiedAD extends NativeAbstractAD<NUADI> {
     public void setCategories(List<String> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, list) == null) {
-            this.f59052j = list;
+            this.f59219j = list;
             T t = this.a;
             if (t == 0 || list == null) {
                 return;

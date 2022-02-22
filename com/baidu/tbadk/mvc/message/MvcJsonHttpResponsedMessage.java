@@ -2,16 +2,17 @@ package com.baidu.tbadk.mvc.message;
 
 import android.text.TextUtils;
 import c.a.d.f.d.l;
-import c.a.d.f.j.a.e;
-import c.a.s0.l0.b.d;
-import c.a.s0.l0.b.h;
-import c.a.s0.s.r.a;
+import c.a.d.f.j.b.f;
+import c.a.t0.l0.b.d;
+import c.a.t0.l0.b.e;
+import c.a.t0.l0.b.h;
+import c.a.t0.s.s.a;
+import c.a.u0.a4.j;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.ErrorData;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -57,11 +58,11 @@ public class MvcJsonHttpResponsedMessage<D extends h> extends MvcHttpResponsedMe
     }
 
     @Override // com.baidu.tbadk.message.http.TbHttpResponsedMessage, com.baidu.adp.framework.message.HttpResponsedMessage
-    public void logStatInBackground(int i2, e eVar) {
+    public void logStatInBackground(int i2, f fVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048581, this, i2, eVar) == null) {
-            super.logStatInBackground(i2, eVar);
-            TiebaStatic.netJson(eVar, getError(), getErrorString());
+        if (interceptable == null || interceptable.invokeIL(1048581, this, i2, fVar) == null) {
+            super.logStatInBackground(i2, fVar);
+            TiebaStatic.netJson(fVar, getError(), getErrorString());
         }
     }
 
@@ -83,7 +84,7 @@ public class MvcJsonHttpResponsedMessage<D extends h> extends MvcHttpResponsedMe
                     errorData.parserJson(str);
                     setError(errorData.getError_code());
                     if (getError() == -1) {
-                        setErrorString(TbadkCoreApplication.getInst().getApp().getString(R.string.error_unkown_try_again));
+                        setErrorString(TbadkCoreApplication.getInst().getApp().getString(j.error_unkown_try_again));
                     } else if (getError() != 0) {
                         setErrorString(errorData.getError_msg());
                     }
@@ -92,7 +93,7 @@ public class MvcJsonHttpResponsedMessage<D extends h> extends MvcHttpResponsedMe
                     e = e3;
                     jSONObject2 = jSONObject;
                     BdLog.e(e.getMessage());
-                    setErrorString(TbadkCoreApplication.getInst().getApp().getString(R.string.error_unkown_try_again));
+                    setErrorString(TbadkCoreApplication.getInst().getApp().getString(j.error_unkown_try_again));
                     return jSONObject2;
                 }
             }
@@ -124,7 +125,7 @@ public class MvcJsonHttpResponsedMessage<D extends h> extends MvcHttpResponsedMe
                             return;
                         }
                         e2.g(cacheKey, bArr);
-                    } else if (mvcHttpMessage.getRequestData() instanceof c.a.s0.l0.b.e) {
+                    } else if (mvcHttpMessage.getRequestData() instanceof e) {
                         a.f();
                         l<String> h2 = a.h(v, currentAccount);
                         if (h2 == null) {

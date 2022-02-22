@@ -6,10 +6,10 @@ import android.view.View;
 import android.view.animation.AlphaAnimation;
 import android.view.animation.Animation;
 import androidx.annotation.Nullable;
+import c.a.u0.a4.f;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -20,13 +20,13 @@ public class NavigationBarShadowView extends View {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f40419e;
+    public int f40648e;
 
     /* renamed from: f  reason: collision with root package name */
-    public AlphaAnimation f40420f;
+    public AlphaAnimation f40649f;
 
     /* renamed from: g  reason: collision with root package name */
-    public AlphaAnimation f40421g;
+    public AlphaAnimation f40650g;
 
     /* loaded from: classes11.dex */
     public class a implements Animation.AnimationListener {
@@ -99,24 +99,24 @@ public class NavigationBarShadowView extends View {
     public void hide() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && getVisibility() == 0) {
-            if (this.f40421g == null) {
+            if (this.f40650g == null) {
                 AlphaAnimation alphaAnimation = new AlphaAnimation(1.0f, 0.0f);
-                this.f40421g = alphaAnimation;
+                this.f40650g = alphaAnimation;
                 alphaAnimation.setFillAfter(true);
-                this.f40421g.setDuration(300L);
-                this.f40421g.setAnimationListener(new a(this));
+                this.f40650g.setDuration(300L);
+                this.f40650g.setAnimationListener(new a(this));
             }
-            startAnimation(this.f40421g);
+            startAnimation(this.f40650g);
         }
     }
 
     public void onChangeSkinType(int i2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) || this.f40419e == i2) {
+        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) || this.f40648e == i2) {
             return;
         }
-        SkinManager.setBackgroundResource(this, R.drawable.personalize_tab_shadow);
-        this.f40419e = i2;
+        SkinManager.setBackgroundResource(this, f.personalize_tab_shadow);
+        this.f40648e = i2;
     }
 
     public void show() {
@@ -127,13 +127,13 @@ public class NavigationBarShadowView extends View {
                 return;
             }
             setVisibility(0);
-            if (this.f40420f == null) {
+            if (this.f40649f == null) {
                 AlphaAnimation alphaAnimation = new AlphaAnimation(0.0f, 1.0f);
-                this.f40420f = alphaAnimation;
+                this.f40649f = alphaAnimation;
                 alphaAnimation.setFillAfter(true);
-                this.f40420f.setDuration(300L);
+                this.f40649f.setDuration(300L);
             }
-            startAnimation(this.f40420f);
+            startAnimation(this.f40649f);
         }
     }
 
@@ -177,7 +177,7 @@ public class NavigationBarShadowView extends View {
                 return;
             }
         }
-        this.f40419e = 3;
+        this.f40648e = 3;
         setVisibility(8);
         onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
     }

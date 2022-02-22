@@ -16,15 +16,15 @@ public final class MapPoi {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f35326d = "MapPoi";
+    public static final String f35532d = "MapPoi";
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public LatLng f35327b;
+    public LatLng f35533b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f35328c;
+    public String f35534c;
 
     static {
         InterceptResult invokeClinit;
@@ -63,8 +63,8 @@ public final class MapPoi {
             if (optString != null && !optString.equals("")) {
                 this.a = this.a.replaceAll("\\\\", "").replaceAll("/?[a-zA-Z]{1,10};", "").replaceAll("<[^>]*>", "").replaceAll("[(/>)<]", "");
             }
-            this.f35327b = CoordUtil.decodeNodeLocation(jSONObject.optString("geo"));
-            this.f35328c = jSONObject.optString("ud");
+            this.f35533b = CoordUtil.decodeNodeLocation(jSONObject.optString("geo"));
+            this.f35534c = jSONObject.optString("ud");
         }
     }
 
@@ -77,12 +77,12 @@ public final class MapPoi {
     public LatLng getPosition() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f35327b : (LatLng) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f35533b : (LatLng) invokeV.objValue;
     }
 
     public String getUid() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f35328c : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f35534c : (String) invokeV.objValue;
     }
 }

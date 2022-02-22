@@ -2,42 +2,42 @@ package com.kwad.sdk.pngencrypt;
 
 import java.util.zip.DataFormatException;
 import java.util.zip.Inflater;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class DeflatedChunksSet {
     public byte[] a;
 
     /* renamed from: b  reason: collision with root package name */
-    public State f57055b;
+    public State f57222b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final boolean f57056c;
+    public final boolean f57223c;
 
     /* renamed from: f  reason: collision with root package name */
-    public final String f57059f;
+    public final String f57226f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f57060g;
+    public int f57227g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f57061h;
+    public int f57228h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f57062i;
+    public int f57229i;
 
     /* renamed from: j  reason: collision with root package name */
-    public Inflater f57063j;
+    public Inflater f57230j;
     public final boolean k;
     public d l;
     public long m = 0;
     public long n = 0;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f57057d = -1;
+    public int f57224d = -1;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f57058e = -1;
+    public int f57225e = -1;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public enum State {
         WAITING_FOR_INPUT,
         ROW_READY,
@@ -54,24 +54,24 @@ public class DeflatedChunksSet {
     }
 
     public DeflatedChunksSet(String str, boolean z, int i2, int i3, Inflater inflater, byte[] bArr) {
-        this.f57055b = State.WAITING_FOR_INPUT;
-        this.f57059f = str;
-        this.f57056c = z;
-        this.f57061h = i2;
+        this.f57222b = State.WAITING_FOR_INPUT;
+        this.f57226f = str;
+        this.f57223c = z;
+        this.f57228h = i2;
         boolean z2 = true;
         if (i2 < 1 || i3 < i2) {
             throw new PngjException("bad inital row len " + i2);
         }
         if (inflater != null) {
-            this.f57063j = inflater;
+            this.f57230j = inflater;
             z2 = false;
         } else {
-            this.f57063j = new Inflater();
+            this.f57230j = new Inflater();
         }
         this.k = z2;
         this.a = (bArr == null || bArr.length < i2) ? new byte[i3] : bArr;
-        this.f57062i = -1;
-        this.f57055b = State.WAITING_FOR_INPUT;
+        this.f57229i = -1;
+        this.f57222b = State.WAITING_FOR_INPUT;
         try {
             a(i2);
         } catch (RuntimeException e2) {
@@ -89,32 +89,32 @@ public class DeflatedChunksSet {
         State state;
         int i2;
         try {
-            if (this.f57055b == State.ROW_READY) {
+            if (this.f57222b == State.ROW_READY) {
                 com.kwad.sdk.core.d.a.a(new PngjException("invalid state"));
             }
-            if (this.f57055b.isDone()) {
+            if (this.f57222b.isDone()) {
                 return false;
             }
-            if (this.a == null || this.a.length < this.f57061h) {
-                this.a = new byte[this.f57061h];
+            if (this.a == null || this.a.length < this.f57228h) {
+                this.a = new byte[this.f57228h];
             }
-            if (this.f57060g < this.f57061h && !this.f57063j.finished()) {
+            if (this.f57227g < this.f57228h && !this.f57230j.finished()) {
                 try {
-                    i2 = this.f57063j.inflate(this.a, this.f57060g, this.f57061h - this.f57060g);
+                    i2 = this.f57230j.inflate(this.a, this.f57227g, this.f57228h - this.f57227g);
                 } catch (DataFormatException e2) {
                     com.kwad.sdk.core.d.a.a(new PngjException("error decompressing zlib stream ", e2));
                     i2 = 0;
                 }
-                this.f57060g += i2;
+                this.f57227g += i2;
                 this.n += i2;
             }
-            if (this.f57060g != this.f57061h) {
-                if (!this.f57063j.finished()) {
+            if (this.f57227g != this.f57228h) {
+                if (!this.f57230j.finished()) {
                     state = State.WAITING_FOR_INPUT;
-                } else if (this.f57060g <= 0) {
+                } else if (this.f57227g <= 0) {
                     state = State.DONE;
                 }
-                this.f57055b = state;
+                this.f57222b = state;
                 if (state != State.ROW_READY) {
                     a();
                     return true;
@@ -122,7 +122,7 @@ public class DeflatedChunksSet {
                 return false;
             }
             state = State.ROW_READY;
-            this.f57055b = state;
+            this.f57222b = state;
             if (state != State.ROW_READY) {
             }
         } catch (RuntimeException e3) {
@@ -135,29 +135,29 @@ public class DeflatedChunksSet {
     }
 
     public void a(int i2) {
-        this.f57060g = 0;
-        this.f57062i++;
-        if (i2 < 1 || this.f57063j.finished()) {
-            this.f57061h = 0;
+        this.f57227g = 0;
+        this.f57229i++;
+        if (i2 < 1 || this.f57230j.finished()) {
+            this.f57228h = 0;
             g();
             return;
         }
-        this.f57055b = State.WAITING_FOR_INPUT;
-        this.f57061h = i2;
-        if (this.f57056c) {
+        this.f57222b = State.WAITING_FOR_INPUT;
+        this.f57228h = i2;
+        if (this.f57223c) {
             return;
         }
         i();
     }
 
     public void a(d dVar) {
-        if (!this.f57059f.equals(dVar.a().f57111c)) {
-            com.kwad.sdk.core.d.a.a(new PngjException("Bad chunk inside IdatSet, id:" + dVar.a().f57111c + ", expected:" + this.f57059f));
+        if (!this.f57226f.equals(dVar.a().f57278c)) {
+            com.kwad.sdk.core.d.a.a(new PngjException("Bad chunk inside IdatSet, id:" + dVar.a().f57278c + ", expected:" + this.f57226f));
         }
         this.l = dVar;
-        int i2 = this.f57057d + 1;
-        this.f57057d = i2;
-        int i3 = this.f57058e;
+        int i2 = this.f57224d + 1;
+        this.f57224d = i2;
+        int i3 = this.f57225e;
         if (i3 >= 0) {
             dVar.a(i2 + i3);
         }
@@ -165,17 +165,17 @@ public class DeflatedChunksSet {
 
     public void a(byte[] bArr, int i2, int i3) {
         this.m += i3;
-        if (i3 < 1 || this.f57055b.isDone()) {
+        if (i3 < 1 || this.f57222b.isDone()) {
             return;
         }
-        if (this.f57055b == State.ROW_READY) {
+        if (this.f57222b == State.ROW_READY) {
             com.kwad.sdk.core.d.a.a(new PngjException("this should only be called if waitingForMoreInput"));
         }
-        if (this.f57063j.needsDictionary() || !this.f57063j.needsInput()) {
+        if (this.f57230j.needsDictionary() || !this.f57230j.needsInput()) {
             throw new RuntimeException("should not happen");
         }
-        this.f57063j.setInput(bArr, i2, i3);
-        if (!this.f57056c) {
+        this.f57230j.setInput(bArr, i2, i3);
+        if (!this.f57223c) {
             i();
             return;
         }
@@ -188,19 +188,19 @@ public class DeflatedChunksSet {
     }
 
     public boolean a(String str) {
-        if (this.f57055b.isClosed()) {
+        if (this.f57222b.isClosed()) {
             return false;
         }
-        if (str.equals(this.f57059f) || b(str)) {
+        if (str.equals(this.f57226f) || b(str)) {
             return true;
         }
-        if (this.f57055b.isDone()) {
-            if (!this.f57055b.isClosed()) {
+        if (this.f57222b.isDone()) {
+            if (!this.f57222b.isClosed()) {
                 f();
             }
             return false;
         }
-        throw new PngjException("Unexpected chunk " + str + " while " + this.f57059f + " set is not done");
+        throw new PngjException("Unexpected chunk " + str + " while " + this.f57226f + " set is not done");
     }
 
     public int b() {
@@ -215,23 +215,23 @@ public class DeflatedChunksSet {
     }
 
     public boolean d() {
-        return this.f57055b.isDone();
+        return this.f57222b.isDone();
     }
 
     public boolean e() {
-        return this.f57055b.isClosed();
+        return this.f57222b.isClosed();
     }
 
     public void f() {
         try {
-            if (!this.f57055b.isClosed()) {
-                this.f57055b = State.CLOSED;
+            if (!this.f57222b.isClosed()) {
+                this.f57222b = State.CLOSED;
             }
-            if (!this.k || this.f57063j == null) {
+            if (!this.k || this.f57230j == null) {
                 return;
             }
-            this.f57063j.end();
-            this.f57063j = null;
+            this.f57230j.end();
+            this.f57230j = null;
         } catch (Exception unused) {
         }
     }
@@ -240,14 +240,14 @@ public class DeflatedChunksSet {
         if (d()) {
             return;
         }
-        this.f57055b = State.DONE;
+        this.f57222b = State.DONE;
     }
 
     public int h() {
-        return this.f57062i;
+        return this.f57229i;
     }
 
     public String toString() {
-        return new StringBuilder("idatSet : " + this.l.a().f57111c + " state=" + this.f57055b + " rows=" + this.f57062i + " bytes=" + this.m + "/" + this.n).toString();
+        return new StringBuilder("idatSet : " + this.l.a().f57278c + " state=" + this.f57222b + " rows=" + this.f57229i + " bytes=" + this.m + "/" + this.n).toString();
     }
 }

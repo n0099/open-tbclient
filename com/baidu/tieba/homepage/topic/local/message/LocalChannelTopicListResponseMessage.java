@@ -1,6 +1,6 @@
 package com.baidu.tieba.homepage.topic.local.message;
 
-import c.a.t0.p1.k.a.c.c;
+import c.a.u0.p1.l.a.c.c;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;

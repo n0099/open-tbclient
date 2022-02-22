@@ -22,7 +22,7 @@ public final class ObservableHide<T> extends AbstractObservableWithUpstream<T, T
         public final Observer<? super T> actual;
 
         /* renamed from: d  reason: collision with root package name */
-        public Disposable f62210d;
+        public Disposable f62377d;
 
         public HideDisposable(Observer<? super T> observer) {
             Interceptable interceptable = $ic;
@@ -46,7 +46,7 @@ public final class ObservableHide<T> extends AbstractObservableWithUpstream<T, T
         public void dispose() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f62210d.dispose();
+                this.f62377d.dispose();
             }
         }
 
@@ -54,7 +54,7 @@ public final class ObservableHide<T> extends AbstractObservableWithUpstream<T, T
         public boolean isDisposed() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f62210d.isDisposed() : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f62377d.isDisposed() : invokeV.booleanValue;
         }
 
         @Override // io.reactivex.Observer
@@ -84,8 +84,8 @@ public final class ObservableHide<T> extends AbstractObservableWithUpstream<T, T
         @Override // io.reactivex.Observer
         public void onSubscribe(Disposable disposable) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048581, this, disposable) == null) && DisposableHelper.validate(this.f62210d, disposable)) {
-                this.f62210d = disposable;
+            if ((interceptable == null || interceptable.invokeL(1048581, this, disposable) == null) && DisposableHelper.validate(this.f62377d, disposable)) {
+                this.f62377d = disposable;
                 this.actual.onSubscribe(this);
             }
         }

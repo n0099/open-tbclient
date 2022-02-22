@@ -23,7 +23,7 @@ import com.baidu.webkit.sdk.WebSettings;
 import com.baidu.webkit.sdk.WebViewFactory;
 import java.io.ByteArrayOutputStream;
 import java.util.Map;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class PacDownload implements IResourceTask, INetListener {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String LOG_TAG = "PacDownload";

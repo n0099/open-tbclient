@@ -3,11 +3,11 @@ package com.baidu.tieba.im.chat;
 import android.content.Intent;
 import android.os.Bundle;
 import androidx.core.view.InputDeviceCompat;
-import c.a.s0.d1.t;
-import c.a.t0.t1.f.c;
-import c.a.t0.t1.f.h;
+import c.a.t0.d1.t;
+import c.a.u0.a4.d;
+import c.a.u0.t1.f.c;
+import c.a.u0.t1.f.h;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.R;
 import com.baidu.tieba.im.model.MsglistModel;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -67,7 +67,7 @@ public abstract class MsglistActivity<T> extends TalkableActivity<T> implements 
                 return;
             }
             initView();
-            adjustResizeForSoftInput(R.color.common_color_10022, false);
+            adjustResizeForSoftInput(d.common_color_10022, false);
             MsglistModel msglistModel = this.mListModel;
             if (msglistModel != null) {
                 msglistModel.setImageUploadUIProgressCallback(this.mUploadProgressCallback);
@@ -90,7 +90,7 @@ public abstract class MsglistActivity<T> extends TalkableActivity<T> implements 
         }
     }
 
-    @Override // c.a.t0.t1.f.c
+    @Override // c.a.u0.t1.f.c
     public void onFirstHistoryPageLoaded() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
@@ -113,7 +113,7 @@ public abstract class MsglistActivity<T> extends TalkableActivity<T> implements 
                 return;
             }
             initView();
-            adjustResizeForSoftInput(R.color.common_color_10022, false);
+            adjustResizeForSoftInput(d.common_color_10022, false);
             initCallback();
             if (first(this)) {
                 loadDraft();

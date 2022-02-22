@@ -1,7 +1,7 @@
 package com.baidu.swan.apps.core.pms;
 
-import c.a.r0.a.u2.a;
-import c.a.r0.q.i.f;
+import c.a.s0.a.u2.a;
+import c.a.s0.q.i.f;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;

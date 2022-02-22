@@ -18,10 +18,10 @@ public final class Polygon extends Overlay {
     public Stroke a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f35392b;
+    public int f35598b;
 
     /* renamed from: c  reason: collision with root package name */
-    public List<LatLng> f35393c;
+    public List<LatLng> f35599c;
 
     public Polygon() {
         Interceptable interceptable = $ic;
@@ -36,7 +36,7 @@ public final class Polygon extends Overlay {
                 return;
             }
         }
-        this.type = com.baidu.mapsdkplatform.comapi.map.h.f35907j;
+        this.type = com.baidu.mapsdkplatform.comapi.map.h.f36113j;
     }
 
     @Override // com.baidu.mapapi.map.Overlay
@@ -45,11 +45,11 @@ public final class Polygon extends Overlay {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bundle)) == null) {
             super.a(bundle);
-            GeoPoint ll2mc = CoordUtil.ll2mc(this.f35393c.get(0));
+            GeoPoint ll2mc = CoordUtil.ll2mc(this.f35599c.get(0));
             bundle.putDouble("location_x", ll2mc.getLongitudeE6());
             bundle.putDouble("location_y", ll2mc.getLatitudeE6());
-            Overlay.a(this.f35393c, bundle);
-            Overlay.a(this.f35392b, bundle);
+            Overlay.a(this.f35599c, bundle);
+            Overlay.a(this.f35598b, bundle);
             if (this.a == null) {
                 bundle.putInt("has_stroke", 0);
             } else {
@@ -64,13 +64,13 @@ public final class Polygon extends Overlay {
     public int getFillColor() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f35392b : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f35598b : invokeV.intValue;
     }
 
     public List<LatLng> getPoints() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f35393c : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f35599c : (List) invokeV.objValue;
     }
 
     public Stroke getStroke() {
@@ -82,7 +82,7 @@ public final class Polygon extends Overlay {
     public void setFillColor(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048580, this, i2) == null) {
-            this.f35392b = i2;
+            this.f35598b = i2;
             this.listener.b(this);
         }
     }
@@ -109,7 +109,7 @@ public final class Polygon extends Overlay {
                 }
                 i2 = i3;
             }
-            this.f35393c = list;
+            this.f35599c = list;
             this.listener.b(this);
         }
     }

@@ -19,7 +19,7 @@ import io.reactivex.internal.functions.ObjectHelper;
 import io.reactivex.plugins.RxJavaPlugins;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public final class SingleSubject<T> extends Single<T> implements SingleObserver<T> {
     public static /* synthetic */ Interceptable $ic;
     public static final SingleDisposable[] EMPTY;
@@ -30,7 +30,7 @@ public final class SingleSubject<T> extends Single<T> implements SingleObserver<
     public final AtomicBoolean once;
     public T value;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static final class SingleDisposable<T> extends AtomicReference<SingleSubject<T>> implements Disposable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -7650903191002190468L;

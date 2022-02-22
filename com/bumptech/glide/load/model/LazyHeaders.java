@@ -18,14 +18,14 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import org.apache.commons.lang3.text.ExtendedMessageFormat;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class LazyHeaders implements Headers {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public volatile Map<String, String> combinedHeaders;
     public final Map<String, List<LazyHeaderFactory>> headers;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class Builder {
         public static /* synthetic */ Interceptable $ic = null;
         public static final Map<String, List<LazyHeaderFactory>> DEFAULT_HEADERS;
@@ -195,7 +195,7 @@ public final class LazyHeaders implements Headers {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class StringHeaderFactory implements LazyHeaderFactory {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

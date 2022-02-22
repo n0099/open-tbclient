@@ -121,7 +121,7 @@ public class BaiduPayServiceController {
                 public final /* synthetic */ RouterCallback a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ BaiduPayServiceController f50355b;
+                public final /* synthetic */ BaiduPayServiceController f50522b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -138,7 +138,7 @@ public class BaiduPayServiceController {
                             return;
                         }
                     }
-                    this.f50355b = this;
+                    this.f50522b = this;
                     this.a = routerCallback;
                 }
 

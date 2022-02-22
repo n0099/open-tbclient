@@ -27,7 +27,7 @@ import java.util.concurrent.ConcurrentLinkedQueue;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class UnLoginCastService {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int BACKPLAY = 1;
@@ -55,7 +55,7 @@ public class UnLoginCastService {
     public long startSeekTime;
     public long startSeekTsTime;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public class Uptask extends UpMessageManager.Task {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

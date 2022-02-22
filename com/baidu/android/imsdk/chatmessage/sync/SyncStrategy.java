@@ -24,7 +24,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public abstract class SyncStrategy {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int DEFAULT_AOUNT_EACH_FETCH = 100;
@@ -51,7 +51,7 @@ public abstract class SyncStrategy {
     public int mTriggerReason;
 
     @FunctionalInterface
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public interface CompleteListener {
         void onComplete(DialogRecord dialogRecord);
     }

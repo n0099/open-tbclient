@@ -120,13 +120,13 @@ public final class CtAuth {
                 public final /* synthetic */ PreCodeListener a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ String f30598b;
+                public final /* synthetic */ String f30804b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ String f30599c;
+                public final /* synthetic */ String f30805c;
 
                 /* renamed from: d  reason: collision with root package name */
-                public final /* synthetic */ Context f30600d;
+                public final /* synthetic */ Context f30806d;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -144,9 +144,9 @@ public final class CtAuth {
                         }
                     }
                     this.a = preCodeListener;
-                    this.f30598b = str;
-                    this.f30599c = str2;
-                    this.f30600d = context;
+                    this.f30804b = str;
+                    this.f30805c = str2;
+                    this.f30806d = context;
                 }
 
                 @Override // java.lang.Runnable
@@ -156,8 +156,8 @@ public final class CtAuth {
                         return;
                     }
                     try {
-                        JSONObject jSONObject = new JSONObject(this.f30598b);
-                        jSONObject.put("reqId", this.f30599c);
+                        JSONObject jSONObject = new JSONObject(this.f30804b);
+                        jSONObject.put("reqId", this.f30805c);
                         this.a.onResult(jSONObject.toString());
                         String str3 = CtAuth.a;
                         StringBuilder sb = new StringBuilder();
@@ -165,12 +165,12 @@ public final class CtAuth {
                         sb.append(jSONObject.toString());
                         CtAuth.info(str3, sb.toString());
                     } catch (Exception unused) {
-                        this.a.onResult(this.f30598b);
+                        this.a.onResult(this.f30804b);
                         String str4 = CtAuth.a;
-                        CtAuth.info(str4, "Exception callback result : " + this.f30598b);
+                        CtAuth.info(str4, "Exception callback result : " + this.f30804b);
                     }
                     CtAuth.mTraceLogger = null;
-                    e.a(this.f30600d, this.f30599c);
+                    e.a(this.f30806d, this.f30805c);
                 }
             });
         }

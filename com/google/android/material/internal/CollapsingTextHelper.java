@@ -26,6 +26,7 @@ import androidx.core.view.GravityCompat;
 import androidx.core.view.InputDeviceCompat;
 import androidx.core.view.ViewCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.advert.sdk.stretagy.SplashNativePolicy;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -151,7 +152,7 @@ public final class CollapsingTextHelper {
         this.collapsedTextSize = 15.0f;
         this.maxLines = 1;
         this.view = view;
-        this.textPaint = new TextPaint(129);
+        this.textPaint = new TextPaint((int) SplashNativePolicy.SPLASH_CMD_SHOW_PLG);
         this.tmpPaint = new TextPaint(this.textPaint);
         this.collapsedBounds = new Rect();
         this.expandedBounds = new Rect();

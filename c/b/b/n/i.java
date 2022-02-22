@@ -14,25 +14,25 @@ public final class i {
     public final int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final int f27119b;
+    public final int f27325b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final boolean f27120c;
+    public final boolean f27326c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final int f27121d;
+    public final int f27327d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f27122e;
+    public int f27328e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f27123f;
+    public String f27329f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f27124g;
+    public int f27330g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final int f27125h;
+    public final int f27331h;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public i(int i2, int i3, String str) {
@@ -124,39 +124,39 @@ public final class i {
     public int hashCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? (((j() * 541) + this.f27119b) * 541) + this.f27123f.hashCode() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? (((j() * 541) + this.f27325b) * 541) + this.f27329f.hashCode() : invokeV.intValue;
     }
 
     public boolean i(i iVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, iVar)) == null) ? iVar != null && this.a == iVar.a && this.f27119b == iVar.f27119b && this.f27121d == iVar.f27121d && this.f27120c == iVar.f27120c && this.f27123f.equals(iVar.f27123f) && this.f27124g == iVar.f27124g : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, iVar)) == null) ? iVar != null && this.a == iVar.a && this.f27325b == iVar.f27325b && this.f27327d == iVar.f27327d && this.f27326c == iVar.f27326c && this.f27329f.equals(iVar.f27329f) && this.f27330g == iVar.f27330g : invokeL.booleanValue;
     }
 
     public int j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? (this.f27125h << 8) + (this.f27124g & 255) : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? (this.f27331h << 8) + (this.f27330g & 255) : invokeV.intValue;
     }
 
     public int k() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            int i2 = this.f27121d;
+            int i2 = this.f27327d;
             if (i2 != 5126 && i2 != 5132) {
                 switch (i2) {
                     case 5120:
                     case 5121:
-                        return this.f27119b;
+                        return this.f27325b;
                     case 5122:
                     case 5123:
-                        return this.f27119b * 2;
+                        return this.f27325b * 2;
                     default:
                         return 0;
                 }
             }
-            return this.f27119b * 4;
+            return this.f27325b * 4;
         }
         return invokeV.intValue;
     }
@@ -219,11 +219,11 @@ public final class i {
             }
         }
         this.a = i2;
-        this.f27119b = i3;
-        this.f27121d = i4;
-        this.f27120c = z;
-        this.f27123f = str;
-        this.f27124g = i5;
-        this.f27125h = Integer.numberOfTrailingZeros(i2);
+        this.f27325b = i3;
+        this.f27327d = i4;
+        this.f27326c = z;
+        this.f27329f = str;
+        this.f27330g = i5;
+        this.f27331h = Integer.numberOfTrailingZeros(i2);
     }
 }

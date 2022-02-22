@@ -15,13 +15,13 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public class ScanLoadingView extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public TBLottieAnimationView f47525e;
+    public TBLottieAnimationView f47671e;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public ScanLoadingView(Context context) {
@@ -49,10 +49,10 @@ public class ScanLoadingView extends LinearLayout {
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
             LayoutInflater.from(context).inflate(R.layout.layout_scan_loading, (ViewGroup) this, true);
             TBLottieAnimationView tBLottieAnimationView = (TBLottieAnimationView) findViewById(R.id.loading_anim);
-            this.f47525e = tBLottieAnimationView;
+            this.f47671e = tBLottieAnimationView;
             tBLottieAnimationView.loop(true);
-            this.f47525e.setFrame(0);
-            SkinManager.setLottieAnimation(this.f47525e, R.raw.scan_refresh);
+            this.f47671e.setFrame(0);
+            SkinManager.setLottieAnimation(this.f47671e, R.raw.scan_refresh);
             SkinManager.setViewTextColor((TextView) findViewById(R.id.loading_text), R.color.CAM_X0108, 1);
             setVisibility(8);
         }
@@ -61,7 +61,7 @@ public class ScanLoadingView extends LinearLayout {
     public void hideLoading() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            TBLottieAnimationView tBLottieAnimationView = this.f47525e;
+            TBLottieAnimationView tBLottieAnimationView = this.f47671e;
             if (tBLottieAnimationView != null) {
                 tBLottieAnimationView.cancelAnimation();
             }
@@ -73,12 +73,12 @@ public class ScanLoadingView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             setVisibility(0);
-            TBLottieAnimationView tBLottieAnimationView = this.f47525e;
+            TBLottieAnimationView tBLottieAnimationView = this.f47671e;
             if (tBLottieAnimationView != null) {
                 if (tBLottieAnimationView.isAnimating()) {
-                    this.f47525e.cancelAnimation();
+                    this.f47671e.cancelAnimation();
                 }
-                this.f47525e.playAnimation();
+                this.f47671e.playAnimation();
             }
         }
     }

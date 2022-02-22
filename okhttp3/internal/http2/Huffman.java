@@ -15,7 +15,7 @@ import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import okio.BufferedSink;
 import okio.ByteString;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class Huffman {
     public static /* synthetic */ Interceptable $ic;
     public static final int[] CODES;
@@ -182,7 +182,7 @@ public class Huffman {
         return invokeL.intValue;
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static final class Node {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

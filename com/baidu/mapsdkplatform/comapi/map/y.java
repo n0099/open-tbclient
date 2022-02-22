@@ -1,5 +1,6 @@
 package com.baidu.mapsdkplatform.comapi.map;
 
+import com.baidu.searchbox.network.outback.EngineName;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -14,17 +15,17 @@ public final class y {
     public static final y a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final y f35949b;
+    public static final y f36155b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final y f35950c;
+    public static final y f36156c;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final /* synthetic */ y[] f35951e;
+    public static final /* synthetic */ y[] f36157e;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: d  reason: collision with root package name */
-    public final int f35952d;
+    public final int f36158d;
 
     static {
         InterceptResult invokeClinit;
@@ -39,11 +40,11 @@ public final class y {
                 return;
             }
         }
-        a = new y("DEFAULT", 0, 1);
-        f35949b = new y("INDOOR", 1, 2);
+        a = new y(EngineName.DEFAULT_ENGINE, 0, 1);
+        f36155b = new y("INDOOR", 1, 2);
         y yVar = new y("STREET", 2, 3);
-        f35950c = yVar;
-        f35951e = new y[]{a, f35949b, yVar};
+        f36156c = yVar;
+        f36157e = new y[]{a, f36155b, yVar};
     }
 
     public y(String str, int i2, int i3) {
@@ -64,7 +65,7 @@ public final class y {
                 return;
             }
         }
-        this.f35952d = i3;
+        this.f36158d = i3;
     }
 
     public static y valueOf(String str) {
@@ -76,6 +77,6 @@ public final class y {
     public static y[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (y[]) f35951e.clone() : (y[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (y[]) f36157e.clone() : (y[]) invokeV.objValue;
     }
 }

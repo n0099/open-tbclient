@@ -8,22 +8,22 @@ public class b extends com.ss.android.socialbase.downloader.depend.d {
     public Context a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f59799b;
+    public int f59966b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f59800c;
+    public String f59967c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f59801d;
+    public String f59968d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f59802e;
+    public String f59969e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f59803f;
+    public String f59970f;
 
     /* renamed from: g  reason: collision with root package name */
-    public com.ss.android.socialbase.downloader.notification.a f59804g;
+    public com.ss.android.socialbase.downloader.notification.a f59971g;
 
     public b(Context context, int i2, String str, String str2, String str3, String str4) {
         if (context != null) {
@@ -31,20 +31,20 @@ public class b extends com.ss.android.socialbase.downloader.depend.d {
         } else {
             this.a = com.ss.android.socialbase.downloader.downloader.c.N();
         }
-        this.f59799b = i2;
-        this.f59800c = str;
-        this.f59801d = str2;
-        this.f59802e = str3;
-        this.f59803f = str4;
+        this.f59966b = i2;
+        this.f59967c = str;
+        this.f59968d = str2;
+        this.f59969e = str3;
+        this.f59970f = str4;
     }
 
     @Override // com.ss.android.socialbase.downloader.depend.d
     public com.ss.android.socialbase.downloader.notification.a a() {
         Context context;
-        if (this.f59804g == null && (context = this.a) != null) {
-            return new a(context, this.f59799b, this.f59800c, this.f59801d, this.f59802e, this.f59803f);
+        if (this.f59971g == null && (context = this.a) != null) {
+            return new a(context, this.f59966b, this.f59967c, this.f59968d, this.f59969e, this.f59970f);
         }
-        return this.f59804g;
+        return this.f59971g;
     }
 
     @Override // com.ss.android.socialbase.downloader.depend.d, com.ss.android.socialbase.downloader.depend.AbsDownloadListener, com.ss.android.socialbase.downloader.depend.IDownloadListener
@@ -102,6 +102,6 @@ public class b extends com.ss.android.socialbase.downloader.depend.d {
 
     public b(com.ss.android.socialbase.downloader.notification.a aVar) {
         this.a = com.ss.android.socialbase.downloader.downloader.c.N();
-        this.f59804g = aVar;
+        this.f59971g = aVar;
     }
 }

@@ -95,11 +95,11 @@ public class e {
             }
             if (telephonyManager != null) {
                 subscriberId = telephonyManager.getSubscriberId();
-                return !g.m124a(subscriberId) ? a() : subscriberId;
+                return !g.m123a(subscriberId) ? a() : subscriberId;
             }
         }
         subscriberId = null;
-        if (!g.m124a(subscriberId)) {
+        if (!g.m123a(subscriberId)) {
         }
     }
 
@@ -138,21 +138,21 @@ public class e {
             }
             if (telephonyManager != null) {
                 str = telephonyManager.getDeviceId();
-                if (g.m124a(str)) {
+                if (g.m123a(str)) {
                     str = b();
                 }
-                if (g.m124a(str)) {
+                if (g.m123a(str)) {
                     str = b(context);
                 }
-                return !g.m124a(str) ? a() : str;
+                return !g.m123a(str) ? a() : str;
             }
         }
         str = null;
-        if (g.m124a(str)) {
+        if (g.m123a(str)) {
         }
-        if (g.m124a(str)) {
+        if (g.m123a(str)) {
         }
-        if (!g.m124a(str)) {
+        if (!g.m123a(str)) {
         }
     }
 }

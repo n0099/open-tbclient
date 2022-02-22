@@ -1,10 +1,10 @@
 package com.baidu.tieba.lego.activity;
 
-import c.a.t0.y1.l;
-import c.a.t0.y1.m.c;
-import c.a.t0.y1.m.e;
-import c.a.t0.y1.o.d;
-import c.a.t0.y1.r.b;
+import c.a.u0.z1.l;
+import c.a.u0.z1.m.c;
+import c.a.u0.z1.m.e;
+import c.a.u0.z1.o.d;
+import c.a.u0.z1.r.b;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
@@ -18,12 +18,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public class LegoListActivityStatic {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes13.dex */
     public static class a implements CustomMessageTask.CustomRunnable<LegoListActivityConfig> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -71,17 +71,17 @@ public class LegoListActivityStatic {
         }
         b.a.set(new l());
         TbConfig.setLegoLibVersion("3.0.0");
-        c.a.t0.y1.o.b.h().g(d.f());
+        c.a.u0.z1.o.b.h().g(d.f());
         CustomMessageTask customMessageTask = new CustomMessageTask(2016447, new a());
         customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask);
         MessageManager.getInstance().registerStickyMode(2016470);
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016470, Boolean.TRUE));
-        c.a.t0.y1.m.b.a().b(new e());
-        c.a.t0.y1.m.a.a().b(new c());
-        c.a.t0.y1.m.a.a().b(new c.a.t0.y1.m.d());
-        c.a.s0.c.c.a.set(c.a.t0.y1.m.b.a());
-        c.a.s0.c.b.a.set(c.a.t0.y1.m.a.a());
+        c.a.u0.z1.m.b.a().b(new e());
+        c.a.u0.z1.m.a.a().b(new c());
+        c.a.u0.z1.m.a.a().b(new c.a.u0.z1.m.d());
+        c.a.t0.c.c.a.set(c.a.u0.z1.m.b.a());
+        c.a.t0.c.b.a.set(c.a.u0.z1.m.a.a());
     }
 
     public LegoListActivityStatic() {

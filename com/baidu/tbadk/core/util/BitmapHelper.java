@@ -17,11 +17,11 @@ import android.os.ParcelFileDescriptor;
 import android.util.SparseArray;
 import androidx.core.view.InputDeviceCompat;
 import c.a.d.f.p.o;
-import c.a.d.n.d.a;
+import c.a.d.o.d.a;
+import c.a.u0.a4.f;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -545,41 +545,41 @@ public class BitmapHelper {
         if (interceptable == null || (invokeI = interceptable.invokeI(65553, null, i2)) == null) {
             switch (i2) {
                 case 1:
-                    return R.drawable.icon_level_01;
+                    return f.icon_level_01;
                 case 2:
-                    return R.drawable.icon_level_02;
+                    return f.icon_level_02;
                 case 3:
-                    return R.drawable.icon_level_03;
+                    return f.icon_level_03;
                 case 4:
-                    return R.drawable.icon_level_04;
+                    return f.icon_level_04;
                 case 5:
-                    return R.drawable.icon_level_05;
+                    return f.icon_level_05;
                 case 6:
-                    return R.drawable.icon_level_06;
+                    return f.icon_level_06;
                 case 7:
-                    return R.drawable.icon_level_07;
+                    return f.icon_level_07;
                 case 8:
-                    return R.drawable.icon_level_08;
+                    return f.icon_level_08;
                 case 9:
-                    return R.drawable.icon_level_09;
+                    return f.icon_level_09;
                 case 10:
-                    return R.drawable.icon_level_10;
+                    return f.icon_level_10;
                 case 11:
-                    return R.drawable.icon_level_11;
+                    return f.icon_level_11;
                 case 12:
-                    return R.drawable.icon_level_12;
+                    return f.icon_level_12;
                 case 13:
-                    return R.drawable.icon_level_13;
+                    return f.icon_level_13;
                 case 14:
-                    return R.drawable.icon_level_14;
+                    return f.icon_level_14;
                 case 15:
-                    return R.drawable.icon_level_15;
+                    return f.icon_level_15;
                 case 16:
-                    return R.drawable.icon_level_16;
+                    return f.icon_level_16;
                 case 17:
-                    return R.drawable.icon_level_17;
+                    return f.icon_level_17;
                 case 18:
-                    return R.drawable.icon_level_18;
+                    return f.icon_level_18;
                 default:
                     return 0;
             }

@@ -10,7 +10,7 @@ import javax.net.ssl.SSLSocketFactory;
 import javax.net.ssl.TrustManager;
 import javax.net.ssl.TrustManagerFactory;
 import javax.net.ssl.X509TrustManager;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class m {
     public static SSLSocketFactory a(X509TrustManager x509TrustManager) {
         if (x509TrustManager == null) {

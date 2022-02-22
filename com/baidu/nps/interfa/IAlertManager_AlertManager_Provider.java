@@ -1,12 +1,12 @@
 package com.baidu.nps.interfa;
 
-import c.a.k0.a.a;
+import c.a.l0.a.a;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class IAlertManager_AlertManager_Provider implements a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -25,10 +25,10 @@ public class IAlertManager_AlertManager_Provider implements a {
         }
     }
 
-    @Override // c.a.k0.a.a
+    @Override // c.a.l0.a.a
     public Object get() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new c.a.d.h.f.a() : invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new c.a.d.i.f.a() : invokeV.objValue;
     }
 }

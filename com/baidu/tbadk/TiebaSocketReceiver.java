@@ -5,7 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Build;
 import c.a.d.f.p.l;
-import c.a.s0.f0.a;
+import c.a.t0.f0.a;
 import com.baidu.adp.framework.client.socket.link.BdSocketLinkService;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.httpNet.ImgHttpClient;

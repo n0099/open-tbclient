@@ -14,31 +14,31 @@ public final class l {
     public c a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f28760b;
+    public long f28966b;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f28761c;
+    public long f28967c;
 
     /* renamed from: d  reason: collision with root package name */
-    public long f28762d;
+    public long f28968d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f28763e;
+    public int f28969e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f28764f;
+    public int f28970f;
 
     /* renamed from: g  reason: collision with root package name */
-    public long[] f28765g;
+    public long[] f28971g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int[] f28766h;
+    public int[] f28972h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int[] f28767i;
+    public int[] f28973i;
 
     /* renamed from: j  reason: collision with root package name */
-    public int[] f28768j;
+    public int[] f28974j;
     public long[] k;
     public boolean[] l;
     public boolean m;
@@ -84,7 +84,7 @@ public final class l {
     public long c(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) ? this.k[i2] + this.f28768j[i2] : invokeI.longValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) ? this.k[i2] + this.f28974j[i2] : invokeI.longValue;
     }
 
     public void d(int i2) {
@@ -103,18 +103,18 @@ public final class l {
     public void e(int i2, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(1048580, this, i2, i3) == null) {
-            this.f28763e = i2;
-            this.f28764f = i3;
-            int[] iArr = this.f28766h;
+            this.f28969e = i2;
+            this.f28970f = i3;
+            int[] iArr = this.f28972h;
             if (iArr == null || iArr.length < i2) {
-                this.f28765g = new long[i2];
-                this.f28766h = new int[i2];
+                this.f28971g = new long[i2];
+                this.f28972h = new int[i2];
             }
-            int[] iArr2 = this.f28767i;
+            int[] iArr2 = this.f28973i;
             if (iArr2 == null || iArr2.length < i3) {
                 int i4 = (i3 * 125) / 100;
-                this.f28767i = new int[i4];
-                this.f28768j = new int[i4];
+                this.f28973i = new int[i4];
+                this.f28974j = new int[i4];
                 this.k = new long[i4];
                 this.l = new boolean[i4];
                 this.n = new boolean[i4];
@@ -125,7 +125,7 @@ public final class l {
     public void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.f28763e = 0;
+            this.f28969e = 0;
             this.s = 0L;
             this.m = false;
             this.r = false;

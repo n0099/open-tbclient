@@ -24,7 +24,7 @@ public class a {
 
     /* renamed from: com.baidu.wallet.fastpay.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes13.dex */
-    public static class C1991a {
+    public static class C2001a {
         public static /* synthetic */ Interceptable $ic;
         public static a a;
         public transient /* synthetic */ FieldHolder $fh;
@@ -53,7 +53,7 @@ public class a {
     public static a a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? C1991a.a : (a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? C2001a.a : (a) invokeV.objValue;
     }
 
     public List<String> b() {

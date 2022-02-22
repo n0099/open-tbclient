@@ -7,9 +7,9 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.KeyEvent;
 import androidx.core.view.InputDeviceCompat;
-import c.a.e0.a.b;
-import c.a.e0.a.f;
-import c.a.e0.a.g;
+import c.a.f0.a.b;
+import c.a.f0.a.f;
+import c.a.f0.a.g;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.sapi2.CoreViewRouter;
 import com.baidu.sapi2.SapiAccountManager;
@@ -42,7 +42,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class AccountCenterActivity extends SlideActiviy {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String EXTRA_LOAD_WEIXIN = "extra_load_weixin";
@@ -455,7 +455,7 @@ public class AccountCenterActivity extends SlideActiviy {
                 public final /* synthetic */ AccountCenterCallback a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ AccountCenterActivity f38004b;
+                public final /* synthetic */ AccountCenterActivity f38233b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -472,7 +472,7 @@ public class AccountCenterActivity extends SlideActiviy {
                             return;
                         }
                     }
-                    this.f38004b = this;
+                    this.f38233b = this;
                     this.a = accountCenterCallback;
                 }
 
@@ -510,10 +510,10 @@ public class AccountCenterActivity extends SlideActiviy {
                                     Interceptable interceptable3 = $ic;
                                     if (interceptable3 == null || interceptable3.invokeV(1048576, this) == null) {
                                         super.loginSuc();
-                                        this.a.f38004b.D = SapiContext.getInstance().getCurrentAccount().bduss;
-                                        AccountCenterActivity accountCenterActivity = this.a.f38004b;
+                                        this.a.f38233b.D = SapiContext.getInstance().getCurrentAccount().bduss;
+                                        AccountCenterActivity accountCenterActivity = this.a.f38233b;
                                         accountCenterActivity.loadAccountCenter(accountCenterActivity.D);
-                                        this.a.f38004b.loginStatusChange = true;
+                                        this.a.f38233b.loginStatusChange = true;
                                     }
                                 }
                             };
@@ -529,7 +529,7 @@ public class AccountCenterActivity extends SlideActiviy {
                             this.a.onFinish(accountCenterResult);
                             return;
                         }
-                        Intent intent = new Intent(this.f38004b, LoginActivity.class);
+                        Intent intent = new Intent(this.f38233b, LoginActivity.class);
                         intent.putExtra(BaseActivity.EXTRA_PARAM_BUSINESS_FROM, 2003);
                         int i2 = result.switchAccountType;
                         if (i2 == 1) {
@@ -546,7 +546,7 @@ public class AccountCenterActivity extends SlideActiviy {
                             }
                             intent.putExtra(LoginActivity.EXTRA_PARAM_ENCRYPTED_UID, result.encryptedUid);
                         }
-                        this.f38004b.startActivityForResult(intent, 1004);
+                        this.f38233b.startActivityForResult(intent, 1004);
                     }
                 }
             });
@@ -626,7 +626,7 @@ public class AccountCenterActivity extends SlideActiviy {
                 public final /* synthetic */ AccountCenterCallback a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ AccountCenterActivity f38005b;
+                public final /* synthetic */ AccountCenterActivity f38234b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -643,7 +643,7 @@ public class AccountCenterActivity extends SlideActiviy {
                             return;
                         }
                     }
-                    this.f38005b = this;
+                    this.f38234b = this;
                     this.a = accountCenterCallback;
                 }
 
@@ -830,7 +830,7 @@ public class AccountCenterActivity extends SlideActiviy {
                 public final /* synthetic */ AccountCenterCallback a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ AccountCenterActivity f38003b;
+                public final /* synthetic */ AccountCenterActivity f38232b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -847,7 +847,7 @@ public class AccountCenterActivity extends SlideActiviy {
                             return;
                         }
                     }
-                    this.f38003b = this;
+                    this.f38232b = this;
                     this.a = accountCenterCallback;
                 }
 

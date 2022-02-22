@@ -1,7 +1,7 @@
 package com.baidu.tbadk.mvc.message;
 
-import c.a.s0.l0.b.g;
-import c.a.s0.l0.b.h;
+import c.a.t0.l0.b.g;
+import c.a.t0.l0.b.h;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;

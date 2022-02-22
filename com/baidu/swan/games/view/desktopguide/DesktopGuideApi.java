@@ -15,13 +15,13 @@ import androidx.annotation.NonNull;
 import androidx.annotation.StringRes;
 import androidx.annotation.UiThread;
 import androidx.core.view.InputDeviceCompat;
-import c.a.r0.a.f1.e.b;
-import c.a.r0.a.i2.a;
-import c.a.r0.a.k;
-import c.a.r0.a.n2.n;
-import c.a.r0.a.u.e.c.a;
-import c.a.r0.a.z2.n0;
-import c.a.r0.a.z2.q0;
+import c.a.s0.a.f1.e.b;
+import c.a.s0.a.i2.a;
+import c.a.s0.a.k;
+import c.a.s0.a.n2.n;
+import c.a.s0.a.u.e.c.a;
+import c.a.s0.a.z2.n0;
+import c.a.s0.a.z2.q0;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.v8engine.JsObject;
 import com.baidu.swan.apps.SwanAppActivity;
@@ -35,37 +35,37 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.concurrent.atomic.AtomicBoolean;
 /* loaded from: classes11.dex */
-public class DesktopGuideApi implements c.a.r0.j.p0.e.b {
+public class DesktopGuideApi implements c.a.s0.j.p0.e.b {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean n;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public volatile c.a.r0.a.y.b.a f39837b;
+    public volatile c.a.s0.a.y.b.a f40065b;
 
     /* renamed from: c  reason: collision with root package name */
-    public volatile DesktopGuideType f39838c;
+    public volatile DesktopGuideType f40066c;
 
     /* renamed from: d  reason: collision with root package name */
-    public PopupWindow f39839d;
+    public PopupWindow f40067d;
 
     /* renamed from: e  reason: collision with root package name */
-    public Runnable f39840e;
+    public Runnable f40068e;
 
     /* renamed from: f  reason: collision with root package name */
-    public AtomicBoolean f39841f;
+    public AtomicBoolean f40069f;
 
     /* renamed from: g  reason: collision with root package name */
-    public c.a.r0.j.p0.a f39842g;
+    public c.a.s0.j.p0.a f40070g;
 
     /* renamed from: h  reason: collision with root package name */
-    public volatile long f39843h;
+    public volatile long f40071h;
 
     /* renamed from: i  reason: collision with root package name */
-    public volatile long f39844i;
+    public volatile long f40072i;
 
     /* renamed from: j  reason: collision with root package name */
-    public volatile long f39845j;
+    public volatile long f40073j;
     public long k;
     public long l;
     public long m;
@@ -175,8 +175,8 @@ public class DesktopGuideApi implements c.a.r0.j.p0.e.b {
                     return;
                 }
             }
-            BAR = new DesktopGuideType("BAR", 0, "bar", -1, 992, "desk_flow", c.a.r0.h.g.swangame_desktop_guide_default_hint);
-            DesktopGuideType desktopGuideType = new DesktopGuideType("BAR_AUTOHIDE", 1, "bar-autohide", -1, 865, "desk_flow_close", c.a.r0.h.g.swangame_desktop_guide_default_hint);
+            BAR = new DesktopGuideType("BAR", 0, "bar", -1, 992, "desk_flow", c.a.s0.h.g.swangame_desktop_guide_default_hint);
+            DesktopGuideType desktopGuideType = new DesktopGuideType("BAR_AUTOHIDE", 1, "bar-autohide", -1, 865, "desk_flow_close", c.a.s0.h.g.swangame_desktop_guide_default_hint);
             BAR_AUTOHIDE = desktopGuideType;
             $VALUES = new DesktopGuideType[]{BAR, desktopGuideType};
         }
@@ -235,7 +235,7 @@ public class DesktopGuideApi implements c.a.r0.j.p0.e.b {
     }
 
     /* loaded from: classes11.dex */
-    public class a implements a.InterfaceC0573a {
+    public class a implements a.InterfaceC0584a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ DesktopGuideApi a;
@@ -258,19 +258,19 @@ public class DesktopGuideApi implements c.a.r0.j.p0.e.b {
             this.a = desktopGuideApi;
         }
 
-        @Override // c.a.r0.a.u.e.c.a.InterfaceC0573a
+        @Override // c.a.s0.a.u.e.c.a.InterfaceC0584a
         public void a() {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.a.f39839d != null && this.a.f39839d.x()) {
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.a.f40067d != null && this.a.f40067d.x()) {
                 this.a.p();
                 this.a.o(DesktopApiStatus.USER_CANCEL);
             }
         }
 
-        @Override // c.a.r0.a.u.e.c.a.InterfaceC0573a
+        @Override // c.a.s0.a.u.e.c.a.InterfaceC0584a
         public void b(int i2) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) && i2 == 0 && this.a.f39839d != null && this.a.f39839d.x()) {
+            if ((interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) && i2 == 0 && this.a.f40067d != null && this.a.f40067d.x()) {
                 this.a.p();
                 this.a.o(DesktopApiStatus.USER_CANCEL);
             }
@@ -283,7 +283,7 @@ public class DesktopGuideApi implements c.a.r0.j.p0.e.b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ DesktopGuideApi f39846e;
+        public final /* synthetic */ DesktopGuideApi f40074e;
 
         public b(DesktopGuideApi desktopGuideApi) {
             Interceptable interceptable = $ic;
@@ -300,15 +300,15 @@ public class DesktopGuideApi implements c.a.r0.j.p0.e.b {
                     return;
                 }
             }
-            this.f39846e = desktopGuideApi;
+            this.f40074e = desktopGuideApi;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f39846e.p();
-                this.f39846e.o(DesktopApiStatus.USER_CANCEL);
+                this.f40074e.p();
+                this.f40074e.o(DesktopApiStatus.USER_CANCEL);
             }
         }
     }
@@ -319,21 +319,21 @@ public class DesktopGuideApi implements c.a.r0.j.p0.e.b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ SwanAppActivity f39847e;
+        public final /* synthetic */ SwanAppActivity f40075e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ c.a.r0.a.d2.e f39848f;
+        public final /* synthetic */ c.a.s0.a.d2.e f40076f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ String f39849g;
+        public final /* synthetic */ String f40077g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ Bitmap f39850h;
+        public final /* synthetic */ Bitmap f40078h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final /* synthetic */ DesktopGuideApi f39851i;
+        public final /* synthetic */ DesktopGuideApi f40079i;
 
-        public c(DesktopGuideApi desktopGuideApi, SwanAppActivity swanAppActivity, c.a.r0.a.d2.e eVar, String str, Bitmap bitmap) {
+        public c(DesktopGuideApi desktopGuideApi, SwanAppActivity swanAppActivity, c.a.s0.a.d2.e eVar, String str, Bitmap bitmap) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -348,19 +348,19 @@ public class DesktopGuideApi implements c.a.r0.j.p0.e.b {
                     return;
                 }
             }
-            this.f39851i = desktopGuideApi;
-            this.f39847e = swanAppActivity;
-            this.f39848f = eVar;
-            this.f39849g = str;
-            this.f39850h = bitmap;
+            this.f40079i = desktopGuideApi;
+            this.f40075e = swanAppActivity;
+            this.f40076f = eVar;
+            this.f40077g = str;
+            this.f40078h = bitmap;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                DesktopGuideApi desktopGuideApi = this.f39851i;
-                desktopGuideApi.w(this.f39847e, this.f39848f, desktopGuideApi.f39838c, this.f39849g, this.f39850h);
+                DesktopGuideApi desktopGuideApi = this.f40079i;
+                desktopGuideApi.w(this.f40075e, this.f40076f, desktopGuideApi.f40066c, this.f40077g, this.f40078h);
             }
         }
     }
@@ -371,10 +371,10 @@ public class DesktopGuideApi implements c.a.r0.j.p0.e.b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ DesktopGuideType f39852e;
+        public final /* synthetic */ DesktopGuideType f40080e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ DesktopGuideApi f39853f;
+        public final /* synthetic */ DesktopGuideApi f40081f;
 
         public d(DesktopGuideApi desktopGuideApi, DesktopGuideType desktopGuideType) {
             Interceptable interceptable = $ic;
@@ -391,17 +391,17 @@ public class DesktopGuideApi implements c.a.r0.j.p0.e.b {
                     return;
                 }
             }
-            this.f39853f = desktopGuideApi;
-            this.f39852e = desktopGuideType;
+            this.f40081f = desktopGuideApi;
+            this.f40080e = desktopGuideType;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f39853f.p();
-                this.f39853f.o(DesktopApiStatus.USER_CANCEL);
-                n.f(this.f39852e.ubcType, "flow_close_close", "click");
+                this.f40081f.p();
+                this.f40081f.o(DesktopApiStatus.USER_CANCEL);
+                n.f(this.f40080e.ubcType, "flow_close_close", "click");
             }
         }
     }
@@ -412,18 +412,18 @@ public class DesktopGuideApi implements c.a.r0.j.p0.e.b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Activity f39854e;
+        public final /* synthetic */ Activity f40082e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ c.a.r0.a.d2.e f39855f;
+        public final /* synthetic */ c.a.s0.a.d2.e f40083f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ DesktopGuideType f39856g;
+        public final /* synthetic */ DesktopGuideType f40084g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ DesktopGuideApi f39857h;
+        public final /* synthetic */ DesktopGuideApi f40085h;
 
-        public e(DesktopGuideApi desktopGuideApi, Activity activity, c.a.r0.a.d2.e eVar, DesktopGuideType desktopGuideType) {
+        public e(DesktopGuideApi desktopGuideApi, Activity activity, c.a.s0.a.d2.e eVar, DesktopGuideType desktopGuideType) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -438,19 +438,19 @@ public class DesktopGuideApi implements c.a.r0.j.p0.e.b {
                     return;
                 }
             }
-            this.f39857h = desktopGuideApi;
-            this.f39854e = activity;
-            this.f39855f = eVar;
-            this.f39856g = desktopGuideType;
+            this.f40085h = desktopGuideApi;
+            this.f40082e = activity;
+            this.f40083f = eVar;
+            this.f40084g = desktopGuideType;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f39857h.p();
-                this.f39857h.m(this.f39854e, this.f39855f);
-                n.f(this.f39856g.ubcType, "desk_flow".equals(this.f39856g.ubcType) ? "flow_close_add" : "flow_add", "click");
+                this.f40085h.p();
+                this.f40085h.m(this.f40082e, this.f40083f);
+                n.f(this.f40084g.ubcType, "desk_flow".equals(this.f40084g.ubcType) ? "flow_close_add" : "flow_add", "click");
             }
         }
     }
@@ -483,7 +483,7 @@ public class DesktopGuideApi implements c.a.r0.j.p0.e.b {
         public void onDismiss() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.f39841f.set(false);
+                this.a.f40069f.set(false);
             }
         }
     }
@@ -494,7 +494,7 @@ public class DesktopGuideApi implements c.a.r0.j.p0.e.b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ DesktopGuideApi f39858e;
+        public final /* synthetic */ DesktopGuideApi f40086e;
 
         public g(DesktopGuideApi desktopGuideApi) {
             Interceptable interceptable = $ic;
@@ -511,17 +511,17 @@ public class DesktopGuideApi implements c.a.r0.j.p0.e.b {
                     return;
                 }
             }
-            this.f39858e = desktopGuideApi;
+            this.f40086e = desktopGuideApi;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f39858e.f39839d == null) {
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f40086e.f40067d == null) {
                 return;
             }
-            this.f39858e.f39839d.r();
-            this.f39858e.f39839d = null;
+            this.f40086e.f40067d.r();
+            this.f40086e.f40067d = null;
         }
     }
 
@@ -529,12 +529,12 @@ public class DesktopGuideApi implements c.a.r0.j.p0.e.b {
     public class h implements a.f {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ c.a.r0.a.d2.e a;
+        public final /* synthetic */ c.a.s0.a.d2.e a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ DesktopGuideApi f39859b;
+        public final /* synthetic */ DesktopGuideApi f40087b;
 
-        public h(DesktopGuideApi desktopGuideApi, c.a.r0.a.d2.e eVar) {
+        public h(DesktopGuideApi desktopGuideApi, c.a.s0.a.d2.e eVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -549,11 +549,11 @@ public class DesktopGuideApi implements c.a.r0.j.p0.e.b {
                     return;
                 }
             }
-            this.f39859b = desktopGuideApi;
+            this.f40087b = desktopGuideApi;
             this.a = eVar;
         }
 
-        @Override // c.a.r0.a.i2.a.f
+        @Override // c.a.s0.a.i2.a.f
         public void a(int i2) {
             DesktopApiStatus desktopApiStatus;
             String str;
@@ -564,17 +564,17 @@ public class DesktopGuideApi implements c.a.r0.j.p0.e.b {
                     str = "desk_notknown";
                 } else if (i2 != 1) {
                     desktopApiStatus = DesktopApiStatus.ADD_FAIL;
-                    if (this.f39859b.f39845j + 1 < 3) {
-                        DesktopGuideApi desktopGuideApi = this.f39859b;
-                        desktopGuideApi.u(this.a, desktopGuideApi.f39843h, this.f39859b.f39844i, this.f39859b.f39845j + 1);
+                    if (this.f40087b.f40073j + 1 < 3) {
+                        DesktopGuideApi desktopGuideApi = this.f40087b;
+                        desktopGuideApi.u(this.a, desktopGuideApi.f40071h, this.f40087b.f40072i, this.f40087b.f40073j + 1);
                     }
                     str = "desk_fail";
                 } else {
                     desktopApiStatus = DesktopApiStatus.ADD_SUCCESS;
                     str = "desk_success";
                 }
-                this.f39859b.o(desktopApiStatus);
-                n.f(this.f39859b.f39838c.ubcType, str, "click");
+                this.f40087b.o(desktopApiStatus);
+                n.f(this.f40087b.f40066c.ubcType, str, "click");
             }
         }
     }
@@ -595,7 +595,7 @@ public class DesktopGuideApi implements c.a.r0.j.p0.e.b {
         n = k.a;
     }
 
-    public DesktopGuideApi(c.a.r0.a.l0.c cVar) {
+    public DesktopGuideApi(c.a.s0.a.l0.c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -610,19 +610,19 @@ public class DesktopGuideApi implements c.a.r0.j.p0.e.b {
                 return;
             }
         }
-        this.f39841f = new AtomicBoolean(false);
+        this.f40069f = new AtomicBoolean(false);
         x();
         q();
     }
 
-    public final void m(@NonNull Context context, @NonNull c.a.r0.a.d2.e eVar) {
+    public final void m(@NonNull Context context, @NonNull c.a.s0.a.d2.e eVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, context, eVar) == null) {
             b.a X = eVar.X();
             if (X == null) {
                 o(DesktopApiStatus.EXEC_FAILURE);
             } else {
-                c.a.r0.a.i2.a.k(context, X, new h(this, eVar));
+                c.a.s0.a.i2.a.k(context, X, new h(this, eVar));
             }
         }
     }
@@ -646,17 +646,17 @@ public class DesktopGuideApi implements c.a.r0.j.p0.e.b {
     @AnyThread
     public final void o(DesktopApiStatus desktopApiStatus) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, desktopApiStatus) == null) || this.f39837b == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, desktopApiStatus) == null) || this.f40065b == null) {
             return;
         }
-        c.a.r0.j.n0.c.call(this.f39837b, desktopApiStatus.success, new c.a.r0.j.p0.e.a(desktopApiStatus.statusCode, desktopApiStatus.statusMsg));
+        c.a.s0.j.n0.c.call(this.f40065b, desktopApiStatus.success, new c.a.s0.j.p0.e.a(desktopApiStatus.statusCode, desktopApiStatus.statusMsg));
     }
 
     @AnyThread
     public final void p() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            Runnable runnable = this.f39840e;
+            Runnable runnable = this.f40068e;
             if (runnable != null) {
                 q0.d0(runnable);
             }
@@ -667,36 +667,36 @@ public class DesktopGuideApi implements c.a.r0.j.p0.e.b {
     public final void q() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.f39840e = new b(this);
+            this.f40068e = new b(this);
         }
     }
 
     public final void r() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && this.f39842g == null) {
-            c.a.r0.j.p0.a d2 = c.a.r0.j.p0.a.d();
-            this.f39842g = d2;
+        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && this.f40070g == null) {
+            c.a.s0.j.p0.a d2 = c.a.s0.j.p0.a.d();
+            this.f40070g = d2;
             if (d2 != null) {
                 d2.b(new a(this));
             }
         }
     }
 
-    public final boolean s(@NonNull Context context, @NonNull c.a.r0.a.d2.e eVar) {
+    public final boolean s(@NonNull Context context, @NonNull c.a.s0.a.d2.e eVar) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, context, eVar)) == null) ? c.a.r0.a.i2.a.s(context, eVar.Y(), eVar.f5679f) == 1 : invokeLL.booleanValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, context, eVar)) == null) ? c.a.s0.a.i2.a.s(context, eVar.Y(), eVar.f5779f) == 1 : invokeLL.booleanValue;
     }
 
     public final void t(@NonNull String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
-            String string = c.a.r0.a.o2.g.h.a().getString(str, "");
+            String string = c.a.s0.a.o2.g.h.a().getString(str, "");
             String[] split = string.split("#");
             if (split.length == 3 && TextUtils.isDigitsOnly(split[0]) && TextUtils.isDigitsOnly(split[1]) && TextUtils.isDigitsOnly(split[2])) {
-                this.f39843h = Long.parseLong(split[0]);
-                this.f39844i = Long.parseLong(split[1]);
-                this.f39845j = Long.parseLong(split[2]);
+                this.f40071h = Long.parseLong(split[0]);
+                this.f40072i = Long.parseLong(split[1]);
+                this.f40073j = Long.parseLong(split[2]);
             }
             if (n) {
                 String str2 = "duration=" + this.k + ", mIntervalDays=" + this.l + ", mMaxTimes=" + this.m + " ,storageValue=" + string;
@@ -704,23 +704,23 @@ public class DesktopGuideApi implements c.a.r0.j.p0.e.b {
         }
     }
 
-    public final void u(@NonNull c.a.r0.a.d2.e eVar, long j2, long j3, long j4) {
+    public final void u(@NonNull c.a.s0.a.d2.e eVar, long j2, long j3, long j4) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{eVar, Long.valueOf(j2), Long.valueOf(j3), Long.valueOf(j4)}) == null) {
-            c.a.r0.a.o2.g.b a2 = c.a.r0.a.o2.g.h.a();
-            a2.putString("desktop_guide_count_" + eVar.f5679f, j2 + "#" + j3 + "#" + j4);
+            c.a.s0.a.o2.g.b a2 = c.a.s0.a.o2.g.h.a();
+            a2.putString("desktop_guide_count_" + eVar.f5779f, j2 + "#" + j3 + "#" + j4);
         }
     }
 
     public void v(JsObject jsObject) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, jsObject) == null) {
-            c.a.r0.a.y.b.a F = c.a.r0.a.y.b.a.F(jsObject);
+            c.a.s0.a.y.b.a F = c.a.s0.a.y.b.a.F(jsObject);
             if (F == null) {
-                F = new c.a.r0.a.y.b.a();
+                F = new c.a.s0.a.y.b.a();
             }
-            this.f39837b = F;
-            c.a.r0.a.d2.e L = c.a.r0.a.d2.e.L();
+            this.f40065b = F;
+            c.a.s0.a.d2.e L = c.a.s0.a.d2.e.L();
             if (L == null) {
                 o(DesktopApiStatus.EXEC_FAILURE);
                 return;
@@ -730,24 +730,24 @@ public class DesktopGuideApi implements c.a.r0.j.p0.e.b {
                 o(DesktopApiStatus.EXEC_FAILURE);
                 return;
             }
-            this.f39838c = DesktopGuideType.parse(F.B("type"));
+            this.f40066c = DesktopGuideType.parse(F.B("type"));
             String B = F.B("content");
             if (TextUtils.isEmpty(B)) {
-                B = x.getString(this.f39838c.defaultText);
+                B = x.getString(this.f40066c.defaultText);
             }
             if (s(x, L)) {
                 o(DesktopApiStatus.ALREADY_IN_DESKTOP);
                 return;
             }
-            t("desktop_guide_count_" + L.f5679f);
+            t("desktop_guide_count_" + L.f5779f);
             long currentTimeMillis = System.currentTimeMillis();
-            if (this.f39843h < this.m && currentTimeMillis - this.f39844i > this.l * 86400000) {
-                if (this.f39841f.get()) {
+            if (this.f40071h < this.m && currentTimeMillis - this.f40072i > this.l * 86400000) {
+                if (this.f40069f.get()) {
                     o(DesktopApiStatus.REACH_MAX_TIMES);
                     return;
                 }
-                this.f39841f.set(true);
-                u(L, 1 + this.f39843h, currentTimeMillis, 0L);
+                this.f40069f.set(true);
+                u(L, 1 + this.f40071h, currentTimeMillis, 0L);
                 q0.e0(new c(this, x, L, B, q0.i(L.X(), "ShowAddToDesktopGuide", false)));
                 return;
             }
@@ -756,54 +756,54 @@ public class DesktopGuideApi implements c.a.r0.j.p0.e.b {
     }
 
     @UiThread
-    public final void w(@NonNull Activity activity, @NonNull c.a.r0.a.d2.e eVar, @NonNull DesktopGuideType desktopGuideType, @NonNull String str, Bitmap bitmap) {
+    public final void w(@NonNull Activity activity, @NonNull c.a.s0.a.d2.e eVar, @NonNull DesktopGuideType desktopGuideType, @NonNull String str, Bitmap bitmap) {
         Runnable runnable;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLLL(1048586, this, activity, eVar, desktopGuideType, str, bitmap) == null) {
             r();
-            c.a.r0.j.p0.a aVar = this.f39842g;
+            c.a.s0.j.p0.a aVar = this.f40070g;
             if (aVar != null) {
                 aVar.c(1);
             }
-            View inflate = LayoutInflater.from(activity).inflate(c.a.r0.a.g.aiapps_favorite_guide_normal, (ViewGroup) null, false);
-            TextView textView = (TextView) inflate.findViewById(c.a.r0.a.f.favorite_guide_content);
+            View inflate = LayoutInflater.from(activity).inflate(c.a.s0.a.g.aiapps_favorite_guide_normal, (ViewGroup) null, false);
+            TextView textView = (TextView) inflate.findViewById(c.a.s0.a.f.favorite_guide_content);
             if (desktopGuideType.limit != -1 && str.length() > desktopGuideType.limit) {
                 str = str.substring(0, desktopGuideType.limit - 1) + "...";
             }
             textView.setText(str);
-            n((ViewGroup) inflate.findViewById(c.a.r0.a.f.favorite_guide_container), desktopGuideType);
-            ImageView imageView = (ImageView) inflate.findViewById(c.a.r0.a.f.favorite_guide_icon);
+            n((ViewGroup) inflate.findViewById(c.a.s0.a.f.favorite_guide_container), desktopGuideType);
+            ImageView imageView = (ImageView) inflate.findViewById(c.a.s0.a.f.favorite_guide_icon);
             if (bitmap != null) {
                 imageView.setImageBitmap(bitmap);
             } else {
-                imageView.setImageResource(c.a.r0.a.e.aiapps_default_grey_icon);
+                imageView.setImageResource(c.a.s0.a.e.aiapps_default_grey_icon);
             }
-            ImageView imageView2 = (ImageView) inflate.findViewById(c.a.r0.a.f.favorite_guide_close);
+            ImageView imageView2 = (ImageView) inflate.findViewById(c.a.s0.a.f.favorite_guide_close);
             if (desktopGuideType == DesktopGuideType.BAR_AUTOHIDE) {
                 imageView2.setVisibility(8);
             } else {
                 imageView2.setOnClickListener(new d(this, desktopGuideType));
             }
-            Button button = (Button) inflate.findViewById(c.a.r0.a.f.favorite_guide_add_btn);
-            button.setText(c.a.r0.h.g.aiapps_game_desktop_guide_add);
+            Button button = (Button) inflate.findViewById(c.a.s0.a.f.favorite_guide_add_btn);
+            button.setText(c.a.s0.h.g.aiapps_game_desktop_guide_add);
             button.setOnClickListener(new e(this, activity, eVar, desktopGuideType));
             PopupWindow popupWindow = new PopupWindow(inflate, -1, -2);
-            this.f39839d = popupWindow;
+            this.f40067d = popupWindow;
             popupWindow.K(16);
-            this.f39839d.N(activity.getWindow().getDecorView(), 81, 0, n0.g(50.0f));
-            this.f39839d.I(new f(this));
-            if (desktopGuideType == DesktopGuideType.BAR_AUTOHIDE && (runnable = this.f39840e) != null) {
+            this.f40067d.N(activity.getWindow().getDecorView(), 81, 0, n0.g(50.0f));
+            this.f40067d.I(new f(this));
+            if (desktopGuideType == DesktopGuideType.BAR_AUTOHIDE && (runnable = this.f40068e) != null) {
                 q0.d0(runnable);
-                q0.b0(this.f39840e, this.k * 1000);
+                q0.b0(this.f40068e, this.k * 1000);
             }
-            n.f(desktopGuideType.ubcType, c.a.r0.j.p0.e.b.a, "show");
+            n.f(desktopGuideType.ubcType, c.a.s0.j.p0.e.b.a, "show");
         }
     }
 
     public final void x() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
-            c.a.r0.a.o2.g.b a2 = c.a.r0.a.o2.g.h.a();
+            c.a.s0.a.o2.g.b a2 = c.a.s0.a.o2.g.h.a();
             this.k = a2.getLong("swan_favorite_guide_duration", 3L);
             this.l = a2.getLong("swan_favorite_guide_intervalDays", 3L);
             this.m = a2.getLong("swan_favorite_guide_maxTimes", 3L);

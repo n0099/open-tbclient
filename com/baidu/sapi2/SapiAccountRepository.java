@@ -102,7 +102,7 @@ import javax.security.cert.CertificateException;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public final class SapiAccountRepository {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String API_V3 = "3";
@@ -111,7 +111,7 @@ public final class SapiAccountRepository {
     public transient /* synthetic */ FieldHolder $fh;
     public SapiConfiguration configuration;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public interface OneKeyRequestJsCallback {
         void failure(int i2, String str);
 

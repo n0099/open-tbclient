@@ -33,22 +33,22 @@ public class c {
     public d f19a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f60367b;
+    public String f60534b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f60368c;
+    public String f60535c;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f60369f;
+    public boolean f60536f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f60370g;
+    public boolean f60537g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f60371h;
+    public boolean f60538h;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f60372i;
+    public boolean f60539i;
     public Context mContext;
 
     /* JADX WARN: Removed duplicated region for block: B:103:? A[RETURN, SYNTHETIC] */
@@ -78,11 +78,11 @@ public class c {
                 return;
             }
         }
-        this.f60367b = "";
-        this.f60368c = "";
-        this.f60369f = false;
-        this.f60370g = false;
-        this.f60371h = false;
+        this.f60534b = "";
+        this.f60535c = "";
+        this.f60536f = false;
+        this.f60537g = false;
+        this.f60538h = false;
         String str3 = null;
         this.f16a = null;
         this.f18a = null;
@@ -90,11 +90,11 @@ public class c {
         this.f17a = null;
         this.mContext = null;
         this.f19a = null;
-        this.f60372i = false;
-        this.f60369f = z;
-        this.f60372i = z2;
-        this.f60367b = str2;
-        this.f60368c = str;
+        this.f60539i = false;
+        this.f60536f = z;
+        this.f60539i = z2;
+        this.f60534b = str2;
+        this.f60535c = str;
         this.mContext = context;
         if (context != null) {
             SharedPreferences sharedPreferences2 = context.getSharedPreferences(str2, 0);
@@ -108,21 +108,21 @@ public class c {
         } catch (Exception e2) {
             e2.printStackTrace();
         }
-        if (g.m124a(str3)) {
-            this.f60371h = false;
-            this.f60370g = false;
+        if (g.m123a(str3)) {
+            this.f60538h = false;
+            this.f60537g = false;
         } else if (str3.equals("mounted")) {
-            this.f60371h = true;
-            this.f60370g = true;
+            this.f60538h = true;
+            this.f60537g = true;
         } else if (str3.equals("mounted_ro")) {
-            this.f60370g = true;
-            this.f60371h = false;
+            this.f60537g = true;
+            this.f60538h = false;
         } else {
-            this.f60371h = false;
-            this.f60370g = false;
+            this.f60538h = false;
+            this.f60537g = false;
         }
         try {
-            if ((this.f60370g || this.f60371h) && context != null && !g.m124a(str)) {
+            if ((this.f60537g || this.f60538h) && context != null && !g.m123a(str)) {
                 d a = a(str);
                 this.f19a = a;
                 if (a != null) {
@@ -167,7 +167,7 @@ public class c {
                             }
                             if (j2 == j3 || (j2 == 0 && j3 == 0)) {
                                 long currentTimeMillis = System.currentTimeMillis();
-                                z3 = this.f60372i;
+                                z3 = this.f60539i;
                                 if (z3 || (z3 && j2 == 0 && j3 == 0)) {
                                     sharedPreferences = this.f16a;
                                     if (sharedPreferences != null) {
@@ -194,7 +194,7 @@ public class c {
                     if (j2 == j3) {
                     }
                     long currentTimeMillis2 = System.currentTimeMillis();
-                    z3 = this.f60372i;
+                    z3 = this.f60539i;
                     if (z3) {
                     }
                     sharedPreferences = this.f16a;
@@ -213,7 +213,7 @@ public class c {
         if (j2 == j3) {
         }
         long currentTimeMillis22 = System.currentTimeMillis();
-        z3 = this.f60372i;
+        z3 = this.f60539i;
         if (z3) {
         }
         sharedPreferences = this.f16a;
@@ -225,9 +225,9 @@ public class c {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, this, str)) == null) {
-            File m125a = m125a(str);
-            if (m125a != null) {
-                d dVar = new d(m125a.getAbsolutePath());
+            File m124a = m124a(str);
+            if (m124a != null) {
+                d dVar = new d(m124a.getAbsolutePath());
                 this.f19a = dVar;
                 return dVar;
             }
@@ -244,7 +244,7 @@ public class c {
             if (this.a == null && (sharedPreferences = this.f16a) != null) {
                 this.a = sharedPreferences.edit();
             }
-            if (this.f60371h && this.f17a == null && (bVar = this.f18a) != null) {
+            if (this.f60538h && this.f17a == null && (bVar = this.f18a) != null) {
                 this.f17a = bVar.a();
             }
             c();
@@ -293,24 +293,24 @@ public class c {
             long currentTimeMillis = System.currentTimeMillis();
             SharedPreferences.Editor editor = this.a;
             if (editor != null) {
-                if (!this.f60372i && this.f16a != null) {
+                if (!this.f60539i && this.f16a != null) {
                     editor.putLong("t", currentTimeMillis);
                 }
                 if (!this.a.commit()) {
                     z = false;
                     if (this.f16a != null && (context = this.mContext) != null) {
-                        this.f16a = context.getSharedPreferences(this.f60367b, 0);
+                        this.f16a = context.getSharedPreferences(this.f60534b, 0);
                     }
                     str = null;
                     str = Environment.getExternalStorageState();
-                    if (!g.m124a(str)) {
+                    if (!g.m123a(str)) {
                         if (str.equals("mounted")) {
                             if (this.f18a == null) {
-                                d a = a(this.f60368c);
+                                d a = a(this.f60535c);
                                 if (a != null) {
-                                    b a2 = a.a(this.f60367b, 0);
+                                    b a2 = a.a(this.f60534b, 0);
                                     this.f18a = a2;
-                                    if (!this.f60372i) {
+                                    if (!this.f60539i) {
                                         a(this.f16a, a2);
                                     } else {
                                         a(a2, this.f16a);
@@ -328,7 +328,7 @@ public class c {
                         if (!str.equals("mounted") || (str.equals("mounted_ro") && this.f18a != null)) {
                             try {
                                 if (this.f19a != null) {
-                                    this.f18a = this.f19a.a(this.f60367b, 0);
+                                    this.f18a = this.f19a.a(this.f60534b, 0);
                                 }
                             } catch (Exception unused2) {
                             }
@@ -339,11 +339,11 @@ public class c {
             }
             z = true;
             if (this.f16a != null) {
-                this.f16a = context.getSharedPreferences(this.f60367b, 0);
+                this.f16a = context.getSharedPreferences(this.f60534b, 0);
             }
             str = null;
             str = Environment.getExternalStorageState();
-            if (!g.m124a(str)) {
+            if (!g.m123a(str)) {
             }
             return z;
         }
@@ -364,7 +364,7 @@ public class c {
             SharedPreferences sharedPreferences = this.f16a;
             if (sharedPreferences != null) {
                 String string = sharedPreferences.getString(str, "");
-                if (!g.m124a(string)) {
+                if (!g.m123a(string)) {
                     return string;
                 }
             }
@@ -376,7 +376,7 @@ public class c {
 
     public void putString(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2) == null) || g.m124a(str) || str.equals("t")) {
+        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2) == null) || g.m123a(str) || str.equals("t")) {
             return;
         }
         b();
@@ -392,7 +392,7 @@ public class c {
 
     public void remove(String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, str) == null) || g.m124a(str) || str.equals("t")) {
+        if (!(interceptable == null || interceptable.invokeL(1048579, this, str) == null) || g.m123a(str) || str.equals("t")) {
             return;
         }
         b();
@@ -407,7 +407,7 @@ public class c {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    private File m125a(String str) {
+    private File m124a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, this, str)) == null) {

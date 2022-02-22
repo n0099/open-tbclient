@@ -6,28 +6,28 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.webrtc.audio.JavaAudioDeviceModule;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class RTCAudioSamples extends JavaAudioDeviceModule.AudioSamples {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public long captureTime;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public interface RTCExternalSamplesReadyCallback {
         void onRtcAudioExternalSamplesReady(RTCAudioSamples rTCAudioSamples);
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public interface RTCMixedSamplesReadyCallback {
         void onRtcAudioMixedSamplesReady(RTCAudioSamples rTCAudioSamples);
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public interface RTCRemoteSamplesReadyCallback {
         void onRtcAudioRemoteSamplesReady(RTCAudioSamples rTCAudioSamples);
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public interface RTCSamplesReadyCallback {
         void onRtcAudioRecordSamplesReady(RTCAudioSamples rTCAudioSamples);
     }

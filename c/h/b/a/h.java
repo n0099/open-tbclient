@@ -17,16 +17,16 @@ public class h extends a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: d  reason: collision with root package name */
-    public StringBuffer f28548d;
+    public StringBuffer f28754d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f28549e;
+    public int f28755e;
 
     /* renamed from: f  reason: collision with root package name */
-    public long f28550f;
+    public long f28756f;
 
     /* renamed from: g  reason: collision with root package name */
-    public long f28551g;
+    public long f28757g;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public h(long j2) {
@@ -46,10 +46,10 @@ public class h extends a {
                 return;
             }
         }
-        this.f28548d = new StringBuffer();
-        this.f28549e = 0;
-        this.f28550f = 0L;
-        this.f28551g = 0L;
+        this.f28754d = new StringBuffer();
+        this.f28755e = 0;
+        this.f28756f = 0L;
+        this.f28757g = 0L;
     }
 
     @Override // c.h.b.a.a
@@ -59,7 +59,7 @@ public class h extends a {
         String str;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f28548d.setLength(0);
+            this.f28754d.setLength(0);
             BufferedReader bufferedReader2 = null;
             try {
                 try {
@@ -70,10 +70,10 @@ public class h extends a {
                         if (readLine == null) {
                             readLine = "";
                         }
-                        if (this.f28549e == 0) {
-                            this.f28549e = Process.myPid();
+                        if (this.f28755e == 0) {
+                            this.f28755e = Process.myPid();
                         }
-                        bufferedReader = new BufferedReader(new InputStreamReader(new FileInputStream("/proc/" + this.f28549e + "/stat")), 1000);
+                        bufferedReader = new BufferedReader(new InputStreamReader(new FileInputStream("/proc/" + this.f28755e + "/stat")), 1000);
                     } catch (Throwable unused) {
                         bufferedReader = null;
                     }
@@ -116,7 +116,7 @@ public class h extends a {
     public String e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f28548d.toString() : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f28754d.toString() : (String) invokeV.objValue;
     }
 
     public final void f(String str, String str2) {
@@ -135,19 +135,19 @@ public class h extends a {
                 return;
             }
             if (parseLong5 != 0) {
-                long j2 = parseLong5 - this.f28551g;
-                this.f28548d.append(((j2 - (parseLong4 - this.f28550f)) * 100) / j2);
+                long j2 = parseLong5 - this.f28757g;
+                this.f28754d.append(((j2 - (parseLong4 - this.f28756f)) * 100) / j2);
             }
-            this.f28550f = parseLong4;
-            this.f28551g = parseLong5;
+            this.f28756f = parseLong4;
+            this.f28757g = parseLong5;
         }
     }
 
     public final void g() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.f28550f = 0L;
-            this.f28551g = 0L;
+            this.f28756f = 0L;
+            this.f28757g = 0L;
         }
     }
 }

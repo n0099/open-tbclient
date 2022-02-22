@@ -4,10 +4,10 @@ import android.os.IBinder;
 import android.os.IInterface;
 import android.os.Parcel;
 import com.heytap.openid.IOpenID;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public interface d extends IInterface {
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static final class a implements d {
         public IBinder a;
 

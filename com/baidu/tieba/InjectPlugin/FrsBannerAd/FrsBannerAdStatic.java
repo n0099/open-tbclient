@@ -1,13 +1,13 @@
 package com.baidu.tieba.InjectPlugin.FrsBannerAd;
 
 import android.view.View;
-import c.a.d.n.e.p;
-import c.a.t0.h.a.a;
-import c.a.t0.h.d;
-import c.a.t0.h.e.b;
-import c.a.t0.h.e.c;
-import c.a.t0.h.e.e;
-import c.a.t0.h.e.h;
+import c.a.d.o.e.p;
+import c.a.u0.h.a.a;
+import c.a.u0.h.d;
+import c.a.u0.h.e.b;
+import c.a.u0.h.e.c;
+import c.a.u0.h.e.e;
+import c.a.u0.h.e.h;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
@@ -20,23 +20,23 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class FrsBannerAdStatic {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public static class a extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: com.baidu.tieba.InjectPlugin.FrsBannerAd.FrsBannerAdStatic$a$a  reason: collision with other inner class name */
-        /* loaded from: classes11.dex */
-        public class C1907a implements a.InterfaceC1132a {
+        /* loaded from: classes12.dex */
+        public class C1917a implements a.InterfaceC1127a {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
-            public C1907a(a aVar) {
+            public C1917a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -52,7 +52,7 @@ public class FrsBannerAdStatic {
                 }
             }
 
-            @Override // c.a.t0.h.a.a.InterfaceC1132a
+            @Override // c.a.u0.h.a.a.InterfaceC1127a
             public void a(c cVar, View view) {
                 b a;
                 Interceptable interceptable = $ic;
@@ -65,7 +65,7 @@ public class FrsBannerAdStatic {
                 a.dispatchInjectPluginMessage(dVar);
             }
 
-            @Override // c.a.t0.h.a.a.InterfaceC1132a
+            @Override // c.a.u0.h.a.a.InterfaceC1127a
             public void b(c cVar, View view) {
                 b a;
                 Interceptable interceptable = $ic;
@@ -100,27 +100,27 @@ public class FrsBannerAdStatic {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            c.a.t0.h.f.a aVar;
+            c.a.u0.h.f.a aVar;
             TbPageContext b2;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof c.a.t0.h.f.a) && (b2 = (aVar = (c.a.t0.h.f.a) customResponsedMessage.getData()).b()) != null && (b2.getPageActivity() instanceof b)) {
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof c.a.u0.h.f.a) && (b2 = (aVar = (c.a.u0.h.f.a) customResponsedMessage.getData()).b()) != null && (b2.getPageActivity() instanceof b)) {
                 b bVar = (b) b2.getPageActivity();
-                c.a.t0.h.e.a injectPlugin = bVar.getInjectPlugin(2);
+                c.a.u0.h.e.a injectPlugin = bVar.getInjectPlugin(2);
                 if (injectPlugin == null) {
-                    c.a.t0.h.e.d a = e.b().a(2);
+                    c.a.u0.h.e.d a = e.b().a(2);
                     if (a == null) {
                         return;
                     }
                     injectPlugin = a.a();
                     bVar.setInjectPlugin(2, injectPlugin);
                     injectPlugin.n(new c(b2));
-                    if (!(injectPlugin instanceof c.a.t0.h.a.a)) {
+                    if (!(injectPlugin instanceof c.a.u0.h.a.a)) {
                         return;
                     }
-                    ((c.a.t0.h.a.a) injectPlugin).f(new C1907a(this));
+                    ((c.a.u0.h.a.a) injectPlugin).f(new C1917a(this));
                 }
-                if (injectPlugin instanceof c.a.t0.h.a.a) {
-                    c.a.t0.h.a.a aVar2 = (c.a.t0.h.a.a) injectPlugin;
+                if (injectPlugin instanceof c.a.u0.h.a.a) {
+                    c.a.u0.h.a.a aVar2 = (c.a.u0.h.a.a) injectPlugin;
                     if (aVar.a() == 1) {
                         aVar2.setParams(aVar.g());
                         aVar2.b(aVar.d());

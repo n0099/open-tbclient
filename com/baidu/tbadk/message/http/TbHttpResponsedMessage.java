@@ -1,7 +1,7 @@
 package com.baidu.tbadk.message.http;
 
-import c.a.d.f.j.a.d;
-import c.a.d.f.j.a.e;
+import c.a.d.f.j.b.e;
+import c.a.d.f.j.b.f;
 import c.a.d.f.p.l;
 import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.adp.framework.task.HttpMessageTask;
@@ -82,19 +82,19 @@ public class TbHttpResponsedMessage extends HttpResponsedMessage {
     }
 
     @Override // com.baidu.adp.framework.message.HttpResponsedMessage
-    public void logStatInBackground(int i2, e eVar) {
+    public void logStatInBackground(int i2, f fVar) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIL(1048579, this, i2, eVar) == null) || eVar.d().size() <= 0) {
+        if (!(interceptable == null || interceptable.invokeIL(1048579, this, i2, fVar) == null) || fVar.d().size() <= 0) {
             return;
         }
-        d dVar = eVar.d().get(eVar.d().size() - 1);
-        NetWorkState.mErrorNums.addAndGet(eVar.d().size() - 1);
+        e eVar = fVar.d().get(fVar.d().size() - 1);
+        NetWorkState.mErrorNums.addAndGet(fVar.d().size() - 1);
         NetWorkState.StatisticsData statisticsData = new NetWorkState.StatisticsData();
         statisticsData.mMode = getMode(l.I());
-        statisticsData.mSize = dVar.f2895b;
-        statisticsData.mTime = dVar.f2899f;
-        statisticsData.mTimesNum = dVar.f2898e;
-        statisticsData.mMethod = eVar.b().h() != HttpMessageTask.HTTP_METHOD.POST ? 2 : 1;
+        statisticsData.mSize = eVar.f1978b;
+        statisticsData.mTime = eVar.f1982f;
+        statisticsData.mTimesNum = eVar.f1981e;
+        statisticsData.mMethod = fVar.b().i() != HttpMessageTask.HTTP_METHOD.POST ? 2 : 1;
         NetWorkState.addStatisticsData(statisticsData);
     }
 

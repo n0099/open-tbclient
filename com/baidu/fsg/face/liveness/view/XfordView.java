@@ -24,16 +24,16 @@ public class XfordView extends ImageView {
     public Bitmap a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Paint f34520b;
+    public Paint f34726b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Rect f34521c;
+    public Rect f34727c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Rect f34522d;
+    public Rect f34728d;
 
     /* renamed from: e  reason: collision with root package name */
-    public Xfermode f34523e;
+    public Xfermode f34729e;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public XfordView(Context context) {
@@ -54,23 +54,23 @@ public class XfordView extends ImageView {
             }
         }
         this.a = null;
-        this.f34520b = null;
+        this.f34726b = null;
         a();
     }
 
     private void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65538, this) == null) {
-            if (this.f34520b == null) {
+            if (this.f34726b == null) {
                 Paint paint = new Paint();
-                this.f34520b = paint;
+                this.f34726b = paint;
                 paint.setColor(1711276032);
             }
             if (this.a == null) {
                 this.a = BitmapFactory.decodeResource(getResources(), R.drawable.sapi_liveness_recog_face_mask);
             }
-            if (this.f34523e == null) {
-                this.f34523e = new PorterDuffXfermode(PorterDuff.Mode.SRC_OUT);
+            if (this.f34729e == null) {
+                this.f34729e = new PorterDuffXfermode(PorterDuff.Mode.SRC_OUT);
             }
         }
     }
@@ -86,9 +86,9 @@ public class XfordView extends ImageView {
                 this.a = null;
             }
             System.gc();
-            this.f34523e = null;
-            this.f34521c = null;
-            this.f34522d = null;
+            this.f34729e = null;
+            this.f34727c = null;
+            this.f34728d = null;
         }
     }
 
@@ -102,16 +102,16 @@ public class XfordView extends ImageView {
             int dimensionPixelSize2 = getContext().getResources().getDimensionPixelSize(R.dimen.sapi_liveness_face_round_width);
             int width = (getWidth() - dimensionPixelSize2) / 2;
             int height = (getHeight() - dimensionPixelSize) / 2;
-            if (this.f34522d == null) {
-                this.f34522d = new Rect(width, height, dimensionPixelSize2 + width, dimensionPixelSize + height);
+            if (this.f34728d == null) {
+                this.f34728d = new Rect(width, height, dimensionPixelSize2 + width, dimensionPixelSize + height);
             }
-            if (this.f34521c == null) {
-                this.f34521c = new Rect(0, 0, this.a.getWidth(), this.a.getHeight());
+            if (this.f34727c == null) {
+                this.f34727c = new Rect(0, 0, this.a.getWidth(), this.a.getHeight());
             }
-            canvas.drawBitmap(this.a, this.f34521c, this.f34522d, this.f34520b);
-            this.f34520b.setXfermode(this.f34523e);
-            canvas.drawRect(0.0f, 0.0f, getWidth(), getHeight(), this.f34520b);
-            this.f34520b.setXfermode(null);
+            canvas.drawBitmap(this.a, this.f34727c, this.f34728d, this.f34726b);
+            this.f34726b.setXfermode(this.f34729e);
+            canvas.drawRect(0.0f, 0.0f, getWidth(), getHeight(), this.f34726b);
+            this.f34726b.setXfermode(null);
             canvas.restoreToCount(saveLayer);
         }
     }
@@ -119,10 +119,10 @@ public class XfordView extends ImageView {
     public void setBgPaintColor(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
-            if (this.f34520b == null) {
-                this.f34520b = new Paint();
+            if (this.f34726b == null) {
+                this.f34726b = new Paint();
             }
-            this.f34520b.setColor(i2);
+            this.f34726b.setColor(i2);
         }
     }
 
@@ -146,7 +146,7 @@ public class XfordView extends ImageView {
             }
         }
         this.a = null;
-        this.f34520b = null;
+        this.f34726b = null;
         a();
     }
 }

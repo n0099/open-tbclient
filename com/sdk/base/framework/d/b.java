@@ -73,16 +73,16 @@ public final class b extends com.sdk.base.framework.b.b<String> {
                     return;
                 }
                 this.a.a(1, "服务端数据格式出错", 302003, null, com.sdk.base.framework.f.f.a.b().a());
-                str2 = a.f59286d;
-                z2 = a.f59287e;
+                str2 = a.f59453d;
+                z2 = a.f59454e;
                 c.b(str2, "返回数据为空", Boolean.valueOf(z2));
             } catch (Throwable th) {
                 th = th;
                 i2 = optInt;
                 com.sdk.base.framework.f.f.a.c(th.toString());
                 this.a.a(i2, "服务端数据格式出错", 302003, null, com.sdk.base.framework.f.f.a.b().a());
-                str = a.f59286d;
-                z = a.f59287e;
+                str = a.f59453d;
+                z = a.f59454e;
                 c.b(str, "返回数据解析异常：" + th.toString(), Boolean.valueOf(z));
             }
         } catch (Throwable th2) {

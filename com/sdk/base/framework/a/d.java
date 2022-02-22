@@ -17,15 +17,15 @@ public final class d {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: c  reason: collision with root package name */
-    public static long f59226c = 60000;
+    public static long f59393c = 60000;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final ConcurrentHashMap<String, Boolean> f59227d;
+    public static final ConcurrentHashMap<String, Boolean> f59394d;
     public transient /* synthetic */ FieldHolder $fh;
     public final com.sdk.base.framework.a.a.c<String, String> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f59228b;
+    public int f59395b;
 
     static {
         InterceptResult invokeClinit;
@@ -41,7 +41,7 @@ public final class d {
             }
         }
         ConcurrentHashMap<String, Boolean> concurrentHashMap = new ConcurrentHashMap<>(10);
-        f59227d = concurrentHashMap;
+        f59394d = concurrentHashMap;
         concurrentHashMap.put(j.a.toString(), Boolean.TRUE);
         new ConcurrentHashMap(10);
     }
@@ -80,16 +80,16 @@ public final class d {
                 return;
             }
         }
-        this.f59228b = 102400;
-        this.f59228b = 102400;
-        f59226c = 60000L;
+        this.f59395b = 102400;
+        this.f59395b = 102400;
+        f59393c = 60000L;
         this.a = new e(this, 102400);
     }
 
     public static long a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? f59226c : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? f59393c : invokeV.longValue;
     }
 
     @SuppressLint({"DefaultLocale"})
@@ -98,7 +98,7 @@ public final class d {
         Boolean bool;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
-            if (TextUtils.isEmpty(str) || (bool = f59227d.get(str.toUpperCase())) == null) {
+            if (TextUtils.isEmpty(str) || (bool = f59394d.get(str.toUpperCase())) == null) {
                 return false;
             }
             return bool.booleanValue();

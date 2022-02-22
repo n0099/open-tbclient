@@ -1,5 +1,5 @@
 package com.kwad.sdk.core.j;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public interface c {
     void a(d dVar);
 

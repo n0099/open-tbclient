@@ -58,22 +58,22 @@ public class t implements com.baidu.mapsdkplatform.comapi.map.l {
         ac acVar8;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            acVar = this.a.f35450b;
+            acVar = this.a.f35656b;
             if (acVar != null) {
-                acVar2 = this.a.f35450b;
+                acVar2 = this.a.f35656b;
                 if (acVar2.b() == null) {
                     return;
                 }
-                acVar3 = this.a.f35450b;
+                acVar3 = this.a.f35656b;
                 float f3 = acVar3.b().E().a;
-                acVar4 = this.a.f35450b;
-                if (f3 < acVar4.b().f35887b) {
-                    acVar8 = this.a.f35450b;
-                    f3 = acVar8.b().f35887b;
+                acVar4 = this.a.f35656b;
+                if (f3 < acVar4.b().f36093b) {
+                    acVar8 = this.a.f35656b;
+                    f3 = acVar8.b().f36093b;
                 } else {
-                    acVar5 = this.a.f35450b;
+                    acVar5 = this.a.f35656b;
                     if (f3 > acVar5.b().a) {
-                        acVar6 = this.a.f35450b;
+                        acVar6 = this.a.f35656b;
                         f3 = acVar6.b().a;
                     }
                 }
@@ -81,7 +81,7 @@ public class t implements com.baidu.mapsdkplatform.comapi.map.l {
                 if (Math.abs(f2 - f3) > 0.0f) {
                     sparseArray = TextureMapView.q;
                     int intValue = ((Integer) sparseArray.get(Math.round(f3))).intValue();
-                    acVar7 = this.a.f35450b;
+                    acVar7 = this.a.f35656b;
                     imageView = this.a.o;
                     int i2 = ((int) (intValue / acVar7.b().E().m)) / 2;
                     imageView.setPadding(i2, 0, i2, 0);

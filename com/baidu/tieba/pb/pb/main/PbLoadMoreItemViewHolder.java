@@ -6,11 +6,11 @@ import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import c.a.d.f.p.n;
-import c.a.t0.t2.f;
-import c.a.t0.t2.g;
-import c.a.t0.t2.h;
-import c.a.t0.t2.i;
-import c.a.t0.t2.l;
+import c.a.u0.u2.f;
+import c.a.u0.u2.g;
+import c.a.u0.u2.h;
+import c.a.u0.u2.i;
+import c.a.u0.u2.l;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
@@ -24,37 +24,37 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public class PbLoadMoreItemViewHolder extends TypeAdapter.ViewHolder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public View a;
 
     /* renamed from: b  reason: collision with root package name */
-    public LinearLayout f46614b;
+    public LinearLayout f46756b;
 
     /* renamed from: c  reason: collision with root package name */
-    public TextView f46615c;
+    public TextView f46757c;
 
     /* renamed from: d  reason: collision with root package name */
-    public ProgressBar f46616d;
+    public ProgressBar f46758d;
 
     /* renamed from: e  reason: collision with root package name */
-    public ImageView f46617e;
+    public ImageView f46759e;
 
     /* renamed from: f  reason: collision with root package name */
-    public View f46618f;
+    public View f46760f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f46619g;
+    public String f46761g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f46620h;
+    public int f46762h;
 
     /* renamed from: i  reason: collision with root package name */
-    public CustomMessageListener f46621i;
+    public CustomMessageListener f46763i;
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes13.dex */
     public class a extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -113,29 +113,29 @@ public class PbLoadMoreItemViewHolder extends TypeAdapter.ViewHolder {
                 return;
             }
         }
-        this.f46621i = new a(this, 2921471);
+        this.f46763i = new a(this, 2921471);
         this.a = view;
-        this.f46614b = (LinearLayout) view.findViewById(i.pb_more_view);
-        this.f46615c = (TextView) view.findViewById(i.pb_more_text);
-        this.f46617e = (ImageView) this.a.findViewById(i.no_data_image);
-        this.f46620h = n.f(this.a.getContext(), g.tbds156);
-        this.f46618f = this.a.findViewById(i.empty_view);
-        this.f46616d = (ProgressBar) view.findViewById(i.progress);
-        this.f46614b.setVisibility(0);
-        this.f46621i.setTag(bdUniqueId);
-        MessageManager.getInstance().registerListener(this.f46621i);
+        this.f46756b = (LinearLayout) view.findViewById(i.pb_more_view);
+        this.f46757c = (TextView) view.findViewById(i.pb_more_text);
+        this.f46759e = (ImageView) this.a.findViewById(i.no_data_image);
+        this.f46762h = n.f(this.a.getContext(), g.tbds156);
+        this.f46760f = this.a.findViewById(i.empty_view);
+        this.f46758d = (ProgressBar) view.findViewById(i.progress);
+        this.f46756b.setVisibility(0);
+        this.f46763i.setTag(bdUniqueId);
+        MessageManager.getInstance().registerListener(this.f46763i);
         onChangeSkinType();
     }
 
     public void endLoadData() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f46616d.setVisibility(8);
-            String str = this.f46619g;
+            this.f46758d.setVisibility(8);
+            String str = this.f46761g;
             if (str != null) {
-                this.f46615c.setText(str);
+                this.f46757c.setText(str);
             } else {
-                this.f46615c.setText(TbadkCoreApplication.getInst().getContext().getText(l.pb_load_more));
+                this.f46757c.setText(TbadkCoreApplication.getInst().getContext().getText(l.pb_load_more));
             }
         }
     }
@@ -143,8 +143,8 @@ public class PbLoadMoreItemViewHolder extends TypeAdapter.ViewHolder {
     public void onChangeSkinType() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f46615c.setTextColor(SkinManager.getColor(TbadkCoreApplication.getInst().getSkinType(), f.CAM_X0109));
-            this.f46614b.setBackgroundResource(h.pb_foot_more_trans_selector);
+            this.f46757c.setTextColor(SkinManager.getColor(TbadkCoreApplication.getInst().getSkinType(), f.CAM_X0109));
+            this.f46756b.setBackgroundResource(h.pb_foot_more_trans_selector);
         }
     }
 
@@ -158,38 +158,38 @@ public class PbLoadMoreItemViewHolder extends TypeAdapter.ViewHolder {
     public void setText(String str, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048579, this, str, i2) == null) {
-            this.f46619g = str;
-            this.f46615c.setText(str);
-            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.f46614b.getLayoutParams();
+            this.f46761g = str;
+            this.f46757c.setText(str);
+            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.f46756b.getLayoutParams();
             layoutParams.height = i2;
             layoutParams.bottomMargin = 0;
-            this.f46614b.setLayoutParams(layoutParams);
-            this.f46617e.setVisibility(8);
-            this.f46618f.setVisibility(8);
+            this.f46756b.setLayoutParams(layoutParams);
+            this.f46759e.setVisibility(8);
+            this.f46760f.setVisibility(8);
         }
     }
 
     public void setTextWithNoDataImg(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            this.f46615c.setText(str);
-            this.f46617e.setVisibility(0);
-            this.f46617e.setImageResource(PbListView.H);
-            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.f46617e.getLayoutParams();
-            layoutParams.topMargin = this.f46620h;
-            this.f46617e.setLayoutParams(layoutParams);
-            LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(this.f46618f.getLayoutParams());
-            layoutParams2.height = this.f46620h;
-            this.f46618f.setLayoutParams(layoutParams2);
-            this.f46618f.setVisibility(0);
+            this.f46757c.setText(str);
+            this.f46759e.setVisibility(0);
+            this.f46759e.setImageResource(PbListView.H);
+            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.f46759e.getLayoutParams();
+            layoutParams.topMargin = this.f46762h;
+            this.f46759e.setLayoutParams(layoutParams);
+            LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(this.f46760f.getLayoutParams());
+            layoutParams2.height = this.f46762h;
+            this.f46760f.setLayoutParams(layoutParams2);
+            this.f46760f.setVisibility(0);
         }
     }
 
     public void startLoadData() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.f46616d.setVisibility(0);
-            this.f46615c.setText(TbadkCoreApplication.getInst().getContext().getText(l.loading));
+            this.f46758d.setVisibility(0);
+            this.f46757c.setText(TbadkCoreApplication.getInst().getContext().getText(l.loading));
         }
     }
 }

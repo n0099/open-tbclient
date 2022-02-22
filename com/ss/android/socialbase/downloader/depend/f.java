@@ -16,14 +16,14 @@ public interface f extends IInterface {
 
         /* renamed from: com.ss.android.socialbase.downloader.depend.f$a$a  reason: collision with other inner class name */
         /* loaded from: classes4.dex */
-        public static class C2211a implements f {
+        public static class C2221a implements f {
             public static f a;
 
             /* renamed from: b  reason: collision with root package name */
-            public IBinder f59976b;
+            public IBinder f60143b;
 
-            public C2211a(IBinder iBinder) {
-                this.f59976b = iBinder;
+            public C2221a(IBinder iBinder) {
+                this.f60143b = iBinder;
             }
 
             @Override // com.ss.android.socialbase.downloader.depend.f
@@ -45,7 +45,7 @@ public interface f extends IInterface {
                         obtain.writeInt(0);
                     }
                     obtain.writeInt(i2);
-                    if (!this.f59976b.transact(1, obtain, obtain2, 0) && a.a() != null) {
+                    if (!this.f60143b.transact(1, obtain, obtain2, 0) && a.a() != null) {
                         a.a().a(downloadInfo, baseException, i2);
                     } else {
                         obtain2.readException();
@@ -58,7 +58,7 @@ public interface f extends IInterface {
 
             @Override // android.os.IInterface
             public IBinder asBinder() {
-                return this.f59976b;
+                return this.f60143b;
             }
         }
 
@@ -74,7 +74,7 @@ public interface f extends IInterface {
             if (queryLocalInterface != null && (queryLocalInterface instanceof f)) {
                 return (f) queryLocalInterface;
             }
-            return new C2211a(iBinder);
+            return new C2221a(iBinder);
         }
 
         @Override // android.os.IInterface
@@ -98,7 +98,7 @@ public interface f extends IInterface {
         }
 
         public static f a() {
-            return C2211a.a;
+            return C2221a.a;
         }
     }
 }

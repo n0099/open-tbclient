@@ -23,17 +23,17 @@ public class g {
     public static final String a = "g";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final HashSet<Class<?>> f32647b;
+    public static final HashSet<Class<?>> f32853b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final HashSet<Class<?>> f32648c;
+    public static final HashSet<Class<?>> f32854c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: d  reason: collision with root package name */
-    public final int f32649d;
+    public final int f32855d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final int f32650e;
+    public final int f32856e;
 
     static {
         InterceptResult invokeClinit;
@@ -48,13 +48,13 @@ public class g {
                 return;
             }
         }
-        f32647b = new HashSet<>();
-        f32648c = new HashSet<>();
-        f32647b.add(UnknownHostException.class);
-        f32647b.add(SocketException.class);
-        f32647b.add(ProtocolException.class);
-        f32648c.add(SSLException.class);
-        f32648c.add(SocketTimeoutException.class);
+        f32853b = new HashSet<>();
+        f32854c = new HashSet<>();
+        f32853b.add(UnknownHostException.class);
+        f32853b.add(SocketException.class);
+        f32853b.add(ProtocolException.class);
+        f32854c.add(SSLException.class);
+        f32854c.add(SocketTimeoutException.class);
     }
 
     public g(int i2, int i3) {
@@ -72,8 +72,8 @@ public class g {
                 return;
             }
         }
-        this.f32649d = i2;
-        this.f32650e = i3;
+        this.f32855d = i2;
+        this.f32856e = i3;
     }
 
     public boolean a(Exception exc, int i2) {
@@ -81,13 +81,13 @@ public class g {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, exc, i2)) == null) {
             boolean z = false;
-            if (i2 <= this.f32649d && (a(f32647b, exc) || !a(f32648c, exc))) {
+            if (i2 <= this.f32855d && (a(f32853b, exc) || !a(f32854c, exc))) {
                 z = true;
             }
             String str = a;
             LogUtil.d(str, a + " retryRequest is called ,retry flag is " + z);
             if (z) {
-                SystemClock.sleep(this.f32650e);
+                SystemClock.sleep(this.f32856e);
             } else {
                 exc.printStackTrace();
             }

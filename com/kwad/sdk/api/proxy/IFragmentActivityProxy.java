@@ -6,7 +6,7 @@ import com.kwad.sdk.api.core.fragment.KsFragment;
 import com.kwad.sdk.api.core.fragment.KsFragmentManager;
 @KsAdSdkDynamicApi
 @Keep
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public abstract class IFragmentActivityProxy extends IActivityProxy {
     public BaseProxyFragmentActivity mProxyFragmentActivity;
 

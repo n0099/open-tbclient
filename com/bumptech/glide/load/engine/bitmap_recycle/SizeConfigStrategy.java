@@ -23,7 +23,7 @@ import java.util.Map;
 import java.util.NavigableMap;
 import java.util.TreeMap;
 @RequiresApi(19)
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class SizeConfigStrategy implements LruPoolStrategy {
     public static /* synthetic */ Interceptable $ic = null;
     public static final Bitmap.Config[] ALPHA_8_IN_CONFIGS;
@@ -38,7 +38,7 @@ public class SizeConfigStrategy implements LruPoolStrategy {
     public final Map<Bitmap.Config, NavigableMap<Integer, Integer>> sortedSizes;
 
     /* renamed from: com.bumptech.glide.load.engine.bitmap_recycle.SizeConfigStrategy$1  reason: invalid class name */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$android$graphics$Bitmap$Config;
         public static /* synthetic */ Interceptable $ic;
@@ -79,7 +79,7 @@ public class SizeConfigStrategy implements LruPoolStrategy {
     }
 
     @VisibleForTesting
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class KeyPool extends BaseKeyPool<Key> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -334,7 +334,7 @@ public class SizeConfigStrategy implements LruPoolStrategy {
     }
 
     @VisibleForTesting
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class Key implements Poolable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

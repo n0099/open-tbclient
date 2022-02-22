@@ -20,22 +20,22 @@ public class b<K, V> implements Iterable<w.b<K, V>> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public K[] f27400e;
+    public K[] f27606e;
 
     /* renamed from: f  reason: collision with root package name */
-    public V[] f27401f;
+    public V[] f27607f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f27402g;
+    public int f27608g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f27403h;
+    public boolean f27609h;
 
     /* renamed from: i  reason: collision with root package name */
-    public transient a f27404i;
+    public transient a f27610i;
 
     /* renamed from: j  reason: collision with root package name */
-    public transient a f27405j;
+    public transient a f27611j;
 
     /* loaded from: classes9.dex */
     public static class a<K, V> implements Iterable<w.b<K, V>>, Iterator<w.b<K, V>> {
@@ -43,16 +43,16 @@ public class b<K, V> implements Iterable<w.b<K, V>> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final b<K, V> f27406e;
+        public final b<K, V> f27612e;
 
         /* renamed from: f  reason: collision with root package name */
-        public w.b<K, V> f27407f;
+        public w.b<K, V> f27613f;
 
         /* renamed from: g  reason: collision with root package name */
-        public int f27408g;
+        public int f27614g;
 
         /* renamed from: h  reason: collision with root package name */
-        public boolean f27409h;
+        public boolean f27615h;
 
         public a(b<K, V> bVar) {
             Interceptable interceptable = $ic;
@@ -69,9 +69,9 @@ public class b<K, V> implements Iterable<w.b<K, V>> {
                     return;
                 }
             }
-            this.f27407f = new w.b<>();
-            this.f27409h = true;
-            this.f27406e = bVar;
+            this.f27613f = new w.b<>();
+            this.f27615h = true;
+            this.f27612e = bVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -81,20 +81,20 @@ public class b<K, V> implements Iterable<w.b<K, V>> {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                int i2 = this.f27408g;
-                b<K, V> bVar = this.f27406e;
-                if (i2 < bVar.f27402g) {
-                    if (this.f27409h) {
-                        w.b<K, V> bVar2 = this.f27407f;
-                        bVar2.a = bVar.f27400e[i2];
-                        V[] vArr = bVar.f27401f;
-                        this.f27408g = i2 + 1;
-                        bVar2.f27552b = vArr[i2];
+                int i2 = this.f27614g;
+                b<K, V> bVar = this.f27612e;
+                if (i2 < bVar.f27608g) {
+                    if (this.f27615h) {
+                        w.b<K, V> bVar2 = this.f27613f;
+                        bVar2.a = bVar.f27606e[i2];
+                        V[] vArr = bVar.f27607f;
+                        this.f27614g = i2 + 1;
+                        bVar2.f27758b = vArr[i2];
                         return bVar2;
                     }
                     throw new GdxRuntimeException("#iterator() cannot be used nested.");
                 }
-                throw new NoSuchElementException(String.valueOf(this.f27408g));
+                throw new NoSuchElementException(String.valueOf(this.f27614g));
             }
             return (w.b) invokeV.objValue;
         }
@@ -104,8 +104,8 @@ public class b<K, V> implements Iterable<w.b<K, V>> {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                if (this.f27409h) {
-                    return this.f27408g < this.f27406e.f27402g;
+                if (this.f27615h) {
+                    return this.f27614g < this.f27612e.f27608g;
                 }
                 throw new GdxRuntimeException("#iterator() cannot be used nested.");
             }
@@ -123,9 +123,9 @@ public class b<K, V> implements Iterable<w.b<K, V>> {
         public void remove() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-                int i2 = this.f27408g - 1;
-                this.f27408g = i2;
-                this.f27406e.g(i2);
+                int i2 = this.f27614g - 1;
+                this.f27614g = i2;
+                this.f27612e.g(i2);
             }
         }
     }
@@ -156,21 +156,21 @@ public class b<K, V> implements Iterable<w.b<K, V>> {
             if (f.a) {
                 return new a<>(this);
             }
-            if (this.f27404i == null) {
-                this.f27404i = new a(this);
-                this.f27405j = new a(this);
+            if (this.f27610i == null) {
+                this.f27610i = new a(this);
+                this.f27611j = new a(this);
             }
-            a<K, V> aVar = this.f27404i;
-            if (!aVar.f27409h) {
-                aVar.f27408g = 0;
-                aVar.f27409h = true;
-                this.f27405j.f27409h = false;
+            a<K, V> aVar = this.f27610i;
+            if (!aVar.f27615h) {
+                aVar.f27614g = 0;
+                aVar.f27615h = true;
+                this.f27611j.f27615h = false;
                 return aVar;
             }
-            a<K, V> aVar2 = this.f27405j;
-            aVar2.f27408g = 0;
-            aVar2.f27409h = true;
-            aVar.f27409h = false;
+            a<K, V> aVar2 = this.f27611j;
+            aVar2.f27614g = 0;
+            aVar2.f27615h = true;
+            aVar.f27615h = false;
             return aVar2;
         }
         return (a) invokeV.objValue;
@@ -185,9 +185,9 @@ public class b<K, V> implements Iterable<w.b<K, V>> {
     public void clear() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            Arrays.fill(this.f27400e, 0, this.f27402g, (Object) null);
-            Arrays.fill(this.f27401f, 0, this.f27402g, (Object) null);
-            this.f27402g = 0;
+            Arrays.fill(this.f27606e, 0, this.f27608g, (Object) null);
+            Arrays.fill(this.f27607f, 0, this.f27608g, (Object) null);
+            this.f27608g = 0;
         }
     }
 
@@ -195,19 +195,19 @@ public class b<K, V> implements Iterable<w.b<K, V>> {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, k, v)) == null) {
-            K[] kArr = this.f27400e;
-            int i2 = this.f27402g - 1;
+            K[] kArr = this.f27606e;
+            int i2 = this.f27608g - 1;
             if (k == null) {
                 while (i2 >= 0) {
                     if (kArr[i2] == k) {
-                        return this.f27401f[i2];
+                        return this.f27607f[i2];
                     }
                     i2--;
                 }
             } else {
                 while (i2 >= 0) {
                     if (k.equals(kArr[i2])) {
-                        return this.f27401f[i2];
+                        return this.f27607f[i2];
                     }
                     i2--;
                 }
@@ -221,10 +221,10 @@ public class b<K, V> implements Iterable<w.b<K, V>> {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, k)) == null) {
-            K[] kArr = this.f27400e;
+            K[] kArr = this.f27606e;
             int i2 = 0;
             if (k == null) {
-                int i3 = this.f27402g;
+                int i3 = this.f27608g;
                 while (i2 < i3) {
                     if (kArr[i2] == k) {
                         return i2;
@@ -233,7 +233,7 @@ public class b<K, V> implements Iterable<w.b<K, V>> {
                 }
                 return -1;
             }
-            int i4 = this.f27402g;
+            int i4 = this.f27608g;
             while (i2 < i4) {
                 if (k.equals(kArr[i2])) {
                     return i2;
@@ -256,13 +256,13 @@ public class b<K, V> implements Iterable<w.b<K, V>> {
             }
             if (obj instanceof b) {
                 b bVar = (b) obj;
-                int i2 = bVar.f27402g;
-                int i3 = this.f27402g;
+                int i2 = bVar.f27608g;
+                int i3 = this.f27608g;
                 if (i2 != i3) {
                     return false;
                 }
-                K[] kArr = this.f27400e;
-                V[] vArr = this.f27401f;
+                K[] kArr = this.f27606e;
+                V[] vArr = this.f27607f;
                 for (int i4 = 0; i4 < i3; i4++) {
                     K k = kArr[i4];
                     V v = vArr[i4];
@@ -287,15 +287,15 @@ public class b<K, V> implements Iterable<w.b<K, V>> {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, k, v)) == null) {
             int e2 = e(k);
             if (e2 == -1) {
-                int i2 = this.f27402g;
-                if (i2 == this.f27400e.length) {
+                int i2 = this.f27608g;
+                if (i2 == this.f27606e.length) {
                     h(Math.max(8, (int) (i2 * 1.75f)));
                 }
-                e2 = this.f27402g;
-                this.f27402g = e2 + 1;
+                e2 = this.f27608g;
+                this.f27608g = e2 + 1;
             }
-            this.f27400e[e2] = k;
-            this.f27401f[e2] = v;
+            this.f27606e[e2] = k;
+            this.f27607f[e2] = v;
             return e2;
         }
         return invokeLL.intValue;
@@ -304,24 +304,24 @@ public class b<K, V> implements Iterable<w.b<K, V>> {
     public void g(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048583, this, i2) == null) {
-            int i3 = this.f27402g;
+            int i3 = this.f27608g;
             if (i2 < i3) {
-                K[] kArr = this.f27400e;
+                K[] kArr = this.f27606e;
                 int i4 = i3 - 1;
-                this.f27402g = i4;
-                if (this.f27403h) {
+                this.f27608g = i4;
+                if (this.f27609h) {
                     int i5 = i2 + 1;
                     System.arraycopy(kArr, i5, kArr, i2, i4 - i2);
-                    V[] vArr = this.f27401f;
-                    System.arraycopy(vArr, i5, vArr, i2, this.f27402g - i2);
+                    V[] vArr = this.f27607f;
+                    System.arraycopy(vArr, i5, vArr, i2, this.f27608g - i2);
                 } else {
                     kArr[i2] = kArr[i4];
-                    V[] vArr2 = this.f27401f;
+                    V[] vArr2 = this.f27607f;
                     vArr2[i2] = vArr2[i4];
                 }
-                int i6 = this.f27402g;
+                int i6 = this.f27608g;
                 kArr[i6] = null;
-                this.f27401f[i6] = null;
+                this.f27607f[i6] = null;
                 return;
             }
             throw new IndexOutOfBoundsException(String.valueOf(i2));
@@ -331,12 +331,12 @@ public class b<K, V> implements Iterable<w.b<K, V>> {
     public void h(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2) == null) {
-            K[] kArr = (K[]) ((Object[]) c.b.b.q.p0.a.a(this.f27400e.getClass().getComponentType(), i2));
-            System.arraycopy(this.f27400e, 0, kArr, 0, Math.min(this.f27402g, kArr.length));
-            this.f27400e = kArr;
-            V[] vArr = (V[]) ((Object[]) c.b.b.q.p0.a.a(this.f27401f.getClass().getComponentType(), i2));
-            System.arraycopy(this.f27401f, 0, vArr, 0, Math.min(this.f27402g, vArr.length));
-            this.f27401f = vArr;
+            K[] kArr = (K[]) ((Object[]) c.b.b.q.p0.a.a(this.f27606e.getClass().getComponentType(), i2));
+            System.arraycopy(this.f27606e, 0, kArr, 0, Math.min(this.f27608g, kArr.length));
+            this.f27606e = kArr;
+            V[] vArr = (V[]) ((Object[]) c.b.b.q.p0.a.a(this.f27607f.getClass().getComponentType(), i2));
+            System.arraycopy(this.f27607f, 0, vArr, 0, Math.min(this.f27608g, vArr.length));
+            this.f27607f = vArr;
         }
     }
 
@@ -344,9 +344,9 @@ public class b<K, V> implements Iterable<w.b<K, V>> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            K[] kArr = this.f27400e;
-            V[] vArr = this.f27401f;
-            int i2 = this.f27402g;
+            K[] kArr = this.f27606e;
+            V[] vArr = this.f27607f;
+            int i2 = this.f27608g;
             int i3 = 0;
             for (int i4 = 0; i4 < i2; i4++) {
                 K k = kArr[i4];
@@ -366,27 +366,27 @@ public class b<K, V> implements Iterable<w.b<K, V>> {
     public void insert(int i2, K k, V v) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeILL(1048586, this, i2, k, v) == null) {
-            int i3 = this.f27402g;
+            int i3 = this.f27608g;
             if (i2 <= i3) {
-                if (i3 == this.f27400e.length) {
+                if (i3 == this.f27606e.length) {
                     h(Math.max(8, (int) (i3 * 1.75f)));
                 }
-                if (this.f27403h) {
-                    K[] kArr = this.f27400e;
+                if (this.f27609h) {
+                    K[] kArr = this.f27606e;
                     int i4 = i2 + 1;
-                    System.arraycopy(kArr, i2, kArr, i4, this.f27402g - i2);
-                    V[] vArr = this.f27401f;
-                    System.arraycopy(vArr, i2, vArr, i4, this.f27402g - i2);
+                    System.arraycopy(kArr, i2, kArr, i4, this.f27608g - i2);
+                    V[] vArr = this.f27607f;
+                    System.arraycopy(vArr, i2, vArr, i4, this.f27608g - i2);
                 } else {
-                    K[] kArr2 = this.f27400e;
-                    int i5 = this.f27402g;
+                    K[] kArr2 = this.f27606e;
+                    int i5 = this.f27608g;
                     kArr2[i5] = kArr2[i2];
-                    V[] vArr2 = this.f27401f;
+                    V[] vArr2 = this.f27607f;
                     vArr2[i5] = vArr2[i2];
                 }
-                this.f27402g++;
-                this.f27400e[i2] = k;
-                this.f27401f[i2] = v;
+                this.f27608g++;
+                this.f27606e[i2] = k;
+                this.f27607f[i2] = v;
                 return;
             }
             throw new IndexOutOfBoundsException(String.valueOf(i2));
@@ -404,20 +404,20 @@ public class b<K, V> implements Iterable<w.b<K, V>> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-            if (this.f27402g == 0) {
+            if (this.f27608g == 0) {
                 return StringUtil.EMPTY_ARRAY;
             }
-            K[] kArr = this.f27400e;
-            V[] vArr = this.f27401f;
+            K[] kArr = this.f27606e;
+            V[] vArr = this.f27607f;
             j0 j0Var = new j0(32);
             j0Var.a(ExtendedMessageFormat.START_FE);
             j0Var.m(kArr[0]);
-            j0Var.a(com.alipay.sdk.encrypt.a.f30893h);
+            j0Var.a(com.alipay.sdk.encrypt.a.f31099h);
             j0Var.m(vArr[0]);
-            for (int i2 = 1; i2 < this.f27402g; i2++) {
+            for (int i2 = 1; i2 < this.f27608g; i2++) {
                 j0Var.n(StringUtil.ARRAY_ELEMENT_SEPARATOR);
                 j0Var.m(kArr[i2]);
-                j0Var.a(com.alipay.sdk.encrypt.a.f30893h);
+                j0Var.a(com.alipay.sdk.encrypt.a.f31099h);
                 j0Var.m(vArr[i2]);
             }
             j0Var.a(ExtendedMessageFormat.END_FE);
@@ -441,9 +441,9 @@ public class b<K, V> implements Iterable<w.b<K, V>> {
                 return;
             }
         }
-        this.f27403h = z;
-        this.f27400e = (K[]) new Object[i2];
-        this.f27401f = (V[]) new Object[i2];
+        this.f27609h = z;
+        this.f27606e = (K[]) new Object[i2];
+        this.f27607f = (V[]) new Object[i2];
     }
 
     public b(boolean z, int i2, Class cls, Class cls2) {
@@ -461,9 +461,9 @@ public class b<K, V> implements Iterable<w.b<K, V>> {
                 return;
             }
         }
-        this.f27403h = z;
-        this.f27400e = (K[]) ((Object[]) c.b.b.q.p0.a.a(cls, i2));
-        this.f27401f = (V[]) ((Object[]) c.b.b.q.p0.a.a(cls2, i2));
+        this.f27609h = z;
+        this.f27606e = (K[]) ((Object[]) c.b.b.q.p0.a.a(cls, i2));
+        this.f27607f = (V[]) ((Object[]) c.b.b.q.p0.a.a(cls2, i2));
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */

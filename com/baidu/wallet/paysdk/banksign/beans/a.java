@@ -15,7 +15,7 @@ import com.dxmpay.wallet.core.beans.NetworkBean;
 import com.dxmpay.wallet.core.domain.DomainConfig;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes13.dex */
+/* loaded from: classes2.dex */
 public class a extends BaseBean<BindCardResponse> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

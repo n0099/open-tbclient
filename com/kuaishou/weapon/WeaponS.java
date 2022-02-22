@@ -29,7 +29,7 @@ public class WeaponS extends Service {
         public final /* synthetic */ Intent a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ WeaponS f55070b;
+        public final /* synthetic */ WeaponS f55237b;
 
         public a(WeaponS weaponS, Intent intent) {
             Interceptable interceptable = $ic;
@@ -46,7 +46,7 @@ public class WeaponS extends Service {
                     return;
                 }
             }
-            this.f55070b = weaponS;
+            this.f55237b = weaponS;
             this.a = intent;
         }
 
@@ -56,22 +56,22 @@ public class WeaponS extends Service {
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 String stringExtra = this.a.getStringExtra("from_plugin_apk");
                 if (TextUtils.isEmpty(stringExtra)) {
-                    this.f55070b.a();
-                } else if (this.f55070b.getPackageName().equals(stringExtra)) {
-                    WeaponS weaponS = this.f55070b;
+                    this.f55237b.a();
+                } else if (this.f55237b.getPackageName().equals(stringExtra)) {
+                    WeaponS weaponS = this.f55237b;
                     weaponS.a(weaponS.getClassLoader(), this.a);
-                    this.f55070b.a();
+                    this.f55237b.a();
                 } else {
                     o c2 = o.c();
                     if (c2 == null) {
-                        this.f55070b.a();
+                        this.f55237b.a();
                         return;
                     }
                     p a = c2.a(stringExtra);
                     if (a == null) {
-                        this.f55070b.a();
+                        this.f55237b.a();
                     } else {
-                        this.f55070b.a(a.f55243g, this.a);
+                        this.f55237b.a(a.f55410g, this.a);
                     }
                 }
             }

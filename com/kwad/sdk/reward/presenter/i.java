@@ -3,7 +3,7 @@ package com.kwad.sdk.reward.presenter;
 import com.kwad.sdk.core.response.model.AdInfo;
 import com.kwad.sdk.core.response.model.AdTemplate;
 import com.kwad.sdk.mvp.Presenter;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class i extends com.kwad.sdk.reward.g {
     public i(AdTemplate adTemplate) {
         AdInfo j2 = com.kwad.sdk.core.response.a.d.j(adTemplate);

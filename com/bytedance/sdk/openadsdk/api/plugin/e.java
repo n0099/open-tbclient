@@ -18,18 +18,18 @@ import java.util.concurrent.ScheduledExecutorService;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class e {
 
     /* renamed from: b  reason: collision with root package name */
-    public static SharedPreferences f53274b;
+    public static SharedPreferences f53441b;
     public static ScheduledExecutorService a = Executors.newSingleThreadScheduledExecutor(new g.a("tt_pangle_thread_pl_report"));
 
     /* renamed from: c  reason: collision with root package name */
-    public static volatile boolean f53275c = false;
+    public static volatile boolean f53442c = false;
 
     /* renamed from: d  reason: collision with root package name */
-    public static Map<String, String> f53276d = new HashMap();
+    public static Map<String, String> f53443d = new HashMap();
 
     public static void c(final String str, final JSONObject jSONObject) {
         if (jSONObject == null) {
@@ -42,7 +42,7 @@ public final class e {
             bundle.putString("event_name", str);
             bundle.putString("event_extra", jSONObject.toString());
             adManager.getExtra(Bundle.class, bundle);
-        } else if (f53275c) {
+        } else if (f53442c) {
         } else {
             a.execute(new Runnable() { // from class: com.bytedance.sdk.openadsdk.api.plugin.e.1
                 @Override // java.lang.Runnable
@@ -66,12 +66,12 @@ public final class e {
             jSONObject3.put("is_plugin", true);
             jSONObject3.put("event_extra", jSONObject.toString());
             jSONObject3.put("type", str);
-            jSONObject3.put("appid", f53276d.get("appid"));
+            jSONObject3.put("appid", f53443d.get("appid"));
             JSONObject jSONObject4 = new JSONObject();
             jSONObject4.put("model", Build.MODEL);
             jSONObject4.put("vendor", Build.MANUFACTURER);
-            jSONObject4.put("imei", f53276d.get("imei"));
-            jSONObject4.put("oaid", f53276d.get("oaid"));
+            jSONObject4.put("imei", f53443d.get("imei"));
+            jSONObject4.put("oaid", f53443d.get("oaid"));
             jSONObject3.put("device_info", jSONObject4);
             jSONArray.put(jSONObject3);
             jSONObject2.put("stats_list", jSONArray);
@@ -81,11 +81,11 @@ public final class e {
     }
 
     public static void a(Context context) {
-        f53274b = context.getSharedPreferences("tt_sdk_settings", 0);
+        f53441b = context.getSharedPreferences("tt_sdk_settings", 0);
     }
 
     public static String b(JSONObject jSONObject) {
-        SharedPreferences sharedPreferences = f53274b;
+        SharedPreferences sharedPreferences = f53441b;
         return com.bytedance.sdk.openadsdk.api.a.c.a().a(true, String.format("https://%s%s", sharedPreferences != null ? sharedPreferences.getString("url_alog", "pangolin.snssdk.com") : "pangolin.snssdk.com", "/api/ad/union/sdk/stats/batch/"), com.bytedance.sdk.openadsdk.api.b.b.a(jSONObject).toString().getBytes());
     }
 
@@ -118,18 +118,18 @@ public final class e {
     }
 
     public static void a() {
-        if (f53275c) {
+        if (f53442c) {
             return;
         }
         try {
-            f53275c = true;
+            f53442c = true;
             a.shutdown();
         } catch (Throwable unused) {
         }
     }
 
     public static void a(final Bundle bundle) {
-        if (f53275c) {
+        if (f53442c) {
             return;
         }
         a.execute(new Runnable() { // from class: com.bytedance.sdk.openadsdk.api.plugin.e.2
@@ -144,12 +144,12 @@ public final class e {
         if (adConfig == null) {
             return;
         }
-        f53276d.put("appid", adConfig.getAppId());
+        f53443d.put("appid", adConfig.getAppId());
         TTCustomController customController = adConfig.getCustomController();
         if (customController != null) {
             try {
-                f53276d.put("oaid", customController.getDevOaid());
-                f53276d.put("imei", customController.getDevImei());
+                f53443d.put("oaid", customController.getDevOaid());
+                f53443d.put("imei", customController.getDevImei());
             } catch (Exception unused) {
             }
         }

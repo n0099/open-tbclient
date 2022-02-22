@@ -4,7 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import c.a.t.a;
+import c.a.u.a;
 import com.baidu.android.imsdk.account.AccountManager;
 import com.baidu.android.imsdk.account.LoginManager;
 import com.baidu.android.imsdk.chatmessage.request.IMUnBindPushRequest;
@@ -26,7 +26,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class BindStateManager {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int DefaultValue = -1;
@@ -45,7 +45,7 @@ public class BindStateManager {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static final class BindState {
         public static final /* synthetic */ BindState[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -106,7 +106,7 @@ public class BindStateManager {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class MyTimeTask extends TimerTask {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -144,7 +144,7 @@ public class BindStateManager {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class SetUnBindRunable implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

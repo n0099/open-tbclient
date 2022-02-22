@@ -1,6 +1,7 @@
 package com.baidu.tbadk.core.atomData;
 
 import android.content.Context;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -10,12 +11,15 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
 /* loaded from: classes11.dex */
 public class ForumDetailActivityConfig extends IntentConfig {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String FORUM_ID = "forum_id";
     public static final String FROM_TYPE = "from_type";
     public transient /* synthetic */ FieldHolder $fh;
+    public List<Map<String, Object>> serviceAreaListData;
     public ArrayList<String> tabs;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
@@ -124,10 +128,23 @@ public class ForumDetailActivityConfig extends IntentConfig {
         return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) ? FromType.FRS.toString().equals(str) || FromType.FRS_GAME_INFO.toString().equals(str) || FromType.FRS_GAME_STRATEGY.toString().equals(str) || FromType.FRS_GAME_LIVE.toString().equals(str) : invokeL.booleanValue;
     }
 
+    public List<Map<String, Object>> getServiceAreaListData() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.serviceAreaListData : (List) invokeV.objValue;
+    }
+
     public void setForumTabs(ArrayList<String> arrayList) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, arrayList) == null) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, arrayList) == null) {
             this.tabs = arrayList;
+        }
+    }
+
+    public void setServiceAreaListData(List<Map<String, Object>> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) {
+            this.serviceAreaListData = list;
         }
     }
 }

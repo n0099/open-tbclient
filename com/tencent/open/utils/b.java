@@ -25,7 +25,7 @@ public final class b {
     public static final m a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final n f60629b;
+    public static final n f60796b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: com.tencent.open.utils.b$1  reason: invalid class name */
@@ -49,7 +49,7 @@ public final class b {
             }
         }
         a = new m(101010256L);
-        f60629b = new n(38651);
+        f60796b = new n(38651);
     }
 
     /* loaded from: classes4.dex */
@@ -59,7 +59,7 @@ public final class b {
         public Properties a;
 
         /* renamed from: b  reason: collision with root package name */
-        public byte[] f60630b;
+        public byte[] f60797b;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -83,10 +83,10 @@ public final class b {
                 return;
             }
             ByteBuffer wrap = ByteBuffer.wrap(bArr);
-            int length = b.f60629b.a().length;
+            int length = b.f60796b.a().length;
             byte[] bArr2 = new byte[length];
             wrap.get(bArr2);
-            if (b.f60629b.equals(new n(bArr2))) {
+            if (b.f60796b.equals(new n(bArr2))) {
                 if (bArr.length - length <= 2) {
                     return;
                 }
@@ -102,7 +102,7 @@ public final class b {
                 int length2 = ((bArr.length - length) - b2) - 2;
                 if (length2 > 0) {
                     byte[] bArr5 = new byte[length2];
-                    this.f60630b = bArr5;
+                    this.f60797b = bArr5;
                     wrap.get(bArr5);
                     return;
                 }
@@ -115,7 +115,7 @@ public final class b {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                return "ApkExternalInfo [p=" + this.a + ", otherData=" + Arrays.toString(this.f60630b) + PreferencesUtil.RIGHT_MOUNT;
+                return "ApkExternalInfo [p=" + this.a + ", otherData=" + Arrays.toString(this.f60797b) + PreferencesUtil.RIGHT_MOUNT;
             }
             return (String) invokeV.objValue;
         }

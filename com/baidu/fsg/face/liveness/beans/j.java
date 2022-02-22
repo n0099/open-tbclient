@@ -32,31 +32,31 @@ public class j extends l {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f34267b;
+    public String f34473b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f34268c;
+    public String f34474c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f34269d;
+    public String f34475d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f34270e;
+    public String f34476e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f34271f;
+    public String f34477f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f34272g;
+    public String f34478g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f34273h;
+    public String f34479h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f34274i;
+    public String f34480i;
 
     /* renamed from: j  reason: collision with root package name */
-    public String f34275j;
+    public String f34481j;
     public LivenessRecogDTO k;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -77,46 +77,46 @@ public class j extends l {
                 return;
             }
         }
-        this.f34270e = "1";
+        this.f34476e = "1";
         String zid2 = RimGlobalUtils.getZid2();
-        this.f34269d = zid2;
+        this.f34475d = zid2;
         if (TextUtils.isEmpty(zid2)) {
-            this.f34268c = RimGlobalUtils.getZid(context.getApplicationContext());
+            this.f34474c = RimGlobalUtils.getZid(context.getApplicationContext());
         }
     }
 
     public void a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            this.f34273h = str;
+            this.f34479h = str;
         }
     }
 
     public void b(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            this.f34274i = str;
+            this.f34480i = str;
         }
     }
 
     public void c(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            this.f34275j = str;
+            this.f34481j = str;
         }
     }
 
     public void d(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
-            this.f34272g = str;
+            this.f34478g = str;
         }
     }
 
     public void e(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
-            this.f34267b = str;
+            this.f34473b = str;
         }
     }
 
@@ -131,7 +131,7 @@ public class j extends l {
     public void f(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
-            this.f34271f = str;
+            this.f34477f = str;
         }
     }
 
@@ -170,29 +170,29 @@ public class j extends l {
                 }
                 arrayList.add(new RestNameValuePair(TableDefine.MessageColumns.COLUME_SERVICE_TYPE, this.k.serviceType));
                 arrayList.add(new RestNameValuePair("app", "android"));
-                arrayList.add(new RestNameValuePair("skey", this.f34273h));
-                arrayList.add(new RestNameValuePair("data", this.f34274i));
-                arrayList.add(new RestNameValuePair("deviceId", this.f34275j));
+                arrayList.add(new RestNameValuePair("skey", this.f34479h));
+                arrayList.add(new RestNameValuePair("data", this.f34480i));
+                arrayList.add(new RestNameValuePair("deviceId", this.f34481j));
             }
             String randomString = RandomUtils.getRandomString(4096);
-            arrayList.add(new RestNameValuePair("imgdigests", this.f34267b));
+            arrayList.add(new RestNameValuePair("imgdigests", this.f34473b));
             try {
                 arrayList.add(new RestNameValuePair("image", Base64Utils.encodeToString(SafeUtils.xor(this.a, randomString).getBytes("UTF-8"))));
             } catch (UnsupportedEncodingException e3) {
                 e3.printStackTrace();
             }
             arrayList.add(new RestNameValuePair("ik", RimArmor.getInstance().encryptProxy(randomString)));
-            if (!TextUtils.isEmpty(this.f34269d)) {
-                arrayList.add(new RestNameValuePair("zid2", this.f34269d));
-            } else if (!TextUtils.isEmpty(this.f34268c)) {
-                arrayList.add(new RestNameValuePair("zid", this.f34268c));
+            if (!TextUtils.isEmpty(this.f34475d)) {
+                arrayList.add(new RestNameValuePair("zid2", this.f34475d));
+            } else if (!TextUtils.isEmpty(this.f34474c)) {
+                arrayList.add(new RestNameValuePair("zid", this.f34474c));
             }
-            arrayList.add(new RestNameValuePair("last", this.f34270e));
-            if (!TextUtils.isEmpty(this.f34271f)) {
-                arrayList.add(new RestNameValuePair("callbackkey", this.f34271f));
+            arrayList.add(new RestNameValuePair("last", this.f34476e));
+            if (!TextUtils.isEmpty(this.f34477f)) {
+                arrayList.add(new RestNameValuePair("callbackkey", this.f34477f));
             }
-            if (!TextUtils.isEmpty(this.f34272g)) {
-                arrayList.add(new RestNameValuePair("need_confirm", this.f34272g));
+            if (!TextUtils.isEmpty(this.f34478g)) {
+                arrayList.add(new RestNameValuePair("need_confirm", this.f34478g));
             }
             return arrayList;
         }
@@ -246,7 +246,7 @@ public class j extends l {
     public void a(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
-            this.f34270e = z ? "1" : "0";
+            this.f34476e = z ? "1" : "0";
         }
     }
 

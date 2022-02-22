@@ -9,8 +9,8 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import c.a.d.f.p.m;
-import c.a.t0.v0.i.c.c;
-import c.a.t0.v0.i.d.a;
+import c.a.u0.v0.i.c.c;
+import c.a.u0.v0.i.d.a;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
@@ -30,22 +30,22 @@ public class HotUserRankFragment extends BaseFragment {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public View f42594e;
+    public View f42827e;
 
     /* renamed from: f  reason: collision with root package name */
-    public RankListViewController f42595f;
+    public RankListViewController f42828f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f42596g;
+    public String f42829g;
 
     /* renamed from: h  reason: collision with root package name */
-    public long f42597h;
+    public long f42830h;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f42598i;
+    public boolean f42831i;
 
     /* renamed from: j  reason: collision with root package name */
-    public c.a.t0.v0.i.d.a f42599j;
+    public c.a.u0.v0.i.d.a f42832j;
     public BdListView.p k;
     public a.b l;
 
@@ -55,7 +55,7 @@ public class HotUserRankFragment extends BaseFragment {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ HotUserRankFragment f42600e;
+        public final /* synthetic */ HotUserRankFragment f42833e;
 
         public a(HotUserRankFragment hotUserRankFragment) {
             Interceptable interceptable = $ic;
@@ -72,15 +72,15 @@ public class HotUserRankFragment extends BaseFragment {
                     return;
                 }
             }
-            this.f42600e = hotUserRankFragment;
+            this.f42833e = hotUserRankFragment;
         }
 
         @Override // com.baidu.adp.widget.ListView.BdListView.p
         public void onScrollToBottom() {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.f42600e.f42599j.j()) {
-                this.f42600e.p();
-                this.f42600e.f42595f.i();
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.f42833e.f42832j.j()) {
+                this.f42833e.p();
+                this.f42833e.f42828f.i();
             }
         }
     }
@@ -109,28 +109,28 @@ public class HotUserRankFragment extends BaseFragment {
             this.a = hotUserRankFragment;
         }
 
-        @Override // c.a.t0.v0.i.d.a.b
+        @Override // c.a.u0.v0.i.d.a.b
         public void a(c cVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, cVar) == null) {
                 if (this.a.isLoadingViewAttached()) {
                     HotUserRankFragment hotUserRankFragment = this.a;
-                    hotUserRankFragment.hideLoadingView(hotUserRankFragment.f42594e);
+                    hotUserRankFragment.hideLoadingView(hotUserRankFragment.f42827e);
                 }
                 if (cVar != null) {
-                    if (this.a.f42599j.f() == 2) {
-                        if (this.a.f42597h <= 0 && !TextUtils.isEmpty(this.a.f42596g)) {
+                    if (this.a.f42832j.f() == 2) {
+                        if (this.a.f42830h <= 0 && !TextUtils.isEmpty(this.a.f42829g)) {
                             if (cVar.a != null) {
-                                if (this.a.f42598i) {
-                                    cVar.a.a = String.format(this.a.getResources().getString(R.string.god_rank_category_name), this.a.f42596g);
+                                if (this.a.f42831i) {
+                                    cVar.a.a = String.format(this.a.getResources().getString(R.string.god_rank_category_name), this.a.f42829g);
                                 } else {
-                                    cVar.a.a = String.format(this.a.getResources().getString(R.string.hot_user_rank_category_name), this.a.f42596g);
+                                    cVar.a.a = String.format(this.a.getResources().getString(R.string.hot_user_rank_category_name), this.a.f42829g);
                                 }
                             }
                         } else {
                             cVar.a.a = this.a.getResources().getString(R.string.forum_hot_user_rank);
                         }
-                        this.a.f42595f.f(cVar.a, !m.isEmpty(this.a.f42596g));
+                        this.a.f42828f.f(cVar.a, !m.isEmpty(this.a.f42829g));
                         if (this.a.isResumed() || this.a.getBaseFragmentActivity() != null) {
                             CustomMessage customMessage = new CustomMessage(2921447);
                             customMessage.setTag(this.a.getBaseFragmentActivity().getUniqueId());
@@ -139,25 +139,25 @@ public class HotUserRankFragment extends BaseFragment {
                             MessageManager.getInstance().dispatchResponsedMessage(customResponsedMessage);
                         }
                     }
-                    if (this.a.f42599j.g() != null) {
-                        this.a.f42595f.h(this.a.f42599j.g().f24354b);
+                    if (this.a.f42832j.g() != null) {
+                        this.a.f42828f.h(this.a.f42832j.g().f24536b);
                     }
-                    if (this.a.f42599j.j()) {
+                    if (this.a.f42832j.j()) {
                         return;
                     }
-                    this.a.f42595f.j(this.a.f42596g);
+                    this.a.f42828f.j(this.a.f42829g);
                 }
             }
         }
 
-        @Override // c.a.t0.v0.i.d.a.b
+        @Override // c.a.u0.v0.i.d.a.b
         public void onError(int i2, String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, str) == null) {
                 HotUserRankFragment hotUserRankFragment = this.a;
-                hotUserRankFragment.hideLoadingView(hotUserRankFragment.f42594e);
+                hotUserRankFragment.hideLoadingView(hotUserRankFragment.f42827e);
                 HotUserRankFragment hotUserRankFragment2 = this.a;
-                hotUserRankFragment2.showNetRefreshView(hotUserRankFragment2.f42594e, str, false);
+                hotUserRankFragment2.showNetRefreshView(hotUserRankFragment2.f42827e, str, false);
             }
         }
     }
@@ -179,10 +179,10 @@ public class HotUserRankFragment extends BaseFragment {
         this.l = new b(this);
     }
 
-    public c.a.t0.v0.i.d.a getModel() {
+    public c.a.u0.v0.i.d.a getModel() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f42599j : (c.a.t0.v0.i.d.a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f42832j : (c.a.u0.v0.i.d.a) invokeV.objValue;
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
@@ -190,7 +190,7 @@ public class HotUserRankFragment extends BaseFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
             super.onChangeSkinType(i2);
-            this.f42595f.e(i2);
+            this.f42828f.e(i2);
         }
     }
 
@@ -199,8 +199,8 @@ public class HotUserRankFragment extends BaseFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bundle) == null) {
             super.onCreate(bundle);
-            c.a.t0.v0.i.d.a aVar = new c.a.t0.v0.i.d.a(getUniqueId());
-            this.f42599j = aVar;
+            c.a.u0.v0.i.d.a aVar = new c.a.u0.v0.i.d.a(getUniqueId());
+            this.f42832j = aVar;
             aVar.n(this.l);
         }
     }
@@ -211,18 +211,18 @@ public class HotUserRankFragment extends BaseFragment {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048579, this, layoutInflater, viewGroup, bundle)) == null) {
-            if (this.f42594e == null) {
+            if (this.f42827e == null) {
                 View inflate = layoutInflater.inflate(R.layout.fragment_hot_user_rank, (ViewGroup) null);
-                this.f42594e = inflate;
-                RankListViewController rankListViewController = new RankListViewController(inflate.findViewById(R.id.rank_list), this.f42596g, this.f42597h);
-                this.f42595f = rankListViewController;
+                this.f42827e = inflate;
+                RankListViewController rankListViewController = new RankListViewController(inflate.findViewById(R.id.rank_list), this.f42829g, this.f42830h);
+                this.f42828f = rankListViewController;
                 rankListViewController.g(this.k);
             }
-            if (this.f42599j.g() == null || ListUtils.isEmpty(this.f42599j.g().f24354b)) {
+            if (this.f42832j.g() == null || ListUtils.isEmpty(this.f42832j.g().f24536b)) {
                 p();
-                showLoadingView(this.f42594e);
+                showLoadingView(this.f42827e);
             }
-            return this.f42594e;
+            return this.f42827e;
         }
         return (View) invokeLLL.objValue;
     }
@@ -232,7 +232,7 @@ public class HotUserRankFragment extends BaseFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             super.onDestroy();
-            this.f42599j.k();
+            this.f42832j.k();
         }
     }
 
@@ -240,22 +240,22 @@ public class HotUserRankFragment extends BaseFragment {
     public void onNetRefreshButtonClicked() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            hideNetRefreshView(this.f42594e);
+            hideNetRefreshView(this.f42827e);
             p();
-            showLoadingView(this.f42594e);
+            showLoadingView(this.f42827e);
         }
     }
 
     public final void p() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            if (!TextUtils.isEmpty(this.f42596g)) {
-                this.f42599j.i(this.f42596g);
+            if (!TextUtils.isEmpty(this.f42829g)) {
+                this.f42832j.i(this.f42829g);
                 return;
             }
-            long j2 = this.f42597h;
+            long j2 = this.f42830h;
             if (j2 > 0) {
-                this.f42599j.h(j2);
+                this.f42832j.h(j2);
             }
         }
     }
@@ -263,21 +263,21 @@ public class HotUserRankFragment extends BaseFragment {
     public void setCategory(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
-            this.f42596g = str;
+            this.f42829g = str;
         }
     }
 
     public void setForumId(long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(InputDeviceCompat.SOURCE_TOUCHPAD, this, j2) == null) {
-            this.f42597h = j2;
+            this.f42830h = j2;
         }
     }
 
     public void setIsGod(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
-            this.f42598i = z;
+            this.f42831i = z;
         }
     }
 }

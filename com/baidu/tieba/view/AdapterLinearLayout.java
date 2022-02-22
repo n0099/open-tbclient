@@ -17,10 +17,10 @@ public class AdapterLinearLayout extends LinearLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Adapter f49019e;
+    public Adapter f49186e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final DataSetObserver f49020f;
+    public final DataSetObserver f49187f;
 
     /* loaded from: classes13.dex */
     public class a extends DataSetObserver {
@@ -49,14 +49,14 @@ public class AdapterLinearLayout extends LinearLayout {
         @Override // android.database.DataSetObserver
         public void onChanged() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.a.f49019e == null) {
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.a.f49186e == null) {
                 return;
             }
-            int count = this.a.f49019e.getCount();
+            int count = this.a.f49186e.getCount();
             int childCount = this.a.getChildCount() - count;
             for (int i2 = 0; i2 < count; i2++) {
                 View childAt = this.a.getChildAt(i2);
-                View view = this.a.f49019e.getView(i2, childAt, this.a);
+                View view = this.a.f49186e.getView(i2, childAt, this.a);
                 if (childAt == null && view != null) {
                     this.a.addView(view);
                 }
@@ -93,19 +93,19 @@ public class AdapterLinearLayout extends LinearLayout {
                 return;
             }
         }
-        this.f49020f = new a(this);
+        this.f49187f = new a(this);
     }
 
     public void setAdapter(Adapter adapter) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, adapter) == null) {
-            Adapter adapter2 = this.f49019e;
+            Adapter adapter2 = this.f49186e;
             if (adapter2 != null) {
-                adapter2.unregisterDataSetObserver(this.f49020f);
+                adapter2.unregisterDataSetObserver(this.f49187f);
             }
-            this.f49019e = adapter;
+            this.f49186e = adapter;
             if (adapter != null) {
-                adapter.registerDataSetObserver(this.f49020f);
+                adapter.registerDataSetObserver(this.f49187f);
             }
         }
     }
@@ -129,7 +129,7 @@ public class AdapterLinearLayout extends LinearLayout {
                 return;
             }
         }
-        this.f49020f = new a(this);
+        this.f49187f = new a(this);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -151,6 +151,6 @@ public class AdapterLinearLayout extends LinearLayout {
                 return;
             }
         }
-        this.f49020f = new a(this);
+        this.f49187f = new a(this);
     }
 }

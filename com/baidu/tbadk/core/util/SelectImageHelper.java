@@ -7,6 +7,7 @@ import android.graphics.Bitmap;
 import android.media.ExifInterface;
 import android.net.Uri;
 import androidx.core.view.InputDeviceCompat;
+import c.a.u0.a4.j;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.bdtask.model.response.TaskResponseData;
 import com.baidu.browser.sailor.feature.upload.BdUploadHandler;
@@ -14,7 +15,6 @@ import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.BaseFragmentActivity;
-import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -148,9 +148,9 @@ public class SelectImageHelper {
                     intent.putExtra("output", UtilHelper.getUriFromFile(CreateFile, intent, tbPageContext.getPageActivity()));
                     tbPageContext.getPageActivity().startActivityForResult(intent, w0.I5);
                 } else if (tbPageContext.getOrignalPage() instanceof BaseActivity) {
-                    ((BaseActivity) tbPageContext.getOrignalPage()).showToast(tbPageContext.getString(R.string.error_sd_error));
+                    ((BaseActivity) tbPageContext.getOrignalPage()).showToast(tbPageContext.getString(j.error_sd_error));
                 } else if (tbPageContext instanceof BaseFragmentActivity) {
-                    ((BaseFragmentActivity) tbPageContext.getOrignalPage()).showToast(tbPageContext.getString(R.string.error_sd_error));
+                    ((BaseFragmentActivity) tbPageContext.getOrignalPage()).showToast(tbPageContext.getString(j.error_sd_error));
                 }
             } catch (Exception e2) {
                 BdLog.e(e2.getMessage());
@@ -188,9 +188,9 @@ public class SelectImageHelper {
                     return;
                 }
                 if (tbPageContext.getOrignalPage() instanceof BaseActivity) {
-                    ((BaseActivity) tbPageContext.getOrignalPage()).showToast(tbPageContext.getString(R.string.error_sd_error));
+                    ((BaseActivity) tbPageContext.getOrignalPage()).showToast(tbPageContext.getString(j.error_sd_error));
                 } else if (tbPageContext instanceof BaseFragmentActivity) {
-                    ((BaseFragmentActivity) tbPageContext.getOrignalPage()).showToast(tbPageContext.getString(R.string.error_sd_error));
+                    ((BaseFragmentActivity) tbPageContext.getOrignalPage()).showToast(tbPageContext.getString(j.error_sd_error));
                 }
             } catch (Exception e2) {
                 BdLog.e(e2.getMessage());

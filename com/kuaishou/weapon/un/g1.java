@@ -30,7 +30,7 @@ public class g1 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65537, null, str, context) == null) {
             try {
-                String str2 = r0.a + r0.f55276d;
+                String str2 = r0.a + r0.f55443d;
                 String e2 = s0.e(context);
                 if (!TextUtils.isEmpty(e2)) {
                     str2 = str2 + "?" + e2;

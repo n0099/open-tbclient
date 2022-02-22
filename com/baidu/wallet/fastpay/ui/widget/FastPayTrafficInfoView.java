@@ -22,22 +22,22 @@ public class FastPayTrafficInfoView extends RelativeLayout {
     public TextView a;
 
     /* renamed from: b  reason: collision with root package name */
-    public TextView f51118b;
+    public TextView f51285b;
 
     /* renamed from: c  reason: collision with root package name */
-    public TextView f51119c;
+    public TextView f51286c;
 
     /* renamed from: d  reason: collision with root package name */
-    public TextView f51120d;
+    public TextView f51287d;
 
     /* renamed from: e  reason: collision with root package name */
-    public TextView f51121e;
+    public TextView f51288e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f51122f;
+    public TextView f51289f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f51123g;
+    public TextView f51290g;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public FastPayTrafficInfoView(Context context) {
@@ -64,13 +64,13 @@ public class FastPayTrafficInfoView extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65539, this) == null) {
             LayoutInflater.from(getContext()).inflate(ResUtils.layout(getContext(), "wallet_fp_traffic_info_item"), this);
-            this.f51123g = (TextView) findViewById(ResUtils.id(getContext(), "wallet_to_buy"));
+            this.f51290g = (TextView) findViewById(ResUtils.id(getContext(), "wallet_to_buy"));
             this.a = (TextView) findViewById(ResUtils.id(getContext(), "wallet_traffic_info_current_price"));
-            this.f51118b = (TextView) findViewById(ResUtils.id(getContext(), "wallet_traffic_info_formal_price"));
-            this.f51119c = (TextView) findViewById(ResUtils.id(getContext(), "wallet_traffic_info_available_area"));
-            this.f51120d = (TextView) findViewById(ResUtils.id(getContext(), "wallet_traffic_info_available_time"));
-            this.f51121e = (TextView) findViewById(ResUtils.id(getContext(), "wallet_traffic_info_discount_info"));
-            this.f51122f = (TextView) findViewById(ResUtils.id(getContext(), "wallet_traffic_info_hui_des"));
+            this.f51285b = (TextView) findViewById(ResUtils.id(getContext(), "wallet_traffic_info_formal_price"));
+            this.f51286c = (TextView) findViewById(ResUtils.id(getContext(), "wallet_traffic_info_available_area"));
+            this.f51287d = (TextView) findViewById(ResUtils.id(getContext(), "wallet_traffic_info_available_time"));
+            this.f51288e = (TextView) findViewById(ResUtils.id(getContext(), "wallet_traffic_info_discount_info"));
+            this.f51289f = (TextView) findViewById(ResUtils.id(getContext(), "wallet_traffic_info_hui_des"));
         }
     }
 
@@ -84,53 +84,53 @@ public class FastPayTrafficInfoView extends RelativeLayout {
 
     public void setDiscountInfo(String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) || this.f51121e == null || TextUtils.isEmpty(str)) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) || this.f51288e == null || TextUtils.isEmpty(str)) {
             return;
         }
-        this.f51121e.setVisibility(0);
-        this.f51121e.setText(str);
+        this.f51288e.setVisibility(0);
+        this.f51288e.setText(str);
     }
 
     public void setHuiDes(String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) || this.f51122f == null || TextUtils.isEmpty(str)) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) || this.f51289f == null || TextUtils.isEmpty(str)) {
             return;
         }
-        this.f51122f.setText(str);
-        this.f51122f.setVisibility(0);
+        this.f51289f.setText(str);
+        this.f51289f.setVisibility(0);
     }
 
     public void setOnBuyClickListener(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, onClickListener) == null) {
-            this.f51123g.setOnClickListener(onClickListener);
+            this.f51290g.setOnClickListener(onClickListener);
         }
     }
 
     public void setOriginalmalPrice(String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, str) == null) || this.f51118b == null || TextUtils.isEmpty(str)) {
+        if (!(interceptable == null || interceptable.invokeL(1048580, this, str) == null) || this.f51285b == null || TextUtils.isEmpty(str)) {
             return;
         }
-        this.f51118b.setText(str);
-        this.f51118b.getPaint().setFlags(17);
+        this.f51285b.setText(str);
+        this.f51285b.getPaint().setFlags(17);
     }
 
     public void setUsePeriod(String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048581, this, str) == null) || this.f51120d == null || TextUtils.isEmpty(str)) {
+        if (!(interceptable == null || interceptable.invokeL(1048581, this, str) == null) || this.f51287d == null || TextUtils.isEmpty(str)) {
             return;
         }
-        this.f51120d.setText(str);
+        this.f51287d.setText(str);
     }
 
     public void setUseProvince(String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048582, this, str) == null) || this.f51119c == null || TextUtils.isEmpty(str)) {
+        if (!(interceptable == null || interceptable.invokeL(1048582, this, str) == null) || this.f51286c == null || TextUtils.isEmpty(str)) {
             return;
         }
-        this.f51119c.setVisibility(0);
-        TextView textView = this.f51119c;
+        this.f51286c.setVisibility(0);
+        TextView textView = this.f51286c;
         textView.setText(str + "，");
     }
 

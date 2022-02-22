@@ -220,7 +220,7 @@ public final class PayUtils {
                         }
                         StringBuilder sb = new StringBuilder();
                         sb.append(name);
-                        sb.append(a.f30893h);
+                        sb.append(a.f31099h);
                         sb.append(value);
                         if (i2 != arrayList.size() - 1) {
                             sb.append(Typography.amp);
@@ -298,7 +298,7 @@ public final class PayUtils {
                         value = "";
                     }
                     sb.append(name);
-                    sb.append(a.f30893h);
+                    sb.append(a.f31099h);
                     sb.append(value);
                     sb.append(Typography.amp);
                 }

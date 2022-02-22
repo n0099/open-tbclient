@@ -15,7 +15,7 @@ import com.bytedance.pangle.PluginContext;
 import com.bytedance.pangle.Zeus;
 import com.bytedance.pangle.util.FieldUtils;
 @Keep
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class PluginFragmentActivityWrapper extends GenerateFragmentActivityWrapper {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

@@ -22,7 +22,7 @@ import com.baidu.wallet.lightapp.base.datamodel.LightAppShareModel;
 import com.baidu.wallet.lightapp.base.statistics.LightAppStatEvent;
 import java.util.Arrays;
 import java.util.Set;
-/* loaded from: classes13.dex */
+/* loaded from: classes2.dex */
 public class LightAppWrapper implements NoProguard, ILightappInvoker {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String LIGHT_APP_METHOD_IMPL_BY_APP = "method_implemented_by_app";
@@ -30,13 +30,13 @@ public class LightAppWrapper implements NoProguard, ILightappInvoker {
     public ILightAppListener a;
 
     /* renamed from: com.baidu.wallet.lightapp.base.LightAppWrapper$1  reason: invalid class name */
-    /* loaded from: classes13.dex */
+    /* loaded from: classes2.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes2.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public static LightAppWrapper a;

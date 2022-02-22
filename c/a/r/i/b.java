@@ -17,19 +17,19 @@ public final class b {
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String[] f5111b;
+    public String[] f5181b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f5112c;
+    public int f5182c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f5113d;
+    public String f5183d;
 
     /* renamed from: e  reason: collision with root package name */
-    public long f5114e;
+    public long f5184e;
 
     /* renamed from: f  reason: collision with root package name */
-    public long f5115f;
+    public long f5185f;
 
     public b(Context context, String str) {
         Interceptable interceptable = $ic;
@@ -49,13 +49,13 @@ public final class b {
         this.a = str;
         try {
             PackageInfo packageInfo = context.getPackageManager().getPackageInfo(str, 64);
-            this.f5113d = packageInfo.versionName;
-            this.f5112c = packageInfo.versionCode;
-            this.f5114e = packageInfo.firstInstallTime;
-            this.f5115f = packageInfo.lastUpdateTime;
-            this.f5111b = new String[packageInfo.signatures.length];
-            for (int i4 = 0; i4 < this.f5111b.length; i4++) {
-                this.f5111b[i4] = f.c(packageInfo.signatures[i4].toByteArray());
+            this.f5183d = packageInfo.versionName;
+            this.f5182c = packageInfo.versionCode;
+            this.f5184e = packageInfo.firstInstallTime;
+            this.f5185f = packageInfo.lastUpdateTime;
+            this.f5181b = new String[packageInfo.signatures.length];
+            for (int i4 = 0; i4 < this.f5181b.length; i4++) {
+                this.f5181b[i4] = f.c(packageInfo.signatures[i4].toByteArray());
             }
         } catch (Exception e2) {
             e2.printStackTrace();
@@ -66,7 +66,7 @@ public final class b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return "SappInfo{pkg='" + this.a + ExtendedMessageFormat.QUOTE + ", sigs=" + Arrays.toString(this.f5111b) + ", vc=" + this.f5112c + ", va=" + this.f5113d + ", installts=" + this.f5114e + ", lstupdatets=" + this.f5115f + ExtendedMessageFormat.END_FE;
+            return "SappInfo{pkg='" + this.a + ExtendedMessageFormat.QUOTE + ", sigs=" + Arrays.toString(this.f5181b) + ", vc=" + this.f5182c + ", va=" + this.f5183d + ", installts=" + this.f5184e + ", lstupdatets=" + this.f5185f + ExtendedMessageFormat.END_FE;
         }
         return (String) invokeV.objValue;
     }

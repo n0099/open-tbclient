@@ -78,14 +78,14 @@ public class g extends c {
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{context, Integer.valueOf(i2), str, str2, bArr, bArr2})) == null) {
             if (m.a(context, bArr, str2, bArr2)) {
                 String[] strArr = new String[2];
-                if (i2 == k.f32311b.b() || i2 == k.f32312c.b()) {
+                if (i2 == k.f32517b.b() || i2 == k.f32518c.b()) {
                     strArr[0] = new String(bArr2);
                     strArr[1] = null;
-                } else if (i2 == k.f32316g.b()) {
+                } else if (i2 == k.f32522g.b()) {
                     PublicMsg a = i.a(context, str2, str, bArr2);
                     strArr[0] = a.mDescription;
                     strArr[1] = a.mCustomContent;
-                } else if (i2 == k.f32318i.b()) {
+                } else if (i2 == k.f32524i.b()) {
                     strArr[0] = new String(bArr2);
                     JSONObject jSONObject = new JSONObject();
                     try {

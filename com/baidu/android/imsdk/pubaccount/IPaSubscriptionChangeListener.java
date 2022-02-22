@@ -2,7 +2,7 @@ package com.baidu.android.imsdk.pubaccount;
 
 import com.baidu.android.imsdk.IMListener;
 @Deprecated
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public interface IPaSubscriptionChangeListener extends IMListener {
     void onPaSubscriptionChangeResult(long j2, boolean z);
 }

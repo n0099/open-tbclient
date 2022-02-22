@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
 import j.a.a.e.m.d;
 import tv.athena.revenue.payui.view.dialog.CancelType;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class g implements j.a.a.e.q.g.c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

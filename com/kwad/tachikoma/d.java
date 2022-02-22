@@ -19,26 +19,26 @@ import com.kuaishou.tachikoma.api.app.IRenderListener;
 import com.kwad.sdk.R;
 import com.kwad.sdk.plugin.h;
 import com.tachikoma.core.layout.TKLayout;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class d extends FrameLayout implements h {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public a a;
 
     /* renamed from: b  reason: collision with root package name */
-    public TKLayout f58164b;
+    public TKLayout f58331b;
 
     /* renamed from: c  reason: collision with root package name */
-    public TKContext f58165c;
+    public TKContext f58332c;
 
     /* renamed from: d  reason: collision with root package name */
-    public TextView f58166d;
+    public TextView f58333d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f58167e;
+    public String f58334e;
 
     /* renamed from: f  reason: collision with root package name */
-    public IRenderListener f58168f;
+    public IRenderListener f58335f;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public d(Context context) {
@@ -58,7 +58,7 @@ public class d extends FrameLayout implements h {
                 return;
             }
         }
-        this.f58168f = new IRenderListener(this) { // from class: com.kwad.tachikoma.d.1
+        this.f58335f = new IRenderListener(this) { // from class: com.kwad.tachikoma.d.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ d a;
@@ -103,10 +103,10 @@ public class d extends FrameLayout implements h {
     private void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65538, this) == null) {
-            TKContext newTKJSContext = TachikomaApi.getInstance().newTKJSContext(this.f58164b);
-            this.f58165c = newTKJSContext;
-            this.a = new a(newTKJSContext, this.f58167e);
-            this.f58165c.buildJsBridge().addJavascriptInterface(this.a, "KwaiAd");
+            TKContext newTKJSContext = TachikomaApi.getInstance().newTKJSContext(this.f58331b);
+            this.f58332c = newTKJSContext;
+            this.a = new a(newTKJSContext, this.f58334e);
+            this.f58332c.buildJsBridge().addJavascriptInterface(this.a, "KwaiAd");
         }
     }
 
@@ -114,7 +114,7 @@ public class d extends FrameLayout implements h {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65539, this) == null) {
             LayoutInflater.from(getContext()).inflate(R.layout.ksad_tachkoma_view, this);
-            this.f58164b = (TKLayout) findViewById(R.id.ksad_tachikoma_layout);
+            this.f58331b = (TKLayout) findViewById(R.id.ksad_tachikoma_layout);
             b();
         }
     }
@@ -122,16 +122,16 @@ public class d extends FrameLayout implements h {
     /* JADX INFO: Access modifiers changed from: private */
     public void d() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) && com.kwad.sdk.b.f55485c.booleanValue()) {
-            if (this.f58166d == null) {
+        if ((interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) && com.kwad.sdk.b.f55652c.booleanValue()) {
+            if (this.f58333d == null) {
                 TextView textView = new TextView(getContext());
-                this.f58166d = textView;
+                this.f58333d = textView;
                 textView.setTextSize(12.0f);
-                this.f58166d.setTextColor(SupportMenu.CATEGORY_MASK);
-                addView(this.f58166d);
+                this.f58333d.setTextColor(SupportMenu.CATEGORY_MASK);
+                addView(this.f58333d);
             }
-            this.f58166d.setText("Tachikoma");
-            this.f58166d.setVisibility(0);
+            this.f58333d.setText("Tachikoma");
+            this.f58333d.setVisibility(0);
         }
     }
 
@@ -139,8 +139,8 @@ public class d extends FrameLayout implements h {
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f58165c.onDestroy();
-            this.f58165c = null;
+            this.f58332c.onDestroy();
+            this.f58332c = null;
         }
     }
 
@@ -156,10 +156,10 @@ public class d extends FrameLayout implements h {
     public void a(String str, String str2) {
         TKContext tKContext;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2) == null) || (tKContext = this.f58165c) == null) {
+        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2) == null) || (tKContext = this.f58332c) == null) {
             return;
         }
-        tKContext.evaluateScript(str, "jsURL", str2, this.f58168f);
+        tKContext.evaluateScript(str, "jsURL", str2, this.f58335f);
     }
 
     @Override // com.kwad.sdk.plugin.h
@@ -172,7 +172,7 @@ public class d extends FrameLayout implements h {
     public void setJsFileName(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            this.f58167e = str;
+            this.f58334e = str;
         }
     }
 }

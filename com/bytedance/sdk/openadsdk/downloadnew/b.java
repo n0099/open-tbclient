@@ -1,7 +1,7 @@
 package com.bytedance.sdk.openadsdk.downloadnew;
 
 import android.os.Bundle;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class b {
     public static Bundle a(int i2) {
         Bundle bundle = new Bundle();

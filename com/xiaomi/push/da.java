@@ -48,13 +48,13 @@ public class da {
     public boolean f220a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f61013b;
+    public int f61180b;
 
     /* renamed from: b  reason: collision with other field name */
     public String f221b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f61014c;
+    public String f61181c;
 
     static {
         InterceptResult invokeClinit;
@@ -85,7 +85,7 @@ public class da {
             }
         }
         this.f218a = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-        this.f61013b = 2097152;
+        this.f61180b = 2097152;
         this.f219a = new ArrayList<>();
     }
 
@@ -107,7 +107,7 @@ public class da {
                     int start = matcher.start();
                     String substring = str.substring(start, this.f221b.length() + start);
                     if (this.f220a) {
-                        if (substring.compareTo(this.f61014c) > 0) {
+                        if (substring.compareTo(this.f61181c) > 0) {
                             read = start;
                             z = true;
                             break;
@@ -126,7 +126,7 @@ public class da {
                     int i4 = read - i3;
                     this.f217a += i4;
                     bufferedWriter.write(cArr, i3, i4);
-                    if (z || this.f217a > this.f61013b) {
+                    if (z || this.f217a > this.f61180b) {
                         return;
                     }
                 }
@@ -148,7 +148,7 @@ public class da {
             try {
                 BufferedWriter bufferedWriter = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(file)));
                 try {
-                    bufferedWriter.write("model :" + Build.MODEL + "; os :" + Build.VERSION.INCREMENTAL + "; uid :" + com.xiaomi.push.service.bi.m676a() + "; lng :" + Locale.getDefault().toString() + "; sdk :43; andver :" + Build.VERSION.SDK_INT + StringUtils.LF);
+                    bufferedWriter.write("model :" + Build.MODEL + "; os :" + Build.VERSION.INCREMENTAL + "; uid :" + com.xiaomi.push.service.bi.m675a() + "; lng :" + Locale.getDefault().toString() + "; sdk :43; andver :" + Build.VERSION.SDK_INT + StringUtils.LF);
                     this.f217a = 0;
                     Iterator<File> it = this.f219a.iterator();
                     while (it.hasNext()) {
@@ -210,7 +210,7 @@ public class da {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public da m303a(File file) {
+    public da m302a(File file) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, file)) == null) {
@@ -234,7 +234,7 @@ public class da {
                 this.f221b = this.f218a.format(date);
                 format = this.f218a.format(date2);
             }
-            this.f61014c = format;
+            this.f61181c = format;
             return this;
         }
         return (da) invokeLL.objValue;
@@ -251,14 +251,14 @@ public class da {
                 if (!file2.exists()) {
                     file2 = context.getFilesDir();
                 }
-                m303a(new File(file2, "xmsf.log.1"));
+                m302a(new File(file2, "xmsf.log.1"));
                 file3 = new File(file2, "xmsf.log");
             } else {
                 file2 = new File(context.getExternalFilesDir(null) + a);
-                m303a(new File(file2, "log0.txt"));
+                m302a(new File(file2, "log0.txt"));
                 file3 = new File(file2, "log1.txt");
             }
-            m303a(file3);
+            m302a(file3);
             if (file2.isDirectory()) {
                 File file4 = new File(file, date.getTime() + "-" + date2.getTime() + ".zip");
                 if (file4.exists()) {
@@ -290,6 +290,6 @@ public class da {
         if (!(interceptable == null || interceptable.invokeI(1048579, this, i2) == null) || i2 == 0) {
             return;
         }
-        this.f61013b = i2;
+        this.f61180b = i2;
     }
 }

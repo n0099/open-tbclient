@@ -7,12 +7,12 @@ import android.os.SystemClock;
 import android.text.TextUtils;
 import com.bytedance.sdk.openadsdk.api.b.d;
 import com.bytedance.sdk.openadsdk.api.plugin.g;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class TTAdSdk {
     public static final String INITIALIZER_CLASS_NAME = "com.bytedance.sdk.openadsdk.core.AdSdkInitializerHolder";
     public static final TTInitializer a = new g();
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface InitCallback {
         void fail(int i2, String str);
 

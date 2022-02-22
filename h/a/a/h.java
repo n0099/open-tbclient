@@ -11,7 +11,7 @@ public final class h {
     public byte[] a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int[] f61716b;
+    public int[] f61883b;
 
     public h() {
         Interceptable interceptable = $ic;
@@ -31,7 +31,7 @@ public final class h {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(65537, null, hVar, i2) == null) {
             for (int i3 = 0; i3 < i2; i3++) {
-                int[] iArr = hVar.f61716b;
+                int[] iArr = hVar.f61883b;
                 byte[] bArr = hVar.a;
                 int i4 = i3 * 4;
                 iArr[i3] = ((bArr[i4 + 3] & 255) << 24) | (bArr[i4] & 255) | ((bArr[i4 + 1] & 255) << 8) | ((bArr[i4 + 2] & 255) << 16);
@@ -43,7 +43,7 @@ public final class h {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(65538, null, hVar, bArr, iArr) == null) {
             hVar.a = bArr;
-            hVar.f61716b = iArr;
+            hVar.f61883b = iArr;
         }
     }
 }

@@ -15,13 +15,13 @@ import java.net.InetSocketAddress;
 import java.net.Proxy;
 import java.util.List;
 import javax.annotation.Nullable;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public abstract class EventListener {
     public static /* synthetic */ Interceptable $ic;
     public static final EventListener NONE;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public interface Factory {
         EventListener create(Call call);
     }

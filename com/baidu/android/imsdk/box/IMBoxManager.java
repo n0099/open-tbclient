@@ -83,7 +83,7 @@ import java.util.Iterator;
 import java.util.List;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class IMBoxManager {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "IMBoxManager";
@@ -503,7 +503,7 @@ public final class IMBoxManager {
         return (interceptable == null || (invokeL = interceptable.invokeL(65592, null, context)) == null) ? PaManager.querySubscribedPaListSync(context) : (List) invokeL.objValue;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:33:0x008c  */
+    /* JADX WARN: Removed duplicated region for block: B:33:0x008b  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */

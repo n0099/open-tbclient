@@ -18,7 +18,7 @@ import com.bumptech.glide.load.engine.Resource;
 import com.bumptech.glide.load.engine.bitmap_recycle.BitmapPool;
 import com.bumptech.glide.load.engine.bitmap_recycle.BitmapPoolAdapter;
 import java.util.concurrent.locks.Lock;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class DrawableToBitmapConverter {
     public static /* synthetic */ Interceptable $ic = null;
     public static final BitmapPool NO_RECYCLE_BITMAP_POOL;

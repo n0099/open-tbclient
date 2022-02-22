@@ -8,7 +8,7 @@ import android.text.TextUtils;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import c.a.d.f.p.m;
-import c.a.s0.s.q.e2;
+import c.a.t0.s.r.e2;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
@@ -74,39 +74,39 @@ public class ShareItem {
     public String a0;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f40790b;
+    public boolean f41019b;
     public int b0;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f40791c;
+    public boolean f41020c;
     public WeakReference<Bitmap> c0;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f40792d;
+    public boolean f41021d;
     public Bundle d0;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f40793e;
+    public boolean f41022e;
     public boolean e0;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f40794f;
+    public boolean f41023f;
     public boolean f0;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f40795g;
+    public boolean f41024g;
     public boolean g0;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f40796h;
+    public boolean f41025h;
     public boolean h0;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f40797i;
+    public boolean f41026i;
     public boolean i0;
 
     /* renamed from: j  reason: collision with root package name */
-    public boolean f40798j;
+    public boolean f41027j;
     public int j0;
     public boolean k;
     public String k0;
@@ -171,15 +171,15 @@ public class ShareItem {
             }
         }
         this.a = false;
-        this.f40790b = false;
-        this.f40791c = false;
-        this.f40792d = false;
-        this.f40793e = false;
-        this.f40794f = false;
-        this.f40795g = false;
-        this.f40796h = false;
-        this.f40797i = false;
-        this.f40798j = false;
+        this.f41019b = false;
+        this.f41020c = false;
+        this.f41021d = false;
+        this.f41022e = false;
+        this.f41023f = false;
+        this.f41024g = false;
+        this.f41025h = false;
+        this.f41026i = false;
+        this.f41027j = false;
         this.k = false;
         this.l = false;
         this.m = false;
@@ -454,10 +454,10 @@ public class ShareItem {
                     }
                     forwardInfo.showText = e2Var.z1.d();
                     OriginalThreadInfo originalThreadInfo = e2Var.z1;
-                    forwardInfo.showPicUrl = originalThreadInfo.f40157c;
+                    forwardInfo.showPicUrl = originalThreadInfo.f40386c;
                     forwardInfo.showType = originalThreadInfo.a;
                     forwardInfo.originalBaijiahaoData = originalThreadInfo.p;
-                    forwardInfo.originalTid = originalThreadInfo.f40160f;
+                    forwardInfo.originalTid = originalThreadInfo.f40389f;
                     if (i2 == 1) {
                         if (postData != null && postData.N() != null) {
                             str = postData.N().toString();
@@ -486,7 +486,7 @@ public class ShareItem {
                     OriginalThreadInfo l = OriginalThreadInfo.l(e2Var);
                     if (l != null) {
                         forwardInfo.showText = l.d();
-                        forwardInfo.showPicUrl = l.f40157c;
+                        forwardInfo.showPicUrl = l.f40386c;
                         forwardInfo.showType = l.a;
                     }
                     forwardInfo.originalTid = e2Var.w1();

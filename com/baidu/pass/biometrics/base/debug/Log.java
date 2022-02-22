@@ -8,13 +8,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public final class Log {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String a = "SAPI_BIOMETRIC";
 
     /* renamed from: b  reason: collision with root package name */
-    public static boolean f37495b;
+    public static boolean f37724b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -86,7 +86,7 @@ public final class Log {
 
     public static void d(String str, Object... objArr) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65539, null, str, objArr) == null) && f37495b) {
+        if ((interceptable == null || interceptable.invokeLL(65539, null, str, objArr) == null) && f37724b) {
             a(str, objArr);
         }
     }
@@ -101,20 +101,20 @@ public final class Log {
     public static void enable(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(65544, null, z) == null) {
-            f37495b = z;
+            f37724b = z;
         }
     }
 
     public static void i(String str, Object... objArr) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65545, null, str, objArr) == null) && f37495b) {
+        if ((interceptable == null || interceptable.invokeLL(65545, null, str, objArr) == null) && f37724b) {
             a(str, objArr);
         }
     }
 
     public static void w(String str, Object... objArr) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65547, null, str, objArr) == null) && f37495b) {
+        if ((interceptable == null || interceptable.invokeLL(65547, null, str, objArr) == null) && f37724b) {
             a(str, objArr);
         }
     }
@@ -135,7 +135,7 @@ public final class Log {
 
     public static void e(String str, Object... objArr) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65542, null, str, objArr) == null) && f37495b) {
+        if ((interceptable == null || interceptable.invokeLL(65542, null, str, objArr) == null) && f37724b) {
             a(str, objArr);
         }
     }

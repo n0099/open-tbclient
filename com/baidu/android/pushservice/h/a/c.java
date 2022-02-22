@@ -103,10 +103,10 @@ public class c {
                     public final /* synthetic */ boolean a;
 
                     /* renamed from: b  reason: collision with root package name */
-                    public final /* synthetic */ Context f32198b;
+                    public final /* synthetic */ Context f32404b;
 
                     /* renamed from: c  reason: collision with root package name */
-                    public final /* synthetic */ a f32199c;
+                    public final /* synthetic */ a f32405c;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -124,8 +124,8 @@ public class c {
                             }
                         }
                         this.a = z;
-                        this.f32198b = context;
-                        this.f32199c = aVar;
+                        this.f32404b = context;
+                        this.f32405c = aVar;
                     }
 
                     @Override // com.baidu.android.pushservice.h.c
@@ -134,26 +134,26 @@ public class c {
                         if (!(interceptable2 == null || interceptable2.invokeIL(1048576, this, i2, str) == null) || this.a) {
                             return;
                         }
-                        PushSettings.m(this.f32198b);
+                        PushSettings.m(this.f32404b);
                         if (i2 == 0) {
-                            c.b(this.f32198b, this.f32199c);
+                            c.b(this.f32404b, this.f32405c);
                             int unused = c.a = 0;
                             return;
                         }
                         int i3 = 1;
                         if (c.a < 1) {
-                            c.b(this.f32198b, false);
+                            c.b(this.f32404b, false);
                             c.b();
                             return;
                         }
                         int unused2 = c.a = 0;
-                        int o = PushSettings.o(this.f32198b);
+                        int o = PushSettings.o(this.f32404b);
                         if (o >= 3) {
-                            c.b(this.f32198b, this.f32199c);
+                            c.b(this.f32404b, this.f32405c);
                         } else {
                             i3 = 1 + o;
                         }
-                        PushSettings.b(this.f32198b, i3);
+                        PushSettings.b(this.f32404b, i3);
                     }
                 });
             }

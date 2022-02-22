@@ -11,7 +11,7 @@ import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.view.View;
 import androidx.core.view.InputDeviceCompat;
-import c.a.t0.y1.o.k.b;
+import c.a.u0.z1.o.k.b;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -21,7 +21,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import tbclient.ThemeElement;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class LinearGradientView extends View {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int MODE_ALL = 1;
@@ -33,22 +33,22 @@ public class LinearGradientView extends View {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f41194e;
+    public int f41423e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f41195f;
+    public int f41424f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f41196g;
+    public int f41425g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f41197h;
+    public int f41426h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f41198i;
+    public int f41427i;
 
     /* renamed from: j  reason: collision with root package name */
-    public int f41199j;
+    public int f41428j;
     public int k;
     public LinearGradient l;
     public final Paint m;
@@ -77,7 +77,7 @@ public class LinearGradientView extends View {
                 return;
             }
         }
-        this.f41194e = 3;
+        this.f41423e = 3;
         this.m = new Paint();
         this.o = 0;
         this.s = 0;
@@ -130,19 +130,19 @@ public class LinearGradientView extends View {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             int skinType = TbadkCoreApplication.getInst().getSkinType();
-            int i2 = this.f41195f;
-            int i3 = this.f41196g;
+            int i2 = this.f41424f;
+            int i3 = this.f41425g;
             if (skinType == 4) {
-                i2 = this.f41199j;
+                i2 = this.f41428j;
                 i3 = this.k;
             } else if (skinType == 1) {
-                i2 = this.f41197h;
-                i3 = this.f41198i;
+                i2 = this.f41426h;
+                i3 = this.f41427i;
             }
             LinearGradient linearGradient = new LinearGradient(0.0f, 0.0f, getHeight(), getHeight(), new int[]{i2, i3}, (float[]) null, Shader.TileMode.CLAMP);
             this.l = linearGradient;
             this.m.setShader(linearGradient);
-            this.f41194e = skinType;
+            this.f41423e = skinType;
             return this.l;
         }
         return (LinearGradient) invokeV.objValue;
@@ -159,22 +159,22 @@ public class LinearGradientView extends View {
     public void changeSkinType(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
-            if (this.f41194e != i2) {
+            if (this.f41423e != i2) {
                 this.l = b();
                 invalidate();
             }
-            this.f41194e = i2;
+            this.f41423e = i2;
         }
     }
 
     public final void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.f41195f = b.b("#2BB8FF");
-            this.f41196g = b.b("#2BB8FF");
-            this.f41197h = b.b("#249BD6");
-            this.f41198i = b.b("#246CD6");
-            this.f41199j = b.b("#249BD6");
+            this.f41424f = b.b("#2BB8FF");
+            this.f41425g = b.b("#2BB8FF");
+            this.f41426h = b.b("#249BD6");
+            this.f41427i = b.b("#246CD6");
+            this.f41428j = b.b("#249BD6");
             this.k = b.b("#246CD6");
             this.l = b();
         }
@@ -185,11 +185,11 @@ public class LinearGradientView extends View {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
             ArrayList<Integer> arrayList = new ArrayList<>();
-            arrayList.add(Integer.valueOf(this.f41195f));
-            arrayList.add(Integer.valueOf(this.f41196g));
-            arrayList.add(Integer.valueOf(this.f41197h));
-            arrayList.add(Integer.valueOf(this.f41198i));
-            arrayList.add(Integer.valueOf(this.f41199j));
+            arrayList.add(Integer.valueOf(this.f41424f));
+            arrayList.add(Integer.valueOf(this.f41425g));
+            arrayList.add(Integer.valueOf(this.f41426h));
+            arrayList.add(Integer.valueOf(this.f41427i));
+            arrayList.add(Integer.valueOf(this.f41428j));
             arrayList.add(Integer.valueOf(this.k));
             return arrayList;
         }
@@ -242,11 +242,11 @@ public class LinearGradientView extends View {
     public void setGradientColor(int i2, int i3, int i4, int i5, int i6, int i7) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048586, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6), Integer.valueOf(i7)}) == null) {
-            this.f41195f = i2;
-            this.f41196g = i3;
-            this.f41197h = i4;
-            this.f41198i = i5;
-            this.f41199j = i6;
+            this.f41424f = i2;
+            this.f41425g = i3;
+            this.f41426h = i4;
+            this.f41427i = i5;
+            this.f41428j = i6;
             this.k = i7;
             this.l = b();
             invalidate();
@@ -279,7 +279,7 @@ public class LinearGradientView extends View {
                 return;
             }
         }
-        this.f41194e = 3;
+        this.f41423e = 3;
         this.m = new Paint();
         this.o = 0;
         this.s = 0;
@@ -290,14 +290,14 @@ public class LinearGradientView extends View {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048587, this, new Object[]{str, str2, str3, str4, str5, str6}) == null) {
             if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2) && !TextUtils.isEmpty(str3) && !TextUtils.isEmpty(str4)) {
-                if (this.f41195f == b.b(str) && this.f41196g == b.b(str2) && this.f41197h == b.b(str3) && this.f41198i == b.b(str4) && this.f41199j == b.b(str5) && this.k == b.b(str6)) {
+                if (this.f41424f == b.b(str) && this.f41425g == b.b(str2) && this.f41426h == b.b(str3) && this.f41427i == b.b(str4) && this.f41428j == b.b(str5) && this.k == b.b(str6)) {
                     return;
                 }
-                this.f41195f = b.b(str);
-                this.f41196g = b.b(str2);
-                this.f41197h = b.b(str3);
-                this.f41198i = b.b(str4);
-                this.f41199j = b.b(str5);
+                this.f41424f = b.b(str);
+                this.f41425g = b.b(str2);
+                this.f41426h = b.b(str3);
+                this.f41427i = b.b(str4);
+                this.f41428j = b.b(str5);
                 this.k = b.b(str6);
                 this.l = b();
                 invalidate();
@@ -326,7 +326,7 @@ public class LinearGradientView extends View {
                 return;
             }
         }
-        this.f41194e = 3;
+        this.f41423e = 3;
         this.m = new Paint();
         this.o = 0;
         this.s = 0;
@@ -365,11 +365,11 @@ public class LinearGradientView extends View {
                 b5 = b.b(themeElement3.common_color);
                 i3 = b7;
             }
-            this.f41195f = b2;
-            this.f41196g = b3;
-            this.f41197h = i2;
-            this.f41198i = b4;
-            this.f41199j = i3;
+            this.f41424f = b2;
+            this.f41425g = b3;
+            this.f41426h = i2;
+            this.f41427i = b4;
+            this.f41428j = i3;
             this.k = b5;
             this.l = b();
             invalidate();

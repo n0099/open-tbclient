@@ -29,7 +29,7 @@ import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.regex.Pattern;
 import org.apache.commons.lang3.StringUtils;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public final class DiskLruCache implements Closeable {
     public static final long ANY_SEQUENCE_NUMBER = -1;
     public static final String CLEAN = "CLEAN";
@@ -89,14 +89,14 @@ public final class DiskLruCache implements Closeable {
         }
     };
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public final class Editor {
         public boolean committed;
         public final Entry entry;
         public boolean hasErrors;
         public final boolean[] written;
 
-        /* loaded from: classes3.dex */
+        /* loaded from: classes4.dex */
         public class FaultHidingOutputStream extends FilterOutputStream {
             public FaultHidingOutputStream(OutputStream outputStream) {
                 super(outputStream);
@@ -237,7 +237,7 @@ public final class DiskLruCache implements Closeable {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public final class Entry {
         public Editor currentEditor;
         public final String key;
@@ -289,7 +289,7 @@ public final class DiskLruCache implements Closeable {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public final class Snapshot implements Closeable {
         public File[] files;
         public final InputStream[] ins;

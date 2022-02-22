@@ -22,7 +22,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class BIMRtcPbGenerator {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String SDK_NAME = "bim_rtc";

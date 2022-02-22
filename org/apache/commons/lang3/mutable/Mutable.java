@@ -1,5 +1,5 @@
 package org.apache.commons.lang3.mutable;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public interface Mutable<T> {
     T getValue();
 

@@ -21,6 +21,7 @@ import c.a.d.f.p.h;
 import c.a.d.f.p.m;
 import c.a.d.f.p.n;
 import c.a.d.f.p.o;
+import c.a.u0.a4.j;
 import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.util.StringUtils;
@@ -28,7 +29,6 @@ import com.baidu.storage.swankv.SwanKV;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.browser.newshare.ThreadAchievementShareDialogView;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -1537,15 +1537,15 @@ public class FileHelper {
         if (interceptable == null || (invokeV = interceptable.invokeV(65599, null)) == null) {
             String externalStorageState = Environment.getExternalStorageState();
             if (externalStorageState.equals("removed")) {
-                return TbadkCoreApplication.getInst().getApp().getString(R.string.error_no_sdcard);
+                return TbadkCoreApplication.getInst().getApp().getString(j.error_no_sdcard);
             }
             if (!externalStorageState.equals("unmounted") && !externalStorageState.equals("unmountable")) {
                 if (externalStorageState.equals(SwanKV.FLAVOR_SHARED)) {
-                    return TbadkCoreApplication.getInst().getApp().getString(R.string.error_sd_shared);
+                    return TbadkCoreApplication.getInst().getApp().getString(j.error_sd_shared);
                 }
-                return TbadkCoreApplication.getInst().getApp().getString(R.string.error_sd_error);
+                return TbadkCoreApplication.getInst().getApp().getString(j.error_sd_error);
             }
-            return TbadkCoreApplication.getInst().getApp().getString(R.string.error_no_sdcard);
+            return TbadkCoreApplication.getInst().getApp().getString(j.error_no_sdcard);
         }
         return (String) invokeV.objValue;
     }

@@ -18,38 +18,38 @@ public class g {
     public static volatile g a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final com.ss.android.download.api.a f59690b;
+    public final com.ss.android.download.api.a f59857b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final f f59691c;
+    public final f f59858c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final com.ss.android.downloadad.api.a f59692d;
+    public final com.ss.android.downloadad.api.a f59859d;
 
     /* renamed from: e  reason: collision with root package name */
-    public com.ss.android.downloadad.api.b f59693e;
+    public com.ss.android.downloadad.api.b f59860e;
 
     /* renamed from: f  reason: collision with root package name */
-    public long f59694f;
+    public long f59861f;
 
     /* JADX INFO: Access modifiers changed from: private */
     public f h() {
-        return this.f59691c;
+        return this.f59858c;
     }
 
     public void c() {
-        this.f59694f = System.currentTimeMillis();
+        this.f59861f = System.currentTimeMillis();
     }
 
     public com.ss.android.downloadad.api.a d() {
-        return this.f59692d;
+        return this.f59859d;
     }
 
     public com.ss.android.downloadad.api.b e() {
-        if (this.f59693e == null) {
-            this.f59693e = b.a();
+        if (this.f59860e == null) {
+            this.f59860e = b.a();
         }
-        return this.f59693e;
+        return this.f59860e;
     }
 
     public String f() {
@@ -61,11 +61,11 @@ public class g {
     }
 
     public g(Context context) {
-        this.f59691c = f.a();
-        this.f59690b = new e();
-        this.f59694f = System.currentTimeMillis();
+        this.f59858c = f.a();
+        this.f59857b = new e();
+        this.f59861f = System.currentTimeMillis();
         b(context);
-        this.f59692d = a.a();
+        this.f59859d = a.a();
     }
 
     public static g a(final Context context) {
@@ -98,7 +98,7 @@ public class g {
     }
 
     public com.ss.android.download.api.a a() {
-        return this.f59690b;
+        return this.f59857b;
     }
 
     @MainThread
@@ -142,7 +142,7 @@ public class g {
     }
 
     public long b() {
-        return this.f59694f;
+        return this.f59861f;
     }
 
     @MainThread

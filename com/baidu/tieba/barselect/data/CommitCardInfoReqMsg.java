@@ -1,8 +1,9 @@
 package com.baidu.tieba.barselect.data;
 
-import c.a.s0.d1.b0;
+import c.a.t0.d1.c0;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tbadk.switchs.SocketAddCommonParamSwitch;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -45,8 +46,8 @@ public class CommitCardInfoReqMsg extends NetMessage {
             DataReq.Builder builder = new DataReq.Builder();
             builder.card_type = Integer.valueOf(this.card_type);
             builder.image_info = this.image_info;
-            if (z) {
-                b0.a(builder, true);
+            if (z || SocketAddCommonParamSwitch.getIsOn()) {
+                c0.a(builder, true);
             }
             CommitCardInfoReqIdl.Builder builder2 = new CommitCardInfoReqIdl.Builder();
             builder2.data = builder.build(false);

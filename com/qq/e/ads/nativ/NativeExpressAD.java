@@ -50,16 +50,16 @@ public class NativeExpressAD extends NativeAbstractAD<NEADI> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: g  reason: collision with root package name */
-    public volatile int f59038g;
+    public volatile int f59205g;
 
     /* renamed from: h  reason: collision with root package name */
-    public volatile int f59039h;
+    public volatile int f59206h;
 
     /* renamed from: i  reason: collision with root package name */
-    public List<Integer> f59040i;
+    public List<Integer> f59207i;
 
     /* renamed from: j  reason: collision with root package name */
-    public VideoOption f59041j;
+    public VideoOption f59208j;
     public ADSize k;
     public NativeExpressADListener l;
     public LoadAdParams m;
@@ -71,7 +71,7 @@ public class NativeExpressAD extends NativeAbstractAD<NEADI> {
         public NativeExpressADListener a;
 
         /* renamed from: b  reason: collision with root package name */
-        public NativeExpressMediaListener f59042b;
+        public NativeExpressMediaListener f59209b;
 
         public ADListenerAdapter(NativeExpressADListener nativeExpressADListener) {
             Interceptable interceptable = $ic;
@@ -106,7 +106,7 @@ public class NativeExpressAD extends NativeAbstractAD<NEADI> {
                     return;
                 }
             }
-            this.f59042b = nativeExpressMediaListener;
+            this.f59209b = nativeExpressMediaListener;
         }
 
         @Override // com.qq.e.comm.adevent.ADListener
@@ -137,7 +137,7 @@ public class NativeExpressAD extends NativeAbstractAD<NEADI> {
                     case 18:
                     case 19:
                     case 21:
-                        NativeExpressAD.a(this.f59042b, aDEvent);
+                        NativeExpressAD.a(this.f59209b, aDEvent);
                         return;
                     case 20:
                     default:
@@ -185,7 +185,7 @@ public class NativeExpressAD extends NativeAbstractAD<NEADI> {
                 return;
             }
         }
-        this.f59040i = Collections.synchronizedList(new ArrayList());
+        this.f59207i = Collections.synchronizedList(new ArrayList());
         this.l = nativeExpressADListener;
         if (a(aDSize)) {
             return;
@@ -208,7 +208,7 @@ public class NativeExpressAD extends NativeAbstractAD<NEADI> {
                 return;
             }
         }
-        this.f59040i = Collections.synchronizedList(new ArrayList());
+        this.f59207i = Collections.synchronizedList(new ArrayList());
         this.l = nativeExpressADListener;
         if (a(aDSize)) {
             return;
@@ -338,14 +338,14 @@ public class NativeExpressAD extends NativeAbstractAD<NEADI> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(com.baidu.android.imsdk.internal.Constants.METHOD_SEND_USER_MSG, this, neadi) == null) {
             super.a((NativeExpressAD) neadi);
-            neadi.setMinVideoDuration(this.f59038g);
-            neadi.setMaxVideoDuration(this.f59039h);
-            VideoOption videoOption = this.f59041j;
+            neadi.setMinVideoDuration(this.f59205g);
+            neadi.setMaxVideoDuration(this.f59206h);
+            VideoOption videoOption = this.f59208j;
             if (videoOption != null) {
                 setVideoOption(videoOption);
             }
-            synchronized (this.f59040i) {
-                Iterator<Integer> it = this.f59040i.iterator();
+            synchronized (this.f59207i) {
+                Iterator<Integer> it = this.f59207i.iterator();
                 while (it.hasNext()) {
                     if (this.a != 0) {
                         if (this.m != null) {
@@ -397,8 +397,8 @@ public class NativeExpressAD extends NativeAbstractAD<NEADI> {
                 setAdParams(loadAdParams);
             }
             if (!b()) {
-                synchronized (this.f59040i) {
-                    this.f59040i.add(Integer.valueOf(i2));
+                synchronized (this.f59207i) {
+                    this.f59207i.add(Integer.valueOf(i2));
                 }
                 return;
             }
@@ -427,13 +427,13 @@ public class NativeExpressAD extends NativeAbstractAD<NEADI> {
     public void setMaxVideoDuration(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048585, this, i2) == null) {
-            this.f59039h = i2;
-            if (this.f59039h > 0 && this.f59038g > this.f59039h) {
+            this.f59206h = i2;
+            if (this.f59206h > 0 && this.f59205g > this.f59206h) {
                 GDTLogger.e("maxVideoDuration 设置值非法，不得小于minVideoDuration");
             }
             T t = this.a;
             if (t != 0) {
-                ((NEADI) t).setMaxVideoDuration(this.f59039h);
+                ((NEADI) t).setMaxVideoDuration(this.f59206h);
             }
         }
     }
@@ -441,13 +441,13 @@ public class NativeExpressAD extends NativeAbstractAD<NEADI> {
     public void setMinVideoDuration(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048586, this, i2) == null) {
-            this.f59038g = i2;
-            if (this.f59039h > 0 && this.f59038g > this.f59039h) {
+            this.f59205g = i2;
+            if (this.f59206h > 0 && this.f59205g > this.f59206h) {
                 GDTLogger.e("minVideoDuration 设置值非法，不得大于maxVideoDuration");
             }
             T t = this.a;
             if (t != 0) {
-                ((NEADI) t).setMinVideoDuration(this.f59038g);
+                ((NEADI) t).setMinVideoDuration(this.f59205g);
             }
         }
     }
@@ -455,7 +455,7 @@ public class NativeExpressAD extends NativeAbstractAD<NEADI> {
     public void setVideoOption(VideoOption videoOption) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048587, this, videoOption) == null) {
-            this.f59041j = videoOption;
+            this.f59208j = videoOption;
             T t = this.a;
             if (t == 0 || videoOption == null) {
                 return;

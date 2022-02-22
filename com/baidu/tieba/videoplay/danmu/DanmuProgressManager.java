@@ -22,10 +22,10 @@ public final class DanmuProgressManager {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final a f48867b;
+    public static final a f49034b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final Lazy<DanmuProgressManager> f48868c;
+    public static final Lazy<DanmuProgressManager> f49035c;
     public transient /* synthetic */ FieldHolder $fh;
     public HashMap<String, Long> a;
 
@@ -55,7 +55,7 @@ public final class DanmuProgressManager {
         public final DanmuProgressManager a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? (DanmuProgressManager) DanmuProgressManager.f48868c.getValue() : (DanmuProgressManager) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? (DanmuProgressManager) DanmuProgressManager.f49035c.getValue() : (DanmuProgressManager) invokeV.objValue;
         }
     }
 
@@ -72,8 +72,8 @@ public final class DanmuProgressManager {
                 return;
             }
         }
-        f48867b = new a(null);
-        f48868c = LazyKt__LazyJVMKt.lazy(LazyThreadSafetyMode.SYNCHRONIZED, (Function0) DanmuProgressManager$Companion$instance$2.INSTANCE);
+        f49034b = new a(null);
+        f49035c = LazyKt__LazyJVMKt.lazy(LazyThreadSafetyMode.SYNCHRONIZED, (Function0) DanmuProgressManager$Companion$instance$2.INSTANCE);
     }
 
     public DanmuProgressManager() {

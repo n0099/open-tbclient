@@ -15,7 +15,7 @@ public class o {
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f27076b;
+    public int f27282b;
 
     public o() {
         Interceptable interceptable = $ic;
@@ -31,7 +31,7 @@ public class o {
             }
         }
         this.a = 0;
-        this.f27076b = 0;
+        this.f27282b = 0;
     }
 
     public boolean a(MotionEvent motionEvent, z zVar) {
@@ -47,10 +47,10 @@ public class o {
                 if (action == 7) {
                     int x = (int) motionEvent.getX();
                     int y = (int) motionEvent.getY();
-                    if (x != this.a || y != this.f27076b) {
+                    if (x != this.a || y != this.f27282b) {
                         b(zVar, 4, x, y, 0, 0, nanoTime);
                         this.a = x;
-                        this.f27076b = y;
+                        this.f27282b = y;
                     }
                 } else if (action == 8) {
                     b(zVar, 3, 0, 0, (int) (-Math.signum(motionEvent.getAxisValue(10))), (int) (-Math.signum(motionEvent.getAxisValue(9))), nanoTime);
@@ -67,11 +67,11 @@ public class o {
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{zVar, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6), Long.valueOf(j2)}) == null) {
             z.f e2 = zVar.k.e();
             e2.a = j2;
-            e2.f27102c = i3;
-            e2.f27103d = i4;
-            e2.f27101b = i2;
-            e2.f27104e = i5;
-            e2.f27105f = i6;
+            e2.f27308c = i3;
+            e2.f27309d = i4;
+            e2.f27307b = i2;
+            e2.f27310e = i5;
+            e2.f27311f = i6;
             zVar.n.add(e2);
         }
     }

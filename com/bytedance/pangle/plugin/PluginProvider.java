@@ -5,7 +5,7 @@ import com.bytedance.pangle.download.PluginDownloadBean;
 import java.io.File;
 import java.util.List;
 @Keep
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public interface PluginProvider {
     File provideBuiltInPlugin();
 

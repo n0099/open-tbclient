@@ -19,7 +19,7 @@ public class b extends c {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: f  reason: collision with root package name */
-    public Rect f2778f;
+    public Rect f1858f;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public b(String str, String str2, DiskFileOperate.Action action) {
@@ -40,8 +40,8 @@ public class b extends c {
                 return;
             }
         }
-        this.f2778f = null;
-        this.f2778f = new Rect();
+        this.f1858f = null;
+        this.f1858f = new Rect();
     }
 
     /* JADX WARN: Removed duplicated region for block: B:32:0x007b A[RETURN] */
@@ -55,15 +55,15 @@ public class b extends c {
         ByteArrayInputStream byteArrayInputStream;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bArr)) == null) {
-            if (bArr != null && this.f2780c.b(bArr)) {
-                long j2 = this.f2780c.f2785b;
+            if (bArr != null && this.f1860c.b(bArr)) {
+                long j2 = this.f1860c.f1865b;
                 if (j2 == 0 || j2 >= System.currentTimeMillis()) {
-                    if (this.f2779b == null) {
+                    if (this.f1859b == null) {
                         BitmapFactory.Options options = new BitmapFactory.Options();
-                        this.f2779b = options;
+                        this.f1859b = options;
                         options.inDither = false;
                         int i2 = BdBaseApplication.getInst().getContext().getResources().getDisplayMetrics().densityDpi;
-                        BitmapFactory.Options options2 = this.f2779b;
+                        BitmapFactory.Options options2 = this.f1859b;
                         options2.inScreenDensity = i2;
                         options2.inTargetDensity = i2;
                         options2.inDensity = i2;
@@ -80,7 +80,7 @@ public class b extends c {
                         th = th;
                     }
                     try {
-                        this.a = BitmapFactory.decodeStream(byteArrayInputStream, this.f2778f, this.f2779b);
+                        this.a = BitmapFactory.decodeStream(byteArrayInputStream, this.f1858f, this.f1859b);
                         c.a.d.f.m.a.c(byteArrayInputStream);
                     } catch (Error e3) {
                         e = e3;
@@ -106,6 +106,6 @@ public class b extends c {
     public Rect g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f2778f : (Rect) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f1858f : (Rect) invokeV.objValue;
     }
 }

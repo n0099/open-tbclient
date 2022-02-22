@@ -7,8 +7,8 @@ import android.util.AttributeSet;
 import android.view.MotionEvent;
 import androidx.core.view.InputDeviceCompat;
 import androidx.core.view.MotionEventCompat;
-import c.a.c0.k0.i;
-import c.a.c0.k0.r;
+import c.a.d0.l0.i;
+import c.a.d0.l0.r;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -51,7 +51,7 @@ public class CustomSlidingPanelLayout extends SlidingPaneLayout {
             this.a = customSlidingPanelLayout;
         }
 
-        @Override // c.a.c0.k0.i
+        @Override // c.a.d0.l0.i
         public void onTranslucent(boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
@@ -87,7 +87,7 @@ public class CustomSlidingPanelLayout extends SlidingPaneLayout {
             this.a = customSlidingPanelLayout;
         }
 
-        @Override // c.a.c0.k0.i
+        @Override // c.a.d0.l0.i
         public void onTranslucent(boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {

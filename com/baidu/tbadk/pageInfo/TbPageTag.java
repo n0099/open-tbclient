@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.apache.commons.lang3.text.ExtendedMessageFormat;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class TbPageTag implements Parcelable {
     public static /* synthetic */ Interceptable $ic;
     public static final Parcelable.Creator<TbPageTag> CREATOR;
@@ -22,7 +22,7 @@ public class TbPageTag implements Parcelable {
     public int tabId;
     public int tabType;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public static class a implements Parcelable.Creator<TbPageTag> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

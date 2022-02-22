@@ -17,7 +17,7 @@ public class LivenessABTestUtil {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public ABTestUtils f34348b;
+    public ABTestUtils f34554b;
 
     public LivenessABTestUtil() {
         Interceptable interceptable = $ic;
@@ -62,7 +62,7 @@ public class LivenessABTestUtil {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            ABTestUtils aBTestUtils = this.f34348b;
+            ABTestUtils aBTestUtils = this.f34554b;
             if (aBTestUtils != null) {
                 return aBTestUtils.getABTestStatistics("1", ABTestConstant.LIVENESS_BG_STYLE_EXP_KEY_LIVENESS_BG_STYLE, "0");
             }
@@ -75,7 +75,7 @@ public class LivenessABTestUtil {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            ABTestUtils aBTestUtils = this.f34348b;
+            ABTestUtils aBTestUtils = this.f34554b;
             if (aBTestUtils != null) {
                 return "1".equals(aBTestUtils.getABTestValueString("1", ABTestConstant.LIVENESS_BG_STYLE_EXP_KEY_LIVENESS_BG_STYLE, "0"));
             }
@@ -99,6 +99,6 @@ public class LivenessABTestUtil {
                 return;
             }
         }
-        this.f34348b = new ABTestUtils(context);
+        this.f34554b = new ABTestUtils(context);
     }
 }

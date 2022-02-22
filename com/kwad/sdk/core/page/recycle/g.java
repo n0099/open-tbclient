@@ -5,7 +5,7 @@ import android.util.AttributeSet;
 import android.view.View;
 import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.RecyclerView;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class g extends RecyclerView {
     public boolean a;
 

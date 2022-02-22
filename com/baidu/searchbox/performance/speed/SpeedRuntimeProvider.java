@@ -2,7 +2,7 @@ package com.baidu.searchbox.performance.speed;
 
 import android.app.Activity;
 import androidx.core.view.InputDeviceCompat;
-import c.a.k0.b.b.a;
+import c.a.l0.b.b.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pyramid.runtime.service.ServiceNotFoundException;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -38,7 +38,7 @@ public class SpeedRuntimeProvider extends a<ISpeedContext> {
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX WARN: Can't rename method to resolve collision */
-    @Override // c.a.k0.b.b.a
+    @Override // c.a.l0.b.b.a
     public ISpeedContext createService() throws ServiceNotFoundException {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

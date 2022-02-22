@@ -1,8 +1,8 @@
 package com.baidu.searchbox.task.sync.privacy;
 
-import c.a.c0.h.b;
+import c.a.d0.h.b;
 import c.a.r.g.a.a;
-import c.a.v0.c0;
+import c.a.w0.c0;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.common.config.AppIdentityManager;
 import com.baidu.searchbox.cloudcontrol.CloudControlManager;
@@ -45,7 +45,7 @@ public class InitSDKWithPrivacyTask extends LaunchTask {
     private void initAxeSdk() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(65538, this) == null) && PermissionUtil.isAgreePrivacyPolicy()) {
-            a.C0257a.c(TbadkCoreApplication.getInst()).b().t();
+            a.C0262a.c(TbadkCoreApplication.getInst()).b().t();
         }
     }
 
@@ -53,7 +53,7 @@ public class InitSDKWithPrivacyTask extends LaunchTask {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(65539, this) == null) && PermissionUtil.isAgreePrivacyPolicy()) {
             AppIdentityManager.getInstance().setAppName("tieba");
-            if (c.a.k0.b.a.a.g()) {
+            if (c.a.l0.b.a.a.g()) {
                 c0.a();
                 CloudControlManager.getInstance().requestCloudControl("0");
             }

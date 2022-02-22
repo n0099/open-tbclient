@@ -11,7 +11,7 @@ import com.xiaomi.mipush.sdk.MiPushClient;
 import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
 import com.yy.mobile.framework.revenuesdk.payservice.impl.H5PayConstant;
 import tv.athena.revenue.payui.view.AbsPayMessageReceiver;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class k {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

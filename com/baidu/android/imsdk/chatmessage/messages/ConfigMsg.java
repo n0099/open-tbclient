@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class ConfigMsg extends NormalMsg {
     public static /* synthetic */ Interceptable $ic;
     public static final Parcelable.Creator<ConfigMsg> CREATOR;

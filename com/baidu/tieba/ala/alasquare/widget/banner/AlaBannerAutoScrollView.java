@@ -30,27 +30,27 @@ public class AlaBannerAutoScrollView<T> extends FrameLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f42044e;
+    public Context f42277e;
 
     /* renamed from: f  reason: collision with root package name */
-    public LinearLayout f42045f;
+    public LinearLayout f42278f;
 
     /* renamed from: g  reason: collision with root package name */
-    public RecyclerView f42046g;
+    public RecyclerView f42279g;
 
     /* renamed from: h  reason: collision with root package name */
-    public AlaBannerRecyclerAdapter f42047h;
+    public AlaBannerRecyclerAdapter f42280h;
 
     /* renamed from: i  reason: collision with root package name */
-    public PagerSnapHelper f42048i;
+    public PagerSnapHelper f42281i;
 
     /* renamed from: j  reason: collision with root package name */
-    public int f42049j;
+    public int f42282j;
     public long k;
     public boolean l;
-    public c.a.t0.a0.f.i.h.c m;
-    public c.a.t0.a0.f.i.h.b n;
-    public c.a.t0.a0.f.i.h.a o;
+    public c.a.u0.a0.f.i.h.c m;
+    public c.a.u0.a0.f.i.h.b n;
+    public c.a.u0.a0.f.i.h.a o;
     public Runnable p;
     public RecyclerView.OnScrollListener q;
 
@@ -60,7 +60,7 @@ public class AlaBannerAutoScrollView<T> extends FrameLayout {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ AlaBannerAutoScrollView f42050e;
+        public final /* synthetic */ AlaBannerAutoScrollView f42283e;
 
         public a(AlaBannerAutoScrollView alaBannerAutoScrollView) {
             Interceptable interceptable = $ic;
@@ -77,7 +77,7 @@ public class AlaBannerAutoScrollView<T> extends FrameLayout {
                     return;
                 }
             }
-            this.f42050e = alaBannerAutoScrollView;
+            this.f42283e = alaBannerAutoScrollView;
         }
 
         @Override // android.view.View.OnTouchListener
@@ -87,16 +87,16 @@ public class AlaBannerAutoScrollView<T> extends FrameLayout {
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, view, motionEvent)) == null) {
                 int action = motionEvent.getAction();
                 if (action == 0) {
-                    this.f42050e.s();
+                    this.f42283e.s();
                     return false;
                 } else if (action == 1) {
-                    this.f42050e.r();
+                    this.f42283e.r();
                     return false;
                 } else if (action != 2) {
-                    this.f42050e.r();
+                    this.f42283e.r();
                     return false;
                 } else {
-                    this.f42050e.s();
+                    this.f42283e.s();
                     return false;
                 }
             }
@@ -110,7 +110,7 @@ public class AlaBannerAutoScrollView<T> extends FrameLayout {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ AlaBannerAutoScrollView f42051e;
+        public final /* synthetic */ AlaBannerAutoScrollView f42284e;
 
         public b(AlaBannerAutoScrollView alaBannerAutoScrollView) {
             Interceptable interceptable = $ic;
@@ -127,27 +127,27 @@ public class AlaBannerAutoScrollView<T> extends FrameLayout {
                     return;
                 }
             }
-            this.f42051e = alaBannerAutoScrollView;
+            this.f42284e = alaBannerAutoScrollView;
         }
 
         @Override // android.view.ViewTreeObserver.OnGlobalLayoutListener
         public void onGlobalLayout() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f42051e.f42046g.getViewTreeObserver().removeGlobalOnLayoutListener(this);
-                this.f42051e.p(0);
+                this.f42284e.f42279g.getViewTreeObserver().removeGlobalOnLayoutListener(this);
+                this.f42284e.p(0);
             }
         }
     }
 
     /* loaded from: classes12.dex */
-    public class c implements c.a.t0.a0.f.i.h.a {
+    public class c implements c.a.u0.a0.f.i.h.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ AlaBannerAutoScrollView a;
 
         /* loaded from: classes12.dex */
-        public class a extends AlaBannerViewHolder<c.a.t0.a0.f.g.c.b> {
+        public class a extends AlaBannerViewHolder<c.a.u0.a0.f.g.c.b> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public TbImageView a;
@@ -175,12 +175,12 @@ public class AlaBannerAutoScrollView<T> extends FrameLayout {
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tieba.ala.alasquare.widget.banner.AlaBannerViewHolder
             /* renamed from: a */
-            public void bindData(int i2, c.a.t0.a0.f.g.c.b bVar) {
+            public void bindData(int i2, c.a.u0.a0.f.g.c.b bVar) {
                 Interceptable interceptable = $ic;
-                if (!(interceptable == null || interceptable.invokeIL(1048576, this, i2, bVar) == null) || bVar == null || this.a == null || StringUtils.isNull(bVar.f14747f)) {
+                if (!(interceptable == null || interceptable.invokeIL(1048576, this, i2, bVar) == null) || bVar == null || this.a == null || StringUtils.isNull(bVar.f15021f)) {
                     return;
                 }
-                this.a.startLoad(bVar.f14747f, 10, false);
+                this.a.startLoad(bVar.f15021f, 10, false);
             }
 
             @Override // com.baidu.tieba.ala.alasquare.widget.banner.AlaBannerViewHolder
@@ -217,11 +217,11 @@ public class AlaBannerAutoScrollView<T> extends FrameLayout {
             this.a = alaBannerAutoScrollView;
         }
 
-        @Override // c.a.t0.a0.f.i.h.a
+        @Override // c.a.u0.a0.f.i.h.a
         public AlaBannerViewHolder a(ViewGroup viewGroup, int i2) {
             InterceptResult invokeLI;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, viewGroup, i2)) == null) ? new a(this, LayoutInflater.from(this.a.f42044e).inflate(R.layout.special_bar_recommend_activity, viewGroup, false)) : (AlaBannerViewHolder) invokeLI.objValue;
+            return (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, viewGroup, i2)) == null) ? new a(this, LayoutInflater.from(this.a.f42277e).inflate(R.layout.special_bar_recommend_activity, viewGroup, false)) : (AlaBannerViewHolder) invokeLI.objValue;
         }
     }
 
@@ -231,7 +231,7 @@ public class AlaBannerAutoScrollView<T> extends FrameLayout {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ AlaBannerAutoScrollView f42052e;
+        public final /* synthetic */ AlaBannerAutoScrollView f42285e;
 
         public d(AlaBannerAutoScrollView alaBannerAutoScrollView) {
             Interceptable interceptable = $ic;
@@ -248,7 +248,7 @@ public class AlaBannerAutoScrollView<T> extends FrameLayout {
                     return;
                 }
             }
-            this.f42052e = alaBannerAutoScrollView;
+            this.f42285e = alaBannerAutoScrollView;
         }
 
         @Override // java.lang.Runnable
@@ -256,11 +256,11 @@ public class AlaBannerAutoScrollView<T> extends FrameLayout {
             int currentItem;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (this.f42052e.l && (currentItem = this.f42052e.getCurrentItem()) != -1) {
-                    this.f42052e.q(currentItem + 1, true);
+                if (this.f42285e.l && (currentItem = this.f42285e.getCurrentItem()) != -1) {
+                    this.f42285e.q(currentItem + 1, true);
                 }
-                AlaBannerAutoScrollView alaBannerAutoScrollView = this.f42052e;
-                alaBannerAutoScrollView.postDelayed(alaBannerAutoScrollView.p, this.f42052e.k);
+                AlaBannerAutoScrollView alaBannerAutoScrollView = this.f42285e;
+                alaBannerAutoScrollView.postDelayed(alaBannerAutoScrollView.p, this.f42285e.k);
             }
         }
     }
@@ -295,7 +295,7 @@ public class AlaBannerAutoScrollView<T> extends FrameLayout {
             if (interceptable == null || interceptable.invokeLI(1048576, this, recyclerView, i2) == null) {
                 super.onScrollStateChanged(recyclerView, i2);
                 int currentItem = this.a.getCurrentItem();
-                int realItemCount = this.a.f42047h.getRealItemCount();
+                int realItemCount = this.a.f42280h.getRealItemCount();
                 AlaBannerAutoScrollView alaBannerAutoScrollView = this.a;
                 if (realItemCount != 0) {
                     currentItem %= realItemCount;
@@ -337,8 +337,8 @@ public class AlaBannerAutoScrollView<T> extends FrameLayout {
                 return;
             }
         }
-        this.f42048i = new PagerSnapHelper();
-        this.f42049j = -1;
+        this.f42281i = new PagerSnapHelper();
+        this.f42282j = -1;
         this.k = 2000L;
         this.l = false;
         this.o = new c(this);
@@ -352,17 +352,17 @@ public class AlaBannerAutoScrollView<T> extends FrameLayout {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65546, this)) == null) {
-            View findSnapView = this.f42048i.findSnapView(this.f42046g.getLayoutManager());
+            View findSnapView = this.f42281i.findSnapView(this.f42279g.getLayoutManager());
             if (findSnapView != null) {
-                int position = this.f42046g.getLayoutManager().getPosition(findSnapView);
-                int realItemCount = this.f42047h.getRealItemCount();
+                int position = this.f42279g.getLayoutManager().getPosition(findSnapView);
+                int realItemCount = this.f42280h.getRealItemCount();
                 if (position < realItemCount) {
                     int i2 = position + realItemCount;
-                    this.f42046g.getLayoutManager().scrollToPosition(i2);
+                    this.f42279g.getLayoutManager().scrollToPosition(i2);
                     return i2;
                 } else if (position >= realItemCount * 2) {
                     int i3 = position - realItemCount;
-                    this.f42046g.getLayoutManager().scrollToPosition(i3);
+                    this.f42279g.getLayoutManager().scrollToPosition(i3);
                     return i3;
                 } else {
                     return position;
@@ -380,72 +380,72 @@ public class AlaBannerAutoScrollView<T> extends FrameLayout {
         }
     }
 
-    public void bindActivityData(List<T> list, c.a.t0.a0.f.i.h.a aVar) {
+    public void bindActivityData(List<T> list, c.a.u0.a0.f.i.h.a aVar) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeLL(1048576, this, list, aVar) == null) || ListUtils.isEmpty(list)) {
             return;
         }
         s();
-        if (this.f42049j != ListUtils.getCount(list)) {
+        if (this.f42282j != ListUtils.getCount(list)) {
             int count = ListUtils.getCount(list);
-            this.f42049j = count;
+            this.f42282j = count;
             if (count == 1) {
                 this.l = false;
             } else {
                 this.l = true;
             }
-            o(this.f42049j);
+            o(this.f42282j);
         }
-        this.f42047h.setData(list);
-        this.f42047h.notifyDataSetChanged();
+        this.f42280h.setData(list);
+        this.f42280h.notifyDataSetChanged();
         r();
     }
 
     public final void n(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
-            this.f42044e = context;
+            this.f42277e = context;
             LayoutInflater.from(context).inflate(R.layout.ala_banner_auto_scroll_view, (ViewGroup) this, true);
-            this.f42045f = (LinearLayout) findViewById(R.id.dotLayout);
-            this.f42046g = (RecyclerView) findViewById(R.id.list_view);
-            this.f42046g.setLayoutManager(new LinearLayoutManager(context, 0, false));
-            this.f42046g.setOnTouchListener(new a(this));
+            this.f42278f = (LinearLayout) findViewById(R.id.dotLayout);
+            this.f42279g = (RecyclerView) findViewById(R.id.list_view);
+            this.f42279g.setLayoutManager(new LinearLayoutManager(context, 0, false));
+            this.f42279g.setOnTouchListener(new a(this));
             AlaBannerRecyclerAdapter alaBannerRecyclerAdapter = new AlaBannerRecyclerAdapter(context, this.o, false);
-            this.f42047h = alaBannerRecyclerAdapter;
-            this.f42046g.setAdapter(alaBannerRecyclerAdapter);
-            this.f42046g.addOnScrollListener(this.q);
-            this.f42046g.getViewTreeObserver().addOnGlobalLayoutListener(new b(this));
-            this.f42048i.attachToRecyclerView(this.f42046g);
+            this.f42280h = alaBannerRecyclerAdapter;
+            this.f42279g.setAdapter(alaBannerRecyclerAdapter);
+            this.f42279g.addOnScrollListener(this.q);
+            this.f42279g.getViewTreeObserver().addOnGlobalLayoutListener(new b(this));
+            this.f42281i.attachToRecyclerView(this.f42279g);
         }
     }
 
     public final void o(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
-            if (this.f42045f.getChildCount() != this.f42049j) {
-                this.f42045f.removeAllViews();
-                if (this.f42049j == 1) {
-                    this.f42045f.setVisibility(8);
+            if (this.f42278f.getChildCount() != this.f42282j) {
+                this.f42278f.removeAllViews();
+                if (this.f42282j == 1) {
+                    this.f42278f.setVisibility(8);
                 } else {
-                    this.f42045f.setVisibility(0);
-                    int dimensionPixelSize = this.f42044e.getResources().getDimensionPixelSize(R.dimen.ds12);
-                    int dimensionPixelSize2 = this.f42044e.getResources().getDimensionPixelSize(R.dimen.ds20);
-                    for (int i3 = 0; i3 < this.f42049j; i3++) {
-                        View view = new View(this.f42044e);
+                    this.f42278f.setVisibility(0);
+                    int dimensionPixelSize = this.f42277e.getResources().getDimensionPixelSize(R.dimen.ds12);
+                    int dimensionPixelSize2 = this.f42277e.getResources().getDimensionPixelSize(R.dimen.ds20);
+                    for (int i3 = 0; i3 < this.f42282j; i3++) {
+                        View view = new View(this.f42277e);
                         view.setBackgroundResource(R.drawable.ala_banner_view_dot_unselected);
                         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(dimensionPixelSize, dimensionPixelSize);
                         if (i3 != 0) {
                             layoutParams.leftMargin = dimensionPixelSize2;
                         }
-                        this.f42045f.addView(view, layoutParams);
+                        this.f42278f.addView(view, layoutParams);
                     }
                 }
             }
-            LinearLayout linearLayout = this.f42045f;
+            LinearLayout linearLayout = this.f42278f;
             if (linearLayout == null || linearLayout.getChildAt(0) == null) {
                 return;
             }
-            this.f42045f.getChildAt(0).setBackgroundResource(R.drawable.ala_banner_view_dot_selected);
+            this.f42278f.getChildAt(0).setBackgroundResource(R.drawable.ala_banner_view_dot_selected);
         }
     }
 
@@ -470,7 +470,7 @@ public class AlaBannerAutoScrollView<T> extends FrameLayout {
     public final void p(int i2) {
         RecyclerView recyclerView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048581, this, i2) == null) || (recyclerView = this.f42046g) == null) {
+        if (!(interceptable == null || interceptable.invokeI(1048581, this, i2) == null) || (recyclerView = this.f42279g) == null) {
             return;
         }
         ((LinearLayoutManager) recyclerView.getLayoutManager()).scrollToPositionWithOffset(i2, 0);
@@ -479,7 +479,7 @@ public class AlaBannerAutoScrollView<T> extends FrameLayout {
     public final void q(int i2, boolean z) {
         RecyclerView recyclerView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{Integer.valueOf(i2), Boolean.valueOf(z)}) == null) || (recyclerView = this.f42046g) == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{Integer.valueOf(i2), Boolean.valueOf(z)}) == null) || (recyclerView = this.f42279g) == null) {
             return;
         }
         if (z) {
@@ -510,40 +510,40 @@ public class AlaBannerAutoScrollView<T> extends FrameLayout {
         }
     }
 
-    public void setOnBannerClickListener(c.a.t0.a0.f.i.h.b bVar) {
+    public void setOnBannerClickListener(c.a.u0.a0.f.i.h.b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, bVar) == null) {
             this.n = bVar;
-            AlaBannerRecyclerAdapter alaBannerRecyclerAdapter = this.f42047h;
+            AlaBannerRecyclerAdapter alaBannerRecyclerAdapter = this.f42280h;
             if (alaBannerRecyclerAdapter != null) {
                 alaBannerRecyclerAdapter.setOnBannerClickListener(bVar);
             }
         }
     }
 
-    public void setOnBannerScrollListener(c.a.t0.a0.f.i.h.c cVar) {
+    public void setOnBannerScrollListener(c.a.u0.a0.f.i.h.c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048587, this, cVar) == null) {
             this.m = cVar;
         }
     }
 
-    public void setViewHolderAdapter(c.a.t0.a0.f.i.h.a aVar) {
+    public void setViewHolderAdapter(c.a.u0.a0.f.i.h.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048588, this, aVar) == null) {
-            this.f42047h.setViewHolderAdapter(aVar);
+            this.f42280h.setViewHolderAdapter(aVar);
         }
     }
 
     public final void t(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048589, this, i2) == null) {
-            if (i2 >= this.f42045f.getChildCount()) {
-                o(this.f42049j);
+            if (i2 >= this.f42278f.getChildCount()) {
+                o(this.f42282j);
                 return;
             }
-            for (int i3 = 0; i3 < this.f42045f.getChildCount(); i3++) {
-                View childAt = this.f42045f.getChildAt(i3);
+            for (int i3 = 0; i3 < this.f42278f.getChildCount(); i3++) {
+                View childAt = this.f42278f.getChildAt(i3);
                 if (childAt != null) {
                     if (i3 == i2) {
                         SkinManager.setBackgroundResource(childAt, R.drawable.ala_banner_view_dot_selected);
@@ -574,8 +574,8 @@ public class AlaBannerAutoScrollView<T> extends FrameLayout {
                 return;
             }
         }
-        this.f42048i = new PagerSnapHelper();
-        this.f42049j = -1;
+        this.f42281i = new PagerSnapHelper();
+        this.f42282j = -1;
         this.k = 2000L;
         this.l = false;
         this.o = new c(this);
@@ -603,8 +603,8 @@ public class AlaBannerAutoScrollView<T> extends FrameLayout {
                 return;
             }
         }
-        this.f42048i = new PagerSnapHelper();
-        this.f42049j = -1;
+        this.f42281i = new PagerSnapHelper();
+        this.f42282j = -1;
         this.k = 2000L;
         this.l = false;
         this.o = new c(this);

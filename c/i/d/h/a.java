@@ -18,10 +18,10 @@ public class a extends AccessibleObject implements Member {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final AccessibleObject f30143e;
+    public final AccessibleObject f30349e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final Member f30144f;
+    public final Member f30350f;
 
     public <M extends AccessibleObject & Member> a(M m) {
         Interceptable interceptable = $ic;
@@ -39,8 +39,8 @@ public class a extends AccessibleObject implements Member {
             }
         }
         n.p(m);
-        this.f30143e = m;
-        this.f30144f = m;
+        this.f30349e = m;
+        this.f30350f = m;
     }
 
     public TypeToken<?> a() {
@@ -55,7 +55,7 @@ public class a extends AccessibleObject implements Member {
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj)) == null) {
             if (obj instanceof a) {
                 a aVar = (a) obj;
-                return a().equals(aVar.a()) && this.f30144f.equals(aVar.f30144f);
+                return a().equals(aVar.a()) && this.f30350f.equals(aVar.f30350f);
             }
             return false;
         }
@@ -66,82 +66,82 @@ public class a extends AccessibleObject implements Member {
     public final <A extends Annotation> A getAnnotation(Class<A> cls) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, cls)) == null) ? (A) this.f30143e.getAnnotation(cls) : (A) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, cls)) == null) ? (A) this.f30349e.getAnnotation(cls) : (A) invokeL.objValue;
     }
 
     @Override // java.lang.reflect.AccessibleObject, java.lang.reflect.AnnotatedElement
     public final Annotation[] getAnnotations() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f30143e.getAnnotations() : (Annotation[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f30349e.getAnnotations() : (Annotation[]) invokeV.objValue;
     }
 
     @Override // java.lang.reflect.AccessibleObject, java.lang.reflect.AnnotatedElement
     public final Annotation[] getDeclaredAnnotations() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f30143e.getDeclaredAnnotations() : (Annotation[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f30349e.getDeclaredAnnotations() : (Annotation[]) invokeV.objValue;
     }
 
     @Override // java.lang.reflect.Member
     public Class<?> getDeclaringClass() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f30144f.getDeclaringClass() : (Class) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f30350f.getDeclaringClass() : (Class) invokeV.objValue;
     }
 
     @Override // java.lang.reflect.Member
     public final int getModifiers() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f30144f.getModifiers() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f30350f.getModifiers() : invokeV.intValue;
     }
 
     @Override // java.lang.reflect.Member
     public final String getName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f30144f.getName() : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f30350f.getName() : (String) invokeV.objValue;
     }
 
     public int hashCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f30144f.hashCode() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f30350f.hashCode() : invokeV.intValue;
     }
 
     @Override // java.lang.reflect.AccessibleObject
     public final boolean isAccessible() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f30143e.isAccessible() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f30349e.isAccessible() : invokeV.booleanValue;
     }
 
     @Override // java.lang.reflect.AccessibleObject, java.lang.reflect.AnnotatedElement
     public final boolean isAnnotationPresent(Class<? extends Annotation> cls) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, cls)) == null) ? this.f30143e.isAnnotationPresent(cls) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, cls)) == null) ? this.f30349e.isAnnotationPresent(cls) : invokeL.booleanValue;
     }
 
     @Override // java.lang.reflect.Member
     public final boolean isSynthetic() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.f30144f.isSynthetic() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.f30350f.isSynthetic() : invokeV.booleanValue;
     }
 
     @Override // java.lang.reflect.AccessibleObject
     public final void setAccessible(boolean z) throws SecurityException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048588, this, z) == null) {
-            this.f30143e.setAccessible(z);
+            this.f30349e.setAccessible(z);
         }
     }
 
     public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.f30144f.toString() : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.f30350f.toString() : (String) invokeV.objValue;
     }
 }

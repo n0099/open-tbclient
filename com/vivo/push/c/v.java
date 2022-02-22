@@ -17,10 +17,10 @@ public final class v implements Runnable {
     public final /* synthetic */ Context a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ Map f60725b;
+    public final /* synthetic */ Map f60892b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final /* synthetic */ u f60726c;
+    public final /* synthetic */ u f60893c;
 
     public v(u uVar, Context context, Map map) {
         Interceptable interceptable = $ic;
@@ -37,9 +37,9 @@ public final class v implements Runnable {
                 return;
             }
         }
-        this.f60726c = uVar;
+        this.f60893c = uVar;
         this.a = context;
-        this.f60725b = map;
+        this.f60892b = map;
     }
 
     @Override // java.lang.Runnable
@@ -57,7 +57,7 @@ public final class v implements Runnable {
                             Intent intent = new Intent();
                             intent.setComponent(componentName);
                             intent.setFlags(335544320);
-                            u.b(intent, this.f60725b);
+                            u.b(intent, this.f60892b);
                             this.a.startActivity(intent);
                             return;
                         }
@@ -69,7 +69,7 @@ public final class v implements Runnable {
             Intent launchIntentForPackage = this.a.getPackageManager().getLaunchIntentForPackage(this.a.getPackageName());
             if (launchIntentForPackage != null) {
                 launchIntentForPackage.setFlags(268435456);
-                u.b(launchIntentForPackage, this.f60725b);
+                u.b(launchIntentForPackage, this.f60892b);
                 this.a.startActivity(launchIntentForPackage);
                 return;
             }

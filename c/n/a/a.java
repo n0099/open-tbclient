@@ -23,31 +23,31 @@ public final class a<M extends Message<M, B>, B extends Message.a<M, B>> {
     public final WireField.Label a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final String f30206b;
+    public final String f30412b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final int f30207c;
+    public final int f30413c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final String f30208d;
+    public final String f30414d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final String f30209e;
+    public final String f30415e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final boolean f30210f;
+    public final boolean f30416f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final Field f30211g;
+    public final Field f30417g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final Field f30212h;
+    public final Field f30418h;
 
     /* renamed from: i  reason: collision with root package name */
-    public final Method f30213i;
+    public final Method f30419i;
 
     /* renamed from: j  reason: collision with root package name */
-    public ProtoAdapter<?> f30214j;
+    public ProtoAdapter<?> f30420j;
     public ProtoAdapter<?> k;
     public ProtoAdapter<Object> l;
 
@@ -67,14 +67,14 @@ public final class a<M extends Message<M, B>, B extends Message.a<M, B>> {
             }
         }
         this.a = wireField.label();
-        this.f30206b = field.getName();
-        this.f30207c = wireField.tag();
-        this.f30208d = wireField.keyAdapter();
-        this.f30209e = wireField.adapter();
-        this.f30210f = wireField.redacted();
-        this.f30211g = field;
-        this.f30212h = c(cls, this.f30206b);
-        this.f30213i = d(cls, this.f30206b, field.getType());
+        this.f30412b = field.getName();
+        this.f30413c = wireField.tag();
+        this.f30414d = wireField.keyAdapter();
+        this.f30415e = wireField.adapter();
+        this.f30416f = wireField.redacted();
+        this.f30417g = field;
+        this.f30418h = c(cls, this.f30412b);
+        this.f30419i = d(cls, this.f30412b, field.getType());
     }
 
     public static Field c(Class<?> cls, String str) {
@@ -128,7 +128,7 @@ public final class a<M extends Message<M, B>, B extends Message.a<M, B>> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, m)) == null) {
             try {
-                return this.f30211g.get(m);
+                return this.f30417g.get(m);
             } catch (IllegalAccessException e2) {
                 throw new AssertionError(e2);
             }
@@ -141,7 +141,7 @@ public final class a<M extends Message<M, B>, B extends Message.a<M, B>> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, b2)) == null) {
             try {
-                return this.f30212h.get(b2);
+                return this.f30418h.get(b2);
             } catch (IllegalAccessException e2) {
                 throw new AssertionError(e2);
             }
@@ -152,7 +152,7 @@ public final class a<M extends Message<M, B>, B extends Message.a<M, B>> {
     public boolean f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? !this.f30208d.isEmpty() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? !this.f30414d.isEmpty() : invokeV.booleanValue;
     }
 
     public ProtoAdapter<?> g() {
@@ -163,7 +163,7 @@ public final class a<M extends Message<M, B>, B extends Message.a<M, B>> {
             if (protoAdapter != null) {
                 return protoAdapter;
             }
-            ProtoAdapter<?> protoAdapter2 = ProtoAdapter.get(this.f30208d);
+            ProtoAdapter<?> protoAdapter2 = ProtoAdapter.get(this.f30414d);
             this.k = protoAdapter2;
             return protoAdapter2;
         }
@@ -175,9 +175,9 @@ public final class a<M extends Message<M, B>, B extends Message.a<M, B>> {
         if (interceptable == null || interceptable.invokeLL(1048581, this, b2, obj) == null) {
             try {
                 if (this.a.isOneOf()) {
-                    this.f30213i.invoke(b2, obj);
+                    this.f30419i.invoke(b2, obj);
                 } else {
-                    this.f30212h.set(b2, obj);
+                    this.f30418h.set(b2, obj);
                 }
             } catch (IllegalAccessException | InvocationTargetException e2) {
                 throw new AssertionError(e2);
@@ -189,12 +189,12 @@ public final class a<M extends Message<M, B>, B extends Message.a<M, B>> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            ProtoAdapter<?> protoAdapter = this.f30214j;
+            ProtoAdapter<?> protoAdapter = this.f30420j;
             if (protoAdapter != null) {
                 return protoAdapter;
             }
-            ProtoAdapter<?> protoAdapter2 = ProtoAdapter.get(this.f30209e);
-            this.f30214j = protoAdapter2;
+            ProtoAdapter<?> protoAdapter2 = ProtoAdapter.get(this.f30415e);
+            this.f30420j = protoAdapter2;
             return protoAdapter2;
         }
         return (ProtoAdapter) invokeV.objValue;
@@ -205,7 +205,7 @@ public final class a<M extends Message<M, B>, B extends Message.a<M, B>> {
         if (interceptable == null || interceptable.invokeLL(1048583, this, b2, obj) == null) {
             if (this.a.isRepeated()) {
                 ((List) e(b2)).add(obj);
-            } else if (!this.f30208d.isEmpty()) {
+            } else if (!this.f30414d.isEmpty()) {
                 ((Map) e(b2)).putAll((Map) obj);
             } else {
                 h(b2, obj);

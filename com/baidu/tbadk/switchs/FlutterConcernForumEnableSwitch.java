@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class FlutterConcernForumEnableSwitch extends a {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String KEY = "flutter_concern_forum_enable_android";

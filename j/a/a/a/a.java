@@ -10,14 +10,14 @@ import com.yy.mobile.framework.revenuesdk.baseapi.data.IDataSenderAdapter;
 import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
 import java.util.ArrayList;
 import tv.athena.revenue.http.HttpDataSenderAdapter;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class a implements IDataSenderAdapter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public IDataSenderAdapter a;
 
     /* renamed from: b  reason: collision with root package name */
-    public IDataSenderAdapter f62237b;
+    public IDataSenderAdapter f62404b;
 
     public a(IDataSenderAdapter iDataSenderAdapter) {
         Interceptable interceptable = $ic;
@@ -48,7 +48,7 @@ public class a implements IDataSenderAdapter {
                 iDataSenderAdapter.cancelAllRequest(i2, i3);
                 return;
             }
-            IDataSenderAdapter iDataSenderAdapter2 = this.f62237b;
+            IDataSenderAdapter iDataSenderAdapter2 = this.f62404b;
             if (iDataSenderAdapter2 != null) {
                 iDataSenderAdapter2.cancelAllRequest(i2, i3);
             }
@@ -63,7 +63,7 @@ public class a implements IDataSenderAdapter {
             IDataSenderAdapter iDataSenderAdapter = this.a;
             if (iDataSenderAdapter == null) {
                 HttpDataSenderAdapter httpDataSenderAdapter = new HttpDataSenderAdapter();
-                this.f62237b = httpDataSenderAdapter;
+                this.f62404b = httpDataSenderAdapter;
                 httpDataSenderAdapter.init(dataSenderConfig);
                 return;
             }
@@ -80,7 +80,7 @@ public class a implements IDataSenderAdapter {
                 iDataSenderAdapter.sendData(i2, i3, str, arrayList, bArr);
                 return;
             }
-            IDataSenderAdapter iDataSenderAdapter2 = this.f62237b;
+            IDataSenderAdapter iDataSenderAdapter2 = this.f62404b;
             if (iDataSenderAdapter2 != null) {
                 iDataSenderAdapter2.sendData(i2, i3, str, arrayList, bArr);
             } else {

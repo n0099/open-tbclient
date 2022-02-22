@@ -15,7 +15,7 @@ public class SuggestionSearch extends l {
     public com.baidu.platform.core.f.a a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f35685b;
+    public boolean f35891b;
 
     public SuggestionSearch() {
         Interceptable interceptable = $ic;
@@ -30,7 +30,7 @@ public class SuggestionSearch extends l {
                 return;
             }
         }
-        this.f35685b = false;
+        this.f35891b = false;
         this.a = new com.baidu.platform.core.f.b();
     }
 
@@ -46,10 +46,10 @@ public class SuggestionSearch extends l {
 
     public void destroy() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f35685b) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f35891b) {
             return;
         }
-        this.f35685b = true;
+        this.f35891b = true;
         this.a.a();
         BMapManager.destroy();
     }

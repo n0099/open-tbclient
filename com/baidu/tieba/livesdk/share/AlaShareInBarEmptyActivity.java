@@ -5,8 +5,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import c.a.d.f.p.l;
-import c.a.t0.b2.d;
-import c.a.t0.b2.g;
+import c.a.u0.c2.d;
+import c.a.u0.c2.g;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.BaseActivity;
@@ -20,7 +20,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public class AlaShareInBarEmptyActivity extends BaseActivity<AlaShareInBarEmptyActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -30,13 +30,13 @@ public class AlaShareInBarEmptyActivity extends BaseActivity<AlaShareInBarEmptyA
     public ArrayList<TransmitForumData> mTransmitForumDataList;
     public String mYyAnchorBdUid;
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes13.dex */
     public class a implements DialogInterface.OnCancelListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ AlaShareInBarEmptyActivity f45730e;
+        public final /* synthetic */ AlaShareInBarEmptyActivity f45872e;
 
         public a(AlaShareInBarEmptyActivity alaShareInBarEmptyActivity) {
             Interceptable interceptable = $ic;
@@ -53,19 +53,19 @@ public class AlaShareInBarEmptyActivity extends BaseActivity<AlaShareInBarEmptyA
                     return;
                 }
             }
-            this.f45730e = alaShareInBarEmptyActivity;
+            this.f45872e = alaShareInBarEmptyActivity;
         }
 
         @Override // android.content.DialogInterface.OnCancelListener
         public void onCancel(DialogInterface dialogInterface) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, dialogInterface) == null) {
-                this.f45730e.mPostModel.cancelLoadData();
+                this.f45872e.mPostModel.cancelLoadData();
             }
         }
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes13.dex */
     public class b implements AlaShareInBarModel.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -90,7 +90,7 @@ public class AlaShareInBarEmptyActivity extends BaseActivity<AlaShareInBarEmptyA
         }
 
         @Override // com.baidu.tieba.livesdk.share.model.AlaShareInBarModel.b
-        public void a(int i2, String str, c.a.t0.b2.l.b.a aVar) {
+        public void a(int i2, String str, c.a.u0.c2.l.b.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeILL(1048576, this, i2, str, aVar) == null) {
                 this.a.closeLoadingDialog();

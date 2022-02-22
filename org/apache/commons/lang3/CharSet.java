@@ -15,7 +15,7 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class CharSet implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final CharSet ASCII_ALPHA;

@@ -41,7 +41,7 @@ public final class ad extends ai.a {
 
     @Override // com.xiaomi.push.ai.a
     /* renamed from: a */
-    public String mo248a() {
+    public String mo247a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f885a : (String) invokeV.objValue;

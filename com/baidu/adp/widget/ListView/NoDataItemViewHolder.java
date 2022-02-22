@@ -3,13 +3,13 @@ package com.baidu.adp.widget.ListView;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+import c.a.u0.a4.g;
 import com.baidu.adp.widget.ListView.TypeAdapter;
-import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class NoDataItemViewHolder extends TypeAdapter.ViewHolder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -34,7 +34,7 @@ public class NoDataItemViewHolder extends TypeAdapter.ViewHolder {
                 return;
             }
         }
-        this.mTextView = (TextView) view.findViewById(R.id.no_data_text);
-        this.mImageView = (ImageView) view.findViewById(R.id.no_data_image);
+        this.mTextView = (TextView) view.findViewById(g.no_data_text);
+        this.mImageView = (ImageView) view.findViewById(g.no_data_image);
     }
 }

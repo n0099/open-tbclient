@@ -9,7 +9,7 @@ import android.os.Message;
 import androidx.core.view.InputDeviceCompat;
 import c.a.d.a.b;
 import c.a.d.a.h;
-import c.a.d.i.i.a;
+import c.a.d.j.i.a;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -21,7 +21,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Calendar;
 import java.util.concurrent.ConcurrentHashMap;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class BdBaseApplication extends Application {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int RESOURCE_LOAD_MAX_TRY_COUNT = 3;

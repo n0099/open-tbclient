@@ -20,7 +20,7 @@ public class c {
     public static String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f60547b;
+    public static String f60714b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -95,7 +95,7 @@ public class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, context)) == null) {
             try {
-                if (f60547b == null) {
+                if (f60714b == null) {
                     DisplayMetrics displayMetrics = new DisplayMetrics();
                     ((WindowManager) context.getSystemService("window")).getDefaultDisplay().getMetrics(displayMetrics);
                     StringBuilder sb = new StringBuilder();
@@ -131,9 +131,9 @@ public class c {
                     sb.append("&");
                     sb.append("wifi=");
                     sb.append(a.e(context));
-                    f60547b = sb.toString();
+                    f60714b = sb.toString();
                 }
-                return f60547b;
+                return f60714b;
             } catch (Exception unused) {
                 return null;
             }

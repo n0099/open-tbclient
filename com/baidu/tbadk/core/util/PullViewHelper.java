@@ -12,12 +12,12 @@ import android.text.TextUtils;
 import c.a.d.f.m.h;
 import c.a.d.f.p.o;
 import c.a.d.f.p.t;
-import c.a.s0.s.i0.b;
+import c.a.t0.s.j0.b;
+import c.a.u0.a4.f;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -99,7 +99,7 @@ public class PullViewHelper {
         this.pullview_backgroundColor_day = PULLVIEW_BGCOLOR_DAY_DEFAULT;
         this.pullview_backgroundColor_night = PULLVIEW_BGCOLOR_NIGHT_DEFAULT;
         this.nightColorSkin = new PorterDuffColorFilter(IMAGE_COLORFILTER_NIGHT, PorterDuff.Mode.MULTIPLY);
-        this.defaultResources = new int[]{R.drawable.listview_pull_refresh01, R.drawable.listview_pull_refresh02};
+        this.defaultResources = new int[]{f.listview_pull_refresh01, f.listview_pull_refresh02};
         setShouldShowLoadingView(b.k().h("pullview_should_show_3d_loading", this.defaultShouldShowLoadingView));
     }
 

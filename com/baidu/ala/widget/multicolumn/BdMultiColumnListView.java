@@ -10,14 +10,14 @@ import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
 import c.a.d.a.i;
 import c.a.d.a.j;
-import c.a.d.g.a.h;
-import c.a.d.n.e.b;
-import c.a.d.n.e.c;
-import c.a.d.n.e.e;
-import c.a.d.n.e.f;
-import c.a.d.n.e.o;
-import c.a.d.n.e.q;
-import c.a.d.n.f.a;
+import c.a.d.h.a.h;
+import c.a.d.o.e.b;
+import c.a.d.o.e.c;
+import c.a.d.o.e.e;
+import c.a.d.o.e.f;
+import c.a.d.o.e.o;
+import c.a.d.o.e.q;
+import c.a.d.o.f.a;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -31,7 +31,7 @@ import com.huewu.pla.lib.MultiColumnListView;
 import com.huewu.pla.lib.internal.PLA_AbsListView;
 import com.huewu.pla.lib.internal.PLA_AdapterView;
 import java.security.InvalidParameterException;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class BdMultiColumnListView extends MultiColumnListView {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int REFRESH_DELAY = 100;
@@ -64,42 +64,42 @@ public class BdMultiColumnListView extends MultiColumnListView {
     public Runnable preLoadRunnable;
     public Runnable refreshRunnable;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public interface OnFooterClickListener {
         void onClick(View view);
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public interface OnHeaderClickListener {
         void onClick(View view);
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public interface OnItemWillVisibleListener {
         void onItemWillVisible(int i2, boolean z);
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public interface OnScrollStopDelayedListener {
         void onScrollStop(int i2, int i3);
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public interface OnScrollToBottomListener {
         void onScrollToBottom();
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public interface OnScrollToPullListener {
         void onScrollToPull(boolean z);
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public interface OnScrollToTopListener {
         void onScrollToTop();
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class PullRefresh {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int DEFAULT_REFRESH_DURATION_TIME = 800;
@@ -203,7 +203,7 @@ public class BdMultiColumnListView extends MultiColumnListView {
                     this.this$0 = this;
                 }
 
-                @Override // c.a.d.n.f.a
+                @Override // c.a.d.o.f.a
                 public void onOver() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
@@ -495,7 +495,7 @@ public class BdMultiColumnListView extends MultiColumnListView {
                 this.this$0 = this;
             }
 
-            @Override // c.a.d.n.e.q
+            @Override // c.a.d.o.e.q
             public void cancelRefresh() {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
@@ -504,21 +504,21 @@ public class BdMultiColumnListView extends MultiColumnListView {
                 }
             }
 
-            @Override // c.a.d.n.e.q
+            @Override // c.a.d.o.e.q
             public o getAdapter() {
                 InterceptResult invokeV;
                 Interceptable interceptable2 = $ic;
                 return (interceptable2 == null || (invokeV = interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.this$0.mBdListAdpter : (o) invokeV.objValue;
             }
 
-            @Override // c.a.d.n.e.q
+            @Override // c.a.d.o.e.q
             public int getFirstVisiblePosition() {
                 InterceptResult invokeV;
                 Interceptable interceptable2 = $ic;
                 return (interceptable2 == null || (invokeV = interceptable2.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.this$0.getFirstVisiblePosition() : invokeV.intValue;
             }
 
-            @Override // c.a.d.n.e.q
+            @Override // c.a.d.o.e.q
             public int getLastVisiblePosition() {
                 InterceptResult invokeV;
                 Interceptable interceptable2 = $ic;
@@ -662,7 +662,7 @@ public class BdMultiColumnListView extends MultiColumnListView {
                     this.this$0 = this;
                 }
 
-                @Override // c.a.d.n.e.e.b
+                @Override // c.a.d.o.e.e.b
                 public void onPreLoad() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
@@ -1374,7 +1374,7 @@ public class BdMultiColumnListView extends MultiColumnListView {
                 this.this$0 = this;
             }
 
-            @Override // c.a.d.n.e.q
+            @Override // c.a.d.o.e.q
             public void cancelRefresh() {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
@@ -1383,21 +1383,21 @@ public class BdMultiColumnListView extends MultiColumnListView {
                 }
             }
 
-            @Override // c.a.d.n.e.q
+            @Override // c.a.d.o.e.q
             public o getAdapter() {
                 InterceptResult invokeV;
                 Interceptable interceptable2 = $ic;
                 return (interceptable2 == null || (invokeV = interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.this$0.mBdListAdpter : (o) invokeV.objValue;
             }
 
-            @Override // c.a.d.n.e.q
+            @Override // c.a.d.o.e.q
             public int getFirstVisiblePosition() {
                 InterceptResult invokeV;
                 Interceptable interceptable2 = $ic;
                 return (interceptable2 == null || (invokeV = interceptable2.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.this$0.getFirstVisiblePosition() : invokeV.intValue;
             }
 
-            @Override // c.a.d.n.e.q
+            @Override // c.a.d.o.e.q
             public int getLastVisiblePosition() {
                 InterceptResult invokeV;
                 Interceptable interceptable2 = $ic;
@@ -1604,7 +1604,7 @@ public class BdMultiColumnListView extends MultiColumnListView {
                 this.this$0 = this;
             }
 
-            @Override // c.a.d.n.e.q
+            @Override // c.a.d.o.e.q
             public void cancelRefresh() {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
@@ -1613,21 +1613,21 @@ public class BdMultiColumnListView extends MultiColumnListView {
                 }
             }
 
-            @Override // c.a.d.n.e.q
+            @Override // c.a.d.o.e.q
             public o getAdapter() {
                 InterceptResult invokeV;
                 Interceptable interceptable2 = $ic;
                 return (interceptable2 == null || (invokeV = interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.this$0.mBdListAdpter : (o) invokeV.objValue;
             }
 
-            @Override // c.a.d.n.e.q
+            @Override // c.a.d.o.e.q
             public int getFirstVisiblePosition() {
                 InterceptResult invokeV;
                 Interceptable interceptable2 = $ic;
                 return (interceptable2 == null || (invokeV = interceptable2.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.this$0.getFirstVisiblePosition() : invokeV.intValue;
             }
 
-            @Override // c.a.d.n.e.q
+            @Override // c.a.d.o.e.q
             public int getLastVisiblePosition() {
                 InterceptResult invokeV;
                 Interceptable interceptable2 = $ic;

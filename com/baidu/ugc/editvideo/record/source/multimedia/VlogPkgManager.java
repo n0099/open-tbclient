@@ -1,9 +1,9 @@
 package com.baidu.ugc.editvideo.record.source.multimedia;
 
 import android.text.TextUtils;
-import c.a.a1.t.h;
-import c.a.a1.t.w;
-import c.a.b0.b.a.k.c;
+import c.a.b1.t.h;
+import c.a.b1.t.w;
+import c.a.c0.b.a.k.c;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.minivideo.effect.core.vlogedit.MediaAEffectConfig;
 import com.baidu.minivideo.effect.core.vlogedit.MediaSegment;

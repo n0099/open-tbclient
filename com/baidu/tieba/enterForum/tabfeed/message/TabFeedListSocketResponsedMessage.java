@@ -1,7 +1,7 @@
 package com.baidu.tieba.enterForum.tabfeed.message;
 
-import c.a.d.n.e.n;
-import c.a.s0.l0.b.a;
+import c.a.d.o.e.n;
+import c.a.t0.l0.b.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.message.websockt.TbSocketReponsedMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -17,7 +17,7 @@ import tbclient.Tabfeedlist.TabfeedlistResIdl;
 public class TabFeedListSocketResponsedMessage extends TbSocketReponsedMessage implements a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public c.a.t0.v0.l.d.a enterForumTabFeedData;
+    public c.a.u0.v0.l.d.a enterForumTabFeedData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public TabFeedListSocketResponsedMessage() {
@@ -66,7 +66,7 @@ public class TabFeedListSocketResponsedMessage extends TbSocketReponsedMessage i
                 setErrorString(tabfeedlistResIdl.error.usermsg);
             }
             if (getError() == 0 && tabfeedlistResIdl.data != null) {
-                c.a.t0.v0.l.d.a aVar = new c.a.t0.v0.l.d.a();
+                c.a.u0.v0.l.d.a aVar = new c.a.u0.v0.l.d.a();
                 this.enterForumTabFeedData = aVar;
                 aVar.g(tabfeedlistResIdl.data);
             }

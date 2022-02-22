@@ -16,7 +16,7 @@ public class b extends BeanRequestBase {
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f52014b;
+    public String f52181b;
 
     public b() {
         Interceptable interceptable = $ic;
@@ -36,7 +36,7 @@ public class b extends BeanRequestBase {
     public boolean checkRequestValidity() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? (TextUtils.isEmpty(this.a) || TextUtils.isEmpty(this.f52014b)) ? false : true : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? (TextUtils.isEmpty(this.a) || TextUtils.isEmpty(this.f52181b)) ? false : true : invokeV.booleanValue;
     }
 
     @Override // com.dxmpay.wallet.core.beans.BeanRequestBase

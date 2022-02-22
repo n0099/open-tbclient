@@ -14,10 +14,10 @@ public class e {
     public final String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final long f29275b;
+    public final long f29481b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final List<a> f29276c;
+    public final List<a> f29482c;
 
     public e(String str, long j2, List<a> list) {
         Interceptable interceptable = $ic;
@@ -35,17 +35,17 @@ public class e {
             }
         }
         this.a = str;
-        this.f29275b = j2;
-        this.f29276c = Collections.unmodifiableList(list);
+        this.f29481b = j2;
+        this.f29482c = Collections.unmodifiableList(list);
     }
 
     public int a(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) {
-            int size = this.f29276c.size();
+            int size = this.f29482c.size();
             for (int i3 = 0; i3 < size; i3++) {
-                if (this.f29276c.get(i3).f29252b == i2) {
+                if (this.f29482c.get(i3).f29458b == i2) {
                     return i3;
                 }
             }

@@ -21,6 +21,7 @@ import androidx.lifecycle.LifecycleOwner;
 import androidx.lifecycle.LifecycleRegistry;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mytransformapp.util.LogUtil;
+import com.baidu.tieba.advert.sdk.stretagy.SplashNativePolicy;
 import com.baidu.tieba.flutter.base.util.OpenFlutter;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -342,7 +343,7 @@ public class BoostFlutterActivity extends Activity implements FlutterActivityAnd
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65546, this)) == null) {
             try {
-                Bundle bundle = getPackageManager().getActivityInfo(getComponentName(), 129).metaData;
+                Bundle bundle = getPackageManager().getActivityInfo(getComponentName(), SplashNativePolicy.SPLASH_CMD_SHOW_PLG).metaData;
                 Integer valueOf = bundle != null ? Integer.valueOf(bundle.getInt("io.flutter.embedding.android.SplashScreenDrawable")) : null;
                 if (valueOf == null || valueOf.intValue() <= 0) {
                     return null;

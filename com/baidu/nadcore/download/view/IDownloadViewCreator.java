@@ -2,8 +2,9 @@ package com.baidu.nadcore.download.view;
 
 import android.view.ViewGroup;
 import androidx.annotation.NonNull;
-import c.a.c0.j.f.i;
+import c.a.d0.j.f.i;
 import com.baidu.pyramid.runtime.service.ServiceReference;
+import com.baidu.searchbox.network.outback.EngineName;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -16,7 +17,7 @@ public interface IDownloadViewCreator {
     public static final ServiceReference a = new ServiceReference("nad.core", "downloadview");
 
     /* renamed from: b  reason: collision with root package name */
-    public static final IDownloadViewCreator f37041b = new a();
+    public static final IDownloadViewCreator f37253b = new a();
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes10.dex */
@@ -45,7 +46,7 @@ public interface IDownloadViewCreator {
             LP_DOWNLOAD_VIEW = new ViewType("LP_DOWNLOAD_VIEW", 0);
             FEED_DOWNLOAD_VIEW = new ViewType("FEED_DOWNLOAD_VIEW", 1);
             REWARD_DOWNLOAD_VIEW = new ViewType("REWARD_DOWNLOAD_VIEW", 2);
-            ViewType viewType = new ViewType("DEFAULT", 3);
+            ViewType viewType = new ViewType(EngineName.DEFAULT_ENGINE, 3);
             DEFAULT = viewType;
             $VALUES = new ViewType[]{LP_DOWNLOAD_VIEW, FEED_DOWNLOAD_VIEW, REWARD_DOWNLOAD_VIEW, viewType};
         }

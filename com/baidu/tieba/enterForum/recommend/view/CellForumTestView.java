@@ -11,10 +11,10 @@ import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
 import c.a.d.f.p.l;
 import c.a.d.f.p.n;
-import c.a.s0.s.i0.b;
-import c.a.t0.v0.k.c.f;
-import c.a.t0.v0.k.d.a;
-import c.a.t0.w3.c;
+import c.a.t0.s.j0.b;
+import c.a.u0.v0.k.c.f;
+import c.a.u0.v0.k.d.a;
+import c.a.u0.y3.c;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
@@ -47,22 +47,22 @@ public class CellForumTestView extends RelativeLayout implements View.OnClickLis
     public a B;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f42657e;
+    public int f42890e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TbImageView f42658f;
+    public TbImageView f42891f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TbCornersImageView f42659g;
+    public TbCornersImageView f42892g;
 
     /* renamed from: h  reason: collision with root package name */
-    public ImageView f42660h;
+    public ImageView f42893h;
 
     /* renamed from: i  reason: collision with root package name */
-    public TextView f42661i;
+    public TextView f42894i;
 
     /* renamed from: j  reason: collision with root package name */
-    public TBSpecificationBtn f42662j;
+    public TBSpecificationBtn f42895j;
     public int k;
     public int l;
     public int m;
@@ -98,7 +98,7 @@ public class CellForumTestView extends RelativeLayout implements View.OnClickLis
                 return;
             }
         }
-        this.f42657e = 3;
+        this.f42890e = 3;
         this.p = false;
         a(context);
     }
@@ -107,22 +107,22 @@ public class CellForumTestView extends RelativeLayout implements View.OnClickLis
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
             LayoutInflater.from(context).inflate(R.layout.cell_forum_test_layout, (ViewGroup) this, true);
-            this.f42658f = (TbImageView) findViewById(R.id.cell_forum_test_img);
-            this.f42659g = (TbCornersImageView) findViewById(R.id.cell_forum_test_new);
-            this.f42660h = (ImageView) findViewById(R.id.cell_forum_test_del);
-            this.f42661i = (TextView) findViewById(R.id.cell_forum_test_des);
-            this.f42662j = (TBSpecificationBtn) findViewById(R.id.cell_forum_test_btn);
-            c.a.s0.s.k0.n.a aVar = new c.a.s0.s.k0.n.a();
-            this.f42662j.setTextSize(R.dimen.tbds42);
-            this.f42662j.setConfig(aVar);
+            this.f42891f = (TbImageView) findViewById(R.id.cell_forum_test_img);
+            this.f42892g = (TbCornersImageView) findViewById(R.id.cell_forum_test_new);
+            this.f42893h = (ImageView) findViewById(R.id.cell_forum_test_del);
+            this.f42894i = (TextView) findViewById(R.id.cell_forum_test_des);
+            this.f42895j = (TBSpecificationBtn) findViewById(R.id.cell_forum_test_btn);
+            c.a.t0.s.l0.n.a aVar = new c.a.t0.s.l0.n.a();
+            this.f42895j.setTextSize(R.dimen.tbds42);
+            this.f42895j.setConfig(aVar);
             int f2 = n.f(context, R.dimen.tbds10);
-            this.f42659g.setCornerTopLeftRadius(f2);
-            this.f42658f.setRadius(f2);
-            this.f42658f.setConrers(3);
-            this.f42658f.setPlaceHolder(3);
-            this.f42658f.setDrawCorner(true);
+            this.f42892g.setCornerTopLeftRadius(f2);
+            this.f42891f.setRadius(f2);
+            this.f42891f.setConrers(3);
+            this.f42891f.setPlaceHolder(3);
+            this.f42891f.setDrawCorner(true);
             this.m = n.f(context, R.dimen.tbds262);
-            this.f42660h.setOnClickListener(this);
+            this.f42893h.setOnClickListener(this);
             setOnClickListener(this);
             onChangeSkinType();
         }
@@ -197,29 +197,29 @@ public class CellForumTestView extends RelativeLayout implements View.OnClickLis
     public void onChangeSkinType() {
         int skinType;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048588, this) == null) || (skinType = TbadkCoreApplication.getInst().getSkinType()) == this.f42657e) {
+        if (!(interceptable == null || interceptable.invokeV(1048588, this) == null) || (skinType = TbadkCoreApplication.getInst().getSkinType()) == this.f42890e) {
             return;
         }
-        this.f42657e = skinType;
-        TbImageView tbImageView = this.f42658f;
+        this.f42890e = skinType;
+        TbImageView tbImageView = this.f42891f;
         if (tbImageView != null) {
             tbImageView.setSkinType(skinType);
         }
-        TBSpecificationBtn tBSpecificationBtn = this.f42662j;
+        TBSpecificationBtn tBSpecificationBtn = this.f42895j;
         if (tBSpecificationBtn != null) {
             tBSpecificationBtn.changeSkinType();
         }
-        SvgManager.getInstance().setMaskDrawableWithDayNightModeAutoChange(this.f42659g, R.drawable.icon_mask_ba_new30_svg, SvgManager.SvgResourceStateType.NORMAL);
+        SvgManager.getInstance().setMaskDrawableWithDayNightModeAutoChange(this.f42892g, R.drawable.icon_mask_ba_new30_svg, SvgManager.SvgResourceStateType.NORMAL);
         if (skinType != 1 && skinType != 4) {
-            ((ViewGroup.MarginLayoutParams) this.f42661i.getLayoutParams()).setMargins(0, 0, 0, 0);
-            TBSelector.makeShadowDrawable().setBgColor(R.color.CAM_X0207).setShapeRadius(n.f(getContext(), R.dimen.tbds10)).setShadowColor(R.color.CAM_X0804).setShadowSide(ShadowDrawable.NO_TOP).setShadowRadius(n.f(getContext(), R.dimen.tbds10)).setOffsetX(0).setOffsetY(n.f(getContext(), R.dimen.tbds5)).into(this.f42661i);
+            ((ViewGroup.MarginLayoutParams) this.f42894i.getLayoutParams()).setMargins(0, 0, 0, 0);
+            TBSelector.makeShadowDrawable().setBgColor(R.color.CAM_X0207).setShapeRadius(n.f(getContext(), R.dimen.tbds10)).setShadowColor(R.color.CAM_X0804).setShadowSide(ShadowDrawable.NO_TOP).setShadowRadius(n.f(getContext(), R.dimen.tbds10)).setOffsetX(0).setOffsetY(n.f(getContext(), R.dimen.tbds5)).into(this.f42894i);
         } else {
-            ((ViewGroup.MarginLayoutParams) this.f42661i.getLayoutParams()).setMargins(n.f(getContext(), R.dimen.tbds4), 0, n.f(getContext(), R.dimen.tbds9), 0);
+            ((ViewGroup.MarginLayoutParams) this.f42894i.getLayoutParams()).setMargins(n.f(getContext(), R.dimen.tbds4), 0, n.f(getContext(), R.dimen.tbds9), 0);
             float f2 = n.f(getContext(), R.dimen.tbds10);
-            TBSelector.makeDrawableSelector().blRadius(f2).brRadius(f2).defaultColor(R.color.CAM_X0207).into(this.f42661i);
+            TBSelector.makeDrawableSelector().blRadius(f2).brRadius(f2).defaultColor(R.color.CAM_X0207).into(this.f42894i);
         }
-        SkinManager.setImageResource(this.f42660h, R.drawable.icon_ba_close);
-        SkinManager.setViewTextColor(this.f42661i, R.color.CAM_X0105);
+        SkinManager.setImageResource(this.f42893h, R.drawable.icon_ba_close);
+        SkinManager.setViewTextColor(this.f42894i, R.color.CAM_X0105);
     }
 
     @Override // android.view.View.OnClickListener
@@ -228,7 +228,7 @@ public class CellForumTestView extends RelativeLayout implements View.OnClickLis
         StatisticItem l;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048589, this, view) == null) {
-            if (this.f42660h == view) {
+            if (this.f42893h == view) {
                 if (l.A() && this.y == 1) {
                     TiebaStatic.log(new StatisticItem("c13373").param("uid", TbadkCoreApplication.getCurrentAccountId()).param("obj_id", this.o.a));
                     a aVar = this.B;
@@ -244,7 +244,7 @@ public class CellForumTestView extends RelativeLayout implements View.OnClickLis
                 TiebaStatic.log(new StatisticItem("c13372").param("uid", TbadkCoreApplication.getCurrentAccountId()).param("obj_id", this.o.a));
                 int i3 = this.z;
                 f fVar = this.o;
-                if (fVar != null && i3 >= 0 && (l = c.a.t0.w3.a.l(true, "a065", "common_click", i2, (i2 = i3 + 1), false, null, String.valueOf(fVar.a), 0)) != null) {
+                if (fVar != null && i3 >= 0 && (l = c.a.u0.y3.a.l(true, "a065", "common_click", i2, (i2 = i3 + 1), false, null, String.valueOf(fVar.a), 0)) != null) {
                     c.g().c(this.n, l);
                 }
                 if (!this.p) {
@@ -269,7 +269,7 @@ public class CellForumTestView extends RelativeLayout implements View.OnClickLis
                     }
                     b.k().y("enter_forum_test_id_list", sb.toString());
                 }
-                this.f42659g.setVisibility(8);
+                this.f42892g.setVisibility(8);
                 MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new ForumTestActivityConfig(getContext(), this.o.a)));
             }
         }
@@ -290,7 +290,7 @@ public class CellForumTestView extends RelativeLayout implements View.OnClickLis
             this.k = View.MeasureSpec.getSize(i2);
             this.l = View.MeasureSpec.getSize(i3);
             if (!this.A) {
-                this.f42658f.getLayoutParams().height = this.l - this.m;
+                this.f42891f.getLayoutParams().height = this.l - this.m;
             }
             super.onMeasure(View.MeasureSpec.makeMeasureSpec(this.k, 1073741824), View.MeasureSpec.makeMeasureSpec(this.l, 1073741824));
         }
@@ -299,8 +299,8 @@ public class CellForumTestView extends RelativeLayout implements View.OnClickLis
     public void refreshAnswer() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
-            this.f42658f.startLoad(this.o.f24398e, 10, false);
-            this.f42662j.setText(getResources().getString(R.string.cell_forum_retest_default));
+            this.f42891f.startLoad(this.o.f24580e, 10, false);
+            this.f42895j.setText(getResources().getString(R.string.cell_forum_retest_default));
         }
     }
 
@@ -310,7 +310,7 @@ public class CellForumTestView extends RelativeLayout implements View.OnClickLis
             return;
         }
         this.o = fVar;
-        this.f42658f.startLoad(fVar.f24397d ? fVar.f24398e : fVar.f24396c, 10, false);
+        this.f42891f.startLoad(fVar.f24579d ? fVar.f24580e : fVar.f24578c, 10, false);
         this.p = false;
         String q = b.k().q("enter_forum_test_id_list", "");
         String[] split = q.split("[|]");
@@ -331,13 +331,13 @@ public class CellForumTestView extends RelativeLayout implements View.OnClickLis
                 i2++;
             }
         }
-        this.f42659g.setVisibility(this.p ? 8 : 0);
-        if (StringUtils.isNull(fVar.f24395b)) {
-            this.f42661i.setText(R.string.cell_forum_test_title_default);
+        this.f42892g.setVisibility(this.p ? 8 : 0);
+        if (StringUtils.isNull(fVar.f24577b)) {
+            this.f42894i.setText(R.string.cell_forum_test_title_default);
         } else {
-            this.f42661i.setText(fVar.f24395b);
+            this.f42894i.setText(fVar.f24577b);
         }
-        this.f42662j.setText(getResources().getString(fVar.f24397d ? R.string.cell_forum_retest_default : R.string.cell_forum_test_default));
+        this.f42895j.setText(getResources().getString(fVar.f24579d ? R.string.cell_forum_retest_default : R.string.cell_forum_test_default));
     }
 
     public void setDataIndex(int i2) {
@@ -359,9 +359,9 @@ public class CellForumTestView extends RelativeLayout implements View.OnClickLis
         if (interceptable == null || interceptable.invokeI(1048596, this, i2) == null) {
             this.y = i2;
             if (i2 == 1) {
-                this.f42660h.setVisibility(0);
+                this.f42893h.setVisibility(0);
             } else {
-                this.f42660h.setVisibility(8);
+                this.f42893h.setVisibility(8);
             }
         }
     }
@@ -455,7 +455,7 @@ public class CellForumTestView extends RelativeLayout implements View.OnClickLis
                 return;
             }
         }
-        this.f42657e = 3;
+        this.f42890e = 3;
         this.p = false;
         a(context);
     }
@@ -479,7 +479,7 @@ public class CellForumTestView extends RelativeLayout implements View.OnClickLis
                 return;
             }
         }
-        this.f42657e = 3;
+        this.f42890e = 3;
         this.p = false;
         a(context);
     }

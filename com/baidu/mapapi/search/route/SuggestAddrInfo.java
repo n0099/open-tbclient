@@ -22,19 +22,19 @@ public class SuggestAddrInfo implements Parcelable {
     public List<PoiInfo> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public List<PoiInfo> f35658b;
+    public List<PoiInfo> f35864b;
 
     /* renamed from: c  reason: collision with root package name */
-    public List<List<PoiInfo>> f35659c;
+    public List<List<PoiInfo>> f35865c;
 
     /* renamed from: d  reason: collision with root package name */
-    public List<CityInfo> f35660d;
+    public List<CityInfo> f35866d;
 
     /* renamed from: e  reason: collision with root package name */
-    public List<CityInfo> f35661e;
+    public List<CityInfo> f35867e;
 
     /* renamed from: f  reason: collision with root package name */
-    public List<List<CityInfo>> f35662f;
+    public List<List<CityInfo>> f35868f;
 
     static {
         InterceptResult invokeClinit;
@@ -82,11 +82,11 @@ public class SuggestAddrInfo implements Parcelable {
             }
         }
         this.a = parcel.readArrayList(PoiInfo.class.getClassLoader());
-        this.f35658b = parcel.readArrayList(PoiInfo.class.getClassLoader());
-        this.f35659c = parcel.readArrayList(PoiInfo.class.getClassLoader());
-        this.f35660d = parcel.readArrayList(CityInfo.class.getClassLoader());
-        this.f35661e = parcel.readArrayList(CityInfo.class.getClassLoader());
-        this.f35662f = parcel.readArrayList(CityInfo.class.getClassLoader());
+        this.f35864b = parcel.readArrayList(PoiInfo.class.getClassLoader());
+        this.f35865c = parcel.readArrayList(PoiInfo.class.getClassLoader());
+        this.f35866d = parcel.readArrayList(CityInfo.class.getClassLoader());
+        this.f35867e = parcel.readArrayList(CityInfo.class.getClassLoader());
+        this.f35868f = parcel.readArrayList(CityInfo.class.getClassLoader());
     }
 
     @Override // android.os.Parcelable
@@ -102,19 +102,19 @@ public class SuggestAddrInfo implements Parcelable {
     public List<CityInfo> getSuggestEndCity() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f35661e : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f35867e : (List) invokeV.objValue;
     }
 
     public List<PoiInfo> getSuggestEndNode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f35658b : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f35864b : (List) invokeV.objValue;
     }
 
     public List<CityInfo> getSuggestStartCity() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f35660d : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f35866d : (List) invokeV.objValue;
     }
 
     public List<PoiInfo> getSuggestStartNode() {
@@ -126,33 +126,33 @@ public class SuggestAddrInfo implements Parcelable {
     public List<List<CityInfo>> getSuggestWpCity() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f35662f : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f35868f : (List) invokeV.objValue;
     }
 
     public List<List<PoiInfo>> getSuggestWpNode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f35659c : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f35865c : (List) invokeV.objValue;
     }
 
     public void setSuggestEndCity(List<CityInfo> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, list) == null) {
-            this.f35661e = list;
+            this.f35867e = list;
         }
     }
 
     public void setSuggestEndNode(List<PoiInfo> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, list) == null) {
-            this.f35658b = list;
+            this.f35864b = list;
         }
     }
 
     public void setSuggestStartCity(List<CityInfo> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, list) == null) {
-            this.f35660d = list;
+            this.f35866d = list;
         }
     }
 
@@ -166,14 +166,14 @@ public class SuggestAddrInfo implements Parcelable {
     public void setSuggestWpCity(List<List<CityInfo>> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048587, this, list) == null) {
-            this.f35662f = list;
+            this.f35868f = list;
         }
     }
 
     public void setSuggestWpNode(List<List<PoiInfo>> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048588, this, list) == null) {
-            this.f35659c = list;
+            this.f35865c = list;
         }
     }
 
@@ -182,11 +182,11 @@ public class SuggestAddrInfo implements Parcelable {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048589, this, parcel, i2) == null) {
             parcel.writeList(this.a);
-            parcel.writeList(this.f35658b);
-            parcel.writeList(this.f35659c);
-            parcel.writeList(this.f35660d);
-            parcel.writeList(this.f35661e);
-            parcel.writeList(this.f35662f);
+            parcel.writeList(this.f35864b);
+            parcel.writeList(this.f35865c);
+            parcel.writeList(this.f35866d);
+            parcel.writeList(this.f35867e);
+            parcel.writeList(this.f35868f);
         }
     }
 }

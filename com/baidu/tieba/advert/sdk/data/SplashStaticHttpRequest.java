@@ -1,8 +1,8 @@
 package com.baidu.tieba.advert.sdk.data;
 
 import android.content.Context;
-import c.a.t0.y.a.h.b;
-import c.a.t0.y.a.h.c;
+import c.a.u0.y.a.h.b;
+import c.a.u0.y.a.h.c;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.HttpMessage;
 import com.baidu.adp.framework.task.HttpMessageTask;

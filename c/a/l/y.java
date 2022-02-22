@@ -15,13 +15,13 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes.dex */
-public class y extends c.a.l.a<c.a.s0.s.q.a> {
+public class y extends c.a.l.a<c.a.t0.s.r.a> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: j  reason: collision with root package name */
-    public MutiImgSingleVerticalLayout f4372j;
-    public c.a.s0.s.q.a k;
+    public MutiImgSingleVerticalLayout f4439j;
+    public c.a.t0.s.r.a k;
     public int l;
     public String m;
 
@@ -50,16 +50,16 @@ public class y extends c.a.l.a<c.a.s0.s.q.a> {
         }
 
         @Override // c.a.l.w0.a.b
-        public boolean a(a.C0204a c0204a) {
+        public boolean a(a.C0210a c0210a) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, c0204a)) == null) {
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, c0210a)) == null) {
                 if (this.a.k != null && this.a.k.getThreadData() != null) {
-                    c.a.t0.g0.m.a(this.a.k.getThreadData().h0());
+                    c.a.u0.g0.m.a(this.a.k.getThreadData().h0());
                     y yVar = this.a;
-                    c.a.t0.g0.m.l(yVar.f4372j.mTitle, yVar.k.getThreadData().h0(), R.color.CAM_X0105, R.color.CAM_X0109);
+                    c.a.u0.g0.m.l(yVar.f4439j.mTitle, yVar.k.getThreadData().h0(), R.color.CAM_X0105, R.color.CAM_X0109);
                     y yVar2 = this.a;
-                    c.a.t0.g0.m.l(yVar2.f4372j.mAbstract, yVar2.k.getThreadData().h0(), R.color.CAM_X0105, R.color.CAM_X0109);
+                    c.a.u0.g0.m.l(yVar2.f4439j.mAbstract, yVar2.k.getThreadData().h0(), R.color.CAM_X0105, R.color.CAM_X0109);
                 }
                 return false;
             }
@@ -86,10 +86,10 @@ public class y extends c.a.l.a<c.a.s0.s.q.a> {
             }
         }
         this.l = 3;
-        if ((TbadkCoreApplication.getInst().getPersonalizeViewData().f13627i instanceof MutiImgSingleVerticalLayout) && TbadkCoreApplication.getInst().getPersonalizeViewData().f13627i.getParent() == null) {
-            this.f4372j = (MutiImgSingleVerticalLayout) TbadkCoreApplication.getInst().getPersonalizeViewData().f13627i;
+        if ((TbadkCoreApplication.getInst().getPersonalizeViewData().f13906i instanceof MutiImgSingleVerticalLayout) && TbadkCoreApplication.getInst().getPersonalizeViewData().f13906i.getParent() == null) {
+            this.f4439j = (MutiImgSingleVerticalLayout) TbadkCoreApplication.getInst().getPersonalizeViewData().f13906i;
         } else {
-            this.f4372j = new MutiImgSingleVerticalLayout(context);
+            this.f4439j = new MutiImgSingleVerticalLayout(context);
         }
     }
 
@@ -97,7 +97,7 @@ public class y extends c.a.l.a<c.a.s0.s.q.a> {
     public View f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f4372j : (View) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f4439j : (View) invokeV.objValue;
     }
 
     @Override // c.a.l.a
@@ -109,22 +109,22 @@ public class y extends c.a.l.a<c.a.s0.s.q.a> {
     }
 
     @Override // c.a.l.a
-    public void k(c.a.t0.g0.d0<c.a.s0.s.q.a> d0Var) {
+    public void k(c.a.u0.g0.b0<c.a.t0.s.r.a> b0Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, d0Var) == null) {
-            this.f4372j.setSubClickListener(d0Var);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, b0Var) == null) {
+            this.f4439j.setSubClickListener(b0Var);
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // c.a.l.p
     /* renamed from: o */
-    public void onBindDataToView(c.a.s0.s.q.a aVar) {
+    public void onBindDataToView(c.a.t0.s.r.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, aVar) == null) {
             this.k = aVar;
-            this.f4372j.setFrom(this.m);
-            this.f4372j.onBindDataToView(aVar);
+            this.f4439j.setFrom(this.m);
+            this.f4439j.onBindDataToView(aVar);
         }
     }
 
@@ -146,14 +146,14 @@ public class y extends c.a.l.a<c.a.s0.s.q.a> {
     public void q(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
-            this.f4372j.setFromCDN(z);
+            this.f4439j.setFromCDN(z);
         }
     }
 
     public void r(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) {
-            this.f4372j.setNeedFrsTabName(z);
+            this.f4439j.setNeedFrsTabName(z);
         }
     }
 }

@@ -3,15 +3,15 @@ package com.baidu.tbadk.widget;
 import android.graphics.Rect;
 import android.view.View;
 import androidx.recyclerview.widget.RecyclerView;
+import c.a.u0.a4.e;
 import com.baidu.adp.widget.ListView.BdRecyclerView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class DeviderLineDecoration extends RecyclerView.ItemDecoration {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -31,7 +31,7 @@ public class DeviderLineDecoration extends RecyclerView.ItemDecoration {
             }
         }
         if (this.a <= 0) {
-            this.a = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds16);
+            this.a = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(e.tbds16);
         }
     }
 

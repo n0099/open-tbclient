@@ -13,34 +13,34 @@ import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 import com.kwad.sdk.R;
 @SuppressLint({"AppCompatCustomView"})
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class KsPriceView extends TextView implements b {
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f58090b = "¥%s 到手约 ¥%s";
+    public static String f58257b = "¥%s 到手约 ¥%s";
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f58091c = "¥%s";
+    public static String f58258c = "¥%s";
     public a a;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f58092d;
+    public String f58259d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f58093e;
+    public String f58260e;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class a {
         public int a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f58094b;
+        public int f58261b;
 
         /* renamed from: c  reason: collision with root package name */
-        public int f58095c;
+        public int f58262c;
 
         /* renamed from: d  reason: collision with root package name */
-        public int f58096d;
+        public int f58263d;
 
         public a() {
         }
@@ -50,15 +50,15 @@ public class KsPriceView extends TextView implements b {
         }
 
         public int b() {
-            return this.f58095c;
+            return this.f58262c;
         }
 
         public int c() {
-            return this.f58094b;
+            return this.f58261b;
         }
 
         public int d() {
-            return this.f58096d;
+            return this.f58263d;
         }
     }
 
@@ -97,7 +97,7 @@ public class KsPriceView extends TextView implements b {
 
     @Nullable
     public static SpannableString a(String str, @Nullable String str2, a aVar) {
-        String format = str2 == null ? String.format(f58091c, str) : String.format(f58090b, str, str2);
+        String format = str2 == null ? String.format(f58258c, str) : String.format(f58257b, str, str2);
         SpannableString spannableString = new SpannableString(format);
         int indexOf = format.indexOf(str) - 1;
         if (indexOf < 0) {
@@ -119,28 +119,28 @@ public class KsPriceView extends TextView implements b {
     private void a(Context context, @Nullable AttributeSet attributeSet, int i2) {
         setMaxLines(1);
         this.a.a = context.getResources().getColor(R.color.ksad_reward_main_color);
-        this.a.f58094b = context.getResources().getDimensionPixelSize(R.dimen.ksad_reward_order_price_size);
-        this.a.f58095c = context.getResources().getColor(R.color.ksad_reward_original_price);
-        this.a.f58096d = context.getResources().getDimensionPixelSize(R.dimen.ksad_reward_order_original_price_size);
+        this.a.f58261b = context.getResources().getDimensionPixelSize(R.dimen.ksad_reward_order_price_size);
+        this.a.f58262c = context.getResources().getColor(R.color.ksad_reward_original_price);
+        this.a.f58263d = context.getResources().getDimensionPixelSize(R.dimen.ksad_reward_order_original_price_size);
     }
 
     @Override // com.kwad.sdk.widget.b
     public void a(c cVar) {
         this.a.a = cVar.a();
-        a(this.f58092d, this.f58093e);
+        a(this.f58259d, this.f58260e);
     }
 
     public void a(String str, String str2) {
         if (TextUtils.isEmpty(str) && TextUtils.isEmpty(str2)) {
             return;
         }
-        this.f58092d = str;
-        this.f58093e = str2;
+        this.f58259d = str;
+        this.f58260e = str2;
         if (a(str2) <= 0.0f) {
-            this.f58093e = null;
+            this.f58260e = null;
         }
         setTextColor(this.a.a());
-        SpannableString a2 = a(str, this.f58093e, this.a);
+        SpannableString a2 = a(str, this.f58260e, this.a);
         if (a2 != null) {
             setText(a2);
         }

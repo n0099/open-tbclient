@@ -18,22 +18,22 @@ public final class g {
     public final Uri a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final byte[] f29655b;
+    public final byte[] f29861b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final long f29656c;
+    public final long f29862c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final long f29657d;
+    public final long f29863d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final long f29658e;
+    public final long f29864e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final String f29659f;
+    public final String f29865f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final int f29660g;
+    public final int f29866g;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public g(Uri uri, int i2) {
@@ -59,14 +59,14 @@ public final class g {
     public boolean a(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) ? (this.f29660g & i2) == i2 : invokeI.booleanValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) ? (this.f29866g & i2) == i2 : invokeI.booleanValue;
     }
 
     public g b(long j2) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j2)) == null) {
-            long j3 = this.f29658e;
+            long j3 = this.f29864e;
             return c(j2, j3 != -1 ? j3 - j2 : -1L);
         }
         return (g) invokeJ.objValue;
@@ -75,14 +75,14 @@ public final class g {
     public g c(long j2, long j3) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3)})) == null) ? (j2 == 0 && this.f29658e == j3) ? this : new g(this.a, this.f29655b, this.f29656c + j2, this.f29657d + j2, j3, this.f29659f, this.f29660g) : (g) invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3)})) == null) ? (j2 == 0 && this.f29864e == j3) ? this : new g(this.a, this.f29861b, this.f29862c + j2, this.f29863d + j2, j3, this.f29865f, this.f29866g) : (g) invokeCommon.objValue;
     }
 
     public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return "DataSpec[" + this.a + StringUtil.ARRAY_ELEMENT_SEPARATOR + Arrays.toString(this.f29655b) + StringUtil.ARRAY_ELEMENT_SEPARATOR + this.f29656c + StringUtil.ARRAY_ELEMENT_SEPARATOR + this.f29657d + StringUtil.ARRAY_ELEMENT_SEPARATOR + this.f29658e + StringUtil.ARRAY_ELEMENT_SEPARATOR + this.f29659f + StringUtil.ARRAY_ELEMENT_SEPARATOR + this.f29660g + PreferencesUtil.RIGHT_MOUNT;
+            return "DataSpec[" + this.a + StringUtil.ARRAY_ELEMENT_SEPARATOR + Arrays.toString(this.f29861b) + StringUtil.ARRAY_ELEMENT_SEPARATOR + this.f29862c + StringUtil.ARRAY_ELEMENT_SEPARATOR + this.f29863d + StringUtil.ARRAY_ELEMENT_SEPARATOR + this.f29864e + StringUtil.ARRAY_ELEMENT_SEPARATOR + this.f29865f + StringUtil.ARRAY_ELEMENT_SEPARATOR + this.f29866g + PreferencesUtil.RIGHT_MOUNT;
         }
         return (String) invokeV.objValue;
     }
@@ -173,11 +173,11 @@ public final class g {
         }
         c.i.b.a.i0.a.a(z);
         this.a = uri;
-        this.f29655b = bArr;
-        this.f29656c = j2;
-        this.f29657d = j3;
-        this.f29658e = j4;
-        this.f29659f = str;
-        this.f29660g = i2;
+        this.f29861b = bArr;
+        this.f29862c = j2;
+        this.f29863d = j3;
+        this.f29864e = j4;
+        this.f29865f = str;
+        this.f29866g = i2;
     }
 }

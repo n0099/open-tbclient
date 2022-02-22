@@ -21,14 +21,14 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import org.apache.commons.lang3.text.ExtendedMessageFormat;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class MultiModelLoader<Model, Data> implements ModelLoader<Model, Data> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final Pools.Pool<List<Throwable>> exceptionListPool;
     public final List<ModelLoader<Model, Data>> modelLoaders;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class MultiFetcher<Data> implements DataFetcher<Data>, DataFetcher.DataCallback<Data> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

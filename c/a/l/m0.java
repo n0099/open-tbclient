@@ -25,31 +25,31 @@ public class m0 {
     public boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f4335b;
+    public int f4402b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f4336c;
+    public int f4403c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f4337d;
+    public int f4404d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f4338e;
+    public int f4405e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f4339f;
+    public int f4406f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f4340g;
+    public int f4407g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f4341h;
+    public int f4408h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f4342i;
+    public int f4409i;
 
     /* renamed from: j  reason: collision with root package name */
-    public boolean f4343j;
+    public boolean f4410j;
 
     static {
         InterceptResult invokeClinit;
@@ -87,75 +87,81 @@ public class m0 {
             }
         }
         this.a = false;
-        this.f4335b = n;
-        this.f4336c = p;
-        this.f4337d = k;
-        this.f4338e = 0;
-        this.f4339f = l;
-        this.f4340g = m;
-        this.f4341h = R.color.CAM_X0205;
-        this.f4342i = q;
+        this.f4402b = n;
+        this.f4403c = p;
+        this.f4404d = k;
+        this.f4405e = 0;
+        this.f4406f = l;
+        this.f4407g = m;
+        this.f4408h = R.color.CAM_X0205;
+        this.f4409i = q;
     }
 
     public boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f4343j : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f4410j : invokeV.booleanValue;
     }
 
     public void b(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
-            this.f4341h = i2;
+            this.f4408h = i2;
         }
     }
 
     public void c(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
-            this.f4338e = i2;
+            this.f4405e = i2;
         }
     }
 
     public void d(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
-            this.f4342i = i2;
+            this.f4409i = i2;
         }
     }
 
     public void e(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048580, this, i2) == null) {
-            this.f4339f = i2;
+            this.f4406f = i2;
         }
     }
 
     public void f(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048581, this, i2) == null) {
-            this.f4340g = i2;
+            this.f4407g = i2;
         }
     }
 
     public void g(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048582, this, i2) == null) {
-            this.f4335b = i2;
         }
     }
 
     public void h(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048583, this, i2) == null) {
-            this.f4337d = i2;
+            this.f4402b = i2;
         }
     }
 
-    public void i(boolean z) {
+    public void i(int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) {
-            this.f4343j = z;
+        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2) == null) {
+            this.f4404d = i2;
+        }
+    }
+
+    public void j(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
+            this.f4410j = z;
         }
     }
 }

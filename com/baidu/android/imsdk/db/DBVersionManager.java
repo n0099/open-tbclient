@@ -22,7 +22,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class DBVersionManager {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "com.baidu.android.imsdk.db.DBVersionManager";
@@ -30,7 +30,7 @@ public class DBVersionManager {
     public transient /* synthetic */ FieldHolder $fh;
     public Context mContext;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public class DefaultHandler implements VersionHandler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -71,7 +71,7 @@ public class DBVersionManager {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public class Version21And22Handler implements VersionHandler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -124,7 +124,7 @@ public class DBVersionManager {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public class Version22And223Handler implements VersionHandler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -169,7 +169,7 @@ public class DBVersionManager {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public class Version22And23Handler implements VersionHandler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -214,7 +214,7 @@ public class DBVersionManager {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public class Version23And24Handler implements VersionHandler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -253,7 +253,7 @@ public class DBVersionManager {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public class Version24And25Handler implements VersionHandler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -298,7 +298,7 @@ public class DBVersionManager {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public class Version25And26Handler implements VersionHandler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -338,7 +338,7 @@ public class DBVersionManager {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public class Version26And27Handler implements VersionHandler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -390,7 +390,7 @@ public class DBVersionManager {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public class Version28And29Handler implements VersionHandler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -437,7 +437,7 @@ public class DBVersionManager {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public class Version29And30Handler implements VersionHandler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -486,7 +486,7 @@ public class DBVersionManager {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public class Version30And31Handler implements VersionHandler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -532,7 +532,7 @@ public class DBVersionManager {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public class Version31And32Handler implements VersionHandler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -579,7 +579,7 @@ public class DBVersionManager {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public class Version32And33Handler implements VersionHandler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -624,7 +624,7 @@ public class DBVersionManager {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public class Version33And34Handler implements VersionHandler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -671,7 +671,7 @@ public class DBVersionManager {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public class Version34And35Handler implements VersionHandler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -718,7 +718,7 @@ public class DBVersionManager {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public class Version35And36Handler implements VersionHandler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -764,7 +764,7 @@ public class DBVersionManager {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public class Version36And37Handler implements VersionHandler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -810,7 +810,7 @@ public class DBVersionManager {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public class Version37And38Handler implements VersionHandler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -856,7 +856,7 @@ public class DBVersionManager {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public class Version38And39Handler implements VersionHandler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -903,7 +903,7 @@ public class DBVersionManager {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public class Version39And40Handler implements VersionHandler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -949,7 +949,7 @@ public class DBVersionManager {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public class Version40And41Handler implements VersionHandler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -995,7 +995,7 @@ public class DBVersionManager {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public class Version41And42Handler implements VersionHandler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -1027,19 +1027,19 @@ public class DBVersionManager {
         }
 
         /* JADX DEBUG: Another duplicated slice has different insns count: {[IF]}, finally: {[IF, INVOKE] complete} */
-        /* JADX WARN: Code restructure failed: missing block: B:11:0x00aa, code lost:
+        /* JADX WARN: Code restructure failed: missing block: B:11:0x00a9, code lost:
             if (r5 == null) goto L10;
          */
-        /* JADX WARN: Code restructure failed: missing block: B:12:0x00ac, code lost:
+        /* JADX WARN: Code restructure failed: missing block: B:12:0x00ab, code lost:
             r5.endTransaction();
          */
-        /* JADX WARN: Code restructure failed: missing block: B:13:0x00af, code lost:
+        /* JADX WARN: Code restructure failed: missing block: B:13:0x00ae, code lost:
             com.baidu.android.imsdk.pubaccount.PaManager.delPaLocalInfosByPaType(r4.this$0.mContext, 19);
          */
-        /* JADX WARN: Code restructure failed: missing block: B:14:0x00ba, code lost:
+        /* JADX WARN: Code restructure failed: missing block: B:14:0x00b9, code lost:
             return;
          */
-        /* JADX WARN: Code restructure failed: missing block: B:5:0x0087, code lost:
+        /* JADX WARN: Code restructure failed: missing block: B:5:0x0086, code lost:
             if (r5 != null) goto L12;
          */
         @Override // com.baidu.android.imsdk.db.DBVersionManager.VersionHandler
@@ -1086,7 +1086,7 @@ public class DBVersionManager {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public class Version42And43Handler implements VersionHandler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -1131,7 +1131,7 @@ public class DBVersionManager {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public class Version43And44Handler implements VersionHandler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -1177,7 +1177,7 @@ public class DBVersionManager {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public class Version44And45Handler implements VersionHandler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -1222,7 +1222,7 @@ public class DBVersionManager {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public class Version45And46Handler implements VersionHandler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -1284,7 +1284,7 @@ public class DBVersionManager {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public class Version46And47Handler implements VersionHandler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -1330,7 +1330,7 @@ public class DBVersionManager {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public class Version48And49Handler implements VersionHandler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -1375,7 +1375,7 @@ public class DBVersionManager {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public class Version49And50Handler implements VersionHandler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -1421,7 +1421,7 @@ public class DBVersionManager {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public interface VersionHandler {
         void onDowngrade(SQLiteDatabase sQLiteDatabase, int i2, int i3);
 
@@ -1524,10 +1524,10 @@ public class DBVersionManager {
         }
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:12:0x00c2, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:12:0x00c1, code lost:
         if (r6 == null) goto L8;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:14:0x00c5, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:14:0x00c4, code lost:
         return r0;
      */
     /*

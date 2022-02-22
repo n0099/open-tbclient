@@ -9,7 +9,7 @@ import android.graphics.RectF;
 import android.text.TextPaint;
 import android.util.AttributeSet;
 import androidx.core.view.InputDeviceCompat;
-import c.a.m0.a.l.h;
+import c.a.d0.h0.f;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.sdk.container.widget.AbsCountDownView;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -19,25 +19,25 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class CircleTextProgressbar extends AbsCountDownView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f38291f;
+    public int f38519f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f38292g;
+    public int f38520g;
 
     /* renamed from: h  reason: collision with root package name */
-    public ColorStateList f38293h;
+    public ColorStateList f38521h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f38294i;
+    public int f38522i;
 
     /* renamed from: j  reason: collision with root package name */
-    public int f38295j;
+    public int f38523j;
     public int k;
     public Paint l;
     public RectF m;
@@ -48,7 +48,7 @@ public class CircleTextProgressbar extends AbsCountDownView {
     public final Rect r;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public static final class ProgressType {
         public static final /* synthetic */ ProgressType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -107,7 +107,7 @@ public class CircleTextProgressbar extends AbsCountDownView {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public static final /* synthetic */ int[] a;
@@ -177,10 +177,10 @@ public class CircleTextProgressbar extends AbsCountDownView {
     public final void c() {
         int colorForState;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.f38294i == (colorForState = this.f38293h.getColorForState(getDrawableState(), 0))) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.f38522i == (colorForState = this.f38521h.getColorForState(getDrawableState(), 0))) {
             return;
         }
-        this.f38294i = colorForState;
+        this.f38522i = colorForState;
         invalidate();
     }
 
@@ -232,13 +232,13 @@ public class CircleTextProgressbar extends AbsCountDownView {
         if (interceptable == null || interceptable.invokeLL(1048583, this, context, attributeSet) == null) {
             this.l.setAntiAlias(true);
             ColorStateList valueOf = ColorStateList.valueOf(0);
-            this.f38293h = valueOf;
-            this.f38294i = valueOf.getColorForState(getDrawableState(), 0);
-            setWidth(h.a(context, 40.0f));
-            setHeight(h.a(context, 40.0f));
+            this.f38521h = valueOf;
+            this.f38522i = valueOf.getColorForState(getDrawableState(), 0);
+            setWidth(f.c.a(context, 40.0f));
+            setHeight(f.c.a(context, 40.0f));
             setOutLineColor(-7697782);
             setProgressColor(-12956454);
-            setProgressLineWidth(h.a(context, 2.0f));
+            setProgressLineWidth(f.c.a(context, 2.0f));
             setTextSize(1, 10.0f);
             setTextColor(-1);
             setText("跳过");
@@ -253,11 +253,11 @@ public class CircleTextProgressbar extends AbsCountDownView {
             getDrawingRect(this.r);
             float width = (this.r.height() > this.r.width() ? this.r.width() : this.r.height()) / 2;
             this.l.setStyle(Paint.Style.FILL);
-            this.l.setColor(this.f38291f);
+            this.l.setColor(this.f38519f);
             this.l.setAlpha(127);
-            canvas.drawCircle(this.r.centerX(), this.r.centerY(), width - this.f38292g, this.l);
+            canvas.drawCircle(this.r.centerX(), this.r.centerY(), width - this.f38520g, this.l);
             this.l.setStyle(Paint.Style.STROKE);
-            this.l.setColor(this.f38291f);
+            this.l.setColor(this.f38519f);
             this.l.setStrokeWidth(this.k);
             this.l.setStrokeCap(Paint.Cap.ROUND);
             this.l.setAlpha(204);
@@ -267,7 +267,7 @@ public class CircleTextProgressbar extends AbsCountDownView {
             paint.setAntiAlias(true);
             paint.setTextAlign(Paint.Align.CENTER);
             canvas.drawText(getText().toString(), this.r.centerX(), this.r.centerY() - ((paint.descent() + paint.ascent()) / 2.0f), paint);
-            this.l.setColor(this.f38295j);
+            this.l.setColor(this.f38523j);
             this.l.setStyle(Paint.Style.STROKE);
             this.l.setStrokeWidth(this.k);
             this.l.setStrokeCap(Paint.Cap.ROUND);
@@ -291,7 +291,7 @@ public class CircleTextProgressbar extends AbsCountDownView {
     public void setInCircleColor(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048586, this, i2) == null) {
-            this.f38293h = ColorStateList.valueOf(i2);
+            this.f38521h = ColorStateList.valueOf(i2);
             invalidate();
         }
     }
@@ -299,7 +299,7 @@ public class CircleTextProgressbar extends AbsCountDownView {
     public void setOutLineColor(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048587, this, i2) == null) {
-            this.f38291f = i2;
+            this.f38519f = i2;
             invalidate();
         }
     }
@@ -307,7 +307,7 @@ public class CircleTextProgressbar extends AbsCountDownView {
     public void setOutLineWidth(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048588, this, i2) == null) {
-            this.f38292g = i2;
+            this.f38520g = i2;
             invalidate();
         }
     }
@@ -323,7 +323,7 @@ public class CircleTextProgressbar extends AbsCountDownView {
     public void setProgressColor(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048590, this, i2) == null) {
-            this.f38295j = i2;
+            this.f38523j = i2;
             invalidate();
         }
     }
@@ -456,10 +456,10 @@ public class CircleTextProgressbar extends AbsCountDownView {
                 return;
             }
         }
-        this.f38291f = -16777216;
-        this.f38292g = 2;
-        this.f38293h = ColorStateList.valueOf(0);
-        this.f38295j = -16776961;
+        this.f38519f = -16777216;
+        this.f38520g = 2;
+        this.f38521h = ColorStateList.valueOf(0);
+        this.f38523j = -16776961;
         this.k = 8;
         this.l = new Paint();
         this.m = new RectF();

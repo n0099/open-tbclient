@@ -1,7 +1,7 @@
 package com.baidu.android.imsdk.account;
 
 import com.baidu.android.imsdk.IMListener;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public interface ILoginListener extends IMListener {
     void onLoginResult(int i2, String str);
 

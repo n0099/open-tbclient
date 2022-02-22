@@ -44,10 +44,10 @@ public class EnterWalletDoPayWithParamsAction implements RouterAction {
                 public final /* synthetic */ RouterCallback a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ boolean f52021b;
+                public final /* synthetic */ boolean f52188b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ EnterWalletDoPayWithParamsAction f52022c;
+                public final /* synthetic */ EnterWalletDoPayWithParamsAction f52189c;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -64,16 +64,16 @@ public class EnterWalletDoPayWithParamsAction implements RouterAction {
                             return;
                         }
                     }
-                    this.f52022c = this;
+                    this.f52189c = this;
                     this.a = routerCallback;
-                    this.f52021b = z;
+                    this.f52188b = z;
                 }
 
                 @Override // com.baidu.android.pay.PayCallBack
                 public boolean isHideLoadingDialog() {
                     InterceptResult invokeV;
                     Interceptable interceptable2 = $ic;
-                    return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) ? this.f52021b : invokeV.booleanValue;
+                    return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) ? this.f52188b : invokeV.booleanValue;
                 }
 
                 @Override // com.baidu.android.pay.PayCallBack

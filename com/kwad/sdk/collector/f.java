@@ -9,7 +9,7 @@ import com.kwad.sdk.utils.ah;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class f {
     @Nullable
     public static JSONArray a(Context context) {
@@ -21,7 +21,7 @@ public class f {
     public static g b(Context context) {
         boolean a = ah.a(context);
         com.kwad.sdk.core.d.a.a("InfoCollector", "queryAccessibilityServicePermission result: " + a);
-        return new g(s.f55294j, a ? g.f55536b : g.f55537c);
+        return new g(s.f55461j, a ? g.f55703b : g.f55704c);
     }
 
     @NonNull
@@ -35,7 +35,7 @@ public class f {
             if (strArr != null) {
                 for (String str : strArr) {
                     int a = ah.a(context, str);
-                    arrayList.add(new g(str, a == 0 ? g.f55536b : a == -1 ? g.f55537c : g.a));
+                    arrayList.add(new g(str, a == 0 ? g.f55703b : a == -1 ? g.f55704c : g.a));
                 }
             }
             return arrayList;

@@ -1,5 +1,7 @@
 package c.a.t0.k0;
-/* loaded from: classes7.dex */
-public interface b {
-    void cancel();
+
+import c.a.t0.k0.a;
+/* loaded from: classes6.dex */
+public interface b<T extends a> {
+    boolean onEvent(T t);
 }

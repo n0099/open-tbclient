@@ -24,7 +24,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class ContentProviderProxy extends ContentProvider {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String CONTENT_PROVIDER_AUTHOR = "content://com.baidu.adp.plugin.provider";

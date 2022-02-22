@@ -1,7 +1,7 @@
 package com.baidu.adp.plugin.packageManager.pluginFileDownload;
 
 import androidx.core.view.InputDeviceCompat;
-import c.a.d.i.j.d.a;
+import c.a.d.j.j.d.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class BdFileDownloadData implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int FILE_DOWNLOAD_STATUS_CANCEL = 4;

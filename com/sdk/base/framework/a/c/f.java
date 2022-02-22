@@ -11,7 +11,7 @@ public final class f<Data> {
     public final c a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final Data[] f59212b;
+    public final Data[] f59379b;
 
     public f(c cVar, Data... dataArr) {
         Interceptable interceptable = $ic;
@@ -29,6 +29,6 @@ public final class f<Data> {
             }
         }
         this.a = cVar;
-        this.f59212b = dataArr;
+        this.f59379b = dataArr;
     }
 }

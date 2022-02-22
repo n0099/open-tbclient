@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.Iterator;
 import org.json.JSONArray;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class RetrieveMsgReceiver implements IMessageReceiveListener {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "RetrieveMsgReceiver";

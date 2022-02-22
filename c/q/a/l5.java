@@ -37,7 +37,7 @@ public class l5 implements q1 {
     public void a() {
         q1 q1Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (q1Var = this.a.f30435e.f30495d) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (q1Var = this.a.f30641e.f30701d) == null) {
             return;
         }
         q1Var.a();
@@ -47,7 +47,7 @@ public class l5 implements q1 {
     public void a(int i2, String str) {
         q1 q1Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, str) == null) || (q1Var = this.a.f30435e.f30495d) == null) {
+        if (!(interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, str) == null) || (q1Var = this.a.f30641e.f30701d) == null) {
             return;
         }
         q1Var.a(i2, str);
@@ -57,18 +57,18 @@ public class l5 implements q1 {
     public void a(Object obj) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj) == null) {
-            j0 a = x5.a(((b6) obj).f30322c, this.a.f30435e.a);
-            t5 t5Var = this.a.f30435e;
-            q1 q1Var = t5Var.f30495d;
+            j0 a = x5.a(((b6) obj).f30528c, this.a.f30641e.a);
+            t5 t5Var = this.a.f30641e;
+            q1 q1Var = t5Var.f30701d;
             if (q1Var != null) {
                 if (a == null) {
                     q1Var.a(101, "");
-                } else if (!TextUtils.isEmpty(t5Var.f30493b) && this.a.f30435e.f30493b.equalsIgnoreCase(a.a())) {
-                    this.a.f30435e.f30495d.a(a);
+                } else if (!TextUtils.isEmpty(t5Var.f30699b) && this.a.f30641e.f30699b.equalsIgnoreCase(a.a())) {
+                    this.a.f30641e.f30701d.a(a);
                     List<Info> list = a.a;
                     if (list != null) {
                         for (Info info : list) {
-                            Context context = this.a.f30435e.a;
+                            Context context = this.a.f30641e.a;
                             List material = info.getMaterial();
                             if (!material.isEmpty()) {
                                 p2.b(context, r0.I(context), material, new f2(context, info));
@@ -76,7 +76,7 @@ public class l5 implements q1 {
                         }
                     }
                 } else {
-                    this.a.f30435e.f30495d.a(2003, "");
+                    this.a.f30641e.f30701d.a(2003, "");
                 }
             }
         }

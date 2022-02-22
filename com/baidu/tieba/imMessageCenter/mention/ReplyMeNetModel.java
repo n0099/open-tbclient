@@ -1,8 +1,8 @@
 package com.baidu.tieba.imMessageCenter.mention;
 
-import c.a.s0.l0.b.g;
-import c.a.t0.u1.b.l;
-import c.a.t0.u1.b.m;
+import c.a.t0.l0.b.g;
+import c.a.u0.u1.b.l;
+import c.a.u0.u1.b.m;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;

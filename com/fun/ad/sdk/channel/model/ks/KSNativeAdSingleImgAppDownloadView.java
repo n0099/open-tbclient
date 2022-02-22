@@ -27,25 +27,25 @@ public class KSNativeAdSingleImgAppDownloadView extends x {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public TextView f54173b;
+    public TextView f54340b;
 
     /* renamed from: c  reason: collision with root package name */
-    public ImageView f54174c;
+    public ImageView f54341c;
 
     /* renamed from: d  reason: collision with root package name */
-    public ImageView f54175d;
+    public ImageView f54342d;
 
     /* renamed from: e  reason: collision with root package name */
-    public ImageView f54176e;
+    public ImageView f54343e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f54177f;
+    public TextView f54344f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Button f54178g;
+    public Button f54345g;
 
     /* renamed from: h  reason: collision with root package name */
-    public float f54179h;
+    public float f54346h;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public KSNativeAdSingleImgAppDownloadView(Context context) {
@@ -108,7 +108,7 @@ public class KSNativeAdSingleImgAppDownloadView extends x {
                 return;
             }
         }
-        this.f54179h = 1.78f;
+        this.f54346h = 1.78f;
     }
 
     @Override // com.fun.module.ks.x
@@ -117,7 +117,7 @@ public class KSNativeAdSingleImgAppDownloadView extends x {
         if (interceptable == null || interceptable.invokeL(1048576, this, ksNativeAd) == null) {
             ArrayList arrayList = new ArrayList();
             arrayList.add(this);
-            arrayList.add(this.f54178g);
+            arrayList.add(this.f54345g);
             this.a.clear();
             this.a.addAll(arrayList);
             LogPrinter.e("KSNativeAd Single getImageList: " + ksNativeAd.getImageList(), new Object[0]);
@@ -125,22 +125,22 @@ public class KSNativeAdSingleImgAppDownloadView extends x {
                 KsImage ksImage = ksNativeAd.getImageList().get(0);
                 LogPrinter.e("KSNativeAd Single img: " + ksImage, new Object[0]);
                 if (ksImage != null && ksImage.isValid()) {
-                    this.f54179h = (ksImage.getWidth() * 1.0f) / (ksImage.getHeight() * 1.0f);
+                    this.f54346h = (ksImage.getWidth() * 1.0f) / (ksImage.getHeight() * 1.0f);
                     LogPrinter.e("KSNativeAd Single img width: " + ksImage.getWidth() + ", height: " + ksImage.getHeight(), new Object[0]);
-                    GlideHelper.get().load(this, ksImage.getImageUrl(), this.f54174c);
+                    GlideHelper.get().load(this, ksImage.getImageUrl(), this.f54341c);
                 }
             }
-            this.f54175d.setImageBitmap(getSdkLogo());
-            this.f54173b.setText(ksNativeAd.getAdDescription());
+            this.f54342d.setImageBitmap(getSdkLogo());
+            this.f54340b.setText(ksNativeAd.getAdDescription());
             if (TextUtils.isEmpty(ksNativeAd.getAppIconUrl())) {
-                this.f54176e.setVisibility(8);
+                this.f54343e.setVisibility(8);
             } else {
-                this.f54176e.setVisibility(0);
-                GlideHelper.get().load(getContext(), ksNativeAd.getAppIconUrl(), this.f54176e);
+                this.f54343e.setVisibility(0);
+                GlideHelper.get().load(getContext(), ksNativeAd.getAppIconUrl(), this.f54343e);
             }
-            this.f54177f.setText(ksNativeAd.getAppName());
-            this.f54178g.setText(ksNativeAd.getActionDescription());
-            ksNativeAd.setDownloadListener(new y(ksNativeAd.getActionDescription(), this.f54178g));
+            this.f54344f.setText(ksNativeAd.getAppName());
+            this.f54345g.setText(ksNativeAd.getActionDescription());
+            ksNativeAd.setDownloadListener(new y(ksNativeAd.getActionDescription(), this.f54345g));
         }
     }
 
@@ -149,12 +149,12 @@ public class KSNativeAdSingleImgAppDownloadView extends x {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             super.onFinishInflate();
-            this.f54173b = (TextView) findViewById(R.id.ad_description);
-            this.f54174c = (ImageView) findViewById(R.id.ad_img);
-            this.f54175d = (ImageView) findViewById(R.id.ad_logo);
-            this.f54176e = (ImageView) findViewById(R.id.ad_app_icon);
-            this.f54177f = (TextView) findViewById(R.id.ad_app_title);
-            this.f54178g = (Button) findViewById(R.id.ad_app_download);
+            this.f54340b = (TextView) findViewById(R.id.ad_description);
+            this.f54341c = (ImageView) findViewById(R.id.ad_img);
+            this.f54342d = (ImageView) findViewById(R.id.ad_logo);
+            this.f54343e = (ImageView) findViewById(R.id.ad_app_icon);
+            this.f54344f = (TextView) findViewById(R.id.ad_app_title);
+            this.f54345g = (Button) findViewById(R.id.ad_app_download);
         }
     }
 
@@ -164,12 +164,12 @@ public class KSNativeAdSingleImgAppDownloadView extends x {
         if (interceptable == null || interceptable.invokeIIII(Constants.METHOD_SEND_USER_MSG, this, i2, i3, i4, i5) == null) {
             super.onSizeChanged(i2, i3, i4, i5);
             LogPrinter.e("KSNativeAd onSizeChanged w: " + i2 + ", h: " + i3 + ", oldw: " + i4 + ", oldh: " + i5, new Object[0]);
-            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.f54174c.getLayoutParams();
+            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.f54341c.getLayoutParams();
             int i6 = (i2 - layoutParams.leftMargin) - layoutParams.rightMargin;
             layoutParams.width = i6;
-            layoutParams.height = (int) (((float) i6) / this.f54179h);
+            layoutParams.height = (int) (((float) i6) / this.f54346h);
             LogPrinter.e("KSNativeAd onSizeChanged width: " + layoutParams.width + ", height: " + layoutParams.height, new Object[0]);
-            this.f54174c.setLayoutParams(layoutParams);
+            this.f54341c.setLayoutParams(layoutParams);
         }
     }
 }

@@ -5,7 +5,7 @@ import com.kwad.sdk.core.report.ReportAction;
 import com.kwad.sdk.core.report.e;
 import com.kwad.sdk.d;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class a extends e {
     public a(List<ReportAction> list) {
         super(list);

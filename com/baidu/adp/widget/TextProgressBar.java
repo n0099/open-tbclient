@@ -13,28 +13,28 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class TextProgressBar extends ProgressBar {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f31412e;
+    public String f31618e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextPaint f31413f;
+    public TextPaint f31619f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Paint.FontMetrics f31414g;
+    public Paint.FontMetrics f31620g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f31415h;
+    public int f31621h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f31416i;
+    public int f31622i;
 
     /* renamed from: j  reason: collision with root package name */
-    public int f31417j;
+    public int f31623j;
     public int k;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -61,12 +61,12 @@ public class TextProgressBar extends ProgressBar {
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f31412e = "0%";
+            this.f31618e = "0%";
             TextPaint textPaint = new TextPaint();
-            this.f31413f = textPaint;
+            this.f31619f = textPaint;
             textPaint.setTextSize(20.0f);
-            this.f31413f.setColor(-1);
-            this.f31414g = new Paint.FontMetrics();
+            this.f31619f.setColor(-1);
+            this.f31620g = new Paint.FontMetrics();
         }
     }
 
@@ -77,10 +77,10 @@ public class TextProgressBar extends ProgressBar {
             synchronized (this) {
                 super.onDraw(canvas);
                 canvas.save();
-                this.f31416i = (int) Layout.getDesiredWidth(this.f31412e, this.f31413f);
-                this.f31413f.getFontMetrics(this.f31414g);
-                this.f31415h = (int) (this.f31414g.descent - this.f31414g.top);
-                canvas.drawText(this.f31412e, (getMeasuredWidth() - this.f31416i) / 2, getMeasuredHeight(), this.f31413f);
+                this.f31622i = (int) Layout.getDesiredWidth(this.f31618e, this.f31619f);
+                this.f31619f.getFontMetrics(this.f31620g);
+                this.f31621h = (int) (this.f31620g.descent - this.f31620g.top);
+                canvas.drawText(this.f31618e, (getMeasuredWidth() - this.f31622i) / 2, getMeasuredHeight(), this.f31619f);
                 canvas.restore();
             }
         }
@@ -91,13 +91,13 @@ public class TextProgressBar extends ProgressBar {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i2, i3) == null) {
             synchronized (this) {
-                this.f31416i = (int) Layout.getDesiredWidth("100%", this.f31413f);
-                this.f31413f.getFontMetrics(this.f31414g);
-                this.f31415h = (int) (this.f31414g.descent - this.f31414g.top);
+                this.f31622i = (int) Layout.getDesiredWidth("100%", this.f31619f);
+                this.f31619f.getFontMetrics(this.f31620g);
+                this.f31621h = (int) (this.f31620g.descent - this.f31620g.top);
                 super.onMeasure(i2, i3);
-                this.f31417j = getMeasuredWidth();
+                this.f31623j = getMeasuredWidth();
                 this.k = getMeasuredHeight();
-                setMeasuredDimension(Math.max(this.f31416i, getMeasuredWidth()), getMeasuredHeight() + this.f31415h + 0);
+                setMeasuredDimension(Math.max(this.f31622i, getMeasuredWidth()), getMeasuredHeight() + this.f31621h + 0);
             }
         }
     }
@@ -106,7 +106,7 @@ public class TextProgressBar extends ProgressBar {
     public void onSizeChanged(int i2, int i3, int i4, int i5) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIIII(1048579, this, i2, i3, i4, i5) == null) {
-            int paddingRight = (this.f31417j - getPaddingRight()) - getPaddingLeft();
+            int paddingRight = (this.f31623j - getPaddingRight()) - getPaddingLeft();
             int width = (getWidth() - paddingRight) / 2;
             int i6 = paddingRight + width;
             int paddingBottom = (this.k - getPaddingBottom()) - getPaddingTop();
@@ -125,7 +125,7 @@ public class TextProgressBar extends ProgressBar {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
             synchronized (this) {
-                this.f31412e = str;
+                this.f31618e = str;
                 drawableStateChanged();
             }
         }
@@ -134,7 +134,7 @@ public class TextProgressBar extends ProgressBar {
     public void setTextColor(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048581, this, i2) == null) {
-            this.f31413f.setColor(i2);
+            this.f31619f.setColor(i2);
             drawableStateChanged();
         }
     }

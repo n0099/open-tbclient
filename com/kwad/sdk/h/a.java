@@ -9,7 +9,7 @@ import com.kwad.sdk.api.loader.Wrapper;
 import com.kwad.sdk.api.proxy.IActivityProxy;
 import com.kwad.sdk.utils.aj;
 import com.kwad.sdk.utils.n;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public abstract class a extends IActivityProxy {
     public static final String FRAGMENTS_TAG = "android:fragments";
     public static final String KEY_START_TIME = "key_start_time";

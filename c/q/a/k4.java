@@ -14,7 +14,7 @@ public class k4 implements q1 {
     public long a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ a5 f30386b;
+    public final /* synthetic */ a5 f30592b;
 
     public k4(a5 a5Var) {
         Interceptable interceptable = $ic;
@@ -31,7 +31,7 @@ public class k4 implements q1 {
                 return;
             }
         }
-        this.f30386b = a5Var;
+        this.f30592b = a5Var;
         this.a = 0L;
     }
 
@@ -40,14 +40,14 @@ public class k4 implements q1 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, str) == null) {
             long currentTimeMillis = System.currentTimeMillis() - this.a;
-            y2 a = c3.a(this.f30386b.a);
+            y2 a = c3.a(this.f30592b.a);
             g3 g3Var = new g3(null);
-            g3Var.a = this.f30386b.f30298b;
+            g3Var.a = this.f30592b.f30504b;
             a.g(g3Var, currentTimeMillis, i2, 0);
             a.m();
-            this.f30386b.f30306j.removeMessages(100101);
-            this.f30386b.f30300d = false;
-            this.f30386b.d(this.f30386b.a(i2));
+            this.f30592b.f30512j.removeMessages(100101);
+            this.f30592b.f30506d = false;
+            this.f30592b.d(this.f30592b.a(i2));
         }
     }
 
@@ -56,8 +56,8 @@ public class k4 implements q1 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             this.a = System.currentTimeMillis();
-            a5 a5Var = this.f30386b;
-            a5Var.f30306j.sendEmptyMessageDelayed(100101, a5Var.f30302f * 1000);
+            a5 a5Var = this.f30592b;
+            a5Var.f30512j.sendEmptyMessageDelayed(100101, a5Var.f30508f * 1000);
         }
     }
 
@@ -66,30 +66,30 @@ public class k4 implements q1 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj) == null) {
             j0 j0Var = (j0) obj;
-            this.f30386b.f30306j.removeMessages(100101);
-            this.f30386b.f30300d = false;
+            this.f30592b.f30512j.removeMessages(100101);
+            this.f30592b.f30506d = false;
             int size = j0Var.a.size();
             long currentTimeMillis = System.currentTimeMillis() - this.a;
             Info info = size > 0 ? (Info) j0Var.a.get(0) : null;
-            y2 a = c3.a(this.f30386b.a);
+            y2 a = c3.a(this.f30592b.a);
             g3 g3Var = new g3(info);
-            g3Var.a = this.f30386b.f30298b;
+            g3Var.a = this.f30592b.f30504b;
             a.g(g3Var, currentTimeMillis, 200, size);
             a.m();
-            this.f30386b.c(j0Var);
-            c4 c4Var = this.f30386b.f30299c;
+            this.f30592b.c(j0Var);
+            c4 c4Var = this.f30592b.f30505c;
             if (c4Var != null && !c4Var.d()) {
-                a5 a5Var = this.f30386b;
-                if (a5Var.f30304h) {
+                a5 a5Var = this.f30592b;
+                if (a5Var.f30510h) {
                     return;
                 }
-                Info c2 = a5Var.f30299c.c();
+                Info c2 = a5Var.f30505c.c();
                 if (c2 != null) {
-                    this.f30386b.e(c2);
+                    this.f30592b.e(c2);
                     return;
                 }
             }
-            this.f30386b.d(PBError.NO_FILL);
+            this.f30592b.d(PBError.NO_FILL);
         }
     }
 }

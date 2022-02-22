@@ -43,16 +43,16 @@ public class a {
             if (bundle2 != null) {
                 Bundle bundle3 = bundle2.getBundle("ll");
                 if (bundle3 != null) {
-                    aVar.f35511b = new Point((int) bundle3.getDouble("ptx"), (int) bundle3.getDouble("pty"));
+                    aVar.f35717b = new Point((int) bundle3.getDouble("ptx"), (int) bundle3.getDouble("pty"));
                 }
                 Bundle bundle4 = bundle2.getBundle("ru");
                 if (bundle4 != null) {
-                    aVar.f35512c = new Point((int) bundle4.getDouble("ptx"), (int) bundle4.getDouble("pty"));
+                    aVar.f35718c = new Point((int) bundle4.getDouble("ptx"), (int) bundle4.getDouble("pty"));
                 }
             }
             for (ParcelItem parcelItem : (ParcelItem[]) bundle.getParcelableArray("poly_line")) {
-                if (aVar.f35513d == null) {
-                    aVar.f35513d = new ArrayList<>();
+                if (aVar.f35719d == null) {
+                    aVar.f35719d = new ArrayList<>();
                 }
                 Bundle bundle5 = parcelItem.getBundle();
                 if (bundle5 != null) {
@@ -65,10 +65,10 @@ public class a {
                         }
                     }
                     arrayList.trimToSize();
-                    aVar.f35513d.add(arrayList);
+                    aVar.f35719d.add(arrayList);
                 }
             }
-            aVar.f35513d.trimToSize();
+            aVar.f35719d.trimToSize();
             aVar.a = (int) bundle.getDouble("type");
             return aVar;
         }

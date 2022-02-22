@@ -16,7 +16,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bumptech.glide.load.Options;
 import com.bumptech.glide.load.model.ModelLoader;
 import java.io.InputStream;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class ResourceLoader<Data> implements ModelLoader<Integer, Data> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "ResourceLoader";
@@ -24,7 +24,7 @@ public class ResourceLoader<Data> implements ModelLoader<Integer, Data> {
     public final Resources resources;
     public final ModelLoader<Uri, Data> uriLoader;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class AssetFileDescriptorFactory implements ModelLoaderFactory<Integer, AssetFileDescriptor> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -63,7 +63,7 @@ public class ResourceLoader<Data> implements ModelLoader<Integer, Data> {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class FileDescriptorFactory implements ModelLoaderFactory<Integer, ParcelFileDescriptor> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -103,7 +103,7 @@ public class ResourceLoader<Data> implements ModelLoader<Integer, Data> {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class StreamFactory implements ModelLoaderFactory<Integer, InputStream> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -143,7 +143,7 @@ public class ResourceLoader<Data> implements ModelLoader<Integer, Data> {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class UriFactory implements ModelLoaderFactory<Integer, Uri> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

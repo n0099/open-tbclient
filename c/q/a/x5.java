@@ -20,31 +20,31 @@ public class x5 {
     public static String a = "https://pp.xdplt.com/";
 
     /* renamed from: b */
-    public static final String f30545b;
+    public static final String f30751b;
 
     /* renamed from: c */
-    public static final String f30546c;
+    public static final String f30752c;
 
     /* renamed from: d */
-    public static String f30547d;
+    public static String f30753d;
 
     /* renamed from: e */
-    public static String f30548e;
+    public static String f30754e;
 
     /* renamed from: f */
-    public static String f30549f;
+    public static String f30755f;
 
     /* renamed from: g */
-    public static String f30550g;
+    public static String f30756g;
 
     /* renamed from: h */
-    public static String f30551h;
+    public static String f30757h;
 
     /* renamed from: i */
-    public static String f30552i;
+    public static String f30758i;
 
     /* renamed from: j */
-    public static String f30553j;
+    public static String f30759j;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -60,15 +60,15 @@ public class x5 {
                 return;
             }
         }
-        f30545b = a + "behavior?";
-        f30546c = a + "report?";
-        f30547d = "https://cd.xdplt.com/";
-        f30548e = "jy/da?";
-        f30549f = "?";
-        f30550g = "jy/da?";
-        f30551h = "jy/da?";
-        f30552i = "jy/da?";
-        f30553j = "jy/da?";
+        f30751b = a + "behavior?";
+        f30752c = a + "report?";
+        f30753d = "https://cd.xdplt.com/";
+        f30754e = "jy/da?";
+        f30755f = "?";
+        f30756g = "jy/da?";
+        f30757h = "jy/da?";
+        f30758i = "jy/da?";
+        f30759j = "jy/da?";
     }
 
     public static /* synthetic */ j0 a(JSONObject jSONObject, Context context) {
@@ -76,8 +76,8 @@ public class x5 {
             try {
                 if (jSONObject.length() != 0) {
                     j0 j0Var = new j0();
-                    j0Var.f30370c = jSONObject.optString("traceid", "");
-                    j0Var.f30369b = jSONObject.optString("pid", "");
+                    j0Var.f30576c = jSONObject.optString("traceid", "");
+                    j0Var.f30575b = jSONObject.optString("pid", "");
                     jSONObject.optString("bt", "");
                     JSONArray optJSONArray = jSONObject.optJSONArray("list");
                     ArrayList arrayList = new ArrayList();
@@ -86,7 +86,7 @@ public class x5 {
                             JSONObject optJSONObject = optJSONArray.optJSONObject(i2);
                             if (optJSONObject != null && optJSONObject.length() > 0) {
                                 Info info = new Info();
-                                info.setTraceid(j0Var.f30370c);
+                                info.setTraceid(j0Var.f30576c);
                                 info.setPid(j0Var.a());
                                 info.setId(optJSONObject.optString("id", ""));
                                 info.setLoad(optJSONObject.optString("load", ""));
@@ -166,8 +166,8 @@ public class x5 {
     public static /* synthetic */ void b(t5 t5Var) {
         String str;
         if (t5Var != null) {
-            str = t5Var.f30494c;
-            if (TextUtils.isEmpty(str) || t5Var.a == null || TextUtils.isEmpty(t5Var.f30493b)) {
+            str = t5Var.f30700c;
+            if (TextUtils.isEmpty(str) || t5Var.a == null || TextUtils.isEmpty(t5Var.f30699b)) {
                 return;
             }
             t2.b(new p5(t5Var));
@@ -175,7 +175,7 @@ public class x5 {
     }
 
     public static /* synthetic */ void c(t5 t5Var, HashMap hashMap) {
-        if (t5Var.f30493b.startsWith(HomeCfgResponse.ConfigData.GROUP_LAYOUT_TYPE602)) {
+        if (t5Var.f30699b.startsWith(HomeCfgResponse.ConfigData.GROUP_LAYOUT_TYPE602)) {
             hashMap.put("lo_timeout", String.valueOf(m2.r(t5Var.a)));
             float a2 = m2.a(t5Var.a, "splash_width", 0.0f);
             if (a2 > 0.0f) {

@@ -15,7 +15,7 @@ public class b {
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f4600b;
+    public boolean f4591b;
 
     public b() {
         Interceptable interceptable = $ic;
@@ -35,7 +35,7 @@ public class b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (!this.f4600b) {
+            if (!this.f4591b) {
                 StringBuilder sb = new StringBuilder();
                 if (DeviceUtils.isHarmonyOS(AppRuntime.getAppContext())) {
                     String harmonyVersion = DeviceUtils.getHarmonyVersion();
@@ -47,7 +47,7 @@ public class b {
                     sb.append(harmonyVersion);
                 }
                 this.a = sb.toString();
-                this.f4600b = true;
+                this.f4591b = true;
             }
             return this.a;
         }

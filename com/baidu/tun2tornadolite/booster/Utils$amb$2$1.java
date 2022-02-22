@@ -81,7 +81,7 @@ public final class Utils$amb$2$1 extends SuspendLambda implements Function2<T, C
             if (this.label == 0) {
                 ResultKt.throwOnFailure(obj);
                 Object obj2 = this.L$0;
-                Utils.m90amb$lambda1$cancelAll(this.$jobs);
+                Utils.m89amb$lambda1$cancelAll(this.$jobs);
                 return obj2;
             }
             throw new IllegalStateException("call to 'resume' before 'invoke' with coroutine");

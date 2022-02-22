@@ -7,8 +7,8 @@ import android.webkit.JsPromptResult;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
-import c.a.t0.x3.n0.b;
-import c.a.t0.x3.n0.c;
+import c.a.u0.z3.o0.b;
+import c.a.u0.z3.o0.c;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
@@ -33,7 +33,7 @@ public class AccountRestoreActivity extends BaseActivity<AccountRestoreActivity>
     public static final String JS_PROMPT_INTERFACE_NAME = "AccountJsBridge";
     public static final String PAGE_TYPE = "page_type";
     public transient /* synthetic */ FieldHolder $fh;
-    public c.a.t0.x3.n0.a jsBridge;
+    public c.a.u0.z3.o0.a jsBridge;
     public c jsCallback;
     public b jsPromptInterface;
     public NavigationBar mNavigationBar;
@@ -64,7 +64,7 @@ public class AccountRestoreActivity extends BaseActivity<AccountRestoreActivity>
             this.a = accountRestoreActivity;
         }
 
-        @Override // c.a.t0.x3.n0.c
+        @Override // c.a.u0.z3.o0.c
         public boolean onJsPrompt(String str, JsPromptResult jsPromptResult) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
@@ -114,7 +114,7 @@ public class AccountRestoreActivity extends BaseActivity<AccountRestoreActivity>
                 this.this$0 = this;
             }
 
-            @Override // c.a.t0.x3.n0.b
+            @Override // c.a.u0.z3.o0.b
             public boolean dealJsInterface(String str, String str2, String str3, JsPromptResult jsPromptResult) {
                 InterceptResult invokeLLLL;
                 Interceptable interceptable2 = $ic;
@@ -160,7 +160,7 @@ public class AccountRestoreActivity extends BaseActivity<AccountRestoreActivity>
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
             super.onCreate(bundle);
             setContentView(R.layout.account_restore_activity);
-            c.a.t0.x3.n0.a aVar = new c.a.t0.x3.n0.a();
+            c.a.u0.z3.o0.a aVar = new c.a.u0.z3.o0.a();
             this.jsBridge = aVar;
             aVar.a(this.jsPromptInterface);
             this.mPageType = getIntent().getStringExtra("page_type");

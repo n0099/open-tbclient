@@ -23,7 +23,7 @@ import java.util.concurrent.atomic.AtomicReference;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReadWriteLock;
 import java.util.concurrent.locks.ReentrantReadWriteLock;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public final class BehaviorSubject<T> extends Subject<T> {
     public static /* synthetic */ Interceptable $ic;
     public static final BehaviorDisposable[] EMPTY;
@@ -38,7 +38,7 @@ public final class BehaviorSubject<T> extends Subject<T> {
     public final AtomicReference<Object> value;
     public final Lock writeLock;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static final class BehaviorDisposable<T> implements Disposable, AppendOnlyLinkedArrayList.NonThrowingPredicate<Object> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.IOException;
 import java.io.OutputStream;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class StringPart extends PartBase {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String DEFAULT_CHARSET = "US-ASCII";

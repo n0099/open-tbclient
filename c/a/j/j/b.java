@@ -16,25 +16,25 @@ public final class b extends c.a.j.h.b.b implements a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: d  reason: collision with root package name */
-    public final c.a.j.h.b.d.a f4130d;
+    public final c.a.j.h.b.d.a f4150d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final c.a.j.h.b.e.a f4131e;
+    public final c.a.j.h.b.e.a f4151e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final c.a.j.h.b.h.a f4132f;
+    public final c.a.j.h.b.h.a f4152f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final c f4133g;
+    public final c f4153g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final c.a.j.h.b.f.b f4134h;
+    public final c.a.j.h.b.f.b f4154h;
 
     /* renamed from: i  reason: collision with root package name */
-    public final c.a.j.h.b.c.a f4135i;
+    public final c.a.j.h.b.c.a f4155i;
 
     /* renamed from: j  reason: collision with root package name */
-    public final c.a.j.h.b.g.a f4136j;
+    public final c.a.j.h.b.g.a f4156j;
     public final c.a.j.j.e.a.a k;
     public final c.a.j.j.i.a l;
 
@@ -46,21 +46,21 @@ public final class b extends c.a.j.h.b.b implements a {
     public c.a.j.h.b.g.a a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f4136j : (c.a.j.h.b.g.a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f4156j : (c.a.j.h.b.g.a) invokeV.objValue;
     }
 
     @Override // c.a.j.h.b.a
     public c.a.j.h.b.h.a b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f4132f : (c.a.j.h.b.h.a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f4152f : (c.a.j.h.b.h.a) invokeV.objValue;
     }
 
     @Override // c.a.j.h.b.a
     public c.a.j.h.b.c.a c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f4135i : (c.a.j.h.b.c.a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f4155i : (c.a.j.h.b.c.a) invokeV.objValue;
     }
 
     @Override // c.a.j.j.d.a
@@ -74,7 +74,7 @@ public final class b extends c.a.j.h.b.b implements a {
     public c e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f4133g : (c) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f4153g : (c) invokeV.objValue;
     }
 
     @Override // c.a.j.j.d.a
@@ -88,21 +88,21 @@ public final class b extends c.a.j.h.b.b implements a {
     public c.a.j.h.b.e.a g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f4131e : (c.a.j.h.b.e.a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f4151e : (c.a.j.h.b.e.a) invokeV.objValue;
     }
 
     @Override // c.a.j.h.b.a
     public c.a.j.h.b.d.a h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f4130d : (c.a.j.h.b.d.a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f4150d : (c.a.j.h.b.d.a) invokeV.objValue;
     }
 
     @Override // c.a.j.h.b.a
     public c.a.j.h.b.f.b i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f4134h : (c.a.j.h.b.f.b) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f4154h : (c.a.j.h.b.f.b) invokeV.objValue;
     }
 
     public b(c.a.j.h.b.d.a aVar, c.a.j.h.b.e.a aVar2, c.a.j.h.b.h.a aVar3, c cVar, c.a.j.h.b.f.b bVar, c.a.j.h.b.c.a aVar4, c.a.j.h.b.g.a aVar5, c.a.j.j.e.a.a aVar6, c.a.j.j.i.a aVar7) {
@@ -120,13 +120,13 @@ public final class b extends c.a.j.h.b.b implements a {
                 return;
             }
         }
-        this.f4130d = aVar;
-        this.f4131e = aVar2;
-        this.f4132f = aVar3;
-        this.f4133g = cVar;
-        this.f4134h = bVar;
-        this.f4135i = aVar4;
-        this.f4136j = aVar5;
+        this.f4150d = aVar;
+        this.f4151e = aVar2;
+        this.f4152f = aVar3;
+        this.f4153g = cVar;
+        this.f4154h = bVar;
+        this.f4155i = aVar4;
+        this.f4156j = aVar5;
         this.k = aVar6;
         this.l = aVar7;
     }

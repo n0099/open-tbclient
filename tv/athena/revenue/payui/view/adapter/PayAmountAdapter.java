@@ -42,25 +42,25 @@ public class PayAmountAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
     public final Activity a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f63040b;
+    public int f63207b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f63041c;
+    public int f63208c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f63042d;
+    public int f63209d;
 
     /* renamed from: e  reason: collision with root package name */
-    public d f63043e;
+    public d f63210e;
 
     /* renamed from: f  reason: collision with root package name */
-    public List<c> f63044f;
+    public List<c> f63211f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f63045g;
+    public String f63212g;
 
     /* renamed from: h  reason: collision with root package name */
-    public PayUIKitConfig f63046h;
+    public PayUIKitConfig f63213h;
     public b mOnItemClickListener;
 
     /* loaded from: classes5.dex */
@@ -149,10 +149,10 @@ public class PayAmountAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ AmountViewHolder f63047e;
+        public final /* synthetic */ AmountViewHolder f63214e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ PayAmountAdapter f63048f;
+        public final /* synthetic */ PayAmountAdapter f63215f;
 
         public a(PayAmountAdapter payAmountAdapter, AmountViewHolder amountViewHolder) {
             Interceptable interceptable = $ic;
@@ -169,18 +169,18 @@ public class PayAmountAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
                     return;
                 }
             }
-            this.f63048f = payAmountAdapter;
-            this.f63047e = amountViewHolder;
+            this.f63215f = payAmountAdapter;
+            this.f63214e = amountViewHolder;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             b bVar;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || (bVar = this.f63048f.mOnItemClickListener) == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || (bVar = this.f63215f.mOnItemClickListener) == null) {
                 return;
             }
-            AmountViewHolder amountViewHolder = this.f63047e;
+            AmountViewHolder amountViewHolder = this.f63214e;
             bVar.a(amountViewHolder.itemView, amountViewHolder.getAdapterPosition());
         }
     }
@@ -205,13 +205,13 @@ public class PayAmountAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
                 return;
             }
         }
-        this.f63041c = -1;
-        this.f63045g = "Y币";
+        this.f63208c = -1;
+        this.f63212g = "Y币";
         this.mOnItemClickListener = null;
         this.a = activity;
-        this.f63044f = list;
-        this.f63046h = payUIKitConfig;
-        this.f63043e = dVar;
+        this.f63211f = list;
+        this.f63213h = payUIKitConfig;
+        this.f63210e = dVar;
     }
 
     public final void a(CampaignViewHolder campaignViewHolder) {
@@ -251,61 +251,61 @@ public class PayAmountAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
             int i4 = -1;
             campaignViewHolder.itemView.setLayoutParams(new LinearLayout.LayoutParams(-1, -2));
             campaignViewHolder.itemView.setVisibility(0);
-            int b2 = (m.b(this.a) - j.a.a.e.p.c.a(((this.f63042d - 1) * 10) + 30)) / this.f63042d;
+            int b2 = (m.b(this.a) - j.a.a.e.p.c.a(((this.f63209d - 1) * 10) + 30)) / this.f63209d;
             int a2 = j.a.a.e.p.c.a(11.0f);
-            int i5 = this.f63042d == 2 ? 4 : 6;
-            int i6 = cVar.f62389e;
-            if (i6 <= this.f63041c) {
+            int i5 = this.f63209d == 2 ? 4 : 6;
+            int i6 = cVar.f62556e;
+            if (i6 <= this.f63208c) {
                 campaignViewHolder.imgBottomIndex.setVisibility(8);
                 campaignViewHolder.imgTopIndex.setVisibility(0);
-                i4 = cVar.f62389e;
+                i4 = cVar.f62556e;
                 int a3 = ((b2 / 2) - a2) + ((j.a.a.e.p.c.a(10.0f) + b2) * i4);
                 LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) campaignViewHolder.imgTopIndex.getLayoutParams();
                 layoutParams.leftMargin = a3;
                 campaignViewHolder.imgTopIndex.setLayoutParams(layoutParams);
-                this.f63043e.c(campaignViewHolder.ll_container, this.a);
+                this.f63210e.c(campaignViewHolder.ll_container, this.a);
             } else if (i6 <= i5) {
                 campaignViewHolder.imgBottomIndex.setVisibility(0);
                 campaignViewHolder.imgTopIndex.setVisibility(8);
-                int i7 = this.f63041c;
+                int i7 = this.f63208c;
                 if (i7 == 2) {
-                    i3 = cVar.f62389e - 3;
+                    i3 = cVar.f62556e - 3;
                 } else {
                     if (i7 == 3) {
-                        i3 = cVar.f62389e - 4;
+                        i3 = cVar.f62556e - 4;
                     }
                     int a4 = ((b2 / 2) - a2) + ((j.a.a.e.p.c.a(10.0f) + b2) * i4);
                     LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) campaignViewHolder.imgBottomIndex.getLayoutParams();
                     layoutParams2.leftMargin = a4;
                     campaignViewHolder.imgBottomIndex.setLayoutParams(layoutParams2);
-                    this.f63043e.c(campaignViewHolder.ll_container, this.a);
+                    this.f63210e.c(campaignViewHolder.ll_container, this.a);
                 }
                 i4 = i3;
                 int a42 = ((b2 / 2) - a2) + ((j.a.a.e.p.c.a(10.0f) + b2) * i4);
                 LinearLayout.LayoutParams layoutParams22 = (LinearLayout.LayoutParams) campaignViewHolder.imgBottomIndex.getLayoutParams();
                 layoutParams22.leftMargin = a42;
                 campaignViewHolder.imgBottomIndex.setLayoutParams(layoutParams22);
-                this.f63043e.c(campaignViewHolder.ll_container, this.a);
+                this.f63210e.c(campaignViewHolder.ll_container, this.a);
             } else {
                 RLog.error("PayAmountAdapter", "updateCampaignItemIndexView error config", new Object[0]);
                 a(campaignViewHolder);
             }
-            RLog.info("PayAmountAdapter", "updateCampaignItemIndexView position:" + i2 + " selectCampaignIndex:" + cVar.f62389e + " itemWidth:" + b2 + " mCampaignItemPosition:" + this.f63041c + " startIndexOfLine:" + i4 + " maxValidSelectCampaignIndex:" + i5);
+            RLog.info("PayAmountAdapter", "updateCampaignItemIndexView position:" + i2 + " selectCampaignIndex:" + cVar.f62556e + " itemWidth:" + b2 + " mCampaignItemPosition:" + this.f63208c + " startIndexOfLine:" + i4 + " maxValidSelectCampaignIndex:" + i5);
         }
     }
 
     public final void e(CampaignViewHolder campaignViewHolder, c cVar, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLI(1048580, this, campaignViewHolder, cVar, i2) == null) {
-            int i3 = o.a.b(this.f63046h) ? e.pay_ui_item_pay_amount_campaign_item_center_top_red_icon : e.pay_ui_item_pay_amount_campaign_item_center_top_yellow_icon;
-            int i4 = o.a.b(this.f63046h) ? e.pay_ui_item_pay_amount_campaign_item_center_right_red_icon : e.pay_ui_item_pay_amount_campaign_item_center_right_yellow_icon;
-            int i5 = o.a.b(this.f63046h) ? e.pay_ui_item_pay_amount_campaign_item_top_index_red_icon : e.pay_ui_item_pay_amount_campaign_item_top_index_yellow_icon;
-            int i6 = o.a.b(this.f63046h) ? e.pay_ui_item_pay_amount_campaign_item_bottom_index_red_icon : e.pay_ui_item_pay_amount_campaign_item_bottom_index_yellow_icon;
+            int i3 = o.a.b(this.f63213h) ? e.pay_ui_item_pay_amount_campaign_item_center_top_red_icon : e.pay_ui_item_pay_amount_campaign_item_center_top_yellow_icon;
+            int i4 = o.a.b(this.f63213h) ? e.pay_ui_item_pay_amount_campaign_item_center_right_red_icon : e.pay_ui_item_pay_amount_campaign_item_center_right_yellow_icon;
+            int i5 = o.a.b(this.f63213h) ? e.pay_ui_item_pay_amount_campaign_item_top_index_red_icon : e.pay_ui_item_pay_amount_campaign_item_top_index_yellow_icon;
+            int i6 = o.a.b(this.f63213h) ? e.pay_ui_item_pay_amount_campaign_item_bottom_index_red_icon : e.pay_ui_item_pay_amount_campaign_item_bottom_index_yellow_icon;
             campaignViewHolder.imgTopIndex.setBackgroundResource(i5);
             campaignViewHolder.imgBottomIndex.setBackgroundResource(i6);
             campaignViewHolder.imgCenterLeftLog.setImageResource(i3);
             campaignViewHolder.imgCenterRightLog.setImageResource(i4);
-            GiftBagsInfo a2 = this.f63043e.a();
+            GiftBagsInfo a2 = this.f63210e.a();
             if (a2 == null) {
                 campaignViewHolder.tvCenterTopTitle.setVisibility(4);
                 return;
@@ -326,7 +326,7 @@ public class PayAmountAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
         if (!(interceptable == null || interceptable.invokeLI(1048581, this, campaignViewHolder, i2) == null) || (item = getItem(i2)) == null) {
             return;
         }
-        if (this.f63041c >= 0 && item.f62389e >= 0) {
+        if (this.f63208c >= 0 && item.f62556e >= 0) {
             b(campaignViewHolder, item, i2);
         } else {
             a(campaignViewHolder);
@@ -336,7 +336,7 @@ public class PayAmountAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
     public final void g(AmountViewHolder amountViewHolder, c cVar, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLI(1048582, this, amountViewHolder, cVar, i2) == null) {
-            if (cVar.f62387c) {
+            if (cVar.f62554c) {
                 amountViewHolder.tvOtherAmount.setVisibility(0);
                 amountViewHolder.destAmountContainer.setVisibility(8);
                 amountViewHolder.amountText.setVisibility(8);
@@ -346,7 +346,7 @@ public class PayAmountAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
             amountViewHolder.destAmountContainer.setVisibility(0);
             amountViewHolder.amountText.setVisibility(0);
             amountViewHolder.destAmount.setText(n.b(cVar.a()));
-            amountViewHolder.destUnit.setText(this.f63045g);
+            amountViewHolder.destUnit.setText(this.f63212g);
             amountViewHolder.amountText.setVisibility(0);
             Double valueOf = Double.valueOf(cVar.b());
             if (valueOf == null) {
@@ -354,7 +354,7 @@ public class PayAmountAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
             } else {
                 amountViewHolder.amountText.setText(String.format(this.a.getResources().getString(h.pay_ui_str_pay_amount_text_yuan), n.a(valueOf.doubleValue())));
             }
-            if (this.f63040b == i2) {
+            if (this.f63207b == i2) {
                 amountViewHolder.amoutNewLayout.setSelected(true);
                 amountViewHolder.destAmount.setSelected(true);
                 amountViewHolder.destUnit.setSelected(true);
@@ -369,24 +369,24 @@ public class PayAmountAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
     public int getCount() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f63044f.size() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f63211f.size() : invokeV.intValue;
     }
 
     public List<c> getData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f63044f : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f63211f : (List) invokeV.objValue;
     }
 
     public c getItem(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048585, this, i2)) == null) {
-            List<c> list = this.f63044f;
-            if (list == null || list.isEmpty() || i2 < 0 || i2 >= this.f63044f.size()) {
+            List<c> list = this.f63211f;
+            if (list == null || list.isEmpty() || i2 < 0 || i2 >= this.f63211f.size()) {
                 return null;
             }
-            return this.f63044f.get(i2);
+            return this.f63211f.get(i2);
         }
         return (c) invokeI.objValue;
     }
@@ -395,7 +395,7 @@ public class PayAmountAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
     public int getItemCount() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f63044f.size() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f63211f.size() : invokeV.intValue;
     }
 
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
@@ -411,7 +411,7 @@ public class PayAmountAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048588, this, i2)) == null) {
             c item = getItem(i2);
-            return (item == null || !item.f62388d) ? 1 : 2;
+            return (item == null || !item.f62555d) ? 1 : 2;
         }
         return invokeI.intValue;
     }
@@ -421,7 +421,7 @@ public class PayAmountAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
         int i2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
-            if (this.f63040b >= getCount() || (i2 = this.f63040b) < 0) {
+            if (this.f63207b >= getCount() || (i2 = this.f63207b) < 0) {
                 return null;
             }
             return getItem(i2);
@@ -432,7 +432,7 @@ public class PayAmountAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
     public int getSelectedPosition() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.f63040b : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.f63207b : invokeV.intValue;
     }
 
     public final void h(AmountViewHolder amountViewHolder, c cVar) {
@@ -491,7 +491,7 @@ public class PayAmountAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(1048594, this, viewGroup, i2)) == null) {
-            ContextThemeWrapper contextThemeWrapper = new ContextThemeWrapper(this.a, o.a.a(this.f63046h));
+            ContextThemeWrapper contextThemeWrapper = new ContextThemeWrapper(this.a, o.a.a(this.f63213h));
             if (i2 == 2) {
                 return new CampaignViewHolder(this, LayoutInflater.from(contextThemeWrapper).inflate(g.pay_ui_item_pay_amount_campaign_item_layout, viewGroup, false));
             }
@@ -503,14 +503,14 @@ public class PayAmountAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
     public void setCampaignItemPosition(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048595, this, i2) == null) {
-            this.f63041c = i2;
+            this.f63208c = i2;
         }
     }
 
     public void setCurrencyName(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048596, this, str) == null) {
-            this.f63045g = str;
+            this.f63212g = str;
         }
     }
 
@@ -524,24 +524,24 @@ public class PayAmountAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
     public void setSelectedPosition(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048598, this, i2) == null) {
-            this.f63040b = i2;
+            this.f63207b = i2;
         }
     }
 
     public void setSpanCount(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048599, this, i2) == null) {
-            this.f63042d = i2;
+            this.f63209d = i2;
         }
     }
 
     public void uopdateCampaignSelectIndex(int i2) {
         int i3;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048600, this, i2) == null) || getData() == null || getData().isEmpty() || (i3 = this.f63041c) < 0 || i3 >= getData().size() || !getData().get(this.f63041c).f62388d) {
+        if (!(interceptable == null || interceptable.invokeI(1048600, this, i2) == null) || getData() == null || getData().isEmpty() || (i3 = this.f63208c) < 0 || i3 >= getData().size() || !getData().get(this.f63208c).f62555d) {
             return;
         }
-        getData().get(this.f63041c).f62389e = i2;
+        getData().get(this.f63208c).f62556e = i2;
         notifyDataSetChanged();
     }
 }

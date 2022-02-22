@@ -3,8 +3,8 @@ package com.baidu.tieba.frs.gamesubpb.view;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import c.a.t0.e1.i2.a;
-import c.a.t0.e1.i2.d.d;
+import c.a.u0.e1.i2.a;
+import c.a.u0.e1.i2.d.d;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
@@ -22,10 +22,10 @@ public class GameSubCommentView {
     public View a;
 
     /* renamed from: b  reason: collision with root package name */
-    public SpannableTextView f43463b;
+    public SpannableTextView f43697b;
 
     /* renamed from: c  reason: collision with root package name */
-    public a.InterfaceC1049a f43464c;
+    public a.InterfaceC1055a f43698c;
 
     /* loaded from: classes12.dex */
     public static class GameSubCommentViewHolder extends TypeAdapter.ViewHolder {
@@ -68,10 +68,10 @@ public class GameSubCommentView {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d f43465e;
+        public final /* synthetic */ d f43699e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ GameSubCommentView f43466f;
+        public final /* synthetic */ GameSubCommentView f43700f;
 
         public a(GameSubCommentView gameSubCommentView, d dVar) {
             Interceptable interceptable = $ic;
@@ -88,17 +88,17 @@ public class GameSubCommentView {
                     return;
                 }
             }
-            this.f43466f = gameSubCommentView;
-            this.f43465e = dVar;
+            this.f43700f = gameSubCommentView;
+            this.f43699e = dVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f43466f.f43464c == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f43700f.f43698c == null) {
                 return;
             }
-            this.f43466f.f43464c.c(this.f43465e);
+            this.f43700f.f43698c.c(this.f43699e);
         }
     }
 
@@ -120,17 +120,17 @@ public class GameSubCommentView {
         View inflate = LayoutInflater.from(tbPageContext.getPageActivity()).inflate(R.layout.game_sub_comment_view, (ViewGroup) null);
         this.a = inflate;
         SpannableTextView spannableTextView = (SpannableTextView) inflate.findViewById(R.id.sub_comment_tv);
-        this.f43463b = spannableTextView;
+        this.f43697b = spannableTextView;
         SkinManager.setViewTextColor(spannableTextView, R.color.CAM_X0106);
     }
 
     public void b(d dVar) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, dVar) == null) || dVar == null || dVar.f16502h == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, dVar) == null) || dVar == null || dVar.f16686h == null) {
             return;
         }
-        this.f43463b.bindData(dVar);
-        this.f43463b.setOnClickListener(new a(this, dVar));
+        this.f43697b.bindData(dVar);
+        this.f43697b.setOnClickListener(new a(this, dVar));
     }
 
     public View c() {
@@ -139,11 +139,11 @@ public class GameSubCommentView {
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : (View) invokeV.objValue;
     }
 
-    public void d(a.InterfaceC1049a interfaceC1049a) {
+    public void d(a.InterfaceC1055a interfaceC1055a) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, interfaceC1049a) == null) {
-            this.f43464c = interfaceC1049a;
-            this.f43463b.setClickListener(interfaceC1049a);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, interfaceC1055a) == null) {
+            this.f43698c = interfaceC1055a;
+            this.f43697b.setClickListener(interfaceC1055a);
         }
     }
 }

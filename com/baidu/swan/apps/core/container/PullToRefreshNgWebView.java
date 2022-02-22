@@ -3,7 +3,7 @@ package com.baidu.swan.apps.core.container;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import androidx.annotation.NonNull;
-import c.a.r0.a.c2.a.d.a;
+import c.a.s0.a.c2.a.d.a;
 import com.baidu.swan.apps.res.ui.pullrefresh.PullToRefreshBase;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;

@@ -15,22 +15,22 @@ public final class f extends InputStream {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final e f29649e;
+    public final e f29855e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final g f29650f;
+    public final g f29856f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final byte[] f29651g;
+    public final byte[] f29857g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f29652h;
+    public boolean f29858h;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f29653i;
+    public boolean f29859i;
 
     /* renamed from: j  reason: collision with root package name */
-    public long f29654j;
+    public long f29860j;
 
     public f(e eVar, g gVar) {
         Interceptable interceptable = $ic;
@@ -47,36 +47,36 @@ public final class f extends InputStream {
                 return;
             }
         }
-        this.f29652h = false;
-        this.f29653i = false;
-        this.f29649e = eVar;
-        this.f29650f = gVar;
-        this.f29651g = new byte[1];
+        this.f29858h = false;
+        this.f29859i = false;
+        this.f29855e = eVar;
+        this.f29856f = gVar;
+        this.f29857g = new byte[1];
     }
 
     public long a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f29654j : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f29860j : invokeV.longValue;
     }
 
     public final void c() throws IOException {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.f29652h) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.f29858h) {
             return;
         }
-        this.f29649e.a(this.f29650f);
-        this.f29652h = true;
+        this.f29855e.a(this.f29856f);
+        this.f29858h = true;
     }
 
     @Override // java.io.InputStream, java.io.Closeable, java.lang.AutoCloseable
     public void close() throws IOException {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || this.f29653i) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || this.f29859i) {
             return;
         }
-        this.f29649e.close();
-        this.f29653i = true;
+        this.f29855e.close();
+        this.f29859i = true;
     }
 
     public void e() throws IOException {
@@ -91,10 +91,10 @@ public final class f extends InputStream {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            if (read(this.f29651g) == -1) {
+            if (read(this.f29857g) == -1) {
                 return -1;
             }
-            return this.f29651g[0] & 255;
+            return this.f29857g[0] & 255;
         }
         return invokeV.intValue;
     }
@@ -111,13 +111,13 @@ public final class f extends InputStream {
         InterceptResult invokeLII;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLII = interceptable.invokeLII(1048582, this, bArr, i2, i3)) == null) {
-            c.i.b.a.i0.a.f(!this.f29653i);
+            c.i.b.a.i0.a.f(!this.f29859i);
             c();
-            int read = this.f29649e.read(bArr, i2, i3);
+            int read = this.f29855e.read(bArr, i2, i3);
             if (read == -1) {
                 return -1;
             }
-            this.f29654j += read;
+            this.f29860j += read;
             return read;
         }
         return invokeLII.intValue;

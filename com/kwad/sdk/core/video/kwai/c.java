@@ -3,46 +3,46 @@ package com.kwad.sdk.core.video.kwai;
 import android.media.TimedText;
 import android.view.Surface;
 import androidx.annotation.NonNull;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public interface c {
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public interface a {
         void a(c cVar, int i2);
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public interface b {
         void a(c cVar);
     }
 
     /* renamed from: com.kwad.sdk.core.video.kwai.c$c  reason: collision with other inner class name */
-    /* loaded from: classes3.dex */
-    public interface InterfaceC2117c {
+    /* loaded from: classes4.dex */
+    public interface InterfaceC2127c {
         boolean a(c cVar, int i2, int i3);
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public interface d {
         boolean a(c cVar, int i2, int i3);
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public interface e {
         void a(c cVar);
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public interface f {
         void a(c cVar);
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public interface g {
         void a(c cVar, TimedText timedText);
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public interface h {
         void a(c cVar, int i2, int i3);
     }
@@ -59,7 +59,7 @@ public interface c {
 
     void a(b bVar);
 
-    void a(InterfaceC2117c interfaceC2117c);
+    void a(InterfaceC2127c interfaceC2127c);
 
     void a(d dVar);
 

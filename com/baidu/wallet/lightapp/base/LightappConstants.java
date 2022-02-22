@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.lightapp.business.LightappBusinessClient;
-/* loaded from: classes13.dex */
+/* loaded from: classes2.dex */
 public class LightappConstants implements NoProguard {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ACCESS_WALLET_SERVICE_PARAM_EXTRA = "serviceExtra";

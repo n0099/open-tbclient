@@ -21,22 +21,22 @@ import com.baidu.wallet.base.widget.BaseDialog;
 import com.baidu.wallet.lightapp.business.datamodel.ContactInfo;
 import com.baidu.webkit.sdk.dumper.ZeusCrashHandler;
 import java.util.List;
-/* loaded from: classes13.dex */
+/* loaded from: classes2.dex */
 public class PhoneNumberSelectDialog extends BaseDialog {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public ListView a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Context f51661b;
+    public Context f51828b;
 
     /* renamed from: c  reason: collision with root package name */
-    public a f51662c;
+    public a f51829c;
 
     /* renamed from: d  reason: collision with root package name */
-    public List<ContactInfo.Phone> f51663d;
+    public List<ContactInfo.Phone> f51830d;
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes2.dex */
     public class a extends BaseAdapter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -65,10 +65,10 @@ public class PhoneNumberSelectDialog extends BaseDialog {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                if (this.a.f51663d == null) {
+                if (this.a.f51830d == null) {
                     return 0;
                 }
-                return this.a.f51663d.size();
+                return this.a.f51830d.size();
             }
             return invokeV.intValue;
         }
@@ -77,7 +77,7 @@ public class PhoneNumberSelectDialog extends BaseDialog {
         public Object getItem(int i2) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) ? this.a.f51663d.get(i2) : invokeI.objValue;
+            return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) ? this.a.f51830d.get(i2) : invokeI.objValue;
         }
 
         @Override // android.widget.Adapter
@@ -92,16 +92,16 @@ public class PhoneNumberSelectDialog extends BaseDialog {
             InterceptResult invokeILL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeILL = interceptable.invokeILL(1048579, this, i2, view, viewGroup)) == null) {
-                View inflate = LayoutInflater.from(this.a.f51661b).inflate(ResUtils.layout(this.a.f51661b, "wallet_langbridge_contact_phone_item"), (ViewGroup) null);
-                TextView textView = (TextView) inflate.findViewById(ResUtils.id(this.a.f51661b, "wallet_base_type"));
-                textView.setText(((ContactInfo.Phone) this.a.f51663d.get(i2)).getTypeName() + ZeusCrashHandler.NAME_SEPERATOR + ((ContactInfo.Phone) this.a.f51663d.get(i2)).number);
+                View inflate = LayoutInflater.from(this.a.f51828b).inflate(ResUtils.layout(this.a.f51828b, "wallet_langbridge_contact_phone_item"), (ViewGroup) null);
+                TextView textView = (TextView) inflate.findViewById(ResUtils.id(this.a.f51828b, "wallet_base_type"));
+                textView.setText(((ContactInfo.Phone) this.a.f51830d.get(i2)).getTypeName() + ZeusCrashHandler.NAME_SEPERATOR + ((ContactInfo.Phone) this.a.f51830d.get(i2)).number);
                 textView.setOnClickListener(new View.OnClickListener(this, i2) { // from class: com.baidu.wallet.lightapp.business.view.PhoneNumberSelectDialog.a.1
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ int a;
 
                     /* renamed from: b  reason: collision with root package name */
-                    public final /* synthetic */ a f51664b;
+                    public final /* synthetic */ a f51831b;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -118,7 +118,7 @@ public class PhoneNumberSelectDialog extends BaseDialog {
                                 return;
                             }
                         }
-                        this.f51664b = this;
+                        this.f51831b = this;
                         this.a = i2;
                     }
 
@@ -129,8 +129,8 @@ public class PhoneNumberSelectDialog extends BaseDialog {
                             EventBus eventBus = EventBus.getInstance();
                             EventBus eventBus2 = EventBus.getInstance();
                             eventBus2.getClass();
-                            eventBus.post(new EventBus.Event(eventBus2, "read_contact", ((ContactInfo.Phone) this.f51664b.a.f51663d.get(this.a)).number));
-                            this.f51664b.a.dismiss();
+                            eventBus.post(new EventBus.Event(eventBus2, "read_contact", ((ContactInfo.Phone) this.f51831b.a.f51830d.get(this.a)).number));
+                            this.f51831b.a.dismiss();
                         }
                     }
                 });
@@ -158,7 +158,7 @@ public class PhoneNumberSelectDialog extends BaseDialog {
                 return;
             }
         }
-        this.f51661b = context;
+        this.f51828b = context;
     }
 
     @Override // android.app.Dialog
@@ -175,15 +175,15 @@ public class PhoneNumberSelectDialog extends BaseDialog {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
             super.onCreate(bundle);
-            View inflate = LayoutInflater.from(this.f51661b).inflate(ResUtils.layout(this.f51661b, "wallet_langbridge_contact_phone"), (ViewGroup) null);
-            this.a = (ListView) inflate.findViewById(ResUtils.id(this.f51661b, "wallet_base_lv"));
+            View inflate = LayoutInflater.from(this.f51828b).inflate(ResUtils.layout(this.f51828b, "wallet_langbridge_contact_phone"), (ViewGroup) null);
+            this.a = (ListView) inflate.findViewById(ResUtils.id(this.f51828b, "wallet_base_lv"));
             a aVar = new a(this);
-            this.f51662c = aVar;
+            this.f51829c = aVar;
             this.a.setAdapter((ListAdapter) aVar);
             addContentView(inflate);
-            getNegativeBtn().setTextColor(this.f51661b.getResources().getColor(ResUtils.color(this.f51661b, "wallet_base_mainColor")));
+            getNegativeBtn().setTextColor(this.f51828b.getResources().getColor(ResUtils.color(this.f51828b, "wallet_base_mainColor")));
             showCloseBtn(false);
-            setTitleText(ResUtils.string(this.f51661b, "wallet_lightapp_contact_please_select_phone"));
+            setTitleText(ResUtils.string(this.f51828b, "wallet_lightapp_contact_please_select_phone"));
             hidePositiveButton();
         }
     }
@@ -191,7 +191,7 @@ public class PhoneNumberSelectDialog extends BaseDialog {
     public void setPhones(List<ContactInfo.Phone> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) {
-            this.f51663d = list;
+            this.f51830d = list;
         }
     }
 }

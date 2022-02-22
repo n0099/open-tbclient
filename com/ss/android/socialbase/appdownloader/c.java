@@ -38,7 +38,7 @@ public class c {
     public static int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static NotificationChannel f59769b;
+    public static NotificationChannel f59936b;
 
     public static int d(Context context, int i2, boolean z) {
         if (com.ss.android.socialbase.downloader.g.a.a(i2).b("notification_opt_2") == 1) {
@@ -319,12 +319,12 @@ public class c {
     @TargetApi(26)
     public static String b(@NonNull Context context) {
         try {
-            if (f59769b == null) {
+            if (f59936b == null) {
                 NotificationChannel notificationChannel = new NotificationChannel("111111", "channel_appdownloader", 3);
-                f59769b = notificationChannel;
+                f59936b = notificationChannel;
                 notificationChannel.setSound(null, null);
-                f59769b.setShowBadge(false);
-                ((NotificationManager) context.getSystemService(ActionJsonData.TAG_NOTIFICATION)).createNotificationChannel(f59769b);
+                f59936b.setShowBadge(false);
+                ((NotificationManager) context.getSystemService(ActionJsonData.TAG_NOTIFICATION)).createNotificationChannel(f59936b);
             }
         } catch (Throwable th) {
             th.printStackTrace();

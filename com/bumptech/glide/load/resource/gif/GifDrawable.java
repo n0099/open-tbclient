@@ -26,7 +26,7 @@ import com.bumptech.glide.load.engine.bitmap_recycle.BitmapPool;
 import com.bumptech.glide.load.resource.gif.GifFrameLoader;
 import com.bumptech.glide.util.Preconditions;
 import java.nio.ByteBuffer;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class GifDrawable extends Drawable implements GifFrameLoader.FrameCallback, Animatable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int GRAVITY = 119;
@@ -44,7 +44,7 @@ public class GifDrawable extends Drawable implements GifFrameLoader.FrameCallbac
     public Paint paint;
     public final GifState state;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class GifState extends Drawable.ConstantState {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

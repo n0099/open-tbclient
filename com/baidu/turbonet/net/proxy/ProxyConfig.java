@@ -14,7 +14,7 @@ public class ProxyConfig {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final ProxyConfig f50325b;
+    public static final ProxyConfig f50492b;
     public transient /* synthetic */ FieldHolder $fh;
     public LibType a;
 
@@ -91,7 +91,7 @@ public class ProxyConfig {
                 return;
             }
         }
-        f50325b = new ProxyConfig();
+        f50492b = new ProxyConfig();
     }
 
     public ProxyConfig() {

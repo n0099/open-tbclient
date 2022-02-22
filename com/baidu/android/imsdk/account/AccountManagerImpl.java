@@ -5,7 +5,7 @@ import android.content.Intent;
 import android.text.TextUtils;
 import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
-import c.a.t.a;
+import c.a.u.a;
 import com.baidu.android.imsdk.BIMManager;
 import com.baidu.android.imsdk.IMListener;
 import com.baidu.android.imsdk.account.request.IMGetMsgSettingSwitchRequest;
@@ -45,7 +45,7 @@ import java.util.Timer;
 import java.util.TimerTask;
 import java.util.concurrent.CopyOnWriteArrayList;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class AccountManagerImpl {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "AccountManagerImpl";
@@ -192,8 +192,8 @@ public class AccountManagerImpl {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* JADX WARN: Removed duplicated region for block: B:15:0x0049  */
-    /* JADX WARN: Removed duplicated region for block: B:20:0x007f  */
+    /* JADX WARN: Removed duplicated region for block: B:15:0x0048  */
+    /* JADX WARN: Removed duplicated region for block: B:20:0x007e  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -212,7 +212,7 @@ public class AccountManagerImpl {
                 Utility.writeLoginFlag(context, "5N", "startLoginServiceRunnable begin, loginType = " + i2 + "，needLogout :" + z);
                 if (!z) {
                     LogUtils.d(TAG, "need logout before login");
-                    if (a.f14442e) {
+                    if (a.f14716e) {
                         BIMManager.imLogoutByLcp(mContext);
                         startLoginService(i2, str, str2, str3, str4, iLoginListener);
                         return;
@@ -374,7 +374,7 @@ public class AccountManagerImpl {
                 Utility.clearCache(mContext);
                 this.mToken = null;
             }
-            if (!a.f14442e) {
+            if (!a.f14716e) {
                 clearLoginParam(mContext);
                 clearUid(mContext);
                 disconnect(str);
@@ -885,7 +885,7 @@ public class AccountManagerImpl {
                 ConversationStudioManImpl.getInstance(mContext).clearAckCastList();
                 noticeStateChanged(3);
                 BIMManager.connectStatusNotify(0);
-                if (!a.f14442e) {
+                if (!a.f14716e) {
                     Utility.sendConnectionStateBroadCast(mContext, 0);
                 }
             } else {

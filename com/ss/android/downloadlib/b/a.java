@@ -17,7 +17,7 @@ import org.json.JSONObject;
 public class a {
     public static boolean a(@NonNull com.ss.android.downloadlib.addownload.b.e eVar) {
         boolean z;
-        DeepLink deepLink = eVar.f59509b.getDeepLink();
+        DeepLink deepLink = eVar.f59676b.getDeepLink();
         String openUrl = deepLink == null ? null : deepLink.getOpenUrl();
         JSONObject a = com.ss.android.downloadlib.g.f.a(new JSONObject(), eVar);
         l.a(a, "applink_source", "click_by_sdk");
@@ -27,11 +27,11 @@ public class a {
             if (!TextUtils.isEmpty(openUrl)) {
                 b("by_url", a2, a, eVar);
             }
-            a2 = com.ss.android.downloadlib.g.i.a(com.ss.android.downloadlib.addownload.j.getContext(), eVar.f59509b.getPackageName(), eVar);
+            a2 = com.ss.android.downloadlib.g.i.a(com.ss.android.downloadlib.addownload.j.getContext(), eVar.f59676b.getPackageName(), eVar);
         }
         boolean z2 = false;
         if (a(eVar.a) && com.ss.android.downloadlib.addownload.j.i().optInt("link_ad_click_event") == 1) {
-            DownloadModel downloadModel = eVar.f59509b;
+            DownloadModel downloadModel = eVar.f59676b;
             if (downloadModel instanceof AdDownloadModel) {
                 ((AdDownloadModel) downloadModel).setFunnelType(4);
             }
@@ -51,7 +51,7 @@ public class a {
             } else {
                 a("by_package", a2, a, eVar);
             }
-            if (z2 && !z && ((com.ss.android.downloadlib.d.c.a().b() && !com.ss.android.downloadlib.d.c.a().b(eVar.a, eVar.f59509b.getLogExtra())) || com.ss.android.downloadlib.d.c.a().c())) {
+            if (z2 && !z && ((com.ss.android.downloadlib.d.c.a().b() && !com.ss.android.downloadlib.d.c.a().b(eVar.a, eVar.f59676b.getLogExtra())) || com.ss.android.downloadlib.d.c.a().c())) {
                 com.ss.android.downloadlib.d.a.a().a(eVar.a, 2);
             }
             return z2;
@@ -277,7 +277,7 @@ public class a {
         JSONObject jSONObject = new JSONObject();
         l.a(jSONObject, "download_scene", Integer.valueOf(eVar.t()));
         com.ss.android.downloadlib.d.a.a().b("market_click_open", jSONObject, eVar);
-        com.ss.android.downloadlib.addownload.b.g a = com.ss.android.downloadlib.g.i.a(com.ss.android.downloadlib.addownload.j.getContext(), eVar, eVar.f59509b.getPackageName());
+        com.ss.android.downloadlib.addownload.b.g a = com.ss.android.downloadlib.g.i.a(com.ss.android.downloadlib.addownload.j.getContext(), eVar, eVar.f59676b.getPackageName());
         String a2 = l.a(a.b(), "open_market");
         int type = a.getType();
         if (type == 5) {
@@ -321,15 +321,15 @@ public class a {
                         r t = com.ss.android.downloadlib.addownload.j.t();
                         Context context2 = com.ss.android.downloadlib.addownload.j.getContext();
                         com.ss.android.downloadlib.addownload.b.e eVar2 = eVar;
-                        DownloadModel downloadModel = eVar2.f59509b;
-                        t.a(context2, downloadModel, eVar2.f59511d, eVar2.f59510c, downloadModel.getPackageName(), 2);
+                        DownloadModel downloadModel = eVar2.f59676b;
+                        t.a(context2, downloadModel, eVar2.f59678d, eVar2.f59677c, downloadModel.getPackageName(), 2);
                     }
                 }
             });
         } else {
-            com.ss.android.downloadlib.addownload.j.b().a(com.ss.android.downloadlib.addownload.j.getContext(), eVar.f59509b, eVar.f59511d, eVar.f59510c, eVar.f59509b.getPackageName(), str);
+            com.ss.android.downloadlib.addownload.j.b().a(com.ss.android.downloadlib.addownload.j.getContext(), eVar.f59676b, eVar.f59678d, eVar.f59677c, eVar.f59676b.getPackageName(), str);
         }
-        com.ss.android.downloadad.api.a.b bVar = new com.ss.android.downloadad.api.a.b(eVar.f59509b, eVar.f59510c, eVar.f59511d);
+        com.ss.android.downloadad.api.a.b bVar = new com.ss.android.downloadad.api.a.b(eVar.f59676b, eVar.f59677c, eVar.f59678d);
         bVar.e(2);
         bVar.f(System.currentTimeMillis());
         bVar.h(4);

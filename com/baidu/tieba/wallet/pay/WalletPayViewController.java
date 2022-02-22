@@ -685,7 +685,7 @@ public class WalletPayViewController {
         if (!(interceptable == null || interceptable.invokeV(1048585, this) == null) || this.mActivity.getLoadingView() == null) {
             return;
         }
-        this.mActivity.getLoadingView().j().setVisibility(0);
-        this.mActivity.getLoadingView().j().setText(R.string.pay_loading);
+        this.mActivity.getLoadingView().k().setVisibility(0);
+        this.mActivity.getLoadingView().k().setText(R.string.pay_loading);
     }
 }

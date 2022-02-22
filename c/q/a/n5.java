@@ -17,7 +17,7 @@ public class n5 extends AsyncTask {
     public final /* synthetic */ String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ d1 f30423b;
+    public final /* synthetic */ d1 f30629b;
 
     public n5(d1 d1Var, String str) {
         Interceptable interceptable = $ic;
@@ -34,7 +34,7 @@ public class n5 extends AsyncTask {
                 return;
             }
         }
-        this.f30423b = d1Var;
+        this.f30629b = d1Var;
         this.a = str;
     }
 
@@ -63,26 +63,26 @@ public class n5 extends AsyncTask {
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj) == null) {
             byte[] bArr = (byte[]) obj;
             if (bArr == null) {
-                d1 d1Var = this.f30423b;
-                e1 e1Var = d1Var.f30332e;
-                if (e1Var != null && !d1Var.f30337j) {
+                d1 d1Var = this.f30629b;
+                e1 e1Var = d1Var.f30538e;
+                if (e1Var != null && !d1Var.f30543j) {
                     e1Var.onFail(PBError.NO_RESUOURCE);
-                    this.f30423b.f30336i = true;
+                    this.f30629b.f30542i = true;
                 }
             } else {
-                d1 d1Var2 = this.f30423b;
-                e1 e1Var2 = d1Var2.f30332e;
-                if (e1Var2 != null && !d1Var2.f30337j) {
+                d1 d1Var2 = this.f30629b;
+                e1 e1Var2 = d1Var2.f30538e;
+                if (e1Var2 != null && !d1Var2.f30543j) {
                     d1Var2.m = bArr;
                     e1Var2.onLoaded();
-                    this.f30423b.f30336i = true;
+                    this.f30629b.f30542i = true;
                 }
             }
             if (bArr != null) {
-                d1 d1Var3 = this.f30423b;
-                if (d1Var3.f30337j) {
+                d1 d1Var3 = this.f30629b;
+                if (d1Var3.f30543j) {
                     StringBuilder sb = new StringBuilder();
-                    context = this.f30423b.a;
+                    context = this.f30629b.a;
                     sb.append(r0.e(context));
                     sb.append(File.separator);
                     sb.append("win");
@@ -90,7 +90,7 @@ public class n5 extends AsyncTask {
                     sb.append(r0.D(this.a));
                     sb.append(".gif");
                     d1Var3.p = new File(sb.toString());
-                    new Thread(new y(bArr, this.f30423b.p.getPath())).start();
+                    new Thread(new y(bArr, this.f30629b.p.getPath())).start();
                 }
             }
         }

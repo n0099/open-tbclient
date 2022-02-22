@@ -5,7 +5,7 @@ import android.database.Cursor;
 import android.net.Uri;
 import com.kwad.sdk.utils.ae;
 import com.kwad.sdk.utils.an;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class g {
     public static String a(Context context) {
         String str = "";

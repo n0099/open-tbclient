@@ -32,7 +32,7 @@ public class UTDevice {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
             a b2 = b.b(context);
-            return (b2 == null || g.m124a(b2.f())) ? "ffffffffffffffffffffffff" : b2.f();
+            return (b2 == null || g.m123a(b2.f())) ? "ffffffffffffffffffffffff" : b2.f();
         }
         return (String) invokeL.objValue;
     }
@@ -42,7 +42,7 @@ public class UTDevice {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
             String h2 = c.a(context).h();
-            return (h2 == null || g.m124a(h2)) ? "ffffffffffffffffffffffff" : h2;
+            return (h2 == null || g.m123a(h2)) ? "ffffffffffffffffffffffff" : h2;
         }
         return (String) invokeL.objValue;
     }

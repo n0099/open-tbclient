@@ -31,12 +31,12 @@ public class NetworkClientImpl implements NetworkClient {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final NetworkClient f59167c;
+    public static final NetworkClient f59334c;
     public transient /* synthetic */ FieldHolder $fh;
     public final ExecutorService a;
 
     /* renamed from: b  reason: collision with root package name */
-    public PriorityBlockingQueue<Runnable> f59168b;
+    public PriorityBlockingQueue<Runnable> f59335b;
 
     /* renamed from: com.qq.e.comm.net.NetworkClientImpl$1  reason: invalid class name */
     /* loaded from: classes4.dex */
@@ -135,7 +135,7 @@ public class NetworkClientImpl implements NetworkClient {
         public final Request a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final NetworkCallBack f59169b;
+        public final NetworkCallBack f59336b;
 
         /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
         public TaskCallable(Request request) {
@@ -174,7 +174,7 @@ public class NetworkClientImpl implements NetworkClient {
                 }
             }
             this.a = request;
-            this.f59169b = networkCallBack;
+            this.f59336b = networkCallBack;
         }
 
         private Response a() throws Exception {
@@ -243,15 +243,15 @@ public class NetworkClientImpl implements NetworkClient {
                     exc = e2;
                 }
                 if (exc == null) {
-                    NetworkCallBack networkCallBack = this.f59169b;
+                    NetworkCallBack networkCallBack = this.f59336b;
                     if (networkCallBack != null) {
                         networkCallBack.onResponse(this.a, response);
                     }
-                } else if (this.f59169b == null) {
+                } else if (this.f59336b == null) {
                     throw exc;
                 } else {
                     GDTLogger.w("网络异常", exc);
-                    this.f59169b.onException(exc);
+                    this.f59336b.onException(exc);
                 }
                 return response;
             }
@@ -272,7 +272,7 @@ public class NetworkClientImpl implements NetworkClient {
                 return;
             }
         }
-        f59167c = new NetworkClientImpl();
+        f59334c = new NetworkClientImpl();
     }
 
     public NetworkClientImpl() {
@@ -288,8 +288,8 @@ public class NetworkClientImpl implements NetworkClient {
                 return;
             }
         }
-        this.f59168b = new PriorityBlockingQueue<>(15);
-        this.a = new ThreadPoolExecutor(5, 10, 180L, TimeUnit.SECONDS, this.f59168b);
+        this.f59335b = new PriorityBlockingQueue<>(15);
+        this.a = new ThreadPoolExecutor(5, 10, 180L, TimeUnit.SECONDS, this.f59335b);
     }
 
     public static HttpURLConnection followRedirect(HttpURLConnection httpURLConnection) throws IOException {
@@ -334,7 +334,7 @@ public class NetworkClientImpl implements NetworkClient {
     public static NetworkClient getInstance() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? f59167c : (NetworkClient) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? f59334c : (NetworkClient) invokeV.objValue;
     }
 
     @Override // com.qq.e.comm.net.NetworkClient
@@ -351,7 +351,7 @@ public class NetworkClientImpl implements NetworkClient {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, request, priority)) == null) {
             NetFutureTask netFutureTask = new NetFutureTask(new TaskCallable(request), priority);
             this.a.execute(netFutureTask);
-            GDTLogger.d("QueueSize:" + this.f59168b.size());
+            GDTLogger.d("QueueSize:" + this.f59335b.size());
             return netFutureTask;
         }
         return (Future) invokeLL.objValue;
@@ -382,7 +382,7 @@ public class NetworkClientImpl implements NetworkClient {
                 str = "Submit failed for no executor";
             } else {
                 executor.execute(new NetFutureTask(new TaskCallable(request, networkCallBack), priority));
-                str = "QueueSize:" + this.f59168b.size();
+                str = "QueueSize:" + this.f59335b.size();
             }
             GDTLogger.d(str);
         }

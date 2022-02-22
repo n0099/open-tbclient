@@ -36,10 +36,10 @@ public class z implements View.OnClickListener {
         com.baidu.mapsdkplatform.comapi.map.j jVar2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-            jVar = this.a.f35478f;
+            jVar = this.a.f35684f;
             ab E = jVar.a().E();
             E.a += 1.0f;
-            jVar2 = this.a.f35478f;
+            jVar2 = this.a.f35684f;
             jVar2.a().a(E, 300);
         }
     }

@@ -28,41 +28,41 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 import org.xmlpull.v1.XmlPullParserException;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class FileProvider extends ContentProvider {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String[] f38128b;
+    public static final String[] f38357b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f38129c = "android.support.FILE_PROVIDER_PATHS";
+    public static final String f38358c = "android.support.FILE_PROVIDER_PATHS";
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f38130d = "root-path";
+    public static final String f38359d = "root-path";
 
     /* renamed from: e  reason: collision with root package name */
-    public static final String f38131e = "files-path";
+    public static final String f38360e = "files-path";
 
     /* renamed from: f  reason: collision with root package name */
-    public static final String f38132f = "cache-path";
+    public static final String f38361f = "cache-path";
 
     /* renamed from: g  reason: collision with root package name */
-    public static final String f38133g = "external-path";
+    public static final String f38362g = "external-path";
 
     /* renamed from: h  reason: collision with root package name */
-    public static final String f38134h = "name";
+    public static final String f38363h = "name";
 
     /* renamed from: i  reason: collision with root package name */
-    public static final String f38135i = "path";
+    public static final String f38364i = "path";
 
     /* renamed from: j  reason: collision with root package name */
-    public static final File f38136j;
+    public static final File f38365j;
     public static HashMap<String, a> k;
     public transient /* synthetic */ FieldHolder $fh;
     public a a;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public interface a {
         Uri a(File file);
 
@@ -82,8 +82,8 @@ public class FileProvider extends ContentProvider {
                 return;
             }
         }
-        f38128b = new String[]{"_display_name", "_size"};
-        f38136j = new File("/");
+        f38357b = new String[]{"_display_name", "_size"};
+        f38365j = new File("/");
         k = new HashMap<>();
     }
 
@@ -146,7 +146,7 @@ public class FileProvider extends ContentProvider {
                 String attributeValue = loadXmlMetaData.getAttributeValue(null, "name");
                 String attributeValue2 = loadXmlMetaData.getAttributeValue(null, "path");
                 if ("root-path".equals(name)) {
-                    file = a(f38136j, attributeValue2);
+                    file = a(f38365j, attributeValue2);
                 } else if ("files-path".equals(name)) {
                     file = a(context.getFilesDir(), attributeValue2);
                 } else if ("cache-path".equals(name)) {
@@ -245,7 +245,7 @@ public class FileProvider extends ContentProvider {
         if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048582, this, uri, strArr, str, strArr2, str2)) == null) {
             File a2 = this.a.a(uri);
             if (strArr == null) {
-                strArr = f38128b;
+                strArr = f38357b;
             }
             String[] strArr3 = new String[strArr.length];
             Object[] objArr = new Object[strArr.length];
@@ -281,14 +281,14 @@ public class FileProvider extends ContentProvider {
         return invokeLLLL.intValue;
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public static class b implements a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final String a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final HashMap<String, File> f38137b;
+        public final HashMap<String, File> f38366b;
 
         public b(String str) {
             Interceptable interceptable = $ic;
@@ -305,7 +305,7 @@ public class FileProvider extends ContentProvider {
                     return;
                 }
             }
-            this.f38137b = new HashMap<>();
+            this.f38366b = new HashMap<>();
             this.a = str;
         }
 
@@ -314,7 +314,7 @@ public class FileProvider extends ContentProvider {
             if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, file) == null) {
                 if (!TextUtils.isEmpty(str)) {
                     try {
-                        this.f38137b.put(str, file.getCanonicalFile());
+                        this.f38366b.put(str, file.getCanonicalFile());
                         return;
                     } catch (IOException e2) {
                         throw new IllegalArgumentException("Failed to resolve canonical path for " + file, e2);
@@ -333,7 +333,7 @@ public class FileProvider extends ContentProvider {
                 try {
                     String canonicalPath = file.getCanonicalPath();
                     Map.Entry<String, File> entry = null;
-                    for (Map.Entry<String, File> entry2 : this.f38137b.entrySet()) {
+                    for (Map.Entry<String, File> entry2 : this.f38366b.entrySet()) {
                         String path = entry2.getValue().getPath();
                         if (canonicalPath.startsWith(path) && (entry == null || path.length() > entry.getValue().getPath().length())) {
                             entry = entry2;
@@ -365,7 +365,7 @@ public class FileProvider extends ContentProvider {
                 int indexOf = encodedPath.indexOf(47, 1);
                 String decode = Uri.decode(encodedPath.substring(1, indexOf));
                 String decode2 = Uri.decode(encodedPath.substring(indexOf + 1));
-                File file = this.f38137b.get(decode);
+                File file = this.f38366b.get(decode);
                 if (file != null) {
                     File file2 = new File(file, decode2);
                     try {

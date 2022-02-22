@@ -23,7 +23,7 @@ import java.io.InputStream;
 import java.lang.ref.WeakReference;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.locks.ReentrantLock;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public final class LoadAndDisplayImageTask implements IoUtils.CopyListener, Runnable {
     public static final String ERROR_NO_IMAGE_STREAM = "No stream for image [%s]";
     public static final String ERROR_POST_PROCESSOR_NULL = "Post-processor returned null [%s]";
@@ -64,7 +64,7 @@ public final class LoadAndDisplayImageTask implements IoUtils.CopyListener, Runn
     public final ImageSize targetSize;
     public final String uri;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class FireCancelEventRunnable implements Runnable {
         public WeakReference<LoadAndDisplayImageTask> weakReference;
 
@@ -81,7 +81,7 @@ public final class LoadAndDisplayImageTask implements IoUtils.CopyListener, Runn
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class FireFailEventRunnable implements Runnable {
         public final Throwable failCause;
         public final FailReason.FailType failType;
@@ -105,7 +105,7 @@ public final class LoadAndDisplayImageTask implements IoUtils.CopyListener, Runn
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class TaskCancelledException extends Exception {
         public static final long serialVersionUID = -504619855289909996L;
 

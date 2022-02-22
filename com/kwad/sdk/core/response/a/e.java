@@ -3,7 +3,7 @@ package com.kwad.sdk.core.response.a;
 import androidx.annotation.NonNull;
 import com.kwad.sdk.core.response.model.NewsInfo;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class e {
     public static long a(@NonNull NewsInfo newsInfo) {
         return newsInfo.photoId;

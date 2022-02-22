@@ -6,19 +6,19 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public abstract class BaseClearCache {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public long mCacheSize;
     public boolean mSelected;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public interface CacheClearCallback {
         void onClearCacheResult(boolean z);
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public interface CacheSizeCallback {
         void onCacheSizeResult(long j2);
     }

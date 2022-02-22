@@ -2,6 +2,7 @@ package com.baidu.nadcore.widget.uitemplate;
 
 import android.content.Context;
 import android.graphics.PorterDuff;
+import android.graphics.drawable.Drawable;
 import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.view.ViewGroup;
@@ -9,10 +10,11 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.widget.AppCompatRatingBar;
-import c.a.c0.d.b;
-import c.a.c0.d.d;
-import c.a.c0.d.e;
-import c.a.c0.s.p;
+import c.a.d0.d.b;
+import c.a.d0.d.d;
+import c.a.d0.d.e;
+import c.a.d0.s.s;
+import c.a.d0.s.t;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.nadcore.model.AdBaseModel;
 import com.baidu.nadcore.widget.uiwidget.SimpleAdInfoView;
@@ -20,7 +22,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class SimpleFeedAdInfoView extends SimpleAdInfoView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -58,13 +60,7 @@ public class SimpleFeedAdInfoView extends SimpleAdInfoView {
             this.mRatingBarView = (AppCompatRatingBar) findViewById(e.nad_operate_ad_rating_bar);
             this.mRatingTextView = (TextView) findViewById(e.nad_operate_ad_rating_text);
             initSkin();
-            if (this.mRatingBarView != null) {
-                int intrinsicHeight = getResources().getDrawable(d.nad_feed_ad_operate_rating_star_full).getIntrinsicHeight();
-                ViewGroup.LayoutParams layoutParams = this.mRatingBarView.getLayoutParams();
-                layoutParams.width = -2;
-                layoutParams.height = intrinsicHeight;
-                this.mRatingBarView.setLayoutParams(layoutParams);
-            }
+            setRatingBarViewLP(d.nad_feed_ad_operate_rating_star_full);
         }
     }
 
@@ -103,13 +99,13 @@ public class SimpleFeedAdInfoView extends SimpleAdInfoView {
     }
 
     @Override // com.baidu.nadcore.widget.uiwidget.SimpleAdInfoView
-    public void setAdInfo(p pVar) {
+    public void setAdInfo(t tVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, pVar) == null) {
-            super.setAdInfo(pVar);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, tVar) == null) {
+            super.setAdInfo(tVar);
             if (this.mAdNameView != null) {
-                if (!TextUtils.isEmpty(pVar.f2267c)) {
-                    this.mAdNameView.setText(pVar.f2267c);
+                if (!TextUtils.isEmpty(tVar.f3138c)) {
+                    this.mAdNameView.setText(tVar.f3138c);
                     this.mAdNameView.setVisibility(0);
                 } else {
                     this.mAdNameView.setVisibility(8);
@@ -117,7 +113,7 @@ public class SimpleFeedAdInfoView extends SimpleAdInfoView {
             }
             TextView textView = this.mRatingTextView;
             if (textView != null) {
-                double d2 = pVar.f2269e;
+                double d2 = tVar.f3140e;
                 if (d2 != -1.0d) {
                     textView.setText(String.valueOf(d2));
                     this.mRatingTextView.setVisibility(0);
@@ -127,7 +123,7 @@ public class SimpleFeedAdInfoView extends SimpleAdInfoView {
             }
             AppCompatRatingBar appCompatRatingBar = this.mRatingBarView;
             if (appCompatRatingBar != null) {
-                double d3 = pVar.f2269e;
+                double d3 = tVar.f3140e;
                 if (d3 != -1.0d) {
                     appCompatRatingBar.setRating((float) d3);
                     this.mRatingBarView.setVisibility(0);
@@ -138,14 +134,34 @@ public class SimpleFeedAdInfoView extends SimpleAdInfoView {
         }
     }
 
-    public void update(AdBaseModel adBaseModel) {
-        p pVar;
+    public void setRatingBarViewLP(int i2) {
+        Drawable drawable;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, adBaseModel) == null) || adBaseModel == null || (pVar = adBaseModel.f37047g) == null) {
+        if (!(interceptable == null || interceptable.invokeI(1048579, this, i2) == null) || this.mRatingBarView == null || (drawable = getResources().getDrawable(i2)) == null) {
             return;
         }
-        setAdInfo(pVar);
+        int intrinsicHeight = drawable.getIntrinsicHeight();
+        ViewGroup.LayoutParams layoutParams = this.mRatingBarView.getLayoutParams();
+        layoutParams.width = -2;
+        layoutParams.height = intrinsicHeight;
+        this.mRatingBarView.setLayoutParams(layoutParams);
+    }
+
+    public void update(AdBaseModel adBaseModel) {
+        t tVar;
+        s.a aVar;
+        int i2;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048580, this, adBaseModel) == null) || adBaseModel == null || (tVar = adBaseModel.f37261i) == null) {
+            return;
+        }
+        setAdInfo(tVar);
         initSkin();
+        s sVar = adBaseModel.q;
+        if (sVar == null || (aVar = sVar.f3126j) == null || (i2 = aVar.f3133h) == 0) {
+            return;
+        }
+        setRatingBarViewLP(i2);
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */

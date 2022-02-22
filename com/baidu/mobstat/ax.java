@@ -16,12 +16,12 @@ public class ax {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final ax f36520c;
+    public static final ax f36726c;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public volatile boolean f36521b;
+    public volatile boolean f36727b;
 
     static {
         InterceptResult invokeClinit;
@@ -36,7 +36,7 @@ public class ax {
                 return;
             }
         }
-        f36520c = new ax();
+        f36726c = new ax();
     }
 
     public ax() {
@@ -58,7 +58,7 @@ public class ax {
     public static ax a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f36520c : (ax) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f36726c : (ax) invokeV.objValue;
     }
 
     public boolean b() {
@@ -77,6 +77,6 @@ public class ax {
             this.a = (jSONObject != null ? jSONObject.optInt(IntentConfig.CLOSE) : 0) != 0;
         } catch (Exception unused) {
         }
-        this.f36521b = true;
+        this.f36727b = true;
     }
 }

@@ -20,25 +20,25 @@ public class q1 {
     public static final int a = 0;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final int f55264b = 1;
+    public static final int f55431b = 1;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final int f55265c = 2;
+    public static final int f55432c = 2;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final int f55266d = 3;
+    public static final int f55433d = 3;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final int f55267e = -1;
+    public static final int f55434e = -1;
 
     /* renamed from: f  reason: collision with root package name */
-    public static int f55268f = -1;
+    public static int f55435f = -1;
 
     /* renamed from: g  reason: collision with root package name */
-    public static int f55269g;
+    public static int f55436g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static ThreadLocal<StringBuilder> f55270h;
+    public static ThreadLocal<StringBuilder> f55437h;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -54,7 +54,7 @@ public class q1 {
                 return;
             }
         }
-        f55270h = new ThreadLocal<>();
+        f55437h = new ThreadLocal<>();
     }
 
     public q1() {
@@ -105,15 +105,15 @@ public class q1 {
         if (fileName.length() > 5) {
             fileName = fileName.substring(0, fileName.length() - 5);
         }
-        StringBuilder sb = f55270h.get();
+        StringBuilder sb = f55437h.get();
         if (sb == null) {
             sb = new StringBuilder();
-            f55270h.set(sb);
+            f55437h.set(sb);
         }
         synchronized (sb) {
             sb.setLength(0);
             sb.append(PreferencesUtil.LEFT_MOUNT);
-            sb.append(f55269g);
+            sb.append(f55436g);
             sb.append("][");
             sb.append(fileName);
             sb.append(':');
@@ -123,14 +123,14 @@ public class q1 {
             sb.append("] ");
             sb.append(str);
             sb.toString();
-            f55269g++;
+            f55436g++;
         }
     }
 
     public static void a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str) == null) {
-            int i2 = f55268f;
+            int i2 = f55435f;
             if (i2 == -1 || i2 == 0 || i2 == 1) {
                 a(1, str);
             }
@@ -140,7 +140,7 @@ public class q1 {
     public static void a(String str, Throwable th) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65541, null, str, th) == null) {
-            int i2 = f55268f;
+            int i2 = f55435f;
             if (i2 == -1 || i2 == 0 || i2 == 1) {
                 a(1, str + StringUtils.LF + a(th));
             }
@@ -150,7 +150,7 @@ public class q1 {
     public static void b(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65542, null, str) == null) {
-            int i2 = f55268f;
+            int i2 = f55435f;
             if (i2 == -1 || i2 == 0 || i2 == 1 || i2 == 2) {
                 a(2, str);
             }
@@ -160,7 +160,7 @@ public class q1 {
     public static void b(String str, Throwable th) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65543, null, str, th) == null) {
-            int i2 = f55268f;
+            int i2 = f55435f;
             if (i2 == -1 || i2 == 0 || i2 == 1 || i2 == 2) {
                 a(2, str + StringUtils.LF + a(th));
             }
@@ -170,7 +170,7 @@ public class q1 {
     public static void c(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65544, null, str) == null) {
-            int i2 = f55268f;
+            int i2 = f55435f;
             if (i2 == -1 || i2 == 0) {
                 a(0, str);
             }
@@ -180,7 +180,7 @@ public class q1 {
     public static void c(String str, Throwable th) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65545, null, str, th) == null) {
-            int i2 = f55268f;
+            int i2 = f55435f;
             if (i2 == -1 || i2 == 0) {
                 a(0, str + StringUtils.LF + a(th));
             }

@@ -17,7 +17,7 @@ public final class a {
     public static final Map<Class<?>, Class<?>> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final Map<Class<?>, Class<?>> f30142b;
+    public static final Map<Class<?>, Class<?>> f30348b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -45,7 +45,7 @@ public final class a {
         a(linkedHashMap, linkedHashMap2, Short.TYPE, Short.class);
         a(linkedHashMap, linkedHashMap2, Void.TYPE, Void.class);
         a = Collections.unmodifiableMap(linkedHashMap);
-        f30142b = Collections.unmodifiableMap(linkedHashMap2);
+        f30348b = Collections.unmodifiableMap(linkedHashMap2);
     }
 
     public static void a(Map<Class<?>, Class<?>> map, Map<Class<?>, Class<?>> map2, Class<?> cls, Class<?> cls2) {
@@ -59,7 +59,7 @@ public final class a {
     public static Set<Class<?>> b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f30142b.keySet() : (Set) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f30348b.keySet() : (Set) invokeV.objValue;
     }
 
     public static <T> Class<T> c(Class<T> cls) {
@@ -67,7 +67,7 @@ public final class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, cls)) == null) {
             n.p(cls);
-            Class<T> cls2 = (Class<T>) f30142b.get(cls);
+            Class<T> cls2 = (Class<T>) f30348b.get(cls);
             return cls2 == null ? cls : cls2;
         }
         return (Class) invokeL.objValue;

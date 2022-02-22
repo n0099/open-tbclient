@@ -11,8 +11,8 @@ import androidx.core.view.InputDeviceCompat;
 import androidx.lifecycle.Lifecycle;
 import androidx.lifecycle.LifecycleObserver;
 import androidx.lifecycle.OnLifecycleEvent;
-import c.a.c0.g.a.a;
-import c.a.c0.g.a.b;
+import c.a.d0.g.a.a;
+import c.a.d0.g.a.b;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.nadcore.component.api.IComponentPlugin;
 import com.baidu.nps.main.manager.Bundle;
@@ -33,16 +33,16 @@ public class ComponentArchManager implements LifecycleObserver {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final CopyOnWriteArrayList<IComponentPlugin> f36998e;
+    public final CopyOnWriteArrayList<IComponentPlugin> f37210e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final SimpleArrayMap<Class<? extends b>, b> f36999f;
+    public final SimpleArrayMap<Class<? extends b>, b> f37211f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final Context f37000g;
+    public final Context f37212g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final Lifecycle f37001h;
+    public final Lifecycle f37213h;
 
     public ComponentArchManager(Context context, Lifecycle lifecycle) {
         Interceptable interceptable = $ic;
@@ -61,10 +61,10 @@ public class ComponentArchManager implements LifecycleObserver {
         }
         Intrinsics.checkNotNullParameter(context, "context");
         Intrinsics.checkNotNullParameter(lifecycle, "lifecycle");
-        this.f37000g = context;
-        this.f37001h = lifecycle;
-        this.f36998e = new CopyOnWriteArrayList<>();
-        this.f36999f = new SimpleArrayMap<>();
+        this.f37212g = context;
+        this.f37213h = lifecycle;
+        this.f37210e = new CopyOnWriteArrayList<>();
+        this.f37211f = new SimpleArrayMap<>();
     }
 
     public static /* synthetic */ void registerComponent$default(ComponentArchManager componentArchManager, IComponentPlugin iComponentPlugin, boolean z, int i2, Object obj) {
@@ -81,8 +81,8 @@ public class ComponentArchManager implements LifecycleObserver {
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            Lifecycle lifecycle = this.f37001h;
-            for (IComponentPlugin iComponentPlugin : this.f36998e) {
+            Lifecycle lifecycle = this.f37213h;
+            for (IComponentPlugin iComponentPlugin : this.f37210e) {
                 lifecycle.addObserver(iComponentPlugin);
             }
         }
@@ -91,7 +91,7 @@ public class ComponentArchManager implements LifecycleObserver {
     public final void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            for (IComponentPlugin uiComponent : this.f36998e) {
+            for (IComponentPlugin uiComponent : this.f37210e) {
                 Intrinsics.checkNotNullExpressionValue(uiComponent, "uiComponent");
                 c(uiComponent);
             }
@@ -101,10 +101,10 @@ public class ComponentArchManager implements LifecycleObserver {
     public final void c(IComponentPlugin iComponentPlugin) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, iComponentPlugin) == null) {
-            Context context = this.f37000g;
+            Context context = this.f37212g;
             if (context != null) {
                 iComponentPlugin.injectActivity((Activity) context);
-                iComponentPlugin.injectContext(this.f37000g);
+                iComponentPlugin.injectContext(this.f37212g);
                 iComponentPlugin.injectManager(this);
                 iComponentPlugin.injectService();
                 iComponentPlugin.onAttachToManager();
@@ -118,7 +118,7 @@ public class ComponentArchManager implements LifecycleObserver {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, parentView) == null) {
             Intrinsics.checkNotNullParameter(parentView, "parentView");
-            for (IComponentPlugin iComponentPlugin : this.f36998e) {
+            for (IComponentPlugin iComponentPlugin : this.f37210e) {
                 iComponentPlugin.onCreateView(parentView);
             }
         }
@@ -127,7 +127,7 @@ public class ComponentArchManager implements LifecycleObserver {
     public final void d(IComponentPlugin iComponentPlugin) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, iComponentPlugin) == null) {
-            this.f37001h.removeObserver(iComponentPlugin);
+            this.f37213h.removeObserver(iComponentPlugin);
             iComponentPlugin.onDetachFromManager();
         }
     }
@@ -136,7 +136,7 @@ public class ComponentArchManager implements LifecycleObserver {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, newConfig) == null) {
             Intrinsics.checkNotNullParameter(newConfig, "newConfig");
-            for (IComponentPlugin iComponentPlugin : this.f36998e) {
+            for (IComponentPlugin iComponentPlugin : this.f37210e) {
                 iComponentPlugin.onConfigurationChanged(newConfig);
             }
         }
@@ -146,7 +146,7 @@ public class ComponentArchManager implements LifecycleObserver {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, event) == null) {
             Intrinsics.checkNotNullParameter(event, "event");
-            for (IComponentPlugin iComponentPlugin : this.f36998e) {
+            for (IComponentPlugin iComponentPlugin : this.f37210e) {
                 iComponentPlugin.receiveEvent(event);
             }
         }
@@ -156,7 +156,7 @@ public class ComponentArchManager implements LifecycleObserver {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, intent) == null) {
             Intrinsics.checkNotNullParameter(intent, "intent");
-            for (IComponentPlugin iComponentPlugin : this.f36998e) {
+            for (IComponentPlugin iComponentPlugin : this.f37210e) {
                 iComponentPlugin.onNewIntent(intent);
             }
         }
@@ -167,7 +167,7 @@ public class ComponentArchManager implements LifecycleObserver {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeIL = interceptable.invokeIL(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2, event)) == null) {
             Intrinsics.checkNotNullParameter(event, "event");
-            Iterator<IComponentPlugin> it = this.f36998e.iterator();
+            Iterator<IComponentPlugin> it = this.f37210e.iterator();
             while (it.hasNext()) {
                 if (it.next().onKeyDown(i2, event)) {
                     return true;
@@ -188,7 +188,7 @@ public class ComponentArchManager implements LifecycleObserver {
     public final void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            for (IComponentPlugin iComponentPlugin : this.f36998e) {
+            for (IComponentPlugin iComponentPlugin : this.f37210e) {
                 iComponentPlugin.onRelease();
             }
         }
@@ -197,8 +197,8 @@ public class ComponentArchManager implements LifecycleObserver {
     public final void g() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
-            Lifecycle lifecycle = this.f37001h;
-            for (IComponentPlugin iComponentPlugin : this.f36998e) {
+            Lifecycle lifecycle = this.f37213h;
+            for (IComponentPlugin iComponentPlugin : this.f37210e) {
                 lifecycle.removeObserver(iComponentPlugin);
             }
         }
@@ -207,19 +207,19 @@ public class ComponentArchManager implements LifecycleObserver {
     public final CopyOnWriteArrayList<IComponentPlugin> getComponents() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.f36998e : (CopyOnWriteArrayList) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.f37210e : (CopyOnWriteArrayList) invokeV.objValue;
     }
 
     public final Context getContext() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.f37000g : (Context) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.f37212g : (Context) invokeV.objValue;
     }
 
     public final Lifecycle getLifecycle() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.f37001h : (Lifecycle) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.f37213h : (Lifecycle) invokeV.objValue;
     }
 
     public <T extends b> T getService(Class<T> clazz) {
@@ -227,7 +227,7 @@ public class ComponentArchManager implements LifecycleObserver {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048591, this, clazz)) == null) {
             Intrinsics.checkNotNullParameter(clazz, "clazz");
-            b bVar = this.f36999f.get(clazz);
+            b bVar = this.f37211f.get(clazz);
             if (!(bVar instanceof b)) {
                 bVar = null;
             }
@@ -250,8 +250,8 @@ public class ComponentArchManager implements LifecycleObserver {
         if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
             f();
             g();
-            this.f36999f.clear();
-            this.f36998e.clear();
+            this.f37211f.clear();
+            this.f37210e.clear();
         }
     }
 
@@ -262,9 +262,9 @@ public class ComponentArchManager implements LifecycleObserver {
             e(component);
             c(component);
             if (z) {
-                this.f37001h.addObserver(component);
+                this.f37213h.addObserver(component);
             }
-            this.f36998e.add(component);
+            this.f37210e.add(component);
         }
     }
 
@@ -273,7 +273,7 @@ public class ComponentArchManager implements LifecycleObserver {
         if (interceptable == null || interceptable.invokeLL(1048595, this, clazz, componentService) == null) {
             Intrinsics.checkNotNullParameter(clazz, "clazz");
             Intrinsics.checkNotNullParameter(componentService, "componentService");
-            this.f36999f.put(clazz, componentService);
+            this.f37211f.put(clazz, componentService);
         }
     }
 
@@ -282,7 +282,7 @@ public class ComponentArchManager implements LifecycleObserver {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048596, this, clazz)) == null) {
             Intrinsics.checkNotNullParameter(clazz, "clazz");
-            return this.f36999f.remove(clazz);
+            return this.f37211f.remove(clazz);
         }
         return (b) invokeL.objValue;
     }
@@ -292,7 +292,7 @@ public class ComponentArchManager implements LifecycleObserver {
         if (interceptable == null || interceptable.invokeL(1048597, this, componentPlugin) == null) {
             Intrinsics.checkNotNullParameter(componentPlugin, "componentPlugin");
             d(componentPlugin);
-            this.f36998e.remove(componentPlugin);
+            this.f37210e.remove(componentPlugin);
         }
     }
 }

@@ -22,19 +22,19 @@ public class a implements FlutterPlugin, MethodChannel.MethodCallHandler {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: e  reason: collision with root package name */
-    public static MethodChannel f4668e;
+    public static MethodChannel f4734e;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c.a.p.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static class RunnableC0229a implements Runnable {
+    public static class RunnableC0234a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Map f4669e;
+        public final /* synthetic */ Map f4735e;
 
-        public RunnableC0229a(Map map) {
+        public RunnableC0234a(Map map) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -49,7 +49,7 @@ public class a implements FlutterPlugin, MethodChannel.MethodCallHandler {
                     return;
                 }
             }
-            this.f4669e = map;
+            this.f4735e = map;
         }
 
         @Override // java.lang.Runnable
@@ -58,7 +58,7 @@ public class a implements FlutterPlugin, MethodChannel.MethodCallHandler {
             if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || a.a() == null) {
                 return;
             }
-            a.a().invokeMethod("allConfig", this.f4669e);
+            a.a().invokeMethod("allConfig", this.f4735e);
         }
     }
 
@@ -79,13 +79,13 @@ public class a implements FlutterPlugin, MethodChannel.MethodCallHandler {
     public static MethodChannel a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? f4668e : (MethodChannel) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? f4734e : (MethodChannel) invokeV.objValue;
     }
 
     public static void b(Map map) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65538, null, map) == null) {
-            new Handler(Looper.getMainLooper()).post(new RunnableC0229a(map));
+            new Handler(Looper.getMainLooper()).post(new RunnableC0234a(map));
         }
     }
 
@@ -94,7 +94,7 @@ public class a implements FlutterPlugin, MethodChannel.MethodCallHandler {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, flutterPluginBinding) == null) {
             MethodChannel methodChannel = new MethodChannel(flutterPluginBinding.getFlutterEngine().getDartExecutor(), "flutter_cloud_config_gcp_plugin");
-            f4668e = methodChannel;
+            f4734e = methodChannel;
             methodChannel.setMethodCallHandler(this);
         }
     }
@@ -103,7 +103,7 @@ public class a implements FlutterPlugin, MethodChannel.MethodCallHandler {
     public void onDetachedFromEngine(@NonNull FlutterPlugin.FlutterPluginBinding flutterPluginBinding) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, flutterPluginBinding) == null) {
-            f4668e.setMethodCallHandler(null);
+            f4734e.setMethodCallHandler(null);
         }
     }
 
@@ -123,12 +123,12 @@ public class a implements FlutterPlugin, MethodChannel.MethodCallHandler {
                             ((c) processor).a((String) map.get("module"), (String) map.get("action"));
                         }
                     }
-                    if (c.a.k0.b.a.a.g()) {
+                    if (c.a.l0.b.a.a.g()) {
                         CloudControlManager.getInstance().requestCloudControl("0");
                     }
                 }
             } else if (methodCall.method.equals("requestCloudControl")) {
-                if (c.a.k0.b.a.a.g()) {
+                if (c.a.l0.b.a.a.g()) {
                     CloudControlManager.getInstance().requestCloudControl("0");
                 }
             } else {

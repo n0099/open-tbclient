@@ -1,5 +1,5 @@
 package com.baidu.nps.interfa;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public interface IStatisticManager {
     void recordDownloadResult(int i2, String str, int i3, String str2);
 

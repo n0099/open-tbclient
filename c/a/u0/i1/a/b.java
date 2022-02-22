@@ -1,0 +1,185 @@
+package c.a.u0.i1.a;
+
+import android.content.Context;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.BaseAdapter;
+import android.widget.TextView;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tieba.R;
+import com.baidu.tieba.gift.buyGift.GiftCommonList;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.List;
+@Deprecated
+/* loaded from: classes8.dex */
+public class b extends BaseAdapter {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+
+    /* renamed from: e  reason: collision with root package name */
+    public List<GiftCommonList.NumInfo> f18689e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public Context f18690f;
+
+    /* loaded from: classes8.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    /* renamed from: c.a.u0.i1.a.b$b  reason: collision with other inner class name */
+    /* loaded from: classes8.dex */
+    public class C1151b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public TextView a;
+
+        /* renamed from: b  reason: collision with root package name */
+        public View f18691b;
+
+        public C1151b(b bVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {bVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        public /* synthetic */ C1151b(b bVar, a aVar) {
+            this(bVar);
+        }
+    }
+
+    public b(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.f18690f = context;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // android.widget.Adapter
+    /* renamed from: a */
+    public GiftCommonList.NumInfo getItem(int i2) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) {
+            if (this.f18689e == null || i2 < 0 || i2 >= getCount() - 1) {
+                return null;
+            }
+            return this.f18689e.get(i2);
+        }
+        return (GiftCommonList.NumInfo) invokeI.objValue;
+    }
+
+    public void b(List<GiftCommonList.NumInfo> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
+            this.f18689e = list;
+            notifyDataSetChanged();
+        }
+    }
+
+    @Override // android.widget.Adapter
+    public int getCount() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            List<GiftCommonList.NumInfo> list = this.f18689e;
+            if (list == null) {
+                return 1;
+            }
+            return list.size() + 1;
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // android.widget.Adapter
+    public long getItemId(int i2) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i2)) == null) ? i2 : invokeI.longValue;
+    }
+
+    @Override // android.widget.BaseAdapter, android.widget.Adapter
+    public int getItemViewType(int i2) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i2)) == null) ? i2 == getCount() - 1 ? 1 : 0 : invokeI.intValue;
+    }
+
+    @Override // android.widget.Adapter
+    public View getView(int i2, View view, ViewGroup viewGroup) {
+        InterceptResult invokeILL;
+        C1151b c1151b;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048582, this, i2, view, viewGroup)) == null) {
+            if (view != null && view.getTag() != null) {
+                c1151b = (C1151b) view.getTag();
+            } else {
+                view = LayoutInflater.from(this.f18690f).inflate(R.layout.gift_num_item, (ViewGroup) null);
+                c1151b = new C1151b(this, null);
+                c1151b.a = (TextView) view.findViewById(R.id.text);
+                c1151b.f18691b = view.findViewById(R.id.divider);
+                view.setTag(c1151b);
+            }
+            SkinManager.setBackgroundResource(view, R.drawable.list_item_selector);
+            SkinManager.setViewTextColor(c1151b.a, R.color.CAM_X0105, 1);
+            SkinManager.setBackgroundColor(c1151b.f18691b, R.color.CAM_X0204);
+            GiftCommonList.NumInfo item = getItem(i2);
+            if (getItemViewType(i2) == 1) {
+                c1151b.a.setText(R.string.custom_num);
+                c1151b.f18691b.setVisibility(4);
+            } else {
+                if (item != null) {
+                    int num = item.getNum() > 0 ? item.getNum() : 1;
+                    String name = item.getName() != null ? item.getName() : "";
+                    TextView textView = c1151b.a;
+                    textView.setText(num + name);
+                    c1151b.f18691b.setVisibility(0);
+                } else {
+                    c1151b.a.setText("");
+                    c1151b.f18691b.setVisibility(0);
+                }
+            }
+            return view;
+        }
+        return (View) invokeILL.objValue;
+    }
+
+    @Override // android.widget.BaseAdapter, android.widget.Adapter
+    public int getViewTypeCount() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return 2;
+        }
+        return invokeV.intValue;
+    }
+}

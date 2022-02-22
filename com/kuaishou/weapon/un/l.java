@@ -17,7 +17,7 @@ public class l {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final long f55193b = 1;
+    public static final long f55360b = 1;
     public transient /* synthetic */ FieldHolder $fh;
     public ArrayList<m> a;
 
@@ -45,20 +45,20 @@ public class l {
         for (int i4 = 0; i4 < length; i4++) {
             if (activityInfoArr[i4] != null) {
                 m mVar = new m();
-                mVar.f55204h = activityInfoArr[i4].configChanges;
-                mVar.f55202f = activityInfoArr[i4].flags;
+                mVar.f55371h = activityInfoArr[i4].configChanges;
+                mVar.f55369f = activityInfoArr[i4].flags;
                 mVar.m = activityInfoArr[i4].labelRes;
-                mVar.f55198b = activityInfoArr[i4].launchMode;
+                mVar.f55365b = activityInfoArr[i4].launchMode;
                 if (activityInfoArr[i4].nonLocalizedLabel != null) {
                     mVar.n = activityInfoArr[i4].nonLocalizedLabel.toString();
                 }
                 mVar.k = activityInfoArr[i4].name;
                 mVar.l = activityInfoArr[i4].packageName;
-                mVar.f55199c = activityInfoArr[i4].permission;
-                mVar.f55203g = activityInfoArr[i4].screenOrientation;
-                mVar.f55205i = activityInfoArr[i4].softInputMode;
-                mVar.f55201e = activityInfoArr[i4].targetActivity;
-                mVar.f55200d = activityInfoArr[i4].taskAffinity;
+                mVar.f55366c = activityInfoArr[i4].permission;
+                mVar.f55370g = activityInfoArr[i4].screenOrientation;
+                mVar.f55372i = activityInfoArr[i4].softInputMode;
+                mVar.f55368e = activityInfoArr[i4].targetActivity;
+                mVar.f55367d = activityInfoArr[i4].taskAffinity;
                 mVar.a = activityInfoArr[i4].theme;
                 this.a.add(mVar);
             }

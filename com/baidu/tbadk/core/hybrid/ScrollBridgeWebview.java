@@ -15,10 +15,10 @@ public class ScrollBridgeWebview extends BridgeWebView {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public a f40278e;
+    public a f40507e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f40279f;
+    public boolean f40508f;
 
     /* loaded from: classes11.dex */
     public interface a {
@@ -47,21 +47,21 @@ public class ScrollBridgeWebview extends BridgeWebView {
                 return;
             }
         }
-        this.f40279f = false;
+        this.f40508f = false;
     }
 
-    @Override // android.webkit.WebView, android.view.View
+    @Override // com.baidu.tbadk.coreExtra.view.BaseWebView, android.webkit.WebView, android.view.View
     public void onScrollChanged(int i2, int i3, int i4, int i5) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIIII(1048576, this, i2, i3, i4, i5) == null) {
             super.onScrollChanged(i2, i3, i4, i5);
-            if (this.f40278e != null) {
+            if (this.f40507e != null) {
                 if (Math.abs((getContentHeight() * getScale()) - (getHeight() + getScrollY())) < 1.0f) {
-                    this.f40278e.b(i2, i3, i4, i5);
+                    this.f40507e.b(i2, i3, i4, i5);
                 } else if (getScrollY() == 0) {
-                    this.f40278e.a(i2, i3, i4, i5);
+                    this.f40507e.a(i2, i3, i4, i5);
                 } else {
-                    this.f40278e.onScrollChanged(i2, i3, i4, i5);
+                    this.f40507e.onScrollChanged(i2, i3, i4, i5);
                 }
             }
         }
@@ -73,7 +73,7 @@ public class ScrollBridgeWebview extends BridgeWebView {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, motionEvent)) == null) {
             boolean onTouchEvent = super.onTouchEvent(motionEvent);
-            if (this.f40279f) {
+            if (this.f40508f) {
                 if (motionEvent.getAction() == 0) {
                     requestDisallowInterceptTouchEvent(false);
                 } else {
@@ -88,14 +88,14 @@ public class ScrollBridgeWebview extends BridgeWebView {
     public void setNeedDisAllowParentInterceptTouchEvent(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
-            this.f40279f = z;
+            this.f40508f = z;
         }
     }
 
     public void setOnScrollChangeListener(a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, aVar) == null) {
-            this.f40278e = aVar;
+            this.f40507e = aVar;
         }
     }
 
@@ -118,6 +118,6 @@ public class ScrollBridgeWebview extends BridgeWebView {
                 return;
             }
         }
-        this.f40279f = false;
+        this.f40508f = false;
     }
 }

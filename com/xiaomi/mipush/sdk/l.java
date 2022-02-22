@@ -23,7 +23,7 @@ public class l {
         public String a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f60946b;
+        public String f61113b;
 
         public a(String str, String str2) {
             Interceptable interceptable = $ic;
@@ -41,7 +41,7 @@ public class l {
                 }
             }
             this.a = str;
-            this.f60946b = str2;
+            this.f61113b = str2;
         }
     }
 
@@ -60,9 +60,9 @@ public class l {
         }
         a = new HashMap<>();
         a(e.a, new a("com.xiaomi.assemble.control.HmsPushManager", "newInstance"));
-        a(e.f60943b, new a("com.xiaomi.assemble.control.FCMPushManager", "newInstance"));
-        a(e.f60944c, new a("com.xiaomi.assemble.control.COSPushManager", "newInstance"));
-        a(e.f60945d, new a("com.xiaomi.assemble.control.FTOSPushManager", "newInstance"));
+        a(e.f61110b, new a("com.xiaomi.assemble.control.FCMPushManager", "newInstance"));
+        a(e.f61111c, new a("com.xiaomi.assemble.control.COSPushManager", "newInstance"));
+        a(e.f61112d, new a("com.xiaomi.assemble.control.FTOSPushManager", "newInstance"));
     }
 
     public static at a(e eVar) {
@@ -76,26 +76,26 @@ public class l {
                         if (i2 != 4) {
                             return null;
                         }
-                        return at.f60935f;
+                        return at.f61102f;
                     }
-                    return at.f60934e;
+                    return at.f61101e;
                 }
-                return at.f60933d;
+                return at.f61100d;
             }
-            return at.f60932c;
+            return at.f61099c;
         }
         return (at) invokeL.objValue;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static a m198a(e eVar) {
+    public static a m197a(e eVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, eVar)) == null) ? a.get(eVar) : (a) invokeL.objValue;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static hk m199a(e eVar) {
+    public static hk m198a(e eVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, eVar)) == null) ? hk.ao : (hk) invokeL.objValue;

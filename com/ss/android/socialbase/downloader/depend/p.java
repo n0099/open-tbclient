@@ -15,14 +15,14 @@ public interface p extends IInterface {
 
         /* renamed from: com.ss.android.socialbase.downloader.depend.p$a$a  reason: collision with other inner class name */
         /* loaded from: classes4.dex */
-        public static class C2218a implements p {
+        public static class C2228a implements p {
             public static p a;
 
             /* renamed from: b  reason: collision with root package name */
-            public IBinder f59983b;
+            public IBinder f60150b;
 
-            public C2218a(IBinder iBinder) {
-                this.f59983b = iBinder;
+            public C2228a(IBinder iBinder) {
+                this.f60150b = iBinder;
             }
 
             @Override // com.ss.android.socialbase.downloader.depend.p
@@ -34,7 +34,7 @@ public interface p extends IInterface {
                     obtain.writeLong(j2);
                     obtain.writeLong(j3);
                     obtain.writeStrongBinder(oVar != null ? oVar.asBinder() : null);
-                    if (!this.f59983b.transact(1, obtain, obtain2, 0) && a.a() != null) {
+                    if (!this.f60150b.transact(1, obtain, obtain2, 0) && a.a() != null) {
                         return a.a().a(j2, j3, oVar);
                     }
                     obtain2.readException();
@@ -47,7 +47,7 @@ public interface p extends IInterface {
 
             @Override // android.os.IInterface
             public IBinder asBinder() {
-                return this.f59983b;
+                return this.f60150b;
             }
         }
 
@@ -63,7 +63,7 @@ public interface p extends IInterface {
             if (queryLocalInterface != null && (queryLocalInterface instanceof p)) {
                 return (p) queryLocalInterface;
             }
-            return new C2218a(iBinder);
+            return new C2228a(iBinder);
         }
 
         @Override // android.os.IInterface
@@ -88,7 +88,7 @@ public interface p extends IInterface {
         }
 
         public static p a() {
-            return C2218a.a;
+            return C2228a.a;
         }
     }
 }

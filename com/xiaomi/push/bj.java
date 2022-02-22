@@ -77,7 +77,7 @@ public class bj {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static byte[] m244a(String str) {
+    public static byte[] m243a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? a(str.toCharArray()) : (byte[]) invokeL.objValue;
@@ -201,8 +201,8 @@ public class bj {
                 cArr[i9] = cArr2[i12];
                 int i17 = i16 + 1;
                 cArr[i16] = cArr2[i13];
-                char c2 = com.alipay.sdk.encrypt.a.f30893h;
-                cArr[i17] = i17 < i7 ? cArr2[i14] : com.alipay.sdk.encrypt.a.f30893h;
+                char c2 = com.alipay.sdk.encrypt.a.f31099h;
+                cArr[i17] = i17 < i7 ? cArr2[i14] : com.alipay.sdk.encrypt.a.f31099h;
                 int i18 = i17 + 1;
                 if (i18 < i7) {
                     c2 = f162a[i15];
@@ -219,6 +219,6 @@ public class bj {
     public static String b(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65543, null, str)) == null) ? new String(m244a(str)) : (String) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65543, null, str)) == null) ? new String(m243a(str)) : (String) invokeL.objValue;
     }
 }

@@ -20,48 +20,48 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes12.dex */
-public class MyEmotionManagerFragment extends BaseFragment implements c.a.t0.o2.h.e.a.a<Pair<List<EmotionPackageData>, Integer>> {
+/* loaded from: classes13.dex */
+public class MyEmotionManagerFragment extends BaseFragment implements c.a.u0.p2.h.e.a.a<Pair<List<EmotionPackageData>, Integer>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public c.a.t0.o2.h.f.d f46232e;
+    public c.a.u0.p2.h.f.d f46374e;
 
     /* renamed from: f  reason: collision with root package name */
-    public MyEmotionManagerModel f46233f;
+    public MyEmotionManagerModel f46375f;
 
     /* renamed from: g  reason: collision with root package name */
-    public c.a.t0.o2.h.c.a f46234g;
+    public c.a.u0.p2.h.c.a f46376g;
 
     /* renamed from: h  reason: collision with root package name */
-    public CustomMessageListener f46235h;
+    public CustomMessageListener f46377h;
 
     /* renamed from: i  reason: collision with root package name */
-    public CustomMessageListener f46236i;
+    public CustomMessageListener f46378i;
 
     /* renamed from: j  reason: collision with root package name */
-    public CustomMessageListener f46237j;
+    public CustomMessageListener f46379j;
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes13.dex */
     public class a extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ MyEmotionManagerFragment a;
 
         /* renamed from: com.baidu.tieba.newfaceshop.nativemotionmanager.MyEmotionManagerFragment$a$a  reason: collision with other inner class name */
-        /* loaded from: classes12.dex */
-        public class RunnableC1940a implements Runnable {
+        /* loaded from: classes13.dex */
+        public class RunnableC1950a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ CustomResponsedMessage f46238e;
+            public final /* synthetic */ CustomResponsedMessage f46380e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ a f46239f;
+            public final /* synthetic */ a f46381f;
 
-            public RunnableC1940a(a aVar, CustomResponsedMessage customResponsedMessage) {
+            public RunnableC1950a(a aVar, CustomResponsedMessage customResponsedMessage) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -76,23 +76,23 @@ public class MyEmotionManagerFragment extends BaseFragment implements c.a.t0.o2.
                         return;
                     }
                 }
-                this.f46239f = aVar;
-                this.f46238e = customResponsedMessage;
+                this.f46381f = aVar;
+                this.f46380e = customResponsedMessage;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    String valueOf = String.valueOf(this.f46238e.getData());
+                    String valueOf = String.valueOf(this.f46380e.getData());
                     ArrayList arrayList = new ArrayList();
                     arrayList.add(valueOf);
-                    if (!c.a.t0.o2.c.i().c(arrayList, true) || !l.z()) {
-                        if (this.f46239f.a.f46233f != null) {
-                            this.f46239f.a.f46233f.I();
+                    if (!c.a.u0.p2.c.i().c(arrayList, true) || !l.z()) {
+                        if (this.f46381f.a.f46375f != null) {
+                            this.f46381f.a.f46375f.I();
                         }
-                    } else if (this.f46239f.a.f46233f != null) {
-                        this.f46239f.a.f46233f.loadData();
+                    } else if (this.f46381f.a.f46375f != null) {
+                        this.f46381f.a.f46375f.loadData();
                         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921314));
                     }
                 }
@@ -125,12 +125,12 @@ public class MyEmotionManagerFragment extends BaseFragment implements c.a.t0.o2.
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof Integer)) {
-                c.a.t0.o2.a.b().a(new RunnableC1940a(this, customResponsedMessage));
+                c.a.u0.p2.a.b().a(new RunnableC1950a(this, customResponsedMessage));
             }
         }
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes13.dex */
     public class b extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -161,14 +161,14 @@ public class MyEmotionManagerFragment extends BaseFragment implements c.a.t0.o2.
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || this.a.f46233f == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || this.a.f46375f == null) {
                 return;
             }
-            this.a.f46233f.loadData();
+            this.a.f46375f.loadData();
         }
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes13.dex */
     public class c extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -199,23 +199,23 @@ public class MyEmotionManagerFragment extends BaseFragment implements c.a.t0.o2.
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || this.a.f46233f == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || this.a.f46375f == null) {
                 return;
             }
-            this.a.f46233f.M();
+            this.a.f46375f.M();
         }
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes13.dex */
     public class d implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Pair f46240e;
+        public final /* synthetic */ Pair f46382e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ MyEmotionManagerFragment f46241f;
+        public final /* synthetic */ MyEmotionManagerFragment f46383f;
 
         public d(MyEmotionManagerFragment myEmotionManagerFragment, Pair pair) {
             Interceptable interceptable = $ic;
@@ -232,35 +232,35 @@ public class MyEmotionManagerFragment extends BaseFragment implements c.a.t0.o2.
                     return;
                 }
             }
-            this.f46241f = myEmotionManagerFragment;
-            this.f46240e = pair;
+            this.f46383f = myEmotionManagerFragment;
+            this.f46382e = pair;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Object obj;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f46240e == null) {
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f46382e == null) {
                 return;
             }
-            if (this.f46241f.f46232e != null) {
-                this.f46241f.f46232e.update((List) this.f46240e.first);
-                this.f46241f.f46232e.d();
+            if (this.f46383f.f46374e != null) {
+                this.f46383f.f46374e.update((List) this.f46382e.first);
+                this.f46383f.f46374e.d();
             }
-            if (this.f46241f.f46234g == null || (obj = this.f46240e.second) == null) {
+            if (this.f46383f.f46376g == null || (obj = this.f46382e.second) == null) {
                 return;
             }
-            this.f46241f.isEnableShowEdit(((Integer) obj).intValue() > 0);
+            this.f46383f.isEnableShowEdit(((Integer) obj).intValue() > 0);
         }
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes13.dex */
     public class e implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ MyEmotionManagerFragment f46242e;
+        public final /* synthetic */ MyEmotionManagerFragment f46384e;
 
         public e(MyEmotionManagerFragment myEmotionManagerFragment) {
             Interceptable interceptable = $ic;
@@ -277,18 +277,18 @@ public class MyEmotionManagerFragment extends BaseFragment implements c.a.t0.o2.
                     return;
                 }
             }
-            this.f46242e = myEmotionManagerFragment;
+            this.f46384e = myEmotionManagerFragment;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (this.f46242e.f46232e != null) {
-                    this.f46242e.f46232e.l();
+                if (this.f46384e.f46374e != null) {
+                    this.f46384e.f46374e.l();
                 }
-                if (this.f46242e.f46234g != null) {
-                    this.f46242e.isEnableShowEdit(false);
+                if (this.f46384e.f46376g != null) {
+                    this.f46384e.isEnableShowEdit(false);
                 }
             }
         }
@@ -307,22 +307,22 @@ public class MyEmotionManagerFragment extends BaseFragment implements c.a.t0.o2.
                 return;
             }
         }
-        this.f46235h = new a(this, 2921311);
-        this.f46236i = new b(this, 2921054);
-        this.f46237j = new c(this, 2921310);
+        this.f46377h = new a(this, 2921311);
+        this.f46378i = new b(this, 2921054);
+        this.f46379j = new c(this, 2921310);
     }
 
     public final void i() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f46233f.loadData();
+            this.f46375f.loadData();
         }
     }
 
     public void isEnableShowEdit(boolean z) {
-        c.a.t0.o2.h.c.a aVar;
+        c.a.u0.p2.h.c.a aVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) || (aVar = this.f46234g) == null) {
+        if (!(interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) || (aVar = this.f46376g) == null) {
             return;
         }
         aVar.onUpdate(Boolean.valueOf(z));
@@ -333,7 +333,7 @@ public class MyEmotionManagerFragment extends BaseFragment implements c.a.t0.o2.
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
             super.onChangeSkinType(i2);
-            c.a.t0.o2.h.f.d dVar = this.f46232e;
+            c.a.u0.p2.h.f.d dVar = this.f46374e;
             if (dVar != null) {
                 dVar.f(i2);
             }
@@ -345,15 +345,15 @@ public class MyEmotionManagerFragment extends BaseFragment implements c.a.t0.o2.
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048579, this, layoutInflater, viewGroup, bundle)) == null) {
-            c.a.t0.o2.h.a.b().c();
-            registerListener(this.f46236i);
-            registerListener(this.f46237j);
-            registerListener(this.f46235h);
-            this.f46232e = new c.a.t0.o2.h.f.d(getPageContext());
+            c.a.u0.p2.h.a.b().c();
+            registerListener(this.f46378i);
+            registerListener(this.f46379j);
+            registerListener(this.f46377h);
+            this.f46374e = new c.a.u0.p2.h.f.d(getPageContext());
             MyEmotionManagerModel myEmotionManagerModel = new MyEmotionManagerModel(getPageContext());
-            this.f46233f = myEmotionManagerModel;
+            this.f46375f = myEmotionManagerModel;
             myEmotionManagerModel.O(this);
-            return this.f46232e.c();
+            return this.f46374e.c();
         }
         return (View) invokeLLL.objValue;
     }
@@ -363,23 +363,23 @@ public class MyEmotionManagerFragment extends BaseFragment implements c.a.t0.o2.
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             super.onDestroy();
-            MyEmotionManagerModel myEmotionManagerModel = this.f46233f;
+            MyEmotionManagerModel myEmotionManagerModel = this.f46375f;
             if (myEmotionManagerModel != null) {
                 myEmotionManagerModel.J();
             }
-            if (this.f46236i != null) {
-                MessageManager.getInstance().unRegisterListener(this.f46236i);
+            if (this.f46378i != null) {
+                MessageManager.getInstance().unRegisterListener(this.f46378i);
             }
-            if (this.f46237j != null) {
-                MessageManager.getInstance().unRegisterListener(this.f46237j);
+            if (this.f46379j != null) {
+                MessageManager.getInstance().unRegisterListener(this.f46379j);
             }
-            if (this.f46235h != null) {
-                MessageManager.getInstance().unRegisterListener(this.f46235h);
+            if (this.f46377h != null) {
+                MessageManager.getInstance().unRegisterListener(this.f46377h);
             }
         }
     }
 
-    @Override // c.a.t0.o2.h.e.a.a
+    @Override // c.a.u0.p2.h.e.a.a
     public void onFail() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
@@ -396,26 +396,26 @@ public class MyEmotionManagerFragment extends BaseFragment implements c.a.t0.o2.
         }
     }
 
-    @Override // c.a.t0.o2.h.e.a.a
+    @Override // c.a.u0.p2.h.e.a.a
     public void redraw() {
-        c.a.t0.o2.h.f.d dVar;
+        c.a.u0.p2.h.f.d dVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048585, this) == null) || (dVar = this.f46232e) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048585, this) == null) || (dVar = this.f46374e) == null) {
             return;
         }
         dVar.g();
     }
 
-    public void setFragmentManagerListener(c.a.t0.o2.h.c.a aVar) {
+    public void setFragmentManagerListener(c.a.u0.p2.h.c.a aVar) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(1048586, this, aVar) == null) || aVar == null) {
             return;
         }
-        this.f46234g = aVar;
+        this.f46376g = aVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // c.a.t0.o2.h.e.a.a
+    @Override // c.a.u0.p2.h.e.a.a
     public void onSuccess(Pair<List<EmotionPackageData>, Integer> pair) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, pair) == null) {

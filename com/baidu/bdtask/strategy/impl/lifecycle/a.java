@@ -103,9 +103,9 @@ public abstract class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, subTaskState) == null) {
             if (!d(subTaskState).isEmpty()) {
-                com.baidu.bdtask.component.a.c(com.baidu.bdtask.component.a.f32961b.a(), d(subTaskState).getUiType(), d(subTaskState).getUi(), subTaskState.getTaskInfo(), subTaskState.getTaskStatus(), null, 16, null);
+                com.baidu.bdtask.component.a.c(com.baidu.bdtask.component.a.f33167b.a(), d(subTaskState).getUiType(), d(subTaskState).getUi(), subTaskState.getTaskInfo(), subTaskState.getTaskStatus(), null, 16, null);
             }
-            c.a.j.k.e.a.a.f4145c.i(subTaskState);
+            c.a.j.k.e.a.a.f4165c.i(subTaskState);
         }
     }
 
@@ -116,7 +116,7 @@ public abstract class a {
             if (f(subTaskState).isCompleted()) {
                 c(b(subTaskState).getActionId(), f(subTaskState).getTaskStatusRuntime().getCurDuplicateId());
             }
-            c.a.j.k.e.a.a.f4145c.k(subTaskState);
+            c.a.j.k.e.a.a.f4165c.k(subTaskState);
         }
     }
 
@@ -124,7 +124,7 @@ public abstract class a {
     public void j(SubTaskState subTaskState) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, subTaskState) == null) {
-            c.a.j.k.e.a.a.f4145c.m(subTaskState);
+            c.a.j.k.e.a.a.f4165c.m(subTaskState);
         }
     }
 
@@ -132,7 +132,7 @@ public abstract class a {
     public void k(SubTaskState subTaskState) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, subTaskState) == null) {
-            c.a.j.k.e.a.a.f4145c.n(subTaskState);
+            c.a.j.k.e.a.a.f4165c.n(subTaskState);
         }
     }
 
@@ -140,7 +140,7 @@ public abstract class a {
     public void l(SubTaskState subTaskState) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048587, this, subTaskState) == null) {
-            c.a.j.k.e.a.a.f4145c.o(subTaskState);
+            c.a.j.k.e.a.a.f4165c.o(subTaskState);
             a().h(b(subTaskState));
             a().l(b(subTaskState));
             e();
@@ -173,7 +173,7 @@ public abstract class a {
             if (response.isEmpty() || o(subTaskState)) {
                 return;
             }
-            com.baidu.bdtask.component.a a = com.baidu.bdtask.component.a.f32961b.a();
+            com.baidu.bdtask.component.a a = com.baidu.bdtask.component.a.f33167b.a();
             int uiType = response.getUiType();
             TaskUIData ui = response.getUi();
             TaskInfo taskInfo = subTaskState.getTaskInfo();

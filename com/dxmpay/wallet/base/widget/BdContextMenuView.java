@@ -33,10 +33,10 @@ public class BdContextMenuView extends LinearLayout implements BdMenu.OnMenuSetC
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ BdMenuItem f53787e;
+        public final /* synthetic */ BdMenuItem f53954e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ BdContextMenuView f53788f;
+        public final /* synthetic */ BdContextMenuView f53955f;
 
         public a(BdContextMenuView bdContextMenuView, BdMenuItem bdMenuItem) {
             Interceptable interceptable = $ic;
@@ -53,18 +53,18 @@ public class BdContextMenuView extends LinearLayout implements BdMenu.OnMenuSetC
                     return;
                 }
             }
-            this.f53788f = bdContextMenuView;
-            this.f53787e = bdMenuItem;
+            this.f53955f = bdContextMenuView;
+            this.f53954e = bdMenuItem;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             BdMenuItem.OnItemClickListener onClickListener;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || (onClickListener = this.f53787e.getOnClickListener()) == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || (onClickListener = this.f53954e.getOnClickListener()) == null) {
                 return;
             }
-            onClickListener.onClick(this.f53787e);
+            onClickListener.onClick(this.f53954e);
         }
     }
 

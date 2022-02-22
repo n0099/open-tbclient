@@ -21,7 +21,7 @@ public class e implements Parcelable {
     public Uri a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Map<String, String> f33583b;
+    public Map<String, String> f33789b;
 
     static {
         InterceptResult invokeClinit;
@@ -90,7 +90,7 @@ public class e implements Parcelable {
             }
         }
         this.a = uri;
-        this.f33583b = map;
+        this.f33789b = map;
     }
 
     public e(Parcel parcel) {
@@ -109,10 +109,10 @@ public class e implements Parcelable {
             }
         }
         this.a = (Uri) parcel.readParcelable(Uri.class.getClassLoader());
-        this.f33583b = new HashMap();
+        this.f33789b = new HashMap();
         int readInt = parcel.readInt();
         for (int i4 = 0; i4 < readInt; i4++) {
-            this.f33583b.put(parcel.readString(), parcel.readString());
+            this.f33789b.put(parcel.readString(), parcel.readString());
         }
     }
 
@@ -125,7 +125,7 @@ public class e implements Parcelable {
     public Map<String, String> b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f33583b : (Map) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f33789b : (Map) invokeV.objValue;
     }
 
     @Override // android.os.Parcelable
@@ -143,13 +143,13 @@ public class e implements Parcelable {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048579, this, parcel, i2) == null) {
             parcel.writeParcelable(this.a, i2);
-            Map<String, String> map = this.f33583b;
+            Map<String, String> map = this.f33789b;
             if (map == null || map.size() <= 0) {
                 parcel.writeInt(0);
                 return;
             }
-            parcel.writeInt(this.f33583b.size());
-            for (Map.Entry<String, String> entry : this.f33583b.entrySet()) {
+            parcel.writeInt(this.f33789b.size());
+            for (Map.Entry<String, String> entry : this.f33789b.entrySet()) {
                 parcel.writeString(entry.getKey());
                 parcel.writeString(entry.getValue());
             }

@@ -25,7 +25,7 @@ import com.sina.weibo.sdk.auth.Oauth2AccessToken;
 import com.sina.weibo.sdk.auth.WbAuthListener;
 import com.sina.weibo.sdk.auth.WbConnectErrorMessage;
 import com.sina.weibo.sdk.auth.sso.SsoHandler;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class SinaSSOLoginActivity extends BaseSSOLoginActivity {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String p;
@@ -34,7 +34,7 @@ public class SinaSSOLoginActivity extends BaseSSOLoginActivity {
     public SsoHandler n;
     public WbAuthListener o;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public class a implements WbAuthListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -63,12 +63,12 @@ public class SinaSSOLoginActivity extends BaseSSOLoginActivity {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 SinaSSOLoginActivity sinaSSOLoginActivity = this.a;
-                if (((BaseSSOLoginActivity) sinaSSOLoginActivity).f38076f) {
+                if (((BaseSSOLoginActivity) sinaSSOLoginActivity).f38305f) {
                     sinaSSOLoginActivity.b(3001);
                     this.a.finish();
                     return;
                 }
-                sinaSSOLoginActivity.a(((BaseSSOLoginActivity) sinaSSOLoginActivity).f38077g);
+                sinaSSOLoginActivity.a(((BaseSSOLoginActivity) sinaSSOLoginActivity).f38306g);
             }
         }
 
@@ -78,7 +78,7 @@ public class SinaSSOLoginActivity extends BaseSSOLoginActivity {
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, wbConnectErrorMessage) == null) {
                 Toast.makeText(this.a, wbConnectErrorMessage.getErrorMessage(), 0).show();
                 SinaSSOLoginActivity sinaSSOLoginActivity = this.a;
-                if (((BaseSSOLoginActivity) sinaSSOLoginActivity).f38076f) {
+                if (((BaseSSOLoginActivity) sinaSSOLoginActivity).f38305f) {
                     sinaSSOLoginActivity.b(3001);
                     this.a.finish();
                 }
@@ -93,7 +93,7 @@ public class SinaSSOLoginActivity extends BaseSSOLoginActivity {
                 String uid = oauth2AccessToken.getUid();
                 String urlBind = ParamsUtil.getUrlBind(this.a.configuration, SocialType.SINA_WEIBO_SSO, token, uid, this.a.configuration.sinaAppId);
                 SinaSSOLoginActivity sinaSSOLoginActivity = this.a;
-                if (((BaseSSOLoginActivity) sinaSSOLoginActivity).f38076f) {
+                if (((BaseSSOLoginActivity) sinaSSOLoginActivity).f38305f) {
                     Intent intent = new Intent();
                     intent.putExtra(BaseActivity.EXTRA_PARAM_THIRD_VERIFY_ACCESS_TOKEN, token);
                     intent.putExtra("userId", uid);
@@ -178,7 +178,7 @@ public class SinaSSOLoginActivity extends BaseSSOLoginActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             super.setupViews();
-            setTitleText(c.a.e0.a.j.a.sapi_sdk_title_login_sina);
+            setTitleText(c.a.f0.a.j.a.sapi_sdk_title_login_sina);
             RelativeLayout relativeLayout = this.rootView;
             if (relativeLayout != null) {
                 relativeLayout.setVisibility(4);

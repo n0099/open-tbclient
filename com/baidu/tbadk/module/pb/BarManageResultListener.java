@@ -88,11 +88,11 @@ public class BarManageResultListener extends SimpleMessageListener {
         public OptType a;
 
         /* renamed from: b  reason: collision with root package name */
-        public boolean f41073b;
+        public boolean f41302b;
         @Nullable
 
         /* renamed from: c  reason: collision with root package name */
-        public String f41074c;
+        public String f41303c;
 
         public a(@NonNull OptType optType, boolean z, @Nullable String str) {
             Interceptable interceptable = $ic;
@@ -110,8 +110,8 @@ public class BarManageResultListener extends SimpleMessageListener {
                 }
             }
             this.a = optType;
-            this.f41073b = z;
-            this.f41074c = str;
+            this.f41302b = z;
+            this.f41303c = str;
         }
 
         public static a a(@NonNull OptType optType, boolean z, @Nullable String str) {
@@ -124,7 +124,7 @@ public class BarManageResultListener extends SimpleMessageListener {
         public String b() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f41074c : (String) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f41303c : (String) invokeV.objValue;
         }
 
         @NonNull
@@ -137,7 +137,7 @@ public class BarManageResultListener extends SimpleMessageListener {
         public boolean d() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f41073b : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f41302b : invokeV.booleanValue;
         }
     }
 

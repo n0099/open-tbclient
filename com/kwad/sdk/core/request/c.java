@@ -8,36 +8,36 @@ import com.kwad.sdk.core.network.j;
 import com.kwad.sdk.core.response.model.SdkConfigData;
 import com.kwai.video.ksvodplayerkit.KSVodPlayerCoreInitConfig;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class c {
     public static boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile boolean f56117b;
+    public static volatile boolean f56284b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static Context f56118c;
+    public static Context f56285c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static a f56119d;
+    public static a f56286d;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public interface a {
         void a();
 
         void a(@NonNull SdkConfigData sdkConfigData);
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class b implements Runnable {
         @Override // java.lang.Runnable
         public void run() {
-            com.kwad.sdk.core.config.b.b(c.f56118c);
-            if (c.f56119d != null) {
-                c.f56119d.a();
+            com.kwad.sdk.core.config.b.b(c.f56285c);
+            if (c.f56286d != null) {
+                c.f56286d.a();
             }
             if (!c.a) {
-                com.kwad.sdk.core.report.d.b(c.f56118c);
+                com.kwad.sdk.core.report.d.b(c.f56285c);
                 boolean unused = c.a = true;
             }
             c.a();
@@ -92,11 +92,11 @@ public class c {
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.kwad.sdk.core.network.j, com.kwad.sdk.core.network.h
             public void a(@NonNull com.kwad.sdk.core.request.b bVar, @NonNull SdkConfigData sdkConfigData) {
-                com.kwad.sdk.core.config.a.a(c.f56118c);
+                com.kwad.sdk.core.config.a.a(c.f56285c);
                 com.kwad.sdk.core.config.b.a(sdkConfigData);
-                com.kwad.sdk.core.config.b.a(c.f56118c, sdkConfigData);
-                if (c.f56119d != null) {
-                    c.f56119d.a(sdkConfigData);
+                com.kwad.sdk.core.config.b.a(c.f56285c, sdkConfigData);
+                if (c.f56286d != null) {
+                    c.f56286d.a(sdkConfigData);
                 }
             }
         });
@@ -104,13 +104,13 @@ public class c {
 
     public static synchronized void a(Context context, a aVar) {
         synchronized (c.class) {
-            if (f56117b) {
+            if (f56284b) {
                 com.kwad.sdk.core.d.a.a("ConfigRequestManager", "config request manager has init-ed");
                 return;
             }
-            f56117b = true;
-            f56118c = context;
-            f56119d = aVar;
+            f56284b = true;
+            f56285c = context;
+            f56286d = aVar;
             com.kwad.sdk.utils.i.a(new b());
         }
     }

@@ -7,7 +7,7 @@ import android.view.Window;
 import androidx.annotation.NonNull;
 import com.google.protobuf.CodedInputStream;
 import java.lang.reflect.Method;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class d {
     public static void a(@NonNull Activity activity, int i2, boolean z) {
         a(activity, i2, z, true);

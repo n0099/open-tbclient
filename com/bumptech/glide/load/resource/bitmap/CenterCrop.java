@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bumptech.glide.load.Key;
 import com.bumptech.glide.load.engine.bitmap_recycle.BitmapPool;
 import java.security.MessageDigest;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class CenterCrop extends BitmapTransformation {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ID = "com.bumptech.glide.load.resource.bitmap.CenterCrop";

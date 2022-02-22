@@ -4,7 +4,7 @@ import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
 import c.a.d.f.p.m;
-import c.a.s0.s.q.e2;
+import c.a.t0.s.r.e2;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.view.ThreadForumEnterButton;
@@ -13,17 +13,17 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public class VideoTabPbFloatEnterForumViewHolder extends TypeAdapter.ViewHolder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Context a;
 
     /* renamed from: b  reason: collision with root package name */
-    public FlowLabelLayout f46962b;
+    public FlowLabelLayout f47104b;
 
     /* renamed from: c  reason: collision with root package name */
-    public ThreadForumEnterButton f46963c;
+    public ThreadForumEnterButton f47105c;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public VideoTabPbFloatEnterForumViewHolder(Context context, View view) {
@@ -44,13 +44,13 @@ public class VideoTabPbFloatEnterForumViewHolder extends TypeAdapter.ViewHolder 
             }
         }
         this.a = context;
-        this.f46962b = (FlowLabelLayout) ((ViewGroup) view).getChildAt(0);
+        this.f47104b = (FlowLabelLayout) ((ViewGroup) view).getChildAt(0);
     }
 
     public void changeSkinType() {
         ThreadForumEnterButton threadForumEnterButton;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (threadForumEnterButton = this.f46963c) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (threadForumEnterButton = this.f47105c) == null) {
             return;
         }
         threadForumEnterButton.onChangeSkinType();
@@ -59,7 +59,7 @@ public class VideoTabPbFloatEnterForumViewHolder extends TypeAdapter.ViewHolder 
     public void setAfterListener(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, onClickListener) == null) {
-            this.f46963c.setAfterClickListener(onClickListener);
+            this.f47105c.setAfterClickListener(onClickListener);
         }
     }
 
@@ -68,14 +68,14 @@ public class VideoTabPbFloatEnterForumViewHolder extends TypeAdapter.ViewHolder 
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, e2Var) == null) || e2Var == null) {
             return;
         }
-        this.f46962b.removeAllViews();
+        this.f47104b.removeAllViews();
         if (m.isEmpty(e2Var.b0())) {
             return;
         }
         ThreadForumEnterButton threadForumEnterButton = new ThreadForumEnterButton(this.a);
-        this.f46963c = threadForumEnterButton;
+        this.f47105c = threadForumEnterButton;
         threadForumEnterButton.isFromVideoTabPbFloat(true);
-        this.f46963c.bindData(e2Var);
-        this.f46962b.addView(this.f46963c, new ViewGroup.LayoutParams(-2, -2));
+        this.f47105c.bindData(e2Var);
+        this.f47104b.addView(this.f47105c, new ViewGroup.LayoutParams(-2, -2));
     }
 }

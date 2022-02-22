@@ -13,7 +13,7 @@ public class c implements h {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public c.b.b.q.a<a> f27293e;
+    public c.b.b.q.a<a> f27499e;
 
     public c() {
         Interceptable interceptable = $ic;
@@ -28,13 +28,13 @@ public class c implements h {
                 return;
             }
         }
-        this.f27293e = new c.b.b.q.a<>(true, 3, a.class);
+        this.f27499e = new c.b.b.q.a<>(true, 3, a.class);
     }
 
     public void a(c.b.b.j.e eVar, e eVar2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, eVar, eVar2) == null) {
-            a.b<a> it = this.f27293e.iterator();
+            a.b<a> it = this.f27499e.iterator();
             while (it.hasNext()) {
                 it.next().c(eVar, eVar2);
             }
@@ -45,9 +45,9 @@ public class c implements h {
     public void dispose() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            int i2 = this.f27293e.f27389f;
+            int i2 = this.f27499e.f27595f;
             for (int i3 = 0; i3 < i2; i3++) {
-                this.f27293e.get(i3).b();
+                this.f27499e.get(i3).b();
             }
         }
     }
@@ -55,12 +55,12 @@ public class c implements h {
     public void f(c.b.b.q.a<c.b.b.n.l.h.f.a<?>> aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar) == null) {
-            a.b<a> it = this.f27293e.iterator();
+            a.b<a> it = this.f27499e.iterator();
             while (it.hasNext()) {
                 a next = it.next();
                 a.b<c.b.b.n.l.h.f.a<?>> it2 = aVar.iterator();
                 while (it2.hasNext()) {
-                    if (next.f27291g.h(it2.next())) {
+                    if (next.f27497g.h(it2.next())) {
                         break;
                     }
                 }
@@ -71,9 +71,9 @@ public class c implements h {
     public void update() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            int i2 = this.f27293e.f27389f;
+            int i2 = this.f27499e.f27595f;
             for (int i3 = 0; i3 < i2; i3++) {
-                this.f27293e.get(i3).update();
+                this.f27499e.get(i3).update();
             }
         }
     }
@@ -81,9 +81,9 @@ public class c implements h {
     public void update(float f2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeF(1048580, this, f2) == null) {
-            int i2 = this.f27293e.f27389f;
+            int i2 = this.f27499e.f27595f;
             for (int i3 = 0; i3 < i2; i3++) {
-                this.f27293e.get(i3).update(f2);
+                this.f27499e.get(i3).update(f2);
             }
         }
     }

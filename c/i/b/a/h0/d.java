@@ -19,10 +19,10 @@ public final class d implements e {
     public g a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f29647b;
+    public int f29853b;
 
     /* renamed from: c  reason: collision with root package name */
-    public byte[] f29648c;
+    public byte[] f29854c;
 
     public d() {
         Interceptable interceptable = $ic;
@@ -52,14 +52,14 @@ public final class d implements e {
                     String str = split[1];
                     if (split[0].contains(DataUrlLoader.BASE64_TAG)) {
                         try {
-                            this.f29648c = Base64.decode(str, 0);
+                            this.f29854c = Base64.decode(str, 0);
                         } catch (IllegalArgumentException e2) {
                             throw new ParserException("Error while parsing Base64 encoded string: " + str, e2);
                         }
                     } else {
-                        this.f29648c = URLDecoder.decode(str, "US-ASCII").getBytes();
+                        this.f29854c = URLDecoder.decode(str, "US-ASCII").getBytes();
                     }
-                    return this.f29648c.length;
+                    return this.f29854c.length;
                 }
                 throw new ParserException("Unexpected URI format: " + uri);
             }
@@ -73,7 +73,7 @@ public final class d implements e {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             this.a = null;
-            this.f29648c = null;
+            this.f29854c = null;
         }
     }
 
@@ -99,13 +99,13 @@ public final class d implements e {
             if (i3 == 0) {
                 return 0;
             }
-            int length = this.f29648c.length - this.f29647b;
+            int length = this.f29854c.length - this.f29853b;
             if (length == 0) {
                 return -1;
             }
             int min = Math.min(i3, length);
-            System.arraycopy(this.f29648c, this.f29647b, bArr, i2, min);
-            this.f29647b += min;
+            System.arraycopy(this.f29854c, this.f29853b, bArr, i2, min);
+            this.f29853b += min;
             return min;
         }
         return invokeLII.intValue;

@@ -3,8 +3,9 @@ package com.baidu.tbadk.core.view;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.widget.ImageView;
+import c.a.u0.a4.d;
+import c.a.u0.a4.f;
 import com.baidu.tbadk.widget.TbClipImageView;
-import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -95,8 +96,8 @@ public class RoundTbImageView extends TbClipImageView {
                 return;
             }
         }
-        this.Q = R.drawable.transparent_bg;
-        this.R = R.color.CAM_X0209;
+        this.Q = f.transparent_bg;
+        this.R = d.CAM_X0209;
         init();
     }
 }

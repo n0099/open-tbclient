@@ -2,8 +2,8 @@ package com.baidu.tieba.lego.card.model;
 
 import androidx.core.app.NotificationCompat;
 import androidx.core.view.InputDeviceCompat;
-import c.a.t0.y1.o.j.c;
-import c.a.t0.y1.o.k.b;
+import c.a.u0.z1.o.j.c;
+import c.a.u0.z1.o.k.b;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
@@ -17,7 +17,7 @@ import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public class SingleLineCard extends BaseCardInfo {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

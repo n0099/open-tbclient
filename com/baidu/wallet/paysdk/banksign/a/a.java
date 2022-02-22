@@ -17,51 +17,51 @@ import com.baidu.wallet.paysdk.ui.OrderConfirmActivity;
 import com.baidu.wallet.paysdk.ui.PayTypeActivity;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-/* loaded from: classes13.dex */
+/* loaded from: classes2.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
     public static Pattern a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f51941b;
+    public String f52108b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f51942c;
+    public String f52109c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f51943d;
+    public String f52110d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f51944e;
+    public String f52111e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f51945f;
+    public String f52112f;
 
     /* renamed from: g  reason: collision with root package name */
-    public byte[] f51946g;
+    public byte[] f52113g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f51947h;
+    public boolean f52114h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f51948i;
+    public String f52115i;
 
     /* renamed from: j  reason: collision with root package name */
-    public j f51949j;
+    public j f52116j;
     public PayTypeActivity k;
     public OrderConfirmActivity l;
 
     /* renamed from: com.baidu.wallet.paysdk.banksign.a.a$1  reason: invalid class name */
-    /* loaded from: classes13.dex */
+    /* loaded from: classes2.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
     /* renamed from: com.baidu.wallet.paysdk.banksign.a.a$a  reason: collision with other inner class name */
-    /* loaded from: classes13.dex */
-    public static class C2017a {
+    /* loaded from: classes2.dex */
+    public static class C2027a {
         public static /* synthetic */ Interceptable $ic;
         public static a a;
         public transient /* synthetic */ FieldHolder $fh;
@@ -106,13 +106,13 @@ public class a {
     public static a a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? C2017a.a : (a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? C2027a.a : (a) invokeV.objValue;
     }
 
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f51948i : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f52115i : (String) invokeV.objValue;
     }
 
     public OrderConfirmActivity c() {
@@ -130,56 +130,56 @@ public class a {
     public j e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.f51949j : (j) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.f52116j : (j) invokeV.objValue;
     }
 
     public boolean f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? this.f51947h : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? this.f52114h : invokeV.booleanValue;
     }
 
     public String g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? this.f51943d : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? this.f52110d : (String) invokeV.objValue;
     }
 
     public String h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) ? this.f51942c : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) ? this.f52109c : (String) invokeV.objValue;
     }
 
     public String i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) ? this.f51944e : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) ? this.f52111e : (String) invokeV.objValue;
     }
 
     public String j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) ? this.f51945f : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) ? this.f52112f : (String) invokeV.objValue;
     }
 
     public byte[] k() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) ? this.f51946g : (byte[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) ? this.f52113g : (byte[]) invokeV.objValue;
     }
 
     public String l() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) ? this.f51941b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) ? this.f52108b : (String) invokeV.objValue;
     }
 
     public void m() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048599, this) == null) {
-            this.f51946g = null;
-            this.f51949j = null;
+            this.f52113g = null;
+            this.f52116j = null;
             this.l = null;
             this.k = null;
         }
@@ -198,48 +198,48 @@ public class a {
                 return;
             }
         }
-        this.f51947h = false;
+        this.f52114h = false;
     }
 
     public void a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            this.f51948i = str;
+            this.f52115i = str;
         }
     }
 
     public void b(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
-            this.f51943d = str;
+            this.f52110d = str;
         }
     }
 
     public void c(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, str) == null) {
-            this.f51942c = str;
+            this.f52109c = str;
         }
     }
 
     public void d(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048587, this, str) == null) {
-            this.f51944e = str;
+            this.f52111e = str;
         }
     }
 
     public void e(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048589, this, str) == null) {
-            this.f51945f = str;
+            this.f52112f = str;
         }
     }
 
     public void f(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048590, this, str) == null) {
-            this.f51941b = str;
+            this.f52108b = str;
         }
     }
 
@@ -280,21 +280,21 @@ public class a {
     public void a(j jVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, jVar) == null) {
-            this.f51949j = jVar;
+            this.f52116j = jVar;
         }
     }
 
     public void a(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
-            this.f51947h = z;
+            this.f52114h = z;
         }
     }
 
     public void a(byte[] bArr) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, bArr) == null) {
-            this.f51946g = bArr;
+            this.f52113g = bArr;
         }
     }
 }

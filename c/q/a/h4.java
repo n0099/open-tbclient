@@ -16,10 +16,10 @@ public class h4 {
     public Context a;
 
     /* renamed from: b  reason: collision with root package name */
-    public WebView f30363b;
+    public WebView f30569b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Info f30364c;
+    public Info f30570c;
 
     public h4(Context context) {
         Interceptable interceptable = $ic;
@@ -46,23 +46,23 @@ public class h4 {
 
     public void a() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.f30363b == null) {
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.f30569b == null) {
             WebView webView = new WebView(this.a);
-            this.f30363b = webView;
+            this.f30569b = webView;
             WebSettings settings = webView.getSettings();
             settings.setAllowContentAccess(true);
             settings.setJavaScriptEnabled(true);
             if (Build.VERSION.SDK_INT >= 11) {
-                this.f30363b.removeJavascriptInterface("searchBoxJavaBridge_");
-                this.f30363b.removeJavascriptInterface("accessibility");
-                this.f30363b.removeJavascriptInterface("accessibilityTraversal");
+                this.f30569b.removeJavascriptInterface("searchBoxJavaBridge_");
+                this.f30569b.removeJavascriptInterface("accessibility");
+                this.f30569b.removeJavascriptInterface("accessibilityTraversal");
             }
-            this.f30363b.getSettings().setJavaScriptCanOpenWindowsAutomatically(true);
-            this.f30363b.getSettings().setBlockNetworkImage(true);
-            this.f30363b.getSettings().setRenderPriority(WebSettings.RenderPriority.HIGH);
-            this.f30363b.getSettings().setCacheMode(2);
-            this.f30363b.getSettings().setAppCacheEnabled(true);
-            this.f30363b.setScrollBarStyle(0);
+            this.f30569b.getSettings().setJavaScriptCanOpenWindowsAutomatically(true);
+            this.f30569b.getSettings().setBlockNetworkImage(true);
+            this.f30569b.getSettings().setRenderPriority(WebSettings.RenderPriority.HIGH);
+            this.f30569b.getSettings().setCacheMode(2);
+            this.f30569b.getSettings().setAppCacheEnabled(true);
+            this.f30569b.setScrollBarStyle(0);
             settings.setDomStorageEnabled(true);
             settings.setLayoutAlgorithm(WebSettings.LayoutAlgorithm.NARROW_COLUMNS);
             settings.setEnableSmoothTransition(true);
@@ -70,10 +70,10 @@ public class h4 {
                 settings.setMixedContentMode(0);
             }
             settings.setNeedInitialFocus(false);
-            this.f30363b.clearCache(true);
-            this.f30363b.clearHistory();
-            this.f30363b.setWebChromeClient(new w3(this));
-            this.f30363b.setWebViewClient(new z3(this));
+            this.f30569b.clearCache(true);
+            this.f30569b.clearHistory();
+            this.f30569b.setWebChromeClient(new w3(this));
+            this.f30569b.setWebViewClient(new z3(this));
         }
     }
 }

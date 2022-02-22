@@ -5,7 +5,7 @@ import android.location.Address;
 import android.os.Build;
 import android.os.Bundle;
 import android.text.TextUtils;
-import c.a.s0.x.m;
+import c.a.t0.x.m;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomMessage;
@@ -24,12 +24,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public class LocationProvidersStatic {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes13.dex */
     public static class a extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -62,20 +62,20 @@ public class LocationProvidersStatic {
                 EditorTools editorTools = (EditorTools) customResponsedMessage.getData();
                 int indexOf = editorTools.getCollectTools().indexOf(7);
                 if (indexOf != -1) {
-                    editorTools.addTool(new c.a.t0.c2.d.b(editorTools.getContext(), indexOf + 1));
+                    editorTools.addTool(new c.a.u0.d2.d.b(editorTools.getContext(), indexOf + 1));
                 }
                 if (editorTools.getCollectTools().indexOf(8) != -1) {
                     if (editorTools.isIsFromPb()) {
-                        editorTools.addTool(new c.a.t0.c2.d.a(editorTools.getContext(), true));
+                        editorTools.addTool(new c.a.u0.d2.d.a(editorTools.getContext(), true));
                     } else {
-                        editorTools.addTool(new c.a.t0.c2.d.a(editorTools.getContext()));
+                        editorTools.addTool(new c.a.u0.d2.d.a(editorTools.getContext()));
                     }
                 }
             }
         }
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes13.dex */
     public static class b implements CustomMessageTask.CustomRunnable<Context> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -98,11 +98,11 @@ public class LocationProvidersStatic {
         public CustomResponsedMessage<m> run(CustomMessage<Context> customMessage) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) ? new CustomResponsedMessage<>(2016556, new c.a.t0.c2.d.b(customMessage.getData(), 0)) : (CustomResponsedMessage) invokeL.objValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) ? new CustomResponsedMessage<>(2016556, new c.a.u0.d2.d.b(customMessage.getData(), 0)) : (CustomResponsedMessage) invokeL.objValue;
         }
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes13.dex */
     public static class c implements CustomMessageTask.CustomRunnable<Bundle> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -165,13 +165,13 @@ public class LocationProvidersStatic {
                 return;
             }
         }
-        c.a.d.f.i.a.n().r(c.a.t0.c2.b.t());
+        c.a.d.f.i.a.n().r(c.a.u0.d2.b.t());
         boolean loadBoolean = TbadkSettings.getInst().loadBoolean("bd_loc_switcher", true);
         if (Build.VERSION.SDK_INT <= 4) {
             loadBoolean = false;
         }
         if (loadBoolean) {
-            c.a.d.f.i.a.n().r(c.a.t0.c2.a.j());
+            c.a.d.f.i.a.n().r(c.a.u0.d2.a.j());
         }
         MessageManager.getInstance().registerListener(new a(2010044));
         CustomMessageTask customMessageTask = new CustomMessageTask(2016556, new b());

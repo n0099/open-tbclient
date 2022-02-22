@@ -10,11 +10,11 @@ import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import c.a.d.f.p.l;
 import c.a.d.f.p.n;
-import c.a.s0.s.u.c;
-import c.a.t0.e1.c1;
-import c.a.t0.e1.d1;
-import c.a.t0.e1.e1;
-import c.a.t0.e1.i1;
+import c.a.t0.s.v.c;
+import c.a.u0.e1.c1;
+import c.a.u0.e1.d1;
+import c.a.u0.e1.e1;
+import c.a.u0.e1.i1;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
@@ -34,22 +34,22 @@ public class FrsItemAcceleratorView extends LinearLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public ImageView f43659e;
+    public ImageView f43894e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f43660f;
+    public TextView f43895f;
 
     /* renamed from: g  reason: collision with root package name */
-    public LinearLayout f43661g;
+    public LinearLayout f43896g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f43662h;
+    public TextView f43897h;
 
     /* renamed from: i  reason: collision with root package name */
-    public View f43663i;
+    public View f43898i;
 
     /* renamed from: j  reason: collision with root package name */
-    public ImageView f43664j;
+    public ImageView f43899j;
     public String k;
     public CustomMessageListener l;
 
@@ -127,30 +127,30 @@ public class FrsItemAcceleratorView extends LinearLayout {
     public final void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f43660f = new TextView(getContext());
+            this.f43895f = new TextView(getContext());
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
             layoutParams.setMargins(n.f(getContext(), d1.M_W_X004), 0, 0, 0);
-            this.f43660f.setLayoutParams(layoutParams);
-            c.d(this.f43660f).z(d1.T_X07);
-            this.f43660f.setText(i1.accelerator_desc);
-            addView(this.f43660f);
+            this.f43895f.setLayoutParams(layoutParams);
+            c.d(this.f43895f).z(d1.T_X07);
+            this.f43895f.setText(i1.accelerator_desc);
+            addView(this.f43895f);
         }
     }
 
     public final void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.f43659e = new ImageView(getContext());
-            this.f43659e.setLayoutParams(new LinearLayout.LayoutParams(-2, -2));
-            WebPManager.setMaskDrawable(this.f43659e, e1.icon_mask_wo_list_speed26android, null);
-            addView(this.f43659e);
+            this.f43894e = new ImageView(getContext());
+            this.f43894e.setLayoutParams(new LinearLayout.LayoutParams(-2, -2));
+            WebPManager.setMaskDrawable(this.f43894e, e1.icon_mask_wo_list_speed26android, null);
+            addView(this.f43894e);
         }
     }
 
     public void changeBtnDescDoing() {
         TextView textView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (textView = this.f43662h) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (textView = this.f43897h) == null) {
             return;
         }
         textView.setText(i1.accelerator_btn_desc_doing);
@@ -159,7 +159,7 @@ public class FrsItemAcceleratorView extends LinearLayout {
     public void changeBtnDescNormal() {
         TextView textView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (textView = this.f43662h) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (textView = this.f43897h) == null) {
             return;
         }
         textView.setText(i1.accelerator_btn_desc_normal);
@@ -169,46 +169,46 @@ public class FrsItemAcceleratorView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             if (StringUtils.isNull(this.k)) {
-                c d2 = c.d(this.f43661g);
+                c d2 = c.d(this.f43896g);
                 d2.n(i1.J_X07);
                 d2.f(c1.CAM_X0303);
             } else {
-                c d3 = c.d(this.f43661g);
+                c d3 = c.d(this.f43896g);
                 d3.n(i1.J_X07);
-                d3.g(c.a.t0.x3.c.d(this.k));
+                d3.g(c.a.u0.z3.c.e(this.k));
             }
-            c.d(this.f43662h).x(c1.CAM_X0101);
-            c.d(this.f43663i).f(c1.CAM_X0617);
+            c.d(this.f43897h).x(c1.CAM_X0101);
+            c.d(this.f43898i).f(c1.CAM_X0617);
             c d4 = c.d(this);
             d4.n(i1.J_X06);
             d4.f(c1.CAM_X0201);
-            c.d(this.f43660f).v(c1.CAM_X0105);
+            c.d(this.f43895f).v(c1.CAM_X0105);
         }
     }
 
     public final void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            this.f43661g = new LinearLayout(getContext());
-            this.f43661g.setLayoutParams(new LinearLayout.LayoutParams(-2, n.f(getContext(), d1.tbds75)));
-            this.f43661g.setOrientation(0);
-            this.f43661g.setGravity(16);
-            addView(this.f43661g);
-            this.f43662h = new TextView(getContext());
-            this.f43662h.setLayoutParams(new LinearLayout.LayoutParams(-2, -1));
-            this.f43662h.setGravity(16);
-            this.f43662h.setPadding(n.f(getContext(), d1.M_W_X006), 0, n.f(getContext(), d1.M_W_X005), 0);
-            c.d(this.f43662h).z(d1.T_X08);
-            this.f43662h.setText(i1.accelerator_btn_desc_normal);
-            this.f43661g.addView(this.f43662h);
-            this.f43663i = new View(getContext());
-            this.f43663i.setLayoutParams(new LinearLayout.LayoutParams(n.f(getContext(), d1.tbds3), n.f(getContext(), d1.tbds29)));
-            this.f43661g.addView(this.f43663i);
-            this.f43664j = new ImageView(getContext());
-            this.f43664j.setLayoutParams(new LinearLayout.LayoutParams(-2, -1));
-            this.f43664j.setPadding(n.f(getContext(), d1.M_W_X005), 0, n.f(getContext(), d1.M_W_X006), 0);
-            WebPManager.setPureDrawable(this.f43664j, e1.icon_pure_unfold10, c1.CAM_X0101, WebPManager.ResourceStateType.NORMAL_PRESS);
-            this.f43661g.addView(this.f43664j);
+            this.f43896g = new LinearLayout(getContext());
+            this.f43896g.setLayoutParams(new LinearLayout.LayoutParams(-2, n.f(getContext(), d1.tbds75)));
+            this.f43896g.setOrientation(0);
+            this.f43896g.setGravity(16);
+            addView(this.f43896g);
+            this.f43897h = new TextView(getContext());
+            this.f43897h.setLayoutParams(new LinearLayout.LayoutParams(-2, -1));
+            this.f43897h.setGravity(16);
+            this.f43897h.setPadding(n.f(getContext(), d1.M_W_X006), 0, n.f(getContext(), d1.M_W_X005), 0);
+            c.d(this.f43897h).z(d1.T_X08);
+            this.f43897h.setText(i1.accelerator_btn_desc_normal);
+            this.f43896g.addView(this.f43897h);
+            this.f43898i = new View(getContext());
+            this.f43898i.setLayoutParams(new LinearLayout.LayoutParams(n.f(getContext(), d1.tbds3), n.f(getContext(), d1.tbds29)));
+            this.f43896g.addView(this.f43898i);
+            this.f43899j = new ImageView(getContext());
+            this.f43899j.setLayoutParams(new LinearLayout.LayoutParams(-2, -1));
+            this.f43899j.setPadding(n.f(getContext(), d1.M_W_X005), 0, n.f(getContext(), d1.M_W_X006), 0);
+            WebPManager.setPureDrawable(this.f43899j, e1.icon_pure_unfold10, c1.CAM_X0101, WebPManager.ResourceStateType.NORMAL_PRESS);
+            this.f43896g.addView(this.f43899j);
         }
     }
 
@@ -269,14 +269,14 @@ public class FrsItemAcceleratorView extends LinearLayout {
     public void setBtnDescClickListener(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048588, this, onClickListener) == null) {
-            this.f43662h.setOnClickListener(onClickListener);
+            this.f43897h.setOnClickListener(onClickListener);
         }
     }
 
     public void setBtnImgClickListener(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048589, this, onClickListener) == null) {
-            this.f43664j.setOnClickListener(onClickListener);
+            this.f43899j.setOnClickListener(onClickListener);
         }
     }
 

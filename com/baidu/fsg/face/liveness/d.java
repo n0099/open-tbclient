@@ -40,31 +40,31 @@ public final class d {
     public static final String ad = "videoFileUploadTimeout";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f34338b = "@queryVideo";
+    public static final String f34544b = "@queryVideo";
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f34339c = "enterLiveness";
+    public static final String f34545c = "enterLiveness";
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f34340d = "userSwitchSound";
+    public static final String f34546d = "userSwitchSound";
 
     /* renamed from: e  reason: collision with root package name */
-    public static final String f34341e = "@getPortrait";
+    public static final String f34547e = "@getPortrait";
 
     /* renamed from: f  reason: collision with root package name */
-    public static final String f34342f = "passLiveness";
+    public static final String f34548f = "passLiveness";
 
     /* renamed from: g  reason: collision with root package name */
-    public static final String f34343g = "faceDetected";
+    public static final String f34549g = "faceDetected";
 
     /* renamed from: h  reason: collision with root package name */
-    public static final String f34344h = "showBlink";
+    public static final String f34550h = "showBlink";
 
     /* renamed from: i  reason: collision with root package name */
-    public static final String f34345i = "detectBlink";
+    public static final String f34551i = "detectBlink";
 
     /* renamed from: j  reason: collision with root package name */
-    public static final String f34346j = "showMouth";
+    public static final String f34552j = "showMouth";
     public static final String k = "detectMouth";
     public static final String l = "firstTimeOut";
     public static final String m = "secondTimeOut";

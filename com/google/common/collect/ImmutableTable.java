@@ -99,10 +99,10 @@ public abstract class ImmutableTable<R, C, V> extends i<R, C, V> implements Seri
         public final List<k1.a<R, C, V>> a;
 
         /* renamed from: b  reason: collision with root package name */
-        public Comparator<? super R> f54700b;
+        public Comparator<? super R> f54867b;
 
         /* renamed from: c  reason: collision with root package name */
-        public Comparator<? super C> f54701c;
+        public Comparator<? super C> f54868c;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -127,7 +127,7 @@ public abstract class ImmutableTable<R, C, V> extends i<R, C, V> implements Seri
                 int size = this.a.size();
                 if (size != 0) {
                     if (size != 1) {
-                        return RegularImmutableTable.forCells(this.a, this.f54700b, this.f54701c);
+                        return RegularImmutableTable.forCells(this.a, this.f54867b, this.f54868c);
                     }
                     return new SingletonImmutableTable((k1.a) o0.i(this.a));
                 }

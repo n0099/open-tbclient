@@ -1,6 +1,6 @@
 package com.baidu.tieba.frs.accelerator;
 
-import c.a.t0.e1.z2.c;
+import c.a.u0.e1.b3.c;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.data.ItemData;
 import com.baidu.titan.sdk.runtime.FieldHolder;

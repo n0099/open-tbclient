@@ -5,7 +5,7 @@ import android.webkit.CookieManager;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import androidx.annotation.MainThread;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class be {
     @MainThread
     public static WebSettings a(WebView webView) {
